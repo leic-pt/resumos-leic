@@ -152,3 +152,16 @@ está a ligar, de forma a escolher o disco de boot. Basta escolher a pen, e o in
 Novamente, este passo depende da distribuição escolhida. No Pop!\_OS, Ubuntu e Fedora consiste apenas em seguir os passos no ecrã.
 
 No Arch, well... good luck :wink:
+
+## Outras ferramentas possivelmente úteis mais tarde
+
+### CLI
+
+- valgrind -> Verifica se existem acessos de memória indevidos ou fugas de memória, utilização de variáveis não inicializadas,...
+- [lizard](https://github.com/terryyin/lizard)
+- [cppcheck](http://cppcheck.sourceforge.net/)
+- diff -> Permite comparar 2 ficheiros e encontrar diferenças
+
+### GUI
+
+- [Meld](https://meldmerge.org/) -> Interface gráfica de diff. Permite comparar 2 ficheiros e encontrar diferenças
