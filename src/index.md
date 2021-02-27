@@ -1,15 +1,20 @@
 ---
-home: true
-heroImage: https://v1.vuepress.vuejs.org/hero.png
-tagline: Resumos das UCs de LEIC-A do IST
-actionText: Quick Start →
-actionLink: /guide/
-features:
-- title: Feature 1 Title
-  details: Feature 1 Description
-- title: Feature 2 Title
-  details: Feature 2 Description
-- title: Feature 3 Title
-  details: Feature 3 Description
-footer: Made by Diogo Correia with ❤️
+description: Resumos das UCs de LEIC-A do IST
 ---
+
+<div style="text-align: center">
+
+<img src="./ist-logo.png" alt="Logo IST" style="max-width:200px"/>
+
+# Resumos LEIC-A
+
+Bem vindo ao site comunitário de resumos de LEIC-A.
+
+Aqui irás encontrar tudo o que precisas ao longo do semestre.  
+Podes contribuir ao clicar no botão `Edit this page` no fim de qualquer página.
+
+---
+
+Made by [Diogo Correia](https://diogotc.com) with ❤️
+
+</div>
