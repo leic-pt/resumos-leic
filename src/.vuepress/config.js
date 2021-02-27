@@ -49,17 +49,50 @@ module.exports = {
       "/iaed/": [
         "",
         {
-          title: "Conteúdo",
+          title: "📝 Conteúdo",
           collapsable: false,
           children: ["0001-introducao"],
         },
         "meta/linux-setup",
       ],
+      "/lp/": [""],
+      "/cdi-ii/": [""],
+      "/md/": [""],
       "/": [
+        {
+          title: "1º Ano 1º Semestre",
+          children: [
+            [
+              "https://www.notion.so/diogocorreia/Fundamentos-da-Programa-o-1c51dbe37d0f4c728a343cb245c86fb4",
+              "FP",
+            ],
+            [
+              "https://www.notion.so/diogocorreia/Introdu-o-Arquitetura-de-Computadores-93a135cbbe7b46cab68fc09e5f72113d",
+              "IAC",
+            ],
+            [
+              "https://www.notion.so/diogocorreia/C-lculo-Diferencial-e-Integral-I-5e144dc9dafe4627b4bafd80ca68d5a4",
+              "CDI-I",
+            ],
+            [
+              "https://www.notion.so/diogocorreia/lgebra-Linear-6325f5b76b7f411182bcbe55406893ba",
+              "AL",
+            ],
+            [
+              "https://www.notion.so/diogocorreia/Introdu-o-Engenharia-Inform-tica-2cab5ae1a715461bbdb84c58309f982d",
+              "IEI",
+            ],
+          ],
+        },
         {
           title: "1º Ano 2º Semestre",
           collapsable: false,
-          children: ["iaed/"],
+          children: [
+            ["iaed/", "IAED"],
+            ["lp/", "LP"],
+            ["cdi-ii/", "CDI-II"],
+            ["md/", "MD"],
+          ],
         },
       ],
     },
