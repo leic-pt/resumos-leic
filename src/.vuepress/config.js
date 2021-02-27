@@ -106,5 +106,14 @@ module.exports = {
     "@vuepress/plugin-medium-zoom",
     "vuepress-plugin-seo",
     "@maginapp/vuepress-plugin-katex",
+    [
+      "vuepress-plugin-meilisearch",
+      {
+        hostUrl: "https://meilisearch.diogotc.com",
+        apiKey:
+          "8d585d0aedbfb647df389fda5edf374179518dd34c141b792517262fec2228b8",
+        indexUid: "resumos-leic",
+      },
+    ],
   ],
 };

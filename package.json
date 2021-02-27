@@ -16,6 +16,7 @@
   "devDependencies": {
     "@maginapp/vuepress-plugin-katex": "^1.0.10",
     "vuepress": "^1.5.3",
+    "vuepress-plugin-meilisearch": "^0.10.7",
     "vuepress-plugin-seo": "^0.1.4"
   },
   "dependencies": {
