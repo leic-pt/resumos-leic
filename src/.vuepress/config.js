@@ -35,7 +35,7 @@ module.exports = {
     prefersTheme: "dark",
     repo: "diogotcorreia/resumos-leic",
     editLinks: true,
-    docsDir: "",
+    docsDir: "src",
     editLinkText: "",
     lastUpdated: true,
     smoothScroll: true,
@@ -72,5 +72,6 @@ module.exports = {
     "@vuepress/plugin-back-to-top",
     "@vuepress/plugin-medium-zoom",
     "vuepress-plugin-seo",
+    "@maginapp/vuepress-plugin-katex",
   ],
 };
