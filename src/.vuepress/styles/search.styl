@@ -29,3 +29,49 @@
       width calc(100vw - 4rem)!important
     input:focus
       width 8rem!important
+
+.meilisearch-autocomplete
+  .dsb-dropdown-menu
+  [class^='dsb-dataset-']
+    background: var(--bgColor)!important
+    border-color: var(--borderColor)!important
+
+.meilisearch-search-wrapper
+  .meilisearch-autocomplete
+    .docs-searchbar-suggestion--highlight
+    .docs-searchbar-suggestion
+      border-color var(--borderColor)!important
+      background: var(--bgColor)!important
+      .docs-searchbar-suggestion--category-header
+        .docs-searchbar-suggestion--highlight
+          background rgba(255,255,255,0.5)!important
+      .docs-searchbar-suggestion--title
+        color var(--textColor)!important
+      .docs-searchbar-suggestion--subcategory-column
+        border-color var(--borderColor)!important
+      .docs-searchbar-suggestion--subcategory-column-text
+        color var(--textColor)!important
+      .docs-searchbar-suggestion--text
+        .docs-searchbar-suggestion--highlight
+          box-shadow inset 0 -2px 0 0 lighten($accentColor, 20%)
+    .docs-searchbar-footer
+      display flex !important
+      justify-content space-between !important
+      align-items center !important
+      .docs-searchbar-footer-logo
+        margin-bottom -4px
+    .dsb-cursor div.docs-searchbar-suggestion--content
+      background-color var(--kbdBgColor)!important
+      color var(--textColor)!important
+      .docs-searchbar-suggestion--text
+        color: var(--lighten10TextColor)!important
+    .dsb-dropdown-menu:before
+      background: var(--bgColor)!important
+      border-color: var(--borderColor)!important
+    .docs-searchbar-suggestion--category-header
+      border-bottom: 1px solid var(--borderColor)!important
+
+@media (max-width: $MQMobile)
+  .meilisearch-search-wrapper
+    div.docs-searchbar-suggestion--subcategory-column
+      background transparent !important
