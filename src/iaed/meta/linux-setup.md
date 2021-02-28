@@ -52,6 +52,7 @@ Se não quiserem utilizar nenhum dos editores abaixo, podem procurar instruçõe
 Instalar o GCC (assumindo que estão a usar Debian/Ubuntu):
 
 ```bash
+sudo apt update
 sudo apt install gcc
 ```
 
