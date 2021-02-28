@@ -1,9 +1,11 @@
-name: GitHub pages and scraping
+name: Vuepress scraping
 
-on: deployment
+on: deployment_status
 
 jobs:
-  scrape-docs:
+  scrape-vuepress:
+    name: "Scrape Vuepress"
+    if: github.event.deployment_status.state == "success"
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@master
