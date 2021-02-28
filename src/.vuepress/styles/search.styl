@@ -1,0 +1,31 @@
+@media (max-width: $MQNarrow)
+  .search-box
+    input
+      cursor pointer!important
+      width 0!important
+      position relative!important
+      &:focus
+        cursor text!important
+        left 0!important
+        width 10rem!important
+// Match IE11
+@media all and (-ms-high-contrast: none)
+  .search-box input
+    height 2rem!important
+@media (max-width: $MQNarrow) and (min-width: $MQMobile)
+  .search-box
+    .suggestions
+      left 0!important
+@media (max-width: $MQMobile)
+  .search-box
+    margin-right 0!important
+    input
+      left 1rem!important
+    .suggestions
+      right 0!important
+@media (max-width: $MQMobileNarrow)
+  .search-box
+    .suggestions
+      width calc(100vw - 4rem)!important
+    input:focus
+      width 8rem!important
