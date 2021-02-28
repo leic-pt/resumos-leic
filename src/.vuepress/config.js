@@ -115,5 +115,12 @@ module.exports = {
         indexUid: "resumos-leic",
       },
     ],
+    [
+      require("./plugins/umami-analytics"),
+      {
+        websiteId: "711c662a-45bd-41e0-bf82-302096490211",
+        jsUrl: "https://analytics.diogotc.com/umami.js",
+      },
+    ],
   ],
 };
