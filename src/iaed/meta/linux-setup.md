@@ -18,7 +18,7 @@ Se tens Linux ou um Mac, já tens acesso ao `gcc`.
 | ----------------------------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | WSL / WSL2                    | Fácil de instalar. Não necessita criar uma partição no disco (para dualboot).              | Não é uma experiência total Linux, e embora seja suficiente para IAED, pode não ser para UCs futuras.                                                        |
 | Virtual Machine               | Fácil de instalar. Não necessita criar uma partição no disco (para dualboot).              | Lento. Necessita de um computador com alguma RAM livre.                                                                                                      |
-| Sigma por SSH                 | Não requer instalação. Ferramentas pedidas no FAQ já instaladas. Sync com os PCs dos labs. | Sem acesso administrativo, sendo impossível instalar ferramentas extra. Sem interface gráfica.                                                         |
+| Sigma por SSH                 | Não requer instalação. Ferramentas pedidas no FAQ já instaladas. Sync com os PCs dos labs. | Sem acesso administrativo, sendo impossível instalar ferramentas extra. Sem interface gráfica.                                                               |
 | Dual Boot / Single Boot Linux | Experiência total Linux com o máximo de compatibilidade. Funciona para qualquer UC futura. | Se estavam a usar Windows anteriormente, pode ser inconveniente trocar entre sistemas operativos (se for dual boot) ou trocar totalmente o sistema anterior. |
 | MSYS2 (MinGW)                 | Fácil de instalar. Gestor de pacotes (pacman) e ferramentas GNU nativamente no Windows.    | Não é de todo Linux, e embora seja suficiente para IAED, pode não ser para UCs futuras. Além disso, possui algumas limitações.                               |
 
@@ -27,7 +27,6 @@ O Sigma não requer a instalação de software extra e é acessivel a partir de 
 O WSL (Windows Subsystem for Linux) é o mais fácil de instalar e usar, e suficiente para a UC de IAED.  
 No entanto, para quem se queira aventurar, recomendo vivamente experimentar uma instalação de Linux.  
 Não aconselho o uso de VMs, pois são muito mais lentas que o WSL.
-
 
 ## WSL/WSL2
 
@@ -163,7 +162,7 @@ Deixo abaixo tutoriais com passos mais detalhados para cada programa:
 
 ## Sigma por SSH
 
-Uma alternativa a instalar linux é ligar a uma máquina remota a correr linux. O técnico oferece acesso ao sigma, um agregado de processadores, através de SSH.  
+Uma alternativa a instalar linux é ligar a uma máquina remota a correr linux. O técnico oferece acesso ao sigma, um agregado de processadores, através de SSH.
 
 ### Passo 1 - Ativar o Sigma
 
