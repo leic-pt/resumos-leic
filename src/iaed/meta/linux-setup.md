@@ -19,7 +19,7 @@ Se tens Linux ou um Mac, já tens acesso ao `gcc`.
 | WSL / WSL2                    | Fácil de instalar. Não necessita criar uma partição no disco (para dualboot).              | Não é uma experiência total Linux, e embora seja suficiente para IAED, pode não ser para UCs futuras.                                                        |
 | Virtual Machine               | Fácil de instalar. Não necessita criar uma partição no disco (para dualboot).              | Lento. Necessita de um computador com alguma RAM livre.                                                                                                      |
 | Dual Boot / Single Boot Linux | Experiência total Linux com o máximo de compatibilidade. Funciona para qualquer UC futura. | Se estavam a usar Windows anteriormente, pode ser inconveniente trocar entre sistemas operativos (se for dual boot) ou trocar totalmente o sistema anterior. |
-| MSYS2 (MinGW)                 | Fácil de instalar. Gestor de pacotes (pacman) e ferramentas GNU nativamente no Windows.    | Não é de todo Linux, e embora seja suficiente para IAED, pode não ser para UCs futuras. Além disso, possui algumas limitações. |
+| MSYS2 (MinGW)                 | Fácil de instalar. Gestor de pacotes (pacman) e ferramentas GNU nativamente no Windows.    | Não é de todo Linux, e embora seja suficiente para IAED, pode não ser para UCs futuras. Além disso, possui algumas limitações.                               |
 
 Não existe nenhuma "regra" que decida o que usar, depende de utilizador para utilizador.  
 O WSL (Windows Subsystem for Linux) é o mais fácil de instalar e usar, e suficiente para a UC de IAED.  
@@ -98,10 +98,11 @@ e uma [extensão do WSL](https://marketplace.visualstudio.com/items?itemName=ms-
 Existe também um [tutorial oficial](https://code.visualstudio.com/docs/cpp/config-wsl) de como configurar C++ com WSL, mas é muito semelhante a C.
 
 ## MSYS2 (MinGW)
+
 O MSYS2 trata-se de uma coleção de ferramentas e bibliotecas com o objetivo de permitirem desnvolvedores produzirem código nativo para Windows num ambiente amigável.
 O terminal do MSYS2 utiliza o mintty, um emulador do terminal bash para Windows. É baseado no CygWin apesar de o tentar minimizar para permitir produção de código UNIX
 com uma camada de compatibilidade para o Windows. Os repositórios do MSYS têm várias bibliotecas notáveis e utensílios disponíveis e, para o utilizador os instalar,
-deverá recorrer ao comando `pacman`. Para instalação do ambiente MSYS2: https://www.msys2.org/.
+deverá recorrer ao comando `pacman`. Para instalação do ambiente MSYS2, ver o [website do MSYS2](https://www.msys2.org/).
 
 O MinGW (Minimalist GNU for Windows) é um projeto que distribui bibliotecas e software de forma a suportar o GCC dentro do Windows. Os pacotes de dados dos repositórios
 do MinGW podem ser adquiridos a partir do `pacman` do MSYS2. De preferência, devem ser adquiridos os pacotes do MinGW-w64 assumindo que a arquitetura do vosso computador
@@ -112,16 +113,19 @@ do MinGW podem ser adquiridos a partir do `pacman` do MSYS2. De preferência, de
 Tal e qual como no caso do WSL, os editores de texto deverão ser devidamente configurados para permitir a integração.
 
 ### Variáveis de ambiente
+
 O terminal do MSYS2 por si próprio já se encarrega de correr o emulador mintty e o ambiente está preparado para as ferramentas serem chamadas no terminal.
 Porém, isto não se trata de um ambiente Linux e todos os programas correm nativamente no Windows, logo nem é necessário estar sempre a usar o terminal do MSYS2.
-Podem configurar a vossa variável de ambiente PATH de modo a que inclua a diretoria "usr/bin" do MSYS2 cujo lugar depende da instalação. Se encontrarem
+Podem configurar a vossa variável de ambiente PATH de modo a que inclua a diretoria `/usr/bin` do MSYS2 cujo lugar depende da instalação. Se encontrarem
 algum problema ao usar diretamente a CMD ou PowerShell, podem sempre executar o comando `bash` ou `sh` para aceder ao terminal.
 
-Para além disso, CUIDADO! Devem colocar a variável de ambiente com a prioridade correta. Por exemplo, se instalarem o Python do MSYS2 e quiserem usar o Python que
+Para além disso, **CUIDADO**! Devem colocar a variável de ambiente com a prioridade correta. Por exemplo, se instalarem o Python do MSYS2 e quiserem usar o Python que
 tinham antes, devem garantir que a variável de ambiente do Python se encontra acima da do MSYS2.
 
 ### Instalação do GCC
+
 Instalar o GCC:
+
 ```bash
 pacman -S gcc
 ```
