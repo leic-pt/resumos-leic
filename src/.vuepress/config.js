@@ -56,7 +56,14 @@ module.exports = {
         "meta/linux-setup",
       ],
       "/lp/": [""],
-      "/cdi-ii/": [""],
+      "/cdi-ii/": [
+        "",
+        {
+          title: "📝 Conteúdo",
+          collapsable: false,
+          children: ["0001-transicao-para-dim-sup-1"],
+        },
+      ],
       "/md/": [""],
       "/": [
         {
