@@ -15,6 +15,7 @@
   "license": "MIT",
   "devDependencies": {
     "@maginapp/vuepress-plugin-katex": "^1.0.10",
+    "markdown-it-footnote": "^3.0.2",
     "prettier": "^2.2.1",
     "vuepress": "^1.5.3",
     "vuepress-plugin-meilisearch": "^0.10.7",

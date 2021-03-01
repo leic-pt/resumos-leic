@@ -14,7 +14,6 @@ O nosso objetivo nesta UC vai ser migrar o conhecimento de 1 dimensão para 2, 3
 
 ### Recordando de CDI 1
 
-
 <img src="./assets/0001-cdi1-vs-cdi2.svg" alt="Comparação CDI 1 vs CDI 2" class="invert-dark">
 
 - Números: `+`, `-`, `*`, `:`
@@ -69,7 +68,9 @@ $$
 
 e chegar à conclusão que a variação da função, quando passa de $a$ para $a+h$, é a menor de $o(h)$, dada pela derivada.  
 Como é que é dada pela variável? $f$ e $a$ estão fixos, $h$ é a variável.
-Então, $f'(a)h$ é uma [transformação linear](https://youtu.be/4PCktDZJH8E) em $h$.
+Então, $f'(a)h$ é uma transformação linear[^trans-lin] em $h$.
+
+[^trans-lin]: Para relembrar transformações lineares, recomenda-se este [vídeo de Álgebra Linear do Khan Academy](https://youtu.be/4PCktDZJH8E).
 
 Com esta reformulação, a derivada já migra para $dim > 1$.  
 Então, agora a definição de derivada é a **existência desta transformação linear**.
@@ -114,21 +115,21 @@ $$
 ![Função 3D distância do ponto à origem](./assets/0001-esbocar-ex2.png)
 
 3. $\displaystyle h( x,y) =x^{2} -2x+1+y^{2} =( x-1)^{2} +( y+0)^{2} =\left(\sqrt{( x-1)^{2} +( y+0)^{2}}\right)^{2} =( d(( x,y) ,( 1,0)))^{2}$,
-isto é, o quadrado da distância do ponto a (1,0).
+   isto é, o quadrado da distância do ponto a (1,0).
 
 ![Função 3D quadrado da distância do ponto a (1,0)](./assets/0001-esbocar-ex3.png)
 
 4. $\displaystyle \overline{h}( x,y) =\sqrt{x^{2} -2x+1+y^{2}} =\sqrt{( x-1)^{2} +( y+0)^{2}} =\sqrt{( x-1)^{2} +( y+0)^{2}} =d(( x,y) ,( 1,0))$,
-isto é, distância do ponto a (1,0).
+   isto é, distância do ponto a (1,0).
 
 ![Função 3D distância do ponto a (1,0)](./assets/0001-esbocar-ex4.png)
 
 5. $$
-\begin{aligned}
-i( x,y) & =x^{2} -2x+y^{2} -2y=x^{2} -2x+1+y^{2} -2y+1-2=( x-1)^{2} +( y-1)^{2} -2=\\
- & =\left(\sqrt{( x-1)^{2} +( y-1)^{2}}\right)^{2} -2=( d(( x,y) ,( 1,1)))^{2} -2
-\end{aligned}
-$$
-isto é, a subtração de 2 ao quadrado da distância do ponto a (1,1).
+   \begin{aligned}
+   i( x,y) & =x^{2} -2x+y^{2} -2y=x^{2} -2x+1+y^{2} -2y+1-2=( x-1)^{2} +( y-1)^{2} -2=\\
+    & =\left(\sqrt{( x-1)^{2} +( y-1)^{2}}\right)^{2} -2=( d(( x,y) ,( 1,1)))^{2} -2
+   \end{aligned}
+   $$
+   isto é, a subtração de 2 ao quadrado da distância do ponto a (1,1).
 
 ![Função 3D subtração de 2 à distância do ponto a (1,1)](./assets/0001-esbocar-ex5.png)
