@@ -18,13 +18,16 @@ Se tens Linux ou um Mac, já tens acesso ao `gcc`.
 | ----------------------------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | WSL / WSL2                    | Fácil de instalar. Não necessita criar uma partição no disco (para dualboot).              | Não é uma experiência total Linux, e embora seja suficiente para IAED, pode não ser para UCs futuras.                                                        |
 | Virtual Machine               | Fácil de instalar. Não necessita criar uma partição no disco (para dualboot).              | Lento. Necessita de um computador com alguma RAM livre.                                                                                                      |
+| Sigma por SSH                 | Não requer instalação. Ferramentas pedidas no FAQ já instaladas. Sync com os PCs dos labs. | Sem acesso administrativo, sendo impossível instalar ferramentas extra. Sem interface gráfica.                                                         |
 | Dual Boot / Single Boot Linux | Experiência total Linux com o máximo de compatibilidade. Funciona para qualquer UC futura. | Se estavam a usar Windows anteriormente, pode ser inconveniente trocar entre sistemas operativos (se for dual boot) ou trocar totalmente o sistema anterior. |
 | MSYS2 (MinGW)                 | Fácil de instalar. Gestor de pacotes (pacman) e ferramentas GNU nativamente no Windows.    | Não é de todo Linux, e embora seja suficiente para IAED, pode não ser para UCs futuras. Além disso, possui algumas limitações.                               |
 
 Não existe nenhuma "regra" que decida o que usar, depende de utilizador para utilizador.  
+O Sigma não requer a instalação de software extra e é acessivel a partir de qualquer sistema mas requer à vontade com a linha de comandos.  
 O WSL (Windows Subsystem for Linux) é o mais fácil de instalar e usar, e suficiente para a UC de IAED.  
 No entanto, para quem se queira aventurar, recomendo vivamente experimentar uma instalação de Linux.  
 Não aconselho o uso de VMs, pois são muito mais lentas que o WSL.
+
 
 ## WSL/WSL2
 
@@ -157,6 +160,68 @@ Deixo abaixo tutoriais com passos mais detalhados para cada programa:
 
 - [Instalar Ubuntu 20.04 no VirtualBox](https://fossbytes.com/how-to-install-ubuntu-20-04-lts-virtualbox-windows-mac-linux/)
 - [Instalar Ubuntu 20.04 no Hyper-V](https://francescotonini.medium.com/how-to-install-ubuntu-20-04-on-hyper-v-with-enhanced-session-b20a269a5fa7)
+
+## Sigma por SSH
+
+Uma alternativa a instalar linux é ligar a uma máquina remota a correr linux. O técnico oferece acesso ao sigma, um agregado de processadores, através de SSH.  
+
+### Passo 1 - Ativar o Sigma
+
+O primeiro passo é ativar o serviço sigma no [Self Service da DSI](https://selfservice.dsi.tecnico.ulisboa.pt/).
+
+O serviço que nos interessa é a "shell", assumindo que completaste o primeiro lab de IAC já deve estar ativo mas verifica na mesma.
+
+### Passo 2 - Ligar via SSH
+
+Com o sigma ativo já te deves conseguir ligar. Para isto precisas de um client de SSH (**S**ecure **SH**ell).
+
+O windows vem com o OpenSSH instalado de modo que basta abrir o command prompt do windows (Win+R cmd) e inserir o seguinte commando:
+
+```bash
+ssh ist1XXXXX@sigma.tecnico.ulisboa.pt
+```
+
+Substitui os Xs pelo teu número de aluno. Ser-te-á pedido uma password, é a mesma que a do fénix.
+
+### Passo 3 - Welcome to the shell
+
+This is it.
+
+Com o sigma não vais ter interface gráfica nenhuma, apenas uma linha de comandos. Isto significa que vais precisar de um editor de texto com CLI (**C**ommand **L**ine **I**nterface).
+
+Apesar de me referir aqui ao sigma estas recomendações também se aplicam a quem decidir instalar VM ou Dual Boot. Encorajo-vos a tentar passar o vosso tempo maioritariamente na shell.
+
+No sigma tens instalado o nano, vim e emacs.
+
+#### Nano
+
+```bash
+nano hello.c
+```
+
+Fácil de aprender os básicos mas não tem nada para além dos básicos. Utilizar nano é tão desagradável nos primeiros cinco minutos como após cinco meses de utilização. Não recomendo.
+
+#### Vim
+
+```bash
+vim hello.c
+```
+
+Apesar da sua fama de ser difícil, o vim não tem muito que saber. Os primeiros 5 minutos vão ser ligeiramente caóticos mas é rápido até ganharem o hábito.
+
+Um dos benefícios do vim é não ser preciso estar sempre a fechar o editor de texto para compilar e testar o programa. Usando o comando `:term` conseguem abrir um terminal dentro do vim.
+
+O sigma vem com o `vimtutor` instalado.  
+Este programa ensina os básicos do vim e ao fim de 10 minutos de vimtutor já vão estar mais confortáveis com o vim do que com o nano.  
+Recomendo vivamente que sigam o vimtutor antes de abrir o vim pela primeira vez.
+
+#### Emacs
+
+```bash
+emacs hello.c
+```
+
+O emacs também tem fama de ser assustador mas desta vez por bons motivos. É um editor de texto muito potente logo experimentem se forem corajosos.
 
 ## Dual Boot / Single Boot Linux
 
