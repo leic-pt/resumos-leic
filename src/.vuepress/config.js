@@ -51,7 +51,7 @@ module.exports = {
         {
           title: "📝 Conteúdo",
           collapsable: false,
-          children: ["0001-introducao"],
+          children: ["0001-introducao-programacao-c"],
         },
         "meta/linux-setup",
       ],
