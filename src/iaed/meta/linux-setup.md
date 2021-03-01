@@ -99,6 +99,10 @@ Existe também um [tutorial oficial](https://code.visualstudio.com/docs/cpp/conf
 
 ## MSYS2 (MinGW)
 
+::: warning
+Os docentes de IAED não recomendam esta opção.
+:::
+
 O MSYS2 trata-se de uma coleção de ferramentas e bibliotecas com o objetivo de permitirem desnvolvedores produzirem código nativo para Windows num ambiente amigável.
 O terminal do MSYS2 utiliza o mintty, um emulador do terminal bash para Windows. É baseado no CygWin apesar de o tentar minimizar para permitir produção de código UNIX
 com uma camada de compatibilidade para o Windows. Os repositórios do MSYS têm várias bibliotecas notáveis e utensílios disponíveis e, para o utilizador os instalar,
