@@ -61,7 +61,7 @@ O gráfico de esta função teria 4 dimensões (2 do domínio + 2 do contra dom�
 
 ## Norma
 
-Anteriormente, foi definido a [distância entre dois pontos](./0001-transicao-para-dim-sup-1#Distância).
+Anteriormente, foi definido a [distância entre dois pontos](./0001-transicao-para-dim-sup-1.md#distancia).
 
 Podemos agora extender esta notação/terminologia para vetores, através da definição (muito semelhante) de **norma**.
 A norma consiste em medir comprimento de vetores. Caso o vetor não esteja na origem, basta fazer a sua "translação" para a origem.
@@ -141,8 +141,59 @@ $$
 
 ## Topologia em Rⁿ
 
-::: warning
+Para definirmos as noções topológicas em $R^n$, precisamos do conceito de [norma](#norma).  
+Pode ser também relevante relembrar as [noções topológicas a CDI-I](https://www.notion.so/diogocorreia/No-es-topol-gicas-Sucess-es-c3a4dddbe9bc49228e8e90eef244ae73).
 
-Página em construção :cry:
+Tomando como exemplo o conjunto $K=\left\{(x,y)\in\R^2:0\leq x \leq 1 \land 0\leq y < 1\right\}$,
+representado na figura, podemos tirar as seguites conclusões.
+
+<img src="./assets/0002-topologia.svg" alt="Conjunto K" class="invert-dark">
+
+- **$a$ é interior a D:** $\exists r >0:B_{r}( a) \subset D$ - _e.g. ponto $P$ e conjunto $K$_
+- **$a$ é exterior a D:** $\exists r >0:B_{r}( a) \subset D^c$[^d-complementar] - _e.g. ponto $S$ e conjunto $K$_
+- **$a$ é aderente a D:** $\forall r >0:B_{r}( a) \cap D \ne \empty$ - _e.g. ponto $R$ e conjunto $K$_
+- **$a$ é fronteiro a D:** $\forall r >0:B_{r}( a) \cap D \ne \empty \land B_r(a)\cap D^c \ne \empty$ - _e.g. ponto $R$ e conjunto $K$_
+
+[^d-complementar]: $D^c$ é o complementar de $D$
+
+Então, podemos definir os seguintes conjuntos:
+
+- $\operatorname{int} D=\left\{\text{pontos interiores a } D\right\}$
+- $\operatorname{ext} D=\left\{\text{pontos exteriores a } D\right\}$
+- $\partial D=\left\{\text{pontos fronteiros a } D\right\}$
+- $\overline D=\left\{\text{pontos aderentes a } D\right\} = \operatorname{int} D \cup \partial D$
+
+### Conjunto aberto, fechado, limitado e compacto
+
+- $D$ diz-se aberto se $D=\operatorname{int} D$
+- $D$ diz-se fechado se $D=\overline D$
+- $D$ diz-se limitado se $\exists r > 0: D \subset B_r(\vec 0)$
+- $D$ diz-se compacto se for fechado e limitado
+
+::: details Exemplo 1
+
+Imaginando o conjunto $D=\left\{( x,y,z) \in \mathbb{R}^{3} :x^{2} +y^{2} < 1\land x >0\right\}$,
+correspondente a um cilindro que tem como base o círculo no plano $z=0$, com raio 1 e centro na origem,
+e como eixo o semi eixo positivo $Oz$.
+
+- Como $D=\operatorname{int} D$, $D$ é aberto.
+- $\operatorname{ext} D = \left\{( x,y,z) \in \mathbb{R}^{3} :\left( x^{2} +y^{2}  >1\land x\geqslant 0\right) \lor z< 0\right\}$
+- $\partial D=\left\{( x,y,z) \in \mathbb{R}^{3} :\left( x^{2} +y^{2} =1\land z >0\right) \lor \left( x^{2} +y^{2} < 1\land z=0\right)\right\}$
+- $\overline D \ne D$, então $D$ não é fechado.
+- $D$ não é limitado portanto também não é compacto
+
+:::
+
+::: details Exemplo 2
+
+Imaginando o conjunto $D=\left\{( x,y) \in \mathbb{R}^{2} :0\leqslant x\leqslant 1\land y=0\right\}$,
+que em $\R^2$ corresponde a um segmento de reta entre $(0,0)$ e $(1,0)$.
+
+Ao contrário do que tínhamos em $\R$, aqui **não existe "interior"** desta "região", visto que estamos em duas dimensões.
+
+- $\operatorname{int} D = \empty$
+- $\operatorname{ext} D= \R^2 \backslash \overline D = \R^2 \backslash D$
+- $\partial D$ = D
+- $\overline D = \operatorname{int} D \cup \partial D = D$. Como $D$ é fechado e limitado, então é compacto.
 
 :::
