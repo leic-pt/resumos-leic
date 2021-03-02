@@ -23,6 +23,13 @@ Podes contribuir ao clicar no botão `Edit this page` no fim de qualquer página
 - [Caderno Rita Mendes](https://www.notion.so/IST-MEEC-0c22d514a81645eca3c2a58739e323e1) - (IST - MEEC)
 - [Reencaminhar emails do Técnico para o Gmail](https://www.notion.so/diogocorreia/Reenchaminhar-emails-do-T-cnico-para-Gmail-2975d496a1d3447a84b0d0cf163dd65f)
 
+## Contribuidores
+
+Quero agradecer a [todos os que contribuíram](https://github.com/diogotcorreia/resumos-leic/graphs/contributors) para os conteúdos deste site:
+
+- [Rafa](https://github.com/diogotcorreia/resumos-leic/commits?author=Rafa10PT) (IAED)
+- [Luís Fonseca](https://github.com/diogotcorreia/resumos-leic/commits?author=luishfonseca) (IAED)
+
 ---
 
 <div style="text-align: center">
