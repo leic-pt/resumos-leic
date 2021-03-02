@@ -58,7 +58,7 @@ module.exports = {
         {
           title: '📝 Conteúdo',
           collapsable: false,
-          children: ['0001-transicao-para-dim-sup-1'],
+          children: ['0001-transicao-para-dim-sup-1', '0002-norma-topologia'],
         },
       ],
       '/md/': [''],
