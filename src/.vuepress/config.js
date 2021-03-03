@@ -52,7 +52,14 @@ module.exports = {
         },
         'meta/linux-setup',
       ],
-      '/lp/': [''],
+      '/lp/': [
+        '',
+        {
+          title: '📝 Conteúdo',
+          collapsable: false,
+          children: ['0001-conceitos-gerais'],
+        },
+      ],
       '/cdi-ii/': [
         '',
         {
