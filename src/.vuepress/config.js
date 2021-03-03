@@ -58,10 +58,7 @@ module.exports = {
           title: '📝 Conteúdo',
           collapsable: false,
           children: ['0001-conceitos-gerais'],
-
         },
-
-
       ],
       '/cdi-ii/': [
         '',

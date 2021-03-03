@@ -1,6 +1,7 @@
 # Lógica para Programação
 
 ## Informações sobre a UC
+
 - [Página da UC no Fénix](https://fenix.tecnico.ulisboa.pt/disciplinas/LP564511132646/2020-2021/2-semestre)
 
 - Aulas teóricas e práticas remotas, sendo que as práticas estão divididas numa primeira hora em que são tiradas dúvidas, e uma última meia hora onde é realizado um exercício de avaliação individual. A avaliação incide diretamente sobre a matéria da semana anterior, tal como em FP. Contam as $n-2$ melhores notas.
