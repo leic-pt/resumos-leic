@@ -1,4 +1,11 @@
+---
+prev: false
+description: Proposições, argumentos, premissas, conclusão, validade de um argumento, princípio da irrelevância do valor lógico, forma de um argumento. Metodologia da lógica. Introdução a Lógica Proposicional.
+---
+
 # Aula 1 - Conceitos Gerais
+
+[[toc]]
 
 O objetivo da UC é fornecer conhecimento sobre o que é uma lógica - quais os seus componentes, como desenvolver provas no sistema dedutivo, como utilizar o sistema semântico e como relacionar estes dois últimos. Iremos ainda perceber os conceitos subjacentes ao raciocínio automático e programar com o paradigma da programação em lógica (em _Prolog_).
 
@@ -27,12 +34,12 @@ O símbolo "∴" lê-se "logo".
 
 ---
 
-| Valores lógicos das premissas e da conclusão |                                      Argumento válido                                      |                        Argumento Inválido                         |
-| :------------------------------------------: | :----------------------------------------------------------------------------------------: | :---------------------------------------------------------------: |
-|           (Verdadeiro, Verdadeiro)           |       Todos os homens são mortais. <br>Sócrates é um homem. <br>∴ Sócrates é mortal.       | Todas as pessoas são humanos. <br>∴ Todos os humanos são pessoas. |
-|             (Verdadeiro, Falso)              |                                        (Não existe)                                        |    Todos os cães são animais. <br>∴ Todos os animais são cães.    |
-|             (Falso, Verdadeiro)              | Todas as aves são humanos. <br> Todos os humanos têm penas. <br>∴ Todas as aves têm penas. |    Todos os animais são cães. <br>∴ Todos os cães são animais.    |
-|                (Falso, Falso)                | Todos os cães são felinos. <br>Todos os felinos têm penas. <br>∴ Todos os cães têm penas.  |      Todos os gatos são cães. <br>∴ Todos os cães são gatos.      |
+| Valores lógicos das premissas e da conclusão | Argumento válido                                                                           | Argumento Inválido                                                |
+| :------------------------------------------: | :----------------------------------------------------------------------------------------- | :---------------------------------------------------------------- |
+|           (Verdadeiro, Verdadeiro)           | Todos os homens são mortais. <br>Sócrates é um homem. <br>∴ Sócrates é mortal.             | Todas as pessoas são humanos. <br>∴ Todos os humanos são pessoas. |
+|             (Verdadeiro, Falso)              | (Não existe)                                                                               | Todos os cães são animais. <br>∴ Todos os animais são cães.       |
+|             (Falso, Verdadeiro)              | Todas as aves são humanos. <br> Todos os humanos têm penas. <br>∴ Todas as aves têm penas. | Todos os animais são cães. <br>∴ Todos os cães são animais.       |
+|                (Falso, Falso)                | Todos os cães são felinos. <br>Todos os felinos têm penas. <br>∴ Todos os cães têm penas.  | Todos os gatos são cães. <br>∴ Todos os cães são gatos.           |
 
 :::
 
@@ -47,13 +54,13 @@ Temos que uma proposição pode conter **termos lógicos** ("e", "ou", "então",
 O argumento:
 
 O Benfica está fora da Champions.  
-Quem está fora da Champions não recebe muito dinheiro. <br>
+Quem está fora da Champions não recebe muito dinheiro.  
 ∴ O Benfica não recebe muito dinheiro.
 
 é da forma:
 
-O $\boxed A$ está $\boxed B$ . <br>
-Quem $\boxed B$ não $\boxed C$ . <br>
+O $\boxed A$ está $\boxed B$ .  
+Quem $\boxed B$ não $\boxed C$ .  
 ∴ O $\boxed A$ não $\boxed C$ .
 
 **Vários argumentos podem ter a mesma forma**.
@@ -64,7 +71,13 @@ Quem $\boxed B$ não $\boxed C$ . <br>
 
 ### Metodologia da Lógica
 
-Dado um qualquer argumento, o primeiro passo para inferir a sua validade é lançar um _palpite_ sobre a mesma, quer seja considerar que é válido como inválido. A partir daí, procurar provar o argumento (demonstrando que é impossível que as premissas sejam verdadeiras e a conclusão falsa), no caso de o nosso palpite ser que o argumento é válido, ou encontrar um contra-argumento (que prove precisamente o oposto), caso consideremos que o argumento é inválido. Caso encontremos uma prova, o argumento é **sabido válido**. Por outro lado, caso encontremos um contra-argumento, é **sabido inválido**. Existe, ainda, uma terceira possibilidade - a de não encontrar nem um nem outro. Aqui, procuramos mudar o nosso palpite para o inverso, e tentar provar esse novo palpite. Caso esta tentativa também não tenha sucesso, a validade do argumento diz-se **desconhecida**.
+Dado um qualquer argumento, o primeiro passo para inferir a sua validade é lançar um _palpite_ sobre a mesma, quer seja considerar que é válido como inválido.
+A partir daí, procurar provar o argumento (demonstrando que é impossível que as premissas sejam verdadeiras e a conclusão falsa), no caso de o nosso palpite ser que o argumento é válido, ou encontrar um contra-argumento (que prove precisamente o oposto), caso consideremos que o argumento é inválido.
+Caso encontremos uma prova, o argumento é **sabido válido**.
+Por outro lado, caso encontremos um contra-argumento, é **sabido inválido**.
+Existe, ainda, uma terceira possibilidade - a de não encontrar nem um nem outro.
+Aqui, procuramos mudar o nosso palpite para o inverso, e tentar provar esse novo palpite.
+Caso esta tentativa também não tenha sucesso, a validade do argumento diz-se **desconhecida**.
 
 ## Lógica Proposicional - Introdução
 
@@ -74,9 +87,15 @@ Apresenta uma linguagem muito simples, sendo que o nível mais elementar é o **
 
 - Símbolos de pontuação: ( )
 
-- Símbolos lógicos: $\neg$, que corresponde à **negação**; $\wedge$, que corresponde à conjunção; $\vee$, que corresponde à disjunção inclusiva, vulgo OR; $\to$, que corresponde à implicação.
+- Símbolos lógicos:
 
-- Símbolos de proposição - $P_{i}$, $i \geq 1$. O conjunto de todas as proposições da lógica proposicional é dado por $\mathcal{P}$.
+  - $\neg$, que corresponde à **negação**;
+  - $\wedge$, que corresponde à **conjunção**;
+  - $\vee$, que corresponde à **disjunção inclusiva**, vulgo OR;
+  - $\to$, que corresponde à **implicação**.
+
+- Símbolos de proposição: $P_{i}$, $i \geq 1$.  
+  O conjunto de todas as proposições da lógica proposicional é dado por $\mathcal{P}$.
 
 ### Componentes de uma Lógica
 
@@ -97,10 +116,13 @@ A linguagem da lógica proposicional, $\mathcal{L}_{LP}$, é composta por todas 
 
 Especifica as **regras de inferência**, regras que permitem a manipulação de _fbfs_ e a introdução de novas _fbfs_ a partir de _fbfs_ existentes.
 
-- **Deducão Natural:**
+- **Deducão Natural:**  
+  Nos sistemas abordados por dedução natural existem por norma duas regras de inferência por cada símbolo lógico - a **regra de introdução**, que diz como introduzir uma _fbf_ que utiliza um dado símbolo lógico, e a **regra de eliminação**, que diz como usar uma _fbf_ que contém o símbolo lógico.
 
-Nos sistemas abordados por dedução natural existem por norma duas regras de inferência por cada símbolo lógico - a **regra de introdução**, que diz como introduzir uma _fbf_ que utiliza um dado símbolo lógico, e a **regra de eliminação**, que diz como usar uma _fbf_ que contém o símbolo lógico.
+  Aqui, não existem _axiomas_ - _fbfs_ - que se aceitam como verdadeiras.
 
-Aqui, não existem _axiomas_ - _fbfs_ que se aceitam como verdadeiras.
-
-- Prova - sequência finita de linhas numeradas, cada uma das quais contendo uma premissa ou uma _fbf_ que é adicionada à prova recorrendo a uma das regras de inferência e utilizando as _fbfs_ das linhas anteriores. Em cada linha da prova existe uma justificação da introdução da mesma. Uma **prova de $\alpha$ a partir de $\Delta$** é uma prova cuja última linha contém $\alpha$ e cujas restantes linhas contêm ou uma _fbf_ em $\Delta$ ou uma _fbf_ obtida a partir das linhas anteriores recorrendo a uma regra de inferência. Caso exista uma prova de $\alpha$ a partir de $\Delta$, dizemos que ** $\alpha$ é **derivável\*\* a partir de $\Delta$.
+- **Prova:**  
+  Sequência finita de linhas numeradas, cada uma das quais contendo uma premissa ou uma _fbf_ que é adicionada à prova recorrendo a uma das regras de inferência e utilizando as _fbfs_ das linhas anteriores.
+  Em cada linha da prova existe uma justificação da introdução da mesma.
+  Uma **prova de $\alpha$ a partir de $\Delta$** é uma prova cuja última linha contém $\alpha$ e cujas restantes linhas contêm ou uma _fbf_ em $\Delta$ ou uma _fbf_ obtida a partir das linhas anteriores recorrendo a uma regra de inferência.
+  Caso exista uma prova de $\alpha$ a partir de $\Delta$, dizemos que $\alpha$ é **derivável** a partir de $\Delta$.
