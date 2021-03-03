@@ -29,6 +29,7 @@ Quero agradecer a [todos os que contribuíram](https://github.com/diogotcorreia/
 
 - [Rafa](https://github.com/diogotcorreia/resumos-leic/commits?author=Rafa10PT) (IAED)
 - [Luís Fonseca](https://github.com/diogotcorreia/resumos-leic/commits?author=luishfonseca) (IAED)
+- [Diogo Gaspar](https://github.com/diogotcorreia/resumos-leic/commits?author=randomicecube) (LP)
 
 ---
 

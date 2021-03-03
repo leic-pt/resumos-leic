@@ -5,4 +5,4 @@
 ## Recursos
 
 - [Exercícios (resolvidos)](https://drive.google.com/file/d/1IbxAfAji2WZxDuACSsGEME5vQDQyjPne/view)
-- [Resumos](https://drive.google.com/file/d/1yGAZiPmAqrBcZ02TPXNlIgw5VRAZBz2A/view?usp=sharing)
+- [Resumos (by Diogo Gaspar)](https://drive.google.com/file/d/1yGAZiPmAqrBcZ02TPXNlIgw5VRAZBz2A/view?usp=sharing)
