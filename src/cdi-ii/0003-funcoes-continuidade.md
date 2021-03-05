@@ -176,3 +176,94 @@ $$
 $$
 
 :::
+
+### Continuidade de funções conhecidas
+
+As seguintes funções são contínuas, pelas demonstrações abaixo:
+
+- $f(x) = \text{constante}$ (função constante)
+- $f(x) = x (f: D \subseteq \R^n \to \R^m)$ (função identidade)
+
+::: details Demonstrações
+**Para a função constante:**
+
+Dado $a \in R^n \land r > 0$, será que existe $\epsilon > 0$ tal que $|| x-a|| < \epsilon \implies || f(x) - f(a) || < r$?
+
+$|| f(x) - f(a) || = ||\text{constante} - \text{constante} || = ||\vec 0|| = ||(0,0,\dots,0)|| = 0 < r$
+
+Logo, $\forall \epsilon > 0, || x- a || < \epsilon \implies ||f(x) - f(a)|| = 0 < r$, portanto $f$ é contínua em $a$ e como
+$a$ era qualquer, então $f$ é contínua no seu domínio.
+
+---
+
+**Para a função identidade:**
+
+Dado $a \in \R^n \land r>0$ será que existe $\epsilon > 0$ tal que $|| x- a|| <\epsilon => ||f(x) - f(a)|| < r$ ?
+
+$||f(x) - f(a)|| = ||x-a||$ então, com $\epsilon = r$:  
+$|| x - a|| < \epsilon (= r) => || f(x) - f(a)|| = || x- a|| < \epsilon = r$
+
+Logo esta função $f$ também é contínua em $a$.
+Como $a$ é genérico, logo $f$ é contínua em $\R^n$.
+
+:::
+
+### Operações algébricas entre funções contínuas
+
+Sejam $f,g: D \subset \R^n \to \R^m$ contínuas; $\alpha \in\R$
+
+0. $p_i(x_1,\dots,x_i,\dots,x_n) = x_i$ é contínua
+1. $\alpha f$ é contínua
+2. $f + g$ é contínua
+3. $f \times g$ é contínua (para $m = 1$, senão não dá para fazer a multiplicação)
+4. $\frac f g$ é contínua (para $m = 1$), nos pontos $x: g(x) \ne 0$
+5. $h \circ f$ é contínua em $a$ (com $h: R^m \to R^p$ contínua em $b=f(a)$ com $a \in D$)
+
+::: details Demonstrações
+
+**Demonstração da propriedade 0 ($p_i(x_1,\dots,x_i,\dots,x_n) = x_i$ é contínua)**
+
+Dado $r> 0$,
+
+$$
+|| p_i(x) - p_i(a) || = | x_i - a_i | = \\
+= \sqrt {(x_1 - a_1) ^2 + \dots + (x_i -x_i) + \dots + (x_n - a_n)^2} =\\
+= || x-a|| < \epsilon
+$$
+
+e escolhe-se $\epsilon = r$
+
+De onde se tira $||x-a|| < \epsilon \implies ||p_i(x)- p_i(a)|| < ||x-a|| < \epsilon = r$
+portanto $p_i$ é contínua em $a$.
+
+Logo, $p_i$ é contínua em $D$.
+
+---
+
+**Demonstração da propriedade 2 ($f+g$ é contínua)**
+
+Sejam $f,g: D \subset R^n \to R^m, a\in D$, $f e g$ contínua em $a$.
+
+Dado $r>0$, existe $\epsilon > 0: || x- a|| < \epsilon \implies || f(x) - f(a)|| < \frac r 2 \land || g(x) - g(a)|| < \frac r 2$  
+(neste caso, $\frac r 2$ vai dar jeito, mas quando estamos a fazer uma demonstração podemos escolher)
+
+Então,
+
+$$
+|| (f(x) + g(x)) - (f(a) + g(a)) || = || (f(x) - f(a)) + (g(x) - g(a))|| \leq\\
+(\text{pela desigualdade triangular}) \leq || f(x) - f(a)|| + ||g(x) - g(a)|| < \frac r2 + \frac r2 = r
+$$
+
+portanto $f + g$ é contínua em $a$.  
+Logo, $f + g$ é contínua em $D_f \cap D_g$.
+
+---
+
+**Demonstração da propriedade 5 ($h \circ f$ é contínua em $a$)**
+
+Dada $(x_k) \subset D$ com $x_n \to a \implies f(x_k) \to f(a)$ porque $f$ é contínua,
+então $h(f(x_k)) \to h(f(a))$ porque $h$ é contínua em $f(a)$.
+
+Logo a composta é contínua em $D$.
+
+:::
