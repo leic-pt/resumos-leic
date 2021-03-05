@@ -1,5 +1,5 @@
 ---
-description: Norma, Distância, Bola, Topologia em R^n (pontos interiores, exteriores, da fronteira e aderentes)
+description: Norma, Distância, Bola, Topologia em Rⁿ (pontos interiores, exteriores, da fronteira e aderentes)
 ---
 
 # Norma. Topologia em Rⁿ
@@ -160,8 +160,10 @@ Então, podemos definir os seguintes conjuntos:
 
 - $\operatorname{int} D=\left\{\text{pontos interiores a } D\right\}$
 - $\operatorname{ext} D=\left\{\text{pontos exteriores a } D\right\}$
-- $\partial D=\left\{\text{pontos fronteiros a } D\right\}$
 - $\overline D=\left\{\text{pontos aderentes a } D\right\} = \operatorname{int} D \cup \partial D$
+- $\partial D=\left\{\text{pontos fronteiros a } D\right\}$
+
+Também podemos concluir que $\operatorname{int} D \subset D \subset \overline D$.
 
 ### Conjunto aberto, fechado, limitado e compacto
 

@@ -70,7 +70,11 @@ module.exports = {
         {
           title: '📝 Conteúdo',
           collapsable: false,
-          children: ['0001-transicao-para-dim-sup-1', '0002-norma-topologia'],
+          children: [
+            '0001-transicao-para-dim-sup-1',
+            '0002-norma-topologia',
+            '0003-funcoes-continuidade',
+          ],
         },
         {
           title: '✏️ Exercícios',
