@@ -62,7 +62,7 @@ module.exports = {
         {
           title: '📝 Conteúdo',
           collapsable: false,
-          children: ['0001-conceitos-gerais'],
+          children: ['0001-conceitos-gerais', '0002-logica-proposicional'],
         },
       ],
       '/cdi-ii/': [
