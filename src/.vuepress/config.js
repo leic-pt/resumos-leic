@@ -78,7 +78,14 @@ module.exports = {
           children: ['exercicios/fichas-aulas-praticas'],
         },
       ],
-      '/md/': [''],
+      '/md/': [
+        '',
+        {
+          title: '✏️ Exercícios',
+          collapsable: false,
+          children: ['exercicios/fichas-aulas-praticas'],
+        },
+      ],
       '/': [
         {
           title: '1º Ano 1º Semestre',
