@@ -47,13 +47,14 @@ Especifica as **regras de inferência**, regras que permitem a manipulação de 
 
   Aqui, não existem _axiomas_ - _fbfs_ - que se aceitam como verdadeiras.
 
-### Prova  
-  Sequência finita de linhas numeradas, cada uma das quais contendo uma premissa ou uma _fbf_ que é adicionada à prova recorrendo a uma das regras de inferência e utilizando as _fbfs_ das linhas anteriores.
-  Em cada linha da prova existe uma justificação da introdução da mesma.
-  Uma **prova de $\alpha$ a partir de $\Delta$** é uma prova cuja última linha contém $\alpha$ e cujas restantes linhas contêm ou uma _fbf_ em $\Delta$ ou uma _fbf_ obtida a partir das linhas anteriores recorrendo a uma regra de inferência.
-  Caso exista uma prova de $\alpha$ a partir de $\Delta$, dizemos que $\alpha$ é **derivável** a partir de $\Delta$, ou, de outra maneira, $\Delta \vdash \alpha$.
+### Prova
 
-  Durante a realização da prova, utilizamos uma série de regras de inferência.
+Sequência finita de linhas numeradas, cada uma das quais contendo uma premissa ou uma _fbf_ que é adicionada à prova recorrendo a uma das regras de inferência e utilizando as _fbfs_ das linhas anteriores.
+Em cada linha da prova existe uma justificação da introdução da mesma.
+Uma **prova de $\alpha$ a partir de $\Delta$** é uma prova cuja última linha contém $\alpha$ e cujas restantes linhas contêm ou uma _fbf_ em $\Delta$ ou uma _fbf_ obtida a partir das linhas anteriores recorrendo a uma regra de inferência.
+Caso exista uma prova de $\alpha$ a partir de $\Delta$, dizemos que $\alpha$ é **derivável** a partir de $\Delta$, ou, de outra maneira, $\Delta \vdash \alpha$.
+
+Durante a realização da prova, utilizamos uma série de regras de inferência.
 
 - **Regra da premissa:**
 
@@ -69,7 +70,6 @@ Especifica as **regras de inferência**, regras que permitem a manipulação de 
   <img src="./assets/0002-regra-da-premissa2.png" alt="Regra da Premissa 2" class="invert-dark">
 
   :::
-
 
 - **Regra da repetição:**
 
@@ -156,13 +156,14 @@ Especifica as **regras de inferência**, regras que permitem a manipulação de 
   :::
 
   Resta notar duas coisas:
-    - que as provas iniciadas por hipóteses são, claro está, **hipotéticas**, e as exteriores chamadas **categóricas**;
-    - que as _fbfs_ de uma prova hipotética são chamadas **contingentes** e as restantes **categóricas**, partilhando portanto o nome com as provas respetivas.
+
+  - que as provas iniciadas por hipóteses são, claro está, **hipotéticas**, e as exteriores chamadas **categóricas**;
+  - que as _fbfs_ de uma prova hipotética são chamadas **contingentes** e as restantes **categóricas**, partilhando portanto o nome com as provas respetivas.
 
 - **Regras para a implicação:**
 
   - **Introdução da Implicação:**
-  Afirma que se numa prova iniciada por uma hipótese $\alpha$ formos capazes de derivar $\alpha$, então podemos terminar a prova hipotética, podendo derivar $\alpha\to\beta$ na prova que contém a prova hipotética. Abreviada por I$\to$, ($n$, $m$), onde $n$ e $m$ são, respetivamente, a linha onde a hipótese foi introduzida e a _fbf_ associada derivada.
+    Afirma que se numa prova iniciada por uma hipótese $\alpha$ formos capazes de derivar $\alpha$, então podemos terminar a prova hipotética, podendo derivar $\alpha\to\beta$ na prova que contém a prova hipotética. Abreviada por I$\to$, ($n$, $m$), onde $n$ e $m$ são, respetivamente, a linha onde a hipótese foi introduzida e a _fbf_ associada derivada.
 
   ::: details Exemplo - Introdução da implicação
 
@@ -177,7 +178,7 @@ Especifica as **regras de inferência**, regras que permitem a manipulação de 
   :::
 
   - **Eliminação da Implicação:**
-  Regra que nos diz que de uma prova que contém tanto uma _fbf_ $\alpha$ como uma outra $\alpha\to\beta$ podemos derivar $\beta$. **A ordem interessa**, pelo que o contrário não se aplica - temos de ter sempre $\alpha$ primeiro e só depois $\alpha\to\beta$. Abreviada por E$\to$, ($n$, $m$), onde $n$ e $m$ são, respetivamente, as linhas onde $\alpha$ e $\alpha\to\beta$ foram introduzidas.
+    Regra que nos diz que de uma prova que contém tanto uma _fbf_ $\alpha$ como uma outra $\alpha\to\beta$ podemos derivar $\beta$. **A ordem interessa**, pelo que o contrário não se aplica - temos de ter sempre $\alpha$ primeiro e só depois $\alpha\to\beta$. Abreviada por E$\to$, ($n$, $m$), onde $n$ e $m$ são, respetivamente, as linhas onde $\alpha$ e $\alpha\to\beta$ foram introduzidas.
 
   ::: details Exemplo - Eliminação da implicação
 
@@ -194,7 +195,7 @@ Especifica as **regras de inferência**, regras que permitem a manipulação de 
 - **Regras para a negação:**
 
   - **Introdução da negação:**
-  Utiliza o conceito de _prova por absurdo_ - se a partir de uma dada hipótese podemos derivar uma contradição, então rejeitamos essa mesma hipótese, **aceitando a sua negação**, visto que caso contrário chegaríamos a uma conclusão absurda. Abreviada por I$\neg$, ($n$, ($m$, $k$)), onde $n$, $m$ e $k$ representam, respetivamente, a linha da introdução da hipótese, e as linhas correspondentes à contradição.
+    Utiliza o conceito de _prova por absurdo_ - se a partir de uma dada hipótese podemos derivar uma contradição, então rejeitamos essa mesma hipótese, **aceitando a sua negação**, visto que caso contrário chegaríamos a uma conclusão absurda. Abreviada por I$\neg$, ($n$, ($m$, $k$)), onde $n$, $m$ e $k$ representam, respetivamente, a linha da introdução da hipótese, e as linhas correspondentes à contradição.
 
   ::: details Exemplo - Introdução da Negação
 
@@ -209,7 +210,7 @@ Especifica as **regras de inferência**, regras que permitem a manipulação de 
   :::
 
   - **Eliminação da negação:**
-  Afirma que negar uma proposição duas vezes é o mesmo que a afirmar. Abreviada por E$\neg$, $n$, onde $n$ é a linha onde apareceu a _fbf_ duplamente negada.
+    Afirma que negar uma proposição duas vezes é o mesmo que a afirmar. Abreviada por E$\neg$, $n$, onde $n$ é a linha onde apareceu a _fbf_ duplamente negada.
 
   ::: details Exemplo - Eliminação da Negação
 
@@ -226,7 +227,7 @@ Especifica as **regras de inferência**, regras que permitem a manipulação de 
 - **Regras para a disjunção:**
 
   - **Introdução da disjunção:**
-  Tem em conta o significado intuitivo de uma disjunção - esta apenas precisa requer que um dos elementos se verifique para ser verdadeira. Assim sendo, partindo de uma _fbf_ $\alpha$, podemos derivar tanto $\alpha\vee\beta$ como $\beta\vee\alpha$, sendo $\beta$ qualquer _fbf_. Abreviada por I$\vee$, $n$, com $n$ sendo a linha onde a _fbf_ $\alpha$ foi introduzida.
+    Tem em conta o significado intuitivo de uma disjunção - esta apenas precisa requer que um dos elementos se verifique para ser verdadeira. Assim sendo, partindo de uma _fbf_ $\alpha$, podemos derivar tanto $\alpha\vee\beta$ como $\beta\vee\alpha$, sendo $\beta$ qualquer _fbf_. Abreviada por I$\vee$, $n$, com $n$ sendo a linha onde a _fbf_ $\alpha$ foi introduzida.
 
   ::: details Exemplo - Introdução da Disjunção
 
@@ -241,7 +242,7 @@ Especifica as **regras de inferência**, regras que permitem a manipulação de 
   :::
 
   - **Eliminação da disjunção:**
-  "A regra mais complicada", segundo o prof. Pavão. A partir dela, podemos retirar que, tendo por base uma _fbf_ do tipo $\alpha\vee\beta$, caso sejamos capazes de derivar uma terceira _fbf_ $\gamma$ a partir de provas hipotéticas iniciadas por tanto $\alpha$ como por $\beta$, então certamente que $\gamma$ se verifica - voltando à tal intuição associada à disjunção, pelo menos um elemento é verdadeiro, se podemos derivar uma _fbf_ tanto de um como de outro, então ela verifica-se obrigatoriamente. Abreviada por E$\vee$, ($n$, ($o$, $p$), ($r$, $s$)), onde $n$ representa a _fbf_ disjunta inicial, $o$ e $r$ o início de cada hipótese e $p$ e $s$ a derivação da _fbf_ pretendida, dentro da respetiva hipótese.
+    "A regra mais complicada", segundo o prof. Pavão. A partir dela, podemos retirar que, tendo por base uma _fbf_ do tipo $\alpha\vee\beta$, caso sejamos capazes de derivar uma terceira _fbf_ $\gamma$ a partir de provas hipotéticas iniciadas por tanto $\alpha$ como por $\beta$, então certamente que $\gamma$ se verifica - voltando à tal intuição associada à disjunção, pelo menos um elemento é verdadeiro, se podemos derivar uma _fbf_ tanto de um como de outro, então ela verifica-se obrigatoriamente. Abreviada por E$\vee$, ($n$, ($o$, $p$), ($r$, $s$)), onde $n$ representa a _fbf_ disjunta inicial, $o$ e $r$ o início de cada hipótese e $p$ e $s$ a derivação da _fbf_ pretendida, dentro da respetiva hipótese.
 
   ::: details Exemplo - Eliminação da Disjunção
 
@@ -264,10 +265,10 @@ Especifica as **regras de inferência**, regras que permitem a manipulação de 
   :::
 
   - **Introdução da equivalência:**
-  Desta regra podemos retirar que, caso tenhamos duas _fbfs_ distintas tais que $\alpha\to\beta$ e $\beta\to\alpha$, então podemos derivar que $\alpha$ e $\beta$ são equivalentes. Abreviada por I$\leftrightarrow$, ($n$, $m$), com $n$ e $m$ sendo as linhas onde as _fbfs_ necessárias foram introduzidas.
+    Desta regra podemos retirar que, caso tenhamos duas _fbfs_ distintas tais que $\alpha\to\beta$ e $\beta\to\alpha$, então podemos derivar que $\alpha$ e $\beta$ são equivalentes. Abreviada por I$\leftrightarrow$, ($n$, $m$), com $n$ e $m$ sendo as linhas onde as _fbfs_ necessárias foram introduzidas.
 
   - **Eliminação da equivalência:**
-  Dada uma _fbf_ $\alpha\leftrightarrow\beta$, podemos derivar tanto $\alpha\to\beta$ como $\beta\to\alpha$. Abreviada por E$\leftrightarrow$, $n$, onde $n$ é a linha onde a _fbf_ a utilizar o símbolo da equivalência foi introduzida.
+    Dada uma _fbf_ $\alpha\leftrightarrow\beta$, podemos derivar tanto $\alpha\to\beta$ como $\beta\to\alpha$. Abreviada por E$\leftrightarrow$, $n$, onde $n$ é a linha onde a _fbf_ a utilizar o símbolo da equivalência foi introduzida.
 
   ::: details Exemplo - Introdução/Eliminação da Equivalência
 
@@ -292,7 +293,6 @@ A seguinte prova mostra que P $\to$ (Q $\to$ P) é um teorema, visto que pode se
 <img src ="./assets/0002-teorema.png" alt = "Teorema" class = "invert-dark">
 
 :::
-
 
 ### Como construir provas?
 
