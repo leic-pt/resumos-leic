@@ -62,11 +62,11 @@ Especifica as **regras de inferência**, regras que permitem a manipulação de 
 
   A introdução de uma premissa tem sempre um aspeto deste género:
 
-  <img src=".\assets\0002-regra-da-premissa1.png" alt="Regra da Premissa 1" class="invert-dark">
+  <img src="./assets/0002-regra-da-premissa1.png" alt="Regra da Premissa 1" class="invert-dark">
 
   Ao tentar provar que {P, Q} $\vdash$ P $\wedge$ Q, começamos a prova escrevendo as premissas, tal que:
 
-  <img src=".\assets\0002-regra-da-premissa2.png" alt="Regra da Premissa 2" class="invert-dark">
+  <img src="./assets/0002-regra-da-premissa2.png" alt="Regra da Premissa 2" class="invert-dark">
 
   :::
 
@@ -79,11 +79,11 @@ Especifica as **regras de inferência**, regras que permitem a manipulação de 
 
   A regra da repetição tem sempre um aspeto deste género:
 
-  <img src =".\assets\0002-regra-da-repeticao1.png" alt = "Regra da Repetição 1" class = "invert-dark">
+  <img src ="./assets/0002-regra-da-repeticao1.png" alt = "Regra da Repetição 1" class = "invert-dark">
 
   Em relação a um exemplo mais concreto:
 
-  <img src =".\assets\0002-regra-da-repeticao2.png" alt = "Regra da Repetição 2" class = "invert-dark">
+  <img src ="./assets/0002-regra-da-repeticao2.png" alt = "Regra da Repetição 2" class = "invert-dark">
 
   :::
 
@@ -97,11 +97,11 @@ Especifica as **regras de inferência**, regras que permitem a manipulação de 
 
     A introdução da conjunção tem sempre um aspeto deste género:
 
-    <img src =".\assets\0002-int-conjuncao1.png" alt = "Introdução da Conjunção 1" class = "invert-dark">
+    <img src ="./assets/0002-int-conjuncao1.png" alt = "Introdução da Conjunção 1" class = "invert-dark">
 
     Em relação a um exemplo mais concreto:
 
-    <img src =".\assets\0002-int-conjuncao2.png" alt = "Introdução da Conjunção 2" class = "invert-dark">
+    <img src ="./assets/0002-int-conjuncao2.png" alt = "Introdução da Conjunção 2" class = "invert-dark">
 
     :::
 
@@ -112,11 +112,11 @@ Especifica as **regras de inferência**, regras que permitem a manipulação de 
 
     A eliminação da conjunção tem sempre um aspeto deste género:
 
-    <img src =".\assets\0002-el-conjuncao1.png" alt = "Eliminação da Conjunção 1" class = "invert-dark">
+    <img src ="./assets/0002-el-conjuncao1.png" alt = "Eliminação da Conjunção 1" class = "invert-dark">
 
     Em relação a um exemplo mais concreto:
 
-    <img src =".\assets\0002-el-conjuncao2.png" alt = "Eliminação da Conjunção 2" class = "invert-dark">
+    <img src ="./assets/0002-el-conjuncao2.png" alt = "Eliminação da Conjunção 2" class = "invert-dark">
 
     De notar que começamos agora a ver várias aplicações de regras durante a prova.
 
@@ -131,11 +131,11 @@ Especifica as **regras de inferência**, regras que permitem a manipulação de 
 
   A regra da hipótese tem sempre um aspeto deste género:
 
-  <img src =".\assets\0002-r-hipotese1.png" alt = "Regra da hipótese 1" class = "invert-dark">
+  <img src ="./assets/0002-r-hipotese1.png" alt = "Regra da hipótese 1" class = "invert-dark">
 
   Em relação a um exemplo mais concreto:
 
-  <img src =".\assets\0002-r-hipotese2.png" alt = "Regra da hipótese 2" class = "invert-dark">
+  <img src ="./assets/0002-r-hipotese2.png" alt = "Regra da hipótese 2" class = "invert-dark">
 
   :::
 
@@ -147,11 +147,11 @@ Especifica as **regras de inferência**, regras que permitem a manipulação de 
 
   A regra da reiteração tem sempre um aspeto deste género:
 
-  <img src =".\assets\0002-r-reiteracao1.png" alt = "Regra da reiteração 1" class = "invert-dark">
+  <img src ="./assets/0002-r-reiteracao1.png" alt = "Regra da reiteração 1" class = "invert-dark">
 
   Em relação a um exemplo mais concreto:
 
-  <img src =".\assets\0002-r-reiteracao2.png" alt = "Regra da reiteração 2" class = "invert-dark">
+  <img src ="./assets/0002-r-reiteracao2.png" alt = "Regra da reiteração 2" class = "invert-dark">
 
   :::
 
@@ -168,11 +168,11 @@ Especifica as **regras de inferência**, regras que permitem a manipulação de 
 
   A introdução da implicação tem sempre um aspeto deste género:
 
-  <img src =".\assets\0002-int-implicacao1.png" alt = "Introdução da Implicação 1" class = "invert-dark">
+  <img src ="./assets/0002-int-implicacao1.png" alt = "Introdução da Implicação 1" class = "invert-dark">
 
   Em relação a um exemplo mais concreto:
 
-  <img src =".\assets\0002-int-implicacao2.png" alt = "Introdução da Implicação 2" class = "invert-dark">
+  <img src ="./assets/0002-int-implicacao2.png" alt = "Introdução da Implicação 2" class = "invert-dark">
 
   :::
 
@@ -183,11 +183,11 @@ Especifica as **regras de inferência**, regras que permitem a manipulação de 
 
   A eliminação da implicação tem sempre um aspeto deste género:
 
-  <img src =".\assets\0002-el-implicacao1.png" alt = "Eliminação da Implicação 1" class = "invert-dark">
+  <img src ="./assets/0002-el-implicacao1.png" alt = "Eliminação da Implicação 1" class = "invert-dark">
 
   Em relação a um exemplo mais concreto:
 
-  <img src =".\assets\0002-el-implicacao2.png" alt = "Eliminação da Implicação 2" class = "invert-dark">
+  <img src ="./assets/0002-el-implicacao2.png" alt = "Eliminação da Implicação 2" class = "invert-dark">
 
   :::
 
@@ -200,11 +200,11 @@ Especifica as **regras de inferência**, regras que permitem a manipulação de 
 
   A introdução da negação tem sempre um aspeto deste género:
 
-  <img src =".\assets\0002-int-negacao1.png" alt = "Introdução da Negação 1" class = "invert-dark">
+  <img src ="./assets/0002-int-negacao1.png" alt = "Introdução da Negação 1" class = "invert-dark">
 
   Em relação a um exemplo mais concreto:
 
-  <img src =".\assets\0002-int-negacao2.png" alt = "Introdução da Negação 2" class = "invert-dark">
+  <img src ="./assets/0002-int-negacao2.png" alt = "Introdução da Negação 2" class = "invert-dark">
 
   :::
 
@@ -215,11 +215,11 @@ Especifica as **regras de inferência**, regras que permitem a manipulação de 
 
   A eliminação da negação tem sempre um aspeto deste género:
 
-  <img src =".\assets\0002-el-negacao1.png" alt = "Eliminação da Negação 1" class = "invert-dark">
+  <img src ="./assets/0002-el-negacao1.png" alt = "Eliminação da Negação 1" class = "invert-dark">
 
   Em relação a um exemplo mais concreto:
 
-  <img src =".\assets\0002-el-negacao2.png" alt = "Eliminação da Negação 2" class = "invert-dark">
+  <img src ="./assets/0002-el-negacao2.png" alt = "Eliminação da Negação 2" class = "invert-dark">
 
   :::
 
@@ -232,11 +232,11 @@ Especifica as **regras de inferência**, regras que permitem a manipulação de 
 
   A introdução da disjunção tem sempre um aspeto deste género:
 
-  <img src =".\assets\0002-int-disjuncao1.png" alt = "Introdução da Disjunção 1" class = "invert-dark">
+  <img src ="./assets/0002-int-disjuncao1.png" alt = "Introdução da Disjunção 1" class = "invert-dark">
 
   Em relação a um exemplo mais concreto:
 
-  <img src =".\assets\0002-int-disjuncao2.png" alt = "Introdução da Disjunção 2" class = "invert-dark">
+  <img src ="./assets/0002-int-disjuncao2.png" alt = "Introdução da Disjunção 2" class = "invert-dark">
 
   :::
 
@@ -247,11 +247,11 @@ Especifica as **regras de inferência**, regras que permitem a manipulação de 
 
   A Eliminação da disjunção tem sempre um aspeto deste género:
 
-  <img src =".\assets\0002-el-disjuncao1.png" alt = "Eliminação da Disjunção 1" class = "invert-dark">
+  <img src ="./assets/0002-el-disjuncao1.png" alt = "Eliminação da Disjunção 1" class = "invert-dark">
 
   Em relação a um exemplo mais concreto:
 
-  <img src =".\assets\0002-el-disjuncao2.png" alt = "Eliminação da Disjunção 2" class = "invert-dark">
+  <img src ="./assets/0002-el-disjuncao2.png" alt = "Eliminação da Disjunção 2" class = "invert-dark">
 
   :::
 
@@ -273,11 +273,11 @@ Especifica as **regras de inferência**, regras que permitem a manipulação de 
 
   A introdução da equivalência tem sempre um aspeto deste género:
 
-  <img src =".\assets\0002-int-equivalencia.png" alt = "Introdução da Equivalência" class = "invert-dark">
+  <img src ="./assets/0002-int-equivalencia.png" alt = "Introdução da Equivalência" class = "invert-dark">
 
   A eliminação da equivalência tem sempre um aspeto deste género:
 
-  <img src =".\assets\0002-el-equivalencia.png" alt = "Eliminação da Equivalência" class = "invert-dark">
+  <img src ="./assets/0002-el-equivalencia.png" alt = "Eliminação da Equivalência" class = "invert-dark">
 
   :::
 
@@ -289,7 +289,7 @@ Não obstante não haver uma relação direta entre a sua definição e as regra
 
 A seguinte prova mostra que P $\to$ (Q $\to$ P) é um teorema, visto que pode ser obtido sem premissas:
 
-<img src =".\assets\0002-teorema.png" alt = "Teorema" class = "invert-dark">
+<img src ="./assets/0002-teorema.png" alt = "Teorema" class = "invert-dark">
 
 :::
 
