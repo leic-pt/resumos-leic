@@ -50,6 +50,11 @@ module.exports = {
           collapsable: false,
           children: ['0001-introducao-programacao-c'],
         },
+        {
+          title: '👨‍💻 Laboratórios',
+          collapsable: false,
+          children: ['labs/lab02/'],
+        },
         'meta/linux-setup',
       ],
       '/lp/': [
@@ -66,6 +71,11 @@ module.exports = {
           title: '📝 Conteúdo',
           collapsable: false,
           children: ['0001-transicao-para-dim-sup-1', '0002-norma-topologia'],
+        },
+        {
+          title: '✏️ Exercícios',
+          collapsable: false,
+          children: ['exercicios/fichas-aulas-praticas'],
         },
       ],
       '/md/': [''],
