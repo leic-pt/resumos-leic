@@ -50,6 +50,11 @@ module.exports = {
           collapsable: false,
           children: ['0001-introducao-programacao-c'],
         },
+        {
+          title: '👨‍💻 Laboratórios',
+          collapsable: false,
+          children: ['labs/lab02/'],
+        },
         'meta/linux-setup',
       ],
       '/lp/': [
