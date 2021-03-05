@@ -118,3 +118,61 @@ qualquer sucessão $(u_k)\subset D$ com $u_k \to a$ implica que $f(u_k) \to f(a)
 
 Para provarmos uma maneira mais simples de estudar a continuidade de uma função em $\R^n$ num ponto,
 necessitamos de definir limite em $\R^n$.
+
+### Limite
+
+::: tip DEFINIÇÃO
+
+Sejam $f: D\subseteq \R^n \longrightarrow \R^m$, $b \in \R^m$, $a \in \overline D$.  
+Diz-se que $b$ é o limite de $f$ quando $x\to a$, se, por definição,
+
+$$
+\forall r > 0, \exists \epsilon > 0: x\in B_\epsilon (a) \implies f(x) \in B_r(b)\\
+\text{ou seja}\\
+\forall r > 0, \exists \epsilon > 0: || x - a||_m < \epsilon \implies ||f(x) -b ||_m < r
+$$
+
+Representa-se, tal como já era conhecido, por $\displaystyle b=\lim_{x\to a} f(x)$
+
+:::
+
+Voltando à contínuidade, dizemos então que **$f$ é contínua em $a$ $\Leftrightarrow$ $\lim_{x\to a} f(x) = f(a)$**.
+
+Também podemos concluir que se $\lim_{x\to a}f(x) = b$, então para qualquer sucessão $(x_k) \subset D$ com $x_k \to a$ tem-se $f(x_k) \to b$.
+
+### Prolongamento por continuidade
+
+Tal como já vimos a CDI-I, quando um ponto não pertence ao domínio de uma função,
+mas pertence a $\overline D$ e existe limite da função nesse ponto,
+podemos **prolongar a função por continuidade**.  
+Vejamos um exemplo, ainda em $\R$.
+
+Seja $\displaystyle f(x) = \frac{\sin x}{x}, \forall x \in \R \backslash \{0\} = D$.
+Como existe $\displaystyle \lim_{x \to 0} \frac{\sin x}x = 1$,
+podemos definir o **prolongamento por continuidade de $f$ a $0 \in \overline D**.
+
+$$
+\tilde{f}( x) =\begin{cases}
+f( x) & \text{se } x\neq 0\\
+1 & \text{se } x=0
+\end{cases}
+$$
+
+::: warning CONTRA-EXEMPLO
+
+No entanto, se tivessemos a função
+
+$$
+f_1( x) =\begin{cases}
+\frac{\sin x}{x} & \text{se } x\neq 0\\
+\frac{1}{\sqrt{\pi}} & \text{se } x=0
+\end{cases}
+$$
+
+esta não seria contínua em $x=0$ porque
+
+$$
+1=\lim_{x\rightarrow 0} f_{1}( x) =\lim_{x\rightarrow 0}\frac{\sin x}{x} \neq \frac{1}{\sqrt{\pi }} =f_{1}( 0)
+$$
+
+:::
