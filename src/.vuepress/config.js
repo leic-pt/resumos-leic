@@ -67,6 +67,11 @@ module.exports = {
           collapsable: false,
           children: ['0001-transicao-para-dim-sup-1', '0002-norma-topologia'],
         },
+        {
+          title: '✏️ Exercícios',
+          collapsable: false,
+          children: ['exercicios/fichas-aulas-praticas'],
+        },
       ],
       '/md/': [''],
       '/': [
