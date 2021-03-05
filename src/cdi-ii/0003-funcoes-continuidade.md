@@ -29,6 +29,8 @@ $$
 
 ### Convergência de sucessões em Rⁿ
 
+::: tip DEFINIÇÃO
+
 Diz-se que uma sucessão $(u_k) \subset \R^n$ converge para $a\in\R^n$ se, por definição,
 
 $$
@@ -36,6 +38,8 @@ $$
 \text{ou}\\
 \forall r > 0, \exists N \in \N: k > N => u_k \in B_r(a)
 $$
+
+:::
 
 Podemos usar a seguinte notação para indicar a convergência de uma sucessão:
 
@@ -91,8 +95,26 @@ e convergente, tem o seu limite em $D$.
 
 ## Continuidade
 
-::: warning
+Esta é outra das relações que naturalmente migra para $\R^n$, sem muitas alterações.
 
-Página em construção
+::: tip DEFINIÇÃO
+
+Seja $f: D \subseteq \R^n -> \R^m$, $f$ é contínua em $a$ se e só se
+
+$$
+\forall r>0, \exists \epsilon > 0: x\in B_\epsilon (a) \implies f(x) \in B_r(f(a))\\
+\text{ou seja} \\
+\forall r>0, \exists \epsilon > 0: || x - a|| < \epsilon \implies || f(x) - f(a) || < r
+$$
 
 :::
+
+::: tip TEOREMA
+
+Se uma função $f: D \subset \R^n \to \R^m$ é contínua em $a\in D$, então
+qualquer sucessão $(u_k)\subset D$ com $u_k \to a$ implica que $f(u_k) \to f(a)$.
+
+:::
+
+Para provarmos uma maneira mais simples de estudar a continuidade de uma função em $\R^n$ num ponto,
+necessitamos de definir limite em $\R^n$.
