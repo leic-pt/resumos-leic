@@ -410,3 +410,10 @@ $$
 Logo, o limite é $0$.
 
 :::
+
+---
+
+Slides:
+
+- [Aula 3](https://drive.google.com/file/d/1HvXWYyDzDM-2AjaXc879YdIEZf2qMCl8/view?usp=sharing)
+- [Aula 4](https://drive.google.com/file/d/1bzEqLW97nD_SDGK-SBO2uQaD2Gv7GxSN/view?usp=sharing)

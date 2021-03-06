@@ -133,3 +133,9 @@ $$
    isto é, a subtração de 2 ao quadrado da distância do ponto a (1,1).
 
 ![Função 3D subtração de 2 à distância do ponto a (1,1)](./assets/0001-esbocar-ex5.png)
+
+---
+
+Slides:
+
+- [Aula 1](https://drive.google.com/file/d/1-PQoedSZUIQkEpnLRblelnB1t2rfqpe-/view?usp=sharing)

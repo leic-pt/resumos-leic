@@ -204,3 +204,9 @@ Ao contrário do que tínhamos em $\R$, aqui **não existe "interior"** desta "r
 - $\overline D = \operatorname{int} D \cup \partial D = D$. Como $D$ é fechado e limitado, então é compacto.
 
 :::
+
+---
+
+Slides:
+
+- [Aula 2](https://drive.google.com/file/d/16ZL5NTotDOa6HMgQ0-TttWqjIp_J4nJv/view?usp=sharing)
