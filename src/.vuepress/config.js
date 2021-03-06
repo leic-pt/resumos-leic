@@ -88,6 +88,11 @@ module.exports = {
       '/md/': [
         '',
         {
+          title: '📝 Conteúdo',
+          collapsable: false,
+          children: ['0001-perturbacoes'],
+        },
+        {
           title: '✏️ Exercícios',
           collapsable: false,
           children: ['exercicios/fichas-aulas-praticas'],
