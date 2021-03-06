@@ -87,7 +87,12 @@ module.exports = {
         {
           title: '📝 Conteúdo',
           collapsable: false,
-          children: ['0001-perturbacoes'],
+          children: [
+            '0001-perturbacoes',
+            '0002-introducao-calculo-finito',
+            '0002-lab1',
+            '0003-aula2',
+          ],
         },
         {
           title: '✏️ Exercícios',
