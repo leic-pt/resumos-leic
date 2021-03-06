@@ -163,7 +163,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 - **Regras para a implicação:**
 
   - **Introdução da Implicação:**
-    Afirma que se numa prova iniciada por uma hipótese $\alpha$ formos capazes de derivar $\alpha$, então podemos terminar a prova hipotética, podendo derivar $\alpha\to\beta$ na prova que contém a prova hipotética. Abreviada por I$\to$, ($n$, $m$), onde $n$ e $m$ são, respetivamente, a linha onde a hipótese foi introduzida e a _fbf_ associada derivada.
+    Afirma que se numa prova iniciada por uma hipótese $\alpha$ formos capazes de derivar $\beta$, então podemos terminar a prova hipotética, podendo derivar $\alpha\to\beta$ na prova que contém a prova hipotética. Abreviada por I$\to$, ($n$, $m$), onde $n$ e $m$ são, respetivamente, a linha onde a hipótese foi introduzida e a _fbf_ associada derivada.
 
   ::: details Exemplo - Introdução da implicação
 
