@@ -206,7 +206,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
   :::
 
   - **Eliminação da Implicação:**
-    Regra que nos diz que de uma prova que contém tanto uma _fbf_ $\alpha$ como uma outra $\alpha\to\beta$ podemos derivar $\beta$. **A ordem interessa**, pelo que o contrário não se aplica - temos de ter sempre $\alpha$ primeiro e só depois $\alpha\to\beta$. Abreviada por E$\to$, ($n$, $m$), onde $n$ e $m$ são, respetivamente, as linhas onde $\alpha$ e $\alpha\to\beta$ foram introduzidas.
+    Regra que nos diz que de uma prova que contém tanto uma _fbf_ $\alpha$ como uma outra $\alpha\to\beta$ podemos derivar $\beta$. Abreviada por E$\to$, ($n$, $m$), onde $n$ e $m$ são, respetivamente, as linhas onde $\alpha$ e $\alpha\to\beta$ foram introduzidas.
 
   ::: tip ELIMINAÇÃO DA IMPLICAÇÃO
 
