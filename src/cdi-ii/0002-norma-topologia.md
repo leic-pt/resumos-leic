@@ -152,7 +152,7 @@ representado na figura, podemos tirar as seguites conclusões.
 - **$a$ é interior a D:** $\exists r >0:B_{r}( a) \subset D$ - _e.g. ponto $P$ e conjunto $K$_
 - **$a$ é exterior a D:** $\exists r >0:B_{r}( a) \subset D^c$[^d-complementar] - _e.g. ponto $S$ e conjunto $K$_
 - **$a$ é aderente a D:** $\forall r >0:B_{r}( a) \cap D \ne \empty$ - _e.g. ponto $R$ e conjunto $K$_
-- **$a$ é fronteiro a D:** $\forall r >0:B_{r}( a) \cap D \ne \empty \land B_r(a)\cap D^c \ne \empty$ - _e.g. ponto $R$ e conjunto $K$_
+- **$a$ é fronteiro a D:** $\forall r >0:B_{r}( a) \cap D \ne \empty \land B_r(a)\cap D^c \ne \empty$ - _e.g. ponto $R$_
 
 [^d-complementar]: $D^c$ é o complementar de $D$
 
