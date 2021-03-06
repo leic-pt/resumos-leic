@@ -219,6 +219,9 @@ Sejam $f,g: D \subset \R^n \to \R^m$ contínuas; $\alpha \in\R$
 4. $\frac f g$ é contínua (para $m = 1$), nos pontos $x: g(x) \ne 0$
 5. $h \circ f$ é contínua em $a$ (com $h: R^m \to R^p$ contínua em $b=f(a)$ com $a \in D$)
 
+Através destas propriedades, podemos concluir que **qualquer função polinomial é contínua** e
+que **qualquer função racional (quociente de polinómios) é contínua**.
+
 ::: details Demonstrações
 
 **Demonstração da propriedade 0 ($p_i(x_1,\dots,x_i,\dots,x_n) = x_i$ é contínua)**
@@ -265,5 +268,145 @@ Dada $(x_k) \subset D$ com $x_n \to a \implies f(x_k) \to f(a)$ porque $f$ é co
 então $h(f(x_k)) \to h(f(a))$ porque $h$ é contínua em $f(a)$.
 
 Logo a composta é contínua em $D$.
+
+:::
+
+::: details Exemplos Continuidade
+
+$$
+f(x,y)= x^2+y^2
+$$
+
+É um polinómio, logo é contínua.
+
+---
+
+$$
+f(x,y,z) = e^{xyz}
+$$
+
+Separando em duas funções:
+
+- $f_1(x,y,z) = xyz$ é um polinómio (neste caso, um monómio), logo é contínua
+- $f_2(t) = e^t$ também é contínua (pelo que já é conhecido de CDI-I)
+
+Então, $f(x,y,z) = f_2 \circ f_1 (x,y,z)$ é contínua porque a composta de funções contínuas é contínua.
+
+---
+
+$$
+f(x,y) = \frac{x^3 - y^3}{x^2+y^2}
+$$
+
+É uma função racional, logo é contínua em $\R^2\ \left\{(0,0)\right\}$.  
+Temos de verificar se existe $\lim_{(x,y)\to(0,0)} f(x,y)$, para estudar o prolongamento contínuo.  
+Para simplificar os cálculos, separamos a expressão da função em duas parcelas, e calculamos o limite de cada uma,
+somando os seus limites (caso existam).
+
+$$
+\frac{x^{3}}{x^{2} +y^{2}} =x\times \frac{x^{2}}{x^{2} +y^{2}}\rightarrow 0,\ \text{pois } 0\leqslant \ \frac{x^{2}}{x^{2} +y^{2}} \leqslant \frac{x^{2} +y^{2}}{x^{2} +y^{2}} =1\\
+\frac{-y^{3}}{x^{2} +y^{2}} =-y\times \frac{y^{2}}{x^{2} +y^{2}}\rightarrow 0,\ \text{pois } 0\leqslant \frac{y^{2}}{x^{2} +y^{2}} \leqslant \frac{x^{2} +y^{2}}{x^{2} +y^{2}} =1
+$$
+
+Logo, existe $\displaystyle \lim_{(x,y)\to(0,0)} f(x,y) = 0$. Então, podemos prolongar $f$ por continuidade a $(0,0)$:
+
+$$
+\tilde{f} =\begin{cases}
+\frac{x^{3} -y^{3}}{x^{2} +y^{2}} & \text{se }( x,y) \neq ( 0,0)\\
+0 & \text{se }( x,y) =( 0,0)
+\end{cases}
+$$
+
+:::
+
+## Limites
+
+### Propriedades de limites
+
+Sejam $f,g,h: D\subseteq \R^n \to \R^m$ , $a \in D$ e existem $\lim_{x\to a} f(x), g(x), h(x)$
+
+1. Se o limite existe é único.
+2. $\lim_{x\to a} \left(f(x) + g(x)\right) = \lim_{x\to a} f(x) + \lim_{x\to a} g(x)$
+3. $\lim_{x\to a} \left(f(x)g(x)\right) = \lim_{x\to a}f(x) \times \lim_{x\to a} g(x)$ (apenas para $m=1$)
+4. $$
+   \lim_{x\to a} f(x) = \lim_{x\to a}\left(f_1(x), f_2(x), \dots, f_m(x)\right) =\\
+   = \left(\lim_{x\to a} f_1(x), \lim_{x\to a} f_2(x), \dots, \lim_{x\to a} f_m(x)\right)
+   $$
+
+   com $f_1: D \subseteq \R^n \to \R$
+
+5. $f(x) \leq g(x) \implies \lim_{x\to a} f(x) < \lim_{x\to a} g(x)$
+6. $$
+   \lim_{x\to a} f(x) = \lim_{x\to a} h(x) \land f(x) \leq g(x) \leq h(x) \implies \\
+   \implies \lim_{x\to a} f(x) = \lim_{x\to a} g(x) = \lim_{x\to a} h(x)
+   $$
+7. Se $f$ é limitada junto a $a$ e $\displaystyle \lim_{x\to a} g(x) = 0$ (para $m = 1$), então $\displaystyle \lim_{x\to a} f(x) \times g(x) = 0$
+8. Se $\lim_{x\to a} f(x) = \vec 0 \iff \lim_{x\to a} || f(x) || = 0$
+
+::: warning NEEDS EXPANSION
+Estes exemplos falam de limites direcionais, que não são dados teoricamente em lado nenhum.
+Pode ser útil fazer uma secção a falar de limites direcionais fora dos exemplos seguintes.
+:::
+
+::: details Exemplos Limites
+
+$$
+\lim_{(x,y)\to(0,0)} \frac{\sin(xy)}{y} = \lim_{(x,y)\to(0,0)} \frac{\sin(xy)}{xy} \times x = 1 \times 0 = 0
+$$
+
+(em semelhança a CDI-I, $\lim_{t\to 0} \frac{\sin t}{t} = 1$)
+
+---
+
+$$
+\lim_{(x,y)\to (0,0)} \frac{(x-y)^2}{x^2+y^2}
+$$
+
+Temos de usar limites direcionais para resolver este limite.  
+Tomando $y=mx$,
+
+$$
+\lim _{( x,y)\rightarrow ( 0,0)}\frac{( x-y)^{2}}{x^{2} +y^{2}} =\lim _{x\rightarrow 0}\frac{( x-mx)^{2}}{x^{2} +( mx)^{2}} =\lim _{x\rightarrow 0}\frac{x^{2}( 1-m)^{2}}{x^{2}\left( 1+m^{2}\right)} =\\
+=\lim _{x\rightarrow 0}\frac{( 1-m)^{2}}{1+m^{2}} =\frac{( 1-m)^{2}}{1+m^{2}}
+$$
+
+que depende de $m$.  
+Logo, o limite não é único, então não existe.
+
+---
+
+Nem sempre quando existem os limites direcionais e estes forem todos iguais, existe o limite.
+
+$$
+\lim_{(x,y)\to (0,0)} \frac{x^2 y}{x^4+y^2}
+$$
+
+Novamente, vendo o limite direcional $y=mx$:
+
+$$
+\lim _{( x,y)\rightarrow ( 0,0)}\frac{x^{2} y}{x^{4} +y^{2}} =\lim _{x\rightarrow 0}\frac{x^{2} \cdot mx}{x^{4} +( mx)^{2}} =\lim _{x\rightarrow 0}\frac{x^{2} \cdot mx}{x^{2}\left( x^{2} +m^{2}\right)} =\lim _{x\rightarrow 0}\frac{mx}{x^{2} +m^{2}} =0,\ \forall m
+$$
+
+No entanto, se tomarmos $y=x^2$, outra curva em que também passa pelo ponto $(0,0)$,
+
+$$
+\lim _{( x,y)\rightarrow ( 0,0)}\frac{x^{2} y}{x^{4} +y^{2}} =\lim _{x\rightarrow 0}\frac{x^{2} \cdot x^{2}}{x^{4} +\left( x^{2}\right)^{2}} =\lim _{x\rightarrow 0}\frac{x^{4}}{x^{4} +x^{4}} =\lim _{x\rightarrow 0}\frac{1}{2} =\frac{1}{2} \neq 0
+$$
+
+Logo, o limite não existe.
+
+---
+
+$$
+\lim _{( x,y)\rightarrow ( 0,0)}\frac{x^{3} y^{2}}{\left( x^{3} +y^{2}\right)^{2}} =0
+$$
+
+Enquadrando o limite:
+
+$$
+0\leqslant \left| \frac{x^{3} y^{2}}{\left( x^{2} +y^{2}\right)^{2}}\right| =|x|\cdot \frac{x^{2}}{x^{2} +y^{2}} \cdot \frac{y^{2}}{x^{2} +y^{2}} \leqslant |x|\cdot \frac{x^{2} +y^{2}}{x^{2} +y^{2}} \cdot \frac{x^{2} +y^{2}}{x^{2} +y^{2}} =|x|\rightarrow 0
+$$
+
+Logo, o limite é $0$.
 
 :::
