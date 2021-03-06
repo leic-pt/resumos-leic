@@ -48,7 +48,7 @@ module.exports = {
         {
           title: '📝 Conteúdo',
           collapsable: false,
-          children: ['0001-introducao-programacao-c'],
+          children: ['0001-introducao-programacao-c', '0002-estruturas-controlo'],
         },
         {
           title: '👨‍💻 Laboratórios',
