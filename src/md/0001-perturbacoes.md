@@ -83,7 +83,7 @@ acabámos por conseguir calcular o valor de $\displaystyle \sum^n_{k=0}k$:
 
 $$
 S_{n} +( n+1)^{2} =S_{n} +2\sum ^{n}_{k=0} k+( n+1) \Leftrightarrow ( n+1)^{2} =2\sum ^{n}_{k=0} k+( n+1) \Leftrightarrow \\
-\Leftrightarrow 2\sum ^{n}_{k=0} k=n^{2} +2n+1-( n+1) \Leftrightarrow \sum ^{n}_{k=0} k=\frac{n^{2} -n}{2}
+\Leftrightarrow 2\sum ^{n}_{k=0} k=n^{2} +2n+1-( n+1) \Leftrightarrow \sum ^{n}_{k=0} k=\frac{n^{2} +n}{2}
 $$
 
 O que acontece então se tentarmos calcular o valor de $\displaystyle \sum^n_{k=0}k^3$?
@@ -107,8 +107,8 @@ Igualando então as duas expressões, conseguimos obter o valor de $\displaystyl
 
 $$
 S'_{n} +(n+1)^{3} =S'_{n} +3S_{n} +3\sum ^{n}_{k=0} k+( n+1) \Leftrightarrow \\
-\Leftrightarrow 3S_{n} =( n+1)^{3} -3\left(\frac{n^{2} -n}{2}\right) -( n+1) \Leftrightarrow \\
-\Leftrightarrow S_{n} =\frac{( n+1)^{3}}{3} -\frac{n^{2} -n}{2} -\frac{n+1}{2} \Leftrightarrow \\
+\Leftrightarrow 3S_{n} =( n+1)^{3} -3\left(\frac{n^{2} +n}{2}\right) -( n+1) \Leftrightarrow \\
+\Leftrightarrow S_{n} =\frac{( n+1)^{3}}{3} -\frac{n^{2} +n}{2} -\frac{n+1}{2} \Leftrightarrow \\
 \Leftrightarrow \dotsc \Leftrightarrow S_{n} =\frac{n( n+1)( 2n+1)}{6}
 $$
 
