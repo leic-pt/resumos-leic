@@ -43,8 +43,6 @@ Sintaxe: `for (<inicialização de variáveis>; <teste>; <incremento>) <instruç
 Aplicado ao exemplo anterior,
 
 <<< @/src/iaed/assets/0002-ciclo-for.c
-<<<<<<< HEAD
-
 
 ## Input/Output
 
@@ -63,9 +61,8 @@ Utiliza-se o `%d` para ler um inteiro. Se pretendêssemos ler dois inteiros segu
 **É necessário colocar o `&` antes do nome da variável.**
 :::
 
-
 Temos aqui outro exemplo que inclui um ciclo while. Este programa reproduz no terminal
-o input recebido (assumindo que apenas recebe inteiros) até ser introduzido um número 
+o input recebido (assumindo que apenas recebe inteiros) até ser introduzido um número
 negativo. Na aba ao lado mostra-se como adicionar um contador ao programa, que conta
 o número de inteiros introduzidos, imprimindo-o no final.
 
@@ -81,6 +78,4 @@ o número de inteiros introduzidos, imprimindo-o no final.
 
 Como se pode ver no exemplo do contador, a forma de incrementar o valor de uma variável
 é algo que não existe em Python. `contador++` em C equivale a `contador += 1` em Python.
-Nota-se que este último também existe em C, no entanto. 
-=======
->>>>>>> upstream/master
+Nota-se que este último também existe em C, no entanto.
