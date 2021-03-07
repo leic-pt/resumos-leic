@@ -43,6 +43,7 @@ Sintaxe: `for (<inicialização de variáveis>; <teste>; <incremento>) <instruç
 Aplicado ao exemplo anterior,
 
 <<< @/src/iaed/assets/0002-ciclo-for.c
+<<<<<<< HEAD
 
 
 ## Input/Output
@@ -81,3 +82,5 @@ o número de inteiros introduzidos, imprimindo-o no final.
 Como se pode ver no exemplo do contador, a forma de incrementar o valor de uma variável
 é algo que não existe em Python. `contador++` em C equivale a `contador += 1` em Python.
 Nota-se que este último também existe em C, no entanto. 
+=======
+>>>>>>> upstream/master

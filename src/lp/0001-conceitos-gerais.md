@@ -69,6 +69,13 @@ Quem $\boxed B$ não $\boxed C$ .
 
 - **Princípio da forma** - se dois argumentos têm a mesma forma, partilham a sua validade.
 
+Associada a este princípio está a noção de **contra-argumento**. Um argumento é um contra-argumento a outro caso seja inválido e partilhe a forma do argumento que pretende contra-argumentar.
+
+### Correção e Completude
+
+Uma dada lógica é **correta** caso qualquer argumento demonstrável segundo a mesma seja válido de acordo com a sua semântica. É **completa** quando qualquer argumento válido de acordo com a semântica é demonstrável. Os sistemas dedutivo e semântico estão, portanto, intrinsecamente ligados nestas noções. As noções de correção e completude não são propriedades dos sistemas, mas sim uma relação entre eles.  
+Numa lógica simultaneamente _correta_ e _completa_ os argumentos demonstráveis são exatamente os mesmos que os válidos. 
+
 ### Metodologia da Lógica
 
 Dado um qualquer argumento, o primeiro passo para inferir a sua validade é lançar um _palpite_ sobre a mesma, quer seja considerar que é válido como inválido.
