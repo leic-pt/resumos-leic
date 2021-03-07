@@ -74,7 +74,7 @@ Associada a este princípio está a noção de **contra-argumento**. Um argument
 ### Correção e Completude
 
 Uma dada lógica é **correta** caso qualquer argumento demonstrável segundo a mesma seja válido de acordo com a sua semântica. É **completa** quando qualquer argumento válido de acordo com a semântica é demonstrável. Os sistemas dedutivo e semântico estão, portanto, intrinsecamente ligados nestas noções. As noções de correção e completude não são propriedades dos sistemas, mas sim uma relação entre eles.  
-Numa lógica simultaneamente _correta_ e _completa_ os argumentos demonstráveis são exatamente os mesmos que os válidos. 
+Numa lógica simultaneamente _correta_ e _completa_ os argumentos demonstráveis são exatamente os mesmos que os válidos.
 
 ### Metodologia da Lógica
 

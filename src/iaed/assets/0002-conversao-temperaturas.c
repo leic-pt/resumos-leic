@@ -10,12 +10,12 @@ int main ()
 {
     float fahr, celsius;
 
-    fahr = inferior;
-    while (fahr <= superior)
+    fahr = INFERIOR;
+    while (fahr <= SUPERIOR)
     {
         celsius = (5.0/9.0) * (fahr-32);
         printf("%3.0f\t%6.1f\n", fahr, celsius);
-        fahr = fahr + passo;
+        fahr = fahr + PASSO;
     }
     return 0;
 }
