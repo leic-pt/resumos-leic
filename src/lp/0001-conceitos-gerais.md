@@ -45,7 +45,7 @@ O símbolo "∴" lê-se "logo".
 
 - **Princípio da Irrelevância do Valor Lógico** - A veracidade das proposições é irrelevante para determinar a validade de um argumento, exceto quando as premissas são verdadeiras e a conclusão falsa.
 
-Temos que uma proposição pode conter **termos lógicos** ("e", "ou", "então",...) e **termos específicos de um domínio** ("humanos", cão,...). Esta última noção é particularmente importante ao falar da _forma de um argumento_.
+Temos que uma proposição pode conter **termos lógicos** ("e", "ou", "então", ...) e **termos específicos de um domínio** ("humanos", cão, ...). Esta última noção é particularmente importante ao falar da _forma de um argumento_.
 
 - **Forma de um argumento** - argumento em que os termos específicos de cada uma das proposições que o constituem são substituídos por um símbolo associado à sua _categoria gramatical_.
 
