@@ -60,8 +60,8 @@ Em calculo finito, esta é a sucessão $u_{n} = 2^{n}$.
 ::: details Demonstração
 
 $$
-\being{aligned}
-\Delta 2^k = 2^{k+1}-2^k\\
+\begin{aligned}
+\Delta 2^k &= 2^{k+1}-2^k\\
 & =2^k(2-1)\\
 & =2^k
 \end{aligned}
