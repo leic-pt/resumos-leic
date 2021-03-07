@@ -179,12 +179,12 @@ Também podemos concluir que $\operatorname{int} D \subset D \subset \overline D
 
 ::: details Exemplo 1
 
-Imaginando o conjunto $D=\left\{( x,y,z) \in \mathbb{R}^{3} :x^{2} +y^{2} < 1\land x >0\right\}$,
+Imaginando o conjunto $D=\left\{( x,y,z) \in \mathbb{R}^{3} :x^{2} +y^{2} < 1\land z >0\right\}$,
 correspondente a um cilindro que tem como base o círculo no plano $z=0$, com raio 1 e centro na origem,
 e como eixo o semi eixo positivo $Oz$.
 
 - Como $D=\operatorname{int} D$, $D$ é aberto.
-- $\operatorname{ext} D = \left\{( x,y,z) \in \mathbb{R}^{3} :\left( x^{2} +y^{2}  >1\land x\geqslant 0\right) \lor z< 0\right\}$
+- $\operatorname{ext} D = \left\{( x,y,z) \in \mathbb{R}^{3} :\left( x^{2} +y^{2}  >1\land z\geqslant 0\right) \lor z< 0\right\}$
 - $\partial D=\left\{( x,y,z) \in \mathbb{R}^{3} :\left( x^{2} +y^{2} =1\land z >0\right) \lor \left( x^{2} +y^{2} < 1\land z=0\right)\right\}$
 - $\overline D \ne D$, então $D$ não é fechado.
 - $D$ não é limitado portanto também não é compacto
