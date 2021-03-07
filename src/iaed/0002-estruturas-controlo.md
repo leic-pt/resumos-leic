@@ -5,6 +5,8 @@ description: Tipos e Operadores Elementares. Estruturas de Controlo
 
 # Estruturas de Controlo
 
+[[toc]]
+
 ## Conversão de Temperaturas
 
 <<< @/src/iaed/assets/0002-conversao-temperaturas.c
