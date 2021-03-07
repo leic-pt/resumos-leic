@@ -298,7 +298,7 @@ $$
 f(x,y) = \frac{x^3 - y^3}{x^2+y^2}
 $$
 
-É uma função racional, logo é contínua em $\R^2\ \left\{(0,0)\right\}$.  
+É uma função racional, logo é contínua em $\R^2\ \backslash \left\{(0,0)\right\}$.  
 Temos de verificar se existe $\lim_{(x,y)\to(0,0)} f(x,y)$, para estudar o prolongamento contínuo.  
 Para simplificar os cálculos, separamos a expressão da função em duas parcelas, e calculamos o limite de cada uma,
 somando os seus limites (caso existam).
@@ -398,7 +398,7 @@ Logo, o limite não existe.
 ---
 
 $$
-\lim _{( x,y)\rightarrow ( 0,0)}\frac{x^{3} y^{2}}{\left( x^{3} +y^{2}\right)^{2}} =0
+\lim _{( x,y)\rightarrow ( 0,0)}\frac{x^{3} y^{2}}{\left( x^{2} +y^{2}\right)^{2}} =0
 $$
 
 Enquadrando o limite:
