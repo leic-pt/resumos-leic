@@ -19,6 +19,7 @@
 - [Livro da UC](https://drive.google.com/file/d/1vJO0sKzWqrFJDhPH6xfp90PilcihpY9F/view?usp=sharing)
 - [Exercícios (resolvidos)](https://drive.google.com/file/d/1IbxAfAji2WZxDuACSsGEME5vQDQyjPne/view)
 - [Resumos (by Diogo Gaspar)](https://drive.google.com/file/d/1yGAZiPmAqrBcZ02TPXNlIgw5VRAZBz2A/view?usp=sharing)
+- [Combinação PDFs das Teóricas do Pavão](https://s.rafael.ovh/lpteoricaspavao)
 
 ## Horários de Dúvidas
 
