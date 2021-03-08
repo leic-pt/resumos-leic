@@ -6,6 +6,14 @@ description: Enunciado e resolução dos exercícios do Laboratório 2 de IAED
 
 [[toc]]
 
+::: danger ERROS NO MOOSHAK
+
+Os programas seguintes não devem ter mais nenhum input/output além do pedido no enunciado.
+Qualquer mensagem adicional (e.g. `Introduza três números:` ou `O maior número é`) irá causar
+um erro no Mooshak, impedindo o programa de ser aceite.
+
+:::
+
 ## Exercício 1
 
 _(Maior de Três)_ Escreva um programa que determine e imprima o maior de três números inteiros dados pelo utilizador.
