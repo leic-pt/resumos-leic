@@ -54,7 +54,7 @@ Grafos: representação, pesquisa em largura e profundidade, árvores abrangente
 
 - Luís Russo, 09:00 - 10:00 [Zoom Link](https://videoconf-colibri.zoom.us/j/84713432256?pwd=M20rd3FuYXY2MUg2ZHVIRnZhUllidz09)
 - Luís Russo, 13:00 - 13:30 [Zoom Link](https://videoconf-colibri.zoom.us/j/84713432256?pwd=M20rd3FuYXY2MUg2ZHVIRnZhUllidz09)
-  
+
 ### 3ªs Feiras
 
 - Luís Guerra e Silva, 15:30 - 17:00 [Zoom Link](https://videoconf-colibri.zoom.us/j/87336516382?pwd=Q3pudjJYQWVnYUF6dDVNK1MvMlhBQT09)

@@ -71,14 +71,14 @@ As _fbfs_ podem, contudo, não nos ser apresentadas inicialmente nesta forma de 
 
   :::
 
-    - **Lei da Dupla Negação**
+  - **Lei da Dupla Negação**
 
-    $\neg\neg\alpha \leftrightarrow \alpha$
+  $\neg\neg\alpha \leftrightarrow \alpha$
 
-    - **Primeiras Leis de De Morgan**
+  - **Primeiras Leis de De Morgan**
 
-    $\neg(\alpha\vee\beta) \leftrightarrow (\neg\alpha\wedge\neg\beta)$  
-    $\neg(\alpha\wedge\beta) \leftrightarrow (\neg\alpha\vee\neg\beta)$
+  $\neg(\alpha\vee\beta) \leftrightarrow (\neg\alpha\wedge\neg\beta)$  
+   $\neg(\alpha\wedge\beta) \leftrightarrow (\neg\alpha\vee\neg\beta)$
 
   ::: details Exemplo - Reduzir o domínio de ¬
 
@@ -160,11 +160,11 @@ As _fbfs_ podem, contudo, não nos ser apresentadas inicialmente nesta forma de 
 
     <img src="./assets/0003-p-resolucao2.png" alt="Principio da Resolução 2" class="invert-dark">
 
-    **A cláusula vazia corresponde a uma contradição.**
+  **A cláusula vazia corresponde a uma contradição.**
 
   :::
 
-  Normalmente a resolução aplica-se a provas por absurdo, as quais, utilizando a resolução, se chamam *provas por refutação*.
+  Normalmente a resolução aplica-se a provas por absurdo, as quais, utilizando a resolução, se chamam _provas por refutação_.
 
   - **Provas por refutação** - uma prova por refutação a partir de um conjunto de cláusulas $\Delta$ é uma prova por resolução de { } a partir de $\Delta$. O último exemplo do princípio da resolução corresponde a uma _prova por refutação_.
 
@@ -197,8 +197,8 @@ Para aumentar a eficiência da geração de provas por resolução, foram desenv
 
   ::: tip Eliminação de Teoremas
 
-    Corresponde à eliminação das cláusulas que contenham tanto $\alpha$ como $\neg\alpha$, sendo $\alpha$ um símbolo de proposição.
-    Porquê? Porque para quaisquer _fbfs_ $\alpha$ e $\beta$, ($\alpha \vee \neg\alpha) \vee \beta$ é um teorema. Ora, um teorema não afetará o resultado final, visto que se $\Delta \cup {τ} \vdash \gamma$, então $\Delta \vdash \gamma$.
+  Corresponde à eliminação das cláusulas que contenham tanto $\alpha$ como $\neg\alpha$, sendo $\alpha$ um símbolo de proposição.
+  Porquê? Porque para quaisquer _fbfs_ $\alpha$ e $\beta$, ($\alpha \vee \neg\alpha) \vee \beta$ é um teorema. Ora, um teorema não afetará o resultado final, visto que se $\Delta \cup {τ} \vdash \gamma$, então $\Delta \vdash \gamma$.
 
   :::
 
@@ -210,7 +210,7 @@ Para aumentar a eficiência da geração de provas por resolução, foram desenv
 
   :::
 
-  ::: details Exemplo - Eliminar teoremas/cláusulas não mínimas  
+  ::: details Exemplo - Eliminar teoremas/cláusulas não mínimas
 
   Um exemplo possível é:
 
@@ -230,13 +230,13 @@ Para aumentar a eficiência da geração de provas por resolução, foram desenv
 
   ::: tip Eliminação de Literais Puros
 
-    Podemos remover todas as cláusulas que contenham literais puros. Esta estratégia é, ao contrário das últimas duas, realizada apenas uma vez, no início da prova por refutação.
+  Podemos remover todas as cláusulas que contenham literais puros. Esta estratégia é, ao contrário das últimas duas, realizada apenas uma vez, no início da prova por refutação.
 
 - **Estratégias de Seleção de cláusulas**
 
   Corresponde a um processo de controlar as cláusulas geradas numa prova por resolução, impondo restrições às cláusulas que podem ser candidatas às cláusulas que podem ser candidatas à aplicação do princípio da resolução. Aqui, consideramos as resoluções _unitária_ e _linear_.
 
-  ::: tip RESOLUÇÃO UNITÁRIA 
+  ::: tip RESOLUÇÃO UNITÁRIA
 
   Baseia-se no facto de ao utilizarmos a resolução tentarmos por norma diminuir o número de literais existentes nas cláusulas produzidas (mais evidente em provas por refutação). Se uma das cláusulas envolvidas numa aplicação do princípio da resolução apenas contiver um literal, uma _cláusula unitária_, é então garantido que o resolvente tem menos literais do que a cláusula mãe com maior número de literais. Esta estratégia consiste, portanto, em aplicar o princípio da resolução utilizando sempre pelo menos uma cláusula unitária. **Nem todas as proposições válidas podem ser provadas desta maneira**, visto que nem sempre estamos na presença de cláusulas unitárias. Não é, portanto, um processo de inferência **completo**.
 
