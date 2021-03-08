@@ -236,7 +236,7 @@ Para aumentar a eficiência da geração de provas por resolução, foram desenv
 
   Corresponde a um processo de controlar as cláusulas geradas numa prova por resolução, impondo restrições às cláusulas que podem ser candidatas às cláusulas que podem ser candidatas à aplicação do princípio da resolução. Aqui, consideramos as resoluções _unitária_ e _linear_.
 
-  ::: tip RESOLUÇÃO UNITÁRIA
+  ::: tip RESOLUÇÃO UNITÁRIA 
 
   Baseia-se no facto de ao utilizarmos a resolução tentarmos por norma diminuir o número de literais existentes nas cláusulas produzidas (mais evidente em provas por refutação). Se uma das cláusulas envolvidas numa aplicação do princípio da resolução apenas contiver um literal, uma _cláusula unitária_, é então garantido que o resolvente tem menos literais do que a cláusula mãe com maior número de literais. Esta estratégia consiste, portanto, em aplicar o princípio da resolução utilizando sempre pelo menos uma cláusula unitária. **Nem todas as proposições válidas podem ser provadas desta maneira**, visto que nem sempre estamos na presença de cláusulas unitárias. Não é, portanto, um processo de inferência **completo**.
 
