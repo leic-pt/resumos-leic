@@ -3,6 +3,10 @@
 - [Página da UC no Fénix](https://fenix.tecnico.ulisboa.pt/disciplinas/IAED764511132646/2020-2021/2-semestre)
 - [Repo no GitHub de IAED de LETI](https://github.com/pedroreissantos/iaed21)
 
+## Recursos
+
+- [Combinação PDFs das Teóricas](https://s.rafael.ovh/iaedteoricas)
+  
 ## Aulas de Laboratório
 
 Aulas LAB divididas em duas partes:
