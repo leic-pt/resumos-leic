@@ -19,3 +19,22 @@
 - [Livro da UC](https://drive.google.com/file/d/1vJO0sKzWqrFJDhPH6xfp90PilcihpY9F/view?usp=sharing)
 - [Exercícios (resolvidos)](https://drive.google.com/file/d/1IbxAfAji2WZxDuACSsGEME5vQDQyjPne/view)
 - [Resumos (by Diogo Gaspar)](https://drive.google.com/file/d/1yGAZiPmAqrBcZ02TPXNlIgw5VRAZBz2A/view?usp=sharing)
+  
+## Horários de Dúvidas
+
+### 3ªs Feiras
+
+- Pedro Quintas, 15:00 - 16:30 [Zoom Link](https://videoconf-colibri.zoom.us/j/84617984862)
+
+### 4ªs Feiras
+
+- Maria Cravo, 16:30 - 18:00 [Zoom Link](https://videoconf-colibri.zoom.us/j/89841056031?pwd=YVBwc3FqUlJqU2I5QlcyalZobW5Gdz09)
+
+### 5ªs Feiras
+
+- Maria José Ferreira, 14:30 - 16:00 [Zoom Link](https://videoconf-colibri.zoom.us/j/82605189790)
+- Maria Cravo, 16:30 - 18:00 [Zoom Link](https://videoconf-colibri.zoom.us/j/89841056031?pwd=YVBwc3FqUlJqU2I5QlcyalZobW5Gdz09)
+
+### 6ªs Feiras
+
+- Pavão, 16:00 - 17:00 [Zoom Link](https://videoconf-colibri.zoom.us/j/88024164267)
