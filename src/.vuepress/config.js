@@ -90,7 +90,7 @@ module.exports = {
           children: [
             '0001-perturbacoes',
             '0002-introducao-calculo-finito',
-            '0002-lab1',
+            '0003-formulas-fechadas-somatorios',
             '0003-aula2',
           ],
         },
