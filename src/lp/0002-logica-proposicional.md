@@ -209,7 +209,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   ::: tip ELIMINAÇÃO DA IMPLICAÇÃO
 
-  A eliminação da implicação tem sempre um aspeto deste género:
+  A eliminação da implicação tem um aspeto deste género, sendo que a ordem de $\alpha$ e $\alpha\to\beta$ não é relevante:
 
   <img src ="./assets/0002-el-implicacao1.png" alt = "Eliminação da Implicação 1" class = "invert-dark">
 
