@@ -137,6 +137,13 @@ $$
 
 :::
 
+Pode-se também tirar o valor de $n^r$ desta expressão:
+
+$$
+\Delta n^{r+1} = (r+1)n^r\Leftrightarrow
+n^r = \Delta \left(\frac{n^{n+1}}{r+1}\right)
+$$
+
 Como exemplo, determina-se a soma fechada para $\displaystyle \sum_{k=0}^{n-1}k$:
 
 Pega-se na função $k^{\underline{2}}$:
