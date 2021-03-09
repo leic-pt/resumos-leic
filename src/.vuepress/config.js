@@ -91,7 +91,6 @@ module.exports = {
             '0001-perturbacoes',
             '0002-introducao-calculo-finito',
             '0003-formulas-fechadas-somatorios',
-            '0003-aula2',
           ],
         },
         {
