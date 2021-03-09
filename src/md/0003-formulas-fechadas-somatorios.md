@@ -146,7 +146,7 @@ onde $\begin{Bmatrix}m\\k\end{Bmatrix}$ é o número de Stirling de segunda esp�
 
 :::
 
-# Calcular os Números de Stirling de Segunda Espécie
+### Calcular os Números de Stirling de Segunda Espécie
 
 Tal como com os números de primeira espécie, é possível calcular, através de uma tabela, os números de segunda espécie.
 
