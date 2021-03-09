@@ -243,11 +243,11 @@ $$\sum_{k=0}^{n}(2k+3)^{\underline{2}}$$
 
 $$
 \begin{aligned}
-\sum ^{n}_{k=0}( 2k+3)^{\underline{2}} & =\sum ^{n}_{k=0} \Delta \frac{( 2k+3)^{\underline{3}}}{3\times 2}\\
- & =\left[\frac{2k+3}{6}\right]^{n}_{0}\\
- & =\frac{2n+3}{6} -\frac{2\times 0+3}{6}\\
- & =\frac{2n+3}{6} -\frac{3}{6}\\
- & =\frac{n}{3}
+\sum ^{n}_{k=0}( 2k+3)^{\underline{2}} & =\sum ^{n}_{k=0} \Delta \frac{(2k+3)^{\underline{3}}}{3\times 2}\\
+ & =\left[\frac{( 2k+3)^{\underline{3}}}{6}\right]^{n}_{0}\\
+ & =\frac{( 2n+3)( 2n+1)( 2n-1)}{6} -\frac{2\times 0+3}{6}\\
+ & =\frac{( 2n+3)( 2n+1)( 2n-1) -3}{6}\\
+ & =\frac{( n+1)\left( 4n^{2} +2n-3\right)}{3}
 \end{aligned}
 $$
 
