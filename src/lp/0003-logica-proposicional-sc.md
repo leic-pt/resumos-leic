@@ -252,7 +252,7 @@ Para aumentar a eficiência da geração de provas por resolução, foram desenv
 
   ::: tip RESOLUÇÃO LINEAR
 
-  Começamos por selecionar uma cláusula entre as premissas, a _cláusula inicial_, obtendo um resolvente entre a cláusula inciial e outra qualquer pertencente às premissas. A partir daí, sempre que se aplica o princípio da resolução utiliza-se o último sucessor da cláusula inicial. Qualquer sucessor da cláusula inicial chama-se _cláusula central_. Geralmente como cláusula inicial escolhemos a que corresponde à negação da cláusula que pretendemos provar, usando portanto a prova por refutação. Nesta prova por refutação, adicionaríamos a negação da conclusão ao conjunto de premissas, e tentaríamos derivar { }.
+  Começamos por selecionar uma cláusula entre as premissas, a _cláusula inicial_, obtendo um resolvente entre a cláusula inicial e outra qualquer pertencente às premissas. A partir daí, sempre que se aplica o princípio da resolução utiliza-se o último sucessor da cláusula inicial. Qualquer sucessor da cláusula inicial chama-se _cláusula central_. Geralmente como cláusula inicial escolhemos a que corresponde à negação da cláusula que pretendemos provar, usando portanto a prova por refutação. Nesta prova por refutação, adicionaríamos a negação da conclusão ao conjunto de premissas, e tentaríamos derivar { }.
 
   :::
 
