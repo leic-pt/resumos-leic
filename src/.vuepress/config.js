@@ -95,7 +95,7 @@ module.exports = {
             '0001-perturbacoes',
             '0002-introducao-calculo-finito',
             '0003-formulas-fechadas-somatorios',
-            '0004-aula3'
+            '0004-serie-harmonica'
           ],
         },
         {
