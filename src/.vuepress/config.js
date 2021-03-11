@@ -155,7 +155,7 @@ module.exports = {
       'vuepress-plugin-meilisearch',
       {
         hostUrl: 'https://meilisearch.diogotc.com',
-        apiKey: '8d585d0aedbfb647df389fda5edf374179518dd34c141b792517262fec2228b8',
+        apiKey: 'c2972e080f75e3d6891861c6a06ab5e335ccf16c395dcba2322eab5027cba783',
         indexUid: 'resumos-leic',
       },
     ],
