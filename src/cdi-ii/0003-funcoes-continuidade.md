@@ -93,6 +93,36 @@ Se $D\subset \R^n$ é [fechado](./0002-norma-topologia.md#conjunto-aberto-fechad
 e convergente, tem o seu limite em $D$.
 :::
 
+#### Sucessão limitada mas não convergente
+
+Uma sucessão pode ser limitada sem ser convergente. Vejamos o seguinte exemplo:
+
+$$
+u_{k} =\left(\underset{0\leqslant }{\overset{\leqslant 2}{r_{k}}} ,\underset{-1\leqslant }{\overset{\leqslant 2}{( -1)^{k} +\frac{1}{k}}}\right) \ \ \text{com } r_{k} =k\%3\in \{0,1,2\}
+$$
+
+Podemos facilmente concluir que $(u_k)$ é limitada mas não converge, pois:
+
+- se $k$ par $(-1)^k+\frac{1}{k}\to 1$
+- se $k$ ímpar $(-1)^k+\frac{1}{k}\to -1$
+- a sucessão $r_k$ alterna entre $\{0,1,2\}$
+
+Se tomarmos a subsucessão $(u_{3k})$, resolvemos o problema da primeira parcela:
+
+$$
+u_{3k} = \left(r_{3k}, (-1)^{3k}+\frac{1}{3k}\right) = \left(0, (-1)^{3k}+\frac{1}{3k}\right)
+$$
+
+No entanto, $3k$ continua a ser alternadamente par e ímpar.
+
+Então, se tomarmos $(u_{6k})$, resolvemos o problema da segunda parcela:
+
+$$
+u_{6k} = \left(r_{6k}, (-1)^{6k}+\frac{1}{6k}\right) = \left(0, {(-1)^2}^{3k}+\frac{1}{6k}\right)\to (0,1)
+$$
+
+Portanto, $(u_{6k})$ é subsucessão convergente da sucessão limitada $(u_k)$.
+
 ## Continuidade
 
 Esta é outra das relações que naturalmente migra para $\R^n$, sem muitas alterações.
@@ -343,9 +373,40 @@ Sejam $f,g,h: D\subseteq \R^n \to \R^m$ , $a \in D$ e existem $\lim_{x\to a} f(x
 7. Se $f$ é limitada junto a $a$ e $\displaystyle \lim_{x\to a} g(x) = 0$ (para $m = 1$), então $\displaystyle \lim_{x\to a} f(x) \times g(x) = 0$
 8. Se $\lim_{x\to a} f(x) = \vec 0 \iff \lim_{x\to a} || f(x) || = 0$
 
-::: warning NEEDS EXPANSION
-Estes exemplos falam de limites direcionais, que não são dados teoricamente em lado nenhum.
-Pode ser útil fazer uma secção a falar de limites direcionais fora dos exemplos seguintes.
+### Limites direcionais
+
+Quando não conseguimos provar que um limite existe e calcular o seu valor,
+podemos tentar provar que esse limite não existe através dos **limites direcionais**.
+
+::: tip DEFINIÇÃO
+
+Em $\R^2$ em particular, se se substituir $y=mx$, então
+
+$$
+\lim_{(x,y)\to (0,0)} f(x,y) = \lim_{x \to 0} f(x,mx)= \dots = F(m)
+$$
+
+ou seja, se o limite depende explicitamente de $m$ então o limite não existe, pois o limite quando existe é único.
+
+:::
+
+Além de limites em $\R^2$ segundo retas, também podemos ter limites segundo a família de quadráticas, $y=kx^x$.
+
+Se o limite
+
+$$
+\lim_{(x,y)\to (0,0)} = \lim_{x\to 0} f(x, kx^2)
+$$
+
+depender de $k$, então o limite não existe.
+
+Esta é uma boa estratégia quando queremos provar que o limite não existe.
+
+::: warning
+
+Não ser pode usar limites direcionais para provar que um limite existe.
+Se obtivermos um valor que não depende de $m$, $k$, etc, **nada se pode concluir**.
+
 :::
 
 ::: details Exemplos Limites
@@ -411,9 +472,31 @@ Logo, o limite é $0$.
 
 :::
 
+## Teorema de Bolzano-Weierstrass
+
+::: tip Definição
+
+Seja $D \subseteq \R^n$.
+
+Se $D$ é compacto (isto é, fechado e limitado), então toda a sucessão de pontos em $D$ contém uma sub-sucessão convergente para um ponto de $D$.
+
+:::
+
+A demonstração deste teorema encontra-se nos slides da aula 5.
+
+## Teorema de Weirestrass
+
+Deste teorema, podemos retirar:
+
+- As funções contínuas aplicam conjuntos compactos em compactos
+
+- Para funções escalares, isto é, $f:D\subset \R^n \to \R^m$ com $m=1$,  
+  Funções escalares contínuas em compactos têm máximo e mínimo
+
 ---
 
 Slides:
 
 - [Aula 3](https://drive.google.com/file/d/1HvXWYyDzDM-2AjaXc879YdIEZf2qMCl8/view?usp=sharing)
 - [Aula 4](https://drive.google.com/file/d/1bzEqLW97nD_SDGK-SBO2uQaD2Gv7GxSN/view?usp=sharing)
+- [Aula 5](https://drive.google.com/file/d/1jx3tDKvyx2_y126sT2BB38B_pGg1pB-f/view?usp=sharing)
