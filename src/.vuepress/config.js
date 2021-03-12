@@ -98,6 +98,7 @@ module.exports = {
             '0003-formulas-fechadas-somatorios',
             '0004-serie-harmonica',
             '0005-inducao-matematica',
+            '0006-formula-de-abel'
           ],
         },
         {
