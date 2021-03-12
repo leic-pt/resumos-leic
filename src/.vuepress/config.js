@@ -96,7 +96,7 @@ module.exports = {
             '0002-introducao-calculo-finito',
             '0003-formulas-fechadas-somatorios',
             '0004-serie-harmonica',
-            '0005-inducao-matematica'
+            '0005-inducao-matematica',
           ],
         },
         {

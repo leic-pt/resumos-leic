@@ -1,7 +1,9 @@
 ---
 description: Demonstrações por indução matemática; Exemplos; Indução simples e complexa; Sequência de Fibonacci
 ---
+
 # Indução Matemática
+
 [[toc]]
 
 ## Demonstrações por indução matemática
@@ -11,16 +13,18 @@ Relembrando que quando queremos provar uma coleção de enunciados através de I
 - Que $P(0)$ é verdadeiro;
 - $\forall_{n \in \mathbb N} \ (P(n) \text{ é verdadeiro}\implies P(n+1) \text{ é verdadeiro})$
 
-onde $P(n)$ (antecedente) é a nossa *Hipótese de Indução.* A sucessão de *Fibonacci* é um ótimo exemplo de algo donde se podem derivar várias propriedades a partir da indução matemática. É definida da seguinte forma:
+onde $P(n)$ (antecedente) é a nossa _Hipótese de Indução._ A sucessão de _Fibonacci_ é um ótimo exemplo de algo donde se podem derivar várias propriedades a partir da indução matemática. É definida da seguinte forma:
 
 $$f_n=\begin{cases}\ 0\quad \text{se } \quad n = 0\\\  1\quad \text{se } \quad n = 1 \\\ f_{n-1} + f_{n-2}\quad \text{se }\quad n \in \mathbb N\end{cases}$$
 
 Com termos:
 
-$$\begin{array}{l|l|l|l|l|l|l|l|l|l|l|l}
+$$
+\begin{array}{l|l|l|l|l|l|l|l|l|l|l|l}
 n&0 & 1 & 2 & 3 & 4 & 5 & 6 & 7  & 8  & 9  & 10 \\ \hline
 f_n&0 & 1 & 1 & 2 & 3 & 5 & 8 & 13 & 21 & 34 & 55
-\end{array}$$
+\end{array}
+$$
 
 ## Exemplos de aplicações da indução matemática
 
@@ -60,7 +64,8 @@ Hipótese de Indução: $\sum_{k=0}^{n}f_k^2 = f_nf_{n+1}$
 Passo de indução
 
 $$
-\sum_{k=0}^{n+1}f_k^2=\sum_{k=0}^{n}f_k^2+f_{n+1}^2 = \\=f_nf_{n+1}+f_{n+1}^2 = f_{n+1}(f_n+f_{n+1}) = f_{n+1}f_{n+2}$$
+\sum_{k=0}^{n+1}f_k^2=\sum_{k=0}^{n}f_k^2+f_{n+1}^2 = \\=f_nf_{n+1}+f_{n+1}^2 = f_{n+1}(f_n+f_{n+1}) = f_{n+1}f_{n+2}
+$$
 
 ### Terceiro exemplo
 
@@ -108,11 +113,11 @@ Hipótese de Indução: $\text{Todo o número natural é a soma de números de F
 
 Passo de indução
 
-Tem-se que 0,1,2,3 são números de Fibonacci, pelo que cumprem logo o requisito da prova. Se $n$ for número de Fibonacci, não há o que provar. Caso contrário, existe $j$ tal que $F_j < m < F_{j+1}$ donde se repara que $F_{j+1} = F_j + F_{j-1} \Leftrightarrow f_{i-1} > m - f_{j}$, pelo que, se $f_j$ vai pertencer ao conjunto $D$ de números de Fibonacci que vai somar até dar $m$, então é impossível $f_{i-1}$ também pertença ao mesmo conjunto $D$ $(F_j + F_{j-1} = F_{j+1} > m).$ 
+Tem-se que 0,1,2,3 são números de Fibonacci, pelo que cumprem logo o requisito da prova. Se $n$ for número de Fibonacci, não há o que provar. Caso contrário, existe $j$ tal que $F_j < m < F_{j+1}$ donde se repara que $F_{j+1} = F_j + F_{j-1} \Leftrightarrow f_{i-1} > m - f_{j}$, pelo que, se $f_j$ vai pertencer ao conjunto $D$ de números de Fibonacci que vai somar até dar $m$, então é impossível $f_{i-1}$ também pertença ao mesmo conjunto $D$ $(F_j + F_{j-1} = F_{j+1} > m).$
 
-A partir da nossa hipótese de indução, conclui-se que $m-f_j$ resulta da soma entre números de Fibonacci não consecutivos. 
+A partir da nossa hipótese de indução, conclui-se que $m-f_j$ resulta da soma entre números de Fibonacci não consecutivos.
 
-Como resultado,  $\ n$ pode ser representado como a soma de $F_j$ e o conjunto $D_{m-f_j}$, e está provada a etapa de indução.
+Como resultado, $\ n$ pode ser representado como a soma de $F_j$ e o conjunto $D_{m-f_j}$, e está provada a etapa de indução.
 
 Como exemplo, tome-se o número doze como valor para $m$:
 
