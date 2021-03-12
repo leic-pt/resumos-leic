@@ -6,12 +6,6 @@ description: Lógica Proposicional aplicada a sistemas computacionais, resoluç�
 
 [[toc]]
 
-::: danger AVISO
-
-Esta matéria não sai na avaliação da semana 8-12 de março.
-
-:::
-
 Voltamos a considerar a lógica proposicional, mas desta feita sob a perspetiva da sua utilização por sistemas computacionais, não por humanos.
 A geração automática de provas utilizando sistemas de dedução natural não é fácil, pelo que foram desenvolvidos métodos para a automatização da geração de provas. Um deles é a **resolução**.
 

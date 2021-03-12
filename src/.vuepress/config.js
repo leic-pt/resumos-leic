@@ -66,6 +66,7 @@ module.exports = {
             '0001-conceitos-gerais',
             '0002-logica-proposicional-int',
             '0003-logica-proposicional-sc',
+            '0004-logica-primeiraordem-int',
           ],
         },
       ],
