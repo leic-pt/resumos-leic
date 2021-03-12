@@ -78,6 +78,7 @@ module.exports = {
             '0001-transicao-para-dim-sup-1',
             '0002-norma-topologia',
             '0003-funcoes-continuidade',
+            '0004-diferenciabilidade',
           ],
         },
         {

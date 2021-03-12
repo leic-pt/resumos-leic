@@ -1,13 +1,3 @@
-Diferenciabilidade
-
-Recordando, em CDI 1, em $\R$
-
-$f$ é diferenciável em $a$ <=> existe $\lim_{h\to 0} \frac{f(a+h)-f(a)}{h}(=f'(a))$ nas interpretração geométrica
-
-envolve divisão e divisão não está definida em dim > 1
-
-Portanto há que reformular esta definição:
-
 ...
 
 O que é $o(x) x\to 0$? É simplesmente uma função de $x$ que dividida por $x$ tende para $0$ quando $x \to 0$.
