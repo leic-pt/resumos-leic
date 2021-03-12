@@ -6,7 +6,7 @@
 ## Recursos
 
 - [Combinação PDFs das Teóricas](https://s.rafael.ovh/iaedteoricas)
-  
+
 ## Aulas de Laboratório
 
 Aulas LAB divididas em duas partes:
