@@ -86,25 +86,206 @@ Relembrando da Álgebra Linear:
 
 1. **Função constante**
 
-   $f:\R^n \to \R^m$, $x\to (2,2,\dots, 2)$;
-   seja $a \in \R^n$ $a = (a_1, a_2,\dots, a_n)$, $\vec h \in \R^n$ $\vec h=(h_1,h_2,\dots, h_n)$
+   $$
+   \begin{array}{ c c }
+   f: & \mathbb{R}^{n}\rightarrow \mathbb{R}^{m}\\
+   & x\longrightarrow \begin{pmatrix}
+   2\\
+   2\\
+   \vdots \\
+   2
+   \end{pmatrix}
+   \end{array}
+   $$
 
-\$f(a+h) - f(a) = (2,2,\dots, 2) - (2,2,\dots, 2) = (2-2,2-2,\dots,2-2) = (0,0,\dots,0)= ...
+   Seja $a \in \R^n$ $a=\begin{pmatrix}a_{1}\\a_{2}\\\vdots \\a_{n}\end{pmatrix}$, $\vec h \in \R^n$ $\vec h=\begin{pmatrix}h_{1}\\h_{2}\\\vdots \\h_{n}\end{pmatrix}$
 
-Portanto como $a \in \R^n$ é genérico, então $f$ é diferenciável e a derivada em $a$ é $L_a = \tilde? \tilde? 0$
+   $$
+   f(a+h)-f(a)=\begin{pmatrix}
+   2\\
+   2\\
+   \vdots \\
+   2
+   \end{pmatrix} -\begin{pmatrix}
+   2\\
+   2\\
+   \vdots \\
+   2
+   \end{pmatrix} =\begin{pmatrix}
+   2-2\\
+   2-2\\
+   \vdots \\
+   2-2
+   \end{pmatrix} =\begin{pmatrix}
+   0\\
+   0\\
+   \vdots \\
+   0
+   \end{pmatrix} =\\
+   =\underbrace{\overbrace{\begin{bmatrix}
+   0 & 0 & \dotsc  & 0\\
+   0 & 0 & \dotsc  & 0\\
+   \vdots  & \vdots  & \ddots  & \vdots \\
+   0 & 0 & \dotsc  & 0
+   \end{bmatrix}}^{\text{matriz } m\times n}\begin{pmatrix}
+   h_{1}\\
+   h_{2}\\
+   \vdots \\
+   h_{n}
+   \end{pmatrix}}_{L_{a}( h)} +\underbrace{\begin{pmatrix}
+   0\\
+   0\\
+   \vdots \\
+   0
+   \end{pmatrix}}_{o( h)}
+   $$
 
-2. Função identidade $f: \R^n\to \R^n$ $x \to x$
-   Seja $a \in \R^n$, $\vec h \in \R^n$
+   Portanto como $a \in \R^n$ é genérico, então $f$ é diferenciável e a derivada em $a$ é $L_a = \vec 0$
 
-\$f(a+h)-f(a) = a+h-a=h=(h_1,h_2,\dots,h_n)=...
+2. **Função identidade**
 
-Portanto $f$ é diferenciável em $\R^n$; a derivada em qualquer $a \in \R^n$ é a identidade.
+   $$
+   \begin{array}{ c c }
+   f: & \mathbb{R}^{n}\rightarrow \mathbb{R}^{m}\\
+   & x\longrightarrow x
+   \end{array}
+   $$
 
-3. Função projeção $p_1: \R^n\to \R $ $x=(x_1,x_2,\dots, x_n)\to x_i$
-   seja $a \in \R^n, h\in \R^n$
+   Seja $a \in \R^n$, $\vec h \in \R^n$,
 
-p_i(a+h)-p_i(a)=a_i+h_1-a_i=h_1=(0, \dots, 0, 1, 0, \dots, 0)(h_1,h_2,\dots,h_i,\dots,h_n)+(0,0,\dots,0)
+   $$
+   f(a+h)-f(a)=a+h-a=h=\begin{pmatrix}
+   h_{1}\\
+   h_{2}\\
+   \vdots \\
+   h_{n}
+   \end{pmatrix} =\\
+   =\underbrace{\overbrace{\begin{bmatrix}
+   1 & 0 & \dotsc  & 0\\
+   0 & 1 & \dotsc  & 0\\
+   \vdots  & \vdots  & \ddots  & \vdots \\
+   0 & 0 & \dotsc  & 1
+   \end{bmatrix}}^{\text{matriz } m\times n}\begin{pmatrix}
+   h_{1}\\
+   h_{2}\\
+   \vdots \\
+   h_{n}
+   \end{pmatrix}}_{L_{a}( h)} +\underbrace{\begin{pmatrix}
+   0\\
+   0\\
+   \vdots \\
+   0
+   \end{pmatrix}}_{o( h)}
+   $$
+
+   Portanto $f$ é diferenciável em $\R^n$ e a derivada em qualquer $a \in \R^n$ é a identidade.
+
+3. **Função projeção**
+
+   $$
+   \begin{array}{ c c }
+   p_{i} : & \mathbb{R}^{n} \longrightarrow \mathbb{R}\\
+   & x=\begin{pmatrix}
+   x_{1}\\
+   x_{2}\\
+   \vdots \\
+   x_{n}
+   \end{pmatrix} \longrightarrow x_{i}
+   \end{array}
+   $$
+
+   Seja $a \in \R^n, h\in \R^n$,
+
+$$
+p_{i} (a+h)-p_{i} (a)=a_{i} +h_{i} -a_{i} =h_{i}\\
+=\underbrace{\overbrace{\begin{bmatrix}
+0 & \dotsc  & 1 & \dotsc  & 0
+\end{bmatrix}}^{\text{matriz } 1\times n}\begin{pmatrix}
+h_{1}\\
+h_{2}\\
+\vdots \\
+h_{i}\\
+\vdots \\
+h_{n}
+\end{pmatrix}}_{L_{a}( h)} +\underbrace{\begin{pmatrix}
+0\\
+0\\
+\vdots \\
+0\\
+\vdots \\
+0
+\end{pmatrix}}_{o( h)}
+$$
 
 Portanto as funções projeção são diferenciáveis
 
 :::
+
+## Derivadas Parciais
+
+No entanto, por vezes poderá ser importante calcular derivadas segundo direções especiais - ou saber quais são essas direções especiais.
+Por exemplo, dada uma função $f$ e um ponto $a$ do seu domínio, ao longo de que direção e sentido me devo afastar de $a$ de forma a sentir a variação máxima ou mínima da função?
+
+::: tip DEFINIÇÃO
+
+A derivada de $f: \R^n \to \R$ no ponto $a \in \R^n$ segundo o vetor $v \in\R^n$ é o limite, se existir,
+
+$$
+\frac{\partial f}{\partial v}(a)= \lim_{t\to 0} \frac{f(a+tv)-f(a)}{t}
+$$
+
+:::
+
+Observações:
+
+1. Convém, por vezes, que $||v|| = 1$
+
+2. Se $v=\overrightarrow{e_{i}} =\begin{pmatrix}0\\\vdots \\1\\\vdots \\0\end{pmatrix}$
+   então $\displaystyle \frac{\partial f}{\partial v}( a) =\frac{\partial f}{\partial x_{i}}( a)$,
+   a que se chama **derivada parcial em ordem a $x_1$ em $a$**.
+
+::: details Exemplos
+
+$$
+f( x,y) =x^{2} y\quad ,\quad v=( 1,2)
+$$
+
+Qual o valor de $\frac{\partial f}{\partial v}( 1,1)$?
+
+$$
+\begin{aligned}
+\frac{\partial f}{\partial v}( 1,1) & =\lim _{t\rightarrow 0}\frac{f(( 1,1) +t( 1,2)) -f( 1,1)}{t}\\
+ & =\lim _{t\rightarrow 0}\frac{f( 1+t,1+2t) -1^{2} \cdot 1}{t}\\
+ & =\lim _{t\rightarrow 0}\frac{( 1+t)^{2}( 1+2t) -1}{t}\\
+ & =\lim _{t\rightarrow 0}\frac{1+2t+2t+4t^{2} +t^{2} +2t^{3} -1}{t}\\
+ & =\lim _{t\rightarrow 0} t\frac{4+5t+2t^{2}}{t}\\
+ & =\lim _{t\rightarrow 0}\left( 4+5t+2t^{2}\right)\\
+ & =4+0+0\\
+ & =4
+\end{aligned}
+$$
+
+:::
+
+## Propriedades de uma função diferenciável
+
+Se $f$ é diferenciável em $a$, isto é, se existe transformação linear $L_a: \R^n\to \R^m$ tal que $f(a+h)-f(a)=L_a(h)+o(h)$, então:
+
+1. $f$ é contínua em $a$
+2. Para todo o $v \in \R^n\backslash \{\vec 0 \}$ existe $\frac{\partial f}{\partial v}( a)$.
+
+## Matriz Jacobiana
+
+Se a função $f$ é diferenciável em $a$ então a transformação linear derivada é única.  
+Fixadas as bases canónicas, a matriz que a transformação linear representa é chamada **jacobiana** e tem por entradas as derivadas parciais em $a$.
+
+Temos então a **matriz jacobiana de $f$ em $a$**:
+
+$$
+J^{f}_{a} =\begin{bmatrix}
+\frac{\partial f_{1}}{\partial x_{1}}( a) & \frac{\partial f_{1}}{\partial x_{2}}( a) & \dotsc  & \frac{\partial f_{1}}{\partial x_{n}}( a)\\
+\frac{\partial f_{2}}{\partial x_{1}}( a) & \frac{\partial f_{2}}{\partial x_{2}}( a) & \dotsc  & \frac{\partial f_{2}}{\partial x_{n}}( a)\\
+\vdots  & \vdots  & \ddots  & \vdots \\
+\frac{\partial f_{m}}{\partial x_{1}}( a) & \frac{\partial f_{m}}{\partial x_{2}}( a) & \dotsc  & \frac{\partial f_{m}}{\partial x_{n}}( a)
+\end{bmatrix}
+$$
