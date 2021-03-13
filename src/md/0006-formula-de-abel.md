@@ -13,7 +13,25 @@ $$(k-2)(k-1)=k^2-3k+2$$
 
 Queremos transformar isto nalgo que tenha fatores, por exemplo, $(k+3)$ (poderia ser $k+1$). Aplica-se então o método de Horner/Ruffini a este polinómio, dividindo por $(k+3)(k+2)$:
 
-![Método de Horner](./imgs/0006-horner.png)
+$$
+\begin{array}{ c | c c c c c c }
+& \\
+& 1 & -3 & 2 \\
+&\\
+
+\ -3 &  & -3 & 18  \\
+
+\hline &\\
+& 1 & -6 & \textcolor{#C8553D}{20} \\
+&\\
+-2 &  & -2 & \\
+
+\hline &\\
+& 1 & \textcolor{#C8553D}{-8}  \\
+\end{array}
+$$
+
+O Vermelho é o Resto da Divisão.
 
 $$\longrightarrow 1\cdot(k+3)(k+2)-8(k+3)+20$$
 
