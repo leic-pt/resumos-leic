@@ -1,7 +1,9 @@
 ---
 description: Método das pontas. Fórmula de Abel e fórmula do quociente. Exemplos.
 ---
+
 # Fórmula de Abel e do quociente
+
 [[toc]]
 Exemplo:
 
@@ -13,17 +15,37 @@ $$(k-2)(k-1)=k^2-3k+2$$
 
 Queremos transformar isto nalgo que tenha fatores, por exemplo, $(k+3)$ (poderia ser $k+1$). Aplica-se então o método de Horner/Ruffini a este polinómio, dividindo por $(k+3)(k+2)$:
 
-![Método de Horner](./imgs/0006-horner.png)
+$$
+\begin{array}{ c | c c c c c c }
+& \\
+& 1 & -3 & 2 \\
+&\\
 
-$$\longrightarrow 1\cdot(k+3)(k+2)-8(k+3)+20$$
+\ -3 &  & -3 & 18  \\
+
+\hline &\\
+& 1 & -6 & \textcolor{#C8553D}{20} \\
+&\\
+-2 &  & -2 & \\
+
+\hline &\\
+& 1 & \textcolor{#C8553D}{-8}  \\
+\end{array}
+$$
+
+O Vermelho é o Resto da Divisão.
+
+$$\longrightarrow 1\cdot(k+3)(k+2)\textcolor{#C8553D}{-8}(k+3) \textcolor{#C8553D}{+ 20}$$
 
 e o somatório original vem como:
 
-$$\sum_{k=1}^{n-1}\frac{(k+3)(k+2)}{(k+1)(k+2)(k+3)} -\\ 8\sum_{k=1}^{n-1}\frac{(k+3)}{(k+1)(k+2)(k+3)}+\\20\sum_{k=1}^{n-1}\frac{1}{(k+1)(k+2)(k+3)} =\\
+$$
+\sum_{k=1}^{n-1}\frac{(k+3)(k+2)}{(k+1)(k+2)(k+3)} -\\ 8\sum_{k=1}^{n-1}\frac{(k+3)}{(k+1)(k+2)(k+3)}+\\20\sum_{k=1}^{n-1}\frac{1}{(k+1)(k+2)(k+3)} =\\
 
 \sum_{k=1}^{n-1}\Delta H_k + \left[\frac{8}{k+1}-\frac{10}{(k+1)(k+2)}\right]_1^n = \\
 
-H_n-1+\frac{8}{n+1}-4-\frac{10}{(n+1)(n+2)} + \frac 5 3$$
+H_n-1+\frac{8}{n+1}-4-\frac{10}{(n+1)(n+2)} + \frac 5 3
+$$
 
 ## Fórmula de Abel
 
@@ -31,12 +53,14 @@ Pretende-se estudar a diferença finita de expressões do tipo $u_n v_n$:
 
 tem-se:
 
-$$\Delta(u_nv_n)=u_{n+1}v_{n+1}-u_nv_n =\\
+$$
+\Delta(u_nv_n)=u_{n+1}v_{n+1}-u_nv_n =\\
 u_{n+1}v_{n+1} + \underline{u_nv_{n+1} -u_nv_{n+1}} - u_nv_n = \\
 v_{n+1}(u_{n+1}-u_n)+u_n(v_{n+1}-v_n) = \\
 v_{n+1}\Delta u_n + u_n\Delta v_n \longrightarrow \\
 \\
-\huge{u_n\Delta v_n = \Delta(u_nv_n) - v_{n+1}\Delta u_n}$$
+\huge{u_n\Delta v_n = \Delta(u_nv_n) - v_{n+1}\Delta u_n}
+$$
 
 Pelo que se pode aplicar facilmente:
 
@@ -48,11 +72,13 @@ $$\sum_{k=0}^{n-1}kH_k = \sum_{k=0}^{n-1}H_k\Delta\frac{k^{\underline{2}}}{2} = 
 
 ## Diferença finita do quociente
 
-$$\Delta \frac{u_n}{v_n} = \frac{u_{n+1}}{v_{n+1}} - \frac{u_n}{v_n} = \\
+$$
+\Delta \frac{u_n}{v_n} = \frac{u_{n+1}}{v_{n+1}} - \frac{u_n}{v_n} = \\
 
 \frac{u_{n+1}v_n+\underline{u_nv_n-u_nv_n} -u_nv_{n+1}}{v_nv_{n+1}} = \\
 
-\huge\frac{(\Delta u_n)v_n -u_n\Delta v_n}{v_nv_{n+1}}$$
+\huge\frac{(\Delta u_n)v_n -u_n\Delta v_n}{v_nv_{n+1}}
+$$
 
 ## Exemplos
 
@@ -72,8 +98,9 @@ $$\sum_{k=0}^{n-1}\frac{k2^k}{(k+2)!} = \quad ?$$
 
 Repara-se:
 
-$$ 
-\Delta\frac{2^k}{(k+1)!} = \frac{2^k(k+1)!-2^k(k+1)(k+1)!}{(k+2)!(k+3)!} =\\\frac{2^k-2^k(k+1)}{(k+2)!} = \frac{2^k(1-k-1)}{(k+2)!}= -\frac{k2^k}{(k+1)(k+2)}$$
+$$
+\Delta\frac{2^k}{(k+1)!} = \frac{2^k(k+1)!-2^k(k+1)(k+1)!}{(k+2)!(k+3)!} =\\\frac{2^k-2^k(k+1)}{(k+2)!} = \frac{2^k(1-k-1)}{(k+2)!}= -\frac{k2^k}{(k+1)(k+2)}
+$$
 
 Outro exemplo:
 
