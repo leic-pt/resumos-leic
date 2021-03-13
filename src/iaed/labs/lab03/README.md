@@ -29,7 +29,18 @@ Em cada linha, após o último número apenas deve existir um `'\n'`.
 :::
 
 ::: details Resolução
-<<< @/src/iaed/labs/lab03/ex01.c
+<code-group>
+<code-block
+title="Diogo Correia">
+<<< @/src/iaed/labs/lab03/ex01_dc.c
+</code-block>
+
+<code-group>
+<code-block
+title="Luís Fonseca">
+<<< @/src/iaed/labs/lab03/ex01_lf.c
+</code-block>
+</code-group>
 :::
 
 ## Exercício 2
@@ -49,7 +60,18 @@ Em cada linha, após o último número apenas deve existir um '\n'.
 ```
 
 ::: details Resolução
-<<< @/src/iaed/labs/lab03/ex02.c
+<code-group>
+<code-block
+title="Diogo Correia">
+<<< @/src/iaed/labs/lab03/ex02_dc.c
+</code-block>
+
+<code-group>
+<code-block
+title="Luís Fonseca">
+<<< @/src/iaed/labs/lab03/ex02_lf.c
+</code-block>
+</code-group>
 :::
 
 ## Exercício 3
@@ -78,7 +100,18 @@ Em cada linha, após o último caracter apenas deve existir um '\n'.
 ```
 
 ::: details Resolução
-<<< @/src/iaed/labs/lab03/ex03.c
+<code-group>
+<code-block
+title="Diogo Correia">
+<<< @/src/iaed/labs/lab03/ex03_dc.c
+</code-block>
+
+<code-group>
+<code-block
+title="Luís Fonseca">
+<<< @/src/iaed/labs/lab03/ex03_lf.c
+</code-block>
+</code-group>
 :::
 
 ## Exercício 4
@@ -96,7 +129,18 @@ A função `int getchar()` pode ser usada para ler um carácter.
 :::
 
 ::: details Resolução
-<<< @/src/iaed/labs/lab03/ex04.c
+<code-group>
+<code-block
+title="Diogo Correia">
+<<< @/src/iaed/labs/lab03/ex04_dc.c
+</code-block>
+
+<code-group>
+<code-block
+title="Luís Fonseca">
+<<< @/src/iaed/labs/lab03/ex04_lf.c
+</code-block>
+</code-group>
 :::
 
 ## Exercício 5
@@ -108,7 +152,18 @@ Utilize o conceito de estado como fizemos no contador de palavras na aula teóri
 :::
 
 ::: details Resolução
-<<< @/src/iaed/labs/lab03/ex05.c
+<code-group>
+<code-block
+title="Diogo Correia">
+<<< @/src/iaed/labs/lab03/ex05_dc.c
+</code-block>
+
+<code-group>
+<code-block
+title="Luís Fonseca">
+<<< @/src/iaed/labs/lab03/ex05_lf.c
+</code-block>
+</code-group>
 :::
 
 ## Exercício 6
@@ -131,7 +186,18 @@ $$
 :::
 
 ::: details Resolução
-<<< @/src/iaed/labs/lab03/ex06.c
+<code-group>
+<code-block
+title="Diogo Correia">
+<<< @/src/iaed/labs/lab03/ex06_dc.c
+</code-block>
+
+<code-group>
+<code-block
+title="Luís Fonseca">
+<<< @/src/iaed/labs/lab03/ex06_lf.c
+</code-block>
+</code-group>
 :::
 
 ## Exercício 7
@@ -149,5 +215,16 @@ Deverá começar por converter uma sequência de algarismos (carácteres) para u
 :::
 
 ::: details Resolução
-<<< @/src/iaed/labs/lab03/ex07.c
+<code-group>
+<code-block
+title="Diogo Correia">
+<<< @/src/iaed/labs/lab03/ex07_dc.c
+</code-block>
+
+<code-group>
+<code-block
+title="Luís Fonseca">
+<<< @/src/iaed/labs/lab03/ex07_lf.c
+</code-block>
+</code-group>
 :::
