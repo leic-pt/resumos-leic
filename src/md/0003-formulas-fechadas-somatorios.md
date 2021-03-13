@@ -1,11 +1,11 @@
 ---
 description: >-
-  Números de Stirling; Primeira e segunda espécie.
+  Números de Stirling; Primeira e Segunda Espécie.
   Aplicações no cálculo da soma fechada de polinómios.
   Método de Horner (Ruffini).
-  Derivada de uma sucessão aritmética;
-  Soma da sucessão aritmética como polinómio fatorial;
-  Polinómios fatoriais negativos;
+  Derivada de uma Sucessão Aritmética;
+  Soma da Sucessão Aritmética como Polinómio Fatorial;
+  Polinómios Fatoriais Negativos;
 ---
 
 # Fórmulas Fechadas de Somatórios
@@ -212,7 +212,7 @@ $$
 
 Assim, é fácil encontrar a expressão para a soma de qualquer polinomial.
 
-## Derivada de uma sucessão aritmética na forma de polinómio fatorial
+## Derivada de uma Sucessão Aritmética na Forma de Polinómio Fatorial
 
 Tal como já foi [visto anteriormente](./0002-introducao-calculo-finito.md#derivada-do-polinomio-fatorial), sabemos que:
 
@@ -272,7 +272,7 @@ Como $n = 10$, a resposta é $40 755\ km$.
 
 :::
 
-## Polinomial fatorial com expoente negativo
+## Polinomial Fatorial com Expoente Negativo
 
 ::: tip DEFINIÇÃO
 
@@ -298,7 +298,7 @@ $$\frac{1}{(2n+1)(2n+3)(2n+5)} = \frac{1}{(2(n+1)-1)(2(n+2)-1)(2(n+3)-1)} = (2n-
 
 :::
 
-## Somas fechadas do tipo aⁿ para n negativo
+## Somas Fechadas do tipo aⁿ para n Negativo
 
 A [fórmula anteriormente conhecida](./0002-introducao-calculo-finito.md#somas-fechadas-do-tipo-an) para polinómios elevados a fatoriais positivos pode-se prolongar, funcionando da mesma maneira para os de expoente negativo, ou seja:
 
@@ -325,7 +325,7 @@ $$
 
 :::
 
-## Derivada do polinómio fatorial de expoente negativo
+## Derivada do Polinómio Fatorial de Expoente Negativo
 
 ::: tip DEFINIÇÃO
 
