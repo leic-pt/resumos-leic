@@ -53,17 +53,23 @@ $$
 
 No contexto deste problema, $f$ e $a$ são constantes e $h$ é variável.
 
-Tenão, temos a função $L_a(h)=f'(a)h$, que é uma transformação linear $L_a: \R\to \R$.
+Então, temos a função $Df(a)\ (h)=f'(a)h$, que é uma transformação linear $Df(a): \R\to \R$.
 
-Então, chegamos à definição em $dim > 1$:
+Assim, chegamos à definição em $dim > 1$:
 
 ::: tip DEFINIÇÃO
 
-Seja $f: D \subseteq \R^n \to \R^m$ é diferencial em $a\in D$ se existir uma transformação linear $L_a: \R^n \to \R^n$
+Seja $f: D \subseteq \R^n \to \R^m$ é diferencial em $a\in D$ se existir uma transformação linear $Df(a): \R^n \to \R^n$
 (chamada transformação linear derivada de $f$ em $a$), tal que
 
 $$
-f(a+h)-f(a)=L_a(h)+o(h), \quad \text{quando}\quad h \to 0
+f(a+h)-f(a)=Df(a)\ (h)+o(h), \quad \text{quando}\quad h \to 0
+$$
+
+Também podemos reescrever esta definição como
+
+$$
+\lim_{h\to \vec 0} \frac{f(a+h)-f(a)-Df(a)(h)}{||h||}=\vec 0
 $$
 
 :::
@@ -140,7 +146,7 @@ Relembrando da Álgebra Linear:
    \end{pmatrix}}_{o( h)}
    $$
 
-   Portanto como $a \in \R^n$ é genérico, então $f$ é diferenciável e a derivada em $a$ é $L_a = \vec 0$
+   Portanto como $a \in \R^n$ é genérico, então $f$ é diferenciável e a derivada em $a$ é $Df(a) = \vec 0$
 
 2. **Função identidade**
 
@@ -269,10 +275,21 @@ $$
 
 ## Propriedades de uma função diferenciável
 
-Se $f$ é diferenciável em $a$, isto é, se existe transformação linear $L_a: \R^n\to \R^m$ tal que $f(a+h)-f(a)=L_a(h)+o(h)$, então:
+Se $f$ é diferenciável em $a$, isto é, se existe transformação linear $Df(a): \R^n\to \R^m$ tal que $f(a+h)-f(a)=Df(a)\ (h)+o(h)$, então:
 
-1. $f$ é contínua em $a$
-2. Para todo o $v \in \R^n\backslash \{\vec 0 \}$ existe $\frac{\partial f}{\partial v}( a)$.
+- $f$ é contínua em $a$
+- Para todo o $v \in \R^n\backslash \{\vec 0 \}$ existe $\displaystyle \frac{\partial f}{\partial v}( a) = Df(a)\ (v)$
+  (transformação linear derivada de $f$ em $a$ calculada em $v$).
+
+Sejam $f, g: D \subseteq \R^n \to \R^m$, $\lambda \in \R, a \in D, h \in \R^n$,
+em que $f$ e $g$ são diferenciáveis em $a$.
+
+Então,
+
+- $f+g$ é diferenciável em $a$
+- $\lambda f$ é diferenciável em $a$
+- $fg$ é diferenciável em $a$, sendo $D( fg)( a) =g( a) Df( a) +f( a) Df( a)$
+- $\frac fg$ é diferenciável em $a$ se $g(a)\ne 0$, sendo $D\left(\frac{f}{g}\right)( a) =\frac{g( a) Df( a) -f( a) Dg( a)}{g( a)^{2}}$
 
 ## Matriz Jacobiana
 
@@ -289,3 +306,129 @@ J^{f}_{a} =\begin{bmatrix}
 \frac{\partial f_{m}}{\partial x_{1}}( a) & \frac{\partial f_{m}}{\partial x_{2}}( a) & \dotsc  & \frac{\partial f_{m}}{\partial x_{n}}( a)
 \end{bmatrix}
 $$
+
+::: details Exemplos de matrizes jacobianas
+
+$$
+f:\R \to \R\quad, \quad f(x)=xe^x
+$$
+
+$$
+\frac{df}{dx}=1e^x+x\cdot e^x=(1+x)e^x
+$$
+
+$$
+J^f_x=\begin{bmatrix}(1+x) e^x\end{bmatrix}
+$$
+
+---
+
+$$
+f: \R^2\to \R\quad,\quad f(x,y)=x^2y
+$$
+
+$$
+\frac{\partial f}{\partial x}(x,y)=2xy\\
+\frac{\partial f}{\partial y}(x,y)=x^2\cdot 1 = x^2
+$$
+
+$$
+J^f_{(x,y)}=\begin{bmatrix}2xy& x^2\end{bmatrix}
+$$
+
+---
+
+$$
+f: \R\to \R^2\quad,\quad f(x)=(\cos x, \sin x)
+$$
+
+$$
+J^f_x=\begin{bmatrix} -\sin x \\ \cos x \end{bmatrix}
+$$
+
+---
+
+$$
+f: \R^2\to \R^2\quad,\quad f(x,y)=(\overbrace{x^2-y^2}^{f1}, \overbrace{x^2+y^2}^{f2})
+$$
+
+$$
+J^f_{(x,y)}=\begin{bmatrix}2x & -2y\\ 2x & 2y\end{bmatrix}
+$$
+
+:::
+
+### Gradiente de uma função
+
+Seja $f: D \subseteq \R^n \to \R$ isto é, seja $f$ uma função escalar.
+Se $f$ é diferenciável em $a$ então a matriz jacobiana de $f$ em $a$ é uma matriz linha que se chama **gradiente de $f$ em $a$**.
+
+$$
+\nabla f( a) =\left(\frac{\partial f}{\partial x_{1}}( a) ,\frac{\partial f}{\partial x_{2}}( a) ,\dotsc ,\frac{\partial f}{\partial x_{n}}( a)\right)
+$$
+
+::: details Exemplos de diferenciabilidade
+
+Seja $f: \R^2 \to \R$ com $f(x,y) = x^2y$
+
+1. **Mostre que $f$ é diferenciável em $(1,1)$**
+
+$f$ é diferenciável em $(1,1)$ se por definição:
+
+$$
+\lim_{(h,k)\to (0,0)}\frac{f((1,1)+(h,k))-f(1,1)-Df(1,1)(h,k)}{||(h,k)||}=0
+$$
+
+$$
+J^{f}_{(1,1)} =\begin{pmatrix}
+\frac{\partial f}{\partial x}( 1,1) & \frac{\partial f}{\partial x}( 1,1)
+\end{pmatrix} =\begin{pmatrix}
+2xy\Bigl|_{( 1,1)} & x^{2}\Bigl|_{( 1,1)}
+\end{pmatrix} =\begin{pmatrix}
+2 & 1
+\end{pmatrix}
+$$
+
+$$
+\begin{darray}{ l }
+\lim\limits _{( h,k)\rightarrow ( 0,0)}\frac{f( 1+h,1+k) -f( 1,1) -\begin{pmatrix}
+2 & 1
+\end{pmatrix}\begin{pmatrix}
+h\\
+k
+\end{pmatrix}}{\sqrt{h^{2} +k^{2}}} =\\
+=\lim\limits _{( h,k)\rightarrow ( 0,0)}\frac{( 1+h)^{2}( 1+k) -1^{2} \cdot 1-( 2h+k)}{\sqrt{h^{2} +k^{2}}}\\
+=\lim\limits _{( h,k)\rightarrow ( 0,0)}\frac{1+2h+h^{2} +k+2kh+kh^{2} -1-2h-k}{\sqrt{h^{2} +k^{2}}}\\
+=\lim\limits _{( h,k)\rightarrow ( 0,0)}\frac{h^{2} +2kh+kh^{2}}{\sqrt{h^{2} +k^{2}}}\\
+=\lim\limits _{( h,k)\rightarrow ( 0,0)} h\frac{h+2k+kh}{\ \sqrt{h^{2} +k^{2}}}\\
+=\lim\limits _{( h,k)\rightarrow ( 0,0)}( h+2k+kh)\frac{h}{\sqrt{h^{2} +k^{2}}}\\
+=0
+\end{darray}
+$$
+
+$$
+\text{c.a.}\\
+\left| \frac{h}{\sqrt{h^{2} +k^{2}}}\right| =\frac{|h|}{\sqrt{h^{2} +k^{2}}} =\frac{\sqrt{h^{2}}}{\sqrt{h^{2} +k^{2}}} \leqslant \frac{\sqrt{h^{2} +k^{2}}}{h^{2} +k^{2}} =1
+$$
+
+Logo, $f$ é diferenciável em $a$.
+
+2. **Calcule $\frac{\partial f}{\partial v}(1,1)$ para $v=(1,2)$**
+
+$$
+\frac{\partial f}{\partial v}( 1,1) =J^{f}_{a}\begin{pmatrix}
+1\\
+2
+\end{pmatrix} =\begin{pmatrix}
+2 & 1
+\end{pmatrix}\begin{pmatrix}
+1\\
+2
+\end{pmatrix} =\begin{pmatrix}
+2\cdot 1+1\cdot 2
+\end{pmatrix} =\begin{pmatrix}
+4
+\end{pmatrix}
+$$
+
+:::
