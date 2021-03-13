@@ -35,7 +35,6 @@ title="Diogo Correia">
 <<< @/src/iaed/labs/lab03/ex01_dc.c
 </code-block>
 
-<code-group>
 <code-block
 title="Luís Fonseca">
 <<< @/src/iaed/labs/lab03/ex01_lf.c
@@ -66,7 +65,6 @@ title="Diogo Correia">
 <<< @/src/iaed/labs/lab03/ex02_dc.c
 </code-block>
 
-<code-group>
 <code-block
 title="Luís Fonseca">
 <<< @/src/iaed/labs/lab03/ex02_lf.c
@@ -106,7 +104,6 @@ title="Diogo Correia">
 <<< @/src/iaed/labs/lab03/ex03_dc.c
 </code-block>
 
-<code-group>
 <code-block
 title="Luís Fonseca">
 <<< @/src/iaed/labs/lab03/ex03_lf.c
@@ -135,7 +132,6 @@ title="Diogo Correia">
 <<< @/src/iaed/labs/lab03/ex04_dc.c
 </code-block>
 
-<code-group>
 <code-block
 title="Luís Fonseca">
 <<< @/src/iaed/labs/lab03/ex04_lf.c
@@ -158,7 +154,6 @@ title="Diogo Correia">
 <<< @/src/iaed/labs/lab03/ex05_dc.c
 </code-block>
 
-<code-group>
 <code-block
 title="Luís Fonseca">
 <<< @/src/iaed/labs/lab03/ex05_lf.c
@@ -192,7 +187,6 @@ title="Diogo Correia">
 <<< @/src/iaed/labs/lab03/ex06_dc.c
 </code-block>
 
-<code-group>
 <code-block
 title="Luís Fonseca">
 <<< @/src/iaed/labs/lab03/ex06_lf.c
@@ -221,7 +215,6 @@ title="Diogo Correia">
 <<< @/src/iaed/labs/lab03/ex07_dc.c
 </code-block>
 
-<code-group>
 <code-block
 title="Luís Fonseca">
 <<< @/src/iaed/labs/lab03/ex07_lf.c
