@@ -8,6 +8,7 @@ int main()
     in = 0;
 
     while ((c = getchar()) != EOF) {
+
         if (!in && c >= '0' && c <= '9')
             in = 1;
 
