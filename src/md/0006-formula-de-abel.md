@@ -1,7 +1,7 @@
 ---
-description: Método das pontas. Fórmula de Abel e fórmula do quociente. Exemplos.
+description: Método das Pontas. Fórmula de Abel e Fórmula do Quociente. Exemplos.
 ---
-# Fórmula de Abel e do quociente
+# Fórmula de Abel e do Quociente
 [[toc]]
 Exemplo:
 
@@ -33,7 +33,7 @@ $$
 
 O Vermelho é o Resto da Divisão.
 
-$$\longrightarrow 1\cdot(k+3)(k+2)-8(k+3)+20$$
+$$\longrightarrow 1\cdot(k+3)(k+2)\textcolor{#C8553D}{-8}(k+3)\textcolor{#C8553D}{+20}$$
 
 e o somatório original vem como:
 
@@ -64,7 +64,7 @@ Exemplo:
 
 $$\sum_{k=0}^{n-1}kH_k = \sum_{k=0}^{n-1}H_k\Delta\frac{k^{\underline{2}}}{2} = \left[\frac{k^{\underline{2}}}{2}H_k\right]_0^n - \sum_{k=0}^{n-1}\left(\frac{k(k+1)}2\cdot\frac{1}{k+1}\right)$$
 
-## Diferença finita do quociente
+## Diferença Finita do Quociente
 
 $$\Delta \frac{u_n}{v_n} = \frac{u_{n+1}}{v_{n+1}} - \frac{u_n}{v_n} = \\
 
