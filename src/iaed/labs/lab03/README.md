@@ -105,7 +105,7 @@ title="Diogo Correia">
 </code-block>
 
 <code-block
-title="Luís Fonseca" active>
+title="Luís Fonseca">
 <<< @/src/iaed/labs/lab03/ex03_lf.c
 </code-block>
 </code-group>
