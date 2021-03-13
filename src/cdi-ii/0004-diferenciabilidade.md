@@ -291,6 +291,10 @@ Então,
 - $fg$ é diferenciável em $a$, sendo $D( fg)( a) =g( a) Df( a) +f( a) Df( a)$
 - $\frac fg$ é diferenciável em $a$ se $g(a)\ne 0$, sendo $D\left(\frac{f}{g}\right)( a) =\frac{g( a) Df( a) -f( a) Dg( a)}{g( a)^{2}}$
 
+Seja $f: D \subset \R^n \to \R^m$ e $D$ conjunto aberto
+
+- Se $f$ é $C^1$ em $D$ então $f$ é diferenciável em $D$.
+
 ## Matriz Jacobiana
 
 Se a função $f$ é diferenciável em $a$ então a transformação linear derivada é única.  
@@ -431,4 +435,206 @@ $$
 \end{pmatrix}
 $$
 
+---
+
+Seja $f: \R^n \to \R^m$, $f(x)=Ax$, uma transformação linear com $A$ a matriz que a representa, fixadas as bases canónicas.
+
+Seja $a\in\R^n, h \in \R^n$,
+
+$$
+f(a+h)-f(a)=A(a+h)-Aa=Aa+Ah-Aa=Ah+\vec 0
+$$
+
+$Ah$ é a transformação linear calculada em $h$  
+$\vec 0$ é o $o(h), h\to \vec 0$
+
+Portanto $f$ é diferenciável em qualquer $a\in\R^n$ e $Df(a)=A$ ($A$ é uma matriz)
+
+---
+
+Sendo, $f:\R^3 \to \R\quad, \quad f(x,y,z)=xyz\quad,\quad v=(-1,0,1)$
+
+Calcular $\frac{\partial f}{\partial v}(2,1,1)$:
+
+1. **Pela definição**
+
+$$
+\begin{aligned}
+\frac{\partial f}{\partial v}(2,1,1) &= \lim_{t\to 0}\frac{f((2,1,1)+tv)-f(2,1,1)}{t}\\
+&= \lim_{t\to 0}\frac{f((2,1,1)+t(-1,0,1))-f(2,1,1)}{t}\\
+&= \lim_{t\to 0}\frac{f(2-t,1,1+t)-f(2,1,1)}{t}=\\
+&=\lim_{t \to 0}\frac{(2-t)\cdot 1 \cdot (1+t) - 2\cdot 1 \cdot 1}{t}=\\
+&= \lim_{t \to 0}\frac{2+2t-t-t^2-2}{t}=\\
+&=\lim_{t \to 0}\frac{t(1-t)}{t}\\
+&=\lim_{t\to 0}(1-t)\\
+&=1
+\end{aligned}
+$$
+
+ou seja $\frac{\partial f}{\partial v}(2,1,1) = 1$
+
+2. **Através da Matriz Jacobiana**
+
+$f(x,y,z) = xyz = p_1(x,y,z) \cdot p_2(x,y,z)\cdot p_3(x,y,z)$
+
+Como $p_i$'s são diferenciáveis e produto de funções diferenciáveis é diferenciável,
+então $f$ é diferenciável em qualquer ponto e existe a transformação linear derivada em qualquer ponto do domínio de $f$.
+
+$$
+\begin{aligned}
+J^{f}_{(2,1,1)} & =\begin{bmatrix}
+\frac{\partial f}{\partial x} (2,1,1) & \frac{\partial f}{\partial y} (2,1,1) & \frac{\partial f}{\partial z} (2,1,1)
+\end{bmatrix}\\
+ & =\begin{bmatrix}
+\frac{\mathrm{d} (xyz)}{\ \mathrm{d} x}\Bigl|_{(2,1,1)} & \frac{\mathrm{d} (xyz)}{\mathrm{d} y}\Bigl|_{(2,1,1)} & \frac{\mathrm{d} (xyz)}{\mathrm{d} z}\Bigl|_{(2,1,1)}
+\end{bmatrix}\\
+ & =\begin{bmatrix}
+yz\frac{\mathrm{d} x}{\mathrm{d} x}\Bigl|_{(2,1,1)} & xz\frac{\mathrm{d} y}{\mathrm{d} y}\Bigl|_{(2,1,1)} & xy\frac{\mathrm{d} z}{\mathrm{d} z}\Bigl|_{(2,1,1)}
+\end{bmatrix}\\
+ & =\begin{bmatrix}
+yz\cdot 1\Bigl|_{(2,1,1)} & xz\cdot 1\Bigl|_{(2,1,1)} & xy\cdot 1\Bigl|_{(2,1,1)}
+\end{bmatrix}\\
+ & =\begin{bmatrix}
+1 & 2 & 2
+\end{bmatrix}
+\end{aligned}
+$$
+
+Como $f$ é diferenciável, em particular em (2,1,1) tem-se
+
+$$
+\frac{\partial t}{\partial v}( 2,1,1) =J^{f}_{( 2,1,1)} v=\begin{bmatrix}
+1 & 2 & 2
+\end{bmatrix}\begin{bmatrix}
+-1\\
+0\\
+1
+\end{bmatrix} =\\
+=1\cdot ( -1) +2\cdot 0+1\cdot 2=-1+2=1
+$$
+
+---
+
+$$
+f( x,y) =\begin{cases}
+\frac{x^{2} y}{x^{2} +y^{2}} \  & \text{se } (x,y) \neq 0\\
+0 & \text{se }( x,y) =0
+\end{cases}
+$$
+
+1. **Será que f é diferenciável em $(0,0)$?**
+
+Para $f$ ser diferenciável em $(0,0)$, o seguinte tem de ser verdade.
+
+$$
+\frac{f((a_1, a_2) + (h_1,h_2))-f(a_1,a_2)-Df(a_1,a_2)(h_1,h_2)}{||(h_1,h_2)||} \underset{(h_1,h_2)\to (0,0)}{\longrightarrow} 0
+$$
+
+**_Se_** existir $Df(0,0)$ a jacobiana é $J^{f}_{(0,0)} =\begin{bmatrix}\frac{\partial f}{\partial x} (0,0) & \frac{\partial f}{\partial y} (0,0)\end{bmatrix}$
+
+$$
+\begin{aligned}
+\frac{\partial f}{\partial x}( 0,0) & =\frac{\partial f}{\partial \overrightarrow{e_{1}}}( 0,0)\\
+ & =\lim _{t\rightarrow 0}\frac{f(( 0,0) +t( 1,0)) -f( 0,0)}{t}\\
+ & =\lim _{t\rightarrow 0}\frac{f( t,0) -0}{t}\\
+ & =\lim _{t\rightarrow 0}\frac{\frac{t^{2} \cdot 0}{t^{2} +0^{2}}}{t}\\
+ & =\lim _{t\rightarrow 0}\frac{0}{t^{3}}\\
+ & =0
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\frac{\partial f}{\partial y}( 0,0) & =\frac{\partial f}{\partial \overrightarrow{e_{2}}}( 0,0)\\
+ & =\lim _{t\rightarrow 0}\frac{f(( 0,0) +t( 0,1)) -f( 0,0)}{t}\\
+ & =\lim _{t\rightarrow 0}\frac{f( 0,t) -0}{t}\\
+ & =\lim _{t\rightarrow 0}\frac{\frac{0\cdot t}{0^{2} +t^{2}}}{t}\\
+ & =\lim _{t\rightarrow 0}\frac{0}{t^{2}}\\
+ & =0
+\end{aligned}
+$$
+
+Portanto **_se_** $f$ for diferenciável em $(0,0)$ a $Df(0,0)$ é representada pela jacobiana $J^{f}_{(0,0)} =\begin{bmatrix}0 & 0\end{bmatrix}$
+
+$$
+\begin{array}{ c }
+\frac{f(( 0,0) +( h_{1} ,h_{2})) -f( 0,0) -Df( 0,0)( h_{1} ,h_{2})}{||( h_{1} ,h_{2}) ||} =\\
+=\frac{f( h_{1} ,h_{2}) -0-\begin{pmatrix}
+0 & 0
+\end{pmatrix}\begin{pmatrix}
+h_{1}\\
+h_{2}
+\end{pmatrix}}{\sqrt{h^{2}_{1} +h^{2}_{2}}} =\\
+=\frac{\frac{h^{2}_{1} \cdot h_{2}}{h^{2}_{1} +h^{2}_{2}} -0h_{1} -0h_{2}}{\sqrt{h^{2}_{1} +h^{2}_{2}}} =\\
+=\frac{h^{2}_{1} \cdot h_{2}}{\left( h^{2}_{1} +h^{2}_{2}\right)^{\frac{3}{2}}}
+\end{array}
+$$
+
+Não conseguimos determinar o limite, mas podemos tentar provar que não existe através dos limites direcionais $h_2=mh_1$.
+
+$$
+\begin{aligned}
+\lim _{( h_{1} ,h_{2})\rightarrow ( 0,0)}\frac{h^{2}_{1} \cdot h_{2}}{\left( h^{2}_{1} +h^{2}_{2}\right)^{\frac{3}{2}}} & =\lim _{h_{1}\rightarrow 0}\frac{h^{2}_{1} \cdot mh_{1}}{\left( h^{2}_{1} +( mh_{1})^{2}\right)^{\frac{3}{2}}}\\
+ & =\lim _{h_{1}\rightarrow 0}\frac{mh^{3}_{1}}{h^{3}_{1}\left( 1+m^{2}\right)^{\frac{3}{2}}}\\
+ & =\lim _{h_{1}\rightarrow 0}\frac{m}{( 1+m)^{\frac{3}{2}}}\\
+ & =\frac{m}{( 1+m)^{\frac{3}{2}}}
+\end{aligned}
+$$
+
+Logo, como o limite depende de $m$, este não existe.
+
+Como tal, a função **não é diferenciável em $(0,0)$**.
+No entanto, existem as derivadas parciais de $f$ em $(0,0)$.
+
+2. **Qual o valor de $\frac{\partial f}{\partial v}(0,0)\quad, \quad v=(1,1)$?**
+
+Como a função não é diferenciável em $(0,0)$, não se pode usar $\frac{\partial f}{\partial v}(0,0) = Df(0,0) v$.  
+Tem-se então, de efetuar o cálculo pelo limite.
+
+$$
+\begin{aligned}
+\frac{\partial f}{\partial v}(0,0) &= \lim_{t\to 0}\frac{f((0,0) + t(1,1))- f(0,0)}{t}\\
+& =\lim_{t\to 0}\frac{f(t,t)}-0{t}\\
+& =\lim_{t\to 0} \frac{\frac{t^2\cdot t}{t^2+t^2}}{t}\\
+& =\lim_{t\to 0} \frac{t^3}{t(2t^2)}\\
+& =\lim_{t\to 0} \frac{t^3}{2t^3}\\
+& =\lim_{t \to 0} \frac{1}{2} \\
+& = \frac{1}{2}
+\end{aligned}
+$$
+
+---
+
+$$
+f: \R^2\to \R \quad,\quad f(x,y,) = ||(x,y)|| = \sqrt{x^2+y^2}
+$$
+
+Pretende-se mostrar que $f$ não é diferenciável na origem ($(0,0)$),
+ou seja, mostrar que o seguinte limite não existe ou que é diferente de zero.
+
+$$
+\lim_{(h_1,h_2)\to(0,0)} \frac{f((0,0) + (h_1,h_2)) - f(0,0) - Df(0,0) (h_1,h_2)}{||(h_1,h_2)||}
+$$
+
+Se $Df(0,0)$ existisse:
+
+$$
+\begin{aligned}
+\frac{\partial f}{\partial x}(0,0) &= \lim_{t\to 0} \frac{f((0,0) + t(1,0)) - f(0,0)}{t} = \\
+&=\lim_{t \to 0}\frac{f(t,0)-0}{t}=\\
+&=\lim_{t\to 0}\frac{\sqrt{t^2+0^2}}{t}=\\
+&=\lim_{t\to 0}\frac{|t|}{t} \text{(não existe)}
+\end{aligned}
+$$
+
+Como não existe $\frac{\partial f}{\partial x}(0,0)$, então $f$ não é diferenciável em $(0,0)$.
+
 :::
+
+---
+
+Slides:
+
+- [Aula 6](https://drive.google.com/file/d/1uCR_XH7dnV2ULSq4weQniyFr0Go-5hs2/view?usp=sharing)
+- [Aula 7](https://drive.google.com/file/d/1f3i-FP2ssWCZitagmDlN2PRbJ5uYDae5/view?usp=sharing)
+- [Aula 8](https://drive.google.com/file/d/1aL-gttKhP6wsMDy_ECIm7k6ecgPIirs8/view?usp=sharing)
