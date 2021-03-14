@@ -77,7 +77,7 @@ $$
 Relembrando da Álgebra Linear:
 
 1. Uma transformação linear $T:\R^n \to \R^m$ é univocamente representada
-   por uma matriz (m\times n) uma vez que se fixem bases em $\R^n$ e $\R^m$.
+   por uma matriz ($m\times n$) uma vez que se fixem bases em $\R^n$ e $\R^m$.
 
 2. Quais são as bases preferidas?
 
