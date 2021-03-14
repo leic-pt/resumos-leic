@@ -66,7 +66,7 @@ onde _tem fronteira terrestre com_ é a tal **expressão designatória**.
 
 - $f^{n}_{i}$, para $n \geq 0, i \geq 1$ - funções de aridade $n$. Funções com aridade 0 ($n = 0$) são constantes. A i-gésima função diz-se com _n argumentos_. Começam com letra minúscula.
 
-- $P^{n}_{i}$, para $n \geq 0, i \geq 1$ - letras de predicado com aridade $n$. Uma letra de predicado com $n$ argumentos representa uma relação _n_ária_ (por exemplo, a relação de fronteira entre 2 países é uma relação binária). Começam com letra maiúscula.
+- $P^{n}_{i}$, para $n \geq 0, i \geq 1$ - letras de predicado com aridade $n$. Uma letra de predicado com $n$ argumentos representa uma relação *n*ária (por exemplo, a relação de fronteira entre 2 países é uma relação binária). Começam com letra maiúscula.
 
 - Variáveis individuais, $x_{i}$, como as usuais $x, y, z$.
 

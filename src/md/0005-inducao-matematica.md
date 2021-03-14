@@ -107,7 +107,7 @@ Quer se provar que **todo o número natural é a soma de números de Fibonacci n
 
 Base da indução (n = 0)
 
-$$0 \text{ é um número de Fibonacci.}$$
+$$0~\text{é um número de Fibonacci.}$$
 
 Hipótese de Indução: $\text{Todo o número natural é a soma de números de Fibonacci não consecutivos.}$
 

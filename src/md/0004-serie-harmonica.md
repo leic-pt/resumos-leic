@@ -115,7 +115,7 @@ Gráfico de $\frac{1}{x}$:
 
 <img src="./imgs/0004-integral.png" alt="Integral com 1/x" class="invert-dark">
 
-Sendo $H_k = \sum_{k=1}^{n}\frac{1}{k}$, tem-se:
+Sendo $H_n = \sum_{k=1}^{n}\frac{1}{k}$, tem-se:
 
 $$H_n - 1 <ln(n) <H_n$$
 
