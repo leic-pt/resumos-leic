@@ -35,7 +35,7 @@ $$
 
 O sinal dos números de Stirling **de primeira espécie** depende da paridade de $n+k$, ou seja, sendo $s(n,k)$ um número de Stirling, tem-se:
 
-$$s(n,k) = (-1)^{n+k}\begin{bmatrix}n \\ k \end{bmatrix}$$
+$$s(n,k) = (-1)^{n+k}\left|\begin{bmatrix}n \\ k \end{bmatrix}\right|$$
 
 :::
 
