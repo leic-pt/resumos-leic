@@ -24,7 +24,7 @@ $$
 n^{\underline{r}} = \sum_{k=0}^{n} \begin{bmatrix}
 n \\
 k
-\end{bmatrix}x^k
+\end{bmatrix}n^k
 $$
 
 :::
@@ -35,7 +35,7 @@ $$
 
 O sinal dos números de Stirling **de primeira espécie** depende da paridade de $n+k$, ou seja, sendo $s(n,k)$ um número de Stirling, tem-se:
 
-$$s(n,k) = (-1)^{n+k}\begin{bmatrix}n \\ k \end{bmatrix}$$
+$$s(n,k) = (-1)^{n+k}\left|\begin{bmatrix}n \\ k \end{bmatrix}\right|$$
 
 :::
 
@@ -140,7 +140,7 @@ o que facilita imenso a avaliação da soma de $n^{3}$.
 
 ::: tip DEFINIÇÃO
 
-$$\sum_{k=0}^{m}n^{p} = \sum_{k=0}^{m}\left( \sum_{k=0}^{m} \begin{Bmatrix}m\\k\end{Bmatrix}n^{\underline{k}}\right) $$
+$$\sum_{k=0}^{m}n^{p} = \sum_{k=0}^{m}\left( \sum_{k=0}^{p} \begin{Bmatrix}p\\k\end{Bmatrix}n^{\underline{k}}\right) $$
 
 onde $\begin{Bmatrix}m\\k\end{Bmatrix}$ é o número de Stirling de segunda espécie.
 
@@ -224,7 +224,7 @@ Trocando isto agora por uma sucessão aritmética, isto é, $u_n = an+b$, ficamo
 
 $$
 \begin{aligned}
-\Delta {an+b}^{\underline r} &= u_n^{\underline{r-1}}\left(a(n+1)+b-(a(n-r+1)+b)\right)\\
+\Delta (an+b)^{\underline r} &= u_n^{\underline{r-1}}\left(a(n+1)+b-(a(n-r+1)+b)\right)\\
 &= a\cdot r\cdot u_n^{\underline{r-1}}
 \end{aligned}
 $$
