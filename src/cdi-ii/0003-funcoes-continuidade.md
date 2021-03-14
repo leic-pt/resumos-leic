@@ -179,7 +179,7 @@ Vejamos um exemplo, ainda em $\R$.
 
 Seja $\displaystyle f(x) = \frac{\sin x}{x}, \forall x \in \R \backslash \{0\} = D$.
 Como existe $\displaystyle \lim_{x \to 0} \frac{\sin x}x = 1$,
-podemos definir o **prolongamento por continuidade de $f$ a $0 \in \overline D**.
+podemos definir o **prolongamento por continuidade de $f$ a $0 \in \overline D**$.
 
 $$
 \tilde{f}( x) =\begin{cases}
