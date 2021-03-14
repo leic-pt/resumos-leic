@@ -228,7 +228,7 @@ Para aumentar a eficiência da geração de provas por resolução, foram desenv
 
 - **Estratégias de Seleção de cláusulas**
 
-  Corresponde a um processo de controlar as cláusulas geradas numa prova por resolução, impondo restrições às cláusulas que podem ser candidatas às cláusulas que podem ser candidatas à aplicação do princípio da resolução. Aqui, consideramos as resoluções _unitária_ e _linear_.
+  Corresponde a um processo de controlar as cláusulas geradas numa prova por resolução, impondo restrições às cláusulas que podem ser candidatas à aplicação do princípio da resolução. Aqui, consideramos as resoluções _unitária_ e _linear_.
 
   ::: tip RESOLUÇÃO UNITÁRIA
 
