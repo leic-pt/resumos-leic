@@ -21,8 +21,8 @@ description: >-
 Sabe-se que $n^{\underline{r}} = n(n-1)(n-2)\cdot\cdot\cdot(n-r+1)$. Tem-se então que:
 
 $$
-n^{\underline{r}} = \sum_{k=0}^{n} \begin{bmatrix}
-n \\
+n^{\underline{r}} = \sum_{k=0}^{r} \begin{bmatrix}
+r \\
 k
 \end{bmatrix}n^k
 $$
