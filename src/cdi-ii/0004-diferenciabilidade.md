@@ -412,7 +412,7 @@ $$
 
 $$
 \text{c.a.}\\
-\left| \frac{h}{\sqrt{h^{2} +k^{2}}}\right| =\frac{|h|}{\sqrt{h^{2} +k^{2}}} =\frac{\sqrt{h^{2}}}{\sqrt{h^{2} +k^{2}}} \leqslant \frac{\sqrt{h^{2} +k^{2}}}{h^{2} +k^{2}} =1
+\left| \frac{h}{\sqrt{h^{2} +k^{2}}}\right| =\frac{|h|}{\sqrt{h^{2} +k^{2}}} =\frac{\sqrt{h^{2}}}{\sqrt{h^{2} +k^{2}}} \leqslant \frac{\sqrt{h^{2} +k^{2}}}{\sqrt{h^{2} +k^{2}}} =1
 $$
 
 Logo, $f$ é diferenciável em $a$.
