@@ -68,6 +68,11 @@ module.exports = {
             '0003-logica-proposicional-sc',
           ],
         },
+        {
+          title: '✏️ Exercícios',
+          collapsable: false,
+          children: ['exercicios/fichas-aulas-praticas'],
+        },
       ],
       '/cdi-ii/': [
         '',
