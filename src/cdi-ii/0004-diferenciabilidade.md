@@ -59,7 +59,7 @@ Assim, chegamos à definição em $dim > 1$:
 
 ::: tip DEFINIÇÃO
 
-Seja $f: D \subseteq \R^n \to \R^m$ é diferencial em $a\in D$ se existir uma transformação linear $Df(a): \R^n \to \R^n$
+Seja $f: D \subseteq \R^n \to \R^m$ é diferencial em $a\in D$ se existir uma transformação linear $Df(a): \R^n \to \R^m$
 (chamada transformação linear derivada de $f$ em $a$), tal que
 
 $$
@@ -248,7 +248,7 @@ Observações:
 
 2. Se $v=\overrightarrow{e_{i}} =\begin{pmatrix}0\\\vdots \\1\\\vdots \\0\end{pmatrix}$
    então $\displaystyle \frac{\partial f}{\partial v}( a) =\frac{\partial f}{\partial x_{i}}( a)$,
-   a que se chama **derivada parcial em ordem a $x_1$ em $a$**.
+   a que se chama **derivada parcial em ordem a $x_i$ em $a$**.
 
 ::: details Exemplos
 

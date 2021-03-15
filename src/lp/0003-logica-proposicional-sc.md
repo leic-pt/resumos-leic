@@ -96,7 +96,7 @@ As _fbfs_ podem, contudo, não nos ser apresentadas inicialmente nesta forma de 
 
   ::: details Exemplo - Obter a forma conjuntiva normal
 
-  Partindo de ($\neg$P $\vee$ $\neg$Q) $\wedge$ ($\neg$P $\vee$ ((R $\wedge$ S) $\vee$ P)):
+  Partindo de ($\neg$P $\vee$ $\neg$Q) $\wedge$ ($\neg$P $\vee$ ((R $\wedge$ S) $\wedge$ P)):
 
   ($\neg$P $\vee$ $\neg$Q) $\wedge$ ($\neg$P $\vee$ (R $\wedge$ S)) $\wedge$ ($\neg$P $\vee$ $\neg$P);
 
@@ -228,7 +228,7 @@ Para aumentar a eficiência da geração de provas por resolução, foram desenv
 
 - **Estratégias de Seleção de cláusulas**
 
-  Corresponde a um processo de controlar as cláusulas geradas numa prova por resolução, impondo restrições às cláusulas que podem ser candidatas às cláusulas que podem ser candidatas à aplicação do princípio da resolução. Aqui, consideramos as resoluções _unitária_ e _linear_.
+  Corresponde a um processo de controlar as cláusulas geradas numa prova por resolução, impondo restrições às cláusulas que podem ser candidatas à aplicação do princípio da resolução. Aqui, consideramos as resoluções _unitária_ e _linear_.
 
   ::: tip RESOLUÇÃO UNITÁRIA
 
@@ -261,4 +261,4 @@ Para aumentar a eficiência da geração de provas por resolução, foram desenv
 
 - **Correção e completude da resolução**
 
-  A resolução é correta mas não completa quanto à resolução. Não é possível demonstrar todos os argumentos válidos. Contudo, a resolução é completa no que à **refutação** diz respeito, visto que podemos sempre derivar a cláusula vazia caso o conjunto inicial de cláusulas seja insatisfazível.
+  A resolução é correta mas não completa. Não é possível demonstrar todos os argumentos válidos. Contudo, a resolução é completa no que à **refutação** diz respeito, visto que podemos sempre derivar a cláusula vazia caso o conjunto inicial de cláusulas seja insatisfazível.

@@ -64,7 +64,7 @@ $$
 
 Pelo que se pode aplicar facilmente:
 
-$$\sum_{k=0}^{\textbf{n-1}}u_k\Delta v_k = [u_kv_k]_0^\textbf{n} - \sum_{k=0}^{n-1}v_{n+1}\Delta u_n$$
+$$\sum_{k=0}^{\textbf{n-1}}u_k\Delta v_k = [u_kv_k]_0^\textbf{n} - \sum_{k=0}^{n-1}v_{k+1}\Delta u_k$$
 
 Exemplo:
 
