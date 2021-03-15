@@ -1,6 +1,16 @@
+---
+description: Lógica de primeira ordem, quantificadores, regras de inferência.
+---
+
 # Lógica de Primeira Ordem - Introdução
 
 [[toc]]
+
+::: warning
+
+A Prof. Maria Cravo ainda não deu esta matéria, só o Prof. Pavão.
+
+:::
 
 Lógica cuja linguagem nos permite considerar o "interior" (ao qual não podemos aceder) das proposições, isto é, as proposições elementares deixam de ser um todo e passam a ter uma estrutura, na qual podem existir constantes, variáveis e funções.
 Contém dois símbolos adicionais em relação à lógica proposicional, os **quantificadores existencial e universal**.
@@ -66,7 +76,7 @@ onde _tem fronteira terrestre com_ é a tal **expressão designatória**.
 
 - $f^{n}_{i}$, para $n \geq 0, i \geq 1$ - funções de aridade $n$. Funções com aridade 0 ($n = 0$) são constantes. A i-gésima função diz-se com _n argumentos_. Começam com letra minúscula.
 
-- $P^{n}_{i}$, para $n \geq 0, i \geq 1$ - letras de predicado com aridade $n$. Uma letra de predicado com $n$ argumentos representa uma relação *n*ária (por exemplo, a relação de fronteira entre 2 países é uma relação binária). Começam com letra maiúscula.
+- $P^{n}_{i}$, para $n \geq 0, i \geq 1$ - letras de predicado com aridade $n$. Uma letra de predicado com $n$ argumentos representa uma relação _n-ária_ (por exemplo, a relação de fronteira entre 2 países é uma relação binária). Começam com letra maiúscula.
 
 - Variáveis individuais, $x_{i}$, como as usuais $x, y, z$.
 
