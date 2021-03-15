@@ -82,13 +82,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   A regra da repetição tem sempre um aspeto deste género:
 
-  $$
-  \begin{array}{llll}
-    n & \alpha \\
-    \vdots & \vdots \\
-    m & \alpha && Rep, n
-  \end{array}
-  $$
+  <img src ="./assets/0002-regra-da-repeticao1.png" alt = "Regra da Repetição 1" class = "invert-dark">
 
   :::
 
@@ -96,14 +90,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   Em relação a um exemplo mais concreto:
 
-  $$
-  \def\arraystretch{1.5}
-  \begin{array}{llll}
-    1 & P && Prem \\
-    2 & Q && Prem \\
-    3 & P && Rep, 1
-  \end{array}
-  $$
+  <img src ="./assets/0002-regra-da-repeticao2.png" alt = "Regra da Repetição 2" class = "invert-dark">
 
   :::
 
