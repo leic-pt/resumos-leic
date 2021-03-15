@@ -62,12 +62,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   A introdução de uma premissa tem sempre um aspeto deste género:
 
-  $$
-  \def\arraystretch{1.5}
-  \begin{array}{llll}
-    n & \alpha && Prem \\
-  \end{array}
-  $$
+  <img src="./assets/0002-regra-da-premissa1.png" alt="Regra da Premissa 1" class="invert-dark">
 
   :::
 
@@ -75,13 +70,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   Ao tentar provar que {P, Q} $\vdash$ P $\wedge$ Q, começamos a prova escrevendo as premissas, tal que:
 
-  $$
-  \def\arraystretch{1.5}
-  \begin{array}{llll}
-    1 & P && Prem \\
-    2 & Q && Prem \\
-  \end{array}
-  $$
+  <img src="./assets/0002-regra-da-premissa2.png" alt="Regra da Premissa 2" class="invert-dark">
 
   :::
 
