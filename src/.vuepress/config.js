@@ -69,6 +69,11 @@ module.exports = {
             '0004-logica-primeiraordem-int',
           ],
         },
+        {
+          title: '✏️ Exercícios',
+          collapsable: false,
+          children: ['exercicios/fichas-aulas-praticas'],
+        },
       ],
       '/cdi-ii/': [
         '',
