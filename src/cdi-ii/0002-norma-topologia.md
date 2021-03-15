@@ -80,7 +80,7 @@ $$
 
 ### Propriedades da Norma
 
-1. $||x|| >= 0$ (é sempre positiva)
+1. $||x|| \geq 0$ (é sempre positiva)
 
 2. Multiplicação por um escalar: $||\lambda x|| = |\lambda |\cdot ||x||$[^mult-escalar]
 
