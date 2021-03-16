@@ -8,7 +8,7 @@ description: Repositório das fichas das aulas práticas de LP + resoluções.
 
 - [Livro de Exercícios](https://drive.google.com/file/d/1TnTYnaNwd5IKWs_DgCcmPjGJcUfuchK2/view?usp=sharing)
 
-- [Dump Avaliações by Rafael Girão](https://s.rafael.ovh/dumpavaliacoes) - repositório de avalaições semanais passadas, por favor contribuam. **Entrem com o email do IST.**
+- [Dump Avaliações by Rafael Girão](https://s.rafael.ovh/dumpavaliacoes) - repositório de avaliações semanais passadas, por favor contribuam. **Entrem com o email do IST.**
 
 ## Fichas Aulas Práticas
 
