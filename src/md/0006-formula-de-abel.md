@@ -5,7 +5,8 @@ description: Método das Pontas. Fórmula de Abel e Fórmula do Quociente. Exemp
 # Fórmula de Abel e do Quociente
 
 [[toc]]
-Exemplo:
+
+## Método das Pontas
 
 $$\sum_{k=1}^{n-1}\frac{(k-2)(k-1)}{(k+1)(k+2)(k+3)}$$
 
@@ -80,7 +81,9 @@ $$
 \huge\frac{(\Delta u_n)v_n -u_n\Delta v_n}{v_nv_{n+1}}
 $$
 
-## Exemplos
+::: details Exemplos
+
+1.
 
 $$\sum_{k=0}^{n-1}\frac{k2^k}{(k+1)(k+2)} = \quad ?$$
 
@@ -92,7 +95,9 @@ logo:
 
 $$\sum_{k=0}^{n-1}\frac{k2^k}{(k+1)(k+2)} = \sum_{k=0}^{n-1}\Delta\frac{2^k}{k+1} = \left[\frac{2^k}{k+1}\right]_0^n =\frac{2^{n}}{n+1} -1 $$
 
-Outro exemplo:
+---
+
+2.
 
 $$\sum_{k=0}^{n-1}\frac{k2^k}{(k+2)!} = \quad ?$$
 
@@ -102,7 +107,9 @@ $$
 \Delta\frac{2^k}{(k+1)!} = \frac{2^k(k+1)!-2^k(k+1)(k+1)!}{(k+2)!(k+3)!} =\\\frac{2^k-2^k(k+1)}{(k+2)!} = \frac{2^k(1-k-1)}{(k+2)!}= -\frac{k2^k}{(k+1)(k+2)}
 $$
 
-Outro exemplo:
+---
+
+3.
 
 $$\sum_{k=0}^{n-1}\frac{2k-1}{2^{k-1}} = \quad ?$$
 
@@ -115,3 +122,5 @@ $$\begin{dcases}-\frac a 2 = 2\\\frac{a-b} 2 = -1\end{dcases} \Leftrightarrow  \
 logo
 
 $$\Delta \frac{-4k-2}{2^{k-1}} = \frac{2k-1}{2^{k-1}}$$
+
+:::
