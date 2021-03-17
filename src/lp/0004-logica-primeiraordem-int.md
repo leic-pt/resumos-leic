@@ -38,7 +38,7 @@ Sendo que os conjuntos de pares ordenados têm, por norma, este aspeto:
 
 $$
 \{(Portugal, Lisboa), (França, Paris), (Espanha, Madrid),\dots\}\\
-\{(Augustus_De_Morgan, 1806), (Alonzo\_Church, 1903),\dots\}\\
+\{(Augustus\_De\_Morgan, 1806), (Alonzo\_Church, 1903),\dots\}\\
 \{(1,2),(2,3),(3,4),\dots\}
 $$
 
