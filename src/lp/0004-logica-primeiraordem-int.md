@@ -28,6 +28,8 @@ Sendo que correspondem a transformações, podemos utilizar funções para descr
 
 A **aridade** de uma função é a quantidade de argumentos que esta recebe. Uma função de aridade 0 é considerada uma **constante**.
 
+Apesar de usualmente irmos estudar funções que recebem um argumento - que formam pares ordenados - é importante realçar que essa não é a única aridade possível de uma função. De um modo geral, em vez de consideramos que funções são conjuntos de _pares ordenados_, consideramo-las sim conjuntos de _tuplos ordenados_. Uma função que recebe $n$ argumentos é um conjunto de tuplos ordenados que não contém 2 tuplos com os mesmos n primeiros elementos.
+
 ::: details Exemplo - Função
 
 A expressão designatória de uma função pode ser, por exemplo:
