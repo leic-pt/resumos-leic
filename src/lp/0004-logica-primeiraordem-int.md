@@ -6,12 +6,6 @@ description: Lógica de primeira ordem, quantificadores, regras de inferência.
 
 [[toc]]
 
-::: warning
-
-A Prof. Maria Cravo ainda não deu esta matéria, só o Prof. Pavão.
-
-:::
-
 Lógica cuja linguagem nos permite considerar o "interior" (ao qual não podemos aceder) das proposições, isto é, as proposições elementares deixam de ser um todo e passam a ter uma estrutura, na qual podem existir constantes, variáveis e funções.
 Contém dois símbolos adicionais em relação à lógica proposicional, os **quantificadores existencial e universal**.
 
@@ -34,11 +28,19 @@ Apesar de usualmente irmos estudar funções que recebem um argumento - que form
 
 A expressão designatória de uma função pode ser, por exemplo:
 
-<img src="./assets/0004-funcao1.png" alt="Função 1" class="invert-dark">
+$$
+capital(x)=\text{a capital de }x\\
+n(x)=\text{o ano de nascimento de }x\\
+s(x) = x + 1
+$$
 
 Sendo que os conjuntos de pares ordenados têm, por norma, este aspeto:
 
-<img src="./assets/0004-funcao2.png" alt="Função 2" class="invert-dark">
+$$
+\{(Portugal, Lisboa), (França, Paris), (Espanha, Madrid),\dots\}\\
+\{(Augustus_De_Morgan, 1806), (Alonzo\_Church, 1903),\dots\}\\
+\{(1,2),(2,3),(3,4),\dots\}
+$$
 
 :::
 
@@ -51,13 +53,17 @@ Relações com apenas um argumento também se chamam **classes** ou **propriedad
 
 Relação correspondendo ao conjunto dos países que partilham fronteira terrestre:
 
-<img src="./assets/0004-relacao1.png" alt="Relação 1" class="invert-dark">
+$$
+\{(Portugal, Espanha), (Espanha, Portugal), (Espanha, França),\dots\}
+$$
 
 _Como podemos observar, Espanha é primeiro elemento duas vezes, pelo que não pode ser uma função._
 
 A relação pode ser definida tal que:
 
-<img src="./assets/0004-relacao2.png" alt="Relação 2" class="invert-dark">
+$$
+Tem\_fronteira(x,y)=x\text{ tem fronteira terrestre com }y
+$$
 
 onde _tem fronteira terrestre com_ é a tal **expressão designatória**.
 
@@ -96,7 +102,18 @@ Um **termo fechado/chão** é um termo que não contém variáveis.
 
 :::details Exemplo - Termos
 
-<img src="./assets/0004-termos.png" alt="Termos" class="invert-dark">
+$$
+\begin{array}{c}
+Portugal\\
+Augustus\_De\_Morgan\\
+capital(Portugal)\\
+pai(Augustus\_De\_Morgan)\\
+pai(pai(pai(Augustus\_De\_Morgan)))\\
+x\\
+capital(x)\\
+pai(x)
+\end{array}
+$$
 
 _Os cinco primeiros termos são fechados. Os seguintes não são._
 
@@ -121,11 +138,20 @@ Resta notar que, sempre que possível, tentamos abreviar uma sequência de quant
 
 Em relação ao seguinte exemplo, é relevante relembrar que o que começar por **letras minúsculas** corresponde a funções e por **maiúsculas** a relações.
 
-<img src="./assets/0004-fbfs1.png" alt="Fórmulas bem formadas 1" class="invert-dark">
+$$
+\neg P (a,g(a,b,c))\\
+P(a,b)\rightarrow \neg Q(f(d))\\
+R \wedge S
+$$
 
 No próximo exemplo, a primeira _fbf_ é uma formula chã, visto que não tem variáveis, mas sim termos concretos.
 
-<img src="./assets/0004-fbfs2.png" alt="Fórmulas bem formadas 2" class="invert-dark">
+$$
+Tem\_fronteira(Portugal, Espanha)\\
+Tem\_fronteira(x,y)\\
+\forall x\ [\forall y\ [Tem\_fronteira(x,y) \rightarrow \exists g\ [Travaram\_guerra(g,x,y)]]]\\
+Vive\_em(x,capital(Portugal))
+$$
 
 :::
 
@@ -134,7 +160,8 @@ Uma ocorrência da variável $x$ diz-se _ligada_ numa _fbf_ caso esta ocorrênci
 
 :::details Exemplo - Variáveis livres/fechadas
 
-<img src="./assets/0004-fbfs3.png" alt="Fórmula bem formada 3" class="invert-dark">
+A $fbf$ $P(x) \rightarrow \exists x [Q(x)]$ contém uma ocorrência livre
+de $x$, em $P(x)$, e uma ocorrência ligada de $x$ em $Q(x)$.
 
 :::
 
