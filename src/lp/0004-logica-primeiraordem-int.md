@@ -158,10 +158,60 @@ $$
 Nas _fbfs_ $\forall x[\alpha]$ e $\exists x[\alpha]$, $\alpha$ é o **domínio do quantificador**. Diz-se que o quantificador **liga** a variável $x$.  
 Uma ocorrência da variável $x$ diz-se _ligada_ numa _fbf_ caso esta ocorrência apareça dentro do domínio do quantificador que a introduz. Caso contrário, a variável diz-se _livre_. Uma _fbf_ sem variáveis livres diz-se _fechada_ - basta uma livre para não o ser. Caso não ocorram quantificadores no âmbito da variável em questão (caso falemos de uma relação, por exemplo), a variável é livre.
 
-:::details Exemplo - Variáveis livres/fechadas
+::: details Exemplo - Variáveis livres/fechadas
 
 A $fbf$ $P(x) \rightarrow \exists x [Q(x)]$ contém uma ocorrência livre
 de $x$, em $P(x)$, e uma ocorrência ligada de $x$ em $Q(x)$.
+
+:::
+
+### Substituição
+
+Conjunto finito de pares ordenados $\{t_{1}/x_{1}, \dots, t_{n}/x_{n}\}$, em que cada $x_{i}$ é uma variável individual e cada $t_{i}$ é um termo. Numa substituição, **todas as variáveis individuais são diferentes** e **nenhuma variável individual é igual ao termo correspondente**. Cada um dos pares $t_{i}, x_{i}$ é uma **ligação**.
+
+::: details Exemplo - Substituição
+
+Podem ser consideradas substituições, visto que todas as variáveis individuais são diferentes e não há termos iguais à variável associada:
+
+$\{f(x)/x, z/y\}$  
+$\{a/x, g(y)/y, f(g(h(b)))/z\}$
+
+Por outro lado, não podem ser substituições:
+
+$\{x/x, z/y\}$  
+(visto que o termo $x$ está ligado à variável $x$ - iguais, não representando portanto uma substituição)  
+$\{a/x, g(y)/y, b/x\}$  
+(visto que a variável individual $x$ aparece 2 vezes).
+
+:::
+
+Existem dois casos especiais de substituições:
+
+- **Substituição chã** - substituição na qual nenhum dos termos contém variáveis.
+
+- **Substituição vazia** - substituição que corresponde ao conjunto vazio. Representada por $\epsilon$.
+
+A ideia subjacente ao conceito de substituição é que cada variável individual será substituída pelo termo que lhe está associado. É aplicada substituindo todas as **ocorrências livres** de variáveis individuais pelo termo a elas associado. Qualquer ocorrência ligada de uma variável não pode ser substituída.
+
+Escrevemos $\alpha(x_{1}, \dots, x_{n})$ para indicar que a _fbf_ $\alpha$ tem $x_{1}, \dots, x_{n}$ como variáveis livres.
+
+::: details Exemplo - Aplicação da Substituição
+
+$P(x, f(a, y)) \cdot \{a/x, f(a, b)/y\} = P(a, f(a, f(a, b))).$
+
+Como podemos observar, as ocorrências das variáveis individuais $x$ e $y$ são substituídos pelos termos a que estão ligados, sendo que todas as ocorrências dessas variáveis são ambas livres.
+
+$(A(x) \to \exists x[B(x)]) \cdot \{a/x, f(a,b)/y\} = A(a) \to \exists x[B(x)].$
+
+Aqui, só uma das ocorrências da variável $x$ é livre, e só nessa é que pode ocorrer substituição. Ora, não ocorrer substituição em todas as ocorrências pode originar problemas futuros, abordados à frente.
+
+:::
+
+- **Termo livre para uma variável** - se $\alpha$ for uma _fbf_ e $t$ um termo, dizemos que $t$ é _livre_ para $x$ em $\alpha$ caso nenhuma ocorrência livre de $x$ em $\alpha$ ocorrer dentro do domínio de um quantificador em ordem $y$, onde $y$ é uma variável em $t$. Um termo sem variáveis é sempre livre para qualquer variável em qualquer _fbf_.
+
+::: details Exemplo - Termo livre para uma variável
+
+O termo $g(y, f(b))$ é livre para $x$ na _fbf_ $P(x, y)$, mas não o é na _fbf_ $\forall y[P(x, y)]$.
 
 :::
 
