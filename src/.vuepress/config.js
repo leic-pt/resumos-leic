@@ -105,6 +105,7 @@ module.exports = {
             '0004-serie-harmonica',
             '0005-inducao-matematica',
             '0006-formula-de-abel',
+            '0007-funcoesgeradoras',
           ],
         },
         {
