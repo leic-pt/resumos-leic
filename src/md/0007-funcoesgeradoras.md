@@ -20,13 +20,13 @@ $$1z^0+0z^1+1z^2+0z^3+\dots+0z^{2x-1}+1z^{2x}$$
 
 Abaixo está como averiguar o número de formas possíveis de obter 8 euros com moedas de 1 euro e de dois.
 
-$$
-c_n = \sum^n_{k=0} a_k b_{n-k}
-$$
+![8Euros](./imgs/0007-oito.png)
 
 ou, de modo geral:
 
-![SomatorioCasos](./imgs/0007-oito.png)
+$$
+c_n = \sum^n_{k=0} a_k b_{n-k}
+$$
 
 ## Generalização e exemplos
 
