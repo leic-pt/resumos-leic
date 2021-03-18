@@ -4,7 +4,7 @@ on: deployment_status
 
 jobs:
   scrape-vuepress:
-    name: "Scrape Vuepress"
+    name: 'Scrape Vuepress'
     if: github.event.deployment_status.state == 'success'
     runs-on: ubuntu-20.04
     steps:
