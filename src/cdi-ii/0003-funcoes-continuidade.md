@@ -34,9 +34,9 @@ $$
 Diz-se que uma sucessão $(u_k) \subset \R^n$ converge para $a\in\R^n$ se, por definição,
 
 $$
-\forall r > 0, \exists N \in \N: k > N => || u_k - a || < r\\
+\forall r > 0, \exists N \in \N: k > N \implies || u_k - a || < r\\
 \text{ou}\\
-\forall r > 0, \exists N \in \N: k > N => u_k \in B_r(a)
+\forall r > 0, \exists N \in \N: k > N \implies u_k \in B_r(a)
 $$
 
 :::
@@ -129,7 +129,7 @@ Esta é outra das relações que naturalmente migra para $\R^n$, sem muitas alte
 
 ::: tip DEFINIÇÃO
 
-Seja $f: D \subseteq \R^n -> \R^m$, $f$ é contínua em $a$ se e só se
+Seja $f: D \subseteq \R^n \to \R^m$, $f$ é contínua em $a$ se e só se
 
 $$
 \forall r>0, \exists \epsilon > 0: x\in B_\epsilon (a) \implies f(x) \in B_r(f(a))\\
@@ -395,7 +395,7 @@ Além de limites em $\R^2$ segundo retas, também podemos ter limites segundo a 
 Se o limite
 
 $$
-\lim_{(x,y)\to (0,0)} = \lim_{x\to 0} f(x, kx^2)
+\lim_{(x,y)\to (0,0)} f(x, y) = \lim_{x\to 0} f(x, kx^2)
 $$
 
 depender de $k$, então o limite não existe.

@@ -6,7 +6,7 @@ description: Lógica Proposicional aplicada a sistemas computacionais, resoluç�
 
 [[toc]]
 
-Voltamos a considerar a lógica proposicional, mas desta feita sob a perspetiva da sua utilização por sistemas computacionais, não por humanos.
+Voltamos a considerar a lógica proposicional, mas desta vez feita sob a perspetiva da sua utilização por sistemas computacionais, não por humanos.
 A geração automática de provas utilizando sistemas de dedução natural não é fácil, pelo que foram desenvolvidos métodos para a automatização da geração de provas. Um deles é a **resolução**.
 
 ## Resolução
@@ -78,7 +78,7 @@ As _fbfs_ podem, contudo, não nos ser apresentadas inicialmente nesta forma de 
 
   Partindo de $\neg$P $\vee$ $\neg$(Q $\wedge$ $\neg$($\neg$(R $\wedge$ S) $\vee$ P)):
 
-  Aplicar as primeiras leis de De morgan:
+  Aplicar as primeiras leis de De Morgan:
 
   $\neg$P $\vee$ $\neg$(Q $\wedge$ ($\neg\neg$(R $\wedge$ S) $\wedge$ $\neg$P));
 
@@ -252,8 +252,10 @@ Para aumentar a eficiência da geração de provas por resolução, foram desenv
 
   ::: details Exemplo - Resolução Linear
 
-  Para provar que {{$\neg$P, Q}, {$\neg$Q, R}, {$\neg$R, S}, {P}} $\vdash$ {S}, começamos por transformar a prova em {{$\neg$P, Q}, {$\neg$Q, R}, {$\neg$R, S}, {P}, {$\neg$S}} $\vdash$ { }.  
-  Uma vez que estamos a tentar provar S, utilizamos {$\neg$S} como cláusula inicial.
+  Para provar que $\{\{\neg P, Q\}, \{\neg Q, R\}, \{\neg R, S\}, \{P\}\} \vdash \{S\}$,
+  começamos por transformar a prova em
+  $\{\{\neg P, Q\}, \{ \neg Q, R\}, \{\neg R, S\}, \{P\}, \{\neg S\}\} \vdash \{ \}$.  
+  Uma vez que estamos a tentar provar $S$, utilizamos $\{\neg S\}$ como cláusula inicial.
 
   <img src="./assets/0003-res-linear.png" alt="Resolução linear" class="invert-dark">
 

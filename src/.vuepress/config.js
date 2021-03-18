@@ -53,7 +53,7 @@ module.exports = {
         {
           title: '👨‍💻 Laboratórios',
           collapsable: false,
-          children: ['labs/lab02/', 'labs/lab03/'],
+          children: ['labs/lab02/', 'labs/lab03/', 'labs/lab04/'],
         },
         'meta/linux-setup',
       ],
@@ -105,6 +105,7 @@ module.exports = {
             '0004-serie-harmonica',
             '0005-inducao-matematica',
             '0006-formula-de-abel',
+            '0007-funcoesgeradoras',
           ],
         },
         {
