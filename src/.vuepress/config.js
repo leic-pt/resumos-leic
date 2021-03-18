@@ -106,6 +106,7 @@ module.exports = {
             '0005-inducao-matematica',
             '0006-formula-de-abel',
             '0007-funcoesgeradoras',
+            '0008-teonewton',
           ],
         },
         {
