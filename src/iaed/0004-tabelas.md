@@ -12,13 +12,11 @@ description: Tabelas para Guardar Conjuntos de Elementos. Strings (Cadeias de Ca
 ### Tabelas Unidimensionais (Vectores)
 
 $$
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
+\begin{array}{|c|c|c|c|}
 \hline
-tab[0] & tab[1] & .... & tab[DIM -1] 
+tab[ 0] & tab[ 1] & ... & tab[ DIM\ -1]\\
 \hline
-\end{tabular}
-\end{center}
+\end{array}
 $$
 
 Uma tabela permite guardar vários elementos do mesmo tipo.
