@@ -52,6 +52,7 @@ module.exports = {
             '0001-introducao-programacao-c',
             '0002-estruturas-controlo',
             '0003-input-output',
+            '0004-tabelas',
           ],
         },
         {
