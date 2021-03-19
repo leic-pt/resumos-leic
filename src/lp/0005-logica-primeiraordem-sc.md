@@ -26,10 +26,11 @@ Os agentes cognitivos têm como componentes principais a _base de conhecimento_,
 
 :::
 
-Duas hipóteses (hipóteses porque ainda não foi provado que são falsas) importantes em relação a este tipo de sistemas - _hipótese do sistema de símbolos físicos_ e _hipótese de representação do conhecimento_.  
+Duas hipóteses (hipóteses porque ainda não foi provado que são falsas) importantes em relação a este tipo de sistemas - _hipótese do sistema de símbolos físicos_ e _hipótese de representação do conhecimento_.
 
-A primeira consiste em ter um sistema de símbolos físicos compostos por um conjunto de entidades, os tais símbolos, que correspondem a "padrões físicos", que podem ser agrupados em estruturas, e por um procedimentos que operam sobre eles. Haverá uma máquina a produzir sucessões de estruturas de símbolos, que contém memória para guardar informação sobre eles, entre outras propriedades.  
-- **Qualquer sistema que apresente comportamento inteligente pode ser visto como um sistema de símbolos físicos** - aplica-se a humanos por exemplo, onde os símbolos físicos aplicam-se na nossa memória. O nosso cérebro reage conforme identifica (ou não) um dado padrão, e tem capacidade de o memorizar.  
+A primeira consiste em ter um sistema de símbolos físicos compostos por um conjunto de entidades, os tais símbolos, que correspondem a "padrões físicos", que podem ser agrupados em estruturas, e por um procedimentos que operam sobre eles. Haverá uma máquina a produzir sucessões de estruturas de símbolos, que contém memória para guardar informação sobre eles, entre outras propriedades.
+
+- **Qualquer sistema que apresente comportamento inteligente pode ser visto como um sistema de símbolos físicos** - aplica-se a humanos por exemplo, onde os símbolos físicos aplicam-se na nossa memória. O nosso cérebro reage conforme identifica (ou não) um dado padrão, e tem capacidade de o memorizar.
 - **Qualquer sistema de símbolos físicos de tamanho adequado (não qualquer programa) pode ser organizado de modo a exibir comportamento inteligente**.
 
 Esta hipótese afirma, portanto, que é possível escrever um programa, um sistema de símbolos físicos, que exibe comportamento inteligente (aqui, inteligente no sentido de entidades inteligentes que surjam no mundo que nos rodeia, não no sentido de uma calculadora).
@@ -56,10 +57,10 @@ _Durante esta secção, o exemplo demonstrado será o d'Os Simpsons, tal como no
 
   ::: tip Relações
 
-  _Unárias_  
+  _Unárias_
 
   $Homem(x) = x$ é um homem  
-  $Mulher(x) = x$ é uma mulher  
+  $Mulher(x) = x$ é uma mulher
 
   _Binárias_
 
@@ -68,7 +69,7 @@ _Durante esta secção, o exemplo demonstrado será o d'Os Simpsons, tal como no
   $Mãe(x, y) = x$ é a mãe de $y$  
   $Ant(x, y) = x$ é antepassado de $y$  
   $A2Linha(x, y) = x$ é um ascendente de 2ª linha de $y$  
-  $\dots$  
+  $\dots$
 
   :::
 
@@ -80,27 +81,26 @@ _Durante esta secção, o exemplo demonstrado será o d'Os Simpsons, tal como no
   $Homem(Abe)$  
   $AD(Abe, Homer)$
 
-  :::   
+  :::
 
   Podemos ainda escrever algumas _fbfs_ (aqui já com variáveis individuais).
 
   ::: details Exemplo - Mais frases possíveis
 
-  $\forall x, y[AD(x, y) \to Ant(x, y)]$  
+  $\forall x, y[AD(x, y) \to Ant(x, y)]$
 
-  $\forall x, y, z[AD(x, y) \wedge AD(y, z) \to AD(x, z)]$  
+  $\forall x, y, z[AD(x, y) \wedge AD(y, z) \to AD(x, z)]$
 
   :::
 
 Podemos realizar **provas** utilizando estas representações.
 
-::: tip Prova  
+::: tip Prova
 
 <img src="./assets/0005-prova-repc.png" alt="Prova - Representação de Conhecimento" class="invert-dark">
 <!--- fiz só esta imagem em vez de usar latex porque estava com problemas em relação ao espaçamento (por causa da indicação das regras de inferência no fim da linha) -->
 
 :::
-
 
 ## Forma Clausal
 
@@ -112,7 +112,7 @@ Obtida de forma semelhante à da Lógica Proposicional, apesar de algumas difere
 
   ::: tip Segundas Leis de De Morgan
 
-  $\neg\forall x[\alpha (x)] \leftrightarrow \exists x[\neg\alpha (x)]$  
+  $\neg\forall x[\alpha (x)] \leftrightarrow \exists x[\neg\alpha (x)]$
 
   _Dizer que nem todo o x tem uma certa propriedade é o mesmo que dizer que há pelo menos um x que não a tem_.
 
@@ -124,9 +124,9 @@ Obtida de forma semelhante à da Lógica Proposicional, apesar de algumas difere
 
 - **Normalização de variáveis** - As ocorrências ligadas (dentro do domínio do quantificador) correspondem a variáveis mudas (irrelevantes para o valor da operação - por exemplo, em $\sum_{k = 1}^{5} 1$, $k$ é uma variável muda). A normalização de variáveis consiste em mudar o nome de algumas das variáveis, de modo a que o quantificador esteja associado a um único nome de variável - o objetivo é _não haver quantificadores associados às mesmas variáveis dentro do domínio de um quantificador_.
 
-  ::: tip  Normalização de variáveis
+  ::: tip Normalização de variáveis
 
-  $\forall x[\neg P(x) \vee (\forall y[\neg P(y) \vee P(f(x, y))]) \wedge \exists y[Q(x, y) \wedge \neg P(y)]]$  
+  $\forall x[\neg P(x) \vee (\forall y[\neg P(y) \vee P(f(x, y))]) \wedge \exists y[Q(x, y) \wedge \neg P(y)]]$
 
   _passa a_
 
@@ -144,27 +144,27 @@ Esta secção não é particularmente fácil de perceber só a ler, e mesmo com 
 
 :::
 
-  - Eliminar quantificadores **isolados** - substituir a _fbf_ $\exists x[\alpha (x)]$ por $\alpha (c)$, onde $c$ é uma nova constante - a _constante de Skolem_. **A constante de Skolem é considerada a entidade que verifica a propriedade $\alpha$**, apesar de nada sabermos em concreto sobre ela. Só pode ser aplicada a **quantificadores isolados**, fora do domínio de outros quantificadores.
+- Eliminar quantificadores **isolados** - substituir a _fbf_ $\exists x[\alpha (x)]$ por $\alpha (c)$, onde $c$ é uma nova constante - a _constante de Skolem_. **A constante de Skolem é considerada a entidade que verifica a propriedade $\alpha$**, apesar de nada sabermos em concreto sobre ela. Só pode ser aplicada a **quantificadores isolados**, fora do domínio de outros quantificadores.
 
-  - Dependências entre quantificadores existenciais e universais - se um quantificador existencial aparecer dentro do domínio de um quantificador universal, existe a possibilidade do valor da variável quantificada _existencialmente_ depender do valor da variável quantificada _universalmente_. Caso dependa, substituímos a variável por um novo símbolo de função - função de Skolem, $f_{sk}(x)$. Aqui, "a variável de dentro depende/é função da de fora/o $y$(interior) depende/é função de $x$(exterior)". A existência do $y$ está diretamente dependente de qual é o $x$ em questão, e é daí que vem a noção de função.
+- Dependências entre quantificadores existenciais e universais - se um quantificador existencial aparecer dentro do domínio de um quantificador universal, existe a possibilidade do valor da variável quantificada _existencialmente_ depender do valor da variável quantificada _universalmente_. Caso dependa, substituímos a variável por um novo símbolo de função - função de Skolem, $f_{sk}(x)$. Aqui, "a variável de dentro depende/é função da de fora/o $y$(interior) depende/é função de $x$(exterior)". A existência do $y$ está diretamente dependente de qual é o $x$ em questão, e é daí que vem a noção de função.
 
-  ::: details Exemplos
+::: details Exemplos
 
-  Podemos passar  
+Podemos passar
 
-  $\forall x[Num\_Nat(x) \to \exists y[Num\_Nat(y) \wedge y > x]]$  
+$\forall x[Num\_Nat(x) \to \exists y[Num\_Nat(y) \wedge y > x]]$
 
-  para
+para
 
-  $\forall x[Num\_Nat(x) \to Num\_Nat(f_{sk}(x)) \wedge f_{sk}(x) > x]$
+$\forall x[Num\_Nat(x) \to Num\_Nat(f_{sk}(x)) \wedge f_{sk}(x) > x]$
 
-  _se repararem, a parte de baixo está diferente da dos slides; foi erro do professor, e ele próprio corrigiu em aula._
+_se repararem, a parte de baixo está diferente da dos slides; foi erro do professor, e ele próprio corrigiu em aula._
 
-  Aqui, o valor de $y$ depende do de $x$, pelo que para eliminar o quantificador existencial é necessário substituir a variável associada por um termo formado por um novo símbolo de função. $f$ é uma função de Skolem. Ao tentar substituir por uma constante de Skolem, obteríamos uma afirmação falsa (algo do género "Há um natural maior que todos os outros").
+Aqui, o valor de $y$ depende do de $x$, pelo que para eliminar o quantificador existencial é necessário substituir a variável associada por um termo formado por um novo símbolo de função. $f$ é uma função de Skolem. Ao tentar substituir por uma constante de Skolem, obteríamos uma afirmação falsa (algo do género "Há um natural maior que todos os outros").
 
-  :::
+:::
 
-  Temos então, portanto, que se nenhum quantificador universal aparecer "por fora" de um dado quantificador existencial, substituímos todas as ocorrências da variável a ele ligada pela constante de Skolem e removemos o quantificador; caso contrário, rmeovemos também o quantificador, mas em vez de substituir a variável pela constante, substituímos pela função de Skolem.
+Temos então, portanto, que se nenhum quantificador universal aparecer "por fora" de um dado quantificador existencial, substituímos todas as ocorrências da variável a ele ligada pela constante de Skolem e removemos o quantificador; caso contrário, rmeovemos também o quantificador, mas em vez de substituir a variável pela constante, substituímos pela função de Skolem.
 
 - **Conversão para a forma Prenex normal** - todas as ocorrências de quantificadores universais são passadas para a esquerda.
 
@@ -198,9 +198,9 @@ $\neg P(x) \vee ((\neg P(y) \vee P(f(x, y))) \wedge (Q(x, g_{sk}(x)) \wedge \neg
 
 Processo que permite determinar se duas _fbfs_ atómicas podem ser tornadas iguais através de substituições apropriadas para as suas variáveis livres. Antes de considerar o problema da unificação temos de introduzir a _composição de substituições_.
 
-- **Composição de substituições** - sendo $s_{1}$ e $s_{2}$ duas substituições, a composição destas, $s_{1} \circ s_{2}$, é igual a $s$ tal que:  
+- **Composição de substituições** - sendo $s_{1}$ e $s_{2}$ duas substituições, a composição destas, $s_{1} \circ s_{2}$, é igual a $s$ tal que:
 
-  - $a \cdot s = a \cdot (s_{1} \circ s_{2}) = (a \cdot s_{1}) \cdot s_{2}$  
+  - $a \cdot s = a \cdot (s_{1} \circ s_{2}) = (a \cdot s_{1}) \cdot s_{2}$
 
 Gozam da propriedade associativa, **mas não da comutativa**.
 
