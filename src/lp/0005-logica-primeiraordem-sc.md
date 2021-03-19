@@ -2,9 +2,9 @@
 description: Lógica de Primeira Ordem - automatização, Resolução, Provas, Representação do Conhecimento, Agentes Cognitivos, Hipóteses.
 ---
 
-[[toc]]
-
 # Lógica de Primeira Ordem II
+
+[[toc]]
 
 Tal como para a Lógica Proposicional, é possível automatizar alguns aspetos relacionados com a Lógica de Primeira Ordem. Em relação ao sistema dedutivo, vamos voltar a olhar para a resolução. Além disso, olhamos agora para a Lógica de Primeira Ordem como forma de representar conhecimento sobre um dado contexto - um _mundo_.
 
