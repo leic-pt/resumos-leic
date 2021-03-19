@@ -101,9 +101,8 @@ Podemos realizar **provas** utilizando estas representações.
 
 :::
 
-## Resolução
 
-### Forma Clausal
+## Forma Clausal
 
 Obtida de forma semelhante à da Lógica Proposicional, apesar de algumas diferenças.
 
@@ -192,3 +191,45 @@ $\neg P(x) \vee ((\neg P(y) \vee P(f(x, y))) \wedge (Q(x, g_{sk}(x)) \wedge \neg
 :::
 
 - **Obtenção da forma conjuntiva normal/eliminar os símbolos $\wedge$ e $\vee$** - processos idênticos aos da Lógica Proposicional.
+
+## Unificação
+
+**Processo ligado à [substituição](https://ist.diogotc.com/lp/0004-logica-primeiraordem-int.html#substituicao).**
+
+Processo que permite determinar se duas _fbfs_ atómicas podem ser tornadas iguais através de substituições apropriadas para as suas variáveis livres. Antes de considerar o problema da unificação temos de introduzir a _composição de substituições_.
+
+- **Composição de substituições** - sendo $s_{1}$ e $s_{2}$ duas substituições, a composição destas, $s_{1} \circ s_{2}$, é igual a $s$ tal que:  
+
+  - $a \cdot s = a \cdot (s_{1} \circ s_{2}) = (a \cdot s_{1}) \cdot s_{2}$  
+
+Gozam da propriedade associativa, **mas não da comutativa**.
+
+Temos ainda que, e recuperando a noção de substituição vazia ($\epsilon$), a composição com a substituição vazia é tal que $s \leftrightarrow s \circ \epsilon  \leftrightarrow \epsilon \circ s$.
+
+Em termos práticos, a composição realiza-se aplicando $s_{2} = \{u_{1}/y_{1}, \dots, u_{n}/y_{n}\}$ aos termos de $s_{1} = \{t_{1}/x_{1}, \dots, t_{n}/x_{n}\}$, adicionado a este resultado todos os elementos $u_{j}/y_{j}$ tais que $y_{j} \notin \{x_{1}, \dots, x_{n}\}$ e removendo todos os elementos $(t_{i} \cdot s_{2}/x_{i})$ tais que $t_{i} \cdot s_{2} = x_{i}$. Ou seja:
+
+::: tip Composição
+
+$s_{1} \circ s_{2} = (\{(t_{1} \cdot s_{2})/x_{1}, \dots, (t_{n} \cdot s_{2})/x_{n}\} \cup \{u_{j}/y_{j} \in s_{2}: y_{j} \notin {x_{1}, \dots, x_{n}}\}) - \{(t_{i}/s_{2})/x_{i}: (t_{i} \cdot s_{2}) = x_{i}\}.$
+
+_Exemplo_
+
+Seja $s_{1} = \{f(y)/x, z/y, a/w\}$ e $s_{2} = \{a/x, b/y, y/z, a/w\}.$
+
+$s_{1} \circ s_{2} = (\{(f(y) \cdot \{a/x, b/y, y/z, a/w\})/x, (z \cdot \{a/x, b/y, y/z, a/w\})/y, (a \cdot \{a/x, b/y, y/z, a/w\})/w\} \cup \{y/z\}) - \{(z \cdot \{a/x, b/y, y/z, a/w\})/y\} = \{f(b)/x, y/y, a/w, y/z\} - \{y/y\} = \{f(b)/x, a/w, y/z\}$.
+
+:::
+
+- **Conjunto Unificador** - Dado um conjunto de _fbfs_ atómicas, este conjunto diz-se unificável caso exista uma substituição que torne idênticas todas as _fbfs_ do conjunto, dizendo-se que essa substituição é um **unificador do conjunto**. Pode haver mais que um unificador para um dado conjunto.
+
+::: details Unificador
+
+A substituição $\{a/x, b/y, c/z\}$ é unificador do conjunto $\{P(a, y, z), P(x, b, z)\}$, dando origem a $\{P(a, b, c)\}$.
+
+:::
+
+- **Unificador mais geral** - Dado um conjunto de _fbfs_ atómicas, o unificador mais geral do conjunto, **_mgu_**, é um unificador $s$ com a seguinte propriedade:
+
+  - se $s_{1}$ for um unificador da _fbf_ da qual $s$ é o _mgu_, então existe uma substituição $s_{2}$ tal que $s_{1} = s \circ s_{2}$.
+
+**O _mgu_ é único**, exceto para variantes alfabéticas de variáveis.
