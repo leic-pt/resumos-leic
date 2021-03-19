@@ -14,7 +14,7 @@ description: Comparação e Tratamento de Dados. Leitura e Escrita de Caractére
 - Desigualdade: `> < >= <= !=`
 
 ::: tip
-A Variável do tipo long, guarda 32 bits (4 bytes) para guardar o inteiro.
+A Variável do tipo `long`, guarda 32 bits (4 bytes) para guardar o inteiro.
 No printf usamos `%ld` para referirmos a esta variável.
 :::
 
@@ -23,7 +23,7 @@ Podemos atribuir o mesmo valores a várias variáveis:
 `notas = aprovacoes = 0;`
 :::
 
-### i++, ++i, i=+1
+### i++, ++i, i+=1
 
 Para acresentarmos 1 unidade à variável em C temos várias maneiras de o fazer.
 
@@ -61,12 +61,12 @@ caractér `\n`.
 Funções de manipulação de text streams (stdout/stdin):
 
 - `getchar()` lê o proximo caracter da text stream.
-- `putchar(n)` escreve o caracter c cujo código ASCII é o
+- `putchar(n)` escreve o caracter `c` cujo código ASCII é o
   número inteiro (n) passado como argumento.
 
 <<< @/src/iaed/assets/0003-ascii.c
 
-- As variáveis do tipo char são inteiros de 1 Byte.
+- As variáveis do tipo `char` são inteiros de 1 Byte.
 - Permitem realizar operações numéricas tal como
   fazemos com os int's.
 
@@ -78,10 +78,10 @@ Operador da Conjunção : `&&`
 
 Os argumentos são avaliados da esquerda para a direita e quando o valor do argumento for suficiente para definir o valor da expressão, o programa para de avaliar as condições.
 
-A Constante EOF significa End of File (que pode ser criado no terminal UNIX através do Ctrl-D).
+A Constante `EOF` significa End of File (que pode ser criado no terminal UNIX através do Ctrl-D).
 
 ::: tip
-Se colocarem a atribuição da variável à função getchar(), devem colocar a atribuição entre parênteses.
+Se colocarem a atribuição da variável à função `getchar()`, devem colocar a atribuição entre parênteses.
 
 Sintaxe: `while((c = getchar()) != EOF)`
 
