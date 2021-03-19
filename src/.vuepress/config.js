@@ -71,6 +71,7 @@ module.exports = {
             '0002-logica-proposicional-int',
             '0003-logica-proposicional-sc',
             '0004-logica-primeiraordem-int',
+            '0005-logica-primeiraordem-sc',
           ],
         },
         {
