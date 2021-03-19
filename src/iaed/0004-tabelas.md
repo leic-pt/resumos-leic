@@ -15,7 +15,7 @@ $$
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline
-tab[0] & tab[1] & .... & tab[DIM -1] \\
+tab[0] & tab[1] & .... & tab[DIM -1] 
 \hline
 \end{tabular}
 \end{center}
