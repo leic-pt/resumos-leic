@@ -4,13 +4,13 @@ a++;
 ++a;
 
 int a = 0;
-while (a++ <= 3) 
+while (a++ <= 3)
 {
-... /* O ciclo é executado 4 vezes */
+  ... /* O ciclo é executado 4 vezes */
 }
 
 int a = 0;
-while (++a <= 3) 
+while (++a <= 3)
 {
-... /* O ciclo é executado 3 vezes */
+  ... /* O ciclo é executado 3 vezes */
 }

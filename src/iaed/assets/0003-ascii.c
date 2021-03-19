@@ -2,7 +2,7 @@
 
 int main()
 {
-    char a ='T';
+    char a = 'T';
     printf("Ao caracter %c corresponde o ASCII %d.\n", a , a );
     return 0;
 }
