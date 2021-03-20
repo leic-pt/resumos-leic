@@ -80,6 +80,7 @@ module.exports = {
             '0002-norma-topologia',
             '0003-funcoes-continuidade',
             '0004-diferenciabilidade',
+            '0005-derivada-composta',
           ],
         },
         {
