@@ -87,7 +87,7 @@ O comando `fgets` permite ler linhas inteiras.
 
 ### String.h
 
-Ao escrever #include <string.h> passamos a ter acesso a um conjunto razoável de funções para
+Ao escrever `#include <string.h>` passamos a ter acesso a um conjunto razoável de funções para
 manipulação de strings.
 Exemplos úteis:
 

@@ -1,6 +1,6 @@
 ---
 prev: false
-description: Comparação e Tratamento de Dados. Leitura e Escrita de Caractéres
+description: Comparação e Tratamento de Dados. Leitura e Escrita de Caracteres
 ---
 
 # Input/Output
@@ -20,7 +20,7 @@ No printf usamos `%ld` para referirmos a esta variável.
 
 ::: tip
 Podemos atribuir o mesmo valores a várias variáveis:
-`notas = aprovacoes = 0;`
+`int notas = aprovacoes = 0;`
 :::
 
 ### i++, ++i, i+=1
@@ -33,7 +33,7 @@ No entanto quando se encontram dentro dessas condições elas diferem.
 
 - `++i` incrementa o seu valor antes de verificar se a condição em que se encontra.
 
-- `i++` incrementa o seu valor depois de verificar se a condição em que se encontra.
+- `i++` incrementa o seu valor depois de verificar a condição em que se encontra.
 
 <<< @/src/iaed/assets/0003-a++.c
 
@@ -51,7 +51,7 @@ Assim se quisermos dar um input num ficheiro de texto e guardá-lo noutro podemo
 
 `$ ./myprogram < input.txt > output.txt`
 
-## Leitura e Escrita de Caractéres
+## Leitura e Escrita de Caracteres
 
 ### Leitura de Valores do Standard Input
 
