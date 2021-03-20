@@ -120,7 +120,7 @@ Obtida de forma semelhante à da Lógica Proposicional, apesar de algumas difere
 
   $\neg\exists x[\alpha (x)] \leftrightarrow \forall x[\neg\alpha (x)]$
 
-  _Dizer que não há nenhum x que não tenha uma certa propriedade é o mesmo que dizer que todo o x não tem a falta dessa propriedade_.
+  _Dizer que não há nenhum x que tenha uma certa propriedade é o mesmo que dizer que todo o x não tem a falta dessa propriedade_.
 
   :::
 
