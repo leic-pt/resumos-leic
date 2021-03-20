@@ -30,7 +30,7 @@ $$
 
 Isto acontece porque a composta de transformações lineares corresponde ao produto de matrizes.
 
-::: details Exemplo
+::: details Exemplos
 
 Considerando as funções $g$ e $f$, determine $J^{f\circ g}_{(1,1)}$.
 
@@ -99,9 +99,72 @@ J^{f\circ g}_{(1,1)} & =J^{f}_{g(1,1)} \cdot J^{g}_{(1,1)}\\
 \end{aligned}
 $$
 
+---
+
+Seja $f: \R^2 \to \R^3 \quad f(x,y) = (e^{xy}, x+y,y^2)$, verifique se é diferenciável.
+
+$$
+\begin{array}{l l l}
+f_1(x,y)=e^{xy} & f_2(x,y)=x+y & f_3(x,y)=y^2
+\end{array}
+$$
+
+- $f_1(x,y)=f^2_1\circ f^1_1(x,y)$ com:
+
+  - $f^1_1(x,y,)=xy=p_1(x,y)\cdot p_2(x,y)$, um produto de funções diferenciáveis, logo diferenciável
+  - $f^2_1(t)=e^t$ função diferenciável
+
+  Então, $f_1(x,y)$ sendo a composta de duas funções diferenciáveis é diferenciável.
+
+- $f_2(x,y) = x+y = p_1(x,y) + p_2(x,y)$, uma soma de funções diferenciáveis, logo diferenciável
+
+- $f_3(x,y)= y^2=(p_2(x,y))^2 = p_2(x,y)\circ p_2(x,y)$, um produto de funções escalares diferenciáveis, logo diferenciável
+
+Como cada uma das três funções componentes da $f$ é uma função diferenciáveis então $f$ é diferenciável.
+
+Considerando agora $g: \R^3 \to \R^2$, diferenciável em $(1,0,0)$ e com
+
+$$
+J^{g}_{(1,0,0)} =\begin{bmatrix}
+-1 & 0 & 2\\
+5 & \sqrt{2} & -\sqrt{2}
+\end{bmatrix}
+$$
+
+Calcule $D(g\circ f)(0,0)$.
+
+Como $g$ é diferenciável em $(1,0,0)$ e $f$ é diferenciável em $f(0,0)=(1,0,0)$
+então $g\circ f$ é diferenciável em $(0,0)$. Portanto faz sentido calcular $D(g\circ f)(0,0)$.
+
+$$
+\begin{aligned}
+J^{g\circ f}_{(0,0)} & =J^{g}_{(1,0,0)} \cdot J^{f}_{(0,0)}\\
+ & =\begin{bmatrix}
+-1 & 0 & 2\\
+5 & \sqrt{2} & -\sqrt{2}
+\end{bmatrix}\begin{bmatrix}
+ye^{xy} & xe^{xy}\\
+1 & 1\\
+0 & 2y
+\end{bmatrix}_{( x,y) =( 0,0)}\\
+ & =\begin{bmatrix}
+-1 & 0 & 2\\
+5 & \sqrt{2} & -\sqrt{2}
+\end{bmatrix}\begin{bmatrix}
+0 & 0\\
+1 & 1\\
+0 & 0
+\end{bmatrix}\\
+ & =\begin{bmatrix}
+0 & 0\\
+\sqrt{2} & \sqrt{2}
+\end{bmatrix}
+\end{aligned}
+$$
+
 :::
 
-## Fórmula de Cadeia (Chain Rule)
+## Fórmula da Cadeia (Chain Rule)
 
 Se pegarmos na expressão anterior, podemos obter a expressão que
 nos indica como calcular, individualmente, cada elemento da matriz $J^{f\circ g}{a}$.
@@ -125,6 +188,31 @@ $$
 
 :::
 
+::: details Exemplos
+
+Sejam $f$ e $g$, diferenciáveis,
+
+$$
+\begin{array}{l l}
+f:\R^3 \to \R^3 & f(x,y,z) = (x^2+y^2+z^2, x+y-z, xye^z)\\
+g: \R^3 \to \R & g(u,v,w) = u^2-v^2+e^w
+\end{array}
+$$
+
+$$
+\begin{darray}{ l }
+\frac{\partial (g\circ f)}{\partial y} (x,y,z)=\\ \\
+=\frac{\partial g}{\partial u} (f(x,y,z))\frac{\partial f_{1}}{\partial y} (x,y,z)+\frac{\partial g}{\partial v} (f(x,y,z))\frac{\partial f_{2}}{\partial y} (x,y,z)\\
++\frac{\partial g}{\partial w} (f(x,y,z))\frac{\partial f_{3}}{\partial y} (x,y,z)\\ \\
+=2u\Bigl|_{(u,v,w)=f(x,y,z)} \cdot 2y\Bigl|_{(x,y,z)} +(-2v)\Bigl|_{(u,v,w)=f(x,y,z)} \cdot 1+e^{w}\Bigl|_{(u,v,w)=f(x,y,z)} \cdot xe^{z}\Bigl|_{(x,y,z)}\\ \\
+=2(x^{2} +y^{2} +z^{2} )\cdot 2y-2(x+y-z)+e^{xye^{z}} \cdot xe^{z}\\ \\
+=4y(x^{2} +y^{2} +z^{2} )-2(x+y-z)+xe^{z} \cdot e^{xye^{z}}
+\end{darray}
+$$
+
+:::
+
 ---
 
 - [Aula 9](https://drive.google.com/file/d/1hD4cmbOMvQePGDpdGdBiW7dDN5211U-_/view?usp=sharing)
+- [Aula 10](https://drive.google.com/file/d/16jeZ0qLZeC0opCixeGwUH25yVjLjDSBn/view?usp=sharing)
