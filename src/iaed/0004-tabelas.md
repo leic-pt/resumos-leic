@@ -63,6 +63,14 @@ Para atribuir um valor à tabela `i` na posição `j`
 
 Podemos guardar caracteres em tabelas (Vetores).
 
+$$
+\begin{array}{|c|c|c|c|c|c|c|c|c}
+\hline
+'h' & 'e' & 'l' & 'l' & 'o' & '\n' & '\0' & ... \\
+\hline
+\end{array}
+$$
+
 Em C uma cadeia de caracteres acaba com `\0` .
 
 Cadeia de caracteres "hello\n" tem caracteres
@@ -87,7 +95,7 @@ O comando `fgets` permite ler linhas inteiras.
 
 ### String.h
 
-Ao escrever #include <string.h> passamos a ter acesso a um conjunto razoável de funções para
+Ao escrever `#include <string.h>` passamos a ter acesso a um conjunto razoável de funções para
 manipulação de strings.
 Exemplos úteis:
 

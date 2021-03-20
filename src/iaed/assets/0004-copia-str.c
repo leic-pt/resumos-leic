@@ -7,7 +7,7 @@ int main()
     int c, i;
     char origem[DIM], destino[DIM];
 
-    for (i = 0; i< DIM-1 && (c=getchar()) != EOF && c != '\n'; i++)
+    for (i = 0; i < DIM-1 && (c=getchar()) != EOF && c != '\n'; i++)
         origem[i] = c;
 
     origem[i] = '\0';
