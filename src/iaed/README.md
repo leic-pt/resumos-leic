@@ -22,7 +22,7 @@ Guia de laboratório disponibilizado durante a semana anterior para preparação
 ### Fichas de Lab
 
 São 10, contam as 8 melhores.
-Ficas presenciais em caso de desconfinamento.
+Fichas presenciais em caso de desconfinamento.
 Sem nota mínima (não é preciso ter X para não chumbar).
 Não há represcagem das fichas.
 
