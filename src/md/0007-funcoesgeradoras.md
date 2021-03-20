@@ -1,5 +1,5 @@
 ---
-description: Funções geradoras, exemplos.
+description: Funções Geradoras, Exemplos.
 ---
 
 # Funções Geradoras
@@ -28,7 +28,7 @@ $$
 c_n = \sum^n_{k=0} a_k b_{n-k}
 $$
 
-## Generalização e exemplos
+## Generalização e Exemplos
 
 Em geral, uma sucessão $u_n$ é gerada por:
 

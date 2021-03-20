@@ -1,10 +1,10 @@
 ---
-description: Teoremas sobre combinatória; Problemas de contagem.
+description: Teoremas sobre Combinatória; Problemas de Contagem.
 ---
 
-# Teoremas e cálculo combinatório
+# Teoremas e Cálculo Combinatório
 
-## Teoremas sobre cálculo combinatório e funções geradoras
+## Teoremas sobre Cálculo Combinatório e Funções Geradoras
 
 ### Teorema 1
 
@@ -75,7 +75,7 @@ $$
 u_n={n+m-1 \choose m-1}y^n
 $$
 
-## Problemas de contagem
+## Problemas de Contagem
 
 Seja $n \in \N_1$ e $l \in \N.$ O número de soluções inteiras não negativas da equação:
 
