@@ -63,6 +63,14 @@ Para atribuir um valor à tabela `i` na posição `j`
 
 Podemos guardar caracteres em tabelas (Vetores).
 
+$$
+\begin{array}{|c|c|c|c|c|c|c|c|c}
+\hline
+'h' & 'e' & 'l' & 'l' & 'o' & '\n' & '\0' & ... \\
+\hline
+\end{array}
+$$
+
 Em C uma cadeia de caracteres acaba com `\0` .
 
 Cadeia de caracteres "hello\n" tem caracteres

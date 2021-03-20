@@ -20,7 +20,7 @@ No printf usamos `%ld` para referirmos a esta variável.
 
 ::: tip
 Podemos atribuir o mesmo valores a várias variáveis:
-`int notas = aprovacoes = 0;`
+`notas = aprovacoes = 0;`
 :::
 
 ### i++, ++i, i+=1
@@ -34,6 +34,11 @@ No entanto quando se encontram dentro dessas condições elas diferem.
 - `++i` incrementa o seu valor antes de verificar se a condição em que se encontra.
 
 - `i++` incrementa o seu valor depois de verificar a condição em que se encontra.
+
+::: tip
+Esta notação pode também ser usada para decrementar valores em 1 unidade:
+`i--` e `--i`
+:::
 
 <<< @/src/iaed/assets/0003-a++.c
 
