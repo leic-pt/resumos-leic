@@ -1,5 +1,5 @@
 ---
-description: Teorema de Newton; exemplos.
+description: Teorema de Newton; Exemplos.
 ---
 
 # Teorema de Newton
@@ -45,9 +45,9 @@ $$p_n=p_0+\Delta p_0n^{\underline 1}+ \frac 1 {2!}\Delta^2p_0n^{\underline 2} + 
 
 Agora, pode-se resolver problemas como os seguintes:
 
-![Exemplos](./imgs/0008-problemas.png))
+![Exemplos](./imgs/0008-problemas.png)
 
-## Resolução de exemplos
+## Resolução de Exemplos
 
 ### 1)
 
