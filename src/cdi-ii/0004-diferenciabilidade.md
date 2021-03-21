@@ -385,7 +385,7 @@ $$
 
 $$
 J^{f}_{(1,1)} =\begin{pmatrix}
-\frac{\partial f}{\partial x}( 1,1) & \frac{\partial f}{\partial x}( 1,1)
+\frac{\partial f}{\partial x}( 1,1) & \frac{\partial f}{\partial y}( 1,1)
 \end{pmatrix} =\begin{pmatrix}
 2xy\Bigl|_{( 1,1)} & x^{2}\Bigl|_{( 1,1)}
 \end{pmatrix} =\begin{pmatrix}
