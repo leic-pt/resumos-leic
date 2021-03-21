@@ -50,7 +50,8 @@ ou então $u_n = 1\quad\forall_{n \in \N}$:
 
 $$
 v(z)=1+z+z^2+z^3+z^4+\dots\\
-z(v(z))=\quad z+z^2+z^3+z^4+\dots \\v(z)-z(v(z))=1 \Leftrightarrow\\
+z\cdot v(z)=\quad z+z^2+z^3+z^4+\dots \Leftrightarrow\\
+v(z)-z\cdot v(z)=1 \Leftrightarrow\\
 \\
 v(z) = \frac 1 {1-z}
 $$
@@ -60,7 +61,7 @@ Com estes exemplos, já podemos conhecer a função geradora de $u_n=n+1$
 
 $$
 v(z) =1z^0+2z^1+3z^2+4z^3+\dots\\
-z(v(z))=z+2z^2+3z^3+4z^4+\dots\\
+z\cdot v(z)=z+2z^2+3z^3+4z^4+\dots\\
 \\
 (1-z)v(z)= 1+z+z^2+z^3+z^4+\dots=\frac 1 {1-z} \Leftrightarrow \\
 v(z) = \frac 1 {(1-z)^2}
@@ -68,7 +69,7 @@ $$
 
 Repare-se que a partir desta fórmula pode-se também chegar a geradora de $u_n=n$:
 
-$$u_n=n+1 \implies v(z) _{n+1}=\sum_{k=0}^{\infty}(k+1)z^k = \sum_{k=0}^{+\infty}kz^k+\sum_{k=0}^{+\infty}z^k$$
+$$u_n=n+1 \implies v(z) _{n+1}=\sum_{k=0}^{+\infty}(k+1)z^k = \sum_{k=0}^{+\infty}kz^k+\sum_{k=0}^{+\infty}z^k$$
 
 onde o primeiro somatório da última igualdade representa a geradora da sucessão $u_n=n$. Assim, viria:
 
