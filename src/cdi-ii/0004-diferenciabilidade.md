@@ -362,6 +362,10 @@ $$
 
 :::
 
+::: warning
+Pode existir a jacobiana de uma função $f$ em $a$ sem que $f$ seja diferenciável em $a$.
+:::
+
 ### Gradiente de uma função
 
 Seja $f: D \subseteq \R^n \to \R$ isto é, seja $f$ uma função escalar.

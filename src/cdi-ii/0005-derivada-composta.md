@@ -1,5 +1,5 @@
 ---
-description: Derivada da função composta
+description: Derivada da Função Composta, Fórmula da Cadeia (Chain Rule)
 ---
 
 # Derivada da Função Composta em Rⁿ
@@ -213,6 +213,8 @@ $$
 :::
 
 ---
+
+Slides:
 
 - [Aula 9](https://drive.google.com/file/d/1hD4cmbOMvQePGDpdGdBiW7dDN5211U-_/view?usp=sharing)
 - [Aula 10](https://drive.google.com/file/d/16jeZ0qLZeC0opCixeGwUH25yVjLjDSBn/view?usp=sharing)
