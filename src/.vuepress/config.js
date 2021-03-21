@@ -53,6 +53,7 @@ module.exports = {
             '0002-estruturas-controlo',
             '0003-input-output',
             '0004-tabelas',
+            '0005-ficheiros',
           ],
         },
         {

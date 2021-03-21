@@ -1,0 +1,1 @@
+int exemplo(int a);
