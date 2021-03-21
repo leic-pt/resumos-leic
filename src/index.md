@@ -28,12 +28,13 @@ Podes contribuir ao clicar no botão `Edit this page` no fim de qualquer página
 
 Quero agradecer a [todos os que contribuíram](https://github.com/diogotcorreia/resumos-leic/graphs/contributors) para os conteúdos deste site:
 
-- [Diogo Gaspar](https://github.com/diogotcorreia/resumos-leic/commits?author=randomicecube) (LP)
-- [Rafa](https://github.com/diogotcorreia/resumos-leic/commits?author=Rafa10PT) (IAED)
+- [Diogo Gaspar](https://github.com/diogotcorreia/resumos-leic/commits?author=randomicecube) (**LP**)
+- [Tomás Esteves](https://github.com/diogotcorreia/resumos-leic/commits?author=Pesteves2002) (**IAED**, MD, CDI-II, LP)
+- [Rúben Nobre](https://github.com/diogotcorreia/resumos-leic/commits?author=RubenNobre123) (**MD**)
+- [Rafael Oliveira](https://github.com/diogotcorreia/resumos-leic/commits?author=RafDevX) (MD, CDI-II, LP)
+- [Rafa](https://github.com/diogotcorreia/resumos-leic/commits?author=Rafa10PT) (IAED, CDI-II)
 - [Luís Fonseca](https://github.com/diogotcorreia/resumos-leic/commits?author=luishfonseca) (IAED)
-- [Rúben Nobre](https://github.com/diogotcorreia/resumos-leic/commits?author=RubenNobre123) (MD)
 - [Diogo Cardoso](https://github.com/diogotcorreia/resumos-leic/commits?author=D-Card) (IAED)
-- [Tomás Esteves](https://github.com/diogotcorreia/resumos-leic/commits?author=Pesteves2002) (MD, CDI-II)
 - [Rafael Girão](https://github.com/diogotcorreia/resumos-leic/commits?author=rafaelsgirao) (Meta)
 
 ---
