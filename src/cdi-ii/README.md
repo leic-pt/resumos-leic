@@ -8,6 +8,6 @@
 
 - Pedro Lopes, 12:00 - 14:00 [Coordenadas Zoom](https://videoconf-colibri.zoom.us/j/89254631401), password: 799240
 
-## Resumos 
+## Resumos
 
 - [João Rocha](https://drive.google.com/file/d/18JmqfnyAKjGq8mZB0xJ-eAKZyJdQpZTI/view?usp=sharing)
