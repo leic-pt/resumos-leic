@@ -50,7 +50,8 @@ ou então $u_n = 1\quad\forall_{n \in \N}$:
 
 $$
 v(z)=1+z+z^2+z^3+z^4+\dots\\
-z(v(z))=\quad z+z^2+z^3+z^4+\dots \\v(z)-z(v(z))=1 \Leftrightarrow\\
+z\cdot v(z)=\quad z+z^2+z^3+z^4+\dots \Leftrightarrow\\
+v(z)-z\cdot v(z)=1 \Leftrightarrow\\
 \\
 v(z) = \frac 1 {1-z}
 $$
