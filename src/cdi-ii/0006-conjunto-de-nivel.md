@@ -1,8 +1,8 @@
 ---
-description: Curvas de Nível, Conjunto de Nível, Ponto de Sela
+description: Curvas de Nível, Conjunto de Nível, Ponto de Sela, Caminho em Rⁿ, Derivada de um Caminho, Vetor Tangente a um Caminho, Gradiente de um Campo Escalar
 ---
 
-# Conjunto de Nível
+# Conjunto de Nível e Caminho
 
 [[toc]]
 
@@ -56,7 +56,7 @@ Assim, ao me afastar de $(1,1)$ no sentido $(1,-3)$, a função não varia local
 
 :::
 
-## Conjunto de Nível (Generalização)
+## Conjunto de Nível
 
 Os conjuntos de nível são a generalização das curvas de nível a $dim > 2$.
 
@@ -106,8 +106,134 @@ Também podemos pensar que ao longo de uma direção a função cresce, e ao lon
 
 <img src="./assets/0006-saddle-point.svg" alt="Ponto de Sela (Saddle Point)" class="invert-dark">
 
+## Caminho em Rⁿ
+
+::: tip DEFINIÇÃO
+Caminho em $\R^n$ é uma função $c: \R \to \R^n$.  
+A imagem de $c$ diz-se linha ou curva e denota-se $\Gamma$.
+:::
+
+Como exemplo, tomemos o caminho $c(t)=(\cos t, \sin t), \forall t \in \R$.  
+A imagem deste caminho é $\Gamma = \{(x,y) \in \R^2: x^2+y^2=1\}$.
+
+### Derivada de um Caminho
+
+Se um caminho é $C^1$ (isto é, as derivadas parciais são contínuas)
+a derivada é dada por
+
+$$
+c'(t)=\lim_{h \to 0} \frac{c(t+h)-c(t)}{h}
+$$
+
+::: tip DEFINIÇÃO
+Seja $c: \R \to \R^n$, $C^1$ e $\Gamma$ a linha descrita por $c$.  
+O vetor $c'(t)$ diz-se o **vetor tangente** à linha $\Gamma$ no ponto $c(t)$.
+:::
+
+Se considerarmos cada função componente de $c$, a função $c_i: \R \to \R$, podemos derivar
+indidualmente cada uma destas componentes, de forma a obter o vetor tangente, $c'(t)$, à curva $\Gamma$ em $c(t)$.
+
+::: details Exemplos
+
+Se tivermos $c(t) = (\cos t, \sin t), \forall t \in \R$, podemos calcular as suas derivadas em vários pontos:
+
+$$
+\begin{darray}{l}
+c' (t) = (-\sin t, \cos t), \quad \forall t \in \R\\
+c'\left(\frac{\pi}{2}\right)=\left(-\sin\frac{\pi}{2}, \cos \frac{\pi}{2}\right)=(-1,0)\\
+c'(0) = (-\sin 0, \cos 0) = (0, 1)\\
+\end{darray}
+$$
+
+---
+
+Tendo $c(t)=(\cos t, \sin t, t), \forall t \in \R$, obtemos:
+
+$$
+\begin{darray}{l}
+c'(t)=(-\sin t, \cos t, 1)\\
+c'\left(\frac{\pi}{2}\right) = \left(-\sin \frac{\pi}{2}, \cos \frac{\pi}{2}, 1\right) = (-1,0,1)
+\end{darray}
+$$
+
+:::
+
+### Vetor Tangente a um Conjunto
+
+::: tip DEFINIÇÃO
+
+Um vetor $v\in \R^n$ diz-se **tangente** a um conjunto $M \subset \R^n$ num ponto $a \in M$
+se existir um caminho $C^1, c:\R \to M$ tal que $c(0) = a$ e $c'(0) = v$.
+
+:::
+
+::: details Exemplo
+
+Sejam $f: D \subseteq \R^n \to \R$, uma função escalar e $k \in \R$  
+Sejam $M = N(k) = \{x \in D: f(x)= x\}$  
+Seja $a \in M, v \in \R^n$, então $c: \R \to M$ com $c(0) = a, c'(0) = v$.
+
+Então, para $t=0$,  
+$f(c(t)) = k \implies 0=(f\circ c)'(0) = \nabla f(c(t)) = \nabla f(a) \cdot v \implies v \perp \nabla f(a)$,  
+ou seja, $v$ é ortogonal a $\nabla f(a)$
+
+Portanto se $M$ é conjunto de nível e $a\in M$, $\nabla f(a)$ é ortogonal à tangente a $M$ em $a$.
+:::
+
+### Gradiente de um Campo Escalar
+
+::: tip DEFINIÇÃO
+O gradiente de um campo escalar $f$ em $a$ é ortogonal ao conjunto de nível de $f$.
+:::
+
+::: details Exemplos
+
+Qual o vetor perpendicular ao plano de equação $ax + by + cz = d$ ?
+
+O plano é conjunto de nível com valor $d$ da função $f(x,y,z)=ax+by+cz$,
+
+$$
+N(d)=\{(x,y,z)\in \R^3: ax+by+cz=d\}
+$$
+
+$\nabla f(x,y,z) = (a b c), \forall (x,y,z) \in \R^3$ é $\perp$ a $N(a)$ em qualquer ponto de $N(a)$
+
+---
+
+**Determine uma equação do plano tangente à esfera $x^2+y^2+z^2=9$ no ponto $(2,2,1)$.**
+
+A esfera pode ser representada por $N(9) = \{(x, y,z) \in \R^3: x^2+y^2+z^2=9\}$ com $f(x,y,z) = x^2+y^2+z^2$,
+pelo que:
+
+$$
+\begin{array}{l}
+\nabla f(x,y,z) = (2x, 2y, 2z)\\
+\nabla f(2,2,1) = (4, 4, 2)
+\end{array}
+$$
+
+Pegando agora no vetor que representa o ponto,  
+$v(x-2,y-2,z-1) \perp \nabla f(2,2,1) = (4 4 2)$
+
+Podemos obter a equação do plano tangente (a $N(9)$) à esfera em $(2,2,1)$:
+$0=(4 4 2) \dot (x-2 y-2 z-1) = 4(x-2) + 4(y-2) + 2(z-1)$
+
+$4x+4y+2z=8+8+2 \Leftrightarrow 2x+2y+z=9$
+
+**Calcule agora a reta normal à esfera nesse ponto.**
+
+$$
+\begin{aligned}
+R& = \{(x,y,z) \in \R^3: (x,y,z) = (2,2,1) + \lambda \nabla f(2,2,1), \lambda \in \R\}\\
+&=\{(x,y,z) \in \R^3: (x,y,z) = (2,2,1) + \lambda (4,4,2), \lambda \in \R\}
+\end{aligned}
+$$
+
+:::
+
 ---
 
 Slides:
 
 - [Aula 11](https://drive.google.com/file/d/1gmfl3glC8lIOvPEvZdrrv5RH_yTMhpTW/view?usp=sharing)
+- [Aula 12](https://drive.google.com/file/d/1HsBSnbK5_vzGnnGcwFNRgvRIIvZLdrRL/view?usp=sharing)
