@@ -594,7 +594,7 @@ Tem-se então, de efetuar o cálculo pelo limite.
 $$
 \begin{aligned}
 \frac{\partial f}{\partial v}(0,0) &= \lim_{t\to 0}\frac{f((0,0) + t(1,1))- f(0,0)}{t}\\
-& =\lim_{t\to 0}\frac{f(t,t)}-0{t}\\
+& =\lim_{t\to 0}\frac{f(t,t)-0}{t}\\
 & =\lim_{t\to 0} \frac{\frac{t^2\cdot t}{t^2+t^2}}{t}\\
 & =\lim_{t\to 0} \frac{t^3}{t(2t^2)}\\
 & =\lim_{t\to 0} \frac{t^3}{2t^3}\\

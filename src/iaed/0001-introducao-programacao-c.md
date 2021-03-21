@@ -32,3 +32,7 @@ Não é possível alterar o tipo de uma variável/função durante a execução 
 
 O tipo de dados `int` em C representa um inteiro de 32 bits.  
 O tipo `long long int` já permite guardar mais do que 64 bits.
+
+Slides:
+
+- [Aula 1](https://drive.google.com/file/d/1puIqalY73XaG7XlAsSYQEG6Zg6ZylJAV/view?usp=sharing)
