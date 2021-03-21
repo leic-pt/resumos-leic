@@ -10,7 +10,7 @@ description: Teoremas sobre Combinatória; Problemas de Contagem.
 
 $$
 \text{Para todo o } n, m \in \N \text{ tem-se:}
-\sum_{k=0}^{m} {k+m \choose m} = {n+m+1 \choose m+1}
+\sum_{k=0}^{n} {k+m \choose m} = {n+m+1 \choose m+1}
 $$
 
 Demonstração:
