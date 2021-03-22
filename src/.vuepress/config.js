@@ -16,9 +16,14 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/config/#head
    */
   head: [
-    ['meta', { name: 'theme-color', content: '#3eaf7c' }],
+    ['meta', { name: 'theme-color', content: '#00a0e4' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
+    ['link', { rel: 'icon', href: '/android-icon-192x192.png' }],
+    ['link', { rel: 'manifest', href: '/manifest.json' }],
+    ['link', { rel: 'apple-touch-icon', href: '/apple-icon-152x152.png' }],
+    ['meta', { name: 'msapplication-TileImage', content: '/ms-icon-144x144.png' }],
+    ['meta', { name: 'msapplication-TileColor', content: '#000000' }],
   ],
 
   theme: 'default-prefers-color-scheme',
@@ -186,6 +191,13 @@ module.exports = {
       {
         websiteId: '711c662a-45bd-41e0-bf82-302096490211',
         jsUrl: 'https://umami.diogotc.com/umami.js',
+      },
+    ],
+    [
+      '@vuepress/pwa',
+      {
+        serviceWorker: true,
+        updatePopup: true,
       },
     ],
   ],
