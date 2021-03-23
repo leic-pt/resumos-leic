@@ -213,10 +213,10 @@ $$
 $$
 
 Pegando agora no vetor que representa o ponto,  
-$v(x-2,y-2,z-1) \perp \nabla f(2,2,1) = (4 4 2)$
+$v=(x,y,z)-(2,2,1)=(x-2,y-2,z-1) \perp \nabla f(2,2,1) = (4, 4, 2)$
 
 Podemos obter a equação do plano tangente (a $N(9)$) à esfera em $(2,2,1)$:
-$0=(4 4 2) \dot (x-2 y-2 z-1) = 4(x-2) + 4(y-2) + 2(z-1)$
+$0=(4, 4, 2) \cdot (x-2, y-2, z-1) = 4(x-2) + 4(y-2) + 2(z-1)$
 
 $4x+4y+2z=8+8+2 \Leftrightarrow 2x+2y+z=9$
 
