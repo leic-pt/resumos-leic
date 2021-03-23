@@ -235,3 +235,132 @@ A substituição $\{a/x, b/y, c/z\}$ é unificador do conjunto $\{P(a, y, z), P(
   - se $s_{1}$ for um unificador da _fbf_ da qual $s$ é o _mgu_, então existe uma substituição $s_{2}$ tal que $s_{1} = s \circ s_{2}$.
 
 **O _mgu_ é único**, exceto para variantes alfabéticas de variáveis.
+
+### Algoritmo de Unificação
+
+Recebe um conjunto de _fbfs_ atómicas e decide se podem ser unificadas, devolvendo o seu _mgu_. O algoritmo apresentado a seguir percorre, em paralelo, os constituintes das _fbfs_ a unificar, da esquerda para a direita, começando pelo mais à esquerda. À medida que vai encontrando constituintes diferentes, **em desacordo**, tenta determinar uma substituição que os torne iguais. Em caso de sucesso, o algoritmo continua a percorrer as _fbfs_ que resultam da aplicação dessa substituição a todas as _fbfs_ a unificar; caso contrário, termina, indicando que o conjunto não é unificável. Percorridas todas as _fbfs_, o algoritmo termina com sucesso e a composição de substituições encontrada corresponde ao _mgu_.
+
+Neste algoritmo, _card_ é a função que calcula o número de elementos do conjunto, _var_ é a função que tem valor verdadeiro se o argumento for uma variável, falso caso contrário, e _termo_ é a função que tem valor verdadeiro caso o argumento seja um termo, falso caso contrário. O algoritmo usa ainda outro algoritmo, _desacordo_ para determinar o conjunto de desacordo de um conjunto de _fbfs_. Obtém-se localizando o primeiro constituinte, a partir da esquerda, que não é igual a todas as _fbfs_ do conjunto e extraindo das _fbfs_ todos os componentes nessa posição.
+
+::: details Desacordo
+
+Em $\Delta = {P(x, f(x, y)), P(x, a), P(x, g(x))}$, o conjunto de desacordo é ${f(x, y), a, g(x)}$ - conjunto de _fbfs_ em desacordo, que não são iguais em todas as _fbfs_ de $\Delta$.
+
+:::
+
+::: tip Exemplo de aplicação do Algoritmo de Unificação
+
+Seja $\Delta$ o conjunto $\{P(x, x), P(y, f(y))\}$. Se quisermos tentar determinar o seu _mgu_:
+
+---
+
+|         $\Delta$          |    $s$    |    $D$     | $\{t/x\}$ |
+| :-----------------------: | :-------: | :--------: | :-------: |
+| $\{P(x, x), P(y, f(y))\}$ |  $\{\}$   | $\{x, y\}$ |  ${y/x}$  |
+| $\{P(y, y), P(y, f(y))\}$ | $\{y/x\}$ | $\{y/x\}$  |  $falha$  |
+
+De cima para baixo, da esquerda para a direita:  
+Começamos por olhar para $\Delta$ da esquerda para a direita; como podemos constatar, $x$ e $y$ estão em desacordo, se considerarmos os primeiros argumentos de cada _fbf_. Assim sendo, o conjunto atual de desacordo, $D$, passa a ser $\{x, y\}$. Sabemos que _deixa de ficar em desacordo_ se substituirmos $x$ por $y$ (a decisão é feita, mais uma vez, ao ler da esquerda para a direita), e adicionamos, portanto essa mesma substituição ao conjunto $s = s \circ \{y/x\} = \{y/x\}$. Voltamos a verificar o conjunto de desacordo, desta vez para o segundo argumento de cada _fbf_. Como é possível constatar, $y$ e $f(y)$ estão em desacordo. Contudo, $y$ ocorre em $f(y)$, pelo que a substituição não é possível, não podendo, portanto, unificar o conjunto. O conjunto **não é unificável**, e o algoritmo para aqui.
+
+:::
+
+## Resolução
+
+Podemos agora enunciar o princípio da resolução para o caso em que as cláusulas contêm variáveis.
+
+- **Princípio da Resolução, caso geral** - sejam Ψ e Φ duas cláusulas **sem variáveis em comum**, $\alpha$ e $\beta$, duas _fbfs_ atómicas tais que $\alpha \in Ψ$ e $\beta \in Φ$, e $\alpha$ e $\beta$ são unificáveis, com $s$ o _mgu_ destas. Segundo o princípio da resolução, podemos inferir a cláusula $((Ψ - \{\alpha \}) \cup (Φ - \{\neg \beta \})) \cdot  s$. Os literais $\alpha \cdot s$ e $\beta \cdot s$ serão literais em conflito, e a cláusula obtida é o resolvente das cláusulas.
+
+Em termos correntes, removemos os literais em conflito e aplicamos o _mgu_ às que restam.
+
+É, tal como a resolução da lógica proposicional, correta mas não completa. É, contudo, completa quanto à refutação.
+
+::: tip Resolução
+
+$Ψ = \{P(f(a), x)\}$ e $Φ = \{\neg P(y, h(z)), Q(f(y), z)\}$. O _mgu_ de $P(f(a), x)$ e $P(y, h(z))$ é $\{f(a)/y, h(z)/x\}$, e portanto o resolvente será a aplicação desse mesmo _mgu_ à cláusula restante, obtendo $\{Q(f(f(a)), z)\}$.
+
+Graficamente:
+
+<img src="./assets/0005-resolucao.png" alt="Resolução" class="invert-dark">
+
+:::
+
+De notar que o resolvente pode não necessitar de uma substituição, isto é, pode existir resolvente entre duas cláusulas em que o conteúdo é "ele próprio" numa cláusula e a sua negação noutra, e aí podemos aplicar o resolvente tal como na lógica proposicional.
+
+### Renomeação de variáveis
+
+Se repararmos, na definição é referida a necessidade de não haver variáveis em comum entre as _fbfs_. Esta necessidade pode ser satisfeita renomeando todas as variáveis das cláusulas relevantes anets da aplicação do princípio da resolução, por exemplo passar $x$ para $x'$. Esta renomeação apenas ocorre numa das cláusulas, a outra instância mantém-se intacta (podemos fazer isto porque, na verdade, estamos na presença de variáveis quantificadas universalmente, portanto mudas).
+
+::: details Renomeação de variáveis
+
+Sejam $Ψ = \{P(x), Q(y)\}$ e $Φ = \{\neg P(x), R(y)\}$ duas cláusulas. Para aplicar o princípio da resolução, temos antes de renomear as variáveis, renomeação essa que origina a cláusula $Φ = \{\neg P(x'), R(y')\}$. Sendo $x$ e $x'$ duas variáveis diferentes, podemos agora unificá-las.
+
+:::
+
+::: tip Porquê renomear as variáveis?
+
+Consideremos a seguinte afirmação: $\{\forall x, y[P(x, y) \to R(y, x)], \forall x, y[R(x, y) \to Q(y, x)]\} \vdash \forall x, y[P(x, y) \to Q(x, y)].$
+
+Na forma clausal, será $\{\{\neg P(x, y), R(y, x)\}, \{\neg R(x, y), Q(y, x)\}\} \vdash \{\neg P(x, y), Q(x, y)\}.$
+
+Se não renomearmos as variáveis, o _mgu_ de $R(y, x)$ e $R(x, y)$ será $\{x/y\}$, e a partir daí só podemos obter a cláusula $\{P(x, x), Q(x,x)\}$. Por outro lado, se renomearmos as variáveis obtemos um _mgu_ diferente e é possível chegar à expressão pretendida.
+
+:::
+
+### Provas por Resolução
+
+**As noções de prova por resolução e refutação, bem como as estratégias de eliminação e seleção de cláusulas, migram da lógica proposicional para a de primeira ordem.**
+
+Ao utilizar, em lógica de primeira ordem, cláusulas com variáveis, é-nos agora possível responder a dois tipos de questões - verdadeiro/falso e quem/qual.
+
+::: details Prova por Resolução - Verdadeiro/Falso
+
+Tenhamos como premissas:
+
+- $\forall x, y[AD(x, y) \to Ant(x, y)]$
+- $\forall x, y, z[Ant(x, y) \wedge AD(y, z) \to Ant(x, z)]$
+- $AD(Marge, Bart)$
+- $AD(Sr. B, Marge)$
+
+A partir das quais queremos derivar $Ant(Sr.B, Bart).$
+
+Primeiro, temos de passar as premissas à forma clausal. Negamos a conclusão (refutação), passando-a para as premissas, e a resolução dar-se-á assim:
+
+<img src="./assets/0005-resolucaosrb.png" alt="Resolução do Sr.B" class="invert-dark">
+
+Na linha 6, o que se faz é reparar que com substituir $x$ por $Sr.B$ e $z$ por $Bart$ leva a um resolvente em ordem $Ant(Sr.B, Bart)$. Assim sendo, aplicamos essa substituição (a todos os membros, incluindo os que não desaparecem) e utilizamos o resolvente. Um processo semelhante pode ser aplicado a todos os passos seguintes.
+
+:::
+
+::: details Prova por Resolução - Quem
+
+Tenhamos como premissas as premissas do exemplo anterior (retirando a negação da conclusão, essa não interessará). A pergunta que faremos agora é **quem são os antepassados do Bart?**. O que fazemos para responder a perguntas deste tipo é adicionar uma _fbf_ às premissas tal que:
+
+$\forall x[Ant(x, Bart) \to R(x)]$, onde $R(x) = "x$ é uma resposta". A resolução passará a ser tal que:
+
+<img src="./assets/0005-resolucao-pais.png" alt="Resolução Quem" class="invert-dark">
+
+Se repararmos, chegamos 2 vezes a $R(resposta)$, onde $resposta$ corresponde a um dos antepassados do Bart.
+
+Podíamos ainda realizar este processo de outra maneira: não adicionar aquela _fbf_ especiais ao conjunto de premissas e resolver a prova normalmente. Aí, podemos verificar que em todas as substituições durante a prova do tipo $\{Resposta/x\}$, essa tal resposta acaba por ser uma das possíveis. É outra maneira possível de resolver, e até indicação em contrário acho que podem escolher a que preferirem.
+
+:::
+
+::: details Prova por Resolução - Quais
+
+De um modo semelhante ao último exemplo, podemos responder à questão **quais**. O processo será semelhante, adicionar uma _fbf_ especial e chegar a todas as respostas que a verificam.
+
+Tentemos fazê-lo com este conjunto de premissas:
+
+- $\forall x[Pessoa(x) \to \exists y[Mãe(x, y)]]$
+- $\forall x, y[Mãe(x, y) \to Mulher(x)]$
+- $Pessoa(Bart)$
+
+Suponhamos que queremos descobrir **quem são as mulheres envolvidas nestas proposições**. Bem, introduzimos a tal _fbf_ especial às premissas, $\forall x[Mulher(x) \to R(x)$, e vamos trabalhar.
+
+<img src="./assets/0005-resolucao-quais.png" alt="Resolução quais" class="invert-dark">
+
+Chegamos, portanto, a que a única mulher conhecida é a mãe do Bart, apesar de o seu nome não estar explícito nas premissas.
+
+De realçar que, tal como no exemplo anterior, não era necessário recorrer a esta _fbf_ extra - é só uma maneira diferente de se resolver.
+
+:::
