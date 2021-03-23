@@ -238,7 +238,7 @@ A substituição $\{a/x, b/y, c/z\}$ é unificador do conjunto $\{P(a, y, z), P(
 
 ### Algoritmo de Unificação
 
-Recebe um conjunto de _fbfs_ atómicas e decide se podem ser unificadas, devolvendo o seu _mgu_. O algoritmo apresentado a seguir percorre, em paralelo, os constituintes das _fbfs_ a unificar, da esquerda para a direita, começando pelo mais à esquerda. À medida que vai encontrando constituintes diferentes, **em desacordo**, tenta determinar uma substituição que os torne iguais. Em caso de sucesso, o algoritmo continua a percorrer as _fbfs_ que resultam da aplicação dessa substituição a todas as _fbfs_ a unificar; caso contrário, termina, indicando que o conjunto não é unificável. Percorridas todas as _fbfs_, o algoritmo termina com sucesso e a composição de substituições encontrada corresponde ao _mgu_.  
+Recebe um conjunto de _fbfs_ atómicas e decide se podem ser unificadas, devolvendo o seu _mgu_. O algoritmo apresentado a seguir percorre, em paralelo, os constituintes das _fbfs_ a unificar, da esquerda para a direita, começando pelo mais à esquerda. À medida que vai encontrando constituintes diferentes, **em desacordo**, tenta determinar uma substituição que os torne iguais. Em caso de sucesso, o algoritmo continua a percorrer as _fbfs_ que resultam da aplicação dessa substituição a todas as _fbfs_ a unificar; caso contrário, termina, indicando que o conjunto não é unificável. Percorridas todas as _fbfs_, o algoritmo termina com sucesso e a composição de substituições encontrada corresponde ao _mgu_.
 
 Neste algoritmo, _card_ é a função que calcula o número de elementos do conjunto, _var_ é a função que tem valor verdadeiro se o argumento for uma variável, falso caso contrário, e _termo_ é a função que tem valor verdadeiro caso o argumento seja um termo, falso caso contrário. O algoritmo usa ainda outro algoritmo, _desacordo_ para determinar o conjunto de desacordo de um conjunto de _fbfs_. Obtém-se localizando o primeiro constituinte, a partir da esquerda, que não é igual a todas as _fbfs_ do conjunto e extraindo das _fbfs_ todos os componentes nessa posição.
 
@@ -254,10 +254,10 @@ Seja $\Delta$ o conjunto $\{P(x, x), P(y, f(y))\}$. Se quisermos tentar determin
 
 ---
 
-|         $\Delta$         |    $s$   |      $D$      |     $\{t/x\}$     |
-| :----------------------: | :------: | :----------: | :--------------: |
-|           $\{P(x, x), P(y, f(y))\}$           |             $\{\}$            |        $\{x, y\}$         |              ${y/x}$             |
-|             $\{P(y, y), P(y, f(y))\}$              |          $\{y/x\}$         |     $\{y/x\}$         |   $falha$        |
+|         $\Delta$          |    $s$    |    $D$     | $\{t/x\}$ |
+| :-----------------------: | :-------: | :--------: | :-------: |
+| $\{P(x, x), P(y, f(y))\}$ |  $\{\}$   | $\{x, y\}$ |  ${y/x}$  |
+| $\{P(y, y), P(y, f(y))\}$ | $\{y/x\}$ | $\{y/x\}$  |  $falha$  |
 
 De cima para baixo, da esquerda para a direita:  
 Começamos por olhar para $\Delta$ da esquerda para a direita; como podemos constatar, $x$ e $y$ estão em desacordo, se considerarmos os primeiros argumentos de cada _fbf_. Assim sendo, o conjunto atual de desacordo, $D$, passa a ser $\{x, y\}$. Sabemos que _deixa de ficar em desacordo_ se substituirmos $x$ por $y$ (a decisão é feita, mais uma vez, ao ler da esquerda para a direita), e adicionamos, portanto essa mesma substituição ao conjunto $s = s \circ \{y/x\} = \{y/x\}$. Voltamos a verificar o conjunto de desacordo, desta vez para o segundo argumento de cada _fbf_. Como é possível constatar, $y$ e $f(y)$ estão em desacordo. Contudo, $y$ ocorre em $f(y)$, pelo que a substituição não é possível, não podendo, portanto, unificar o conjunto. O conjunto **não é unificável**, e o algoritmo para aqui.
@@ -333,7 +333,7 @@ Na linha 6, o que se faz é reparar que com substituir $x$ por $Sr.B$ e $z$ por 
 
 ::: details Prova por Resolução - Quem
 
-Tenhamos como premissas as premissas do exemplo anterior (retirando a negação da conclusão, essa não interessará). A pergunta que faremos agora é **quem são os antepassados do Bart?**. O que fazemos para responder a perguntas deste tipo é adicionar uma _fbf_ às premissas tal que:  
+Tenhamos como premissas as premissas do exemplo anterior (retirando a negação da conclusão, essa não interessará). A pergunta que faremos agora é **quem são os antepassados do Bart?**. O que fazemos para responder a perguntas deste tipo é adicionar uma _fbf_ às premissas tal que:
 
 $\forall x[Ant(x, Bart) \to R(x)]$, onde $R(x) = "x$ é uma resposta". A resolução passará a ser tal que:
 
