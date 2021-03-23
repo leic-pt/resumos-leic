@@ -22,7 +22,7 @@ description: Resolução das fichas de CDI-II que estão disponíveis na página
 - [Ficha 4: Diferenciabilidade](https://drive.google.com/file/d/1-k_n0gc7aWjuuxNJQ1kA5ZzJUK5Z88pU/view?usp=sharing)
 
   - [Respostas (Oficial)](https://drive.google.com/file/d/17zrr5ABmEsWyyTu7RZkMYKVj1iaGXymd/view?usp=sharing)
-  - [Resolução (by Diogo Correia)](Pressure Him :D)
+  - [Resolução (by Diogo Correia)](https://drive.google.com/file/d/1ymupjNTscxiAs7UQr4X7QUDlLYbcWv_j/view?usp=sharing)
 
 - [Resoluções na EdenBox](https://www.edenbox.org/index.php/s/edenbox?path=%2FLEIC%2F1%C2%BA%20Ano%2F2%C2%BA%20Semestre%2FCDI%20II%2FPr%C3%A1ticas%2F2019-2020)
 
