@@ -11,7 +11,8 @@
   "scripts": {
     "dev": "vuepress dev src",
     "build": "vuepress build src",
-    "format": "prettier -w 'src/**/*.{js,md,vue}'"
+    "format": "prettier -w 'src/**/*.{js,md,vue}'",
+    "format-win": "prettier -w 'src\\**\\*.{js,md,vue}'"
   },
   "license": "MIT",
   "devDependencies": {
