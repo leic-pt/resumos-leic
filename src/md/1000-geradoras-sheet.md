@@ -1,9 +1,5 @@
 ---
-<<<<<<< HEAD
 description: Fórmulas; Teoremas; Combinatória.
-=======
-description: Fórmulas. Cheat Sheet de Funções Geradoras
->>>>>>> d5563535405f960d257aba50738188020f1f0f44
 ---
 
 # Funções Geradoras (Cheat Sheet)
