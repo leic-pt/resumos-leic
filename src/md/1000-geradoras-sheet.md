@@ -1,8 +1,10 @@
 ---
-description: Funções Geradoras, Exemplos.
+description: Fórmulas.
 ---
 
-# Funções Geradoras
+# Funções Geradoras (Cheat Sheet)
+
+## Fórmulas
 
 $$U(z) = \sum_{k=0}^{+\infty}u_kz^k$$
 
