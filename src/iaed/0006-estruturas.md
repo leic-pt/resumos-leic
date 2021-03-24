@@ -1,6 +1,6 @@
 ---
 prev: false
-description: Definição. Passagem de Parâmetros
+description: Definição. Funções. Typedef
 ---
 
 # Estruturas
