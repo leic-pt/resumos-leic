@@ -1,5 +1,9 @@
 ---
+<<<<<<< HEAD
 description: Fórmulas; Teoremas; Combinatória.
+=======
+description: Fórmulas. Cheat Sheet de Funções Geradoras
+>>>>>>> d5563535405f960d257aba50738188020f1f0f44
 ---
 
 # Funções Geradoras (Cheat Sheet)
@@ -66,4 +70,4 @@ $$ x_1+x_2+...+x_n = l \Leftrightarrow {l - (l_1 +l_2 +...+l_n)+ n - 1 \choose n
 
 P.S. Devs implementem uma built-in calculadora de Combinatória sfv.
 
-[P.P.S It ain´t Much but it's Honest Work 👨‍🌾](https://drive.google.com/file/d/1ADyPSLOn-5v8W3C9mZiXn7u9z88qgdDg/view?usp=sharing)
+![P.P.S It ain´t Much but it's Honest Work 👨‍🌾](https://i.imgur.com/jLQT7e1.jpg)

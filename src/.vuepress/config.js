@@ -124,13 +124,17 @@ module.exports = {
             '0007-funcoesgeradoras',
             '0008-teonewton',
             '0009-combinatorio',
-            '1000-geradoras-sheet',
           ],
         },
         {
           title: '✏️ Exercícios',
           collapsable: false,
           children: ['exercicios/fichas-aulas-praticas'],
+        },
+        {
+          title: '📃 Cheat Sheets',
+          collapsable: false,
+          children: ['1000-geradoras-sheet'],
         },
       ],
       '/': [
