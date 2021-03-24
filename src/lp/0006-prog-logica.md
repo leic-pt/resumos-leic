@@ -54,7 +54,7 @@ $\leftarrow Ant(Sr.B, Bart).$
 
 ::: details Predicado
 
-Em relação ao exemplo acima, a definição de $Ant$ seria dada por:  
+Em relação ao exemplo acima, a definição de $Ant$ seria dada por:
 
 $\{Ant(x, y) \leftarrow AD(x, y),      Ant(x, z) \leftarrow Ant(x, y), AD(y, z)\}.$
 
@@ -64,7 +64,7 @@ Uma definição de predicado que contenha apenas cláusulas fechadas, isto é, s
 
 ::: details Base de Dados
 
-Ainda em relação ao exemplo anterior, a base de dados de $AD$ pode ser dada por:  
+Ainda em relação ao exemplo anterior, a base de dados de $AD$ pode ser dada por:
 
 $\{AD(Marge, Bart) \leftarrow,       AD(Sr.B, Marge)\}$
 
@@ -73,6 +73,7 @@ visto que a definição de predicado de $AD$ não contém cláusulas não fechad
 :::
 
 ::: tip Definições a reter
+
 - **Resposta de um programa a um objetivo** - Sendo $\Delta$ um programa e $\alpha$ um objetivo, uma resposta de $\Delta$ ao objetivo $\alpha$ é uma substituição $s$ para as variáveis de $\alpha$.
 
 - **Restrição de uma substituição a variáveis** - Sendo $s$ uma substituição e $\{x_{1}, \dots, x_{m}\}$ um conjunto de variáveis, a _restrição de $s$_ ao conjunto de variáveis $\{x_{1}, \dots, x_{m}\}$, escrita $s |_{\{x_{1}, \dots, x_{m}\}} = \{t_{i}/x_{i} \in s : x_{i} \in \{x_{1}, \dots, x_{m}\}\}.$
@@ -86,7 +87,7 @@ Falemos em exemplos concretos. Tenhamos o programa:
 $Ant(x, y) \leftarrow AD(x, y)$  
 $Ant(x, z) \leftarrow Ant(x, y), AD(y, z)$  
 $AD(Marge, Bart)$  
-$AD(Sr.B, Marge)$  
+$AD(Sr.B, Marge)$
 
 E o objetivo $\leftarrow Ant(x, Bart)$.
 
@@ -104,9 +105,9 @@ Esta estratégia é utilizada devido ao normal princípio da resolução não se
 
 ::: tip DEFINIÇÃO
 
-**Função de seleção**, ou $S$, é uma regra para escolher um literal numa cláusula-objetivo como candidato à aplicação do princípio da resolução. É tal que  $S(\leftarrow \alpha = (\alpha_{1}, \dots, \alpha_{n})) \in (\alpha_{1}, \dots, \alpha_{n}).$
+**Função de seleção**, ou $S$, é uma regra para escolher um literal numa cláusula-objetivo como candidato à aplicação do princípio da resolução. É tal que $S(\leftarrow \alpha = (\alpha_{1}, \dots, \alpha_{n})) \in (\alpha_{1}, \dots, \alpha_{n}).$
 
-:::  
+:::
 
 Escolhido o literal, é escolhida também uma cláusula do programa cuja cabeça unifique com o literal escolhido - **regra de procura**. Este passo é muito importante, porque caso não a apliquemos corretamente podemos correr o risco da prova ser infinita (ou pelo menos muito mais longa do que precisa de ser).
 
@@ -130,7 +131,7 @@ $\gamma_{2} = \leftarrow Ant(Sr.B, Marge)$
 $\gamma_{3} = \leftarrow AD(Sr.B, Marge)$  
 $\gamma_{4} = \square$
 
-A **resposta calculada** é:   
+A **resposta calculada** é:  
 $(\{Sr.B/x, Bart/z\}, \{Marge/y\}, \{Sr.B/x, Marge/y\}, \epsilon)|_{\{\}} = \epsilon$
 
 :::
@@ -141,7 +142,7 @@ A mesma função de seleção oferece várias alternativas para a construção d
 
 - **Árvore SLD** - sendo $\Delta$ um programa, $\alpha$ um objetivo e $S$ uma função de seleção, a árvore SLD de $\Delta$ via $S$ é uma árvore rotulada, construída do seguinte modo:
 
-  - o rótulo de cada nó é um objetivo;  
+  - o rótulo de cada nó é um objetivo;
   - o rótulo da raiz é $\alpha$;
   - cada nó com rótulo $\leftarrow \beta_{1},\dots,\beta_{n}$, tem um ramo por cada cláusula $\delta \leftarrow \gamma_{1},\dots,\gamma_{p} \in \Delta$ cuja cabeça unificável com $S(\leftarrow \beta_{1},\dots,\beta_{n})$. O rótulo da raiz deste ramo corresponde ao resolvente entre as duas cláusulas.
 
@@ -153,7 +154,7 @@ Tenhamos o programa:
 
 $P(x, z) \leftarrow Q(x, y), P(y, z)$  
 $P(x, x) \leftarrow$  
-$Q(a, b) \leftarrow$  
+$Q(a, b) \leftarrow$
 
 e o objetivo:  
 $\leftarrow P(x, b).$
