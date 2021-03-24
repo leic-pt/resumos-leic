@@ -50,12 +50,12 @@ ou
 
 ### Manipulação de Variáveis
 
-- Manipulação: `<variavel>.<membro> };`
+- Manipulação: `<variavel>.<membro> ;`
 
 <<< @/src/iaed/assets/0006-man.c
 
 ::: tip
-As estruturas permitem incluir outras estruturas
+As estruturas permitem incluir outras estruturas.
 
 <<< @/src/iaed/assets/0006-struception.c
 :::
@@ -93,42 +93,15 @@ Permite criar tabelas que guardam estruturas
 
 - `typedef`permite associar um nome a um tipo de dados já existente
 
-- Formato - `typedef <tipo> <nome> ;`
+- Formato - `typedef <tipo> <nome> {...} "Alcunha";`
 
 <<< @/src/iaed/assets/0006-typedef.c
 
-Vamos implementar uma função que soma complexos.
+Para criar as variáveis:
+`"Alcunha" <nome da variavel>; ` ou `struct <nome> <nome da variavel> ;`
 
-## Passagem de Parâmetros
-
-### Passagem por Valor e Passagem por Referência
-
-- Argumentos são copiados para variáveis temporárias
-  quando função é executada
-- Função não tem acesso aos argumentos (só às cópias)
-- Não os pode alterar
-
-  ::: warning Atenção
-  Se o argumento for uma tabela, não é
-  efectuada a cópia da tabela.
-
-  Se a função alterar o conteúdo da tabela, estas alterações preservam-se.
-  :::
-
-  <<< @/src/iaed/assets/0005-loc.c
-
-::: tip Conversão do Tipo de 1 Variável
-Para fazer uma divisão entre inteiros, por vezes a parte inteira não chega.
-Assim convertemos o divisor para outro tipo de dados (`float`) para que a assim a divisão mostre casas decimais.
-`media = soma / (float) num_alunos ;`
-:::
-
-### Copiar Tabelas
-
-Para copiar uma tabela, temos de copiar elemento a elemento.
-
-<<< @/src/iaed/assets/0005-copia.c
+Existem 2 exemplos dados sobre estas funções que se encontram no slides da aula.
 
 Slides:
 
-- [Aula 5](https://drive.google.com/file/d/1p2wguxSNAtxRTz8PGN_V-FVC3lbcQ6Go/view?usp=sharing)
+- [Aula 6](https://drive.google.com/file/d/1lfr6pJF6VBb3nFeo3yMe-VH7dif6CD-I/view?usp=sharing)
