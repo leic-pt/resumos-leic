@@ -254,10 +254,10 @@ Seja $\Delta$ o conjunto $\{P(x, x), P(y, f(y))\}$. Se quisermos tentar determin
 
 ---
 
-|         $\Delta$          |    $s$    |    $D$     | $\{t/x\}$ |
-| :-----------------------: | :-------: | :--------: | :-------: |
-| $\{P(x, x), P(y, f(y))\}$ |  $\{\}$   | $\{x, y\}$ |  ${y/x}$  |
-| $\{P(y, y), P(y, f(y))\}$ | $\{y/x\}$ | $\{y/f(y)\}$  |  $falha$  |
+|         $\Delta$          |    $s$    |     $D$      | $\{t/x\}$ |
+| :-----------------------: | :-------: | :----------: | :-------: |
+| $\{P(x, x), P(y, f(y))\}$ |  $\{\}$   |  $\{x, y\}$  |  ${y/x}$  |
+| $\{P(y, y), P(y, f(y))\}$ | $\{y/x\}$ | $\{y/f(y)\}$ |  $falha$  |
 
 De cima para baixo, da esquerda para a direita:  
 Começamos por olhar para $\Delta$ da esquerda para a direita; como podemos constatar, $x$ e $y$ estão em desacordo, se considerarmos os primeiros argumentos de cada _fbf_. Assim sendo, o conjunto atual de desacordo, $D$, passa a ser $\{x, y\}$. Sabemos que _deixa de ficar em desacordo_ se substituirmos $x$ por $y$ (a decisão é feita, mais uma vez, ao ler da esquerda para a direita), e adicionamos, portanto essa mesma substituição ao conjunto $s = s \circ \{y/x\} = \{y/x\}$. Voltamos a verificar o conjunto de desacordo, desta vez para o segundo argumento de cada _fbf_. Como é possível constatar, $y$ e $f(y)$ estão em desacordo. Contudo, $y$ ocorre em $f(y)$, pelo que a substituição não é possível, não podendo, portanto, unificar o conjunto. O conjunto **não é unificável**, e o algoritmo para aqui.
