@@ -32,7 +32,7 @@ Em resolução com cláusulas de Horn, pelo menos um dos resolventes tem de ser 
 
 ::: details Resolução com Cláusulas de Horn
 
-O exemplo abaixo é o mesmo que o da [prova por resolução - verdadeiro/falso](https://ist.diogotc.com/lp/0005-logica-primeiraordem-sc.html#resolucao) da matéria anterior, só que utilizando resolução com cláusulas de Horn.
+O exemplo abaixo é o mesmo que o da [prova por resolução - verdadeiro/falso](./0005-logica-primeiraordem-sc.md#resolucao) da matéria anterior, só que utilizando resolução com cláusulas de Horn.
 
 <img src="./assets/0006-res-chorn.png" alt="Resolução com cláusulas de Horn" class="invert-dark">
 
