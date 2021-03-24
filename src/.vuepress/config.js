@@ -131,6 +131,11 @@ module.exports = {
           collapsable: false,
           children: ['exercicios/fichas-aulas-praticas'],
         },
+        {
+          title: '📃 Cheat Sheets',
+          collapsable: false,
+          children: ['1000-geradoras-sheet'],
+        },
       ],
       '/': [
         {
