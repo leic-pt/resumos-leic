@@ -59,6 +59,7 @@ module.exports = {
             '0003-input-output',
             '0004-tabelas',
             '0005-ficheiros',
+            '0006-estruturas',
           ],
         },
         {
