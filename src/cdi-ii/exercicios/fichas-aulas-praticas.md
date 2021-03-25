@@ -19,7 +19,7 @@ description: Resolução das fichas de CDI-II que estão disponíveis na página
   - [Respostas (Oficial)](https://drive.google.com/file/d/1TlTf58hFeiedSus4OqeOkzIv3juN-aan/view?usp=sharing)
   - [Resolução (by Diogo Correia)](https://drive.google.com/file/d/1NqjuzGNE_qXzRujnOokAIVD7tzLrGlze/view?usp=sharing)
 
-- [Ficha 4: Diferenciabilidade](https://drive.google.com/file/d/1-k_n0gc7aWjuuxNJQ1kA5ZzJUK5Z88pU/view?usp=sharing)
+- [Ficha 4: Derivada da Função Composta](https://drive.google.com/file/d/1-k_n0gc7aWjuuxNJQ1kA5ZzJUK5Z88pU/view?usp=sharing)
 
   - [Respostas (Oficial)](https://drive.google.com/file/d/17zrr5ABmEsWyyTu7RZkMYKVj1iaGXymd/view?usp=sharing)
   - [Resolução (by Diogo Correia)](https://drive.google.com/file/d/1ymupjNTscxiAs7UQr4X7QUDlLYbcWv_j/view?usp=sharing)
