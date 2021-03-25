@@ -20,6 +20,8 @@ $$1,0,1,0,1+.... = 1+z^2+z^4+...+z^{2n} =G(z) = \frac {1}{1-z^2}$$
 
 $$1,0,0,2,0,0,3,0,0,4,... = 1 + 2z^3+ 3z^6+ ... =  G(z) = \frac {1}{(1-z^3)^2}$$
 
+$$u_n=a^n\implies v(z)_{u_n}=\frac 1 {1-az}$$\\
+
 $$\frac 1 {(1-\lambda z)^m} = \sum_{k=0}^{+\infty} {k+m-1 \choose m-1}\lambda^kz^k $$\\
 
 ## Teoremas
