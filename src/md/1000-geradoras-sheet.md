@@ -12,13 +12,15 @@ description: Fórmulas; Teoremas; Combinatória. Cheat Sheet de Funções Gerado
 
 $$U(z) = \sum_{k=0}^{+\infty}u_kz^k$$
 
-$$ 1,1,1,1,1,...= 1+z+z^2+...+z^n = G(z) = \frac {1}{1-z}$$
+$$ 1,1,1,1,1,...= 1+z+z^2+...+z^n = G(z) = \frac {1}{1-z} = U(n) = 1 $$
 
-$$0, 1, 2, 3, ... =1z+2z^2+3z^3...+nz^n = G(z) = \frac {z}{(1-z)^2}$$
+$$0, 1, 2, 3, ... =1z+2z^2+3z^3...+nz^n = G(z) = \frac {z}{(1-z)^2} = U(n) = n + 1 $$
 
 $$1,0,1,0,1+.... = 1+z^2+z^4+...+z^{2n} =G(z) = \frac {1}{1-z^2}$$
 
 $$1,0,0,2,0,0,3,0,0,4,... = 1 + 2z^3+ 3z^6+ ... =  G(z) = \frac {1}{(1-z^3)^2}$$
+
+$$u_n=a^n\implies v(z)_{u_n}=\frac 1 {1-az}$$\\
 
 $$\frac 1 {(1-\lambda z)^m} = \sum_{k=0}^{+\infty} {k+m-1 \choose m-1}\lambda^kz^k $$\\
 
