@@ -124,6 +124,7 @@ module.exports = {
             '0007-funcoesgeradoras',
             '0008-teonewton',
             '0009-combinatorio',
+            '0010-diffinitas',
           ],
         },
         {
