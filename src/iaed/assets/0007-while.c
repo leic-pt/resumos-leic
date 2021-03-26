@@ -1,0 +1,2 @@
+while (<expressao>)
+<instrucoes>

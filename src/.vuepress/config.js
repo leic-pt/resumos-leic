@@ -60,6 +60,8 @@ module.exports = {
             '0004-tabelas',
             '0005-ficheiros',
             '0006-estruturas',
+            '0007-1elementos',
+            '0007-2control',
           ],
         },
         {
