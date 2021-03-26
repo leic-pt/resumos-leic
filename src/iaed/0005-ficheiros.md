@@ -1,5 +1,4 @@
 ---
-prev: false
 description: Definição. Passagem de Parâmetros
 ---
 

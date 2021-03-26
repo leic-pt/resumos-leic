@@ -1,5 +1,4 @@
 ---
-prev: false
 description: Tipos e Operadores Elementares. Estruturas de Controlo
 ---
 

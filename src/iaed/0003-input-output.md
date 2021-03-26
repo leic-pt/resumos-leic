@@ -1,5 +1,4 @@
 ---
-prev: false
 description: Comparação e Tratamento de Dados. Leitura e Escrita de Caracteres
 ---
 

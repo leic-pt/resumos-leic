@@ -1,5 +1,4 @@
 ---
-prev: false
 description: Tabelas para Guardar Conjuntos de Elementos. Strings (Cadeias de Caracteres)
 ---
 
