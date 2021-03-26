@@ -1,6 +1,5 @@
 ---
-prev: false
-description: Definição. Funções. Typedef
+description: Instruções e Blocos. Execução Condicional (if, switch). Ciclos Genéricos (while, for, do-while, continue, break).
 ---
 
 # Controlo da Execução
