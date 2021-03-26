@@ -8,8 +8,10 @@ description: Problema da torre de Hanói;
 
 Chamemos a $h_n$ a função que nos diz o número de movimentos necessários para transportar $n$ discos de uma torre para outra.
 
-$$h_0=0\\
-h_n=2h_{n-1}+1$$
+$$
+h_0=0\\
+h_n=2h_{n-1}+1
+$$
 
 A que se chama uma equação às diferenças finitas. Os coeficientes que multiplicam os termos da sucessão são números — não são dependentes de $n$. Diz-se então uma equação linear. Nós queremos usar o método das funções geradoras para aprender a resolver equações lineares (escrevemos termos da sucessão à custa de outros termos).
 
@@ -31,14 +33,16 @@ onde $H$ é a função geradora de $h_n$.
 
 logo, finalmente, vem:
 
-$$h_n=2h_{n-1}+1\quad\Leftrightarrow \quad H_n=2zH_n+\frac{z}{1-z}\\
-\longrightarrow H_n=\frac{z}{(1-z)(1-2z)}$$
+$$
+h_n=2h_{n-1}+1\quad\Leftrightarrow \quad H_n=2zH_n+\frac{z}{1-z}\\
+\longrightarrow H_n=\frac{z}{(1-z)(1-2z)}
+$$
 
-Com a fórmula nesta escrita, não conseguimos concluir nada acerca da sucessão $h_n$. Para isso, decompõe-se as frações com o **método de Hermite**, ou *cover-up method*:
+Com a fórmula nesta escrita, não conseguimos concluir nada acerca da sucessão $h_n$. Para isso, decompõe-se as frações com o **método de Hermite**, ou _cover-up method_:
 
 $$\frac{z}{(1-z)(1-2z)}=\frac {\Alpha}{1-z}+ \frac{\Beta}{1-2z}$$
 
-Para descobrir o coeficiente $\Alpha$, *tapa-se* o respetivo denominador na fração inicial e avalia-se a expressão resultante no zero desse denominador, do seguinte modo:
+Para descobrir o coeficiente $\Alpha$, _tapa-se_ o respetivo denominador na fração inicial e avalia-se a expressão resultante no zero desse denominador, do seguinte modo:
 
 $$\Alpha=\left|\frac z{1-2z}\right|_{z=1}=\frac 1 {1-2}=-1$$
 
