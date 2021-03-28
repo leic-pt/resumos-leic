@@ -552,7 +552,7 @@ Então, **podemos concluir o seguinte**:
 - Se $\operatorname{det} H_f(a) > 0$ e $\operatorname{tr} H_f(a) > 0$ então $f$ tem mínimo local em $a$
 - Se $\operatorname{det} H_f(a) < 0$ e $\operatorname{tr} H_f(a) < 0$ então $f$ tem máximo local em $a$
 
-::: details Exemplo
+::: details Exemplos
 
 Determinar e caracterizar os pontos críticos de $f$:
 
@@ -631,6 +631,97 @@ $$
 
   Logo, o ponto $(0,0)$ corresponde a um ponto de sela
 
+---
+
+Identificar e classificar pontos críticos de $f$:
+
+$$
+f(x,y) = xy + \frac 1x + \frac 8y
+$$
+
+Começamos por igualar o gradiente de $f$ ao vetor nulo, para descobrir os pontos críticos.
+
+$$
+\begin{array}{ c }
+\nabla f( x,y) =( 0,0) \Leftrightarrow \left( y-\frac{1}{x^{2}} ,\ x-\frac{8}{y^{2}}\right) =( 0,0) \Longrightarrow \\
+\begin{cases}
+y=\frac{1}{x^{2}}\\
+x=\frac{8}{y^{2}}
+\end{cases} \Longrightarrow \begin{cases}
+y=4\\
+x=\frac{1}{2}
+\end{cases}
+\end{array}
+$$
+
+Logo, a função $f$ tem um ponto crítico em $(\frac{1}{2}, 4)$.
+
+$$
+H_{f} (x,y)=\begin{bmatrix}
+\frac{2}{x^{3}} & 1\\
+1 & \frac{16}{y^{3}}
+\end{bmatrix}
+$$
+
+Então, a Matriz Hessiana em $\left(\frac 12, 4\right)$ é:
+
+$$
+H_{f} \left(\frac 12, 4\right)=\begin{bmatrix}
+16 & 1\\
+1 & \frac 14
+\end{bmatrix}
+$$
+
+Assim, $\operatorname{det} = 3 > 0$ e $\operatorname{tr} = 16 + \frac 14 > 0$.
+
+Logo, a função $f$ tem mínimo local em $\left(\frac 12, 4\right)$.
+
+---
+
+Identificar e classificar pontos críticos de $f$:
+
+$$
+f (x,y,z) = x^2+ y^2+ z^2+ xy
+$$
+
+Começamos, novamente, por igualar o gradiente a zero:
+
+$$
+\begin{array}{ c }
+\nabla f( x,y,z) =( 0,0,0) \Leftrightarrow ( 2x+y,2y+x,2z) =( 0,0) \Longrightarrow \\
+\begin{cases}
+2x+y=0\\
+2y+x=0\\
+2z=0
+\end{cases} \Longrightarrow \begin{cases}
+x=0\\
+y=0\\
+z=0
+\end{cases}
+\end{array}
+$$
+
+Então, o único ponto crítico de $f$ é $(0,0,0)$.
+
+$$
+H_{f}( x,y,z) =\begin{bmatrix}
+2 & 1 & 0\\
+1 & 2 & 0\\
+0 & 0 & 2
+\end{bmatrix}\rightarrow \begin{bmatrix}
+\frac{3}{2} & 0 & 0\\
+1 & 2 & 0\\
+0 & 0 & 2
+\end{bmatrix}\rightarrow \begin{bmatrix}
+\frac{3}{2} & 0 & 0\\
+0 & 2 & 0\\
+0 & 0 & 2
+\end{bmatrix}
+$$
+
+Então, os valores próprios da matriz são $\frac 32, 2, 2$.  
+Como são todos positivos, há mínimo local de $f$ em $(0,0,0)$.
+
 :::
 
 ---
@@ -640,3 +731,4 @@ Slides:
 - [Aula 13](https://drive.google.com/file/d/12vZLRp9qFxKanHFAt_GM7xedekEc1pyV/view?usp=sharing)
 - [Aula 14](https://drive.google.com/file/d/1j9nv1inN2UGH9NpyxokZkj5MtRloKh1W/view?usp=sharing)
 - [Aula 15](https://drive.google.com/file/d/1eOSZHAB0uZdHiWXkxyVGFFzvH36wf5ut/view?usp=sharing)
+- [Aula 16](https://drive.google.com/file/d/179-Btb4oJG6dI6ARnPlM6Aph0mKSB6--/view?usp=sharing)
