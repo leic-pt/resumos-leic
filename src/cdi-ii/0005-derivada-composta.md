@@ -16,7 +16,7 @@ Seja $f: \R^m \to \R^p$ diferenciável em $a \in g(a)$
 Então, $f\circ g: D \subseteq \R^n \to \R^p$ é diferenciável em $a$ e
 
 $$
-D(f\circ g)(a)=Df(g(a))\circ Dg(a)
+D(f\circ g)(a)=Df(g(a))\cdot Dg(a)
 $$
 
 :::
