@@ -385,9 +385,258 @@ Então, este ponto crítico não corresponde a extremo, pois temos [ponto de sel
 
 :::
 
+### Propriedades de uma Matriz Simétrica
+
+Como a [Matriz Hessiana](#matriz-hessiana) é uma matriz simétrica, podemos usar as suas propriedades para
+determinar os extremos de uma função.
+
+Se $A$ é matriz simétrica então existe base ortonormada de vetores próprios (de $A$),
+$u_1, u_2, \dots, u_n$ correspondentes ao valores próprios reais
+$\lambda_1, \lambda_2, \dots, \lambda_n$ (i.e. $Au_i = \lambda_i u_i$, $i = 1, \dots, n$).
+
+Escrevendo $h=a_1u_1+a_2u_2+\dots+a_nu_n$ com $a_i \in \R$, então obtemos a forma quadrática determinada por $A$.
+
+$$
+\begin{aligned}
+h^T A h &= h_i(Ah)\\
+&=(a_1u_1+ a_2u_2+ \dots + a_nu_n) \cdot (a_1\lambda_1 u_1 + a_2 \lambda_2 u_2 + \dots + a_n \lambda_n u_n)\\
+&= \lambda_1 a^2_1 + \lambda_2 a^2_2 + \dots + \lambda_n a^2_n
+\end{aligned}
+$$
+
+O sinal desta expressão é dado pelos $\lambda_i$'s.
+
+Se substituirmos este resultado na Fórmula de Taylor de 2º Ordem em torno de um ponto crítico $a\in \R^n$ ($\nabla f (a) = \vec 0$),
+então obtemos, para $f: \R^n \to \R$:
+
+Então,
+
+$$
+f(a+h) = f(a) + 0 + \frac 12 h^T H_f(a) h + R_2(h?)
+$$
+
+com $\lim_{h\to \vec 0} \frac{R_2(h)}{||h||^2} = \vec 0$
+
+Donde, pelas contas feitas acima, obtemos
+
+$$
+f(a+h) -f(a) = \frac 12 (\lambda_1 a^2_1+ \lambda_2 a^2_2 + \dots + \lambda_n a^2_n) + R_2(h)
+$$
+
+Assim, como $R_2(h)$ é despresável quando $h\to \vec 0$,
+o sinal de $f(a+h)-f(a)$ pode ser determinado em função dos valores próprios da matriz.
+
+- $f(a+h)-f(a) > 0$ se todos os $\lambda_i > 0$, donde em $a$ **ocorre mínimo**
+- $f(a+h)-f(a) < 0$ se todos os $\lambda_i < 0$, donde em $a$ **ocorre máximo**
+
+::: tip TEOREMA
+
+Seja $f: \R^n \to \R$, $a \in \R$ é ponto crítico de $f$, ou seja $\nabla f(a) = \vec 0$
+
+Se $H_f(a)$ é:
+
+- definida positiva (cada valor próprio $\lambda_i > 0$) então há **minimo local em $a$**
+- definida negativa (cada valor próprio $\lambda_i < 0$) então há **máximo local em $a$**
+- indefinida (valores próprios $\lambda_i >0$ e $\lambda_j < 0$) - então há **ponto de sela $a$**
+- semidefinida positiva (valores próprios $\lambda_i \geq 0$) - então há **mínimo ou ponto de sela em $a$**
+- semidefinida negativa (valores próprios $\lambda_i \leq 0$) - então há **máximo ou ponto de sela em $a$**
+
+:::
+
+::: details Exemplos
+
+Determine e clarifique os pontos de estacionariedade da função $f: \R^2 \to \R$
+
+$$f(x,y) = -x^4+2x^2-y^2+3$$
+
+Começamos por determinar o gradiente de $f$:
+
+$$\nabla f(x,y) = (-4x^3+4x, -2y)$$
+
+E depois igualá-lo ao vetor nulo, para obtermos os pontos críticos de $f$:
+
+$$
+\begin{array}{ c }
+\nabla f( x,y) =( 0,0) \Leftrightarrow \left( -4x^{3} +4x,-2y\right) =( 0,0) \Longrightarrow \\
+\begin{cases}
+0=-4x^{3} +2x\\
+0=-2y
+\end{cases} \Leftrightarrow \begin{cases}
+0=4x(1-x^{2} )\\
+y=0
+\end{cases} \Leftrightarrow \begin{cases}
+x=0\lor x=\pm 1\\
+y=0
+\end{cases}
+\end{array}
+$$
+
+Os pontos críticos de $f$ são: $(0,0), (1,0), (-1,0)$
+
+$$
+\begin{darray}{l}
+\frac{\partial^2 f}{\partial x^2} = \frac{\partial}{\partial x}(-4x^3+4x) = -12x^2+4\\
+\\
+\frac{\partial^2 f}{\partial y^2} = \frac{\partial}{\partial y}(-2y) = -2\\
+\\
+\frac{\partial^2 f}{\partial x \partial y} = \frac{\partial}{\partial x}(-2y) = 0
+\end{darray}
+$$
+
+- Em $(0,0)$:
+
+  $$
+  H_{f} (0,0)=\begin{bmatrix}
+  4 & 0\\
+  0 & -2
+  \end{bmatrix}
+  $$
+
+  Como já está na forma diagonal, tem valores próprios $4$ e $-2$.  
+  Logo, $f$ tem ponto de sela em $(0,0)$.
+
+- Em $(1,0)$:
+
+  $$
+  H_{f} (1,0)=\begin{bmatrix}
+  -8 & 0\\
+  0 & -2
+  \end{bmatrix}
+  $$
+
+  Como já está na forma digonal, tem valores próprios $-8$ e $-2$, ambos negativos.
+  Logo, $f$ tem máximo em $(1,0)$.
+
+- Em $(-1,0)$:
+
+  $$
+  H_{f} (-1,0)=\begin{bmatrix}
+  -8 & 0\\
+  0 & -2
+  \end{bmatrix}
+  $$
+
+  Como já está na forma digonal, tem valores próprios $-8$ e $-2$, ambos negativos.
+  Logo, $f$ tem máximo em $(-1,0)$.
+
+:::
+
+#### Matriz Hessiana 2x2
+
+Para uma Matriz Hessiana $2\times2$, podemos obter uma regra que nos permite mais facilmente determinar se um ponto
+crítico é máximo, mínimo, ou ponto de sela.
+
+Se $f: \R^2 \to \R$ com $\nabla f(x) = \vec 0$
+
+$$
+H_{f} (a)=\begin{bmatrix}
+A & B\\
+B & C
+\end{bmatrix}
+$$
+
+com
+
+$$
+A= \frac{\lambda^2 f}{\partial x_i^2}(a) \quad
+B=\frac{\lambda^2 f}{\partial x\partial y}(a)\quad
+C=\frac{\lambda^2 f}{\partial y^2}(a)
+$$
+
+- Determinante: $\operatorname{det} A= \lambda_1 \times \lambda_2 \times \dots \times \lambda_n$
+- Traço: $\operatorname{tr} A = \lambda_1 + \lambda_2 + \dots + \lambda_n$
+
+Então, **podemos concluir o seguinte**:
+
+- Se $\operatorname{det} H_f(a) < 0$, então $f$ tem ponto de sela em $a$
+- Se $\operatorname{det} H_f(a) > 0$ e $\operatorname{tr} H_f(a) > 0$ então $f$ tem mínimo local em $a$
+- Se $\operatorname{det} H_f(a) < 0$ e $\operatorname{tr} H_f(a) < 0$ então $f$ tem máximo local em $a$
+
+::: details Exemplo
+
+Determinar e caracterizar os pontos críticos de $f$:
+
+$$
+f(x,y) = (x-y)^2 -x^4-y^4
+$$
+
+$$
+\begin{array}{ll}
+\frac{\partial f}{\partial x} = 2(x-y)\cdot 1 - 4x^3 &
+\frac{\partial f}{\partial y} = 2(x-y)\cdot (-1) - 4y^3
+\end{array}
+$$
+
+Igualando o gradiente de $f$ a zero:
+
+$$
+\begin{array}{ c }
+\nabla f( x,y) =( 0,0) \Leftrightarrow \left( 2( x-y) -4x^{3} ,-2( x-y) -4y^{3}\right) =( 0,0) \Longrightarrow \\
+\begin{cases}
+x-y=2x^{3}\\
+x-y=-2y^{3}
+\end{cases} \Leftrightarrow 2x^{3} =x-y=-2y^{3}
+\end{array}
+$$
+
+Logo, os pontos críticos de $f$ são $(0,0), (1,-1), (-1, 1)$.
+
+Determinando agora as derivadas de segunda ordem para determinar a Matriz Hessiana:
+
+$$
+\begin{darray}{l}
+\frac{\partial^2 f}{\partial x^2} = \frac{\partial }{\partial x} (2(x-y)-4x^3)= 2-12x^2\\
+\\
+\frac{\partial^2 f}{\partial y^2} = \frac{\partial }{\partial y} (-2(x-y)-4y^3)= 2-12y^2\\
+\\
+\frac{\partial^2 f}{\partial x\partial y} = \frac{\partial }{\partial x} (-2(x-y)-4y^3)= -2
+\end{darray}
+$$
+
+$$
+H_{f} (x,y)=\begin{bmatrix}
+2-12x^{2} & -2\\
+-2 & 2-12y^{2}
+\end{bmatrix}
+$$
+
+- Em $(1,-1)$ e/ou $(-1,1)$:
+
+  $$
+  H_{f} (1,-1)=H_{f} (-1, 1)=\begin{bmatrix}
+  -10 & -2\\
+  -2 & -10
+  \end{bmatrix}
+  $$
+
+  Assim, como o determinante é $96 > 0$, e o traço é $-20 < 0$, ocorrem máximos em $(1,-1)$ e em $(-1,1)$.
+
+- Em $(0,0)$:
+
+  $$
+  H_{f} (0,0)=\begin{bmatrix}
+  2 & -2\\
+  -2 & 2
+  \end{bmatrix}
+  $$
+
+  Assim, o determinante é $0$ e o traço é $4$.
+
+  Como o determinante é $0$, nada podemos concluir e temos de estudar o comportamento da função em $(0,0)$.
+
+  Tentamos estudar a função em certas direções:
+
+  - Em $y=x$, temos $f(x,y) = 0^2 - x^4 - x^4= -2x^4$, ou seja, há um **máximo local** segundo $y=x$.
+  - Em $y=0$, temos $f(x,y) = x^2 - x^4 = x^2(1-x^2)$, ou seja, há um **mínimo local** segundo $y=0$.
+
+  Logo, o ponto $(0,0)$ corresponde a um ponto de sela
+
+:::
+
 ---
 
 Slides:
 
 - [Aula 13](https://drive.google.com/file/d/12vZLRp9qFxKanHFAt_GM7xedekEc1pyV/view?usp=sharing)
 - [Aula 14](https://drive.google.com/file/d/1j9nv1inN2UGH9NpyxokZkj5MtRloKh1W/view?usp=sharing)
+- [Aula 15](https://drive.google.com/file/d/1eOSZHAB0uZdHiWXkxyVGFFzvH36wf5ut/view?usp=sharing)
