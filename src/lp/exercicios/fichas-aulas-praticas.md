@@ -28,6 +28,8 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 
 - [Semana 4](https://drive.google.com/file/d/1mEbur70-2TbuVxMkIPmq4S0ADApP9Jis/view?usp=sharing)
 
+  - [Resolução](https://drive.google.com/file/d/1Oz-I9sp7arjDGHixjCNzU-Vn3mmu-72-/view?usp=sharing)
+
 - [Semana 5](https://drive.google.com/file/d/1u18nl2kB7YcMqz4--XNOLkN1u1eJFUn6/view?usp=sharing)
 
 - [Semana 6](https://drive.google.com/file/d/1s59jQGSErL69dXC_6R7E1YPMzcB-Tzc2/view?usp=sharing)
