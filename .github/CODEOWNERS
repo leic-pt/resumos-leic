@@ -1,0 +1,25 @@
+# Global owner
+
+* @diogotcorreia
+
+# CDI-II - Main maintainer Diogo Correia
+src/cdi-ii/* @diogotcorreia [cdi-ii]
+src/cdi-ii/exercicios/* @diogotcorreia [cdi-ii]
+src/cdi-ii/README.md @diogotcorreia [cdi-ii]
+
+# IAED - Main maintainer Tomás Esteves
+src/iaed/* @Pesteves2002 [iaed]
+src/iaed/labs/* @diogotcorreia [iaed]
+src/iaed/meta/* @diogotcorreia [iaed]
+src/iaed/README.md @diogotcorreia [iaed]
+
+# LP - Main maintainer Diogo Gaspar
+src/lp/* @randomicecube [lp]
+src/lp/assets/* @randomicecube [lp]
+src/lp/exercicios/* @randomicecube [lp]
+src/lp/README.md @diogotcorreia [lp]
+
+# MD - Main maintainer Rúben Nobre
+src/md/* @RubenNobre123 [md]
+src/md/exercicios/* @diogotcorreia [md]
+src/md/README.md @diogotcorreia [md]
