@@ -10,7 +10,7 @@ Se tivermos acesso às respetivas tabelas dos números de Stirling, é possível
 
 $$
 \sum_{k=0}^{n-1}k^3 =\\ \sum_{k=0}^{n-1}\left(\begin{Bmatrix}3\\0\end{Bmatrix}k^{\underline0} + \begin{Bmatrix}3\\1\end{Bmatrix}k^{\underline1} +
-\begin{Bmatrix}3\\2\end{Bmatrix}k^{\underline2}
+\begin{Bmatrix}3\\2\end{Bmatrix}k^{\underline2} +
 \begin{Bmatrix}3\\3\end{Bmatrix}k^{\underline3}\right) =\\\sum_{k=0}^{n-1}\left(0k^{\underline0} + 1k^{\underline1} + 3k^{\underline2} + 1k^{\underline3}\right)
 $$
 
