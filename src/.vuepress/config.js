@@ -67,7 +67,7 @@ module.exports = {
         {
           title: '👨‍💻 Laboratórios',
           collapsable: false,
-          children: ['labs/lab02/', 'labs/lab03/', 'labs/lab04/'],
+          children: ['labs/lab02/', 'labs/lab03/', 'labs/lab04/', 'labs/lab05/'],
         },
         'meta/linux-setup',
       ],
