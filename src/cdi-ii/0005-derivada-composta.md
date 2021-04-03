@@ -11,7 +11,7 @@ description: Derivada da Função Composta, Fórmula da Cadeia (Chain Rule)
 ::: tip DEFINIÇÃO
 
 Seja $g: D \subseteq \R^n \to \R^m$ diferenciável em $a \in D$  
-Seja $f: \R^m \to \R^p$ diferenciável em $a \in g(a)$
+Seja $f: \R^m \to \R^p$ diferenciável em $g(a)$
 
 Então, $f\circ g: D \subseteq \R^n \to \R^p$ é diferenciável em $a$ e
 
@@ -25,7 +25,7 @@ Também podemos obter a [Matriz Jacobiana](./0004-diferenciabilidade.md#matriz-j
 visto que é o produto da jacobiana de $f$ em $g(a)$, $J^f_{g(a)}$ com a jacobiana de $g$ em $a$, $J_a^g$:
 
 $$
-J^{f\circ g}{a} = J^f_{g(a)}\cdot J^g_a
+J^{f\circ g}_{a} = J^f_{g(a)}\cdot J^g_a
 $$
 
 Isto acontece porque a composta de transformações lineares corresponde ao produto de matrizes.
@@ -111,7 +111,7 @@ $$
 
 - $f_1(x,y)=f^2_1\circ f^1_1(x,y)$ com:
 
-  - $f^1_1(x,y,)=xy=p_1(x,y)\cdot p_2(x,y)$, um produto de funções diferenciáveis, logo diferenciável
+  - $f^1_1(x,y)=xy=p_1(x,y)\cdot p_2(x,y)$, um produto de funções diferenciáveis, logo diferenciável
   - $f^2_1(t)=e^t$ função diferenciável
 
   Então, $f_1(x,y)$ sendo a composta de duas funções diferenciáveis é diferenciável.
@@ -120,7 +120,7 @@ $$
 
 - $f_3(x,y)= y^2=(p_2(x,y))^2 = p_2(x,y)\circ p_2(x,y)$, um produto de funções escalares diferenciáveis, logo diferenciável
 
-Como cada uma das três funções componentes da $f$ é uma função diferenciáveis então $f$ é diferenciável.
+Como cada uma das três funções componentes da $f$ são funções diferenciáveis então $f$ é diferenciável.
 
 Considerando agora $g: \R^3 \to \R^2$, diferenciável em $(1,0,0)$ e com
 
@@ -180,7 +180,7 @@ Atentendo ao produto matricial, podemos obter uma expressão mais simples:
 ::: tip DEFINIÇÃO
 
 Seja $g: D \subseteq \R^n \to \R^m$ diferenciável em $a \in D$  
-Seja $f: \R^m \to \R^p$ diferenciável em $a \in g(a)$
+Seja $f: \R^m \to \R^p$ diferenciável em $g(a)$
 
 $$
 \frac{\partial (f\circ g)_i}{\partial x_j}(a)=\sum^m_{k=1} \frac{\partial f_i}{\partial y_k}(g(a))\cdot \frac{\partial g_k}{\partial x_j}(a)
