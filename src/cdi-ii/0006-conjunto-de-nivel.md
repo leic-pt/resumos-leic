@@ -170,7 +170,7 @@ se existir um caminho $C^1, c:\R \to M$ tal que $c(0) = a$ e $c'(0) = v$.
 ::: details Exemplo
 
 Sejam $f: D \subseteq \R^n \to \R$, uma função escalar e $k \in \R$  
-Sejam $M = N(k) = \{x \in D: f(x)= x\}$  
+Sejam $M = N(k) = \{x \in D: f(x)= k\}$  
 Seja $a \in M, v \in \R^n$, então $c: \R \to M$ com $c(0) = a, c'(0) = v$.
 
 Então, para $t=0$,  
@@ -196,7 +196,7 @@ $$
 N(d)=\{(x,y,z)\in \R^3: ax+by+cz=d\}
 $$
 
-$\nabla f(x,y,z) = (a b c), \forall (x,y,z) \in \R^3$ é $\perp$ a $N(a)$ em qualquer ponto de $N(a)$
+$\nabla f(x,y,z) = \begin{pmatrix}a & b & c\end{pmatrix}, \forall (x,y,z) \in \R^3$ é $\perp$ a $N(a)$ em qualquer ponto de $N(a)$
 
 ---
 
