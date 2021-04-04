@@ -12,7 +12,10 @@ description: Resolução das fichas de MD que estão disponíveis na página da 
   - [Resolução (1.2.3 e 1.2.4)](https://drive.google.com/file/d/1wshyDqQvCBGUbe01-rTX83Yhn0WIbUef/view?usp=sharing)
   - [Resolução (1.2.5)](https://drive.google.com/file/d/1_9wRATANU592ljqAj0Z4kou9v9jdF0ii/view?usp=sharing)
   - [Resolução (1.2.5) (José Félix)](https://drive.google.com/file/d/1XQFbNlNMgYww4Yi0JHcdj6LVZJ4eLjAN/view?usp=sharing)
+  - [Resolução (1.3)](https://drive.google.com/file/d/1AJvAQPoas3rM0a1wmf1Y3vzN0dgZPr6P/view?usp=sharing)
   - [Resolução (1.4.1)](https://drive.google.com/file/d/1xRtNLuQRoU31LMCVbcqzG6dqJqWXwljF/view?usp=sharing)
+  - [Resolução (2.1)](https://drive.google.com/file/d/1Q3HaOAT65DD-IKk1Cw6TY-tbeCHA-PzH/view?usp=sharing)
+  - [Resolução (2.2)](https://drive.google.com/file/d/1Oxp8dEjrWsUIdCj9axERsKJQFVz56Eul/view?usp=sharing)
   - [Resolução (2.2.1 e 2.2.2) (José Félix)](https://drive.google.com/file/d/16V6DPs1HJi8Msfg3vw2XGKMpB-iC-zar/view?usp=sharing)
 
 - [Séries 2](https://drive.google.com/file/d/1IkkxoFZdPwvdEowCZSbzIj2wFWzJJZz8/view?usp=sharing)
