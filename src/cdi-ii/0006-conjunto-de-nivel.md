@@ -8,7 +8,7 @@ description: Curvas de Nível, Conjunto de Nível, Ponto de Sela, Caminho em R�
 
 ## Curvas de Nível
 
-Tomando uma função escalar, $f: D \subseteq \R^n \to \R$ e $a \in D, h \in \R^n$.
+Tomando uma função escalar, $f: D \subseteq \R^n \to \R$ e $a \in D$.
 Suponha que $f$ é diferenciável em $a$.
 Então,
 
