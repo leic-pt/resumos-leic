@@ -550,7 +550,7 @@ Então, **podemos concluir o seguinte**:
 
 - Se $\operatorname{det} H_f(a) < 0$, então $f$ tem ponto de sela em $a$
 - Se $\operatorname{det} H_f(a) > 0$ e $\operatorname{tr} H_f(a) > 0$ então $f$ tem mínimo local em $a$
-- Se $\operatorname{det} H_f(a) < 0$ e $\operatorname{tr} H_f(a) < 0$ então $f$ tem máximo local em $a$
+- Se $\operatorname{det} H_f(a) > 0$ e $\operatorname{tr} H_f(a) < 0$ então $f$ tem máximo local em $a$
 
 ::: details Exemplos
 
