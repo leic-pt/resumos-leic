@@ -13,18 +13,18 @@ Suponha que $f$ é diferenciável em $a$.
 Então,
 
 $$
-\frac{\partial f}{\partial v} (a)=J^{f}_{a} v=\nabla f( a) \cdot v=||\nabla f( a) ||\cdot ||v||\cdot \cos\overset{\land }{( \nabla f( a) ,v)}
+\frac{\partial f}{\partial v} (a)=J^{f}_{a} v=\nabla f( a) \cdot v=||\nabla f( a) ||\cdot ||v||\cdot \cos\widehat{( \nabla f( a) ,v)}
 $$
 
 pois podemos chamar à Jacobiana de uma função escalar, o [gradiente](0004-diferenciabilidade.md#gradiente-de-uma-funcao), $\nabla f(a)$, da função.
 
-Se $||v|| = 1$, então $\frac{\partial f}{\partial v} (a) = ||\nabla f( a) ||\cdot \cos\overset{\land }{( \nabla f( a) ,v)}$, ou ainda
+Se $||v|| = 1$, então $\frac{\partial f}{\partial v} (a) = ||\nabla f( a) ||\cdot \cos\widehat{( \nabla f( a) ,v)}$, ou ainda
 $v=\frac{\nabla f(a)}{|| \nabla f(a)||}$.
 
 Podemos concluir duas coisas:
 
 - Quando nos afastamos de $a$ no sentido de $\nabla f (a)$, a função tem variação máxima.
-- Quando $\cos\overset{\land }{( \nabla f( a) ,v)}= 0$ (ou seja $v \perp \nabla f(a)$), a função "não varia localmente", dando origem a **curvas de nível**.
+- Quando $\cos\widehat{( \nabla f( a) ,v)}= 0$ (ou seja $v \perp \nabla f(a)$), a função "não varia localmente", dando origem a **curvas de nível**.
 
 <img src="./assets/0006-curvas-nivel.svg" alt="Curvas de Nível em 3D" class="invert-dark">
 
