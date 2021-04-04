@@ -139,7 +139,7 @@ f(a+h)=f(a)+\nabla f(a)\cdot h + \frac 12 h^T H_f(a)h + R_2(h)
 $$
 
 com $\lim_{h \to \vec 0} \frac{R_2(h)}{||h||^2}=\vec 0$  
-em que $Hf(a)$ é a matriz Hessiana de $f$ em $a$, que é uma matriz simétrica pelo [Teorema de Schwarz](#teorema-de-schwarz).
+em que $Hf(a)$ é a matriz Hessiana de $f$ em $a$, que é uma **matriz simétrica** pelo [Teorema de Schwarz](#teorema-de-schwarz).
 
 $$
 Hf( a) =\begin{bmatrix}
