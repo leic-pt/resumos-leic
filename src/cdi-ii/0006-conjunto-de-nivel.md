@@ -24,7 +24,7 @@ $v=\frac{\nabla f(a)}{|| \nabla f(a)||}$.
 Podemos concluir duas coisas:
 
 - Quando nos afastamos de $a$ no sentido de $\nabla f (a)$, a função tem variação máxima.
-- Quando $\cos\widehat{( \nabla f( a) ,v)}= 0$ (ou seja $v \perp \nabla f(a)$), a função "não varia localmente", dando origem a **curvas de nível**.
+- Quando $\cos\widehat{( \nabla f( a) ,v)}= 0$ (ou seja $v \perp \nabla f(a)$), a função "não varia localmente", dando origem a **curvas de nível**: pontos da função com o mesmo valor.
 
 <img src="./assets/0006-curvas-nivel.svg" alt="Curvas de Nível em 3D" class="invert-dark">
 
