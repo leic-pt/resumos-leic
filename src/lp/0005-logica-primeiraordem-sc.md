@@ -166,7 +166,7 @@ Aqui, o valor de $y$ depende do de $x$, pelo que para eliminar o quantificador e
 
 :::
 
-Temos então, portanto, que se nenhum quantificador universal aparecer "por fora" de um dado quantificador existencial, substituímos todas as ocorrências da variável a ele ligada pela constante de Skolem e removemos o quantificador; caso contrário, rmeovemos também o quantificador, mas em vez de substituir a variável pela constante, substituímos pela função de Skolem.
+Temos então, portanto, que se nenhum quantificador universal aparecer "por fora" de um dado quantificador existencial, substituímos todas as ocorrências da variável a ele ligada pela constante de Skolem e removemos o quantificador; caso contrário, removemos também o quantificador, mas em vez de substituir a variável pela constante, substituímos pela função de Skolem.
 
 - **Conversão para a forma Prenex normal** - todas as ocorrências de quantificadores universais são passadas para a esquerda.
 
@@ -176,7 +176,7 @@ $\forall x [\neg P(x)\vee(\forall y[\neg P(y) \vee P(f(x, y))] \wedge (Q(x, g_{s
 
 passa para
 
-$\forall x, y [\neg P(x) \vee ((\neg P(y) \vee P(f(x, y))) \wedge (Q(x, g_{sk}(x)) \wedge \neg P(g_{sk}(x))))]$
+$\forall x,y[\neg P(x) \vee ((\neg P(y) \vee P(f(x, y))) \wedge (Q(x, g_{sk}(x)) \wedge \neg P(g_{sk}(x))))]$
 
 :::
 
@@ -212,7 +212,7 @@ Em termos práticos, a composição realiza-se aplicando $s_{2} = \{u_{1}/y_{1},
 
 ::: tip Composição
 
-$s_{1} \circ s_{2} = (\{(t_{1} \cdot s_{2})/x_{1}, \dots, (t_{n} \cdot s_{2})/x_{n}\} \cup \{u_{j}/y_{j} \in s_{2}: y_{j} \notin {x_{1}, \dots, x_{n}}\}) - \{(t_{i}/s_{2})/x_{i}: (t_{i} \cdot s_{2}) = x_{i}\}.$
+$s_{1} \circ s_{2} = (\{(t_{1} \cdot s_{2})/x_{1}, \dots, (t_{n} \cdot s_{2})/x_{n}\} \cup \{u_{j}/y_{j} \in s_{2}: y_{j} \notin {x_{1}, \dots, x_{n}}\}) - \{(t_{i} \cdot s_{2})/x_{i}: (t_{i} \cdot s_{2}) = x_{i}\}.$
 
 _Exemplo_
 
@@ -238,13 +238,13 @@ A substituição $\{a/x, b/y, c/z\}$ é unificador do conjunto $\{P(a, y, z), P(
 
 ### Algoritmo de Unificação
 
-Recebe um conjunto de _fbfs_ atómicas e decide se podem ser unificadas, devolvendo o seu _mgu_. O algoritmo apresentado a seguir percorre, em paralelo, os constituintes das _fbfs_ a unificar, da esquerda para a direita, começando pelo mais à esquerda. À medida que vai encontrando constituintes diferentes, **em desacordo**, tenta determinar uma substituição que os torne iguais. Em caso de sucesso, o algoritmo continua a percorrer as _fbfs_ que resultam da aplicação dessa substituição a todas as _fbfs_ a unificar; caso contrário, termina, indicando que o conjunto não é unificável. Percorridas todas as _fbfs_, o algoritmo termina com sucesso e a composição de substituições encontrada corresponde ao _mgu_.
+Recebe um conjunto de _fbfs_ atómicas e decide se podem ser unificadas, devolvendo o seu _mgu_. O algoritmo apresentado a seguir percorre, em paralelo, os constituintes desse conjunto (as _fbfs_ a unificar), da esquerda para a direita, começando pelo mais à esquerda. À medida que vai encontrando constituintes diferentes, **em desacordo**, tenta determinar uma substituição que os torne iguais. Em caso de sucesso, o algoritmo continua a percorrer as _fbfs_ que resultam da aplicação dessa substituição a todas as _fbfs_ a unificar; caso contrário, termina, indicando que o conjunto não é unificável. Percorridas todas as _fbfs_, o algoritmo termina com sucesso e a composição das substituições encontradas corresponde ao _mgu_.
 
 Neste algoritmo, _card_ é a função que calcula o número de elementos do conjunto, _var_ é a função que tem valor verdadeiro se o argumento for uma variável, falso caso contrário, e _termo_ é a função que tem valor verdadeiro caso o argumento seja um termo, falso caso contrário. O algoritmo usa ainda outro algoritmo, _desacordo_ para determinar o conjunto de desacordo de um conjunto de _fbfs_. Obtém-se localizando o primeiro constituinte, a partir da esquerda, que não é igual a todas as _fbfs_ do conjunto e extraindo das _fbfs_ todos os componentes nessa posição.
 
 ::: details Desacordo
 
-Em $\Delta = {P(x, f(x, y)), P(x, a), P(x, g(x))}$, o conjunto de desacordo é ${f(x, y), a, g(x)}$ - conjunto de _fbfs_ em desacordo, que não são iguais em todas as _fbfs_ de $\Delta$.
+Em $\Delta = \{P(x, f(x, y)), P(x, a), P(x, g(x))\}$, o conjunto de desacordo é $\{f(x, y), a, g(x)\}$ - conjunto de _fbfs_ em desacordo, que não são iguais em todas as _fbfs_ de $\Delta$.
 
 :::
 
@@ -268,7 +268,7 @@ Começamos por olhar para $\Delta$ da esquerda para a direita; como podemos cons
 
 Podemos agora enunciar o princípio da resolução para o caso em que as cláusulas contêm variáveis.
 
-- **Princípio da Resolução, caso geral** - sejam Ψ e Φ duas cláusulas **sem variáveis em comum**, $\alpha$ e $\beta$, duas _fbfs_ atómicas tais que $\alpha \in Ψ$ e $\beta \in Φ$, e $\alpha$ e $\beta$ são unificáveis, com $s$ o _mgu_ destas. Segundo o princípio da resolução, podemos inferir a cláusula $((Ψ - \{\alpha \}) \cup (Φ - \{\neg \beta \})) \cdot  s$. Os literais $\alpha \cdot s$ e $\beta \cdot s$ serão literais em conflito, e a cláusula obtida é o resolvente das cláusulas.
+- **Princípio da Resolução, caso geral** - sejam Ψ e Φ duas cláusulas **sem variáveis em comum**, e $\alpha$ e $\beta$ duas _fbfs_ atómicas tais que $\alpha \in Ψ$ e $\beta \in Φ$, e $\alpha$ e $\beta$ são unificáveis, com $s$ o _mgu_ destas. Segundo o princípio da resolução, podemos inferir a cláusula $((Ψ - \{\alpha \}) \cup (Φ - \{\neg \beta \})) \cdot  s$. Os literais $\alpha \cdot s$ e $\beta \cdot s$ serão literais em conflito, e a cláusula obtida é o resolvente das cláusulas.
 
 Em termos correntes, removemos os literais em conflito e aplicamos o _mgu_ às que restam.
 
@@ -288,7 +288,7 @@ De notar que o resolvente pode não necessitar de uma substituição, isto é, p
 
 ### Renomeação de variáveis
 
-Se repararmos, na definição é referida a necessidade de não haver variáveis em comum entre as _fbfs_. Esta necessidade pode ser satisfeita renomeando todas as variáveis das cláusulas relevantes anets da aplicação do princípio da resolução, por exemplo passar $x$ para $x'$. Esta renomeação apenas ocorre numa das cláusulas, a outra instância mantém-se intacta (podemos fazer isto porque, na verdade, estamos na presença de variáveis quantificadas universalmente, portanto mudas).
+Se repararmos, na definição é referida a necessidade de não haver variáveis em comum entre as _fbfs_. Esta necessidade pode ser satisfeita renomeando todas as variáveis das cláusulas relevantes antes da aplicação do princípio da resolução, por exemplo passar $x$ para $x'$. Esta renomeação apenas ocorre numa das cláusulas, a outra instância mantém-se intacta (podemos fazer isto porque, na verdade, estamos na presença de variáveis quantificadas universalmente, portanto mudas).
 
 ::: details Renomeação de variáveis
 
@@ -341,7 +341,7 @@ $\forall x[Ant(x, Bart) \to R(x)]$, onde $R(x) = "x$ é uma resposta". A resolu�
 
 Se repararmos, chegamos 2 vezes a $R(resposta)$, onde $resposta$ corresponde a um dos antepassados do Bart.
 
-Podíamos ainda realizar este processo de outra maneira: não adicionar aquela _fbf_ especiais ao conjunto de premissas e resolver a prova normalmente. Aí, podemos verificar que em todas as substituições durante a prova do tipo $\{Resposta/x\}$, essa tal resposta acaba por ser uma das possíveis. É outra maneira possível de resolver, e até indicação em contrário acho que podem escolher a que preferirem.
+Podíamos ainda realizar este processo de outra maneira: não adicionar aquela _fbf_ especial ao conjunto de premissas e resolver a prova normalmente. Aí, podemos verificar que em todas as substituições durante a prova do tipo $\{Resposta/x\}$, essa tal resposta acaba por ser uma das possíveis. É outra maneira possível de resolver, e até indicação em contrário acho que podem escolher a que preferirem.
 
 :::
 
@@ -355,7 +355,7 @@ Tentemos fazê-lo com este conjunto de premissas:
 - $\forall x, y[Mãe(x, y) \to Mulher(x)]$
 - $Pessoa(Bart)$
 
-Suponhamos que queremos descobrir **quem são as mulheres envolvidas nestas proposições**. Bem, introduzimos a tal _fbf_ especial às premissas, $\forall x[Mulher(x) \to R(x)$, e vamos trabalhar.
+Suponhamos que queremos descobrir **quem são as mulheres envolvidas nestas proposições**. Bem, introduzimos a tal _fbf_ especial às premissas, $\forall x[Mulher(x) \to R(x)]$, e vamos trabalhar.
 
 <img src="./assets/0005-resolucao-quais.png" alt="Resolução quais" class="invert-dark">
 
