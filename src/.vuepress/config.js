@@ -104,6 +104,7 @@ module.exports = {
             '0005-derivada-composta',
             '0006-conjunto-de-nivel',
             '0007-derivada-ordem-superior',
+            '0008-integracao',
           ],
         },
         {
