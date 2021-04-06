@@ -24,6 +24,11 @@ description: Resolução das fichas de CDI-II que estão disponíveis na página
   - [Respostas (Oficial)](https://drive.google.com/file/d/17zrr5ABmEsWyyTu7RZkMYKVj1iaGXymd/view?usp=sharing)
   - [Resolução (by Diogo Correia)](https://drive.google.com/file/d/1ymupjNTscxiAs7UQr4X7QUDlLYbcWv_j/view?usp=sharing)
 
+- [Ficha 5: Derivadas de Ordem Superior: Extremos](https://drive.google.com/file/d/1aUg7X_2sv92NSiNExgGt8jI0bBp3h0LR/view?usp=sharing)
+
+  - [Respostas (Oficial)](https://drive.google.com/file/d/1V8_WpUIShxNVdSuYJjshSaGi2-sER8YT/view?usp=sharing)
+  - [Resolução (by Diogo Correia)](https://drive.google.com/file/d/1l6qQ2eCvJCP0ldYr_YEo6mpJqfvQFy85/view?usp=sharing)
+
 - [Resoluções na EdenBox](https://www.edenbox.org/index.php/s/edenbox?path=%2FLEIC%2F1%C2%BA%20Ano%2F2%C2%BA%20Semestre%2FCDI%20II%2FPr%C3%A1ticas%2F2019-2020)
 
 - [Exercícios Suplementares](https://fenix.tecnico.ulisboa.pt/disciplinas/CDI1421011132646/2020-2021/2-semestre/exercicios-suplementares)
