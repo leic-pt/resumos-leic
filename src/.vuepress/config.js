@@ -62,6 +62,8 @@ module.exports = {
             '0006-estruturas',
             '0007-1elementos',
             '0007-2control',
+            '0008-intro_algoritmos',
+            '0009-algo_ord',
           ],
         },
         {
