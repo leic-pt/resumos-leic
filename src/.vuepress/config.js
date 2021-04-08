@@ -130,6 +130,7 @@ module.exports = {
             '0008-teonewton',
             '0009-combinatorio',
             '0010-diffinitas',
+            '0011-FFT'
           ],
         },
         {
