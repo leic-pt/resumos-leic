@@ -14,7 +14,7 @@
 
 ### 5ªs Feiras
 
-- 15:30 [Zoom Link](https://videoconf-colibri.zoom.us/j/89874769707?pwd=TzBTdjlSVzhVSHkxTytkT2EwREhKdz09)
+- 15:00 [Zoom Link](https://videoconf-colibri.zoom.us/j/89874769707?pwd=TzBTdjlSVzhVSHkxTytkT2EwREhKdz09)
 
 ### 6ªs Feiras
 
