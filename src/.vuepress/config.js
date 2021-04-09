@@ -189,7 +189,16 @@ module.exports = {
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom',
     'vuepress-plugin-seo',
-    '@maginapp/vuepress-plugin-katex',
+    [
+      '@maginapp/vuepress-plugin-katex',
+      {
+        katexOptions: {
+          macros: {
+            '\\d': '\\mathop{}\\!\\mathrm d',
+          },
+        },
+      },
+    ],
     [
       'vuepress-plugin-meilisearch',
       {
