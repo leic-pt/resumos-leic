@@ -98,9 +98,9 @@ As _fbfs_ podem, contudo, não nos ser apresentadas inicialmente nesta forma de 
 
   Partindo de ($\neg$P $\vee$ $\neg$Q) $\wedge$ ($\neg$P $\vee$ ((R $\wedge$ S) $\wedge$ P)):
 
-  ($\neg$P $\vee$ $\neg$Q) $\wedge$ ($\neg$P $\vee$ (R $\wedge$ S)) $\wedge$ ($\neg$P $\vee$ $\neg$P);
+  ($\neg$P $\vee$ $\neg$Q) $\wedge$ ($\neg$P $\vee$ (R $\wedge$ S)) $\wedge$ ($\neg$P $\vee$ P);
 
-  ($\neg$P $\vee$ $\neg$Q) $\wedge$ ($\neg$P $\vee$ R) $\wedge$ ($\neg$P $\vee$ S) $\wedge$ ($\neg$P $\vee$ $\neg$P).
+  ($\neg$P $\vee$ $\neg$Q) $\wedge$ ($\neg$P $\vee$ R) $\wedge$ ($\neg$P $\vee$ S) $\wedge$ ($\neg$P $\vee$ P).
 
   :::
 

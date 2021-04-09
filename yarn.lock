@@ -5033,6 +5033,11 @@ markdown-it-chain@^1.3.0:
   dependencies:
     webpack-chain "^4.9.0"
 
+markdown-it-color@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/markdown-it-color/-/markdown-it-color-2.1.1.tgz#e85adf9c7d31f97f2617abbacbd582b67cf6adda"
+  integrity sha512-GqXOSjT+RdGvxjdmPfRS/9XDr5dg4e2kC/mXbXK5Y1lbh/rVepoeaUGaD0Lmi1qS5M6cnbm9GrC8bu9YY8rRKQ==
+
 markdown-it-container@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/markdown-it-container/-/markdown-it-container-2.0.0.tgz#0019b43fd02eefece2f1960a2895fba81a404695"

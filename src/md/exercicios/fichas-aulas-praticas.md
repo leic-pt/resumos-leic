@@ -17,6 +17,7 @@ description: Resolução das fichas de MD que estão disponíveis na página da 
   - [Resolução (2.1)](https://drive.google.com/file/d/1Q3HaOAT65DD-IKk1Cw6TY-tbeCHA-PzH/view?usp=sharing)
   - [Resolução (2.2)](https://drive.google.com/file/d/1Oxp8dEjrWsUIdCj9axERsKJQFVz56Eul/view?usp=sharing)
   - [Resolução (2.2.1 e 2.2.2) (José Félix)](https://drive.google.com/file/d/16V6DPs1HJi8Msfg3vw2XGKMpB-iC-zar/view?usp=sharing)
+  - [Resolução (2.3.1)](https://drive.google.com/file/d/1NhQCCnqHr6LrpyQGFZpa02LZeL5gI8ip/view?usp=sharing)
 
 - [Séries 2](https://drive.google.com/file/d/1IkkxoFZdPwvdEowCZSbzIj2wFWzJJZz8/view?usp=sharing)
   - Resolução (contribute!)
