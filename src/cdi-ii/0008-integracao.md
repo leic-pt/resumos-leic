@@ -26,7 +26,7 @@ $$|I| = (b_1-a_1) \times (b_2-a_2)\times \dots \times (b_n-a_n)$$
 
 Uma partição de $I$ é uma subdivisão em intervalos abertos.
 
-[imagem]
+<img src="./assets/0008-particoes.svg" alt="Partição em 4 subintervalos" class="invert-dark">
 
 ## Integração
 
