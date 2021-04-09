@@ -65,7 +65,11 @@ description:
 
 ![Selection](./assets/0009-selection-sort-animation.gif)
 
-Procura o menor elemento e poe no na menor casa do primeiro elemento lido, o elemento que se encontrava nessa casa é trocado para a posição onde se encontrava o menor elemento.
+Começa por procurar o menor valor do vetor e troca-o com o valor a[0]. \
+Continua a procurar o próximo menor valor e troca-o com os sucessivos itens do vetor a.\
+Termina quando já só existe um valor.
+
+A troca consiste em trocar a posição do elemento menor com a primeira posição do vetor que não se encontra ordenado.
 
 <<< @/src/iaed/assets/0009-sel_sort.c
 
@@ -77,11 +81,15 @@ Tempo de Execução:
 - Melhor Caso: $O(N^2)$
 - Não é Estável
 
+Mas é possível ser estável.
+
 ## Insertion Sort
 
 ![Insertion](./assets/0009-Dark_inverted_insertion_sorting.gif)
 
-Vai colocando cada elemento na sua posição correta de acordo com o elemento anterior e com o elemento a seguir.
+É equivalente ao receber uma nova carta e colocá-la na posição correta do baralho.
+
+Percorre o vetor e guarda o elemento na posição em que à sua esquerda esteja um menor e à sua direita esteja um maior.
 
 <<< @/src/iaed/assets/0009-ins_sort.c
 
@@ -96,7 +104,7 @@ Tempo de Execução:
 
 ![Borbulhamento](./assets/0009-bubble-sort-animation.gif)
 
-Pega no primeiro elemento, e vai andando no vetor ate encontrar um maior, se encontrar um maior movimenta o maior ate encontrar um outro ainda maior ou até chegar ao final do vetor
+Pega no primeiro elemento, e vai andando no vetor até encontrar um maior, se encontrar um maior movimenta o maior até encontrar um outro ainda maior ou até chegar ao final do vetor.
 
 <<< @/src/iaed/assets/0009-bubble_sort.c
 
@@ -134,10 +142,12 @@ Tempo de Execução:
 
 ![Shell Sort](./assets/0009-Shell_Sort_Algorithm.gif)
 
+Divide o vetor em sub-vetores que depois são ordenados com um outro algoritmo de ordenação.
+
 Depende do h, h é o número de sub-vetores que existem, quantos maior for o h, menor é o tamanho dos sub-vetores.
 São vários insertion sorts.
 
-A sequência óptima ainda não foi descoberta `Cabe ao aluno descobrir\s`
+A sequência óptima ainda não foi descoberta `Cabe ao aluno descobrir \s`
 
 <<< @/src/iaed/assets/0009-shell.c
 

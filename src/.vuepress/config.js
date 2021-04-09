@@ -71,6 +71,12 @@ module.exports = {
           collapsable: false,
           children: ['labs/lab02/', 'labs/lab03/', 'labs/lab04/', 'labs/lab05/'],
         },
+        {
+          title: '📃 Cheat Sheets',
+          collapsable: false,
+          children: ['1000-algoritmos.sheet'],
+        },
+
         'meta/linux-setup',
       ],
       '/lp/': [
@@ -141,7 +147,7 @@ module.exports = {
         {
           title: '📃 Cheat Sheets',
           collapsable: false,
-          children: ['1000-geradoras-sheet'],
+          children: ['1001-calc-finito', '1002-geradoras-sheet'],
         },
       ],
       '/': [

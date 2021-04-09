@@ -1,7 +1,6 @@
-typedef int Item;
-/* as barras permitem escrever em varias linhas */
-/* o q estamos a definir para não ficar tudo sobreposto \ */
-#define key(A) (A)
+typedef int Item; /*no caso de estarmos a dar sort de inteiros num vetor*/
+
+#define key(A) A
 #define less(A, B) (key(A) < key(B))
 #define exch(A, B)  \
     {               \
@@ -9,7 +8,6 @@ typedef int Item;
         A = B;      \
         B = t;      \
     }
-
 #define compexch(A, B) \
     if (less(B, A))    \
     exch(A, B)

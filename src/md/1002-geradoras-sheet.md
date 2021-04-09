@@ -66,7 +66,24 @@ $$
 
 $$ x_1+x_2+...+x_n = l \Leftrightarrow {l - (l_1 +l_2 +...+l_n)+ n - 1 \choose n - 1} $$
 
-## Resolução de Recorrências (TO DO)
+## Resolução de Recorrências
+
+Para $h_0 = 1$ e $h_1 = 2$
+
+$$
+h_n=h_{(n-1)} + 2h_{\color{green}(n-2)}+3^n
+$$
+
+$$
+{\sum_{k=\color{green}2}^{+\infty}h_kz^k}=z{\sum_{k=\color{green}1}^{+\infty}h_{k-1}z^{k-1}}+ 2z^2{\sum_{k=\color{green}0}^{+\infty}h_{k-1}z^{k-1}}+ {\sum_{k=\color{green}2}^{+\infty}3^kz^k}
+$$
+
+$$
+
+H_n - 1 - 2z= z(H_n - 1) + 2z^2H_n + \frac{1}{(1-3z)} - 3^0 - 3z  \\
+H_n(1-z-2z^2) = \frac{1}{(1-3z)} - 2z \\
+H_n= \frac{1}{(1-3z)(1-z-2z^2)} - \frac{2z}{(1-z-2z^2)}
+$$
 
 - [Resolução (2.2.1 e 2.2.2) (José Félix)](https://drive.google.com/file/d/16V6DPs1HJi8Msfg3vw2XGKMpB-iC-zar/view?usp=sharing)
 
