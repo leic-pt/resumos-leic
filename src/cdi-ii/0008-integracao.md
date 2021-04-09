@@ -192,9 +192,140 @@ $$
 
 :::
 
+### Volume n-dimensional de um conjunto A
+
+Este teorema permite-nos concluir a relação entre os integrais e o comprimento, área e volume.
+
+- $\text{área} = \int \text{comprimento}$
+- $\text{volume} = \int \text{área}$
+
+Expandindo a definição de área, chegamos à função $1\!\!1$:
+
+$$
+\begin{aligned}
+\text{área} &= \int^b_a \text{comprimento} (x) \d x \\
+&= \int^b_a(f(x)-g(a)) \d x\\
+&= \int^b_a(\int^{f(x)}_{g(x)} 1 \d y) \d x\\
+&= \int 1\!\!1_A (x,y) \d x \d y
+\end{aligned}
+$$
+
+$$
+1\!\!1_A =
+\begin{cases}
+1&,&(x,y) \in A\\
+0&,&(x,y)\notin A
+\end{cases}
+$$
+
+::: tip DEFINIÇÃO
+
+Assim, podemos definir o volume n-dimensional de um conjunto $A$ como
+
+$$
+\begin{array}{l l l}
+\int 1\!\!1_A
+& \text{em que}
+&
+1\!\!1_A =
+\begin{cases}
+1&,&(x,y) \in A\\
+0&,&(x,y)\notin A
+\end{cases}
+\end{array}
+$$
+
+:::
+
+::: details Exemplos
+
+Qual o volume do conjunto abaixo?
+
+$$
+\{x> 0, y> 0, z > 0, x+y+z<1\}
+$$
+
+Neste tipo de exercícios, podemos escolher que variável devemos fixar primeiro.  
+{orange}(**Esta escolha é muito importante porque nos pode simplificar bastante os cálculos, se escolhermos a variável certa.**)
+
+$\text{Volume} = \int^1_0 \text{Área}(z) \d z$
+
+Fixado $z$,
+
+[imagem]
+
+$$
+\text{Restrições na figura: }
+\begin{cases}
+x>0\\
+y>0\\
+x+y<1-z
+\end{cases}
+$$
+
+$$
+\text{Área} = \int^{1-z}_0\left(\int^{1-z-x}_0 1 \d y\right) \d x
+$$
+
+$$
+\begin{aligned}
+\text{Volume} &= \int^1_0 \left(\int^{1-z}_0\left(\int^{1-z-x}_0 1 \d y\right) \d x\right) \d z\\
+&=\int^1_0 \left(\int^{1-z}_0\left(1-z-x\right) \d x\right) \d z\\
+&=\int^1_0 \left[\left(1-z\right)x - \frac{x^2}{2}\right]^{1-z}_0 \d z\\
+&=\int^1_0 \left(\left(1-z\right)^2 - \frac{\left(1-z\right)^2}{2} - 0\right) \d z \\
+&=\int^1_0 \frac{\left(1-z\right)^2}{2} \d z\\
+&= \left[-\frac{\left(1-z\right)^3}{6}\right]^1_0\\
+&= 0 - \left(-\frac{1}{6}\right) \\
+&= \frac{1}{6}
+\end{aligned}
+$$
+
+---
+
+Qual o volume do conjunto abaixo?
+
+$$
+S=\{(x,y) \in \R^2, y> x^2, y < 1-x^2\}
+$$
+
+Fixando primeiro $x$:
+
+[imagem]
+
+$$
+\begin{cases}
+y=x^2\\
+y=1-x^2
+\end{cases}
+\Leftrightarrow
+\begin{cases}
+1-x^2= x^2\\
+y=x^2
+\end{cases}
+\Leftrightarrow
+1=2x^2
+\Leftrightarrow
+x=\pm \frac{\sqrt 2}{2}
+$$
+
+$$
+\begin{aligned}
+\text{Área} &= \int^{\frac{\sqrt 2}{2}}_{-\frac{\sqrt 2}{2}} \left(\int^{1-x^2}_{x^2} 1 \d y\right)\d x\\
+&=\int^{\frac{\sqrt 2}{2}}_{-\frac{\sqrt 2}{2}} 1-x^2-x^2 \d x\\
+&=\int^{\frac{\sqrt 2}{2}}_{-\frac{\sqrt 2}{2}} 1-2x^2 \d x\\
+&=\left[x-\frac{2x^3}{3}\right]^{\frac{\sqrt 2}{2}}_{-\frac{\sqrt 2}{2}}\\
+&=\frac{\sqrt 2}{2} - \frac{2 \frac{2\sqrt 2}{8}}{3} - \left(-\frac{\sqrt 2}{2} - \frac{2 \left( -\frac{2\sqrt 2}{8}\right)}{3}\right)\\
+&=\frac{\sqrt 2}{2} - \frac{\sqrt 2}{6} +\frac{\sqrt 2}{2} - \frac{\sqrt 2}{6}\\
+&=\frac{2\sqrt{2}}{3}
+\end{aligned}
+$$
+
+:::
+
 ---
 
 Slides:
 
 - [Aula 17](https://drive.google.com/file/d/1zWmylKPZ1ub2HKk5qxAdc1ekN1inU9Rg/view?usp=sharing)
 - [Aula 18](https://drive.google.com/file/d/19L8f37Zd1nHnM2c0y1qwz1wjLu_zqCHT/view?usp=sharing)
+- [Aula 19](https://drive.google.com/file/d/17ucuVmFr2fmGZ_atbuyiA25LInuRFvJL/view?usp=sharing)
