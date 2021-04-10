@@ -112,6 +112,7 @@ module.exports = {
             '0005-derivada-composta',
             '0006-conjunto-de-nivel',
             '0007-derivada-ordem-superior',
+            '0008-integracao',
           ],
         },
         {
@@ -197,7 +198,16 @@ module.exports = {
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom',
     'vuepress-plugin-seo',
-    '@maginapp/vuepress-plugin-katex',
+    [
+      '@maginapp/vuepress-plugin-katex',
+      {
+        katexOptions: {
+          macros: {
+            '\\d': '\\mathop{}\\!\\mathrm d',
+          },
+        },
+      },
+    ],
     [
       'vuepress-plugin-meilisearch',
       {
