@@ -33,7 +33,7 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 - [Semana 5](https://drive.google.com/file/d/1u18nl2kB7YcMqz4--XNOLkN1u1eJFUn6/view?usp=sharing)
 
   - [Resolução](https://drive.google.com/file/d/1R77x8ghgq102edZtsi6-50H7Fn7sykmO/view?usp=sharing)  
-   Nota: Os exercícios da ficha para a aula prática são só 4. Se quiserem e tiverem tempo, aconselho a que façam os exercícios do livro de exercícios para ficarem melhor preparados.
+    Nota: Os exercícios da ficha para a aula prática são só 4. Se quiserem e tiverem tempo, aconselho a que façam os exercícios do livro de exercícios para ficarem melhor preparados.
 
 - [Semana 6](https://drive.google.com/file/d/1s59jQGSErL69dXC_6R7E1YPMzcB-Tzc2/view?usp=sharing)
 
