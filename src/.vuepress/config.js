@@ -197,7 +197,7 @@ module.exports = {
   plugins: [
     'vuepress-plugin-seo',
     [
-      '@maginapp/vuepress-plugin-katex',
+      '@diogotc/vuepress-plugin-katex',
       {
         katexOptions: {
           macros: {
