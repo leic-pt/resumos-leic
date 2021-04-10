@@ -69,7 +69,7 @@ module.exports = {
         {
           title: '👨‍💻 Laboratórios',
           collapsable: false,
-          children: ['labs/lab02/', 'labs/lab03/', 'labs/lab04/', 'labs/lab05/'],
+          children: ['labs/lab02/', 'labs/lab03/', 'labs/lab04/', 'labs/lab05/','labs/lab06/'],
         },
         {
           title: '📃 Cheat Sheets',
