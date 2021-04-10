@@ -369,6 +369,28 @@ $$
 \end{darray}
 $$
 
+---
+
+Qual o volume de $\{0 \leq z \leq x^2+y^2 \land 0 \leq x,y \leq 1\}$?
+
+[imagem]
+
+Fixando $x$ primeiro, em que $0 \leq x \leq 1$.
+
+[imagem]
+
+$0 \leq z \leq x^2+y^2 \quad, \quad 0 \leq y \leq 1$
+
+Fixando de seguida $y$ e depois $g$, obtemos o integral:
+
+$$
+\text{Volume} = \int^1_0\left( \int^1_0 \left( \int^{x^2+y^2}_0 1 \d z \right) \d y \right) \d x
+$$
+
+---
+
+{yellow}(**Existem mais exemplos nos slides da aula 20**)
+
 :::
 
 ---
@@ -378,3 +400,4 @@ Slides:
 - [Aula 17](https://drive.google.com/file/d/1zWmylKPZ1ub2HKk5qxAdc1ekN1inU9Rg/view?usp=sharing)
 - [Aula 18](https://drive.google.com/file/d/19L8f37Zd1nHnM2c0y1qwz1wjLu_zqCHT/view?usp=sharing)
 - [Aula 19](https://drive.google.com/file/d/17ucuVmFr2fmGZ_atbuyiA25LInuRFvJL/view?usp=sharing)
+- [Aula 20](https://drive.google.com/file/d/1rEFyN10GYhX2zcyi_9JCN405ilbF3TJP/view?usp=sharing)
