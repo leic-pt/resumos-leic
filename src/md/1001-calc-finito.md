@@ -44,7 +44,7 @@ $$
 
 ### Série Harmónica
 
-$$H_n = \sum_{k=1}^{n}\frac{1}{k}$$
+$$H_n = \sum_{k=1}^{n}\frac{1}{k} \quad , H_0 = 0 $$
 
 ### Fórmula de Abel
 
