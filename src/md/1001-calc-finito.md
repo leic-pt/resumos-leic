@@ -18,6 +18,10 @@ $$
 
 $$\sum_{k=0}^{n-1} \Delta u_{k} = [u_{n}]_{0}^{n}$$
 
+### Somatório de n
+
+$$\sum_{k=0}^{n-1} k =\frac{k(k-1)}{2}  $$
+
 ### Somas fechadas do tipo aⁿ
 
 $$\sum_{k=0}^{n-1} a^{k} =\frac{[a^k]^n_0}{a-1} = \frac{a^n-1}{a -1} \quad, \quad a\ne 0,1 $$
@@ -40,7 +44,7 @@ $$
 
 ### Série Harmónica
 
-$$H_n = \sum_{k=1}^{n}\frac{1}{k}$$
+$$H_n = \sum_{k=1}^{n}\frac{1}{k} \quad , H_0 = 0 $$
 
 ### Fórmula de Abel
 
