@@ -40,9 +40,9 @@ Em geral, se $f: I \to \R$ é uma função em escada, então
 
 $$\int_I f= \sum_{J \text{elemento da partição}} (\text{valor da função}) \times |J|$$
 
-::: details Exemplo (TODO)
+::: details Exemplo
 
-[imagem]
+<img src="./assets/0008-funcao-escada.svg" alt="Função Escada" class="invert-dark2">
 
 Em $\R$:
 
@@ -56,9 +56,13 @@ Em geral, se, $f: I \to \R$, podemos encontrar estratégias para definir $\int_I
 Uma dessas estratégias é enquadrar a função no integral superior e inferior.
 O tamanho das partições que escolhemos não é relevante, obtemos o mesmo resultado com partições de qualquer tamanho.
 
-"$\int_I f \leq$ área deste função em escada"
+<img src="./assets/0008-integral-excesso.svg" alt="Integral por excesso" class="invert-dark2">
 
-"$\int_I f \geq$ área deste função em escada"
+"$\int_I f \leq$ área desta função em escada"
+
+<img src="./assets/0008-integral-defeito.svg" alt="Integral por Defeito" class="invert-dark2">
+
+"$\int_I f \geq$ área desta função em escada"
 
 ::: tip DEFINIÇÃO
 
@@ -164,7 +168,7 @@ $$
 
 calcule o integral de $f$ em $I$.
 
-[imagem]
+<img src="./assets/0008-ex1.svg" alt="Esboço da região I segundo x" class="invert-dark2">
 
 $$
 \begin{aligned}
@@ -184,7 +188,7 @@ $$
 Ambas as estratégias irão chegar à resposta correta, mas como podemos ver pela expressão abaixo,
 teríamos de calcular o valor de dois integrais e não um.
 
-[imagens]
+<img src="./assets/0008-ex1-y.svg" alt="Esboço da região I segundo y" class="invert-dark2">
 
 $$
 \int^1_0 \left( \int^{\sqrt{y}}_{\frac{\sqrt{y}}{2}} f\left(x,y\right) \d x\right)\d y + \int^2_1 \left( \int^1_{\frac{\sqrt y}{2}} f\left(x,y\right) \d x=\right) \d y
@@ -250,9 +254,11 @@ Neste tipo de exercícios, podemos escolher que variável devemos fixar primeiro
 
 $\text{Volume} = \int^1_0 \text{Área}(z) \d z$
 
+<img src="./assets/0008-ex2.svg" alt="Esboço da região em 3D" class="invert-dark2">
+
 Fixado $z$,
 
-[imagem]
+<img src="./assets/0008-ex2-z.svg" alt="Esboço da região fixando Z" class="invert-dark2">
 
 $$
 \text{Restrições na figura: }
@@ -290,7 +296,7 @@ $$
 
 Fixando primeiro $x$:
 
-[imagem]
+<img src="./assets/0008-ex3.svg" alt="Esboço da região fixando x" class="invert-dark2">
 
 $$
 \begin{cases}
@@ -325,7 +331,7 @@ Chegamos sempre à **mesma resposta**, com qualquer um dos métodos.
 
 Então, fixando primeiro $y$:
 
-[imagem]
+<img src="./assets/0008-ex3-y.svg" alt="Esboço da região fixando y" class="invert-dark2">
 
 $\int^1_0 \text{comprimento}(y) \d y$
 
@@ -354,13 +360,13 @@ $$
 C = \{0 < z < 1 \land x^2+y^2 < z^2\}
 $$
 
-[imagem]
+<img src="./assets/0008-ex4.svg" alt="Esboço da região em 3D" class="invert-dark2">
 
 Fixando primeiro $z$:
 
 $\text{Volume} = \int^1_0 \text{Área}(z) \d z$
 
-[imagem]
+<img src="./assets/0008-ex4-z.svg" alt="Esboço da região fixando z" class="invert-dark2">
 
 $$
 \begin{darray}{l}
@@ -373,11 +379,11 @@ $$
 
 Qual o volume de $\{0 \leq z \leq x^2+y^2 \land 0 \leq x,y \leq 1\}$?
 
-[imagem]
+<img src="./assets/0008-ex-3d.png" alt="Representação 3D" class="invert-dark">
 
 Fixando $x$ primeiro, em que $0 \leq x \leq 1$.
 
-[imagem]
+<img src="./assets/0008-ex5.svg" alt="Esboço da região fixando x" class="invert-dark2">
 
 $0 \leq z \leq x^2+y^2 \quad, \quad 0 \leq y \leq 1$
 
