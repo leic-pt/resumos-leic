@@ -204,8 +204,8 @@ Expandindo a definição de área, chegamos à função $1\!\!1$:
 $$
 \begin{aligned}
 \text{área} &= \int^b_a \text{comprimento} (x) \d x \\
-&= \int^b_a(f(x)-g(a)) \d x\\
-&= \int^b_a(\int^{f(x)}_{g(x)} 1 \d y) \d x\\
+&= \int^b_a\left(f(x)-g(a)\right) \d x\\
+&= \int^b_a\left(\int^{f(x)}_{g(x)} 1 \d y\right) \d x\\
 &= \int 1\!\!1_A (x,y) \d x \d y
 \end{aligned}
 $$
@@ -318,6 +318,55 @@ $$
 &=\frac{\sqrt 2}{2} - \frac{\sqrt 2}{6} +\frac{\sqrt 2}{2} - \frac{\sqrt 2}{6}\\
 &=\frac{2\sqrt{2}}{3}
 \end{aligned}
+$$
+
+{red}(No entanto, podíamos tentar fixar primeiro $y$, mas rapidamente iríamos concluir que teríamos de calcular dois integrais em vez de um.)
+Chegamos sempre à **mesma resposta**, com qualquer um dos métodos.
+
+Então, fixando primeiro $y$:
+
+[imagem]
+
+$\int^1_0 \text{comprimento}(y) \d y$
+
+- Se $0 < y < \frac{1}{2}$, então $y = x^2 \Rightarrow x = \pm \sqrt{y}$  
+  $\text{comprimento}(y) = \int^{\sqrt{y}}_{-\sqrt{y}} 1 \d x$
+- Se $\frac{1}{2} < y < 1$, então $y = 1 - x^2 \Rightarrow x = \pm \sqrt{1-y}$  
+  $\text{comprimento}(y) = \int^{\sqrt{1-y}}_{-\sqrt{1-y}} 1 \d x$
+
+$$
+\begin{aligned}
+\text{Área} & =\int _{0}^{\frac{1}{2}}\left(\int _{-\sqrt{y}}^{\sqrt{y}} 1\d x\right) \d y+\int _{\frac{1}{2}}^{1}\left(\int _{-\sqrt{1-y}}^{\sqrt{1-y}} 1\d x\right) \d y\\
+ & =\int _{0}^{\frac{1}{2}}\left( 2\sqrt{y}\right) \d y+\int _{\frac{1}{2}}^{1}\left( 2\sqrt{1-y}\right) \d y\\
+ & =\left[\frac{2y^{\frac{3}{2}}}{\frac{3}{2}}\right]_{0}^{\frac{1}{2}} +\left[ -\frac{2( 1-y)^{\frac{3}{2}}}{\frac{3}{2}}\right]_{\frac{1}{2}}^{1}\\
+ & =\left( 2\cdot \frac{2}{3} \cdot \left(\frac{1}{2}\right)^{\frac{3}{2}} -0\right) +\left( 0-\left( -2\cdot \frac{2}{3} \cdot \left(\frac{1}{2}\right)^{\frac{3}{2}}\right)\right)\\
+ & =\frac{4}{3} \cdot \frac{1}{2\sqrt{2}} +\frac{4}{3} \cdot \frac{1}{2\sqrt{2}}\\
+ & =\frac{2}{3\sqrt{2}} +\frac{2}{3\sqrt{2}}\\
+ & =\frac{2\sqrt{2}}{3}
+\end{aligned}
+$$
+
+---
+
+Qual o volume do conjunto abaixo?
+
+$$
+C = \{0 < z < 1 \land x^2+y^2 < z^2\}
+$$
+
+[imagem]
+
+Fixando primeiro $z$:
+
+$\text{Volume} = \int^1_0 \text{Área}(z) \d z$
+
+[imagem]
+
+$$
+\begin{darray}{l}
+\text{Área}(z) = \int^z_{-z}\left(\int^{\sqrt{z^2-x^2}}_{-\sqrt{z^2-x^2}} 1 \d y \right) \d x\\
+\text{Volume} = \int^1_0\left( \int^z_{-z}\left(\int^{\sqrt{z^2-x^2}}_{-\sqrt{z^2-x^2}} 1 \d y \right) \d x \right) \d z
+\end{darray}
 $$
 
 :::
