@@ -1,6 +1,6 @@
 typedef int Item;
 /* as barras permitem escrever em varias linhas */
-/* o q estamos a definir para não ficar tudo sobreposto \ */
+/* o que estamos a definir para não ficar tudo sobreposto */
 #define key(A) (A)
 #define less(A, B) (key(A) < key(B))
 #define exch(A, B)  \

@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 #define DIM 10
-#define ITERATION 2 /*mudar o numeros de iteracoes*/
+#define ITERATION 2 /*mudar o numero de iteracoes*/
 
 typedef int Item;
 
