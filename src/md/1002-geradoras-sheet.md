@@ -21,6 +21,8 @@ $$U(z) = \sum_{k=0}^{+\infty}u_kz^k$$
 | $1,0,0,2,0,0,\allowbreak3,0,0,4,\dots$ |            $1+2z^3+3z^6+\dots$            | $\displaystyle\frac {1}{(1-z^3)^2}$ |   $k$ de 3 em 3   |
 |        $1,a,a^2,a^3,a^4,\dots$         |        $1+az+a^2z^2+a^3z^3+\dots$         |    $\displaystyle\frac{1}{1-az}$    |       $a^k$       |
 |        $1,1,1,1,0,0,0,0,\dots$         |               $1+z+z^2+z^3$               |  $\displaystyle\frac{1-z^4}{1-z}$   |   $1$ até $k=3$   |
+|          $0,0,1,1,1,1,\dots$           |            $z^2+z^3+z^4+\dots$            |   $\displaystyle\frac{z^2}{1-z}$    | $1$ para $k > 1$  |
+|          $0,1,1,1,0,0,\dots$           |                $z+z^2+z^3$                | $\displaystyle\frac{z(1-z^3)}{1-z}$ | $1$ para $0< k<4$ |
 
 $$\frac 1 {(1-\lambda z^p)^m} = \sum_{k=0}^{+\infty} {k+m-1 \choose m-1}\lambda^kz^{pk} $$\\
 
@@ -45,9 +47,9 @@ $$\frac 1 {(1-\lambda z)^m} = \sum_{k=0}^{+\infty} {k+m-1 \choose m-1}\lambda^kz
 
 ## Combinatória
 
-l = valor da soma \
-n = número de incógnitas\
-x = incógnitas
+$l$ = valor da soma  
+$n$ = número de incógnitas  
+$x$ = incógnitas
 
 ### Sem Restrições
 
