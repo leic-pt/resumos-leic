@@ -12,19 +12,17 @@ description: Fórmulas; Teoremas; Combinatória. Cheat Sheet de Funções Gerado
 
 $$U(z) = \sum_{k=0}^{+\infty}u_kz^k$$
 
-$$ 1,1,1,1,1,...= 1+z+z^2+...+z^n = G(z) = \frac {1}{1-z} = U(n) = 1 $$
+|                Sucessão                |             Polinómio $U(z)$              |           Geradora $G(z)$           | Termo Geral $u_k$ |
+| :------------------------------------: | :---------------------------------------: | :---------------------------------: | :---------------: |
+|           $1,1,1,1,1,\dots$            |             $1+z+z^2+...+z^n$             |    $\displaystyle\frac{1}{1-z}$     |        $1$        |
+|           $1,2,3,4,5,\dots$            |  $1+2z+3z^2+\dots+\allowbreak{(n+1)z^n}$  |  $\displaystyle\frac{1}{(1-z)^2}$   |      $k + 1$      |
+|           $0,1,2,3,4,\dots$            | $0+1z+2z^2+\dots+\allowbreak{n\cdot z^n}$ |  $\displaystyle\frac{z}{(1-z)^2}$   |        $k$        |
+|           $1,0,1,0,1,\dots$            |         $1+z^2+z^4+\dots+z^{2n}$          |   $\displaystyle\frac{1}{1-z^2}$    |   $1$ de 2 em 2   |
+| $1,0,0,2,0,0,\allowbreak3,0,0,4,\dots$ |            $1+2z^3+3z^6+\dots$            | $\displaystyle\frac {1}{(1-z^3)^2}$ |   $k$ de 3 em 3   |
+|        $1,a,a^2,a^3,a^4,\dots$         |        $1+az+a^2z^2+a^3z^3+\dots$         |    $\displaystyle\frac{1}{1-az}$    |       $a^k$       |
+|        $1,1,1,1,0,0,0,0,\dots$         |               $1+z+z^2+z^3$               |  $\displaystyle\frac{1-z^4}{1-z}$   |   $1$ até $k=3$   |
 
-$$1, 2, 3, ... =1+2z+3z^2...+(n+1)z^n = G(z) = \frac {1}{(1-z)^2} = U(n) = n + 1 $$
-
-$$\frac{z}{(1-z)^2} = U(n) = n $$
-
-$$1,0,1,0,1+.... = 1+z^2+z^4+...+z^{2n} =G(z) = \frac {1}{1-z^2}$$
-
-$$1,0,0,2,0,0,3,0,0,4,... = 1 + 2z^3+ 3z^6+ ... =  G(z) = \frac {1}{(1-z^3)^2}$$
-
-$$u_n=a^n\implies v(z)_{u_n}=\frac 1 {1-az}$$\\
-
-$$\frac 1 {(1-\lambda z)^m} = \sum_{k=0}^{+\infty} {k+m-1 \choose m-1}\lambda^kz^k $$\\
+$$\frac 1 {(1-\lambda z^p)^m} = \sum_{k=0}^{+\infty} {k+m-1 \choose m-1}\lambda^kz^{pk} $$\\
 
 ## Teoremas
 

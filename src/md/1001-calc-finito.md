@@ -53,7 +53,14 @@ $$\sum_{k=0}^{\textbf{n-1}}u_k\Delta v_k = [u_kv_k]_0^\textbf{n} - \sum_{k=0}^{n
 ### Diferença Finita do Quociente
 
 $$
-\frac{(\Delta u_n)v_n -u_n\Delta v_n}{v_nv_{n+1}}
+\Delta \frac{u_n}{v_n} = \frac{(\Delta u_n)v_n -u_n\Delta v_n}{v_nv_{n+1}}
+$$
+
+### Termo geral de uma sucessão pelas duas derivadas em n = 0
+
+$$
+u_n = u_0 \cdot n^{\underline 0} + \frac{1}{1!} (\Delta u_0) n^{\underline 1} + \frac{1}{2!} (\Delta^2 u_0) n^{\underline 2} + \dots +
+\frac{1}{k!} (\Delta^k u_0) n^{\underline k}
 $$
 
 ## Números de Stirling
@@ -135,6 +142,8 @@ S_{n+1} =\sum ^{n+1}_{k=0} 2^{k} =2^{0} +\sum ^{n+1}_{k=1} 2^{k} =1+\sum ^{n}_{k
 =1+2\sum ^{n}_{k=0} 2^{k} =1+2S_{n}
 $$
 
+Basta agora igualar estes dois resultados e isolar $S_n$.
+
 ### Perturbação Indireta
 
 Fazer a Perturbação Direta mas dentro do Somatório multiplicar a expressão por k .
@@ -165,5 +174,115 @@ Definição de **indução completa:**
 - $\forall_{n \in \mathbb N}, P(m), \dots, P(m+ \gamma), P(m+\gamma+1), \dots, P(m+\gamma+n) \longrightarrow P(m+\gamma+n+1)$;
 
 então $\forall_{n \in \mathbb N} P(n)$ é verdadeiro.
+
+## Exemplos de Exercícios de Cálculo Finito
+
+### Usando apenas a diferença finita (derivada)
+
+{brown}(Retirado da série 1, 1.2.1 a.)
+
+$$
+\sum^n_{k=0} 4^k
+$$
+
+::: details Resolução
+
+Neste caso, podemos fazer a diferença finita $\Delta 4^k$ e iremos encontrar novamente $4^k$, pelo
+que podemos isolar esta parcela.
+
+$$
+\Delta 4^k = 4^{k+1} - 4^k = 4^k(4-1) = 3 \times 4^k
+$$
+
+$$
+4^k = \Delta \frac{4^k}{3}
+$$
+
+Então:
+
+$$
+\begin{aligned}
+\sum^n_{k=0} 4^k &= \sum^n_{k=0} \Delta \frac{4^k}{3}\\
+&= \frac{1}{3} \left[ 4^k \right]^{n+1}_0\\
+&= \frac{1}{3}(4^{n+1} - 4^0)\\
+&= \frac{1}{3}(4^{n+1} - 1)
+\end{aligned}
+$$
+
+:::
+
+### Usando a Fórmula de Abel
+
+{brown}(Retirado da série 1, 1.2.1 d.)
+
+$$
+\sum^n_{k=0} k\times 4^k
+$$
+
+::: details Resolução
+
+Neste caso, podemos tomar $u_k=k$ e $\Delta v_k$= $\Delta 4^k$, pois conseguimos transformar o $4^k$ em $\Delta 4^k$ (ver exemplo anterior).
+
+$$
+\Delta 4^k = 4^{k+1} - 4^k = 4^k(4-1) = 3 \times 4^k
+$$
+
+$$
+4^k = \Delta \frac{4^k}{3}
+$$
+
+Então:
+
+$$
+\begin{aligned}
+\sum^n_{k=0} k\times 4^k &= \sum^n_{k=0} k \times \Delta \frac{4^k}{3}\\
+&= \frac{1}{3} \left(\left[k\times 4^k \right]^{n+1}_0 - \sum^n_{k=0} 4^{k+1} \cdot \Delta k \right)\\
+&= \frac{1}{3} \left((n+1)4^{k+1} - 0 - 4\sum^n_{k=0} 4^{k} \times 1 \right)\\
+&= \frac{1}{3} \left((n+1)4^{k+1} - 4\left(\frac{1}{3}\left(4^{n+1}-1\right)\right) \right)\\
+\end{aligned}
+$$
+
+Este último passo foi feito através do exemplo anterior.
+
+:::
+
+### Usando o Método de "Podar as Pontas"
+
+{brown}(Retirado da série 1, 1.2.3 g.)
+
+Usa-se este método quando não se consegue imediatamente exprimir o quociente numa potência fatorial.
+
+$$
+\sum^{n}_{k=2} \frac{1}{(k+2)(k+5)}
+$$
+
+::: details Resolução
+
+Ver a resolução do 1.2.3 g., que está na [página 2 deste PDF](https://drive.google.com/file/d/1wshyDqQvCBGUbe01-rTX83Yhn0WIbUef/view?usp=sharing).
+
+:::
+
+### Usando a Fórmula do Quociente
+
+{brown}(Retirado da série 1, 1.2.5 a.)
+
+$$
+\sum^{n-1}_{k=0} \frac{k2^k}{(k+1)(k+2)}
+$$
+
+::: details Resolução
+
+Começar por tentar "adivinhar" a expressão que ao derivar dá aquilo que está "dentro" do somatório.  
+{green}(Em alguns casos, podemos usar variáveis que depois alteramos por um valor, para termos uma maior probabilidade de acertar.)
+
+$$
+\Delta \frac{2^k}{k+1} = \frac{(\Delta 2^k)(k+1)-2^k(\Delta k)}{(k+1)(k+2)}=\frac{2^k k + 2^k - 2^k}{(k+1)(k+2)} = \frac{k 2^k}{(k+1)(k+2)}
+$$
+
+$$
+\sum^{n-1}_{k=0} \frac{k2^k}{(k+1)(k+2)} = \left[\frac{2^k}{k+1} \right]^n_0 = \frac{2^n}{n+1}- \frac{2^0}{0+1} = \frac{2^n}{n+1}-1
+$$
+
+:::
 
 ![To Infinity and Beyond](https://media1.giphy.com/media/3oEjHH6uarNnFSIEWQ/source.gif)
