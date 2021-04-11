@@ -26,6 +26,8 @@ $$U(z) = \sum_{k=0}^{+\infty}u_kz^k$$
 
 $$\frac 1 {(1-\lambda z^p)^m} = \sum_{k=0}^{+\infty} {k+m-1 \choose m-1}\lambda^kz^{pk} $$\\
 
+- [Verificação da geradora no WolframAlpha](https://www.wolframalpha.com/input/?i=GeneratingFunction%283%CB%86n+%2B+n+%2B+1%2C+n%2C+k%29)
+
 ## Teoremas
 
 Teorema do Sudoeste do Triângulo de Pascal
@@ -51,6 +53,8 @@ $l$ = valor da soma
 $n$ = número de incógnitas  
 $x$ = incógnitas
 
+- [Combinações no WolframAlpha](https://www.wolframalpha.com/input/?i=combination%286%2C9%29)
+
 ### Sem Restrições
 
 $$ x_1+x_2+...+x_n = l \Leftrightarrow {l+n-1 \choose n-1} $$\\
@@ -75,7 +79,7 @@ h_n=h_{(n-1)} + 2h_{\color{green}(n-2)}+3^n
 $$
 
 $$
-{\sum_{k=\color{green}2}^{+\infty}h_kz^k}=z{\sum_{k=\color{green}1}^{+\infty}h_{k-1}z^{k-1}}+ 2z^2{\sum_{k=\color{green}0}^{+\infty}h_{k-1}z^{k-1}}+ {\sum_{k=\color{green}2}^{+\infty}3^kz^k}
+{\sum_{k=\color{green}2}^{+\infty}h_kz^k}=z{\sum_{k=\color{green}1}^{+\infty}h_{k-1}z^{k-1}}+ 2z^2{\sum_{k=\color{green}0}^{+\infty}h_{k-2}z^{k-2}}+ {\sum_{k=\color{green}2}^{+\infty}3^kz^k}
 $$
 
 $$
@@ -85,8 +89,8 @@ H_n(1-z-2z^2) = \frac{1}{(1-3z)} - 2z \\
 H_n= \frac{1}{(1-3z)(1-z-2z^2)} - \frac{2z}{(1-z-2z^2)}
 $$
 
-- [Resolução (2.2.1 e 2.2.2) (José Félix)](https://drive.google.com/file/d/16V6DPs1HJi8Msfg3vw2XGKMpB-iC-zar/view?usp=sharing)
+- [Recorrências no WolframAlpha](https://www.wolframalpha.com/input/?i=a%280%29+%3D+3%2C+a%28n%29+%3D+2*a%28n-1%29)
 
-P.S. Devs implementem uma built-in calculadora de Combinatória sfv.
+- [Resolução (2.2.1 e 2.2.2) (José Félix)](https://drive.google.com/file/d/16V6DPs1HJi8Msfg3vw2XGKMpB-iC-zar/view?usp=sharing)
 
 ![P.P.S It ain´t Much but it's Honest Work 👨‍🌾](https://i.imgur.com/jLQT7e1.jpg)
