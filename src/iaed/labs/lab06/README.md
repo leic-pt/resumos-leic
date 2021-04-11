@@ -150,10 +150,11 @@ Indique a complexidade assimptótica da função em função de n e m numa anál
 
 ::: details Resposta
 
-Este algoritmo faz um loop (`j < m`), que itera `m` vezes, e itera no ciclo `while` $\frac{n}{2}$ vezes.  
-No total, há $\frac{nm}{2}$ iterações.
+Este algoritmo faz um loop (`j < m`), que itera `m` vezes, e a cada iteração no ciclo `while` divide o
+valor de `i` por 2.  
+No total, há $m\cdot \log_2 n$ iterações.
 
-Assim, o pior caso é $O(nm)$
+Assim, o pior caso é $O(m \log n)$
 
 :::
 
