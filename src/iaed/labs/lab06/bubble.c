@@ -23,7 +23,7 @@ int main()
 {
     int i;
     Item a[DIM] = {20, 11, 16, 8, 21, 12, 10, 14, 17, 6};
-    printf("inical:      ");
+    printf("inicial:      ");
     for (i = 0; i < DIM; ++i)
         printf("%d ", a[i]);
     printf("\n\n");
