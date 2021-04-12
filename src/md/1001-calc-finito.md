@@ -63,6 +63,8 @@ u_n = u_0 \cdot n^{\underline 0} + \frac{1}{1!} (\Delta u_0) n^{\underline 1} + 
 \frac{1}{k!} (\Delta^k u_0) n^{\underline k}
 $$
 
+- [Verificação do somatório no WolframAlpha](https://www.wolframalpha.com/input/?i=sum&assumption=%7B%22F%22%2C+%22Sum%22%2C+%22sumlowerlimit%22%7D+-%3E%220%22&assumption=%7B%22C%22%2C+%22sum%22%7D+-%3E+%7B%22Calculator%22%7D&assumption=%7B%22F%22%2C+%22Sum%22%2C+%22sumfunction%22%7D+-%3E%22k%22&assumption=%7B%22F%22%2C+%22Sum%22%2C+%22sumvariable%22%7D+-%3E%22k%22&assumption=%7B%22F%22%2C+%22Sum%22%2C+%22sumupperlimit2%22%7D+-%3E%22n-1%22)
+
 ## Números de Stirling
 
 ### Números de Stirling de 1ª Espécie
@@ -282,6 +284,8 @@ $$
 $$
 \sum^{n-1}_{k=0} \frac{k2^k}{(k+1)(k+2)} = \left[\frac{2^k}{k+1} \right]^n_0 = \frac{2^n}{n+1}- \frac{2^0}{0+1} = \frac{2^n}{n+1}-1
 $$
+
+- [Verificação da resposta no WolframAlpha](https://www.wolframalpha.com/input/?i=sum&assumption=%7B%22F%22%2C+%22Sum%22%2C+%22sumlowerlimit%22%7D+-%3E%220%22&assumption=%7B%22C%22%2C+%22sum%22%7D+-%3E+%7B%22Calculator%22%7D&assumption=%7B%22F%22%2C+%22Sum%22%2C+%22sumfunction%22%7D+-%3E%22k%282%5Ek%29%2F%28%28k%2B1%29%28k%2B2%29%29%22&assumption=%7B%22F%22%2C+%22Sum%22%2C+%22sumvariable%22%7D+-%3E%22k%22&assumption=%7B%22F%22%2C+%22Sum%22%2C+%22sumupperlimit2%22%7D+-%3E%22n-1%22)
 
 :::
 
