@@ -94,12 +94,13 @@ E no melhor caso? Ilustre com um exemplo.
 
 ::: details Resposta
 
-No melhor caso é $O(n)$.
-
-Ler um vetor já ordenado.  
-O algoritmo termina depois de fazer a passagem pelos n elementos.
+Ler um vetor já ordenado.
 
 `a = { 1, 2, 3, 4 }`
+
+No melhor caso é $O(n^2)$, pois tem de comparar cada elemento, ao longo do vetor.
+
+No melhor caso é $O(n)$ , se tiver condição de paragem.
 
 :::
 
