@@ -20,7 +20,7 @@ $$\sum_{k=0}^{n-1} \Delta u_{k} = [u_{n}]_{0}^{n}$$
 
 ### Somatório de n
 
-$$\sum_{k=0}^{n-1} k =\frac{k(k-1)}{2}  $$
+$$\sum_{k=0}^{n-1} k =\frac{n(n-1)}{2}  $$
 
 ### Somas fechadas do tipo aⁿ
 
