@@ -17,7 +17,7 @@ A que se chama uma equação às diferenças finitas. Os coeficientes que multip
 
 ## Passos
 
-$$h_k\quad= 2\qquad h_{k-1}\quad+1\rightarrow \color{red}{\sum_{k=1}^{+\infty}\color{black}h_k\color{red}z^k}\color{black}=2\color{red}z{\sum_{k=1}^{+\infty}\color{black}h_{k-1}\color{red}z^{k-1}}\color{black}+\color{red}{\sum_{k=1}^{+\infty}\color{black}\color{red}z^k}\color{black}$$
+$$h_k\quad= 2\qquad h_{k-1}\quad+1\rightarrow \textcolor{red}{\sum_{k=1}^{+\infty}}h_k\textcolor{red}{z^k}=2\textcolor{red}{z\sum_{k=1}^{+\infty}}h_{k-1}\textcolor{red}{z^{k-1}}+\textcolor{red}{{\sum_{k=1}^{+\infty}}z^k}$$
 
 Note-se que o índice dos somatórios deve ser o menor inteiro para o qual a expressão faz sentido (1, neste caso). Também se deve ter a potência de $z$ coincidente com a ordem da sucessão (valor para $n$). Note-se que para o último somatório:
 
