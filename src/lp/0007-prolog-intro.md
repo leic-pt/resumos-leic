@@ -135,6 +135,7 @@ A mesma regra descrita acima seria aqui lida como "para poder provar uma dada in
 ### Exemplos de resoluções
 
 Consideraremos, nesta secção, o programa
+
 ```prolog
 % os comentários começam com percentagens.
 ad(marge, bart).
@@ -143,6 +144,7 @@ ad(srB, marge).
 ant(X, Y) :- ad(X, Y).
 ant(X, Z) :- ant(X, Y), ad(Y, Z).
 ```
+
 Podem testar os exemplos seguintes no SWI-Prolog ao criar um ficheiro `.pl` com o código acima, e dentro do SWI-Prolog ir a `Consult` e escolher esse ficheiro. De seguida, na `prompt`, escrever os objetivos indicados e verificar a resposta. **Este programa tem erros, e à frente aprofundaremos quais são/o seu porquê**.
 
 ::: tip Resolução com um ramo bem sucedido
@@ -169,8 +171,8 @@ Podíamos ainda ter o caso de só haver ramos falhados - nesse caso, o Prolog re
 
 Devemos ainda ter em consideração 2 pontos:
 
-  - Ao definir um predicado, devemos definir as afirmações (cláusulas só com cabeça) antes das regras; esta regra vem devido às afirmações não terem corpo, e a unificação leva ao desaparecimento do literal (queremos isto o mais "cedo" no programa possível).
+- Ao definir um predicado, devemos definir as afirmações (cláusulas só com cabeça) antes das regras; esta regra vem devido às afirmações não terem corpo, e a unificação leva ao desaparecimento do literal (queremos isto o mais "cedo" no programa possível).
 
-  - Devemos evitar recursão à esquerda, ou seja, em vez de escrever `pred1(A, C) :- pred1(A, B), pred2(B, C).`, devemos trocar a ordem de `pred1(A, B)` e `pred2(B, C)`. Caso contrário, poderemos entrar em ciclos infinitos, visto que a função de seleção do Prolog é $\alpha_{1}$, e ao escolher o ramo mais à esquerda estaremos a entrar em recursões infinitas.
+- Devemos evitar recursão à esquerda, ou seja, em vez de escrever `pred1(A, C) :- pred1(A, B), pred2(B, C).`, devemos trocar a ordem de `pred1(A, B)` e `pred2(B, C)`. Caso contrário, poderemos entrar em ciclos infinitos, visto que a função de seleção do Prolog é $\alpha_{1}$, e ao escolher o ramo mais à esquerda estaremos a entrar em recursões infinitas.
 
 Caso haja **mais que uma resposta** a um dado objetivo dado um programa, podemos continuar a premir `Enter` até o Prolog esgotar os ramos bem sucedidos.
