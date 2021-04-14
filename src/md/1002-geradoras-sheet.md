@@ -91,6 +91,8 @@ $$
 
 - [Recorrências no WolframAlpha](https://www.wolframalpha.com/input/?i=a%280%29+%3D+3%2C+a%28n%29+%3D+2*a%28n-1%29)
 
+- [Decomposição de Hermite](https://www.emathhelp.net/calculators/algebra-2/partial-fraction-decomposition-calculator/)
+
 - [Resolução (2.2.1 e 2.2.2) (José Félix)](https://drive.google.com/file/d/16V6DPs1HJi8Msfg3vw2XGKMpB-iC-zar/view?usp=sharing)
 
 ![P.P.S It ain´t Much but it's Honest Work 👨‍🌾](https://i.imgur.com/jLQT7e1.jpg)
