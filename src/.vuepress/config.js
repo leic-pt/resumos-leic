@@ -83,6 +83,7 @@ module.exports = {
             '0004-logica-primeiraordem-int',
             '0005-logica-primeiraordem-sc',
             '0006-prog-logica',
+            '0007-prolog-intro',
           ],
         },
         {
