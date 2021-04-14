@@ -8,23 +8,23 @@ description: Curvas de Nível, Conjunto de Nível, Ponto de Sela, Caminho em R�
 
 ## Curvas de Nível
 
-Tomando uma função escalar, $f: D \subseteq \R^n \to \R$ e $a \in D, h \in \R^n$.
+Tomando uma função escalar, $f: D \subseteq \R^n \to \R$ e $a \in D$.
 Suponha que $f$ é diferenciável em $a$.
 Então,
 
 $$
-\frac{\partial f}{\partial v} (a)=J^{f}_{a} v=\nabla f( a) \cdot v=||\nabla f( a) ||\cdot ||v||\cdot \cos\overset{\land }{( \nabla f( a) ,v)}
+\frac{\partial f}{\partial v} (a)=J^{f}_{a} v=\nabla f( a) \cdot v=||\nabla f( a) ||\cdot ||v||\cdot \cos\widehat{( \nabla f( a) ,v)}
 $$
 
 pois podemos chamar à Jacobiana de uma função escalar, o [gradiente](0004-diferenciabilidade.md#gradiente-de-uma-funcao), $\nabla f(a)$, da função.
 
-Se $||v|| = 1$, então $\frac{\partial f}{\partial v} (a) = ||\nabla f( a) ||\cdot \cos\overset{\land }{( \nabla f( a) ,v)}$, ou ainda
+Se $||v|| = 1$, então $\frac{\partial f}{\partial v} (a) = ||\nabla f( a) ||\cdot \cos\widehat{( \nabla f( a) ,v)}$, ou ainda
 $v=\frac{\nabla f(a)}{|| \nabla f(a)||}$.
 
 Podemos concluir duas coisas:
 
 - Quando nos afastamos de $a$ no sentido de $\nabla f (a)$, a função tem variação máxima.
-- Quando $\cos\overset{\land }{( \nabla f( a) ,v)}= 0$ (ou seja $v \perp \nabla f(a)$), a função "não varia localmente", dando origem a **curvas de nível**.
+- Quando $\cos\widehat{( \nabla f( a) ,v)}= 0$ (ou seja $v \perp \nabla f(a)$), a função "não varia localmente", dando origem a **curvas de nível**: pontos da função com o mesmo valor.
 
 <img src="./assets/0006-curvas-nivel.svg" alt="Curvas de Nível em 3D" class="invert-dark">
 
@@ -170,7 +170,7 @@ se existir um caminho $C^1, c:\R \to M$ tal que $c(0) = a$ e $c'(0) = v$.
 ::: details Exemplo
 
 Sejam $f: D \subseteq \R^n \to \R$, uma função escalar e $k \in \R$  
-Sejam $M = N(k) = \{x \in D: f(x)= x\}$  
+Sejam $M = N(k) = \{x \in D: f(x)= k\}$  
 Seja $a \in M, v \in \R^n$, então $c: \R \to M$ com $c(0) = a, c'(0) = v$.
 
 Então, para $t=0$,  
@@ -196,7 +196,7 @@ $$
 N(d)=\{(x,y,z)\in \R^3: ax+by+cz=d\}
 $$
 
-$\nabla f(x,y,z) = (a b c), \forall (x,y,z) \in \R^3$ é $\perp$ a $N(a)$ em qualquer ponto de $N(a)$
+$\nabla f(x,y,z) = \begin{pmatrix}a & b & c\end{pmatrix}, \forall (x,y,z) \in \R^3$ é $\perp$ a $N(a)$ em qualquer ponto de $N(a)$
 
 ---
 

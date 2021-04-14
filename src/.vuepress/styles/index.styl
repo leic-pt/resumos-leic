@@ -8,10 +8,13 @@
   max-width 450px!important
 
 @import 'search'
+@import 'colors'
 
 @media(prefers-color-scheme: dark)
   .invert-dark
     filter: invert(1)
+  .invert-dark2
+    filter: invert(1) hue-rotate(180deg) saturate(5)
 
 .katex-display
   overflow-x: auto

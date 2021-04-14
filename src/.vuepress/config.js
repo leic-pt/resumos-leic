@@ -62,13 +62,21 @@ module.exports = {
             '0006-estruturas',
             '0007-1elementos',
             '0007-2control',
+            '0008-intro_algoritmos',
+            '0009-algo_ord',
           ],
         },
         {
           title: '👨‍💻 Laboratórios',
           collapsable: false,
-          children: ['labs/lab02/', 'labs/lab03/', 'labs/lab04/', 'labs/lab05/'],
+          children: ['labs/lab02/', 'labs/lab03/', 'labs/lab04/', 'labs/lab05/', 'labs/lab06/'],
         },
+        {
+          title: '📃 Cheat Sheets',
+          collapsable: false,
+          children: ['1000-algoritmos.sheet'],
+        },
+
         'meta/linux-setup',
       ],
       '/lp/': [
@@ -105,6 +113,7 @@ module.exports = {
             '0005-derivada-composta',
             '0006-conjunto-de-nivel',
             '0007-derivada-ordem-superior',
+            '0008-integracao',
           ],
         },
         {
@@ -129,6 +138,7 @@ module.exports = {
             '0008-teonewton',
             '0009-combinatorio',
             '0010-diffinitas',
+            '0011-FFT',
           ],
         },
         {
@@ -139,7 +149,7 @@ module.exports = {
         {
           title: '📃 Cheat Sheets',
           collapsable: false,
-          children: ['1000-geradoras-sheet'],
+          children: ['1001-calc-finito', '1002-geradoras-sheet'],
         },
       ],
       '/': [
@@ -186,10 +196,18 @@ module.exports = {
    * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
    */
   plugins: [
-    '@vuepress/plugin-back-to-top',
-    '@vuepress/plugin-medium-zoom',
     'vuepress-plugin-seo',
-    '@maginapp/vuepress-plugin-katex',
+    [
+      '@diogotc/vuepress-plugin-katex',
+      {
+        katexOptions: {
+          macros: {
+            '\\d': '\\mathop{}\\!\\mathrm d',
+          },
+          strict: false,
+        },
+      },
+    ],
     [
       'vuepress-plugin-meilisearch',
       {
@@ -216,6 +234,7 @@ module.exports = {
   markdown: {
     extendMarkdown: (md) => {
       md.use(require('markdown-it-footnote'));
+      md.use(require('markdown-it-color').default);
     },
   },
 };

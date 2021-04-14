@@ -12,7 +12,7 @@ A derivada de ordem superior de uma função é simplesmente a derivada da deriv
 Por exemplo, podemos representar a derivada parcial de segunda ordem de $f$ segundo $x_i$ e $x_j$ da seguinte forma:
 
 $$
-\frac{\partial^2f}{\partial x_1 \partial x_j} = \frac{\partial}{\partial x_i}\left(\frac{\partial t}{\partial x_j}\right)
+\frac{\partial^2f}{\partial x_1 \partial x_j} = \frac{\partial}{\partial x_i}\left(\frac{\partial f}{\partial x_j}\right)
 $$
 
 ::: tip DEFINIÇÃO
@@ -103,10 +103,10 @@ $$
 f(a+tv)=f(a)+\nabla f(a)\cdot tv + \frac{1}{2} \sum^n_{i,j=1} \frac{\partial^2 f}{\partial x_i \partial x_j} (a)\cdot (tv_i)\cdot(tv_j)+ R_2(t)
 $$
 
-Se assumirmos $h = tv$, $||v||=1$, obtemos a definição da Fórmula de Taylor de 2º ordem:
+Se assumirmos $h = tv$, $||v||=1$, obtemos a definição da Fórmula de Taylor de 2ª ordem:
 
 ::: tip DEFINIÇÃO
-Sejam $f: \R^n \to \R$ de classe $C^3$, $h = tv$ e $||v||=1$, podemos obter Fórmula de Taylor de $f$ de 2º ordem pela expressão:
+Sejam $f: \R^n \to \R$ de classe $C^3$, $h = tv$ e $||v||=1$, podemos obter Fórmula de Taylor de $f$ de 2ª ordem pela expressão:
 
 $$
 f(a+h)=f(a)+\nabla f(a)\cdot h + \frac{1}{2} \cdot \sum_{i,j=1}^n \frac{\partial^2 f}{\partial x_i \partial x_j} (a)\cdot h_i\cdot h_j+ R_2(t)
@@ -118,7 +118,7 @@ com $\displaystyle \lim_{h\to \vec 0}\frac{R_2(h)}{||h||^2}=\vec 0$
 
 ### Matriz Hessiana
 
-Pode-se reescrever a expressão da Fórmula de Taylor de 2º ordem da seguinte forma:
+Pode-se reescrever a expressão da Fórmula de Taylor de 2ª ordem da seguinte forma:
 
 $$
 f(a+h)=f(a)+\nabla f(a)\cdot h+\frac{1}{2}\begin{pmatrix}
@@ -139,7 +139,7 @@ f(a+h)=f(a)+\nabla f(a)\cdot h + \frac 12 h^T H_f(a)h + R_2(h)
 $$
 
 com $\lim_{h \to \vec 0} \frac{R_2(h)}{||h||^2}=\vec 0$  
-em que $Hf(a)$ é a matriz Hessiana de $f$ em $a$, que é uma matriz simétrica pelo [Teorema de Schwarz](#teorema-de-schwarz).
+em que $Hf(a)$ é a matriz Hessiana de $f$ em $a$, que é uma **matriz simétrica** pelo [Teorema de Schwarz](#teorema-de-schwarz).
 
 $$
 Hf( a) =\begin{bmatrix}
@@ -150,9 +150,9 @@ Hf( a) =\begin{bmatrix}
 \end{bmatrix}
 $$
 
-::: details Exemplos de Polinómios de Taylor de 2º ordem
+::: details Exemplos de Polinómios de Taylor de 2ª ordem
 
-Escrever o polinómio de Taylor de 2º ordem da função
+Escrever o polinómio de Taylor de 2ª ordem da função
 $f(x,y) = e^x - e^y$ em torno da origem, $a=(0,0)$
 
 Começamos por ver se é diferenciável. Como
@@ -253,7 +253,7 @@ Estes pontos, chamam-se **pontos de estacionariedade** ou **pontos críticos**.
 
 ::: tip DEFINIÇÃO
 
-Seja $f: \R^n \to \R$ os pontos $a \in \R^n$ para os quais $\nabla f(a) = \vec 0$ dizem-se pontos de estacionariedade ou pontos críticos.
+Seja $f: \R^n \to \R$. Os pontos $a \in \R^n$ para os quais $\nabla f(a) = \vec 0$ dizem-se pontos de estacionariedade ou pontos críticos.
 
 :::
 
@@ -406,13 +406,13 @@ $$
 
 O sinal desta expressão é dado pelos $\lambda_i$'s.
 
-Se substituirmos este resultado na Fórmula de Taylor de 2º Ordem em torno de um ponto crítico $a\in \R^n$ ($\nabla f (a) = \vec 0$),
+Se substituirmos este resultado na Fórmula de Taylor de 2ª Ordem em torno de um ponto crítico $a\in \R^n$ ($\nabla f (a) = \vec 0$),
 então obtemos, para $f: \R^n \to \R$:
 
 Então,
 
 $$
-f(a+h) = f(a) + 0 + \frac 12 h^T H_f(a) h + R_2(h?)
+f(a+h) = f(a) + 0 + \frac 12 h^T H_f(a) h + R_2(h)
 $$
 
 com $\lim_{h\to \vec 0} \frac{R_2(h)}{||h||^2} = \vec 0$
@@ -435,8 +435,8 @@ Seja $f: \R^n \to \R$, $a \in \R$ é ponto crítico de $f$, ou seja $\nabla f(a)
 
 Se $H_f(a)$ é:
 
-- definida positiva (cada valor próprio $\lambda_i > 0$) então há **minimo local em $a$**
-- definida negativa (cada valor próprio $\lambda_i < 0$) então há **máximo local em $a$**
+- definida positiva (cada valor próprio $\lambda_i > 0$) - então há **minimo local em $a$**
+- definida negativa (cada valor próprio $\lambda_i < 0$) - então há **máximo local em $a$**
 - indefinida (valores próprios $\lambda_i >0$ e $\lambda_j < 0$) - então há **ponto de sela $a$**
 - semidefinida positiva (valores próprios $\lambda_i \geq 0$) - então há **mínimo ou ponto de sela em $a$**
 - semidefinida negativa (valores próprios $\lambda_i \leq 0$) - então há **máximo ou ponto de sela em $a$**
@@ -538,9 +538,9 @@ $$
 com
 
 $$
-A= \frac{\lambda^2 f}{\partial x_i^2}(a) \quad
-B=\frac{\lambda^2 f}{\partial x\partial y}(a)\quad
-C=\frac{\lambda^2 f}{\partial y^2}(a)
+A= \frac{\partial^2 f}{\partial x_i^2}(a) \quad
+B=\frac{\partial^2 f}{\partial x\partial y}(a)\quad
+C=\frac{\partial^2 f}{\partial y^2}(a)
 $$
 
 - Determinante: $\operatorname{det} A= \lambda_1 \times \lambda_2 \times \dots \times \lambda_n$
@@ -550,7 +550,7 @@ Então, **podemos concluir o seguinte**:
 
 - Se $\operatorname{det} H_f(a) < 0$, então $f$ tem ponto de sela em $a$
 - Se $\operatorname{det} H_f(a) > 0$ e $\operatorname{tr} H_f(a) > 0$ então $f$ tem mínimo local em $a$
-- Se $\operatorname{det} H_f(a) < 0$ e $\operatorname{tr} H_f(a) < 0$ então $f$ tem máximo local em $a$
+- Se $\operatorname{det} H_f(a) > 0$ e $\operatorname{tr} H_f(a) < 0$ então $f$ tem máximo local em $a$
 
 ::: details Exemplos
 

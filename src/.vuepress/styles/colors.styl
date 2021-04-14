@@ -1,0 +1,56 @@
+$red = #E03E3E
+$redDark = #ff7369
+$green = #0F7B6C
+$greenDark = #4DAB9A
+$blue = #0B6E99
+$blueDark = #529CCA
+$pink = #AD1A72
+$pinkDark = #E255A1
+$purple = #6940A5
+$purpleDark = #946DD7
+$yellow = #DFAB01
+$yellowDark = #FFDC49
+$orange = #D9730D
+$orangeDark = #FFA334
+$brown = #64473A
+$brownDark = #937264
+
+@require './palette.styl'
+
+:root
+  --colorRed $red
+  --colorGreen $green
+  --colorBlue $blue
+  --colorPink $pink
+  --colorPurple $purple
+  --colorYellow $yellow
+  --colorOrange $orange
+  --colorBrown $brown
+
+  @media (prefers-color-scheme dark)
+    --colorRed $redDark
+    --colorGreen $greenDark
+    --colorBlue $blueDark
+    --colorPink $pinkDark
+    --colorPurple $purpleDark
+    --colorYellow $yellowDark
+    --colorOrange $orangeDark
+    --colorBrown $brownDark
+
+.md-colorify
+  &.md-colorify--red
+    color: var(--colorRed)
+  &.md-colorify--green
+    color: var(--colorGreen)
+  &.md-colorify--blue
+    color: var(--colorBlue)
+  &.md-colorify--pink
+    color: var(--colorPink)
+  &.md-colorify--purple
+    color: var(--colorPurple)
+  &.md-colorify--yellow
+    color: var(--colorYellow)
+  &.md-colorify--orange
+    color: var(--colorOrange)
+  &.md-colorify--brown
+    color: var(--colorBrown)
