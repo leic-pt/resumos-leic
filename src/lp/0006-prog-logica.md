@@ -14,7 +14,7 @@ Por uma questão meramente ligada à eficiência, utilizamos variações especia
 
 Cláusulas que contêm, no máximo, um literal positivo (isto é, não negado). Se existir, esse literal positivo será a **cabeça da cláusula**. Quaisquer literais negativos que possam existir farão parte do **corpo da cláusula**. São exemplos $\{C, \neg P_{1}, \neg P_{2}\}, \{C\}, \{\neg P_{1}, \neg P_{2}\}, \{\}.$
 
-Dada a equivalência entre $\alpha \to \beta$ e a cláusula de Horn $\{\neg \alpha, \beta\}$, é vulgar escrever cláusulas de Horn sem ser na forma usual de cláusula (com as chavetas). Podemos representar cláusulas com o símbolo $\leftarrow$, com o corpo da cláusula à direita e a cabeça à esquerda. **A cláusula vazia é representada por $\square$**(sim é um quadrado $Rafa^2$ 😎).  
+Dada a equivalência entre $\alpha \to \beta$ e a cláusula de Horn $\{\neg \alpha, \beta\}$, é vulgar escrever cláusulas de Horn sem ser na forma usual de cláusula (com as chavetas). Podemos representar cláusulas com o símbolo $\leftarrow$, com o corpo da cláusula à direita e a cabeça à esquerda. **A cláusula vazia é representada por $\square$**(sim é um quadrado $\text{Rafa}^2$ 😎).  
 Desta feita, os exemplos apresentados anteriormente podem ser apresentados tais que $C \leftarrow P_{1}, P_{2}; C \leftarrow; \leftarrow P_{1}, P_{2}; \square.$
 
 As cláusulas de Horn são divididas em quatro tipos:
@@ -91,7 +91,7 @@ $AD(Sr.B, Marge)$
 
 E o objetivo $\leftarrow Ant(x, Bart)$.
 
-Tanto $s_{1} = \{Homer/x\}$ como $s_{2} = \{Sr.B/x\}$ são respostas do programa ao objetivo, no entanto só a última é uma resposta _correta_.
+Tanto $s_{1} = \{Marge/x\}$ como $s_{2} = \{Sr.B/x\}$ são respostas do programa ao objetivo, no entanto só a última é uma resposta _correta_.
 
 Agora, porque é que são estas as respostas?
 
@@ -115,7 +115,7 @@ De um modo não rigoroso, a resolução SLD encontra a resposta de um programa a
 
 - **Refutação SLD** - uma prova SLD diz-se _refutação_ SLD caso o seu último elemento seja a cláusula vazia, $\square$.
 
-- **Resposta Calculada** - sendo $\Delta$ um programa, $\alpha$ um objetivo e $S$ uma função de seleção. Se a prova SLD para $\alpha$ usando $\Delta$ for finita, $[\gamma_{0}, \dots, \gamma_{n}]$ (sequência de objetivos), a composição das substituições $s_{0},\dots,s_{n-1}$ restringida às variáveis que ocorrem em $\alpha (s_{0} \circ \dots \circ s_{n-1})|_{vars(\alpha)}$, diz-se uma resposta calculada de $\Delta$ a $\alpha$ via $S$. Diz-se também que $n$ é o comprimento da prova SLD.
+- **Resposta Calculada** - sendo $\Delta$ um programa, $\alpha$ um objetivo e $S$ uma função de seleção. Se a prova SLD para $\alpha$ usando $\Delta$ for finita, $[\gamma_{0}, \dots, \gamma_{n}]$ (sequência de objetivos), a composição das substituições $s_{0},\dots,s_{n-1}$ restringida às variáveis que ocorrem em $\alpha~(s_{0} \circ \dots \circ s_{n-1})|_{vars(\alpha)}$, diz-se uma resposta calculada de $\Delta$ a $\alpha$ via $S$. Diz-se também que $n$ é o comprimento da prova SLD.
 
 ::: details Resolução SLD
 
@@ -144,7 +144,7 @@ A mesma função de seleção oferece várias alternativas para a construção d
 
   - o rótulo de cada nó é um objetivo;
   - o rótulo da raiz é $\alpha$;
-  - cada nó com rótulo $\leftarrow \beta_{1},\dots,\beta_{n}$, tem um ramo por cada cláusula $\delta \leftarrow \gamma_{1},\dots,\gamma_{p} \in \Delta$ cuja cabeça unificável com $S(\leftarrow \beta_{1},\dots,\beta_{n})$. O rótulo da raiz deste ramo corresponde ao resolvente entre as duas cláusulas.
+  - cada nó com rótulo $\leftarrow \beta_{1},\dots,\beta_{n}$, tem um ramo por cada cláusula $\delta \leftarrow \gamma_{1},\dots,\gamma_{p} \in \Delta$ cuja cabeça é unificável com $S(\leftarrow \beta_{1},\dots,\beta_{n})$. O rótulo da raiz deste ramo corresponde ao resolvente entre as duas cláusulas.
 
 Numa árvore SLD, os ramos que terminam em $\square$ dizem-se **bem sucedidos**, sendo que os que terminam em objetivos dizem-se **falhados** e os restantes **ramos infinitos**.
 
