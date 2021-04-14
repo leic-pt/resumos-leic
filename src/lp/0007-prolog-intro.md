@@ -176,3 +176,206 @@ Devemos ainda ter em consideração 2 pontos:
 - Devemos evitar recursão à esquerda, ou seja, em vez de escrever `pred1(A, C) :- pred1(A, B), pred2(B, C).`, devemos trocar a ordem de `pred1(A, B)` e `pred2(B, C)`. Caso contrário, poderemos entrar em ciclos infinitos, visto que a função de seleção do Prolog é $\alpha_{1}$, e ao escolher o ramo mais à esquerda estaremos a entrar em recursões infinitas.
 
 Caso haja **mais que uma resposta** a um dado objetivo dado um programa, podemos continuar a premir `Enter` até o Prolog esgotar os ramos bem sucedidos.
+
+## Listas
+
+Em Prolog, listas são tipos estruturados de informação pré-definidos. Tal como em python, os seus elementos são separados por vírgulas, estando delimitados por `[ ]`. Os elementos podem ser termos (variáveis, constantes ou termos compostos) ou outras listas, podendo, claro está, existir a lista vazia (`[]`).
+
+::: details Exemplos de Listas
+
+```prolog
+[]
+[a,b,c]
+[[], [a, b], c, d]
+[X, r(a, b, c), 6]
+```
+
+:::
+
+Uma lista **não vazia** pode ser vista como sendo constituída por 2 entidades, o primeiro elemento e o resto. Havendo pelo menos um elemento, existe sempre um primeiro elemento; nesta "representação", não tem necessariamente de haver resto. Se houver, o Prolog retorná-lo-á em forma de lista. Utilizamos o padrão `[P | R]`, com o operador `|`, para separar o Primeiro elemento do Resto. A unificação de `[P|R]` com uma lista resultará numa interação deste género:
+
+```prolog
+?- [a, b] = [P | R].
+P = a,
+% podemos observar abaixo que b vem no "formato de lista"
+R = [b].
+% se ainda não tivesse ficado explícito, as vírgulas indicam que a solução "ainda não acabou", enquanto que o ponto e vírgula indica que são soluções distintas
+
+?- [a] = [P | R].
+P = a,
+R = [].
+
+?- [] = [P | R].
+false.
+% não há unificação possível, visto que não há primeiro elemento
+```
+
+### Exemplos de programas envolvendo listas
+
+(recomendo que testem os trechos de código seguintes vocês próprios, incluindo inputs não testados aqui, para se irem habituando e aprendendo coisas sobre a linguagem).
+
+::: tip Exemplo 1 - programa que testa se um dado elemento pertence a uma lista.
+
+```prolog
+% membro(E, L) - E é membro da lista L.
+membro(X, [X|R]).
+membro(X, [P|R]) :- membro(X, R).
+```
+
+O programa acima é constituído por uma afirmação e por uma regra. A afirmação diz que um elemento X é membro de uma lista cujo primeiro elemento é ele mesmo; a regra afirma que um elemento é membro de uma lista cujo primeiro elemento é diferente dele mesmo caso seja membro do resto da lista.
+
+Exemplos de interações:
+
+```prolog
+?- membro(a, [a, b, c]).
+true.
+?- membro(c, [f, g, h]).
+false.
+?- membro(a, []).
+false.
+?- membro([a, b], [a, [a, b], c]).
+true.
+?- membro(X, [a, b, c]).
+X = a;
+X = b;
+X = c;
+false.
+```
+
+Mas e se o objetivo fosse `membro(a, X)`? O programa procuraria as listas das quais `a` é membro. Contudo, não temos informação concreta sobre o `a`, nem sobre as listas a que pertence, pelo que as respostas são infinitas. Assim sendo, o Prolog apresentará um output deste género:
+
+```prolog
+% lista da qual a é o primeiro elemento, e a variável _G268 é o resto
+X = [a|_G268];
+% lista da qual a é o segundo elemento, e por aí em diante
+X = [_G8, a|_G12];
+X = [_G8, _G11, a|_G15];
+X = [_G8, _G11, _G14, a|_G18];
+X = [_G8, _G11, _G14, _G17, a|_G21.
+% porque é que o Prolog dá estes nomes às variáveis? Não faço a menor ideia
+% segundo a Prof, "começam por um _ e seguem-se uma série de caracteres que não nos interessam", take that as you will
+```
+
+O operador `|` tem outras utilidades interessantes - separar elementos (que não necessariamente o primeiro) de uma lista e aceder a um elemento de uma lista.
+
+```prolog
+% utilização do | em conjunto com a variável anónima, _, para separar elementos
+?- [a, b, c] = [_, Y | Z].
+Y = b,
+Z = [c].
+?- [a, b, c] = [_, _, Y | Z].
+Y = c,
+Z = [].
+```
+
+```prolog
+% utilização do operador | para aceder a elementos de uma lista
+?- [1, 2, 3, 4] = [Prim, Seg, Terc | R].
+Prim = 1,
+Seg = 2,
+Terc = 3,
+R = [4].
+?- [1, 2, 3] = [Prim, Seg, Terc | R].
+Prim = 1,
+Seg = 2,
+Terc = 3,
+R = [].
+?- [1, 2] = [Prim, Seg, Terc | R].
+false.
+% relembrar que Prim, Seg e Terc continuam a ser variáveis - não havendo uma unificação que envolva as 3, o Prolog devolve false
+```
+
+:::
+
+::: details Exemplo 2 - programa que junta duas listas
+
+```prolog
+% junta(X, Y, Z) - > é o resultado de juntar X a Y
+junta([], L, L).
+% a junção da lista vazia a uma lista qualquer é a própria lista
+junta([P | R], L1, [P | L2]) :- junta(R, L1, L2).
+% sendo L2 a junção de R a L1, a junção de uma lista iniciada por P com resto R a L1 dá uma lista P | L2
+```
+
+Uma interação básica pode ser:
+
+```prolog
+?- junta([], [a, b], L).
+L = [a, b].
+?- junta([c, b], [a], L).
+L = [c, b, a].
+?- junta([a, b], X, [a, b, c, d]).
+X = [c, d].
+
+% temos ainda uma interação mais interessante, para descobrir vários "pedaços" que levam a uma lista
+?- junta(X, Y, [1, 2]).
+X = [],
+Y = [1, 2];
+X = [1],
+Y = [2];
+X = [1, 2],
+Y = [];
+false.
+% tivemos 3 soluções diferentes
+```
+
+:::
+
+::: details Exemplo 3 - programa que inverte uma lista
+
+**Processo Recursivo**
+
+```prolog
+% inverte(L, LI) - LI é L invertida
+inverte([], []).
+% a inversão da lista vazia é ela própria
+inverte([P | R], LI) :- inverte(R, RI), junta(RI, [P], LI).
+% sendo RI a inversão de R, e LI a junção de RI a P, a inversão de P|R resultará em LI
+```
+
+Uma interação básica pode ser:
+
+```prolog
+?- inverte([a, b, c], [c, b, a]).
+true.
+% [c, b, a] é [a, b, c] invertida - true
+?- inverte([a, b, c], X).
+X = [c, b, a].
+% encontra a invertida de [a, b, c]
+?- inverte(X, [a, b, c]).
+X = [c, b, a].
+% encontra a lista da qual [a, b, c] é a invertida
+```
+
+Sequência de objetivos neste processo:
+
+<img src="./assets/0007-inv-rec.png" alt="Inversão Iterativa de Listas" class="invert-dark">
+
+**Processo Iterativo**
+
+Como é fácil retirar e adicionar primeiros elementos de uma lista, podemos usar um acumulador tal que:
+
+                Lista                                 Acumulador
+                [a, b, c]                             []
+                [b, c]                                [a]
+                [c]                                   [b, a]
+                []                                    [c, b, a]
+
+Podemos, assim, definir um predicado diferente, iterativo, para a inversão de uma lista:
+
+```prolog
+inverte([], I, I).
+% a invertida da lista vazia corresponde ao acumulador atual
+inverte([P | R], Ac, I) :- inverte(R, [P | Ac], I).
+% sendo R uma lista com acumulador atual P|Ac, então a sua invertida I é igual à lista [P|R] com acumulador atual Ac
+inverte(L, I) :- inverte(L, [], I).
+% podemos definir um predicado que "esconde" o uso do acumulador caso este não seja necessário
+```
+
+Sequência de objetivos neste processo:
+
+<img src="./assets/0007-inv-it.png" alt="Inversão Iterativa de Listas" class="invert-dark">
+
+:::
+
+Há ainda mais exemplos nos slides e no livro.
