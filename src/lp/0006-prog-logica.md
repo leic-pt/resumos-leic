@@ -126,7 +126,7 @@ No exemplo seguinte, temos uma resolução SLD. Temos que o objetivo é $\leftar
 Nesta prova, temos:
 
 $\gamma_{0} = \leftarrow Ant(Sr.B, Bart)$  
-$\gamma_{1} = \leftarrow Ant(Sr.B, y), AD(y, Bart)$
+$\gamma_{1} = \leftarrow Ant(Sr.B, y), AD(y, Bart)$  
 $\gamma_{2} = \leftarrow Ant(Sr.B, Marge)$  
 $\gamma_{3} = \leftarrow AD(Sr.B, Marge)$  
 $\gamma_{4} = \square$
