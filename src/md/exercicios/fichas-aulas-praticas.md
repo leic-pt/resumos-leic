@@ -22,4 +22,4 @@ description: Resolução das fichas de MD que estão disponíveis na página da 
   - [Resolução (2.4)](https://drive.google.com/file/d/1LeM7FmSNHbTOhalMi056k-XvDC_mngej/view?usp=sharing)
 
 - [Séries 2](https://drive.google.com/file/d/1IkkxoFZdPwvdEowCZSbzIj2wFWzJJZz8/view?usp=sharing)
-  - Resolução (contribute!)
+  - [Resolução (1.2)](https://drive.google.com/file/d/1BNS7BbemF16a4MdbzytJMj0uG3_guOK5/view?usp=sharing)
