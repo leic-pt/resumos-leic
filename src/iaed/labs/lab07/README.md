@@ -6,10 +6,6 @@ description: Enunciado e resolução dos exercícios do Laboratório 7 de IAED
 
 [[toc]]
 
-::: warning
-Considere que os algoritmos de ordenação ordenam sempre de forma não decrescente.
-:::
-
 ## Exercício 1
 
 Considere a implementação clássica da função `int partition (Item v[], int l, int r)` usada no algoritmo `quicksort` tal como apresentada nas aulas teóricas.
@@ -134,7 +130,9 @@ E o melhor caso é $\Omega(1)$
 
 Qual o conteúdo do vector após os primeiros dois passos do algoritmo de ordenação radix sort MSD, em que em cada passo os elementos são ordenados considerando 2 bits?
 
-Nota: considere que o algoritmo é baseado numa versão estável do algoritmo counting sort. O algoritmo deve apenas processar os 6 bits menos significativos de cada número, independentemente dos números poderem ser guardados em palavras com maior número de bits.
+Nota: considere que o algoritmo é baseado numa versão estável do algoritmo counting sort.
+
+O algoritmo deve apenas processar os 6 bits menos significativos de cada número, independentemente dos números poderem ser guardados em palavras com maior número de bits.
 
 ::: details Resposta
 
