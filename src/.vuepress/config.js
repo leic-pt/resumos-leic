@@ -64,6 +64,8 @@ module.exports = {
             '0007-2control',
             '0008-intro_algoritmos',
             '0009-algo_ord',
+            '0010-more_algo',
+            '0011-even_more_algo',
           ],
         },
         {
