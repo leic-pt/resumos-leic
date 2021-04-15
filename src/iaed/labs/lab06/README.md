@@ -100,7 +100,7 @@ Ler um vetor já ordenado.
 
 No melhor caso é $O(n^2)$, pois tem de comparar cada elemento, ao longo do vetor.
 
-No melhor caso é $O(n)$ , se tiver condição de paragem.
+No melhor caso é $\Omega(n)$ , se tiver condição de paragem.
 
 :::
 
