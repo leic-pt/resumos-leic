@@ -208,7 +208,7 @@ Expandindo a definição de área, chegamos à função $1\!\!1$:
 $$
 \begin{aligned}
 \text{área} &= \int^b_a \text{comprimento} (x) \d x \\
-&= \int^b_a\left(f(x)-g(a)\right) \d x\\
+&= \int^b_a\left(f(x)-g(x)\right) \d x\\
 &= \int^b_a\left(\int^{f(x)}_{g(x)} 1 \d y\right) \d x\\
 &= \int 1\!\!1_A (x,y) \d x \d y
 \end{aligned}
