@@ -116,6 +116,8 @@ No melhor caso é $\Omega(n)$ , se tiver condição de paragem.
 - (Radix LSD) Considere a aplicação do algoritmo radix sort LSD, em que cada passo os elementos são ordenados considerando um dígito, ao seguinte vector:\
   `<48372, 62309, 83861, 91874, 18913, 33829, 47812, 95954, 52377, 22394, 56108, 60991>`
 
+Qual é o terceiro número da sequência, após o algoritmo ter considerado três digitos?
+
 ::: details Resposta
 
 Este algoritmo demonstrado assemelha-se muito ao binary search.
