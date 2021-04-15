@@ -14,7 +14,7 @@ description: Counting Sort. Radix Sort.
 
 Este algoritmo permite de forma rápida uma lista de números que sejam muito repitidos.
 
-Conta para uma lista o número de ocorrências de cada número. ( conta primeiro os 0's, depois os 1's)
+Conta para uma lista o número de ocorrências de cada número. ( conta primeiro os 0's, depois os 1's,...)
 
 E depois colocar na lista os elemntos de acordo com os valores da lista.
 
@@ -62,7 +62,7 @@ começando pelos dígitos mais significativos
 
 <<< @/src/iaed/assets/0011-msd.c
 
-Tal como na última aula aconseçho vivamente a ver os exemplos da aula.
+Tal como na última aula aconselho vivamente a ver os exemplos da aula.
 
 - [Demonstração visual dos algoritmos](https://gonque.github.io/sorting-algos/)
 

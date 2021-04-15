@@ -105,7 +105,7 @@ Quando chegamos a vetores de um elemento:
 
 - Construção do amontoado (ciclo `for`):
   - $O(N log (N))$ no pior caso
-  - Pode ser provado $O(N log (N))$
+  - Pode ser provado $O(N)$
 - Colocação das chaves (ciclo `while`):
   - $O(N log (N))$ no pior caso
   - Pode ser provado que para elementos distintos, o melhor caso
