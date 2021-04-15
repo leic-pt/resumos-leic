@@ -78,7 +78,7 @@ Tempo de Execução:
 - Complexidade: $N^2/2$
 - Trocas: $N$
 - Pior Caso: $O(N^2)$
-- Melhor Caso: $O(N^2)$
+- Melhor Caso: $\Omega(N^2)$
 - Não é Estável
 
 Mas é possível ser estável.
@@ -97,7 +97,7 @@ Tempo de Execução:
 
 - Trocas: $N^2$
 - Pior Caso: $O(N^2)$
-- Melhor Caso: $O(N)$
+- Melhor Caso: $\Omega(N)$
 - É Estável
 
 ## Bubble Sort (Borbulhamento)
@@ -111,8 +111,8 @@ Pega no primeiro elemento, e vai andando no vetor até encontrar um maior, se en
 Tempo de Execução:
 
 - Trocas: $N^2/2$
-- Pior Caso: $O(N^2/2)$
-- Melhor Caso: $O(N)$
+- Pior Caso: $O(N^2)$
+- Melhor Caso: $\Omega(N)$
 - É Estável
 
 ## Comparação
