@@ -16,7 +16,9 @@ Considere a implementação clássica da função `int partition (Item v[], int 
 
 Esta função recebe o vector `v` e as posições `left` e `right` que definem, respectivamente, os índices limite esquerdo e direito do vector a considerar na função.
 
-Suponha que o procedimento `partition` é invocado com os seguintes argumentos: `v = <13, 6, 5, 14, 12, 4, 16, 18, 7, 9, 10>, left = 0, right = 10`.
+Suponha que o procedimento `partition` é invocado com os seguintes argumentos:
+
+`v = <13, 6, 5, 14, 12, 4, 16, 18, 7, 9, 10>, left = 0, right = 10`.
 
 Considerando a posição `a[r]` como pivot, indique qual o conteúdo do vector `v` após a execução da função `partition`.
 
