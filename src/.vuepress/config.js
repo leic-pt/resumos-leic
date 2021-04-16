@@ -101,6 +101,7 @@ module.exports = {
             '0005-logica-primeiraordem-sc',
             '0006-prog-logica',
             '0007-prolog-intro',
+            '0008-prolog-mid',
           ],
         },
         {

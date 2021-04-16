@@ -4,7 +4,7 @@ description: Introdução ao Prolog. Componentes básicos, programa, objetivo, c
 
 # Introdução ao Prolog
 
-Prolog é uma linguagem de programação que utiliza o paradigma de programação em lógica - especifica _o quê_ e _o que deve_ ser feito. Concebida com o objetivo inicial de resolver problemas associados à inteligência artificial/tradução de linguagem natural, hoje em dia as suas aplicações vão desde a LN/AI à lógica e à computação numérica e simbólica. Hoje
+Prolog é uma linguagem de programação que utiliza o paradigma de programação em lógica - especifica _o quê_ e _o que deve_ ser feito. Concebida com o objetivo inicial de resolver problemas associados à inteligência artificial/tradução de linguagem natural, hoje em dia as suas aplicações vão desde a LN/AI à lógica e à computação numérica e simbólica.
 
 [[toc]]
 
@@ -24,7 +24,7 @@ Um dos conceitos importantes em Prolog é _termo_ - tal como na LPO, consiste nu
 
   Podemos ainda fazer `atomic(<argumento>)` para verificar se o argumento é um átomo ou número.
 
-- **Variáveis** - começam _sempre_ por maiúscula ou `_` (sendo que `_` por si só é a **variável anónima**, utilizada quando o valor da variável não tem interesse numa expressão). Várias ocorrências de variáveis anónimas numa mesma expressão são **ocorrências distintas**, e devem ser tratadas como tal - não é necessariamente a mesma variável em cada sítio. Podemos escrever `var<argumento>` e `nonvar(<argumento>)` para verificar se o argumento é uma variável segundo as convenções referidas acima.
+- **Variáveis** - começam _sempre_ por maiúscula ou `_` (sendo que `_` por si só é a **variável anónima**, utilizada quando o valor da variável não tem interesse numa expressão). Várias ocorrências de variáveis anónimas numa mesma expressão são **ocorrências distintas**, e devem ser tratadas como tal - não é necessariamente a mesma variável em cada sítio. Podemos escrever `var(<argumento>)` e `nonvar(<argumento>)` para verificar se o argumento é uma variável segundo as convenções referidas acima.
 
 - **Termos Compostos** - aplicação de um _functor_ a um dado número de argumentos. Um functor é necessariamente um átomo. Existem funções pré-embutidas em Prolog, tais como `+, *, /`.
 
@@ -77,21 +77,31 @@ Na prompt, escrever `<expressão> = <expressão>` para verificar se é unificáv
 
 ::: details Unificação
 
-(1)  
-`?- a = b.`  
-`false.`  
-`?- f(X, a) = f(b, X).`  
-`false.`
+(1)
 
-(2)  
-`?- f(X, a) = f(b, Y).`  
-`X = b, Y = a.`
+```prolog
+?- a = b.
+false.
+?- f(X, a) = f(b, X).
+false.
+```
 
-(3)  
-`?- X = X.`  
-`true.`  
-`?- f(_, _) = f(a, b).`  
-`true.`  
+(2)
+
+```prolog
+?- f(X, a) = f(b, Y).
+X = b, Y = a.
+```
+
+(3)
+
+```prolog
+?- X = X.
+true.
+?- f(_, _) = f(a, b).
+true.
+```
+
 (aqui não há uma resposta concreta). Além disso, como podemos observar neste segundo exemplo, as variáveis anónimas são consideradas variáveis distintas (se não fossem, retornaria `false.`).
 :::
 
@@ -101,14 +111,17 @@ Na prompt, escrever `<expressão> == <expressão>` para verificar se são iguais
 
 ::: details Comparação de Termos
 
-`?- b == a.`  
-`false.`  
-`?- 'a' == a.`  
-`true.`  
-`?- X == a.`  
-`false.`  
-`?- X = a, X == a.`  
-`X = a.`  
+```prolog
+?- b == a.
+false.
+?- 'a' == a.
+true.
+?- X == a.
+false.`
+?- X = a, X == a.
+X = a.
+```
+
 Neste último exemplo, o programa vai primeiro tentar unificar `X` com `a` e só depois é que ocorre a comparação, comparação que ocorre agora entre `a` e `a` (e que dá, portanto, `true.`).
 :::
 
@@ -145,7 +158,10 @@ ant(X, Y) :- ad(X, Y).
 ant(X, Z) :- ant(X, Y), ad(Y, Z).
 ```
 
-Podem testar os exemplos seguintes no SWI-Prolog ao criar um ficheiro `.pl` com o código acima, e dentro do SWI-Prolog ir a `Consult` e escolher esse ficheiro. De seguida, na `prompt`, escrever os objetivos indicados e verificar a resposta. **Este programa tem erros, e à frente aprofundaremos quais são/o seu porquê**.
+**Este programa tem erros, e à frente aprofundaremos quais são/o seu porquê**.
+
+Podem testar os exemplos seguintes no SWI-Prolog ao criar um ficheiro `.pl` com o código acima, e dentro do SWI-Prolog ir a `Consult` e escolher esse ficheiro. De seguida, na `prompt`, escrever os objetivos indicados e verificar a resposta.
+Outra maneira possível é, na `prompt`, escrever `working_directory(_, '<path>').` ou `working_directory(CWD, '<path>').`para poderem aceder a todos os ficheiros `.pl` dessa diretoria. Além disso, podem verificar a diretoria atual com `pwd.`.
 
 ::: tip Resolução com um ramo bem sucedido
 
@@ -153,7 +169,7 @@ Tentar, através do programa anterior, provar `ant(srB, Bart)`. O Prolog cria um
 
 <img src="./assets/0007-pl-res1.png" alt="Resolução sem Nós Infinitos" class="invert-dark">
 
-Aqui, é devolvido `true.`, visto que há um ramo bem sucedido para o programa.
+Aqui, é devolvido `true.`, visto que há um ramo bem sucedido para o programa e a cláusula objetivo não tem variáveis (equivalente à resposta calculada ser a substituição vazia na matéria anterior).
 
 :::
 
