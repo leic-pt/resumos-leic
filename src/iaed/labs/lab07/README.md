@@ -6,17 +6,15 @@ description: Enunciado e resolução dos exercícios do Laboratório 7 de IAED
 
 [[toc]]
 
-::: warning
-Considere que os algoritmos de ordenação ordenam sempre de forma não decrescente.
-:::
-
 ## Exercício 1
 
 Considere a implementação clássica da função `int partition (Item v[], int l, int r)` usada no algoritmo `quicksort` tal como apresentada nas aulas teóricas.
 
 Esta função recebe o vector `v` e as posições `left` e `right` que definem, respectivamente, os índices limite esquerdo e direito do vector a considerar na função.
 
-Suponha que o procedimento `partition` é invocado com os seguintes argumentos: `v = <13, 6, 5, 14, 12, 4, 16, 18, 7, 9, 10>, left = 0, right = 10`.
+Suponha que o procedimento `partition` é invocado com os seguintes argumentos:
+
+`v = <13, 6, 5, 14, 12, 4, 16, 18, 7, 9, 10>, left = 0, right = 10`.
 
 Considerando a posição `a[r]` como pivot, indique qual o conteúdo do vector `v` após a execução da função `partition`.
 
@@ -114,6 +112,8 @@ No melhor caso é $\Omega(n)$ , se tiver condição de paragem.
 - (Radix LSD) Considere a aplicação do algoritmo radix sort LSD, em que cada passo os elementos são ordenados considerando um dígito, ao seguinte vector:\
   `<48372, 62309, 83861, 91874, 18913, 33829, 47812, 95954, 52377, 22394, 56108, 60991>`
 
+Qual é o terceiro número da sequência, após o algoritmo ter considerado três digitos?
+
 ::: details Resposta
 
 Este algoritmo demonstrado assemelha-se muito ao binary search.
@@ -130,7 +130,9 @@ E o melhor caso é $\Omega(1)$
 
 Qual o conteúdo do vector após os primeiros dois passos do algoritmo de ordenação radix sort MSD, em que em cada passo os elementos são ordenados considerando 2 bits?
 
-Nota: considere que o algoritmo é baseado numa versão estável do algoritmo counting sort. O algoritmo deve apenas processar os 6 bits menos significativos de cada número, independentemente dos números poderem ser guardados em palavras com maior número de bits.
+Nota: considere que o algoritmo é baseado numa versão estável do algoritmo counting sort.
+
+O algoritmo deve apenas processar os 6 bits menos significativos de cada número, independentemente dos números poderem ser guardados em palavras com maior número de bits.
 
 ::: details Resposta
 
