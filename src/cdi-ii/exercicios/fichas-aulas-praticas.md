@@ -32,7 +32,7 @@ description: Resolução das fichas de CDI-II que estão disponíveis na página
 - [Ficha 6: Teorema de Fubini](https://drive.google.com/file/d/11beUq2lHsz3B_9_IAFudDDyQCLe8yaed/view?usp=sharing)
 
   - [Respostas (Oficial)](https://drive.google.com/file/d/1f30NEXHrZPFXO5x5JYlXoVz8LJs6BKRi/view?usp=sharing)
-  - [Resolução (by Diogo Correia)](https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstleyVEVO)
+  - [Resolução (by Diogo Correia)](https://drive.google.com/file/d/1N65-p6J8eGDVx7NuyfQ15mxi2itmJBOe/view?usp=sharing)
 
 - [Resoluções na EdenBox](https://www.edenbox.org/index.php/s/edenbox?path=%2FLEIC%2F1%C2%BA%20Ano%2F2%C2%BA%20Semestre%2FCDI%20II%2FPr%C3%A1ticas%2F2019-2020)
 
