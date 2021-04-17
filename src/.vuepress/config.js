@@ -114,6 +114,7 @@ module.exports = {
             '0007-derivada-ordem-superior',
             '0008-integracao',
             '0009-integracao-funcoes',
+            '0010-integracao-mudanca-var',
           ],
         },
         {
