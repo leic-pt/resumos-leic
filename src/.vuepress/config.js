@@ -113,6 +113,7 @@ module.exports = {
             '0006-conjunto-de-nivel',
             '0007-derivada-ordem-superior',
             '0008-integracao',
+            '0009-integracao-funcoes',
           ],
         },
         {
@@ -202,6 +203,8 @@ module.exports = {
         katexOptions: {
           macros: {
             '\\d': '\\mathop{}\\!\\mathrm d',
+            '\\1': '1\\!\\!1',
+            '\\Q': '\\mathbb{Q}',
           },
           strict: false,
         },
