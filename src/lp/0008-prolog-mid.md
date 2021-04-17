@@ -12,7 +12,8 @@ Ponto importante - sempre que virem algo do género `<nome_func>/<numero>`, `<nu
 
 ### length
 
-[Predicado built-in](https://github.com/dtonhofer/prolog_notes/tree/master/swipl_notes/about_length) que recebe dois argumentos, uma lista e uma variável, e devolve `<variável> = <comprimento>`.
+[Predicado built-in](https://github.com/dtonhofer/prolog_notes/tree/master/swipl_notes/about_length) que recebe dois argumentos, uma lista e uma variável, e\
+ devolve `<variável> = <comprimento>`.
 
 ```prolog
 % Exemplo de interação
@@ -65,7 +66,8 @@ E = [1,1];
 Exemplos de interações corretas:
 
 ```prolog
-% maplist/2 - chama o predicado, verifica se o predicado é verdadeiro para cada elemento da lista
+% maplist/2 - chama o predicado e
+% verifica se o predicado é verdadeiro para cada elemento da lista
 
 ?- maplist(atom, [a, b, c]).
 true.

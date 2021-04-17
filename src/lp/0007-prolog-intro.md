@@ -10,7 +10,9 @@ Prolog é uma linguagem de programação que utiliza o paradigma de programaçã
 
 ## Conceitos Básicos
 
-Importante - todo o input escrito na _prompt_ (`?-`) tem de terminar com um ponto final. Perguntamos _algo_ à prompt, e com a informação de que dispõe, o programa responde - se souber, dá-nos uma resposta; caso contrário (errado/falta de informação), responde que não sabe.
+Importante - todo o input escrito na _prompt_ (`?-`) tem de terminar com um ponto final.\
+Perguntamos _algo_ à prompt, e com a informação de que dispõe, o programa responde - se souber, dá-nos uma resposta;\
+caso contrário (errado/falta de informação), responde que não sabe.
 
 ### Termos
 
@@ -18,13 +20,21 @@ Um dos conceitos importantes em Prolog é _termo_ - tal como na LPO, consiste nu
 
 - **Constantes** - podem ser átomos ou números.
 
-  - **Átomos** - podem ser como "nomes" numa LP normal (i.e `postMalone, ciDADE, zero`), começando sempre por minúscula; cadeias de carateres, utilizando plicas, e aqui a primeira letra pode ser maiúscula ou até `_` (i.e `'cidade', 'Lebron', '_poster'`); um átomo especial (`! | [ | ] | ; | { | } | + | - | * | / | **`), sendo estes últimos pouco utilizados. Se introduzirmos `atom(<argumento>)` na prompt, o Prolog devolve "yes." ou "no.", caso o argumento seja um átomo ou não.
+  - **Átomos**
+
+    - podem ser como "nomes" numa LP normal (i.e `postMalone, ciDADE, zero`), começando sempre por minúscula;
+    - cadeias de carateres, utilizando plicas, e aqui a primeira letra pode ser maiúscula ou até `_` (i.e `'cidade', 'Lebron', '_poster'`);
+    - um átomo especial (`! | [ | ] | ; | { | } | + | - | * | / | **`), sendo estes últimos pouco utilizados.
+
+    Se introduzirmos `atom(<argumento>)` na prompt, o Prolog devolve "yes." ou "no.", caso o argumento seja um átomo ou não.
 
   - **Números** - consideramos apenas números inteiros. Se introduzirmos `number(<argumento>)` na prompt, o Prolog devolve "yes." ou "no.", caso o argumento seja um número ou não.
 
   Podemos ainda fazer `atomic(<argumento>)` para verificar se o argumento é um átomo ou número.
 
-- **Variáveis** - começam _sempre_ por maiúscula ou `_` (sendo que `_` por si só é a **variável anónima**, utilizada quando o valor da variável não tem interesse numa expressão). Várias ocorrências de variáveis anónimas numa mesma expressão são **ocorrências distintas**, e devem ser tratadas como tal - não é necessariamente a mesma variável em cada sítio. Podemos escrever `var(<argumento>)` e `nonvar(<argumento>)` para verificar se o argumento é uma variável segundo as convenções referidas acima.
+- **Variáveis** - começam _sempre_ por maiúscula ou `_` (sendo que `_` por si só é a **variável anónima**, utilizada quando o valor da variável não tem interesse numa expressão). \
+  Várias ocorrências de variáveis anónimas numa mesma expressão são **ocorrências distintas**, e devem ser tratadas como tal - não é necessariamente a mesma variável em cada sítio. \
+  Podemos escrever `var(<argumento>)` e `nonvar(<argumento>)` para verificar se o argumento é uma variável segundo as convenções referidas acima.
 
 - **Termos Compostos** - aplicação de um _functor_ a um dado número de argumentos. Um functor é necessariamente um átomo. Existem funções pré-embutidas em Prolog, tais como `+, *, /`.
 
@@ -51,6 +61,7 @@ Constituídos por uma sequência de cláusulas determinadas (cláusulas com cabe
 ::: details Cláusulas Determinadas
 
 **Afirmações** - informações "concretas" dadas aos programa:
+
 `pai(Homer, Bart),`
 `comprarCigarros(pai, filhoRandom)`
 
@@ -73,7 +84,12 @@ Podemos ainda ter cláusulas iterativas, cláusulas cujo corpo apenas contém um
 
 ## Unificação de termos
 
-Na prompt, escrever `<expressão> = <expressão>` para verificar se é unificável, `<expressão> \= <expressão>` para verificar o contrário. Devolve `false.` caso não seja unificável(1). Se for unificável, pode devolver tanto a unificação concreta que torna a expressão verdadeira(2), ou `true.` caso a unificação não tenha uma resposta concreta(3).
+Na prompt, escrever `<expressão> = <expressão>` para verificar se é unificável, \
+`<expressão> \= <expressão>` para verificar o contrário.
+
+Devolve `false.` caso não seja unificável (1).\
+ Se for unificável, pode devolver tanto a unificação concreta que torna a expressão verdadeira (2).\
+ Caso a unificação não tenha uma resposta concreta devolve `true.` (3).
 
 ::: details Unificação
 
@@ -107,7 +123,8 @@ true.
 
 ### Comparação de termos
 
-Na prompt, escrever `<expressão> == <expressão>` para verificar se são iguais, `<expressão> \== <expressão>` para verificar o contrário. Um nome escrito de igual modo
+Na prompt, escrever `<expressão> == <expressão>` para verificar se são iguais,\
+ `<expressão> \== <expressão>` para verificar o contrário. Um nome escrito de igual modo
 
 ::: details Comparação de Termos
 
@@ -133,7 +150,9 @@ Para provar um objetivo, o Prolog recorre a uma Resolução SLD com função de 
 
 ::: tip
 
-A regra `ant(X, Z) :- ant(X, Y), ad(Y, Z)` pode ser lida como "se `ant(X, Y)` e `ad(Y, Z)` se verificarem para uma dada substituição de `X, Y, Z`, então `ant(X, Z)` verificar-se-á para a mesma substituição de `X` e `Z`".
+A regra `ant(X, Z) :- ant(X, Y), ad(Y, Z)` pode ser lida como:\
+ "Se `ant(X, Y)` e `ad(Y, Z)` se verificarem para uma dada substituição de `X, Y, Z`,\
+ então `ant(X, Z)` verificar-se-á para a mesma substituição de `X` e `Z`".
 
 :::
 
@@ -141,7 +160,8 @@ A regra `ant(X, Z) :- ant(X, Y), ad(Y, Z)` pode ser lida como "se `ant(X, Y)` e 
 
 ::: tip
 
-A mesma regra descrita acima seria aqui lida como "para poder provar uma dada instância de `ant(X, Z)`, devemos primeiro provar `ant(X, Y)` e, com as substituições adequadas para `X, Y, Z`, provar uma instância de `ad(Y, Z)`".
+A mesma regra descrita acima seria aqui lida como:\
+ "Para poder provar uma dada instância de `ant(X, Z)`, devemos primeiro provar `ant(X, Y)` e, com as substituições adequadas para `X, Y, Z`, provar uma instância de `ad(Y, Z)`".
 
 :::
 
@@ -160,7 +180,7 @@ ant(X, Z) :- ant(X, Y), ad(Y, Z).
 
 **Este programa tem erros, e à frente aprofundaremos quais são/o seu porquê**.
 
-Podem testar os exemplos seguintes no SWI-Prolog ao criar um ficheiro `.pl` com o código acima, e dentro do SWI-Prolog ir a `Consult` e escolher esse ficheiro. De seguida, na `prompt`, escrever os objetivos indicados e verificar a resposta.
+Podem testar os exemplos seguintes no SWI-Prolog ao criar um ficheiro `.pl` com o código acima, e dentro do SWI-Prolog ir a `Consult` e escolher esse ficheiro. De seguida, na `prompt`, escrever os objetivos indicados e verificar a resposta.\
 Outra maneira possível é, na `prompt`, escrever `working_directory(_, '<path>').` ou `working_directory(CWD, '<path>').`para poderem aceder a todos os ficheiros `.pl` dessa diretoria. Além disso, podem verificar a diretoria atual com `pwd.`.
 
 ::: tip Resolução com um ramo bem sucedido
@@ -175,7 +195,11 @@ Aqui, é devolvido `true.`, visto que há um ramo bem sucedido para o programa e
 
 ::: tip Resolução com um ramo infinito
 
-Considerando o programa acima referido, e tentando agora chegar ao objetivo `ant(eva, bart)`, podemos verificar que o Prolog não só não encontra ramos bem sucedidos como chega a um ramo infinito. Assim sendo, devolve um erro - `ERROR: Out of local stack.`.
+Considerando o programa acima referido,\
+ e tentando agora chegar ao objetivo `ant(eva, bart)`, podemos verificar que o Prolog não só não encontra ramos bem sucedidos como chega a um ramo infinito.
+
+Assim sendo, devolve um erro - `ERROR: Out of local stack.`.
+
 Porquê? Porque a cláusula com que o objetivo tenta unificar apresentará comportamento recursivo, devido ao predicado da cabeça ser o mesmo (`ant`) do primeiro elemento do corpo, e o Prolog, com uma função de seleção $\alpha_{1}$ vai apresentar comportamento recursivo infinito.
 Se a quarta cláusula do programa tivesse `ad(Y, Z)` e `ant(X, Y)` trocados, o programa iria devolver `false.`, com dois ramos falhados.
 
@@ -189,7 +213,10 @@ Devemos ainda ter em consideração 2 pontos:
 
 - Ao definir um predicado, devemos definir as afirmações (cláusulas só com cabeça) antes das regras; esta regra vem devido às afirmações não terem corpo, e a unificação leva ao desaparecimento do literal (queremos isto o mais "cedo" no programa possível).
 
-- Devemos evitar recursão à esquerda, ou seja, em vez de escrever `pred1(A, C) :- pred1(A, B), pred2(B, C).`, devemos trocar a ordem de `pred1(A, B)` e `pred2(B, C)`. Caso contrário, poderemos entrar em ciclos infinitos, visto que a função de seleção do Prolog é $\alpha_{1}$, e ao escolher o ramo mais à esquerda estaremos a entrar em recursões infinitas.
+- Devemos evitar recursão à esquerda, ou seja, em vez de escrever:\
+  `pred1(A, C) :- pred1(A, B), pred2(B, C).`\
+  devemos trocar a ordem de `pred1(A, B)` e `pred2(B, C)`.\
+   Caso contrário, poderemos entrar em ciclos infinitos, visto que a função de seleção do Prolog é $\alpha_{1}$, e ao escolher o ramo mais à esquerda estaremos a entrar em recursões infinitas.
 
 Caso haja **mais que uma resposta** a um dado objetivo dado um programa, podemos continuar a premir `Enter` até o Prolog esgotar os ramos bem sucedidos.
 
@@ -215,7 +242,8 @@ Uma lista **não vazia** pode ser vista como sendo constituída por 2 entidades,
 P = a,
 % podemos observar abaixo que b vem no "formato de lista"
 R = [b].
-% se ainda não tivesse ficado explícito, as vírgulas indicam que a solução "ainda não acabou", enquanto que o ponto e vírgula indica que são soluções distintas
+% se ainda não tivesse ficado explícito, as vírgulas indicam que a solução "ainda não acabou",
+% enquanto que o ponto e vírgula indica que são soluções distintas
 
 ?- [a] = [P | R].
 P = a,
@@ -269,7 +297,9 @@ X = [_G8, _G11, a|_G15];
 X = [_G8, _G11, _G14, a|_G18];
 X = [_G8, _G11, _G14, _G17, a|_G21.
 % porque é que o Prolog dá estes nomes às variáveis? Não faço a menor ideia
-% segundo a Prof, "começam por um _ e seguem-se uma série de caracteres que não nos interessam", take that as you will
+% segundo a Prof, "começam por um _ e
+% seguem-se uma série de caracteres que não nos interessam"
+% take that as you will
 ```
 
 O operador `|` tem outras utilidades interessantes - separar elementos (que não necessariamente o primeiro) de uma lista e aceder a um elemento de uma lista.
@@ -298,7 +328,8 @@ Terc = 3,
 R = [].
 ?- [1, 2] = [Prim, Seg, Terc | R].
 false.
-% relembrar que Prim, Seg e Terc continuam a ser variáveis - não havendo uma unificação que envolva as 3, o Prolog devolve false
+% relembrar que Prim, Seg e Terc continuam a ser variáveis
+% não havendo uma unificação que envolva as 3, o Prolog devolve false
 ```
 
 :::
@@ -310,7 +341,8 @@ false.
 junta([], L, L).
 % a junção da lista vazia a uma lista qualquer é a própria lista
 junta([P | R], L1, [P | L2]) :- junta(R, L1, L2).
-% sendo L2 a junção de R a L1, a junção de uma lista iniciada por P com resto R a L1 dá uma lista P | L2
+% sendo L2 a junção de R a L1,
+% a junção de uma lista iniciada por P com resto R a L1 dá uma lista P | L2
 ```
 
 Uma interação básica pode ser:
@@ -323,7 +355,8 @@ L = [c, b, a].
 ?- junta([a, b], X, [a, b, c, d]).
 X = [c, d].
 
-% temos ainda uma interação mais interessante, para descobrir vários "pedaços" que levam a uma lista
+% temos ainda uma interação mais interessante,
+% para descobrir vários "pedaços" que levam a uma lista
 ?- junta(X, Y, [1, 2]).
 X = [],
 Y = [1, 2];
@@ -346,7 +379,8 @@ false.
 inverte([], []).
 % a inversão da lista vazia é ela própria
 inverte([P | R], LI) :- inverte(R, RI), junta(RI, [P], LI).
-% sendo RI a inversão de R, e LI a junção de RI a P, a inversão de P|R resultará em LI
+% sendo RI a inversão de R, e LI a junção de RI a P,
+% a inversão de P|R resultará em LI
 ```
 
 Uma interação básica pode ser:
@@ -383,9 +417,11 @@ Podemos, assim, definir um predicado diferente, iterativo, para a inversão de u
 inverte([], I, I).
 % a invertida da lista vazia corresponde ao acumulador atual
 inverte([P | R], Ac, I) :- inverte(R, [P | Ac], I).
-% sendo R uma lista com acumulador atual P|Ac, então a sua invertida I é igual à lista [P|R] com acumulador atual Ac
+% sendo R uma lista com acumulador atual P|Ac,
+% então a sua invertida I é igual à lista [P|R] com acumulador atual Ac
 inverte(L, I) :- inverte(L, [], I).
-% podemos definir um predicado que "esconde" o uso do acumulador caso este não seja necessário
+% podemos definir um predicado que
+% "esconde" o uso do acumulador caso este não seja necessário
 ```
 
 Sequência de objetivos neste processo:
