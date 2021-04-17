@@ -35,9 +35,66 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
   - [Resolução](https://drive.google.com/file/d/1R77x8ghgq102edZtsi6-50H7Fn7sykmO/view?usp=sharing)  
     Nota: Os exercícios da ficha para a aula prática são só 4. Se quiserem e tiverem tempo, aconselho a que façam os exercícios do livro de exercícios para ficarem melhor preparados.
 
+**Esta semana, sai o exercício 7.2.3 da semana 6 e _todos_ os da semana 7**.
+
 - [Semana 6](https://drive.google.com/file/d/1s59jQGSErL69dXC_6R7E1YPMzcB-Tzc2/view?usp=sharing)
 
+  - [Resolução do Ex. 7.2.3](https://drive.google.com/file/d/12PS2eMpoM0Lu1v238mngn6HF-BPzkBkd/view?usp=sharing)
+
 - [Semana 7](https://drive.google.com/file/d/1OdnfTgMvX2SqIgvT4wpmQNP2vcm2h7CM/view?usp=sharing)
+
+  ::: details Resolução
+
+  Exercício 1
+
+  ```prolog
+  % nao_membro(X, L) - X não unifica com nenhum elemento de L
+
+  % qualquer variável não é membro da lista vazia
+  nao_membro(_, []).
+  % caso X não unifique com Y e X não seja membro de R, X não é membro da lista
+  % com primeiro elemento Y e resto R
+  nao_membro(X,[Y | R]) :-
+    X \= Y,
+    nao_membro(X,R).
+  % de notar que \= é equivalente a not(A = B), ou seja, não unificam
+  ```
+
+  Exercício 2
+
+  ```prolog
+  % insere_ordenado(X, L1, L2) - L2 é o resultado de inserir, ordenadamente, X em L1
+
+  %  introduzir um elemento numa lista vazia não requer ordenação
+  insere_ordenado(X, [], [X]).
+  % caso X seja menor que o primeiro elemento P de uma lista com resto R
+  % X passará a ser o primeiro elemento dessa mesma lista
+  insere_ordenado(X, [P|R], [X, P|R]) :- X < P.
+  % caso X seja maior ou igual que o primeiro elemento P de uma lista com resto R
+  % a lista passará a ser P|Res, onde tentaremos inserir, desta feita,
+  % X na lista resto (R)
+  insere_ordenado(X, [P|R], [P|Res]) :-
+    X >= P,
+    insere_ordenado(X, R, Res).
+  ```
+
+  Exercício 3
+
+  ```prolog
+  % junta_novo_aleatorio(L1, L_Inf, L_Sup, L2)
+
+  % começamos por criar um numero aleatorio entre LI e LS, N;
+  % depois, verificamos se não é membro de L1 - se for, para e retorna false
+  % caso contrário, insere-o ordenadamente em L1, sendo L2 o resultado
+  junta_novo_aleatorio(L1, LI, LS, L2) :-
+    random_between(LI, LS, N),
+    nao_membro(N, L1),
+    insere_ordenado(N, L1, L2).
+  ```
+
+  _work in progress_
+
+  :::
 
 - [Semana 8](https://drive.google.com/file/d/1uYeclFgMh-BH_J8UVDFQ2iIpEnyxBvW4/view?usp=sharing)
 
