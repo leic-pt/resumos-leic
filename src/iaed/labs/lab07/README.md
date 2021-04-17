@@ -20,14 +20,14 @@ Considerando a posição `a[r]` como pivot, indique qual o conteúdo do vector `
 
 ::: details Resolução
 
-Resposta: `a = { 11, 8, 16, 12, 10, 14, 17, 6, 20, 21 }`
+Resposta: `a = {13,11,14,9,12,15,17,19,20,16}`
 
 {green}(É possível ver o algoritmo em execução ao executar o código abaixo)
 
 <code-group>
 <code-block
 title="Bubble Sort">
-<<< @/src/iaed/labs/lab06/bubble.c
+<<< @/src/iaed/labs/lab07/quicksort.c
 
 </code-block>
 </code-group>
@@ -43,16 +43,8 @@ Qual o conteúdo do vector `v` após a execução do procedimento `partition`?
 
 ::: details Resolução
 
-Resposta: `a = { 6, 8, 10, 11, 21, 12, 16, 14, 17, 20 }`
+Resposta: `a = {13,11,14,9,12,15,17,19,20,16}`
 
-{green}(É possível ver o algoritmo em execução ao executar o código abaixo)
-
-<code-group>
-<code-block
-title="Selection Sort">
-<<< @/src/iaed/labs/lab06/selection.c
-</code-block>
-</code-group>
 :::
 
 ## Exercício 3
@@ -67,7 +59,7 @@ Diga quais dos seguintes vectores corresponde a um amontoado (heap)?
 
 ::: details Resposta
 
-Resposta: `a = { 14, 11, 16, 8, 6, 12, 10, 17, 20, 21 }`
+Resposta: `<40, 15, 18, 13, 11, 14, 16>`
 
 :::
 
@@ -80,16 +72,14 @@ A primeira operação do algoritmo heapsort é transformar o vector num amontoad
 
 ::: details Resolução
 
-Resposta: `a = { 8, 11, 16, 20, 21, 12, 10, 14, 17, 6 }`
+Resposta: `a = {17,13,16,11,12,14,15,0,19,20}`
 
-{green}(É possível ver o algoritmo em execução ao executar o código abaixo)
+Transformada em heap : `a = {20,19,17,13,15,14,16,9,11,12}`
 
-<code-group>
-<code-block
-title="Insertion Sort">
-<<< @/src/iaed/labs/lab06/insertion.c
-</code-block>
-</code-group>
+1ª iteração: `a = {19,15,17,13,12,14,16,9,11,20}`
+
+2ª iteração: `a = {17,13,16,11,12,14,15,0,19,20}`
+
 :::
 
 ## Exercício 5
@@ -97,13 +87,9 @@ title="Insertion Sort">
 Qual o conteúdo do seguinte vector `<25, 19, 23, 15, 18, 16, 21, 12>` depois de os dois primeiros elementos (i.e. os dois maiores) terem sido ordenados, utilizando o algoritmo de ordenação heapsort?
 ::: details Resposta
 
-Ler um vetor já ordenado.
+1ª iteração: `a = {23,19,21,15,18,16,12,25}`
 
-`a = { 1, 2, 3, 4 }`
-
-No melhor caso é $O(n^2)$, pois tem de comparar cada elemento, ao longo do vetor.
-
-No melhor caso é $\Omega(n)$ , se tiver condição de paragem.
+2ª iteração: `a = {21,19,16,15,18,12,23,25}`
 
 :::
 
@@ -116,10 +102,11 @@ Qual é o terceiro número da sequência, após o algoritmo ter considerado trê
 
 ::: details Resposta
 
-Este algoritmo demonstrado assemelha-se muito ao binary search.
+Depois de ordenado até 3 digítos:
 
-Assim, o pior caso é $O(\log n)$  
-E o melhor caso é $\Omega(1)$
+`<56108, 62309, 48372, 52377, 22394, 47512, 33824, 83861, 41874, 18913, 45954, 60991>`
+
+Logo o terceiro número é 48372.
 
 :::
 
@@ -136,11 +123,8 @@ O algoritmo deve apenas processar os 6 bits menos significativos de cada número
 
 ::: details Resposta
 
-Este algoritmo permite em cada iteração adicionar à soma dois valores da tabela.  
-São feitas $\frac{n}{2}$ iterações.
+Depois de dois passos:
 
-Assim o pior caso é $O(n)$  
-E o melhor caso é $\Omega(n)$  
-Logo existe limite assimptótico apertado $\Theta(n)$
+`<2,1,6,9,10,18,20,32,34>`
 
 :::
