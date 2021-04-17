@@ -8,11 +8,15 @@ description: Meta-predicados. Aritmética, Instruções de Escrita e Leitura, Es
 
 ## Meta-Predicados sobre Listas
 
-Ponto importante - sempre que virem algo do género `<nome_func>/<numero>`, `<numero` é o número de argumentos que a função recebe.
+Ponto importante - sempre que virem algo do género:\
+ `<nome_func>/<numero>`, \
+ `<numero>`
+é o número de argumentos que a função recebe.
 
 ### length
 
-[Predicado built-in](https://github.com/dtonhofer/prolog_notes/tree/master/swipl_notes/about_length) que recebe dois argumentos, uma lista e uma variável, e devolve `<variável> = <comprimento>`.
+[Predicado built-in](https://github.com/dtonhofer/prolog_notes/tree/master/swipl_notes/about_length) que recebe dois argumentos, uma lista e uma variável, e\
+ devolve `<variável> = <comprimento>`.
 
 ```prolog
 % Exemplo de interação
@@ -22,7 +26,10 @@ L = 5.
 
 ### maplist
 
-O [maplist](https://github.com/dtonhofer/prolog_notes/blob/master/swipl_notes/about_maplist/maplist_2_examples.md) é um predicado _built-in_ com enormes semelhanças ao `map` do Python, onde, ao dar-lhe uma função como argumento, retornava o resultado da aplicação dessa função aos elementos da lista argumento. No `maplist` do Prolog passa-se algo do mesmo género. Ocorre em 4 variantes, `maplist/2`, `maplist/3`, `maplist/4` e `maplist/5`, correspondendo os números à quantidade de argumentos que aceita (ao chamar a função, não usamos esta notação, apenas usamos `maplist`.) O primeiro argumento é **sempre** a função/predicado que queremos utilizar, e os seguintes as listas que queremos que sejam operadas pela função.
+O [maplist](https://github.com/dtonhofer/prolog_notes/blob/master/swipl_notes/about_maplist/maplist_2_examples.md) é um predicado _built-in_ com enormes semelhanças ao `map` do Python, onde, ao dar-lhe uma função como argumento, retornava o resultado da aplicação dessa função aos elementos da lista argumento.\
+ No `maplist` do Prolog passa-se algo do mesmo género. Ocorre em 4 variantes, `maplist/2`, `maplist/3`, `maplist/4` e `maplist/5`, correspondendo os números à quantidade de argumentos que aceita (ao chamar a função, não usamos esta notação, apenas usamos `maplist`).\
+ O primeiro argumento é **sempre** a função/predicado que queremos utilizar, e os seguintes as listas que queremos que sejam operadas pela função.
+
 **Pormenores importantes** - nos `maplist` que aceitam mais que uma lista, todas as listas devem ser do mesmo tamanho; as listas devem ter tamanhos definidos.
 
 O último pormenor pode ser reproduzido através de:
@@ -44,7 +51,8 @@ E = [1,1];
 Exemplos de interações corretas:
 
 ```prolog
-% maplist/2 - chama o predicado, verifica se o predicado é verdadeiro para cada elemento da lista
+% maplist/2 - chama o predicado e
+% verifica se o predicado é verdadeiro para cada elemento da lista
 
 ?- maplist(atom, [a, b, c]).
 true.
