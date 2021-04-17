@@ -1,6 +1,7 @@
 #include <stdio.h>
 
-#define DIM 10
+#define DIM 11
+#define ITERATION 5 /*mudar o numeros de iteracoes*/
 
 typedef int Item;
 
@@ -26,7 +27,7 @@ int y = DIM - 1;
 int main()
 {
     int i;
-    Item a[DIM] = {20, 11, 16, 9, 12, 14, 17, 19, 13, 15};
+    Item a[DIM] = {13, 6, 5, 14, 12, 4, 16, 18, 7, 9, 10};
     printf("inical:      ");
     for (i = 0; i < DIM; ++i)
         printf("%d ", a[i]);

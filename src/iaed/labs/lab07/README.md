@@ -20,13 +20,13 @@ Considerando a posição `a[r]` como pivot, indique qual o conteúdo do vector `
 
 ::: details Resolução
 
-Resposta: `a = {13,11,14,9,12,15,17,19,20,16}`
+Resposta: `a = {9,6,5,7,4,10,16,18,14,13,12}`
 
 {green}(É possível ver o algoritmo em execução ao executar o código abaixo)
 
 <code-group>
 <code-block
-title="Bubble Sort">
+title="Quick Sort">
 <<< @/src/iaed/labs/lab07/quicksort.c
 
 </code-block>
@@ -72,13 +72,23 @@ A primeira operação do algoritmo heapsort é transformar o vector num amontoad
 
 ::: details Resolução
 
-Resposta: `a = {17,13,16,11,12,14,15,0,19,20}`
+Resposta: `a = {17,15,16,13,12,14,11,9,19,20}`
 
 Transformada em heap : `a = {20,19,17,13,15,14,16,9,11,12}`
 
 1ª iteração: `a = {19,15,17,13,12,14,16,9,11,20}`
 
-2ª iteração: `a = {17,13,16,11,12,14,15,0,19,20}`
+2ª iteração: `a = {17,15,16,13,12,14,11,9,19,20}`
+
+{green}(É possível ver o algoritmo em execução ao executar o código abaixo)
+
+<code-group>
+<code-block
+title="Heap Sort">
+<<< @/src/iaed/labs/lab07/heapsort.c
+
+</code-block>
+</code-group>
 
 :::
 
