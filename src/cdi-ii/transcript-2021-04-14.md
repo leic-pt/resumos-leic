@@ -162,27 +162,21 @@ $$
 
 Volume Bola em $\R^3$:
 
+$$
 C = \{ (x,y,z) \in \R^3: x^2+y^2+z^2 < \R^2\}
-
 $$
 
 $\text{Volume} = \int_C 1 \d x \d y \d z$
 
-
 Coordenadas esféricas: $r^2 < R^2$
 
-
 $$
-
 \begin{array}{l l l}
 0 < \theta < 2\pi & 0 < \varphi < \pi & 0 < r < R
 \end{array}
-
 $$
 
-
 $$
-
 \begin{aligned}
 \text{Volume} &= \int^{2\pi}_0 ( \int^\pi_0 (\int^R_0 1 \cdot r^2\sin \varphi \d r) \d \varphi) \d \theta\\
 &= \int^{2\pi}\_0 (\int^\pi_0 \left[\frac{r^3}{3} \sin \varphi \right]^{r=R}_{r=0} \d \varphi) \d \theta\\
