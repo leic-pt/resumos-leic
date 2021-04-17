@@ -24,7 +24,7 @@ Um dos conceitos importantes em Prolog é _termo_ - tal como na LPO, consiste nu
 
     - podem ser como "nomes" numa LP normal (i.e `postMalone, ciDADE, zero`), começando sempre por minúscula;
     - cadeias de carateres, utilizando plicas, e aqui a primeira letra pode ser maiúscula ou até `_` (i.e `'cidade', 'Lebron', '_poster'`);
-    - um átomo especial (`! | [ | ] | ; | { | } | + | - | * | / | **`), sendo estes últimos pouco utilizados.
+    - um átomo especial (`! , [ , ] , ; , { , } , + , - , * , / , **`), sendo estes últimos pouco utilizados.
 
     Se introduzirmos `atom(<argumento>)` na prompt, o Prolog devolve "yes." ou "no.", caso o argumento seja um átomo ou não.
 
@@ -399,7 +399,7 @@ X = [c, b, a].
 
 Sequência de objetivos neste processo:
 
-<img src="./assets/0007-inv-rec.png" alt="Inversão Iterativa de Listas" class="invert-dark">
+<img src="./assets/0007-inv-it.png" alt="Inversão Iterativa de Listas" class="invert-dark">
 
 **Processo Iterativo**
 
@@ -426,7 +426,7 @@ inverte(L, I) :- inverte(L, [], I).
 
 Sequência de objetivos neste processo:
 
-<img src="./assets/0007-inv-it.png" alt="Inversão Iterativa de Listas" class="invert-dark">
+<img src="./assets/0007-inv-rec.png" alt="Inversão Iterativa de Listas" class="invert-dark">
 
 :::
 

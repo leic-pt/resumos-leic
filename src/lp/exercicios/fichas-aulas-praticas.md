@@ -92,6 +92,8 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
     insere_ordenado(N, L1, L2).
   ```
 
+  _work in progress_
+
   :::
 
 - [Semana 8](https://drive.google.com/file/d/1uYeclFgMh-BH_J8UVDFQ2iIpEnyxBvW4/view?usp=sharing)
