@@ -237,7 +237,7 @@ Temos também operações relacionais:
 | Operação         | Significado                                         |
 | ---------------- | --------------------------------------------------- |
 | >, <, >=, <=, == | vocês conhecem estas                                |
-| A =\= B          | true caso o valor de A seja diferente do valor de B |
+| A =\\= B         | true caso o valor de A seja diferente do valor de B |
 | A =:= B          | true caso o valor de A seja igual ao valor de B     |
 
 ::: details Exemplos de Interações com as operações acima
