@@ -167,7 +167,6 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 
   % desafio ao leitor pls no quiero mas ;-;
   ```
-
   :::
 
 - [Semana 8](https://drive.google.com/file/d/1uYeclFgMh-BH_J8UVDFQ2iIpEnyxBvW4/view?usp=sharing)
