@@ -92,8 +92,81 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
     insere_ordenado(N, L1, L2).
   ```
 
-  _work in progress_
+  [Exercício 4](https://stackoverflow.com/questions/61236848/making-a-list-of-random-integers-on-prolog)
 
+  ```prolog
+
+  % n_aleatorios(N, LI, LS, L) :- n_aleatorios(N, LI, LS, [], L).
+
+  % estamos a definir que chamar n_aleatorios com uma lista auxiliar
+  % também funciona
+  n_aleatorios(N, LI, LS, L) :- n_aleatorios(N, LI, LS, [], L).
+
+  % verifica se L tem comprimento > 0; caso tenha, não verifica a próxima
+  % cláusula; caso contrário, prossegue
+  n_aleatorios(N,_,_,L,L) :-
+    length(L,N),!.
+
+  % chama n_aleatorios com uma auxiliar, com comprimento == N (senão para)
+  % chama junta_novo_aleatorio a essa lista, cuja resultante será Aux2L
+  % a seguir, chama n_aleatorios novamente, desta vez com a auxiliar sendo Aux2L
+  n_aleatorios(N, LI, LS, AuxL, L) :-
+    length(AuxL, Len),
+    Len < N, !,
+    junta_novo_aleatorio(AuxL, LI, LS, Aux2L),
+    n_aleatorios(N, LI, LS, Aux2L, L).
+  ```
+
+  Exercício 5
+
+  ```prolog
+
+  % chave_euromilhoes(N, E)
+
+  chave_euromilhoes(N, E) :-
+    n_aleatorios(5, 1, 50, N),
+    n_aleatorios(2, 1, 12, E).
+
+  ```
+
+  Exercício 6
+
+  ```prolog
+  % comp_maior_lista(L, C)
+
+  comp_maior_lista([P | R], C) :-
+    length(P, Len),
+    comp_maior_lista(R, Len, C).
+
+  comp_maior_lista([],C,C).
+
+  comp_maior_lista([P | R], Curr, C) :-
+    length(P, Len),
+    Len > Curr,
+    comp_maior_lista(R, Len, C).
+
+  comp_maior_lista([P | R], Curr, C) :-
+    length(P, Len),
+    Len =< Curr,
+    comp_maior_lista(R, Curr, C).
+  ```
+
+  Exercício 7
+
+  ```prolog
+  % duplica_elementos(L1, L2)
+
+  % a) - RECURSIVO
+
+  duplica_elementos([], []).
+
+  duplica_elementos([P|R], [P, P | Aux]) :-
+    duplica_elementos(R, Aux).
+
+  % b) - ITERATIVO
+
+  % desafio ao leitor pls no quiero mas ;-;
+  ```
   :::
 
 - [Semana 8](https://drive.google.com/file/d/1uYeclFgMh-BH_J8UVDFQ2iIpEnyxBvW4/view?usp=sharing)
