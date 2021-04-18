@@ -152,6 +152,7 @@ module.exports = {
             '0009-combinatorio',
             '0010-diffinitas',
             '0011-FFT',
+            '0012-MDC',
           ],
         },
         {
