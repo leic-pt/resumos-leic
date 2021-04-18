@@ -115,6 +115,7 @@ module.exports = {
             '0008-integracao',
             '0009-integracao-funcoes',
             '0010-integracao-mudanca-var',
+            '0011-aplicacoes-integral',
           ],
         },
         {
