@@ -65,7 +65,7 @@ $$
 A = \{ (x,y) \in \R^2: 1\leq x^2+y^2 \leq 4 \quad,\quad x > 0, y> 0\}
 $$
 
-[imagem] (meter ambas as figuras lado a lado)
+<img src="./assets/0010-coordenadas-polares.svg" alt="Conjunto A em Coordenadas Polares" class="invert-dark2">
 
 Podemos converter esta figura para {green}(**coordenadas polares**), o que nos dá um quadrado.
 
@@ -106,7 +106,7 @@ $$
 
 Podemos usar as coordenadas polares para calcular a área de um círculo de raio $R$.
 
-[imagem]
+<img src="./assets/0010-area-circulo.svg" alt="Circulo de raio R" class="invert-dark2">
 
 $$
 \begin{cases}
@@ -141,7 +141,7 @@ $$
 Em $\R^3$, podemos querer representar regiões de revolução por {yellow}(**coordenadas cilíndricas**),
 em vez de $x$, $y$ e $z$.
 
-[imagem]
+<img src="./assets/0010-coordenadas-cilindricas.svg" alt="Coordenadas Cilíndricas" class="invert-dark2">
 
 A esta mudança de variável, estão associadas:
 
@@ -186,7 +186,7 @@ $$
 C = \left\{(x,y,z) \in \R^3: \sqrt{x^2+y^2} < z < h \right\}
 $$
 
-[imagem]
+<img src="./assets/0010-volume-cone.svg" alt="Cone C" class="invert-dark2">
 
 Vamos determinar o seu volume:
 
@@ -236,7 +236,7 @@ $$
 Em $\R^3$, podemos querer representar esferas por {pink}(**coordenadas esféricas**),
 em vez de $x$, $y$ e $z$.
 
-[image]
+<img src="./assets/0010-coordenadas-esfericas.svg" alt="Coordenadas Esféricas" class="invert-dark2">
 
 - $r$ é a distância à origem
 - $\varphi$ é o ângulo que o vetor faz com o eixo dos $zz$

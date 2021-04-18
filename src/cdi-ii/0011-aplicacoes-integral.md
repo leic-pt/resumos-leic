@@ -47,8 +47,6 @@ z = z
 \end{cases}
 $$
 
-[imagem]
-
 $$
 \begin{array}{l l l}
 r^2 \leq 1 & , & r^2 \leq z \leq 3 - r^2\\
@@ -97,7 +95,7 @@ $$
 
 Podemos também, através do integral, calcular o {yellow}(**momento de inércia**) em relação a um eixo.
 
-[image]
+<img src="./assets/0011-inercia.svg" alt="Momento de Inércia em relação ao eixo zz" class="invert-dark2">
 
 O {yellow}(**momento de inércia**) em relação a um eixo $L$ pode ser calculado através de
 

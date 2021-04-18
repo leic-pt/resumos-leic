@@ -30,7 +30,7 @@ A área total de $I_j$ é tão pequena quanto se queira.
 - Uma linha contínua tem área 0 e volume 0
 - Uma superfície contínua tem volume 0
 
-[imagem]
+<img src="./assets/0009-conteudo-nulo.svg" alt="Conteúdo Nulo" class="invert-dark2">
 
 $$
 \begin{array}{l}
@@ -53,7 +53,7 @@ Uma união infinita já pode não ser de conteúdo nulo.
 
 Se tivermos vários segmentos de área 0, a sua união pode formar um quadrado, que já tem área não nula.
 
-[imagem]
+<img src="./assets/0009-conteudo-nulo-quadrado.svg" alt="União infinita de conjuntos de conteúdo nulo" class="invert-dark2">
 
 :::
 
@@ -89,7 +89,7 @@ Tomando o conjunto $A = \{ (x,y) \in ]0, 1[ \times ] 0, 1 [ : x,y \in \Q \}$,
 a sua fronteira será
 $f_r(A) = [0,1] \times [0,1]$.
 
-[imagem]
+<img src="./assets/0009-fronteira-q.svg" alt="Conjunto com fronteira igual à sua área" class="invert-dark2">
 
 Neste caso, podemos concluir que a fronteira não tem conteúdo nulo, porque equivale ao quadrado todo.
 
@@ -104,7 +104,7 @@ a fronteira tem conteúdo nulo (e portanto $\1_A$ é integrável).
 
 Vendo agora um pequeno exemplo.
 
-[image]
+<img src="./assets/0009-conteudo-nulo-fronteira.svg" alt="A fronteira de conteúdo nulo não importa para o integral" class="invert-dark2">
 
 $$
 \begin{array}{l}
