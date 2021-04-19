@@ -218,7 +218,7 @@ Devemos ainda ter em consideração 2 pontos:
   devemos trocar a ordem de `pred1(A, B)` e `pred2(B, C)`.\
    Caso contrário, poderemos entrar em ciclos infinitos, visto que a função de seleção do Prolog é $\alpha_{1}$, e ao escolher o ramo mais à esquerda estaremos a entrar em recursões infinitas.
 
-Caso haja **mais que uma resposta** a um dado objetivo dado um programa, podemos continuar a premir `Enter` (ou `;` em Linux) até o Prolog esgotar os ramos bem sucedidos.
+Caso haja **mais que uma resposta** a um dado objetivo dado um programa, podemos continuar a premir `;` até o Prolog esgotar os ramos bem sucedidos.
 
 ## Listas
 
