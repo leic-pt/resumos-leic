@@ -30,3 +30,18 @@ void fixDown(Item a[], int l, int r, int k)
         fixDown(a, l, r, largest);
     }
 }
+
+int parent(int k)
+{
+    return ((k + 1) / 2) - 1;
+}
+
+int left(int k)
+{
+    return 2 * k + 1;
+}
+
+int right(int k)
+{
+    return 2 * (k + 1);
+}
