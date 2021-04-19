@@ -124,7 +124,7 @@ true.
 ### Comparação de termos
 
 Na prompt, escrever `<expressão> == <expressão>` para verificar se são iguais,\
- `<expressão> \== <expressão>` para verificar o contrário. Um nome escrito de igual modo
+ `<expressão> \== <expressão>` para verificar o contrário.
 
 ::: details Comparação de Termos
 
