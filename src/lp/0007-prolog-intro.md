@@ -26,9 +26,9 @@ Um dos conceitos importantes em Prolog é _termo_ - tal como na LPO, consiste nu
     - cadeias de carateres, utilizando plicas, e aqui a primeira letra pode ser maiúscula ou até `_` (i.e `'cidade', 'Lebron', '_poster'`);
     - um átomo especial (`! , [ , ] , ; , { , } , + , - , * , / , **`), sendo estes últimos pouco utilizados.
 
-    Se introduzirmos `atom(<argumento>)` na prompt, o Prolog devolve "yes." ou "no.", caso o argumento seja um átomo ou não.
+    Se introduzirmos `atom(<argumento>)` na prompt, o Prolog devolve "true." ou "false.", caso o argumento seja um átomo ou não.
 
-  - **Números** - consideramos apenas números inteiros. Se introduzirmos `number(<argumento>)` na prompt, o Prolog devolve "yes." ou "no.", caso o argumento seja um número ou não.
+  - **Números** - consideramos apenas números inteiros. Se introduzirmos `number(<argumento>)` na prompt, o Prolog devolve "true." ou "false.", caso o argumento seja um número ou não.
 
   Podemos ainda fazer `atomic(<argumento>)` para verificar se o argumento é um átomo ou número.
 
