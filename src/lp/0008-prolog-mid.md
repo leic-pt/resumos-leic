@@ -200,3 +200,223 @@ sublists(L, N, SLs) :- bagof(SL, sublista(SL, L, N), SLs), !.
 Aqui, a utilidade do operador de corte é: "se isto não der falso, não uses mais cláusula nenhuma; se der, continua e usa o que vem a seguir".
 
 "Estes slides são uma _receita_ para o vosso projeto, para quando quiserem fazer uma coisa semelhante" - prof.
+
+## Aritmética
+
+De seguida estão apresentadas algumas operações aritméticas que podem ser úteis:
+
+| Operação                      | Significado                          |
+| ----------------------------- | ------------------------------------ |
+| A+B, +(A, B)                  | soma entre A e B                     |
+| A-B, -(A, B)                  | diferença entre A e B                |
+| A*B, *(A, B)                  | produto entre A e B                  |
+| A/B, /(A, B)                  | quociente real entre A e B           |
+| A//B, //(A,B)                 | quociente inteiro entre A e B        |
+| A^B, ^(A, B)                  | A elevado a B                        |
+| -A                            | simétrico de A                       |
+| sin(A), cos(A), tan(A)        | seno, cosseno, tangente de A         |
+| log(A)                        | logaritmo natural de A               |
+| abs(A)                        | módulo de A                          |
+| sqrt(A)                       | raiz quadrada de A                   |
+| max(A, B)                     | maior valor entre A e B              |
+| min(A, B)                     | menor valor entre A e B              |
+| rem(A, B), mod(A, B)          | resto da divisão entre A e B         |
+| gcd(A, B)                     | maior divisor comum entre A e B      |
+| lcm(A, B)                     | menor múltiplo comum entre A e B     |
+| sign(A)                       | -1 se A < 0, 0 se A == 0, 1 se A > 0 |
+| random(A)                     | valor tal que 0 <= valor < A         |
+| random_between(A, B)          | valor tal que A <= valor <= B        |
+| round(A)                      | arredonda (para cima) A              |
+| floor, ceiling, float, int... | vocês sabem estes                    |
+| >>, <<, xor                   | estes também                         |
+| \\/                           | bitwise or (cursed)                  |
+| /\                            | bitwise and (cursed)                 |
+
+Temos também operações relacionais:
+
+| Operação         | Significado                                         |
+| ---------------- | --------------------------------------------------- |
+| >, <, >=, <=, == | vocês conhecem estas                                |
+| A =\\= B         | true caso o valor de A seja diferente do valor de B |
+| A =:= B          | true caso o valor de A seja igual ao valor de B     |
+
+::: details Exemplos de Interações com as operações acima
+
+```prolog
+?- X = +(2, 3).
+X = 2+3.
+?- 2 + X = Y + 3.
+X = 3,
+Y = 2.
+?- 3 + 5 = 5 + 3.
+false.
+?- 3 + 5 =:= 5 + 3.
+true.
+?- X = 9, X + 1 = 10.
+false.
+?- X = 9, X + 1 == +(9,1).
+X = 9.
+?- X = 9, X + 1 =:= 10.
+X = 9.
+```
+
+:::
+
+Podemos ainda fazer um mini throwback ao Python e ir buscar o `is`, onde primeiro é avaliada a expressão da direita e depois há a tentativa de unificação com o termo da esquerda.
+
+```prolog
+% (equivalente a ?- a = 8.)
+?- a is 6 + 2.
+false.
+% (equivalente a ?- 6 + 2 = 8.)
+?- 6 + 2 is 6 + 2.
+false.
+% (equivalente a ?- s(8) = 8.)
+?- s(8) is 6 + 2.
+false.
+% (equivalente a ?- X = 8.)
+?- X is 6 + 2.
+X = 8.
+?- X is 6 + 2, Y is X ** 2.
+X = 8,
+Y = 64.
+```
+
+Criação do predicado potência, equivalente à operação `**`:
+
+```prolog
+% potencia(B, E, P) - B elevado a E é P
+
+% qualquer coisa elevada a 0 é 1
+potencia(_, 0, 1).
+
+%  caso contrário:
+potencia(B, E, P) :-
+  E > 0,
+  NextE is E - 1,
+  potencia(B, NextE, NextRes),
+  P is B*NextRes.
+```
+
+## Leitura/Escrita
+
+O Prolog, tal como as outras linguagens de programação, também apresenta instruções de leitura e escrita de dados, instruções estas que correspondem a predicados.
+
+### Instruções de Leitura
+
+Utilizamos, para leitura, o predicado `read/1`, que unifica o termo escrito como input com o termo argumento. Para além de na _prompt_ termos de utilizar o ponto final, temos de o escrever também no input.
+
+Interações básicas:
+
+```prolog
+?- read(a).
+|: a.
+true.
+?- read(a).
+|: b.
+false.
+?- X = 5, read(X).
+|: 3+2.
+false.
+?- X = +(3,2), read(X).
+|: 3+2.
+X = 3+2.
+?- read(X).
+|: 3 mais 2.
+ERROR: Stream user_input:0:72 Syntax error:Operator expected
+?- read(X).
+|: mais(3,2).
+X = mais(3, 2).
+```
+
+**Um objetivo que utilize o predicado read só tem sucesso uma vez, isto é, qualquer tentativa posterior será falhada**.
+
+```prolog
+% par(X) - X é par.
+par(X) :- X mod 2 =:= 0.
+% le_e_verifica_par - o número lido é par.
+le_e_verifica_par :- read(X), par(X).
+
+?- par(8).
+true.
+?- le_e_verifica_par.
+|: 5.
+false.
+?- le_e_verifica_par.
+|: 6.
+true.
+```
+
+### Instruções de escrita
+
+Temos, para efeitos de escrita, três predicados pré-definidos: `write/1`, que escreve o valor do seu argumento e **não muda de linha**, `writeln/1` que escreve o valor do seu argumento **e muda de linha** e `nl/0` que muda de linha.
+
+Interações básicas:
+
+```prolog
+?- write(a),write(5).
+a5.
+true.
+?- writeln(a),write(5).
+a
+5.
+true.
+?- write(a),nl,write(5).
+a
+5.
+true.
+?- read(X),writeln(X + 5).
+|: 2.
+2+5
+X = 2.
+?- read(X),Y is X + 5,writeln(Y).
+|: 2.
+7
+X = 2,
+Y = 7.
+```
+
+## Estruturas
+
+Já vimos anteriormente vários tipos elementares de dados - átomos, números, variáveis, etc.. Contudo, podemos ainda combinar tipos de dados elementares para construir tipos de dados mais complexos, estruturados. Em Prolog, representá-los-emos através de termos compostos, sendo estes considerados **estruturas**.
+
+De volta aos velhinhos TADs, sabemos que um tipo de dados tem, por norma, de ter definidos construtores, seletores, reconhecedores e testes.
+
+Tentemos criar uma estrutura chamada `data`. Essa estrutura poderá ter, por ex., um construtor, `faz_data` e seletores, `ano_de`, `mes_de` e `dia_de`. Em termos abstratos, podemos considerar a `data` como um termo de três argumentos, onde `data` é uma espécie de `functor`. Assim sendo, a estrutura poderá ser algo do género `data(A, M, D)`, cujos ano, mês e dia são, respetivamente, A, M e D. Com base nesta ideia, podemos construir alguns predicados:
+
+```prolog
+% construtor
+faz_data(A, M, D, data(A, M, D)).
+
+% seletores
+% para cada seletor, só nos interessa um "atributo", pelo que o resto pode ser
+% representado por uma variável anónima
+ano_de(data(A, _, _), A).
+mes_de(data(_, M, _), M).
+dia_de(data(_, _, D), D).
+
+% podemos ainda definir alguns modificadores
+% o atributo atual é irrelevante dado que o queremos mudar, pelo que pode
+% ser representada por uma variável anónima
+muda_ano(A, data(_, M, D), data(A, M, D)).
+muda_mes(M, data(A, _, D), data(A, M, D)).
+muda_dia(D, data(A, M, _), data(A, M, D)).
+```
+
+Ora, tal como em FP, a utilidade dos TADs por si só não se cinge aos tipos em concreto, mas sim aos programas que com eles podemos criar. No exemplo seguinte, podemos ver precisamente um exemplo disso mesmo, onde utilizamos os TADs definidos anteriormente para alterar uma data:
+
+```prolog
+% prox_ano(Hoje, Futuro) - data equivalente a hoje do próximo ano
+
+prox_ano(Hoje, Futuro) :-
+  ano_de(Hoje, A),
+  NextYear is A + 1,
+  muda_ano(NextYear, Hoje, Futuro).
+
+% interação possível:
+
+?- prox_ano(data(2014, 4, 2), Futuro).
+Futuro = data(2015, 4, 2).
+```
+
+Nos slides há um exemplo giro do problema do homem, do lobo, da cabra e da couve, e no livro há um semelhante mas sobre três casas coloridas se quiserem ver mais coisas deste género.

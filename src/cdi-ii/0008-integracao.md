@@ -203,19 +203,19 @@ Este teorema permite-nos concluir a relação entre os integrais e o comprimento
 - $\text{área} = \int \text{comprimento}$
 - $\text{volume} = \int \text{área}$
 
-Expandindo a definição de área, chegamos à função $1\!\!1$:
+Expandindo a definição de área, chegamos à função $\1$:
 
 $$
 \begin{aligned}
 \text{área} &= \int^b_a \text{comprimento} (x) \d x \\
 &= \int^b_a\left(f(x)-g(x)\right) \d x\\
 &= \int^b_a\left(\int^{f(x)}_{g(x)} 1 \d y\right) \d x\\
-&= \int 1\!\!1_A (x,y) \d x \d y
+&= \int \1_A (x,y) \d x \d y
 \end{aligned}
 $$
 
 $$
-1\!\!1_A =
+\1_A =
 \begin{cases}
 1&,&(x,y) \in A\\
 0&,&(x,y)\notin A
@@ -228,10 +228,10 @@ Assim, podemos definir o volume n-dimensional de um conjunto $A$ como
 
 $$
 \begin{array}{l l l}
-\int 1\!\!1_A
+\int \1_A
 & \text{em que}
 &
-1\!\!1_A =
+\1_A =
 \begin{cases}
 1&,&(x,y) \in A\\
 0&,&(x,y)\notin A
