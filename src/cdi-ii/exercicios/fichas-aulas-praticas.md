@@ -34,6 +34,11 @@ description: Resolução das fichas de CDI-II que estão disponíveis na página
   - [Respostas (Oficial)](https://drive.google.com/file/d/1f30NEXHrZPFXO5x5JYlXoVz8LJs6BKRi/view?usp=sharing)
   - [Resolução (by Diogo Correia)](https://drive.google.com/file/d/1N65-p6J8eGDVx7NuyfQ15mxi2itmJBOe/view?usp=sharing)
 
+- [Ficha 7: (Mudança de Variáveis de Integração. Regra de Leibnitz](https://drive.google.com/file/d/1Wy3_ooGpsnHAIfaUeC4B3O7FN3wetk_b/view?usp=sharing)
+
+  - [Respostas (Oficial)](https://drive.google.com/file/d/1QOeieemTf1AGrIIzoDMk4OEoZCHK8B71/view?usp=sharing)
+  - [Resolução (by Diogo Correia)](https://drive.google.com/file/d/1xJJB76zTOeEYJ3XknJxRy6OpXOoYkIfR/view?usp=sharing)
+
 - [Resoluções na EdenBox](https://www.edenbox.org/index.php/s/edenbox?path=%2FLEIC%2F1%C2%BA%20Ano%2F2%C2%BA%20Semestre%2FCDI%20II%2FPr%C3%A1ticas%2F2019-2020)
 
 - [Exercícios Suplementares](https://fenix.tecnico.ulisboa.pt/disciplinas/CDI1421011132646/2020-2021/2-semestre/exercicios-suplementares)

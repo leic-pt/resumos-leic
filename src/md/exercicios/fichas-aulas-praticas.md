@@ -22,4 +22,9 @@ description: Resolução das fichas de MD que estão disponíveis na página da 
   - [Resolução (2.4)](https://drive.google.com/file/d/1LeM7FmSNHbTOhalMi056k-XvDC_mngej/view?usp=sharing)
 
 - [Séries 2](https://drive.google.com/file/d/1IkkxoFZdPwvdEowCZSbzIj2wFWzJJZz8/view?usp=sharing)
+
   - [Resolução (1.2)](https://drive.google.com/file/d/1BNS7BbemF16a4MdbzytJMj0uG3_guOK5/view?usp=sharing)
+  - [Resoulção Parcial (José Félix)](https://drive.google.com/file/d/1iCUU3hSladkJRM8hOPUcuFidu4xtI0fi/view?usp=sharing)
+
+- [Séries 3](https://drive.google.com/file/d/19bR5nVopMuiwt7BJ4fH3CRx3jZCodcZw/view?usp=sharing)
+  - [Resolução](https://drive.google.com/file/d/1TbgvmMEjpvQhnQn9zBN-6xfz9MKaXrOa/view?usp=sharing)
