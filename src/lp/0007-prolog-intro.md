@@ -4,7 +4,7 @@ description: Introdução ao Prolog. Componentes básicos, programa, objetivo, c
 
 # Introdução ao Prolog
 
-Prolog é uma linguagem de programação que utiliza o paradigma de programação em lógica - especifica _o quê_ e _o que deve_ ser feito. Concebida com o objetivo inicial de resolver problemas associados à inteligência artificial/tradução de linguagem natural, hoje em dia as suas aplicações vão desde a LN/AI à lógica e à computação numérica e simbólica.
+Prolog é uma linguagem de programação que utiliza o paradigma de programação em lógica - especifica **_o quê_** e **_o que lhe deve ser feito_**. Concebida com o objetivo inicial de resolver problemas associados à inteligência artificial/tradução de linguagem natural, hoje em dia as suas aplicações vão desde a LN/AI à lógica e à computação numérica e simbólica.
 
 [[toc]]
 
