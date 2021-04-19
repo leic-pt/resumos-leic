@@ -181,7 +181,7 @@ ant(X, Z) :- ant(X, Y), ad(Y, Z).
 **Este programa tem erros, e à frente aprofundaremos quais são/o seu porquê**.
 
 Podem testar os exemplos seguintes no SWI-Prolog ao criar um ficheiro `.pl` com o código acima, e dentro do SWI-Prolog ir a `Consult` e escolher esse ficheiro. De seguida, na `prompt`, escrever os objetivos indicados e verificar a resposta.\
-Outra maneira possível é, na `prompt`, escrever `working_directory(_, '<path>').` ou `working_directory(CWD, '<path>').`para poderem aceder a todos os ficheiros `.pl` dessa diretoria. Além disso, podem verificar a diretoria atual com `pwd.`.
+Outra maneira possível é, na `prompt`, escrever `working_directory(_, '<path>').` ou `working_directory(CWD, '<path>').`para poderem aceder a todos os ficheiros `.pl` dessa diretoria e carregá-los com `[nome].` para `nome.pl` (portanto, sem a extensão). Além disso, podem verificar a diretoria atual com `pwd.`.
 
 ::: tip Resolução com um ramo bem sucedido
 
@@ -218,7 +218,7 @@ Devemos ainda ter em consideração 2 pontos:
   devemos trocar a ordem de `pred1(A, B)` e `pred2(B, C)`.\
    Caso contrário, poderemos entrar em ciclos infinitos, visto que a função de seleção do Prolog é $\alpha_{1}$, e ao escolher o ramo mais à esquerda estaremos a entrar em recursões infinitas.
 
-Caso haja **mais que uma resposta** a um dado objetivo dado um programa, podemos continuar a premir `Enter` até o Prolog esgotar os ramos bem sucedidos.
+Caso haja **mais que uma resposta** a um dado objetivo dado um programa, podemos continuar a premir `Enter` (ou `;` em Linux) até o Prolog esgotar os ramos bem sucedidos.
 
 ## Listas
 
@@ -262,8 +262,8 @@ false.
 
 ```prolog
 % membro(E, L) - E é membro da lista L.
-membro(X, [X|R]).
-membro(X, [P|R]) :- membro(X, R).
+membro(E, [E|_]).
+membro(E, [_|R]) :- membro(E, R).
 ```
 
 O programa acima é constituído por uma afirmação e por uma regra. A afirmação diz que um elemento X é membro de uma lista cujo primeiro elemento é ele mesmo; a regra afirma que um elemento é membro de uma lista cujo primeiro elemento é diferente dele mesmo caso seja membro do resto da lista.
@@ -337,7 +337,7 @@ false.
 ::: details Exemplo 2 - programa que junta duas listas
 
 ```prolog
-% junta(X, Y, Z) - > é o resultado de juntar X a Y
+% junta(X, Y, Z) - Z é o resultado de juntar X a Y
 junta([], L, L).
 % a junção da lista vazia a uma lista qualquer é a própria lista
 junta([P | R], L1, [P | L2]) :- junta(R, L1, L2).
