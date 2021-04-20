@@ -92,29 +92,20 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
     insere_ordenado(N, L1, L2).
   ```
 
-  [Exercício 4](https://stackoverflow.com/questions/61236848/making-a-list-of-random-integers-on-prolog)
+  Exercício 4 (obrigado Tomás)
 
   ```prolog
 
   % n_aleatorios(N, LI, LS, L) :- n_aleatorios(N, LI, LS, [], L).
 
-  % estamos a definir que chamar n_aleatorios com uma lista auxiliar
-  % também funciona
-  n_aleatorios(N, LI, LS, L) :- n_aleatorios(N, LI, LS, [], L).
+  % condição de paragem
+  n_aleatorios(0, _, _, []).
 
-  % verifica se L tem comprimento > 0; caso tenha, não verifica a próxima
-  % cláusula; caso contrário, prossegue
-  n_aleatorios(N,_,_,L,L) :-
-    length(L,N),!.
-
-  % chama n_aleatorios com uma auxiliar, com comprimento == N (senão para)
-  % chama junta_novo_aleatorio a essa lista, cuja resultante será Aux2L
-  % a seguir, chama n_aleatorios novamente, desta vez com a auxiliar sendo Aux2L
-  n_aleatorios(N, LI, LS, AuxL, L) :-
-    length(AuxL, Len),
-    Len < N, !,
-    junta_novo_aleatorio(AuxL, LI, LS, Aux2L),
-    n_aleatorios(N, LI, LS, Aux2L, L).
+  n_aleatorios(N, LI, LS, L) :-
+    N > 0,
+    NewN is N - 1,
+    n_aleatorios(NewN, LI, LS, AuxL),
+    junta_novo_aleatorio(AuxL, LI, LS, L).
   ```
 
   Exercício 5
