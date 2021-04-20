@@ -1,0 +1,181 @@
+# Calendário
+
+[[toc]]
+
+## Introdução
+
+### Calendário Juliano
+
+ - Cada ano tem 365 dias, com exceção dos anos bissextos que têm 366 dias;
+ - Os anos bissextos acontecem de 4 em 4 anos.
+
+### Calendário Gregoriano
+Calendário usado em Portugal e pela maioria dos países Ocidentais.
+ - Anos de 365 dias e anos bissextos de 366 dias;
+ - Os anos bissextos acontecem de 4 em 4 anos, mas não de 100 em 100. Contudo, de 400 em 400 temos, novamente, um ano bissexto;
+ - Em outubro de 1582, foram omitidos 10 dias do calendário.
+
+::: details Exemplos - Bissexto Gregoriano
+
+1. Ano 1900 não é bissexto. (1900 % 100 = 0)
+
+---
+
+2. Ano 2000 é bissexto. (2000 % 400 = 0)
+
+:::
+
+## Calcular Dia da Semana
+
+### Número/Letra dominical
+
+<a name="tabela_1"></a>
+O número (ou letra) dominical de um ano, $N$,  é o dia do **primeiro** domingo desse ano.  
+Abaixo, encontra-se a tabela que associa cada `número dominical` à sua `letra dominical`.  
+<br>
+![Letras e números semanais](./imgs/0013-letra_dominical.png)  
+
+
+Os calendários `Gregoriano` e `Juliano` têm, entre si, uma fórmula diferente para calcular o `número dominical` de um dado ano. Isto deve-se ao facto de terem anos bissextos diferentes. <br> 
+Segue-se a fórmula para cada um destes calendários.
+
+#### Juliano
+
+Para um ano $\lambda_j$, o `número dominical` $N_j$ é dado por:
+
+$$
+N_j = 7 - ((\lambda_j + 4)+(\lambda_j \div 4))\%7
+$$
+
+---
+
+#### Gregoriano
+Para um ano $\lambda_g$, o `número dominical` $N_g$ é dado por:
+
+$$
+N_g = 7 - ((\lambda_g -1)+(\lambda_g \div 4)-(\lambda_g \div 100)+(\lambda_g \div 400))\%7
+$$
+
+**NOTA:** $\%$ representa o resto da divisão e $\div$ a divisão inteira.
+
+---
+
+### Número/Letra Calêndrica
+
+Seja $C$ o `número calêndrico` do dia $d$ do mês $m$, 
+
+$$
+C = 1 + (R-2)\%7
+$$
+
+onde,
+
+$$
+R = d + F_m \newline
+F_m \rightarrow \text{número calêndrico do 1º dia do mês } m
+$$
+
+<a name="tabela_2"></a>
+Na seguinte tabela, encontra-se a `letra calêndrica` do primeiro dia de cada mês ($L_m$).  
+<br>
+![Letras calêndricas](./imgs/0013-calendAux.png)
+
+Passa-se de $L_m$ para $F_m$ com a ajuda da <a href="#tabela_1">tabela1</a>
+
+Recomenda-se a consulta desta tabela durante os testes, já que isso é permitido.  
+Contudo, existe um método para calcular $F_m$ **sem consulta**.
+
+::: details Método sem consulta
+
+Seja $m$ o mês que queremos calcular, $n_m$ o número desse mês no calendário e $k_m$ o número de dias do mês $m$,
+
+1. Se $m$, **em inglês**, tem vogal no início ou no fim:
+
+$$
+F_m = 11 - n_m
+$$
+---
+2. Caso geral,
+
+$$
+F_m = (F_{m-1} + k_{m-1})\% 7
+$$ 
+
+Relembrar que $F_{\text{janeiro}} = A.$
+
+**Exemplos:** <br>
+1. Abril ( _April_ ) <br>
+Como o mês em inglês começa com vogal, <br>
+$$F_{\text{abril}}=11-4=7$$
+Podemos verificar na <a href="#tabela_2">tabela2</a>
+que a `letra calêndrica` do 1º dia de abril é G $\checkmark$.
+
+1. Maio ( _May_ ) <br>
+Como o mês em inglês não começa, nem acaba, em vogal, usamos o método recursivo.
+
+$$F_{\text{maio}}=(F_{\text{abril}} + k_{\text{abril}})\% 7 = (7+30)\% 7 = 2$$
+
+Podemos verificar na <a href="#tabela_2">tabela2</a> que a `letra calêndrica` do 1º dia de maio é B $\checkmark$.
+
+:::
+
+---
+
+### Cálculo do dia da semana
+
+Seja $W$ o dia da semana de uma certa data de mês $m$ e ano $\lambda$, com `número calêndrico` $C$ e `número dominical` $N$, $W$ é dado por:
+
+Caso $\lambda$ seja bissexto e $m$ janeiro ou fevereiro:
+
+$$
+W = 1 + (C-N+6)\% 7
+$$
+
+Caso contrário:
+
+$$
+W = 1 + (C-N+7)\% 7
+$$
+
+Faz sentido, pois janeiro e fevereiro, em anos bissextos, decorrem **antes** do dia extra (29 de fevereiro). 
+
+::: details Exemplo
+
+1. Queremos determinar o dia da semana de `7 de setembro de 2021`, no Calendário `Gregoriano`.
+
+$$
+N = 7 - ((2021 -1)+(2021 \div 4)-(2021 \div 100)+(2021 \div 400))\%7 \\
+= 7 - (2020 + 505 - 20 + 5)\% 7 = 7 - 4 = 3 
+$$
+(Usando método sem consulta para calcular $F_{\text{setembro}}$)  
+Como setembro (_September_) não começa nem acaba em vogal em inglês, temos de usar o método recursivo para calcular $F_{\text{setembro}}$ <br>
+Agosto (_August_), por outro lado, começa com vogal em inglês, logo,
+
+$$
+F_{\text{setembro}} = (F_{\text{agosto}} + k_{\text{agosto}})\% 7 = ((11-8) + 31)\% 7 = 6
+$$
+
+Logo,
+
+$$
+C = 1 + (R-2)\%7  = 1 + ((6+7)-2)\%7 = 1 + 4 = 5
+$$
+
+Por fim, como não estamos a calcular uma data de janeiro ou fevereiro num ano bissexto,
+
+$$
+W = 1 + (C-N+7)\% 7  = 1 + (5-3+7)\% 7 = 1 + 9\%7 = 3
+$$
+
+Podemos concluir que `7 de setembro de 2021` calha a uma 3ªfeira, no calendário `Gregoriano`.  
+<br>
+![Setembro 2021](./imgs/0013-setembro7.png)
+
+
+:::
+
+
+
+
+
+
