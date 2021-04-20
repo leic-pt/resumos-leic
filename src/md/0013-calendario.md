@@ -33,7 +33,7 @@ Calendário usado em Portugal e pela maioria dos países Ocidentais.
 O número (ou letra) dominical de um ano, $N$,  é o dia do **primeiro** domingo desse ano.  
 Abaixo, encontra-se a tabela que associa cada `número dominical` à sua `letra dominical`.  
 <br>
-![Letras e números semanais](./imgs/0013-letra_dominical.png)  
+![Letras e números semanais](./imgs/0013-letra_dominical.PNG)  
 
 
 Os calendários `Gregoriano` e `Juliano` têm, entre si, uma fórmula diferente para calcular o `número dominical` de um dado ano. Isto deve-se ao facto de terem anos bissextos diferentes. <br> 
