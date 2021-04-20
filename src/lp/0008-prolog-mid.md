@@ -4,6 +4,8 @@ description: Meta-predicados. Aritmética, Instruções de Escrita e Leitura, Es
 
 # Meta-Predicados, Arimética, IO, Estruturas
 
+Informação útil para perceberem o que está a acontecer na recursão: podem escrever `trace.` na prompt, e lá dentro escrever o objetivo pretendido. Ao carregar `Enter` repetidamente, podemos observar a recursão a acontecer (obrigado Gonçalo Mateus 😃).
+
 [[toc]]
 
 ## Meta-Predicados sobre Listas
@@ -234,11 +236,22 @@ De seguida estão apresentadas algumas operações aritméticas que podem ser ú
 
 Temos também operações relacionais:
 
-| Operação         | Significado                                         |
-| ---------------- | --------------------------------------------------- |
-| >, <, >=, <=, == | vocês conhecem estas                                |
-| A =\\= B         | true caso o valor de A seja diferente do valor de B |
-| A =:= B          | true caso o valor de A seja igual ao valor de B     |
+| Operação      | Significado                                              |
+| ------------- | -------------------------------------------------------- |
+| >, <, >=, =<  | vocês conhecem estas                                     |
+| A = B         | true caso A e B unifiquem                                |
+| A \= B        | true caso A e B não unifiquem                            |
+| A == B        | true caso A e B forem a mesma coisa                      |
+| A \== B       | true caso A e B não sejam a mesma coisa                  |
+| Exp1 =:= Exp2 | true caso o valor de Exp1 seja o mesmo que o de Exp2     |
+| Exp1 =\= Exp2 | true caso o valor de Exp1 não seja o mesmo que o de Exp2 |
+
+De realçar que ainda há uma variação de `>, <, >=, =<`, com `@` antes do operador, que funciona como uma espécie de `strcmp`, ou seja, compara dois termos alfabeticamente. Podemos observar uma interação possível no exemplo abaixo:
+
+```prolog
+?- likes(mary, pizza) @< likes(mary, plums).
+true.
+```
 
 ::: details Exemplos de Interações com as operações acima
 
@@ -262,7 +275,7 @@ X = 9.
 
 :::
 
-Podemos ainda fazer um mini throwback ao Python e ir buscar o `is`, onde primeiro é avaliada a expressão da direita e depois há a tentativa de unificação com o termo da esquerda.
+Temos ainda o `is`, onde primeiro é avaliada a expressão da direita e depois há a tentativa de unificação com o termo da esquerda.
 
 ```prolog
 % (equivalente a ?- a = 8.)

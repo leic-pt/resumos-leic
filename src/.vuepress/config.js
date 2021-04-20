@@ -102,6 +102,7 @@ module.exports = {
             '0006-prog-logica',
             '0007-prolog-intro',
             '0008-prolog-mid',
+            '0009-prolog-corte-neg',
           ],
         },
         {
