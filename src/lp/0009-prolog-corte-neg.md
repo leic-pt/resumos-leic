@@ -204,7 +204,7 @@ Este programa pode ser lido tal que "para responder ao objetivo `\+(P)`, tente-s
 Em relação a um exemplo concreto:
 
 ```prolog
-% voa(P) :- ave(P), \+ pinguim(P).
+voa(P) :- ave(P), \+ pinguim(P).
 % P voa caso seja uma ave que não um pinguim
 
 ave(gelido).
