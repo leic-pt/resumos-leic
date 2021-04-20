@@ -237,7 +237,7 @@ De seguida estão apresentadas algumas operações aritméticas que podem ser ú
 Temos também operações relacionais:
 
 | Operação      | Significado                                              |
-|---------------|----------------------------------------------------------|
+| ------------- | -------------------------------------------------------- |
 | >, <, >=, =<  | vocês conhecem estas                                     |
 | A = B         | true caso A e B unifiquem                                |
 | A \= B        | true caso A e B não unifiquem                            |

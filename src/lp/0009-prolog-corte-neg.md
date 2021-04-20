@@ -114,6 +114,7 @@ junta_ord([P1|R1], [P2|R2], [P2|R]) :-
   P1 > P2, !, % não seria necessário, é colocado por consistência
   junta_ord([P1|R1], R2, R).
 ```
+
 :::
 
 Ora, dadas as suas semelhanças com o **break** de outras linguagens, devemos também ser relembrados dos **perigos inerentes ao operador de corte** (ou melhor, não ao operador em si, [tem direito à vida como os outros](https://math.tecnico.ulisboa.pt/photos/s_jpnunes.jpg), mas pelo uso indevido que lhe podemos dar).
@@ -199,6 +200,7 @@ Observemos o exemplo:
 
 \+(P).
 ```
+
 Este programa pode ser lido tal que "para responder ao objetivo `\+(P)`, tente-se provar P. Caso não seja possível, o objetivo é satisfeito; caso contrário, retorne-se `false`".
 
 Em relação a um exemplo concreto:
@@ -230,7 +232,7 @@ A negação por falhanço não funciona, contudo, corretamente para objetivos n�
 
 ## Execução Forçada
 
-Apesar de teoricamente uma regra ter o formato `<literal> :- <literais>`, 
+Apesar de teoricamente uma regra ter o formato `<literal> :- <literais>`,
 podemos supor a hipótese de `literal` ser "nada". A regra ficaria, então, com um aspeto do género `:- <literais>`, algo do género "para provar "nada", prove os literais a seguir a `:-`". Pode ser bastante útil em casos de tentar fazer debug (i.e `:- writeln('Este é o passo <n> do programa')`), ou até mesmo para definir certos acontecimentos que acontecem _sempre_ ao carregar um certo ficheiro no Prolog.
 
 Por exemplo, se utilizarem o SWI-Prolog, podem ir às definições e ao `user init file` e escrever alguns comandos que serão forçosamente executados, como por exemplo:
