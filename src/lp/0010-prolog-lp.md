@@ -1,5 +1,5 @@
 ---
-description: Prolog como Linguagem de Programação, Tipos, Mecanismos de Controlo, Procedimentos e Parâmetros, Homoiconocidade
+description: Prolog como Linguagem de Programação, Tipos, Mecanismos de Controlo, Predicados Dinâmicos
 ---
 
 # O Prolog como Linguagem de Programação
