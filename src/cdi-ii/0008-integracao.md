@@ -38,7 +38,7 @@ Uma propriedade das funções em escada é que é muito fácil calcular o seu in
 
 Em geral, se $f: I \to \R$ é uma função em escada, então
 
-$$\int_I f= \sum_{J \text{elemento da partição}} (\text{valor da função}) \times |J|$$
+$$\int_I f= \sum_{J\text{ elemento da partição}} (\text{valor da função}) \times |J|$$
 
 ::: details Exemplo
 
@@ -68,11 +68,11 @@ O tamanho das partições que escolhemos não é relevante, obtemos o mesmo resu
 
 Integral superior de $f$:
 
-$$\int_I f \leq \overline{\int_I} f = \operatorname{int} \{\text{Integrais de todas as funções em cada por excesso}\}$$
+$$\int_I f \leq \overline{\int_I} f = \operatorname{inf} \{\text{Integrais de todas as funções em cada subintervalo por excesso}\}$$
 
 Integral inferior de $f$
 
-$$\int_I f \geq \underline{\int_I} f = \operatorname{sup} \{\text{Integrais de todas as funções em cada por defeito}\}$$
+$$\int_I f \geq \underline{\int_I} f = \operatorname{sup} \{\text{Integrais de todas as funções em cada subintervalo por defeito}\}$$
 
 :::
 
@@ -108,7 +108,7 @@ Este teorema permite-nos calcular o valor de integrais em intervalos de $dim > 1
 Se $f: I \to \R$, $I$ intervalo em $\R^n$, for integrável em todas as variáveis, então, se $I = ]a_1,b_1[ \times \dots \times ]a_n,b_n[$
 
 $$
-\int_I f= \int^{b_n}_{a_n} \left( \int^{b_{n+1}}_{a_{n+1}} ... \left(\int^{b_1}_{a_1} f(x) \d x_1 \right) \dots \right) \d x_n
+\int_I f= \int^{b_n}_{a_n} \left( \int^{b_{n-1}}_{a_{n-1}} \dots \left(\int^{b_1}_{a_1} f(x) \d x_1 \right) \dots \d x_{n-1} \right) \d x_n
 $$
 
 :::
@@ -191,7 +191,7 @@ teríamos de calcular o valor de dois integrais e não um.
 <img src="./assets/0008-ex1-y.svg" alt="Esboço da região I segundo y" class="invert-dark2">
 
 $$
-\int^1_0 \left( \int^{\sqrt{y}}_{\frac{\sqrt{y}}{2}} f\left(x,y\right) \d x\right)\d y + \int^2_1 \left( \int^1_{\frac{\sqrt y}{2}} f\left(x,y\right) \d x=\right) \d y
+\int^1_0 \left( \int^{\sqrt{y}}_{\frac{\sqrt{y}}{2}} f\left(x,y\right) \d x\right)\d y + \int^2_1 \left( \int^1_{\frac{\sqrt y}{2}} f\left(x,y\right) \d x\right) \d y
 $$
 
 :::
