@@ -230,21 +230,21 @@ De seguida estão apresentadas algumas operações aritméticas que podem ser ú
 | random_between(A, B)          | valor tal que A <= valor <= B        |
 | round(A)                      | arredonda (para cima) A              |
 | floor, ceiling, float, int... | vocês sabem estes                    |
-| >>, <<, xor                   | estes também                         |
+| >>, <<, xor                   | shift right, left, xor               |
 | \\/                           | bitwise or (cursed)                  |
 | /\                            | bitwise and (cursed)                 |
 
 Temos também operações relacionais:
 
-| Operação      | Significado                                              |
-| ------------- | -------------------------------------------------------- |
-| >, <, >=, =<  | vocês conhecem estas                                     |
-| A = B         | true caso A e B unifiquem                                |
-| A \= B        | true caso A e B não unifiquem                            |
-| A == B        | true caso A e B forem a mesma coisa                      |
-| A \== B       | true caso A e B não sejam a mesma coisa                  |
-| Exp1 =:= Exp2 | true caso o valor de Exp1 seja o mesmo que o de Exp2     |
-| Exp1 =\= Exp2 | true caso o valor de Exp1 não seja o mesmo que o de Exp2 |
+| Operação       | Significado                                              |
+| -------------- | -------------------------------------------------------- |
+| >, <, >=, =<   | vocês conhecem estas                                     |
+| A = B          | true caso A e B unifiquem                                |
+| A \\= B        | true caso A e B não unifiquem                            |
+| A == B         | true caso A e B forem a mesma coisa                      |
+| A \\== B       | true caso A e B não sejam a mesma coisa                  |
+| Exp1 =:= Exp2  | true caso o valor de Exp1 seja o mesmo que o de Exp2     |
+| Exp1 =\\= Exp2 | true caso o valor de Exp1 não seja o mesmo que o de Exp2 |
 
 De realçar que ainda há uma variação de `>, <, >=, =<`, com `@` antes do operador, que funciona como uma espécie de `strcmp`, ou seja, compara dois termos alfabeticamente. Podemos observar uma interação possível no exemplo abaixo:
 
