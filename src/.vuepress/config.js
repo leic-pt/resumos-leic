@@ -103,6 +103,7 @@ module.exports = {
             '0007-prolog-intro',
             '0008-prolog-mid',
             '0009-prolog-corte-neg',
+            '0010-prolog-lp',
           ],
         },
         {
