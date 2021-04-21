@@ -184,7 +184,7 @@ $$
 W = 1 + (C-N+7)\% 7  = 1 + (5-3+7)\% 7 = 1 + 9\%7 = 3
 $$
 
-Podemos concluir que `7 de setembro de 2021` calha a uma 3ªfeira, no calendário `Gregoriano`.
+Podemos concluir que `7 de setembro de 2021` calha a uma **3ªfeira**, no calendário `Gregoriano`.
 
 ![Setembro 2021](./imgs/0013-setembro7.png)
 
