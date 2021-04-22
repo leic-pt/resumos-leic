@@ -66,6 +66,8 @@ module.exports = {
             '0009-algo_ord',
             '0010-more_algo',
             '0011-even_more_algo',
+            '0012-ponteiros',
+            '0013-mem',
           ],
         },
         {
@@ -78,6 +80,7 @@ module.exports = {
             'labs/lab05/',
             'labs/lab06/',
             'labs/lab07/',
+            'labs/lab08/',
           ],
         },
         {
@@ -166,7 +169,7 @@ module.exports = {
         {
           title: '📃 Cheat Sheets',
           collapsable: false,
-          children: ['1001-calc-finito', '1002-geradoras-sheet'],
+          children: ['1001-calc-finito', '1002-geradoras-sheet', '1003-calendarios'],
         },
       ],
       '/': [

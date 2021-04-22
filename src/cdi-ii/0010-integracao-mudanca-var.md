@@ -47,7 +47,7 @@ D\varphi (r,\theta)=
 $$
 
 $$
-|\det D\varphi (x', y')| = | r\cos^2 \theta + r \sin^2 \theta = r
+|\det D\varphi (x', y')| = | r\cos^2 \theta + r \sin^2 \theta | = r
 $$
 
 $$
