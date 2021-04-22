@@ -68,7 +68,6 @@ module.exports = {
             '0011-even_more_algo',
             '0012-ponteiros',
             '0013-mem',
-            
           ],
         },
         {
@@ -170,7 +169,7 @@ module.exports = {
         {
           title: '📃 Cheat Sheets',
           collapsable: false,
-          children: ['1001-calc-finito', '1002-geradoras-sheet','1003-calendarios',],
+          children: ['1001-calc-finito', '1002-geradoras-sheet', '1003-calendarios'],
         },
       ],
       '/': [
