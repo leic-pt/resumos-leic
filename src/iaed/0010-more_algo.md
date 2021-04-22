@@ -36,15 +36,15 @@ Aplica método dividir para conquistar para ordenar
 
 <<< @/src/iaed/assets/0010-qsort.c
 
-- Trocas: $2N log (N)$
+- Trocas: $2N \log (N)$
 - Pior Caso: $O(N^2)$
-- Melhor Caso: $\Omega(N log (N))$
+- Melhor Caso: $\Omega(N \log (N))$
 
 - Não apenas o tempo necessário para a execução do
   algoritmo cresce quadraticamente como o espaço
   necessário para o processo recursivo é de cerca de $N$ o
   que é inaceitável para vectores grandes. É possível
-  modificar para obter espaço $O(log (N))$
+  modificar para obter espaço $O(\log (N))$
 
 ### Melhorias
 
@@ -79,8 +79,8 @@ Quando chegamos a vetores de um elemento:
 
 <<< @/src/iaed/assets/0010-mergesort.c
 
-- Pior Caso: $O(N log (N))$
-- Melhor Caso: $\Omega(N log (N))$
+- Pior Caso: $O(N \log (N))$
+- Melhor Caso: $\Omega(N \log (N))$
 
 ## Heap Sort (Enquadramento)
 
@@ -104,17 +104,17 @@ Quando chegamos a vetores de um elemento:
 <<< @/src/iaed/assets/0010-heap.c
 
 - Construção do amontoado (ciclo `for`):
-  - $O(N log (N))$ no pior caso
+  - $O(N \log (N))$ no pior caso
   - Pode ser provado $O(N)$
 - Colocação das chaves (ciclo `while`):
-  - $O(N log (N))$ no pior caso
+  - $O(N \log (N))$ no pior caso
   - Pode ser provado que para elementos distintos, o melhor caso
-    também é Ω$S(N log (N))$
-- Complexidade no pior caso é $O(N log (N))$
+    também é Ω$(N \log (N))$
+- Complexidade no pior caso é $O(N \log (N))$
 - Não é estável
 
 - Algoritmos de ordenação baseados em comparações
-  são pelo menos Ω(N lg N)
+  são pelo menos Ω(N \log N)
 
 Recomendo vivamente a ver os slides da aula e investigar mais sobre estes algoritmos.
 
