@@ -169,7 +169,12 @@ module.exports = {
         {
           title: '📃 Cheat Sheets',
           collapsable: false,
-          children: ['1001-calc-finito', '1002-geradoras-sheet', '1003-calendarios','1004-mdc-cheat'],
+          children: [
+            '1001-calc-finito',
+            '1002-geradoras-sheet',
+            '1003-calendarios',
+            '1004-mdc-cheat',
+          ],
         },
       ],
       '/': [
