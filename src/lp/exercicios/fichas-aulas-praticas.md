@@ -163,6 +163,82 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 
 - [Semana 8](https://drive.google.com/file/d/1uYeclFgMh-BH_J8UVDFQ2iIpEnyxBvW4/view?usp=sharing)
 
+  Nota importante: Os exercícios desta secção devem ser realizados com predicados de ordem superior (sem recursão, portanto). A secção dos meta-predicados sobre listas poderá ser útil para este propósito.
+
+  ::: details Resolução
+  Exercício 1
+
+  ```prolog
+  % insere_ordenado(E, L1, L2)
+
+  insere_ordenado(E, L1, L2) :-
+    findall(X, (member(X, L1), X < E), Menores),
+    findall(X, (member(X, L1), X > E), Maiores),
+    append(Menores, [E|Maiores], L2).
+  ```
+
+  Exercício 2
+
+  ```prolog
+  % junta_novo_aleatorio(L1, LI, LS, L2)
+
+  % o predicado subtract retira todas as instancias de um ou mais elementos
+  % da lista argumento - subtract(L1, L_E, L2); o(s) elementos(s) a verificar
+  % têm de vir sob a forma de lista
+
+  junta_novo_aleatorio(L1, LI, LS, L2) :-
+    random_between(LI, LS, E),
+    subtract(L1, [E], L1),
+    insere_ordenado(E, L1, L2).
+  ```
+
+  Exercício 3
+
+  ```prolog
+  % repete_el(E, N, L)
+
+  repete_el(E, N, L) :-
+    % afirmar que L, desconhecida, tem comprimento N
+    length(L, N),
+    % o predicado fará com que todos os espaços vazios sejam "unificados" com E
+    maplist(=(E), L).
+  ```
+
+  Exercício 4
+
+  ```prolog
+  % duplica_elementos(L1, L2)
+
+  duplica_elementos(L1, L2) :-
+    findall([E, E], member(E, L1), AuxL),
+    append(AuxL, L2).
+  ```
+
+  Exercício 5
+
+  ```prolog
+  % num_occ(L, E, N)
+
+  num_occ(L, E, N) :-
+    findall(X, (member(X, L), E =:= X), AuxL),
+    length(AuxL, N).
+  ```
+
+  Exercício 6
+
+  ```prolog
+  % substitui_maiores(N, Sub, L1, L2)
+
+  substitui_maiores_N(N, Subst, L1, L2) :-
+    maplist(substitui_maiores_N_aux(N, Subst), L1, L2).
+  substitui_maiores_N_aux(N, Subst, El, Subst) :-
+    El > N.
+  substitui_maiores_N_aux(N, _, El, El) :-
+    El =< N.
+  ```
+
+  :::
+
 - [Semana 9](https://drive.google.com/file/d/1RovEx8Zcles6lAy4pJlX5bSIanLjASAF/view?usp=sharing)
 
 - [Semana 10](https://drive.google.com/file/d/1Q_9vVqel8UUJ9ysYq3Gawoa19X1WfQT0/view?usp=sharing)

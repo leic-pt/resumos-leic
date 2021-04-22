@@ -420,8 +420,6 @@ inverte([P | R], Ac, I) :- inverte(R, [P | Ac], I).
 % sendo R uma lista com acumulador atual P|Ac,
 % então a sua invertida I é igual à lista [P|R] com acumulador atual Ac
 inverte(L, I) :- inverte(L, [], I).
-% podemos definir um predicado que
-% "esconde" o uso do acumulador caso este não seja necessário
 ```
 
 Sequência de objetivos neste processo:
