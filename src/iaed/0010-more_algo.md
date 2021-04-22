@@ -109,12 +109,12 @@ Quando chegamos a vetores de um elemento:
 - Colocação das chaves (ciclo `while`):
   - $O(N \log (N))$ no pior caso
   - Pode ser provado que para elementos distintos, o melhor caso
-    também é Ω$S(N log (N))$
+    também é Ω$(N \log (N))$
 - Complexidade no pior caso é $O(N \log (N))$
 - Não é estável
 
 - Algoritmos de ordenação baseados em comparações
-  são pelo menos Ω(N lg N)
+  são pelo menos Ω(N \log N)
 
 Recomendo vivamente a ver os slides da aula e investigar mais sobre estes algoritmos.
 
