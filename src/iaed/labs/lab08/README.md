@@ -1,5 +1,5 @@
 ---
-description: Enunciado e resolução dos exercícios do Laboratório 7 de IAED
+description: Enunciado e resolução dos exercícios do Laboratório 8 de IAED
 ---
 
 # Lab 08
