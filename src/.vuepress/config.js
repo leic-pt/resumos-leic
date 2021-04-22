@@ -66,6 +66,9 @@ module.exports = {
             '0009-algo_ord',
             '0010-more_algo',
             '0011-even_more_algo',
+            '0012-ponteiros',
+            '0013-mem',
+            
           ],
         },
         {
