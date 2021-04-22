@@ -16,7 +16,7 @@ Este algoritmo permite de forma rápida uma lista de números que sejam muito re
 
 Conta para uma lista o número de ocorrências de cada número. ( conta primeiro os 0's, depois os 1's,...)
 
-E depois colocar na lista os elemntos de acordo com os valores da lista.
+E depois colocar na lista os elementos de acordo com os valores da lista.
 
 ### Código
 
