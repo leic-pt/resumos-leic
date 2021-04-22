@@ -32,7 +32,7 @@ Multiplicar os valores por 2
 
 $108 \frown 75 = \textcolor{pink}6 = 108 * \textcolor{orange}{-18} + 75 * \textcolor{yellow}{26}$
 
-$x_0 = \textcolor{orange}{-18}, y_0 = \textcolor{yellow}{26}$
+Coeficientes de Bézout: $x_0 = \textcolor{orange}{-18}, y_0 = \textcolor{yellow}{26}$
 
 $$
 \left\{ \begin{aligned}
@@ -47,3 +47,7 @@ $$
   y = 26 - 36t
 \end{aligned} \right.
 $$
+
+- [M.D.C. no WolframAlpha](https://www.wolframalpha.com/input/?i=ExtendedGCD%5B108%2C75%5D)
+
+- [Diafontinas no WolframAplha](https://www.wolframalpha.com/input/?i=solve+108x%2B75y+%3D+6+over+the+integers)
