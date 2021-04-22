@@ -168,6 +168,11 @@ module.exports = {
           collapsable: false,
           children: ['1001-calc-finito', '1002-geradoras-sheet'],
         },
+        {
+          title: '📃 Ferramentas',
+          collapsable: false,
+          children: ['tools/fft-calculator'],
+        },
       ],
       '/': [
         {
