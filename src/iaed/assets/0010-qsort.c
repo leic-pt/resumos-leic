@@ -10,14 +10,14 @@ void quicksort(Item a[], int left, int right)
 
 int partition(Item a[], int left, int right)
 {
-    int i = left - 1 int j = right;
+    int i = left - 1, j = right;
     Item v = a[right];
     while (i < j)
     {
         while (less(a[++i], v))
             ;
         while (less(v, a[--j]))
-            if (j == l)
+            if (j == left)
                 break;
         if (i < j)
             exch(a[i], a[j]);
