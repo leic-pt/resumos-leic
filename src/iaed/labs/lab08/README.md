@@ -26,19 +26,8 @@ Dica: Sugere-se utilização de aritmética de ponteiros, \
 para poder avançar com um ponteiro `p` representando os diferentes sufixos e\
  passar esse ponteiro `p` como parâmetro para a função `printf`.
 
-::: details Resolução
+::: details Resolução (Soon)
 
-Resposta: `a = {9,6,5,7,4,10,16,18,14,13,12}`
-
-{green}(É possível ver o algoritmo em execução ao executar o código abaixo)
-
-<code-group>
-<code-block
-title="Quick Sort">
-<<< @/src/iaed/labs/lab07/quicksort.c
-
-</code-block>
-</code-group>
 :::
 
 ## Exercício 2
@@ -65,9 +54,7 @@ Dica: A chamada `scanf("%s", buffer)` devolve 1 se e só se a palavra foi lida c
 
 Ex: a leitura pode terminar se o valor devolvido não estiver `1`.
 
-::: details Resolução
-
-Resposta: `a = {13,11,14,9,12,15,17,19,20,16}`
+::: details Resolução (Soon)
 
 :::
 
@@ -101,9 +88,7 @@ Nota: Não há testes automáticos para este exercício.
 
 Nota: Poderá começar por considerar uma implementação sem a realocação automática.
 
-::: details Resposta
-
-Resposta: `<40, 15, 18, 13, 11, 14, 16>`
+::: details Resposta (Soon)
 
 :::
 
@@ -124,24 +109,6 @@ Dica: Podem aproveitar o `ex03` para resolver este exercício.\
 
 Dica: Não é necessário guardar o input; é suficiente usar o stack.
 
-::: details Resolução
-
-Resposta: `a = {17,15,16,13,12,14,11,9,19,20}`
-
-Transformada em heap : `a = {20,19,17,13,15,14,16,9,11,12}`
-
-1ª iteração: `a = {19,15,17,13,12,14,16,9,11,20}`
-
-2ª iteração: `a = {17,15,16,13,12,14,11,9,19,20}`
-
-{green}(É possível ver o algoritmo em execução ao executar o código abaixo)
-
-<code-group>
-<code-block
-title="Heap Sort">
-<<< @/src/iaed/labs/lab07/heapsort.c
-
-</code-block>
-</code-group>
+::: details Resolução (Soon)
 
 :::

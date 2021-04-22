@@ -94,6 +94,3 @@ $\mathcal{W}$ = 1 + ($\mathcal{C} - \mathcal{N} + 6$) % 7
 Se não:
 
 $\mathcal{W}$ = 1 + ($\mathcal{C} - \mathcal{N} + 7$) % 7
-
-$$
-$$
