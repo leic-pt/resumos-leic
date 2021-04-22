@@ -1,7 +1,8 @@
 # Congruências
 
 ## Definição
-Dados 2 números $a , b \in \Z$ e um $n \in \N_1$, diz-se que __$a$ é congruente com $b$ para módulo $n$__, se:
+
+Dados 2 números $a , b \in \Z$ e um $n \in \N_1$, diz-se que **$a$ é congruente com $b$ para módulo $n$**, se:
 
 $$
 a-b = \dot{n}\\
@@ -10,8 +11,8 @@ $$
 
 Podemos representar esta relação por:
 
-* $a \equiv_n b$
-* $a \equiv b \quad (\text{mod } n)$
+- $a \equiv_n b$
+- $a \equiv b \quad (\text{mod } n)$
 
 Através desta definição, podemos também concluir facilmente que $a \equiv_n b$ se e só se **$a$ e $b$ têm o mesmo resto na divisão inteira por $n$**.
 
@@ -47,7 +48,8 @@ $$
 :::
 
 ::: tip NOTA IMPORTANTE
-* Esta propriedade também funciona para a **subtração** e **multiplicação**. 
+
+- Esta propriedade também funciona para a **subtração** e **multiplicação**.
 
 :::
 
@@ -61,7 +63,8 @@ $$
 
 ::: details Demontração
 
-Por indução,  
+Por indução,
+
 1. $k=0$
 
 $$
@@ -69,9 +72,9 @@ a^0 = 1 \equiv_n 1 = b^0
 $$
 
 2. Hereditariedade  
-**Hip**: $a^k \equiv_n b^k$, para todo o $k \in \N$ e $n \in \N_1$  
-**Tese**: $a^{k+1} \equiv_n b^{k+1}$, para todo o $k \in \N$ e $n \in \N_1$  
-Pelo [Teorema 1](#teorema-1) e pela `Hip. de Indução`
+   **Hip**: $a^k \equiv_n b^k$, para todo o $k \in \N$ e $n \in \N_1$  
+   **Tese**: $a^{k+1} \equiv_n b^{k+1}$, para todo o $k \in \N$ e $n \in \N_1$  
+   Pelo [Teorema 1](#teorema-1) e pela `Hip. de Indução`
 
 $$
 \begin{array}{c|cc}
@@ -107,12 +110,12 @@ $$
 x = x_0 + \frac{n}{d}t, \quad t\in \Z
 $$
 
-Vamos tentar provar agora a existência de apenas $d$ soluções incongruentes.  
+Vamos tentar provar agora a existência de apenas $d$ soluções incongruentes.
 
 Ao dividirmos $t$ por $d$, temos um quociente ($q$) e resto ($r$), tal que:
 
 $$
-t = dq + r, \quad 0 \leq r < d 
+t = dq + r, \quad 0 \leq r < d
 $$
 
 **NOTA:** Para valores diferentes de $t$, vamos ter valores diferentes de $q$ e $r$ ($d$ é fixo).  
@@ -125,12 +128,11 @@ x \equiv_n x_0 + \frac n d r
 $$
 
 $n$ e $d$ são fixos, o que varia é o $r=0,\dots,d-1$, "criando" as $d$ soluções incongruentes.  
-QED  
+QED
 
-(Ajuda se pensarmos o que aconteceria se pudessemos ter $r>=d$. Nestes casos, todas as soluções seriam congruentes com pelo menos uma das já descobertas, $r=d$ seria congruente com $r=0$, $r=d+1$ com $r=1$ e assim sucessivamente.)  
+(Ajuda se pensarmos o que aconteceria se pudessemos ter $r>=d$. Nestes casos, todas as soluções seriam congruentes com pelo menos uma das já descobertas, $r=d$ seria congruente com $r=0$, $r=d+1$ com $r=1$ e assim sucessivamente.)
 
 :::
-
 
 ### Teorema 4
 
@@ -142,6 +144,7 @@ $$
 a = k_am_1 \quad a=k_bm_2\\
 k_am_1 = k_bm_2
 $$
+
 Como $m_1 \frown m_2 = 1$, então, para a equação se verificar $k_a \mid m_2$ e $k_b \mid m_1$
 
 $$
@@ -154,12 +157,11 @@ QED
 
 :::
 
-Generalizando este Teorema, se $m_1,\dots,m_k \in \N_1$, primos entre si, dois a dois, e $m_i \mid a$, para $i = 1,\dots,k$, então  
+Generalizando este Teorema, se $m_1,\dots,m_k \in \N_1$, primos entre si, dois a dois, e $m_i \mid a$, para $i = 1,\dots,k$, então
 
 $$
 M \mid a, \qquad \text{com } M = \prod_{i=1}^{k}m_i
 $$
-
 
 ### Teorema 5
 
@@ -174,20 +176,22 @@ $$
 1. Condição necessária
 
 Se $ac \equiv_n bc$, sabemos que $ac-bc = kn$, onde concluímos que $c(a-b)=kn$.  
-Seja $d=n \frown c$, 
+Seja $d=n \frown c$,
 
 $$(a-b)\frac c d = k \frac n d$$
 
 Como $\frac c d$ e $\frac n d$ são primos entre si, concluímos (tal como em provas passadas) que $\frac n d \mid (a-b)$, por exemplo.  
-Então, 
+Então,
 
-$$a-b = \lambda \frac n d \quad \lambda \in \Z\\
+$$
+a-b = \lambda \frac n d \quad \lambda \in \Z\\
 a = b+\lambda \frac n d\\
-a \equiv_{\frac n d} b$$
+a \equiv_{\frac n d} b
+$$
 
 2. Condição suficiente
 
-Se $a \equiv_{\frac n d} b$, com $d = c \frown n$, mais uma vez, então,  
+Se $a \equiv_{\frac n d} b$, com $d = c \frown n$, mais uma vez, então,
 
 $$
 a - b =  k \frac n d, \quad k \in \Z\\
