@@ -61,7 +61,7 @@ $$
 a \equiv_n b \quad \rightarrow \quad a^k \equiv_n b^k
 $$
 
-::: details Demontração
+::: details Demonstração
 
 Por indução,
 
@@ -97,7 +97,7 @@ $ax \equiv_n b$ não tem solução se $d \nmid b$, onde $d = a \frown n$. No ent
 Sejam $s_i$ e $s_j$ duas soluções, são incongruentes, se não forem congruentes módulo $n$, ou seja, $s_i \equiv_n a_i, \quad s_j \equiv_n a_j \quad \text{e} \quad a_i \neq a_j$
 :::
 
-::: details Demontração
+::: details Demonstração
 
 $$
  ax \equiv_n b\\
