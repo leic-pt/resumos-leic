@@ -26,8 +26,14 @@ Dica: Sugere-se utilização de aritmética de ponteiros, \
 para poder avançar com um ponteiro `p` representando os diferentes sufixos e\
  passar esse ponteiro `p` como parâmetro para a função `printf`.
 
-::: details Resolução (Soon)
+::: details Resolução
+<code-group>
+<code-block
+title="Diogo Correia">
+<<< @/src/iaed/labs/lab08/ex01_dc.c
+</code-block>
 
+</code-group>
 :::
 
 ## Exercício 2
@@ -54,7 +60,14 @@ Dica: A chamada `scanf("%s", buffer)` devolve 1 se e só se a palavra foi lida c
 
 Ex: a leitura pode terminar se o valor devolvido não estiver `1`.
 
-::: details Resolução (Soon)
+::: details Resolução
+<code-group>
+<code-block
+title="Diogo Correia">
+<<< @/src/iaed/labs/lab08/ex02_dc.c
+</code-block>
+
+</code-group>
 
 :::
 
@@ -64,7 +77,7 @@ Desenvolva em C um conjunto de funções que \
 permita manipular uma pilha (stack) com realocação automática.\
  A pilha será representada com a seguinte estrutura:
 
-```
+```c
 typedef struct {
     int *v;     /* contents of the stack */
     int cap;    /* capacity of v, i.e. how many elements can fit in v */
@@ -74,7 +87,7 @@ typedef struct {
 
 As funções a desenvolver são as seguintes:
 
-```
+```c
 stack* build();                 /* builds a new empty stack with initial capacity 4 */
 void push(stack * s, int e);    /* pushes integer e on top of the stack  (reallocate v if necessary) */
 int top(stack * s);             /* returns top element in the stack */
@@ -88,8 +101,14 @@ Nota: Não há testes automáticos para este exercício.
 
 Nota: Poderá começar por considerar uma implementação sem a realocação automática.
 
-::: details Resposta (Soon)
+::: details Resolução
+<code-group>
+<code-block
+title="Diogo Correia">
+<<< @/src/iaed/labs/lab08/ex03_dc.c
+</code-block>
 
+</code-group>
 :::
 
 ## Exercício 4 (Facultativo)
@@ -109,6 +128,12 @@ Dica: Podem aproveitar o `ex03` para resolver este exercício.\
 
 Dica: Não é necessário guardar o input; é suficiente usar o stack.
 
-::: details Resolução (Soon)
+::: details Resolução
+<code-group>
+<code-block
+title="Diogo Correia">
+<<< @/src/iaed/labs/lab08/ex04_dc.c
+</code-block>
 
+</code-group>
 :::
