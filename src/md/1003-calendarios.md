@@ -72,7 +72,7 @@ $\mathcal{Y}$ = Ano
 
 $\mathcal{C} = 1 + (\mathcal{D}+ \mathcal{F} -2)$ % 7
 
-$\mathcal{N} = 7 - (\mathcal{Y} - 1 +  \mathcal{Y}$ % 4 $- \mathcal{Y}$ % 100 $+ \mathcal{Y}$ % 400) % 7
+$\mathcal{N} = 7 - (\mathcal{Y} - 1 +  \mathcal{Y} / 4 - \mathcal{Y} / 100 + \mathcal{Y} / 400)$ % 7
 
 Se for Janeiro ou Fevereiro e é Ano Bisssexto:
 
@@ -96,7 +96,7 @@ ${D} = 20 + (54 - {E}+ V)$ % 30
 
 ${C} = 1 + ({D} + 2)$ % 7
 
-${N} = 7 - ({Y} - 1 +  {Y}$ % 4 $- {Y}$ % 100 $+  {Y}$ % 400 $)$ % 7
+${N} = 7 - ({Y} - 1 +  {Y} / 4 - {Y} / 100 +  {Y} / 400 )$ % 7
 
 Se ${C} < {N}$
 
@@ -120,7 +120,7 @@ $\mathcal{Y}$ = Ano
 
 $\mathcal{C} = 1 + (\mathcal{D}+ \mathcal{F} -2)$ % 7
 
-$\mathcal{N} = 7 - (\mathcal{Y} + 4 + \mathcal{Y}$ % 4 $)$ % 7
+$\mathcal{N} = 7 - (\mathcal{Y} + 4 + \mathcal{Y}$ / 4 $)$ % 7
 
 Se for Janeiro ou Fevereiro e é Ano Bisssexto:
 

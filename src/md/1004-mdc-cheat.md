@@ -1,8 +1,8 @@
 ---
-description: Calendários
+description: MDC. Equações Diofantinas.
 ---
 
-# M.D.C e Diafontinas (Cheat Sheet)
+# M.D.C e Diofantinas (Cheat Sheet)
 
 [[toc]]
 
