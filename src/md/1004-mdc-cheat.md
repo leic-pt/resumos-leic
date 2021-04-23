@@ -36,8 +36,8 @@ Coeficientes de Bézout: $x_0 = \textcolor{orange}{-18}, y_0 = \textcolor{yellow
 
 $$
 \left\{ \begin{aligned}
-  x = x_0 + \frac b d t\\
-  y = y_0 - \frac a d t
+  x = x_0 + \frac {b} {a \frown b} t\\
+  y = y_0 - \frac a {a \frown b} t
 \end{aligned} \right.
 $$
 
