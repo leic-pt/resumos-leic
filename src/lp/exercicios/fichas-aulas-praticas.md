@@ -241,6 +241,169 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 
 - [Semana 9](https://drive.google.com/file/d/1RovEx8Zcles6lAy4pJlX5bSIanLjASAF/view?usp=sharing)
 
+::: danger
+
+Esta secção ainda não sai esta semana.
+
+:::
+
+- Aritmética
+
+  ::: details Resolução
+
+  Exercício 1
+
+  (Tentem fazer primeiro vocês próprios e verifiquem as respostas no fim)
+
+  a) X = 3+2.  
+  b) X = 5.  
+  c) true.  
+  d) false.  
+  e) Erro - argumentos não suficientemente instanciados.  
+  f) X = 3, Y = 8.  
+  g) false.  
+  h) true.
+
+  Exercício 2
+
+  ```prolog
+  % suc(N, M)
+
+  suc(N, M) :-
+    M is N + 1.
+
+  % ant(N, M)
+
+  ant(N, M) :-
+    M is N - 1.
+  ```
+
+  Exercício 3
+
+  ```prolog
+  % perimetro(R, P)
+
+  perimetro(R, P) :-
+    P is 2 * pi * R.
+  ```
+
+  Exercício 4
+
+  ```prolog
+  % divisor(D, N)
+
+  divisor(D, N) :-
+    N mod D =:= 0.
+  ```
+
+  Exercício 5
+
+  ```prolog
+  % aplica_op(Op, V1, V2, R)
+  % não me lembro de coisas não hard-coded, se se lembrarem digam
+  aplica_op(+, V1, V2, R) :-
+    R is V1 + V2.
+
+  aplica_op(-, V1, V2, R) :-
+    R is V1 - V2.
+
+  aplica_op(*, V1, V2, R) :-
+    R is V1 * V2.
+
+  aplica_op(/, V1, V2, R) :-
+    R is V1 / V2.
+  ```
+
+  Exercício 6
+
+  ```prolog
+  % soma_digitos_rec(N, S)
+
+  soma_digitos_rec(0, 0).
+
+  soma_digitos_rec(N, NewSum) :-
+    AddedSum is N mod 10,
+    NewN is N // 10,
+    soma_digitos_rec(NewN, S),
+    NewSum is S + AddedSum.
+
+  % soma_digitos_it(N, S)
+
+  soma_digitos_it(N, S) :-
+    soma_digitos_it(N, S, 0).
+
+  soma_digitos_it(0, Res, Res).
+
+  soma_digitos_it(N, S, Ac) :-
+    N > 0,
+    NewAc is Ac + (N mod 10),
+    NewN is N // 10,
+    soma_digitos_it(NewN, S, NewAc).
+  ```
+
+  Exercício 7
+
+  ```prolog
+  % inverte(N, I)
+
+  inverte(0, 0).
+
+  inverte(N, NewI) :-
+    AuxI is N mod 10,
+    NewN is N // 10,
+    inverte(NewN, I),
+    NewI is (I * 10) + AuxI.
+  ```
+
+  Exercício 8
+
+  ```prolog
+  % triangular(N)
+
+  triangular(N) :-
+    triangular(1, 0, N).
+
+  triangular(_, N, N) :-
+    % verifica se o acumulador é igual a ele próprio (exceto zero)
+    N \== 0,
+    !.
+
+  triangular(M, Ac, N) :-
+    NewAc is Ac + M,
+    NewAc =< N,
+    NewM is M + 1,
+    triangular(NewM, NewAc, N).
+  ```
+
+  :::
+
+- Instruções de Leitura e Escrita
+
+  ::: details Resolução
+
+  Exercício 1
+
+  | Objetivo                    | Termo Introduzido | Resposta             |
+  | --------------------------- | ----------------- | -------------------- |
+  | read(X)                     | f(a, b)           | X = f(a, b).         |
+  | read(a)                     | f(a, b)           | false.               |
+  | read(f(X, Y)), R is Y mod X | f(2, 8)           | X = 2, Y = 8, R = 0. |
+  | X = 3, read(X + 1)          | 3 + 1             | X = 3.               |
+  | X = 3, read(X + 1)          | 2 + 1             | false.               |
+  | read(X + 3)                 | +(9, 3)           | X = 9.               |
+
+  Exercício 2
+
+  | Objetivo                    | Escrito |
+  | --------------------------- | ------- |
+  | X = +(2,3), write(X)        | 2+3.    |
+  | X is +(2,3), write(X)       | 5.      |
+  | X = 3, write(X + 1)         | 3+1.    |
+  | X = 3, Y = X + 1, write(Y)  | 3+1.    |
+  | X = 3, Y is X + 1, write(Y) | 4.      |
+
+  :::
+
 - [Semana 10](https://drive.google.com/file/d/1Q_9vVqel8UUJ9ysYq3Gawoa19X1WfQT0/view?usp=sharing)
 
 - [Semana 11](https://drive.google.com/file/d/1xGiiyjYWocO16JyfXUZqUCjpbHxItXq4/view?usp=sharing)
