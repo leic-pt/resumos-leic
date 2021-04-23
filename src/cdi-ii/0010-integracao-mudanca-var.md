@@ -240,7 +240,7 @@ em vez de $x$, $y$ e $z$.
 
 - $r$ é a distância à origem
 - $\varphi$ é o ângulo que o vetor faz com o eixo dos $zz$
-- $\theta$ éo ângulo entre o semi-eixo positivo dos $xx$ e a projeção do vertor no plano $Oxy$
+- $\theta$ é o ângulo entre o semi-eixo positivo dos $xx$ e a projeção do vertor no plano $Oxy$
 
 Podemos então definir a transformação:
 
