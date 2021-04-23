@@ -134,7 +134,7 @@ Interações possíveis seriam, por exemplo:
 ?- findall(X, (member(X, [6,2,4,5,4,7]), X mod 2 =:= 0), L).
 L = [6,2,4,4].
 ?- setof(X, (member(X, [6,2,4,5,4,7]), X mod 2 =:= 0), L).
-L = [6,2,4,4].
+L = [6,2,4].
 ```
 
 Interação mais complexa, **útil para o projeto** segundo a prof.:
