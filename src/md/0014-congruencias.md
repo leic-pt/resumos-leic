@@ -61,7 +61,7 @@ $$
 a \equiv_n b \quad \rightarrow \quad a^k \equiv_n b^k
 $$
 
-::: details Demontração
+::: details Demonstração
 
 Por indução,
 
