@@ -107,6 +107,7 @@ module.exports = {
             '0008-prolog-mid',
             '0009-prolog-corte-neg',
             '0010-prolog-lp',
+            '0011-faq',
           ],
         },
         {
