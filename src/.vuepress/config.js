@@ -107,13 +107,17 @@ module.exports = {
             '0008-prolog-mid',
             '0009-prolog-corte-neg',
             '0010-prolog-lp',
-            '0011-faq',
           ],
         },
         {
           title: '✏️ Exercícios',
           collapsable: false,
           children: ['exercicios/fichas-aulas-praticas'],
+        },
+        {
+          title: '🚧 Projeto',
+          collapsable: false,
+          children: ['1000-faq'],
         },
       ],
       '/cdi-ii/': [
