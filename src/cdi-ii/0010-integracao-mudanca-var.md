@@ -19,7 +19,7 @@ Sendo:
 - $g: U \subset \R^n \to V \subset \R^n$, com $U,V$ abertos
 - $g$ é injetiva
 - $g$ é de classe $C^1$
-- $det D_g \ne 0$
+- $\operatorname{det} D_g \ne 0$
 - $(x_1, \dots, x_n) = g(y_1, \dots, y_n)$
 
 Temos que:
@@ -220,7 +220,7 @@ Então temos:
 $$
 \begin{aligned}
 \text{Volume} &= \int^h_0\left(\int^{2\pi}_0\left(\int^z_0 1\cdot r \d r\right) \d \theta\right) \d z\\
-&=\int^h_0 \left(\int^{2\pi}_0 \left[\frac{\pi^2}{2}\right]^z_0 \d \theta\right) \d z\\
+&=\int^h_0 \left(\int^{2\pi}_0 \left[\frac{r^2}{2}\right]^z_0 \d \theta\right) \d z\\
 &=\int^h_0 \left( \int^{2\pi}_0 \frac{z^2}{2} \d \theta\right) \d z\\
 &=\int^h_0 2\pi \times \frac{z^2}{2} \d z\\
 &=\int^h_0 \pi z^2 \d z\\
@@ -240,7 +240,7 @@ em vez de $x$, $y$ e $z$.
 
 - $r$ é a distância à origem
 - $\varphi$ é o ângulo que o vetor faz com o eixo dos $zz$
-- $\theta$ é o ângulo entre o semi-eixo positivo dos $xx$ e a projeção do vertor no plano $Oxy$
+- $\theta$ é o ângulo entre o semi-eixo positivo dos $xx$ e a projeção do vetor no plano $Oxy$
 
 Podemos então definir a transformação:
 
