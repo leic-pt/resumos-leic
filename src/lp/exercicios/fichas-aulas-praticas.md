@@ -165,6 +165,8 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 
   Nota importante: Os exercícios desta secção devem ser realizados com predicados de ordem superior (sem recursão, portanto). A secção dos meta-predicados sobre listas poderá ser útil para este propósito.
 
+  Se esgotarem estes exercícios e quiserem fazer mais, [este site](https://www.ic.unicamp.br/~meidanis/courses/mc336/2009s2/prolog/problemas/) tem imensos exercícios de Prolog que podem querer fazer (ty Gonçalo Nunes 😄).
+
   ::: details Resolução
   Exercício 1
 

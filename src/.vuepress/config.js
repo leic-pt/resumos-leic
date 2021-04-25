@@ -114,6 +114,11 @@ module.exports = {
           collapsable: false,
           children: ['exercicios/fichas-aulas-praticas'],
         },
+        {
+          title: '🚧 Projeto',
+          collapsable: false,
+          children: ['1000-faq'],
+        },
       ],
       '/cdi-ii/': [
         '',
