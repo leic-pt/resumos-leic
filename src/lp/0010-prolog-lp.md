@@ -7,14 +7,19 @@ description: Prolog como Linguagem de Programação, Tipos, Mecanismos de Contro
 [[toc]]
 
 Tal como referido anteriormente, o Prolog baseia-se no paradigma da programação em lógica. Ao contrário de outros paradigmas baseados em ciclos, recursões, entre outros, a programação em lógica baseia-se no princípio da resolução guiado pela unificação. Além disso, os outros paradigmas de programação que estudámos assumem que os dados de entrada são fornecidos ao programa, ao contrário da programação em lógica que não faz a distinção entre dados de entrada e saída - **polimodalidade**.  
-Aqui, o programador define entidades, factos, relações e regras, e o programa infere conclusões em relação a determinados objetivos consoante o que "sabe".
+Aqui, o programador define entidades, factos, relações e regras, e o programa infere conclusões em relação a determinados objetivos consoante o que "sabe"; não podemos, portanto, criar funções que retornam valores, apenas relações, relações estas com um argumento adicional em relação à definição usual de uma função, cujo propósito é ser a variável que representa o "valor de retorno".
+
+Temos ainda mais uma diferença entre o Prolog e as linguagens convencionais: numa linguagem habitual, caso a execução não possa prosseguir, gera-se um erro de execução; em Prolog, há apenas um retrocesso até ao último "ponto de decisão", e o processo limita-se a continuar seguindo um caminho diferente.
 
 - **Tipos de informação**
-  Átomos e números como tipos elementares, podendo criar tipos estruturados compondo tipos elementares; considerando estes últimos, a lista é um deles, pré-definido.
+  Prolog é uma linguagem sem declaração de tipos, que pode utilizar estruturas de dados com flexibilidade; as variáveis têm, claro, um **domínio** ou _scope_ ondem podem ser utilizadas - a cláusula onde esta se encontra. O domínio de um nome, por outro lado, é todo o programa.
+  Átomos e números são os **tipos elementares**, podendo criar tipos **estruturados** compondo tipos elementares; considerando estes últimos, a lista é um deles, pré-definido.
 
 ## Mecanismos de controlo
 
-**A ordem pela qual as cláusulas são escritas num programa é de extrema importância na execução do programa**. O Prolog verifica sempre as cláusulas pela mesma ordem - do início ao fim - pelo que devemos ter em conta este aspeto quando estamos a implementar o código. Este pormenor é particularmente relevante quando tentamos implementar _mecanismos de controlo_; não existindo "estruturas de seleção" usuais como `if-then` e `if-then-else`, podemos escolher cuidadosamente a ordem das cláusulas e combiná-las com o operador de corte para criar estruturas bastante semelhantes.
+Aqui, os programas não especificam um algoritmo para atingir resultados - estes são obtidos através das entidades definidas, das suas propriedades e das suas relações.
+
+**A ordem pela qual as cláusulas são escritas num programa é de extrema importância na execução do programa**, diferindo, portanto, da "lógica teórica". O Prolog verifica sempre as cláusulas pela mesma ordem - do início ao fim - pelo que devemos ter em conta este aspeto quando estamos a implementar o código. Este pormenor é particularmente relevante quando tentamos implementar _mecanismos de controlo_; não existindo "estruturas de seleção" usuais como `if-then` e `if-then-else`, podemos escolher cuidadosamente a ordem das cláusulas e combiná-las com o operador de corte para criar estruturas bastante semelhantes.
 
 Interação exemplo:
 
@@ -70,6 +75,54 @@ ciclo_inteiros(N) :-
 % enquanto I < N, a unificação falha e o retrocesso gera uma
 % "alternativa adicional"; quando unificam, o corte é executado
 ```
+
+## Homoiconicidade
+
+- **Homoiconicidade** - propriedade de algumas linguagens de programação, onde a representação dos programas corresponde à principal estrutura de dados da linguagem (em Prolog o **termo composto**, aplicação de um _functor_ a um certo número de argumentos), permitindo que o programa se modifique a si próprio. A primeira linguagem a apresentar este comportamento foi o velhinho [Lisp](https://en.wikipedia.org/wiki/Lisp_programming_language), já de 1958, comportamento este apresentado por todas as propriedades que dele derivaram.
+
+Existem alguns predicados _built-in_ em Prolog que nos permitem criar/extrair informação de termos compostos:
+
+- `functor/3`, ou `functor(T, F, Ar)`, aplica o functor F ao termo composto T com aridade Ar.
+
+- `arg/3` ou `arg(N, T, Arg)`, afirma que Arg é o N-ésimo argumento do termo T.
+
+- `=..(T, L)` afirma que o primeiro elemento da lista L é o functor de T e que o resto dos elementos são os seus argumentos.
+
+::: details Exemplos
+
+```prolog
+?- functor(ad(pedro_I, joao_I), ad, 2).
+true.
+?- functor(ad(pedro_I, joao_I), F, Ar).
+F = ad,
+Ar = 2.
+?- functor(T, ad, 2).
+T = ad(_313, _314).
+% neste último exemplo, foi criado um termo composto dados o functor e a aridade
+% assim sendo, as variáveis criadas são aquelas "variáveis aleatórias"
+
+?- arg(1, ad(marge, bart), marge).
+true.
+?- arg(2, ad(marge, bart), Arg2).
+Arg2 = bart.
+?- arg(1, ad(X, Y), marge).
+X = marge.
+
+?- T =.. [ad, marge, bart].
+T = ad(marge, bart).
+?- ad(marge, bart) =.. [P | R].
+P = ad,
+R = [marge, bart].
+% a interação acima é igual a:
+?- =..(ad(marge, bart), [P | R]).
+P = ad,
+R = [marge, bart].
+```
+
+:::
+
+Temos ainda o predicado `call/1`, que só tem sucesso se o seu argumento também tiver sucesso (i.e `call(member(3, [1,2,4]))` não tem sucesso, mas `call(member(3, [1,2,3]))` tem). É usualmente implementado em combinação com os 3 predicados referidos acima.  
+Um exemplo possível da aplicação deste predicado será que tentar fazer algo do género `..., L =.. [P, X, Y], call(L), ...` não gera erro, visto que assim podemos chamar L como sendo `P(X, Y)`, mas chamar `P(X, Y)` por si só gera um erro.
 
 ## Predicados Dinâmicos
 
