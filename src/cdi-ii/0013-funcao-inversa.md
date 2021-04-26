@@ -47,10 +47,10 @@ Caso tenhamos que $\det D f(a) = 0$, não podemos concluir se a função é inve
 
 Por exemplo:
 
-- Com $f: \R \to \R, f(x) = x^2$, então $f'(0) = 0$ e a função não é invertível na vizinhança de 0.
-  [imagem]
-- Com $f: \R \to \R, f(x) = x^3$, então $f'(0) = 0$ e a função é invertível na vizinhança de 0.
-  [imagem]
+- Com $f: \R \to \R, f(x) = x^2$, então $f'(0) = 0$ e a função não é invertível na vizinhança de 0.  
+  <img src="./assets/0013-quadratica.svg" alt="Origem da Função Quadrática x^2" class="invert-dark2">
+- Com $f: \R \to \R, f(x) = x^3$, então $f'(0) = 0$ e a função é invertível na vizinhança de 0.  
+  <img src="./assets/0013-cubica.svg" alt="Origem da Função Cúbica x^3" class="invert-dark2">
 
 :::
 
