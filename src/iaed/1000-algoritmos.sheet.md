@@ -36,7 +36,9 @@ Qualquer um dos sorts precisa destes `define`
 
 <<< @/src/iaed/assets/1000-heap.c
 
-### Counting Sort (Not working :D)
+### Counting Sort
+
+<<< @/src/iaed/assets/1000-counting.c
 
 ### Radix Sort LSD
 
