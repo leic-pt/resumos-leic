@@ -137,6 +137,8 @@ module.exports = {
             '0009-integracao-funcoes',
             '0010-integracao-mudanca-var',
             '0011-aplicacoes-integral',
+            '0012-teorema-leibniz',
+            '0013-funcao-inversa',
           ],
         },
         {
