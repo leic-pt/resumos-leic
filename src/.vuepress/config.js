@@ -159,7 +159,8 @@ module.exports = {
             '0011-FFT',
             '0012-MDC',
             '0013-calendario',
-            '0014-congruencias',
+            '0014-pascoa',
+            '0015-congruencias',
           ],
         },
         {
