@@ -102,3 +102,5 @@ $M =$ produto dos módulos
 $x_0 =$ soma dos $rn_{i} ñ_{i}$ % $M$
 
 Resposta $= x_0 +Mt$
+
+![desISTo2](./imgs/1004-q.jpg)
