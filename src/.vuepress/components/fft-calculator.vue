@@ -1,20 +1,24 @@
 <template>
   <div>
     <div>
-      Polinómio 1
-      <span v-for="(value, i) in pol1" :key="i">
-        <label>Grau {{ i }}</label>
-        <input v-model="pol1[i]" type="number" class="input-box" />
-      </span>
+      <strong>Polinómio 1</strong>
+      <div class="pol-inputs">
+        <div v-for="(value, i) in pol1" :key="i" class="input-box-div">
+          <label>Grau {{ i }}</label>
+          <input v-model="pol1[i]" type="number" class="input-box" />
+        </div>
+      </div>
     </div>
     <div>
-      Polinómio 2
-      <span v-for="(value, i) in pol2" :key="i">
-        <label>Grau {{ i }}</label>
-        <input v-model="pol2[i]" type="number" class="input-box" />
-      </span>
+      <strong>Polinómio 2</strong>
+      <div class="pol-inputs">
+        <div v-for="(value, i) in pol2" :key="i" class="input-box-div">
+          <label>Grau {{ i }}</label>
+          <input v-model="pol2[i]" type="number" class="input-box" />
+        </div>
+      </div>
     </div>
-    <button @click="calculate">Calculate</button>
+    <button @click="calculate" class="calculate-btn">Calculate</button>
     <katex-element
       v-for="(expression, i) in expressions"
       :key="i"
@@ -30,7 +34,7 @@ import KatexElement from './KatexElement.vue';
 export default {
   data() {
     return {
-      expressions: ['test', 'test2'],
+      expressions: [],
       pol1: [0, 0, 0, 0],
       pol2: [0, 0, 0, 0],
     };
@@ -87,8 +91,19 @@ export default {
       ];
     },
 
+    grauPol(p) {
+      return p.reduce((acc, v, i) => (v == 0 ? acc : i), 0);
+    },
+
     calculate() {
       this.expressions = [];
+
+      if (this.grauPol(this.pol1) + this.grauPol(this.pol2) > 3) {
+        this.expressions.push(
+          `\\text{Esta calculadora só suporta polinómios resultantes até grau 3}`
+        );
+        return;
+      }
 
       let pol1 = this.pol1.map((v) => ({ real: parseInt(v, 10), imag: 0 }));
       let pol2 = this.pol2.map((v) => ({ real: parseInt(v, 10), imag: 0 }));
@@ -270,5 +285,26 @@ export default {
   background: var(--bgColor);
   border: 1px solid var(--darken10BorderColor);
   color: var(--textColor);
+}
+.input-box-div {
+  display: flex;
+  flex-direction: column;
+  margin-right: 5px;
+}
+.pol-inputs {
+  display: flex;
+  margin-bottom: 8px;
+}
+.calculate-btn {
+  background-color: #00aef8;
+  color: rgba(0, 0, 0, 0.87);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%),
+    0px 1px 5px 0px rgb(0 0 0 / 12%);
+  padding: 6px 16px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  margin: 16px 8px;
 }
 </style>
