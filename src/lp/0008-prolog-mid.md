@@ -207,32 +207,32 @@ Aqui, a utilidade do operador de corte é: "se isto não der falso, não uses ma
 
 De seguida estão apresentadas algumas operações aritméticas que podem ser úteis:
 
-| Operação                      | Significado                          |
-| ----------------------------- | ------------------------------------ |
-| A+B, +(A, B)                  | soma entre A e B                     |
-| A-B, -(A, B)                  | diferença entre A e B                |
-| A*B, *(A, B)                  | produto entre A e B                  |
-| A/B, /(A, B)                  | quociente real entre A e B           |
-| A//B, //(A,B)                 | quociente inteiro entre A e B        |
-| A^B, ^(A, B), A\**B, \**(A, B)| A elevado a B                        |
-| -A                            | simétrico de A                       |
-| sin(A), cos(A), tan(A)        | seno, cosseno, tangente de A         |
-| log(A)                        | logaritmo natural de A               |
-| abs(A)                        | módulo de A                          |
-| sqrt(A)                       | raiz quadrada de A                   |
-| max(A, B)                     | maior valor entre A e B              |
-| min(A, B)                     | menor valor entre A e B              |
-| rem(A, B), mod(A, B)          | resto da divisão entre A e B         |
-| gcd(A, B)                     | maior divisor comum entre A e B      |
-| lcm(A, B)                     | menor múltiplo comum entre A e B     |
-| sign(A)                       | -1 se A < 0, 0 se A == 0, 1 se A > 0 |
-| random(A)                     | valor tal que 0 <= valor < A         |
-| random_between(A, B)          | valor tal que A <= valor <= B        |
-| round(A)                      | arredonda (para o int + próximo) A   |
-| floor/ceiling/float/integer   | vocês sabem estes                    |
-| >>, <<, xor                   | shift left, right, xor               |
-| \\/                           | bitwise or (cursed)                  |
-| /\                            | bitwise and (cursed)                 |
+| Operação                         | Significado                          |
+| -------------------------------- | ------------------------------------ |
+| A+B, +(A, B)                     | soma entre A e B                     |
+| A-B, -(A, B)                     | diferença entre A e B                |
+| A*B, *(A, B)                     | produto entre A e B                  |
+| A/B, /(A, B)                     | quociente real entre A e B           |
+| A//B, //(A,B)                    | quociente inteiro entre A e B        |
+| A^B, ^(A, B), A\*\*B, \*\*(A, B) | A elevado a B                        |
+| -A                               | simétrico de A                       |
+| sin(A), cos(A), tan(A)           | seno, cosseno, tangente de A         |
+| log(A)                           | logaritmo natural de A               |
+| abs(A)                           | módulo de A                          |
+| sqrt(A)                          | raiz quadrada de A                   |
+| max(A, B)                        | maior valor entre A e B              |
+| min(A, B)                        | menor valor entre A e B              |
+| rem(A, B), mod(A, B)             | resto da divisão entre A e B         |
+| gcd(A, B)                        | maior divisor comum entre A e B      |
+| lcm(A, B)                        | menor múltiplo comum entre A e B     |
+| sign(A)                          | -1 se A < 0, 0 se A == 0, 1 se A > 0 |
+| random(A)                        | valor tal que 0 <= valor < A         |
+| random_between(A, B)             | valor tal que A <= valor <= B        |
+| round(A)                         | arredonda (para o int + próximo) A   |
+| floor/ceiling/float/integer      | vocês sabem estes                    |
+| >>, <<, xor                      | shift left, right, xor               |
+| \\/                              | bitwise or (cursed)                  |
+| /\                               | bitwise and (cursed)                 |
 
 Temos também operações relacionais:
 
