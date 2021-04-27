@@ -185,6 +185,11 @@ module.exports = {
             '1004-mdc-cheat',
           ],
         },
+        {
+          title: '📃 Ferramentas',
+          collapsable: false,
+          children: ['tools/fft-calculator'],
+        },
       ],
       '/': [
         {
