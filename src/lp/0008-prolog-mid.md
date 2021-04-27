@@ -36,9 +36,9 @@ X = [1,2,3,4,5].
 X = [1,2,3,4,5,6].
 ?- append([[1,2], X, [a,b,c]], [1,2,3,4,5,a,b,c]).
 X = [3,4,5].
-?- append(X, [Resto], [1,2,3]).
+?- append(X, [Ultimo], [1,2,3]).
 X = [1,2],
-Resto = 3.
+Ultimo = 3.
 ?- append([1,2,3], Resto, L).
 L = [1,2,3 | Resto].
 ```
@@ -104,8 +104,8 @@ count_vars(L, Res) :- include(var, L, L_vars), length(L_vars, Res).
 % interação
 ?- include(is_odd, [1,2,3,4,5,6], Odd).
 Odd = [1,3,5].
-?- exclude(is_odd, [1,2,3,4,5,6], Odd).
-Odd = [2,4,6].
+?- exclude(is_odd, [1,2,3,4,5,6], Even).
+Even = [2,4,6].
 ?- exclude(are_identical(3), [1,2,3,4,3,2,1], L).
 L = [1,2,4,2,1].
 % podemos escrever o objetivo acima de outra maneira, mais interessante
@@ -163,7 +163,7 @@ sublists(L, N, SLs) :- findall(SL, sublist(SL, L, N), SLs).
 
 ?- L = [1,2,3,4,5,6], sublists(L, 4, SLs).
 L = [1,2,3,4,5,6],
-SLs = SLs = [[1, 2, 3, 4], [2, 3, 4, 5], [3, 4, 5, 6]].
+SLs = [[1, 2, 3, 4], [2, 3, 4, 5], [3, 4, 5, 6]].
 ```
 
 Esta implementação tem, contudo, um problema, problema este que segundo a prof está **diretamente relacionado com o projeto**.
@@ -214,7 +214,7 @@ De seguida estão apresentadas algumas operações aritméticas que podem ser ú
 | A*B, *(A, B)                  | produto entre A e B                  |
 | A/B, /(A, B)                  | quociente real entre A e B           |
 | A//B, //(A,B)                 | quociente inteiro entre A e B        |
-| A^B, ^(A, B)                  | A elevado a B                        |
+| A^B, ^(A, B), A\**B, \**(A, B)| A elevado a B                        |
 | -A                            | simétrico de A                       |
 | sin(A), cos(A), tan(A)        | seno, cosseno, tangente de A         |
 | log(A)                        | logaritmo natural de A               |
@@ -228,9 +228,9 @@ De seguida estão apresentadas algumas operações aritméticas que podem ser ú
 | sign(A)                       | -1 se A < 0, 0 se A == 0, 1 se A > 0 |
 | random(A)                     | valor tal que 0 <= valor < A         |
 | random_between(A, B)          | valor tal que A <= valor <= B        |
-| round(A)                      | arredonda (para cima) A              |
-| floor, ceiling, float, int... | vocês sabem estes                    |
-| >>, <<, xor                   | shift right, left, xor               |
+| round(A)                      | arredonda (para o int + próximo) A   |
+| floor/ceiling/float/integer   | vocês sabem estes                    |
+| >>, <<, xor                   | shift left, right, xor               |
 | \\/                           | bitwise or (cursed)                  |
 | /\                            | bitwise and (cursed)                 |
 
@@ -368,7 +368,7 @@ Interações básicas:
 
 ```prolog
 ?- write(a),write(5).
-a5.
+a5
 true.
 ?- writeln(a),write(5).
 a
@@ -428,8 +428,12 @@ prox_ano(Hoje, Futuro) :-
 
 % interação possível:
 
-?- prox_ano(data(2014, 4, 2), Futuro).
+?- prox_ano(faz_data(2014, 4, 2), Futuro).
 Futuro = data(2015, 4, 2).
 ```
 
 Nos slides há um exemplo giro do problema do homem, do lobo, da cabra e da couve, e no livro há um semelhante mas sobre três casas coloridas se quiserem ver mais coisas deste género.
+
+::: tip
+Para correr código de dentro de um programa rapidamente sem criar um ficheiro, pode-se escrever `[user].` na prompt, seguido do código para pôr dentro do programa, seguido de Ctrl-D (EOF).
+:::
