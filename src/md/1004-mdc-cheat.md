@@ -101,6 +101,8 @@ $c_i =$ têm de ser primos entre si
 
 $n_i =$ multiplicação dos elementos da coluna $c_i$ exceto o da própria linha
 
+$ñ_i =$ congruência do n_i pelo módulo da própria linha
+
 $M =$ produto dos módulos
 
 $x_0 =$ soma dos $rn_{i} ñ_{i}$ % $M$
