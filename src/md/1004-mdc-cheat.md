@@ -111,4 +111,4 @@ Resposta $= x_0 +Mt$
 
 - [Sistemas de Congruências no WolframAplha](https://www.wolframalpha.com/input/?i=%283+x+%2B+1%29+mod+7+%3D+6%2C+x+mod+9+%3D+2%2C+%28x+-+2%29+mod+4+%3D+1)
 
-![desISTo2](./imgs/1004-q.jpg)
+![desISTo2](./imgs/1004-q.jpeg)
