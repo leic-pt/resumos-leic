@@ -123,15 +123,25 @@ Substituindo na equação das soluções,
 
 $$
 x = x_0 + \frac n d (dq+r)\\
-x = x_0 +nq+ \frac n d r \\
-x \equiv_n x_0 + \frac n d r
+x = x_0 +nq+ \frac n d r
 $$
 
-$n$ e $d$ são fixos, o que varia é o $r=0,\dots,d-1$, "criando" as $d$ soluções incongruentes.  
+Como $nq$ é múltiplo de $n$,
+
+$$x \equiv_n x_0 + \frac n d r$$
+
+Isto significa que, se tivermos $t_1 = dq_1 + r$ e $t_2 = dq_2 + r$, onde $q_1 \neq q_2$, as soluções
+
+$$
+x_1 = x_0 + \frac n d t_1\\
+x_2 = x_0 + \frac n d t_2
+$$
+
+**são congruentes módulo n entre si.**
+
+As soluções incongruentes obtêm-se com os diferentes valores de $r$. Como $r=0,\dots,(d-1)$, concluímos que só existem $d$ soluções incongruentes.
+
 QED
-
-(Ajuda se pensarmos o que aconteceria se pudessemos ter $r>=d$. Nestes casos, todas as soluções seriam congruentes com pelo menos uma das já descobertas, $r=d$ seria congruente com $r=0$, $r=d+1$ com $r=1$ e assim sucessivamente.)
-
 :::
 
 ### Teorema 4

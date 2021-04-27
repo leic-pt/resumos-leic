@@ -9,7 +9,7 @@ src/cdi-ii/README.md @diogotcorreia [cdi-ii]
 
 # IAED - Main maintainer Tomás Esteves
 src/iaed/* @Pesteves2002 [iaed]
-src/iaed/labs/* @diogotcorreia [iaed]
+src/iaed/labs/* @diogotcorreia @Pesteves2002 [iaed]
 src/iaed/meta/* @diogotcorreia [iaed]
 src/iaed/README.md @diogotcorreia [iaed]
 
