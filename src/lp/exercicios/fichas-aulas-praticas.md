@@ -190,7 +190,7 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 
   junta_novo_aleatorio(L1, LI, LS, L2) :-
     random_between(LI, LS, E),
-    subtract(L1, [E], L1),
+    \+ member(E, L1),
     insere_ordenado(E, L1, L2).
   ```
 
