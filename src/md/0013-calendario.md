@@ -72,9 +72,11 @@ N_j = 7 - ((\lambda_j + 4)+(\lambda_j \div 4))\%7
 $$
 
 Porquê $\lambda_j + 4$? Porque o ano 1 do calendário Gregoriano começou num sábado (1/1/1 foi um sábado), de forma que o primeiro domingo teve letra B e número dominical 2. Então, o número dominical no geral é dado pelo número dominical no primeiro ano (2) menos o número de regressões (ver nota2) que houve até o ano em consideração:
+
 $$
-N_j = 2 - (\lambda_j - 1 + (\lambda \div 4))\%7 
+N_j = 2 - (\lambda_j - 1 + (\lambda \div 4))\%7
 $$
+
 que corresponde à fórmula a cima.
 
 ---
@@ -88,9 +90,11 @@ N_g = 7 - ((\lambda_g -1)+(\lambda_g \div 4)-(\lambda_g \div 100)+(\lambda_g \di
 $$
 
 Porquê $\lambda_j - 1$? Porque o ano 1 do calendário Gregoriano começou numa segunda-feira (1/1/1 foi uma segunda-feira), de forma que o primeiro domingo teve letra G e número dominical 7. Então, o número dominical no geral é dado pelo número dominical no primeiro ano (7) menos o número de regressões (ver nota2) que houve até o ano em consideração:
+
 $$
-N_j = 7 - (\lambda_j - 1 + (\lambda \div 4)-(\lambda_g \div 100)+(\lambda_g \div 400))\%7 
+N_j = 7 - (\lambda_j - 1 + (\lambda \div 4)-(\lambda_g \div 100)+(\lambda_g \div 400))\%7
 $$
+
 que corresponde à fórmula a cima. Note-se que isto não conta com os 10 dias que foram omitidos neste calendário. O professor não mencionou este facto pelo que suponho que o facto de o primeiro dia do primeiro ano ter sido uma segunda-feira já seja a contar com este facto.
 
 **NOTA1:** $\%$ representa o resto da divisão e $\div$ a divisão inteira.
