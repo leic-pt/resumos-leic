@@ -54,16 +54,20 @@ $$
 
 ## Congruências
 
+$16x {\equiv_{12}}10 = 16x - 12y = 10$ (Resolver por diofantinas para $x$)
+
+- [Congruências no WolframAplha](https://www.wolframalpha.com/input/?i=%2816x+mod+29%29+%3D+27)
+
 Se os módulos forem primos entre si 2 a 2, há sempre solução única
 
 Se não, temos de fazer o MDC de 2 módulos successivos e ver se a diferença dos $r_i$ respetivos, divide o tal MDC calculado.
 
 $$
-\left\{ \begin{aligned}
+\begin{cases}
  x {\equiv_{12}}10\\
  x {\equiv_8}2\\
  x {\equiv_5}2
-\end{aligned} \right.
+\end{cases}
 $$
 
 $m_1 \frown m_2 = 4 a_1 - a_2 = 8$\
@@ -97,8 +101,14 @@ $c_i =$ têm de ser primos entre si
 
 $n_i =$ multiplicação dos elementos da coluna $c_i$ exceto o da própria linha
 
+$ñ_i =$ congruência do n_i pelo módulo da própria linha
+
 $M =$ produto dos módulos
 
 $x_0 =$ soma dos $rn_{i} ñ_{i}$ % $M$
 
 Resposta $= x_0 +Mt$
+
+- [Sistemas de Congruências no WolframAplha](https://www.wolframalpha.com/input/?i=%283+x+%2B+1%29+mod+7+%3D+6%2C+x+mod+9+%3D+2%2C+%28x+-+2%29+mod+4+%3D+1)
+
+![desISTo2](./imgs/1004-q.jpeg)

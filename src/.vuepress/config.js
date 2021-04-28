@@ -186,7 +186,7 @@ module.exports = {
           ],
         },
         {
-          title: '📃 Ferramentas',
+          title: '🛠 Ferramentas',
           collapsable: false,
           children: ['tools/fft-calculator'],
         },
