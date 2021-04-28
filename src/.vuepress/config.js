@@ -188,7 +188,7 @@ module.exports = {
         {
           title: '🛠 Ferramentas',
           collapsable: false,
-          children: ['tools/fft-calculator'],
+          children: ['tools/fft-calculator', 'tools/bezout-calculator'],
         },
       ],
       '/': [
