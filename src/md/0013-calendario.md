@@ -6,10 +6,10 @@
 
 ### Ano Trópico
 
-O ano trópico corresponde ao período entre duas ocorrências sucessivas do equinócio da Primavera (ou seja, ao período que decorre enquanto a Terra dá uma volta \textbf{exata} ao Sol ). 1 ano trópico tem (aproximado aos segundos).\\
-\begin{center}
-365 dias, 5 horas, 48 minutos e 45 segundos
-\end{center}
+O ano trópico corresponde ao período entre duas ocorrências sucessivas do equinócio da Primavera (ou seja, ao período que decorre enquanto a Terra dá uma volta **exata** ao Sol ). 1 ano trópico tem (aproximado aos segundos).
+$$
+\text{365 dias, 5 horas, 48 minutos e 45 segundos}
+$$
 Sempre foi interessante aos humanos regular os seus afazeres em função dos astros (devido a períodos de colheitas e outros) pelo que é interessante regular esta informação num calendário. O ano de um calendário deverá então ser o mais próximo possível de um ano trópico.
 
 ### Calendário Juliano
@@ -23,7 +23,7 @@ Sempre foi interessante aos humanos regular os seus afazeres em função dos ast
 Calendário usado em Portugal e pela maioria dos países Ocidentais.
 
 - Observa que a diferença entre o ano Juliano e o ano trópico é suficiente para que o primeiro esteja desajustado com os astros ao fim de algumas centenas de anos;
-- Propõe uma melhor aproximação: um ano trópico tem $365 + \frac{1}{4) - \frac{1){100} + \frac{1}{400}$ dias;
+- Propõe uma melhor aproximação: um ano trópico tem $365 + \frac{1}{4) - \frac{1}{100} + \frac{1}{400}$ dias;
 - Anos de 365 dias e anos bissextos de 366 dias;
 - Os anos bissextos acontecem de 4 em 4 anos, mas não de 100 em 100. Contudo, de 400 em 400 temos, novamente, um ano bissexto;
 - Em outubro de 1582, foram omitidos 10 dias do calendário.
