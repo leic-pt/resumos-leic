@@ -68,6 +68,7 @@ module.exports = {
             '0011-even_more_algo',
             '0012-ponteiros',
             '0013-mem',
+            '0014-listas',
           ],
         },
         {
