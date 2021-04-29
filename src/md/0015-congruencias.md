@@ -261,21 +261,3 @@ $$
 
 QED
 :::
-
-### Teorema 6
-
-Este gajo e q e usado para as provas (quase) todas
-
-Se $p \in \N_1$ divide $a \times b$ ($a,b \in \Z$), e $p$ é primo com $b$, então $p$ divide $a$ ($p|a$).
-
-::: details Demonstração
-
-$$
-p \frown b = 1\\
-pa \frown ab = a, \quad \text{deve ser verdade atraves de outro T}\\
-p|(pa) e p|(ab) \implies p|a
-$$
-
-QED
-
-:::
