@@ -17,11 +17,11 @@ description: Tabelas e Vetores.
 - Guardados em posições consecutivas de memória
 - Programador é responsável por respeitar limites
 
-- Em C tabelas podem ser
+- Em c tabelas podem ser
   - De dimensão fixa
   - Alocadas dinamicamente
 
-```C
+```c
 #define N 100
 int tab1[N];
 int *tab2 = (int *) malloc(N*sizeof(int));
@@ -29,7 +29,7 @@ int *tab2 = (int *) malloc(N*sizeof(int));
 
 - Acesso alternativo a tabelas
 
-```C
+```c
 x = tab2[i];
 y = *(tab2+i);
 ```
@@ -51,7 +51,7 @@ y = *(tab2+i);
 - Estrutura em que um campo da estrutura é um
   apontador para outra estrutura do mesmo tipo
 
-```C
+```c
 typedef struct ponto {
   double x;
   double y;
@@ -75,7 +75,7 @@ typedef struct ponto {
   - Informação útil
   - Ponteiro para o próximo nó
 
-```C
+```c
 struct node {
   int valor;
   struct node *next;
@@ -99,14 +99,14 @@ struct node {
 
 - Inserção na Lista de um elemento *t depois de *x
 
-```C
+```c
 t->next = x->next;
 x->next = t;
 ```
 
 - Remoção do elemento depois de x da Lista
 
-```C
+```c
 t = x->next;
 x->next = t->next;
 free(t);
@@ -116,7 +116,7 @@ free(t);
 
 Para obter o número de elementos de uma lista, temos de percorrê-la.
 
-```C
+```c
 int length(struct node* head) {
     int count = 0;
     struct node *x = head;
@@ -140,7 +140,7 @@ Nunca podemos perder o ponteiro para o topo da pilha.
   - Informação útil
   - Ponteiro para o próximo nó e para o nó anterior
 
-```C
+```c
 struct node {
     Item item;
     struct node *prev, *next;
@@ -152,7 +152,7 @@ struct node {
 - É usual utilizar typedef na manipulação de estruturas
   auto-referenciadas
 
-```C
+```c
 struct node{
   int value;
   struct node *next;
