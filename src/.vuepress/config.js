@@ -68,6 +68,7 @@ module.exports = {
             '0011-even_more_algo',
             '0012-ponteiros',
             '0013-mem',
+            '0014-listas',
           ],
         },
         {
@@ -81,6 +82,7 @@ module.exports = {
             'labs/lab06/',
             'labs/lab07/',
             'labs/lab08/',
+            'labs/lab09/',
           ],
         },
         {
