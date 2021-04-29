@@ -50,12 +50,12 @@ que tipo de variável estamos a endereçar.
 
 x é um ponteiro para um inteiro
 
-Conteúdo da posição de memória apontada pelo ponteiro
+- Conteúdo da posição de memória apontada pelo ponteiro
 
 `*x = 4;`
 
-– o valor 4 é atribuído ao conteúdo da posição de memória apontada
-por `x`
+(o valor 4 é atribuído ao conteúdo da posição de memória apontada
+por `x`)
 
 - O valor de retorno de uma função pode ser um ponteiro
 
@@ -106,9 +106,9 @@ Os apontadores têm uma aritmética própria.
 
   - `p3` não pode ser alterado
 
-- A declaração `char \*text;` não aloca qualquer memória
+- A declaração `char *text;` não aloca qualquer memória
 
-  - no entanto `char \*text = "ola";` aloca
+  - no entanto `char *text = "ola";` aloca
 
 Qual a diferença entre as duas declarações seguintes ?
 
