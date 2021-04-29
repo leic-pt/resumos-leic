@@ -7,9 +7,11 @@
 ### Ano Trópico
 
 O ano trópico corresponde ao período entre duas ocorrências sucessivas do equinócio da Primavera (ou seja, ao período que decorre enquanto a Terra dá uma volta **exata** ao Sol ). 1 ano trópico tem (aproximado aos segundos).
+
 $$
 \text{365 dias, 5 horas, 48 minutos e 45 segundos}
 $$
+
 Sempre foi interessante aos humanos regular os seus afazeres em função dos astros (devido a períodos de colheitas e outros) pelo que é interessante regular esta informação num calendário. O ano de um calendário deverá então ser o mais próximo possível de um ano trópico.
 
 ### Calendário Juliano
