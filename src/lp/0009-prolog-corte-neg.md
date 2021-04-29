@@ -196,7 +196,7 @@ Observemos o exemplo:
 ```prolog
 \+(P) :-
   P,
-  !; fail.
+  !, fail.
 
 \+(P).
 ```
