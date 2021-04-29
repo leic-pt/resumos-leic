@@ -1,5 +1,7 @@
 # Páscoa
 
+[[toc]]
+
 A `Páscoa` é celebrada no **primeiro** domingo após a 1ª Lua Cheia, a contar do equinócio da Primavera (que é **sempre** dia `21 de março`).  
 Se a Lua Cheia calhar num domingo, a Páscoa será no domingo seguinte.
 
@@ -138,14 +140,13 @@ $$
 E = (11G -3)\% 30
 $$
 
-::: details Demonstração  
-Substituindo, na primeira expressão, $8$ por $30-(11\times 2)$,
+::: details Demonstração
 
-$$E = (30-(11\times 2) +11(G -1))\% 30$$
-
-Removendo o $30$, já que não altera o resultado (porque estamos a calcular o resto da divisão por $30$) e colocando o $11$ em evidência.
-
-$$E = (11G -3)\% 30$$
+$$
+E = (8 +11(G -1))\% 30\\
+E=(8+11G-11)\% 30\\
+E=(11G-3)\%30
+$$
 
 QED
 :::

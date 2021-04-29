@@ -168,6 +168,7 @@ module.exports = {
             '0013-calendario',
             '0014-pascoa',
             '0015-congruencias',
+            '0016-chines-restos',
           ],
         },
         {
