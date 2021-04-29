@@ -93,7 +93,7 @@ r_{i} & módulos & c_{i} & n_{i} & ñ_{i} & rn_{i} ñ_{i} & Resultados\\
 \hline
 \textcolor{red}1 & \textcolor{orange}5 & 5 & 63 & 7 & 441 & M\ =\ 315\\
 \textcolor{red}3 & \textcolor{orange}7 & 7 & 45 & 5 & 675 & \\
-\textcolor{red}5 & \textcolor{orange}9 & 9 & 57 & 8 & 1400 & x_{0} \ =\ 311
+\textcolor{red}5 & \textcolor{orange}9 & 9 & 35 & 8 & 1400 & x_{0} \ =\ 311
 \end{array}
 $$
 
