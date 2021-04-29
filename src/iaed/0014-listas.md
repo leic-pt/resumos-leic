@@ -1,5 +1,5 @@
 ---
-description: Ponteiros e Endereços. Ponteiros e Tabelas.
+description: Tabelas e Vetores.
 ---
 
 # Estruturas Auto-Referenciadas e Listas
@@ -53,9 +53,9 @@ y = *(tab2+i);
 
 ```C
 typedef struct ponto {
-double x;
-double y;
-struct ponto *origem;
+  double x;
+  double y;
+  struct ponto *origem;
 } Ponto;
 ```
 
@@ -77,13 +77,13 @@ struct ponto *origem;
 
 ```C
 struct node {
-int valor;
-struct node *next;
+  int valor;
+  struct node *next;
 };
 
 struct node {
-char *nome;
-struct node *next;
+  char *nome;
+  struct node *next;
 };
 ```
 
@@ -154,27 +154,35 @@ struct node {
 
 ```C
 struct node{
-int value;
-struct node *next;
+  int value;
+  struct node *next;
 };
 typedef struct node Node;
 typedef struct node* link;
+
+int length(link head) {
+  int count=0;
+  link x;
+  for(x = head; x != NULL; x = x->next)
+      count++;
+  return count;
+}
 ```
 
 ### Criar Lista com Argumentos da Linha de Comandos
 
-`$ ./myprogram bolo1 bolo2 bolo3 bolo4 bolo`
+`$ ./myprogram bolo1 bolo2 bolo3 bolo4 bolo5`
 
 <<< @/src/iaed/assets/0014-arg.c
 
+### Funções de uma Lista
+
+<img src="./assets/0014-listaligada.png" alt="ligada" class="invert-dark2">
+
+<<< @/src/iaed/assets/0014-lista.c
+
+Encontram imagens de como isto funciona visualmente!
 
 Slides:
 
 - [Aula 15 e 16](https://drive.google.com/file/d/1KMreQsdbgRuJX7hYuXrWx5WpTfTUw6Ce/view?usp=sharing)
-
-````
-
-```
-
-```
-````
