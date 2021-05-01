@@ -395,7 +395,7 @@ $$
 Simplificando
 
 $$
-E_G=(11G-33-S+(S\div4) - \lfloor\frac{S-\lfloor\frac{S-17}{25}\rfloor}{3}\rfloor)\% 30
+E_G=(11G-33-S+(S\div4) + \lfloor\frac{S-\lfloor\frac{S-17}{25}\rfloor}{3}\rfloor)\% 30
 $$
 
 ### Correção de Clavius
