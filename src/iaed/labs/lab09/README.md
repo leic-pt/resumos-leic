@@ -33,7 +33,14 @@ node * destroy(node * head);
 void print(node * head);
 ```
 
-::: details Resolução (Soon)
+::: details Resolução
+<code-group>
+<code-block
+title="Diogo Correia">
+<<< @/src/iaed/labs/lab09/ex01_dc.c
+</code-block>
+
+</code-group>
 :::
 
 ## Exercício 2
@@ -49,7 +56,14 @@ node * rev(node * head);         /* devolve uma nova lista que */
                                 /*corresponda a lista dada invertida */
 ```
 
-::: details Resolução (Soon)
+::: details Resolução
+<code-group>
+<code-block
+title="Diogo Correia">
+<<< @/src/iaed/labs/lab09/ex02_dc.c
+</code-block>
+
+</code-group>
 :::
 
 ## Exercício 3
@@ -69,7 +83,14 @@ typedef struct stru_node {
 } node;
 ```
 
-::: details Resolução (Soon)
+::: details Resolução
+<code-group>
+<code-block
+title="Diogo Correia">
+<<< @/src/iaed/labs/lab09/ex03_dc.c
+</code-block>
+
+</code-group>
 :::
 
 ## Exercício 4
@@ -104,7 +125,8 @@ void print(node *head);
 
 Nota: Não se esquecam, no `pop`, de libertar as strings alocadas no `push`.
 
-::: details Resolução (Soon)
+::: details Resolução
+O exercício é igual ao 3...?
 :::
 
 ## Exercício 5
@@ -134,7 +156,14 @@ void  add_last(list *l, char c); /* adiciona o char c como o ultimo elemento da 
 int   is_paly(const list *ls);   /* calcula se a dada lista e um palindromo */
 ```
 
-::: details Resolução (Soon)
+::: details Resolução
+<code-group>
+<code-block
+title="Diogo Correia">
+<<< @/src/iaed/labs/lab09/ex05_dc.c
+</code-block>
+
+</code-group>
 :::
 
 ## Exercício 6
@@ -148,5 +177,12 @@ Implemente uma calculadora para Notação polaca (também denominada notação d
 Dica: Os resultados intermédios podem ser guardados numa pilha.
 
 Dica: A função `atoi` pode ser usada para converter uma string no `int`.
-::: details Resolução (Soon)
+::: details Resolução
+<code-group>
+<code-block
+title="Diogo Correia">
+<<< @/src/iaed/labs/lab09/ex06_dc.c
+</code-block>
+
+</code-group>
 :::
