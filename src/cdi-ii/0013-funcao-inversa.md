@@ -238,6 +238,136 @@ v=v(x,y)
 \end{cases}
 $$
 
+---
+
+**Considerando**
+
+$$
+\begin{array}{l l}
+x^3 + x^2y + e^{y^2-1} = 3 & \text{e } a = (1,1)
+\end{array}
+$$
+
+**Será que é possível definir $y$ em função de $x$, isto é, existe $y = y(x)$?**
+
+- $F(x,y) = x^3+x^2y+e^{y^2-1} - 3$
+- $F \in C^1$
+- $F(a) = 0 \Leftrightarrow F(1,1) = 1+1+1-3 = 0$
+- $\det D_yF = x^2+2ye^{y^2-1} \big|_{(x,y) = (1,1)} = 1+2=3 \ne 0$
+
+Pelo {green}(**Teorema da Função Implícita**), numa vizinhança de $(1,1)$, existe $y = y(x)$ e $F(x,y(x)) = 0$
+
+**Qual o valor de $y'(1)$ e $y''(1)$?**
+
+Sabemos que $y(1) = 1$. Logo, pelo {green}(**Teorema da Função Implícita**), podemos escrever:
+
+$$
+y'(1) = -\left(\frac{\partial F}{\partial y} \right)^{-1} \cdot \frac{\partial F}{\partial x} =
+- \frac{1}{3} \cdot \frac{\partial F}{\partial x}(1,1) = -\frac{5}{3}
+$$
+
+Para descobrirmos o valor de $y''(1)$ precisamos primeiro de descobrir a expressão de $y'(x)$
+para podermos usar a regra da cadeia.
+
+$$
+\frac{\partial F}{\partial x}(1,1) = 3x^2+2xy \big|_{(1,1)} = 5
+$$
+
+Sabendo que $F(x,y(x)) = 0, \forall x$ na vizinhança de 1, podemos usar a
+[regra da cadeia](./0005-derivada-composta.md#formula-da-cadeia-chain-rule) para obter
+a expressão de $y'(x)$:
+
+$$
+\begin{aligned}
+\frac{\d}{\d x} F(x,y(x)) = 0 &\Leftrightarrow \frac{\partial F}{\partial x} (x,y(x)) + \frac{\partial F}{\partial y} (x,y(x)) \cdot \frac{\partial y}{\partial x} = 0\\
+&\Leftrightarrow y'=\frac{\partial y}{\partial x} = - \left(\frac{\partial F}{\partial y}\right)^{-1} \frac{\partial F}{\partial x}
+\end{aligned}
+$$
+
+$$
+\begin{darray}{l}
+\frac{\d^2}{\d x^2}(F(x,y(x))) = 0\\
+\Leftrightarrow \frac{\d}{\d x}\left(\frac{\partial F}{\partial x}(x,y(x)) + \frac{\partial F}{\partial y}(x,y(x)) \cdot y'(x)\right) = 0\\
+\Leftrightarrow \frac{\partial^2 F}{\partial x^2} + \frac{\partial^2 F}{\partial x \partial y} \cdot y'(x) +
+\left(\frac{\partial^2 F}{\partial x \partial y} + \frac{\partial^2 F}{\partial y^2} \cdot y'(x) \right) \cdot y'(x) +\\
+\quad +\frac{\partial F}{\partial y}(x,y(x)) \cdot y''(x) =0
+\end{darray}
+$$
+
+(1)
+
+Determinando agora os valores necessários:
+
+$$
+\begin{darray}{l l l}
+\frac{\partial F}{\partial x} = 3x^2 + 2xy &
+\frac{\partial F}{\partial y} = x^2 + 2ye^{y^2-1} &
+\frac{\partial F}{\partial y}(1,1) = 3\\
+\frac{\partial^2 F}{\partial x^2} = 6x +2y &
+\frac{\partial^2 F}{\partial x \partial y} = 2x &
+\frac{\partial^2 F}{\partial y^2} = 4y^2e^{y^2-1} + 2e^{y^2-1}\\
+\frac{\partial^2 F}{\partial x^2}(1,1) = 8 &
+\frac{\partial^2 F}{\partial x \partial y}(1,1) = 2 &
+\frac{\partial^2 F}{\partial y^2}(1,1) = 6
+\end{darray}
+$$
+
+Então, substituindo na expressão (1), e relembrando que $y'(1) = -\frac{5}{3}$,
+
+$$
+\begin{darray}{l}
+\frac{\d^2}{\d x^2}(F(x,y(x))) = 0\\
+\Leftrightarrow 8+2y'(1) + (2+6\cdot y'(1)) \cdot y'(1) + 3y''(1) = 0\\
+\Leftrightarrow y''(1) = -\frac{1}{3} (8+2y'(1) + 2y'(1) + 6(y'(1))^2)\\
+\Leftrightarrow y''(1) = -\frac{1}{3} \left(8+2 \left(-\frac{5}{3} \right) + 2 \left(-\frac{5}{3} \right) + 6\left(-\frac{5}{3} \right) ^2 \right)\\
+\Leftrightarrow y''(1) = -6
+\end{darray}
+$$
+
+---
+
+**Considerando**
+
+$$
+F(x,y) = xy \quad, \quad C^1
+$$
+
+**podemos descobrir o seguinte**:
+
+$$
+F=0 \Leftrightarrow x=0\lor y=0
+$$
+
+Podemos aplicar o Teorema da Função implícita quando $x=0$ ou quando $y=0$.
+
+Assim, no ponto $(x_0, y_0) = (0,0)$ sabemos que $F(x_0, y_0) = 0$.
+
+**Será que existe $y = y(x)$ neste ponto?**
+
+$$
+\frac{\partial F}{\partial y} = x |_{x_0,y_0 = 0} = 0
+$$
+
+{red}(**Não, pois o determinante é nulo.**)
+
+**E $x = x(y)$?**
+
+$$
+\frac{\partial F}{\partial x} = y |_{x_0,y_0 = 0} = 0
+$$
+
+{red}(**Não, pois o determinante é nulo.**)
+
+Considerando agora o ponto $(x_0, y_0) = (0,1)$.
+
+**Será que existe $x = x(y)$ neste ponto?**
+
+$$
+\frac{\partial F}{\partial x} = y |_{(x_0,y_0) = (0,1)} = 1
+$$
+
+{green}(**Sim, o Teorema da Função Implícita aplica-se.**)
+
 :::
 
 ---
@@ -246,3 +376,4 @@ Slides:
 
 - [Aula 27](https://drive.google.com/file/d/1qTo9pZIwfMRTr8X3kEv1MQ6hqVha6bLy/view?usp=sharing)
 - [Aula 28](https://drive.google.com/file/d/1ZGn5YcukL4WcDkqqijbVqdovz_sO0smc/view?usp=sharing)
+- [Aula 29](https://drive.google.com/file/d/1S-58MvUFNf4UBb3qN8-rBtBhYz_FdCZc/view?usp=sharing)
