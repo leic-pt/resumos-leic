@@ -25,7 +25,7 @@ Sempre foi interessante aos humanos regular os seus afazeres em função dos ast
 Calendário usado em Portugal e pela maioria dos países Ocidentais.
 
 - Observa que a diferença entre o ano Juliano e o ano trópico é suficiente para que o primeiro esteja desajustado com os astros ao fim de algumas centenas de anos;
-- Propõe uma melhor aproximação: um ano trópico tem $365 + \frac{1}{4) - \frac{1}{100} + \frac{1}{400}$ dias;
+- Propõe uma melhor aproximação: um ano trópico tem $365 + \frac{1}{4} - \frac{1}{100} + \frac{1}{400} = 365 + \frac{97}{400}$ dias;
 - Anos de 365 dias e anos bissextos de 366 dias;
 - Os anos bissextos acontecem de 4 em 4 anos, mas não de 100 em 100. Contudo, de 400 em 400 temos, novamente, um ano bissexto;
 - Em outubro de 1582, foram omitidos 10 dias do calendário.
@@ -73,7 +73,7 @@ $$
 N_j = 7 - ((\lambda_j + 4)+(\lambda_j \div 4))\%7
 $$
 
-Porquê $\lambda_j + 4$? Porque o ano 1 do calendário Gregoriano começou num sábado (1/1/1 foi um sábado), de forma que o primeiro domingo teve letra B e número dominical 2. Então, o número dominical no geral é dado pelo número dominical no primeiro ano (2) menos o número de regressões (ver nota2) que houve até o ano em consideração:
+Porquê $\lambda_j + 4$? Porque o ano 1 do calendário Juliano começou num sábado (1/1/1 foi um sábado), de forma que o primeiro domingo teve letra B e número dominical 2. Então, o número dominical no geral é dado pelo número dominical no primeiro ano (2) menos o número de regressões (ver nota2) que houve até o ano em consideração:
 
 $$
 N_j = 2 - (\lambda_j - 1 + (\lambda \div 4))\%7
@@ -101,7 +101,7 @@ que corresponde à fórmula a cima. Note-se que isto não conta com os 10 dias q
 
 **NOTA1:** $\%$ representa o resto da divisão e $\div$ a divisão inteira.
 
-**NOTA2:** Todos os anos "normais" (com 365 dias) o número dominical recua em uma unidade. Isto deve-se ao facto que $365 % 7 = 1$. Nos anos com 366 dias (tanto num calendário como outro) o número dominical recua em duas unidades já que há mais um dia no ano.
+**NOTA2:** Todos os anos "normais" (com 365 dias) o número dominical recua em uma unidade. Isto deve-se ao facto que $365 \% 7 = 1$. Nos anos com 366 dias (tanto num calendário como outro) o número dominical recua em duas unidades já que há mais um dia no ano.
 
 ---
 
