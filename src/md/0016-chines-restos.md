@@ -89,7 +89,7 @@ $$\lambda = 8 + 25t, \quad t \in \Z$$
 
 ### Teorema 1
 
-$a_1, \dots, a_k \in \Z$ e $m_1,\dots,m_k \in \N_1$, com estes útlimos primos entre si 2 a 2.  
+$a_1, \dots, a_k \in \Z$ e $m_1,\dots,m_k \in \N_1$, com estes últimos primos entre si 2 a 2.  
 O problema:
 
 $$
@@ -144,7 +144,7 @@ $$
 
 $m_1,\dots,m_k$, primos entre si 2 a 2
 
-Pelo [Toerema 1](#teorema-1), há sempre solução
+Pelo [Teorema 1](#teorema-1), há sempre solução
 
 A **Solução Geral** é dada por
 
