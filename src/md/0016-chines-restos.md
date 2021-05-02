@@ -294,8 +294,9 @@ $$
 Onde,
 
 - $M = \prod_{i=1}^k c_i$
-- $c_i$ é tal que: $c_i|m_i$ e $c_1 \smile \dots \smile c_k = m_1 \smile \dots \smile m_k = M$  
+- $c_i$ é tal que: $c_i|m_i$ e $c_1 \times \dots \times c_k = m_1 \smile \dots \smile m_k = M$  
   (com o exemplo fica claro)
+- $c_1,\dots,c_k$ são primos 2 a 2.
 - $n_i = c_1\times\dots\times c_{i-1} \times c_{i+1}\times \dots \times c_k = \frac M {c_i}$
 - $ñ_i$ é o inveros de $n_i$, módulo $c_i$
 
@@ -324,9 +325,9 @@ Repare-se que $12$ e $8$ **não** são primos entre si.
 $$
 m_1 \frown m_2 = 12 \frown 8 = 4, \qquad a_1-a_2=10-2=8\\
 4 \textnormal{ divide } 8 \quad \checkmark \\
-m_1 \frown m_3 = 12 \frown 5 = 1, \qquad a_1-a_2=10-2=8\\
+m_1 \frown m_3 = 12 \frown 5 = 1, \qquad a_1-a_3=10-2=8\\
 1 \textnormal{ divide } 8 \quad \checkmark \\
-m_2 \frown m_3 = 8 \frown 5 = 1, \qquad a_1-a_2=2-2=0\\
+m_2 \frown m_3 = 8 \frown 5 = 1, \qquad a_2-a_3=2-2=0\\
 1 \textnormal{ divide } 0 \quad \checkmark \\
 $$
 
