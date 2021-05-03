@@ -6,9 +6,13 @@ description: Calendário. Calendário Gregoriano. Calendário Juliano.
 
 [[toc]]
 
-::: warning
-É possível que possa haver algum erro,\
-se encontrarem avisem @pesteves no chat de MD para eu corrigir
+::: danger
+Tenham EXTREMA atenção aos símbolos de divisão que se encontram nos resumos
+
+`/` ou `÷` - significa a divisão inteira sempre arrendonda para baixo
+
+`%` - significa a divisão pelo `mod`
+
 :::
 
 ## Calendário
@@ -60,7 +64,11 @@ $$
 Um ano é Bissexto se é divisível por 4 e não for divisível por 100,\
  a não ser que seja também divisível por 400.
 
-## Calendário Gregoriano
+::: details At Dover Dwell George Brown Esquire, Good Christopher Finch And David Friar
+<img src="./imgs/1003-calendario.jpeg" alt="completo" class="invert-dark2">
+:::
+
+## Calendário Gregoriano (Calendário usado por Todos Nós)
 
 ### Dia do Mês
 
@@ -69,6 +77,10 @@ $\mathcal{D}$ = Dia Do Mês
 $\mathcal{F}$ = Número do 1º Dia Do Mês
 
 $\mathcal{Y}$ = Ano
+
+::: details Gregoriano
+<img src="./imgs/1003-gregoriano.jpeg" alt="gregoriano" class="invert-dark2">
+:::
 
 $\mathcal{C} = 1 + (\mathcal{D}+ \mathcal{F} -2)$ % 7 (corresponde ao **número calêndrico**)
 
@@ -87,6 +99,10 @@ Aqui, $\mathcal{W}$ corresponde ao **dia da semana**.
 ### Dia da Páscoa
 
 ${Y}$ = Ano
+
+::: details Gregoriano
+<img src="./imgs/1003-pascoag.jpeg" alt="pascoa_gregoriano" class="invert-dark2">
+:::
 
 ${G} = 1 + {Y}$ % 19 (corresponde ao **número de ouro do calendário**)
 
@@ -122,6 +138,10 @@ $\mathcal{F}$ = Número do 1º Dia Do Mês
 
 $\mathcal{Y}$ = Ano
 
+::: details Juliano
+<img src="./imgs/1003-juliano.jpeg" alt="julaino" class="invert-dark2">
+:::
+
 $\mathcal{C} = 1 + (\mathcal{D}+ \mathcal{F} -2)$ % 7 (corresponde ao **número calêndrico**)
 
 $\mathcal{N} = 7 - (\mathcal{Y} + 4 + \mathcal{Y}$ / 4 $)$ % 7 (corresponde ao **número dominical**)
@@ -139,6 +159,10 @@ Aqui, $\mathcal{W}$ corresponde ao **dia da semana**.
 ### Dia da Páscoa
 
 ${Y}$ = Ano
+
+::: details Juliano
+<img src="./imgs/1003-pascoaj.jpeg" alt="pascoa_julaino" class="invert-dark2">
+:::
 
 ${G} = 1 + {Y}$ % 19 (corresponde ao **número de ouro do calendário**)
 

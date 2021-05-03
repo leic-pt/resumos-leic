@@ -58,6 +58,10 @@ $16x {\equiv_{12}}10 \iff 16x - 12y = 10$ (Resolver por diofantinas para $x$)
 
 - [Congruências no WolframAplha](https://www.wolframalpha.com/input/?i=%2816x+mod+29%29+%3D+27)
 
+::: warning
+Obrigatório justificar no teste que existe solução única
+:::
+
 Se os módulos forem primos entre si 2 a 2, há sempre solução única
 
 Se não, temos de fazer o MDC de 2 módulos successivos e ver se a diferença dos $r_i$ respetivos, divide o tal MDC calculado.
@@ -101,13 +105,21 @@ $c_i =$ têm de ser primos entre si
 
 $n_i =$ multiplicação dos elementos da coluna $c_i$ exceto o da própria linha
 
-$ñ_i =$ congruência do n_i pelo módulo da própria linha
+$ñ_i =$ congruência do $n_i$ pelo $c_i$da própria linha
 
 $M =$ produto dos módulos
 
 $x_0 =$ soma dos $rn_{i} ñ_{i}$ % $M$
 
 Resposta $= x_0 +Mt$
+
+::: warning
+
+No caso de os módulos não serem primos entre si
+
+Temos de achar o m.m.c. deles\
+E dispôr nas suas filas respetivas onde o módulo tem de dividir o $c_i$
+:::
 
 - [Sistemas de Congruências no WolframAplha](https://www.wolframalpha.com/input/?i=%283+x+%2B+1%29+mod+7+%3D+6%2C+x+mod+9+%3D+2%2C+%28x+-+2%29+mod+4+%3D+1)
 
