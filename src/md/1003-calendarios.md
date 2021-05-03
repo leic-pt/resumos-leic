@@ -62,7 +62,7 @@ $$
 $$
 
 Um ano é Bissexto se é divisível por 4 e não for divisível por 100,\
- a não ser que seja também divisível por 400.
+ a não ser que seja também divisível por 400 (Só se aplica para o Calendário Gregoriano)
 
 ::: details At Dover Dwell George Brown Esquire, Good Christopher Finch And David Friar
 <img src="./imgs/1003-calendario.jpeg" alt="completo" class="invert-dark2">
@@ -74,7 +74,7 @@ Um ano é Bissexto se é divisível por 4 e não for divisível por 100,\
 
 $\mathcal{D}$ = Dia Do Mês
 
-$\mathcal{F}$ = Número do 1º Dia Do Mês
+$\mathcal{F}$ = Número do 1º Dia Do Mês (Tabela no início do Resumo)
 
 $\mathcal{Y}$ = Ano
 
@@ -112,19 +112,19 @@ ${V} = (E / 24 - E / 25) + (G / 12) * (E / 25 - E / 26)$ (corresponde à **corre
 
 (talvez saia na pergunta teórica) - A Epacta Final corresponde a somar a epacta à correção de Clavius.
 
-${D} = 20 + (54 - {E}+ V)$ % 30 (corresponde ao **dia da Lua Cheia Pascal**)
+${R} = 20 + (54 - ({E}+ V))$ % 30 (corresponde ao **dia da Lua Cheia Pascal**)
 
-${C} = 1 + ({D} + 2)$ % 7 (corresponde ao **dia calêndrico da Lua Cheia Pascal**)
+${C} = 1 + ({R} + 2)$ % 7 (corresponde ao **dia calêndrico da Lua Cheia Pascal**)
 
 ${N} = 7 - ({Y} - 1 +  {Y} / 4 - {Y} / 100 +  {Y} / 400 )$ % 7 (corresponde ao **Número Dominical**)
 
 Se ${C} < {N}$
 
-${S} = {D} + {N} - {C}$
+${S} = {R} + {N} - {C}$
 
 Se não
 
-${S} = {D} + 7 - ({N} - {C})$ % 7
+${S} = {R} + 7 - ({N} - {C})$ % 7
 
 Dia da páscoa = dia 1 de março + S
 
@@ -134,7 +134,7 @@ Dia da páscoa = dia 1 de março + S
 
 $\mathcal{D}$ = Dia Do Mês
 
-$\mathcal{F}$ = Número do 1º Dia Do Mês
+$\mathcal{F}$ = Número do 1º Dia Do Mês (Tabela no início do Resumo)
 
 $\mathcal{Y}$ = Ano
 
