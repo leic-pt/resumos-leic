@@ -20,7 +20,7 @@ Através desta definição, podemos também concluir facilmente que $a \equiv_n 
 
 ### Teorema 1
 
-Se adicionarmos, membro a mebro, duas congruências do mesmo módulo, obtemos ainda uma congruência desse mesmo módulo.  
+Se adicionarmos, membro a membro, duas congruências do mesmo módulo, obtemos ainda uma congruência desse mesmo módulo.  
 Ou seja,
 
 $$
@@ -211,5 +211,53 @@ ac \equiv_n bc
 $$
 
 QED
+:::
 
+### Teorema 6
+
+$x \equiv_{pq} a$ , se e só se $x \equiv_p a$ e $x \equiv_q a$,  
+$a \in \Z$, $\quad p,q \in \N_1$ primos entre si ($p \frown q = 1$).
+
+::: details Demonstração
+
+1. Condição Necessária
+   Assumindo que $x \equiv_{pq} a$,
+
+$$
+x-a = kpq,\qquad k \in \Z\\
+x-a = k_pq, \qquad (k_p = kp, k_p \in \Z)\\
+x \equiv_q a
+$$
+
+Por outro lado,
+
+$$
+x-a = k_qp, \qquad (k_q = kq, k_q \in \Z)\\
+x \equiv_p q
+$$
+
+2. Condição Suficiente  
+   Assumindo que $x \equiv_p a$ e $x \equiv_q a$.
+
+$$
+\left\{ \begin{aligned}
+  x-a = k_0p, \quad k_0 \in \Z\\
+  x-a = k_1q, \quad k_1 \in \Z\\
+\end{aligned} \right.\\
+k_1q = k_0p
+$$
+
+Como $q$ e $p$ são primos entre si, para a igualdade se verificar, $q | k_0$, por exemplo.  
+Logo,
+
+$$k_0 = \lambda q, \qquad \lambda \in \Z$$
+
+Substituindo,
+
+$$
+x-a = \lambda q p\\
+x \equiv_{pq} a
+$$
+
+QED
 :::

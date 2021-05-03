@@ -243,12 +243,6 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 
 - [Semana 9](https://drive.google.com/file/d/1RovEx8Zcles6lAy4pJlX5bSIanLjASAF/view?usp=sharing)
 
-::: danger
-
-Esta secção ainda não sai esta semana.
-
-:::
-
 - Aritmética
 
   ::: details Resolução

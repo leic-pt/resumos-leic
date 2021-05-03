@@ -78,13 +78,15 @@ $\mathcal{F}$ = Número do 1º Dia Do Mês
 
 $\mathcal{Y}$ = Ano
 
+
 ::: details Gregoriano
 <img src="./imgs/1003-gregoriano.jpeg" alt="gregoriano" class="invert-dark2">
 :::
 
-$\mathcal{C} = 1 + (\mathcal{D}+ \mathcal{F} -2)$ % 7
+$\mathcal{C} = 1 + (\mathcal{D}+ \mathcal{F} -2)$ % 7 (corresponde ao **número calêndrico**)
 
-$\mathcal{N} = 7 - (\mathcal{Y} - 1 +  \mathcal{Y} / 4 - \mathcal{Y} / 100 + \mathcal{Y} / 400)$ % 7
+
+$\mathcal{N} = 7 - (\mathcal{Y} - 1 +  \mathcal{Y} / 4 - \mathcal{Y} / 100 + \mathcal{Y} / 400)$ % 7 (corresponde ao **número dominical**)
 
 Se for Janeiro ou Fevereiro e é Ano Bisssexto:
 
@@ -94,25 +96,35 @@ Se não:
 
 $\mathcal{W} = 1 + (\mathcal{C} - \mathcal{N} + 7)$ % 7
 
+Aqui, $\mathcal{W}$ corresponde ao **dia da semana**.
+
 ### Dia da Páscoa
 
 ${Y}$ = Ano
+
 
 ::: details Gregoriano
 <img src="./imgs/1003-pascoag.jpeg" alt="pascoa_gregoriano" class="invert-dark2">
 :::
 
-${G} = 1 + {Y}$ % 19
+${G} = 1 + {Y}$ % 19 (corresponde ao **número de ouro do calendário**)
 
-${E} = (57 + 11G - S + \lfloor{\frac {S} {4}}\rfloor + \lfloor{\frac {S - \lfloor{\frac {S - 17} {25}}\rfloor} {3}}\rfloor)$ % 30
+${E} = (57 + 11G - S + \lfloor{\frac {S} {4}}\rfloor + \lfloor{\frac {S - \lfloor{\frac {S - 17} {25}}\rfloor} {3}}\rfloor)$ % 30 (corresponde à **epacta**)
 
-${V} = (E / 24 - E / 25) + (G / 12) * (E / 25 - E / 26)$
 
-${D} = 20 + (54 - ({E}+ V))$ % 30
+${V} = (E / 24 - E / 25) + (G / 12) * (E / 25 - E / 26)$ (corresponde à **correção de Clavius**)
 
-${C} = 1 + ({D} + 2)$ % 7
+(talvez saia na pergunta teórica) - A Epacta Final corresponde a somar a epacta à correção de Clavius.
 
-${N} = 7 - ({Y} - 1 +  {Y} / 4 - {Y} / 100 +  {Y} / 400 )$ % 7
+
+${D} = 20 + (54 - {E}+ V)$ % 30 (corresponde ao **dia da Lua Cheia Pascal**)
+
+
+
+
+${C} = 1 + ({D} + 2)$ % 7 (corresponde ao **dia calêndrico da Lua Cheia Pascal**)
+
+${N} = 7 - ({Y} - 1 +  {Y} / 4 - {Y} / 100 +  {Y} / 400 )$ % 7 (corresponde ao **Número Dominical**)
 
 Se ${C} < {N}$
 
@@ -134,13 +146,16 @@ $\mathcal{F}$ = Número do 1º Dia Do Mês
 
 $\mathcal{Y}$ = Ano
 
+
 ::: details Juliano
 <img src="./imgs/1003-juliano.jpeg" alt="julaino" class="invert-dark2">
 :::
 
-$\mathcal{C} = 1 + (\mathcal{D}+ \mathcal{F} -2)$ % 7
+$\mathcal{C} = 1 + (\mathcal{D}+ \mathcal{F} -2)$ % 7 (corresponde ao **número calêndrico**)
 
-$\mathcal{N} = 7 - (\mathcal{Y} + 4 + \mathcal{Y}$ / 4 $)$ % 7
+
+
+$\mathcal{N} = 7 - (\mathcal{Y} + 4 + \mathcal{Y}$ / 4 $)$ % 7 (corresponde ao **número dominical**)
 
 Se for Janeiro ou Fevereiro e é Ano Bisssexto:
 
@@ -150,23 +165,27 @@ Se não:
 
 $\mathcal{W} = 1 + (\mathcal{C} - \mathcal{N} + 7)$ % 7
 
+Aqui, $\mathcal{W}$ corresponde ao **dia da semana**.
+
 ### Dia da Páscoa
 
 ${Y}$ = Ano
+
 
 ::: details Juliano
 <img src="./imgs/1003-pascoaj.jpeg" alt="pascoa_julaino" class="invert-dark2">
 :::
 
-${G} = 1 + {Y}$ % 19
+${G} = 1 + {Y}$ % 19 (corresponde ao **número de ouro do calendário**)
 
-${E} = (11 {G} - 3)$ % 30
 
-${D} = 20 + (54 - {E})$ % 30
+${E} = (11 {G} - 3)$ % 30 (corresponde à **epacta**)
 
-${C} = 1 + ({D} + 2)$ % 7
+${D} = 20 + (54 - {E})$ % 30 (corresponde ao **dia da Lua Cheia Pascal**)
 
-${N} = 7 - ({Y} - 4 + {Y} / 4)$ % 7
+${C} = 1 + ({D} + 2)$ % 7 (corresponde ao **dia calêndrico da Lua Cheia Pascal**)
+
+${N} = 7 - ({Y} - 4 + {Y} / 4)$ % 7 (corresponde ao **Número Dominical**)
 
 Se ${C} < {N}$
 

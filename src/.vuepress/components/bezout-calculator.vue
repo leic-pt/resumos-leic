@@ -5,6 +5,10 @@
         <label>{{ i + 1 }}º número</label>
         <input v-model="input[i]" type="number" class="input-box" />
       </div>
+      <div class="input-box-div">
+        <label>Constante (opcional)</label>
+        <input v-model="n3" type="number" class="input-box" />
+      </div>
     </div>
     <button @click="calculate" class="calculate-btn">Calculate</button>
     <katex-element
@@ -24,16 +28,24 @@ export default {
     return {
       expressions: [],
       input: [0, 0],
+      n3: 0,
     };
   },
 
   components: { KatexElement },
 
   methods: {
+    numberSignal(n) {
+      return n < 0 ? '' : '+';
+    },
+
     calculate() {
       this.expressions = [];
+      const inputAbs = this.input.map(Math.abs);
+      let swapped = false;
+      if (inputAbs[0] < inputAbs[1]) swapped = true;
 
-      const remainder = [Math.abs(Math.max(...this.input)), Math.abs(Math.min(...this.input))];
+      const remainder = [Math.max(...inputAbs), Math.min(...inputAbs)];
       const quotients = [null];
 
       while (remainder[remainder.length - 1] != 0) {
@@ -50,6 +62,11 @@ export default {
         coefY[i] = coefY[i - 2] - quotients[i - 1] * coefY[i - 1];
       }
 
+      const [n1, n2] = swapped ? [...this.input].reverse() : this.input;
+      const n3 = parseInt(this.n3, 10);
+
+      if (!isNaN(n3)) this.expressions.push(`${n1}x ${this.numberSignal(n2)} ${n2}y = ${n3}`);
+
       this.expressions.push(`\\begin{array}{l | l | l | l}
       n & q_i & x_i & y_i\\\\
       \\hline
@@ -58,6 +75,46 @@ export default {
         .join(`\\\\`)}
       \\end{array}
       `);
+
+      if (!isNaN(n3)) {
+        const gcd = remainder.slice(-2)[0];
+        let c = gcd;
+        let xi = coefX.slice(-1)[0];
+        let yi = coefY.slice(-1)[0];
+        let a = remainder[0];
+        let b = remainder[1];
+        const getEq = (gcd, n1, x, n2, y) =>
+          `${gcd} = ${n1} \\times (${x}) ${this.numberSignal(n2)} ${n2} \\times (${y})`;
+
+        if (n3 % gcd != 0) {
+          this.expressions.push(
+            `${gcd} \\text{ não divide } ${n3}\\text{, logo não dá para resolver eq. diofantina}`
+          );
+          return;
+        }
+
+        this.expressions.push(getEq(gcd, a, xi, b, yi));
+
+        let multiplier = n3 / gcd;
+
+        c *= multiplier;
+        xi *= multiplier;
+        yi *= multiplier;
+
+        if (multiplier != 1) this.expressions.push(getEq(c, a, xi, b, yi));
+
+        if (n1 != a) (a *= -1), (xi *= -1);
+        if (n2 != b) (b *= -1), (yi *= -1);
+
+        if (a < 0 || b < 0) this.expressions.push(getEq(c, a, xi, b, yi));
+
+        this.expressions.push(`\\begin{cases}
+          x = ${xi} ${this.numberSignal(b)} ${b / gcd}t\\\\
+          y = ${yi} ${this.numberSignal(-a)} ${-a / gcd}t
+        \\end{cases}
+        \\quad, \\quad t\\in \\Z
+        `);
+      }
     },
   },
 };

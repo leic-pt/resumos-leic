@@ -29,4 +29,5 @@ description: Resolução das fichas de MD que estão disponíveis na página da 
 
 - [Séries 3](https://drive.google.com/file/d/19bR5nVopMuiwt7BJ4fH3CRx3jZCodcZw/view?usp=sharing)
   - [Resolução (2)](https://drive.google.com/file/d/1rF4B4iBhE6DntWonrOJ4FmJpL6pcIqJ6/view?usp=sharing)
+  - [Resolução (5)](https://drive.google.com/file/d/1f7V-kLTVaKHZ3oPrc4eE5TVXjJb51zlE/view?usp=sharing)
   - [Resolução (9.1)](https://drive.google.com/file/d/13heb8HUUaV32BFJHFHSV5QEXS28KMS38/view?usp=sharing)

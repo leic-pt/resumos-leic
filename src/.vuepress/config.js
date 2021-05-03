@@ -68,6 +68,7 @@ module.exports = {
             '0011-even_more_algo',
             '0012-ponteiros',
             '0013-mem',
+            '0014-listas',
           ],
         },
         {
@@ -81,6 +82,7 @@ module.exports = {
             'labs/lab06/',
             'labs/lab07/',
             'labs/lab08/',
+            'labs/lab09/',
           ],
         },
         {
@@ -107,6 +109,7 @@ module.exports = {
             '0008-prolog-mid',
             '0009-prolog-corte-neg',
             '0010-prolog-lp',
+            '0011-logica-proposicional-semantico',
           ],
         },
         {
@@ -168,6 +171,8 @@ module.exports = {
             '0013-calendario',
             '0014-pascoa',
             '0015-congruencias',
+            '0016-chines-restos',
+            '0017-rsa',
           ],
         },
         {

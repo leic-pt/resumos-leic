@@ -50,11 +50,11 @@ $$
 
 - [M.D.C. no WolframAlpha](https://www.wolframalpha.com/input/?i=ExtendedGCD%5B108%2C75%5D)
 
-- [Diafontinas no WolframAplha](https://www.wolframalpha.com/input/?i=solve+108x%2B75y+%3D+6+over+the+integers)
+- [Diofantinas no WolframAplha](https://www.wolframalpha.com/input/?i=solve+108x%2B75y+%3D+6+over+the+integers)
 
 ## Congruências
 
-$16x {\equiv_{12}}10 = 16x - 12y = 10$ (Resolver por diofantinas para $x$)
+$16x {\equiv_{12}}10 \iff 16x - 12y = 10$ (Resolver por diofantinas para $x$)
 
 - [Congruências no WolframAplha](https://www.wolframalpha.com/input/?i=%2816x+mod+29%29+%3D+27)
 
@@ -97,7 +97,7 @@ r_{i} & módulos & c_{i} & n_{i} & ñ_{i} & rn_{i} ñ_{i} & Resultados\\
 \hline
 \textcolor{red}1 & \textcolor{orange}5 & 5 & 63 & 7 & 441 & M\ =\ 315\\
 \textcolor{red}3 & \textcolor{orange}7 & 7 & 45 & 5 & 675 & \\
-\textcolor{red}5 & \textcolor{orange}9 & 9 & 57 & 8 & 1400 & x_{0} \ =\ 311
+\textcolor{red}5 & \textcolor{orange}9 & 9 & 35 & 8 & 1400 & x_{0} \ =\ 311
 \end{array}
 $$
 

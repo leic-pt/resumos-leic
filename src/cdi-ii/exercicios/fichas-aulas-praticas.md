@@ -34,7 +34,7 @@ description: Resolução das fichas de CDI-II que estão disponíveis na página
   - [Respostas (Oficial)](https://drive.google.com/file/d/1f30NEXHrZPFXO5x5JYlXoVz8LJs6BKRi/view?usp=sharing)
   - [Resolução (by Diogo Correia)](https://drive.google.com/file/d/1N65-p6J8eGDVx7NuyfQ15mxi2itmJBOe/view?usp=sharing)
 
-- [Ficha 7: (Mudança de Variáveis de Integração. Regra de Leibnitz](https://drive.google.com/file/d/1Wy3_ooGpsnHAIfaUeC4B3O7FN3wetk_b/view?usp=sharing)
+- [Ficha 7: Mudança de Variáveis de Integração. Regra de Leibnitz](https://drive.google.com/file/d/1Wy3_ooGpsnHAIfaUeC4B3O7FN3wetk_b/view?usp=sharing)
 
   - [Respostas (Oficial)](https://drive.google.com/file/d/1QOeieemTf1AGrIIzoDMk4OEoZCHK8B71/view?usp=sharing)
   - [Resolução (by Diogo Correia)](https://drive.google.com/file/d/17SSUOXy5qya1XBQgMnmCah7F6NLHYt6c/view?usp=sharing)

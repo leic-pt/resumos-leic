@@ -1,5 +1,7 @@
 # Páscoa
 
+[[toc]]
+
 A `Páscoa` é celebrada no **primeiro** domingo após a 1ª Lua Cheia, a contar do equinócio da Primavera (que é **sempre** dia `21 de março`).  
 Se a Lua Cheia calhar num domingo, a Páscoa será no domingo seguinte.
 
@@ -138,14 +140,13 @@ $$
 E = (11G -3)\% 30
 $$
 
-::: details Demonstração  
-Substituindo, na primeira expressão, $8$ por $30-(11\times 2)$,
+::: details Demonstração
 
-$$E = (30-(11\times 2) +11(G -1))\% 30$$
-
-Removendo o $30$, já que não altera o resultado (porque estamos a calcular o resto da divisão por $30$) e colocando o $11$ em evidência.
-
-$$E = (11G -3)\% 30$$
+$$
+E = (8 +11(G -1))\% 30\\
+E=(8+11G-11)\% 30\\
+E=(11G-3)\%30
+$$
 
 QED
 :::
@@ -160,7 +161,7 @@ Existe um **único** valor da `Epacta` para cada ano do `Ciclo de Méton`.
 
 ### Lua Cheia Pascal
 
-O dia, **a partir de 21 de março**, da Lua Cheia que determina o domingo de Pásoca pode ser dado por:
+O dia, **a partir de 21 de março**, da Lua Cheia que determina o domingo de Páscoa pode ser dado por:
 
 $$
 R = \begin{cases} 44 - E,\qquad E < 24 \\ 74-E,\qquad E \geq 24 \end{cases}
@@ -214,6 +215,8 @@ $$
 
 ### Exemplo - Páscoa Juliana
 
+![Fluxograma](./imgs/0014-fluxJul.png)
+
 ::: details Exemplo
 
 Calcular o dia da Páscoa para o ano `1901`.
@@ -225,7 +228,7 @@ N = 7 - (1901 + 4  + (1901\div 4))\% 7\\
 = 7 - (2380)\% 7 = 7
 $$
 
-1. [Número de Ouro](#numero-de-ouro-do-calendario) ($G$)
+2. [Número de Ouro](#numero-de-ouro-do-calendario) ($G$)
 
 $$
 G = 1 + (1901)\%19=1+1=2
@@ -238,14 +241,14 @@ E = (11G-3)\%30 \\
 = (11(2)-3)\%30 = 19
 $$
 
-1. Dia da [Lua Cheia Pascal](#teorema-3-simplificacao-da-formula) ($R$)
+4. Dia da [Lua Cheia Pascal](#teorema-3-simplificacao-da-formula) ($R$)
 
 $$
 R = 20 + (54 - E)\%30\\
 = 20 +5 = 25
 $$
 
-1. **Número Calêndrico** da Lua Cheia Pascal ($C$)
+5. **Número Calêndrico** da Lua Cheia Pascal ($C$)
 
 $$
 C = 1 + (R+2)\%7\\
@@ -272,8 +275,204 @@ $$P= D + N - C$$
 
 ---
 
-::: warning AVISO
+## Páscoa Gregoriana
 
-Ainda falta mencionar as exceções do `Calendário Gregoriano`.
+A Reforma Gregoriana trouxe novas regras com consequências no Cálculo da Páscoa.
 
+- Foram retirados 10 dias ao Calendário no ano 1582
+- A partir do ano 1600, de 100 em 100 anos deixou e haver ano bissexto, voltando a acontecer de 400 em 400 anos.
+- A partir de 1800, começou-se a tirar um dia à Lua de 300 em 300 anos, com um exceção no 8º dia a retirar, que tem um intervalo de 400 anos. (A primeira ocorrência não conta)
+  ![Tabela Sol Lua](./imgs/0014-luaSol.png)
+
+### Epacta Gregoriana
+
+Os **10** dias retirados ao Calendário no ano 1582 e as novas regras associadas aos anos bissextos e à Lua levaram à adição de 2 correções na fórmula da `Epacta`. Seja $E_G$ a `Epacta Gregoriana`, é dada por:
+
+$E_G = (11(G-3) -($[Correção de 1582](#correcao-de-1582)$)-($[Correção após 1582](#correcao-apos-1582)$))\% 30$
+
+#### Correção de 1582
+
+Esta correção e diz respeito aos **10** dias retirados ao Sol e os **4** dias retirados à Lua no `Calendário Gregoriano` em 1582. É uma correção muito simples, uma vez que foi pontual.  
+Esta correção, $C_1$, é dada por:
+
+$$
+C_1 = 6 +1\\
+6 \rightarrow \text{diferença entre a correção do Sol e a correção da Lua}\\
+(10 - 4 = 6)\\
+1 \rightarrow \text{Convenção para que a Páscoa Gregoriana seja}\\
+\text{sempre diferente da Páscoa Judaica}
+$$
+
+#### Correção após 1582
+
+Esta correção tem por base os dias adicionados ao Sol e os dias retirados à Lua, ao longo dos anos.
+
+::: tip NOTA
+Em aritmética do Calendário define-se século ($S$), como os primeiros $n-2$ dígitos de uma ano ($n$ é u número de dígitos do ano).
+Por exemplo,
+$$S_{2020} = 20 \quad S_{12345}=123 \quad S_{12}=0$$
+:::
+
+1. Equação do Sol
+
+Corrige os dias descontados ao `Calendário Gregoriano`, que são adicionados no `Calendário Juliano`. Mais especificamente, desconta os dias dos anos de 100 em 100, porque não são bissextos (com a exceção do ano bissexto de 400 em 400 anos).  
+Sendo $E_{sol}$ a `equação do Sol`, é dada por:
+
+$$
+E_{sol}=3 \times((S-16)\div 4)+(S-16)\%4\\
+3 \times((S-16)\div 4) \rightarrow \text{De 400 em 400 ano são descontados 3 dias}\\
+(S-16)\%4 \rightarrow \text{Até chegar ao fim do ciclo de 400 anos,}\\
+\text{ desconta-se 1 dia em cada 100 anos}
+$$
+
+::: details Exemplo
+Equação do Sol para o ano 2233  
+$S = 22$
+
+$$
+E_{sol} = 3 \times((22-16)\div 4)+(22-16)\%4\\
+= 3+2 = 5\\
+3 \rightarrow \text{Dias descontados dos 3 anos não bissextos (de 100 em 100) entre 1600 e 1900}\\
+2 \rightarrow \text{Dias descontados em 2100 e 2200}
+$$
+
+:::
+
+É possível simplificar esta equação, ficando esta da seguinte forma:
+
+$$
+E_{sol} = S - (S\div4)-12
+$$
+
+2. Equação da Lua
+
+Vendo a Tabela do Sol e Lua, nota-se que a regularidade da Lua ocorre de 25 em 25 séculos e, em cada ciclo de 25, retiramos 8 dias à Lua.
+Seja $E_{lua}$ a `Equação da Lua`, esta é dada por:
+
+$$
+Z= (S-18)\%25\\
+E_{lua} = 1 + (8 \times((S-18)\div25) + (Z\div 3)- (Z\div 24)\\~\\
+1 \rightarrow \text{Dia omitido em 1800}\\
+(8 \times((S-18)\div25) \rightarrow \text{8 dias em cada 25 séculos}\\
+(Z\div 3)- (Z\div 24) \rightarrow \text{dias omitidos}\\\text{antes de se completar o ciclo de 25 séculos}
+$$
+
+Repare-se que $Z$ é o número de séculos do ciclo de 25 séculos a analisar. De 300 em 300 anos é retirado um dia à Lua, mas no 24º século não (a exceção).  
+Deste modo, quando $Z < 24$, $(Z\div 24)=0$ e $(Z \div 3)$ devolve os dias a descontar. Para $Z=24$ é preciso adicionar o dia que é retirado indevidamente pelo $(Z \div 3)$, e é por isso que está lá o $(Z\div 24)$.
+
+::: tip NOTA
+Estamos a calcular os dias que vão ser omitidos, por isso é que se tem $- (Z\div24)$. Ao adicionar um dia, está a retirar um dia aos omitidos
+:::
+
+Simplificando a `Equação da Lua`, ficamos com:
+
+$$
+E_{lua} = \left\lfloor\frac{S-\left\lfloor\frac{S-17}{25}\right\rfloor}{3}\right\rfloor
+$$
+
+---
+
+Finalmente, podemos chegar à Equação que nos dá a `Correção após 1582` ($C_2$).
+
+$$
+C_2 = E_{sol}- E_{lua}\\
+= S - (S\div4)-12- \left\lfloor\frac{S-\lfloor\frac{S-17}{25}\rfloor}{3}\right\rfloor
+$$
+
+::: tip NOTA
+$\lfloor\frac a b\rfloor$ é equivalente a $a\div b$ (divisão inteira)
+:::
+
+Conclusão
+
+A `Epacta Gregoriana` é dada por:
+
+$$
+E_G = (11(G-3) -C_1-C_2)\% 30\\
+= (11(G-3) -(6+1)-(S - (S\div4)-12- \left\lfloor\frac{S-\left\lfloor\frac{S-17}{25}\right\rfloor}{3}\right\rfloor)\% 30
+$$
+
+Simplificando
+
+$$
+E_G=\left(57+11G-S+(S\div4) + \left\lfloor\frac{S-\left\lfloor\frac{S-17}{25}\right\rfloor}{3}\right\rfloor\right)\% 30
+$$
+
+### Correção de Clavius
+
+Uma das Regras Base da Páscoa, que foi mantida na `Reforma Gregoriana`, é que as Luas Novas que irão determinar a Páscoa estão compreendidas entre `8 de março` e `5 de abril`.  
+Com as alterações da `Epacta`, há casos onde isto já não acontece.  
+Com a `Correção de Clavius` ($V$), isto é corrigido.
+
+$$
+V = (E \div 24 - E \div 25) + (G\div12)\times (E \div 25-E\div26)
+$$
+
+:::tip NOTA
+Considera-se a `Epacta Final` como sendo a soma da `Epacta Gregoriana` com a `Correção de Clavius`.
+:::
+
+### Exemplo - Páscoa Gregoriana
+
+![Fluxograma](./imgs/0014-fluxGreg.png)
+
+::: details Exemplo
+
+Calcular Páscoa para o ano $2222$.
+
+$S = 22$
+
+1. [Número de Ouro](#numero-de-ouro-do-calendario) ($G$)
+
+$$
+G=1 + (2222)\%19 = 1 +18 = 19
+$$
+
+2. [Epacta Gregoriana](#epacta-gregoriana) ($E_G$)
+
+$$
+E_G = (11(19)-33-(22)+((22)\div4) + \lfloor\frac{(22)-\lfloor\frac{(22)-17}{25}\rfloor}{3}\rfloor)\% 30\\
+= (209 - 33-22+5+\lfloor\frac{7}{3}\rfloor)\%30\\
+= (166)\%30 = 16
+$$
+
+3. [Correção Clavius](#correcao-de-clavius) ($V$)
+
+$$
+V = ((16) \div 24 - (16)) \div 25) + (19\div12)\times ((16) \div 25-(16)\div26)\\
+= 0
+$$
+
+4. Dia da [Lua Cheia Pascal](#teorema-3-simplificacao-da-formula) ($R$)
+
+$$
+R = 20+(54-(16+0))\%30\\
+= 20 + 8 = 28
+$$
+
+5. **Número Calêndrico** da Lua Cheia Pascal ($C$)
+
+$$
+C=1 + ((28)+2)\% 7\\
+= 3
+$$
+
+6. **Número Dominical** ($N$)
+
+$$
+N = 7-(2222-1+ (2222\div 4)- (2222\div100)+ (2222\div400))\%7\\
+= 7 - (2423)\%7 = 6
+$$
+
+7. **Cálculo Final** ($P$)
+
+Como $N> C$
+
+$$
+P = R + N - C\\
+= 28+6-3 = 31
+$$
+
+A Páscoa em 2222 será no dia `31 de março`.
+![Páscoa 2222](./imgs/0014-pascoa2222.png)
 :::

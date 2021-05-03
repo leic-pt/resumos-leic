@@ -32,14 +32,17 @@ Quero agradecer a [todos os que contribuíram](https://github.com/diogotcorreia/
 - [Tomás Esteves](https://github.com/diogotcorreia/resumos-leic/commits?author=Pesteves2002) (**IAED**, MD, CDI-II, LP)
 - [Rúben Nobre](https://github.com/diogotcorreia/resumos-leic/commits?author=RubenNobre123) (**MD**)
 - [João Fonseca](https://github.com/diogotcorreia/resumos-leic/commits?author=jmseca) (**MD**)
-- [Rafael Oliveira](https://github.com/diogotcorreia/resumos-leic/commits?author=RafDevX) (MD, CDI-II, LP)
-- [Rafael Rodrigues](https://github.com/diogotcorreia/resumos-leic/commits?author=Rafa10PT) (IAED, CDI-II)
-- [Luís Fonseca](https://github.com/diogotcorreia/resumos-leic/commits?author=luishfonseca) (IAED)
+- [Rafael Oliveira](https://github.com/diogotcorreia/resumos-leic/commits?author=RafDevX) (MD, CDI-II, LP, IAED)
+- [Rafael Rodrigues](https://github.com/diogotcorreia/resumos-leic/commits?author=Rafa10PT) (IAED, CDI-II, MD)
+- [Luís Fonseca](https://github.com/diogotcorreia/resumos-leic/commits?author=luishfonseca) (IAED, CDI-II)
 - [Diogo Cardoso](https://github.com/diogotcorreia/resumos-leic/commits?author=D-Card) (IAED)
 - [Diogo Melita](https://github.com/diogotcorreia/resumos-leic/commits?author=dmelita99) (CDI-II)
 - [Rafael Girão](https://github.com/diogotcorreia/resumos-leic/commits?author=rafaelsgirao) (Meta)
 - [Mateus Pinho](https://github.com/diogotcorreia/resumos-leic/commits?author=footvaalvica) (Meta)
+- [Martim Monis](https://github.com/diogotcorreia/resumos-leic/commits?author=creaaidev) (LP)
 - Rita Mendes (Imagens CDI-II)
+- [André Teodósio](https://github.com/diogotcorreia/resumos-leic/commits?author=TioDosio) (CDI-II)
+- [Rafaela Oliveira](https://github.com/diogotcorreia/resumos-leic/commits?author=rafaelacorreiaoliveira) (CDI-II)
 
 ---
 
