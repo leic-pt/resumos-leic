@@ -86,7 +86,7 @@ export default {
             })
           )
         )
-        .map((c) => Object.entries(c).reduce((acc, [k, v]) => acc + k ** v, 0));
+        .map((c) => Object.entries(c).reduce((acc, [k, v]) => acc * k ** v, 1));
 
       return ci;
     },
