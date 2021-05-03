@@ -20,7 +20,7 @@ Através desta definição, podemos também concluir facilmente que $a \equiv_n 
 
 ### Teorema 1
 
-Se adicionarmos, membro a mebro, duas congruências do mesmo módulo, obtemos ainda uma congruência desse mesmo módulo.  
+Se adicionarmos, membro a membro, duas congruências do mesmo módulo, obtemos ainda uma congruência desse mesmo módulo.  
 Ou seja,
 
 $$

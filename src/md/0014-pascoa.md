@@ -161,7 +161,7 @@ Existe um **único** valor da `Epacta` para cada ano do `Ciclo de Méton`.
 
 ### Lua Cheia Pascal
 
-O dia, **a partir de 21 de março**, da Lua Cheia que determina o domingo de Pásoca pode ser dado por:
+O dia, **a partir de 21 de março**, da Lua Cheia que determina o domingo de Páscoa pode ser dado por:
 
 $$
 R = \begin{cases} 44 - E,\qquad E < 24 \\ 74-E,\qquad E \geq 24 \end{cases}
@@ -367,7 +367,7 @@ Estamos a calcular os dias que vão ser omitidos, por isso é que se tem $- (Z\d
 Simplificando a `Equação da Lua`, ficamos com:
 
 $$
-E_{lua} = \lfloor\frac{S-\lfloor\frac{S-17}{25}\rfloor}{3}\rfloor
+E_{lua} = \left\lfloor\frac{S-\left\lfloor\frac{S-17}{25}\right\rfloor}{3}\right\rfloor
 $$
 
 ---
@@ -376,7 +376,7 @@ Finalmente, podemos chegar à Equação que nos dá a `Correção após 1582` ($
 
 $$
 C_2 = E_{sol}- E_{lua}\\
-= S - (S\div4)-12- \lfloor\frac{S-\lfloor\frac{S-17}{25}\rfloor}{3}\rfloor
+= S - (S\div4)-12- \left\lfloor\frac{S-\lfloor\frac{S-17}{25}\rfloor}{3}\right\rfloor
 $$
 
 ::: tip NOTA
@@ -389,13 +389,13 @@ A `Epacta Gregoriana` é dada por:
 
 $$
 E_G = (11(G-3) -C_1-C_2)\% 30\\
-= (11(G-3) -(6+1)-(S - (S\div4)-12- \lfloor\frac{S-\lfloor\frac{S-17}{25}\rfloor}{3}\rfloor)\% 30
+= (11(G-3) -(6+1)-(S - (S\div4)-12- \left\lfloor\frac{S-\left\lfloor\frac{S-17}{25}\right\rfloor}{3}\right\rfloor)\% 30
 $$
 
 Simplificando
 
 $$
-E_G=(11G-33-S+(S\div4) + \lfloor\frac{S-\lfloor\frac{S-17}{25}\rfloor}{3}\rfloor)\% 30
+E_G=\left(57+11G-S+(S\div4) + \left\lfloor\frac{S-\left\lfloor\frac{S-17}{25}\right\rfloor}{3}\right\rfloor\right)\% 30
 $$
 
 ### Correção de Clavius
