@@ -15,4 +15,8 @@ x \equiv_{m_2} a_2
 \end{cases}
 $$
 
+::: warning
+É da responsabilidade do aluno verificar que existe solução quando os $m_i$ não são primos entre si.
+:::
+
 <tcr-table-calculator />

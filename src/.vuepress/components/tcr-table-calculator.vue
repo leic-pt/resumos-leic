@@ -41,6 +41,56 @@ export default {
   components: { KatexElement },
 
   methods: {
+    calculateC(mi) {
+      // factorize all numbers
+      mi = mi
+        .map((m) => {
+          let factors = [];
+
+          while (m != 1) {
+            let i;
+            for (i = 2; i < m; ++i) {
+              if (m % i == 0) break;
+            }
+            m /= i;
+            factors.push(i);
+          }
+          return factors;
+        })
+        .map((m) =>
+          m.reduce((acc, v) => {
+            if (!acc[v]) acc[v] = 0;
+            acc[v]++;
+            return acc;
+          }, {})
+        );
+
+      const lcmFactors = mi.reduce((acc, factors) => {
+        Object.entries(factors).forEach(([k, v]) => {
+          if (!acc[k]) acc[k] = 0;
+          if (acc[k] < v) acc[k] = v;
+        });
+        return acc;
+      }, {});
+
+      const ci = [...mi]
+        .map((c) =>
+          Object.fromEntries(
+            Object.entries(c).filter(([k, c2]) => {
+              console.log(k, c2, lcmFactors[k]);
+              if (lcmFactors[k] && lcmFactors[k] == c2) {
+                lcmFactors[k] = 0;
+                return true;
+              }
+              return false;
+            })
+          )
+        )
+        .map((c) => Object.entries(c).reduce((acc, [k, v]) => acc + k ** v, 0));
+
+      return ci;
+    },
+
     getNTilde(n, c) {
       // n =_c 1
       // nx - cy = 1
@@ -79,7 +129,7 @@ export default {
 
       const a = this.input.map(([_, v]) => parseInt(v, 10));
       const m = this.input.map(([v]) => parseInt(v, 10));
-      const c = [...m]; // TODO support non-coprime m_i
+      const c = this.calculateC([...m]);
       const n = c.map((v, i, array) => {
         const arrayWithoutC = [...array];
         arrayWithoutC.splice(i, 1);
