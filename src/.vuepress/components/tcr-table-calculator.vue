@@ -41,6 +41,9 @@ export default {
   components: { KatexElement },
 
   methods: {
+    mod(n, m) {
+      return ((n % m) + m) % m;
+    },
     calculateC(mi) {
       // factorize all numbers
       mi = mi
@@ -77,7 +80,6 @@ export default {
         .map((c) =>
           Object.fromEntries(
             Object.entries(c).filter(([k, c2]) => {
-              console.log(k, c2, lcmFactors[k]);
               if (lcmFactors[k] && lcmFactors[k] == c2) {
                 lcmFactors[k] = 0;
                 return true;
@@ -157,7 +159,7 @@ export default {
       this.expressions.push(`x_0 = ${mult.join(`+`).replace(/\+-/g, '-')} = ${x0}`);
       this.expressions.push(`M = ${c.join(`\\times`)} = ${M}`);
 
-      this.expressions.push(`x = ${x0 % M} + ${M}t \\quad, \\quad t \\in \\Z`);
+      this.expressions.push(`x = ${this.mod(x0, M)} + ${M}t \\quad, \\quad t \\in \\Z`);
     },
   },
 };
