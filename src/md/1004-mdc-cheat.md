@@ -50,11 +50,11 @@ $$
 
 - [M.D.C. no WolframAlpha](https://www.wolframalpha.com/input/?i=ExtendedGCD%5B108%2C75%5D)
 
-- [Diafontinas no WolframAplha](https://www.wolframalpha.com/input/?i=solve+108x%2B75y+%3D+6+over+the+integers)
+- [Diofantinas no WolframAplha](https://www.wolframalpha.com/input/?i=solve+108x%2B75y+%3D+6+over+the+integers)
 
 ## Congruências
 
-$16x {\equiv_{12}}10 = 16x - 12y = 10$ (Resolver por diofantinas para $x$)
+$16x {\equiv_{12}}10 \iff 16x - 12y = 10$ (Resolver por diofantinas para $x$)
 
 - [Congruências no WolframAplha](https://www.wolframalpha.com/input/?i=%2816x+mod+29%29+%3D+27)
 
