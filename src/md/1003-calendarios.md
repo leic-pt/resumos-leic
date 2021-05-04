@@ -104,7 +104,7 @@ ${Y}$ = Ano
 <img src="./imgs/1003-pascoag.jpeg" alt="pascoa_gregoriano" class="invert-dark2">
 :::
 
-${S} = {Y}$ / 100 (corresponde ao **século**)
+${S} = {Y}$ / 100 (corresponde ao **"século - 1"**)
 
 ${G} = 1 + {Y}$ % 19 (corresponde ao **número de ouro do calendário**)
 
