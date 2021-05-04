@@ -104,6 +104,8 @@ ${Y}$ = Ano
 <img src="./imgs/1003-pascoag.jpeg" alt="pascoa_gregoriano" class="invert-dark2">
 :::
 
+${S} = {Y}$ % 100 (corresponde ao **século**)
+
 ${G} = 1 + {Y}$ % 19 (corresponde ao **número de ouro do calendário**)
 
 ${E} = (57 + 11G - S + \lfloor{\frac {S} {4}}\rfloor + \lfloor{\frac {S - \lfloor{\frac {S - 17} {25}}\rfloor} {3}}\rfloor)$ % 30 (corresponde à **epacta**)
