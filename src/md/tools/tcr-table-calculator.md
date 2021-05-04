@@ -4,6 +4,10 @@ description: Calculadora automática para a tabela usada no Teorema Chinês dos 
 
 # TCR Table Calculator
 
+::: danger
+Qualquer uso desta ferramenta em testes, exames ou outro tipo de avaliações é **unicamente da responsabilidade do aluno**.
+:::
+
 Abaixo encontra-te uma calculadora para a tabela usada no Teorema Chinês dos Restos.
 
 O input é dado quando o sistema já está no formato
