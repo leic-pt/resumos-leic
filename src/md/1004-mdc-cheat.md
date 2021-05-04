@@ -74,11 +74,14 @@ $$
 \end{cases}
 $$
 
-$m_1 \frown m_2 = 4 a_1 - a_2 = 8$\
+$m_1 \frown m_2 = 4$\
+$a_1 - a_2 = 8$ \
 8 é divisível por 4\
-$m_1 \frown m_3 = 1 a_1 - a_3 = 8$\
+$m_1 \frown m_3 = 1$\
+$a_1 - a_3 = 8$ \
 8 é divisível por 1\
-$m_2 \frown m_3 = 4 a_2 - a_3 = 8$\
+$m_2 \frown m_3 = 1$\
+$a_2 - a_3 = 0$ \
 0 é divisível por 1
 
 Logo há solução (única).
