@@ -442,7 +442,7 @@ $$
 3. [Correção Clavius](#correcao-de-clavius) ($V$)
 
 $$
-V = ((16) \div 24 - (16)) \div 25) + (19\div12)\times ((16) \div 25-(16)\div26)\\
+V = ((16) \div 24) - ((16) \div 25) + (19\div12)\times ((16) \div 25-(16)\div26)\\
 = 0
 $$
 
