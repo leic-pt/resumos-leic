@@ -124,7 +124,7 @@ ${S} = {R} + {N} - {C}$
 
 Se não
 
-${S} = {R} + 7 - ({N} - {C})$ % 7
+${S} = {R} + 7 - ({C} - {N})$ % 7
 
 Dia da páscoa = dia 1 de março + S
 
