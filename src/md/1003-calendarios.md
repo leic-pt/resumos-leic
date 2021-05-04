@@ -182,7 +182,7 @@ ${S} = {D} + {N} - {C}$
 
 Se não
 
-${S} = {D} + 7 - ({N} - {C})$ % 7
+${S} = {D} + 7 - ({C} - {N})$ % 7
 
 Dia da páscoa = dia 1 de março + S
 
