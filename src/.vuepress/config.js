@@ -197,6 +197,7 @@ module.exports = {
             'tools/fft-calculator',
             'tools/bezout-calculator',
             'tools/tcr-table-calculator',
+            'tools/rsa-calculator',
           ],
         },
       ],
