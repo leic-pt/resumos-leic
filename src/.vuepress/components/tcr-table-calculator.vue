@@ -41,9 +41,33 @@ export default {
   components: { KatexElement },
 
   methods: {
+    gcd(a, b) {
+      a = Math.abs(a);
+      b = Math.abs(b);
+      if (b > a) {
+        let temp = a;
+        a = b;
+        b = temp;
+      }
+      while (true) {
+        if (b == 0) return a;
+        a %= b;
+        if (a == 0) return b;
+        b %= a;
+      }
+    },
+
+    hasSolution(m, a) {
+      for (let i = 0; i < m.length; ++i)
+        for (let j = i + 1; j < a.length; ++j)
+          if ((a[i] - a[j]) % this.gcd(m[i], m[j]) !== 0) return false;
+      return true;
+    },
+
     mod(n, m) {
       return ((n % m) + m) % m;
     },
+
     calculateC(mi) {
       // factorize all numbers
       mi = mi
@@ -131,6 +155,17 @@ export default {
 
       const a = this.input.map(([_, v]) => parseInt(v, 10));
       const m = this.input.map(([v]) => parseInt(v, 10));
+
+      this.expressions.push(`\\begin{cases}
+        ${a.map((ai, i) => `x \\equiv_{${m[i]}} ${ai}`).join('\\\\')}
+        \\end{cases}
+      `);
+
+      if (!this.hasSolution(m, a)) {
+        this.expressions.push(`\\text{Não há solução}`);
+        return;
+      }
+
       const c = this.calculateC([...m]);
       const n = c.map((v, i, array) => {
         const arrayWithoutC = [...array];
@@ -141,11 +176,6 @@ export default {
       const mult = a.map((v, i) => v * n[i] * nTilde[i]);
       const x0 = mult.reduce((acc, v) => acc + v); // sum all
       const M = c.reduce((acc, v) => acc * v); // multiply all
-
-      this.expressions.push(`\\begin{cases}
-        ${a.map((ai, i) => `x \\equiv_{${m[i]}} ${ai}`).join('\\\\')}
-        \\end{cases}
-      `);
 
       this.expressions.push(`\\begin{array}{l|l|l|l|l|l}
         a_i & m_i & c_i & n_i & \\tilde{n}_i & a_i n_i \\tilde{n}_i \\\\
