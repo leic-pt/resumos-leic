@@ -80,8 +80,8 @@ export default {
         `);
       }
 
-      const result = factors.map((v) => results[v]).reduce((acc, v) => acc * v, 1);
-      const resultMod = result % N;
+      const result = factors.map((v) => results[v]).reduce((acc, v) => acc * BigInt(v), BigInt(1));
+      const resultMod = result % BigInt(N);
 
       this.expressions.push(`
         \\begin{aligned}
