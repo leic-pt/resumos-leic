@@ -296,6 +296,12 @@ export default {
           `);
         }
 
+        this.expressions.push(
+          `\\text{(Dia da Lua Cheia Pascal}= 1\\text{ de março} + ${r} \\text{ dias} = ${
+            ((r - 1) % 31) + 1
+          }\\text{ de ${r > 31 ? 'abril' : 'março'})}`
+        );
+
         const c = 1 + this.mod(r + 2, 7);
 
         this.expressions.push(`

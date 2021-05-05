@@ -196,10 +196,10 @@ module.exports = {
           collapsable: false,
           children: [
             'tools/fft-calculator',
+            'tools/calendar-calculator',
             'tools/bezout-calculator',
             'tools/tcr-table-calculator',
             'tools/rsa-calculator',
-            'tools/calendar-calculator',
           ],
         },
       ],
