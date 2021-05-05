@@ -199,6 +199,7 @@ module.exports = {
             'tools/bezout-calculator',
             'tools/tcr-table-calculator',
             'tools/rsa-calculator',
+            'tools/calendar-calculator',
           ],
         },
       ],
