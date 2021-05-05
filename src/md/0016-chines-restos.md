@@ -304,7 +304,7 @@ Onde,
 
 $$
 \left\{ \begin{aligned}
-  x &\equiv_{12} \quad &10\\
+  x &\equiv_{12} \quad &13\\
   x &\equiv_8 \quad &2\\
   x &\equiv_5 \quad &2
 \end{aligned} \right.
