@@ -189,6 +189,7 @@ module.exports = {
             '1002-geradoras-sheet',
             '1003-calendarios',
             '1004-mdc-cheat',
+            '1005-rsa-sheet',
           ],
         },
         {
