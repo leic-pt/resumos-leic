@@ -20,23 +20,23 @@ Tenham EXTREMA atenção aos símbolos de divisão que se encontram nos resumos
 $$
 \begin{array}{|c|c|c|}
 \hline
-Dia da Semana & Letra & Número
+\text{Dia da Semana} & \text{Letra} & \text{Número}
 \\
 
 \hline
- Domingo & A & 1 \\
+ \text{Domingo} & A & 1 \\
 \hline
- Segunda-Feira & B & 2 \\
+ \text{Segunda-Feira} & B & 2 \\
 \hline
- Terça-Feira & C & 3 \\
+ \text{Terça-Feira} & C & 3 \\
 \hline
- Quarta-Feira & D & 4 \\
+ \text{Quarta-Feira} & D & 4 \\
 \hline
- Quinta-Feira & E & 5 \\
+ \text{Quinta-Feira} & E & 5 \\
 \hline
- Sexta-Feira & F & 6 \\
+ \text{Sexta-Feira} & F & 6 \\
 \hline
- Sábado & G & 7 \\
+ \text{Sábado} & G & 7 \\
 \hline
 \end{array}
 $$
@@ -46,17 +46,17 @@ $$
 {
 \begin{array}{|c|c|c|c|}
 \hline
- JAN & A & JUL & G \\
+ \text{JAN} & A & \text{JUL} & G \\
 \hline
- FEV & D & AGO & C \\
+ \text{FEV} & D & \text{AGO} & C \\
 \hline
- MAR & D & SET & F \\
+ \text{MAR} & D & \text{SET} & F \\
 \hline
- ABR & G & OUT & A \\
+ \text{ABR} & G & \text{OUT} & A \\
 \hline
- MAI & B & NOV & D \\
+ \text{MAI} & B & \text{NOV} & D \\
 \hline
- JUN & E & DEZ & F \\
+ \text{JUN} & E & \text{DEZ} & F \\
  \hline
 \end{array}}
 $$
@@ -70,7 +70,7 @@ Um ano é Bissexto se é divisível por 4 e não for divisível por 100,\
 
 ## Calendário Gregoriano (Calendário usado por Todos Nós)
 
-### Dia do Mês
+### Dia da Semana
 
 $\mathcal{D}$ = Dia Do Mês
 
@@ -86,7 +86,7 @@ $\mathcal{C} = 1 + (\mathcal{D}+ \mathcal{F} -2)$ % 7 (corresponde ao **número 
 
 $\mathcal{N} = 7 - (\mathcal{Y} - 1 +  \mathcal{Y} / 4 - \mathcal{Y} / 100 + \mathcal{Y} / 400)$ % 7 (corresponde ao **número dominical**)
 
-Se for Janeiro ou Fevereiro e é Ano Bisssexto:
+Se for Janeiro ou Fevereiro e é Ano Bissexto:
 
 $\mathcal{W} = 1 + (\mathcal{C} - \mathcal{N} + 6)$ % 7
 
@@ -132,7 +132,7 @@ Dia da páscoa = dia 1 de março + S
 
 ## Calendário Juliano
 
-### Dia do Mês
+### Dia da Semana
 
 $\mathcal{D}$ = Dia Do Mês
 
@@ -148,7 +148,7 @@ $\mathcal{C} = 1 + (\mathcal{D}+ \mathcal{F} -2)$ % 7 (corresponde ao **número 
 
 $\mathcal{N} = 7 - (\mathcal{Y} + 4 + \mathcal{Y}$ / 4 $)$ % 7 (corresponde ao **número dominical**)
 
-Se for Janeiro ou Fevereiro e é Ano Bisssexto:
+Se for Janeiro ou Fevereiro e é Ano Bissexto:
 
 $\mathcal{W} = 1 + (\mathcal{C} - \mathcal{N} + 6)$ % 7
 
