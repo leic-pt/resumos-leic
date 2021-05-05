@@ -110,6 +110,7 @@ module.exports = {
             '0009-prolog-corte-neg',
             '0010-prolog-lp',
             '0011-logica-proposicional-semantico',
+            '0012-lp-ii-bdds',
           ],
         },
         {
@@ -195,8 +196,10 @@ module.exports = {
           collapsable: false,
           children: [
             'tools/fft-calculator',
+            'tools/calendar-calculator',
             'tools/bezout-calculator',
             'tools/tcr-table-calculator',
+            'tools/rsa-calculator',
           ],
         },
       ],
