@@ -65,6 +65,51 @@ export default {
       return ((n % m) + m) % m;
     },
 
+    getN(y) {
+      const [divY4, divY100, divY400] = [4, 100, 400].map((v) => Math.floor(y / v));
+
+      this.expressions.push(`
+          \\begin{array}{l${this.calendar === 'g' ? 'll' : ''}}
+            \\mathcal{Y} \\div 4 = ${divY4} ${
+        this.calendar === 'g'
+          ? `&
+            \\mathcal{Y} \\div 100 = ${divY100} &
+            \\mathcal{Y} \\div 400 = ${divY400}`
+          : ''
+      }
+          \\end{array}
+        `);
+
+      let n;
+
+      if (this.calendar === 'g') {
+        n = 7 - this.mod(y - 1 + divY4 - divY100 + divY400, 7);
+
+        this.expressions.push(`
+          \\begin{aligned}
+            \\text{Número Dominical: } \\mathcal{N} & = 7 - (\\mathcal{Y} - 1 + \\mathcal{Y} \\div 4 - \\mathcal{Y} \\div 100 + \\mathcal{Y} \\div 400) \\% 7\\\\
+            &= 7 - (${y} - 1 + ${divY4} - ${divY100} + ${divY400}) \\% 7\\\\
+            &= 7 - (${y - 1 + divY4 - divY100 + divY400}) \\% 7\\\\
+            &= 7 - ${this.mod(y - 1 + divY4 - divY100 + divY400, 7)}\\\\
+            &= ${n}
+          \\end{aligned}
+        `);
+      } else {
+        n = 7 - this.mod(y + 4 + divY4, 7);
+
+        this.expressions.push(`
+          \\begin{aligned}
+            \\text{Número Dominical: } \\mathcal{N} & = 7 - (\\mathcal{Y} + 4 + \\mathcal{Y} \\div 4) \\% 7\\\\
+            &= 7 - (${y} + 4 + ${divY4}) \\% 7\\\\
+            &= 7 - (${y + 4 + divY4}) \\% 7\\\\
+            &= 7 - ${this.mod(y + 4 + divY4, 7)}\\\\
+            &= ${n}
+          \\end{aligned}
+        `);
+      }
+      return n;
+    },
+
     calculate() {
       this.expressions = [];
 
@@ -114,47 +159,7 @@ export default {
           \\end{aligned}
         `);
 
-        const [divY4, divY100, divY400] = [4, 100, 400].map((v) => Math.floor(y / v));
-
-        this.expressions.push(`
-          \\begin{array}{l${this.calendar === 'g' ? 'll' : ''}}
-            Y \\div 4 = ${divY4} ${
-          this.calendar === 'g'
-            ? `&
-            Y \\div 100 = ${divY100} &
-            Y \\div 400 = ${divY400}`
-            : ''
-        }
-          \\end{array}
-        `);
-
-        let n;
-
-        if (this.calendar === 'g') {
-          n = 7 - this.mod(y - 1 + divY4 - divY100 + divY400, 7);
-
-          this.expressions.push(`
-          \\begin{aligned}
-            \\text{Número Dominical: } \\mathcal{N} & = 7 - (\\mathcal{Y} - 1 + \\mathcal{Y} \\div 4 - \\mathcal{Y} \\div 100 + \\mathcal{Y} \\div 400) \\% 7\\\\
-            &= 7 - (${y} - 1 + ${divY4} - ${divY100} + ${divY400}) \\% 7\\\\
-            &= 7 - (${y - 1 + divY4 - divY100 + divY400}) \\% 7\\\\
-            &= 7 - ${this.mod(y - 1 + divY4 - divY100 + divY400, 7)}\\\\
-            &= ${n}
-          \\end{aligned}
-        `);
-        } else {
-          n = 7 - this.mod(y + 4 + divY4, 7);
-
-          this.expressions.push(`
-          \\begin{aligned}
-            \\text{Número Dominical: } \\mathcal{N} & = 7 - (\\mathcal{Y} + 4 + \\mathcal{Y} \\div 4) \\% 7\\\\
-            &= 7 - (${y} + 4 + ${divY4}) \\% 7\\\\
-            &= 7 - (${y + 4 + divY4}) \\% 7\\\\
-            &= 7 - ${this.mod(y + 4 + divY4, 7)}\\\\
-            &= ${n}
-          \\end{aligned}
-        `);
-        }
+        const n = this.getN(y);
 
         let w;
 
@@ -183,6 +188,163 @@ export default {
         }
 
         this.expressions.push(`\\text{O dia da semana é ${weekDays[w - 1]}}`);
+      } else {
+        const s = Math.floor(y / 100);
+
+        this.expressions.push(`
+          \\begin{aligned}
+            \\text{"Século": } \\mathcal{S} &= \\mathcal{Y} \\div 100\\\\
+            &= ${y} \\div 100\\\\
+            &= ${s}
+          \\end{aligned}
+        `);
+
+        const g = 1 + this.mod(y, 19);
+
+        this.expressions.push(`
+          \\begin{aligned}
+            \\text{Número de ouro: } \\mathcal{G} &= 1 + \\mathcal{Y} \\% 19\\\\
+            &= 1 + ${y} \\% 19\\\\
+            &= 1 + ${this.mod(y, 19)}\\\\
+            &= ${g}
+          \\end{aligned}
+        `);
+
+        let r;
+
+        if (this.calendar === 'g') {
+          const sDiv25 = Math.floor((s - 17) / 25);
+          const sDiv3 = Math.floor((s - sDiv25) / 3);
+          const sDiv4 = Math.floor(s / 4);
+
+          this.expressions.push(`
+            \\begin{array}{lll}
+              \\mathcal{S} \\div 4 = ${sDiv4} &
+              (\\mathcal{S} - 17) \\div 25 = ${sDiv25} &
+              (\\mathcal{S} - ((\\mathcal{S} - 17) \\div 25)) \\div 3 = ${sDiv3}
+            \\end{array}
+          `);
+
+          const e = this.mod(11 * g + 57 - s + sDiv4 + sDiv3, 30);
+
+          this.expressions.push(`
+            \\begin{aligned}
+              \\text{Epacta: } \\mathcal{E} &= (11\\mathcal{G} + 57 - \\mathcal{S} + \\mathcal{S} \\div 4 + (\\mathcal{S} - ((\\mathcal{S} - 17) \\div 25)) \\div 3) \\% 30\\\\
+              &= (11\\times ${g} + 57 - ${s} + ${sDiv4} + ${sDiv3}) \\% 30\\\\
+              &= ${11 * g + 57 - s + sDiv4 + sDiv3} \\% 30\\\\
+              &= ${e}
+            \\end{aligned}
+          `);
+
+          const eDiv24 = Math.floor(e / 24);
+          const eDiv25 = Math.floor(e / 25);
+          const eDiv26 = Math.floor(e / 26);
+          const gDiv12 = Math.floor(g / 12);
+
+          this.expressions.push(`
+            \\begin{array}{llll}
+              \\mathcal{E} \\div 24 = ${eDiv24} &
+              \\mathcal{E} \\div 25 = ${eDiv25} &
+              \\mathcal{E} \\div 26 = ${eDiv26} &
+              \\mathcal{G} \\div 12 = ${gDiv12}
+            \\end{array}
+          `);
+
+          const v = eDiv24 - eDiv25 + gDiv12 * (eDiv25 - eDiv26);
+
+          this.expressions.push(`
+            \\begin{aligned}
+              \\text{Correção de Clavius: } \\mathcal{V} &= (\\mathcal{E} \\div 24 - \\mathcal{E} \\div 25) + (\\mathcal{G} \\div 12) \\times (\\mathcal{E} \\div 25 - \\mathcal{E} \\div 26)\\\\
+              &= (${eDiv24} - ${eDiv25}) + ${gDiv12} \\times (${eDiv25} - ${eDiv26})\\\\
+              &= ${v}
+            \\end{aligned}
+          `);
+
+          r = 20 + this.mod(54 - (e + v), 30);
+
+          this.expressions.push(`
+            \\begin{aligned}
+              \\text{Dia da Lua Cheia Pascal: } \\mathcal{R} &= 20 + (54 - (\\mathcal{E} + \\mathcal{V})) \\% 30\\\\
+              &= 20 + (54 - (${e} + ${v})) \\% 30\\\\
+              &= 20 + ${54 - (e + v)} \\% 30\\\\
+              &= 20 + ${this.mod(54 - (e + v), 30)}\\\\
+              &= ${r}
+            \\end{aligned}
+          `);
+        } else {
+          const e = this.mod(11 * g - 3, 30);
+
+          this.expressions.push(`
+            \\begin{aligned}
+              \\text{Epacta: } \\mathcal{E} &= (11\\mathcal{G} - 3) \\% 30\\\\
+              &= (11\\times ${g} - 3) \\% 30\\\\
+              &= (${11 * g - 3}) \\% 30\\\\
+              &= ${e}
+            \\end{aligned}
+          `);
+
+          r = 20 + this.mod(54 - e, 30);
+
+          this.expressions.push(`
+            \\begin{aligned}
+              \\text{Dia da Lua Cheia Pascal: } \\mathcal{R} &= 20 + (54 - \\mathcal{E}) \\% 30\\\\
+              &= 20 + (54 - ${e}) \\% 30\\\\
+              &= 20 + ${54 - e} \\% 30\\\\
+              &= 20 + ${this.mod(54 - e, 30)}\\\\
+              &= ${r}
+            \\end{aligned}
+          `);
+        }
+
+        const c = 1 + this.mod(r + 2, 7);
+
+        this.expressions.push(`
+          \\begin{aligned}
+            \\text{Dia Calêndrico da Lua Cheia Pascal: } \\mathcal{C} &= 1 + (\\mathcal{R} + 2) \\% 7\\\\
+            &= 1 + (${r} + 2) \\% 7\\\\
+            &= 1 + (${r + 2}) \\% 7\\\\
+            &= 1 + ${this.mod(r + 2, 7)}\\\\
+            &= ${c}
+          \\end{aligned}
+        `);
+
+        const n = this.getN(y);
+
+        let p;
+
+        if (c < n) {
+          this.expressions.push(`\\text{Como } \\mathcal{C} < \\mathcal{N} \\text{, então:}`);
+
+          p = r + n - c;
+
+          this.expressions.push(`
+            \\begin{aligned}
+              \\mathcal{P} &= \\mathcal{R} + \\mathcal{N} -\\mathcal{C}\\\\
+              &= ${r} + ${n} - ${c}\\\\
+              &= ${p}
+            \\end{aligned}
+          `);
+        } else {
+          this.expressions.push(`\\text{Como } \\mathcal{C} \\gte \\mathcal{N} \\text{, então:}`);
+
+          p = r + 7 - this.mod(c - n, 7);
+
+          this.expressions.push(`
+            \\begin{aligned}
+              \\mathcal{P} &= \\mathcal{R} + 7 -(\\mathcal{C} -\\mathcal{N}) \\% 7\\\\
+              &= ${r} + 7 -(${c} - ${n}) \\% 7\\\\
+              &= ${r + 7} -(${c - n}) \\% 7\\\\
+              &= ${r + 7} -${this.mod(c - n, 7)}\\\\
+              &= ${p}
+            \\end{aligned}
+          `);
+        }
+
+        this.expressions.push(
+          `\\text{Dia da Páscoa}= 1\\text{ de março} + ${p} \\text{ dias} = ${
+            ((p - 1) % 31) + 1
+          }\\text{ de ${p > 31 ? 'abril' : 'março'}}`
+        );
       }
     },
   },
