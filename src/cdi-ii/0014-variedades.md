@@ -12,7 +12,7 @@ Um conjunto é uma variedade de $\dim m$ se em torno de qualquer ponto posso des
 
 ::: tip DEFINIÇÃO
 $M \subset \R^n$ é uma variedade diferenciável de dimensão $m$ se $\forall a \in M$ existe
-uma vizinhança na qual $M$ é o gráfico de uma função $f: U\subset \R^m$ $\to$ $\R^{n - m}$ de classe $C^1$.
+uma vizinhança na qual $M$ é o gráfico de uma função $f: U\subset \R^m \to \R^{n - m}$ de classe $C^1$.
 :::
 
 Tomando como exemplo os seguintes conjnutos:
