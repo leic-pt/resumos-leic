@@ -143,6 +143,7 @@ module.exports = {
             '0011-aplicacoes-integral',
             '0012-teorema-leibniz',
             '0013-funcao-inversa',
+            '0014-variedades',
           ],
         },
         {
@@ -257,6 +258,7 @@ module.exports = {
             '\\d': '\\mathop{}\\!\\mathrm d',
             '\\1': '1\\!\\!1',
             '\\Q': '\\mathbb{Q}',
+            '\\car': '\\operatorname{car}',
           },
           strict: false,
         },
