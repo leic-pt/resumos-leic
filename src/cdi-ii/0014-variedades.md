@@ -269,3 +269,4 @@ $g(r,\theta) = (r \cos \theta, r \sin \theta, r^2), \quad r \in ]0, 1], \theta \
 Slides:
 
 - [Aula 31](https://drive.google.com/file/d/1A-P0lLvEs-y6mfKzjFtb5FpdQgeXP_CF/view?usp=sharing)
+- [Aula 32](https://drive.google.com/file/d/1ezOnPt6jcVTSpJEB8tmPyoSn9cUrLZzz/view?usp=sharing)
