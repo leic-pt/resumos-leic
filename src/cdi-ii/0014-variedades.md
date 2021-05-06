@@ -19,23 +19,23 @@ Tomando como exemplo os seguintes conjnutos:
 
 1. $M= \{(x,y) \in \R^2: x^2+y^2=1\}$
 
-[imagem]
+<img src="./assets/0014-conj-1.png" alt="Representação do Conjunto 1" class="invert-dark2">
 
 {green}(É variedade de dimensão 1.)
 
 2. $M = \{(x,y,z) \in \R^3: x^2+y^2+z^2 = 1\}$
 
-[imagem]
+<img src="./assets/0014-conj-2.png" alt="Representação do Conjunto 2" class="invert-dark2">
 
 {green}(É variedade de dimensão 2.)
 
 3. $M= \{(x,y,z) \in \R^3: x^2 + y^2 = z^2\}$
 
-[imagem]
+<img src="./assets/0014-conj-3.png" alt="Representação do Conjunto 3" class="invert-dark2">
 
 {red}(Não é variedade.)
 
-Na origem não é possível escrever nenhuma variável em função das outras duas.
+Na origem não é possível escrever nenhuma variável em função das outras duas, pois tem um "bico".
 
 4. $M = \{(x,y,z) \in \R^3: z=x+y\}$ que corresponde a um plano.  
    Logo, qualquer ponto é definido por $z=f(x,y) = x+y$.  
