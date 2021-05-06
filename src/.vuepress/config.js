@@ -174,6 +174,7 @@ module.exports = {
             '0015-congruencias',
             '0016-chines-restos',
             '0017-rsa',
+            '0018-grafos-def',
           ],
         },
         {
