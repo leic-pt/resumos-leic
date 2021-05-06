@@ -74,7 +74,7 @@ DF = \begin{bmatrix}
 \end{bmatrix}
 $$
 
-Quando $\car DF \ne 1$, então x,y = 0$. No entanto, este ponto não pretence ao conjunto.
+Quando $\car DF \ne 1$, então $x,y = 0$. No entanto, este ponto não pretence ao conjunto.
 
 Logo, $\car DF$ é máxima em qualquer ponto do conjunto e $M$ é variedade de dimensão $1$.
 
