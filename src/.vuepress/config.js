@@ -68,6 +68,7 @@ module.exports = {
             '0011-even_more_algo',
             '0012-ponteiros',
             '0013-mem',
+            '0014-listas',
           ],
         },
         {
@@ -81,6 +82,7 @@ module.exports = {
             'labs/lab06/',
             'labs/lab07/',
             'labs/lab08/',
+            'labs/lab09/',
           ],
         },
         {
@@ -107,6 +109,8 @@ module.exports = {
             '0008-prolog-mid',
             '0009-prolog-corte-neg',
             '0010-prolog-lp',
+            '0011-logica-proposicional-semantico',
+            '0012-lp-ii-bdds',
           ],
         },
         {
@@ -167,7 +171,10 @@ module.exports = {
             '0011-FFT',
             '0012-MDC',
             '0013-calendario',
-            '0014-congruencias',
+            '0014-pascoa',
+            '0015-congruencias',
+            '0016-chines-restos',
+            '0017-rsa',
           ],
         },
         {
@@ -183,6 +190,18 @@ module.exports = {
             '1002-geradoras-sheet',
             '1003-calendarios',
             '1004-mdc-cheat',
+            '1005-rsa-sheet',
+          ],
+        },
+        {
+          title: '🛠 Ferramentas',
+          collapsable: false,
+          children: [
+            'tools/fft-calculator',
+            'tools/calendar-calculator',
+            'tools/bezout-calculator',
+            'tools/tcr-table-calculator',
+            'tools/rsa-calculator',
           ],
         },
       ],

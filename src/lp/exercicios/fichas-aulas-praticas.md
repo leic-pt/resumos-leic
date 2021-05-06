@@ -190,7 +190,7 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 
   junta_novo_aleatorio(L1, LI, LS, L2) :-
     random_between(LI, LS, E),
-    subtract(L1, [E], L1),
+    \+ member(E, L1),
     insere_ordenado(E, L1, L2).
   ```
 
@@ -242,12 +242,6 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
   :::
 
 - [Semana 9](https://drive.google.com/file/d/1RovEx8Zcles6lAy4pJlX5bSIanLjASAF/view?usp=sharing)
-
-::: danger
-
-Esta secção ainda não sai esta semana.
-
-:::
 
 - Aritmética
 
@@ -302,7 +296,6 @@ Esta secção ainda não sai esta semana.
 
   ```prolog
   % aplica_op(Op, V1, V2, R)
-  % não me lembro de coisas não hard-coded, se se lembrarem digam
   aplica_op(+, V1, V2, R) :-
     R is V1 + V2.
 
@@ -314,6 +307,11 @@ Esta secção ainda não sai esta semana.
 
   aplica_op(/, V1, V2, R) :-
     R is V1 / V2.
+
+  % Solução alternativa não hardcoded:
+  aplica_op(Op, V1, V2, R) :-
+    Lit =.. [Op, V1, V2],
+    R is Lit.
   ```
 
   Exercício 6
