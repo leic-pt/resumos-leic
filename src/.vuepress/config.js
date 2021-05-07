@@ -69,6 +69,8 @@ module.exports = {
             '0012-ponteiros',
             '0013-mem',
             '0014-listas',
+            '0015-tad',
+            '0016-disp',
           ],
         },
         {
