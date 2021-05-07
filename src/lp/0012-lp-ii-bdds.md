@@ -1,5 +1,5 @@
 ---
-description: Lógica Proposicional II, Sistema Semântico, Diagramas de Decisão Binários (des)Ordenados.
+description: Lógica Proposicional II, Sistema Semântico, Diagramas de Decisão Binários (des)Ordenados, Algoritmos de Manipulação de OBDDs.
 ---
 
 # Lógica Proposicional II - Diagramas de Decisão Binários
