@@ -145,7 +145,7 @@ $$
 F(t)&= \int^{\pi}_0 \int^{\sqrt{t}}_1 \int^1_0 \frac{e^{tr^2}}{r^2} \cdot r \d z \d r \d \theta\\
 &= \int^{\pi}_0 \int^{\sqrt{t}}_1 \frac{e^{tr^2}}{r} \d r \d \theta\\
 &= \int^{\sqrt{t}}_1 \int^{\pi}_0 \frac{e^{tr^2}}{r} \d \theta \d r\\
-&= \int^{\sqrt{t}}_1 \frac{e^{tr^2}}{r} \d r
+&= \int^{\sqrt{t}}_1 \frac{\pi e^{tr^2}}{r} \d r
 \end{aligned}
 $$
 
