@@ -70,7 +70,7 @@ void print(link head)
 {
     link t;
     for (t = head; t != NULL; t = t->next)
-        printf("s\n", t->text);
+        printf("%s\n", t->text);
 }
 
 link delete (link head, char *text)

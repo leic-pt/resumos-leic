@@ -143,6 +143,7 @@ module.exports = {
             '0011-aplicacoes-integral',
             '0012-teorema-leibniz',
             '0013-funcao-inversa',
+            '0014-variedades',
           ],
         },
         {
@@ -174,6 +175,7 @@ module.exports = {
             '0015-congruencias',
             '0016-chines-restos',
             '0017-rsa',
+            '0018-grafos-def',
           ],
         },
         {
@@ -189,6 +191,7 @@ module.exports = {
             '1002-geradoras-sheet',
             '1003-calendarios',
             '1004-mdc-cheat',
+            '1005-rsa-sheet',
           ],
         },
         {
@@ -256,6 +259,7 @@ module.exports = {
             '\\d': '\\mathop{}\\!\\mathrm d',
             '\\1': '1\\!\\!1',
             '\\Q': '\\mathbb{Q}',
+            '\\car': '\\operatorname{car}',
           },
           strict: false,
         },
