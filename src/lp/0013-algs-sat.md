@@ -124,3 +124,131 @@ Falta apenas marcar Q, mas aqui qualquer rotulação gera uma _fbf_ satisfazíve
 Resta, por fim, notar que este algoritmo continua a não ser completo - continua a haver casos em que, mesmo suportados pelo algoritmo do teste de nós, não conseguimos resolver todos os casos.
 
 A grande vantagem destes algoritmos em relação aos algoritmos de DP é em relação à sua **eficiência**. O algoritmo de propagação de marcas tem crescimento linear, o de teste de nós cúbico, ambos substancialmente melhores que algoritmos baseados em DP que têm crescimento exponencial. É, portanto, uma questão de "pick your poison" - privilegiamos a eficiência ou a completude dos resultados?
+
+## Algoritmos baseados em DP
+
+Utilizam regras que transformam conjuntos de cláusulas em conjuntos de cláusulas. Têm como principal vantagem em relação ao algoritmo estudado acima o facto de ser **completo**, terminando sempre com uma resposta. São, contudo, menos eficientes, apresentando crescimento exponencial.
+
+::: tip DEFINIÇÃO
+
+(talvez reler na diagonal a secção sobre a [resolução](https://ist.diogotc.com/lp/0005-logica-primeiraordem-sc.html#resolucao) possa ajudar a relembrar conceitos esquecidos)
+
+Sendo $\Delta$ um conjunto de cláusulas e $P_{i}$ um símbolo de proposição, o **conjunto de cláusulas obtido de $\Delta$ por eliminação de $P_{i}$**, $\exists P_{i} (\Delta)$, é obtido tal que:
+
+- Todos os resolventes-$P_{i}$, gerados a partir de cláusulas de $\Delta$, são adicionados;
+
+- Todas as cláusulas de $\Delta$ que mencionam $P_{i}$ são retiradas.
+
+Tendo que nos resolventes obrigatoriamente não aparece $P_{i}$ e que já não temos em consideração as cláusulas de $\Delta$ que mencionam $P_{i}$, nenhuma cláusula do conjunto $\exists P_{i} (\Delta)$ mencionará $P_{i}$.
+
+Como exemplo, podemos olhar para $\Delta = \{\{P, Q\}, \{\neg P, Q\}, \{\neg P, S\}, \{\neg Q, R\}\}$. Os resolventes-P são $\{Q\}$ e $\{Q, S\}$. Ignorando as cláusulas de $\Delta$ que mencionam P, podemos então construir $\exists P(\Delta) = \{\{Q\}, \{Q, S\}, \{\neg Q, R\}\}$.
+
+:::
+
+O algoritmo DP baseia-se no facto de $\Delta$ ser satisfazível se e só se $\exists P_{i}(\Delta)$ é satisfazível (a demonstração, que ainda é comprida, está no livro, pág 162 do PDF/pág 149 do livro).
+
+Assim sendo, e pegando no exemplo utilizado na definição acima, podemos afirmar que $\Delta = \{\{P, Q\}, \{\neg P, Q\}, \{\neg P, S\}, \{\neg Q, R\}\}$ só é satisfazível caso $\exists P(\Delta) = \{\{Q\}, \{Q, S\}, \{\neg Q, R\}\}$ for satisfazível.
+
+O algoritmo consiste em, partindo de uma _fbf_ $\Delta$ já na forma clausal, ir eliminado sucessivamente os símbolos de proposição de $\Delta$; desta forma, os conjuntos de cláusulas vão contendo cada vez menos símbolos de proposição, até que:
+
+- chegamos à cláusula vazia, $\{\{\}\}$, o que nos indica que a _fbf_ inicial não é satisfazível;
+
+- obtemos um _conjunto vazio de cláusulas_, $\{\}$, que corresponde a uma tautologia, pelo que podemos admitir que a _fbf_ inicial é satisfazível.
+
+Chegamos **sempre** a um destes dois resultados, sendo esta a principal vantagem do algoritmo - chegamos sempre a um resultado concreto.
+
+::: details Exemplos
+
+$\Delta = \{\{P, Q\}, \{\neg P, Q\}, \{\neg Q, R\}, \{\neg R\}\}$
+
+Realizando eliminações sucessivas de P, Q e R, chegamos à cláusula vazia (não confundir com conjunto vazio de cláusulas), pelo que podemos concluir que a _fbf_ não é satisfazível:
+
+$\exists P(\Delta) = \{\{Q\}, \{\neg Q, R\}, \{\neg R\}\}$  
+$\exists Q(\exists P(\Delta)) = \{\{R\}, \{\neg R\}\}$  
+$\exists R(\exists Q(\exists P(\Delta))) = \{\{\}\}$
+
+---
+
+$\Delta = \{\{P, Q\}, \{\neg P, Q\}, \{\neg Q, R\}\}$
+
+Realizando eliminações sucessivas de P, Q e R, chegamos a um conjunto vazio de cláusulas, podendo concluir que a _fbf_ é satisfazível:
+
+$\exists P(\Delta) = \{\{Q\}, \{\neg Q, R\}\}$  
+$\exists Q(\exists P(\Delta)) = \{\{R\}\}$  
+$\exists R(\exists Q(\exists P(\Delta))) = \{\}$
+
+Pode notar-se que na penúltima linha não são gerados resolventes-R, mas qualquer clausula que contenha R é removida, pelo que ficamos apenas com um conjunto vazio de cláusulas.
+
+:::
+
+Uma maneira de implementar o algoritmo DP consiste em utilizar o conceito de **balde** (não confundir com [balde](https://cdn.discordapp.com/attachments/832358053264621588/834539505565958204/2021-04-21_222139_162507283.png)), um conjunto de cláusulas. O algoritmo consiste em:
+
+- **Criar e preencher baldes**
+
+  - Primeiro, estabelecer uma relação de ordem total entre os símbolos de proposição na _fbf_;
+
+  - Criar um balde sem elementos por cada símbolo de proposição que ocorra na _fbf_, cada um deles designado por $b_{P_{i}}$, ordenados de acordo com a relação de ordem total previamente estabelecida;
+
+  - Cada cláusula é colocada no primeiro balde que houver tal que a cláusula menciona $P_{i}$.
+
+- **Processar baldes**
+
+  Para processar o balde $b_{P_{i}}$, geram-se todos os resolventes-$P_{i}$ a partir exclusivamente de cláusulas do balde respetivo; cada um destes resolventes é colocado no primeiro balde seguinte $b_{P_{j}}$ tal que a cláusula mencione $P_{j}$ e assim sucessivamente. Se durante o processamento de um balde for gerada a cláusula vazia, o algoritmo termina, indicando que a _fbf_ não é satisfazível. Se chegarmos ao fim e a cláusula vazia nunca for gerada, podemos afirmar que a _fbf_ é satisfazível.
+
+::: details Exemplo - Aplicação do método dos baldes
+
+Ora, peguemos na _fbf_ tal que $\Delta = \{\{P, Q, R\}, \{\neg P, S, T, R\}, \{\neg P, Q, S\}, \{\neg Q, \neg R\}, \{S\}\}$. Podemos ainda estabelecer uma relação de ordem total arbitrária - seja ela $P \prec Q \prec R \prec S \prec T$. A primeira fase, criar e preencher os baldes, dá-se tal que:
+
+$b_{P}: \{P, Q, \neg R\}, \{\neg P, S, T, R\}, \{\neg P, Q, S\}$  
+$b_{Q}: \{\neg Q, \neg R\}$  
+$b_{R}:$  
+$b_{S}: \{S\}$  
+$b_{T}:$
+
+Processar o balde $b_{P}$ origina 2 novas cláusulas, nenhuma delas vazia, pelo que o algoritmo ainda não acabou:
+
+$b_{P}: \{P, Q, \neg R\}, \{\neg P, S, T, R\}, \{\neg P, Q, S\}$  
+$b_{Q}: \{\neg Q, \neg R\}, \qquad \qquad \qquad \qquad \qquad \qquad  \{Q, \neg R, S\}$  
+$b_{R}:$  
+$b_{S}: \{S\}$  
+$b_{T}:$
+
+Processar o balde $b_{Q}$ origina uma nova cláusula, não vazia:
+
+$b_{P}: \{P, Q, \neg R\}, \{\neg P, S, T, R\}, \{\neg P, Q, S\}$  
+$b_{Q}: \{\neg Q, \neg R\}, \qquad \qquad \qquad \qquad \qquad \qquad  \{Q, \neg R, S\}$  
+$b_{R}: \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \{\neg R, S\}$  
+$b_{S}: \{S\}$  
+$b_{T}:$
+
+Processar os próximos baldes não gera mais nenhuma cláusula, podendo, então, afirmar que _fbf_ é satisfazível.
+
+:::
+
+Falta, contudo, um pormenor para o algoritmo DP ser considerado um algoritmo de SAT: resta **devolver uma interpretação que satisfaça a _fbf_** (isto caso seja satisfazível, claro).
+
+Neste passo, vamos inspecionar os baldes pela ordem inversa à da relação de ordem total estabelecida inicialmente. A inspeção de um balde $b_{P_{i}}$ é realizada de modo a atribuir um valor lógico ao símbolo de proposição correspondente tal que todas as suas cláusulas são satisfeitas, **tendo em conta os valores lógicos já atribuídos aos outros símbolos de proposição**. Pegando no exemplo anterior:
+
+- Começamos pelo último balde, $b_{T}$; estando o balde vazio, podemos escolher qualquer valor lógico (vamos escolher $I(T) = V$);
+
+- Seguimos para o balde $b_{S}$, que contém uma única cláusula, $\{S\}$, não dependente de nenhum dos valores lógicos anteriores. Para ser satisfeita, temos de escolher $I(S)=V$;
+
+- Inspecionando o balde seguinte, $b_{R}$, podemos verificar que existe uma cláusula, $\{\neg R, S\}$. Tendo S verdadeiro, $\neg R$ poderá tomar qualquer valor, tal como $R$. Podemos escolher $I(R)=V$.
+
+- Olhando para o balde $b_{Q}$, temos 2 cláusulas, mas procuramos sempre a que depende diretamente do valor de $Q$, sendo esta $\{\neg Q, \neg R\}$ neste caso; para a satisfazer, visto que $R$ é verdadeiro (e por consequência $\neg R$ falso), temos de ter $\neg Q$ verdadeiro, e $Q$, por conseguinte, falso ($I(Q)=F$);
+
+- Por fim, olhando para o balde $b_{P}$, a única cláusula cuja satisfação depende de $P$ é $\{P, Q, \neg R\}$, onde temos necessariamente de ter $P$ verdadeiro - $I(P)=V$.
+
+Uma interpretação que satisfaz $\Delta$ é, portanto, $I(T)=V, I(S)=V, I(R)=V, I(Q)=F, I(P)=V$.
+
+É, ainda, importante olhar para a **escolha da relação de ordem total**, sendo esta bastante relevante para simplificar o processo.
+
+Se, ainda em relação à _fbf_ anterior, tivéssemos optado pela ordem $S \prec R \prec P \prec Q \prec T$, obteríamos:
+
+$b_{P}: \{\neg P, S, T, R\}, \{\neg P, Q, S\}, \{S\}$  
+$b_{Q}: \{P, Q, \neg R\}, \{\neg Q, \neg R\}$  
+$b_{R}:$  
+$b_{S}:$  
+$b_{T}:$
+
+A escolha desta ordem levou a menos processamento do que a escolha da ordem anterior, pelo que esta escolha teria sido bastante melhor (e mais simples).
