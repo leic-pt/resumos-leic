@@ -33,7 +33,7 @@ Qual o número total de conflitos (elementos adicionados a uma posição já con
  inicialmente vazia, sabendo que a função de hash é `hash(k) = k mod 3`.
 
 ::: details Resolução
-3 Conflitos
+5 Conflitos
 :::
 
 ## Exercício 3
