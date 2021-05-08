@@ -23,6 +23,7 @@ Usando uma tabela de dispersão por encadeamento externo (external chaining) par
 e a função de dispersão definida em cima, e sabendo que `M = 10`, qual ou quais são as chaves dos elementos guardados na posição 3 da tabela (A primeira posição da tabela é a posição zero)?
 
 ::: details Resolução
+Elementos: 2 e 32
 :::
 
 ## Exercício 2
@@ -32,7 +33,7 @@ Qual o número total de conflitos (elementos adicionados a uma posição já con
  inicialmente vazia, sabendo que a função de hash é `hash(k) = k mod 3`.
 
 ::: details Resolução
-
+3 Conflitos
 :::
 
 ## Exercício 3
@@ -42,6 +43,7 @@ Qual a posição em que é colocado o último valor da sequência `< 17, 7, 28, 
  sabendo que a função de hash é `hash(k) = k mod M`?
 
 ::: details Resolução
+Posição 5
 :::
 
 ## Exercício 4
@@ -53,6 +55,7 @@ Considere uma tabela de dispersão com resolução por procura linear (linear pr
  qual será o índice da entrada da tabela em que é inserido o último elemento ?
 
 ::: details Resolução
+Posição 2
 :::
 
 ## Exercício 5
@@ -68,6 +71,7 @@ Considere uma tabela de dispersão com resolução por dispersão dupla (double 
 Qual o índice da posição na tabela em que é colocado o último valor da sequência\
  `< 10, 12, 7, 9, 3, 11, 2 >` assumindo que a tabela se encontra inicialmente vazia ?
 ::: details Resolução
+Posição 8
 :::
 
 ## Exercício 6 (Opcional)
