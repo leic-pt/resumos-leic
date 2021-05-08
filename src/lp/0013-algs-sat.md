@@ -77,10 +77,50 @@ Chegámos agora à próxima fase do algoritmo, a propagação de marcas (V ou F)
 
 Se repararem, acima mencionei algumas vezes o "processo inverso/ascendente" - isto porque, caso apenas ocorra a propagação de marcas no sentido descendente, temos de verificar, começando nas folhas, se a propagação inversa também faz sentido (e é igual à descendente). Se for, encontrámos uma interpretação que satisfaz a _fbf_; caso contrário, a _fbf_ não é satisfazível.
 
-::: warning
+::: details Exemplos - Propagação de Marcas
 
-Work in progress
+A propagação de marcas relativas à _fbf_ $P \wedge \neg (P \wedge \neg Q)$ tem um aspeto deste género:
 
-Faltam adicionar exemplos + algoritmo de testes de nós
+<p align="center">
+<img src="./assets/0013-prop1.png" alt="Propagação de Marcas, Exemplo 1" class="invert-dark">
+</p>
+
+Se tentarmos realizar a propagação de marcas no sentido ascendente obtemos as mesmas marcas que no sentido descendente, pelo que a _fbf_ é provada satisfazível, e encontrámos uma _testemunha_, interpretação que satisfaz a _fbf_. Contudo, talvez a explicação deste exemplo não seja suficiente para que esta verificação faça sentido - porque é que a propagação havia de ser diferente em sentidos diferentes? Bem, vejamos o exemplo abaixo, da _fbf_ $(P \wedge \neg (P \wedge \neg Q)) \neg Q$:
+
+<p align="center">
+<img src="./assets/0013-prop2.png" alt="Propagação de Marcas, Exemplo 2" class="invert-dark">
+</p>
+
+Aqui, a propagação no sentido ascendente leva a marcas diferentes das propagadas no sentido descendente, pelo que a _fbf_ não é satisfazível. Podemos ver isso tendo que, olhando para a raiz, é uma conjunção, pelo que ambas as raizes com arcos ligados pela conjunção terão marca V, ficando com Q assim propagado como F, por via da negação ser verdadeira. Contudo, e olhando para o outro lado do DAG, temos que a nova conjunção também tem marca V, pelo que tanto P como a negação vão ser V. A conjunção que segue a negação é falsa, portanto, mas tendo que P é verdadeira a negação à direita tem de ser falsa (para a conjunção ser falsa) - sendo a negação falsa, Q teria de ser verdadeira. Temos aqui um problema - logo no início marcámos Q como falsa, e agora marcámo-la como verdadeira? Não pode ser, é uma contradição! Assim sendo, a _fbf_ é obrigatoriamente contraditória, e portanto não satisfazível.
+
+Foi referido acima que o algoritmo de propagação de marcas não é completo, isto é, podemos não conseguir atribuir marcas a todos os nós do grafo. Ora vejamos o exemplo de $(P \to Q) \wedge (P \to \neg Q) \wedge (P \vee R)$:
+
+<p align="center">
+<img src="./assets/0013-prop3.png" alt="Propagação de Marcas, Exemplo 3" class="invert-dark">
+</p>
+
+Como podemos observar, ocorre (mais que uma vez até) chegarmos a situações em que a conjunção é falsa, mas não temos informação concreta sobre os "filhos", impossibilitando-nos portanto de aferir a marca de alguns símbolos de proposição. O resultado é, portanto, inconclusivo.
 
 :::
+
+Para nos ajudar (até um certo ponto) a marcar mais algumas marcas que restem temos o **algoritmo de testes de nós**.
+
+Este algoritmo recebe um nó e um grafo. Marca temporariamente esse nó com V e verifica se a propagação de marcas origina agora outras marcas consistentes (não contraditórias). Caso aconteça, fantástico, encontrámos uma testemunha da _fbf_ com marcas corretas. Caso ocorra uma contradição, marcamos o nó que estávamos a testar com F (permanentemente), removemos as marcas temporárias que criámos a testar este nó e testamos com outro nó. Caso não ocorra uma contradição mas ainda fiquem nós por marcar, apagamos as marcas temporárias e voltamos a testar o mesmo nó, desta vez com a marca F. Caso nenhum dos testes seja conclusivo, não havendo contradição mas restando ainda marcas por propagar, fazemos a interseção das marcas temporárias em comum entre os dois testes e marcamo-las permanentemente, procurando agora testar um nó diferente.
+
+Ora, peguemos na _fbf_ do último exemplo, $(P \to Q) \wedge (P \to \neg Q) \wedge (P \vee R)$:
+
+<p align="center">
+<img src="./assets/0013-teste-nos1.png" alt="Teste Nós 1" class="invert-dark">
+</p>
+
+Aqui, testamos marcar $P$ com V. Ora, do exemplo anterior, tínhamos que ambas as conjunções a que estava ligado eram falsas, o que levaria a que, simultaneamente, $Q$ e $\neg Q$ fossem falsas, o que é claramente contraditório. Marcamos, portanto, P permanentemente com F. Ora, com esta marca permanente podemos aferir alguns resultados, via propagação de marcas:
+
+<p align="center">
+<img src="./assets/0013-teste-nos2.png" alt="Teste Nós 2" class="invert-dark">
+</p>
+
+Falta apenas marcar Q, mas aqui qualquer rotulação gera uma _fbf_ satisfazível.
+
+Resta, por fim, notar que este algoritmo continua a não ser completo - continua a haver casos em que, mesmo suportados pelo algoritmo do teste de nós, não conseguimos resolver todos os casos.
+
+A grande vantagem destes algoritmos em relação aos algoritmos de DP é em relação à sua **eficiência**. O algoritmo de propagação de marcas tem crescimento linear, o de teste de nós cúbico, ambos substancialmente melhores que algoritmos baseados em DP que têm crescimento exponencial. É, portanto, uma questão de "pick your poison" - privilegiamos a eficiência ou a completude dos resultados?
