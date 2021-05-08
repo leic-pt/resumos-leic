@@ -69,6 +69,8 @@ module.exports = {
             '0012-ponteiros',
             '0013-mem',
             '0014-listas',
+            '0015-tad',
+            '0016-disp',
           ],
         },
         {
@@ -83,6 +85,7 @@ module.exports = {
             'labs/lab07/',
             'labs/lab08/',
             'labs/lab09/',
+            'labs/lab10/',
           ],
         },
         {
