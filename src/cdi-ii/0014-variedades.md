@@ -408,9 +408,242 @@ $$
 
 {yellow}(**Espaço Normal** a $M$ no ponto $a$)
 
-$(T_aM)^\perp = \{\text{vetores perpendiculares a } T_aM\}$
+$$
+(T_aM)^\perp = \{\text{vetores perpendiculares a } T_aM\}
+$$
 
 é espaço vetorial de dimensão $n-m$.
+
+Pode-se facilmente obter o espaço normal através da matriz jacobiana $DF$, visto que cada linha da matriz é um vetor perpendicular ao caminho $\gamma$ num ponto $a$.
+
+{blue}(Vejamos um exemplo:)
+
+Considerando o conjunto $S = \{(x,y,z) \in \R^3: z = x^4+y^3\}$ e o ponto $a = (1,1,2)$, e sabendo que $S$ é variedade de $\dim 2$.
+
+Podemos escrever o seguinte:
+
+$$
+\begin{array}{ll}
+S = \{(x,y,z) \in \R^3: F = x^4 +y^3 - z = 0\} & F \in C^1
+\end{array}
+$$
+
+$$
+DF(x,y,z) = \begin{bmatrix}
+4x^3 & 3y^2 & -1
+\end{bmatrix}
+$$
+
+$$
+DF(1,1,2) = \begin{bmatrix}
+4 & 3 & -1
+\end{bmatrix}
+$$
+
+$$
+(T_{(1,1,2)}S)^{\perp} = \mathcal{L} \{(4,3,-1)\}\ \text{que é uma reta}
+$$
+
+$$
+(x,y,z) \in T_{(1,1,2)}S: (x,y,z) \cdot (4,3,-1) = 0 \Leftrightarrow 4x+3y-z=0\ \text{(um plano)}
+$$
+
+Escolhendo assim dois pontos distintos pertencentes ao plano:
+
+$$
+T_{(1,1,2)} S = \mathcal{L} \{(1,-1,1), (0,1,3)\}
+$$
+
+::: details Mais Exemplos
+
+Considerando agora o conjunto $L$:
+
+$$
+L = \{(x,y,z) \in \R^3: z=x^4+y, x+y+z=6\}
+$$
+
+Será que é variedade? Se sim, qual a sua dimensão?
+Qual o espaço tangente e normal no ponto $(1,2,3)$?
+
+Começemos por escrever o conjunto na forma de conjunto de nível:
+
+$$
+\begin{array}{c}
+F(x,y,z) = (x^4+y-z, x+y+z-6)\\
+L=\{(x,y,z) \in \R^3: F=(0,0)\}
+\end{array}
+$$
+
+Calculando agora a jacobiana de $F$:
+
+$$
+DF(x,y,z) = \begin{bmatrix}
+4x^3 & 1 & -1\\
+1 & 1 & 1
+\end{bmatrix}
+$$
+
+$DF$ tem (sempre) característica 2.
+
+{green}(Logo $L$ é variedade de $\dim 3 - 2 = 1$ (que corresponde a uma curva))
+
+Tomando agora a jacobiana no ponto $a = (1,2,3)$,
+
+$$
+DF (1,2,3) = \begin{bmatrix}
+4 & 1 & -1\\
+1 & 1 & 1
+\end{bmatrix}
+$$
+
+Ficamos assim a saber o seu espaço normal:
+
+$$
+(T_{(1,2,3)}L)^{\perp} = \mathcal{L} \{(4,1,-1), (1,1,1)\}
+$$
+
+Qual o valor de $T_{(1,2,3)}L$?
+
+$$
+\begin{aligned}
+(x,y,z) \in T_{(1,2,3)}L &\Leftrightarrow \begin{cases}
+(x,y,z) \cdot (4,1,-1) = 0\\
+(x,y,z) \cdot (1,1,1) = 0
+\end{cases}\\
+& \Leftrightarrow \begin{cases}
+4x+y-z=0\\
+x+y+z=0
+\end{cases}\\
+& \Leftrightarrow \begin{cases}
+5x+2y=0\\
+3x-2z = 0
+\end{cases}
+\end{aligned}
+$$
+
+Podemos escolher qualquer ponto que satisfaça o sistema acima, por exemplo: $(1, -\frac{5}{2}, \frac{3}{2})$
+
+$$
+T_{(1,2,3)}L = \mathcal{L}\left\{\left(1,-\frac{5}{2}, \frac{3}{2}\right)\right\}
+$$
+
+:::
+
+### Obter Espaço Tangente e Normal a partir da parametrização
+
+Suponhamos que $g$, $g: V \to M$, é parametrização de $M = \{F = 0\}$ e que $g(t_0) = a$.
+
+As colunas de $Dg(t_0)$ pertencem ao espaço tangente, pelo que
+
+$$
+T_aM = \mathcal{L} \{\text{colunas de}\ Dg(t_0)\}
+$$
+
+::: details Demonstração
+
+$$
+0=F(g(t)) \implies 0 = D(F(g(t))) = DF(g(t))\cdot Dg(t)
+$$
+
+Quando $t=t_0$, temos $DF(a) \cdot Dg(t_0)=0$,
+então as linhas de $DF(a)$ geram o espaço normal,
+pelo que as colunas de $Dg(t_0)$ pertencem ao espaço tangente.
+
+:::
+
+::: details Exemplo
+
+Considerando
+
+$$
+P = \{(x,y,z) \in \R^3: z = x^2+y^2, z < 1\}
+$$
+
+Escrevendo a sua parametrização, recorrendo às coordenadas cilindricas:
+
+$$
+g(\rho, \theta) = (\rho \cos \theta, \rho \sin \theta, \rho^2)
+$$
+
+**Qual o espaço tangente e normal em $(\frac{1}{2}, \frac{1}{2},\frac{1}{2})$?**
+
+- $\rho^2 = \frac{1}{2} \implies \rho = \frac{\sqrt{2}}{2}$
+
+- $$
+  \begin{cases}
+  \rho \cos \theta = \frac{1}{2}\\
+  \rho \sin \theta = \frac{1}{2}
+  \end{cases}
+  \Rightarrow
+  \begin{cases}
+  \cos \theta = \frac{\sqrt{2}}{2}\\
+  \sin \theta = \frac{\sqrt{2}}{2}
+  \end{cases}
+  \Rightarrow \theta = \frac{\pi}{4}
+  $$
+
+Logo $g\left(\frac{\sqrt{2}}{2}, \frac{\pi}{4}\right) = \left(\frac{1}{2},\frac{1}{2},\frac{1}{2}\right)$.
+
+$$
+Dg(\rho, \theta) = \begin{bmatrix}
+\cos \theta & -\rho \sin \theta\\
+\sin \theta & \rho \cos \theta\\
+2\rho & 0
+\end{bmatrix}
+$$
+
+No ponto $\left(\frac{\sqrt{2}}{2}, \frac{\pi}{4}\right)$:
+
+$$
+Dg\left(\frac{\sqrt{2}}{2}, \frac{\pi}{4}\right) = \begin{bmatrix}
+\frac{\sqrt{2}}{2} & -\frac{1}{2}\\
+\frac{\sqrt{2}}{2} & \frac{1}{2}\\
+\sqrt{2} & 0
+\end{bmatrix}
+$$
+
+Temos assim o espaço tangente:
+
+$$
+T_{(\frac{1}{2}, \frac{1}{2},\frac{1}{2})}P=
+\mathcal{L} \left\{\left(\frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2}, \sqrt{2}\right), \left(-\frac{1}{2}, \frac{1}{2}, 0\right)\right\}
+$$
+
+Para calcular o espaço normal, fazemos:
+
+$$
+\begin{darray}{cc}
+\begin{cases}
+(x,y,z)\cdot\left(\frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2}, \sqrt{2}\right) = 0\\
+(x,y,z)\cdot\left(-\frac{1}{2}, \frac{1}{2}, 0\right) = 0
+\end{cases}
+\Rightarrow
+\begin{cases}
+\frac{\sqrt{2}}{2} x + \frac{\sqrt{2}}{2} y + \sqrt{2} z = 0\\
+-\frac{1}{2} x + \frac{1}{2} y = 0
+\end{cases}
+\Rightarrow\\
+\Rightarrow
+\begin{cases}
+x+y+2z = 0\\
+x = y
+\end{cases}
+\Rightarrow
+\begin{cases}
+x = -z\\
+x = y
+\end{cases}
+\end{darray}
+$$
+
+Escolhendo um ponto que satisfaça esta condição, por exemplo $(1,1,-1)$, temos que:
+
+$$
+\left(T_{(\frac{1}{2}, \frac{1}{2},\frac{1}{2})}P\right)^{\perp}=
+\mathcal{L} {(1,1,-1)}
+$$
+
+:::
 
 ---
 
@@ -419,3 +652,4 @@ Slides:
 - [Aula 31](https://drive.google.com/file/d/1A-P0lLvEs-y6mfKzjFtb5FpdQgeXP_CF/view?usp=sharing)
 - [Aula 32](https://drive.google.com/file/d/1ezOnPt6jcVTSpJEB8tmPyoSn9cUrLZzz/view?usp=sharing)
 - [Aula 33](https://drive.google.com/file/d/1PWd668ykP597L8UD8ToRE38QJvDykPMb/view?usp=sharing)
+- [Aula 34](https://drive.google.com/file/d/1QTW40Bjx74pBETjoDOzbshfv0zPQhwM7/view?usp=sharing)
