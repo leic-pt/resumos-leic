@@ -262,7 +262,155 @@ Então obtemos:
 
 $g(r,\theta) = (r \cos \theta, r \sin \theta, r^2), \quad r \in ]0, 1], \theta \in ]0, 2\pi[$
 
+---
+
+Considerando
+
+$$
+M = \{(x,y) \in \R^2 : x>0, x^2+y^2=1 \}
+$$
+
+variedade de $\dim 1$, que representa um **semi-circulo**.
+
+Como $x >0 \implies x=\sqrt{1-y^2}$, podemos obter a parameterização:
+
+$$
+\begin{array}{ll}
+g(y) = (\sqrt{1-y^2}, y) & g : ]-1, 1[ \to M
+\end{array}
+$$
+
+Verificando agora as condições da parametrização:
+
+- $g \in C^1$
+- $g$ é injetiva  
+  $g(y_1) = g(y_2) \implies (\sqrt{y^2_1}, y_1) = (\sqrt{1-y^2_2}, y_2) \implies y_1=y_2$
+- $Dg(y)= \begin{bmatrix} -\frac{y}{\sqrt{1-y^2}} \\ 1\end{bmatrix}$ tem uma coluna linearmente independente
+
+Alternativamente, podemos usar coordenadas polares:
+
+$$
+\begin{array}{ll}
+g(\theta) = (\cos \theta, \sin \theta) &
+\theta \in \left]-\frac{\pi}{2}, \frac{\pi}{2}\right[
+\end{array}
+$$
+
+Verificando novamente as condições da parametrização:
+
+- $g \in C^1$
+- $g$ é injetiva
+- $Dg(\theta) = \begin{bmatrix} - \sin \theta \\ \cos \theta \end{bmatrix}$  
+  $Dg$ não tem colunas linearmente independentes quando $\sin \theta, \cos \theta = 0$  
+  Impossível em $M$ porque $\sin^2\theta + \cos^2\theta = 1$
+
+{green}(Logo, $g$ é uma parametrização de $M$.)
+
+---
+
+Considerando
+
+$M = \{(x,y,z): x^2+y^2+z^2 = 1, z > 0\}$
+
+Utilizando as coordenadas esféricas, com $r=1$, podemos obter a seguinte parametrização:
+
+$$
+\begin{array}{ll}
+g(\theta, \varphi) = (\cos \theta \sin \varphi, \sin \theta \sin \varphi, \cos \varphi) &
+\theta \in \left]0, 2\pi\right[, \varphi \in \left]0, \frac{\pi}{2}\right[
+\end{array}
+$$
+
+- $g \in C^1$
+- $g$ é injetiva
+- $Dg$ tem duas colunas linearmente opostas:
+
+  $$
+  Dg(\theta, \varphi) = \begin{bmatrix}
+  \textcolor{#F4AC45}{-\sin \theta \sin \varphi} & \cos \theta \cos \varphi\\
+  \textcolor{#F4AC45}{\cos \theta \sin \varphi} & \sin \theta \cos \varphi\\
+  0 & \textcolor{#C8553D}{-\sin \varphi}
+  \end{bmatrix}
+  $$
+
+  Em $\varphi \in \left]0, \frac{\pi}{2}\right[$, temos que $\textcolor{#C8553D}{-\sin \varphi} < 0$
+
+  Também temos que
+
+  $$
+  \begin{cases}
+  \textcolor{#F4AC45}{-\sin \theta \sin \varphi} = 0\\
+  \textcolor{#F4AC45}{\cos \theta \sin \varphi} = 0
+  \end{cases}
+  \Rightarrow
+  \sin\theta, \cos\theta = 0
+  $$
+
+  que é impossível em $M$, pois $\sin^2 \theta + \cos^2 \theta = 1$.
+
+{green}(Logo, $g$ é uma parametrização de $M$.)
+
+---
+
+Considerando
+
+$$M = \{(x,y,z) \in \R^3: x^2+y^2+z^2 = 1, x = y \}$$
+
+que se sabe ser uma variedade de $\dim 1$.
+
+Podemos substituir $y$ por $x$, obtendo assim a equação
+$2x^2+z^2=1 \Leftrightarrow (\sqrt{2} x)^2+z^2 = 1$, correspondente a uma elipse.
+
+Podemos agora aplicar coordenadas cilindricas modificadas:
+
+$$
+\begin{cases}
+\sqrt{2} x = \cos \theta\\
+z = \sin \theta
+\end{cases}
+\Leftrightarrow
+\begin{cases}
+x = \frac{1}{\sqrt{2}} \cos \theta\\
+z = \sin \theta
+\end{cases}
+$$
+
+Como $x = y$, então $y = \frac{1}{\sqrt{2}} \cos \theta$.
+
+Obtemos assim a parametrização:
+
+$$
+\begin{array}{ll}
+g(\theta) = \left(\frac{1}{\sqrt{2}} \cos \theta, \frac{1}{\sqrt{2}} \cos \theta, \sin \theta\right) & \theta \in ]0, 2\pi[
+\end{array}
+$$
+
 :::
+
+## Espaço Tangente e Espaço Normal
+
+::: tip DEFINIÇÃO
+
+$M$ variedade de $\dim m \subset \R^n$, $v \in \R^n$, $a \in M$
+
+$v$ é tangente a $M$ no ponto $a$ se existir um caminho $\gamma$ em $M$
+com $\gamma (0) = a$ e $\gamma'(0) = v$.
+
+:::
+
+{orange}(**Espaço Tangente** a $M$ no ponto $a$)
+
+$$
+T_aM = \{\text{vetores tangentes a } M \text{ no ponto } a\}
+$$
+
+é espaço vetorial de dimensão $m$.
+
+{yellow}(**Espaço Normal** a $M$ no ponto $a$)
+
+$(T_aM)^\perp = \{\text{vetores perpendiculares a } T_aM\}$
+
+é espaço vetorial de dimensão $n-m$.
 
 ---
 
@@ -270,3 +418,4 @@ Slides:
 
 - [Aula 31](https://drive.google.com/file/d/1A-P0lLvEs-y6mfKzjFtb5FpdQgeXP_CF/view?usp=sharing)
 - [Aula 32](https://drive.google.com/file/d/1ezOnPt6jcVTSpJEB8tmPyoSn9cUrLZzz/view?usp=sharing)
+- [Aula 33](https://drive.google.com/file/d/1PWd668ykP597L8UD8ToRE38QJvDykPMb/view?usp=sharing)
