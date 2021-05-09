@@ -134,7 +134,7 @@ $$
 \begin{darray}{c}
 1 \leq x^2+y^2 \leq t \Leftrightarrow 1 \leq r^2 \leq t \Leftrightarrow 1 \leq r \leq \sqrt{t}\\
 0 \leq z \leq 1\\
-y > 0 \Leftrightarrow r \sin \theta > 0 \Leftrightarrow \sin \theta 0 > 0\Leftrightarrow \theta \in ]0, \pi[
+y > 0 \Leftrightarrow r \sin \theta > 0 \Leftrightarrow \sin \theta > 0\Leftrightarrow \theta \in ]0, \pi[
 \end{darray}
 $$
 
