@@ -157,7 +157,7 @@ Posição 2
 ## Exercício 5
 
 Considere uma tabela de dispersão com resolução por dispersão dupla (double hashing),\
- com dimensão `M = 10`, em que as funçõees de dispersão são dadas por:
+ com dimensão `M = 10`, em que as funções de dispersão são dadas por:
 
 ```c
     hashone(k) = k mod M

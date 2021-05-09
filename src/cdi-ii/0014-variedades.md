@@ -51,13 +51,13 @@ M = \{x \in \R^n: F(x) = 0\} & F: \R^n \to \R^{n-m} & C^1
 \end{array}
 $$
 
-Então, $M$ é variedade de $dim\ m$ se $\forall a \in M$ for possível aplicar o
+Então, $M$ é variedade de $\dim\ m$ se $\forall a \in M$ for possível aplicar o
 [Teorema da Função Implícita](./0013-funcao-inversa.md#teorema-da-funcao-implicita) com $m$ variáveis independentes.
 
 Basta encontrar $m$ variáveis para as quais $\det DF \ne 0 \implies \text{característica máxima}~n - m$.
 
 ::: tip TEOREMA
-O conjunto de nível é uma variedade de $dim\ m$ se $DF$ tem sempre [característica](<https://en.wikipedia.org/wiki/Rank_(linear_algebra)>) máxima.
+O conjunto de nível é uma variedade de $\dim\ m$ se $DF$ tem sempre [característica](<https://en.wikipedia.org/wiki/Rank_(linear_algebra)>) máxima.
 :::
 
 ::: details Exemplos
@@ -83,7 +83,7 @@ Logo, $\car DF$ é máxima em qualquer ponto do conjunto e $M$ é variedade de d
 Considerando
 
 $$
-M = \{ x^2+y^2 + z^2 = N \} = {F(x,y,z) = x^2+y^2+z^2-1 = 0}, F \in C^1
+M = \{ x^2+y^2 + z^2 = N \} = {F(x,y,z) = x^2+y^2+z^2-N = 0}, F \in C^1
 $$
 
 $$
