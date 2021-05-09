@@ -6,9 +6,13 @@ description: Calendário. Calendário Gregoriano. Calendário Juliano.
 
 [[toc]]
 
-::: warning
-É possível que possa haver algum erro,\
-se encontrarem avisem @pesteves no chat de MD para eu corrigir
+::: danger
+Tenham EXTREMA atenção aos símbolos de divisão que se encontram nos resumos
+
+`/` ou `÷` - significa a divisão inteira sempre arrendonda para baixo
+
+`%` - significa a divisão pelo `mod`
+
 :::
 
 ## Calendário
@@ -16,23 +20,23 @@ se encontrarem avisem @pesteves no chat de MD para eu corrigir
 $$
 \begin{array}{|c|c|c|}
 \hline
-Dia da Semana & Letra & Número
+\text{Dia da Semana} & \text{Letra} & \text{Número}
 \\
 
 \hline
- Domingo & A & 1 \\
+ \text{Domingo} & A & 1 \\
 \hline
- Segunda-Feira & B & 2 \\
+ \text{Segunda-Feira} & B & 2 \\
 \hline
- Terça-Feira & C & 3 \\
+ \text{Terça-Feira} & C & 3 \\
 \hline
- Quarta-Feira & D & 4 \\
+ \text{Quarta-Feira} & D & 4 \\
 \hline
- Quinta-Feira & E & 5 \\
+ \text{Quinta-Feira} & E & 5 \\
 \hline
- Sexta-Feira & F & 6 \\
+ \text{Sexta-Feira} & F & 6 \\
 \hline
- Sábado & G & 7 \\
+ \text{Sábado} & G & 7 \\
 \hline
 \end{array}
 $$
@@ -42,39 +46,47 @@ $$
 {
 \begin{array}{|c|c|c|c|}
 \hline
- JAN & A & JUL & G \\
+ \text{JAN} & A & \text{JUL} & G \\
 \hline
- FEV & D & AGO & C \\
+ \text{FEV} & D & \text{AGO} & C \\
 \hline
- MAR & D & SET & F \\
+ \text{MAR} & D & \text{SET} & F \\
 \hline
- ABR & G & OUT & A \\
+ \text{ABR} & G & \text{OUT} & A \\
 \hline
- MAI & B & NOV & D \\
+ \text{MAI} & B & \text{NOV} & D \\
 \hline
- JUN & E & DEZ & F \\
+ \text{JUN} & E & \text{DEZ} & F \\
  \hline
 \end{array}}
 $$
 
 Um ano é Bissexto se é divisível por 4 e não for divisível por 100,\
- a não ser que seja também divisível por 400.
+ a não ser que seja também divisível por 400 (Só se aplica para o Calendário Gregoriano)
 
-## Calendário Gregoriano
+::: details At Dover Dwell George Brown Esquire, Good Christopher Finch And David Friar
+<img src="./imgs/1003-calendario.jpeg" alt="completo" class="invert-dark2">
+:::
 
-### Dia do Mês
+## Calendário Gregoriano (Calendário usado por Todos Nós)
+
+### Dia da Semana
 
 $\mathcal{D}$ = Dia Do Mês
 
-$\mathcal{F}$ = Número do 1º Dia Do Mês
+$\mathcal{F}$ = Número do 1º Dia Do Mês (Tabela no início do Resumo)
 
 $\mathcal{Y}$ = Ano
+
+::: details Gregoriano
+<img src="./imgs/1003-gregoriano.jpeg" alt="gregoriano" class="invert-dark2">
+:::
 
 $\mathcal{C} = 1 + (\mathcal{D}+ \mathcal{F} -2)$ % 7 (corresponde ao **número calêndrico**)
 
 $\mathcal{N} = 7 - (\mathcal{Y} - 1 +  \mathcal{Y} / 4 - \mathcal{Y} / 100 + \mathcal{Y} / 400)$ % 7 (corresponde ao **número dominical**)
 
-Se for Janeiro ou Fevereiro e é Ano Bisssexto:
+Se for Janeiro ou Fevereiro e é Ano Bissexto:
 
 $\mathcal{W} = 1 + (\mathcal{C} - \mathcal{N} + 6)$ % 7
 
@@ -87,6 +99,12 @@ Aqui, $\mathcal{W}$ corresponde ao **dia da semana**.
 ### Dia da Páscoa
 
 ${Y}$ = Ano
+
+::: details Gregoriano
+<img src="./imgs/1003-pascoag.jpeg" alt="pascoa_gregoriano" class="invert-dark2">
+:::
+
+${S} = {Y}$ / 100 (corresponde ao **"século - 1"**)
 
 ${G} = 1 + {Y}$ % 19 (corresponde ao **número de ouro do calendário**)
 
@@ -96,37 +114,41 @@ ${V} = (E / 24 - E / 25) + (G / 12) * (E / 25 - E / 26)$ (corresponde à **corre
 
 (talvez saia na pergunta teórica) - A Epacta Final corresponde a somar a epacta à correção de Clavius.
 
-${D} = 20 + (54 - {E}+ V)$ % 30 (corresponde ao **dia da Lua Cheia Pascal**)
+${R} = 20 + (54 - ({E}+ V))$ % 30 (corresponde ao **dia da Lua Cheia Pascal**)
 
-${C} = 1 + ({D} + 2)$ % 7 (corresponde ao **dia calêndrico da Lua Cheia Pascal**)
+${C} = 1 + ({R} + 2)$ % 7 (corresponde ao **dia calêndrico da Lua Cheia Pascal**)
 
 ${N} = 7 - ({Y} - 1 +  {Y} / 4 - {Y} / 100 +  {Y} / 400 )$ % 7 (corresponde ao **Número Dominical**)
 
 Se ${C} < {N}$
 
-${S} = {D} + {N} - {C}$
+${S} = {R} + {N} - {C}$
 
 Se não
 
-${S} = {D} + 7 - ({N} - {C})$ % 7
+${S} = {R} + 7 - ({C} - {N})$ % 7
 
 Dia da páscoa = dia 1 de março + S
 
 ## Calendário Juliano
 
-### Dia do Mês
+### Dia da Semana
 
 $\mathcal{D}$ = Dia Do Mês
 
-$\mathcal{F}$ = Número do 1º Dia Do Mês
+$\mathcal{F}$ = Número do 1º Dia Do Mês (Tabela no início do Resumo)
 
 $\mathcal{Y}$ = Ano
+
+::: details Juliano
+<img src="./imgs/1003-juliano.jpeg" alt="julaino" class="invert-dark2">
+:::
 
 $\mathcal{C} = 1 + (\mathcal{D}+ \mathcal{F} -2)$ % 7 (corresponde ao **número calêndrico**)
 
 $\mathcal{N} = 7 - (\mathcal{Y} + 4 + \mathcal{Y}$ / 4 $)$ % 7 (corresponde ao **número dominical**)
 
-Se for Janeiro ou Fevereiro e é Ano Bisssexto:
+Se for Janeiro ou Fevereiro e é Ano Bissexto:
 
 $\mathcal{W} = 1 + (\mathcal{C} - \mathcal{N} + 6)$ % 7
 
@@ -139,6 +161,10 @@ Aqui, $\mathcal{W}$ corresponde ao **dia da semana**.
 ### Dia da Páscoa
 
 ${Y}$ = Ano
+
+::: details Juliano
+<img src="./imgs/1003-pascoaj.jpeg" alt="pascoa_julaino" class="invert-dark2">
+:::
 
 ${G} = 1 + {Y}$ % 19 (corresponde ao **número de ouro do calendário**)
 
@@ -156,7 +182,7 @@ ${S} = {D} + {N} - {C}$
 
 Se não
 
-${S} = {D} + 7 - ({N} - {C})$ % 7
+${S} = {D} + 7 - ({C} - {N})$ % 7
 
 Dia da páscoa = dia 1 de março + S
 

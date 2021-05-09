@@ -69,6 +69,8 @@ module.exports = {
             '0012-ponteiros',
             '0013-mem',
             '0014-listas',
+            '0015-tad',
+            '0016-disp',
           ],
         },
         {
@@ -83,6 +85,7 @@ module.exports = {
             'labs/lab07/',
             'labs/lab08/',
             'labs/lab09/',
+            'labs/lab10/',
           ],
         },
         {
@@ -110,6 +113,8 @@ module.exports = {
             '0009-prolog-corte-neg',
             '0010-prolog-lp',
             '0011-logica-proposicional-semantico',
+            '0012-lp-ii-bdds',
+            '0013-algs-sat',
           ],
         },
         {
@@ -142,6 +147,7 @@ module.exports = {
             '0011-aplicacoes-integral',
             '0012-teorema-leibniz',
             '0013-funcao-inversa',
+            '0014-variedades',
           ],
         },
         {
@@ -173,6 +179,8 @@ module.exports = {
             '0015-congruencias',
             '0016-chines-restos',
             '0017-rsa',
+            '0018-grafos-def',
+            '0019-pombal',
           ],
         },
         {
@@ -188,12 +196,19 @@ module.exports = {
             '1002-geradoras-sheet',
             '1003-calendarios',
             '1004-mdc-cheat',
+            '1005-rsa-sheet',
           ],
         },
         {
           title: '🛠 Ferramentas',
           collapsable: false,
-          children: ['tools/fft-calculator', 'tools/bezout-calculator'],
+          children: [
+            'tools/fft-calculator',
+            'tools/calendar-calculator',
+            'tools/bezout-calculator',
+            'tools/tcr-table-calculator',
+            'tools/rsa-calculator',
+          ],
         },
       ],
       '/': [
@@ -249,6 +264,7 @@ module.exports = {
             '\\d': '\\mathop{}\\!\\mathrm d',
             '\\1': '1\\!\\!1',
             '\\Q': '\\mathbb{Q}',
+            '\\car': '\\operatorname{car}',
           },
           strict: false,
         },

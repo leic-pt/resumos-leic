@@ -50,13 +50,17 @@ $$
 
 - [M.D.C. no WolframAlpha](https://www.wolframalpha.com/input/?i=ExtendedGCD%5B108%2C75%5D)
 
-- [Diafontinas no WolframAplha](https://www.wolframalpha.com/input/?i=solve+108x%2B75y+%3D+6+over+the+integers)
+- [Diofantinas no WolframAplha](https://www.wolframalpha.com/input/?i=solve+108x%2B75y+%3D+6+over+the+integers)
 
 ## Congruências
 
-$16x {\equiv_{12}}10 = 16x - 12y = 10$ (Resolver por diofantinas para $x$)
+$16x {\equiv_{12}}10 \iff 16x - 12y = 10$ (Resolver por diofantinas para $x$)
 
 - [Congruências no WolframAplha](https://www.wolframalpha.com/input/?i=%2816x+mod+29%29+%3D+27)
+
+::: warning
+Obrigatório justificar no teste que existe solução única
+:::
 
 Se os módulos forem primos entre si 2 a 2, há sempre solução única
 
@@ -70,11 +74,14 @@ $$
 \end{cases}
 $$
 
-$m_1 \frown m_2 = 4 a_1 - a_2 = 8$\
+$m_1 \frown m_2 = 4$\
+$a_1 - a_2 = 8$ \
 8 é divisível por 4\
-$m_1 \frown m_3 = 1 a_1 - a_3 = 8$\
+$m_1 \frown m_3 = 1$\
+$a_1 - a_3 = 8$ \
 8 é divisível por 1\
-$m_2 \frown m_3 = 4 a_2 - a_3 = 8$\
+$m_2 \frown m_3 = 1$\
+$a_2 - a_3 = 0$ \
 0 é divisível por 1
 
 Logo há solução (única).
@@ -101,13 +108,21 @@ $c_i =$ têm de ser primos entre si
 
 $n_i =$ multiplicação dos elementos da coluna $c_i$ exceto o da própria linha
 
-$ñ_i =$ congruência do n_i pelo módulo da própria linha
+$ñ_i =$ congruência do $n_i$ pelo $c_i$da própria linha
 
 $M =$ produto dos módulos
 
 $x_0 =$ soma dos $rn_{i} ñ_{i}$ % $M$
 
 Resposta $= x_0 +Mt$
+
+::: warning
+
+No caso de os módulos não serem primos entre si
+
+Temos de achar o m.m.c. deles\
+E dispôr nas suas filas respetivas onde o módulo tem de dividir o $c_i$
+:::
 
 - [Sistemas de Congruências no WolframAplha](https://www.wolframalpha.com/input/?i=%283+x+%2B+1%29+mod+7+%3D+6%2C+x+mod+9+%3D+2%2C+%28x+-+2%29+mod+4+%3D+1)
 

@@ -310,7 +310,7 @@ $$
 \end{aligned} \right.
 \quad \Leftrightarrow \quad
 \left\{ \begin{aligned}
-  x &\equiv_{12} \quad &1\\
+  x &\equiv_{12} \quad &10\\
   x &\equiv_8 \quad &2\\
   x &\equiv_5 \quad &2
 \end{aligned} \right.

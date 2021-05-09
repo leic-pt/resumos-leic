@@ -20,6 +20,7 @@ Algumas características do `Ciclo de Méton`:
 
 - Meses embolísticos - meses adicionados para corrigir a aproximação (os meses **13**);
 - _Saltus lunae_ - Um dia que é retirado ao ano **XIX**, ficando com 3 meses de 29 dias seguidos (também para corrigir a aproximação);
+- Não contempla anos bissextos (a soma dos 19 totais dá $19 \cdot 365$) pelo que a longo prazo este ciclo estaria desajustado. Isto foi corrigido pela forma gregoriana como veremos à frente.
 - O primeiro mês tem sempre **30** dias (mês onde o ciclo lunar começa em dezembro e acaba em janeiro);
 - O mês Pascal tem sempre **29** dias;
 - O ano **III** começa dia 1 de janeiro.
@@ -172,7 +173,7 @@ Note-se que há casos onde $R>31$, e março tem **apenas** 31 dias. Isto acontec
 ::: details Lógica da Fórmula
 
 - Uma propriedade interessante é que a soma da `Epacta`, de um ano $\lambda$ ,com o dia do mês de março $(R)$ onde calha a `Lua Cheia Pascal`, contando os dias de abril como continuação do mês de março, é:
-  - $44, \quad$ entre entre 21 e 44 de março (13 de abril)
+  - $44, \quad$ entre 21 e 44 de março (13 de abril)
   - $74, \quad$ entre 45 e 49 de março (18 de abril, última data possível para a Lua Cheia Pascal)
 
 ![Tabela Lua R](./imgs/0014-tabela_R.png)
@@ -214,6 +215,8 @@ $$
 ---
 
 ### Exemplo - Páscoa Juliana
+
+Agora que já sabemos a data da Lua Cheia Pascal, basta determinar quando é o primeiro domingo que vem depois desta. O número de dias que falta para domingo é determinado pelo número calêndrico de um dia e pelo número dominical do ano, nomeadamente, pela quantidade $N-C$.
 
 ![Fluxograma](./imgs/0014-fluxJul.png)
 
@@ -439,7 +442,7 @@ $$
 3. [Correção Clavius](#correcao-de-clavius) ($V$)
 
 $$
-V = ((16) \div 24 - (16)) \div 25) + (19\div12)\times ((16) \div 25-(16)\div26)\\
+V = ((16) \div 24) - ((16) \div 25) + (19\div12)\times ((16) \div 25-(16)\div26)\\
 = 0
 $$
 

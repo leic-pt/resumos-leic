@@ -296,7 +296,6 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 
   ```prolog
   % aplica_op(Op, V1, V2, R)
-  % não me lembro de coisas não hard-coded, se se lembrarem digam
   aplica_op(+, V1, V2, R) :-
     R is V1 + V2.
 
@@ -308,6 +307,11 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 
   aplica_op(/, V1, V2, R) :-
     R is V1 / V2.
+
+  % Solução alternativa não hardcoded:
+  aplica_op(Op, V1, V2, R) :-
+    Lit =.. [Op, V1, V2],
+    R is Lit.
   ```
 
   Exercício 6
@@ -401,6 +405,9 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
   :::
 
 - [Semana 10](https://drive.google.com/file/d/1Q_9vVqel8UUJ9ysYq3Gawoa19X1WfQT0/view?usp=sharing)
+
+  - [Resolução](https://swish.swi-prolog.org/p/Aula%2010.pl)
+    (Esta semana não tive tempo para compilar as minhas próprias resoluções, estas são de um professor que as fez noutro ano, dos mesmos exercícios, e que julgo que estão bem).
 
 - [Semana 11](https://drive.google.com/file/d/1xGiiyjYWocO16JyfXUZqUCjpbHxItXq4/view?usp=sharing)
 

@@ -39,6 +39,21 @@ description: Resolução das fichas de CDI-II que estão disponíveis na página
   - [Respostas (Oficial)](https://drive.google.com/file/d/1QOeieemTf1AGrIIzoDMk4OEoZCHK8B71/view?usp=sharing)
   - [Resolução (by Diogo Correia)](https://drive.google.com/file/d/17SSUOXy5qya1XBQgMnmCah7F6NLHYt6c/view?usp=sharing)
 
+- [Ficha 8: Função Inversa. Função Implícita](https://drive.google.com/file/d/117-bJSxdp9TWqUpA2vvHfF9t6y3Q65bc/view?usp=sharing)
+
+  - [Respostas (Oficial)](https://drive.google.com/file/d/1KgECiHLQf3TIO4Wd_9Vcx3PzvbddGEU4/view?usp=sharing)
+  - [Resolução (by Diogo Correia)](https://drive.google.com/file/d/1JFKI_Axb7y3l7QBtIlpB71DEmu9UTnOL/view?usp=sharing)
+
+- [Ficha 9: Variedades. Espaço Tangente. Espaço Normal](https://drive.google.com/file/d/19ioVR4Bxk1WQ8y7O2wIjakqrwV4vknGT/view?usp=sharing)
+
+  - [Respostas (Oficial)](https://drive.google.com/file/d/1Rh4bff_EqFxNg9-BPGkuFH5wOmtC3s0F/view?usp=sharing)
+  - [Resolução (by Diogo Correia)](https://drive.google.com/file/d/1jPV16cfkB7l2Vclysv65ZOubxmEkyD7e/view?usp=sharing)
+
+- [Ficha 10: Extremos Condicionados. Integrais de Campos Escalares em Variedades.](https://drive.google.com/file/d/1bBEYM22DBweMe2xZDIoAijl60_r2kcVi/view?usp=sharing)
+
+  - [Respostas (Oficial)](https://drive.google.com/file/d/1vozKLUdSk3V62HmqyUOUEt-VQ4qptnp_/view?usp=sharing)
+  - Resolução (by Diogo Correia) - Soon
+
 - [Resoluções na EdenBox](https://www.edenbox.org/index.php/s/edenbox?path=%2FLEIC%2F1%C2%BA%20Ano%2F2%C2%BA%20Semestre%2FCDI%20II%2FPr%C3%A1ticas%2F2019-2020)
 
 - [Exercícios Suplementares](https://fenix.tecnico.ulisboa.pt/disciplinas/CDI1421011132646/2020-2021/2-semestre/exercicios-suplementares)

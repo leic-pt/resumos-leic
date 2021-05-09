@@ -134,7 +134,7 @@ $$
 \begin{darray}{c}
 1 \leq x^2+y^2 \leq t \Leftrightarrow 1 \leq r^2 \leq t \Leftrightarrow 1 \leq r \leq \sqrt{t}\\
 0 \leq z \leq 1\\
-y > 0 \Leftrightarrow r \sin \theta > 0 \Leftrightarrow \sin \theta 0 > 0\Leftrightarrow \theta \in ]0, \pi[
+y > 0 \Leftrightarrow r \sin \theta > 0 \Leftrightarrow \sin \theta > 0\Leftrightarrow \theta \in ]0, \pi[
 \end{darray}
 $$
 
@@ -145,7 +145,7 @@ $$
 F(t)&= \int^{\pi}_0 \int^{\sqrt{t}}_1 \int^1_0 \frac{e^{tr^2}}{r^2} \cdot r \d z \d r \d \theta\\
 &= \int^{\pi}_0 \int^{\sqrt{t}}_1 \frac{e^{tr^2}}{r} \d r \d \theta\\
 &= \int^{\sqrt{t}}_1 \int^{\pi}_0 \frac{e^{tr^2}}{r} \d \theta \d r\\
-&= \int^{\sqrt{t}}_1 \frac{e^{tr^2}}{r} \d r
+&= \int^{\sqrt{t}}_1 \frac{\pi e^{tr^2}}{r} \d r
 \end{aligned}
 $$
 
