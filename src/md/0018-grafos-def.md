@@ -205,7 +205,7 @@ Dois vértices $u$ e $v$ de um grafo $g = (V,E)$ dizem-se `conectados` se forem 
 ::: details Exemplo
 ![Grafo 6](./imgs/0018-grafo5.png)
 $V_1$ e $V_2$ são `vértices conectados`.  
-O caminho vermelho é um exemplo de caminho que prova esse facto.
+O caminho {red}(vermelho) é um exemplo de caminho que prova esse facto.
 :::
 
 ---

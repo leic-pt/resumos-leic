@@ -176,6 +176,7 @@ module.exports = {
             '0016-chines-restos',
             '0017-rsa',
             '0018-grafos-def',
+            '0019-pombal',
           ],
         },
         {
