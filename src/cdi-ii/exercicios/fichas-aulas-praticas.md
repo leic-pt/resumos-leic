@@ -47,7 +47,12 @@ description: Resolução das fichas de CDI-II que estão disponíveis na página
 - [Ficha 9: Variedades. Espaço Tangente. Espaço Normal](https://drive.google.com/file/d/19ioVR4Bxk1WQ8y7O2wIjakqrwV4vknGT/view?usp=sharing)
 
   - [Respostas (Oficial)](https://drive.google.com/file/d/1Rh4bff_EqFxNg9-BPGkuFH5wOmtC3s0F/view?usp=sharing)
-  - [Resolução (by Diogo Correia)]()
+  - [Resolução (by Diogo Correia)](https://drive.google.com/file/d/1PP1ncw2szBvz2F2zlchWVi7PRV8xaREI/view?usp=sharing)
+
+- [Ficha 10: Extremos Condicionados. Integrais de Campos Escalares em Variedades.](https://drive.google.com/file/d/1bBEYM22DBweMe2xZDIoAijl60_r2kcVi/view?usp=sharing)
+
+  - [Respostas (Oficial)](https://drive.google.com/file/d/1vozKLUdSk3V62HmqyUOUEt-VQ4qptnp_/view?usp=sharing)
+  - Resolução (by Diogo Correia) - Soon
 
 - [Resoluções na EdenBox](https://www.edenbox.org/index.php/s/edenbox?path=%2FLEIC%2F1%C2%BA%20Ano%2F2%C2%BA%20Semestre%2FCDI%20II%2FPr%C3%A1ticas%2F2019-2020)
 
