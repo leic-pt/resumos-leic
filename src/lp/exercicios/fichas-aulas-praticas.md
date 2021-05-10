@@ -407,114 +407,129 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 - [Semana 10](https://drive.google.com/file/d/1Q_9vVqel8UUJ9ysYq3Gawoa19X1WfQT0/view?usp=sharing)
 
   - [Resolução](https://swish.swi-prolog.org/p/Aula%2010.pl)
-    ```
-    7.11.1
-    
-    a) Respostas ao objectivo p(X,Y)
-    X=1, Y=a
-    X=1, Y=b
-    X=2,Y=a
-    X=2,Y=b
-    X=5, Y=z
 
-    b) " " " mas com !
-    X=1, Y=a
-    X=1, Y=b
-    X=2,Y=a
-    X=2,Y=b
+  ::: details Resolução
 
-    c) " " " mas com ! depois do q(X)
-    X=1, Y=a
-    X=1, Y=b
+  7.11.1
 
-    d) " " " mas com ! depois do r(Y)
-    X=1, Y=a
-    ```
-    7.11.2
-    ```
-    a) Resposta ao objectivo p(X,Y)
-    X=2,Y=3
-    X=1, Y=1
-    X=1, Y=3
-    X=2,Y=1
-    X=2,Y=3
-    X=3,Y=1
-    X=3,Y=3
+  ```prolog
+  a) Respostas ao objectivo p(X,Y)
+  X=1, Y=a
+  X=1, Y=b
+  X=2,Y=a
+  X=2,Y=b
+  X=5, Y=z
 
-    b)
-    p1(2,3) :- !.
+  b) " " " mas com !
+  X=1, Y=a
+  X=1, Y=b
+  X=2,Y=a
+  X=2,Y=b
 
-    c)
-    q1(1) :- !.
+  c) " " " mas com ! depois do q(X)
+  X=1, Y=a
+  X=1, Y=b
 
-    d)
-    q1(1) :- !.
-    (...)
-    r1(1) :- !.
+  d) " " " mas com ! depois do r(Y)
+  X=1, Y=a
+  ```
 
-    e)
-    q1(2) :- !.
-    ```
-    7.11.3
-    ```
-    classe(0, zero) :- !.
-    classe(N, positivo) :- N > 0, !.
-    classe(N, negativo) :- N < 0.
-    ```
-    7.13.4
-    ```
-    pertence(E, [P|_]) :- E == P.
-    pertence(E, [_|R]) :- pertence(E, R).
+  7.11.2
 
-    intersecao1(L1, L2, I) :- intersecao(L1, L2, [], I).
-    intersecao([], _, Acu, Acu):-!.
-    intersecao([P|R], L2, Acu, I) :-
-        pertence(P, L2) -> append(Acu, [P], Novo_acu), intersecao(R, L2, Novo_acu, I)
-        ; intersecao(R, L2, Acu, I).
+  ```prolog
+  a) Resposta ao objectivo p(X,Y)
+  X=2,Y=3
+  X=1, Y=1
+  X=1, Y=3
+  X=2,Y=1
+  X=2,Y=3
+  X=3,Y=1
+  X=3,Y=3
 
-    intersecao(_,[],[]):- !.
-    intersecao(L1,[P|L2],I):-
-        \+ member(P,L1),!,
-    intersecao(L1,L2,I).
-    intersecao(L1,[P|L2],[P|I]):-
-        intersecao(L1,L2,I).
+  b)
+  p1(2,3) :- !.
 
-    intersecao2([], _, []) :- !.
-    intersecao2(_, [], []) :- !.
-    intersecao2([P | R], L, [P | IRL]) :-
-        membro(P, L),
-        !,
-        intersecao(R, L, IRL).
-    intersecao2([P | R], L, IRL) :-
-        \+ membro(P, L),
-        intersecao(R, L, IRL).
-    ```
-    7.13.5
-    ```
-    disjuntas([], _) :- !.
-    disjuntas(_, []) :- !.
-    disjuntas([El | _], L2) :-
-        member(El, L2), !,
-        fail.
-    disjuntas([_ | L1], L2) :-
-        disjuntas(L1, L2).
+  c)
+  q1(1) :- !.
 
-    %Usando a negação.
-    disjuntas_n([],_):-!.
-    disjuntas_n([P|L1], L2) :-
-        \+member(P, L2),
-        disjuntas_n(L1, L2).
+  d)
+  q1(1) :- !.
+  (...)
+  r1(1) :- !.
 
-    disjuntas2(L1,L2) :-
-        \+ (member(E,L1),member(E,L2)).
-    ```
-    7.13.6
-    ```
-    a) false.
-    b) [Objetivo: pessoa(P), \+temJust(P, _). ]
-       P = jaime;
-       P = joana.
-    ```
+  e)
+  q1(2) :- !.
+  ```
+
+  7.11.3
+
+  ```prolog
+  classe(0, zero) :- !.
+  classe(N, positivo) :- N > 0, !.
+  classe(N, negativo) :- N < 0.
+  ```
+
+  7.13.4
+
+  ```prolog
+  pertence(E, [P|_]) :- E == P.
+  pertence(E, [_|R]) :- pertence(E, R).
+
+  intersecao1(L1, L2, I) :- intersecao(L1, L2, [], I).
+  intersecao([], _, Acu, Acu):-!.
+  intersecao([P|R], L2, Acu, I) :-
+      pertence(P, L2) -> append(Acu, [P], Novo_acu), intersecao(R, L2, Novo_acu, I)
+      ; intersecao(R, L2, Acu, I).
+
+  intersecao(_,[],[]):- !.
+  intersecao(L1,[P|L2],I):-
+      \+ member(P,L1),!,
+  intersecao(L1,L2,I).
+  intersecao(L1,[P|L2],[P|I]):-
+      intersecao(L1,L2,I).
+
+  intersecao2([], _, []) :- !.
+  intersecao2(_, [], []) :- !.
+  intersecao2([P | R], L, [P | IRL]) :-
+      membro(P, L),
+      !,
+      intersecao(R, L, IRL).
+  intersecao2([P | R], L, IRL) :-
+      \+ membro(P, L),
+      intersecao(R, L, IRL).
+  ```
+
+  7.13.5
+
+  ```prolog
+  disjuntas([], _) :- !.
+  disjuntas(_, []) :- !.
+  disjuntas([El | _], L2) :-
+      member(El, L2), !,
+      fail.
+  disjuntas([_ | L1], L2) :-
+      disjuntas(L1, L2).
+
+  %Usando a negação.
+  disjuntas_n([],_):-!.
+  disjuntas_n([P|L1], L2) :-
+      \+member(P, L2),
+      disjuntas_n(L1, L2).
+
+  disjuntas2(L1,L2) :-
+      \+ (member(E,L1),member(E,L2)).
+  ```
+
+  7.13.6
+
+  ```prolog
+  a) false.
+  b) [Objetivo: pessoa(P), \+temJust(P, _). ]
+     P = jaime;
+     P = joana.
+  ```
+
+  :::
 
 - [Semana 11](https://drive.google.com/file/d/1xGiiyjYWocO16JyfXUZqUCjpbHxItXq4/view?usp=sharing)
 
