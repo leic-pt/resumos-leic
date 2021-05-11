@@ -182,8 +182,6 @@ encontrar extremos condicionados:
 
 ::: details Exemplos
 
-[imagem]
-
 **Queremos encontrar o paralelipípedo com maior volume de entre aqueles que satisfazem $x+y+z = 1$, $x,y,z \geq 0$**
 
 Para isso, temos de maximizar o volume $V = xyz$, com $F=x+y+z-1=0$.
@@ -198,7 +196,6 @@ Para isso, temos de maximizar o volume $V = xyz$, com $F=x+y+z-1=0$.
    \end{cases}
    $$
 
-   [imagem]  
    $M$ é fechado e limitado
 
    Então, pelo Teorema de Weierstrass, $V$ tem máximo em $M$.
