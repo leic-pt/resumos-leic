@@ -10,7 +10,7 @@ description: Lógica de Primeira Ordem - Sistema Semântico, Conceptualização,
 
 O propósito do sistema semântico é especificar em que condições as _fbfs_ de uma linguagem são verdadeiras ou falsas. Para tal, é necessário interpretar cada um dos seus símbolos de proposição, de forma a poder atribuir um valor lógico a cada um e, posteriormente, dar um significado à _fbf_. Por fim, verificar se o significado a que chegamos está de acordo com a situação que pretendemos descrever - se sim, a _fbf_ é verdadeira, caso contrário é falsa.
 
-Este processo, contudo, precisa de ser formalizado para o podermos utilizar num sistema lógico - não podemos fazer inferências exclusivamente a partir da língua natural nem de figuras. Temos de definir **formalmente** como determinar se uma _fbf_ é verdadeira ou falsa. 
+Este processo, contudo, precisa de ser formalizado para o podermos utilizar num sistema lógico - não podemos fazer inferências exclusivamente a partir da língua natural nem de figuras. Temos de definir **formalmente** como determinar se uma _fbf_ é verdadeira ou falsa.
 
 O primeiro passo passa por descrever um mundo ou situação através de uma **conceptualização**.
 
@@ -76,7 +76,7 @@ Podemos, agora, falar no conceito de **satisfação** aplicado a _fbfs_ sem vari
 
 Exemplos:
 
-Em relação ao último exemplo, o tuplo $I(a_1) = (arvore_branca)$ pertence à relação $I(A) = \{(arvore_branca), (arvore_preta)\}, pelo que a _fbf_ é satisfazível.
+Em relação ao último exemplo, o tuplo $I(a_1) = (arvore_branca)$ pertence à relação $I(A) = \{(arvore*branca), (arvore_preta)\}, pelo que a \_fbf* é satisfazível.
 
 Ainda em relação ao último exemplo, se quisermos aferir a satisfazibilidade de $P(c_2, e(a_2))$, podemos dizer que o tuplo $(I(c_2), I(e(a_2)))$ é igual a $(casa\_preta, I(e(arvore\_preta)))$, que por sua vez é igual a $(casa\_preta, arvore\_branca)$, que pertence a $I(P)$, pelo que a _fbf_ é satisfazível.
 
