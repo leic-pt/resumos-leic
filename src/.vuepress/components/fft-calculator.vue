@@ -113,9 +113,9 @@ export default {
       const rev2 = `
         \\begin{array}{r l l}
         & \\text{Primeiro Vetor} & \\text{Segundo Vetor} \\\\
-        \\text{Original:} & [${pol1
-          .map((v) => this.complexToStr(v))
-          .join(', ')}] & [${pol2.map((v) => this.complexToStr(v)).join(', ')}]\\\\
+        \\text{Original:} & [${pol1.map((v) => this.complexToStr(v)).join(', ')}] & [${pol2
+        .map((v) => this.complexToStr(v))
+        .join(', ')}]\\\\
         \\text{Invertido } Rev_2: & [${pol1Rev
           .map((v) => this.complexToStr(v))
           .join(', ')}] & [${pol2Rev.map((v) => this.complexToStr(v)).join(', ')}]
