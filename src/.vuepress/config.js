@@ -148,6 +148,7 @@ module.exports = {
             '0012-teorema-leibniz',
             '0013-funcao-inversa',
             '0014-variedades',
+            '0015-extremos-condicionados',
           ],
         },
         {
