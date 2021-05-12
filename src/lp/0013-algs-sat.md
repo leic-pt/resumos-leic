@@ -205,7 +205,7 @@ $b_{R}:$
 $b_{S}: \{S\}$  
 $b_{T}:$
 
-Processar o balde $b_{P}$ origina 2 novas cláusulas, nenhuma delas vazia, pelo que o algoritmo ainda não acabou:
+Processar o balde $b_{P}$ origina 2 novas cláusulas, nenhuma delas vazia, pelo que o algoritmo ainda não acabou (aqui uma das cláusulas está "contida" noutra, pelo que só queremos a menor):
 
 $b_{P}: \{P, Q, \neg R\}, \{\neg P, S, T, R\}, \{\neg P, Q, S\}$  
 $b_{Q}: \{\neg Q, \neg R\}, \qquad \qquad \qquad \qquad \qquad \qquad  \{Q, \neg R, S\}$  
