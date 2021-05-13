@@ -116,6 +116,7 @@ module.exports = {
             '0011-logica-proposicional-semantico',
             '0012-lp-ii-bdds',
             '0013-algs-sat',
+            '0014-lpo-semantico',
           ],
         },
         {
