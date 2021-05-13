@@ -42,4 +42,12 @@ Um grafo diz-se regular se todos os seus **vértices têm o mesmo** [grau]
 
 Um grafo diz-se completo quando cada par de vértices constitui uma aresta (está tudo ligado).
 
+- Todo o grafo completo de $k$ vértices é $k$-1 regular
+- $\binom{p}{2} = \frac{p(p-1)}{2}$ é o número máximo de arestas que um grafo pode ter
+- $K_n \rightarrow$ grafo completo de $n$ vértices
+
+### Rede
+
+Uma `Rede` é um grafo onde as arestas têm valores reais associados.
+
 <img src="./imgs/1006-euc.png" alt="ponteeuclidiana" class="invert-dark2">
