@@ -1,6 +1,6 @@
 {
   "index_uid": "resumos-leic",
-  "start_urls": ["https://ist.diogotc.com/"],
+  "start_urls": ["https://resumos.leic.pt/"],
   "selectors": {
     "lvl0": {
       "selector": ".sidebar-heading.open",
