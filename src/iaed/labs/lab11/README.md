@@ -73,7 +73,7 @@ Considere a árvore resultante do exercício anterior e elimine o elemento `16`.
 
 Considere a seguinte árvore binária de pesquisa:
 
-<img src="./assets/1111-ex5.png" alt="ex5" class="invert-dark2">
+<img src="./1111-ex5.jpg" alt="ex5" class="invert-dark2">
 
 Qual a rotação que teria de efectuar para equilibrar a árvore? Indique o valor do nó a rodar e a direcção da rotação (direita/esquerda).
 
@@ -85,7 +85,7 @@ Qual a rotação que teria de efectuar para equilibrar a árvore? Indique o valo
 
 Considere a seguinte árvore AVL:
 
-<img src="./assets/1111-ex6.jpg" alt="ex6" class="invert-dark2">
+<img src="./1111-ex6.jpg" alt="ex6" class="invert-dark2">
 
 Insira o elemento 60 e na árvore AVL resultante elimine o elemento 10.\
 Indique a sequência de elementos visitados ao efectuar uma travessia post-order da árvore AVL após as operações de inserção e remoção que efectuou.
@@ -98,7 +98,7 @@ Indique a sequência de elementos visitados ao efectuar uma travessia post-order
 
 Considere a seguinte árvore AVL:
 
-<img src="./labs/lab11/1111-ex7.jpg" alt="ex7" class="invert-dark2">
+<img src="./1111-ex7.jpg" alt="ex7" class="invert-dark2">
 
 Elimine o elemento 12 e na árvore AVL resultante insira o elemento 20.\
 Indique a sequência de elementos visitados ao efectuar uma travessia pre-order da árvore AVL após as operações de remoção e inserção que efectuou.
