@@ -184,6 +184,7 @@ module.exports = {
             '0017-rsa',
             '0018-grafos-def',
             '0019-pombal',
+            '0020-labirintos',
           ],
         },
         {
