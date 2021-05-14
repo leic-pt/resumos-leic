@@ -232,3 +232,140 @@ $h$ é uma `componente` de um grafo $g$, se $h$ for um grafo [conexo](#grafo-con
 
 $h$ é uma componente do grafo $g$
 :::
+
+### Grafo Planar
+
+Grafo que é possível desenhar sem cruzar arestas.
+
+### Teorema 3 - Lei de Euler
+
+Seja $g$ um [Grafo Planar](#grafo-planar), existe a seguinte relação:
+
+$$
+\text{Arestas}+2=\text{Vértices}+\text{Regiões}
+$$
+
+::: tip NOTA
+
+A Região "Exterior" também conta
+
+:::
+
+::: details Exemplo
+
+![Grafo Teorema 3](imgs/0018-teorema3.png)
+
+Sejam $A,B,C$ e $D$ as regiões, a igualdade confirma-se
+
+$$
+13 + 2 = 11 + 4
+$$
+
+:::
+
+### Ponte
+
+Aresta de um grafo, que, se for removida, aumenta o número de componentes.
+
+::: details Exemplo
+
+![Grafo Ponte](imgs/0018-ponte.png)
+
+A Aresta Verde é uma `Ponte`.
+
+:::
+
+### Teorema 4
+
+Num grafo de $p$ vértices e $k$ componentes, o nº de arestas $(q)$ é tal que:
+
+$$
+p-k\leq q \leq \frac{(p-k+1)(p-k)}{2}
+$$
+
+::: details Demonstração
+
+1. Provar que $p-k \leq q$
+
+Por **indução simples**, variando o `Tamanho do Grafo` $(q)$
+
+$q=0$,  
+Neste caso o número de vértices é igual ao número de componentes.
+
+$$ 0 \geq p-p = 0, \quad \text{P.V.}$$
+
+**Hipótese**: Grafos com $q$ arestas (não importando o nº de componentes e vértices): $p-k \leq q$.
+
+Para esta prova, vamos supor que o grafo é `esquelético`, ou seja, todas as arestas são pontes. (No final da Demonstração há um exemplo de grafo esquelético.)
+Se a prova funcionar para grafos `esqueléticos` funcionará para qualquer um, pois estes têm o menor número de arestas para um dado número de vértices.
+
+Se removermos uma aresta de um `grafo esquelético`, o número de componentes aumenta.  
+Deste modo, por hipótese de indução
+
+$$
+q \geq p - k\quad \text{(Hip de Indução)}\\
+q \geq p - (k+1)\quad \text{(Removendo uma aresta)}\\
+q+1 \geq p-k
+$$
+
+O que é válido, pois $q \geq p-k$.  
+A primeira inequação está provada $\checkmark$.
+
+2. Provar que $q \leq \frac{(p-k+1)(p-k)}{2}$
+
+Como estamos a tentar provar que o número de arestas tem um limite máximo, vamos ter em conta sempre os casos "máximos".
+
+Seja $k'$ uma componente do grafo em estudo. Se essa compontente tem $p'$ vértices, tem no máximo $\frac{p'(p'-1)}{2}$ arestas.
+
+Se o grafo tem $k$ componentes, o que acontecerá se transferirmos um vértices de uma componente para outra?  
+Seja $h_1$ e $h_2$ duas componentes com $p_1, q_1$ e $p_2,q_2$, respetivamente **e** $p_1 \leq p_2$ (o que é verdade para quaisquer duas componentes, haverá com mais vértices, ou têm as duas o mesmo número).  
+Seja $\Delta q_i, i=1,2$ a variação do número de arestas nas componentes $h_1$ e $h_2$, quando "transferimos" um vértice de $h_1$ para $h_2$.
+
+$$
+\Delta q_1 = \frac{(p_1-1)(p_1-2)}{2}-\frac{p_1(p_1-1)}{2}\\
+=1-p_1\\
+\Delta q_2 = \frac{(p_2+1)p_2}{2}-\frac{p_2(p_2-1)}{2}\\
+=p_2
+$$
+
+A variação total será $1+p_2-p_1$ e será positiva pois $p_2 \geq p_1$
+
+Assim, com o que acabamos de verificar, podemos concluir que um grafo com $k$ componentes terá o números máximo de arestas se e só se tem:
+
+- $k-1$ vértices isolados
+- $1$ componente com $p-(k-1)=p-k+1$ vértices
+
+Nestas condições, o número máximo de arestas será:
+
+$$
+\frac{(p-k+1)(p-k)}{2}
+$$
+
+Finalmente, podemos concluir que $q\leq\frac{(p-k+1)(p-k)}{2}$  
+A segunda inequação está provada $\checkmark$.
+
+QED
+
+::: details Exemplo Grafo Esquelético
+
+![Esquelético](imgs/0018-esqueletico.png)
+
+:::
+
+### Teorema 5
+
+Se um grafo de $p$ vártices tem mais de $\frac{(p-1)(p-2)}{2}$ arestas, então é conexo.
+
+::: details Demonstração
+
+Se o grafo não for convexo tem pelo menos $2$ componentes. Seja $q$ o número de arestas, pelo [Teorema Anterior](#teorema-4)
+
+$$
+q \leq \frac{(p-2+1)(p-2)}{2} = \frac{(p-1)(p-2)}{2}
+$$
+
+Logo, como também vimos no [Teorema Anterior](#teorema-4) que a "transferência" de vértices entre componentes aumenta $q$, se passarmos todos os vértices de uma componente para outra (passando agora a ter apenas $1$), conclui-se que $q$ será maior do que a expressão acima.
+
+QED
+
+:::
