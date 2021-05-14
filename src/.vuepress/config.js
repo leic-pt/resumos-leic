@@ -185,6 +185,7 @@ module.exports = {
             '0018-grafos-def',
             '0019-pombal',
             '0020-labirintos',
+            '0021-galeshapley',
           ],
         },
         {
