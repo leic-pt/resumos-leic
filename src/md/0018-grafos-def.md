@@ -253,7 +253,7 @@ A Região "Exterior" também conta
 
 ::: details Exemplo
 
-![Grafo Teorema 3](imgs/0018-teorema3.png)
+![Grafo Teorema 3](./imgs/0018-teorema3.png)
 
 Sejam $A,B,C$ e $D$ as regiões, a igualdade confirma-se
 
@@ -269,7 +269,7 @@ Aresta de um grafo, que, se for removida, aumenta o número de componentes.
 
 ::: details Exemplo
 
-![Grafo Ponte](imgs/0018-ponte.png)
+![Grafo Ponte](./imgs/0018-ponte.png)
 
 A Aresta Verde é uma `Ponte`.
 
@@ -348,7 +348,7 @@ QED
 
 ::: details Exemplo Grafo Esquelético
 
-![Esquelético](imgs/0018-esqueletico.png)
+![Esquelético](./imgs/0018-esqueletico.png)
 
 :::
 

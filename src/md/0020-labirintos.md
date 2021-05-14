@@ -2,24 +2,15 @@
 
 [[toc]]
 
-::: tip Recomendação
-
-Nos Algoritmos descritos a baixo, os melhores exemplos estão nos slides. Em cada um é referido as páginas dos slides onde podem encontrar os exemplos.  
-Deste modo, recomendo que vejam este resumo com os Slides do Labirinto à mão.
-Infelizmente o tamanho do ficheiro é demasiado grande para poder partilhar a `preview`.  
-Contudo, uma solução para este problema é sempre bem-vinda, se alguém souber.
-
-:::
-
 ## Definições
 
 ### Atalhos Eulerianos
 
 Atalhos que percorrem todos os vértices e arestas.  
 **Relembrar** que um atalho nunca repete arestas.  
-Os `Atalhos Eulerianos` também podem ser **fechados** ou **abertos**, se acabarem no mesmo vértice ou não.
+Os `Atalhos Eulerianos` também podem ser **fechados** (se acabarem no mesmo vértice) ou **abertos** (se não acabarem no mesmo vértice).
 
-Um `atalho euleriano fechado` também se pode designar por `circuito euleriano` e um `atalho euleriano fechado` por `travessia euleriana`.
+Um `atalho euleriano fechado` também se pode designar por `circuito euleriano` e um `atalho euleriano aberto` por `travessia euleriana`.
 
 ---
 
@@ -40,7 +31,7 @@ Podemos representar um `Labirinto` atrvés de um grafo, onde todas as entradas, 
 
 ::: details Exemplos
 
-![Labirinto Grafo1](imgs/0020-LabGraf1.png) ![Labirinto Grafo2](imgs/0020-LabGraf2.png)
+![Labirinto Grafo1](./imgs/0020-LabGraf1.png) ![Labirinto Grafo2](./imgs/0020-LabGraf2.png)
 
 :::
 
@@ -132,7 +123,7 @@ QED
 
 A prova para grafos (não multigrafos) é muito parecida. A única diferença é que temos de adicionar um vértice com duas arestas, uma que se liga a $u$ outra a $v$, porque podemos ter uma travessia como:
 
-![Imagem Exceção](imgs/0020-excecao.png)
+![Imagem Exceção](./imgs/0020-excecao.png)
 
 Como estamos a trabalhar com grafos, não podemos ter mais do que $1$ aresta a ligar $2$ vértices.  
 Apesar desta exceção a prova é igual, só que retiramos/adicionamos $2$ arestas e $1$ vértice como descrito.
@@ -160,10 +151,7 @@ Com este Algoritmo consegue-se percorrer um `atalho euleriano fechado` num `mult
 
 ::: details Exemplo
 
-Exemplos estão nos slides:
-
-- 101-112 (seguindo a numeração do PDF)
-- 86-97 (seguind a numeração dos Slides)
+O exemplo encontra-se neste [link](https://drive.google.com/file/d/1mWPgKAqZsVNwdzvJg4vBNAOzEbcAHRfp/view?usp=sharing)
 
 :::
 
@@ -171,11 +159,11 @@ Exemplos estão nos slides:
 
 (escrever melhor pq fleury e mesmo so para eulerianos)
 
-O `Algoritmo de Fleury` está feito para percorrer um `atalho euleriano fechado` em `multigrados eulerianos`.  
-Mas, também o podemos aplicar em `multigrafos atravessáveis`.
+O `Algoritmo de Fleury` foi concebido para `multigrados eulerianos`.  
+Mas, também o podemos aplicar, **informalmente**, em `multigrafos atravessáveis`.
 
-Para isso, basta **começar num vértice ímpar**, é a única mudança no Algoritmo. Mas, neste caso, não vammos acabar no mesmo vértice, mas sim no outro vértice ímpar.
-Reparem que, se, num `multigrafo atravessável`, ligarmos os dois vértices ímpares com uma aresta, ficamos com um `multigrafo euleriano`. Nesse caso, já acabaríamos no vértice inicial.
+Para isso, basta **começar num vértice ímpar**, é a única mudança no Algoritmo. Mas, neste caso, não vamos acabar no mesmo vértice, mas sim no outro vértice ímpar.
+Reparem que, se, num `multigrafo atravessável`, ligarmos os dois vértices ímpares com uma aresta, ficamos com um `multigrafo euleriano`. Nesse caso, já poderíamos acabar no vértice inicial.
 
 #### Desvantagens
 
@@ -185,7 +173,7 @@ Não funciona em Labirintos se não o conhecermos, uma vez que nesses caso não 
 
 ### Algoritmo de Trémaux
 
-Com as regras deste Algoritmo, qualquer explorador pode sair de qualquer labirinto.
+Com as regras deste Algoritmo, qualquer um pode sair de qualquer labirinto.
 
 Passamos agora à descrição do Algoritmo:
 
@@ -195,10 +183,7 @@ Passamos agora à descrição do Algoritmo:
 
 ::: details Exemplo
 
-Exemplo está nos slides:
-
-- 269-290 (seguindo a numeração do PDF)
-- 222-243 (seguind a numeração dos Slides)
+O exemplo encontra-se neste [link](https://drive.google.com/file/d/1ZVw96HG3QqPzsiD47qvrGwhbJTVMM6Dq/view?usp=sharing)
 
 :::
 
@@ -211,10 +196,7 @@ Só percorremos essa aresta em último caso, ou seja, se for um beco sem saída,
 
 ::: details Exemplo
 
-Exemplo está nos slides:
-
-- 295-317 (seguindo a numeração do PDF)
-- 247-269 (seguind a numeração dos Slides)
+O exemplo encontra-se neste [link](https://drive.google.com/file/d/17nTEKOgFZcweQ9cpuy6ODecCnr8QBnWm/view?usp=sharing).
 
 :::
 
