@@ -533,6 +533,122 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 
 - [Semana 11](https://drive.google.com/file/d/1xGiiyjYWocO16JyfXUZqUCjpbHxItXq4/view?usp=sharing)
 
+  ::: details Resolução
+
+  2.3.1
+
+  A afirmação A torna a afirmação incorreta. Temos que $\Delta$, um conjunto de cláusulas, é satisfazível se houver uma interpretação que satisfaça _todas_ as suas _fbfs_. Não precisamos que não satisfaça nenhuma em nenhum caso, apenas que, para qualquer interpretação, haja sempre uma _fbf_ falsa segundo a mesma. Assim sendo, B é uma afirmação que faz sentido, visto que, de facto, $\alpha_1 \wedge \alpha_2 \wedge \alpha_3$ apenas precisa de uma falsa para ser toda falsa. Além disso, a afirmação C também faz sentido neste contexto, pois caso $\Delta$ seja satisfazível não podemos dizer que a negação de uma das suas _fbfs_ é consequência semântica das outras.
+
+  2.3.2
+
+  (As resoluções em si estão marcadas como spoiler)
+
+  a) Sempre Falsa
+
+  > Uma _fbf_ tautológica é verdadeira para qualquer interpretação, o que vai diretamente contra a definição de _fbf_ falsificável (falsa para pelo menos uma interpretação).
+
+  b) Possivelmente Verdadeira
+
+  > Não é certo que toda a _fbf_ satisfazível seja falsificável (nem vice-versa), mas é possível que aconteça.
+
+  c) Sempre falsa
+
+  > Uma _fbf_ contrária é falsa para qualquer interpretação, indo diretamente contra a definição de _fbf_ satisfazível (verdadeira para pelo menos uma intepretação).
+
+  d) Sempre Verdadeira
+
+  > Uma _fbf_ tem de ser ou falsa ou verdadeira para uma dada interpretação, pelo que terá sempre de ser ou falsificável ou satisfazível.
+
+  e) Possivelmente Verdadeira
+
+  > Pode acontecer ser tautológica ou contraditória, mas não tem de acontecer sempre.
+
+  2.3.3
+
+  Neste tipo de exercícios podemos optar por procurar _modelos_ de $\Delta$ que não satisfaçam a _fbf_ em causa.  
+  Aqui, querendo $P \to R$ falsa (para ajudar na prova que não é consequência semântica) só temos um caminho por onde ir - $I(P) = V$ e $I(R) = F$. Agora resta escolher uma interpretação para $Q$ tal que $Q \to R$ seja verdadeira, pois assim a _fbf_ de $\Delta$ seria verdadeira segundo esta interpretação mas $P \to R$ não - para tal, escolhemos $I(Q) = F$. Temos, portanto, que a interpretação $I(P) = V, I(Q) = F, I(R) = F$ é um modelo de $\Delta$ que não satisfaz $P \to R$, e $P \to R$ não é, portanto, consequência semântica de $\Delta$.
+
+  2.3.4
+
+  a)
+
+  | Interpretação | $P$ | $Q$ | $\neg P$ | $\neg P \to Q$ | $\neg Q$ |
+  | ------------- | --- | --- | -------- | -------------- | -------- |
+  | $I_1$         | V   | V   | F        | V              | F        |
+  | $I_2$         | V   | F   | F        | V              | V        |
+  | $I_3$         | F   | V   | V        | V              | F        |
+  | $I_4$         | F   | F   | V        | F              | V        |
+
+  Esta _fbf_ só tem, portanto, um modelo ($I_2$), para o qual a única _fbf_ atómica que é sua consequência semântica é $P$ (é a _fbf_ atómica verdadeira segundo esta interpretação).
+
+  b)
+
+  | Interpretação | $P$ | $Q$ | $R$ | $(P \wedge Q) \to R$ | $\neg R$ |
+  | ------------- | --- | --- | --- | -------------------- | -------- |
+  | $I_1$         | V   | V   | V   | V                    | F        |
+  | $I_2$         | V   | V   | F   | F                    | V        |
+  | $I_3$         | V   | F   | V   | V                    | F        |
+  | $I_4$         | V   | F   | F   | V                    | V        |
+  | $I_5$         | F   | V   | V   | V                    | F        |
+  | $I_6$         | F   | V   | F   | V                    | V        |
+  | $I_7$         | F   | F   | V   | V                    | F        |
+  | $I_8$         | F   | F   | F   | V                    | V        |
+
+  Esta _fbf_ tem, portanto, apenas um modelo, $I_4$ (interpretação para a qual ambas as _fbfs_ do conjunto são verdadeiras). A partir desse modelo, podemos aferir que apenas $P$ é uma _fbf_ atómica que é consequência semântica do conjunto.
+
+  c)
+
+  | Interpretação | $P$ | $Q$ | $R$ | $P \to R$ | $Q \to R$ | $P \vee Q$ |
+  | ------------- | --- | --- | --- | --------- | --------- | ---------- |
+  | $I_1$         | V   | V   | V   | V         | V         | V          |
+  | $I_2$         | V   | V   | F   | F         | F         | V          |
+  | $I_3$         | V   | F   | V   | V         | V         | V          |
+  | $I_4$         | V   | F   | F   | F         | V         | V          |
+  | $I_5$         | F   | V   | V   | V         | V         | V          |
+  | $I_6$         | F   | V   | F   | V         | F         | V          |
+  | $I_7$         | F   | F   | V   | V         | V         | F          |
+  | $I_8$         | F   | F   | F   | V         | V         | F          |
+
+  Esta _fbf_ tem, portanto, 3 modelos: $I_1, I_3, I_5$, interpretações para as quais as 3 _fbfs_ do conjunto são verdadeiras. Podemos, a partir delas, aferir que apenas $R$ é uma _fbf_ atómica consequência semântica do conjunto, visto que é a única que se mantém constantemente verdadeira segundo os 3 modelos.
+
+  2.3.5
+
+  | $P$ | $Q$ | $R$ | $(P \wedge Q) \to R$ | $P \to R$ | $Q \to R$ | $((P \wedge Q) \to R) \to ((P \to R) \vee (Q \to R))$ |
+  | --- | --- | --- | -------------------- | --------- | --------- | ----------------------------------------------------- |
+  | V   | V   | V   | V                    | V         | V         | V                                                     |
+  | V   | V   | F   | F                    | F         | F         | V                                                     |
+  | V   | F   | V   | V                    | V         | V         | V                                                     |
+  | V   | F   | F   | V                    | F         | V         | V                                                     |
+  | F   | V   | V   | V                    | V         | V         | V                                                     |
+  | F   | V   | F   | V                    | V         | V         | V                                                     |
+  | F   | F   | V   | V                    | V         | V         | V                                                     |
+  | F   | F   | F   | V                    | V         | V         | V                                                     |
+
+  A _fbf_ é verdadeira segundo qualquer interpretação, pelo que podemos afirmar que esta é tautológica.
+
+  2.3.6
+
+  | Interpretação | $P$ | $Q$ | $R$ | $P \to R$ | $Q \to R$ | $P \wedge Q$ | $(P \vee Q) \to R$ |
+  | ------------- | --- | --- | --- | --------- | --------- | ------------ | ------------------ |
+  | $I_1$         | V   | V   | V   | V         | V         | V            | V                  |
+  | $I_2$         | V   | V   | F   | F         |           |              |                    |
+  | $I_3$         | V   | F   | V   | V         | V         | V            | V                  |
+  | $I_4$         | V   | F   | F   | F         |           |              |                    |
+  | $I_5$         | F   | V   | V   | V         | V         | V            | V                  |
+  | $I_6$         | F   | V   | F   | V         | F         |              |                    |
+  | $I_7$         | F   | F   | V   | V         | V         | F            | V                  |
+  | $I_8$         | F   | F   | F   | V         | V         | F            | V                  |
+
+  (De notar que só foram marcados os espaços necessários, os outros não foram necessários porque é possível chegar à conclusão que a interpretação em questão não será modelo do conjunto, visto que uma das suas _fbfs_ já foi aferida como falsa segundo essa interpretação)
+
+  Podemos notar que, para todos os modelos do conjunto, $(P \vee Q) \to R$ é verdadeira, pelo que é consequência semântica do conjunto.
+
+  2.3.7
+
+  Se $\Delta$ não for satisfazível, não tem modelos, pelo que não há nenhum modelo de $\Delta$ que não satisfaça $\alpha$.
+
+  :::
+
 - [Semana 12](https://drive.google.com/file/d/1t-EzC5lgm_SbQgIn068VWy-gL9rDdWej/view?usp=sharing)
 
 - [Semana 13](https://drive.google.com/file/d/104wc2uUZb3cmMSJ8KKKsKuug-_3MQS_1/view?usp=sharing)
