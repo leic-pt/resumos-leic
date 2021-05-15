@@ -20,8 +20,11 @@ f. < 18, 23, 16, 21, 15, 19, 12, 25 >
 g. < 23, 18, 21, 16, 15, 12, 19, 25 >
 ```
 
-::: details Resolução (soon)
+::: details Resolução
 
+<img src="./1111-ex1r.png" alt="ex1" class="invert-dark2">
+
+Opção e)
 :::
 
 ## Exercício 2
@@ -56,7 +59,11 @@ Considere uma árvore AVL para inteiros inicialmente vazia onde são inseridos s
 
 Desenhe a árvore resultante e indique a sequência de elementos visitados por uma travessia post-order.
 
-::: details Resolução (soon)
+::: details Resolução
+
+<img src="./1111-ex3r.png" alt="ex3" class="invert-dark2">
+
+Resposta: 6, 3, 7, 9, 8, 11, 15, 50, 16, 10
 
 :::
 
@@ -65,7 +72,11 @@ Desenhe a árvore resultante e indique a sequência de elementos visitados por u
 Considere a árvore resultante do exercício anterior e elimine o elemento `16`.\
  Desenhe a árvore resultante e indique a sequência de elementos visitados por uma travessia pre-order.
 
-::: details Resolução (soon)
+::: details Resolução
+
+<img src="./1111-ex4r.png" alt="ex4" class="invert-dark2">
+
+Resposta: 10, 8, 7, 3, 6, 9, 15, 11, 50
 
 :::
 
