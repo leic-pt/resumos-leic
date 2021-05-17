@@ -439,6 +439,136 @@ $$
 
 :::
 
+### Para dim M > 1
+
+::: tip DEFINIÇÃO
+
+Considerando $\dim M \geq 1$ e seja $M$ um caminho em $\R^n$, podemos escrever que
+
+$$
+\int_M f \d \gamma = \int^b_a f(g(t)) \cdot \sqrt{|det Dg^T Dg|} \d t
+$$
+
+$Dg^T$ é a matriz transposta de $Dg$
+
+:::
+
+{green}(Devido às propriedades da matriz transposta, sabemos sempre que $Dg^T Dg$ é uma matriz simétrica.)
+
+Podemos observar que se $m=1$, vamos ter a definição anterior:
+
+$$
+\begin{array}{ll}
+Dg(t) = g'(t) & Dg^T \cdot Dg = g'(t) \cdot g'(t) = ||g'(t)||^2
+\end{array}
+$$
+
+::: details Exemplo
+
+**Considerando a variedade $P$, correspondente a um parabolóide:**
+
+$$
+P = \{(x,y,z) \in \R^3: x^2+y^2=z, z < 1\}
+$$
+
+**Qual a área de $P$?**
+
+Podemos utilizar coordenadas cilíndricas:
+
+$$
+\begin{cases}
+x=r \cos \theta\\
+y=r \sin \theta\\
+z=z=r^2
+\end{cases}
+$$
+
+E assim parametrizar:
+
+$$
+\begin{array}{ll}
+g(r, \theta) = (r \cos \theta, r \sin \theta, r^2) & \theta \in ]0, 2 \pi[, r \in ]0, 1[
+\end{array}
+$$
+
+$$
+\int_P 1 \d S = \int^{2 \pi}_0 \int^1_0 1 \cdot \sqrt{|\det (Dg^t Dg ) | } \d r \d \theta
+$$
+
+$$
+Dg(r, \theta) = \begin{bmatrix}
+\cos \theta & - r \sin \theta\\
+\sin \theta & r \cos \theta\\
+2 r & 0
+\end{bmatrix}
+$$
+
+$$
+Dg^t \cdot Dg = \begin{bmatrix}
+\cos \theta & \sin \theta & 2r\\
+-r \sin \theta & r \cos \theta & 0
+\end{bmatrix}
+\begin{bmatrix}
+\cos \theta & - r \sin \theta\\
+\sin \theta & r \cos \theta\\
+2 r & 0
+\end{bmatrix}
+=
+\begin{bmatrix}
+1+4r^2 & 0
+0 & r^2
+\end{bmatrix}
+$$
+
+$$
+\begin{array}{ll}
+\det = (4r^2 + 1 ) r^2 & \sqrt{\det} = r \sqrt{4r^2 +1}
+\end{array}
+$$
+
+$$
+\begin{aligned}
+\int_P 1 \d S &= \int^{2 \pi}_0 \int^1_0 1 \cdot r \sqrt{4r^2 + 1} \d r \d \theta\\
+&= \int^{2 \pi}_0 \int^1_0 \frac{1}{8} \cdot 8 r \sqrt{4r^2 + 1} \d r \d \theta\\
+&= \frac{1}{8} \int^{2\pi}_0 \left[\frac{(4r^2 + 1)^{\frac{3}{2}}}{\frac{3}{2}} \right]^1_0 \d \theta\\
+&= \frac{1}{8} \int^{2\pi}_0 \frac{2}{3} (5^{\frac{3}{2}} - 1) \d \theta\\
+&= \frac{1}{8} \cdot \frac{2}{3} \cdot 2\pi \cdot (5^{\frac{3}{2}} - 1)\\
+&= \frac{\pi}{6} (5^{\frac{3}{2}} - 1)
+\end{aligned}
+$$
+
+:::
+
+### Produto Externo de Dois Vetores
+
+Podemos definir o produto externo de $u, v \in \R^3$, considerando
+$u = (u_1, u_2, u_3)$,
+$v = (v_1, v_2, v_3)$ e
+$e_1, e_2, e_3$ vetores da base canónica, como:
+
+$$
+u \cdot v = \det \begin{bmatrix}
+e_1 & e_2 & e_3\\
+u_1 & u_2 & u_3\\
+v_1 & v_2 & v_3
+\end{bmatrix}
+$$
+
+Efetuando a [regra de Laplace](https://en.wikipedia.org/wiki/Determinant) na primeira linha:
+
+$$
+\begin{array}{l}
+= (u_2 v_3 - v_2 u_3) e_1 - (u_1v_3 - v_1u_3) e_2 + (u_1 v_2 - v_1u_2) e_3\\
+= (u_2 v_3 - v_2 u_3, -u_1 v_3 + v_1u_3 , u_1v_2-v_1u_2)
+\end{array}
+$$
+
+**Propriedades do produto externo**:
+
+- $u \times v$ é ortogonal a $u$ e $v$
+- $u \cdot (v \times w) = v\cdot (w \times u)$
+- $u \times (v \times w ) = (u \cdot w) v - (u \cdot v) w$
+
 ### Centroíde e Momento de Inércia
 
 Tal como referido em [Aplicações do Integral](./0011-aplicacoes-integral.md),
@@ -456,15 +586,15 @@ $$
 
 As definições de quantidades físicas em regiões de $\R^2$ e $\R^3$ têm definições idênticas no contexto.
 
-::: details Exemplo
+::: details Exemplos
 
-Considerando a variedade definida por
+**Considerando a variedade definida por**
 
 $$
 M = \{ y = x^2, x \in ]-1, 1[\}
 $$
 
-**Qual o centroide de $M$?**
+**Qual o centroíde de $M$?**
 
 Começamos por fazer a sua paremetrização:
 
@@ -489,6 +619,42 @@ $$
 \frac{\int^1_{-1} t^2 \sqrt{1+4t^2} \d t}{\int^1_{-1} \sqrt{1+4t^2} \d t}
 $$
 
+---
+
+**Considerando a variedade definida por**
+
+$$
+M = \{ x^2 +y^2 = 1, y > 0\}
+$$
+
+**Determine o seu centroíde**
+
+Começamos por parametrizar a variedade:
+
+$$
+\begin{array}{ll}
+g(t) = (\cos t, \sin t) & t \in ]0, \pi[\\
+g'(t) = (-\sin t, \cos t) & || g'(t) || = 1
+\end{array}
+$$
+
+Esta variedade representa um semi-círculo de raio 1.  
+De seguida, calculamos o centroíde, sabendo já que $\int_M 1 = \pi$, visto que corresponde ao comprimento do semi-círculo.
+
+Centroíde de $M$: $(\overline x, \overline y)$
+
+$$
+\overline x = \frac{\int_M x}{\int_M 1} = \frac{1}{\pi} \int_M x \d \gamma = \frac{1}{\pi} \int^{\pi}_0 \cos t \cdot 1 \d t =
+\frac{1}{\pi} \left[\sin t\right]^{\pi}_0 = 0
+$$
+
+$$
+\overline y = \frac{\int_M y}{\int_M 1} = \frac{1}{\pi} \int_M y \d \gamma = \frac{1}{\pi} \int^{\pi}_0 \sin t \cdot 1 \d t =
+\frac{1}{\pi} \left[-\cos t\right]^{\pi}_0 = \frac{2}{\pi}
+$$
+
+Centroíde: $\left(0, \frac{2}{\pi}\right)$
+
 :::
 
 ---
@@ -498,3 +664,4 @@ Slides:
 - [Aula 35](https://drive.google.com/file/d/1HB3S_iHkfG6ZL6m9h3D2Ygc9u110zR__/view?usp=sharing)
 - [Aula 36](https://drive.google.com/file/d/1J3fiKeq1uJ1qP8_8oJaLB4OTlK6tGiG4/view?usp=sharing)
 - [Aula 37](https://drive.google.com/file/d/1IEa53XOsSWwlefcLREGjrIhPuqzHBkiw/view?usp=sharing)
+- [Aula 38](https://drive.google.com/file/d/1cZhZYt3eOtwdqc1Vo-VJkOHNJ7kkvNiT/view?usp=sharing)
