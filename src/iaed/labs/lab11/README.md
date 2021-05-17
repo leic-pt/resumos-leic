@@ -47,7 +47,7 @@ Nota: considere que `rotL` e `rotR` são as operações de rotação para a esqu
 
 ::: details Resolução
 
-Resposta b) e d) esão corretas
+Resposta: b) e d) estão corretas
 
 :::
 
@@ -120,6 +120,6 @@ Considere a seguinte árvore AVL:
 Elimine o elemento 12 e na árvore AVL resultante insira o elemento 20.\
 Indique a sequência de elementos visitados ao efectuar uma travessia pre-order da árvore AVL após as operações de remoção e inserção que efectuou.
 
-::: details Resolução (soon)
+::: details Resolução (Contribute!)
 
 :::
