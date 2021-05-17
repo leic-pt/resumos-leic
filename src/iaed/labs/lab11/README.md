@@ -65,7 +65,7 @@ Desenhe a árvore resultante e indique a sequência de elementos visitados por u
 
 <img src="./1111-ex3r.png" alt="ex3" class="invert-dark2">
 
-Resposta: 6, 3, 7, 9, 8, 11, 15, 50, 16, 10
+Resposta: 6, 3, 8, 7, 10, 15, 11, 50, 16, 9
 
 :::
 
@@ -78,7 +78,7 @@ Considere a árvore resultante do exercício anterior e elimine o elemento `16`.
 
 <img src="./1111-ex4r.png" alt="ex4" class="invert-dark2">
 
-Resposta: 10, 8, 7, 3, 6, 9, 15, 11, 50
+Resposta: 9, 7, 3, 6, 8, 15, 11, 10, 50
 
 :::
 
@@ -90,7 +90,9 @@ Considere a seguinte árvore binária de pesquisa:
 
 Qual a rotação que teria de efectuar para equilibrar a árvore? Indique o valor do nó a rodar e a direcção da rotação (direita/esquerda).
 
-::: details Resolução (soon)
+::: details Resolução
+
+Rotação esquerda 22
 
 :::
 
@@ -103,7 +105,9 @@ Considere a seguinte árvore AVL:
 Insira o elemento 60 e na árvore AVL resultante elimine o elemento 10.\
 Indique a sequência de elementos visitados ao efectuar uma travessia post-order da árvore AVL após as operações de inserção e remoção que efectuou.
 
-::: details Resolução (soon)
+::: details Resolução
+
+1 , -6, 4, 0, 15, 26, 24, 60, 52, 37, 12
 
 :::
 
