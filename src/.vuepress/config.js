@@ -152,6 +152,7 @@ module.exports = {
             '0013-funcao-inversa',
             '0014-variedades',
             '0015-extremos-condicionados',
+            '0016-campos-vetoriais',
           ],
         },
         {
