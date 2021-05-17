@@ -2,7 +2,7 @@
 description: Extremos Condicionados. Integrais de Campos Escalares em Variedades.
 ---
 
-# Extremos Condicionados
+# Extremos Condicionados. Integrais Campos Escalares
 
 [[toc]]
 
@@ -361,9 +361,140 @@ Logo, pelo Teorema de Weierstrass:
 
 :::
 
+## Integrais de Campos Escalares em Variedades
+
+Dada uma variedade $M$ e $f: M \to \R$, como podemos definir $\int_M f$?
+
+### Para dim M = 1
+
+::: tip DEFINIÇÃO
+
+Considerando $\dim M = 1$ e seja $M$ um caminho em $\R^2$, podemos escrever que
+
+$$
+\int_M f \d \gamma = \int^b_a f(g(t)) \cdot ||g'(t)|| \d t
+$$
+
+:::
+
+A estes integrais chamamos {orange}(**Integral de um campo escalar numa variedade de $\dim 1$**) ou
+{orange}(**Integral de linha de um campo escalar**).
+
+::: details Exemplos
+
+Seja a circunferência $x^2+y^2=1$.
+
+**Qual o perímetro (comprimento) da circunferência?**
+
+Começamos por parametrizar esta variedade:
+
+$$
+\begin{array}{cc}
+g(t) = (\cos t, \sin t) & t \in ]0, 2\pi[\\
+g'(t) = (-\sin t, \cos t) & ||g'(t)|| = \sqrt{\sin^2t + \cos^2t} = 1
+\end{array}
+$$
+
+Assim, basta-nos calcular o integral do campo escalar:
+
+$$
+\int_{x^2+y^2=1} 1 \d \gamma = \int^{2\pi}_{0} 1 \cdot ||g'(t)|| \d t =
+\int^{2\pi}_{0} 1 \d t = 2\pi
+$$
+
+---
+
+**Considere o segmento que une $(1,0,1)$ a $(0,1,0)$.**  
+**Sabe-se que a densidade de massa deste segmento é dada por $z^2$.**
+**Qual a massa do segmento?**
+
+Começemos por parameterizar o segmento, que podemos fazer
+através de da expressão vetorial de uma reta.
+
+$$
+\begin{array}{ll}
+\begin{aligned}
+g(t) &= (1,0,1) + t(\overset{v}{(0,1,0) - (1,0,1)})\\
+&=(1,0,1) + t(-1,1,-1)\\
+&= (1-t, t, 1-t)
+\end{aligned} & t \in [0,1]\\
+\\
+g'(t) = (-1,1,-1) & ||g'(t)|| = \sqrt 3
+\end{array}
+$$
+
+$$
+\text{Massa do segmento} = \int_{\text{segmento}} \text{densidade de massa}
+$$
+
+$$
+\begin{aligned}
+\text{Massa} &= \int_{\text{segmento}} z^2 \d \gamma\\
+&= \int^1_0 (1-t)^2 \cdot \sqrt{3} \d t\\
+&= \sqrt{3} \left[- \frac{(1-t)^3}{3} \right]^1_0\\
+&= \sqrt{3} \left(0 - \left(-\frac{1}{3} \right) \right)\\
+&= \frac{\sqrt{3}}{3}
+\end{aligned}
+$$
+
+:::
+
+### Centroíde e Momento de Inércia
+
+Tal como referido em [Aplicações do Integral](./0011-aplicacoes-integral.md),
+é possível calcular o centroíde e momento de inércia de um sólido através do
+cálculo de um integral.
+
+Esses cálculos são também aplicáveis em campos escalares, pelo que voltamos a ter a mesma definição:
+
+$$
+\begin{darray}{ll}
+\overline x = \frac{\int_M x}{\int_M 1} &
+\overline y = \frac{\int_M y}{\int_M 1}
+\end{darray}
+$$
+
+As definições de quantidades físicas em regiões de $\R^2$ e $\R^3$ têm definições idênticas no contexto.
+
+::: details Exemplo
+
+Considerando a variedade definida por
+
+$$
+M = \{ y = x^2, x \in ]-1, 1[\}
+$$
+
+**Qual o centroide de $M$?**
+
+Começamos por fazer a sua paremetrização:
+
+$$
+\begin{array}{cc}
+g(t) = (t, t^2) & t \in ]-1,1[\\
+g'(t) = (1,2t) & ||g'(t)|| = \sqrt{1 + 4t^2}
+\end{array}
+$$
+
+$$
+\int_M 1 \d \gamma = \int^1_{-1} \sqrt{1 + 4t^2} \d t
+$$
+
+$$
+\overline x = \frac{\int_M x \d \gamma}{\int_M 1 \d \gamma} =
+\frac{\int^1_{-1} t \sqrt{1+4t^2} \d t}{\int^1_{-1} \sqrt{1+4t^2} \d t}
+$$
+
+$$
+\overline y = \frac{\int_M y \d \gamma}{\int_M 1 \d \gamma} =
+\frac{\int^1_{-1} t^2 \sqrt{1+4t^2} \d t}{\int^1_{-1} \sqrt{1+4t^2} \d t}
+$$
+
+:::
+
 ---
 
 Slides:
 
 - [Aula 35](https://drive.google.com/file/d/1HB3S_iHkfG6ZL6m9h3D2Ygc9u110zR__/view?usp=sharing)
 - [Aula 36](https://drive.google.com/file/d/1J3fiKeq1uJ1qP8_8oJaLB4OTlK6tGiG4/view?usp=sharing)
+- [Aula 37](https://drive.google.com/file/d/1IEa53XOsSWwlefcLREGjrIhPuqzHBkiw/view?usp=sharing)
