@@ -71,6 +71,7 @@ module.exports = {
             '0014-listas',
             '0015-tad',
             '0016-disp',
+            '0017-arv',
           ],
         },
         {
@@ -86,6 +87,7 @@ module.exports = {
             'labs/lab08/',
             'labs/lab09/',
             'labs/lab10/',
+            'labs/lab11/',
           ],
         },
         {
@@ -115,6 +117,7 @@ module.exports = {
             '0011-logica-proposicional-semantico',
             '0012-lp-ii-bdds',
             '0013-algs-sat',
+            '0014-lpo-semantico',
           ],
         },
         {
@@ -148,6 +151,7 @@ module.exports = {
             '0012-teorema-leibniz',
             '0013-funcao-inversa',
             '0014-variedades',
+            '0015-extremos-condicionados',
           ],
         },
         {
@@ -181,6 +185,8 @@ module.exports = {
             '0017-rsa',
             '0018-grafos-def',
             '0019-pombal',
+            '0020-labirintos',
+            '0021-galeshapley',
           ],
         },
         {
@@ -197,6 +203,7 @@ module.exports = {
             '1003-calendarios',
             '1004-mdc-cheat',
             '1005-rsa-sheet',
+            '1006-grafos',
           ],
         },
         {

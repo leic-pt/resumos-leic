@@ -197,7 +197,7 @@ Uma maneira de implementar o algoritmo DP consiste em utilizar o conceito de **b
 
 ::: details Exemplo - Aplicação do método dos baldes
 
-Ora, peguemos na _fbf_ tal que $\Delta = \{\{P, Q, R\}, \{\neg P, S, T, R\}, \{\neg P, Q, S\}, \{\neg Q, \neg R\}, \{S\}\}$. Podemos ainda estabelecer uma relação de ordem total arbitrária - seja ela $P \prec Q \prec R \prec S \prec T$. A primeira fase, criar e preencher os baldes, dá-se tal que:
+Ora, peguemos na _fbf_ tal que $\Delta = \{\{P, Q, \neg R\}, \{\neg P, S, T, R\}, \{\neg P, Q, S\}, \{\neg Q, \neg R\}, \{S\}\}$. Podemos ainda estabelecer uma relação de ordem total arbitrária - seja ela $P \prec Q \prec R \prec S \prec T$. A primeira fase, criar e preencher os baldes, dá-se tal que:
 
 $b_{P}: \{P, Q, \neg R\}, \{\neg P, S, T, R\}, \{\neg P, Q, S\}$  
 $b_{Q}: \{\neg Q, \neg R\}$  
@@ -205,7 +205,7 @@ $b_{R}:$
 $b_{S}: \{S\}$  
 $b_{T}:$
 
-Processar o balde $b_{P}$ origina 2 novas cláusulas, nenhuma delas vazia, pelo que o algoritmo ainda não acabou:
+Processar o balde $b_{P}$ origina 2 novas cláusulas, nenhuma delas vazia, pelo que o algoritmo ainda não acabou (aqui uma das cláusulas está "contida" noutra, pelo que só queremos a menor):
 
 $b_{P}: \{P, Q, \neg R\}, \{\neg P, S, T, R\}, \{\neg P, Q, S\}$  
 $b_{Q}: \{\neg Q, \neg R\}, \qquad \qquad \qquad \qquad \qquad \qquad  \{Q, \neg R, S\}$  
