@@ -45,7 +45,9 @@ g. rotR(23)
 
 Nota: considere que `rotL` e `rotR` são as operações de rotação para a esquerda e para a direita, respectivamente.
 
-::: details Resolução (soon)
+::: details Resolução
+
+Resposta b) e d) esão corretas
 
 :::
 
