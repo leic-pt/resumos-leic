@@ -48,7 +48,7 @@ Por abuso de linguagem, referir-nos-emos a partir de agora à interpretação $I
 
 :::
 
-Outro conceito interessante a ter em conta é o da **satisfação**. Dadas uma _fbf_ $\alpha$ e uma interpretação $I$, podemos dizer que **$I$ satisfaz $\alpha$ caso $I(\alpha) = v$**, ou que $\alpha$ é verdadeira segundo a interpretação $I$. Caso contrário, claro, dizemos que $I$ não satisfaz $\alpha$/que $\alpha$ é falsa segundo $I$. A título de exemplo, podemos afirmar que a função de valoração acima satisfaz $P \wedge Q$ mas não $\neg P \wedge Q$.
+Outro conceito interessante a ter em conta é o da **satisfação**. Dadas uma _fbf_ $\alpha$ e uma interpretação $I$, podemos dizer que **$I$ satisfaz $\alpha$ caso $I(\alpha) = V$**, ou que $\alpha$ é verdadeira segundo a interpretação $I$. Caso contrário, claro, dizemos que $I$ não satisfaz $\alpha$/que $\alpha$ é falsa segundo $I$. A título de exemplo, podemos afirmar que a função de valoração acima satisfaz $P \wedge Q$ mas não $\neg P \wedge Q$.
 
 ::: details Tabela de Verdade + Satisfação
 
@@ -88,7 +88,7 @@ Um conjunto de _fbfs_ diz-se **satisfazível** caso exista pelo menos uma interp
 
 - **Modelo do conjunto de fórmulas** - dado um conjunto de _fbfs_ $\Delta$, um modelo desse conjunto é qualquer intepretação que satisfaz todas as _fbfs_ do conjunto.
 
-Um argumento $(\Delta, \alpha)$ diz-se válido caso não exista nenhuma interpretação que torne todas as proposições de $\Delta$ verdadeiras e $\alpha$ falsa - nesse caso, podemos escrever $\Delta \models \alpha$, ou "$\alpha$ é **consequência semântica** de $\Delta$". odemos também dizer que $\Delta \models \alpha$ caso todos os modelos de $\Delta$ satisfaçam $\alpha$.
+Um argumento $(\Delta, \alpha)$ diz-se válido caso não exista nenhuma interpretação que torne todas as proposições de $\Delta$ verdadeiras e $\alpha$ falsa - nesse caso, podemos escrever $\Delta \models \alpha$, ou "$\alpha$ é **consequência semântica** de $\Delta$". Podemos também dizer que $\Delta \models \alpha$ caso todos os modelos de $\Delta$ satisfaçam $\alpha$.
 
 Por exemplo, dado o argumento $(\{P \wedge Q, R\}, P \wedge R)$, podemos verificar que o argumento é válido, visto que não existe nenhuma interpretação que torne as premissas verdadeiras e a conclusão falsa.
 
