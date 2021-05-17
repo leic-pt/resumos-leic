@@ -1,5 +1,5 @@
 ---
-description: Extremos Condicionados. Integrais de Campos Escalares em Variedades.
+description: Extremos Condicionados. Método dos Multiplicadores de Lagrange. Integrais de Campos Escalares em Variedades. Produto Externo.
 ---
 
 # Extremos Condicionados. Integrais Campos Escalares
@@ -569,6 +569,86 @@ $$
 - $u \cdot (v \times w) = v\cdot (w \times u)$
 - $u \times (v \times w ) = (u \cdot w) v - (u \cdot v) w$
 
+Alternativamente ao fator de escala $\sqrt{ | \det (Dg^T Dg) | }$ usado acima, podemos usar o
+produto externo. Assim,
+
+$$
+\sqrt{ | \det \left(Dg^t Dg \right) | } = \left|\left| \frac{\partial g}{\partial u} \times \frac{\partial g}{\partial v} \right|\right|
+$$
+
+::: details Exemplo
+
+Considerando a variedade
+
+$S = \{x^2 + y^2 = z^2 + 1, 0 < z < 1\}$
+
+Sabe-se que a densidade de massa é $\phi (x,y,z) = \frac{1}{\sqrt{2z^2+1}}$
+
+**Qual a massa de $S$?**
+
+A massa é dada por $\int_S \phi$
+
+Começamos por parametrizar $S$, usando coordenadas cilindricas:
+
+$$
+\begin{cases}
+x=r \cos \theta\\
+y=r \sin \theta\\
+z=z
+\end{cases}
+$$
+
+$$
+\begin{array}{lll}
+r^2 = z^2 + 1 & r = \sqrt{z^2 + 1} & 0 < z < 1
+\end{array}
+$$
+
+$$
+g(\theta, z) = (\sqrt{z^2 + 1} \cos \theta, \sqrt{z^2+1} \sin \theta, z)
+$$
+
+$$
+Dg (\theta, z) = \begin{bmatrix}
+-\sqrt{z^2+1} \sin \theta & \frac{z}{\sqrt{z^2 + 1}}\cos \theta\\
+\sqrt{z^2+1} \cos \theta & \frac{z}{\sqrt{z^2 + 1}}\sin \theta\\
+0 & 1
+\end{bmatrix}
+$$
+
+$$
+\begin{aligned}
+\frac{\partial g}{\partial \theta} \times \frac{\partial g}{\partial z} &= \begin{vmatrix}
+e_1 & e_2 & e_3\\
+-\sqrt{z^2 + 1} \sin \theta & \sqrt{z^2 + 1}\cos \theta & 0\\
+\frac{z}{\sqrt{z^2 + 1}}\cos \theta & \frac{z}{\sqrt{z^2 + 1}}\sin \theta & 1
+\end{vmatrix}\\
+&=(\sqrt{z^2+1} \cos \theta, \sqrt{z^2 + 1} \sin \theta, -z \sin ^2 \theta - z \cos^2 \theta)\\
+&=(\sqrt{z^2+1} \cos \theta, \sqrt{z^2 + 1} \sin \theta, -z)
+\end{aligned}
+$$
+
+$$
+\left|\left|\frac{\partial g}{\partial \theta} \times \frac{\partial g}{\partial z}\right|\right|^2 =
+(z^2 + 1) \cos^2 \theta + (z^2 + 1) \sin^2 \theta + z^2 = 2z^2 + 1
+$$
+
+$$
+\begin{array}{ll}
+\phi(x,y,z) = \frac{1}{\sqrt{2z^2 + 1}} & \phi (g(\theta,z )) = \frac{1}{\sqrt{2z^2 + 1}}
+\end{array}
+$$
+
+$$
+\begin{aligned}
+\int_S \phi &= \int^1_0 \int^{2\pi}_0 \frac{1}{\sqrt{2z^2 + 1}} \cdot \sqrt{2z^2 + 1} \d \theta \d z\\
+&= \int^1_0 \int^{2\pi}_0 1 \d \theta \d z\\
+&= 2\pi
+\end{aligned}
+$$
+
+:::
+
 ### Centroíde e Momento de Inércia
 
 Tal como referido em [Aplicações do Integral](./0011-aplicacoes-integral.md),
@@ -665,3 +745,4 @@ Slides:
 - [Aula 36](https://drive.google.com/file/d/1J3fiKeq1uJ1qP8_8oJaLB4OTlK6tGiG4/view?usp=sharing)
 - [Aula 37](https://drive.google.com/file/d/1IEa53XOsSWwlefcLREGjrIhPuqzHBkiw/view?usp=sharing)
 - [Aula 38](https://drive.google.com/file/d/1cZhZYt3eOtwdqc1Vo-VJkOHNJ7kkvNiT/view?usp=sharing)
+- [Aula 39](https://drive.google.com/file/d/1PzDLYtf0bPQYBpZ46SVC0tqU4seezncI/view?usp=sharing)
