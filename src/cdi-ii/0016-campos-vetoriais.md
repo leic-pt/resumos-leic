@@ -1,5 +1,5 @@
 ---
-description: Campos Vetoriais. Integral de Linha de um Campo Vetorial. Campo Conservativo, Gradiente e Fechado. Teorema Fundamental do Cálculo para Integrais de Linha
+description: Campos Vetoriais. Integral de Linha de um Campo Vetorial. Segmento que une dois pontos. Campo Conservativo, Gradiente e Fechado. Teorema Fundamental do Cálculo para Integrais de Linha
 ---
 
 # Campos Vetoriais
@@ -86,6 +86,22 @@ $$
 Seja $F$ um campo de forças e uma partícula a percorrer um caminho $C$.
 
 Então, temos que $\int_C F \cdot \d g$ é o trabalho realizado por $F$.
+
+### Segmento que une dois pontos
+
+Por vezes, precisamos de considerar um caminho que une dois pontos.
+Para isso, podemos considerar a seguinte parameterização.
+
+Sejam, por exemplo, $(1,2,3)$ e $(4,5,6)$ os pontos que queremos considerar, a parameterização
+será:
+
+$$
+\begin{aligned}
+g(t) &= (1,2,3) + t((4,5,6) - (1,2,3))\\
+&= (1,2,3) + t(3, 3, 3)\\
+&= (1+3t, 2+3t, 3+3t), \quad t \in ]0, 1[
+\end{aligned}
+$$
 
 ## Campo Vetorial Conservativo
 

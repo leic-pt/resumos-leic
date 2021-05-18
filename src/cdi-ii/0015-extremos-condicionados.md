@@ -414,7 +414,7 @@ através de da expressão vetorial de uma reta.
 $$
 \begin{array}{ll}
 \begin{aligned}
-g(t) &= (1,0,1) + t(\overset{v}{(0,1,0) - (1,0,1)})\\
+g(t) &= (1,0,1) + t(\overbrace{(0,1,0) - (1,0,1)}^v)\\
 &=(1,0,1) + t(-1,1,-1)\\
 &= (1-t, t, 1-t)
 \end{aligned} & t \in [0,1]\\
