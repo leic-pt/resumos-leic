@@ -188,6 +188,7 @@ module.exports = {
             '0019-pombal',
             '0020-labirintos',
             '0021-galeshapley',
+            '0022-kruskraldijkrsta',
           ],
         },
         {
