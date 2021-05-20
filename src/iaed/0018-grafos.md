@@ -121,7 +121,7 @@ Representações Alternativas
   - Admite 2 implementações: recursiva e com uso de pilha explícita
   - Substituindo a pilha por um FIFO ...
 
-#### Porcura em Largura Primeiro (BFS)
+#### Procura em Largura Primeiro (BFS)
 
 BFS - Breadth-First Search
 
@@ -138,6 +138,46 @@ BFS - Breadth-First Search
 - Aplicações
   - Encontrar todos os nós de uma componente conexa.
   - Encontrar todos os caminhos mais curtos entre 2 nós, ...
+
+#### Procura em Profundidade Primeiro (DFS)
+
+DFS - Breadth-First Search
+
+- Visita primeiro os arocs dos vértices mais recentemente visitados
+
+- Grafo pesquisado dando prioridade aos arcosd dos vértices mais recentementes visitados
+
+- Aplicações
+
+  - Visitar todos os elementos de 1 grafo, sendo qua cada vértice é visitado pelo menos 1 vez!
+
+  - Encontrar um caminho entre 2 nós específicos, u e v, num grafo sem pesos ou com pesos (grafo pesado).
+
+  - Saber ser 1 grafo é conexo ou não.
+
+#### Caminho
+
+Definição de camiho
+
+#### Ciclo
+
+Um grafo acíclico é 1 grafo que não tem ciclos.
+
+### Ordenação Topológica
+
+Imagem do Pacote
+
+O pacote 2 está dependente do pacote 11.
+
+O pacote 11 está dependente do pacote 5 e do pacote 7.
+
+- Grafos como representação de 1 problema de planeamento de tarefas
+
+- Se 1 grafo tem 1 arco de X para Y, então a tarefa X deve ser efectuada antes de Y.
+
+- Uma ordenação topológica de 1 grafo é uma sequência de "tarefas" onde esta condição é verificada.
+
+- Se 1 grafo tem 1 arco dirigido ...
 
 <img src="./assets/0016-fun.png" alt="disp" class="invert-dark2">
 

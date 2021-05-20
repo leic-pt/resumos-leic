@@ -72,6 +72,7 @@ module.exports = {
             '0015-tad',
             '0016-disp',
             '0017-arv',
+            '0018-grafos'
           ],
         },
         {
