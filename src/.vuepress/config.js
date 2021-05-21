@@ -153,6 +153,7 @@ module.exports = {
             '0013-funcao-inversa',
             '0014-variedades',
             '0015-extremos-condicionados',
+            '0016-campos-vetoriais',
           ],
         },
         {
@@ -188,6 +189,7 @@ module.exports = {
             '0019-pombal',
             '0020-labirintos',
             '0021-galeshapley',
+            '0022-kruskraldijkrsta',
           ],
         },
         {
