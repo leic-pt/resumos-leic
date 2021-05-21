@@ -89,6 +89,7 @@ module.exports = {
             'labs/lab09/',
             'labs/lab10/',
             'labs/lab11/',
+            'labs/lab12/',
           ],
         },
         {
