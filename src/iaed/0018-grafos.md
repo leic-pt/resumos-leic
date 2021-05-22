@@ -257,8 +257,6 @@ Equivalente a como nós (humanos) exploramos labirintos
 Para o algoritmo aconselho a ver os exemplos nos slides
 :::
 
-Imagem do Pacote
-
 O pacote 2 está dependente do pacote 11.
 
 O pacote 11 está dependente do pacote 5 e do pacote 7.
