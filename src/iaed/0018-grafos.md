@@ -201,7 +201,7 @@ Para ambos os algoritmos aconselho a ver os exemplos nos slides
 
 #### Procura em Largura Primeiro (BFS)
 
-BFS - Breadth-First Search
+BFS - Depth-First Search
 
 <img src="./assets/0018-bfs.gif" alt="bfs" >
 
