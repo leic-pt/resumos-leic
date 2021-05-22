@@ -72,6 +72,7 @@ module.exports = {
             '0015-tad',
             '0016-disp',
             '0017-arv',
+            '0018-grafos',
           ],
         },
         {
@@ -88,6 +89,7 @@ module.exports = {
             'labs/lab09/',
             'labs/lab10/',
             'labs/lab11/',
+            'labs/lab12/',
           ],
         },
         {
