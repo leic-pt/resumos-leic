@@ -1,5 +1,5 @@
 ---
-description: Tabelas e Vetores.
+description: Definição e Representação. Algoritmos de Exploração/ Procura em Grafos. Ordenação Topológica
 ---
 
 # Grafos
@@ -10,11 +10,11 @@ description: Tabelas e Vetores.
 
 <img src="./assets/0018-grafo.png" alt="grafo" class="invert-dark2">
 
-- Constituído por um conjunto V de vértices (nó) e E de arcos (aresta).
+- Constituído por um conjunto V de vértices (nós) e E de arcos (arestas).
   - Arco liga 2 vértices
-  - Vértice pode estar ligado a qualquer número de outros bértices
+  - Vértice pode estar ligado a qualquer número de outros vértices
 
-### Grafo de um node
+### Grafo de um Node
 
 <img src="./assets/0018-grafov.png" alt="grafo" class="invert-dark2">
 
@@ -22,47 +22,45 @@ description: Tabelas e Vetores.
 
 - O grau médio de um grafo (z), é a média dos graus de todos os vértices
 
-#### Grafo orientado
+### Alguns Tipos de Grafos
 
-<img src="./assets/0018-grafoo.png" alt="grafo" class="invert-dark2">
+#### Grafo orientado
 
 - As suas arestas têm direções (->)
 
-#### Grafo Pesado
+<img src="./assets/0018-grafoo.png" alt="grafo" class="invert-dark2">
 
-<img src="./assets/0018-grafop.png" alt="grafo" class="invert-dark2">
+#### Grafo Pesado
 
 - As arestas têm valores
 
-#### Grafo Acíclicos Orientados
+<img src="./assets/0018-grafop.png" alt="grafo" class="invert-dark2">
 
-<img src="./assets/0018-grafoao.png" alt="grafo" class="invert-dark2">
+#### Grafo Acíclicos Orientados
 
 - Para qualquer vértice v, não há nenhum caminho começando e acabando em v.
 
-#### Grafo Conexo
+<img src="./assets/0018-grafoao.png" alt="grafo" class="invert-dark2">
 
-<img src="./assets/0018-grafoc.png" alt="grafo" class="invert-dark2">
+#### Grafo Conexo
 
 - Para quaisqueres vértices v e u, há sempre o caminho a ligar u e v.
 
+<img src="./assets/0018-grafoc.png" alt="grafo" class="invert-dark2">
+
 #### Grafo Bi-conectado
 
-<img src="./assets/0018-grafocg.png" alt="grafo" class="invert-dark2">
-
 - Para qualquer vértice v, se removemos v, o grafo continua conexo.
+
+<img src="./assets/0018-grafocg.png" alt="grafo" class="invert-dark2">
 
 ## Representação
 
 <img src="./assets/0018-rep.png" alt="rep" class="invert-dark2">
 
-- Matriz Adjacente
-
-- Listas
-
-- Grafo não orientado
-
 ### Lista de Adjacências
+
+Cada nó mostra os nós com que faz aresta.
 
 <img src="./assets/0018-list.png" alt="list" class="invert-dark2">
 
@@ -88,6 +86,8 @@ description: Tabelas e Vetores.
   - Grande utilização de remoção de arcos
 
 ### Matriz de Adjacências
+
+Matriz que apenas é constituída por (0 e 1), onde 1 simboliza existir uma aresta entre a coluna e a linha.
 
 <img src="./assets/0018-mat.png" alt="mat" class="invert-dark2">
 
@@ -129,8 +129,6 @@ description: Tabelas e Vetores.
 
 - Escolha deverá depender do problema a resolver
 
-#### Desempenho
-
 $$
 \begin{array}{ c| c| c |c }
 Desempenho & Vetor\ de\ arcos & Matriz\ de\ Adj. & Listas\ de\ Adj.\\
@@ -144,13 +142,16 @@ Remover\ Arco & O( E) & O( 1) & O( V)
 \end{array}
 $$
 
-Implementação do código nos slides
+$V$ - vértices (nós)\
+$E$ - arcos (arestas).
+
+A Implementação do código encontra-se nos slides.
 
 ## Algoritmos de Exploração/Procura em Grafos
 
 - Quero saber todas as páginas da WWW. (web crawling)
 
-- Quero os meus amigos no facebook (se os tiveres)
+- Quero encontrar os meus amigos no facebook (se os tiver)
   ::: details Exemplo
   amigos dos amigos,\
   amigos dos amigos do amigos,\
@@ -195,12 +196,14 @@ Para ambos os algoritmos aconselho a ver os exemplos nos slides
 - Os vários algoritmos de procura em grafos limitam-se a executar uma determinada estratégia de procura em labirintos
   - Procura em profundidade primeiro (DFS - "Depth-first-search")
   - Admite 2 implementações: recursiva e com uso de pilha explícita
-  - Substituindo a pilha por um FIFO, transforma-se em
-    Procura em largura primeiro (BFS - 'Breadth-first-search')
+  - Substituindo a pilha por um FIFO,\
+    transforma-se em Procura em largura primeiro (BFS - 'Breadth-first-search')
 
 #### Procura em Largura Primeiro (BFS)
 
 BFS - Breadth-First Search
+
+<img src="./assets/0018-bfs.gif" alt="bfs" >
 
 - Visita os vértice por ordem da sua distância à origem
 - Vértice mais próximos são visitados em 1º lugar
@@ -226,6 +229,8 @@ BFS - Breadth-First Search
 #### Procura em Profundidade Primeiro (DFS)
 
 DFS - Breadth-First Search
+
+<img src="./assets/0018-dfs.gif" alt="dfs" >
 
 Equivalente a como nós (humanos) exploramos labirintos
 
