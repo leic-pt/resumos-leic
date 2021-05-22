@@ -8,37 +8,53 @@ description: Tabelas e Vetores.
 
 ## Definição e Representação
 
+<img src="./assets/0018-grafo.png" alt="grafo" class="invert-dark2">
+
 - Constituído por um conjunto V de vértices (nó) e E de arcos (aresta).
   - Arco liga 2 vértices
   - Vértice pode estar ligado a qualquer número de outros bértices
 
 ### Grafo de um node
 
-- O grau de 1 vértice (d,degree) contabiliza o números de ligações de 1 vértice.
+<img src="./assets/0018-grafov.png" alt="grafo" class="invert-dark2">
 
-- O g...
+- O grau de 1 vértice (d,degree) contabiliza o números de ligações de 1 vértice
+
+- O grau médio de um grafo (z), é a média dos graus de todos os vértices
 
 #### Grafo orientado
+
+<img src="./assets/0018-grafoo.png" alt="grafo" class="invert-dark2">
 
 - As suas arestas têm direções (->)
 
 #### Grafo Pesado
 
+<img src="./assets/0018-grafop.png" alt="grafo" class="invert-dark2">
+
 - As arestas têm valores
 
 #### Grafo Acíclicos Orientados
+
+<img src="./assets/0018-grafoao.png" alt="grafo" class="invert-dark2">
 
 - Para qualquer vértice v, não há nenhum caminho começando e acabando em v.
 
 #### Grafo Conexo
 
+<img src="./assets/0018-grafoc.png" alt="grafo" class="invert-dark2">
+
 - Para quaisqueres vértices v e u, há sempre o caminho a ligar u e v.
 
 #### Grafo Bi-conectado
 
+<img src="./assets/0018-grafocg.png" alt="grafo" class="invert-dark2">
+
 - Para qualquer vértice v, se removemos v, o grafo continua conexo.
 
-### Representação
+## Representação
+
+<img src="./assets/0018-rep.png" alt="rep" class="invert-dark2">
 
 - Matriz Adjacente
 
@@ -46,9 +62,36 @@ description: Tabelas e Vetores.
 
 - Grafo não orientado
 
-### Vantagens e Desvantagens
+### Lista de Adjacências
 
-Vantagens
+<img src="./assets/0018-list.png" alt="list" class="invert-dark2">
+
+#### Vantagens
+
+- Inicialização é proporcional a $V$
+
+- Utiliza sempre espaço proporcional a $V+E$
+  - Adequado para grafos esparsos
+  - Algoritmos que assentem na análise de arcos em grafos esparsos.
+- Adição de arcos é feita de forma eficiente
+
+#### Desvantagens
+
+- Arcos paralelos e adjacência entre vértices
+  - Requer que se pesquise as listas de adjacências, o que pode levar
+    um tempo proporcional a $V$
+- Remoção de arcos
+  - Pode levar um tempo proporcional a $V$ (este problema pode ser
+    contornado).
+- Não aconselhável para
+  - Grafos de grande dimensão que não podem ter arcos paralelos
+  - Grande utilização de remoção de arcos
+
+### Matriz de Adjacências
+
+<img src="./assets/0018-mat.png" alt="mat" class="invert-dark2">
+
+#### Vantagens
 
 - Representação mais adequada quando:
 
@@ -60,24 +103,21 @@ Vantagens
 
 - Fácil evitar existência de arcos paralelos (repetidos)
 
-- Fácil determinar se ...
+- Fácil determinar se 2 vértices estão ou não ligados
 
-Desvantagens
+#### Desvantagens
 
 - Grafos esparsos de grande dimensão requerem espaço de memória proporcional a $V^2$
 
-- Neste caso, ...
+- Neste caso, a simples inicialização do grafo
+  (proporcional a $V^2$) pode dominar o tempo de execução
+  global do algoritmo
 
-Lista de Adjacências
-Vantagens
+- Para o caso de grafos muito esparsos, mas com um
+  número muito elevado de vértices, pode nem sequer
+  existir memória suficiente para armazenar a matriz
 
-- Inicialização a ....
-
-Desvantagens
-
-- Arcos paralelos e adjacência entre vértices
-
-Representações Alternativas
+### Representações Alternativas
 
 - 3 mecanismos básicos de representação de grafos
 
@@ -87,21 +127,57 @@ Representações Alternativas
 
 - Produzem diferentes desempenhos ao nível das operações de manipulação
 
-- Escolha deverá depender ...
+- Escolha deverá depender do problema a resolver
 
 #### Desempenho
+
+$$
+\begin{array}{ c| c| c |c }
+Desempenho & Vetor\ de\ arcos & Matriz\ de\ Adj. & Listas\ de\ Adj.\\
+Espaço & O( E) & O\left( V^{2}\right) & O( V+E)\\
+Inicialização & O( 1) & O\left( V^{2}\right) & O( V)\\
+Cópia & O( E) & O\left( V^{2}\right) & O( E)\\
+Destruição & O( 1) & O( V) & O( E)\\
+Inserir\ Arco & O( 1) & O( 1) & O( V)\\
+Encontrar\ Arco & O( E) & O( 1) & O( V)\\
+Remover\ Arco & O( E) & O( 1) & O( V)
+\end{array}
+$$
+
+Implementação do código nos slides
 
 ## Algoritmos de Exploração/Procura em Grafos
 
 - Quero saber todas as páginas da WWW. (web crawling)
 
-- Quero os meus amigos no facebook (se os tiveres), e os amigos dos meus amigos, e amigos dos amigos do amigos dos amigos dos amigos dos amigos dos amigos...
+- Quero os meus amigos no facebook (se os tiveres)
+  ::: details Exemplo
+  amigos dos amigos,\
+  amigos dos amigos do amigos,\
+  amigos dos amigos dos amigos do amigos,\
+  amigos dos amigos dos amigos dos amigos do amigos,\
+  amigos dos amigos dos amigos dos amigos dos amigos do amigos,\
+  amigos dos amigos dos amigos dos amigos dos amigos dos amigos do amigos,\
+  amigos dos amigos dos amigos dos amigos do amigos,\
+  amigos dos amigos dos amigos do amigos,\
+  amigos dos amigos do amigos,\
+  amigos dos amigos,
+
+  <img src="./assets/0018-zucc.jpg" alt="zucc" class="invert-dark2">
+
+  :::
 
 - Propargar mensagens numa rede
 
-- AI, puzzles e labirintos :D
+- AI, puzzles e labirintos
 
 ### Algoritmos de Procura em Grafos
+
+::: tip Exemplos
+Para ambos os algoritmos aconselho a ver os exemplos nos slides
+:::
+
+  <img src="./assets/0018-or.png" alt="origem" class="invert-dark2">
 
 - Dado um vértice origem/fonte
 
@@ -119,7 +195,8 @@ Representações Alternativas
 - Os vários algoritmos de procura em grafos limitam-se a executar uma determinada estratégia de procura em labirintos
   - Procura em profundidade primeiro (DFS - "Depth-first-search")
   - Admite 2 implementações: recursiva e com uso de pilha explícita
-  - Substituindo a pilha por um FIFO ...
+  - Substituindo a pilha por um FIFO, transforma-se em
+    Procura em largura primeiro (BFS - 'Breadth-first-search')
 
 #### Procura em Largura Primeiro (BFS)
 
@@ -133,37 +210,47 @@ BFS - Breadth-First Search
 - Dados $G = (V,E)$ e vértice $s$, BFS explora sistemtaticamente vértices fe $G$ para descobri todos os vértices atingíveis a partir de $s$
   - Cálculo da distância: menor número de arcos de $s$ para cada vértice atingível
   - Identificação de árvore BF: caminho mais curto de $s$ para cada vértice atingível $v$
-- ...
+- Fronteira entre nós descobertos e não descobertos é
+  expandida uniformemente
+
+  - Vértices à distância $k$ descobertos antes de qualquer vértice à
+    distância $k+1$
 
 - Aplicações
+  - Explorar todos os elementos de um grafo acessíveis a partir de
+    uma origem src, sendo que cada nodo é visitado apenas 1 vez!
   - Encontrar todos os nós de uma componente conexa.
-  - Encontrar todos os caminhos mais curtos entre 2 nós, ...
+  - Encontrar todos os caminhos mais curtos entre 2 nós, u e v, de
+    um grafo sem pesos.
 
 #### Procura em Profundidade Primeiro (DFS)
 
 DFS - Breadth-First Search
 
-- Visita primeiro os arocs dos vértices mais recentemente visitados
+Equivalente a como nós (humanos) exploramos labirintos
 
-- Grafo pesquisado dando prioridade aos arcosd dos vértices mais recentementes visitados
+- Visita primeiro os arcos dos vértices mais recentemente visitados
+
+- Grafo pesquisado dando prioridade aos arcos dos vértices mais recentementes visitados
 
 - Aplicações
 
-  - Visitar todos os elementos de 1 grafo, sendo qua cada vértice é visitado pelo menos 1 vez!
+  - Visitar todos os elementos de um grafo, sendo que cada vértice é
+    visitado apenas 1 vez!
+  - Encontrar um caminho entre 2 nós específicos, u e v, num grafo
+    sem pesos ou com pesos (grafo pesado).
+  - Saber se um grafo é conexo ou não.
+  - Saber se um grafo tem ciclos
+  - Útil para saber a ordenação topológica de um grafo
+  - Identificação de componentes fortemente ligadas
 
-  - Encontrar um caminho entre 2 nós específicos, u e v, num grafo sem pesos ou com pesos (grafo pesado).
+## Ordenação Topológica
 
-  - Saber ser 1 grafo é conexo ou não.
+  <img src="./assets/0018-dep.png" alt="dependecies" class="invert-dark2">
 
-#### Caminho
-
-Definição de camiho
-
-#### Ciclo
-
-Um grafo acíclico é 1 grafo que não tem ciclos.
-
-### Ordenação Topológica
+::: tip Exemplos
+Para o algoritmo aconselho a ver os exemplos nos slides
+:::
 
 Imagem do Pacote
 
@@ -177,10 +264,18 @@ O pacote 11 está dependente do pacote 5 e do pacote 7.
 
 - Uma ordenação topológica de 1 grafo é uma sequência de "tarefas" onde esta condição é verificada.
 
-- Se 1 grafo tem 1 arco dirigido ...
+### Componentes Fortemente Ligados (SCC)
 
-<img src="./assets/0016-fun.png" alt="disp" class="invert-dark2">
+- Um grafo (ou sub-grafo) diz-se fortemente ligado se para
+  cada par de vértices $u$ e $v$ existe um caminho de $u$ para $v$ e
+  de $v$ para $u$
+- Os componentes fortemente ligados de um grafo são os
+  sub-grafos de tamanho máximo que são fortemente
+  ligados
+- Todos os vértices pertencem a uma componente
+  fortemente ligada, mesmo que esta só contenha o próprio
+  elemento
 
 Slides:
 
-- [Aula 19](https://drive.google.com/file/d/1YBSPqEe4hLfTO3Th1F0TeISqUb_N0JAs/view?usp=sharing)
+- [Aula 19](https://drive.google.com/file/d/1HaqUSaBLWH7xWUqyH6rAP0zieSCzswJQ/view?usp=sharing)
