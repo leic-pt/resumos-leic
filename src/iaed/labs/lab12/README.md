@@ -42,8 +42,9 @@ Qual a sequência de vértices visitados numa travessia em largura primeiro (BFS
  Considere que os vértices adjacentes de um vértice são visitados por ordem alfabética.
 <img src="./ex4.jpg" alt="ex4" class="invert-dark2">
 
-::: details Resolução (soon)
+::: details Resolução
 
+Resposta : `A B C G D E H F`
 :::
 
 ## Exercício 5
@@ -61,8 +62,11 @@ Lembra-se do algoritmo para calculá-la?
 `6. F,E,G,D,C,B,A`\
 `7. F,G,E,B,A,D,C`
 
-::: details Resolução (soon)
+::: details Resolução
 
+Resolução nos slides da aula
+
+Resposta `7. F,G,E,B,A,D,C`
 :::
 
 ## Exercício 6
@@ -72,6 +76,8 @@ Qual o número de componentes fortemente ligados do grafo dirigido da figura aba
 
 <img src="./ex6.jpg" alt="ex6" class="invert-dark2">
 
-::: details Resolução (soon)
+::: details Resolução
+
+Resposta: 0
 
 :::

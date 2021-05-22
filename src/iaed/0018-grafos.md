@@ -199,7 +199,7 @@ Para ambos os algoritmos aconselho a ver os exemplos nos slides
   - Substituindo a pilha por um FIFO,\
     transforma-se em Procura em largura primeiro (BFS - 'Breadth-first-search')
 
-#### Procura em Largura Primeiro (BFS)
+### Procura em Largura Primeiro (BFS)
 
 BFS - Depth-First Search
 
@@ -226,7 +226,7 @@ BFS - Depth-First Search
   - Encontrar todos os caminhos mais curtos entre 2 nós, u e v, de
     um grafo sem pesos.
 
-#### Procura em Profundidade Primeiro (DFS)
+### Procura em Profundidade Primeiro (DFS)
 
 DFS - Breadth-First Search
 
