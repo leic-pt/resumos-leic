@@ -188,7 +188,7 @@ Um campo vetorial gradiente é também um campo conservativo.
 $F: \R^n \to \R^n$ é fechado se
 
 $$
-\frac{\partial F_j}{\partial x_1} = \frac{\partial F_i}{\partial x_j}, \quad \forall i,j = 1, \dots, n
+\frac{\partial F_j}{\partial x_i} = \frac{\partial F_i}{\partial x_j}, \quad \forall i,j = 1, \dots, n
 $$
 
 :::
