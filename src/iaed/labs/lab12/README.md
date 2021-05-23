@@ -12,7 +12,15 @@ Qual a sequência de vértices visitados numa travessia em profundidade primeiro
 
 <img src="./ex1.jpg" alt="ex1" class="invert-dark2">
 
-::: details Resolução (soon)
+::: details Resolução
+
+<img src="./ex1s.jpg" alt="ex1s" class="invert-dark2">
+
+1º Vermelho\
+2º Verde\
+3º Azul
+
+Resposta A C B F E D G
 
 :::
 
@@ -22,7 +30,13 @@ Considere uma travessia em profundidade primeiro (DFS) do grafo abaixo, e na qua
 
 <img src="./ex2.jpg" alt="ex2" class="invert-dark2">
 
-::: details Resolução (soon)
+::: details Resolução
+
+<img src="./ex2s.jpg" alt="ex2s" class="invert-dark2">
+
+1º Vermelho\
+2º Verde\
+3º Azul
 
 :::
 
@@ -32,7 +46,15 @@ Considere uma travessia em profundidade primeiro (DFS) sobre o grafo abaixo. Con
 
 <img src="./ex3.jpg" alt="ex3" class="invert-dark2">
 
-::: details Resolução (soon)
+::: details Resolução
+
+<img src="./ex3s.jpg" alt="ex3s" class="invert-dark2">
+
+1º Vermelho\
+2º Verde\
+3º Azul
+
+Se alguém perceber o que o enunciado pede, por favor coloque a resposta.
 
 :::
 
@@ -43,6 +65,12 @@ Qual a sequência de vértices visitados numa travessia em largura primeiro (BFS
 <img src="./ex4.jpg" alt="ex4" class="invert-dark2">
 
 ::: details Resolução
+
+<img src="./ex4s.jpg" alt="ex4s" class="invert-dark2">
+
+1º Vermelho\
+2º Verde\
+3º Azul
 
 Resposta : `A B C G D E H F`
 :::
@@ -76,8 +104,10 @@ Qual o número de componentes fortemente ligados do grafo dirigido da figura aba
 
 <img src="./ex6.jpg" alt="ex6" class="invert-dark2">
 
+Resolução nos slides da aula
+
 ::: details Resolução
 
-Resposta: 0
+Resposta: 1
 
 :::
