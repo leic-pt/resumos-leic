@@ -132,6 +132,7 @@ Matriz que apenas é constituída por (0 e 1), onde 1 simboliza existir uma ares
 $$
 \begin{array}{ c| c| c |c }
 Desempenho & Vetor\ de\ arcos & Matriz\ de\ Adj. & Listas\ de\ Adj.\\
+\hline
 Espaço & O( E) & O\left( V^{2}\right) & O( V+E)\\
 Inicialização & O( 1) & O\left( V^{2}\right) & O( V)\\
 Cópia & O( E) & O\left( V^{2}\right) & O( E)\\
@@ -201,7 +202,7 @@ Para ambos os algoritmos aconselho a ver os exemplos nos slides
 
 ### Procura em Largura Primeiro (BFS)
 
-BFS - Depth-First Search
+BFS - Breadth-First Search
 
 <img src="./assets/0018-bfs.gif" alt="bfs" >
 
@@ -228,7 +229,7 @@ BFS - Depth-First Search
 
 ### Procura em Profundidade Primeiro (DFS)
 
-DFS - Breadth-First Search
+DFS - Depth-First Search
 
 <img src="./assets/0018-dfs.gif" alt="dfs" >
 
