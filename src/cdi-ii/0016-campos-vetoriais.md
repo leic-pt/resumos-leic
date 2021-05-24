@@ -138,6 +138,8 @@ Se $C$ for uma curva fechada, escreve-se $\int_C F \d g$ como $\oint_C F \d g$.
 Assim temos que, para qualquer curva fechada, ser um campo conservativo é
 equivalente a $\oint_C F \d g = 0$.
 
+**Um campo conservativo é sempre um [campo gradiente](#campo-gradiente) e vice-versa.**
+
 ## Teorema Fundamental do Cálculo para Integrais de Linha
 
 ::: tip TEOREMA
@@ -179,7 +181,14 @@ isto é, $\phi$ é um potencial de $F$, dizemos que que $F$ é um **campo gradie
 
 :::
 
-Um campo vetorial gradiente é também um campo conservativo.
+**Um campo gradiente é sempre um [campo conservativo](#campo-vetorial-conservativo) e vice-versa.**
+
+Segundo o [Teorema Fundamental do Cálculo](#teorema-fundamental-do-calculo-para-integrais-de-linha),
+concluímos também que para qualquer **campo gradiente**,
+
+$$
+\int_C \nabla \phi \d g = \phi(B) - \phi(A)
+$$
 
 ## Campo Fechado
 
