@@ -72,6 +72,7 @@ module.exports = {
             '0015-tad',
             '0016-disp',
             '0017-arv',
+            '0018-grafos',
           ],
         },
         {
@@ -88,6 +89,7 @@ module.exports = {
             'labs/lab09/',
             'labs/lab10/',
             'labs/lab11/',
+            'labs/lab12/',
           ],
         },
         {
@@ -152,6 +154,7 @@ module.exports = {
             '0013-funcao-inversa',
             '0014-variedades',
             '0015-extremos-condicionados',
+            '0016-campos-vetoriais',
           ],
         },
         {
@@ -187,6 +190,7 @@ module.exports = {
             '0019-pombal',
             '0020-labirintos',
             '0021-galeshapley',
+            '0022-kruskraldijkrsta',
           ],
         },
         {
