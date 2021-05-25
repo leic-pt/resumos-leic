@@ -189,6 +189,7 @@ module.exports = {
             '0020-labirintos',
             '0021-galeshapley',
             '0022-kruskraldijkrsta',
+            '0023-teoriadofluxo',
           ],
         },
         {
