@@ -225,11 +225,83 @@ Também se sabe que se $F$ for campo gradiente $F = \nabla \phi, \phi \in C^2$ e
 
 Assim, um campo vetorial gradiente é sempre fechado (e também conservativo, como foi dito acima).
 
+## Vórtice
+
+Também conhecido por _ralo de banheira_, o vórtice é um campo vetorial com o seguinte aspeto:
+
+$$
+F(x,y) = (\frac{y}{x^2+y^2}, -\frac{x}{x^2+y^2})
+$$
+
+Visualmente, isto ficaria:
+
+<img src="./assets/0016-vortice.svg" alt="" class="invert-dark2">
+
+$$
+||F(x,y)|| = \sqrt{\frac{y^2}{(x^2+y^2)^2} + \frac{x^2}{(x^2+y^2)^2}} = \frac{1}{\sqrt{x^2+y^2}}
+$$
+
+Podemos reparar que a norma do campo é maior quanto menor for a distância à origem.
+
+::: details Exemplo
+
+**Seja o campo vetorial $F$:**
+
+$$
+F(x,y) = (\frac{y}{x^2+y^2}, -\frac{x}{x^2+y^2})
+$$
+
+**Será que $F$ é fechado? E é gradiente?**
+
+Vamos então ver se $F$ é fechado:
+
+$$
+\frac{\partial }{\partial y}\left(\frac{y}{x^2+y^2}\right) = \frac{\partial}{\partial x} \left(-\frac{x}{x^2+y^2} \right)
+$$
+
+$$
+\frac{\partial }{\partial y}\left(\frac{y}{x^2+y^2}\right) = \frac{(x^2+y^2)-y\cdot 2y}{(x^2+y^2)^2} = \frac{x^2-y^2}{(x^2+y^2)^2}
+$$
+
+$$
+\frac{\partial}{\partial x} \left(-\frac{x}{x^2+y^2} \right) = \frac{-(x^2+y^2) + x\cdot 2x}{(x^2+y^2)^2} = \frac{x^2-y^2}{(x^2+y^2)^2}
+$$
+
+Logo, $F$ é fechado.
+
+Vejamos agora se $F$ é gradiente.  
+Se pegarmos num círculo, ou seja, numa curva fechada, sabemos que se $F$ é gradiente então o trabalho terá de ser nulo.
+
+$$
+\begin{array}{lll}
+C=\{x^2+y^2 = 1\} & g(t) = (\cos t, \sin t) & t \in [0, 2\pi]
+\end{array}
+$$
+
+$$
+\int_C F \d g = \int^{2\pi}_0 F(g(t)) \cdot g'(t) \d t
+$$
+
+$$
+\begin{array}{ll}
+F(g(t)) = (\sin t, - \cos t) & g'(t) = (-\sin t, \cos t)\\
+F(g(t)) \cdot g'(t) = -1 &
+\end{array}
+$$
+
+$$
+\int_C F \d g = \int^{2\pi}_0 -1 \d t = -2\pi
+$$
+
+Logo, como o trabalho é diferente de zero, $F$ não é gradiente.
+
+:::
+
 ---
 
 ::: details Exemplos globais
 
-Considera-se $F(x,y) = (x^2 y, \frac{x^3}{3})$.
+Considera-se $F(x,y) = \left(x^2 y, \frac{x^3}{3}\right)$.
 
 **a) $F$ é gradiente?**
 
@@ -270,6 +342,68 @@ $$
 \int_C F \d g = \phi(B) - \phi (A) = 0
 $$
 
+---
+
+**Considerando o campo vetorial $F$ abaixo:**
+
+$$
+\begin{array}{ll}
+F(x,y,z) = (y+z, x+z, y+x) & F: \R^3 \to \R^3
+\end{array}
+$$
+
+1. **$F$ é fechado?**
+
+$$
+\begin{darray}{l}
+\frac{\partial}{\partial y}(y+z) = \frac{\partial}{\partial x}(x+z) \Leftrightarrow 1 = 1\\\\
+\frac{\partial}{\partial z}(y+z) = \frac{\partial}{\partial x}(x+z) \Leftrightarrow 1 = 1\\\\
+\frac{\partial}{\partial z}(x+z) = \frac{\partial}{\partial y}(y+x) \Leftrightarrow 1 = 1
+\end{darray}
+$$
+
+Logo, $F$ é fechado.
+
+2. **$F$ é gradiente?**
+
+Por outras palavras, será que existe algum $\phi$ tal que $F$ = $\nabla \phi$?
+
+$$
+\begin{cases}
+\frac{\partial \phi}{\partial x} = F_1 = y+z\\
+\frac{\partial \phi}{\partial y} = F_2 = x+z\\
+\frac{\partial \phi}{\partial z} = F_3 = x+y
+\end{cases}
+\Leftrightarrow
+\begin{cases}
+\phi(x,y,z) = (y+z) x + C_1(y,z)\\
+\phi(x,y,z) = (x+z) y + C_2(x,z)\\
+\phi(x,y,z) = (x+y) z + C_3(x,y)
+\end{cases}
+$$
+
+$$
+\begin{aligned}
+\phi(x,y,z) &= xy+yz+zx\\
+&=xy+zx+\overbrace{yz}^{C_1}\\
+&=xy+zy+\overbrace{xz}^{C_2}\\
+&=xz+yz+\overbrace{xy}^{C_3}
+\end{aligned}
+$$
+
+3. **Calcule o trabalho, ou seja, $\int_C F \d \vec g$, ao longo da curva $C = \{z=0, x=\frac{1+y^4}{2}, y \in [0,1]\}$.2**
+
+Como $F$ é [conservativo](#campo-vetorial-conservativo),
+podemos usar o [Teorema Fundamental do Cálculo](#teorema-fundamental-do-calculo-para-integrais-de-linha)
+para facilmente calcular o trabalho:
+
+- Ponto inicial $(\frac{1}{2}, 0, 0)$
+- Ponto final $(1,1,0)$
+
+$$
+\int_C F \d \vec g = \phi(1,1,0) - \phi\left(\frac{1}{2}, 0, 0\right) = (1+0+0) - (0+0+0) = 1
+$$
+
 :::
 
 ---
@@ -278,3 +412,4 @@ Slides:
 
 - [Aula 39](https://drive.google.com/file/d/1PzDLYtf0bPQYBpZ46SVC0tqU4seezncI/view?usp=sharing)
 - [Aula 40](https://drive.google.com/file/d/1HQiE5zqzJmQ6uxsoJC8_8eh_txwbbXAL/view?usp=sharing)
+- [Aula 41](https://drive.google.com/file/d/1L5TiWODTbkmgYTPtOOolRdE1d5Rm50I5/view?usp=sharing)
