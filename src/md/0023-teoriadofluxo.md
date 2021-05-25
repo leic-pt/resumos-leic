@@ -171,6 +171,23 @@ Seja $Q$ uma `Quasi-Trajetória`, é possível incrementar o seu fluxo, se a `Fr
 
 Nesse caso, seja $(\Delta_Q)$ a `frouxidão mínima` de $Q$, adicionamos $(\Delta_Q)$ ao fluxo das arestas positivas, e retiramos $(\Delta_Q)$ do fluxo das arestas negativas
 
+## Teoremas
+
+### Teorema 1
+
+O valor de um `fluxo` é menor ou igual à `capacidade` de um corte mínimo numa rede capacitada.  
+Se o valor do fluxo $\operatorname{f}$ é igual à capacidade de um corte $(V_s,V_t)$, então o fluxo $\operatorname{f}$ é máximo e o corte $(V_s,V_t)$ é um [corte mínimo](#corte-minimo).
+
+### Teorema 2
+
+Um fluxo $\operatorname{f}$ numa Rede Capacitada $N$ é um fluxo máximo se e só se não
+existir uma Quasi-trajetória de incremento do fluxo.
+
+::: details Aviso do Professoor
+Isto só se verifica numa `Rede Capacitada` com números **Racionais**. Há situações com números **Reais** onde não podemos concluir nada.  
+Contudo, esta exceçãpo não deve ser avaliada
+:::
+
 ## Algoritmo de Ford-Fulkerson
 
 Numa Rede capacitada $N=(V,E,s,t,\operatorname{cap})$, permite-nos encontrar o `Fluxo` **máximo**.
@@ -182,11 +199,15 @@ Numa Rede capacitada $N=(V,E,s,t,\operatorname{cap})$, permite-nos encontrar o `
 ### Decrição Informal
 
 Sempre que houver uma `Quasi-Trajetória` $Q$ com `Frouxidão mínima` **positiva**, aumentamos o fluxo de $Q$.  
-Quando já não houver, termina o algoritmo, e teremos uma `Rede Capacitada` com [Fluxo máximo](#fluxo-maximo).
+Quando já não houver termina o algoritmo (pelo [Teorema 2](#teorema-2)), e teremos uma `Rede Capacitada` com [Fluxo máximo](#fluxo-maximo).
 
-### Corte mínimo
+### Corte mínimo pelo Ford-Fulkerson
 
-Seja $V_s$ o conjunto dos [vértices alcançáveis](#vertice-alcancavel) no final do [Algoritmo de Ford-Fulkerson](#algoritmo-de-ford-fulkerson) e $V_t$ tal que $V_s\cap V_t = \emptyset \quad \wedge \quad V_s\cup V_t =\{\text{conjunto de todos os vértices}\}$, $(V_s,V_t)$ é um `Corte Mínimo`
+Seja $V_s$ o conjunto dos [vértices alcançáveis](#vertice-alcancavel) no final do [Algoritmo de Ford-Fulkerson](#algoritmo-de-ford-fulkerson) e $V_t$ tal que $V_s\cap V_t = \emptyset \quad \wedge \quad V_s\cup V_t =\{\text{conjunto de todos os vértices}\}$, $(V_s,V_t)$ é um `Corte Mínimo`, porque respeita as condições do [Teorema 1](#teorema-1).
+
+::: tip NOTA
+Podemos usar o [Teorama 1](#teorema-1) para verificar que o corte que escolhemos no final do [Algoritmo de Ford-Fulkerson](#algoritmo-de-ford-fulkerson) é mínimo ou não. Só se for mínimo é que a resposta está correta.
+:::
 
 #### Vértice alcançável
 

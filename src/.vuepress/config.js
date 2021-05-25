@@ -190,6 +190,7 @@ module.exports = {
             '0021-galeshapley',
             '0022-kruskraldijkrsta',
             '0023-teoriadofluxo',
+            '0024-grafoplanares',
           ],
         },
         {
