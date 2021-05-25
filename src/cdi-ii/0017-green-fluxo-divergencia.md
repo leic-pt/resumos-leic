@@ -14,7 +14,7 @@ Então, **$\partial D$ é o bordo de $D$** (pode-se ver como sendo equivalente �
 
 Podemos também definir a {orange}(orientação canónica de $\partial D$): é a orientação que deixa o conjunto do lado esquerdo da curva.
 
-<img src="./assets/0017-bordo.svg" alt="Bordo de D" class="invert-dark2">
+![Bordo de D](./assets/0017-bordo.svg)
 
 ## Teorema de Green
 

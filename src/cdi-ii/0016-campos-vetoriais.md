@@ -225,6 +225,27 @@ Também se sabe que se $F$ for campo gradiente $F = \nabla \phi, \phi \in C^2$ e
 
 Assim, um campo vetorial gradiente é sempre fechado (e também conservativo, como foi dito acima).
 
+## Relações entre tipos de Campos Vetoriais
+
+Sabemos o seguinte:
+
+- Um campo vetorial gradiente é sempre fechado
+- Um campo vetorial gradiente é sempre conservativo e vice versa
+- Um campo vetorial fechado é gradiente/conservativo se é só se o seu domínio for [simplesmente conexo](0017-green-fluxo-divergencia.md#dominio-simplesmente-conexo)
+- O trabalho de um campo conservativo ao longo de uma curva fechada é sempre nulo
+
+Tal pode ser resumido no seguinte esquema:
+
+$$
+\begin{CD}
+F\ \text{gradiente} @>>\leftarrow \text{ se } D \text{ simplesmente conexo }> F\ \text{fechado} \\
+   @| \\
+F\ \text{conservativo}\\
+   @| \\
+\oint_C F = 0
+\end{CD}
+$$
+
 ## Vórtice
 
 Também conhecido por _ralo de banheira_, o vórtice é um campo vetorial com o seguinte aspeto:
