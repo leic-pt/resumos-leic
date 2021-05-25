@@ -54,7 +54,10 @@ Considere uma travessia em profundidade primeiro (DFS) sobre o grafo abaixo. Con
 2º Verde\
 3º Azul
 
-Se alguém perceber o que o enunciado pede, por favor coloque a resposta.
+<img src="./ex3aux.jpg" alt="ex3aux" class="invert-dark2">
+
+B -> Back edges\
+C -> Cross Edges
 
 :::
 
