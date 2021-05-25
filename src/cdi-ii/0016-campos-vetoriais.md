@@ -1,5 +1,5 @@
 ---
-description: Campos Vetoriais. Integral de Linha de um Campo Vetorial. Segmento que une dois pontos. Campo Conservativo, Gradiente e Fechado. Teorema Fundamental do Cálculo para Integrais de Linha
+description: Campos Vetoriais. Integral de Linha de um Campo Vetorial. Segmento que une dois pontos. Campo Conservativo, Gradiente e Fechado. Teorema Fundamental do Cálculo para Integrais de Linha. Vórtice.
 ---
 
 # Campos Vetoriais
@@ -235,13 +235,16 @@ $$
 
 Visualmente, isto ficaria:
 
-<img src="./assets/0016-vortice.svg" alt="" class="invert-dark2">
+<img src="./assets/0016-vortice.svg" alt="Vórtice" class="invert-dark2">
 
 $$
 ||F(x,y)|| = \sqrt{\frac{y^2}{(x^2+y^2)^2} + \frac{x^2}{(x^2+y^2)^2}} = \frac{1}{\sqrt{x^2+y^2}}
 $$
 
 Podemos reparar que a norma do campo é maior quanto menor for a distância à origem.
+
+- É fechado
+- Não é gradiente
 
 ::: details Exemplo
 
