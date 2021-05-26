@@ -39,7 +39,9 @@ $$
 
 Assim, {green}(**um campo fechado é conservativo nas curvas que delimitam regiões onde $F$ esteja definido.**)
 
-::: details Exemplo
+**NOTA:** Sentido Direto = Sentido Positivo = Sentido Anti-Horário
+
+::: details Exemplos
 
 **Sejam $F$ e a circunferência $C$, $x^2+y^2=10$, orientada no sentido horário.**
 
@@ -65,6 +67,99 @@ Então,
 
 $$
 \oint_C F \d g = -50 \pi
+$$
+
+---
+
+**Qual o valor de**
+
+$$
+\int_{\partial D} (e^{x^2} - 3y, \arctan y + x) \d \vec g
+$$
+
+**sabendo que $\partial D$ é a fronteira do quadrado $[-1, 1] \times [-1, 1]$ percorrida no sentido direto?**
+
+**NOTA:** Sentido direto = Sentido Positivo = Sentido Anti-Horário
+
+Será que $F$ é fechado?
+
+$$
+\begin{darray}{ll}
+\frac{\partial F_1}{\partial y} = -3 & \frac{\partial F_2}{\partial x} = 1
+\end{darray}
+$$
+
+Como são diferentes, não, $F$ não é fechado.
+
+Então, pelos Teorema de Green:
+
+$$
+\begin{aligned}
+\int_{\partial D} (e^x-3y, \arctan y + x) \d \vec g & = \iint _D 1 - (-3) \d x \d y\\
+&= 4 \text{Área}(D)\\
+&= 4\times 4 = 16
+\end{aligned}
+$$
+
+visto que $D$ é um quadrado de área $4$.
+
+---
+
+**Considerando o campo vetorial $F$:**
+
+$$
+\begin{darray}{ll}
+F(x,y) = \left(\frac{x}{x^2+y^2}, \frac{y}{x^2+y^2} \right)
+& F: \R^2 \backslash \{(0,0)\} \to \R^2
+\end{darray}
+$$
+
+1. **Será que $F$ é fechado?**
+
+$$
+\frac{\partial}{\partial x} \left(\frac{y}{x^2 + y^2} \right) = \frac{-y\cdot (2x)}{(x^2+y^2)^2} = \frac{-2xy}{(x^2+y^2)^2}
+$$
+
+$$
+\frac{\partial}{\partial y} \left(\frac{x}{x^2 + y^2} \right) = \frac{-x\cdot (2y)}{(x^2+y^2)^2} = \frac{-2xy}{(x^2+y^2)^2}
+$$
+
+Sim, $F$ é fechado.
+
+2. **Será que $F$ é gradiente?**
+   Por outras palavras, será que existe um $\phi$ tal que $\nabla \phi = F$?
+
+Como o domínio não é simplesmente conexo, nada podemos saber sobre a $F$ ser gradiente.
+
+$$
+\begin{cases}
+\frac{\partial \phi}{\partial x} = \frac{x}{x^2+y^2}\\
+\frac{\partial \phi}{\partial y} = \frac{y}{x^2+y^2}
+\end{cases}
+\Leftrightarrow
+\begin{cases}
+\phi(x,y) = \frac{1}{2} \log(x^2+y^2) + C_1(y)\\
+\phi(x,y) = \frac{1}{2} \log(x^2+y^2) + C_2(x)
+\end{cases}
+$$
+
+Escolhendo $C_1 = C_2 = 0$, $\phi = \frac{1}{2} \log(x^2+y^2)$ é um potencial de $F$.
+
+Logo, $F$ é gradiente.
+
+3. **Calcule o trabalho de $F$ em C, quando percorrida no sentido dos $yy$ decrescentes,**
+
+   $$
+   C = \{(x,y) \in \R^2 : x = \frac{(1+y)^4}{2} , 0 \leq y \leq 1 \}
+   $$
+
+Como $F$ é gradiente:
+
+- Ponto inicial: $A = (8,1)$
+- Ponto final: $B = \left(\frac{1}{2}, 0\right)$
+
+$$
+\int_C F \d \vec g = \phi (B) - \phi (A) = \frac{1}{2} \log \left(\frac{1}{4}\right) - \frac{1}{2} \log \left(64 + 1\right)
 $$
 
 :::
@@ -156,3 +251,4 @@ Slides:
 
 - [Aula 42](https://drive.google.com/file/d/1Rh4CgKjNlN0dsOW1Tj7hx2Vsi_tE3iX5/view?usp=sharing)
 - [Aula 43](https://drive.google.com/file/d/1jSrsIL09bUATiovHIA4RHd41K3aS4fpL/view?usp=sharing)
+- [Aula 44](https://drive.google.com/file/d/1nBL6e79aEpJiLx_uZcdqRc9M5IIVFzVu/view?usp=sharing)
