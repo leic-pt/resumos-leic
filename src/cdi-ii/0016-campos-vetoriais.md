@@ -251,7 +251,7 @@ $$
 Também conhecido por _ralo de banheira_, o vórtice é um campo vetorial com o seguinte aspeto:
 
 $$
-F(x,y) = (\frac{y}{x^2+y^2}, -\frac{x}{x^2+y^2})
+F(x,y) = \left(\frac{y}{x^2+y^2}, -\frac{x}{x^2+y^2}\right)
 $$
 
 Visualmente, isto ficaria:
@@ -427,6 +427,49 @@ para facilmente calcular o trabalho:
 $$
 \int_C F \d \vec g = \phi(1,1,0) - \phi\left(\frac{1}{2}, 0, 0\right) = (1+0+0) - (0+0+0) = 1
 $$
+
+---
+
+**Considerando o campo $F$,**
+
+$$
+\begin{array}{ll}
+F(x,y,z) = (y+x^3, y+x , e^z) & (x,y,z) \in \R^3
+\end{array}
+$$
+
+**Será que $F$ é gradiente?**
+
+Vamos ver se $F$ é fechado:
+
+$$
+\begin{darray}{ll}
+\frac{\partial(y+x^3)}{\partial y} = 1 & \frac{\partial (y+x)}{\partial x} = 1\\
+\frac{\partial (y+x^3)}{\partial z} = 0 & \frac{\partial(e^z)}{\partial x} = 0\\
+\frac{\partial(y+x)}{\partial z} = 0 & \frac{\partial (e^z)}{\partial y} = 0
+\end{darray}
+$$
+
+O domínio D de F é simplesmente conexo (é $\R^3$).  
+Logo $F$ é fechado e [portanto é gradiente](#relacoes-entre-tipos-de-campos-vetoriais).
+
+**Calcule $\int_C F \d \vec g$, em que $C$ é a interseção de $z = x^2+y^2$ e $z=1$, considerando uma orientação qualquer.**
+
+$$
+\begin{cases}
+z = x^2+y^2\\
+z= 1
+\end{cases}
+\Leftrightarrow
+\begin{cases}
+x^2+y^2 = 1\\
+z= 1
+\end{cases}
+$$
+
+que corresponde a uma circunferência.
+
+Logo, como a curva é fechada e o campo é conservativo, $\int_C F \d \vec g = 0$.
 
 :::
 

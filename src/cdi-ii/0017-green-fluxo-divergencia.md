@@ -84,8 +84,75 @@ se for possível deformar $C_1$ e chegar a $C_2$ sem sair de $D$.
 
 <img src="./assets/0017-homotopia.svg" alt="Homotopia entre Curvas" class="invert-dark2">
 
+## Relação entre Curvas Homotópicas
+
+Sejam duas curvas [**homotópicas**](#homotopia) que têm a mesma orientação e
+um campo vetorial fechado $F: D \to \R^2$.  
+Então:
+
+$$
+\int_{C_1} F \cdot \d \vec g = \int_{C_2} F \cdot \d \vec g
+$$
+
+::: details Exemplo
+
+**Considere-se o campo vetorial $F$:**
+
+$$
+F(x,y) = \left(- \frac{y-1}{x^2+(y-1)^2}, \frac{x}{x^2+(y-1)^2}\right)
+$$
+
+**Seja $C$ a fronteira do quadrado de vértices $(3,0)$, $(0,3)$, $(-3,0)$ e $(0,-3)$ percorrida no sentido anti-horário.**  
+**Qual o valor de $\int_C F \d \vec g$?**
+
+Sabemos que $F$ corresponde a um [vórtice](./0016-campos-vetoriais.md#vortice) centrado em $(0,1)$ e que $F: \R^2 \backslash \{(0,1)\}$.  
+Como tal, $F$ é fechado, mas não é gradiente.
+
+Assim, se considerarmos uma curva $C_2$ homotópica a $C$, sabemos que
+$\int_C F \d \vec g = \int_{C_2} F \d \vec g$.
+
+Visto que $F$ é um vórtice, pode-se simplificar os cálculos escolhendo uma cirfunferência de raio $1$ centrada em $(0,1)$.
+
+<img src="./assets/0017-quadrado-circ.svg" alt="Representação Quadrado e Circunferência" class="invert-dark2">
+
+Parametrizando $C_2$:
+
+$$
+\begin{array}{ll}
+\begin{cases}
+x = \cos t\\
+y = \sin t + 1
+\end{cases}
+&
+\begin{aligned}
+g(t) &= (\cos t, \sin t + 1)\\
+g'(t) &= (-\sin t, \cos t)
+\end{aligned}
+\end{array}
+$$
+
+E finalmente calculando o integral ao longo de $C_2$:
+
+$$
+F(x,y) = \left(- \frac{y-1}{x^2 + (y-1)^2}, \frac{x}{x^2+(y-1)^2}\right)
+$$
+
+$$
+F(g(t)) = \left(-\frac{\sin t}{1}, \frac{\cos t}{1}\right) = (-\sin t, \cos t)
+$$
+
+$$
+\begin{aligned}
+\int_C F \d \vec g = \int_{C_2} F \d \vec g &= \int^{2\pi}_0 (-\sin t, \cos t) \cdot (-\sin t, \cos t) \d t\\
+&= \int^{2\pi}_0 1 \d t = 2 \pi
+\end{aligned}
+$$
+
+:::
+
 ---
 
 Slides:
 
 - [Aula 42](https://drive.google.com/file/d/1Rh4CgKjNlN0dsOW1Tj7hx2Vsi_tE3iX5/view?usp=sharing)
+- [Aula 43](https://drive.google.com/file/d/1jSrsIL09bUATiovHIA4RHd41K3aS4fpL/view?usp=sharing)
