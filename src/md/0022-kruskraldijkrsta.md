@@ -99,7 +99,52 @@ Por convenção, só se deve identificar arestas que formam ciclos, quando o val
 [Exemplo 2](https://drive.google.com/file/d/1Vn6dirZylPZy4x81Q5-lnQtvHKqP2Wpd/view?usp=sharing)  
 :::
 
-Também se pode usar o `Algoritmos de Kruskal` para encontrar uma `árvore de cobertura máxima`, basta ir assinalando as arestas pela ordem inversa (1º as que têm valor máximo).
+Também se pode usar o `Algoritmos de Kruskal` para encontrar uma `árvore de cobertura máxima`, basta ir assinalando as arestas pela ordem inversa (1º as que têm valor máximo).  
+No entanto, esse método **não** pode ser chamado `Algoritmo de Kruskal`, é apenas uma adaptação
+
+#### Teorema - Correção de Kruskal
+
+::: warning AVISO
+Mais um Teorema, cuja Demonstração é importante saber para preparar a Demonstração que sai no teste
+:::
+
+Uma [Árvore Económica](#arvore-economica) de uma Rede é sempre uma árvore de custo mínimo dessa Rede.
+
+::: details Demonstração
+
+Seja $N=(V,E,c)$ uma Rede, $T$ uma Árvore Económica construída com o `Algoritmo de Kruskal` e $T_0$ a árvore de custo **mínimo** (é conhecida).
+
+Através do [Teorema 1](#teorema-1), sabe-se que $T$ e $T_0$ têm $p-1$ arestas ($p$ é o número de vértices da Rede $N$).  
+Seja $a_1,\dots,a_i,\dots,a_{p-1}$ a sequência de arestas de $T$ assinaladas através do Algoritmo de Kruskal.  
+Seja $a_i$ a **primeira** aresta que pertence a $T$ e não pertence a $T_0$. Se adicionarmos $a_i$ a $T_0$, ficaríamos com um `ciclo` em vez de uma árvore, porque ficávamos com $p$ arestas, e, novamente pelo [Teorema 1](#teorema-1), uma árvore só pode ter $p-1$ arestas.  
+Nesse ciclo, há necessariamente uma aresta, $a_k$, que não pertence a $T$, se removermos $a_k$ de $T_0$ ficamos com uma nova árvore, $T_0'$.
+
+$$T_0' = T_0+a_i-a_k$$
+
+**Importante** (chave do Teorema)  
+No `Algoritmo de Kruskal` escolhe-se sempre as arestas por ordem **crescente** do valor. Por isso, se $a_k$ não está em $T$ e todas as arestas até $a_i$ estão em $T$ e $T_0$ (foram feitas sempre as mesmas escolhas), das duas uma:
+
+- $a_k$ e $a_i$ têm o mesmo custo, mas se escolhermos uma delas a outra completará um ciclo, e para $T$ escolheu-se $a_i$, ficando $a_k$ de fora
+- Custo de $a_k$ é superior, e as escolhas que foram feitas para $T$ fizeram com que $a_k$ completa-se um ciclo
+
+Em suma, é **impossível** que o custo de $a_k$ seja inferior ao de $a_i$.
+
+Relembrando que $T_0$ é a árvore de **custo mínimo**, sabemos que:
+
+- $\operatorname{c}(T_0')\geq \operatorname{c}(T_0)$
+- $\operatorname{c}(T_0') = \operatorname{c}(T_0)+\operatorname{c}(a_i)-\operatorname{c}(a_k)$
+- $\operatorname{c}(a_i)\leq \operatorname{c}(a_k)$
+
+Pelas condições apresentadas, conclui-se que a única solução possível será quando $\operatorname{c}(a_i) = \operatorname{c}(a_k)$, então $\operatorname{c}(T_0')=\operatorname{c}(T_0)$.
+
+Repare-se que $T_0'$ e $T$ têm mais uma aresta em comum, $a_k$, do que $T_0$ e $T$.
+
+Este processo é **recursivo**. Seja $T_k$ a árvore com custo igual a $T_0$ que se obtém no final de processo descrito acima, por exemplo, agora teríamos $T_k=T_0'$.  
+Se fossemos aplicando o processo para cada $T_k$ ($T_k$ seria agora o novo $T_0$), para todas as arestas que restam de $T$ $(a_{i+1},\dots$ $a_{p-1})$, ignorando as arestas que já são comuns, no final, o último $T_k$ será igual a $T$ e como o custo de $T_k$ é igual ao de $T_0$, **concluí-se** que $T$ também será uma `Árvore de custo mínimo`.
+
+QED
+
+:::
 
 ### Algoritmo de Dijkstra
 
