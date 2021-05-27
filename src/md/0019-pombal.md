@@ -144,7 +144,7 @@ $$
 ::: details Exemplo 1 - T-SHIRTS dos Slides
 
 Um cesto contém $20$ _T-SHIRTS_ de várias cores: $4$ brancas, $7$ verdes e $9$
-azuis. Qual é o menor numero de _T-SHIRTS_ a retirar aleatoriamente do
+azuis. Qual é o menor número de _T-SHIRTS_ a retirar aleatoriamente do
 cesto de modo a obter (a) $4$ e (b) $5$ _T-SHIRTS_ da
 mesma cor.
 

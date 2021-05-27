@@ -54,6 +54,21 @@ description: Resolução das fichas de CDI-II que estão disponíveis na página
   - [Respostas (Oficial)](https://drive.google.com/file/d/1vozKLUdSk3V62HmqyUOUEt-VQ4qptnp_/view?usp=sharing)
   - [Resolução (by Diogo Correia)](https://drive.google.com/file/d/17SP2IljEPZmBb2FJo10OL126uElWS9mf/view?usp=sharing)
 
+- [Ficha 11: Trabalho. Campos Gradientes. Potenciais.](https://drive.google.com/file/d/15txbbb1nb0_bNCCLyphQn8_r41h81cDw/view?usp=sharing)
+
+  - [Respostas (Oficial)](https://drive.google.com/file/d/1XDUrRSkTtTwIdRsKxrH-VZwZ_6qHmUIV/view?usp=sharing)
+  - [Resolução (by Diogo Correia)](https://drive.google.com/file/d/1mxPmeAzZ6L7WqERs8H-CziJNHqbiyAUp/view?usp=sharing)
+
+- [Ficha 12: Teorema de Green. Fluxos.](https://drive.google.com/file/d/1wL34UFclfIjJffAVFH_l-_dDqJxpBD0s/view?usp=sharing)
+
+  - [Respostas (Oficial)](https://drive.google.com/file/d/1MQH0I0lTdH8suuL-33n5TZfddneRqG4g/view?usp=sharing)
+  - [Resolução (by Diogo Correia) (até ao 4)](https://drive.google.com/file/d/1ryVWDJJC6chHoUol3y_gMbfeLNCrihei/view?usp=sharing)
+
+- [Ficha 13: Teorema da Divergência. Teorema de STONKS!](https://drive.google.com/file/d/1ZB9in8zwiakr-KJNXZctkBa9HCxLGULq/view?usp=sharing)
+
+  - [Respostas (Oficial)](https://drive.google.com/file/d/1fqcBJiXnlFOkkuYCsnl_ZXfrSmcleoVE/view?usp=sharing)
+  - Resolução (by Diogo Correia) - Soon
+
 - [Resoluções na EdenBox](https://www.edenbox.org/index.php/s/edenbox?path=%2FLEIC%2F1%C2%BA%20Ano%2F2%C2%BA%20Semestre%2FCDI%20II%2FPr%C3%A1ticas%2F2019-2020)
 
 - [Exercícios Suplementares](https://fenix.tecnico.ulisboa.pt/disciplinas/CDI1421011132646/2020-2021/2-semestre/exercicios-suplementares)
