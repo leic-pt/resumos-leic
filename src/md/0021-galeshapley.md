@@ -159,7 +159,7 @@ Resolução:
 3. Rapaz $3$ propõe-se à Rapariga $3$; ela aceita e rejeita o Rapaz $1$
 4. Rapaz $4$ propõe-se à Rapariga $3$; ela aceita e rejeita o Rapaz $3$
 5. Rapaz $1$ propõe-se à Rapariga $2$; ela aceita
-6. Rapaz $2$ propõe-se à Rapariga $3$; ela aceita e rejeita o Rapaz $1$
+6. Rapaz $2$ propõe-se à Rapariga $2$; ela aceita e rejeita o Rapaz $1$
 7. Rapaz $1$ propõe-se à Rapariga $1$; ela aceita
 8. Rapaz $3$ propõe-se à Rapariga $4$; ela aceita
 
