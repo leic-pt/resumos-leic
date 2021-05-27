@@ -270,4 +270,34 @@ O resultado final será uma `Árvore de Cobertura`, onde para cada $v_i$, $\oper
 [Exemplo 2](https://drive.google.com/file/d/1lE08JD2B-MQaauCKmA55K1ZfnLh-UU7z/view?usp=sharing)  
 [Exemplo 3](https://drive.google.com/file/d/1Z05NeIE4AHG4kb6qV6miBkosfe8kflgG/view?usp=sharing)
 
+## Fluxos
+
+### Definições
+
+#### Fonte
+
+Uma fonte num digrafo [conexo](#grafo-conexo) $G$ é um vértice com grau de entrada nulo.
+
+#### Sumidoro
+
+Um subidouro num digrafo [conexo](#grafo-conexo) G é um vértice com grau de saída nulo
+
+#### Digrafo-s-t
+
+Um digrafo-s-t é um digrafo [conexo](#grafo-conexo) unido com uma fonte $s$ e um sumidouro $t$,\
+a que se pode dar o nome de **objetivo**.
+
+#### Rede Capacitada
+
+- Seja $N = (V,E,s,t,cap)$.
+
+  - $(V,E,s,t)$ é um digrafo-s-t
+  - $cap$ onde capacidade tem de ser maior que 0
+
+#### Fluxo
+
+(...)
+
+### Algoritmo de Ford-Fulkerson
+
 <img src="./imgs/1006-euc.png" alt="ponteeuclidiana" class="invert-dark2">
