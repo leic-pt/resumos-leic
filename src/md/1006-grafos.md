@@ -28,7 +28,7 @@ $$
 $g = (V,E)$. Para um vértice $v\in V$, o seu grau **em $g$** corresponde ao número de arestas de $g$ que incidem em $v$.  
 $$\operatorname{deg}_g(v)$$
 
-### Teoremas
+### Teoremas de Grafos
 
 #### Teorema Fundamental da Teoria dos Grafos
 
@@ -136,7 +136,7 @@ Percorre todos os vértices e arestas.
 
 Ser Euleriano aberto.
 
-### Teoremas
+### Teoremas Eulerianos
 
 #### Teorema 1 - Teorema de Euler-Hierholzer
 
@@ -209,5 +209,65 @@ não tenha sido percorrida $2$ vezes,\
 
 Só percorremos essa aresta em último caso, ou seja,\
  se for um beco sem saída, ou se as outras arestas já tiverem sido percorridas $2$ vezes.
+
+## Árvores
+
+#### Árvore
+
+Grafo [conexo](#grafo-conexo) que não tem ciclos.
+
+### Teoremas de Árvores
+
+#### Teorema 1
+
+Se $T$ é uma árvore de [ordem](#grafos) $p$ e [tamanho](#grafos) $q$, então
+
+$$q = p-1$$
+
+#### Teorema 2
+
+Um grafo $g$ de [ordem](#grafos) $p$ é uma árvore, se e só se é [conexo](#grafo-conexo) e tem tamanho $q=p-1$.
+
+### Definições
+
+#### Árvore de cobertura
+
+Seja $g$ um grafo, $T$ é a sua **Árvore de Cobertura** se:
+
+- É uma árvore
+- É um subgrafo de $g$ que contém todos os vértices
+
+#### Custo de árvore
+
+Dada uma [rede](#rede) $(V,E,c)$, o custo de uma árvore de cobertura $T$ da [rede](#rede) é\
+ o **somatório** de todos os valores das arestas de $T$.
+
+#### Árvore de cobertura mínima
+
+Árvore de cobertura de uma [rede](#rede) $R$, cujo [custo](#custo-de-arvore) é **menor ou igual** ao\
+ custo de qualquer outra Árvore de cobertura de $R$.
+
+#### Árvore Económica
+
+Árvore de cobertura construída através do [Algoritmo de Kruskal](#algoritmo-de-kruskal).
+
+## Algoritmos
+
+### Algoritmo de Kruskal
+
+O resultado final é uma [Árvore Económica](#arvore-economica), que também será uma Árvore de Custo mínimo.
+
+Também se pode usar o Algoritmos de Kruskal para encontrar uma árvore de cobertura máxima, basta ir assinalando as arestas pela ordem inversa (1º as que têm valor máximo).
+
+[Exemplo 1](https://drive.google.com/file/d/1oZJCHj62aIndGWDfr7hDtphEoAo3VAzE/view?usp=sharing)  
+[Exemplo 2](https://drive.google.com/file/d/1Vn6dirZylPZy4x81Q5-lnQtvHKqP2Wpd/view?usp=sharing)
+
+### Algoritmo de Dijkstra
+
+O resultado final será uma `Árvore de Cobertura`, onde para cada $v_i$, $\operatorname{F}(i)$ é o `custo mínimo possível`.
+
+[Exemplo 1](https://drive.google.com/file/d/1NqX_csh6u_Yagpr2GJe15PGhaM24tA1s/view?usp=sharing)  
+[Exemplo 2](https://drive.google.com/file/d/1lE08JD2B-MQaauCKmA55K1ZfnLh-UU7z/view?usp=sharing)  
+[Exemplo 3](https://drive.google.com/file/d/1Z05NeIE4AHG4kb6qV6miBkosfe8kflgG/view?usp=sharing)
 
 <img src="./imgs/1006-euc.png" alt="ponteeuclidiana" class="invert-dark2">
