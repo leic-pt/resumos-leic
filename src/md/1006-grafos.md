@@ -6,7 +6,7 @@ description: MDC. Equações Diofantinas.
 
 [[toc]]
 
-## Grafo
+## Grafos
 
 Um grafo é um par $g = (V,E)$, onde:
 
@@ -28,17 +28,37 @@ $$
 $g = (V,E)$. Para um vértice $v\in V$, o seu grau **em $g$** corresponde ao número de arestas de $g$ que incidem em $v$.  
 $$\operatorname{deg}_g(v)$$
 
-## Teoremas
+### Teoremas
 
-### Teorema Fundamental da Teoria dos Grafos
+#### Teorema Fundamental da Teoria dos Grafos
 
 Num grafo $g=(V,E)$, a soma dos graus dos seus vértices é igual ao **dobro** do Tamanho do grafo.
 
-### Teorema 2
+#### Teorema 2
 
 Num grafo $g = (V,E)$, o número dos seus vértices ímpares é par.
 
-## Definições
+#### Teorema 3 - Lei de Euler
+
+Seja $g$ um [Grafo Planar](#grafo-planar), existe a seguinte relação:
+
+$$
+\text{Arestas}+2=\text{Vértices}+\text{Regiões}
+$$
+
+#### Teorema 4
+
+Num grafo de $p$ vértices e $k$ [componentes](#Componentes), o nº de arestas $(q)$ é tal que:
+
+$$
+p-k\leq q \leq \frac{(p-k+1)(p-k)}{2}
+$$
+
+#### Teorema 5
+
+Se um grafo de $p$ vártices tem mais de $\frac{(p-1)(p-2)}{2}$ arestas, então é [conexo](#grafo-conexo).
+
+### Definições
 
 #### Grafo Regular
 
@@ -60,6 +80,12 @@ Uma Rede é um grafo onde as arestas têm valores reais associados.
 
 É uma rede com arestas com apenas números naturais.
 
+#### Aberto e Fechado
+
+Um atalho, caminho, trajetória é fechado se,\
+ o primeiro e o último vértice coincidirem.\
+Se não coincidirem é aberto.
+
 #### Caminho
 
 Caminho é uma seguimento alternado de vértices e arestas.
@@ -70,8 +96,11 @@ Caminho que não repete arestas.
 
 #### Trajetória
 
-Caminho que não repete vértices. (Aberta)\
-Se o vértice inicial for igual ao final, a trajetória é fechada.
+Caminho que não repete vértices.
+
+#### Ciclo
+
+Caminho Fechado, que não repete vértices.
 
 #### Vértice Conectados
 
@@ -82,9 +111,103 @@ Também se considera se os vértices forem iguais.
 
 É conexo se quaisquer dois vértices do grafo estiverem conectados.
 
+#### Ponte
+
+Aresta de um grafo, que, se for removida, aumenta o número de componentes.
+
 #### Componente
 
-$h$ é uma componente de um grafo $g$, se $h$ for um grafo conexo de $g$ e\
+$h$ é uma componente de um grafo $g$, se $h$ for um grafo [conexo](#grafo-conexo) de $g$ e\
  **não for** subgrafo de nenhum outro subgrafo conexo de $g$.
+
+#### Grafo Planar
+
+Grafo que é possível desenhar sem cruzar arestas.
+
+## Grafos Eulerianos
+
+### Definições
+
+#### Euleriano
+
+Percorre todos os vértices e arestas.
+
+#### Atravessável
+
+Ser Euleriano aberto.
+
+### Teoremas
+
+#### Teorema 1 - Teorema de Euler-Hierholzer
+
+Um multigrafo é euleriano se e só se é [conexo](#grafo-conexo) e todo o seu vértice é par.
+
+#### Teorema 2
+
+Um multigrafo é atravessável se e só se tem apenas dois vértices ímpares.  
+Para além disso, o **atalho Euleriano aberto** começa e acaba nos vértices ímpares,\
+ onde o primeiro é diferente do último.
+
+#### Teorema 3 - Teorema de Euler
+
+Se tivermos um grafo que não seja **Euleriano**, podemos **duplicar** cada aresta e\
+ dessa maneira todos os vértices terão grau par, assim já é **Euleriano**.  
+**NOTA**: Outra solução é percorrer cada aresta duas vezes, em vez de duplicar.
+
+#### Teorema 4 - Teorema de Tarry
+
+Iniciando um caminho num grafo [conexo](#grafo-conexo) qualquer, e seguindo as regras do [Algoritmo de Tarry](#algoritmo-de-tarry), regressaremos ao vértice inicial, depois de ter percorrido cada aresta do grafo $2$ vezes em sentidos opostos.
+
+## Algoritmos
+
+### Algoritmo de Fleury
+
+Com este Algoritmo consegue-se percorrer um\
+ **atalho euleriano fechado** num **multigrafo euleriano**.
+
+1. Começa-se num vértice qualquer
+2. Se houver mais que $1$ aresta possível a percorrer, escolhe-se uma que não seja [ponte](#ponte) \
+   (não interessa qual, desde que não seja uma [ponte](#ponte))
+3. Só se atravessam as [pontes](#ponte) em último caso (quando já não há mais arestas disponíveis).
+
+#### Algoritmo Fleury - Multigrafo Atravessável
+
+O **Algoritmo de Fleury** foi concebido para **multigrados eulerianos**.  
+Mas, também o podemos aplicar, **informalmente**, em **multigrafos atravessáveis**.
+
+Para isso, basta **começar num vértice ímpar**, é a única mudança no Algoritmo.\
+ Mas, neste caso, não vamos acabar no mesmo vértice, mas sim no outro vértice ímpar.\
+Reparem que, se, num **multigrafo atravessável**, ligarmos os dois vértices ímpares com uma aresta, ficamos com um **multigrafo euleriano**.\
+ Nesse caso, já poderíamos acabar no vértice inicial.
+
+#### Desvantagens
+
+Não funciona em Labirintos se não o conhecermos,\
+ uma vez que nesses caso não sabemos se uma aresta (caminho do Labirinto) é [ponte](#ponte) ou não.
+
+### Algoritmo de Trémaux
+
+Com as regras deste Algoritmo, qualquer um pode sair de qualquer labirinto.
+
+Passamos agora à descrição do Algoritmo:
+
+1. Sempre que chegamos a um vértice não visitado anteriormente,\
+   seguimos por uma aresta também não percorrida, qualquer.
+
+2. Sempre que chegarmos a um vértice através de uma aresta ainda não percorrida anteriormente,\
+   se chegarmos a um vértice já visitado ou a um beco sem saída,\
+    voltamos para o vértice de onde viemos pela aresta.
+
+3. Sempre que chegarmos a um vértice através de uma aresta que já tinha sido percorrida anteriormente e chegarmos a um vértice já visitado, escolhemos a aresta ainda não percorrida que incide no vértice. Se não existir, escolhemos percorrer uma aresta que já tenha sido percorrida apenas **uma** vez.
+
+### Algoritmo de Tarry
+
+Se chegarmos a um vértice,\
+ escolhemos continuar por qualquer aresta que
+não tenha sido percorrida $2$ vezes,\
+ com exceção da aresta onde chegamos pela primeira vez ao vértice atual.
+
+Só percorremos essa aresta em último caso, ou seja,\
+ se for um beco sem saída, ou se as outras arestas já tiverem sido percorridas $2$ vezes.
 
 <img src="./imgs/1006-euc.png" alt="ponteeuclidiana" class="invert-dark2">
