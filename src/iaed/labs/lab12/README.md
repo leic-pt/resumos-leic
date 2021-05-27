@@ -56,7 +56,7 @@ Considere uma travessia em profundidade primeiro (DFS) sobre o grafo abaixo. Con
 
 <img src="./ex3aux.jpg" alt="ex3aux" class="invert-dark2">
 
-B -> Back edges\
+B -> Back Edges\
 C -> Cross Edges
 
 :::
