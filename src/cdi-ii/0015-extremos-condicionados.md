@@ -547,7 +547,7 @@ $v = (v_1, v_2, v_3)$ e
 $e_1, e_2, e_3$ vetores da base canónica, como:
 
 $$
-u \cdot v = \det \begin{bmatrix}
+u \times v = \det \begin{bmatrix}
 e_1 & e_2 & e_3\\
 u_1 & u_2 & u_3\\
 v_1 & v_2 & v_3
