@@ -138,7 +138,7 @@ O algoritmo em questão recebe um operador lógico binário (_op_) e dois OBDDs 
 
 A intuição utilizada durante o algoritmo é:
 
-- Se ambos os OBDDs considerados forem folhas, aplicamos a operação aos correspondentes valores lógicos (i.e $V \vee F$ resulta em $F$, etc.);
+- Se ambos os OBDDs considerados forem folhas, aplicamos a operação aos correspondentes valores lógicos (i.e $V \vee F$ resulta em $V$, etc.);
 
 - Caso contrário, escolhemos o símbolo de proposição com mais prioridade entre $\alpha$ e $\beta$, que será a raiz de pelo menos um dos OBDDs, dividindo o problema em 2 subproblemas, um onde o símbolo de proposição é verdadeiro e no outro falso:
 

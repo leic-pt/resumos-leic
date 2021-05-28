@@ -225,7 +225,7 @@ Um grafo é `subgrafo` de si mesmo
 
 ### Componente
 
-$h$ é uma `componente` de um grafo $g$, se $h$ for um grafo [conexo](#grafo-conexo) de $g$ e **não for** [subgrafo](#subgrafo) de nenhum outro subgrafo conexo de $g$.
+$h$ é uma `componente` de um grafo $g$, se $h$ for um subgrafo [conexo](#grafo-conexo) de $g$ e **não for** [subgrafo](#subgrafo) de nenhum outro subgrafo conexo de $g$.
 
 ::: details Exemplo
 ![Grafo 7](./imgs/0018-grafo6.png)
@@ -354,7 +354,7 @@ QED
 
 ### Teorema 5
 
-Se um grafo de $p$ vártices tem mais de $\frac{(p-1)(p-2)}{2}$ arestas, então é conexo.
+Se um grafo de $p$ vértices tem mais de $\frac{(p-1)(p-2)}{2}$ arestas, então é conexo.
 
 ::: details Demonstração
 
