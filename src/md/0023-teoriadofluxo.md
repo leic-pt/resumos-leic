@@ -188,12 +188,10 @@ Deste modo, o fluxo será máximo, porque é igual à capacidade, e por isso, o 
 QED
 :::
 
-
 ### Teorema 2
 
 Um fluxo $\operatorname{f}$ numa Rede Capacitada $N$ é um fluxo máximo se e só se não
 existir uma Quasi-trajetória de incremento do fluxo.
-
 
 ::: details Demonstração
 
