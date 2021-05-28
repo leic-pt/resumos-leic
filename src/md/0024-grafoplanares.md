@@ -101,7 +101,7 @@ Um grafo pode respeitar as condições do [Teorema 2](#teorema-2) e não ser pla
 
 ### Teorema 3
 
-Num grafo conexo planar de $p\geq 3$ vértices, que não tem triângulos, tem-se
+Num grafo conexo planar de $p\geq 2$ vértices, que não tem triângulos, tem-se
 
 $$q \leq 2p-4$$
 

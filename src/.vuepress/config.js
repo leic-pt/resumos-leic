@@ -72,6 +72,7 @@ module.exports = {
             '0015-tad',
             '0016-disp',
             '0017-arv',
+            '0018-grafos',
           ],
         },
         {
@@ -88,6 +89,7 @@ module.exports = {
             'labs/lab09/',
             'labs/lab10/',
             'labs/lab11/',
+            'labs/lab12/',
           ],
         },
         {
@@ -153,6 +155,7 @@ module.exports = {
             '0014-variedades',
             '0015-extremos-condicionados',
             '0016-campos-vetoriais',
+            '0017-green-fluxo-divergencia',
           ],
         },
         {

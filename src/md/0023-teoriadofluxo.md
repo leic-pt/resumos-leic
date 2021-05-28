@@ -175,47 +175,13 @@ Nesse caso, seja $(\Delta_Q)$ a `frouxidão mínima` de $Q$, adicionamos $(\Delt
 
 ### Teorema 1
 
-O valor de um `fluxo` é menor ou igual à [capacidade de um corte](#capacidade-do-corte) **mínimo** numa rede capacitada.  
-Se o [valor do fluxo](#valor-do-fluxo) $\operatorname{f}$ é igual à capacidade de um corte $(V_s,V_t)$, então o fluxo $\operatorname{f}$ é máximo e o corte $(V_s,V_t)$ é um [corte mínimo](#corte-minimo).
-
-::: details Demonstração
-
-Seja $\operatorname{f_c}$ o [fluxo de um corte](#balanco-de-fluxo) $C = (V_s,V_t)$.  
-Se $\operatorname{f_c}$ é igual à [capacidade do corte](#capacidade-do-corte), então, pela fórmula do fluxo de um corte, a soma dos fluxos das arestas orientadas de um vértice de $V_t$ para $V_s$ (fluxo negativo) será $0$.
-
-Deste modo, o fluxo será máximo, porque é igual à capacidade, e por isso, o corte também será [mínimo](#corte-minimo)
-
-QED
-:::
+O valor de um `fluxo` é menor ou igual à `capacidade` de um corte mínimo numa rede capacitada.  
+Se o valor do fluxo $\operatorname{f}$ é igual à capacidade de um corte $(V_s,V_t)$, então o fluxo $\operatorname{f}$ é máximo e o corte $(V_s,V_t)$ é um [corte mínimo](#corte-minimo).
 
 ### Teorema 2
 
 Um fluxo $\operatorname{f}$ numa Rede Capacitada $N$ é um fluxo máximo se e só se não
 existir uma Quasi-trajetória de incremento do fluxo.
-
-::: details Demonstração
-
-**Condição Necessária** - Se não existe [Quasi-Trajetória](#quasi-trajetoria) de aumento, o fluxo é máximo.
-
-Vamos definir um corte $(V_s,V_t)$ mínimo:
-
-1.  $s \in V_s$ (relembrar que $s$ é a fonte)
-2.  Se $u \in V_s$ e $\operatorname{f}(uv)<\operatorname{cap}(uv)$, então $v \in V_s$
-3.  Se $u \in V_s$ e $\operatorname{f}(vu)>0$, então $v \in V_s$
-4.  $V_t = V - V_s$
-
-Face a estas restrições, $t$ (o semidouro) terá de pertencer a $V_t$, pois, se não pertencesse haveria uma Quasi-Trajeória de aumento, que **não existe** como assumido no início da `Condição Necessária`.  
-Logo, $(V_s,V_t)$ é um corte.
-
-O fluxo será máximo se for igual à capacidade do corte.  
-Seja $a_1$ uma aresta do corte $(V_s,V_t)$, esta aresta tem de estar saturada, caso contrário ambos os vértices das arestas pertenceriam a $V_s$ (ponto $2$)  
-Seja $a_2$ uma aresta que vai de $V_t$ para $V_s$, terá fluxo $0$ (ponto $3$).
-
-Aplicando o [Teorema 1](#teorema-1), o `Teorema 2` fica demonstrado
-
-QED
-
-:::
 
 ::: details Aviso do Professoor
 Isto só se verifica numa `Rede Capacitada` com números **Racionais**. Há situações com números **Reais** onde não podemos concluir nada.  
@@ -251,6 +217,6 @@ Um vértice $v$ é `alcançável` se é possível aumentar o fluxo de uma "pseud
 Pode acontecer que uma aresta já tenha fluxo **=** capacidade, mas o vértice a que se dirige seja `alcançável`. Esses casos devem-se à existência de arestas negativas.
 :::
 
-::: details Exemplo do Ford-Fulkerson + Corte
+::: details Exemplo do Ford-Fulkerson + Corte  
 [Link](https://drive.google.com/file/d/1BXenki2yM_m5ESCLFu-k7GTXzVjaorj5/view?usp=sharing)
 :::
