@@ -156,8 +156,8 @@ Seja $Q$ uma `Quasi-Trajetória` e $a$ uma aresta que faz parte de $Q$, a `Froux
 
 $$
 \Delta(a) = \begin{cases}
-cap(a)-f(a) \\
-f(a)
+cap(a)-f(a), \quad &\text{se a aresta é positiva} \\
+f(a), \quad &\text{se a aresta é negativa}
 \end{cases}\\
 $$
 
@@ -217,10 +217,11 @@ QED
 
 :::
 
-::: details Aviso do Professoor
-Isto só se verifica numa `Rede Capacitada` com números **Racionais**. Há situações com números **Reais** onde não podemos concluir nada.  
-Contudo, esta exceçãpo não deve ser avaliada
-:::
+> > > > > > > 6726f963f9dbae682595af3a548df1001798bb51
+> > > > > > > ::: details Aviso do Professoor
+> > > > > > > Isto só se verifica numa `Rede Capacitada` com números **Racionais**. Há situações com números **Reais** onde não podemos concluir nada.  
+> > > > > > > Contudo, esta exceçãpo não deve ser avaliada
+> > > > > > > :::
 
 ## Algoritmo de Ford-Fulkerson
 
