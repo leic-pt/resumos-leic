@@ -251,6 +251,6 @@ Um vértice $v$ é `alcançável` se é possível aumentar o fluxo de uma "pseud
 Pode acontecer que uma aresta já tenha fluxo **=** capacidade, mas o vértice a que se dirige seja `alcançável`. Esses casos devem-se à existência de arestas negativas.
 :::
 
-::: details Exemplo do Ford-Fulkerson + Corte
+::: details Exemplo do Ford-Fulkerson + Corte  
 [Link](https://drive.google.com/file/d/1BXenki2yM_m5ESCLFu-k7GTXzVjaorj5/view?usp=sharing)
 :::
