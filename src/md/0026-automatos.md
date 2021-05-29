@@ -161,7 +161,8 @@ Um `AFND` é um quíntuplo $N=(Q,\Sigma,\delta,q_0,F)$, onde:
 
 - Um `AFND` é feito sabendo que tem de haver pelo menos um caminho para as palavras aceitáveis e nenhum para as que não são.
 
-- Após aplicar um `AFND` uma vez, este **não** classifica uma dada palavra como aceite ou não aceite.  
+- Após aplicar um `AFND` uma vez, este **não** classifica uma dada palavra como aceite ou não aceite.
+
   Caso a palavra seja aceite pelo `AFND` é aceite, **mas** se não for, considera-se que pode (ou não) ser.
 
 - Pode ter mudanças de estado $\epsilon$, podem acontecer ou não. (Existe [Exemplo](#passar-de-afnd-para-afd) mais à frente )
@@ -244,6 +245,7 @@ Como fazemos para encontrar o `AFD`?
 1. Cria-se um estado que albergue todos os estados iniciais (neste caso $q_0$ e $q_1$)
 2. Depois, dependendo do input que podemos receber (neste caso $a$ ou $b$) "apontamos" para um novo estado. Se não existir cria-se.  
    **Atenção:** o novo estado, tal como no estado inicial, pode ser um "conjunto de estados"
+
 3. Se temos $n$ estados no `AFND` teremos no máximo $2^n$ no `AFD` (os vários conjuntos possíveis formados pelos estados do `AFND`), contudo pode haver estados inúteis (a {red}(**vermelho**) abaixo). São estados a que nunca chegamos se partirmos do início. Podem ser omitidos na representação final
 
 **Atenção:** Não esquecer do `estado de rejeição` se for necessário (abaixo está a {blue}(**azul**))

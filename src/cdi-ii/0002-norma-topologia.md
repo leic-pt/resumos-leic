@@ -8,7 +8,7 @@ description: Norma, Distância, Bola, Topologia em Rⁿ (pontos interiores, exte
 
 ## Diferença entre pontos e vetores
 
-Em $dim > 1$, convém distinguir pontos de vetores.
+Em $\dim > 1$, convém distinguir pontos de vetores.
 Podemos pensar em vetores como **diferenças entre pontos**.
 Por exemplo:
 
