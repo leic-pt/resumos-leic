@@ -1,4 +1,4 @@
-# Autómatos
+# Autómatos Finitos
 
 ::: details Pequeno Exemplo
 
@@ -161,7 +161,7 @@ Um `AFND` é um quíntuplo $N=(Q,\Sigma,\delta,q_0,F)$, onde:
 
 - Um `AFND` é feito sabendo que tem de haver pelo menos um caminho para as palavras aceitáveis e nenhum para as que não são.
 
-- Um `AFND` **não** classifica uma dada palavra como aceite ou não aceite.  
+- Após aplicar um `AFND` uma vez, este **não** classifica uma dada palavra como aceite ou não aceite.  
   Caso a palavra seja aceite pelo `AFND` é aceite, **mas** se não for, considera-se que pode (ou não) ser.
 
 - Pode ter mudanças de estado $\epsilon$, podem acontecer ou não. (Existe [Exemplo](#passar-de-afnd-para-afd) mais à frente )
@@ -195,6 +195,40 @@ $$
 
 :::
 
+::: tip IMPORTANTE
+
+Tal como nos `AFD`, nos `AFND` podemos definir ainda $\delta^*$, como sendo a função que recebe um estado e uma palavra e que define a que conjunto de estados podemos acabar no final da palavra. Pode ser definido por:
+
+$$\delta^* :  Q \times \Sigma^* \rightarrow P(Q)$$
+
+Onde:
+
+- Ao aplicarmos $\delta^*$ a um estado $q$ e se não recebermos nada, poderá transitar para todos as transições $\epsilon$ do estado $q$. Estes estados são representados por $\Epsilon(\{q\})$.
+
+  $$\delta^*(q,\epsilon) = \Epsilon(\{q\}), \quad \forall q \in Q$$
+
+- Ao aplicarmos $\delta^*$ a um estado $q$ quando recebe uma palavra $wa$, onde $a$ é o último símbolo da palavra e $w \in \Sigma^*$, o estado final será o resultado de aplicar $\delta$, quando recebe a letra $a$, a todos os estados a que podemos chegar quando recebemos a palavra $w$. Não esquecendo as transições $\epsilon$.
+
+$$\delta^*(q,wa) = \bigcup_{r \in \delta^*(q,w)} \Epsilon(\delta(r,a)), \quad \forall r,q \in Q$$
+
+:::
+
+### Aceitação AFND
+
+Diz-se que um $N=(Q,\Sigma,\delta,q_0,F)$ **aceita** a palavra $w \in \Sigma^*$ se
+
+$$\delta^*(q_0,w) \cap F \neq \emptyset$$
+
+### Linguagem Reconhecida
+
+A `Linguagem Reconhecida` por um `AFND` $N=(Q,\Sigma,\delta,q_0,F)$ será:
+
+$$L(N)=\{w \in \Sigma^* : \delta^*(q_0,w) \cap F \neq \emptyset\}$$
+
+### Teorema 2
+
+Qualquer que seja o `AFND` $D$, existe um `AFD` $N$ que lhe é equivalente, ou seja as `Linguagens Reconhecidas` são iguais. $L(N)=L(D)$
+
 ### Passar de AFND para AFD
 
 ::: details Exemplo
@@ -203,14 +237,14 @@ Temos o seguinte `AFND`
 
 ![Auto coisa](./imgs/0026-autoNdD1.png)
 
-Repare-se que temos uma "passagem $\epsilon$", ou seja, pode acontecer do nada. Deste modo, o estado inicial tanto pode ser $q_0$ ou $q_1$.
+Repare-se que temos uma "transição $\epsilon$", ou seja, pode acontecer do nada. Deste modo, o estado inicial tanto pode ser $q_0$ ou $q_1$.
 
 Como fazemos para encontrar o `AFD`?
 
 1. Cria-se um estado que albergue todos os estados iniciais (neste caso $q_0$ e $q_1$)
 2. Depois, dependendo do input que podemos receber (neste caso $a$ ou $b$) "apontamos" para um novo estado. Se não existir cria-se.  
    **Atenção:** o novo estado, tal como no estado inicial, pode ser um "conjunto de estados"
-3. Se temos $n$ estados no `AFND` teremos $2^n$ no `AFD` (os vários conjuntos possíveis formados pelos estados do `AFND`), contudo pode haver estados inúteis (a {red}(**vermelho**) abaixo). São estados a que nunca chegamos se partirmos do início. Podem ser omitidos na representação final
+3. Se temos $n$ estados no `AFND` teremos no máximo $2^n$ no `AFD` (os vários conjuntos possíveis formados pelos estados do `AFND`), contudo pode haver estados inúteis (a {red}(**vermelho**) abaixo). São estados a que nunca chegamos se partirmos do início. Podem ser omitidos na representação final
 
 **Atenção:** Não esquecer do `estado de rejeição` se for necessário (abaixo está a {blue}(**azul**))
 
@@ -229,5 +263,92 @@ Repare-se que os estandos inúteis ({red}(**vermelho**)), nunca são atingidos d
 
 Se acharam este exemplo confuso, assistam à explicação do professor no seguinte [link](https://www.youtube.com/watch?v=inKY5BCqS2c&list=PL1L11sDP8FKHvZYbgh7FdItSfBxsHyU0z&index=51).  
 Começa em `1:06:20` e termina em `1:18:30`
+
+:::
+
+### Operações da Esquerda para a Direita - Autómatos
+
+Para fazer uma operação da **esquerda para a direita** com autómatos (por exemplo: soma, divisão, $\dots$), basta fazer um autómato que faça a operação da **direita para a esquerda** e depois trocar as transições e os estados de aceitação com o estado inicial.  
+Para além disso, também pode ser necessário passar de um `AFND` para um `AFD`.
+
+::: details Exemplo 1 - Soma
+
+Vamos definir a soma da esquerda para a direita, com
+
+$$
+\Sigma = \{\begin{bmatrix}0\\0\\0\end{bmatrix},
+\begin{bmatrix}0\\0\\1\end{bmatrix},
+\begin{bmatrix}0\\1\\0\end{bmatrix},
+\begin{bmatrix}0\\1\\1\end{bmatrix},
+\begin{bmatrix}1\\0\\0\end{bmatrix},
+\dots,
+\begin{bmatrix}1\\1\\1\end{bmatrix},
+\}
+$$
+
+Por exemplo,
+
+$$
+\begin{bmatrix}
+0&1&0&1&1\\
+0&0&1&0&1\\
+1&0&1&0&0
+\end{bmatrix} \in \quad <\text{Linguagem reconhecida}>
+$$
+
+Primeira faz-se o autómato da soma da direita para esquerda
+
+![Troca 11](./imgs/0026-troca11.png)
+
+Os estados $0$ e $1$ simbolizam os restos.  
+$q_0 = 0$ e $F = \{0\}$ ($0$ é o estado inicila e o de aceitação).
+
+Agora trocamos os estados de aceitação e inicial (como é o mesmo, não trocamos), por isso apenas se trocam as transições entre estados.
+
+![Troca 12](./imgs/0026-troca12.png)
+
+Como é um `AFD` já é o resultado final
+
+::: tip Relembrar
+
+As transições não representadas, em ambos, são as transições para o `estado de rejeição`.
+
+:::
+
+::: details Exemplo 2 - Divisão por 2
+
+Vamos definir a `Divisão por 2` da esquerda para a direita, com
+
+$$
+\Sigma = \{\begin{bmatrix}0\\0\end{bmatrix},
+\begin{bmatrix}1\\0\end{bmatrix},
+\begin{bmatrix}0\\1\end{bmatrix},
+\begin{bmatrix}1\\1\end{bmatrix},
+\}
+$$
+
+Por exemplo,
+
+$$
+\begin{bmatrix}
+0&1&1&0&1\\
+0&0&1&1&0
+\end{bmatrix} \in \quad <\text{Linguagem reconhecida}>
+$$
+
+Primeira faz-se o autómato da `Divisão por 2` da direita para esquerda.
+
+![Troca 21](./imgs/0026-troca21.png)
+
+Agora, para obtermos a operação da esquerda para a direita fazemos as trocas necessárias.
+
+![Troca 22](./imgs/0026-troca22.png)
+
+Agora temos que $q_0=0$ e $F=\{q_1\}$.  
+Temos um `AFND`. Precisamos de passar para um `AFD`.
+
+![Troca 23](./imgs/0026-troca23.png)
+
+Neste último autómato está representado o `estado de rejeição` a {red}(**vermelho**)
 
 :::

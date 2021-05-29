@@ -156,8 +156,8 @@ Seja $Q$ uma `Quasi-Trajetória` e $a$ uma aresta que faz parte de $Q$, a `Froux
 
 $$
 \Delta(a) = \begin{cases}
-cap(a)-f(a) \\
-f(a)
+cap(a)-f(a), \quad &\text{se a aresta é positiva} \\
+f(a), \quad &\text{se a aresta é negativa}
 \end{cases}\\
 $$
 
