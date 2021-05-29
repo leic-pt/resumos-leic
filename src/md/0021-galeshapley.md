@@ -68,7 +68,7 @@ $$
 
 :::
 
-### Algoritmo da Estailidade
+### Algoritmo da Estabilidade
 
 Serve para verificar se uma `Lista de Relacionamentos` é estável ou instável.
 
