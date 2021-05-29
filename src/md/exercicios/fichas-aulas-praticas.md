@@ -37,7 +37,8 @@ description: Resolução das fichas de MD que estão disponíveis na página da 
 
 - [Séries 4](https://drive.google.com/file/d/1yEKjJEnabBbBl3bTGSwT5D9IlD0raUzK/view?usp=sharing)
 
-  - [Resolução (In a Near Future)]()
+  - [Resolução (1)](https://drive.google.com/file/d/17mcBowfpwvrKfqhXnpf3M9kcNbnDwE6U/view?usp=sharing)
+  - [Resolução (2)](https://drive.google.com/file/d/1fl9-u01iTlYrDEv3ge1P2A_JOIfGDT1i/view?usp=sharing)
 
 - [Séries 5](https://drive.google.com/file/d/1nLFKZTPj38gi05mwFDUOhz0SMSm0uvlh/view?usp=sharing)
   - [Resolução (In a Far Future)]()
