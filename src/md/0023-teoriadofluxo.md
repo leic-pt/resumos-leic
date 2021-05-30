@@ -22,8 +22,8 @@ Seja $v$ um vértice de um digrafo $d$:
 
 Neste exemplo, o vértice **_v_** tem
 
-- Grau de entrada $2$
-- Grau de saída $2$
+- Grau de entrada $1$
+- Grau de saída $3$
 
 O vértice **_S_** tem
 
