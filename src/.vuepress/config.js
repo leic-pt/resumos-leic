@@ -194,6 +194,8 @@ module.exports = {
             '0022-kruskraldijkrsta',
             '0023-teoriadofluxo',
             '0024-grafoplanares',
+            '0025-teoremakuratowski',
+            '0026-automatos',
           ],
         },
         {

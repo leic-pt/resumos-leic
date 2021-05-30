@@ -22,8 +22,8 @@ Seja $v$ um vértice de um digrafo $d$:
 
 Neste exemplo, o vértice **_v_** tem
 
-- Grau de entrada $2$
-- Grau de saída $2$
+- Grau de entrada $1$
+- Grau de saída $3$
 
 O vértice **_S_** tem
 
@@ -74,7 +74,7 @@ Seguindo esta ideia,
 
 ### Fluxo Máximo
 
-Fluxo máximo é um fluxo $\operatorname{f}$, tal que o seu [valor](#valor-do-fluxo) é maior ou igual ao valor de qualquer outro fluxo na mesma `Rede capacitada`.
+Fluxo máximo é um fluxo $\operatorname{f}$, tal que o seu [valor](#valor-do-fluxo) é maior ou igual ao valor de qualquer outro fluxo possível na mesma `Rede capacitada`.
 
 ### Corte
 
@@ -105,7 +105,7 @@ A aresta com capacidade $3$ mais abaixo não é incluída, porque vai de $V_t$ p
 ### Balanço de Fluxo
 
 Balanço de fluxo, através de um corte $C = (V_s,V_t)$, que também pode ser identificado por **Fluxo do Corte $C$**, é a [capacidade do corte](#capacidade-do-corte) menos a soma dos fluxos das arestas orientadas de um vértice de $V_t$ para $V_s$ (fluxo negativo).  
-Numa `Rede Capacitada`, para qualquer Corte, o `Balanço de Fluxo` é sempre o mesmo, ou seja, cada Corte tem o mesmo Fluxo.
+Qualquer Corte numa `Rede Capacitada` tem sempre o mesmo `Balanço de Fluxo`.
 
 ::: details Exemplos
 
@@ -156,9 +156,11 @@ Seja $Q$ uma `Quasi-Trajetória` e $a$ uma aresta que faz parte de $Q$, a `Froux
 
 $$
 \Delta(a) = \begin{cases}
-cap(a)-f(a) \\
-f(a)
+\operatorname{cap}(a)-\operatorname{f}(a), \quad &\text{se a aresta é positiva} \\
+\operatorname{f}(a), \quad &\text{se a aresta é negativa}
 \end{cases}\\
+\operatorname{cap}(a) \rightarrow \text{capacidade da aresta a}\\
+\operatorname{f}(a) \rightarrow \text{fluxo da aresta a}
 $$
 
 (Obrigado ao Rafael Oliveira)
@@ -175,22 +177,56 @@ Nesse caso, seja $(\Delta_Q)$ a `frouxidão mínima` de $Q$, adicionamos $(\Delt
 
 ### Teorema 1
 
-O valor de um `fluxo` é menor ou igual à `capacidade` de um corte mínimo numa rede capacitada.  
-Se o valor do fluxo $\operatorname{f}$ é igual à capacidade de um corte $(V_s,V_t)$, então o fluxo $\operatorname{f}$ é máximo e o corte $(V_s,V_t)$ é um [corte mínimo](#corte-minimo).
+O valor de um `fluxo` é menor ou igual à [capacidade de um corte](#capacidade-do-corte) **mínimo** numa rede capacitada.  
+Se o [valor do fluxo](#valor-do-fluxo) $\operatorname{f}$ é igual à capacidade de um corte $(V_s,V_t)$, então o fluxo $\operatorname{f}$ é máximo e o corte $(V_s,V_t)$ é um [corte mínimo](#corte-minimo).
+
+::: details Demonstração
+
+Seja $\operatorname{f_c}$ o [fluxo de um corte](#balanco-de-fluxo) $C = (V_s,V_t)$.  
+Se $\operatorname{f_c}$ é igual à [capacidade do corte](#capacidade-do-corte), então, pela fórmula do fluxo de um corte, a soma dos fluxos das arestas orientadas de um vértice de $V_t$ para $V_s$ (fluxo negativo) será $0$.
+
+Deste modo, o fluxo será máximo, porque é igual à capacidade, e por isso, o corte também será [mínimo](#corte-minimo)
+
+QED
+:::
 
 ### Teorema 2
 
 Um fluxo $\operatorname{f}$ numa Rede Capacitada $N$ é um fluxo máximo se e só se não
 existir uma Quasi-trajetória de incremento do fluxo.
 
+::: details Demonstração
+
+**Condição Necessária** - Se não existe [Quasi-Trajetória](#quasi-trajetoria) de aumento, o fluxo é máximo.
+
+Vamos definir um corte $(V_s,V_t)$ mínimo:
+
+1.  $s \in V_s$ (relembrar que $s$ é a fonte)
+2.  Se $u \in V_s$ e $\operatorname{f}(uv)<\operatorname{cap}(uv)$, então $v \in V_s$
+3.  Se $u \in V_s$ e $\operatorname{f}(vu)>0$, então $v \in V_s$
+4.  $V_t = V - V_s$
+
+Face a estas restrições, $t$ (o semidouro) terá de pertencer a $V_t$, pois, se não pertencesse haveria uma Quasi-Trajeória de aumento, que **não existe** como assumido no início da `Condição Necessária`.  
+Logo, $(V_s,V_t)$ é um corte.
+
+O fluxo será máximo se for igual à capacidade do corte.  
+Seja $a_1$ uma aresta do corte $(V_s,V_t)$, esta aresta tem de estar saturada, caso contrário ambos os vértices das arestas pertenceriam a $V_s$ (ponto $2$)  
+Seja $a_2$ uma aresta que vai de $V_t$ para $V_s$, terá fluxo $0$ (ponto $3$).
+
+Aplicando o [Teorema 1](#teorema-1), o `Teorema 2` fica demonstrado
+
+QED
+
+:::
+
 ::: details Aviso do Professoor
 Isto só se verifica numa `Rede Capacitada` com números **Racionais**. Há situações com números **Reais** onde não podemos concluir nada.  
-Contudo, esta exceçãpo não deve ser avaliada
+Contudo, esta exceção não deve ser avaliada.
 :::
 
 ## Algoritmo de Ford-Fulkerson
 
-Numa Rede capacitada $N=(V,E,s,t,\operatorname{cap})$, permite-nos encontrar o `Fluxo` **máximo**.
+Numa Rede capacitada $N=(V,E,s,t,\operatorname{cap})$, permite-nos encontrar o `Fluxo` **máximo** e, consequentemente, o `Corte mínimo`.
 
 ::: details Pseudo-Código
 ![Pseudo Ford](./imgs/0023-pseudoFord.png)
@@ -206,7 +242,7 @@ Quando já não houver termina o algoritmo (pelo [Teorema 2](#teorema-2)), e ter
 Seja $V_s$ o conjunto dos [vértices alcançáveis](#vertice-alcancavel) no final do [Algoritmo de Ford-Fulkerson](#algoritmo-de-ford-fulkerson) e $V_t$ tal que $V_s\cap V_t = \emptyset \quad \wedge \quad V_s\cup V_t =\{\text{conjunto de todos os vértices}\}$, $(V_s,V_t)$ é um `Corte Mínimo`, porque respeita as condições do [Teorema 1](#teorema-1).
 
 ::: tip NOTA
-Podemos usar o [Teorama 1](#teorema-1) para verificar que o corte que escolhemos no final do [Algoritmo de Ford-Fulkerson](#algoritmo-de-ford-fulkerson) é mínimo ou não. Só se for mínimo é que a resposta está correta.
+Podemos usar o [Teorema 1](#teorema-1) para verificar que o corte que escolhemos no final do [Algoritmo de Ford-Fulkerson](#algoritmo-de-ford-fulkerson) é mínimo. Só se for mínimo é que a resposta está correta.
 :::
 
 #### Vértice alcançável
@@ -217,6 +253,6 @@ Um vértice $v$ é `alcançável` se é possível aumentar o fluxo de uma "pseud
 Pode acontecer que uma aresta já tenha fluxo **=** capacidade, mas o vértice a que se dirige seja `alcançável`. Esses casos devem-se à existência de arestas negativas.
 :::
 
-::: details Exemplo do Ford-Fulkerson + Corte
+::: details Exemplo do Ford-Fulkerson + Corte  
 [Link](https://drive.google.com/file/d/1BXenki2yM_m5ESCLFu-k7GTXzVjaorj5/view?usp=sharing)
 :::
