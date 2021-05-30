@@ -282,22 +282,10 @@ Uma fonte num digrafo [conexo](#grafo-conexo) $G$ é um vértice com grau de ent
 
 Um subidouro num digrafo [conexo](#grafo-conexo) G é um vértice com grau de saída nulo
 
-#### Digrafo-s-t
+#### Digrafo
 
-Um digrafo-s-t é um digrafo [conexo](#grafo-conexo) unido com uma fonte $s$ e um sumidouro $t$,\
-a que se pode dar o nome de **objetivo**.
-
-#### Rede Capacitada
-
-- Seja $N = (V,E,s,t,cap)$.
-
-  - $(V,E,s,t)$ é um digrafo-s-t
-  - $cap$ onde capacidade tem de ser maior que 0
-
-#### Fluxo
-
-(...)
-
-### Algoritmo de Ford-Fulkerson
+Grafo dirigido, todas as arestas têm orientação.\
+Um digrafo-$s$-$t$ é um digrafo com `fonte` $s$
+e `semidouro` $t$
 
 <img src="./imgs/1006-euc.png" alt="ponteeuclidiana" class="invert-dark2">
