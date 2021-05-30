@@ -284,7 +284,7 @@ Um subidouro num digrafo [conexo](#grafo-conexo) G é um vértice com grau de sa
 
 #### Digrafo
 
-Grafo dirigido, todas as arestas têm orientação.
+Grafo dirigido, todas as arestas têm orientação.\
 Um digrafo-$s$-$t$ é um digrafo com `fonte` $s$
 e `semidouro` $t$
 
