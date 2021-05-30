@@ -74,7 +74,7 @@ Seguindo esta ideia,
 
 ### Fluxo Máximo
 
-Fluxo máximo é um fluxo $\operatorname{f}$, tal que o seu [valor](#valor-do-fluxo) é maior ou igual ao valor de qualquer outro fluxo na mesma `Rede capacitada`.
+Fluxo máximo é um fluxo $\operatorname{f}$, tal que o seu [valor](#valor-do-fluxo) é maior ou igual ao valor de qualquer outro fluxo possível na mesma `Rede capacitada`.
 
 ### Corte
 
@@ -105,7 +105,7 @@ A aresta com capacidade $3$ mais abaixo não é incluída, porque vai de $V_t$ p
 ### Balanço de Fluxo
 
 Balanço de fluxo, através de um corte $C = (V_s,V_t)$, que também pode ser identificado por **Fluxo do Corte $C$**, é a [capacidade do corte](#capacidade-do-corte) menos a soma dos fluxos das arestas orientadas de um vértice de $V_t$ para $V_s$ (fluxo negativo).  
-Numa `Rede Capacitada`, para qualquer Corte, o `Balanço de Fluxo` é sempre o mesmo, ou seja, cada Corte tem o mesmo Fluxo.
+Qualquer Corte numa `Rede Capacitada` tem sempre o mesmo `Balanço de Fluxo`.
 
 ::: details Exemplos
 
@@ -156,9 +156,11 @@ Seja $Q$ uma `Quasi-Trajetória` e $a$ uma aresta que faz parte de $Q$, a `Froux
 
 $$
 \Delta(a) = \begin{cases}
-cap(a)-f(a), \quad &\text{se a aresta é positiva} \\
-f(a), \quad &\text{se a aresta é negativa}
+\operatorname{cap}(a)-\operatorname{f}(a), \quad &\text{se a aresta é positiva} \\
+\operatorname{f}(a), \quad &\text{se a aresta é negativa}
 \end{cases}\\
+\operatorname{cap}(a) \rightarrow \text{capacidade da aresta a}\\
+\operatorname{f}(a) \rightarrow \text{fluxo da aresta a}
 $$
 
 (Obrigado ao Rafael Oliveira)
@@ -217,15 +219,14 @@ QED
 
 :::
 
-> > > > > > > 6726f963f9dbae682595af3a548df1001798bb51
-> > > > > > > ::: details Aviso do Professoor
-> > > > > > > Isto só se verifica numa `Rede Capacitada` com números **Racionais**. Há situações com números **Reais** onde não podemos concluir nada.  
-> > > > > > > Contudo, esta exceçãpo não deve ser avaliada
-> > > > > > > :::
+::: details Aviso do Professoor
+Isto só se verifica numa `Rede Capacitada` com números **Racionais**. Há situações com números **Reais** onde não podemos concluir nada.  
+Contudo, esta exceção não deve ser avaliada.
+:::
 
 ## Algoritmo de Ford-Fulkerson
 
-Numa Rede capacitada $N=(V,E,s,t,\operatorname{cap})$, permite-nos encontrar o `Fluxo` **máximo**.
+Numa Rede capacitada $N=(V,E,s,t,\operatorname{cap})$, permite-nos encontrar o `Fluxo` **máximo** e, consequentemente, o `Corte mínimo`.
 
 ::: details Pseudo-Código
 ![Pseudo Ford](./imgs/0023-pseudoFord.png)
@@ -241,7 +242,7 @@ Quando já não houver termina o algoritmo (pelo [Teorema 2](#teorema-2)), e ter
 Seja $V_s$ o conjunto dos [vértices alcançáveis](#vertice-alcancavel) no final do [Algoritmo de Ford-Fulkerson](#algoritmo-de-ford-fulkerson) e $V_t$ tal que $V_s\cap V_t = \emptyset \quad \wedge \quad V_s\cup V_t =\{\text{conjunto de todos os vértices}\}$, $(V_s,V_t)$ é um `Corte Mínimo`, porque respeita as condições do [Teorema 1](#teorema-1).
 
 ::: tip NOTA
-Podemos usar o [Teorama 1](#teorema-1) para verificar que o corte que escolhemos no final do [Algoritmo de Ford-Fulkerson](#algoritmo-de-ford-fulkerson) é mínimo ou não. Só se for mínimo é que a resposta está correta.
+Podemos usar o [Teorema 1](#teorema-1) para verificar que o corte que escolhemos no final do [Algoritmo de Ford-Fulkerson](#algoritmo-de-ford-fulkerson) é mínimo. Só se for mínimo é que a resposta está correta.
 :::
 
 #### Vértice alcançável
