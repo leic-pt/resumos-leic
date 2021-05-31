@@ -1,12 +1,20 @@
 ---
-description: MDC. Equações Diofantinas.
+description: Cheat Sheet dos Grafos.
 ---
 
 # Grafos 4 Dummies (Cheat Sheet)
 
 [[toc]]
 
+Informação mais detalhada sobre o [Principío de Pombal](./0019-pombal)\
+Informação mais detalhada sobre [Relacionamentos Estáveis](./0021-galeshapley)\
+Informação mais detalhada sobre [Grafos Planares](./0024-grafoplanares)\
+Informação mais detalhada sobre o [Algoritmo de Kuratowski](./0025-teoremakuratowski)\
+Informação mais detalhada sobre [Autómatos](./0026-automatos)
+
 ## Grafos
+
+Informação mais detalhada sobre [Grafos](./0018-grafos-def)
 
 Um grafo é um par $g = (V,E)$, onde:
 
@@ -126,6 +134,8 @@ Grafo que é possível desenhar sem cruzar arestas.
 
 ## Grafos Eulerianos
 
+Informação mais detalhada sobre [Grafos Eulerianos](./0020-labirintos)
+
 ### Definições
 
 #### Euleriano
@@ -212,6 +222,8 @@ Só percorremos essa aresta em último caso, ou seja,\
 
 ## Árvores
 
+Informação mais detalhada sobre [Árvores](./0022-kruskraldijkrsta)
+
 #### Árvore
 
 Grafo [conexo](#grafo-conexo) que não tem ciclos.
@@ -271,6 +283,8 @@ O resultado final será uma `Árvore de Cobertura`, onde para cada $v_i$, $\oper
 [Exemplo 3](https://drive.google.com/file/d/1Z05NeIE4AHG4kb6qV6miBkosfe8kflgG/view?usp=sharing)
 
 ## Fluxos
+
+Informação mais detalhada sobre [Fluxos](./0023-teoriadofluxo)
 
 ### Definições
 
