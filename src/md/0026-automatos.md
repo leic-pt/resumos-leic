@@ -238,7 +238,7 @@ Temos o seguinte `AFND`
 
 ![Auto coisa](./imgs/0026-autoNdD1.png)
 
-Repare-se que temos uma "transição $\epsilon$", ou seja, pode acontecer do nada. Deste modo, o estado inicial tanto pode ser $q_0$ ou $q_1$.
+Repare-se que temos uma "transição $\epsilon$", ou seja, pode acontecer do nada. Deste modo, o estado inicial tanto pode ser $q_0$ ou $q_2$.
 
 Como fazemos para encontrar o `AFD`?
 
@@ -254,10 +254,9 @@ Segue-se a representação final, com um pequeno exemplo de uma parte da execuç
 
 ![Auto Coiso 2](./imgs/0026-autoNdD2.png)
 
-1. Começamos nos estado que engloba os estados iniciais $q_0$ e $q_1$
-2. Quando estamos em $q_0$ ou $q_1$ e recebemos $b$, vamos sempre para $q_1$. Se recebermos $a$, tanto podemos ir para $q_0$ ou para $q_1$, por isso continuamos no mesmo
-3. Quando estamos em $q_1$ e recebemos $a$, tanto podemos ir para $q_2$, ou permanecer em $q_1$. Cria-se o estado $\{q_1,q_2\}$  
-   $\dotsb$
+1. Começamos nos estado que engloba os estados iniciais $q_0$ e $q_2$
+2. Quando estamos em $q_0$ ou $q_2$ e recebemos $b$, vamos sempre para $q_1$. Se recebermos $a$, tanto podemos ir para $q_0$ ou para $q_1$, **por causa** da transição $\epsilon$.
+3. Quando estamos em $q_2$ e recebemos $a$, vamos para $q_0$, **mas** por causa da transição $\epsilon$, podemos voltar a $q_2$. Por isso, se recebermos $a$ em $\{q_0,q_2\}$ continuamos no mesmo estado.
 
 Repare-se que os estandos inúteis ({red}(**vermelho**)), nunca são atingidos desde o Ei.
 

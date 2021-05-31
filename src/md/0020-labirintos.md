@@ -157,8 +157,6 @@ O exemplo encontra-se neste [link](https://drive.google.com/file/d/1mWPgKAqZsVNw
 
 #### Algoritmo Fleury - Multigrafo Atravessável
 
-(escrever melhor pq fleury e mesmo so para eulerianos)
-
 O `Algoritmo de Fleury` foi concebido para `multigrados eulerianos`.  
 Mas, também o podemos aplicar, **informalmente**, em `multigrafos atravessáveis`.
 
@@ -202,4 +200,4 @@ O exemplo encontra-se neste [link](https://drive.google.com/file/d/17nTEKOgFZcwe
 
 #### Teorema de Tarry
 
-Iniciando um caminho num grafo conexo qualquer, e seguindo as regras do `Algoritmo de Tarry`, regressaremos ao vértice inicial, depoins de ter percorrido cada aresta do grafo $2$ vezes em sentidos opostos.
+Iniciando um caminho num grafo conexo qualquer, e seguindo as regras do `Algoritmo de Tarry`, regressaremos ao vértice inicial, depois de ter percorrido cada aresta do grafo $2$ vezes em sentidos opostos.
