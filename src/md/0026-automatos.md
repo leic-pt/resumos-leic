@@ -73,6 +73,8 @@ q_0 = <Ei> \\
 F = \{<yz>\} \\
 $$
 
+:::
+
 ::: details Exemplo 3
 
 Queremos um AFD que receba palavras formadas por $\Sigma=\{a,b,c\}$ e que verifique se começa e acaba na mesma letra.  
