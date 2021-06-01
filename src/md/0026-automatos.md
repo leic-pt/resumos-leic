@@ -72,7 +72,7 @@ Q = \{<Ei>,<y>,<yz>\}\\
 q_0 = <Ei> \\
 F = \{<yz>\} \\
 $$
-  
+
 :::
 
 ::: details Exemplo 3
