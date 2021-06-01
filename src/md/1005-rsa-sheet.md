@@ -1,5 +1,5 @@
 ---
-description: MDC. Equações Diofantinas.
+description: RSA.
 ---
 
 # Criptografia RSA (Cheat Sheet)
