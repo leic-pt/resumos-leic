@@ -73,6 +73,8 @@ q_0 = <Ei> \\
 F = \{<yz>\} \\
 $$
 
+:::
+
 ::: details Exemplo 3
 
 Queremos um AFD que receba palavras formadas por $\Sigma=\{a,b,c\}$ e que verifique se começa e acaba na mesma letra.  
@@ -89,6 +91,7 @@ $F = \{q_1,q_2,q_3\}$
 Podemos definir ainda $\delta^*$, como sendo a função que recebe um estado e uma palavra. Pode ser definida recursivamente como:
 
 $$
+\delta^*(q,\epsilon) = q \, \forall q in Q \text{ em que } \epsilon \in \Sigma^* \text{ é a palavra vazia}\\
 \delta^*(q,wa) = \delta(\delta^*(q,w),a)\\
 \forall q \in Q,\quad \forall a \in \Sigma,\quad \forall w \in \Sigma^* \\
 \Sigma^* \rightarrow \text{conjunto das palavras formadas com } \Sigma
