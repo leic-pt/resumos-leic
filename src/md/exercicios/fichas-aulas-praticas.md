@@ -46,4 +46,5 @@ description: Resolução das fichas de MD que estão disponíveis na página da 
   - [Resolução (9)](https://drive.google.com/file/d/15zgqotRCgUsOWSva1u7wybkU9xnuraBU/view?usp=sharing)
 
 - [Séries 5](https://drive.google.com/file/d/1nLFKZTPj38gi05mwFDUOhz0SMSm0uvlh/view?usp=sharing)
-  - [Resolução (In a Far Future)]()
+
+  - [Resolução (1 e 2)](https://drive.google.com/file/d/1SW9gcN9PtBHt482RmYvcnMp4A5cyrYdR/view?usp=sharing)
