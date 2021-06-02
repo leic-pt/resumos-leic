@@ -139,6 +139,12 @@ Se tivermos um grafo que não seja `Euleriano`, podemos **duplicar** cada aresta
 
 ---
 
+### Teorema 4 - Teorema de Lucas
+
+Um multigrafo $\mathcal G$ **conexo** com $2n$ vértices _ímpares_ pode ser descrito por exatamente $n$ atalhos abertos que não partilham arestas.
+
+---
+
 ### Algoritmo de Fleury
 
 Com este Algoritmo consegue-se percorrer um `atalho euleriano fechado` num `multigrafo euleriano`.

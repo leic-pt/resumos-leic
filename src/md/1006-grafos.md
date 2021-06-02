@@ -163,7 +163,11 @@ Para além disso, o **atalho Euleriano aberto** começa e acaba nos vértices í
 Se tivermos um grafo que não seja **Euleriano**, podemos **duplicar** cada aresta e dessa maneira todos os vértices terão grau par, assim já é **Euleriano**.  
 **NOTA**: Outra solução é percorrer cada aresta duas vezes, em vez de duplicar.
 
-#### Teorema 4 - Teorema de Tarry
+#### Teorema 4 - Teorema de Lucas
+
+Um multigrafo $\mathcal G$ **conexo** com $2n$ vértices _ímpares_ pode ser descrito por exatamente $n$ atalhos abertos que não partilham arestas.
+
+#### Teorema 5 - Teorema de Tarry
 
 Iniciando um caminho num grafo [conexo](#grafo-conexo) qualquer, e seguindo as regras do [Algoritmo de Tarry](#algoritmo-de-tarry), regressaremos ao vértice inicial, depois de ter percorrido cada aresta do grafo $2$ vezes em sentidos opostos.
 
