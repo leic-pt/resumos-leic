@@ -104,7 +104,7 @@ A aresta com capacidade $3$ mais abaixo não é incluída, porque vai de $V_t$ p
 
 ### Balanço de Fluxo
 
-Balanço de fluxo, através de um corte $C = (V_s,V_t)$, que também pode ser identificado por **Fluxo do Corte $C$**, é a [capacidade do corte](#capacidade-do-corte) menos a soma dos fluxos das arestas orientadas de um vértice de $V_t$ para $V_s$ (fluxo negativo).  
+Balanço de fluxo, através de um corte $C = (V_s,V_t)$, que também pode ser identificado por **Fluxo do Corte $C$**, é a soma dos fluxo das arestas orientadas de $V_s$ para $V_t$ (fluxo positivo) menos a soma dos fluxos das arestas orientadas de um vértice de $V_t$ para $V_s$ (fluxo negativo).  
 Qualquer Corte numa `Rede Capacitada` tem sempre o mesmo `Balanço de Fluxo`.
 
 ::: details Exemplos
