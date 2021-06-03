@@ -5,10 +5,6 @@ path: /lp/logica-primeira-ordem-semantico
 
 # Lógica de Primeira Ordem - Sistema Semântico/Correção e Completude
 
-```toc
-
-```
-
 (esta secção não é particularmente gira e os resumos não estão particularmente bons desta vez, peço desculpa)
 
 O propósito do sistema semântico é especificar em que condições as _fbfs_ de uma linguagem são verdadeiras ou falsas. Para tal, é necessário interpretar cada um dos seus símbolos de proposição, de forma a poder atribuir um valor lógico a cada um e, posteriormente, dar um significado à _fbf_. Por fim, verificar se o significado a que chegamos está de acordo com a situação que pretendemos descrever - se sim, a _fbf_ é verdadeira, caso contrário é falsa.

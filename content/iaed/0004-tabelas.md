@@ -68,7 +68,7 @@ Podemos guardar caracteres em tabelas (Vetores).
 $$
 \begin{array}{|c|c|c|c|c|c|c|c|c}
 \hline
-'h' & 'e' & 'l' & 'l' & 'o' & '\n' & '\0' & ... \\
+'h' & 'e' & 'l' & 'l' & 'o' & '\backslash n' & '\backslash 0' & ... \\
 \hline
 \end{array}
 $$
