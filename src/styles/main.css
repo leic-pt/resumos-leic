@@ -1,0 +1,20 @@
+html {
+  --accentColor: #00a0e4;
+  --bgColor: #25272a;
+  --textColor: #e2e2e2;
+}
+
+body {
+  color: var(--textColor);
+  background-color: var(--bgColor);
+}
+
+a {
+  color: var(--accentColor);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+img[data-dark='1'] {
+  filter: invert(1) hue-rotate(180deg) saturate(5);
+}
