@@ -41,7 +41,7 @@ Um dos conceitos importantes em Prolog é _termo_ - tal como na LPO, consiste nu
 
 - **Termos Compostos** - aplicação de um _functor_ a um dado número de argumentos. Um functor é necessariamente um átomo. Existem funções pré-embutidas em Prolog, tais como `+, *, /`.
 
-  ::: details Exemplo
+  :::details[Exemplo]
 
   `vencedor(X), 'vencedor'(_X), +(5, X), 5 + X`
 
@@ -51,7 +51,7 @@ Um dos conceitos importantes em Prolog é _termo_ - tal como na LPO, consiste nu
 
 - **Literais** - corresponde à aplicação de um predicado ao número apropriado de termos (devolve verdadeiro ou falso). Um literal de aridade (nº de argumentos) zero é um átomo. Sintaticamente, não existe diferença entre termos compostos e literais - decidir se é uma coisa ou outra depende do contexto.
 
-  ::: details Exemplo
+  :::details[Exemplo]
 
   `mae(Marge, Bart), filho(Bart, Marge)`
 
@@ -61,7 +61,7 @@ Um dos conceitos importantes em Prolog é _termo_ - tal como na LPO, consiste nu
 
 Constituídos por uma sequência de cláusulas determinadas (cláusulas com cabeça). As cláusulas aceitam literais, funcionando tal como na LPO. Aqui, a implicação $\leftarrow$ é representada por `:-`.
 
-::: details Cláusulas Determinadas
+:::details[Cláusulas Determinadas]
 
 **Afirmações** - informações "concretas" dadas aos programa:
 
@@ -75,7 +75,7 @@ Constituídos por uma sequência de cláusulas determinadas (cláusulas com cabe
 
 Podemos ainda ter cláusulas iterativas, cláusulas cujo corpo apenas contém um literal, sendo este igual ao utilizado na cabeça da cláusula.
 
-::: details Cláusula Iterativa
+:::details[Cláusula Iterativa]
 
 `liga(X, Y) :- liga(Y, X)`
 
@@ -94,7 +94,7 @@ Devolve `false.` caso não seja unificável (1).\
  Se for unificável, pode devolver tanto a unificação concreta que torna a expressão verdadeira (2).\
  Caso a unificação não tenha uma resposta concreta devolve `true.` (3).
 
-::: details Unificação
+:::details[Unificação]
 
 (1)
 
@@ -129,7 +129,7 @@ true.
 Na prompt, escrever `<expressão> == <expressão>` para verificar se são iguais,\
  `<expressão> \== <expressão>` para verificar o contrário.
 
-::: details Comparação de Termos
+:::details[Comparação de Termos]
 
 ```prolog
 ?- b == a.
@@ -151,7 +151,7 @@ Para provar um objetivo, o Prolog recorre a uma Resolução SLD com função de 
 
 - **Semântica declarativa** - preocupa-se com o que o programa afirma.
 
-::: tip
+:::tip
 
 A regra `ant(X, Z) :- ant(X, Y), ad(Y, Z)` pode ser lida como:\
  "Se `ant(X, Y)` e `ad(Y, Z)` se verificarem para uma dada substituição de `X, Y, Z`,\
@@ -161,7 +161,7 @@ A regra `ant(X, Z) :- ant(X, Y), ad(Y, Z)` pode ser lida como:\
 
 - **Semântica procedimental** - preocupa-se com o modo como provar um objetivo.
 
-::: tip
+:::tip
 
 A mesma regra descrita acima seria aqui lida como:\
  "Para poder provar uma dada instância de `ant(X, Z)`, devemos primeiro provar `ant(X, Y)` e, com as substituições adequadas para `X, Y, Z`, provar uma instância de `ad(Y, Z)`".
@@ -186,7 +186,7 @@ ant(X, Z) :- ant(X, Y), ad(Y, Z).
 Podem testar os exemplos seguintes no SWI-Prolog ao criar um ficheiro `.pl` com o código acima, e dentro do SWI-Prolog ir a `Consult` e escolher esse ficheiro. De seguida, na `prompt`, escrever os objetivos indicados e verificar a resposta.\
 Outra maneira possível é, na `prompt`, escrever `working_directory(_, '<path>').` ou `working_directory(CWD, '<path>').`para poderem aceder a todos os ficheiros `.pl` dessa diretoria e carregá-los com `[nome].` para `nome.pl` (portanto, sem a extensão). Além disso, podem verificar a diretoria atual com `pwd.`.
 
-::: tip Resolução com um ramo bem sucedido
+:::tip[Resolução com um ramo bem sucedido]
 
 Tentar, através do programa anterior, provar `ant(srB, Bart)`. O Prolog cria uma árvore SLD para resolver o problema:
 
@@ -196,7 +196,7 @@ Aqui, é devolvido `true.`, visto que há um ramo bem sucedido para o programa e
 
 :::
 
-::: tip Resolução com um ramo infinito
+:::tip[Resolução com um ramo infinito]
 
 Considerando o programa acima referido,\
  e tentando agora chegar ao objetivo `ant(eva, bart)`, podemos verificar que o Prolog não só não encontra ramos bem sucedidos como chega a um ramo infinito.
@@ -227,7 +227,7 @@ Caso haja **mais que uma resposta** a um dado objetivo dado um programa, podemos
 
 Em Prolog, listas são tipos estruturados de informação pré-definidos. Tal como em python, os seus elementos são separados por vírgulas, estando delimitados por `[ ]`. Os elementos podem ser termos (variáveis, constantes ou termos compostos) ou outras listas, podendo, claro está, existir a lista vazia (`[]`).
 
-::: details Exemplos de Listas
+:::details[Exemplos de Listas]
 
 ```prolog
 []
@@ -261,7 +261,7 @@ false.
 
 (recomendo que testem os trechos de código seguintes vocês próprios, incluindo inputs não testados aqui, para se irem habituando e aprendendo coisas sobre a linguagem).
 
-::: tip Exemplo 1 - programa que testa se um dado elemento pertence a uma lista.
+:::tip[Exemplo 1 - programa que testa se um dado elemento pertence a uma lista.]
 
 ```prolog
 % membro(E, L) - E é membro da lista L.
@@ -337,7 +337,7 @@ false.
 
 :::
 
-::: details Exemplo 2 - programa que junta duas listas
+:::details[Exemplo 2 - programa que junta duas listas]
 
 ```prolog
 % junta(X, Y, Z) - Z é o resultado de juntar X a Y
@@ -373,7 +373,7 @@ false.
 
 :::
 
-::: details Exemplo 3 - programa que inverte uma lista
+:::details[Exemplo 3 - programa que inverte uma lista]
 
 **Processo Recursivo**
 

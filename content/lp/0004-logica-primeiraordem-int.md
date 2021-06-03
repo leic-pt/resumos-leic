@@ -27,7 +27,7 @@ A **aridade** de uma função é a quantidade de argumentos que esta recebe. Uma
 
 Apesar de usualmente irmos estudar funções que recebem um argumento - que formam pares ordenados - é importante realçar que essa não é a única aridade possível de uma função. De um modo geral, em vez de consideramos que funções são conjuntos de _pares ordenados_, consideramo-las sim conjuntos de _tuplos ordenados_. Uma função que recebe $n$ argumentos é um conjunto de tuplos ordenados que não contém 2 tuplos com os mesmos n primeiros elementos.
 
-::: details Exemplo - Função
+:::details[Exemplo - Função]
 
 A expressão designatória de uma função pode ser, por exemplo:
 
@@ -52,7 +52,7 @@ $$
 Palavra utilizada para representar qualquer relação entre elementos de conjuntos. Não são funções, visto que um primeiro elemento pode estar associado a mais que um segundo elemento. É usualmente definida através da especificação dos conjuntos aos quais os primeiro e segundo elementos pertencem, juntamente com uma expressão proposicional que faz uma afirmação sobre a sua relação.
 Relações com apenas um argumento também se chamam **classes** ou **propriedades**.
 
-::: details Exemplo - Relação
+:::details[Exemplo - Relação]
 
 Relação correspondendo ao conjunto dos países que partilham fronteira terrestre:
 
@@ -137,7 +137,7 @@ Uma _fbf_ sem variáveis é uma _formula chã_.
 
 Resta notar que, sempre que possível, tentamos abreviar uma sequência de quantificadores do mesmo tipo numa só ocorrência do mesmo - por exemplo, $\forall x[\forall y[\dots]]$ é igual a $\forall x, y[\dots]$.
 
-::: details Exemplo - Fórmulas bem formadas
+:::details[Exemplo - Fórmulas bem formadas]
 
 Em relação ao seguinte exemplo, é relevante relembrar que o que começar por **letras minúsculas** corresponde a funções e por **maiúsculas** a relações.
 
@@ -161,7 +161,7 @@ $$
 Nas _fbfs_ $\forall x[\alpha]$ e $\exists x[\alpha]$, $\alpha$ é o **domínio do quantificador**. Diz-se que o quantificador **liga** a variável $x$.  
 Uma ocorrência da variável $x$ diz-se _ligada_ numa _fbf_ caso esta ocorrência apareça dentro do domínio do quantificador que a introduz. Caso contrário, a variável diz-se _livre_. Uma _fbf_ sem variáveis livres diz-se _fechada_ - basta uma livre para não o ser. Caso não ocorram quantificadores no âmbito da variável em questão (caso falemos de uma relação, por exemplo), a variável é livre.
 
-::: details Exemplo - Variáveis livres/fechadas
+:::details[Exemplo - Variáveis livres/fechadas]
 
 A $fbf$ $P(x) \rightarrow \exists x [Q(x)]$ contém uma ocorrência livre
 de $x$, em $P(x)$, e uma ocorrência ligada de $x$ em $Q(x)$.
@@ -172,7 +172,7 @@ de $x$, em $P(x)$, e uma ocorrência ligada de $x$ em $Q(x)$.
 
 Conjunto finito de pares ordenados $\{t_{1}/x_{1}, \dots, t_{n}/x_{n}\}$, em que cada $x_{i}$ é uma variável individual e cada $t_{i}$ é um termo. Numa substituição, **todas as variáveis individuais são diferentes** e **nenhuma variável individual é igual ao termo correspondente**. Cada um dos pares $t_{i}, x_{i}$ é uma **ligação**.
 
-::: details Exemplo - Substituição
+:::details[Exemplo - Substituição]
 
 Podem ser consideradas substituições, visto que todas as variáveis individuais são diferentes e não há termos iguais à variável associada:
 
@@ -198,7 +198,7 @@ A ideia subjacente ao conceito de substituição é que cada variável individua
 
 Escrevemos $\alpha(x_{1}, \dots, x_{n})$ para indicar que a _fbf_ $\alpha$ tem $x_{1}, \dots, x_{n}$ como variáveis livres.
 
-::: details Exemplo - Aplicação da Substituição
+:::details[Exemplo - Aplicação da Substituição]
 
 $P(x, f(a, y)) \cdot \{a/x, f(a, b)/y\} = P(a, f(a, f(a, b))).$
 
@@ -212,7 +212,7 @@ Aqui, só uma das ocorrências da variável $x$ é livre, e só nessa é que pod
 
 - **Termo livre para uma variável** - se $\alpha$ for uma _fbf_ e $t$ um termo, dizemos que $t$ é _livre_ para $x$ em $\alpha$ caso nenhuma ocorrência livre de $x$ em $\alpha$ ocorrer dentro do domínio de um quantificador em ordem $y$, onde $y$ é uma variável em $t$. Um termo sem variáveis é sempre livre para qualquer variável em qualquer _fbf_.
 
-::: details Exemplo - Termo livre para uma variável
+:::details[Exemplo - Termo livre para uma variável]
 
 O termo $g(y, f(b))$ é livre para $x$ na _fbf_ $P(x, y)$, mas não o é na _fbf_ $\forall y[P(x, y)]$.
 
@@ -224,7 +224,7 @@ O sistema dedutivo da Lógica de Primeira Ordem difere do da Lógica Proposicion
 
 ### Regras para o quantificador universal
 
-::: tip Introdução do quantificador universal
+:::tip[Introdução do quantificador universal]
 
 Abreviada por $I\forall$, pode ser utilizada quando uma propriedade arbitrária, $\alpha(t)$, for provada para $t$. Utilizamos, para tal, uma técnica semelhante à regra da introdução da implicação, criando um novo "contexto" no qual aparece um novo termo, que nunca apareceu na prova, e tentamos provar que esse termo tem essa propriedade. A regra afirma, portanto, que se numa prova iniciada pela introdução da variável $x_{0}$ pudermos derivar a _fbf_ $\alpha (x_{0})$, então podemos escrever $\forall x[\alpha(x)]$.
 
@@ -234,7 +234,7 @@ Resta notar que aqui não estamos a trabalhar diretamente com as usuais provas h
 
 :::
 
-::: tip Eliminação do quantificador Universal
+:::tip[Eliminação do quantificador Universal]
 
 Abreviada por $E\forall$, indica que a partir de $\forall x[\alpha(x)]$ podemos inferir $\alpha(t)$, onde $t$ é qualquer termo.
 
@@ -242,7 +242,7 @@ Abreviada por $E\forall$, indica que a partir de $\forall x[\alpha(x)]$ podemos 
 
 :::
 
-::: details Exemplo - Introdução/Eliminação do quantificador universal
+:::details[Exemplo - Introdução/Eliminação do quantificador universal]
 
 Prova do argumento $({\forall x[P(x) \to Q(x)], \forall x[Q(x) \to R(x)]}, \forall x[P(x) \to R(x)])$ (de notar que há mais que uma maneira de fazer esta prova):
 
@@ -252,7 +252,7 @@ Prova do argumento $({\forall x[P(x) \to Q(x)], \forall x[Q(x) \to R(x)]}, \fora
 
 ### Regras para o quantificador existencial
 
-::: tip Introdução do quantificador existencial
+:::tip[Introdução do quantificador existencial]
 
 Abreviada por $I\exists$, afirma que a partir de uma propriedade arbitrária $\alpha(t)$, podemos inferir $\exists x[\alpha(x)]$.
 
@@ -260,7 +260,7 @@ Abreviada por $I\exists$, afirma que a partir de uma propriedade arbitrária $\a
 
 :::
 
-::: tip Eliminação do quantificador existencial
+:::tip[Eliminação do quantificador existencial]
 
 Abreviada por $E\exists$, é, porventura, a mais complicada das quatro regras introduzidas. Temos, a partir de $\exists x[\alpha(t)]$ que existe pelo menos uma entidade que satisfaz a propriedade $\alpha$ - só não sabemos qual. Como não sabemos nada sobre essa entidade, nada podemos afirmar sobre ela, para além de $\alpha(t)$. Na prova, o objetivo será criar um "contexto" em que surge uma entidade nunca mencionada anteriormente; se dentro desse contexto formos capazes de derivar uma _fbf_ $\beta$, que não menciona $t$, então $\beta$ verificar-se-á independentemente de $t$.
 
@@ -268,7 +268,7 @@ Abreviada por $E\exists$, é, porventura, a mais complicada das quatro regras in
 
 :::
 
-::: details Exemplo - Introdução/Eliminação do quantificador existencial
+:::details[Exemplo - Introdução/Eliminação do quantificador existencial]
 
 Prova de $\exists x[P(x)] \to \neg\forall x[\neg P(x)]$:
 

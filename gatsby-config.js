@@ -31,13 +31,13 @@ module.exports = {
               tracedSVG: true,
             },
           },
-          {
+          /*{
             resolve: `gatsby-remark-image-attributes`,
             options: {
               dataAttributes: true,
             },
-          },
-          //`gatsby-remark-directive`,
+          },*/
+          `gatsby-remark-directive`,
           {
             resolve: `gatsby-remark-katex`,
             options: {

@@ -107,7 +107,7 @@ Precedem utilização e especificam tipo e lista das variáveis
 - Variáveis estáticas podem ser locais a uma função, mas
   mantêm o valor entre chamadas à função
 
-  ::: warning Caso de omissão: valor 0
+  :::warning[Caso de omissão: valor 0]
 
   Em C só as variáveis globais e estáticas são inicializadas
   automaticamente a 0, se o utilizador não fornecer nenhuma
@@ -121,7 +121,7 @@ Precedem utilização e especificam tipo e lista das variáveis
     `<tipo> <variável> = <expressão>;` - Variáveis automáticas são reinicializadas sempre que a
     função é invocada
 
-::: warning Caso de omissão em variáveis locais:
+:::warning[Caso de omissão em variáveis locais:]
 
 valor indefinido
 

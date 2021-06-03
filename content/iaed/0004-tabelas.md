@@ -37,7 +37,7 @@ Para atribuir um valor à tabela na posição `i`
 
 O primeiro indíce é o `0` e o último índice é o `DIM - 1`
 
-::: warning AVISO
+:::warning[AVISO]
 Quando a tabela é criada, os valores que esta guarda não são inicializadas a 0, têm valores pseudo-aleatórios.
 Para defini-las a 0, faz-se um loop atribuindo a cada posição da tabela o valor 0.
 :::
@@ -107,7 +107,7 @@ Exemplos úteis:
 - `strlen` (devolve o tamanho da string dada como argumento)
 - entre outros.
 
-::: tip
+:::tip
 O Comando `man` permite ver o que as funções fazem.
 :::
 

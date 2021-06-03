@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 
 import 'katex/dist/katex.min.css';
 import '../styles/main.css';
+import '../styles/markdown.css';
 
 export default function Template({ data }) {
   const { markdownRemark: post } = data;

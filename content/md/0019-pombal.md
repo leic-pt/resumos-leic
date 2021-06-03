@@ -8,7 +8,7 @@ path: /md/principio-pombal
 
 Se $n$ pombos voam para $k<n$ pombais, num dos $k$ pombais coabitam pelo menos dois pombos.
 
-::: details Demonstração
+:::details[Demonstração]
 
 Por absurdo,
 
@@ -18,7 +18,7 @@ Suponha-se que em cada pombal habita apenas um pombo. Nesse caso não podem exis
 
 ### Provas Exemplo 1
 
-::: details Exemplo 1 - 2.2 da Série 4
+:::details[Exemplo 1 - 2.2 da Série 4]
 
 Mostre que, se há mais livros numa biblioteca do que páginas em qualquer dos livros, então pelo menos dois livros têm igual número de páginas.
 
@@ -39,7 +39,7 @@ QED
 
 :::
 
-::: details Exemplo 2 - Sucessão de números naturais dos Slides
+:::details[Exemplo 2 - Sucessão de números naturais dos Slides]
 
 Mostre que, se $a_i$ é uma sucessão de números naturais e $n \in \N_2$, então
 para algum valor de $k \in \N$ e para algum valor de $m \in \N$, a soma
@@ -73,7 +73,7 @@ $$s_j - s_i = a_{i+1+\lambda}+a_{i+2+\lambda}+\dots+a_{j+\lambda}, \quad j>i$$
 
 QED
 
-::: tip Nota
+:::tip[Nota]
 
 - O $\lambda$ é usado para mostrar que se pode começar em qualquer termo da sucessão, se fizer confusão tomem $\lambda=0$, como está nos slides.
 - Na última conclusão, podemos também pensar que $s_i$ é uma "subsoma" de $s_j$ $(i < j)$, por isso, quando fazemos $s_j-s_i$ estamos a retirar a $s_j$ os termos em comum com $s_i$.
@@ -84,7 +84,7 @@ QED
 
 Se f é uma aplicação de assinatura $\operatorname{f} : X \rightarrow Y$ , com $X$ e $Y$ conjuntos finitos tais que $\#X > \#Y$ , então existem $x_1, x_2 \in X$ tais que $x_1 \neq x_2$ e $\operatorname{f}(x_1) = \operatorname{f}(x_2)$.
 
-::: details Demonstração
+:::details[Demonstração]
 
 Seja $X$ o conjunto de pombos e $Y$ o conjunto de pombais. Atribuímos cada pombo $x \in X$ a um pombal $\operatorname{f}(x) \in Y$. Pela [Primeira Forma do Princípio de Pombal](#primeira-forma-do-principio-do-pombal), pelo menos dois pombos $x_1, x_2 \in X$ coabitam no mesmo pombal, i.e. existem $x_1, x_2 \in X$ tais que $x_1 \neq x_2$ e $\operatorname{f}(x_1) = \operatorname{f}(x_2)$.
 
@@ -92,7 +92,7 @@ Seja $X$ o conjunto de pombos e $Y$ o conjunto de pombais. Atribuímos cada pomb
 
 ### Provas Exemplo 2
 
-::: details Exemplo 1 - Alunos de MD dos Slides
+:::details[Exemplo 1 - Alunos de MD dos Slides]
 
 Prove que se selecionar 151 alunos de MD de numeros compreendidos entre $ist199001$ e $ist199300$, inclusive, pelo menos dois alunos têm
 números consecutivos.
@@ -124,7 +124,7 @@ QED
 
 Se $\operatorname{f}$ é uma aplicação de assinatura $\operatorname{f} : X \rightarrow Y$ tal que $\#X = n$ e $\#Y = m < n$, então existem pelo menos $k = \lceil\frac{n}{m}\rceil$ valores $a_1, a_2, \dots, a_k$ de $X$ tais que $\operatorname{f} (a_1) = \operatorname{f} (a_2) = \dots = \operatorname{f} (a_k)$.
 
-::: details Exemplo Ilustrativo
+:::details[Exemplo Ilustrativo]
 
 Seja $\#X = 5$ e $\#Y = 2$, pela [Terceira Forma do Princípio de Pombal](#terceira-forma-do-principio-do-pombal) existem pelo menos $\lceil\frac{5}{2}\rceil=3$ valores $a_1, a_2, a_3$ de $X$ tais que $\operatorname{f} (a_1) = \operatorname{f} (a_2) = \operatorname{f} (a_3)$.
 
@@ -132,7 +132,7 @@ Seja $\#X = 5$ e $\#Y = 2$, pela [Terceira Forma do Princípio de Pombal](#terce
 
 :::
 
-::: tip Nota
+:::tip[Nota]
 $k = \lceil\frac{a}{b}\rceil$ significa que $k$ é a divisão de $a$ por $b$ arredondada por excesso.  
 Exemplos
 
@@ -145,7 +145,7 @@ $$
 
 ### Provas Exemplo 3
 
-::: details Exemplo 1 - T-SHIRTS dos Slides
+:::details[Exemplo 1 - T-SHIRTS dos Slides]
 
 Um cesto contém $20$ _T-SHIRTS_ de várias cores: $4$ brancas, $7$ verdes e $9$
 azuis. Qual é o menor número de _T-SHIRTS_ a retirar aleatoriamente do
@@ -181,7 +181,7 @@ Para termos a certeza que em $\lambda$ _T-SHIRTS_ temos $5$ iguais significa que
 **AVISO:** Existem mais alíneas nos slides para quem tiver curiosidade.
 :::
 
-::: warning Recomendação
+:::warning[Recomendação]
 
 Para ficar à vontade com o `Princípio do Pombal` é necessário fazer várias provas sozinho. Apesar de percebermos algumas provas dos Slides e termos mais ou menos a ideia de como se fazem, sem a prática, a probabilidade de ficar preso em exercícios novos/diferentes continua elevada.
 

@@ -46,7 +46,7 @@ $$
 
 Calculámos assim o valor do somatório, $S_{n} = 2^{n+1} -1$.
 
-::: tip MAIS EXEMPLOS
+:::tip[MAIS EXEMPLOS]
 É possível encontrar mais exemplos de perturbação direta nos exercícios 1.1.1 da [Ficha Séries 1](./exercicios/fichas-aulas-praticas.md).
 :::
 
@@ -59,7 +59,7 @@ $$
 \sum^n_{k=0} k^2
 $$
 
-::: danger INCONCLUSIVO
+:::danger[INCONCLUSIVO]
 
 Podemos tentar fazer os cálculos pelo método da perturbação direta, mas o resultado vai ser inconclusivo:
 
@@ -115,6 +115,6 @@ S'_{n} +(n+1)^{3} =S'_{n} +3S_{n} +3\sum ^{n}_{k=0} k+( n+1) \Leftrightarrow \\
 \Leftrightarrow \dotsc \Leftrightarrow S_{n} =\frac{n( n+1)( 2n+1)}{6}
 $$
 
-::: tip MAIS EXEMPLOS
+:::tip[MAIS EXEMPLOS]
 É possível encontrar mais exemplos de perturbação indireta nos exercícios 1.1.2 da [Ficha Séries 1](./exercicios/fichas-aulas-praticas.md).
 :::

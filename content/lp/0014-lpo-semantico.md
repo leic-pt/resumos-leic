@@ -13,7 +13,7 @@ Este processo, contudo, precisa de ser formalizado para o podermos utilizar num 
 
 O primeiro passo passa por descrever um mundo ou situação através de uma **conceptualização**.
 
-::: tip CONCEPTUALIZAÇÃO
+:::tip[CONCEPTUALIZAÇÃO]
 
 Uma conceptualização é um triplo $(D, F, R)$, onde:
 
@@ -27,7 +27,7 @@ O objetivo da conceptualização é **descrever formalmente o mundo**. Não exis
 
 :::
 
-::: details Exemplo - Conceptualização
+:::details[Exemplo - Conceptualização]
 
 Tenhamos por base o mundo seguinte:
 
@@ -55,7 +55,7 @@ Uma interpretação é uma função, $I$, cujo domínio é a linguagem utilizada
 
 - a cada letra de predicado $P_{i}^{n}$ é associada uma relação do conjunto de relações com aridade $n$.
 
-::: details Exemplo - Interpretação
+:::details[Exemplo - Interpretação]
 
 Exemplo aplicado ao universo descrito anteriormente:
 

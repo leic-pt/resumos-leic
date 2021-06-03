@@ -31,7 +31,7 @@ $$
 Esta nova definição contém $o(h)$, uma nova função ao qual que chama "o pequeno de h".  
 Isto é simplesmente uma função de $x$ que dividida por $x$ tende para $0$ quando $x \to 0$.
 
-::: details Exemplos
+:::details[Exemplos]
 
 Quando $x \to 0$:
 
@@ -60,7 +60,7 @@ Então, temos a função $Df(a)\ (h)=f'(a)h$, que é uma transformação linear 
 
 Assim, chegamos à definição em $dim > 1$:
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Seja $f: D \subseteq \R^n \to \R^m$ é diferencial em $a\in D$ se existir uma transformação linear $Df(a): \R^n \to \R^m$
 (chamada transformação linear derivada de $f$ em $a$), tal que
@@ -91,7 +91,7 @@ Relembrando da Álgebra Linear:
 
 3. $T:\R \to \R$ é representada pela matriz $[c]$ onde $c$ é constante.
 
-::: details Exemplos de funções diferenciáveis
+:::details[Exemplos de funções diferenciáveis]
 
 1. **Função constante**
 
@@ -235,7 +235,7 @@ Portanto as funções projeção são diferenciáveis
 No entanto, por vezes poderá ser importante calcular derivadas segundo direções especiais - ou saber quais são essas direções especiais.
 Por exemplo, dada uma função $f$ e um ponto $a$ do seu domínio, ao longo de que direção e sentido me devo afastar de $a$ de forma a sentir a variação máxima ou mínima da função?
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 A derivada de $f: \R^n \to \R$ no ponto $a \in \R^n$ segundo o vetor $v \in\R^n$ é o limite, se existir,
 
@@ -253,7 +253,7 @@ Observações:
    então $\displaystyle \frac{\partial f}{\partial v}( a) =\frac{\partial f}{\partial x_{i}}( a)$,
    a que se chama **derivada parcial em ordem a $x_i$ em $a$**.
 
-::: details Exemplos
+:::details[Exemplos]
 
 $$
 f( x,y) =x^{2} y\quad ,\quad v=( 1,2)
@@ -314,7 +314,7 @@ J^{f}_{a} =\begin{bmatrix}
 \end{bmatrix}
 $$
 
-::: details Exemplos de matrizes jacobianas
+:::details[Exemplos de matrizes jacobianas]
 
 $$
 f:\R \to \R\quad, \quad f(x)=xe^x
@@ -365,7 +365,7 @@ $$
 
 :::
 
-::: warning
+:::warning
 Pode existir a jacobiana de uma função $f$ em $a$ sem que $f$ seja diferenciável em $a$.
 :::
 
@@ -378,7 +378,7 @@ $$
 \nabla f( a) =\left(\frac{\partial f}{\partial x_{1}}( a) ,\frac{\partial f}{\partial x_{2}}( a) ,\dotsc ,\frac{\partial f}{\partial x_{n}}( a)\right)
 $$
 
-::: details Exemplos de diferenciabilidade
+:::details[Exemplos de diferenciabilidade]
 
 Seja $f: \R^2 \to \R$ com $f(x,y) = x^2y$
 

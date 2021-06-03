@@ -156,7 +156,7 @@ A Implementação do código encontra-se nos slides.
 - Quero saber todas as páginas da WWW. (web crawling)
 
 - Quero encontrar os meus amigos no facebook (se os tiver)
-  ::: details Exemplo
+  :::details[Exemplo]
   amigos dos amigos,\
   amigos dos amigos do amigos,\
   amigos dos amigos dos amigos do amigos,\
@@ -178,7 +178,7 @@ A Implementação do código encontra-se nos slides.
 
 ### Algoritmos de Procura em Grafos
 
-::: tip Exemplos
+:::tip[Exemplos]
 Para ambos os algoritmos aconselho a ver os exemplos nos slides
 :::
 
@@ -257,7 +257,7 @@ Equivalente a como nós (humanos) exploramos labirintos
 
 ![dependecies](./assets/0018-dep.png#dark=1)
 
-::: tip Exemplos
+:::tip[Exemplos]
 Para o algoritmo aconselho a ver os exemplos nos slides
 :::
 

@@ -11,7 +11,7 @@ path: /md/pascoa
 A `Páscoa` é celebrada no **primeiro** domingo após a 1ª Lua Cheia, a contar do equinócio da Primavera (que é **sempre** dia `21 de março`).  
 Se a Lua Cheia calhar num domingo, a Páscoa será no domingo seguinte.
 
-::: warning AVISO
+:::warning[AVISO]
 Segundo o professor José Félix, a questão do teste sobre o calendário terá uma parte teórica, onde os alunos terão de mostrar que sabem mais do que apenas aplicar as fórmulas.
 :::
 
@@ -38,7 +38,7 @@ Seja $G$ o `Número de Ouro` do ano $\lambda$,
 
 $$G = 1 + \lambda\%19$$
 
-::: details Lógica da Fórmula
+:::details[Lógica da Fórmula]
 
 - $G$ varia entre **1**-**19**;
 - O ano 1 a.C. teve `Número de Ouro` **1**
@@ -53,13 +53,13 @@ $$G = 1 + \lambda\%19$$
 Na `Matriz Lunar` estão representados os dias de cada ano do `Ciclo de Méton` que são Lua Nova.  
 Por exemplo, 2 de fevereiro é Lua Nova no ano **XI** do `Ciclo de Méton`.
 
-::: tip NOTA
+:::tip[NOTA]
 As Luas Cheias são **13** dias depois das Luas Novas
 :::
 
 Com a `Matriz Lunar` conseguimos determinar as datas limite da Páscoa.
 
-::: details Datas Limite da Páscoa
+:::details[Datas Limite da Páscoa]
 
 1. **Primerio Dia**
 
@@ -88,7 +88,7 @@ G_1 = 3\\
 G_n = (G_{n-1}+8)\%19
 $$
 
-::: details Exemplos
+:::details[Exemplos]
 
 1. n=2
 
@@ -114,7 +114,7 @@ E = (8 +11(G -1))\% 30\\
 G \rightarrow \text{número de ouro}
 $$
 
-::: details Lógica da Fórmula
+:::details[Lógica da Fórmula]
 
 - A `Epacta` pode ser vista como o "atraso" dos anos lunares, em relação aos anos solares (anos de 365 dias, anos bissextos serão contemplados depois);
 - Aumenta 11 dias por ano (diferença entre ano solar e lunar);
@@ -147,7 +147,7 @@ $$
 E = (11G -3)\% 30
 $$
 
-::: details Demonstração
+:::details[Demonstração]
 
 $$
 E = (8 +11(G -1))\% 30\\
@@ -176,7 +176,7 @@ $$
 
 Note-se que há casos onde $R>31$, e março tem **apenas** 31 dias. Isto acontece, pois os dias de abril são considerados dias de março, ou seja, 1 de abril é dia 32 de março e 10 de abril é dia 41 de março, por exemplo.
 
-::: details Lógica da Fórmula
+:::details[Lógica da Fórmula]
 
 - Uma propriedade interessante é que a soma da `Epacta`, de um ano $\lambda$ ,com o dia do mês de março $(R)$ onde calha a `Lua Cheia Pascal`, contando os dias de abril como continuação do mês de março, é:
   - $44, \quad$ entre 21 e 44 de março (13 de abril)
@@ -197,7 +197,7 @@ R = 20 + (54-E)\% 30\\
 E \rightarrow \text{Epacta}
 $$
 
-::: details Demonstração
+:::details[Demonstração]
 
 1. Se $E \geq 24$:
 
@@ -226,7 +226,7 @@ Agora que já sabemos a data da Lua Cheia Pascal, basta determinar quando é o p
 
 ![Fluxograma](./imgs/0014-fluxJul.png)
 
-::: details Exemplo
+:::details[Exemplo]
 
 Calcular o dia da Páscoa para o ano `1901`.
 
@@ -275,7 +275,7 @@ $$
 
 Dia "`32 de março`", ou seja, dia `1 de abril`.
 
-::: tip NOTA IMPORTANTE
+:::tip[NOTA IMPORTANTE]
 Se $N>C$,
 
 $$P= D + N - C$$
@@ -316,7 +316,7 @@ $$
 
 Esta correção tem por base os dias adicionados ao Sol e os dias retirados à Lua, ao longo dos anos.
 
-::: tip NOTA
+:::tip[NOTA]
 Em aritmética do Calendário define-se século ($S$), como os primeiros $n-2$ dígitos de uma ano ($n$ é u número de dígitos do ano).
 Por exemplo,
 $$S_{2020} = 20 \quad S_{12345}=123 \quad S_{12}=0$$
@@ -334,7 +334,7 @@ E_{sol}=3 \times((S-16)\div 4)+(S-16)\%4\\
 \text{ desconta-se 1 dia em cada 100 anos}
 $$
 
-::: details Exemplo
+:::details[Exemplo]
 Equação do Sol para o ano 2233  
 $S = 22$
 
@@ -369,7 +369,7 @@ $$
 Repare-se que $Z$ é o número de séculos do ciclo de 25 séculos a analisar. De 300 em 300 anos é retirado um dia à Lua, mas no 24º século não (a exceção).  
 Deste modo, quando $Z < 24$, $(Z\div 24)=0$ e $(Z \div 3)$ devolve os dias a descontar. Para $Z=24$ é preciso adicionar o dia que é retirado indevidamente pelo $(Z \div 3)$, e é por isso que está lá o $(Z\div 24)$.
 
-::: tip NOTA
+:::tip[NOTA]
 Estamos a calcular os dias que vão ser omitidos, por isso é que se tem $- (Z\div24)$. Ao adicionar um dia, está a retirar um dia aos omitidos
 :::
 
@@ -388,7 +388,7 @@ C_2 = E_{sol}- E_{lua}\\
 = S - (S\div4)-12- \left\lfloor\frac{S-\lfloor\frac{S-17}{25}\rfloor}{3}\right\rfloor
 $$
 
-::: tip NOTA
+:::tip[NOTA]
 $\lfloor\frac a b\rfloor$ é equivalente a $a\div b$ (divisão inteira)
 :::
 
@@ -417,7 +417,7 @@ $$
 V = (E \div 24 - E \div 25) + (G\div12)\times (E \div 25-E\div26)
 $$
 
-:::tip NOTA
+:::tip[NOTA]
 Considera-se a `Epacta Final` como sendo a soma da `Epacta Gregoriana` com a `Correção de Clavius`.
 :::
 
@@ -425,7 +425,7 @@ Considera-se a `Epacta Final` como sendo a soma da `Epacta Gregoriana` com a `Co
 
 ![Fluxograma](./imgs/0014-fluxGreg.png)
 
-::: details Exemplo
+:::details[Exemplo]
 
 Calcular Páscoa para o ano $2222$.
 

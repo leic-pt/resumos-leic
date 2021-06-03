@@ -13,7 +13,7 @@ path: /iaed/estruturas-controlo
 
 <<< @/src/iaed/assets/0002-conversao-temperaturas.c
 
-::: tip
+:::tip
 Podes (e deves!) comentar o código utilizando `/*` e `*/`.
 :::
 
@@ -30,7 +30,7 @@ Sintaxe: `while (<expressão>) <instrução>`
 Apesar de a identação poder ser ignorada, ao contrário de Python, é importante continuar a usá-la de modo a facilitar
 a leitura do programa.
 
-::: warning
+:::warning
 Um erro comum na escrita de ciclos while consiste na colocação despropositada de um `;` após a expressão que define o ciclo.
 Muitas vezes isto resultará num loop infinito. Um bom truque para evitar isto é abrir chavetas imediatamente
 a seguir à expressão, independentemente do while conter apenas uma instrução.
@@ -58,7 +58,7 @@ Com o `scanf()` é possível ler o input introduzido no terminal, como podes ver
 
 <<< @/src/iaed/assets/0002-quadrado-input.c
 
-::: tip
+:::tip
 Utiliza-se o `%d` para ler um inteiro. Se pretendêssemos ler dois inteiros seguidos faríamos
 `scanf("%d%d", &x, &y)`, por exemplo. Para ler um float utiliza-se `%f`.
 

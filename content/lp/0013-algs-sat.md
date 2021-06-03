@@ -23,7 +23,7 @@ A ideia por detrás deste algoritmo é, dada uma _fbf_, determinar as restriçõ
 
 Ora, a noção de **marca** vem precisamente desta noção: sempre que descobrimos que, para a _fbf_ fazer sentido, uma dada subfórmula tem de ter um valor lógico concreto, _marcamos_ essa subfórmula com esse valor lógico.
 
-::: tip CHEGAR AOS DAG'S
+:::tip[CHEGAR AOS DAG'S]
 
 Aqui, trabalhamos com grafos **dirigidos e acíclicos**, vulgo DAGs, grafos estes que vão corresponder às _fbfs_ cuja satisfazibilidade vamos procurar provar.
 Chegamos a este grafo através de:
@@ -80,7 +80,7 @@ Chegámos agora à próxima fase do algoritmo, a propagação de marcas (V ou F)
 
 Se repararem, acima mencionei algumas vezes o "processo inverso/ascendente" - isto porque, caso apenas ocorra a propagação de marcas no sentido descendente, temos de verificar, começando nas folhas, se a propagação inversa também faz sentido (e é igual à descendente). Se for, encontrámos uma interpretação que satisfaz a _fbf_; caso contrário, a _fbf_ não é satisfazível.
 
-::: details Exemplos - Propagação de Marcas
+:::details[Exemplos - Propagação de Marcas]
 
 A propagação de marcas relativas à _fbf_ $P \wedge \neg (P \wedge \neg Q)$ tem um aspeto deste género:
 
@@ -132,7 +132,7 @@ A grande vantagem destes algoritmos em relação aos algoritmos de DP é em rela
 
 Utilizam regras que transformam conjuntos de cláusulas em conjuntos de cláusulas. Têm como principal vantagem em relação ao algoritmo estudado acima o facto de ser **completo**, terminando sempre com uma resposta. São, contudo, menos eficientes, apresentando crescimento exponencial.
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 (talvez reler na diagonal a secção sobre a [resolução](https://ist.diogotc.com/lp/0005-logica-primeiraordem-sc.html#resolucao) possa ajudar a relembrar conceitos esquecidos)
 
@@ -160,7 +160,7 @@ O algoritmo consiste em, partindo de uma _fbf_ $\Delta$ já na forma clausal, ir
 
 Chegamos **sempre** a um destes dois resultados, sendo esta a principal vantagem do algoritmo - chegamos sempre a um resultado concreto.
 
-::: details Exemplos
+:::details[Exemplos]
 
 $\Delta = \{\{P, Q\}, \{\neg P, Q\}, \{\neg Q, R\}, \{\neg R\}\}$
 
@@ -198,7 +198,7 @@ Uma maneira de implementar o algoritmo DP consiste em utilizar o conceito de **b
 
   Para processar o balde $b_{P_{i}}$, geram-se todos os resolventes-$P_{i}$ a partir exclusivamente de cláusulas do balde respetivo; cada um destes resolventes é colocado no primeiro balde seguinte $b_{P_{j}}$ tal que a cláusula mencione $P_{j}$ e assim sucessivamente. Se durante o processamento de um balde for gerada a cláusula vazia, o algoritmo termina, indicando que a _fbf_ não é satisfazível. Se chegarmos ao fim e a cláusula vazia nunca for gerada, podemos afirmar que a _fbf_ é satisfazível.
 
-::: details Exemplo - Aplicação do método dos baldes
+:::details[Exemplo - Aplicação do método dos baldes]
 
 Ora, peguemos na _fbf_ tal que $\Delta = \{\{P, Q, \neg R\}, \{\neg P, S, T, R\}, \{\neg P, Q, S\}, \{\neg Q, \neg R\}, \{S\}\}$. Podemos ainda estabelecer uma relação de ordem total arbitrária - seja ela $P \prec Q \prec R \prec S \prec T$. A primeira fase, criar e preencher os baldes, dá-se tal que:
 

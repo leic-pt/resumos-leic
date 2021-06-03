@@ -18,7 +18,7 @@ $$
 \frac{\partial^2f}{\partial x_1 \partial x_j} = \frac{\partial}{\partial x_i}\left(\frac{\partial f}{\partial x_j}\right)
 $$
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 $f: \R^n \to \R$ diz-se de classe $C^k$ se cada uma das derivadas parciais de ordem k
 
 $$
@@ -28,7 +28,7 @@ $$
 \(os índices podem-se repetir) existir e for função contínua.
 :::
 
-::: details Exemplo
+:::details[Exemplo]
 
 Seja $f$, uma função diferenciável em qualquer ponto do seu domínio.
 
@@ -50,7 +50,7 @@ Este teorema mostra-nos que a ordem por que derivamos não é importante.
 Se derivarmos uma função segundo $x$ e de seguida derivarmos esse resultado segundo $y$, vamos
 obter o mesmo resultado se derivarmos segundo $y$ e depois $x$.
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Seja $f \in C^2$, então
 
@@ -62,7 +62,7 @@ $$
 
 ## Fórmula de Taylor
 
-::: tip Recordar de CDI 1
+:::tip[Recordar de CDI 1]
 
 Seja $f: \R \to \R$ , $C^k$ tem-se
 
@@ -80,7 +80,7 @@ $$
 
 ### Para dimensões superiores a 1
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Seja $f: \R^n \to \R$, $f$ é $C^{n+1}$, e sejam $a \in \R^n$ e $v \in \R^n$  
 Seja $g: \R \to \R$, $C^{k+1}$, tal que $g(t) = f(a+tv)$.
@@ -108,7 +108,7 @@ $$
 
 Se assumirmos $h = tv$, $||v||=1$, obtemos a definição da Fórmula de Taylor de 2ª ordem:
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 Sejam $f: \R^n \to \R$ de classe $C^3$, $h = tv$ e $||v||=1$, podemos obter Fórmula de Taylor de $f$ de 2ª ordem pela expressão:
 
 $$
@@ -153,7 +153,7 @@ Hf( a) =\begin{bmatrix}
 \end{bmatrix}
 $$
 
-::: details Exemplos de Polinómios de Taylor de 2ª ordem
+:::details[Exemplos de Polinómios de Taylor de 2ª ordem]
 
 Escrever o polinómio de Taylor de 2ª ordem da função
 $f(x,y) = e^x - e^y$ em torno da origem, $a=(0,0)$
@@ -244,7 +244,7 @@ O polinómio pedido é $x-y+\frac 12 ( x^2-y^2)$
 
 Tal como em CDI-I, sabemos que se um ponto é um extremo, então o gradiente nesse ponto vai ser nulo.
 
-::: tip TEOREMA
+:::tip[TEOREMA]
 
 Seja $f: \R^n \to \R$, que tem extremo em $a \in \R^n$
 
@@ -254,20 +254,20 @@ Então, $\nabla f(a) = \vec 0$
 
 Estes pontos, chamam-se **pontos de estacionariedade** ou **pontos críticos**.
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Seja $f: \R^n \to \R$. Os pontos $a \in \R^n$ para os quais $\nabla f(a) = \vec 0$ dizem-se pontos de estacionariedade ou pontos críticos.
 
 :::
 
-::: warning
+:::warning
 
 É importante relembrar que nem todos os pontos $\nabla f(a) = \vec 0$ são extremos,
 tal como em CDI-I nem todos os pontos onde a derivada se anulava eram extremos.
 
 :::
 
-::: details Exemplos
+:::details[Exemplos]
 
 Seja $f: \R^2 \to \R$, $f(x,y)=x^2+y^2$, determine os pontos críticos de $f$.
 
@@ -432,7 +432,7 @@ o sinal de $f(a+h)-f(a)$ pode ser determinado em função dos valores próprios 
 - $f(a+h)-f(a) > 0$ se todos os $\lambda_i > 0$, donde em $a$ **ocorre mínimo**
 - $f(a+h)-f(a) < 0$ se todos os $\lambda_i < 0$, donde em $a$ **ocorre máximo**
 
-::: tip TEOREMA
+:::tip[TEOREMA]
 
 Seja $f: \R^n \to \R$, $a \in \R$ é ponto crítico de $f$, ou seja $\nabla f(a) = \vec 0$
 
@@ -446,7 +446,7 @@ Se $H_f(a)$ é:
 
 :::
 
-::: details Exemplos
+:::details[Exemplos]
 
 Determine e clarifique os pontos de estacionariedade da função $f: \R^2 \to \R$
 
@@ -555,7 +555,7 @@ Então, **podemos concluir o seguinte**:
 - Se $\operatorname{det} H_f(a) > 0$ e $\operatorname{tr} H_f(a) > 0$ então $f$ tem mínimo local em $a$
 - Se $\operatorname{det} H_f(a) > 0$ e $\operatorname{tr} H_f(a) < 0$ então $f$ tem máximo local em $a$
 
-::: details Exemplos
+:::details[Exemplos]
 
 Determinar e caracterizar os pontos críticos de $f$:
 

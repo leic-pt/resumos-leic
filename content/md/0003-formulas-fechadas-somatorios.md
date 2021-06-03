@@ -19,7 +19,7 @@ path: /md/formulas-fechadas-somatorios
 
 ### Números de Stirling de Primeira Espécie
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Sabe-se que $n^{\underline{r}} = n(n-1)(n-2)\cdot\cdot\cdot(n-r+1)$. Tem-se então que:
 
@@ -34,7 +34,7 @@ $$
 
 **Ou seja, os números de Stirling de primeira espécie dão-nos os coeficientes da expansão de um polinómio fatorial.**
 
-::: tip DE NOTAR
+:::tip[DE NOTAR]
 
 O sinal dos números de Stirling **de primeira espécie** depende da paridade de $n+k$, ou seja, sendo $s(n,k)$ um número de Stirling, tem-se:
 
@@ -42,7 +42,7 @@ $$s(n,k) = (-1)^{n+k}\left|\begin{bmatrix}n \\ k \end{bmatrix}\right|$$
 
 :::
 
-::: details Exemplo
+:::details[Exemplo]
 
 É possível relacionar os polinómios usuais com os fatoriais através da primeira espécie, como feito no exemplo seguinte:
 
@@ -141,7 +141,7 @@ $$
 
 o que facilita imenso a avaliação da soma de $n^{3}$.
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 $$\sum_{k=0}^{m}n^{p} = \sum_{k=0}^{m}\left( \sum_{k=0}^{p} \begin{Bmatrix}p\\k\end{Bmatrix}n^{\underline{k}}\right) $$
 
@@ -238,7 +238,7 @@ $$
 (an+b)^{\underline{r}} = \Delta\frac{1}{a(r+1)}(an+b)^{\underline{r+1}}
 $$
 
-::: details Exemplo 1
+:::details[Exemplo 1]
 
 Através desta fórmula é possível achar a soma fechada para expressões do tipo:
 
@@ -256,7 +256,7 @@ $$
 
 :::
 
-::: details Exemplo 2
+:::details[Exemplo 2]
 
 Um comboio de mercadorias viaja durante $5\ h$ à velocidade de $3\ km\ h^{-1}$; três comboios de mercadorias viajam
 durante $7\ h$ à velocidade de $5\ km\ h^{-1}$; cinco comboios de mercadorias viajam $9\ h$ à velocidade de $7\ km\ h^{−1}$; e
@@ -277,7 +277,7 @@ Como $n = 10$, a resposta é $40 755\ km$.
 
 ## Polinomial Fatorial com Expoente Negativo
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Define-se um polinomial fatorial com valor negativo $(n^{\underline{-r}})$ como:
 
@@ -287,7 +287,7 @@ $$u_{n}^{\underline{-r}} = \frac{1}{u_{n+1} \cdot \cdot \cdot u_{n+r}}$$
 
 Como mnemónica, escreve-se o último termo no denominador primeiro porque coincide com o expoente fatorial e depois conta-se o número de fatores (existem $r$ fatores).
 
-::: details Exemplos
+:::details[Exemplos]
 
 $$u_{n}^{\underline{-2}} = \frac{1}{(n+1)(n+2)}$$
 
@@ -305,7 +305,7 @@ $$\frac{1}{(2n+1)(2n+3)(2n+5)} = \frac{1}{(2(n+1)-1)(2(n+2)-1)(2(n+3)-1)} = (2n-
 
 A [fórmula anteriormente conhecida](./0002-introducao-calculo-finito.md#somas-fechadas-do-tipo-an) para polinómios elevados a fatoriais positivos pode-se prolongar, funcionando da mesma maneira para os de expoente negativo, ou seja:
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 $$\sum_{k=0}^{n-1}k^{\underline{r}} = \left[\frac{k^{\underline{r+1}}}{r+1}\right]_{0}^{n}\quad,\quad r \in \mathbb{Z}\backslash \{-1\}$$
 
@@ -313,7 +313,7 @@ $$\sum_{k=0}^{n-1}u_{k}^{\underline{r}} = \left[\frac{u_{k}^{\underline{r+1}}}{a
 
 :::
 
-::: details Exemplo
+:::details[Exemplo]
 
 $$
 \begin{aligned}
@@ -330,7 +330,7 @@ $$
 
 ## Derivada do Polinómio Fatorial de Expoente Negativo
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 $$
 \Delta n^{\underline{-r}}=-r\cdot n^{\underline{-r-1}}\quad,\quad r>0
@@ -338,7 +338,7 @@ $$
 
 :::
 
-::: details Demonstração
+:::details[Demonstração]
 
 $$
 \begin{aligned}

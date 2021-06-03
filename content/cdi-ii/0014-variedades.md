@@ -13,7 +13,7 @@ path: /cdi-ii/variedades
 
 Um conjunto é uma variedade de $\dim m$ se em torno de qualquer ponto posso descrever a variedade como o gráfico de uma função ($C^1$) de $m$ variáveis.
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 $M \subset \R^n$ é uma variedade diferenciável de dimensão $m$ se $\forall a \in M$ existe
 uma vizinhança na qual $M$ é o gráfico de uma função $f: U\subset \R^m \to \R^{n - m}$ de classe $C^1$.
 :::
@@ -59,11 +59,11 @@ Então, $M$ é variedade de $\dim\ m$ se $\forall a \in M$ for possível aplicar
 
 Basta encontrar $m$ variáveis para as quais $\det DF \ne 0 \implies \text{característica máxima}~n - m$.
 
-::: tip TEOREMA
+:::tip[TEOREMA]
 O conjunto de nível é uma variedade de $\dim\ m$ se $DF$ tem sempre [característica](<https://en.wikipedia.org/wiki/Rank_(linear_algebra)>) máxima.
 :::
 
-::: details Exemplos
+:::details[Exemplos]
 
 Considerando
 
@@ -190,7 +190,7 @@ $A$ é uma curva em $\R^3$
 
 ## Parametrização
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Seja $M$ uma variedade de $\dim m \subset R^n$.  
 Uma parametrização é uma função $g: V \to M$, em que:
@@ -210,7 +210,7 @@ Como exemplo, temos o seguinte conjunto (circunferência de raio 1):
 
 A sua parameterização é $g(t) = (\cos t, \sin t), t \in ]0, 2\pi[$.
 
-::: details Exemplos
+:::details[Exemplos]
 
 Seja $f \in C^1$ em $]a,b[$ e
 
@@ -392,7 +392,7 @@ $$
 
 ## Espaço Tangente e Espaço Normal
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 $M$ variedade de $\dim m \subset \R^n$, $v \in \R^n$, $a \in M$
 
@@ -457,7 +457,7 @@ $$
 T_{(1,1,2)} S = \mathcal{L} \{(1,-1,1), (0,1,3)\}
 $$
 
-::: details Mais Exemplos
+:::details[Mais Exemplos]
 
 Considerando agora o conjunto $L$:
 
@@ -542,7 +542,7 @@ $$
 T_aM = \mathcal{L} \{\text{colunas de}\ Dg(t_0)\}
 $$
 
-::: details Demonstração
+:::details[Demonstração]
 
 $$
 0=F(g(t)) \implies 0 = D(F(g(t))) = DF(g(t))\cdot Dg(t)
@@ -554,7 +554,7 @@ pelo que as colunas de $Dg(t_0)$ pertencem ao espaço tangente.
 
 :::
 
-::: details Exemplo
+:::details[Exemplo]
 
 Considerando
 

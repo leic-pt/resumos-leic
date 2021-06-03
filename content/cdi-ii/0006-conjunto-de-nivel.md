@@ -33,13 +33,13 @@ Podemos concluir duas coisas:
 
 O gradiente dá a direção e sentido segundo os quais se dá a variação máxima da função.
 
-::: tip
+:::tip
 Para funções diferenciáveis vetoriais $f: D \subseteq \R^n \to \R^m$
 (portanto existem $f_i: D \subseteq \R^n \to \R$ diferenciáveis para $i = 1, 2, \dots, m$),
 estas considerações são válidas para cada uma das $f_i$'s.
 :::
 
-::: details Exemplo
+:::details[Exemplo]
 
 Seja $f(x,y) = x^2+xy$.
 Obtendo o gradiente da função, podemos descobrir qual a direção a seguir para maximixar a variação da mesma.
@@ -63,7 +63,7 @@ Assim, ao me afastar de $(1,1)$ no sentido $(1,-3)$, a função não varia local
 
 Os conjuntos de nível são a generalização das curvas de nível a $dim > 2$.
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Seja $f: D \subseteq \R^n \to \R$ e $k \in \R$,  
 define-se o conjunto de nível de $f$ de valor $k$ como
@@ -111,7 +111,7 @@ Também podemos pensar que ao longo de uma direção a função cresce, e ao lon
 
 ## Caminho em Rⁿ
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 Caminho em $\R^n$ é uma função $c: \R \to \R^n$.  
 A imagem de $c$ diz-se linha ou curva e denota-se $\Gamma$.
 :::
@@ -128,7 +128,7 @@ $$
 c'(t)=\lim_{h \to 0} \frac{c(t+h)-c(t)}{h}
 $$
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 Seja $c: \R \to \R^n$, $C^1$ e $\Gamma$ a linha descrita por $c$.  
 O vetor $c'(t)$ diz-se o **vetor tangente** à linha $\Gamma$ no ponto $c(t)$.
 :::
@@ -136,7 +136,7 @@ O vetor $c'(t)$ diz-se o **vetor tangente** à linha $\Gamma$ no ponto $c(t)$.
 Se considerarmos cada função componente de $c$, a função $c_i: \R \to \R$, podemos derivar
 indidualmente cada uma destas componentes, de forma a obter o vetor tangente, $c'(t)$, à curva $\Gamma$ em $c(t)$.
 
-::: details Exemplos
+:::details[Exemplos]
 
 Se tivermos $c(t) = (\cos t, \sin t), \forall t \in \R$, podemos calcular as suas derivadas em vários pontos:
 
@@ -163,14 +163,14 @@ $$
 
 ### Vetor Tangente a um Conjunto
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Um vetor $v\in \R^n$ diz-se **tangente** a um conjunto $M \subset \R^n$ num ponto $a \in M$
 se existir um caminho $C^1, c:\R \to M$ tal que $c(0) = a$ e $c'(0) = v$.
 
 :::
 
-::: details Exemplo
+:::details[Exemplo]
 
 Sejam $f: D \subseteq \R^n \to \R$, uma função escalar e $k \in \R$  
 Sejam $M = N(k) = \{x \in D: f(x)= k\}$  
@@ -185,11 +185,11 @@ Portanto se $M$ é conjunto de nível e $a\in M$, $\nabla f(a)$ é ortogonal à 
 
 ### Gradiente de um Campo Escalar
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 O gradiente de um campo escalar $f$ em $a$ é ortogonal ao conjunto de nível de $f$.
 :::
 
-::: details Exemplos
+:::details[Exemplos]
 
 Qual o vetor perpendicular ao plano de equação $ax + by + cz = d$ ?
 

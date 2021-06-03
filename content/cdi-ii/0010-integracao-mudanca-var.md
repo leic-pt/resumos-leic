@@ -15,7 +15,7 @@ Se quisermos efetuar uma mudança de variável num integral em $\R^n$,
 precisamos de compensar a nossa alteração,
 [tal como fazíamos em $\R$](https://www.notion.so/diogocorreia/Primitiva-o-por-substitui-o-540b2c1b4ebb48f293a9b8dc3856f71f).
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Sendo:
 
@@ -105,7 +105,7 @@ $$
 \end{aligned}
 $$
 
-::: details Exemplo - Calcular Área de um Círculo
+:::details[Exemplo - Calcular Área de um Círculo]
 
 Podemos usar as coordenadas polares para calcular a área de um círculo de raio $R$.
 
@@ -181,7 +181,7 @@ $$
 \end{aligned}
 $$
 
-::: details Exemplo - Determinar Volume de um Cone
+:::details[Exemplo - Determinar Volume de um Cone]
 
 Tomando o cone definido por
 
@@ -265,7 +265,7 @@ $$
 |\det Dg| = r^2 \sin \varphi
 $$
 
-::: details Demonstração
+:::details[Demonstração]
 
 $$
 \begin{aligned}
@@ -291,7 +291,7 @@ $$
 
 :::
 
-::: details Exemplo - Volume de uma Bola
+:::details[Exemplo - Volume de uma Bola]
 
 Seja $C$ uma bola em $\R^3$ de raio $R$:
 

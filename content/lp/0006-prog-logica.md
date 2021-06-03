@@ -33,7 +33,7 @@ Tanto as regras como as afirmações chamam-se também **cláusulas determinadas
 
 Em resolução com cláusulas de Horn, pelo menos um dos resolventes tem de ser uma cláusula determinada, visto que só estas contêm literais positivos (caso contrário nem sequer seria possível aplicar a resolução).
 
-::: details Resolução com Cláusulas de Horn
+:::details[Resolução com Cláusulas de Horn]
 
 O exemplo abaixo é o mesmo que o da [prova por resolução - verdadeiro/falso](./0005-logica-primeiraordem-sc.md#resolucao) da matéria anterior, só que utilizando resolução com cláusulas de Horn.
 
@@ -55,7 +55,7 @@ $\leftarrow Ant(Sr.B, Bart).$
 
 - **Definição de um predicado** - num programa, o conjunto de todas as cláusulas cuja cabeça corresponde a um literal contendo a letra de predicado $P$ diz-se a _definição_ de $P$.
 
-::: details Predicado
+:::details[Predicado]
 
 Em relação ao exemplo acima, a definição de $Ant$ seria dada por:
 
@@ -65,7 +65,7 @@ $\{Ant(x, y) \leftarrow AD(x, y),      Ant(x, z) \leftarrow Ant(x, y), AD(y, z)\
 
 Uma definição de predicado que contenha apenas cláusulas fechadas, isto é, sem variáveis, chama-se uma **base de dados para esse predicado**.
 
-::: details Base de Dados
+:::details[Base de Dados]
 
 Ainda em relação ao exemplo anterior, a base de dados de $AD$ pode ser dada por:
 
@@ -75,7 +75,7 @@ visto que a definição de predicado de $AD$ não contém cláusulas não fechad
 
 :::
 
-::: tip Definições a reter
+:::tip[Definições a reter]
 
 - **Resposta de um programa a um objetivo** - Sendo $\Delta$ um programa e $\alpha$ um objetivo, uma resposta de $\Delta$ ao objetivo $\alpha$ é uma substituição $s$ para as variáveis de $\alpha$.
 
@@ -106,7 +106,7 @@ Do inglês **_Linear Resolution with Selection Function and Definite clauses_**.
 
 Esta estratégia é utilizada devido ao normal princípio da resolução não ser determinístico - não há um caminho específico por onde ir. Para além da resolução "normal", o algoritmo de unificação também não é determinístico.
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 **Função de seleção**, ou $S$, é uma regra para escolher um literal numa cláusula-objetivo como candidato à aplicação do princípio da resolução. É tal que $S(\leftarrow \alpha = (\alpha_{1}, \dots, \alpha_{n})) \in (\alpha_{1}, \dots, \alpha_{n}).$
 
@@ -120,7 +120,7 @@ De um modo não rigoroso, a resolução SLD encontra a resposta de um programa a
 
 - **Resposta Calculada** - sendo $\Delta$ um programa, $\alpha$ um objetivo e $S$ uma função de seleção. Se a prova SLD para $\alpha$ usando $\Delta$ for finita, $[\gamma_{0}, \dots, \gamma_{n}]$ (sequência de objetivos), a composição das substituições $s_{0},\dots,s_{n-1}$ restringida às variáveis que ocorrem em $\alpha~(s_{0} \circ \dots \circ s_{n-1})|_{vars(\alpha)}$, diz-se uma resposta calculada de $\Delta$ a $\alpha$ via $S$. Diz-se também que $n$ é o comprimento da prova SLD.
 
-::: details Resolução SLD
+:::details[Resolução SLD]
 
 No exemplo seguinte, temos uma resolução SLD. Temos que o objetivo é $\leftarrow Ant(Sr.B, Bart)$, não tendo sub-objetivos. Assim sendo, procuramos a sua resolução com uma **cabeça** de uma cláusula do programa. Escolhemo-la, aplicamos o unificador e temos agora o resultado dessa resolução - um objetivo com dois sub-objetivos. Assim vamos prosseguindo até uma altura em que temos $AD(Sr.B, Marge)$ tanto no corpo como na cabeça das cláusulas que restam como objetivo e programa. Assim sendo, chegamos à cláusula vazia, concluindo que estamos na verdade na presença de uma **refutação SLD**.
 
@@ -151,7 +151,7 @@ A mesma função de seleção oferece várias alternativas para a construção d
 
 Numa árvore SLD, os ramos que terminam em $\square$ dizem-se **bem sucedidos**, sendo que os que terminam em objetivos dizem-se **falhados** e os restantes **ramos infinitos**.
 
-::: details Árvore SLD
+:::details[Árvore SLD]
 
 Tenhamos o programa:
 

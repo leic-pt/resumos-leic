@@ -23,7 +23,7 @@ f. < 18, 23, 16, 21, 15, 19, 12, 25 >
 g. < 23, 18, 21, 16, 15, 12, 19, 25 >
 ```
 
-::: details Resolução
+:::details[Resolução]
 
 ![ex1](./1111-ex1r.png#dark=1)
 
@@ -48,7 +48,7 @@ g. rotR(23)
 
 Nota: considere que `rotL` e `rotR` são as operações de rotação para a esquerda e para a direita, respectivamente.
 
-::: details Resolução
+:::details[Resolução]
 
 Resposta: b) e d) estão corretas
 
@@ -64,7 +64,7 @@ Considere uma árvore AVL para inteiros inicialmente vazia onde são inseridos s
 
 Desenhe a árvore resultante e indique a sequência de elementos visitados por uma travessia post-order.
 
-::: details Resolução
+:::details[Resolução]
 
 ![ex3](./1111-ex3r.png#dark=1)
 
@@ -77,7 +77,7 @@ Resposta: 6, 3, 8, 7, 10, 15, 11, 50, 16, 9
 Considere a árvore resultante do exercício anterior e elimine o elemento `16`.\
  Desenhe a árvore resultante e indique a sequência de elementos visitados por uma travessia pre-order.
 
-::: details Resolução
+:::details[Resolução]
 
 ![ex4](./1111-ex4r.png#dark=1)
 
@@ -93,7 +93,7 @@ Considere a seguinte árvore binária de pesquisa:
 
 Qual a rotação que teria de efectuar para equilibrar a árvore? Indique o valor do nó a rodar e a direcção da rotação (direita/esquerda).
 
-::: details Resolução
+:::details[Resolução]
 
 Rotação esquerda 22
 
@@ -108,7 +108,7 @@ Considere a seguinte árvore AVL:
 Insira o elemento 60 e na árvore AVL resultante elimine o elemento 10.\
 Indique a sequência de elementos visitados ao efectuar uma travessia post-order da árvore AVL após as operações de inserção e remoção que efectuou.
 
-::: details Resolução
+:::details[Resolução]
 
 1 , -6, 4, 0, 15, 26, 24, 60, 52, 37, 12
 
@@ -123,6 +123,6 @@ Considere a seguinte árvore AVL:
 Elimine o elemento 12 e na árvore AVL resultante insira o elemento 20.\
 Indique a sequência de elementos visitados ao efectuar uma travessia pre-order da árvore AVL após as operações de remoção e inserção que efectuou.
 
-::: details Resolução (Contribute!)
+:::details[Resolução (Contribute!)]
 
 :::

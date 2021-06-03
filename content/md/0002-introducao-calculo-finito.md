@@ -25,7 +25,7 @@ Neste caso, toma-se a definição usual de derivada (razão incremental), mas de
 
 A soma de todas as derivadas desde zero até $n-1$ é igual a $u_{n} - u_{0}$. Assim, tem-se
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 $$\sum_{k=0}^{n-1} \Delta u_{k} = u_{n} - u_{0}$$
 
@@ -33,7 +33,7 @@ $$\sum_{k=0}^{n-1} \Delta u_{k} = u_{n} - u_{0}$$
 
 É de notar que $u_{n} - u_{0} = [u_{n}]_{0}^{n} = u_{n}|_{0}^{n}$ (notação de integral).
 
-::: details Demonstração
+:::details[Demonstração]
 
 $$
 \Delta u_{0} =u_{1} -u_{0}\\
@@ -60,7 +60,7 @@ $$
 Tal como em cálculo diferencial, existe uma sucessão cuja "derivada" é igual à própria sucessão.  
 Em calculo finito, esta é a sucessão $u_{n} = 2^{n}$.
 
-::: details Demonstração
+:::details[Demonstração]
 
 $$
 \begin{aligned}
@@ -82,7 +82,7 @@ $$\sum_{k=0}^{n-1} 2^{k} = \sum_{k=0}^{n-1} \Delta2^{k} = [2^{k}]_{0}^{n} = 2^{n
 
 e, generalizando, tem-se:
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 $$\sum_{k=0}^{n-1} a^{k} =\frac{[a^k]^n_0}{a-1} = \frac{a^n-1}{a -1} \quad, \quad a\ne 0,1 $$
 
@@ -92,7 +92,7 @@ $$\sum_{k=0}^{n-1} a^{k} =\frac{[a^k]^n_0}{a-1} = \frac{a^n-1}{a -1} \quad, \qua
 
 Note-se, primeiro, a definição de polinómio fatorial:
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Para cada $r \in \mathbb{N}$, a polinómio fatorial de uma sucessão $u_{n}$ define-se como se segue:
 
@@ -130,7 +130,7 @@ $$
 \end{aligned}
 $$
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Derivada do polinómio fatorial
 

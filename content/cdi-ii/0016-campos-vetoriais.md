@@ -11,7 +11,7 @@ path: /cdi-ii/campos-vetoriais
 
 ## Integral de Linha de Campo Vetorial
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Seja $C \subset \R^n$ uma curva parametrizada por $g: ]a, b[ \to \R^n$ e $F: C \to \R^n$
 
@@ -32,7 +32,7 @@ $$
 \end{aligned}
 $$
 
-::: details Exemplos
+:::details[Exemplos]
 
 Considerando a parametrização $g$ e o campo vetorial $F$,
 
@@ -108,7 +108,7 @@ $$
 
 ## Campo Vetorial Conservativo
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Um campo vetorial cujo integral sobre qualquer curva depende só dos
 extremos da curva diz-se **conservativo**.
@@ -117,7 +117,7 @@ extremos da curva diz-se **conservativo**.
 
 Um campo é conservativo se e só se o integral ao longo de qualquer curva fechada for 0.
 
-::: details Exemplo
+:::details[Exemplo]
 
 Seja $F$ constante, isto é, $F = (F_1, \dots F_n)$ fixo
 
@@ -145,7 +145,7 @@ equivalente a $\oint_C F \d g = 0$.
 
 ## Teorema Fundamental do Cálculo para Integrais de Linha
 
-::: tip TEOREMA
+:::tip[TEOREMA]
 
 Seja $\phi : \R^n \to \R, C^1$ e uma curva $C$ com extremos $A$ e $B$, parametrizada
 por $g: [a,b] \to \R^n$, então
@@ -156,7 +156,7 @@ $$
 
 :::
 
-::: details Demonstração
+:::details[Demonstração]
 
 $$
 \begin{aligned}
@@ -177,7 +177,7 @@ então $\int_C \nabla \phi \d \gamma = 0$
 
 ## Campo Gradiente
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Dado um campo vetorial $F: \R^n \to \R^n$, **se existir** $\phi: \R^n \to \R$, $C^1$ tal que $\nabla \phi = F$,
 isto é, $\phi$ é um potencial de $F$, dizemos que que $F$ é um **campo gradiente**.
@@ -195,7 +195,7 @@ $$
 
 ## Campo Fechado
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 $F: \R^n \to \R^n$ é fechado se
 
@@ -205,7 +205,7 @@ $$
 
 :::
 
-::: details Exemplo
+:::details[Exemplo]
 
 Seja $F(x,y,z) = (y,x,1)$
 
@@ -270,7 +270,7 @@ Podemos reparar que a norma do campo é maior quanto menor for a distância à o
 - É fechado
 - Não é gradiente
 
-::: details Exemplo
+:::details[Exemplo]
 
 **Seja o campo vetorial $F$:**
 
@@ -326,7 +326,7 @@ Logo, como o trabalho é diferente de zero, $F$ não é gradiente.
 
 ---
 
-::: details Exemplos globais
+:::details[Exemplos globais]
 
 Considera-se $F(x,y) = \left(x^2 y, \frac{x^3}{3}\right)$.
 

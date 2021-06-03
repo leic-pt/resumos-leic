@@ -20,12 +20,12 @@ A lógica estuda métodos para distinguir a validade dos argumentos. Lida com **
 
 - **Argumento** - par composto por um conjunto de proposições, as **premissas**, e por uma proposição particular, a **conclusão**. Podem ser válidos, inválidos, ou sem validade conhecida.
 
-::: details Exemplo - Argumento
+:::details[Exemplo - Argumento]
 
 Todos os homens são mortais.  
 Sócrates é um homem.  
 ∴ Sócrates é mortal.  
-::: tip
+:::tip
 O símbolo "∴" lê-se "logo".  
 :::
 
@@ -52,7 +52,7 @@ Temos que uma proposição pode conter **termos lógicos** ("e", "ou", "então",
 
 - **Forma de um argumento** - argumento em que os termos específicos de cada uma das proposições que o constituem são substituídos por um símbolo associado à sua _categoria gramatical_.
 
-::: details Exemplo - Forma de um Argumento
+:::details[Exemplo - Forma de um Argumento]
 
 O argumento:
 

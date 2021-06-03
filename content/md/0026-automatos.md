@@ -4,7 +4,7 @@ path: /md/automatos-finitos
 
 # Autómatos Finitos
 
-::: details Pequeno Exemplo
+:::details[Pequeno Exemplo]
 
 Representação gráfica de um autómato que, numa palavra de $0$'s e $1$'s finita, verifica se o número de $0$'s é par e $1$'s é ímpar.
 
@@ -25,7 +25,7 @@ Um autómato finito determinístico é um quíntuplo $D = (Q,\Sigma,\delta,q_0,F
 - $F$ estados de aceitação/finais $(F \subseteq Q)$
 - $\delta$ função que, com o estado atual e com $\sigma \in \Sigma$ que recebe, transita para um novo estado $(\delta: Q \times \Sigma \rightarrow Q )$
 
-::: details Exemplo 1
+:::details[Exemplo 1]
 
 Pegando no exemplo do início onde queríamos verificar se, numa palavra de $0$'s e $1$'s, o número de $0$'s é par e $1$'s é ímpar.
 
@@ -54,7 +54,7 @@ Relembrar que queríamos ver se a palavra tinha um número par de $0$'s e ímpar
 
 :::
 
-::: details Exemplo 2
+:::details[Exemplo 2]
 
 Queremos verificar se uma palavra consituída por elementos de $\Sigma=\{x,y,z\}$ acaba em $yz$
 
@@ -79,7 +79,7 @@ $$
 
 :::
 
-::: details Exemplo 3
+:::details[Exemplo 3]
 
 Queremos um AFD que receba palavras formadas por $\Sigma=\{a,b,c\}$ e que verifique se começa e acaba na mesma letra.  
 Neste exemplo, mostra-se apenas a representação gráfica.
@@ -90,7 +90,7 @@ $F = \{q_1,q_2,q_3\}$
 
 :::
 
-::: tip IMPORTANTE
+:::tip[IMPORTANTE]
 
 Podemos definir ainda $\delta^*$, como sendo a função que recebe um estado e uma palavra. Pode ser definida recursivamente como:
 
@@ -119,7 +119,7 @@ Uma Linguagem diz-se Regular se existir um AFD que a reconheça.
 
 O **complementar** de uma Linguagem Regular (LR), a **interseção** de duas LR e a **união** de duas LR também são `Linguagens Regulares`.
 
-::: details Exemplo - Complementação
+:::details[Exemplo - Complementação]
 
 O seguinte autómato serve para encontrar palavras formadas por $x,y,z$ que acabem em $yz$, onde $F=\{<yz>\}$.
 
@@ -133,7 +133,7 @@ A única diferença entre este e o seu complementar (palavras que não terminam 
 Até agora, os exemplos vistos foram todos de `Autómatos Completos`, ou seja, para cada estado temos indicação para mudar de estado para todo o "input" recebido.  
 Há casos onde isto não acontece, e aí estamos perante um `Autómato Não Completo` (ANC).
 
-::: details Exemplo Importante - ANC
+:::details[Exemplo Importante - ANC]
 
 Queremos um autómato que recebe uma palavra de $0$'s e $1$'s e verifica se a palavra é consituída primeiro por um número par de $0$'s e depois por um número par de $1$'s. Por exemplo, $00111$ é aceite, mas $01011$ não é.
 
@@ -148,7 +148,7 @@ Nos `ANC`, omitimos um estado onde vai parar tudo o que não está especificado,
 
 ![Auto ANC Comp](./imgs/0026-autoNC1v2.png)
 
-::: tip NOTA
+:::tip[NOTA]
 
 Para encontrar o complementar do autómato descrito acima, teríamos de incluir o estado omitido, porque é necessário nessa situação.
 
@@ -164,7 +164,7 @@ Um `AFND` é um quíntuplo $N=(Q,\Sigma,\delta,q_0,F)$, onde:
 - $F$ estados de aceitação/finais $(F \subseteq Q)$
 - $\delta$ função que, com o estado atual e com $\sigma \in \Sigma_{\epsilon} (\Sigma_{\epsilon} = \Sigma \cup \{\epsilon\})$ que recebe, pode transitar para um conjunto de estados $(\delta: Q \times \Sigma_{\epsilon} \rightarrow P(Q)$, onde $P(Q)$ é o conjunto dos subconjuntos de $Q )$
 
-::: tip NOTAS
+:::tip[NOTAS]
 
 - Um `AFND` é feito sabendo que tem de haver pelo menos um caminho para as palavras aceitáveis e nenhum para as que não são.
 
@@ -176,7 +176,7 @@ Um `AFND` é um quíntuplo $N=(Q,\Sigma,\delta,q_0,F)$, onde:
 
 :::
 
-::: details Exemplo 1
+:::details[Exemplo 1]
 
 AFND para calcular se uma palavra constituída por $0$'s e $1$'s tem um $1$ na penúltima posição.
 
@@ -203,7 +203,7 @@ $$
 
 :::
 
-::: tip IMPORTANTE
+:::tip[IMPORTANTE]
 
 Tal como nos `AFD`, nos `AFND` podemos definir ainda $\delta^*$, como sendo a função que recebe um estado e uma palavra e que define a que conjunto de estados podemos acabar no final da palavra. Pode ser definido por:
 
@@ -239,7 +239,7 @@ Qualquer que seja o `AFND` $D$, existe um `AFD` $N$ que lhe é equivalente, ou s
 
 ### Passar de AFND para AFD
 
-::: details Exemplo
+:::details[Exemplo]
 
 Temos o seguinte `AFND`
 
@@ -267,7 +267,7 @@ Segue-se a representação final, com um pequeno exemplo de uma parte da execuç
 
 Repare-se que os estandos inúteis ({red}(**vermelho**)), nunca são atingidos desde o Ei.
 
-::: tip Aviso
+:::tip[Aviso]
 
 Se acharam este exemplo confuso, assistam à explicação do professor no seguinte [link](https://www.youtube.com/watch?v=inKY5BCqS2c&list=PL1L11sDP8FKHvZYbgh7FdItSfBxsHyU0z&index=51).  
 Começa em `1:06:20` e termina em `1:18:30`
@@ -279,7 +279,7 @@ Começa em `1:06:20` e termina em `1:18:30`
 Para fazer uma operação da **esquerda para a direita** com autómatos (por exemplo: soma, divisão, $\dots$), basta fazer um autómato que faça a operação da **direita para a esquerda** e depois trocar as transições e os estados de aceitação com o estado inicial.  
 Para além disso, também pode ser necessário passar de um `AFND` para um `AFD`.
 
-::: details Exemplo 1 - Soma
+:::details[Exemplo 1 - Soma]
 
 Vamos definir a soma da esquerda para a direita, com
 
@@ -317,13 +317,13 @@ Agora trocamos os estados de aceitação e inicial (como é o mesmo, não trocam
 
 Como é um `AFD` já é o resultado final
 
-::: tip Relembrar
+:::tip[Relembrar]
 
 As transições não representadas, em ambos, são as transições para o `estado de rejeição`.
 
 :::
 
-::: details Exemplo 2 - Divisão por 2
+:::details[Exemplo 2 - Divisão por 2]
 
 Vamos definir a `Divisão por 2` da esquerda para a direita, com
 

@@ -1,0 +1,55 @@
+html {
+  --tipBorder: #42b983;
+  --warningBorder: #e7c000;
+  --warningBackground: rgba(185, 174, 119, 0.3);
+  --dangerBorder: #fb7981;
+  --dangerBackground: rgba(72, 56, 57, 0.3);
+}
+
+.custom-container {
+  background-color: var(--cardColor);
+  padding: 0.1rem 1.5rem;
+  margin: 1rem 0;
+  border-left-width: 0.5rem;
+  border-left-style: solid;
+  border-color: var(--textColor);
+  --titleColor: var(--textColor);
+}
+
+.custom-container > p:first-child {
+  color: var(--titleColor);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: -0.4rem;
+  font-size: 1.1em;
+}
+
+.custom-container.custom-container-tip {
+  border-color: var(--tipBorder);
+}
+
+.custom-container.custom-container-warning {
+  border-color: var(--warningBorder);
+  background-color: var(--warningBackground);
+  --titleColor: var(--warningBorder);
+}
+
+.custom-container.custom-container-danger {
+  border-color: var(--dangerBorder);
+  background-color: var(--dangerBackground);
+  --titleColor: var(--dangerBorder);
+}
+
+.custom-container.custom-container-details {
+  display: block;
+  position: relative;
+  border-radius: 2px;
+  margin: 1.6em 0;
+  padding: 1.6em;
+  border-left-width: 0rem;
+}
+
+.custom-container.custom-container-details summary {
+  cursor: pointer;
+  outline: none;
+}

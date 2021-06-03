@@ -15,7 +15,7 @@ Qual a sequência de vértices visitados numa travessia em profundidade primeiro
 
 ![ex1](./ex1.jpg#dark=1)
 
-::: details Resolução
+:::details[Resolução]
 
 ![ex1s](./ex1s.jpg#dark=1)
 
@@ -33,7 +33,7 @@ Considere uma travessia em profundidade primeiro (DFS) do grafo abaixo, e na qua
 
 ![ex2](./ex2.jpg#dark=1)
 
-::: details Resolução
+:::details[Resolução]
 
 ![ex2s](./ex2s.jpg#dark=1)
 
@@ -49,7 +49,7 @@ Considere uma travessia em profundidade primeiro (DFS) sobre o grafo abaixo. Con
 
 ![ex3](./ex3.jpg#dark=1)
 
-::: details Resolução
+:::details[Resolução]
 
 ![ex3s](./ex3s.jpg#dark=1)
 
@@ -70,7 +70,7 @@ Qual a sequência de vértices visitados numa travessia em largura primeiro (BFS
  Considere que os vértices adjacentes de um vértice são visitados por ordem alfabética.
 ![ex4](./ex4.jpg#dark=1)
 
-::: details Resolução
+:::details[Resolução]
 
 ![ex4s](./ex4s.jpg#dark=1)
 
@@ -96,7 +96,7 @@ Lembra-se do algoritmo para calculá-la?
 `6. F,E,G,D,C,B,A`\
 `7. F,G,E,B,A,D,C`
 
-::: details Resolução
+:::details[Resolução]
 
 Resolução nos slides da aula
 
@@ -112,7 +112,7 @@ Qual o número de componentes fortemente ligados do grafo dirigido da figura aba
 
 Resolução nos slides da aula
 
-::: details Resolução
+:::details[Resolução]
 
 Resposta: 1
 

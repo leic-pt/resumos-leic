@@ -131,7 +131,7 @@ a sequência de caracteres `'o','l','a','\0'`
 
 <<< @/src/iaed/assets/0012-arrays.c
 
-::: danger
+:::danger
 
 Ao fazer
 

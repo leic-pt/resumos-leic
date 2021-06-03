@@ -84,7 +84,7 @@ $$
 \huge\frac{(\Delta u_n)v_n -u_n\Delta v_n}{v_nv_{n+1}}
 $$
 
-::: details Exemplos
+:::details[Exemplos]
 
 1.
 

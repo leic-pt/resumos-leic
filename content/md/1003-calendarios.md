@@ -9,7 +9,7 @@ path: /md/cheatsheet/calendarios
 
 ```
 
-::: danger
+:::danger
 Tenham EXTREMA atenção aos símbolos de divisão que se encontram nos resumos
 
 `/` ou `÷` - significa a divisão inteira sempre arrendonda para baixo
@@ -67,7 +67,7 @@ $$
 Um ano é Bissexto se é divisível por 4 e não for divisível por 100,\
  a não ser que seja também divisível por 400 (Só se aplica para o Calendário Gregoriano)
 
-::: details At Dover Dwell George Brown Esquire, Good Christopher Finch And David Friar
+:::details[At Dover Dwell George Brown Esquire, Good Christopher Finch And David Friar]
 ![completo](./imgs/1003-calendario.jpeg#dark=1)
 :::
 
@@ -81,7 +81,7 @@ $\mathcal{F}$ = Número do 1º Dia Do Mês (Tabela no início do Resumo)
 
 $\mathcal{Y}$ = Ano
 
-::: details Gregoriano
+:::details[Gregoriano]
 ![gregoriano](./imgs/1003-gregoriano.jpeg#dark=1)
 :::
 
@@ -103,7 +103,7 @@ Aqui, $\mathcal{W}$ corresponde ao **dia da semana**.
 
 ${Y}$ = Ano
 
-::: details Gregoriano
+:::details[Gregoriano]
 ![pascoa_gregoriano](./imgs/1003-pascoag.jpeg#dark=1)
 :::
 
@@ -143,7 +143,7 @@ $\mathcal{F}$ = Número do 1º Dia Do Mês (Tabela no início do Resumo)
 
 $\mathcal{Y}$ = Ano
 
-::: details Juliano
+:::details[Juliano]
 ![julaino](./imgs/1003-juliano.jpeg#dark=1)
 :::
 
@@ -165,7 +165,7 @@ Aqui, $\mathcal{W}$ corresponde ao **dia da semana**.
 
 ${Y}$ = Ano
 
-::: details Juliano
+:::details[Juliano]
 ![pascoa_julaino](./imgs/1003-pascoaj.jpeg#dark=1)
 :::
 

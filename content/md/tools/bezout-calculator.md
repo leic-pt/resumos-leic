@@ -5,7 +5,7 @@ path: /md/tools/mdc-bezout-calculator
 
 # MDC & Bézout Calculator
 
-::: danger
+:::danger
 Qualquer uso desta ferramenta em testes, exames ou outro tipo de avaliações é **unicamente da responsabilidade do aluno**.
 :::
 

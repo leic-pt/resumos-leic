@@ -43,7 +43,7 @@ Em geral, se $f: I \to \R$ é uma função em escada, então
 
 $$\int_I f= \sum_{J\text{ elemento da partição}} (\text{valor da função}) \times |J|$$
 
-::: details Exemplo
+:::details[Exemplo]
 
 ![Função Escada](./assets/0008-funcao-escada.svg#dark=1)
 
@@ -67,7 +67,7 @@ O tamanho das partições que escolhemos não é relevante, obtemos o mesmo resu
 
 "$\int_I f \geq$ área desta função em escada"
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Integral superior de $f$:
 
@@ -81,7 +81,7 @@ $$\int_I f \geq \underline{\int_I} f = \operatorname{sup} \{\text{Integrais de t
 
 Assim, conseguimos obter a definição de função integrável.
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 $f: I \to \R$ diz-se integrável se $\overline{\int}_I f=\underline{\int}_I f$ e
 nesse caso,
@@ -106,7 +106,7 @@ $$\int_I f := \overline{\int_I} f \left(\text{ou} \underline{\int_I} f\right)$$
 
 Este teorema permite-nos calcular o valor de integrais em intervalos de $dim > 1$.
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Se $f: I \to \R$, $I$ intervalo em $\R^n$, for integrável em todas as variáveis, então, se $I = ]a_1,b_1[ \times \dots \times ]a_n,b_n[$
 
@@ -116,7 +116,7 @@ $$
 
 :::
 
-::: warning
+:::warning
 
 **Não interessa a ordem das variáveis no contexto deste Teorema.**
 As expressões abaixo são equivalentes, considerando
@@ -126,7 +126,7 @@ $$\int_I f = \int^1_0 \left(\int^3_2 f \d y\right)\d x = \int^3_2 \left( \int^1_
 
 :::
 
-::: details Exemplos
+:::details[Exemplos]
 
 Considerando
 
@@ -225,7 +225,7 @@ $$
 \end{cases}
 $$
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Assim, podemos definir o volume n-dimensional de um conjunto $A$ como
 
@@ -244,7 +244,7 @@ $$
 
 :::
 
-::: details Exemplos
+:::details[Exemplos]
 
 Qual o volume do conjunto abaixo?
 

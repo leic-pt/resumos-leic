@@ -91,7 +91,7 @@ Existem alguns predicados _built-in_ em Prolog que nos permitem criar/extrair in
 
 - `=..(T, L)` afirma que o primeiro elemento da lista L é o functor de T e que o resto dos elementos são os seus argumentos.
 
-::: details Exemplos
+:::details[Exemplos]
 
 ```prolog
 ?- functor(ad(pedro_I, joao_I), ad, 2).

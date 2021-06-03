@@ -19,7 +19,7 @@ A função `main` retorna um inteiro (`int`), correspondente ao _exit code_ do p
 Neste caso, `0` significa que o programa acabou com sucesso e sem nenhum erro.  
 Qualquer número diferente de zero indica erro.
 
-::: warning
+:::warning
 As funções (e variáveis) em Python não têm um tipo específico.
 É possível ter uma função que umas vezes retorna uma string e outras retorna um inteiro.
 

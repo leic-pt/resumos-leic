@@ -98,7 +98,7 @@ Exemplos:
 
 ## Dicas para Problemas de Combinatória
 
-::: warning
+:::warning
 
 Esta secção é extra e alguma da informação abaixo não foi lecionada em aula.
 
@@ -197,7 +197,7 @@ Conjugando estas duas técnicas a cima, ficamos capazes de resolver qualquer tip
 2. colocar bolas nas caixas que precisam de ter pelo menos $t$ bolas para $t>1$;
 3. distribuir as restantes bolas como no problema inicial.
 
-::: tip NOTA DO AUTOR (João Rocha)
+:::tip[NOTA DO AUTOR (João Rocha)]
 
 Se o que acabaste de ler te deixa confuso de alguma forma, das duas uma:
 

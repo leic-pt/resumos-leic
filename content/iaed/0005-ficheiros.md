@@ -44,7 +44,7 @@ A funcão pode não devolver nada se o seu tipo de retorno for `void`
 - Função não tem acesso aos argumentos (só às cópias)
 - Não os pode alterar
 
-  ::: warning Atenção
+  :::warning[Atenção]
   Se o argumento for uma tabela, não é
   efectuada a cópia da tabela.
 
@@ -53,7 +53,7 @@ A funcão pode não devolver nada se o seu tipo de retorno for `void`
 
   <<< @/src/iaed/assets/0005-loc.c
 
-::: tip Conversão do Tipo de 1 Variável
+:::tip[Conversão do Tipo de 1 Variável]
 Para fazer uma divisão entre inteiros, por vezes a parte inteira não chega.
 Assim convertemos o divisor para outro tipo de dados (`float`) para que a assim a divisão mostre casas decimais.
 `media = soma / (float) num_alunos ;`

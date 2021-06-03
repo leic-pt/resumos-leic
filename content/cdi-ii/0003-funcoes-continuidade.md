@@ -20,7 +20,7 @@ u: & \mathbb{N} \longrightarrow \mathbb{R}^{n} & \\
 \end{array}
 $$
 
-::: tip EXEMPLO
+:::tip[EXEMPLO]
 Se tivermos uma sucessão de termos em $\R^3$, $u_k = (\frac 1k, k, 2^k) \in \R^3$,
 as suas **sucessões coordenadas** vão ser:
 
@@ -32,7 +32,7 @@ $$
 
 ### Convergência de sucessões em Rⁿ
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Diz-se que uma sucessão $(u_k) \subset \R^n$ converge para $a\in\R^n$ se, por definição,
 
@@ -58,7 +58,7 @@ $$
 \underset{\text{em } \R^n}{u_k \to a} \Leftrightarrow \underset{\text{em }\R}{u_{ki} \to a_i} \text{ para cada } i=1,2,\dotsc, n
 $$
 
-::: details Exemplos
+:::details[Exemplos]
 
 1. $\displaystyle u_k = \left(\frac 1k, e^{-k}\right)$
 
@@ -90,7 +90,7 @@ $$
 
 :::
 
-::: tip TEOREMA
+:::tip[TEOREMA]
 Se $D\subset \R^n$ é [fechado](./0002-norma-topologia.md#conjunto-aberto-fechado-limitado-e-compacto)
 (ou seja, $D = \overline D$), então qualquer sucessão de termos em $D$ ($(u_k)\subset D$)
 e convergente, tem o seu limite em $D$.
@@ -130,7 +130,7 @@ Portanto, $(u_{6k})$ é subsucessão convergente da sucessão limitada $(u_k)$.
 
 Esta é outra das relações que naturalmente migra para $\R^n$, sem muitas alterações.
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Seja $f: D \subseteq \R^n \to \R^m$, $f$ é contínua em $a$ se e só se
 
@@ -142,7 +142,7 @@ $$
 
 :::
 
-::: tip TEOREMA
+:::tip[TEOREMA]
 
 Se uma função $f: D \subset \R^n \to \R^m$ é contínua em $a\in D$, então
 qualquer sucessão $(u_k)\subset D$ com $u_k \to a$ implica que $f(u_k) \to f(a)$.
@@ -154,7 +154,7 @@ necessitamos de definir limite em $\R^n$.
 
 ### Limite
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Sejam $f: D\subseteq \R^n \longrightarrow \R^m$, $b \in \R^m$, $a \in \overline D$.  
 Diz-se que $b$ é o limite de $f$ quando $x\to a$, se, por definição,
@@ -191,7 +191,7 @@ f( x) & \text{se } x\neq 0\\
 \end{cases}
 $$
 
-::: warning CONTRA-EXEMPLO
+:::warning[CONTRA-EXEMPLO]
 
 No entanto, se tivessemos a função
 
@@ -217,7 +217,7 @@ As seguintes funções são contínuas, pelas demonstrações abaixo:
 - $f(x) = \text{constante}$ (função constante)
 - $f(x) = x (f: D \subseteq \R^n \to \R^m)$ (função identidade)
 
-::: details Demonstrações
+:::details[Demonstrações]
 **Para a função constante:**
 
 Dado $a \in R^n \land r > 0$, será que existe $\epsilon > 0$ tal que $|| x-a|| < \epsilon \implies || f(x) - f(a) || < r$?
@@ -255,7 +255,7 @@ Sejam $f,g: D \subset \R^n \to \R^m$ contínuas; $\alpha \in\R$
 Através destas propriedades, podemos concluir que **qualquer função polinomial é contínua** e
 que **qualquer função racional (quociente de polinómios) é contínua**.
 
-::: details Demonstrações
+:::details[Demonstrações]
 
 **Demonstração da propriedade 0 ($p_i(x_1,\dots,x_i,\dots,x_n) = x_i$ é contínua)**
 
@@ -304,7 +304,7 @@ Logo a composta é contínua em $D$.
 
 :::
 
-::: details Exemplos Continuidade
+:::details[Exemplos Continuidade]
 
 $$
 f(x,y)= x^2+y^2
@@ -381,7 +381,7 @@ Sejam $f,g,h: D\subseteq \R^n \to \R^m$ , $a \in D$ e existem $\lim_{x\to a} f(x
 Quando não conseguimos provar que um limite existe e calcular o seu valor,
 podemos tentar provar que esse limite não existe através dos **limites direcionais**.
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Em $\R^2$ em particular, se se substituir $y=mx$, então
 
@@ -405,14 +405,14 @@ depender de $k$, então o limite não existe.
 
 Esta é uma boa estratégia quando queremos provar que o limite não existe.
 
-::: warning
+:::warning
 
 Não ser pode usar limites direcionais para provar que um limite existe.
 Se obtivermos um valor que não depende de $m$, $k$, etc, **nada se pode concluir**.
 
 :::
 
-::: details Exemplos Limites
+:::details[Exemplos Limites]
 
 $$
 \lim_{(x,y)\to(0,0)} \frac{\sin(xy)}{y} = \lim_{(x,y)\to(0,0)} \frac{\sin(xy)}{xy} \times x = 1 \times 0 = 0
@@ -477,7 +477,7 @@ Logo, o limite é $0$.
 
 ## Teorema de Bolzano-Weierstrass
 
-::: tip Definição
+:::tip[Definição]
 
 Seja $D \subseteq \R^n$.
 

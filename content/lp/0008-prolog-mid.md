@@ -256,7 +256,7 @@ De realçar que ainda há uma variação de `>, <, >=, =<`, com `@` antes do ope
 true.
 ```
 
-::: details Exemplos de Interações com as operações acima
+:::details[Exemplos de Interações com as operações acima]
 
 ```prolog
 ?- X = +(2, 3).
@@ -437,6 +437,6 @@ Futuro = data(2015, 4, 2).
 
 Nos slides há um exemplo giro do problema do homem, do lobo, da cabra e da couve, e no livro há um semelhante mas sobre três casas coloridas se quiserem ver mais coisas deste género.
 
-::: tip
+:::tip
 Para correr código de dentro de um programa rapidamente sem criar um ficheiro, pode-se escrever `[user].` na prompt, seguido do código para pôr dentro do programa, seguido de Ctrl-D (EOF).
 :::

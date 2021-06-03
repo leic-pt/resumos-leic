@@ -15,13 +15,13 @@ Tal como para a Lógica Proposicional, é possível automatizar alguns aspetos r
 
 Tem como objetivo principal fornecer a um computador declarações sobre um domínio, com vista a permitir que o próprio computador realize operações inteligentes sobre esse mesmo domínio. Ligada à área da Inteligência Artificial.
 
-::: warning
+:::warning
 
 Se estiverem apenas a estudar para a avaliação das práticas, as secções dos agentes cognitivos e das hipóteses subjacentes não são particularmente relevantes. A partir de _Representar Conhecimento em Lógica_ volta a ser relevante para esse propósito.
 
 :::
 
-::: tip Agentes cognitivos
+:::tip[Agentes cognitivos]
 
 A inteligência artificial constrói programas que agem tendo por base uma representação do conhecimento, os _agentes cognitivos_. São sensores que permitem que o computador se aperceba e possa agir em relação ao mundo que o rodeia; os procedimentos têm apenas por base aquilo que o computador sabe sobre o mundo.
 
@@ -54,13 +54,13 @@ _Durante esta secção, o exemplo demonstrado será o d'Os Simpsons, tal como no
 
 - **Definição do vocabulário**
 
-  ::: tip Constantes
+  :::tip[Constantes]
 
   $Bart, Lisa, Maggie, Marge, Homer, Selma, Abe \dots$
 
   :::
 
-  ::: tip Relações
+  :::tip[Relações]
 
   _Unárias_
 
@@ -80,7 +80,7 @@ _Durante esta secção, o exemplo demonstrado será o d'Os Simpsons, tal como no
 
   Com as informações apresentadas até agora, podemos escrever algumas fórmulas chãs.
 
-  ::: details Exemplo - (Algumas) Frases possíveis
+  :::details[Exemplo - (Algumas) Frases possíveis]
 
   $Homem(Homer)$  
   $Homem(Abe)$  
@@ -90,7 +90,7 @@ _Durante esta secção, o exemplo demonstrado será o d'Os Simpsons, tal como no
 
   Podemos ainda escrever algumas _fbfs_ (aqui já com variáveis individuais).
 
-  ::: details Exemplo - Mais frases possíveis
+  :::details[Exemplo - Mais frases possíveis]
 
   $\forall x, y[AD(x, y) \to Ant(x, y)]$
 
@@ -100,7 +100,7 @@ _Durante esta secção, o exemplo demonstrado será o d'Os Simpsons, tal como no
 
 Podemos realizar **provas** utilizando estas representações.
 
-::: tip Prova
+:::tip[Prova]
 
 ![Prova - Representação de Conhecimento](./assets/0005-prova-repc.png#dark=1)
 
@@ -116,7 +116,7 @@ Obtida de forma semelhante à da Lógica Proposicional, apesar de algumas difere
 
 - **Redução do domínio de** $\neg$ - igual à lógica proposicional, tendo ainda a adição de:
 
-  ::: tip Segundas Leis de De Morgan
+  :::tip[Segundas Leis de De Morgan]
 
   $\neg\forall x[\alpha (x)] \leftrightarrow \exists x[\neg\alpha (x)]$
 
@@ -130,7 +130,7 @@ Obtida de forma semelhante à da Lógica Proposicional, apesar de algumas difere
 
 - **Normalização de variáveis** - As ocorrências ligadas (dentro do domínio do quantificador) correspondem a variáveis mudas (irrelevantes para o valor da operação - por exemplo, em $\sum_{k = 1}^{5} 1$, $k$ é uma variável muda). A normalização de variáveis consiste em mudar o nome de algumas das variáveis, de modo a que o quantificador esteja associado a um único nome de variável - o objetivo é _não haver quantificadores associados às mesmas variáveis dentro do domínio de um quantificador_.
 
-  ::: tip Normalização de variáveis
+  :::tip[Normalização de variáveis]
 
   $\forall x[\neg P(x) \vee (\forall y[\neg P(y) \vee P(f(x, y))]) \wedge \exists y[Q(x, y) \wedge \neg P(y)]]$
 
@@ -154,7 +154,7 @@ Esta secção não é particularmente fácil de perceber só a ler, e mesmo com 
 
 - Dependências entre quantificadores existenciais e universais - se um quantificador existencial aparecer dentro do domínio de um quantificador universal, existe a possibilidade do valor da variável quantificada _existencialmente_ depender do valor da variável quantificada _universalmente_. Caso dependa, substituímos a variável por um novo símbolo de função - função de Skolem, $f_{sk}(x)$. Aqui, "a variável de dentro depende/é função da de fora/o $y$(interior) depende/é função de $x$(exterior)". A existência do $y$ está diretamente dependente de qual é o $x$ em questão, e é daí que vem a noção de função.
 
-::: details Exemplos
+:::details[Exemplos]
 
 Podemos passar
 
@@ -174,7 +174,7 @@ Temos então, portanto, que se nenhum quantificador universal aparecer "por fora
 
 - **Conversão para a forma Prenex normal** - todas as ocorrências de quantificadores universais são passadas para a esquerda.
 
-::: details Conversão para a forma Prenex normal
+:::details[Conversão para a forma Prenex normal]
 
 $\forall x [\neg P(x)\vee(\forall y[\neg P(y) \vee P(f(x, y))] \wedge (Q(x, g_{sk}(x)) \wedge \neg P(g_{sk}(x))))]$
 
@@ -186,7 +186,7 @@ $\forall x,y[\neg P(x) \vee ((\neg P(y) \vee P(f(x, y))) \wedge (Q(x, g_{sk}(x))
 
 - **Eliminação da Quantificação Universal** - sendo que não há variáveis livres, e que todas elas estão quantificadas universalmente, a presença do quantificador acaba por ser irrelevante, visto que, lá está, as propriedades são _universais_. Podemos, então, remover os quantificadores.
 
-::: details Eliminação da Quantificação Universal
+:::details[Eliminação da Quantificação Universal]
 
 $\forall x\forall y[\neg P(x) \vee ((\neg P(y) \vee P(f(x, y))) \wedge (Q(x, g_{sk}(x)) \wedge \neg P(g_{sk}(x))))]$
 
@@ -214,7 +214,7 @@ Temos ainda que, e recuperando a noção de substituição vazia ($\epsilon$), a
 
 Em termos práticos, a composição realiza-se aplicando $s_{2} = \{u_{1}/y_{1}, \dots, u_{n}/y_{n}\}$ aos termos de $s_{1} = \{t_{1}/x_{1}, \dots, t_{n}/x_{n}\}$, adicionado a este resultado todos os elementos $u_{j}/y_{j}$ tais que $y_{j} \notin \{x_{1}, \dots, x_{n}\}$ e removendo todos os elementos $(t_{i} \cdot s_{2}/x_{i})$ tais que $t_{i} \cdot s_{2} = x_{i}$. Ou seja:
 
-::: tip Composição
+:::tip[Composição]
 
 $s_{1} \circ s_{2} = (\{(t_{1} \cdot s_{2})/x_{1}, \dots, (t_{n} \cdot s_{2})/x_{n}\} \cup \{u_{j}/y_{j} \in s_{2}: y_{j} \notin {x_{1}, \dots, x_{n}}\}) - \{(t_{i} \cdot s_{2})/x_{i}: (t_{i} \cdot s_{2}) = x_{i}\}.$
 
@@ -228,7 +228,7 @@ $s_{1} \circ s_{2} = (\{(f(y) \cdot \{a/x, b/y, y/z, a/w\})/x, (z \cdot \{a/x, b
 
 - **Conjunto Unificador** - Dado um conjunto de _fbfs_ atómicas, este conjunto diz-se unificável caso exista uma substituição que torne idênticas todas as _fbfs_ do conjunto, dizendo-se que essa substituição é um **unificador do conjunto**. Pode haver mais que um unificador para um dado conjunto.
 
-::: details Unificador
+:::details[Unificador]
 
 A substituição $\{a/x, b/y, c/z\}$ é unificador do conjunto $\{P(a, y, z), P(x, b, z)\}$, dando origem a $\{P(a, b, c)\}$.
 
@@ -246,13 +246,13 @@ Recebe um conjunto de _fbfs_ atómicas e decide se podem ser unificadas, devolve
 
 Neste algoritmo, _card_ é a função que calcula o número de elementos do conjunto, _var_ é a função que tem valor verdadeiro se o argumento for uma variável, falso caso contrário, e _termo_ é a função que tem valor verdadeiro caso o argumento seja um termo, falso caso contrário. O algoritmo usa ainda outro algoritmo, _desacordo_ para determinar o conjunto de desacordo de um conjunto de _fbfs_. Obtém-se localizando o primeiro constituinte, a partir da esquerda, que não é igual a todas as _fbfs_ do conjunto e extraindo das _fbfs_ todos os componentes nessa posição.
 
-::: details Desacordo
+:::details[Desacordo]
 
 Em $\Delta = \{P(x, f(x, y)), P(x, a), P(x, g(x))\}$, o conjunto de desacordo é $\{f(x, y), a, g(x)\}$ - conjunto de _fbfs_ em desacordo, que não são iguais em todas as _fbfs_ de $\Delta$.
 
 :::
 
-::: tip Exemplo de aplicação do Algoritmo de Unificação
+:::tip[Exemplo de aplicação do Algoritmo de Unificação]
 
 Seja $\Delta$ o conjunto $\{P(x, x), P(y, f(y))\}$. Se quisermos tentar determinar o seu _mgu_:
 
@@ -278,7 +278,7 @@ Em termos correntes, removemos os literais em conflito e aplicamos o _mgu_ às q
 
 É, tal como a resolução da lógica proposicional, correta mas não completa. É, contudo, completa quanto à refutação.
 
-::: tip Resolução
+:::tip[Resolução]
 
 $Ψ = \{P(f(a), x)\}$ e $Φ = \{\neg P(y, h(z)), Q(f(y), z)\}$. O _mgu_ de $P(f(a), x)$ e $P(y, h(z))$ é $\{f(a)/y, h(z)/x\}$, e portanto o resolvente será a aplicação desse mesmo _mgu_ à cláusula restante, obtendo $\{Q(f(f(a)), z)\}$.
 
@@ -294,13 +294,13 @@ De notar que o resolvente pode não necessitar de uma substituição, isto é, p
 
 Se repararmos, na definição é referida a necessidade de não haver variáveis em comum entre as _fbfs_. Esta necessidade pode ser satisfeita renomeando todas as variáveis das cláusulas relevantes antes da aplicação do princípio da resolução, por exemplo passar $x$ para $x'$. Esta renomeação apenas ocorre numa das cláusulas, a outra instância mantém-se intacta (podemos fazer isto porque, na verdade, estamos na presença de variáveis quantificadas universalmente, portanto mudas).
 
-::: details Renomeação de variáveis
+:::details[Renomeação de variáveis]
 
 Sejam $Ψ = \{P(x), Q(y)\}$ e $Φ = \{\neg P(x), R(y)\}$ duas cláusulas. Para aplicar o princípio da resolução, temos antes de renomear as variáveis, renomeação essa que origina a cláusula $Φ = \{\neg P(x'), R(y')\}$. Sendo $x$ e $x'$ duas variáveis diferentes, podemos agora unificá-las.
 
 :::
 
-::: tip Porquê renomear as variáveis?
+:::tip[Porquê renomear as variáveis?]
 
 Consideremos a seguinte afirmação: $\{\forall x, y[P(x, y) \to R(y, x)], \forall x, y[R(x, y) \to Q(y, x)]\} \vdash \forall x, y[P(x, y) \to Q(x, y)].$
 
@@ -316,7 +316,7 @@ Se não renomearmos as variáveis, o _mgu_ de $R(y, x)$ e $R(x, y)$ será $\{x/y
 
 Ao utilizar, em lógica de primeira ordem, cláusulas com variáveis, é-nos agora possível responder a dois tipos de questões - verdadeiro/falso e quem/qual.
 
-::: details Prova por Resolução - Verdadeiro/Falso
+:::details[Prova por Resolução - Verdadeiro/Falso]
 
 Tenhamos como premissas:
 
@@ -335,7 +335,7 @@ Na linha 6, o que se faz é reparar que com substituir $x$ por $Sr.B$ e $z$ por 
 
 :::
 
-::: details Prova por Resolução - Quem
+:::details[Prova por Resolução - Quem]
 
 Tenhamos como premissas as premissas do exemplo anterior (retirando a negação da conclusão, essa não interessará). A pergunta que faremos agora é **quem são os antepassados do Bart?**. O que fazemos para responder a perguntas deste tipo é adicionar uma _fbf_ às premissas tal que:
 
@@ -349,7 +349,7 @@ Podíamos ainda realizar este processo de outra maneira: não adicionar aquela _
 
 :::
 
-::: details Prova por Resolução - Quais
+:::details[Prova por Resolução - Quais]
 
 De um modo semelhante ao último exemplo, podemos responder à questão **quais**. O processo será semelhante, adicionar uma _fbf_ especial e chegar a todas as respostas que a verificam.
 

@@ -36,7 +36,7 @@ $$
 \end{array}
 $$
 
-::: details Demonstração
+:::details[Demonstração]
 
 $$
 \begin{array}{c|cc}
@@ -51,7 +51,7 @@ $$
 
 :::
 
-::: tip NOTA IMPORTANTE
+:::tip[NOTA IMPORTANTE]
 
 - Esta propriedade também funciona para a **subtração** e **multiplicação**.
 
@@ -65,7 +65,7 @@ $$
 a \equiv_n b \quad \rightarrow \quad a^k \equiv_n b^k
 $$
 
-::: details Demonstração
+:::details[Demonstração]
 
 Por indução,
 
@@ -97,11 +97,11 @@ QED
 
 $ax \equiv_n b$ não tem solução se $d \nmid b$, onde $d = a \frown n$. No entanto, se $d \mid b$, então $ax \equiv_n b$ tem $d$ soluções incongruentes.
 
-::: tip Soluções Incongruentes
+:::tip[Soluções Incongruentes]
 Sejam $s_i$ e $s_j$ duas soluções, são incongruentes, se não forem congruentes módulo $n$, ou seja, $s_i \equiv_n a_i, \quad s_j \equiv_n a_j \quad \text{e} \quad a_i \neq a_j$
 :::
 
-::: details Demonstração
+:::details[Demonstração]
 
 $$
  ax \equiv_n b\\
@@ -152,7 +152,7 @@ QED
 
 Se $m_1, m_2 \in \N_1$ e são primos entre si $(m_1 \frown m_2 =1)$ e $m_1|a$ e $m_2|a$, então $(m_1m_2)|a$.
 
-::: details Demonstração
+:::details[Demonstração]
 
 $$
 a = k_am_1 \quad a=k_bm_2\\
@@ -185,7 +185,7 @@ $$
 ac \equiv_n bc \quad a \equiv_{\frac n {n \frown c}} b
 $$
 
-::: details Demonstração
+:::details[Demonstração]
 
 1. Condição necessária
 
@@ -222,7 +222,7 @@ QED
 $x \equiv_{pq} a$ , se e só se $x \equiv_p a$ e $x \equiv_q a$,  
 $a \in \Z$, $\quad p,q \in \N_1$ primos entre si ($p \frown q = 1$).
 
-::: details Demonstração
+:::details[Demonstração]
 
 1. Condição Necessária
    Assumindo que $x \equiv_{pq} a$,

@@ -10,7 +10,7 @@ path: /md/teoria-fluxo
 
 Grafo dirigido, todas as arestas têm orientação.
 
-::: details Exemplo
+:::details[Exemplo]
 ![Digrafo](./imgs/0023-digEx.png)
 :::
 
@@ -21,7 +21,7 @@ Seja $v$ um vértice de um digrafo $d$:
 - Grau de Entrada: Quantas arestas estão direcionadas para $v$
 - Grau de Saída: Quantas arestas partem de $v$ para outro vértice
 
-::: details Exemplo
+:::details[Exemplo]
 ![Digrafo](./imgs/0023-digEx.png)
 
 Neste exemplo, o vértice **_v_** tem
@@ -40,7 +40,7 @@ O vértice **_S_** tem
 `Fonte` é o vértice de um digrafo conexo com grau de entrada nulo.  
 `Sumidouro` é o vértice de um digrafo conexo com grau de saída nulo.
 
-::: tip Notação
+:::tip[Notação]
 Um digrafo-$s$-$t$ é um digrafo com `fonte` $s$
 e `sumidouro` $t$
 :::
@@ -65,7 +65,7 @@ Um Fluxo numa `Rede Capacitada` $N=(V,E,s,t,\operatorname{cap})$ é uma atribui�
 
 O **Valor** de um Fluxo numa Rede Capacitada será igual ao somatório do fluxo que sai da `Fonte`, ou `Fontes` se houver mais do que uma.
 
-::: details Dica
+:::details[Dica]
 
 Podemos ver uma `Rede Capacitada`, como uma rede de calanização da água, onde há uma fonte, destino(sumidouro) e as arestas são canos de água. Tal como na `Rede Capacitada`, um cano não tem água a circular nos dois sentidos, apenas num.  
 Seguindo esta ideia,
@@ -91,7 +91,7 @@ $$\operatorname{cap}(V_s,V_t) = \sum_{x \in V_s} \sum_{y \in V_t}\operatorname{c
 
 Soma das **capacidades** de todas as arestas do corte.
 
-::: details Exemplo
+:::details[Exemplo]
 
 ![Corte](./imgs/0023-corte.png)
 
@@ -101,7 +101,7 @@ $$
 6+3+10+9 = 28
 $$
 
-::: tip Nota
+:::tip[Nota]
 A aresta com capacidade $3$ mais abaixo não é incluída, porque vai de $V_t$ para $V_s$
 
 :::
@@ -111,7 +111,7 @@ A aresta com capacidade $3$ mais abaixo não é incluída, porque vai de $V_t$ p
 Balanço de fluxo, através de um corte $C = (V_s,V_t)$, que também pode ser identificado por **Fluxo do Corte $C$**, é a soma dos fluxo das arestas orientadas de $V_s$ para $V_t$ (fluxo positivo) menos a soma dos fluxos das arestas orientadas de um vértice de $V_t$ para $V_s$ (fluxo negativo).  
 Qualquer Corte numa `Rede Capacitada` tem sempre o mesmo `Balanço de Fluxo`.
 
-::: details Exemplos
+:::details[Exemplos]
 
 ![Corte](./imgs/0023-corte.png)
 
@@ -139,14 +139,14 @@ $$Q = s,a_1,v_1,a_2,\dots,v_{k-1},a_k,t$$
 
 uma Quasi-trajetória, pode existir uma aresta $a_i$ (\*com $1<i<k$) que está dirigida de $v_i$ para $v_{i-1}$. Este tipo de arestas é designado por `arestas negativas`
 
-::: tip NOTAS
+:::tip[NOTAS]
 
 - \*Não pode ser $1\leq i \leq k$, porque uma aresta da `fonte` sai sempre da fonte e uma do `sumidouro` está sempre dirigida para este.
 - É normal incluir-se uma [trajetória](#trajetoria-num-digrafo) no grupo das `Quasi-trajetórias`
 
 :::
 
-::: details Exemplos
+:::details[Exemplos]
 
 ![Quase](./imgs/0023-Quasi.png)
 
@@ -184,7 +184,7 @@ Nesse caso, seja $(\Delta_Q)$ a `frouxidão mínima` de $Q$, adicionamos $(\Delt
 O valor de um `fluxo` é menor ou igual à [capacidade de um corte](#capacidade-do-corte) **mínimo** numa rede capacitada.  
 Se o [valor do fluxo](#valor-do-fluxo) $\operatorname{f}$ é igual à capacidade de um corte $(V_s,V_t)$, então o fluxo $\operatorname{f}$ é máximo e o corte $(V_s,V_t)$ é um [corte mínimo](#corte-minimo).
 
-::: details Demonstração
+:::details[Demonstração]
 
 Seja $\operatorname{f_c}$ o [fluxo de um corte](#balanco-de-fluxo) $C = (V_s,V_t)$.  
 Se $\operatorname{f_c}$ é igual à [capacidade do corte](#capacidade-do-corte), então, pela fórmula do fluxo de um corte, a soma dos fluxos das arestas orientadas de um vértice de $V_t$ para $V_s$ (fluxo negativo) será $0$.
@@ -199,7 +199,7 @@ QED
 Um fluxo $\operatorname{f}$ numa Rede Capacitada $N$ é um fluxo máximo se e só se não
 existir uma Quasi-trajetória de incremento do fluxo.
 
-::: details Demonstração
+:::details[Demonstração]
 
 **Condição Necessária** - Se não existe [Quasi-Trajetória](#quasi-trajetoria) de aumento, o fluxo é máximo.
 
@@ -223,7 +223,7 @@ QED
 
 :::
 
-::: details Aviso do Professoor
+:::details[Aviso do Professoor]
 Isto só se verifica numa `Rede Capacitada` com números **Racionais**. Há situações com números **Reais** onde não podemos concluir nada.  
 Contudo, esta exceção não deve ser avaliada.
 :::
@@ -232,7 +232,7 @@ Contudo, esta exceção não deve ser avaliada.
 
 Numa Rede capacitada $N=(V,E,s,t,\operatorname{cap})$, permite-nos encontrar o `Fluxo` **máximo** e, consequentemente, o `Corte mínimo`.
 
-::: details Pseudo-Código
+:::details[Pseudo-Código]
 ![Pseudo Ford](./imgs/0023-pseudoFord.png)
 :::
 
@@ -245,7 +245,7 @@ Quando já não houver termina o algoritmo (pelo [Teorema 2](#teorema-2)), e ter
 
 Seja $V_s$ o conjunto dos [vértices alcançáveis](#vertice-alcancavel) no final do [Algoritmo de Ford-Fulkerson](#algoritmo-de-ford-fulkerson) e $V_t$ tal que $V_s\cap V_t = \emptyset \quad \wedge \quad V_s\cup V_t =\{\text{conjunto de todos os vértices}\}$, $(V_s,V_t)$ é um `Corte Mínimo`, porque respeita as condições do [Teorema 1](#teorema-1).
 
-::: tip NOTA
+:::tip[NOTA]
 Podemos usar o [Teorema 1](#teorema-1) para verificar que o corte que escolhemos no final do [Algoritmo de Ford-Fulkerson](#algoritmo-de-ford-fulkerson) é mínimo. Só se for mínimo é que a resposta está correta.
 :::
 
@@ -253,10 +253,10 @@ Podemos usar o [Teorema 1](#teorema-1) para verificar que o corte que escolhemos
 
 Um vértice $v$ é `alcançável` se é possível aumentar o fluxo de uma "pseudo" Quasi-trajetória que começa na `fonte` e vai até ao vértice $v$.
 
-::: tip Atenção
+:::tip[Atenção]
 Pode acontecer que uma aresta já tenha fluxo **=** capacidade, mas o vértice a que se dirige seja `alcançável`. Esses casos devem-se à existência de arestas negativas.
 :::
 
-::: details Exemplo do Ford-Fulkerson + Corte  
+:::details[Exemplo do Ford-Fulkerson + Corte ]
 [Link](https://drive.google.com/file/d/1BXenki2yM_m5ESCLFu-k7GTXzVjaorj5/view?usp=sharing)
 :::

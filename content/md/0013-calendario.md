@@ -38,7 +38,7 @@ Calendário usado em Portugal e pela maioria dos países Ocidentais.
 - Os anos bissextos acontecem de 4 em 4 anos, mas não de 100 em 100. Contudo, de 400 em 400 temos, novamente, um ano bissexto;
 - Em outubro de 1582, foram omitidos 10 dias do calendário.
 
-::: details Exemplos - Bissexto Gregoriano
+:::details[Exemplos - Bissexto Gregoriano]
 
 1. Ano 1900 não é bissexto. (1900 % 100 = 0)
 
@@ -137,7 +137,7 @@ Passa-se de $L_m$ para $F_m$ com a ajuda da [tabela 1](#numero-letra-dominical).
 Recomenda-se a consulta desta tabela durante os testes, já que isso é permitido.  
 Contudo, existe um método para calcular $F_m$ **sem consulta**.
 
-::: details Método sem consulta
+:::details[Método sem consulta]
 
 Seja $m$ o mês que queremos calcular, $n_m$ o número desse mês no calendário e $k_m$ o número de dias do mês $m$,
 
@@ -194,7 +194,7 @@ $$
 
 Faz sentido, pois janeiro e fevereiro, em anos bissextos, decorrem **antes** do dia extra (29 de fevereiro).
 
-::: details Exemplo
+:::details[Exemplo]
 
 1. Queremos determinar o dia da semana de `7 de setembro de 2021`, no Calendário `Gregoriano`.
 

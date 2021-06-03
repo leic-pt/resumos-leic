@@ -11,7 +11,7 @@ path: /cdi-ii/derivada-composta
 
 ## Derivada da Função Composta em Rⁿ
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Seja $g: D \subseteq \R^n \to \R^m$ diferenciável em $a \in D$  
 Seja $f: \R^m \to \R^p$ diferenciável em $g(a)$
@@ -33,7 +33,7 @@ $$
 
 Isto acontece porque a composta de transformações lineares corresponde ao produto de matrizes.
 
-::: details Exemplos
+:::details[Exemplos]
 
 Considerando as funções $g$ e $f$, determine $J^{f\circ g}_{(1,1)}$.
 
@@ -180,7 +180,7 @@ $$
 
 Atentendo ao produto matricial, podemos obter uma expressão mais simples:
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Seja $g: D \subseteq \R^n \to \R^m$ diferenciável em $a \in D$  
 Seja $f: \R^m \to \R^p$ diferenciável em $g(a)$
@@ -191,7 +191,7 @@ $$
 
 :::
 
-::: details Exemplos
+:::details[Exemplos]
 
 Sejam $f$ e $g$, diferenciáveis,
 

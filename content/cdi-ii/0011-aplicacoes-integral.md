@@ -22,7 +22,7 @@ $$
 \text{Massa de }S = \int_S f
 $$
 
-::: details Exemplos
+:::details[Exemplos]
 
 Seja {green}($V$ um sólido)
 

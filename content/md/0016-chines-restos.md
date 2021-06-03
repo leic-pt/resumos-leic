@@ -18,7 +18,7 @@ $ã \in \Z$ é o inverso de $a \in \Z$, para o módulo $n \in \N_1$, se
 
 $$ã\times a = a\times ã \equiv_n 1$$
 
-::: tip NOTA
+:::tip[NOTA]
 
 - **Só há inverso** se $a \frown n = 1$ ($a$ primo com $n$)
 - $1$ e $-1$ são os seus próprios inversos, para qualquer módulo.
@@ -57,7 +57,7 @@ $$(a\times k_0) + (n \times k_1) = 1$$
 
 E $k_0$ será o inverso
 
-::: details Exemplo
+:::details[Exemplo]
 
 Calcular $22k_0 \equiv_{25} 1$, inverso de $22$ módulo $25$.  
 Usando o método manual,
@@ -163,7 +163,7 @@ Onde,
 - $n_i = m_1\times\dots\times m_{i-1} \times m_{i+1}\times \dots \times m_k = \frac M {m_i}$
 - $ñ_i$ é o inverso de $n_i$, módulo $m_i$
 
-::: details Exemplo
+:::details[Exemplo]
 
 $$
 \left\{ \begin{aligned}
@@ -304,7 +304,7 @@ Onde,
 - $n_i = c_1\times\dots\times c_{i-1} \times c_{i+1}\times \dots \times c_k = \frac M {c_i}$
 - $ñ_i$ é o inveros de $n_i$, módulo $c_i$
 
-::: details Exemplo
+:::details[Exemplo]
 
 $$
 \left\{ \begin{aligned}

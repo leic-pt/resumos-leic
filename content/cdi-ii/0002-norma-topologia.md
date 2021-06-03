@@ -20,7 +20,7 @@ P=( x,y,z) \quad Q=( x',y',z')\\
 \vec{v} =Q-P=( x'-x,y'-y,z'-z)
 $$
 
-::: tip
+:::tip
 Se tivermos um ponto $P$, também podemos pensar nele como um vetor, fazendo a diferença desse ponto com a origem.
 
 $$
@@ -33,7 +33,7 @@ $$
 
 **Função escalar:** O seu contra domínio é um valor unidimensional ($\subset \R$)
 
-::: details Exemplos
+:::details[Exemplos]
 
 $$
 \begin{array}{ c }
@@ -52,7 +52,7 @@ $$
 Uma função vetorial é do tipo $F:\ D\ \subseteq \mathbb{R}^{n} \longrightarrow \mathbb{R}^{m}$ com $m>1$.
 Se $m=1$, a função é escalar. O valor de $n$ é qualquer (pode ser 1, por exemplo), só interessa o contra domínio.
 
-::: details Exemplo
+:::details[Exemplo]
 
 $$
 \vec F(x,y)=\left(h(x,y), j(x,y)\right)
@@ -132,7 +132,7 @@ $$
 B_a(r)=\{x\in\R^3: ||x-a||<r\}
 $$
 
-::: tip Caso Geral
+:::tip[Caso Geral]
 
 Em $\R^N$, dado $a = (a_1,a_2,\dotsc, a_n)\in \R^N, r\in\R^+$, tem-se:
 
@@ -152,7 +152,7 @@ representado na figura, podemos tirar as seguites conclusões.
 
 ![Conjunto K](./assets/0002-topologia.svg#dark=1)
 
-::: warning
+:::warning
 Por ter gerado alguma confusão, o conjunto $D$ abaixo é um conjunto "genérico".  
 Como exemplo específico, toma-se o conjunto $K$, representado na figura.
 :::
@@ -180,7 +180,7 @@ Também podemos concluir que $\operatorname{int} D \subset D \subset \overline D
 - $D$ diz-se limitado se $\exists r > 0: D \subset B_r(\vec 0)$
 - $D$ diz-se compacto se for fechado e limitado
 
-::: details Exemplo 1
+:::details[Exemplo 1]
 
 Imaginando o conjunto $D=\left\{( x,y,z) \in \mathbb{R}^{3} :x^{2} +y^{2} < 1\land z >0\right\}$,
 correspondente a um cilindro que tem como base o círculo no plano $z=0$, com raio 1 e centro na origem,
@@ -194,7 +194,7 @@ e como eixo o semi eixo positivo $Oz$.
 
 :::
 
-::: details Exemplo 2
+:::details[Exemplo 2]
 
 Imaginando o conjunto $D=\left\{( x,y) \in \mathbb{R}^{2} :0\leqslant x\leqslant 1\land y=0\right\}$,
 que em $\R^2$ corresponde a um segmento de reta entre $(0,0)$ e $(1,0)$.

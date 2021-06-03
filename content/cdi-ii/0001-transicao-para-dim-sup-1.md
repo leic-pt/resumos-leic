@@ -59,7 +59,7 @@ $$
 f( x) =o( x) ,\ x\rightarrow a\Leftrightarrow \lim _{x\rightarrow a}\frac{f( x)}{x} =0
 $$
 
-::: tip
+:::tip
 $o(h)$ lê-se "ó pequeno de $h$"
 :::
 

@@ -13,7 +13,7 @@ path: /lp/logica-proposicional-semantico
 
 Se no sistema dedutivo abordámos as regras de inferência, que _falam sobre_ as entidades da linguagem, no sistema semântico vamos abordar as _fbfs_ e os símbolos lógicos sob o ponto de vista do seu **significado**. O sistema baseia-se no conceito de interpretação, conceito este que neste contexto é definido a partir de uma **função de valoração**.
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Uma **função de valoração** é uma função $v$ que atribui valores lógicos (verdadeiro ou falso) a um conjunto de símbolos de proposição.
 
@@ -29,7 +29,7 @@ Isto é, a proposição P tem **valor verdadeiro**, enquanto que a proposição 
 
 Associada ao conceito de função de valoração temos a _interpretação_:
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Dada uma função de valoração $v$, uma **interpretação** é uma função $I_{v}$ que atribui valores lógicos a um conjunto de _fbfs_.
 $$I_{v}:\mathcal{L}_{LP} \mapsto \{V, F\}$$
@@ -53,7 +53,7 @@ Por abuso de linguagem, referir-nos-emos a partir de agora à interpretação $I
 
 Outro conceito interessante a ter em conta é o da **satisfação**. Dadas uma _fbf_ $\alpha$ e uma interpretação $I$, podemos dizer que **$I$ satisfaz $\alpha$ caso $I(\alpha) = V$**, ou que $\alpha$ é verdadeira segundo a interpretação $I$. Caso contrário, claro, dizemos que $I$ não satisfaz $\alpha$/que $\alpha$ é falsa segundo $I$. A título de exemplo, podemos afirmar que a função de valoração acima satisfaz $P \wedge Q$ mas não $\neg P \wedge Q$.
 
-::: details Tabela de Verdade + Satisfação
+:::details[Tabela de Verdade + Satisfação]
 
 | $P$ | $Q$ | $P \wedge Q$ | R   | $(P \wedge Q) \to R$ |
 | --- | --- | ------------ | --- | -------------------- |

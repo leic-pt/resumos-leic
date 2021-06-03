@@ -44,7 +44,7 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 
 - [Semana 7](https://drive.google.com/file/d/1OdnfTgMvX2SqIgvT4wpmQNP2vcm2h7CM/view?usp=sharing)
 
-  ::: details Resolução
+  :::details[Resolução]
 
   Exercício 1
 
@@ -168,7 +168,7 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 
   Se esgotarem estes exercícios e quiserem fazer mais, [este site](https://www.ic.unicamp.br/~meidanis/courses/mc336/2009s2/prolog/problemas/) tem imensos exercícios de Prolog que podem querer fazer (ty Gonçalo Nunes 😄).
 
-  ::: details Resolução
+  :::details[Resolução]
   Exercício 1
 
   ```prolog
@@ -246,7 +246,7 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 
 - Aritmética
 
-  ::: details Resolução
+  :::details[Resolução]
 
   Exercício 1
 
@@ -380,7 +380,7 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 
 - Instruções de Leitura e Escrita
 
-  ::: details Resolução
+  :::details[Resolução]
 
   Exercício 1
 
@@ -409,7 +409,7 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 
   - [Resolução](https://swish.swi-prolog.org/p/Aula%2010.pl)
 
-  ::: details Resolução
+  :::details[Resolução]
 
   7.11.1
 
@@ -534,7 +534,7 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 
 - [Semana 11](https://drive.google.com/file/d/1xGiiyjYWocO16JyfXUZqUCjpbHxItXq4/view?usp=sharing)
 
-  ::: details Resolução
+  :::details[Resolução]
 
   2.3.1
 

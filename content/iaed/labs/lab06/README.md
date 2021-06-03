@@ -9,7 +9,7 @@ path: /iaed/lab06
 
 ```
 
-::: warning
+:::warning
 Considere que os algoritmos de ordenação ordenam sempre de forma não decrescente.
 :::
 
@@ -21,7 +21,7 @@ _(BubbleSort)_ Considere a aplicação do algoritmo bubblesort ao vector `a`:
 
 Supondo que em cada iteração o algoritmo percorre o vector da esquerda para a direita, qual o conteúdo do vector a após as duas primeiras iterações?
 
-::: details Resolução
+:::details[Resolução]
 
 Resposta: `a = { 11, 8, 16, 12, 10, 14, 17, 6, 20, 21 }`
 
@@ -44,7 +44,7 @@ _(SelectionSort)_ Considere a aplicação do algoritmo selectionsort ao vector `
 
 Supondo que em cada iteração o algoritmo identifica o menor elemento e o coloca na posição mais à esquerda, qual o conteúdo do vector a após as três primeiras iterações?
 
-::: details Resolução
+:::details[Resolução]
 
 Resposta: `a = { 6, 8, 10, 11, 21, 12, 16, 14, 17, 20 }`
 
@@ -62,7 +62,7 @@ title="Selection Sort">
 
 _(SelectionSort)_ Resolva o exercício anterior, mas considerando uma variação do algoritmo SelectionSort. Suponha que em cada iteração, o algoritmo identifica o maior elemento e o coloca na posição mais à direita. Qual o conteúdo do vector `a` após as três primeiras iterações?
 
-::: details Resposta
+:::details[Resposta]
 
 Resposta: `a = { 14, 11, 16, 8, 6, 12, 10, 17, 20, 21 }`
 
@@ -76,7 +76,7 @@ _(InsertionSort)_ Considere a aplicação do algoritmo insertionsort ao vector `
 
 Supondo que o algoritmo vai inserindo os elementos à esquerda, qual o conteúdo do vector `a` após as três primeiras iterações?
 
-::: details Resolução
+:::details[Resolução]
 
 Resposta: `a = { 8, 11, 16, 20, 21, 12, 10, 14, 17, 6 }`
 
@@ -95,7 +95,7 @@ title="Insertion Sort">
 _(BubbleSort - Melhor Caso)_ A complexidade assimptótica de pior caso do algoritmo bubblesort, é $O(n^2)$.
 E no melhor caso? Ilustre com um exemplo.
 
-::: details Resposta
+:::details[Resposta]
 
 Ler um vetor já ordenado.
 
@@ -116,7 +116,7 @@ A função recebe um vector `a`, o número de elementos `n` e o valor `elem` que
 
 Indique a complexidade assimptótica da função search numa análise de pior caso e numa análise de melhor caso.
 
-::: details Resposta
+:::details[Resposta]
 
 Este algoritmo demonstrado assemelha-se muito ao binary search.
 
@@ -132,7 +132,7 @@ Indique ainda se o limite assimptótico é apertado ou se é apenas um limite su
 
 <<< @/src/iaed/labs/lab06/ex07.c
 
-::: details Resposta
+:::details[Resposta]
 
 Este algoritmo permite em cada iteração adicionar à soma dois valores da tabela.  
 São feitas $\frac{n}{2}$ iterações.
@@ -152,7 +152,7 @@ onde `n` e `m` denotam o número de elementos dos vectores `a` e `b`, respectiva
 
 Indique a complexidade assimptótica da função em função de n e m numa análise de pior caso.
 
-::: details Resposta
+:::details[Resposta]
 
 Este algoritmo faz um loop (`j < m`), que itera `m` vezes, e a cada iteração no ciclo `while` divide o
 valor de `i` por 2.  
@@ -170,7 +170,7 @@ _(Análise Assimptótica)_ Considere a função abaixo que recebe dois inteiros 
 
 Indique a complexidade assimptótica da função numa análise de pior caso.
 
-::: details Resposta
+:::details[Resposta]
 
 Este algoritmo faz um loop (`i < n * n`), que itera até `i` ser `n * n`.
 
@@ -187,7 +187,7 @@ _(Análise Assimptótica)_ Considere a função abaixo que recebe dois inteiros 
 Indique a complexidade assimptótica da função numa análise de pior caso e numa análise de melhor caso.
 É possível estabelecer uma complexidade assimptótica apertada para esta função? Justifique.
 
-::: details Resposta
+:::details[Resposta]
 
 Este algoritmo, no caso de `n` ser divisível por `m`, tem $\Omega(1)$
 

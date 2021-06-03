@@ -70,7 +70,7 @@ Note-se o posicionamento do operador de corte na versão 2 deste programa, que t
 
 Podem testar esta diferença (presença/ausência do corte na 2ª regra) com o input `parte([4,8,1,10], 7, [], [4,8,1,10])`. Na versão correta, a resposta é `false`, visto que L1 devia ser `[4,1]` e L2 `[8,10]`; na versão errada, esta interação devolveria `true`.
 
-::: details Quick Sort
+:::details[Quick Sort]
 
 Fazendo a ponte com IAED, podemos ainda utilizar o programa definido acima, em conjunto com o `append`, para implementar um Quick Sort.
 A implementação passará por considerar um pivô, por ordenar, e dividir os restantes elementos em 2 grupos, menores e maiores ou iguais que ele (usando o `parte`); chamar o programa de novo até ordenar os dois grupos e colocar, por fim, o pivô entre os grupos, utilizando o `append`.
@@ -93,7 +93,7 @@ L = [1, 2, 3, 4, 5, 6, 7, 8].
 
 :::
 
-::: details Junção de Listas Ordenadas
+:::details[Junção de Listas Ordenadas]
 
 É possível realizar a junção de duas listas ordenadas sem o operador de corte. Contudo, por uma questão de eficiência, é usual aparecer o operador de corte nalguma posição da cláusula. Por exemplo:
 

@@ -29,7 +29,7 @@ Apresenta uma linguagem muito simples, sendo que o nível mais elementar é o **
 
 - **Fórmula bem formada (_fbf_)** - qualquer lógica tem uma linguagem, linguagem esta composta por um conjunto de frases válidas. A essas frases dá-se o nome de _fórmulas bem formadas_, ou _fbfs_. Em relação a estas, temos que: os símbolos de proposição são chamados _fbfs atómicas_, que se $\alpha$ é uma _fbf_ então $\neg\alpha$ é uma _fbf_ e que qualquer combinação de _fbfs_ atómicas utilizando os símbolos lógicos acima mencionados também é uma _fbf_.
 
-::: details Exemplo - Fórmula bem formada
+:::details[Exemplo - Fórmula bem formada]
 $\neg$P  
 P $\wedge$ Q  
 (P $\wedge$ Q) $\to$ R
@@ -61,7 +61,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 - **Regra da premissa:**
 
   Podemos, no decorrer da prova (e em qualquer altura desta) introduzir _fbfs_ correspondentes a premissas. Identificada por _prem_.
-  ::: tip REGRA DA PREMISSA
+  :::tip[REGRA DA PREMISSA]
 
   A introdução de uma premissa tem sempre um aspeto deste género:
 
@@ -69,7 +69,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   :::
 
-  ::: details Exemplo - Regra da premissa
+  :::details[Exemplo - Regra da premissa]
 
   Ao tentar provar que {P, Q} $\vdash$ P $\wedge$ Q, começamos a prova escrevendo as premissas, tal que:
 
@@ -81,7 +81,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   Regra que afirma que qualquer _fbf_ pode ser repetida dentro de uma prova - ou seja, se já existe uma _fbf_ numa linha anterior, podemos reescrevê-la na linha atual, justificando com a regra da repetição. Identificada por _Rep_, $n$, onde $n$ representa a linha onde a _fbf_ foi introduzida.
 
-  ::: tip REGRA DA REPETIÇÃO
+  :::tip[REGRA DA REPETIÇÃO]
 
   A regra da repetição tem sempre um aspeto deste género:
 
@@ -89,7 +89,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   :::
 
-  ::: details Exemplo - Regra da repetição
+  :::details[Exemplo - Regra da repetição]
 
   Em relação a um exemplo mais concreto:
 
@@ -103,7 +103,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
     Diz-nos como introduzir (ou como construir) uma _fbf_ cujo símbolo lógico principal é uma conjunção - uma conjunção de _fbfs_. Abreviada por I$\wedge$, ($n$, $m$), onde $n$ e $m$ representam, respetivamente, as linhas onde as primeira e segunda _fbfs_ foram introduzidas.
     Um ponto importante a reter é que as _fbfs_ têm de ter sido introduzidas **por ordem**, caso contrário não podemos aplicar diretamente a regra, tendo de usar a regra da repetição.
 
-    ::: tip INTRODUÇÃO DA CONJUNÇÃO
+    :::tip[INTRODUÇÃO DA CONJUNÇÃO]
 
     A introdução da conjunção tem sempre um aspeto deste género:
 
@@ -111,7 +111,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
     :::
 
-    ::: details Exemplo - Introdução da Conjunção
+    :::details[Exemplo - Introdução da Conjunção]
 
     Em relação a um exemplo mais concreto:
 
@@ -122,7 +122,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
   - **Eliminação da Conjunção:**
     Diz-nos que, de uma _fbf_ cujo símbolo principal é uma conjunção, podemos derivar tanto a _fbf_ da "esquerda" como a da "direita". Abreviada por E$\wedge$, ($n$), onde $n$ representa a linha onde a _fbf_ em causa foi introduzida.
 
-    ::: tip ELIMINAÇÃO DA CONJUNÇÃO
+    :::tip[ELIMINAÇÃO DA CONJUNÇÃO]
 
     A eliminação da conjunção tem sempre um aspeto deste género:
 
@@ -130,7 +130,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
     :::
 
-    ::: details Exemplo - Eliminação da Conjunção
+    :::details[Exemplo - Eliminação da Conjunção]
 
     Em relação a um exemplo mais concreto:
 
@@ -145,7 +145,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
   Os sistemas de dedução natural usam o conceito de _prova hipotética_ - uma prova iniciada com a introdução de uma hipótese. Essa prova hipotética consiste num "ambiente local" em que, para além das outras _fbfs_ da prova, consideramos a hipótese que iniciou a prova, iniciada pela **regra da hipótese**, regra que afirma que em qualquer ponto de uma prova podemos introduzir qualquer _fbf_ como uma hipótese, começando uma nova prova hipotética. Abreviada por Hip.
   Uma vez iniciada uma prova hipotética, todas as linhas adicionadas pertencem à mesma até que a prova seja terminada.
 
-  ::: tip REGRA DA HIPÓTESE
+  :::tip[REGRA DA HIPÓTESE]
 
   A regra da hipótese tem sempre um aspeto deste género:
 
@@ -153,7 +153,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   :::
 
-  ::: details Exemplo - Regra da Hipótese
+  :::details[Exemplo - Regra da Hipótese]
 
   Em relação a um exemplo mais concreto:
 
@@ -165,7 +165,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   Regra de inferência especial, específica às provas hipotéticas. Diz-nos que qualquer _fbf_ introduzida num ponto da prova exterior à prova hipotética pode ser utilizado dentro da mesma. **O contrário não se aplica.** Abreviada por Rei, $n$, onde $n$ é a linha onde a _fbf_ foi inicialmente introduzida.
 
-  ::: tip REGRA DA REITERAÇÃO
+  :::tip[REGRA DA REITERAÇÃO]
 
   A regra da reiteração tem sempre um aspeto deste género:
 
@@ -173,7 +173,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   :::
 
-  ::: details Exemplo - Regra da Reiteração
+  :::details[Exemplo - Regra da Reiteração]
 
   Em relação a um exemplo mais concreto:
 
@@ -191,7 +191,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
   - **Introdução da Implicação:**
     Afirma que se numa prova iniciada por uma hipótese $\alpha$ formos capazes de derivar $\beta$, então podemos terminar a prova hipotética, podendo derivar $\alpha\to\beta$ na prova que contém a prova hipotética. Abreviada por I$\to$, ($n$, $m$), onde $n$ e $m$ são, respetivamente, a linha onde a hipótese foi introduzida e a _fbf_ associada derivada.
 
-  ::: tip INTRODUÇÃO DA IMPLICAÇÃO
+  :::tip[INTRODUÇÃO DA IMPLICAÇÃO]
 
   A introdução da implicação tem sempre um aspeto deste género:
 
@@ -199,7 +199,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   :::
 
-  ::: details Exemplo - Introdução da implicação
+  :::details[Exemplo - Introdução da implicação]
 
   Em relação a um exemplo mais concreto:
 
@@ -210,7 +210,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
   - **Eliminação da Implicação:**
     Regra que nos diz que de uma prova que contém tanto uma _fbf_ $\alpha$ como uma outra $\alpha\to\beta$ podemos derivar $\beta$. Abreviada por E$\to$, ($n$, $m$), onde $n$ e $m$ são, respetivamente, as linhas onde $\alpha$ e $\alpha\to\beta$ foram introduzidas.
 
-  ::: tip ELIMINAÇÃO DA IMPLICAÇÃO
+  :::tip[ELIMINAÇÃO DA IMPLICAÇÃO]
 
   A eliminação da implicação tem um aspeto deste género, sendo que a ordem de $\alpha$ e $\alpha\to\beta$ não é relevante:
 
@@ -218,7 +218,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   :::
 
-  ::: details Exemplo - Eliminação da implicação
+  :::details[Exemplo - Eliminação da implicação]
 
   Em relação a um exemplo mais concreto:
 
@@ -231,7 +231,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
   - **Introdução da negação:**
     Utiliza o conceito de _prova por absurdo_ - se a partir de uma dada hipótese podemos derivar uma contradição, então rejeitamos essa mesma hipótese, **aceitando a sua negação**, visto que caso contrário chegaríamos a uma conclusão absurda. Abreviada por I$\neg$, ($n$, ($m$, $k$)), onde $n$, $m$ e $k$ representam, respetivamente, a linha da introdução da hipótese, e as linhas correspondentes à contradição.
 
-  ::: tip INTRODUÇÃO DA NEGAÇÃO
+  :::tip[INTRODUÇÃO DA NEGAÇÃO]
 
   A introdução da negação tem sempre um aspeto deste género:
 
@@ -239,7 +239,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   :::
 
-  ::: details Exemplo - Introdução da Negação
+  :::details[Exemplo - Introdução da Negação]
 
   Em relação a um exemplo mais concreto:
 
@@ -250,7 +250,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
   - **Eliminação da negação:**
     Afirma que negar uma proposição duas vezes é o mesmo que a afirmar. Abreviada por E$\neg$, $n$, onde $n$ é a linha onde apareceu a _fbf_ duplamente negada.
 
-  ::: tip ELIMINAÇÃO DA NEGAÇÃO
+  :::tip[ELIMINAÇÃO DA NEGAÇÃO]
 
   A eliminação da negação tem sempre um aspeto deste género:
 
@@ -258,7 +258,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   :::
 
-  ::: details Exemplo - Eliminação da Negação
+  :::details[Exemplo - Eliminação da Negação]
 
   Em relação a um exemplo mais concreto:
 
@@ -271,7 +271,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
   - **Introdução da disjunção:**
     Tem em conta o significado intuitivo de uma disjunção - esta apenas precisa requer que um dos elementos se verifique para ser verdadeira. Assim sendo, partindo de uma _fbf_ $\alpha$, podemos derivar tanto $\alpha\vee\beta$ como $\beta\vee\alpha$, sendo $\beta$ qualquer _fbf_. Abreviada por I$\vee$, $n$, com $n$ sendo a linha onde a _fbf_ $\alpha$ foi introduzida.
 
-  ::: tip INTRODUÇÃO DA DISJUNÇÃO
+  :::tip[INTRODUÇÃO DA DISJUNÇÃO]
 
   A introdução da disjunção tem sempre um aspeto deste género:
 
@@ -279,7 +279,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   :::
 
-  ::: details Exemplo - Introdução da Disjunção
+  :::details[Exemplo - Introdução da Disjunção]
 
   Em relação a um exemplo mais concreto:
 
@@ -290,7 +290,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
   - **Eliminação da disjunção:**
     "A regra mais complicada", segundo o prof. Pavão. A partir dela, podemos retirar que, tendo por base uma _fbf_ do tipo $\alpha\vee\beta$, caso sejamos capazes de derivar uma terceira _fbf_ $\gamma$ a partir de provas hipotéticas iniciadas por tanto $\alpha$ como por $\beta$, então certamente que $\gamma$ se verifica - voltando à tal intuição associada à disjunção, pelo menos um elemento é verdadeiro, se podemos derivar uma _fbf_ tanto de um como de outro, então ela verifica-se obrigatoriamente. Abreviada por E$\vee$, ($n$, ($o$, $p$), ($r$, $s$)), onde $n$ representa a _fbf_ disjunta inicial, $o$ e $r$ o início de cada hipótese e $p$ e $s$ a derivação da _fbf_ pretendida, dentro da respetiva hipótese.
 
-  ::: tip ELIMINAÇÃO DA DISJUNÇÃO
+  :::tip[ELIMINAÇÃO DA DISJUNÇÃO]
 
   A Eliminação da disjunção tem sempre um aspeto deste género:
 
@@ -298,7 +298,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   :::
 
-  ::: details Exemplo - Eliminação da Disjunção
+  :::details[Exemplo - Eliminação da Disjunção]
 
   Em relação a um exemplo mais concreto:
 
@@ -308,7 +308,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
 - **Regras para a equivalência:**
 
-  ::: warning
+  :::warning
 
   Não foi abordado pelo prof. Pavão, não sei se é relevante/se pode sair em avaliação, mas achei por bem colocar.
 
@@ -320,7 +320,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
   - **Eliminação da equivalência:**
     Dada uma _fbf_ $\alpha\leftrightarrow\beta$, podemos derivar tanto $\alpha\to\beta$ como $\beta\to\alpha$. Abreviada por E$\leftrightarrow$, $n$, onde $n$ é a linha onde a _fbf_ a utilizar o símbolo da equivalência foi introduzida.
 
-  ::: tip INTRODUÇÃO/ELIMINAÇÃO DA EQUIVALÊNCIA
+  :::tip[INTRODUÇÃO/ELIMINAÇÃO DA EQUIVALÊNCIA]
 
   A introdução da equivalência tem sempre um aspeto deste género:
 
@@ -336,7 +336,7 @@ Não obstante não haver uma relação direta entre a sua definição e as regra
 
 - **Teorema** - _fbf_ que pode ser obtida a partir de uma prova que não contém qualquer premissa, pode ser obtida "do nada". Seja $\alpha$ um teorema, podemos escrever $\varnothing\vdash\alpha$ ou, até, de um modo mais simples, $\vdash\alpha$
 
-::: details Exemplo - Teorema
+:::details[Exemplo - Teorema]
 
 A seguinte prova mostra que P $\to$ (Q $\to$ P) é um teorema, visto que pode ser obtido sem premissas:
 

@@ -14,7 +14,7 @@ Num grafo conexo planar de $p$ vértices, $q$ arestas e $r$ regiões, então
 
 $$p+r = q+2$$
 
-::: details Demonstração
+:::details[Demonstração]
 
 Por indução Simples
 
@@ -53,7 +53,7 @@ QED
 
 Num grafo conexo planar de $p \geq 3$ vértices, tem-se que $q \leq 3p-6$
 
-::: details Demonstração
+:::details[Demonstração]
 
 Sabe-se que a menor região num grafo planar é limitada por $3$ vértices/arestar (um triângulo, que pode ser "torto" (exemplo no fim)).  
 Deste modo, seja $N_i$ o número de arestas na fronteira da região $i$, $r$ o número de regiões e $q$ o número de arestas, no mínimo teremos só regiões formadas por triângulos e a soma de regiões será no máximo $2q$ (repetimos cada aresta $2$ vezes)
@@ -73,7 +73,7 @@ $$
 
 QED
 
-::: details Triângulo "torto"
+:::details[Triângulo "torto"]
 
 ![Tri Torto](./imgs/0024-triTorto.png)
 
@@ -82,7 +82,7 @@ A região $R_1$ assinalada a {green}(verde) é limitada por um triângulo ("tort
 
 :::
 
-::: details Exemplo
+:::details[Exemplo]
 
 O grafo completo de $5$ vértices $(k_5)$ não é planar.  
 Como é completo, o número de arestas será
@@ -97,7 +97,7 @@ Como $10>9$, conclui-se que $k_5$ não é planar
 
 :::
 
-::: warning AVISO
+:::warning[AVISO]
 
 Um grafo pode respeitar as condições do [Teorema 2](#teorema-2) e não ser planar. Só podemos tirar conclusões se **não** respeitar a igualdade.
 
@@ -109,7 +109,7 @@ Num grafo conexo planar de $p\geq 2$ vértices, que não tem triângulos, tem-se
 
 $$q \leq 2p-4$$
 
-::: details Demonstração
+:::details[Demonstração]
 
 Quase igual à anterior, só temos de mudar os valores.
 
@@ -130,7 +130,7 @@ QED
 
 :::
 
-::: details Exemplo
+:::details[Exemplo]
 
 Um grafo bipartido com partições de dimensão $3$ $(k_{3,3})$ não é planar.
 
@@ -146,7 +146,7 @@ $k_{3,3}$ não é planar.
 
 Num grafo planar há sempre pelo menos um vértice de grau $\leq 5$.
 
-::: details Demonstração
+:::details[Demonstração]
 
 Imagine-se que afinal havia pelo menos um vértice de grau $\leq 6$.
 

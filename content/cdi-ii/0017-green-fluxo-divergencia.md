@@ -21,7 +21,7 @@ Podemos também definir a {orange}(orientação canónica de $\partial D$): é a
 
 ## Teorema de Green
 
-::: tip TEOREMA
+:::tip[TEOREMA]
 
 Se $F = (P, Q)$, $F: \R^2 \to \R^2$ e é de classe $C^1$.
 
@@ -44,7 +44,7 @@ Assim, {green}(**um campo fechado é conservativo nas curvas que delimitam regi�
 
 **NOTA:** Sentido Direto = Sentido Positivo = Sentido Anti-Horário
 
-::: details Exemplos
+:::details[Exemplos]
 
 **Sejam $F$ e a circunferência $C$, $x^2+y^2=10$, orientada no sentido horário.**
 
@@ -169,7 +169,7 @@ $$
 
 ## Domínio Simplesmente Conexo
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Um domínio D é simplesmente conexo se qualquer curva em $D$ for [homotópica](#homotopia) a um ponto.
 
@@ -192,7 +192,7 @@ $$
 \int_{C_1} F \cdot \d \vec g = \int_{C_2} F \cdot \d \vec g
 $$
 
-::: details Exemplo
+:::details[Exemplo]
 
 **Considere-se o campo vetorial $F$:**
 

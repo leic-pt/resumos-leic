@@ -39,7 +39,7 @@ $$
 
 isto é, tais que **$x_0$ é ponto crítico** de $f - \lambda_1 F_1 - \dots- \lambda_{n-m} F_{n-m}$.
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Seja $M$ uma variedade $\dim m$, e $f: M \to \R$ de classe $C^1$,
 
@@ -62,7 +62,7 @@ tal que $\lambda_j$ são {orange}(**Multiplicadores de Lagrange**).
 
 :::
 
-::: details Demonstração
+:::details[Demonstração]
 
 Seja $\gamma$ caminho em $M$ e $x_0$ um máximo local em $M$
 com $\gamma(0) =x_0$, em que $f(\gamma(t))$ atinge o máximo em $t=0$.
@@ -103,7 +103,7 @@ $f - \lambda_1 F_1 - \dots- \lambda_{n-m} F_{n-m}$
 
 :::
 
-::: details Exemplos
+:::details[Exemplos]
 
 Considerando $M$, uma esfera de raio 1, e a função $f$
 
@@ -183,7 +183,7 @@ encontrar extremos condicionados:
 1. Justificar a existência de máximo (ou mínimo) - {yellow}(**Teorema de Weierstrass**).
 2. Utilizar um critério para encontrar os candidatos a máximo ou mínimo - {orange}(**método dos multiplicadores de Lagrange**).
 
-::: details Exemplos
+:::details[Exemplos]
 
 **Queremos encontrar o paralelipípedo com maior volume de entre aqueles que satisfazem $x+y+z = 1$, $x,y,z \geq 0$**
 
@@ -370,7 +370,7 @@ Dada uma variedade $M$ e $f: M \to \R$, como podemos definir $\int_M f$?
 
 ### Para dim M = 1
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Considerando $\dim M = 1$ e seja $M$ um caminho em $\R^2$, podemos escrever que
 
@@ -383,7 +383,7 @@ $$
 A estes integrais chamamos {orange}(**Integral de um campo escalar numa variedade de $\dim 1$**) ou
 {orange}(**Integral de linha de um campo escalar**).
 
-::: details Exemplos
+:::details[Exemplos]
 
 Seja a circunferência $x^2+y^2=1$.
 
@@ -444,7 +444,7 @@ $$
 
 ### Para dim M > 1
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Considerando $\dim M \geq 1$ e seja $M$ um caminho em $\R^n$, podemos escrever que
 
@@ -466,7 +466,7 @@ Dg(t) = g'(t) & Dg^T \cdot Dg = g'(t) \cdot g'(t) = ||g'(t)||^2
 \end{array}
 $$
 
-::: details Exemplo
+:::details[Exemplo]
 
 **Considerando a variedade $P$, correspondente a um parabolóide:**
 
@@ -579,7 +579,7 @@ $$
 \sqrt{ | \det \left(Dg^t Dg \right) | } = \left|\left| \frac{\partial g}{\partial u} \times \frac{\partial g}{\partial v} \right|\right|
 $$
 
-::: details Exemplo
+:::details[Exemplo]
 
 Considerando a variedade
 
@@ -669,7 +669,7 @@ $$
 
 As definições de quantidades físicas em regiões de $\R^2$ e $\R^3$ têm definições idênticas no contexto.
 
-::: details Exemplos
+:::details[Exemplos]
 
 **Considerando a variedade definida por**
 

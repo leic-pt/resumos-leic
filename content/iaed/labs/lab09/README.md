@@ -36,7 +36,7 @@ node * destroy(node * head);
 void print(node * head);
 ```
 
-::: details Resolução
+:::details[Resolução]
 <code-group>
 <code-block
 title="Diogo Correia">
@@ -59,7 +59,7 @@ node * rev(node * head);         /* devolve uma nova lista que */
                                 /*corresponda a lista dada invertida */
 ```
 
-::: details Resolução
+:::details[Resolução]
 <code-group>
 <code-block
 title="Diogo Correia">
@@ -86,7 +86,7 @@ typedef struct stru_node {
 } node;
 ```
 
-::: details Resolução
+:::details[Resolução]
 <code-group>
 <code-block
 title="Diogo Correia">
@@ -128,7 +128,7 @@ void print(node *head);
 
 Nota: Não se esquecam, no `pop`, de libertar as strings alocadas no `push`.
 
-::: details Resolução
+:::details[Resolução]
 O exercício é igual ao 3...?
 :::
 
@@ -159,7 +159,7 @@ void  add_last(list *l, char c); /* adiciona o char c como o ultimo elemento da 
 int   is_paly(const list *ls);   /* calcula se a dada lista e um palindromo */
 ```
 
-::: details Resolução
+:::details[Resolução]
 <code-group>
 <code-block
 title="Diogo Correia">
@@ -180,7 +180,7 @@ Implemente uma calculadora para Notação polaca (também denominada notação d
 Dica: Os resultados intermédios podem ser guardados numa pilha.
 
 Dica: A função `atoi` pode ser usada para converter uma string no `int`.
-::: details Resolução
+:::details[Resolução]
 <code-group>
 <code-block
 title="Diogo Correia">

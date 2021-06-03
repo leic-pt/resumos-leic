@@ -22,7 +22,7 @@ Abordagem ao sistema dedutivo baseada numa única regra de inferência (ao contr
 
 - **Cláusula** - um literal/disjunção de laterais. Caso consista em apenas um literal, podemos chamá-la cláusula _unitária_. Pode ainda ser representada como um conjunto (através do uso de chavetas) de literais.
 
-::: details Exemplo - Literais + cláusulas
+:::details[Exemplo - Literais + cláusulas]
 
 Sendo P e Q símbolos de proposição, P e $\neg$Q são literais (positivo e negativo, respetivamente); P, P$\vee$Q, $\neg$P$\vee$Q e $\neg$Q são cláusulas, sendo que a primeira e a última são cláusulas unitárias.
 
@@ -46,13 +46,13 @@ As _fbfs_ podem, contudo, não nos ser apresentadas inicialmente nesta forma de 
 
 - **Passos para a transformação de uma _fbf_ em forma clausal**
 
-  ::: tip Eliminar o símbolo →
+  :::tip[Eliminar o símbolo →]
 
   Passo baseado na equivalência ($\alpha\to\beta$) $\leftrightarrow$ ($\neg\alpha\vee\beta$).
 
   :::
 
-  ::: details Exemplo - Eliminar o símbolo →
+  :::details[Exemplo - Eliminar o símbolo →]
 
   Partindo de P $\to \neg$(Q $\vee$ ((R $\wedge$ S) $\to$ P)):
 
@@ -62,7 +62,7 @@ As _fbfs_ podem, contudo, não nos ser apresentadas inicialmente nesta forma de 
 
   :::
 
-  ::: tip Reduzir o domínio do símbolo ¬
+  :::tip[Reduzir o domínio do símbolo ¬]
 
   Em forma clausal, nunca queremos que a forma final $\neg$ envolva a cláusula toda; por outro lado, não há qualquer problema em negar literais, pelo que aproveitamo-nos disso através de:
 
@@ -77,7 +77,7 @@ As _fbfs_ podem, contudo, não nos ser apresentadas inicialmente nesta forma de 
   $\neg(\alpha\vee\beta) \leftrightarrow (\neg\alpha\wedge\neg\beta)$  
    $\neg(\alpha\wedge\beta) \leftrightarrow (\neg\alpha\vee\neg\beta)$
 
-  ::: details Exemplo - Reduzir o domínio de ¬
+  :::details[Exemplo - Reduzir o domínio de ¬]
 
   Partindo de $\neg$P $\vee$ $\neg$(Q $\wedge$ $\neg$($\neg$(R $\wedge$ S) $\vee$ P)):
 
@@ -91,13 +91,13 @@ As _fbfs_ podem, contudo, não nos ser apresentadas inicialmente nesta forma de 
 
   :::
 
-  ::: tip Obtenção da forma conjuntiva normal
+  :::tip[Obtenção da forma conjuntiva normal]
 
   Baseia-se na equivalência $\alpha\vee(\beta\wedge\gamma)\leftrightarrow(\alpha\vee\beta)\wedge(\alpha\vee\gamma)$ para tornar disjunções em conjunções de disjunções, que estão na forma conjuntiva normal.
 
   :::
 
-  ::: details Exemplo - Obter a forma conjuntiva normal
+  :::details[Exemplo - Obter a forma conjuntiva normal]
 
   Partindo de ($\neg$P $\vee$ $\neg$Q) $\wedge$ ($\neg$P $\vee$ ((R $\wedge$ S) $\wedge$ P)):
 
@@ -107,13 +107,13 @@ As _fbfs_ podem, contudo, não nos ser apresentadas inicialmente nesta forma de 
 
   :::
 
-  ::: tip Eliminar o símbolo ∧
+  :::tip[Eliminar o símbolo ∧]
 
   Transformar a _fbf_ já na forma conjuntiva normal num conjunto de cláusulas.
 
   :::
 
-  ::: details Exemplo - Eliminar o símbolo ∧
+  :::details[Exemplo - Eliminar o símbolo ∧]
 
   Partindo de ($\neg$P $\vee$ $\neg$Q) $\wedge$ ($\neg$P $\vee$ R) $\wedge$ ($\neg$P $\vee$ S) $\wedge$ ($\neg$P $\vee$ $\neg$P):
 
@@ -121,13 +121,13 @@ As _fbfs_ podem, contudo, não nos ser apresentadas inicialmente nesta forma de 
 
   :::
 
-  ::: tip Eliminar o símbolo ∨
+  :::tip[Eliminar o símbolo ∨]
 
   Transformar cada cláusula num conjunto de literais.
 
   :::
 
-  ::: details Exemplo - Eliminar o símbolo ∨
+  :::details[Exemplo - Eliminar o símbolo ∨]
 
   Partindo de {$\neg$P $\vee$ $\neg$Q, $\neg$P $\vee$ R, $\neg$P $\vee$ S, $\neg$P $\vee$ $\neg$P}:
 
@@ -173,14 +173,14 @@ Numa prova por resolução, a decisão sobre quais as cláusulas a utilizar em c
 
   Consiste em separar as cláusulas geradas em vários níveis, cada um dos quais utiliza pelo menos uma das cláusulas existentes no nível anterior e gerar todas as cláusulas de um nível antes de começar a gerar as do próximo nível. _Em suma_, partindo de um conjunto de cláusulas inicial $\Delta$, criar um conjunto seguinte de todos os resolventes possíveis $\Delta_{1}$, repetindo até gerar ou o objetivo ou a cláusula vazia.
 
-  ::: tip VANTAGENS VS DESVANTAGENS
+  :::tip[VANTAGENS VS DESVANTAGENS]
 
   **Vantagem** - fornece um algoritmo que **garante** encontrar uma solução, se esta existir, que corresponde ao menor número de aplicações do princípio da resolução.  
   **Desvantagem** - gera muitas cláusulas que acabam por ser inúteis para a prova, incluindo algumas repetidas.
 
   :::
 
-  ::: details Exemplo - Geração por saturação de níveis
+  :::details[Exemplo - Geração por saturação de níveis]
 
   ![Geração por saturação de níveis](./assets/0003-res-sat-niveis1.png#dark=1)
 
@@ -192,7 +192,7 @@ Para aumentar a eficiência da geração de provas por resolução, foram desenv
 
   Passam por eliminar _teoremas, cláusulas não mínimas (ou subordinadas) e literais puros_.
 
-  ::: tip Eliminação de Teoremas
+  :::tip[Eliminação de Teoremas]
 
   Corresponde à eliminação das cláusulas que contenham tanto $\alpha$ como $\neg\alpha$, sendo $\alpha$ um símbolo de proposição.
   Porquê? Porque para quaisquer _fbfs_ $\alpha$ e $\beta$, ($\alpha \vee \neg\alpha) \vee \beta$ é um teorema. Ora, um teorema não afetará o resultado final, visto que se $\Delta \cup {τ} \vdash \gamma$, então $\Delta \vdash \gamma$.
@@ -201,13 +201,13 @@ Para aumentar a eficiência da geração de provas por resolução, foram desenv
 
   Antes de abordar a eliminação de cláusulas não mínimas, interessa olhar para a definição de _subordinação_. Uma cláusula Ψ subordina Φ caso Ψ $\subseteq$ Φ.
 
-  ::: tip Eliminação de cláusulas não mínimas
+  :::tip[Eliminação de cláusulas não mínimas]
 
   Dado um conjunto de cláusulas, podemos eliminar todas as cláusulas subordinadas/não mínimas por uma outra cláusula existente no conjunto.
 
   :::
 
-  ::: details Exemplo - Eliminar teoremas/cláusulas não mínimas
+  :::details[Exemplo - Eliminar teoremas/cláusulas não mínimas]
 
   Um exemplo possível é:
 
@@ -217,7 +217,7 @@ Para aumentar a eficiência da geração de provas por resolução, foram desenv
 
   Para olhar para a eliminação de _literais puros_, temos primeiro de definir **literal puro** - um literal diz-se puro quando apenas o próprio literal (ou apenas a sua negação) aparece num dado conjunto de cláusulas.
 
-  ::: details Exemplo - Literais puros
+  :::details[Exemplo - Literais puros]
 
   Dado o conjunto de cláusulas {{P, Q, $\neg$R}, {P, $\neg$Q, $\neg$R}}, P e R são literais puros.
 
@@ -225,7 +225,7 @@ Para aumentar a eficiência da geração de provas por resolução, foram desenv
 
   Ora, se um literal é puro, não nos será útil durante provas por refutação, visto que não o poderemos eliminar por resolução. Assim sendo, podemos remover as cláusulas que o contêm.
 
-  ::: tip Eliminação de Literais Puros
+  :::tip[Eliminação de Literais Puros]
 
   Podemos remover todas as cláusulas que contenham literais puros. Esta estratégia é, ao contrário das últimas duas, realizada apenas uma vez, no início da prova por refutação.
 
@@ -233,13 +233,13 @@ Para aumentar a eficiência da geração de provas por resolução, foram desenv
 
   Corresponde a um processo de controlar as cláusulas geradas numa prova por resolução, impondo restrições às cláusulas que podem ser candidatas à aplicação do princípio da resolução. Aqui, consideramos as resoluções _unitária_ e _linear_.
 
-  ::: tip RESOLUÇÃO UNITÁRIA
+  :::tip[RESOLUÇÃO UNITÁRIA]
 
   Baseia-se no facto de ao utilizarmos a resolução tentarmos por norma diminuir o número de literais existentes nas cláusulas produzidas (mais evidente em provas por refutação). Se uma das cláusulas envolvidas numa aplicação do princípio da resolução apenas contiver um literal, uma _cláusula unitária_, é então garantido que o resolvente tem menos literais do que a cláusula mãe com maior número de literais. Esta estratégia consiste, portanto, em aplicar o princípio da resolução utilizando sempre pelo menos uma cláusula unitária. **Nem todas as proposições válidas podem ser provadas desta maneira**, visto que nem sempre estamos na presença de cláusulas unitárias. Não é, portanto, um processo de inferência **completo**.
 
   :::
 
-  ::: details Exemplo - Resolução unitária
+  :::details[Exemplo - Resolução unitária]
 
   ![Resolução unitária 1](./assets/0003-res-unitaria1.png#dark=1)
 
@@ -247,13 +247,13 @@ Para aumentar a eficiência da geração de provas por resolução, foram desenv
 
   :::
 
-  ::: tip RESOLUÇÃO LINEAR
+  :::tip[RESOLUÇÃO LINEAR]
 
   Começamos por selecionar uma cláusula entre as premissas, a _cláusula inicial_, obtendo um resolvente entre a cláusula inicial e outra qualquer pertencente às premissas. A partir daí, sempre que se aplica o princípio da resolução utiliza-se o último sucessor da cláusula inicial. Qualquer sucessor da cláusula inicial chama-se _cláusula central_. Geralmente como cláusula inicial escolhemos a que corresponde à negação da cláusula que pretendemos provar, usando portanto a prova por refutação. Nesta prova por refutação, adicionaríamos a negação da conclusão ao conjunto de premissas, e tentaríamos derivar { }.
 
   :::
 
-  ::: details Exemplo - Resolução Linear
+  :::details[Exemplo - Resolução Linear]
 
   Para provar que $\{\{\neg P, Q\}, \{\neg Q, R\}, \{\neg R, S\}, \{P\}\} \vdash \{S\}$,
   começamos por transformar a prova em

@@ -29,7 +29,7 @@ f(x)=e^x \quad f'(x) = e^x \ne 0 \implies f^{-1} \text{é diferenciável}\\
 \end{darray}
 $$
 
-::: tip TEOREMA
+:::tip[TEOREMA]
 
 Seja $f: \R^n \to \R^n$ uma função de classe $C^1$, e $a\in\R^n$.
 
@@ -44,7 +44,7 @@ $$
 
 :::
 
-::: warning
+:::warning
 
 Caso tenhamos que $\det D f(a) = 0$, não podemos concluir se a função é inversa ou não.
 
@@ -57,7 +57,7 @@ Por exemplo:
 
 :::
 
-::: details Exemplos
+:::details[Exemplos]
 
 Seja
 
@@ -232,7 +232,7 @@ $$
 
 ## Teorema da Função Implícita
 
-::: tip TEOREMA
+:::tip[TEOREMA]
 
 Seja $F \in C^1, F: \R^n \times \R^m \to \R^m$ e
 considerando a curva de nível $F = 0$ e um ponto $a = (x_0, y_0)$ nessa curva.
@@ -249,7 +249,7 @@ $$
 
 :::
 
-::: details Demonstração
+:::details[Demonstração]
 
 $$
 \begin{aligned}
@@ -269,7 +269,7 @@ $$
 
 :::
 
-::: details Exemplos
+:::details[Exemplos]
 
 **Mostre que numa vizinhança de $(0, \pi)$ a equação $F(x,y) = x^2y + \sin(x+y) = 0$ define $y$ como função de $x$.**
 

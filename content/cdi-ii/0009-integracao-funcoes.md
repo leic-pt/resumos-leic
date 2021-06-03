@@ -12,7 +12,7 @@ path: /cdi-ii/integracao-funcoes
 Sabemos que uma função é integrável quando $\underline{\int_I} f = \overline{\int_I} f$.  
 Mas que tipos de funções são integráveis?
 
-::: tip TEOREMA
+:::tip[TEOREMA]
 
 Seja $f: I \subset \R^n \to \R$ contínua e limitada,
 então $f$ é integrável.
@@ -21,7 +21,7 @@ então $f$ é integrável.
 
 ## Conjunto de conteúdo nulo
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 $A \subset \R^n$ é de conteúdo nulo se, para qualquer $\epsilon > 0$, existirem intervalos $I_j$
 tal que $A \subset \bigcup I_j$ e $\sum |I_j| < \epsilon$.
@@ -44,13 +44,13 @@ C=A\cup \text{linha laranja}\\
 \end{array}
 $$
 
-::: tip PROPOSIÇÃO
+:::tip[PROPOSIÇÃO]
 
 Uma união finita de conjuntos de conteúdo nulo tem conteúdo nulo.
 
 :::
 
-::: danger ATENÇÃO
+:::danger[ATENÇÃO]
 
 Uma união infinita já pode não ser de conteúdo nulo.
 
@@ -62,7 +62,7 @@ Se tivermos vários segmentos de área 0, a sua união pode formar um quadrado, 
 
 ## Funções Integráveis
 
-::: tip TEOREMA
+:::tip[TEOREMA]
 
 Seja $f:I \subset \R^n \to \R$ contínua e limitada em $I$
 (exceto possivelmente num **conjunto de conteúdo nulo**),
@@ -86,7 +86,7 @@ Então, a sua integrabilidade depende somente da fronteira de $A$.
 
 Que conjuntos têm fronteira de conteúdo nulo?
 
-::: details Exemplo
+:::details[Exemplo]
 
 Tomando o conjunto $A = \{ (x,y) \in ]0, 1[ \times ] 0, 1 [ : x,y \in \Q \}$,
 a sua fronteira será
@@ -98,7 +98,7 @@ Neste caso, podemos concluir que a fronteira não tem conteúdo nulo, porque equ
 
 :::
 
-::: tip TEOREMA
+:::tip[TEOREMA]
 
 Se um conjunto $A$ for definido por inequações que envolvam só funções contínuas e $A$ for limitado, então
 a fronteira tem conteúdo nulo (e portanto $\1_A$ é integrável).

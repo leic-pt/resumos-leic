@@ -61,7 +61,7 @@ $16x {\equiv_{12}}10 \iff 16x - 12y = 10$ (Resolver por diofantinas para $x$)
 
 - [Congruências no WolframAplha](https://www.wolframalpha.com/input/?i=%2816x+mod+29%29+%3D+27)
 
-::: warning
+:::warning
 Obrigatório justificar no teste que existe solução única
 :::
 
@@ -119,7 +119,7 @@ $x_0 =$ soma dos $rn_{i} ñ_{i}$ % $M$
 
 Resposta $= x_0 +Mt$
 
-::: warning
+:::warning
 
 No caso de os módulos não serem primos entre si
 

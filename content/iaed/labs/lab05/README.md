@@ -27,7 +27,7 @@ Sugestão: Guardar os valores numa matriz `int valores[ALUNOS][DISCIPLINAS]` e i
 funções `long score_disciplina(int disciplina, int valores[ALUNOS][DISCIPLINAS])` e
 `long score_aluno(int aluno, int valores[ALUNOS][DISCIPLINAS])`.
 
-::: details Resolução
+:::details[Resolução]
 <code-group>
 <code-block
 title="Diogo Correia">
@@ -45,12 +45,12 @@ Os números do tipo float devem ser impressos usando "%.2f".
 
 Sugestão: Consultar os slides da aula teórica sobre estruturas.
 
-::: warning
+:::warning
 Atenção aos números com parte imaginária negativa (e.g. `5-3i`).  
 Por alguma razão, o Mooshak não tem `\n` no final do output deste teste.
 :::
 
-::: details Resolução
+:::details[Resolução]
 <code-group>
 <code-block
 title="Diogo Correia">
@@ -71,7 +71,7 @@ O título deve ser impresso numa única linha em que os atributos do título sã
 os números do tipo float são impressos usando `"%.2f"`.
 Pode assumir que o portfólio não tem mais do que 1000 títulos, e que não é vazio.
 
-::: details Resolução
+:::details[Resolução]
 <code-group>
 <code-block
 title="Diogo Correia">
@@ -95,12 +95,12 @@ e `C` o carácter `'x'` ou `'o'`.
 
 O programa deve imprimir o carácter `'x'` se ganhou o jogador `'x'`, o carácter `'o'` se ganhou o jogador `'o'`, ou o carácter `'?'` se os jogadores empataram.
 
-::: tip Sugestão
+:::tip[Sugestão]
 Guarde o tabuleiro numa matriz `char tab[MAXDIM][MAXDIM]` e implemente a função `int ganha(int dim, char tab[MAXDIM][MAXDIM], char jogador)`
 que devolve 1 se jogador ganha, e que devolve 0 no caso contrário.
 :::
 
-::: details Resolução
+:::details[Resolução]
 <code-group>
 <code-block
 title="Diogo Correia">

@@ -12,7 +12,7 @@ path: /iaed/meta/linux-setup
 Para a UC de IAED, irão necessitar de acesso a um sistema Linux com `gcc`.  
 Existem várias opções de obter esta ferramenta. Abaixo está uma comparação entre as várias opções.
 
-::: tip
+:::tip
 Este guia considera que utilizas o sistema operativo Windows 10.  
 Se tens Linux ou um Mac, já tens acesso ao `gcc`.
 :::
@@ -74,7 +74,7 @@ Executar o ficheiro compilado (por default o nome do ficheiro é `a.out`):
 /mnt/c/path/path/to/a.out
 ```
 
-::: tip
+:::tip
 Podem mudar o nome (e o local onde é guardado) do ficheiro compilado através da opção `-o`:
 
 ```bash
@@ -104,7 +104,7 @@ Existe também um [tutorial oficial](https://code.visualstudio.com/docs/cpp/conf
 
 ## MSYS2 (MinGW)
 
-::: warning
+:::warning
 Os docentes de IAED não recomendam esta opção.
 :::
 

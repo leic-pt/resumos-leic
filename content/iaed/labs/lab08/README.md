@@ -29,7 +29,7 @@ Dica: Sugere-se utilização de aritmética de ponteiros, \
 para poder avançar com um ponteiro `p` representando os diferentes sufixos e\
  passar esse ponteiro `p` como parâmetro para a função `printf`.
 
-::: details Resolução
+:::details[Resolução]
 <code-group>
 <code-block
 title="Diogo Correia">
@@ -63,7 +63,7 @@ Dica: A chamada `scanf("%s", buffer)` devolve 1 se e só se a palavra foi lida c
 
 Ex: a leitura pode terminar se o valor devolvido não estiver `1`.
 
-::: details Resolução
+:::details[Resolução]
 <code-group>
 <code-block
 title="Diogo Correia">
@@ -104,7 +104,7 @@ Nota: Não há testes automáticos para este exercício.
 
 Nota: Poderá começar por considerar uma implementação sem a realocação automática.
 
-::: details Resolução
+:::details[Resolução]
 <code-group>
 <code-block
 title="Diogo Correia">
@@ -131,7 +131,7 @@ Dica: Podem aproveitar o `ex03` para resolver este exercício.\
 
 Dica: Não é necessário guardar o input; é suficiente usar o stack.
 
-::: details Resolução
+:::details[Resolução]
 <code-group>
 <code-block
 title="Diogo Correia">

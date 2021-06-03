@@ -190,7 +190,7 @@ $$
 \sum^n_{k=0} 4^k
 $$
 
-::: details Resolução
+:::details[Resolução]
 
 Neste caso, podemos fazer a diferença finita $\Delta 4^k$ e iremos encontrar novamente $4^k$, pelo
 que podemos isolar esta parcela.
@@ -224,7 +224,7 @@ $$
 \sum^n_{k=0} k\times 4^k
 $$
 
-::: details Resolução
+:::details[Resolução]
 
 Neste caso, podemos tomar $u_k=k$ e $\Delta v_k$= $\Delta 4^k$, pois conseguimos transformar o $4^k$ em $\Delta 4^k$ (ver exemplo anterior).
 
@@ -261,7 +261,7 @@ $$
 \sum^{n}_{k=2} \frac{1}{(k+2)(k+5)}
 $$
 
-::: details Resolução
+:::details[Resolução]
 
 Ver a resolução do 1.2.3 g., que está na [página 2 deste PDF](https://drive.google.com/file/d/1wshyDqQvCBGUbe01-rTX83Yhn0WIbUef/view?usp=sharing).
 
@@ -275,7 +275,7 @@ $$
 \sum^{n-1}_{k=0} \frac{k2^k}{(k+1)(k+2)}
 $$
 
-::: details Resolução
+:::details[Resolução]
 
 Começar por tentar "adivinhar" a expressão que ao derivar dá aquilo que está "dentro" do somatório.  
 {green}(Em alguns casos, podemos usar variáveis que depois alteramos por um valor, para termos uma maior probabilidade de acertar.)

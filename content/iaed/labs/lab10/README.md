@@ -25,7 +25,7 @@ Usando uma tabela de dispersão por encadeamento externo (external chaining) par
 
 e a função de dispersão definida em cima, e sabendo que `M = 10`, qual ou quais são as chaves dos elementos guardados na posição 3 da tabela (A primeira posição da tabela é a posição zero)?
 
-::: details Resolução
+:::details[Resolução]
 
 ```c
  0 % 10 = 0
@@ -62,7 +62,7 @@ Qual o número total de conflitos (elementos adicionados a uma posição já con
  quando o último valor da sequência `< 17, 7, 28, 12, 0, 25, 37, 11 >` é introduzido numa tabela de dispersão de dimensão 10 com resolução por encadeamento externo (external chaining),\
  inicialmente vazia, sabendo que a função de hash é `hash(k) = k mod 3`.
 
-::: details Resolução
+:::details[Resolução]
 
 ```c
 17 % 3 = 2
@@ -89,7 +89,7 @@ Qual a posição em que é colocado o último valor da sequência `< 17, 7, 28, 
  ao serem introduzidos numa tabela de dispersão de dimensão `M = 13` por linear probing, inicialmente vazia,\
  sabendo que a função de hash é `hash(k) = k mod M`?
 
-::: details Resolução
+:::details[Resolução]
 
 ```c
 17 % 13 = 4
@@ -129,7 +129,7 @@ Considere uma tabela de dispersão com resolução por procura linear (linear pr
  Indique, para a inserção na tabela da sequência `< 10, 18, 5, 25, 46, 101, 39, 17 >`,\
  qual será o índice da entrada da tabela em que é inserido o último elemento ?
 
-::: details Resolução
+:::details[Resolução]
 
 ```c
  10 % 10 = 0
@@ -169,7 +169,7 @@ Considere uma tabela de dispersão com resolução por dispersão dupla (double 
 
 Qual o índice da posição na tabela em que é colocado o último valor da sequência\
  `< 10, 12, 7, 9, 3, 11, 2 >` assumindo que a tabela se encontra inicialmente vazia ?
-::: details Resolução
+:::details[Resolução]
 
 ```c
 hashone(10) = 0
@@ -213,7 +213,7 @@ Implemente um programa que lê um conjunto de palavras até terminar o ficheiro.
  No final, indica o número de palavras e lista as palavras lidas (uma por linha e sem repetições).\
  Use a lista para guardar as palavras lidas.
 
-::: details Resolução
+:::details[Resolução]
 // TODO, please contribute
 :::
 
@@ -260,6 +260,6 @@ Utilizando o comando `time` é possível determinar, de forma aproximada, o temp
 Efectue uma análise comparativa entre os tempos de execução dos dois programas implementados nos exercícios anteriores usando os ficheiros de texto disponibilizados.\
 Compare também os tempos de execução para diferentes dimensões da tabela de dispersão.
 
-::: details Resolução
+:::details[Resolução]
 // TODO, please contribute
 :::

@@ -10,7 +10,7 @@ path: /md/kruskal-dijkstra
 
 Grafo conexo que não tem ciclos
 
-::: details Exemplo
+:::details[Exemplo]
 
 ![Árvore Exemplo](./imgs/0022-arvEx.png)
 
@@ -22,7 +22,7 @@ Se $T$ é uma árvore de ordem $p$ e tamanho $q$, então
 
 $$q = p-1$$
 
-::: tip Relembrar
+:::tip[Relembrar]
 
 Ordem de um grafo $(p)$
 
@@ -45,7 +45,7 @@ Seja $g$ um grafo, $T$ é a sua `Árvore de Cobertura` se:
 - É uma árvore
 - É um subgrafo de $g$ que contém todos os vértices
 
-::: details Exemplo
+:::details[Exemplo]
 
 ![Cobertura Exemplo](./imgs/0022-arcCobEx.png)
 
@@ -55,11 +55,11 @@ Seja $g$ um grafo, $T$ é a sua `Árvore de Cobertura` se:
 
 Dada uma `Rede` $(V,E,c)$, o custo de uma árvore de cobertura $T$ da `Rede` é o **somatório** de todos os valores das arestas de $T$.
 
-::: tip Relembrar
+:::tip[Relembrar]
 `Rede` é um grafo com um valor real associado a cada aresta.
 :::
 
-::: details Exemplo
+:::details[Exemplo]
 
 ![Custo Exemplo](./imgs/0022.custoEx.png)
 
@@ -79,7 +79,7 @@ O custo da árvore representada é $21.1$
 
 ### Algoritmo de Kruskal
 
-::: details Pseudo-Código
+:::details[Pseudo-Código]
 
 ![Kruskal Pseudo](./imgs/0022-kruskalPseudo.png)
 
@@ -91,13 +91,13 @@ Assinalam-se sempre as arestas de custo mínimo, se **não** formarem ciclos. Ca
 O `Algoritmo de Kruskal` termina quando todas as arestas já foram analisadas. Tanto podem estar assinaladas ou identificadas como arestas que completam ciclos.  
 O resultado final é uma [Árvore Económica](#arvore-economica), que também será uma Árvore de Custo mínimo.
 
-::: tip NOTA
+:::tip[NOTA]
 
 Por convenção, só se deve identificar arestas que formam ciclos, quando o valor dessa aresta for o mínimo das arestas ainda por analisar.
 
 :::
 
-::: details Exemplos:
+:::details[Exemplos:]
 
 [Exemplo 1](https://drive.google.com/file/d/1oZJCHj62aIndGWDfr7hDtphEoAo3VAzE/view?usp=sharing)  
 [Exemplo 2](https://drive.google.com/file/d/1Vn6dirZylPZy4x81Q5-lnQtvHKqP2Wpd/view?usp=sharing)  
@@ -108,13 +108,13 @@ No entanto, esse método **não** pode ser chamado `Algoritmo de Kruskal`, é ap
 
 #### Teorema - Correção de Kruskal
 
-::: warning AVISO
+:::warning[AVISO]
 Mais um Teorema, cuja Demonstração é importante saber para preparar a Demonstração que sai no teste
 :::
 
 Uma [Árvore Económica](#arvore-economica) de uma Rede é sempre uma árvore de custo mínimo dessa Rede.
 
-::: details Demonstração
+:::details[Demonstração]
 
 Seja $N=(V,E,c)$ uma Rede, $T$ uma Árvore Económica construída com o `Algoritmo de Kruskal` e $T_0$ a árvore de custo **mínimo** (é conhecida).
 
@@ -154,7 +154,7 @@ QED
 
 Este Algoritmo resolve o Problema da Trajetória mínima.
 
-::: details Pseudo-Código
+:::details[Pseudo-Código]
 
 ![Dijkstra Pseudo](./imgs/0022-dijkstraPseudo.png)
 
@@ -171,7 +171,7 @@ O Algoritmo termina quando tivermos um custo associado a todos os vértices.
 
 O resultado final será uma `Árvore de Cobertura`, onde para cada $v_i$, $\operatorname{F}(i)$ é o `custo mínimo possível`.
 
-::: details Exemplos
+:::details[Exemplos]
 
 [Exemplo 1](https://drive.google.com/file/d/1NqX_csh6u_Yagpr2GJe15PGhaM24tA1s/view?usp=sharing)  
 [Exemplo 2](https://drive.google.com/file/d/1lE08JD2B-MQaauCKmA55K1ZfnLh-UU7z/view?usp=sharing)  

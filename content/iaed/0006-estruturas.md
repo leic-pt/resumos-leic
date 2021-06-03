@@ -56,13 +56,13 @@ ou
 
 <<< @/src/iaed/assets/0006-man.c
 
-::: tip
+:::tip
 As estruturas permitem incluir outras estruturas.
 
 <<< @/src/iaed/assets/0006-struception.c
 :::
 
-::: danger
+:::danger
 Estruturas não podem ser comparadas usando
 operador de comparação de igualdade
 

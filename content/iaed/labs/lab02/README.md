@@ -9,7 +9,7 @@ path: /iaed/lab02
 
 ```
 
-::: danger ERROS NO MOOSHAK
+:::danger[ERROS NO MOOSHAK]
 
 Os programas seguintes não devem ter mais nenhum input/output além do pedido no enunciado.
 Qualquer mensagem adicional (e.g. `Introduza três números:` ou `O maior número é`) irá causar
@@ -21,7 +21,7 @@ um erro no Mooshak, impedindo o programa de ser aceite.
 
 _(Maior de Três)_ Escreva um programa que determine e imprima o maior de três números inteiros dados pelo utilizador.
 
-::: details Resolução
+:::details[Resolução]
 <code-group>
 <code-block title="CONDICIONAIS">
 <<< @/src/iaed/labs/lab02/ex01.c
@@ -37,7 +37,7 @@ _(Maior de Três)_ Escreva um programa que determine e imprima o maior de três 
 
 _(Ordena 2)_ Escreva um programa que leia dois inteiros `N`, `M` e imprima o menor deles na primeira linha e o maior na segunda.
 
-::: details Resolução
+:::details[Resolução]
 <<< @/src/iaed/labs/lab02/ex02.c
 :::
 
@@ -45,7 +45,7 @@ _(Ordena 2)_ Escreva um programa que leia dois inteiros `N`, `M` e imprima o men
 
 _(Divisor)_ Escreva um programa que leia dois inteiros positivos `N`, `M` e imprima `"yes"` se `M` é um divisor de `N`. Caso contrário, imprima `"no"`.
 
-::: details Resolução
+:::details[Resolução]
 <<< @/src/iaed/labs/lab02/ex03.c
 :::
 
@@ -53,7 +53,7 @@ _(Divisor)_ Escreva um programa que leia dois inteiros positivos `N`, `M` e impr
 
 _(Ordena 3)_ Escreva um programa que leia três inteiros e imprima-os por ordem na mesma linha separados por um espaço em branco. O menor dos números deve aparecer como primeiro.
 
-::: details Resolução
+:::details[Resolução]
 <<< @/src/iaed/labs/lab02/ex04.c
 :::
 
@@ -61,7 +61,7 @@ _(Ordena 3)_ Escreva um programa que leia três inteiros e imprima-os por ordem 
 
 _(Ciclo)_ Escreva um programa que leia um inteiro positivo `N` e imprima os números `1..N`, um por linha.
 
-::: details Resolução
+:::details[Resolução]
 <<< @/src/iaed/labs/lab02/ex05.c
 :::
 
@@ -71,7 +71,7 @@ _(Maior e Menor)_ Escreva um programa que determine o maior e o menor número de
 
 _Sugestão:_ inicialize o maior e o menor com o primeiro valor lido.
 
-::: details Resolução
+:::details[Resolução]
 <<< @/src/iaed/labs/lab02/ex06.c
 :::
 
@@ -79,7 +79,7 @@ _Sugestão:_ inicialize o maior e o menor com o primeiro valor lido.
 
 _(Divisores)_ Escreva um programa que pede ao utilizador um inteiro positivo `N` e imprima o número de divisores de `N`. Recorde que os números primos têm 2 divisores.
 
-::: details Resolução
+:::details[Resolução]
 <<< @/src/iaed/labs/lab02/ex07.c
 :::
 
@@ -88,7 +88,7 @@ _(Divisores)_ Escreva um programa que pede ao utilizador um inteiro positivo `N`
 _(Média)_ Escreva um programa que calcule e imprima a média de `N` números reais dados pelo utilizador. O programa deverá primeiro pedir ao utilizador um inteiro `N`, representando a quantidade de números que vão ser introduzidos. Os números reais devem ser representados pelo tipo `float`.
 O resultado deve ser impresso com o comando `printf("%.2f\n", media);`.
 
-::: details Resolução
+:::details[Resolução]
 <<< @/src/iaed/labs/lab02/ex08.c
 :::
 
@@ -98,7 +98,7 @@ _(Conversão)_ Escreva um programa que pede ao utilizador um valor `N` correspon
 
 _Sugestão:_ utilize o operador que calcula o resto da divisão (`%`).
 
-::: details Resolução
+:::details[Resolução]
 <<< @/src/iaed/labs/lab02/ex09.c
 :::
 
@@ -106,6 +106,6 @@ _Sugestão:_ utilize o operador que calcula o resto da divisão (`%`).
 
 _(Dígitos)_ Escreva um programa que pede ao utilizador um valor positivo `N`. No output, deverá mostrar o número de dígitos que compõem `N` (na primeira linha), assim como a soma dos dígitos de `N` (na segunda linha). Por exemplo, o número `12345` tem `5` dígitos e a soma desses dígitos é `15`.
 
-::: details Resolução
+:::details[Resolução]
 <<< @/src/iaed/labs/lab02/ex10.c
 :::

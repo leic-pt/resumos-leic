@@ -21,8 +21,6 @@
     "prettier": "^2.2.1"
   },
   "dependencies": {
-    "@mdx-js/mdx": "^1.6.22",
-    "@mdx-js/react": "^1.6.22",
     "gatsby": "^3.6.2",
     "gatsby-plugin-manifest": "^3.6.0",
     "gatsby-plugin-page-creator": "^3.6.0",
@@ -31,15 +29,12 @@
     "gatsby-remark-copy-linked-files": "^4.3.0",
     "gatsby-remark-image-attributes": "^0.2.8",
     "gatsby-remark-images": "^5.3.0",
-    "gatsby-remark-katex": "^4.2.0",
+    "gatsby-remark-katex": "^5.5.0-next.0",
     "gatsby-remark-table-of-contents": "^1.0.0",
     "gatsby-source-filesystem": "^3.6.0",
-    "gatsby-transformer-remark": "^3.2.0",
-    "katex": "^0.13.11",
+    "gatsby-transformer-remark": "^4.3.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "rehype-katex": "^5.0.0",
-    "remark-directive": "^1.0.1",
-    "to-gatsby-remark-plugin": "^0.1.0"
+    "remark-directive": "^1.0.1"
   }
 }

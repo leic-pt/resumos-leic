@@ -11,7 +11,7 @@ path: /md/relacionamentos-gale-shapley
 Um grafo diz-se $k$-partido $(k \in \N_2)$ se existe uma partição do conjunto dos seus vértices em $k$ conjuntos, nenhum deles contendo vértices adjacentes.  
 Se $k=2$ pode-se chamar `bipartido`, se $k=3$ `tripartido` e para $k> 3$ multipartido.
 
-::: details Exemplo
+:::details[Exemplo]
 
 ![Grafo Tripartido](./imgs/0021-TriPartido.png)
 
@@ -36,7 +36,7 @@ Uma Lista de Relacionamentos diz-se `Estável` se não existirem pares de bloqeu
 
 Usando mais uma vez o exemplo do `Relacionamento` entre Rapazes e Raparigas, cada Rapaz e cada Rapariga poderá ter uma `Lista de Preferências` onde apresenta os membros do conjunto oposto que prefere por ordem.
 
-::: details Exemplo
+:::details[Exemplo]
 
 Neste exemplo vamos trabalhar com o `Relacionamento` entre Rapazes e Raparigas, onde temos $4$ Raparigas e $4$ Rapazes.
 
@@ -99,7 +99,7 @@ O Algorimto é descrito pelo seguinte pseudo-código.
 
 ![Gale-Shapley Pseudo](./imgs/0021-pseudoGS.png)
 
-::: tip NOTA
+:::tip[NOTA]
 
 Não importa qual a ordem das propostas dos Rapazes, o Algoritmo acabará sempre na mesma Lista
 
@@ -111,7 +111,7 @@ Não importa qual a ordem das propostas dos Rapazes, o Algoritmo acabará sempre
 
 Para toda a instância do problema do relacionamento estável, o algoritmo Gale-Shapley termina com uma lista de relacionamentos estáveis.
 
-::: details Demonstração
+:::details[Demonstração]
 
 1. Provar que cada Rapaz está associado a uma Rapariga
 
@@ -138,7 +138,7 @@ QED
 
 No teste só poderems usar $2$ Maneiras, ambas exemplificadas abaixo.
 
-::: details Maneira 1
+:::details[Maneira 1]
 
 $$
 \begin{array}{|}
@@ -170,7 +170,7 @@ Resolução:
 A Lista de Relacionamentos obtida é $\{(1,1),(2,2),(3,4),(4,3)\}$ que é estável.
 :::
 
-::: details Maneira 2
+:::details[Maneira 2]
 
 $$
 \begin{array}{|}
@@ -213,7 +213,7 @@ Todas as possíveis execuções do algoritmo de Gale-Shapley (tendo os rapazes c
 
 **\*** são os Rapazes que se propõem às raparigas, como descrito inicialmente no Algoritmo. Se fossem as Raparigas as proponentes, os papeis invertiam-se.
 
-::: details Demonstração
+:::details[Demonstração]
 
 Sendo um `parceiro estável` de $h_0/m_0$, um $m_1/h_1$ par com $h_0/m_0$ numa dada Lista Estável.
 
@@ -235,14 +235,14 @@ QED
 
 No relacionamento estável optimal para os rapazes, cada rapariga obtém o pior parceiro que pode obter em qualquer relacionamento estável.
 
-::: tip NOTA
+:::tip[NOTA]
 
 `Relacionamento Estável Otimal` para Rapazes/Raparigas:  
 Relacionamento Estável, onde os Rapazes/Raparigas obtêm o melhor parceiro possível.
 
 :::
 
-::: details Demonstração
+:::details[Demonstração]
 
 Tentando provar por **absurdo**.
 

@@ -17,7 +17,7 @@ O grande problema do algoritmo baseado em tabelas de verdade é o seu **crescime
 
 Precisamos, para falar de BDDs, de definir primeiro **árvore de decisão**.
 
-::: tip DEFINIÇÃO
+:::tip[DEFINIÇÃO]
 
 Uma **árvore de decisão** para uma _fbf_ é uma árvore onde os **nós** contêm símbolos de proposição e as **folhas** contêm valores lógicos. A cada nível de profundidade da árvore os nós correspondem _sempre_ ao mesmo símbolo de proposição, ou seja, no nível $n$ o símbolo de proposição é necessariamente o mesmo em todos os nós.  
 Cada nó _domina_ duas árvores de decisão abaixo dele:
@@ -51,7 +51,7 @@ Um **BDD** é, portanto, um grafo acílico, dirigido e rotulado em que os rótul
 
 </p>
 
-::: warning
+:::warning
 
 O livro aborda vários pormenores interessantes sobre os grafos que não serão abordados nesta secção por não terem sido referidos em aula; de qualquer maneira é uma secção interessante, se quiserem ir ler mais está por volta da página 115 do PDF do Livro do Prof. Pavão.
 
@@ -62,7 +62,7 @@ Um **diagrama de decisão binário ordenado**, OBDD, é um BDD que satisfaz algu
 - O **nível**, $i$, de um OBDD é o conjunto de todos os seus nós de profundidade $i$.
 - Dois OBDDs são compatíveis caso exista uma ordem aplicada aos seus símbolos de proposição tal que ambos os OBDDs a satisfaçam - se $P$ vem antes de $Q$ em $OBBD_{1}$, $P$ não pode vir depois de Q em $OBBD_{2}$.
 
-::: details Exemplos de OBDDs incompatíveis
+:::details[Exemplos de OBDDs incompatíveis]
 
 Os exemplos abaixo não são compatíveis, visto que não há uma ordem clara - no primeiro, $R$ vem antes de $Q$; no segundo $R$ vem depois de $Q$, não havendo, portanto, uma ordem clara.
 
@@ -91,7 +91,7 @@ Percorre, por níveis, o grafo correspondente ao OBDD, começando pelas folhas. 
 
 Só teoricamente este algoritmo pode ser díficil de entender à primeira, pelo que talvez o exemplo seguinte (e a sua explicação) ajudem a entender:
 
-::: details Exemplo - Algoritmo Reduz
+:::details[Exemplo - Algoritmo Reduz]
 
 Ora, vamos por partes:
 

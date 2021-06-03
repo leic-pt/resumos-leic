@@ -15,12 +15,12 @@ path: /iaed/input-output
 
 - Desigualdade: `> < >= <= !=`
 
-::: tip
+:::tip
 A Variável do tipo `long`, guarda 32 bits (4 bytes) para guardar o inteiro.
 No printf usamos `%ld` para referirmos a esta variável.
 :::
 
-::: tip
+:::tip
 Podemos atribuir o mesmo valores a várias variáveis:
 `notas = aprovacoes = 0;`
 :::
@@ -37,7 +37,7 @@ No entanto quando se encontram dentro dessas condições elas diferem.
 
 - `i++` incrementa o seu valor depois de verificar a condição em que se encontra.
 
-::: tip
+:::tip
 Esta notação pode também ser usada para decrementar valores em 1 unidade:
 `i--` e `--i`
 :::
@@ -87,7 +87,7 @@ Os argumentos são avaliados da esquerda para a direita e quando o valor do argu
 
 A Constante `EOF` significa End of File (que pode ser criado no terminal UNIX através do Ctrl-D).
 
-::: tip
+:::tip
 Se colocarem a atribuição da variável à função `getchar()`, devem colocar a atribuição entre parênteses.
 
 Sintaxe: `while((c = getchar()) != EOF)`

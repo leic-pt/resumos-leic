@@ -14,7 +14,7 @@ Consiste em adicionar um número de vértices qualquer ao longo de arestas quais
 
 Um grafo $g_1$ é `isomorfo` de um grafo $g_2$ se existe uma aplicação que coloca cada vértice do grafo $g_2$ no grafo $g_1$, **preservando** as arestas.
 
-::: details Exemplo
+:::details[Exemplo]
 
 ![Iso 2](./imgs/0025-iso2.png)
 Os dois grafos separados pela linha {red}(**vermelha**) são isomorfos
@@ -25,7 +25,7 @@ Os dois grafos separados pela linha {red}(**vermelha**) são isomorfos
 
 Dois grafos $g_1$ e $g_2$ são equivalentes se são [isomorfos](#grafos-isomorfos) e preservam as fronteiras.
 
-::: details Exemplos
+:::details[Exemplos]
 ![Iso 1](./imgs/0025-iso1.png)
 Os grafos acima **são** isomorfos e equivalentes.
 
@@ -41,7 +41,7 @@ Um grafo é planar, se e só se conseguirmos representá-lo numa superfície esf
 As projetarmos o desenho num plano, ficamos com uma representação do grafo planar.  
 Se rodarmos a esfera e projetarmos outra vez, teremos um desenho de um novo grafo planar, **equivalente** ao inicial.
 
-::: tip Importante
+:::tip[Importante]
 
 Ao rodarmos a esfera sobre os eixos, conseguimos obter todas as representações do grafo planar.
 
@@ -51,7 +51,7 @@ Ao rodarmos a esfera sobre os eixos, conseguimos obter todas as representações
 
 Reduz-se um grafo, quando eliminamos um vértice de grau $2$. Se eliminarmos $v$, cujas arestas eram $(v_1,v)$ e $(v_2,v)$, essas arestas desaparecem e aparece um nova: $(v_1,v_2)$
 
-::: details Exemplo
+:::details[Exemplo]
 
 ![Redux](./imgs/0025-rudux.png)
 
@@ -65,14 +65,14 @@ Dois grafos são `homeomórficos` se conseguimos aplicar a [redução](#reducao-
 
 Um grafo é planar se e só se não contém um subgrafo [homeomórfico](#grafo-homeomprfico) ao grafo $k_5$ ou ao grafo $k_{3,3}$.
 
-::: tip Relembrar
+:::tip[Relembrar]
 
 - $k_5 \rightarrow$ Grafo Completo de 5 vértices$
 - $k_{3,3} \rightarrow$ Grafo bipartido com partições de dimensão $3:$
 
 :::
 
-::: details Exemplos
+:::details[Exemplos]
 
 [Exemplo 1](https://drive.google.com/file/d/1poSHXrqoDA-_0-gyeMu-cokdHeIwTeBk/view?usp=sharing)  
 [Exemplo 2](https://drive.google.com/file/d/1UfYr6tq04urwCTC1xkfjSzv6uVvaCYVu/view?usp=sharing)  
@@ -81,7 +81,7 @@ Um grafo é planar se e só se não contém um subgrafo [homeomórfico](#grafo-h
 Às vezes até pode ser planar  
 [Exemplo 4](https://drive.google.com/file/d/15Xdd3BSg0KFU009kRTANIrF0W32JKtyi/view?usp=sharing)
 
-::: tip Dica
+:::tip[Dica]
 
 Neste processo **nunca** adicionamos vértices, apenas removemos. Por isso, se os graus dos vértices forem $<4$, sabemos que nunca encontraremos um $k_5$, apenas $k_{3,3}$.  
 Por outro lado, se os vértices tiverem grau $4$ podemos encontrar o $k_5$.

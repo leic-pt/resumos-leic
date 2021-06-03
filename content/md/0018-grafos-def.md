@@ -45,7 +45,7 @@ p = \#V\\
 q = \#E
 $$
 
-::: tip Relembrar
+:::tip[Relembrar]
 $\#A$ = número de elementos do conjunto $A$
 :::
 
@@ -64,7 +64,7 @@ $$\operatorname{deg}_g(v)$$
 
 Num grafo $g=(V,E)$, a soma dos graus dos seus vértices é igual ao **dobro** do [Tamanho do grafo](#ordem-e-tamanho-do-grafo).
 
-::: details Demonstração
+:::details[Demonstração]
 
 Primeiro define-se a seguinte operação
 
@@ -95,11 +95,11 @@ $\sum_{v \in V} \operatorname{I}(i,e)$ é 2, pois cada aresta $e$ está associad
 
 Num grafo $g = (V,E)$, o número dos seus vértices ímpares é par.
 
-::: tip NOTA
+:::tip[NOTA]
 vértice é par/ímpar $\rightarrow$ tem grau par/ímpar.
 :::
 
-::: details Demonstração
+:::details[Demonstração]
 
 Para $g = (V,E)$, onde $\#V=p$
 
@@ -115,7 +115,7 @@ Assim sendo, será um número par. Como a soma dos graus dos vértices pares é 
 QED
 :::
 
-::: details Aplicações
+:::details[Aplicações]
 **Exercício 5 da Série 4**  
 Um certa comissão parlamentar da Assembleia da República é composta por 15 deputados. Conclua que
 não é possível que cada um deles já tenha estado em comissões parlamentares anteriores com exatamente 5
@@ -133,7 +133,7 @@ QED
 Um grafo diz-se regular se todos os seus **vértices têm o mesmo** [grau](#grau-de-um-vertice).  
 Um grafo diz-se $k$-regular $(k \in N)$ se os seus vértices têm grau $k$.
 
-::: details Exemplo
+:::details[Exemplo]
 
 ![Grafo 2](./imgs/0018-grafo7.png)
 :::
@@ -144,12 +144,12 @@ Um grafo diz-se $k$-regular $(k \in N)$ se os seus vértices têm grau $k$.
 
 Um grafo diz-se completo quando cada par de vértices constitui uma aresta (está tudo ligado).
 
-::: details Exemplo
+:::details[Exemplo]
 
 ![Grafo 3](./imgs/0018-grafo2.png)
 :::
 
-::: tip NOTA
+:::tip[NOTA]
 
 - Todo o grafo completo de $k$ vértices é $k$-1 regular
 - $\binom{p}{2} = \frac{p(p-1)}{2}$ é o número máximo de arestas que um grafo pode ter
@@ -165,7 +165,7 @@ Um grafo diz-se completo quando cada par de vértices constitui uma aresta (est�
 
 **Em suma**, uma `Rede` é um grafo onde as arestas têm valores reais associados.
 
-::: details Exemplo
+:::details[Exemplo]
 ![Grafo 4](./imgs/0018-grafo3.png)
 :::
 
@@ -176,11 +176,11 @@ Um grafo diz-se completo quando cada par de vértices constitui uma aresta (est�
 É uma [Rede](#rede) onde as arestas estão associadas a valores **naturais**.
 Pode-se representar um multigrafo substituindo cada aresta por $n$ arestas, onde $n$ é o valor associado. (Com o exemplo fica claro)
 
-::: details Exemplo
+:::details[Exemplo]
 ![Grafo 5](./imgs/0018-grafo4.png)
 :::
 
-:::tip Nota
+:::tip[NOTA]
 É normal referir-se a `multigrafos` como apenas grafos. O novo termo é só usado para evitar ambiguidade quando temos grafos e `multigrafos`.
 :::
 
@@ -208,7 +208,7 @@ Num grafo $g=(V,E)$ é uma sequência alternada de vértices e arestas $P = v_0a
 
 Dois vértices $u$ e $v$ de um grafo $g = (V,E)$ dizem-se `conectados` se forem o mesmo vértice ou se existir um caminho onde as extremidades são $u$ e $v$
 
-::: details Exemplo
+:::details[Exemplo]
 ![Grafo 6](./imgs/0018-grafo5.png)
 $V_1$ e $V_2$ são `vértices conectados`.  
 O caminho {red}(vermelho) é um exemplo de caminho que prova esse facto.
@@ -233,7 +233,7 @@ Um grafo é `subgrafo` de si mesmo
 
 $h$ é uma `componente` de um grafo $g$, se $h$ for um subgrafo [conexo](#grafo-conexo) de $g$ e **não for** [subgrafo](#subgrafo) de nenhum outro subgrafo conexo de $g$.
 
-::: details Exemplo
+:::details[Exemplo]
 ![Grafo 7](./imgs/0018-grafo6.png)
 
 $h$ é uma componente do grafo $g$
@@ -251,13 +251,13 @@ $$
 \text{Arestas}+2=\text{Vértices}+\text{Regiões}
 $$
 
-::: tip NOTA
+:::tip[NOTA]
 
 A Região "Exterior" também conta
 
 :::
 
-::: details Exemplo
+:::details[Exemplo]
 
 ![Grafo Teorema 3](./imgs/0018-teorema3.png)
 
@@ -273,7 +273,7 @@ $$
 
 Aresta de um grafo, que, se for removida, aumenta o número de componentes.
 
-::: details Exemplo
+:::details[Exemplo]
 
 ![Grafo Ponte](./imgs/0018-ponte.png)
 
@@ -289,7 +289,7 @@ $$
 p-k\leq q \leq \frac{(p-k+1)(p-k)}{2}
 $$
 
-::: details Demonstração
+:::details[Demonstração]
 
 1. Provar que $p-k \leq q$
 
@@ -352,7 +352,7 @@ A segunda inequação está provada $\checkmark$.
 
 QED
 
-::: details Exemplo Grafo Esquelético
+:::details[Exemplo Grafo Esquelético]
 
 ![Esquelético](./imgs/0018-esqueletico.png)
 
@@ -362,7 +362,7 @@ QED
 
 Se um grafo de $p$ vértices tem mais de $\frac{(p-1)(p-2)}{2}$ arestas, então é conexo.
 
-::: details Demonstração
+:::details[Demonstração]
 
 Se o grafo não for convexo tem pelo menos $2$ componentes. Seja $q$ o número de arestas, pelo [Teorema Anterior](#teorema-4)
 

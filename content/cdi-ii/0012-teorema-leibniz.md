@@ -13,7 +13,7 @@ path: /cdi-ii/teorema-leibniz
 
 Relembrando o TFC de CDI 1, que nos vai ser útil em conjunto com o Teorema de Leibniz.
 
-::: tip TEOREMA
+:::tip[TEOREMA]
 
 Seja
 
@@ -39,7 +39,7 @@ $$
 
 em que não conseguimos facilmente primitivar $f(x,t)$.
 
-::: tip TEOREMA
+:::tip[TEOREMA]
 
 Seja $f: \R^2 \to \R, C^1$ e $F: \R \to \R$.
 
@@ -57,7 +57,7 @@ $$
 
 :::
 
-::: details Exemplo
+:::details[Exemplo]
 
 $$
 F(t) = \int^3_0 e^{-tx^2}\d x
@@ -102,7 +102,7 @@ $$
 
 {brown}(_A demonstração desta fórmula encontra-se nos slides da aula 26._)
 
-::: details Exemplo (correspondente ao exercício 9 da ficha 7)
+:::details[Exemplo (correspondente ao exercício 9 da ficha 7)]
 
 Seja o conjunto $V_t$ e a função $F(t)$
 

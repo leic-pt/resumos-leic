@@ -5,7 +5,7 @@ path: /md/tools/teorema-chines-restos-table-calculator
 
 # TCR Table Calculator
 
-::: danger
+:::danger
 Qualquer uso desta ferramenta em testes, exames ou outro tipo de avaliações é **unicamente da responsabilidade do aluno**.
 :::
 

@@ -21,7 +21,7 @@ Suponha que o procedimento `partition` é invocado com os seguintes argumentos:
 
 Considerando a posição `a[r]` como pivot, indique qual o conteúdo do vector `v` após a execução da função `partition`.
 
-::: details Resolução
+:::details[Resolução]
 
 Resposta: `a = {9,6,5,7,4,10,16,18,14,13,12}`
 
@@ -44,7 +44,7 @@ Considere o exercício anterior, mas onde os argumentos da função `partition` 
 
 Qual o conteúdo do vector `v` após a execução do procedimento `partition`?
 
-::: details Resolução
+:::details[Resolução]
 
 Resposta: `a = {13,11,14,9,12,15,17,19,20,16}`
 
@@ -60,7 +60,7 @@ Diga quais dos seguintes vectores corresponde a um amontoado (heap)?
 `<40, 15, 18, 13, 11, 14, 16>`\
 `<60, 30, 80, 10, 35, 70, 40>`
 
-::: details Resposta
+:::details[Resposta]
 
 Resposta: `<40, 15, 18, 13, 11, 14, 16>`
 
@@ -73,7 +73,7 @@ A primeira operação do algoritmo heapsort é transformar o vector num amontoad
 - Indique o conteúdo do vector após o passo de transformação num amontoado.
 - Indique o conteúdo do vector após os dois maiores elementos terem sido ordenados (colocados na sua posição final), durante a operação de ordenação (heapsort).
 
-::: details Resolução
+:::details[Resolução]
 
 Resposta: `a = {17,15,16,13,12,14,11,9,19,20}`
 
@@ -98,7 +98,7 @@ title="Heap Sort">
 ## Exercício 5
 
 Qual o conteúdo do seguinte vector `<25, 19, 23, 15, 18, 16, 21, 12>` depois de os dois primeiros elementos (i.e. os dois maiores) terem sido ordenados, utilizando o algoritmo de ordenação heapsort?
-::: details Resposta
+:::details[Resposta]
 
 1ª iteração: `a = {23,19,21,15,18,16,12,25}`
 
@@ -113,7 +113,7 @@ Qual o conteúdo do seguinte vector `<25, 19, 23, 15, 18, 16, 21, 12>` depois de
 
 Qual é o terceiro número da sequência, após o algoritmo ter considerado três digitos?
 
-::: details Resposta
+:::details[Resposta]
 
 Depois de ordenado até 3 digítos:
 
@@ -134,7 +134,7 @@ Nota: considere que o algoritmo é baseado numa versão estável do algoritmo co
 
 O algoritmo deve apenas processar os 6 bits menos significativos de cada número, independentemente dos números poderem ser guardados em palavras com maior número de bits.
 
-::: details Resposta
+:::details[Resposta]
 
 Depois de dois passos:
 

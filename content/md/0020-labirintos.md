@@ -35,7 +35,7 @@ Um `multigrafo atravessável` é um multigrafo que tem um `atalho euleriano aber
 Seja uma encruzilhada um sítio no labirinto, onde se pode escolher vários caminhos.  
 Podemos representar um `Labirinto` atrvés de um grafo, onde todas as entradas, saídas, centros, encruzilhadas e becos sem sáida do labirinto são vértices e as arestas são os caminhos que existem entre cada vértice.
 
-::: details Exemplos
+:::details[Exemplos]
 
 ![Labirinto Grafo1](./imgs/0020-LabGraf1.png) ![Labirinto Grafo2](./imgs/0020-LabGraf2.png)
 
@@ -48,13 +48,13 @@ Podemos representar um `Labirinto` atrvés de um grafo, onde todas as entradas, 
 Um multigrafo é euleriano se e só se é conexo e todo o seu vértice é par.  
 **Relembrar**: Conexo significa que quaisquer dois vértices estão conectados (não há vértices isolados).
 
-::: warning AVISO
+:::warning[AVISO]
 
 No próximo teste haverá uma `Demontração`, segundo o professor, que também disse que a `Demonstração` seguinte é **Muito Importante**. Se esta não ficar clara, poderá ficar mais fácil assistir à `Prova` feita pelo professor em aula, uma vez que são usados vários desenhos explicativos. Esta pode ser encontrada [aqui](https://www.youtube.com/watch?v=-yBPgkOCJhE&list=PL1L11sDP8FKHvZYbgh7FdItSfBxsHyU0z&index=43) e começa em `47:10` e acaba em `1:04:20`.
 
 :::
 
-::: details Demonstração
+:::details[Demonstração]
 
 1. **Condição Necessária**
 
@@ -81,7 +81,7 @@ Chegamos a um absurdo, afinal $Y$ **não é** o maior atalho fechado que podemos
 
 QED
 
-::: tip NOTA
+:::tip[NOTA]
 
 É importante referir também que este processo é recursivo. Poderíamos voltar a considerar $C$ um novo grafo, mas que a agora seria o resultado de retirar o atalho "$Y+U$" e chegaríamos à mesma conclusão. Só terminará se $C$ for um grafo de vértices isolados (sem arestas) e nesse caso conclui-se que o `atalho fechado` era um `atalho euleriano fechado`.
 
@@ -94,14 +94,14 @@ QED
 Um multigrafo é atravessável se e só se tem apenas dois vértices ímpares.  
 Para além disso, o `atalho Euleriano aberto` começa e acaba nos vértices ímpares, onde o primeiro é diferente do último.
 
-::: warning AVISO
+:::warning[AVISO]
 
 Demonstração semelhante à anterior. Também é **Muito Importante**, segundo o professor e na aula o professor usou desenhos explicativos que podem ajudar a perceber.  
 Podem encontrar a aula no mesmo [link](https://www.youtube.com/watch?v=-yBPgkOCJhE&list=PL1L11sDP8FKHvZYbgh7FdItSfBxsHyU0z&index=43) começa em `1:06:50` e acaba em `1:20:00`.
 
 :::
 
-::: details Demonstração
+:::details[Demonstração]
 
 1. Condição Necessária
 
@@ -125,7 +125,7 @@ Então, se eu remover a aresta adicionada, $g$ passará a ter uma `travessia eul
 
 QED
 
-::: tip NOTA
+:::tip[NOTA]
 
 A prova para grafos (não multigrafos) é muito parecida. A única diferença é que temos de adicionar um vértice com duas arestas, uma que se liga a $u$ outra a $v$, porque podemos ter uma travessia como:
 
@@ -161,7 +161,7 @@ Com este Algoritmo consegue-se percorrer um `atalho euleriano fechado` num `mult
 
 **Relembrar:** `Ponte` é uma aresta que, se removida, cria uma nova componente.
 
-::: details Exemplo
+:::details[Exemplo]
 
 O exemplo encontra-se neste [link](https://drive.google.com/file/d/1mWPgKAqZsVNwdzvJg4vBNAOzEbcAHRfp/view?usp=sharing)
 
@@ -191,7 +191,7 @@ Passamos agora à descrição do Algoritmo:
 2. Sempre que chegarmos a um vértice através de uma aresta ainda não percorrida anteriormente, se chegarmos a um vértice já visitado ou a um beco sem saída, voltamos para o vértice de onde viemos pela aresta.
 3. Sempre que chegarmos a um vértice através de uma aresta que já tinha sido percorrida anteriormente e chegarmos a um vértice já visitado, escolhemos a aresta ainda não percorrida que incide no vértice. Se não existir, escolhemos percorrer uma aresta que já tenha sido percorrida apenas **uma** vez.
 
-::: details Exemplo
+:::details[Exemplo]
 
 O exemplo encontra-se neste [link](https://drive.google.com/file/d/1ZVw96HG3QqPzsiD47qvrGwhbJTVMM6Dq/view?usp=sharing)
 
@@ -204,7 +204,7 @@ O exemplo encontra-se neste [link](https://drive.google.com/file/d/1ZVw96HG3QqPz
 Se chegarmos a um vértice, escolhemos continuar por qualquer aresta que não tenha sido percorrida $2$ vezes (dando prioridade às arestas ainda não percorridas), com exceção da aresta onde chegamos pela primeira vez ao vértice atual.  
 Só percorremos essa aresta em último caso, ou seja, se for um beco sem saída, ou se as outras arestas já tiverem sido percorridas $2$ vezes.
 
-::: details Exemplo
+:::details[Exemplo]
 
 O exemplo encontra-se neste [link](https://drive.google.com/file/d/17nTEKOgFZcweQ9cpuy6ODecCnr8QBnWm/view?usp=sharing).
 
