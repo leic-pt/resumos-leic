@@ -3,12 +3,16 @@ html {
   --bgColor: #25272a;
   --cardColor: #3e3b3b;
   --textColor: #e2e2e2;
+  --borderColor: #4e4e4e;
+  --lighten20TextColor: #e8e8e8;
+  --miniCodeBgColor: hsla(0, 0%, 100%, 0.1);
 }
 
 body {
   font-family: 'Nunito', sans-serif;
   color: var(--textColor);
   background-color: var(--bgColor);
+  font-size: 18px;
 }
 
 a {
@@ -19,4 +23,28 @@ a {
 
 img[data-dark='1'] {
   filter: invert(1) hue-rotate(180deg) saturate(5);
+}
+
+code {
+  color: var(--lighten20TextColor);
+  background-color: var(--miniCodeBgColor);
+  padding: 0.25rem 0.5rem;
+  margin: 0;
+  font-size: 0.85em;
+  border-radius: 3px;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--borderColor);
+}
+
+h2 {
+  border-bottom: 1px solid var(--borderColor);
+}
+
+.main-container {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 2rem 2.5rem;
 }

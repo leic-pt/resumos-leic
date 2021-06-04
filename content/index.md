@@ -5,7 +5,11 @@ path: /
 
 <div style="text-align: center">
 
+<div style="max-width: 150px; margin: 0 auto;">
+
 ![Logo IST](./ist-logo.png)
+
+</div>
 
 # Resumos LEIC-A
 

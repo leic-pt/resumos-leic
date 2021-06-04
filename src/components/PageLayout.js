@@ -6,12 +6,12 @@ import '../styles/main.css';
 import '../styles/markdown.css';
 
 export default function Template({ data }) {
-  const { markdownRemark: post } = data;
+  const { markdownRemark: page } = data;
   return (
-    <div className='blog-post-container'>
-      <div className='blog-post'>
-        <h1>{post.frontmatter}</h1>
-        <div className='blog-post-content' dangerouslySetInnerHTML={{ __html: post.html }} />
+    <div className=''>
+      <div className='main-container'>
+        <h1>{page.frontmatter}</h1>
+        <div className='content' dangerouslySetInnerHTML={{ __html: page.html }} />
       </div>
     </div>
   );
