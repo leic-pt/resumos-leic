@@ -1,4 +1,5 @@
 ---
+title: Lógica Proposicional - Introdução
 description: Lógica Proposicional, símbolos lógicos, componentes de uma lógica, sistema dedutivo, prova, regras de inferência, como construir uma prova.
 path: /lp/logica-proposicional-int
 ---

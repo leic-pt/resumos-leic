@@ -1,4 +1,5 @@
 ---
+title: Teoremas e Cálculo Combinatório
 description: Teoremas sobre Combinatória; Problemas de Contagem.
 path: /md/calculo-combinatorio
 ---

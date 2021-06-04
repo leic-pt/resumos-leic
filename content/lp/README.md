@@ -1,4 +1,5 @@
 ---
+title: Lógica para Programação
 path: /lp
 ---
 

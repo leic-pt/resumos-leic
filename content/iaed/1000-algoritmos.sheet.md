@@ -1,4 +1,5 @@
 ---
+title: Algoritmos de Ordenação (Cheat Sheet)
 description: Algoritmos;
 path: /iaed/cheatsheet/algorimos
 ---

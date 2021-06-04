@@ -1,4 +1,5 @@
 ---
+title: Páscoa
 path: /md/pascoa
 ---
 

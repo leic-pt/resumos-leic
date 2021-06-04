@@ -1,4 +1,5 @@
 ---
+title: Lab 11
 description: Enunciado e resolução dos exercícios do Laboratório 11 de IAED
 path: /iaed/lab11
 ---

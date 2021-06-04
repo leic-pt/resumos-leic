@@ -1,4 +1,5 @@
 ---
+title: Lab 10
 description: Enunciado e resolução dos exercícios do Laboratório 10 de IAED
 path: /iaed/lab10
 ---

@@ -1,4 +1,5 @@
 ---
+title: Mudança de Variáveis de Integração
 description: Mudança de Variáveis de Integração; Coordenadas Polares, Cilíndricas e Esféricas
 path: /cdi-ii/integracao-mudanca-var
 ---

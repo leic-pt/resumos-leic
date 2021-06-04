@@ -1,4 +1,5 @@
 ---
+title: Algoritmos de SAT
 description: Algoritmos de SAT, Algoritmo baseado em propagação de marcas, Algoritmo de teste de nós.
 path: /lp/algoritmos-sat
 ---

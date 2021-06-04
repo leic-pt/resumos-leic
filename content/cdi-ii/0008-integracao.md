@@ -1,4 +1,5 @@
 ---
+title: Integração em Rⁿ
 description: Integrais; Intervalo Aberto; Partições; Função em Escada; Integral Superior e Inferior; Propriedades de Integrais; Teorema de Fubini; Volume n-dimensional de um conjunto A
 path: /cdi-ii/integracao
 ---

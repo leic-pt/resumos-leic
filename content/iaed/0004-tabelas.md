@@ -1,4 +1,5 @@
 ---
+title: Tabelas
 description: Tabelas para Guardar Conjuntos de Elementos. Strings (Cadeias de Caracteres)
 path: /iaed/tabelas
 ---

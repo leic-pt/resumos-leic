@@ -1,4 +1,5 @@
 ---
+title: Funções Geradoras (Cheat Sheet)
 description: Fórmulas; Teoremas; Combinatória. Cheat Sheet de Funções Geradoras
 path: /md/cheatsheet/funcoes-geradoras
 ---

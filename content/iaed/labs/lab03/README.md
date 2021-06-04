@@ -1,4 +1,5 @@
 ---
+title: Lab 03
 description: Enunciado e resolução dos exercícios do Laboratório 3 de IAED
 path: /iaed/lab03
 ---

@@ -1,4 +1,5 @@
 ---
+title: Matemática Discreta
 path: /md
 ---
 

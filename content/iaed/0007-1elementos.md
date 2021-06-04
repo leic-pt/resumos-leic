@@ -1,4 +1,5 @@
 ---
+title: Elementos da Liguagem
 description: 'Elementos da Linguagem: Identificadores, Tipos de dados, Formatos de Leitura e Escrita. Conversão de tipos. Tipos Enumerados. Inicialização de Variáveis. Operadores e Precedências.'
 path: /iaed/elementos-linguagem
 ---

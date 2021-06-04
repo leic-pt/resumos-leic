@@ -1,4 +1,5 @@
 ---
+title: Exercícios de LP
 description: Repositório das fichas das aulas práticas de LP + resoluções.
 path: /lp/exercicios/fichas-aulas-praticas
 ---

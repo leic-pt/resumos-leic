@@ -1,4 +1,5 @@
 ---
+title: Lógica Proposicional - Sistema Semântico
 description: Lógica Proposicional, Sistema Semântico, Funções de Valoração, Correção e Completude, Satisfação.
 path: /lp/logica-proposicional-semantico
 ---

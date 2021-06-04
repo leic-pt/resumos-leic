@@ -1,4 +1,5 @@
 ---
+title: Lógica de Primeira Ordem - Introdução
 description: Lógica de primeira ordem, quantificadores, regras de inferência.
 path: /lp/logica-primeira-ordem-int
 ---

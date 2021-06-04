@@ -1,4 +1,5 @@
 ---
+title: Algoritmos de Gale-Shapley
 path: /md/relacionamentos-gale-shapley
 ---
 

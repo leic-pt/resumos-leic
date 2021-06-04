@@ -1,4 +1,5 @@
 ---
+title: Fundamentos da Programação em Lógica
 description: Fundamentos da Programação em Lógica, Cláusulas de Horn, Predicados, Bases de Dados, Procura, Resolução e Árvores SLD.
 path: /lp/fundamentos-programacao-logica
 ---

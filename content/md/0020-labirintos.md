@@ -1,4 +1,5 @@
 ---
+title: Labirintos
 path: /md/labirintos
 ---
 

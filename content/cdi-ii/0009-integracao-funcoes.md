@@ -1,4 +1,5 @@
 ---
+title: Integrabilidade de Funções
 description: 'Integrabilidade de funções: Que funções são integráveis?'
 path: /cdi-ii/integracao-funcoes
 ---

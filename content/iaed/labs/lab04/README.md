@@ -1,4 +1,5 @@
 ---
+title: Lab 04
 description: Enunciado e resolução dos exercícios do Laboratório 4 de IAED
 path: /iaed/lab04
 ---

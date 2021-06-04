@@ -1,4 +1,5 @@
 ---
+title: Funções e Continuidade em Rⁿ
 description: Sucessões, Funções, Continuidade e Limites em Rⁿ
 path: /cdi-ii/funcoes-continuidade
 ---

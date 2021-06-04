@@ -1,4 +1,5 @@
 ---
+title: Fórmulas Fechadas de Somatórios
 description: >-
   Números de Stirling; Primeira e Segunda Espécie.
   Aplicações no cálculo da soma fechada de polinómios.

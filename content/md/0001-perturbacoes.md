@@ -1,4 +1,5 @@
 ---
+title: Método das Perturbações
 description: 'Cálculo de somatórios através de perturbação direta e indireta'
 path: /md/perturbacoes
 ---

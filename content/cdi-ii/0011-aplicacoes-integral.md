@@ -1,4 +1,5 @@
 ---
+title: Aplicações do Integral
 description: 'Aplicações do Integral: Determinação da Massa de Sólidos, Centro de Massa e Centroide, e Momento de Inércia em Relação a um Eixo'
 path: /cdi-ii/aplicacoes-integral
 ---

@@ -1,4 +1,5 @@
 ---
+title: Equações de diferenças finitas
 description: Problema da torre de Hanói;
 path: /md/equacoes-diferencas-finitas
 ---

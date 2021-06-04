@@ -1,4 +1,5 @@
 ---
+title: Cálculo Finito (Cheat Sheet)
 description: Fórmulas;  Números de Stirling ; Método das Pertubações; Indução Matemática;
 path: /md/cheatsheet/calculo-finito
 ---

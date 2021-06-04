@@ -1,4 +1,5 @@
 ---
+title: Introdução à Programação em C
 prev: false
 description: Programa de Hello World e Fibonacci. Diferenças entre Python e C.
 path: /iaed/introducao-programacao-c

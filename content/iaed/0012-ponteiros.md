@@ -1,4 +1,5 @@
 ---
+title: Ponteiros e Tabelas
 description: Ponteiros e Endereços. Ponteiros e Tabelas.
 path: /iaed/ponteiros
 ---

@@ -1,4 +1,5 @@
 ---
+title: Meta-Predicados, Arimética, IO, Estruturas
 description: Meta-predicados. Aritmética, Instruções de Escrita e Leitura, Estruturas.
 path: /lp/prolog-mid
 ---

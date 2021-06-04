@@ -1,4 +1,5 @@
 ---
+title: Algoritmo de Kuratowski
 path: /md/algoritmo-kuratowski
 ---
 

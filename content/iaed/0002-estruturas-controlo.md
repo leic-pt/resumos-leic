@@ -1,4 +1,5 @@
 ---
+title: Estruturas de Controlo
 description: Tipos e Operadores Elementares. Estruturas de Controlo
 path: /iaed/estruturas-controlo
 ---

@@ -1,4 +1,5 @@
 ---
+title: Introdução à Análise de Algoritmos
 description: Análise de Algoritmos. Crescimento de Funções. Notação Assimptótica.
 path: /iaed/introducao-algoritmos
 ---

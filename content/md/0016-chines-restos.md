@@ -1,4 +1,5 @@
 ---
+title: Teorema Chinês dos Restos
 path: /md/teorema-chines-restos
 ---
 

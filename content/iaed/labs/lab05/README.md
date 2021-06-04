@@ -1,4 +1,5 @@
 ---
+title: Lab 05
 description: Enunciado e resolução dos exercícios do Laboratório 5 de IAED
 path: /iaed/lab05
 ---

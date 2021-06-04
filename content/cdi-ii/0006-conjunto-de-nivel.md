@@ -1,4 +1,5 @@
 ---
+title: Conjunto de Nível e Caminho
 description: Curvas de Nível, Conjunto de Nível, Ponto de Sela, Caminho em Rⁿ, Derivada de um Caminho, Vetor Tangente a um Caminho, Gradiente de um Campo Escalar
 path: /cdi-ii/conjunto-de-nivel
 ---

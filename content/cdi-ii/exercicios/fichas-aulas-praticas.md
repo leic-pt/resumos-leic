@@ -1,4 +1,5 @@
 ---
+title: Fichas Aulas Práticas
 description: Resolução das fichas de CDI-II que estão disponíveis na página da UC.
 path: /cdi-ii/exercicios/fichas-aulas-praticas
 ---

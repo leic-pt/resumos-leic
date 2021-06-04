@@ -1,4 +1,5 @@
 ---
+title: MDC & Bézout Calculator
 description: Calculadora automática passo a passo para a determinação do máximo divisor comum e dos coeficientes de Bézout. Calculadora de equações diofantinas.
 path: /md/tools/mdc-bezout-calculator
 ---

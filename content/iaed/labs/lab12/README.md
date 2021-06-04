@@ -1,4 +1,5 @@
 ---
+title: Lab 12
 description: Enunciado e resolução dos exercícios do Laboratório 12 de IAED
 path: /iaed/lab12
 ---

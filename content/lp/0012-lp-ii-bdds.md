@@ -1,4 +1,5 @@
 ---
+title: Lógica Proposicional II - Diagramas de Decisão Binários
 description: Lógica Proposicional II, Sistema Semântico, Diagramas de Decisão Binários (des)Ordenados, Algoritmos de Manipulação de OBDDs.
 path: /lp/logica-proposicional-ii-bdds
 ---

@@ -1,4 +1,5 @@
 ---
+title: Introdução ao Prolog
 description: Introdução ao Prolog. Componentes básicos, programa, objetivo, comparação, unificação, semântica.
 path: /lp/prolog-intro
 ---

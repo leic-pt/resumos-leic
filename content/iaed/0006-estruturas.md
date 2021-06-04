@@ -1,4 +1,5 @@
 ---
+title: Estruturas
 description: Definição. Funções. Typedef
 path: /iaed/estruturas
 ---
