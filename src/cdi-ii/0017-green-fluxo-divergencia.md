@@ -1,8 +1,8 @@
 ---
-description: Teorema de Green. Domínio Simplesmente Conexo. Fluxos. Teorema da Divergência.
+description: Teorema de Green. Domínio Simplesmente Conexo. Curvas Homotópicas.
 ---
 
-# Teorema de Green. Fluxos. Teorema da Divergência.
+# Teorema de Green
 
 [[toc]]
 
