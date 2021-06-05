@@ -24,7 +24,7 @@ Como exemplo de uma superfície {red}(**não orientável**) temos a [Fita de Mö
 
 Também podemos ver um exemplo de uma superfície {green}(**orientável**):
 
-[imagem]
+![Superfície Orientável](./assets/0018-superficie-orientavel.svg)
 
 **Teoremas:**
 
@@ -81,7 +81,7 @@ $$
 
 **Qual o fluxo de $F$ através de $S$?**
 
-[imagem]
+<img src="./assets/0018-exemplo-fluxo-1.svg" alt="Superficie S" class="invert-dark2" />
 
 Começamos por representar $S$ através de uma parametrização, em que usamos coordenadas esféricas:
 
@@ -145,7 +145,7 @@ $$
 
 Conseguimos "adivinhar" que o vetor normal é descrito por $\vec m (x,y,z) = (x,y,z)$, tal como pode ser evidenciado pela figura abaixo:
 
-[imagem]
+![Vetor Normal em S](./assets/0018-exemplo-fluxo-2.svg)
 
 De seguida, é só calcular o fluxo:
 
@@ -157,6 +157,90 @@ Sabemos que a expressão acima é 1 visto que é uma (semi) esfera.
 
 $$
 \text{fluxo} = \int_S F \cdot \vec m = \int_S 1 \d S = \text{área}(S) = 2 \pi
+$$
+
+:::
+
+## Divergência de um Campo Vetorial
+
+::: tip DEFINIÇÃO
+
+Seja o campo vetorial $F : \R^3 \to \R^3$, a sua divergência é dada por:
+
+$$
+\ondiv F = \frac{\partial F_1}{\partial x} + \frac{\partial F_2}{\partial y} + \frac{\partial F_3}{\partial z}
+$$
+
+:::
+
+### Teorema da Divergência
+
+Um domínio $D \subset \R^3$ aberto e limitado é {orange}(**domínio regular**) se e só se $\partial D$ é união finita de superfícies orientáveis.
+
+::: tip DEFINIÇÃO
+
+Seja $D \subset \R^3$ um {orange}(**domínio regular**), $\vec n$ a normal em $\partial D$ que aponta para fora de $D$,
+então:
+
+$$
+\int_{\partial D} F \cdot \vec n = \iiint_D \ondiv F
+$$
+
+:::
+
+::: details Exemplo
+**Sejam o campo vetorial $F$ e a superfície $S$, definidas por**
+
+$$
+\begin{aligned}
+F(x,y,z) &= (x,y, -2z)\\
+S &= \{x^2+y^2 = 1 + 2z^2, 0 \leq z \leq 1 \}
+\end{aligned}
+$$
+
+**em que $S$ está orientada para "fora".**
+
+**Qual o valor de $\int_S F \cdot \vec n$?**
+
+- $\ondiv F = 1+1-2 = 0$
+
+<img src="./assets/0018-exemplo-divergencia.svg" alt="Superficie S" class="invert-dark2" />
+
+$$
+D = \{ x^2+y^2 \leq 1 + 2 z^2, 0 \leq z \leq 1 \}
+$$
+
+$\partial D =$ hiperboloíde $(S)$ + tampa de cima $(T_1, z=1)$ + tampa de baixo $(T_0, z=0)$
+
+Pelo teorema da divergência:
+
+$$
+\int_{\partial D} F \cdot \vec n_{ext} = \iiint_D \ondiv F = 0
+$$
+
+$$
+\begin{darray}{l}
+\int_{\partial D} F \cdot \vec n_{ext} = \int_S F \cdot \vec n_{ext} + \int_{T_1} F \cdot \vec n_{ext} + \int_{T_2} F \cdot \vec n_{ext}\\
+\implies \int_S F \cdot \vec n_{ext} = - \int_{T_1} F \cdot \vec n_{ext} - \int_{T_2} F \cdot \vec n_{ext}
+\end{darray}
+$$
+
+Em $T_1$, sabemos que a normal é $\vec n_{ext} = (0,0,1)$ e então $F \cdot \vec n_{ext} = -2z$.  
+Como $z=1$:
+
+$$
+\int_{T_1} - 2z \d S = \int_{T_1} - 2 \d S = -2 \times \text{área}(T_1) = -2 \times 3 \pi = -6\pi
+$$
+
+Em $T_0$, sabemos que a normal é $\vec n_{ext} = (0,0,-1)$ e então $F \cdot \vec n_{ext} = 2z$.  
+Como $z=0$:
+
+$$
+\int_{T_0} F \cdot \vec n_{ext} \d S = 0
+$$
+
+$$
+\int_S F \cdot \vec n_{ext} = -(-6\pi ) - 0 = 6 \pi
 $$
 
 :::
