@@ -30,7 +30,7 @@ Também podemos ver um exemplo de uma superfície {green}(**orientável**):
 
 **Teoremas:**
 
-- Uma superfície descrita por uma por uma parametrização é **sempre** orientável.
+- Uma superfície descrita por uma parametrização é **sempre** orientável.
 - Uma superfície orientável tem sempre dois campos normais.
 
 ::: details Demonstração
