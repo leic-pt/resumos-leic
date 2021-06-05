@@ -179,9 +179,10 @@ Note-se que há casos onde $R>31$, e março tem **apenas** 31 dias. Isto acontec
 
 :::details[Lógica da Fórmula]
 
-- Uma propriedade interessante é que a soma da `Epacta`, de um ano $\lambda$ ,com o dia do mês de março $(R)$ onde calha a `Lua Cheia Pascal`, contando os dias de abril como continuação do mês de março, é:
-  - $44, \quad$ entre 21 e 44 de março (13 de abril)
-  - $74, \quad$ entre 45 e 49 de março (18 de abril, última data possível para a Lua Cheia Pascal)
+Uma propriedade interessante é que a soma da `Epacta`, de um ano $\lambda$ ,com o dia do mês de março $(R)$ onde calha a `Lua Cheia Pascal`, contando os dias de abril como continuação do mês de março, é:
+
+- $44, \quad$ entre 21 e 44 de março (13 de abril)
+- $74, \quad$ entre 45 e 49 de março (18 de abril, última data possível para a Lua Cheia Pascal)
 
 ![Tabela Lua R](./imgs/0014-tabela_R.png)
 

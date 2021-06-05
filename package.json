@@ -34,6 +34,7 @@
     "gatsby-remark-table-of-contents": "^1.0.0",
     "gatsby-source-filesystem": "^3.6.0",
     "gatsby-transformer-remark": "^4.3.0",
+    "katex": "^0.13.11",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "remark-directive": "^1.0.1"
