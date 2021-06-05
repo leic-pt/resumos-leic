@@ -26,7 +26,7 @@ Como exemplo de uma superfície {red}(**não orientável**) temos a [Fita de Mö
 
 Também podemos ver um exemplo de uma superfície {green}(**orientável**):
 
-[imagem]
+![Superfície Orientável](./assets/0018-superficie-orientavel.svg)
 
 **Teoremas:**
 
@@ -85,7 +85,7 @@ $$
 
 **Qual o fluxo de $F$ através de $S$?**
 
-[imagem]
+<img src="./assets/0018-exemplo-fluxo-1.svg" alt="Superficie S" class="invert-dark2" />
 
 Começamos por representar $S$ através de uma parametrização, em que usamos coordenadas esféricas:
 
@@ -149,7 +149,7 @@ $$
 
 Conseguimos "adivinhar" que o vetor normal é descrito por $\vec m (x,y,z) = (x,y,z)$, tal como pode ser evidenciado pela figura abaixo:
 
-[imagem]
+![Vetor Normal em S](./assets/0018-exemplo-fluxo-2.svg)
 
 De seguida, é só calcular o fluxo:
 
@@ -208,7 +208,7 @@ $$
 
 - $\ondiv F = 1+1-2 = 0$
 
-[imagem]
+<img src="./assets/0018-exemplo-divergencia.svg" alt="Superficie S" class="invert-dark2" />
 
 $$
 D = \{ x^2+y^2 \leq 1 + 2 z^2, 0 \leq z \leq 1 \}
