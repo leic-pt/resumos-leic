@@ -156,6 +156,7 @@ module.exports = {
             '0015-extremos-condicionados',
             '0016-campos-vetoriais',
             '0017-green-fluxo-divergencia',
+            '0018-fluxo-divergencia',
           ],
         },
         {
