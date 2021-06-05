@@ -1,5 +1,5 @@
 ---
-description: Integrais de Superfície de Campos Vetoriais. Fluxo. Teorema da Divergência
+description: Integrais de Superfície de Campos Vetoriais. Fluxo. Divergência de um Campo Vetorial. Teorema da Divergência
 ---
 
 # Fluxo. Teorema da Divergência
@@ -7,6 +7,8 @@ description: Integrais de Superfície de Campos Vetoriais. Fluxo. Teorema da Div
 [[toc]]
 
 ## Superfície Orientável
+
+Uma superfície é orientável se tem uma normal definida continuamente que indica qual o "lado de dentro" e o "lado de fora" da superfície.
 
 ::: tip DEFINIÇÃO
 
@@ -65,6 +67,8 @@ $$
 &= \iint_D F(g(u,v)) \cdot \left(\frac{\partial g}{\partial u} \times \frac{\partial g}{\partial v}\right) \d u \d v
 \end{aligned}
 $$
+
+É também importante reforçar que, tal como anteriormente, o sinal do integral depende da orientação da paremetrização.
 
 ::: details Exemplo
 
@@ -250,3 +254,4 @@ $$
 Slides:
 
 - [Aula 45](https://drive.google.com/file/d/1PUIi-kVyklWydOd2nsVZF4xCUKXIVM_V/view?usp=sharing)
+- [Aula 46](https://drive.google.com/file/d/10yOCuIOEBzBHTVBDUvVaYe1cTUYwpBmy/view?usp=sharing)
