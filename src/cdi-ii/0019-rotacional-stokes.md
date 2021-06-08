@@ -79,6 +79,8 @@ $$
 
    :::
 
+   Se $\div G \ne 0$, então $G$ não pode ser um rotacional.
+
 2. Se $\rot F = (0,0,0)$, então $F$ é [fechado](./0016-campos-vetoriais.md#campo-fechado), pois
 
    $$
@@ -183,9 +185,171 @@ $$
 \int_S F \cdot \vec n = \int_S \rot A \cdot \vec n = \int_{\partial S} A \cdot \d \vec g = 0
 $$
 
+## Conjunto Aberto Estrelado
+
+::: tip DEFINIÇÃO
+
+Seja $A \subset \R^n$ um conjunto aberto. O conjunto $A$ diz-se em estrela (ou estrelado) se existir $x_0 \in A$ (e.g. centro da estrela) tal que o segmento que une $x_0$ a qualquer ponto de A está contido em $A$.
+
+Qualquer conjunto aberto estrelado é um conjunto aberto [simplesmente conexo](./0017-green-fluxo-divergencia.md#dominio-simplesmente-conexo) (mas o contrário não é sempre verdade).
+
+:::
+
+Exemplos:
+
+[imagem]
+
+::: tip TEOREMA
+
+Se $G: D \subset \R^3 \to \R^3$ com $\div G = 0$ e o domínio de $G$ é um aberto em estrela, então existe $F: \R^3 \to \R^3$ tal que
+
+$$
+\rot F = G
+$$
+
+:::
+
+### Obter o Campo Vetorial de um Rotacional
+
+Tomando $G: \R^3 \to \R^3$ com $\ondiv G = 0$, então, como $\R^3$ é um aberto em estrela, $G = \rot F$.
+
+Como podemos calcular o potencial vetor de $F$?  
+Seguimos os seguintes passos:
+
+1. Fazer um sistema com as componentes da definição de rotacional, igualadas ao valor conhecido do rotacional, isto é, $G$.
+
+   $$
+   rot F = \nabla \times F = \begin{vmatrix}
+   e_1 & e_2 & e_3\\
+   \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z}\\
+   F_1 & F_2 & F_3
+   \end{vmatrix}
+   = (\frac{\partial F_3}{\partial y} - \frac{\partial F_2}{\partial z}, - \frac{\partial F_3}{\partial x} + \frac{\partial F_1}{\partial z}, \frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y})
+   $$
+
+   $$
+   \begin{cases}
+   \frac{\partial F_3}{\partial y} - \frac{\partial F_2}{\partial z} = G_1\\
+   \frac{\partial F_1}{\partial z} - \frac{\partial F_3}{\partial x} = G_2\\
+   \frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y} = G_3
+   \end{cases}
+   $$
+
+2. Se $G = \rot F$ e $\phi: \R^3 \to \R$
+
+   $$
+   \rot (F + \nabla \phi) = \rot F + \rot (\nabla \phi) = \rot F + 0 = G
+   $$
+
+3. Seja $\phi = - \int F_1 (x,y,z) \d x$ (isto é, $\phi$ é o simétrico da primitiva de $F_1$ em ordem a $x$)
+
+   - $\rot(F + \nabla \phi) = G$
+   - A primeira coordenada de $F + \nabla \phi$ é $F_1 + \frac{\partial \phi}{\partial x} = F_1 - F_1 = 0$
+
+   Logo, existe um potencial vetor com a primeira componente nula.  
+   O mesmo é válido com qualquer componente, pelo que sabemos que existe sempre pelo menos uma componente nula.
+
+É mais fácil perceber através de um exemplo:
+
+::: details Exemplo
+
+**Seja o campo vetorial $F(x,y,z) = (x e^y, -2e^y, ze^y)$.**
+
+1. **Será que $F$ é um rotacional?**
+
+   - $\div F = e^y - 2e^y + e^y = 0$
+   - Domínio de $F = \R^3$ é aberto em estrela
+
+   Logo, $F$ é um rotacional.
+
+2. **Qual o valor de $A$ tal que $F = \rot A$?**
+
+   Tomando, por exemplo, $A_2$ = 0,
+
+   $$
+   \begin{aligned}
+   &\begin{cases}
+   \frac{\partial A_3}{\partial y} - \frac{\partial A_2}{\partial z} = x e^y\\
+   \frac{\partial A_1}{\partial z} - \frac{\partial A_3}{\partial x} = -2e^y\\
+   \frac{\partial A_2}{\partial x} - \frac{\partial A_1}{\partial y} = z e^y
+   \end{cases}\\
+   \Leftrightarrow &
+   \begin{cases}
+   \frac{\partial A_3}{\partial y} = x e^y\\
+   \huge -\\
+   \frac{\partial A_1}{\partial y} = - z e^y
+   \end{cases}\\
+   \Leftrightarrow &
+   \begin{cases}
+   A_3 = \int x e^y \d y = x e^y + C_1(x,z)\\
+   (-e^y + \frac{\partial C_2}{\partial z}) - (e^y + \frac{\partial C_1}{\partial x}) = -2 e^y\\
+   A_1 = -z e^y + C_2(x,z)
+   \end{cases}\\
+   \Leftrightarrow &
+   \begin{cases}
+   \huge -\\
+   -2e^y + \frac{\partial C_2}{\partial z} - \frac{\partial C_1}{\partial x}= -2 e^y\\
+   \huge -
+   \end{cases}\\
+   \Leftrightarrow &
+   \begin{cases}
+   -\\
+   \frac{\partial C_2}{\partial z} = \frac{\partial C_1}{\partial x}\\
+   \huge -
+   \end{cases}
+   \end{aligned}
+   $$
+
+   Escolhendo $C_1 = C_2 = 0$, temos $A = (-z e^y, 0, xe^y)$
+
+3. **Considerando $S = \{x^2 + z^2 = y^2: 1 < y < 2\}$ e $\vec n_y < 0$, qual o valor de $\int_S F \cdot \vec n$?**
+
+[imagem]
+
+Pelo [Teorema de Stokes](#teorema-de-stokes), sabemos que
+
+$$
+\int_S F \cdot \vec n = \int_S \rot A \cdot \vec n = \int_{\partial S} A \d g = \int_{C_1} A \d g + \int_{C_2} A \d g
+$$
+
+$C_1: x^2+z^2 = 1, y = 1$
+
+$$
+\begin{array}{ll}
+g(t) = (\cos t, 1, \sin t) & g'(t) = (-\sin t, 0, \cos t)\\
+A(g(t)) = (-e \sin t, 0, e\cos t) &
+\end{array}
+$$
+
+$$
+\int_{C_1} A \d g = - \int_0^{2 \pi} A(g(t)) \cdot g'(t) \d t = - 2\pi e
+$$
+
+$C_2: x^2+z^2 = 4, y = 2$
+
+$$
+\begin{array}{ll}
+g(t) = (2\cos t, 2, 2\sin t) & g'(t) = (-2\sin t, 0, 2\cos t)\\
+A(g(t)) = (-2e^2 \sin t, 0, 2e^2\cos t) &
+\end{array}
+$$
+
+$$
+\int_{C_2} A \d g = \int_0^{2 \pi} A(g(t)) \cdot g'(t) \d t = \int_0^{2 \pi} 4 e^2 \d t = 8\pi e^2
+$$
+
+Logo,
+
+$$
+\int_S F \cdot \vec n = 8\pi e^2 - 2\pi e
+$$
+
+:::
+
 ---
 
 Slides:
 
 - [Aula 47](https://drive.google.com/file/d/1x5QZEP0iS2id-kief-QHd_KH4o6qxN8w/view?usp=sharing)
 - [Aula 48](https://drive.google.com/file/d/1qbxkvtPUH3D1w51vtw2WfrvsruYEujPd/view?usp=sharing)
+- [Aula 49](https://drive.google.com/file/d/18oL0P6Zg0otWYsi3OUl-iZ0XL4sdo7aF/view?usp=sharing)
