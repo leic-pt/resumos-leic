@@ -106,11 +106,13 @@ $$
 S = \{x^2 + y^2 + z^2 = 1, z > 0 \}, \quad \vec n_z > 0
 $$
 
-[imagem]
+<img src="./assets/0019-mao-direita-1.svg" alt="Orientação do bordo de S pela regra da mão direita" class="invert-dark2" />
 
 $$
 T = \{x^2 + y^2 = 1 , 0 \leq z \leq 1 \}, \quad \text{normal exterior}
 $$
+
+<img src="./assets/0019-mao-direita-2.svg" alt="Orientação do bordo de T pela regra da mão direita" class="invert-dark2" />
 
 ## Teorema de Stokes
 
@@ -138,7 +140,7 @@ $$
 
 **Qual o valor de $\int_S \rot F \cdot \vec n$?**
 
-[imagem]
+<img src="./assets/0019-exemplo-taca.svg" alt="Representação 3D da superfície S" class="invert-dark2" />
 
 A normal está apontada para fora da taça.
 
