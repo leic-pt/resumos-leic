@@ -1,5 +1,5 @@
 ---
-description: Integrais de Superfície de Campos Vetoriais. Fluxo. Divergência de um Campo Vetorial. Teorema da Divergência
+description: Integrais de Superfície de Campos Vetoriais. Fluxo. Divergência de um Campo Vetorial. Teorema da Divergência. Significado Geométrico de Divergência
 ---
 
 # Fluxo. Teorema da Divergência
@@ -248,6 +248,30 @@ $$
 $$
 
 :::
+
+### Significado Geométrico da Divergência
+
+Considerando um campo vetorial $F$:
+
+$$
+F: \R^3 \to \R^3, C^1, x_0 \in \R^3
+$$
+
+$$
+\int_{\partial B_{\epsilon} (x_0)} F \cdot \vec n = \int_{\partial B_{\epsilon} (x_0)} \ondiv F \approx \ondiv F(x_0) \cdot \int_{\partial B_{\epsilon} (x_0)} 1
+= \ondiv F(x_0) \cdot \text{volume}(B_{\epsilon} (x_0))
+$$
+
+$$
+\ondiv_F(x_0) = \lim_{\epsilon \to 0} \frac{1}{\text{vol}(B_{\epsilon} (x_0))} \int_{\partial B_{\epsilon} (x_0)} F \cdot \vec n
+$$
+
+- Se $\ondiv F(x_0) > 0$, então $\int_{\partial B_{\epsilon} (x_0)} F \cdot \vec n > 0$  
+  Em $x_0$ estamos a introduzir fluxo.
+- Se $\ondiv F(x_0) < 0$, então $\int_{\partial B_{\epsilon} (x_0)} F \cdot \vec n < 0$  
+  Em $x_0$ estamos a retirar fluxo.
+- Se $\ondiv F(x_0) = 0$  
+  Em $x_0$ não está a haver alteração de fluxo.
 
 ---
 
