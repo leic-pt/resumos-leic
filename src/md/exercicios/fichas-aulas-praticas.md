@@ -42,6 +42,9 @@ description: Resolução das fichas de MD que estão disponíveis na página da 
   - [Resolução (4)](https://drive.google.com/file/d/18JI7ZcqAOej8ewMVjYEtbvrtagJ5bT7J/view?usp=sharing)
   - [Resolução (5)](https://drive.google.com/file/d/1i_OS4SREGGC5g8fcitV5X0peB7tU_o_e/view?usp=sharing)
   - [Resolução (6)](https://drive.google.com/file/d/1bXT-smx6VdNXU96_iVKpcG3QaQrVAeWv/view?usp=sharing)
+  - [Resolução (8)](https://drive.google.com/file/d/1dZpleo0TdoUccRk9HYE_YegPE0ZA-mkl/view?usp=sharing)
+  - [Resolução (9)](https://drive.google.com/file/d/15zgqotRCgUsOWSva1u7wybkU9xnuraBU/view?usp=sharing)
 
 - [Séries 5](https://drive.google.com/file/d/1nLFKZTPj38gi05mwFDUOhz0SMSm0uvlh/view?usp=sharing)
-  - [Resolução (In a Far Future)]()
+
+  - [Resolução (1 e 2)](https://drive.google.com/file/d/1SW9gcN9PtBHt482RmYvcnMp4A5cyrYdR/view?usp=sharing)

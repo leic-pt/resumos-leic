@@ -484,7 +484,7 @@ Se $D$ é compacto (isto é, fechado e limitado), então toda a sucessão de pon
 
 A demonstração deste teorema encontra-se nos slides da aula 5.
 
-## Teorema de Weirestrass
+## Teorema de Weierstrass
 
 Deste teorema, podemos retirar:
 

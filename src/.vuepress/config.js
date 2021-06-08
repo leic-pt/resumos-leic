@@ -156,6 +156,8 @@ module.exports = {
             '0015-extremos-condicionados',
             '0016-campos-vetoriais',
             '0017-green-fluxo-divergencia',
+            '0018-fluxo-divergencia',
+            '0019-rotacional-stokes',
           ],
         },
         {
@@ -281,6 +283,8 @@ module.exports = {
             '\\1': '1\\!\\!1',
             '\\Q': '\\mathbb{Q}',
             '\\car': '\\operatorname{car}',
+            '\\ondiv': '\\operatorname{div}',
+            '\\rot': '\\operatorname{rot}',
           },
           strict: false,
         },

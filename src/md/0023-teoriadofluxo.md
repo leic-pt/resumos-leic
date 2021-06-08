@@ -31,14 +31,14 @@ O vértice **_S_** tem
 - Grau de saída $3$
   :::
 
-#### Fonte e Semidouro
+#### Fonte e Sumidouro
 
 `Fonte` é o vértice de um digrafo conexo com grau de entrada nulo.  
-`Semidouro` é o vértice de um digrafo conexo com grau de saída nulo.
+`Sumidouro` é o vértice de um digrafo conexo com grau de saída nulo.
 
 ::: tip Notação
 Um digrafo-$s$-$t$ é um digrafo com `fonte` $s$
-e `semidouro` $t$
+e `sumidouro` $t$
 :::
 
 ### Rede Capacitada
@@ -63,7 +63,7 @@ O **Valor** de um Fluxo numa Rede Capacitada será igual ao somatório do fluxo 
 
 ::: details Dica
 
-Podemos ver uma `Rede Capacitada`, como uma rede de calanização da água, onde há uma fonte, destino(semidouro) e as arestas são canos de água. Tal como na `Rede Capacitada`, um cano não tem água a circular nos dois sentidos, apenas num.  
+Podemos ver uma `Rede Capacitada`, como uma rede de calanização da água, onde há uma fonte, destino(sumidouro) e as arestas são canos de água. Tal como na `Rede Capacitada`, um cano não tem água a circular nos dois sentidos, apenas num.  
 Seguindo esta ideia,
 
 - `Capacidade` $(\operatorname{cap})$ indica a quantidade máxima de água que cada cano aguenta.
@@ -104,7 +104,7 @@ A aresta com capacidade $3$ mais abaixo não é incluída, porque vai de $V_t$ p
 
 ### Balanço de Fluxo
 
-Balanço de fluxo, através de um corte $C = (V_s,V_t)$, que também pode ser identificado por **Fluxo do Corte $C$**, é a [capacidade do corte](#capacidade-do-corte) menos a soma dos fluxos das arestas orientadas de um vértice de $V_t$ para $V_s$ (fluxo negativo).  
+Balanço de fluxo, através de um corte $C = (V_s,V_t)$, que também pode ser identificado por **Fluxo do Corte $C$**, é a soma dos fluxo das arestas orientadas de $V_s$ para $V_t$ (fluxo positivo) menos a soma dos fluxos das arestas orientadas de um vértice de $V_t$ para $V_s$ (fluxo negativo).  
 Qualquer Corte numa `Rede Capacitada` tem sempre o mesmo `Balanço de Fluxo`.
 
 ::: details Exemplos
@@ -137,7 +137,7 @@ uma Quasi-trajetória, pode existir uma aresta $a_i$ (\*com $1<i<k$) que está d
 
 ::: tip NOTAS
 
-- \*Não pode ser $1\leq i \leq k$, porque uma aresta da `fonte` sai sempre da fonte e uma do `semidouro` está sempre dirigida para este.
+- \*Não pode ser $1\leq i \leq k$, porque uma aresta da `fonte` sai sempre da fonte e uma do `sumidouro` está sempre dirigida para este.
 - É normal incluir-se uma [trajetória](#trajetoria-num-digrafo) no grupo das `Quasi-trajetórias`
 
 :::
@@ -206,7 +206,7 @@ Vamos definir um corte $(V_s,V_t)$ mínimo:
 3.  Se $u \in V_s$ e $\operatorname{f}(vu)>0$, então $v \in V_s$
 4.  $V_t = V - V_s$
 
-Face a estas restrições, $t$ (o semidouro) terá de pertencer a $V_t$, pois, se não pertencesse haveria uma Quasi-Trajeória de aumento, que **não existe** como assumido no início da `Condição Necessária`.  
+Face a estas restrições, $t$ (o sumidouro) terá de pertencer a $V_t$, pois, se não pertencesse haveria uma Quasi-Trajeória de aumento, que **não existe** como assumido no início da `Condição Necessária`.  
 Logo, $(V_s,V_t)$ é um corte.
 
 O fluxo será máximo se for igual à capacidade do corte.  

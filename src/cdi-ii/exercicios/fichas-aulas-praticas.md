@@ -62,7 +62,7 @@ description: Resolução das fichas de CDI-II que estão disponíveis na página
 - [Ficha 12: Teorema de Green. Fluxos.](https://drive.google.com/file/d/1wL34UFclfIjJffAVFH_l-_dDqJxpBD0s/view?usp=sharing)
 
   - [Respostas (Oficial)](https://drive.google.com/file/d/1MQH0I0lTdH8suuL-33n5TZfddneRqG4g/view?usp=sharing)
-  - [Resolução (by Diogo Correia) (até ao 4)](https://drive.google.com/file/d/1ryVWDJJC6chHoUol3y_gMbfeLNCrihei/view?usp=sharing)
+  - [Resolução (by Diogo Correia)](https://drive.google.com/file/d/1bW9EnSGDACTdPR5gcbGErMh-pIUc8HDZ/view?usp=sharing)
 
 - [Ficha 13: Teorema da Divergência. Teorema de STONKS!](https://drive.google.com/file/d/1ZB9in8zwiakr-KJNXZctkBa9HCxLGULq/view?usp=sharing)
 

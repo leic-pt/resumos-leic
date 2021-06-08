@@ -1,12 +1,20 @@
 ---
-description: MDC. Equações Diofantinas.
+description: Cheat Sheet dos Grafos.
 ---
 
 # Grafos 4 Dummies (Cheat Sheet)
 
 [[toc]]
 
+Informação mais detalhada sobre o [Principío de Pombal](./0019-pombal)\
+Informação mais detalhada sobre [Relacionamentos Estáveis](./0021-galeshapley)\
+Informação mais detalhada sobre [Grafos Planares](./0024-grafoplanares)\
+Informação mais detalhada sobre o [Algoritmo de Kuratowski](./0025-teoremakuratowski)\
+Informação mais detalhada sobre [Autómatos](./0026-automatos)
+
 ## Grafos
+
+Informação mais detalhada sobre [Grafos](./0018-grafos-def)
 
 Um grafo é um par $g = (V,E)$, onde:
 
@@ -56,7 +64,7 @@ $$
 
 #### Teorema 5
 
-Se um grafo de $p$ vártices tem mais de $\frac{(p-1)(p-2)}{2}$ arestas, então é [conexo](#grafo-conexo).
+Se um grafo de $p$ vértices tem mais de $\frac{(p-1)(p-2)}{2}$ arestas, então é [conexo](#grafo-conexo).
 
 ### Definições
 
@@ -82,9 +90,7 @@ Uma Rede é um grafo onde as arestas têm valores reais associados.
 
 #### Aberto e Fechado
 
-Um atalho, caminho, trajetória é fechado se,\
- o primeiro e o último vértice coincidirem.\
-Se não coincidirem é aberto.
+Um atalho, caminho, trajetória é fechado se o primeiro e o último vértice coincidirem. Se não coincidirem é aberto.
 
 #### Caminho
 
@@ -100,7 +106,7 @@ Caminho que não repete vértices.
 
 #### Ciclo
 
-Caminho Fechado, que não repete vértices.
+Atalho (caminho que não repete vértices) fechado com pelo menos 3 arestas.
 
 #### Vértice Conectados
 
@@ -117,8 +123,7 @@ Aresta de um grafo, que, se for removida, aumenta o número de componentes.
 
 #### Componente
 
-$h$ é uma componente de um grafo $g$, se $h$ for um grafo [conexo](#grafo-conexo) de $g$ e\
- **não for** subgrafo de nenhum outro subgrafo conexo de $g$.
+$h$ é uma componente de um grafo $g$, se $h$ for um grafo [conexo](#grafo-conexo) de $g$ e **não for** subgrafo de nenhum outro subgrafo conexo de $g$.
 
 #### Grafo Planar
 
@@ -126,15 +131,21 @@ Grafo que é possível desenhar sem cruzar arestas.
 
 ## Grafos Eulerianos
 
+Informação mais detalhada sobre [Grafos Eulerianos](./0020-labirintos)
+
 ### Definições
 
-#### Euleriano
+#### Atalho Euleriano
 
-Percorre todos os vértices e arestas.
+Percorre todos os vértices e arestas sem repetir arestas.
 
-#### Atravessável
+#### Multigrafo Euleriano
 
-Ser Euleriano aberto.
+Tem um circuito euleriano (atalho euleriano fechado).
+
+#### Multigrafo Atravessável
+
+Tem uma travessia euleriana (atalho euleriano aberto).
 
 ### Teoremas Eulerianos
 
@@ -145,16 +156,18 @@ Um multigrafo é euleriano se e só se é [conexo](#grafo-conexo) e todo o seu v
 #### Teorema 2
 
 Um multigrafo é atravessável se e só se tem apenas dois vértices ímpares.  
-Para além disso, o **atalho Euleriano aberto** começa e acaba nos vértices ímpares,\
- onde o primeiro é diferente do último.
+Para além disso, o **atalho Euleriano aberto** começa e acaba nos vértices ímpares, onde o primeiro é diferente do último.
 
 #### Teorema 3 - Teorema de Euler
 
-Se tivermos um grafo que não seja **Euleriano**, podemos **duplicar** cada aresta e\
- dessa maneira todos os vértices terão grau par, assim já é **Euleriano**.  
+Se tivermos um grafo que não seja **Euleriano**, podemos **duplicar** cada aresta e dessa maneira todos os vértices terão grau par, assim já é **Euleriano**.  
 **NOTA**: Outra solução é percorrer cada aresta duas vezes, em vez de duplicar.
 
-#### Teorema 4 - Teorema de Tarry
+#### Teorema 4 - Teorema de Lucas
+
+Um multigrafo $\mathcal G$ **conexo** com $2n$ vértices _ímpares_ pode ser descrito por exatamente $n$ atalhos abertos que não partilham arestas.
+
+#### Teorema 5 - Teorema de Tarry
 
 Iniciando um caminho num grafo [conexo](#grafo-conexo) qualquer, e seguindo as regras do [Algoritmo de Tarry](#algoritmo-de-tarry), regressaremos ao vértice inicial, depois de ter percorrido cada aresta do grafo $2$ vezes em sentidos opostos.
 
@@ -162,8 +175,7 @@ Iniciando um caminho num grafo [conexo](#grafo-conexo) qualquer, e seguindo as r
 
 ### Algoritmo de Fleury
 
-Com este Algoritmo consegue-se percorrer um\
- **atalho euleriano fechado** num **multigrafo euleriano**.
+Com este Algoritmo consegue-se percorrer um **atalho euleriano fechado** num **multigrafo euleriano**.
 
 1. Começa-se num vértice qualquer
 2. Se houver mais que $1$ aresta possível a percorrer, escolhe-se uma que não seja [ponte](#ponte) \
@@ -182,8 +194,7 @@ Reparem que, se, num **multigrafo atravessável**, ligarmos os dois vértices í
 
 #### Desvantagens
 
-Não funciona em Labirintos se não o conhecermos,\
- uma vez que nesses caso não sabemos se uma aresta (caminho do Labirinto) é [ponte](#ponte) ou não.
+Não funciona em Labirintos se não os conhecermos, uma vez que nesses caso não sabemos se uma aresta (caminho do Labirinto) é [ponte](#ponte) ou não.
 
 ### Algoritmo de Trémaux
 
@@ -191,26 +202,22 @@ Com as regras deste Algoritmo, qualquer um pode sair de qualquer labirinto.
 
 Passamos agora à descrição do Algoritmo:
 
-1. Sempre que chegamos a um vértice não visitado anteriormente,\
-   seguimos por uma aresta também não percorrida, qualquer.
+1. Sempre que chegamos a um vértice não visitado anteriormente, seguimos por uma aresta também não percorrida, qualquer.
 
-2. Sempre que chegarmos a um vértice através de uma aresta ainda não percorrida anteriormente,\
-   se chegarmos a um vértice já visitado ou a um beco sem saída,\
-    voltamos para o vértice de onde viemos pela aresta.
+2. Sempre que chegarmos a um vértice através de uma aresta ainda não percorrida anteriormente, se chegarmos a um vértice já visitado ou a um beco sem saída, voltamos para o vértice de onde viemos pela aresta.
 
 3. Sempre que chegarmos a um vértice através de uma aresta que já tinha sido percorrida anteriormente e chegarmos a um vértice já visitado, escolhemos a aresta ainda não percorrida que incide no vértice. Se não existir, escolhemos percorrer uma aresta que já tenha sido percorrida apenas **uma** vez.
 
 ### Algoritmo de Tarry
 
-Se chegarmos a um vértice,\
- escolhemos continuar por qualquer aresta que
-não tenha sido percorrida $2$ vezes,\
- com exceção da aresta onde chegamos pela primeira vez ao vértice atual.
+Se chegarmos a um vértice, escolhemos continuar por qualquer aresta que não tenha sido percorrida $2$ vezes, com exceção da aresta onde chegamos pela primeira vez ao vértice atual.
 
 Só percorremos essa aresta em último caso, ou seja,\
  se for um beco sem saída, ou se as outras arestas já tiverem sido percorridas $2$ vezes.
 
 ## Árvores
+
+Informação mais detalhada sobre [Árvores](./0022-kruskraldijkrsta)
 
 #### Árvore
 
@@ -271,6 +278,8 @@ O resultado final será uma `Árvore de Cobertura`, onde para cada $v_i$, $\oper
 [Exemplo 3](https://drive.google.com/file/d/1Z05NeIE4AHG4kb6qV6miBkosfe8kflgG/view?usp=sharing)
 
 ## Fluxos
+
+Informação mais detalhada sobre [Fluxos](./0023-teoriadofluxo)
 
 ### Definições
 

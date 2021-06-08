@@ -10,4 +10,4 @@
 
 ## Resumos
 
-- [João Rocha](https://drive.google.com/file/d/18JmqfnyAKjGq8mZB0xJ-eAKZyJdQpZTI/view?usp=sharing)
+- [João Rocha](https://drive.google.com/file/d/14Yzlr4939W5MQlrLWIhWF8v97GHaA1l4/view?usp=sharing)

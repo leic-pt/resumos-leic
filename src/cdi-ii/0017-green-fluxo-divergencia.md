@@ -1,8 +1,8 @@
 ---
-description: Teorema de Green. Domínio Simplesmente Conexo. Fluxos. Teorema da Divergência.
+description: Teorema de Green. Domínio Simplesmente Conexo. Curvas Homotópicas.
 ---
 
-# Teorema de Green. Fluxos. Teorema da Divergência.
+# Teorema de Green
 
 [[toc]]
 
@@ -34,7 +34,7 @@ Se $F: D \subset \R^2 \to \R^2$, $F=(P,Q)$, $C^1$ for fechado, isto é, $\frac{\
 então sabemos que:
 
 $$
-\oint_{\partial D} F = \iint_D \left( \frac{\partial P}{\partial y} - \frac{\partial Q}{\partial x} \right) \d x \d y = 0
+\oint_{\partial D} F = \iint_D \left( \frac{\partial Q}{\partial x}- \frac{\partial P}{\partial y} \right) \d x \d y = 0
 $$
 
 Assim, {green}(**um campo fechado é conservativo nas curvas que delimitam regiões onde $F$ esteja definido.**)

@@ -85,7 +85,7 @@ A propagação de marcas relativas à _fbf_ $P \wedge \neg (P \wedge \neg Q)$ te
 <img src="./assets/0013-prop1.png" alt="Propagação de Marcas, Exemplo 1" class="invert-dark">
 </p>
 
-Se tentarmos realizar a propagação de marcas no sentido ascendente obtemos as mesmas marcas que no sentido descendente, pelo que a _fbf_ é provada satisfazível, e encontrámos uma _testemunha_, interpretação que satisfaz a _fbf_. Contudo, talvez a explicação deste exemplo não seja suficiente para que esta verificação faça sentido - porque é que a propagação havia de ser diferente em sentidos diferentes? Bem, vejamos o exemplo abaixo, da _fbf_ $(P \wedge \neg (P \wedge \neg Q)) \neg Q$:
+Se tentarmos realizar a propagação de marcas no sentido ascendente obtemos as mesmas marcas que no sentido descendente, pelo que a _fbf_ é provada satisfazível, e encontrámos uma _testemunha_, interpretação que satisfaz a _fbf_. Contudo, talvez a explicação deste exemplo não seja suficiente para que esta verificação faça sentido - porque é que a propagação havia de ser diferente em sentidos diferentes? Bem, vejamos o exemplo abaixo, da _fbf_ $(P \wedge \neg (P \wedge \neg Q))\wedge \neg Q$:
 
 <p align="center">
 <img src="./assets/0013-prop2.png" alt="Propagação de Marcas, Exemplo 2" class="invert-dark">
