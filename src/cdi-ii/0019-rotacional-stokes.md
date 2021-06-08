@@ -79,7 +79,7 @@ $$
 
    :::
 
-   Se $\div G \ne 0$, então $G$ não pode ser um rotacional.
+   Se $\ondiv G \ne 0$, então $G$ não pode ser um rotacional.
 
 2. Se $\rot F = (0,0,0)$, então $F$ é [fechado](./0016-campos-vetoriais.md#campo-fechado), pois
 
@@ -197,11 +197,11 @@ Qualquer conjunto aberto estrelado é um conjunto aberto [simplesmente conexo](.
 
 Exemplos:
 
-[imagem]
+![Conjunto Estrelado e Não Estrelado](./assets/0019-estrelado.svg)
 
 ::: tip TEOREMA
 
-Se $G: D \subset \R^3 \to \R^3$ com $\div G = 0$ e o domínio de $G$ é um aberto em estrela, então existe $F: \R^3 \to \R^3$ tal que
+Se $G: D \subset \R^3 \to \R^3$ com $\ondiv G = 0$ e o domínio de $G$ é um aberto em estrela, então existe $F: \R^3 \to \R^3$ tal que
 
 $$
 \rot F = G
@@ -257,7 +257,7 @@ Seguimos os seguintes passos:
 
 1. **Será que $F$ é um rotacional?**
 
-   - $\div F = e^y - 2e^y + e^y = 0$
+   - $\ondiv F = e^y - 2e^y + e^y = 0$
    - Domínio de $F = \R^3$ é aberto em estrela
 
    Logo, $F$ é um rotacional.
@@ -304,7 +304,7 @@ Seguimos os seguintes passos:
 
 3. **Considerando $S = \{x^2 + z^2 = y^2: 1 < y < 2\}$ e $\vec n_y < 0$, qual o valor de $\int_S F \cdot \vec n$?**
 
-[imagem]
+<img src="./assets/0019-cone-y.svg" alt="Representação 3D de S" class="invert-dark2" />
 
 Pelo [Teorema de Stokes](#teorema-de-stokes), sabemos que
 
