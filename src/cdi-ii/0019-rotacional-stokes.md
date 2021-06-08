@@ -1,5 +1,5 @@
 ---
-description: Rotacional de um Campo Vetorial. Teorema de Stokes
+description: Rotacional de um Campo Vetorial. Teorema de Stokes. Conjunto Estrelado. Significado Geométrico de Rotacional
 ---
 
 # Rotacional. Teorema de Stokes
@@ -346,6 +346,36 @@ $$
 
 :::
 
+## Significado Geométrico de Rotacional
+
+Sejam o campo vetorial $F$ e $x_0$,
+
+$$
+\begin{array}{lll}
+F: \R^3 \to \R^3 & F \in C^1 & x_0 \in \R^3
+\end{array}
+$$
+
+$$
+\int_{S_{\epsilon}} \rot F \cdot \vec n = \int_{\partial S_{\epsilon}} F \d g
+$$
+
+$$
+\int_{S_{\epsilon}} \rot F \cdot \vec n \approx \rot F(x_0) \cdot \vec n \int_{S_{\epsilon}} 1 \d S = \rot F(x_0) \cdot \vec n\ \text{ área}(S_{\epsilon})
+$$
+
+$$
+\rot F(x_0) \cdot \vec n = \lim_{\epsilon \to 0} \frac{1}{\text{área}(S_{\epsilon})} \int_{\partial S_{\epsilon}} F \d g
+$$
+
+$\rot F(x_0) \cdot \vec n$ (o trabalho de $F$) é máximo quando $\vec n$ tem a mesma direção e sentido de $\rot F(x_0)$
+
+A intensidade do trabalho de $F$ vai ser
+
+$$
+\rot F(x_0) \cdot \frac{\rot F(x_0)}{|| \rot F(x_0)||} = \frac{||\rot F(x_0)||^2}{|| \rot F(x_0)||} = ||\rot F(x_0)||
+$$
+
 ---
 
 Slides:
@@ -353,3 +383,4 @@ Slides:
 - [Aula 47](https://drive.google.com/file/d/1x5QZEP0iS2id-kief-QHd_KH4o6qxN8w/view?usp=sharing)
 - [Aula 48](https://drive.google.com/file/d/1qbxkvtPUH3D1w51vtw2WfrvsruYEujPd/view?usp=sharing)
 - [Aula 49](https://drive.google.com/file/d/18oL0P6Zg0otWYsi3OUl-iZ0XL4sdo7aF/view?usp=sharing)
+- [Aula 50](https://drive.google.com/file/d/1Hh_FA3NrvMRyXeRy_X9t1VSZojHRzj7N/view?usp=sharing)
