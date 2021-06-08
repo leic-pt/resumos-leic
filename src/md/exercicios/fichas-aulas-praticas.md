@@ -28,8 +28,23 @@ description: Resolução das fichas de MD que estão disponíveis na página da 
   - [Resoulção Parcial (José Félix)](https://drive.google.com/file/d/1iCUU3hSladkJRM8hOPUcuFidu4xtI0fi/view?usp=sharing)
 
 - [Séries 3](https://drive.google.com/file/d/19bR5nVopMuiwt7BJ4fH3CRx3jZCodcZw/view?usp=sharing)
+
   - [Resolução (2)](https://drive.google.com/file/d/1rF4B4iBhE6DntWonrOJ4FmJpL6pcIqJ6/view?usp=sharing)
   - [Resolução (5)](https://drive.google.com/file/d/1f7V-kLTVaKHZ3oPrc4eE5TVXjJb51zlE/view?usp=sharing)
   - [Resolução (8)](https://drive.google.com/file/d/1kr1vWAr39S8ddriJVz8kpYk-hh2Ckmte/view?usp=sharing)
   - [Resolução (9.1)](https://drive.google.com/file/d/13heb8HUUaV32BFJHFHSV5QEXS28KMS38/view?usp=sharing)
   - [Resolução (10)](https://drive.google.com/file/d/1rS95y0LgIDJayM1zNwDnla94TEB1H4IF/view?usp=sharing)
+
+- [Séries 4](https://drive.google.com/file/d/1yEKjJEnabBbBl3bTGSwT5D9IlD0raUzK/view?usp=sharing)
+
+  - [Resolução (1)](https://drive.google.com/file/d/17mcBowfpwvrKfqhXnpf3M9kcNbnDwE6U/view?usp=sharing)
+  - [Resolução (2)](https://drive.google.com/file/d/1fl9-u01iTlYrDEv3ge1P2A_JOIfGDT1i/view?usp=sharing)
+  - [Resolução (4)](https://drive.google.com/file/d/18JI7ZcqAOej8ewMVjYEtbvrtagJ5bT7J/view?usp=sharing)
+  - [Resolução (5)](https://drive.google.com/file/d/1i_OS4SREGGC5g8fcitV5X0peB7tU_o_e/view?usp=sharing)
+  - [Resolução (6)](https://drive.google.com/file/d/1bXT-smx6VdNXU96_iVKpcG3QaQrVAeWv/view?usp=sharing)
+  - [Resolução (8)](https://drive.google.com/file/d/1dZpleo0TdoUccRk9HYE_YegPE0ZA-mkl/view?usp=sharing)
+  - [Resolução (9)](https://drive.google.com/file/d/15zgqotRCgUsOWSva1u7wybkU9xnuraBU/view?usp=sharing)
+
+- [Séries 5](https://drive.google.com/file/d/1nLFKZTPj38gi05mwFDUOhz0SMSm0uvlh/view?usp=sharing)
+
+  - [Resolução (1 e 2)](https://drive.google.com/file/d/1SW9gcN9PtBHt482RmYvcnMp4A5cyrYdR/view?usp=sharing)

@@ -177,7 +177,7 @@ então $\int_C \nabla \phi \d \gamma = 0$
 ::: tip DEFINIÇÃO
 
 Dado um campo vetorial $F: \R^n \to \R^n$, **se existir** $\phi: \R^n \to \R$, $C^1$ tal que $\nabla \phi = F$,
-isto é, $\phi$ é um potencial de $F$, dizemos que que $F$ é um **campo gradiente**.
+isto é, $\phi$ é um potencial de $F$, dizemos que $F$ é um **campo gradiente**.
 
 :::
 
@@ -415,7 +415,7 @@ $$
 \end{aligned}
 $$
 
-3. **Calcule o trabalho, ou seja, $\int_C F \d \vec g$, ao longo da curva $C = \{z=0, x=\frac{1+y^4}{2}, y \in [0,1]\}$.2**
+3. **Calcule o trabalho, ou seja, $\int_C F \d \vec g$, ao longo da curva $C = \{z=0, x=\frac{1+y^4}{2}, y \in [0,1]\}$**
 
 Como $F$ é [conservativo](#campo-vetorial-conservativo),
 podemos usar o [Teorema Fundamental do Cálculo](#teorema-fundamental-do-calculo-para-integrais-de-linha)

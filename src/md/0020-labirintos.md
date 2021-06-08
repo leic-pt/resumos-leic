@@ -139,6 +139,12 @@ Se tivermos um grafo que não seja `Euleriano`, podemos **duplicar** cada aresta
 
 ---
 
+### Teorema 4 - Teorema de Lucas
+
+Um multigrafo $\mathcal G$ **conexo** com $2n$ vértices _ímpares_ pode ser descrito por exatamente $n$ atalhos abertos que não partilham arestas.
+
+---
+
 ### Algoritmo de Fleury
 
 Com este Algoritmo consegue-se percorrer um `atalho euleriano fechado` num `multigrafo euleriano`.
@@ -156,8 +162,6 @@ O exemplo encontra-se neste [link](https://drive.google.com/file/d/1mWPgKAqZsVNw
 :::
 
 #### Algoritmo Fleury - Multigrafo Atravessável
-
-(escrever melhor pq fleury e mesmo so para eulerianos)
 
 O `Algoritmo de Fleury` foi concebido para `multigrados eulerianos`.  
 Mas, também o podemos aplicar, **informalmente**, em `multigrafos atravessáveis`.
@@ -191,7 +195,7 @@ O exemplo encontra-se neste [link](https://drive.google.com/file/d/1ZVw96HG3QqPz
 
 ### Algoritmo de Tarry
 
-Se chegarmos a um vértice, escolhemos continuar por qualquer aresta que não tenha sido percorrida $2$ vezes, com exceção da aresta onde chegamos pela primeira vez ao vértice atual.  
+Se chegarmos a um vértice, escolhemos continuar por qualquer aresta que não tenha sido percorrida $2$ vezes (dando prioridade às arestas ainda não percorridas), com exceção da aresta onde chegamos pela primeira vez ao vértice atual.  
 Só percorremos essa aresta em último caso, ou seja, se for um beco sem saída, ou se as outras arestas já tiverem sido percorridas $2$ vezes.
 
 ::: details Exemplo
@@ -202,4 +206,4 @@ O exemplo encontra-se neste [link](https://drive.google.com/file/d/17nTEKOgFZcwe
 
 #### Teorema de Tarry
 
-Iniciando um caminho num grafo conexo qualquer, e seguindo as regras do `Algoritmo de Tarry`, regressaremos ao vértice inicial, depoins de ter percorrido cada aresta do grafo $2$ vezes em sentidos opostos.
+Iniciando um caminho num grafo conexo qualquer, e seguindo as regras do `Algoritmo de Tarry`, regressaremos ao vértice inicial, depois de ter percorrido cada aresta do grafo $2$ vezes em sentidos opostos.
