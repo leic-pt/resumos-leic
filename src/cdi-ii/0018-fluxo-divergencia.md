@@ -14,7 +14,7 @@ Uma superfície é orientável se tem uma normal definida continuamente que indi
 
 Seja a superfície $S \subset \R^3$. Diz-se que $S$ é orientável se existir $\vec n: S \to \R^3$ com
 
-- $\forall x \in S$, $\quad \vec n (x) \in T_x S$, isto é, o vetor é perpendicular à superfície
+- $\forall x \in S$, $\quad \vec n (x) \in (T_x S)^\perp$, isto é, o vetor é perpendicular à superfície
 - $|| \vec n (x) || = 1, \forall x$
 - $\vec n$ é contínuo
 
