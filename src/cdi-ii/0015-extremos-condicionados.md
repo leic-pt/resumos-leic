@@ -515,7 +515,7 @@ Dg^t \cdot Dg = \begin{bmatrix}
 \end{bmatrix}
 =
 \begin{bmatrix}
-1+4r^2 & 0
+1+4r^2 & 0\\
 0 & r^2
 \end{bmatrix}
 $$
