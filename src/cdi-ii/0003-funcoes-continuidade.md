@@ -404,7 +404,7 @@ Esta é uma boa estratégia quando queremos provar que o limite não existe.
 
 ::: warning
 
-Não ser pode usar limites direcionais para provar que um limite existe.
+Não se pode usar limites direcionais para provar que um limite existe.
 Se obtivermos um valor que não depende de $m$, $k$, etc, **nada se pode concluir**.
 
 :::
@@ -474,7 +474,7 @@ Logo, o limite é $0$.
 
 ## Teorema de Bolzano-Weierstrass
 
-::: tip Definição
+::: tip DEFINIÇÃO
 
 Seja $D \subseteq \R^n$.
 
@@ -485,6 +485,12 @@ Se $D$ é compacto (isto é, fechado e limitado), então toda a sucessão de pon
 A demonstração deste teorema encontra-se nos slides da aula 5.
 
 ## Teorema de Weierstrass
+
+::: tip DEFINIÇÃO
+
+Se $A \subset \R^n$ é compacto e $f: A \to \R$ é contínua, então $f$ tem máximo e mínimo em $A$.
+
+:::
 
 Deste teorema, podemos retirar:
 
