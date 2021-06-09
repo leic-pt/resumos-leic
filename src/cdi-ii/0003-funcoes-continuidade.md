@@ -474,7 +474,7 @@ Logo, o limite é $0$.
 
 ## Teorema de Bolzano-Weierstrass
 
-::: tip Definição
+::: tip DEFINIÇÃO
 
 Seja $D \subseteq \R^n$.
 
@@ -486,7 +486,7 @@ A demonstração deste teorema encontra-se nos slides da aula 5.
 
 ## Teorema de Weierstrass
 
-::: tip Definição
+::: tip DEFINIÇÃO
 
 Se $A \subset \R^n$ é compacto e $f: A \to \R$ é contínua, então $f$ tem máximo e mínimo em $A$.
 
