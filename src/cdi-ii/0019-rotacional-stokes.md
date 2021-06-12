@@ -100,7 +100,7 @@ Considerando uma superfície orientada $S$ em $\R^3$, em que $\partial S$ é bor
 Podemos definir uma orientação para o bordo através da {green}(**Regra da Mão Direita**).
 
 Colocando a mão direita com a palma voltada para a superfície e com o polegar a apontar no sentido da normal,
-ficamos com os dados a apontar na orientação do bordo da superfície.
+ficamos com os dedos a apontar na orientação do bordo da superfície.
 
 Podemos tomar como exemplos as superfícies $S$ e $T$:
 
