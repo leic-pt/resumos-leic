@@ -142,3 +142,5 @@ A lógica proposicional é **correta e completa**.
 Podemos, então, voltar a olhar para a relação entre os sistemas dedutivo e semântico.
 
 <img src="./assets/0011-dedsem.png" alt="Dedutivo vs Semântico" class="invert-dark">
+
+[Slides](https://drive.google.com/file/d/1mZ9-lO4AyAcMKgfXnf1O2zkXpkZojLNY/view?usp=sharing)
