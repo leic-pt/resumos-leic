@@ -95,3 +95,5 @@ Sendo $\Delta$ um conjunto de _fbfs_ fechadas e $\alpha$ uma _fbf_ fechada, $\al
 Pelo **teorema da refutação**, temos que, sendo $\Delta$ um conjunto de _fbfs_ fechadas e $\alpha$ uma _fbf_ fechada, $\alpha$ é consequência semântica de $\Delta$ apenas caso $\Delta \cup \{\neg \alpha\}$ não seja satisfazível.
 
 Por fim, em relação à **correção e completude**, podemos reafirmar que a lógica de primeira ordem é correta e completa!
+
+[Slides](https://drive.google.com/file/d/1u6jYJBKLZ4lIjBxyLQP1g0nSSThib2eu/view?usp=sharing)

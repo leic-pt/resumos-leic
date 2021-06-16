@@ -249,3 +249,5 @@ Por exemplo, se utilizarem o SWI-Prolog, podem ir às definições e ao `user in
 :- [<nome do ficheiro>].
 ...
 ```
+
+[Slides](https://drive.google.com/file/d/1afbQkFCtj6NenwOpm2eJc-mIyTV-0vrm/view?usp=sharing)

@@ -27,9 +27,9 @@ Apresenta uma linguagem muito simples, sendo que o nível mais elementar é o **
 - **Fórmula bem formada (_fbf_)** - qualquer lógica tem uma linguagem, linguagem esta composta por um conjunto de frases válidas. A essas frases dá-se o nome de _fórmulas bem formadas_, ou _fbfs_. Em relação a estas, temos que: os símbolos de proposição são chamados _fbfs atómicas_, que se $\alpha$ é uma _fbf_ então $\neg\alpha$ é uma _fbf_ e que qualquer combinação de _fbfs_ atómicas utilizando os símbolos lógicos acima mencionados também é uma _fbf_.
 
 ::: details Exemplo - Fórmula bem formada
-$\neg$P  
-P $\wedge$ Q  
-(P $\wedge$ Q) $\to$ R
+$\neg P$  
+$P \wedge Q$  
+$(P \wedge Q) \to R$
 
 :::
 
@@ -76,7 +76,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
 - **Regra da repetição:**
 
-  Regra que afirma que qualquer _fbf_ pode ser repetida dentro de uma prova - ou seja, se já existe uma _fbf_ numa linha anterior, podemos reescrevê-la na linha atual, justificando com a regra da repetição. Identificada por _Rep_, $n$, onde $n$ representa a linha onde a _fbf_ foi introduzida.
+  Regra que afirma que qualquer _fbf_ pode ser repetida dentro de uma prova - ou seja, se já existe uma _fbf_ numa linha anterior, podemos reescrevê-la na linha atual, justificando com a regra da repetição. Identificada por $Rep, n$, onde $n$ representa a linha onde a _fbf_ foi introduzida.
 
   ::: tip REGRA DA REPETIÇÃO
 
@@ -97,7 +97,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 - **Regras associadas à conjunção:**
 
   - **Introdução da Conjunção:**
-    Diz-nos como introduzir (ou como construir) uma _fbf_ cujo símbolo lógico principal é uma conjunção - uma conjunção de _fbfs_. Abreviada por I$\wedge$, ($n$, $m$), onde $n$ e $m$ representam, respetivamente, as linhas onde as primeira e segunda _fbfs_ foram introduzidas.
+    Diz-nos como introduzir (ou como construir) uma _fbf_ cujo símbolo lógico principal é uma conjunção - uma conjunção de _fbfs_. Abreviada por $I\wedge, (n, m)$, onde $n$ e $m$ representam, respetivamente, as linhas onde as primeira e segunda _fbfs_ foram introduzidas.
     Um ponto importante a reter é que as _fbfs_ têm de ter sido introduzidas **por ordem**, caso contrário não podemos aplicar diretamente a regra, tendo de usar a regra da repetição.
 
     ::: tip INTRODUÇÃO DA CONJUNÇÃO
@@ -117,7 +117,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
     :::
 
   - **Eliminação da Conjunção:**
-    Diz-nos que, de uma _fbf_ cujo símbolo principal é uma conjunção, podemos derivar tanto a _fbf_ da "esquerda" como a da "direita". Abreviada por E$\wedge$, ($n$), onde $n$ representa a linha onde a _fbf_ em causa foi introduzida.
+    Diz-nos que, de uma _fbf_ cujo símbolo principal é uma conjunção, podemos derivar tanto a _fbf_ da "esquerda" como a da "direita". Abreviada por $E\wedge, n$, onde $n$ representa a linha onde a _fbf_ em causa foi introduzida.
 
     ::: tip ELIMINAÇÃO DA CONJUNÇÃO
 
@@ -160,7 +160,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   - **Regra da reiteração:**
 
-  Regra de inferência especial, específica às provas hipotéticas. Diz-nos que qualquer _fbf_ introduzida num ponto da prova exterior à prova hipotética pode ser utilizado dentro da mesma. **O contrário não se aplica.** Abreviada por Rei, $n$, onde $n$ é a linha onde a _fbf_ foi inicialmente introduzida.
+  Regra de inferência especial, específica às provas hipotéticas. Diz-nos que qualquer _fbf_ introduzida num ponto da prova exterior à prova hipotética pode ser utilizado dentro da mesma. **O contrário não se aplica.** Abreviada por $Rei, n$, onde $n$ é a linha onde a _fbf_ foi inicialmente introduzida.
 
   ::: tip REGRA DA REITERAÇÃO
 
@@ -186,7 +186,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 - **Regras para a implicação:**
 
   - **Introdução da Implicação:**
-    Afirma que se numa prova iniciada por uma hipótese $\alpha$ formos capazes de derivar $\beta$, então podemos terminar a prova hipotética, podendo derivar $\alpha\to\beta$ na prova que contém a prova hipotética. Abreviada por I$\to$, ($n$, $m$), onde $n$ e $m$ são, respetivamente, a linha onde a hipótese foi introduzida e a _fbf_ associada derivada.
+    Afirma que se numa prova iniciada por uma hipótese $\alpha$ formos capazes de derivar $\beta$, então podemos terminar a prova hipotética, podendo derivar $\alpha\to\beta$ na prova que contém a prova hipotética. Abreviada por $I\to, (n, m)$, onde $n$ e $m$ são, respetivamente, a linha onde a hipótese foi introduzida e a _fbf_ associada derivada.
 
   ::: tip INTRODUÇÃO DA IMPLICAÇÃO
 
@@ -205,7 +205,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
   :::
 
   - **Eliminação da Implicação:**
-    Regra que nos diz que de uma prova que contém tanto uma _fbf_ $\alpha$ como uma outra $\alpha\to\beta$ podemos derivar $\beta$. Abreviada por E$\to$, ($n$, $m$), onde $n$ e $m$ são, respetivamente, as linhas onde $\alpha$ e $\alpha\to\beta$ foram introduzidas.
+    Regra que nos diz que de uma prova que contém tanto uma _fbf_ $\alpha$ como uma outra $\alpha\to\beta$ podemos derivar $\beta$. Abreviada por $E\to, (n, m)$, onde $n$ e $m$ são, respetivamente, as linhas onde $\alpha$ e $\alpha\to\beta$ foram introduzidas.
 
   ::: tip ELIMINAÇÃO DA IMPLICAÇÃO
 
@@ -226,7 +226,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 - **Regras para a negação:**
 
   - **Introdução da negação:**
-    Utiliza o conceito de _prova por absurdo_ - se a partir de uma dada hipótese podemos derivar uma contradição, então rejeitamos essa mesma hipótese, **aceitando a sua negação**, visto que caso contrário chegaríamos a uma conclusão absurda. Abreviada por I$\neg$, ($n$, ($m$, $k$)), onde $n$, $m$ e $k$ representam, respetivamente, a linha da introdução da hipótese, e as linhas correspondentes à contradição.
+    Utiliza o conceito de _prova por absurdo_ - se a partir de uma dada hipótese podemos derivar uma contradição, então rejeitamos essa mesma hipótese, **aceitando a sua negação**, visto que caso contrário chegaríamos a uma conclusão absurda. Abreviada por $I\neg, (n, (m, k))$, onde $n$, $m$ e $k$ representam, respetivamente, a linha da introdução da hipótese, e as linhas correspondentes à contradição.
 
   ::: tip INTRODUÇÃO DA NEGAÇÃO
 
@@ -245,7 +245,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
   :::
 
   - **Eliminação da negação:**
-    Afirma que negar uma proposição duas vezes é o mesmo que a afirmar. Abreviada por E$\neg$, $n$, onde $n$ é a linha onde apareceu a _fbf_ duplamente negada.
+    Afirma que negar uma proposição duas vezes é o mesmo que a afirmar. Abreviada por $E\neg, n$, onde $n$ é a linha onde apareceu a _fbf_ duplamente negada.
 
   ::: tip ELIMINAÇÃO DA NEGAÇÃO
 
@@ -266,7 +266,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 - **Regras para a disjunção:**
 
   - **Introdução da disjunção:**
-    Tem em conta o significado intuitivo de uma disjunção - esta apenas precisa requer que um dos elementos se verifique para ser verdadeira. Assim sendo, partindo de uma _fbf_ $\alpha$, podemos derivar tanto $\alpha\vee\beta$ como $\beta\vee\alpha$, sendo $\beta$ qualquer _fbf_. Abreviada por I$\vee$, $n$, com $n$ sendo a linha onde a _fbf_ $\alpha$ foi introduzida.
+    Tem em conta o significado intuitivo de uma disjunção - esta apenas precisa requer que um dos elementos se verifique para ser verdadeira. Assim sendo, partindo de uma _fbf_ $\alpha$, podemos derivar tanto $\alpha\vee\beta$ como $\beta\vee\alpha$, sendo $\beta$ qualquer _fbf_. Abreviada por $I\vee, n$, com $n$ sendo a linha onde a _fbf_ $\alpha$ foi introduzida.
 
   ::: tip INTRODUÇÃO DA DISJUNÇÃO
 
@@ -285,7 +285,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
   :::
 
   - **Eliminação da disjunção:**
-    "A regra mais complicada", segundo o prof. Pavão. A partir dela, podemos retirar que, tendo por base uma _fbf_ do tipo $\alpha\vee\beta$, caso sejamos capazes de derivar uma terceira _fbf_ $\gamma$ a partir de provas hipotéticas iniciadas por tanto $\alpha$ como por $\beta$, então certamente que $\gamma$ se verifica - voltando à tal intuição associada à disjunção, pelo menos um elemento é verdadeiro, se podemos derivar uma _fbf_ tanto de um como de outro, então ela verifica-se obrigatoriamente. Abreviada por E$\vee$, ($n$, ($o$, $p$), ($r$, $s$)), onde $n$ representa a _fbf_ disjunta inicial, $o$ e $r$ o início de cada hipótese e $p$ e $s$ a derivação da _fbf_ pretendida, dentro da respetiva hipótese.
+    "A regra mais complicada", segundo o prof. Pavão. A partir dela, podemos retirar que, tendo por base uma _fbf_ do tipo $\alpha\vee\beta$, caso sejamos capazes de derivar uma terceira _fbf_ $\gamma$ a partir de provas hipotéticas iniciadas por tanto $\alpha$ como por $\beta$, então certamente que $\gamma$ se verifica - voltando à tal intuição associada à disjunção, pelo menos um elemento é verdadeiro, se podemos derivar uma _fbf_ tanto de um como de outro, então ela verifica-se obrigatoriamente. Abreviada por $E\vee, (n, (o, p), (r, s))$, onde $n$ representa a _fbf_ disjunta inicial, $o$ e $r$ o início de cada hipótese e $p$ e $s$ a derivação da _fbf_ pretendida, dentro da respetiva hipótese.
 
   ::: tip ELIMINAÇÃO DA DISJUNÇÃO
 
@@ -312,10 +312,10 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
   :::
 
   - **Introdução da equivalência:**
-    Desta regra podemos retirar que, caso tenhamos duas _fbfs_ distintas tais que $\alpha\to\beta$ e $\beta\to\alpha$, então podemos derivar que $\alpha$ e $\beta$ são equivalentes. Abreviada por I$\leftrightarrow$, ($n$, $m$), com $n$ e $m$ sendo as linhas onde as _fbfs_ necessárias foram introduzidas.
+    Desta regra podemos retirar que, caso tenhamos duas _fbfs_ distintas tais que $\alpha\to\beta$ e $\beta\to\alpha$, então podemos derivar que $\alpha$ e $\beta$ são equivalentes. Abreviada por $I\leftrightarrow, (n, m)$, com $n$ e $m$ sendo as linhas onde as _fbfs_ necessárias foram introduzidas.
 
   - **Eliminação da equivalência:**
-    Dada uma _fbf_ $\alpha\leftrightarrow\beta$, podemos derivar tanto $\alpha\to\beta$ como $\beta\to\alpha$. Abreviada por E$\leftrightarrow$, $n$, onde $n$ é a linha onde a _fbf_ a utilizar o símbolo da equivalência foi introduzida.
+    Dada uma _fbf_ $\alpha\leftrightarrow\beta$, podemos derivar tanto $\alpha\to\beta$ como $\beta\to\alpha$. Abreviada por $E\leftrightarrow, n$, onde $n$ é a linha onde a _fbf_ a utilizar o símbolo da equivalência foi introduzida.
 
   ::: tip INTRODUÇÃO/ELIMINAÇÃO DA EQUIVALÊNCIA
 
@@ -348,3 +348,5 @@ A seguinte prova mostra que P $\to$ (Q $\to$ P) é um teorema, visto que pode se
 - Ao tentar provar uma _fbf_ da forma $\alpha\wedge\beta$, devemos tentar provar separadamente tanto $\alpha$ como $\beta$;
 
 Caso não resulte, podemos procurar **aplicações de regras de inferência** que levem à introdução da _fbf_ em questão, procurar uma **contradição de uma prova hipotética** por absurdo que nos leve à _fbf_, ou até mesmo tentar o **raciocínio por casos**, caso se trate de disjunções.
+
+[Slides (do 24 para a frente)](https://drive.google.com/file/d/10a-hns-uHSTWy8isSQwJfEOKxq955DM_/view?usp=sharing)

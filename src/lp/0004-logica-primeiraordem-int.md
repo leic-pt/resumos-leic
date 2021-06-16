@@ -272,3 +272,5 @@ Prova de $\exists x[P(x)] \to \neg\forall x[\neg P(x)]$:
 <img src="./assets/0004-ex-exi.png" alt="Exemplo Existencial" class="invert-dark">
 
 :::
+
+[Slides](https://drive.google.com/file/d/1izIvt-bDsqUgIca3irewRyCUNpeEbYDA/view?usp=sharing)
