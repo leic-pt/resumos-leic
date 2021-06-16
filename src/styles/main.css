@@ -21,6 +21,7 @@ a {
   font-weight: 500;
 }
 
+.gatsby-resp-image-wrapper[data-dark='1'],
 img[data-dark='1'] {
   filter: invert(1) hue-rotate(180deg) saturate(5);
 }

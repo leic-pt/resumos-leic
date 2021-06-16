@@ -18,6 +18,7 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          `gatsby-remark-pre-image-data`,
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -31,12 +32,7 @@ module.exports = {
               tracedSVG: true,
             },
           },
-          /*{
-            resolve: `gatsby-remark-image-attributes`,
-            options: {
-              dataAttributes: true,
-            },
-          },*/
+          `gatsby-remark-post-image-data`,
           `gatsby-remark-directive`,
           {
             resolve: `gatsby-remark-katex`,
