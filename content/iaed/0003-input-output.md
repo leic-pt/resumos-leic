@@ -2,6 +2,7 @@
 title: Input/Output
 description: Comparação e Tratamento de Dados. Leitura e Escrita de Caracteres
 path: /iaed/input-output
+type: content
 ---
 
 # Input/Output

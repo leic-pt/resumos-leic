@@ -2,6 +2,7 @@
 title: Algoritmos Eficientes de Ordenação
 description: Quick Sort. Merge Sort. Heap Sort (Enquadramento).
 path: /iaed/algorimos-eficientes-ordenacao
+type: content
 ---
 
 # Algoritmos Eficientes de Ordenação

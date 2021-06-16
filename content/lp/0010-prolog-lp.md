@@ -2,6 +2,7 @@
 title: O Prolog como Linguagem de Programação
 description: Prolog como Linguagem de Programação, Tipos, Mecanismos de Controlo, Predicados Dinâmicos
 path: /lp/prolog-linguagem-programacao
+type: content
 ---
 
 # O Prolog como Linguagem de Programação

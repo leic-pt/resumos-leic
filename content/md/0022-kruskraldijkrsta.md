@@ -1,6 +1,7 @@
 ---
 title: Kruskal e Dijkstra
 path: /md/kruskal-dijkstra
+type: content
 ---
 
 # Kruskal e Dijkstra

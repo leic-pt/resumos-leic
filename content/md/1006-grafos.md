@@ -2,6 +2,7 @@
 title: Grafos 4 Dummies (Cheat Sheet)
 description: Cheat Sheet dos Grafos.
 path: /md/cheatsheet/grafos
+type: cheatsheets
 ---
 
 # Grafos 4 Dummies (Cheat Sheet)

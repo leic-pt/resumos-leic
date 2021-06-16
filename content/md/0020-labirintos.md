@@ -1,6 +1,7 @@
 ---
 title: Labirintos
 path: /md/labirintos
+type: content
 ---
 
 # Labirintos

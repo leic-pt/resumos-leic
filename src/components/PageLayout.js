@@ -9,13 +9,13 @@ import '../styles/markdown.css';
 export default function Template({ data }) {
   const { markdownRemark: page, allFile: sidebarPaths } = data;
   return (
-    <div className=''>
+    <aside className='page-container'>
       <Sidebar paths={sidebarPaths} />
       <div className='main-container'>
         <h1>{page.frontmatter}</h1>
         <div className='content' dangerouslySetInnerHTML={{ __html: page.html }} />
       </div>
-    </div>
+    </aside>
   );
 }
 export const pageQuery = graphql`
@@ -36,6 +36,7 @@ export const pageQuery = graphql`
             frontmatter {
               path
               title
+              type
             }
           }
         }

@@ -1,6 +1,7 @@
 ---
 title: Lógica para Programação
 path: /lp
+type: topLevelPage
 ---
 
 # Lógica para Programação

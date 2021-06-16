@@ -2,6 +2,7 @@
 title: Fichas Aulas Práticas
 description: Resolução das fichas de MD que estão disponíveis na página da UC.
 path: /md/exercicios/fichas-aulas-praticas
+type: exercises
 ---
 
 # Fichas Aulas Práticas

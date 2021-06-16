@@ -1,6 +1,7 @@
 ---
 title: Princípio do Pombal
 path: /md/principio-pombal
+type: content
 ---
 
 # Princípio do Pombal

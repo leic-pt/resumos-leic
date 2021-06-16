@@ -2,6 +2,7 @@
 title: Lab 09
 description: Enunciado e resolução dos exercícios do Laboratório 9 de IAED
 path: /iaed/lab09
+type: labsProg
 ---
 
 # Lab 09

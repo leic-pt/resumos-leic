@@ -2,6 +2,7 @@
 title: Funções
 description: Definição. Passagem de Parâmetros
 path: /iaed/ficheiros
+type: content
 ---
 
 # Funções

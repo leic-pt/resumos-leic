@@ -1,6 +1,7 @@
 ---
 title: Matemática Discreta
 path: /md
+type: topLevelPage
 ---
 
 # Matemática Discreta

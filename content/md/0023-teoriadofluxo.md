@@ -1,6 +1,7 @@
 ---
 title: Teoria do Fluxo
 path: /md/teoria-fluxo
+type: content
 ---
 
 # Teoria do Fluxo

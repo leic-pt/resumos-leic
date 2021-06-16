@@ -2,6 +2,7 @@
 title: Lab 08
 description: Enunciado e resolução dos exercícios do Laboratório 8 de IAED
 path: /iaed/lab08
+type: labsProg
 ---
 
 # Lab 08

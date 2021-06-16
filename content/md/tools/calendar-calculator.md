@@ -2,6 +2,7 @@
 title: Calendar Calculator
 description: Calculadora automática passo a passo para determinação do dia da semana de uma data ou dia da páscoa de um ano, nos calendários Gregoriano e Juliano.
 path: /md/tools/calendar-calculator
+type: tools
 ---
 
 # Calendar Calculator

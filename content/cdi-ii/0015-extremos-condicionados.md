@@ -2,6 +2,7 @@
 title: Extremos Condicionados. Integrais Campos Escalares
 description: Extremos Condicionados. Método dos Multiplicadores de Lagrange. Integrais de Campos Escalares em Variedades. Produto Externo.
 path: /cdi-ii/extremos-condicionados
+type: content
 ---
 
 # Extremos Condicionados. Integrais Campos Escalares

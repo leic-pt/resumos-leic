@@ -4,6 +4,7 @@ description:
   Características de Algoritmos. Implementação. Selection Sort. Insertion Sort. Bubble Sort (Borbulhamento). Comparação. Shell Sort.
   Sort.
 path: /iaed/algorimos-elementares-ordenacao
+type: content
 ---
 
 # Algoritmos Elementares de Ordenação

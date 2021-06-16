@@ -2,6 +2,7 @@
 title: TFC e Teorema de Leibniz
 description: Teorema de Leibniz e Teorema Fundamental do Cálculo
 path: /cdi-ii/teorema-leibniz
+type: content
 ---
 
 # TFC e Teorema de Leibniz

@@ -2,6 +2,7 @@
 title: Estruturas Auto-Referenciadas e Listas
 description: Tabelas e Vetores.
 path: /iaed/listas
+type: content
 ---
 
 # Estruturas Auto-Referenciadas e Listas

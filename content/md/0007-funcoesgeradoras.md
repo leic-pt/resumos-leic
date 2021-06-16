@@ -2,6 +2,7 @@
 title: Funções Geradoras
 description: Funções Geradoras, Exemplos.
 path: /md/funcoes-geradoras
+type: content
 ---
 
 # Funções Geradoras

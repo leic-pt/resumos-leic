@@ -2,6 +2,7 @@
 title: Operador de Corte, Negação, Paragem/Execução Forçada
 description: Operador de Corte, Negação, Paragem/Execução Forçada.
 path: /lp/prolog-corte-neg
+type: content
 ---
 
 # Operador de Corte, Negação, Paragem/Execução Forçada

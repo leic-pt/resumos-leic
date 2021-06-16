@@ -2,6 +2,7 @@
 title: Instalação de Linux
 description: Tutorial de como instalar o GCC para IAED
 path: /iaed/meta/linux-setup
+type: guides
 ---
 
 # Instalação de Linux

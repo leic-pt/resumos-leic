@@ -2,6 +2,7 @@
 title: Lab 02
 description: Enunciado e resolução dos exercícios do Laboratório 2 de IAED
 path: /iaed/lab02
+type: labsProg
 ---
 
 # Lab 02

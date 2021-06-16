@@ -2,6 +2,7 @@
 title: Lab 06
 description: Enunciado e resolução dos exercícios do Laboratório 6 de IAED
 path: /iaed/lab06
+type: labsProg
 ---
 
 # Lab 06

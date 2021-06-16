@@ -2,6 +2,7 @@
 title: Fórmula de Abel e do Quociente
 description: Método das Pontas. Fórmula de Abel e Fórmula do Quociente. Exemplos.
 path: /md/formula-de-abel
+type: content
 ---
 
 # Fórmula de Abel e do Quociente

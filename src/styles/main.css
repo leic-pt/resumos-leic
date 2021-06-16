@@ -44,6 +44,51 @@ h2 {
   border-bottom: 1px solid var(--borderColor);
 }
 
+.page-container {
+  padding-left: 20rem;
+}
+
+.sidebar {
+  width: 20rem;
+  border-right: 1px solid var(--borderColor);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  overflow-y: auto;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  color: white;
+  padding: 4px 8px;
+}
+
+.sidebar p {
+  padding: 0px 8px;
+  font-weight: bold;
+}
+
+.sidebar div:not(.top-level) li {
+  font-size: 0.9em;
+  margin: 0px 8px;
+}
+
+.sidebar li a {
+  color: inherit;
+  width: 100%;
+  display: inline-block;
+}
+
+.sidebar li a:hover {
+  color: var(--accentColor);
+}
+
 .main-container {
   max-width: 740px;
   margin: 0 auto;

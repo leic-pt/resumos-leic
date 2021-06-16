@@ -2,6 +2,7 @@
 title: Teorema de Green. Fluxos. Teorema da Divergência.
 description: Teorema de Green. Domínio Simplesmente Conexo. Fluxos. Teorema da Divergência.
 path: /cdi-ii/green-fluxo-divergencia
+type: content
 ---
 
 # Teorema de Green. Fluxos. Teorema da Divergência.

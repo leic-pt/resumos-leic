@@ -8,6 +8,7 @@ description: >-
   Soma da Sucessão Aritmética como Polinómio Fatorial;
   Polinómios Fatoriais Negativos;
 path: /md/formulas-fechadas-somatorios
+type: content
 ---
 
 # Fórmulas Fechadas de Somatórios

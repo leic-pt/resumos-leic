@@ -2,6 +2,7 @@
 title: Variedades, Espaço Tangente e Normal
 description: 'Variedades diferenciáveis de dimensão m. Espaço tangente. Espaço normal.'
 path: /cdi-ii/variedades
+type: content
 ---
 
 # Variedades, Espaço Tangente e Normal

@@ -3,6 +3,7 @@ title: Conceitos Gerais
 prev: false
 description: Proposições, argumentos, premissas, conclusão, validade de um argumento, princípio da irrelevância do valor lógico, forma de um argumento. Metodologia da lógica. Introdução a Lógica Proposicional.
 path: /lp/conceitos-gerais
+type: content
 ---
 
 # Conceitos Gerais

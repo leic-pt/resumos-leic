@@ -2,6 +2,7 @@
 title: Campos Vetoriais
 description: Campos Vetoriais. Integral de Linha de um Campo Vetorial. Segmento que une dois pontos. Campo Conservativo, Gradiente e Fechado. Teorema Fundamental do Cálculo para Integrais de Linha. Vórtice.
 path: /cdi-ii/campos-vetoriais
+type: content
 ---
 
 # Campos Vetoriais

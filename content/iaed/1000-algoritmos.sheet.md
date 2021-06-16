@@ -2,6 +2,7 @@
 title: Algoritmos de Ordenação (Cheat Sheet)
 description: Algoritmos;
 path: /iaed/cheatsheet/algorimos
+type: cheatsheets
 ---
 
 # Algoritmos de Ordenação (Cheat Sheet)

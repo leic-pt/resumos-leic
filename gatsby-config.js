@@ -4,6 +4,16 @@ module.exports = {
     shortTitle: `Resumos LEIC-A`,
     description: `Resumos das UCs de LEIC-A do IST`,
     siteUrl: 'https://resumos.leic.pt',
+    sidebarSections: [
+      { key: 'topLevelPage' },
+      { key: 'content', name: '📝 Conteúdo' },
+      { key: 'labsProg', name: '👨‍💻 Laboratórios' },
+      { key: 'cheatsheets', name: '📃 Cheat Sheets' },
+      { key: 'misc', name: 'Misc' },
+      { key: 'exercises', name: '✏️ Exercícios' },
+      { key: 'tools', name: '🛠 Ferramentas' },
+      { key: 'guides', name: '📚 Guias' },
+    ],
   },
   plugins: [
     {

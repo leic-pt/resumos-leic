@@ -1,6 +1,7 @@
 ---
 title: Páscoa
 path: /md/pascoa
+type: content
 ---
 
 # Páscoa

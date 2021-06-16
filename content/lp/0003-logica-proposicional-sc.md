@@ -2,6 +2,7 @@
 title: Lógica Proposicional aplicada a sistemas computacionais
 description: Lógica Proposicional aplicada a sistemas computacionais, resolução, princípio da resolução, estratégias em resolução.
 path: /lp/logica-proposicional-sc
+type: content
 ---
 
 # Lógica Proposicional aplicada a sistemas computacionais

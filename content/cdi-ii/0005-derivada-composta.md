@@ -2,6 +2,7 @@
 title: Derivada da Função Composta em Rⁿ
 description: Derivada da Função Composta, Fórmula da Cadeia (Chain Rule)
 path: /cdi-ii/derivada-composta
+type: content
 ---
 
 # Derivada da Função Composta em Rⁿ

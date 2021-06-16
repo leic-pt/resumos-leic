@@ -2,6 +2,7 @@
 title: Derivada de Ordem Superior. Extremos
 description: Derivadas de Ordem Superior. Teorema de Schwarz. Fórmula de Taylor. Extremos.
 path: /cdi-ii/derivada-de-ordem-superior
+type: content
 ---
 
 # Derivada de Ordem Superior. Extremos

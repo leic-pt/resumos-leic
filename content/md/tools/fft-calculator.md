@@ -2,6 +2,7 @@
 title: FFT Calculator
 description: Calculadora automática passo a passo de multiplicação de polinómios com FFT
 path: /md/tools/fft-calculator
+type: tools
 ---
 
 # FFT Calculator

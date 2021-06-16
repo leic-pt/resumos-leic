@@ -1,6 +1,7 @@
 ---
 title: Cálculo Diferencial e Integral II
 path: /cdi-ii
+type: topLevelPage
 ---
 
 # Cálculo Diferencial e Integral II

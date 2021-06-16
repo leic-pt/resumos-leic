@@ -2,6 +2,7 @@
 title: Função Inversa e Função Implícita
 description: Teorema da Função Inversa e Teorema da Função Implícita
 path: /cdi-ii/funcao-inversa
+type: content
 ---
 
 # Função Inversa e Função Implícita

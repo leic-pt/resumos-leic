@@ -2,6 +2,7 @@
 title: Controlo da Execução
 description: Instruções e Blocos. Execução Condicional (if, switch). Ciclos Genéricos (while, for, do-while, continue, break).
 path: /iaed/controlo-execucao
+type: content
 ---
 
 # Controlo da Execução

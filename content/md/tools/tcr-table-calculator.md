@@ -2,6 +2,7 @@
 title: TCR Table Calculator
 description: Calculadora automática para a tabela usada no Teorema Chinês dos Restos
 path: /md/tools/teorema-chines-restos-table-calculator
+type: tools
 ---
 
 # TCR Table Calculator

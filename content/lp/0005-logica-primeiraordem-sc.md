@@ -2,6 +2,7 @@
 title: Lógica de Primeira Ordem II
 description: Lógica de Primeira Ordem - automatização, Resolução, Provas, Representação do Conhecimento, Agentes Cognitivos, Hipóteses.
 path: /lp/logica-primeira-ordem-sc
+type: content
 ---
 
 # Lógica de Primeira Ordem II

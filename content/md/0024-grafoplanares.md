@@ -1,6 +1,7 @@
 ---
 title: Grafos Planares
 path: /md/grafos-planares
+type: content
 ---
 
 # Grafos Planares

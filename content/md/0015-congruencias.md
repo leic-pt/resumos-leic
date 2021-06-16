@@ -1,6 +1,7 @@
 ---
 title: Congruências
 path: /md/congruencias
+type: content
 ---
 
 # Congruências

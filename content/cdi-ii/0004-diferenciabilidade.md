@@ -2,6 +2,7 @@
 title: Diferenciabilidade em Rⁿ
 description: Diferenciabilidade em dim > 1.
 path: /cdi-ii/diferenciabilidade
+type: content
 ---
 
 # Diferenciabilidade em Rⁿ

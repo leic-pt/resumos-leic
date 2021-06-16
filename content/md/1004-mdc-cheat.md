@@ -2,6 +2,7 @@
 title: M.D.C, Diofantinas e Congruências (Cheat Sheet)
 description: MDC. Equações Diofantinas.
 path: /md/cheatsheet/mdc-equacoes-diofantinas
+type: cheatsheets
 ---
 
 # M.D.C, Diofantinas e Congruências (Cheat Sheet)

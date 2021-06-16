@@ -1,6 +1,7 @@
 ---
 title: Calendário - Início
 path: /md/calendario
+type: content
 ---
 
 # Calendário - Início

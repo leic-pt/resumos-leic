@@ -1,6 +1,7 @@
 ---
 title: Teorema Chinês dos Restos
 path: /md/teorema-chines-restos
+type: content
 ---
 
 # Teorema Chinês dos Restos

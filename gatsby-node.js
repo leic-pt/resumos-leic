@@ -24,7 +24,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       path: node.frontmatter.path,
       component: blogPostTemplate,
       context: {
-        pathRegex: `/^\\/${node.frontmatter.path.split(`/`)[1]}\\//`,
+        pathRegex: `/^\\/${node.frontmatter.path.split(`/`)[1]}(?:$|\\/)/`,
       }, // additional data can be passed via context
     });
   });

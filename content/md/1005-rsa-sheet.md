@@ -2,6 +2,7 @@
 title: Criptografia RSA (Cheat Sheet)
 description: RSA.
 path: /md/cheatsheet/rsa
+type: cheatsheets
 ---
 
 # Criptografia RSA (Cheat Sheet)

@@ -1,6 +1,7 @@
 ---
 title: Grafos - Início
 path: /md/grafos
+type: content
 ---
 
 # Grafos - Início
