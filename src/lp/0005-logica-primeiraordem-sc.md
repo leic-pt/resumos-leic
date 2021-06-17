@@ -30,7 +30,7 @@ Os agentes cognitivos têm como componentes principais a _base de conhecimento_,
 
 Duas hipóteses (hipóteses porque ainda não foi provado que são falsas) importantes em relação a este tipo de sistemas - _hipótese do sistema de símbolos físicos_ e _hipótese de representação do conhecimento_.
 
-A primeira consiste em ter um sistema de símbolos físicos compostos por um conjunto de entidades, os tais símbolos, que correspondem a "padrões físicos", que podem ser agrupados em estruturas, e por um procedimentos que operam sobre eles. Haverá uma máquina a produzir sucessões de estruturas de símbolos, que contém memória para guardar informação sobre eles, entre outras propriedades.
+A primeira consiste em ter um sistema de símbolos físicos compostos por um conjunto de entidades, os tais símbolos, que correspondem a "padrões físicos", que podem ser agrupados em estruturas, e por um conjunto de procedimentos que operam sobre eles. Haverá uma máquina a produzir sucessões de estruturas de símbolos, que contém memória para guardar informação sobre eles, entre outras propriedades.
 
 - **Qualquer sistema que apresente comportamento inteligente pode ser visto como um sistema de símbolos físicos** - aplica-se a humanos por exemplo, onde os símbolos físicos aplicam-se na nossa memória. O nosso cérebro reage conforme identifica (ou não) um dado padrão, e tem capacidade de o memorizar.
 - **Qualquer sistema de símbolos físicos de tamanho adequado (não qualquer programa) pode ser organizado de modo a exibir comportamento inteligente**.
