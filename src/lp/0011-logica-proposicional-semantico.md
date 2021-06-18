@@ -118,7 +118,7 @@ Por exemplo, dado o argumento $(\{P \wedge Q, R\}, P \wedge R)$, podemos verific
 | F   | F   | V   | V         | V         | F          | V                  |
 | F   | F   | F   | V         | V         | F          | V                  |
 
-Acima, podemos ver o exemplo do argumento $\{P \to Q, Q \to R\} \models (P \vee Q) \to R$. As colunas 4 e 5 são as das premissas, a 7 a da conclusão - como podemos notar, **não existe nenhuma interpretação onde as premissas sejam todas verdadeiras e a conclusão falsa**. Podemos, portanto, dizer que o argumento é válido.
+Acima, podemos ver o exemplo do argumento $\{P \to R, Q \to R\} \models (P \vee Q) \to R$. As colunas 4 e 5 são as das premissas, a 7 a da conclusão - como podemos notar, **não existe nenhuma interpretação onde as premissas sejam todas verdadeiras e a conclusão falsa**. Podemos, portanto, dizer que o argumento é válido.
 
 Podemos ainda demonstrar tautologias:
 

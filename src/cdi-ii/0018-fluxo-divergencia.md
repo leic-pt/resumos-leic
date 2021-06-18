@@ -68,7 +68,7 @@ $$
 \end{aligned}
 $$
 
-É também importante reforçar que, tal como anteriormente, o sinal do integral depende da orientação da paremetrização.
+É também importante reforçar que, tal como anteriormente, o sinal do integral depende da orientação da parametrização.
 
 ::: details Exemplo
 
@@ -214,7 +214,7 @@ $$
 D = \{ x^2+y^2 \leq 1 + 2 z^2, 0 \leq z \leq 1 \}
 $$
 
-$\partial D =$ hiperboloíde $(S)$ + tampa de cima $(T_1, z=1)$ + tampa de baixo $(T_0, z=0)$
+$\partial D =$ hiperbolóide $(S)$ + tampa de cima $(T_1, z=1)$ + tampa de baixo $(T_0, z=0)$
 
 Pelo teorema da divergência:
 

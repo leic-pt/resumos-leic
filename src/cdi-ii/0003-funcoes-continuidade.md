@@ -234,7 +234,7 @@ $||f(x) - f(a)|| = ||x-a||$ então, com $\epsilon = r$:
 $|| x - a|| < \epsilon (= r) => || f(x) - f(a)|| = || x- a|| < \epsilon = r$
 
 Logo esta função $f$ também é contínua em $a$.
-Como $a$ é genérico, logo $f$ é contínua em $\R^n$.
+Como $a$ é genérico, $f$ é contínua em $\R^n$.
 
 :::
 

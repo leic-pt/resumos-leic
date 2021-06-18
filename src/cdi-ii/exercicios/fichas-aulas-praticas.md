@@ -74,3 +74,5 @@ description: Resolução das fichas de CDI-II que estão disponíveis na página
 - [Exercícios Suplementares](https://fenix.tecnico.ulisboa.pt/disciplinas/CDI1421011132646/2020-2021/2-semestre/exercicios-suplementares)
 
 - [Resoluções Tagus Park](https://cdi2tp.math.tecnico.ulisboa.pt/index)
+
+- [Exames de Anos Anteriores](https://www.math.tecnico.ulisboa.pt/~gpires/CII/exames.html)

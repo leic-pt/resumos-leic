@@ -72,7 +72,7 @@ $$
 Podemos dar nomes concretos ao conjunto de nível, caso estejamos numa das dimensões:
 
 - Se $n = 2$: curvas de nível
-- Se $n = 3$: superfíceis de nível
+- Se $n = 3$: superfícies de nível
 
 :::
 

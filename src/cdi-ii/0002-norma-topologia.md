@@ -61,9 +61,9 @@ O gráfico de esta função teria 4 dimensões (2 do domínio + 2 do contra dom�
 
 ## Norma
 
-Anteriormente, foi definido a [distância entre dois pontos](./0001-transicao-para-dim-sup-1.md#distancia).
+Anteriormente, foi definida a [distância entre dois pontos](./0001-transicao-para-dim-sup-1.md#distancia).
 
-Podemos agora extender esta notação/terminologia para vetores, através da definição (muito semelhante) de **norma**.
+Podemos agora estender esta notação/terminologia para vetores, através da definição (muito semelhante) de **norma**.
 A norma consiste em medir comprimento de vetores. Caso o vetor não esteja na origem, basta fazer a sua "translação" para a origem.
 
 $$

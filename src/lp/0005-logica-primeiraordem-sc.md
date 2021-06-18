@@ -355,7 +355,7 @@ Tentemos fazê-lo com este conjunto de premissas:
 - $\forall x, y[Mãe(x, y) \to Mulher(x)]$
 - $Pessoa(Bart)$
 
-Suponhamos que queremos descobrir **quem são as mulheres envolvidas nestas proposições**. Bem, introduzimos a tal _fbf_ especial às premissas, $\forall x[Mulher(x) \to R(x)]$, e vamos trabalhar.
+Suponhamos que queremos descobrir **quais são as mulheres envolvidas nestas proposições**. Bem, introduzimos a tal _fbf_ especial às premissas, $\forall x[Mulher(x) \to R(x)]$, e vamos trabalhar.
 
 <img src="./assets/0005-resolucao-quais.png" alt="Resolução quais" class="invert-dark">
 
