@@ -57,7 +57,7 @@ O livro aborda vários pormenores interessantes sobre os grafos que não serão 
 Um **diagrama de decisão binário ordenado**, OBDD, é um BDD que satisfaz alguma relação de ordem total para os símbolos de proposição que contém. Num OBDD não podem existir caminhos que contenham mais que uma vez o mesmo símbolo de proposição.
 
 - O **nível**, $i$, de um OBDD é o conjunto de todos os seus nós de profundidade $i$.
-- Dois OBDDs são compatíveis caso exista uma ordem aplicada aos seus símbolos de proposição tal que ambos os OBDDs a satisfaçam - se $P$ vem antes de $Q$ em $OBBD_{1}$, $P$ não pode vir depois de Q em $OBBD_{2}$.
+- Dois OBDDs são compatíveis caso exista uma ordem aplicada aos seus símbolos de proposição tal que ambos os OBDDs a satisfaçam - se $P$ vem antes de $Q$ em $OBDD_{1}$, $P$ não pode vir depois de Q em $OBDD_{2}$.
 
 ::: details Exemplos de OBDDs incompatíveis
 
