@@ -106,7 +106,7 @@ $$
 Se assumirmos $h = tv$, $||v||=1$, obtemos a definição da Fórmula de Taylor de 2ª ordem:
 
 ::: tip DEFINIÇÃO
-Sejam $f: \R^n \to \R$ de classe $C^3$, $h = tv$ e $||v||=1$, podemos obter Fórmula de Taylor de $f$ de 2ª ordem pela expressão:
+Sejam $f: \R^n \to \R$ de classe $C^3$, $h = tv$ e $||v||=1$, podemos obter a Fórmula de Taylor de $f$ de 2ª ordem pela expressão:
 
 $$
 f(a+h)=f(a)+\nabla f(a)\cdot h + \frac{1}{2} \cdot \sum_{i,j=1}^n \frac{\partial^2 f}{\partial x_i \partial x_j} (a)\cdot h_i\cdot h_j+ R_2(t)

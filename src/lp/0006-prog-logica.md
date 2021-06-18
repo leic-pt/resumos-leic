@@ -66,7 +66,7 @@ Uma definição de predicado que contenha apenas cláusulas fechadas, isto é, s
 
 Ainda em relação ao exemplo anterior, a base de dados de $AD$ pode ser dada por:
 
-$\{AD(Marge, Bart) \leftarrow,       AD(Sr.B, Marge)\}$
+$\{AD(Marge, Bart) \leftarrow,       AD(Sr.B, Marge) \leftarrow \}$
 
 visto que a definição de predicado de $AD$ não contém cláusulas não fechadas.
 
