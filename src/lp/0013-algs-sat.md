@@ -61,7 +61,7 @@ Por fim, juntamos as folhas com rótulos repetidos - neste caso, folhas com rót
 
 Chegámos agora à próxima fase do algoritmo, a propagação de marcas (V ou F) pelo grafo. O primeiro passo é **sempre** marcar a raiz com V. As seguintes marcas são dadas por um conjunto de regras:
 
-- Tendo um nó de rótulo $\neg$ marcado, o algoritmo propaga a marca "contrária" para os seus arcos; podemos ainda analisar o processo ao contrário - se temos um nó com rótulo marcado com arco "para cima" que leva a uma raiz com rótulo $\neg$, então, a raiz copm $\neg$ tem a marca oposta.
+- Tendo um nó de rótulo $\neg$ marcado, o algoritmo propaga a marca "contrária" para os seus arcos; podemos ainda analisar o processo ao contrário - se temos um nó com rótulo marcado com arco "para cima" que leva a uma raiz com rótulo $\neg$, então, a raiz com $\neg$ tem a marca oposta.
 
 <p align="center">
 <img src="./assets/0013-reg-neg.png" alt="Regra da Negação" class="invert-dark">
