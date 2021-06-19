@@ -8,6 +8,24 @@ description: Lógica de Primeira Ordem - Sistema Semântico, Conceptualização,
 
 (esta secção não é particularmente gira e os resumos não estão particularmente bons desta vez, peço desculpa)
 
+::: warning
+
+Abaixo está um e-mail do prof. Quintas com explicação geral de um dos exercícios desta matéria que pode sair em exame, secalhar para preparação é melhor verem por aqui porque sinceramente explica muito melhor que o resto abaixo
+
+:::
+
+::: details Explicação Ex. Exame
+
+O exercício em questão é:
+
+<img src="./assets/0014-ex-exame.png" alt="Exercício Exame">
+
+E a explicação dada pelo prof é (se estiver demasiado pequena abram a imagem noutra janela):
+
+<img src="./assets/0014-mail-prof.png" alt="Explicação Prof">
+
+:::
+
 O propósito do sistema semântico é especificar em que condições as _fbfs_ de uma linguagem são verdadeiras ou falsas. Para tal, é necessário interpretar cada um dos seus símbolos de proposição, de forma a poder atribuir um valor lógico a cada um e, posteriormente, dar um significado à _fbf_. Por fim, verificar se o significado a que chegamos está de acordo com a situação que pretendemos descrever - se sim, a _fbf_ é verdadeira, caso contrário é falsa.
 
 Este processo, contudo, precisa de ser formalizado para o podermos utilizar num sistema lógico - não podemos fazer inferências exclusivamente a partir da língua natural nem de figuras. Temos de definir **formalmente** como determinar se uma _fbf_ é verdadeira ou falsa.
