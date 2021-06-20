@@ -17,7 +17,7 @@ Símbolos que desempenham o papel de designações (sem ser propriamente designa
 
 ### Funções
 
-No contexto estudado, corresponde a um conjunto de pares ordenados, potencialmente infinito, que não contém dois pares distintos com o mesmo primeiro elemento (um pouco com a noção de dicionários e chaves em Python). Tal como na matemática, as funções têm um domínio (conjunto de todos os primeiros elementos dos pares) e um contradomínio (segundos elementos dos pares). Recebem um elemento do domínio, o _argumento_ da função, e calculam o elemento correspondente do contradomínio, o _valor_ da função.
+No contexto estudado, corresponde a um conjunto de pares ordenados, potencialmente infinito, que não contém dois pares distintos com o mesmo primeiro elemento (um pouco como a noção de dicionários e chaves em Python). Tal como na matemática, as funções têm um domínio (conjunto de todos os primeiros elementos dos pares) e um contradomínio (segundos elementos dos pares). Recebem um elemento do domínio, o _argumento_ da função, e calculam o elemento correspondente do contradomínio, o _valor_ da função.
 Sendo que correspondem a transformações, podemos utilizar funções para descrever entidades.
 
 A **aridade** de uma função é a quantidade de argumentos que esta recebe. Uma função de aridade 0 é considerada uma **constante**.
