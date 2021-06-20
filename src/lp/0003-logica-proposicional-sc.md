@@ -17,7 +17,7 @@ Abordagem ao sistema dedutivo baseada numa única regra de inferência (ao contr
 
 - **Literal** - uma _fbf_ atómica ou (a sua negação) é chamada uma literal. Um literal positivo é uma _fbf_ atómica não negada, sendo que um negativo é uma _fbf_ negada. Importante relembrar que uma _fbf_ atómica corresponde a uma _fbf_ composta por um símbolo de proposição, não contendo quaisquer conectores lógicos.
 
-- **Cláusula** - um literal/disjunção de laterais. Caso consista em apenas um literal, podemos chamá-la cláusula _unitária_. Pode ainda ser representada como um conjunto (através do uso de chavetas) de literais.
+- **Cláusula** - um literal/disjunção de literais. Caso consista em apenas um literal, podemos chamá-la cláusula _unitária_. Pode ainda ser representada como um conjunto (através do uso de chavetas) de literais.
 
 ::: details Exemplo - Literais + cláusulas
 
