@@ -100,9 +100,9 @@ Tenhamos por base o mundo seguinte:
 
 Se decidirmos que o universo do discurso terá as entidades "árvore de copa branca, árvore de copa preta, casa de telhado branco e casa de telhado preto", esse vai ser o nosso $D$. Não nos vamos poder referir a quaisquer outras entidades, mesmo que façam parte do mundo - aqui não nos poderíamos referir ao barco nem à montanha, por exemplo.
 
-Um exemplo de função podia ser {(casa_telhado_preto, arvore_copa_branca), (arvore_copa_branca, arvore_copa_preta), ...}, o que quer que isto signifique. São, portanto, representadas por um conjunto de tuplos de entidades do universo de discurso.
+Um exemplo de função podia ser $\{(casa\_telhado\_preto, arvore\_copa\_branca), (arvore\_copa\_branca, arvore\_copa\_preta), ...\}$, o que quer que isto signifique. São, portanto, representadas por um conjunto de tuplos de entidades do universo de discurso.
 
-Um exemplo de relação podia ser {(casa_telhado_preto), (casa_telhado_branco)}, o que quer que isso signifique.
+Um exemplo de relação podia ser $\{(casa\_telhado\_preto), (casa\_telhado\_branco)\}$, o que quer que isso signifique.
 
 Exemplo dado nos slides para o universo em questão:
 
@@ -140,7 +140,7 @@ Podemos, agora, falar no conceito de **satisfação** aplicado a _fbfs_ sem vari
 
 Exemplos:
 
-Em relação ao último exemplo, o tuplo $I(a_1) = (arvore_branca)$ pertence à relação $I(A) = \{(arvore*branca), (arvore_preta)\}, pelo que a \_fbf* é satisfazível.
+Em relação ao último exemplo, o tuplo $I(a_1) = (arvore\_branca)$ pertence à relação $I(A) = \{(arvore\_branca), (arvore\_preta)\}$, pelo que a _fbf_ é satisfazível.
 
 Ainda em relação ao último exemplo, se quisermos aferir a satisfazibilidade de $P(c_2, e(a_2))$, podemos dizer que o tuplo $(I(c_2), I(e(a_2)))$ é igual a $(casa\_preta, I(e(arvore\_preta)))$, que por sua vez é igual a $(casa\_preta, arvore\_branca)$, que pertence a $I(P)$, pelo que a _fbf_ é satisfazível.
 

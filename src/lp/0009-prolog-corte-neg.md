@@ -228,7 +228,7 @@ A interação acima pode ser ilustrada por:
 
 <img src="./assets/0009-piupiu.png" alt="Piupiu Gelido" class="invert-dark">
 
-A negação por falhanço não funciona, contudo, corretamente para objetivos não chãos (ou seja para para objetivos com variáveis).
+A negação por falhanço não funciona, contudo, corretamente para objetivos não chãos (ou seja para objetivos com variáveis).
 
 ## Execução Forçada
 

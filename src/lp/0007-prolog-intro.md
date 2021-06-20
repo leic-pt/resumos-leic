@@ -4,7 +4,7 @@ description: Introdução ao Prolog. Componentes básicos, programa, objetivo, c
 
 # Introdução ao Prolog
 
-Prolog é uma linguagem de programação que utiliza o paradigma de programação em lógica - especifica **_o quê_** e **_o que lhe deve ser feito_**. Concebida com o objetivo inicial de resolver problemas associados à inteligência artificial/tradução de linguagem natural, hoje em dia as suas aplicações vão desde a LN/AI à lógica e à computação numérica e simbólica.
+Prolog é uma linguagem de programação que utiliza o paradigma de programação em lógica - especifica **_o quê_** e **_o que lhe deve ser feito_**. Concebida com o objetivo inicial de resolver problemas associados à inteligência artificial/tradução de linguagem natural, hoje em dia as suas aplicações vão desde a LN/IA à lógica e à computação numérica e simbólica.
 
 [[toc]]
 
@@ -62,7 +62,7 @@ Constituídos por uma sequência de cláusulas determinadas (cláusulas com cabe
 
 **Afirmações** - informações "concretas" dadas aos programa:
 
-`pai(Homer, Bart),`
+`pai(Homer, Bart)`,
 `comprarCigarros(pai, filhoRandom)`
 
 **Regras** - informações "formais"/_regras_ dadas ao programa:
@@ -222,7 +222,7 @@ Caso haja **mais que uma resposta** a um dado objetivo dado um programa, podemos
 
 ## Listas
 
-Em Prolog, listas são tipos estruturados de informação pré-definidos. Tal como em python, os seus elementos são separados por vírgulas, estando delimitados por `[ ]`. Os elementos podem ser termos (variáveis, constantes ou termos compostos) ou outras listas, podendo, claro está, existir a lista vazia (`[]`).
+Em Prolog, listas são tipos estruturados de informação pré-definidos. Tal como em Python, os seus elementos são separados por vírgulas, estando delimitados por `[ ]`. Os elementos podem ser termos (variáveis, constantes ou termos compostos) ou outras listas, podendo, claro está, existir a lista vazia (`[]`).
 
 ::: details Exemplos de Listas
 
@@ -431,4 +431,5 @@ Sequência de objetivos neste processo:
 Há ainda mais exemplos nos slides e no livro.
 
 [Slides (até às listas, não inclusive)](https://drive.google.com/file/d/1SFMZOOwxJFUZESPVZkRkDygGzmgsLad1/view?usp=sharing)
+
 [Slides (listas)](https://drive.google.com/file/d/1g8IvdcEWB4nkGthrSACSWA6HYFlwmBRp/view?usp=sharing)

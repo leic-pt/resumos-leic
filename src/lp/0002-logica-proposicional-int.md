@@ -44,7 +44,7 @@ Especifica as **regras de inferência**, regras que permitem a manipulação de 
 - **Deducão Natural:**  
   Nos sistemas abordados por dedução natural existem por norma duas regras de inferência por cada símbolo lógico - a **regra de introdução**, que diz como introduzir uma _fbf_ que utiliza um dado símbolo lógico, e a **regra de eliminação**, que diz como usar uma _fbf_ que contém o símbolo lógico.
 
-  Aqui, não existem _axiomas_ - _fbfs_ - que se aceitam como verdadeiras.
+  Aqui, não existem _axiomas_ - _fbfs_ que se aceitam como verdadeiras.
 
 ### Prova
 
@@ -266,7 +266,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 - **Regras para a disjunção:**
 
   - **Introdução da disjunção:**
-    Tem em conta o significado intuitivo de uma disjunção - esta apenas precisa requer que um dos elementos se verifique para ser verdadeira. Assim sendo, partindo de uma _fbf_ $\alpha$, podemos derivar tanto $\alpha\vee\beta$ como $\beta\vee\alpha$, sendo $\beta$ qualquer _fbf_. Abreviada por $I\vee, n$, com $n$ sendo a linha onde a _fbf_ $\alpha$ foi introduzida.
+    Tem em conta o significado intuitivo de uma disjunção - esta apenas requer que um dos elementos se verifique para ser verdadeira. Assim sendo, partindo de uma _fbf_ $\alpha$, podemos derivar tanto $\alpha\vee\beta$ como $\beta\vee\alpha$, sendo $\beta$ qualquer _fbf_. Abreviada por $I\vee, n$, com $n$ sendo a linha onde a _fbf_ $\alpha$ foi introduzida.
 
   ::: tip INTRODUÇÃO DA DISJUNÇÃO
 

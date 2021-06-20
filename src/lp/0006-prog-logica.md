@@ -86,8 +86,8 @@ Falemos em exemplos concretos. Tenhamos o programa:
 
 $Ant(x, y) \leftarrow AD(x, y)$  
 $Ant(x, z) \leftarrow Ant(x, y), AD(y, z)$  
-$AD(Marge, Bart)$  
-$AD(Sr.B, Marge)$
+$AD(Marge, Bart) \leftarrow$  
+$AD(Sr.B, Marge) \leftarrow$
 
 E o objetivo $\leftarrow Ant(x, Bart)$.
 
@@ -95,7 +95,7 @@ Tanto $s_{1} = \{Marge/x\}$ como $s_{2} = \{Sr.B/x\}$ são respostas do programa
 
 Agora, porque é que são estas as respostas?
 
-Bem, no fundo estas substituições são as tais respostas a que chegamos no [exemplo de prova por resolução que respondia à pergunta "quem"](./0005-logica-primeiraordem-sc.md#resolucao). Contudo, apenas $s_{2}$ é correta, visto que se tentarmos realizar a resolução sem recorrer à refutação, chegamos à cláusula $Ant(Sr.B, Bart)$, onde lá está, há a substituição $\{Sr.B/x\}$.
+Bem, no fundo estas substituições são as tais respostas a que chegamos no [exemplo de prova por resolução que respondia à pergunta "quem"](./0005-logica-primeiraordem-sc.md#provas-por-resolucao). Contudo, apenas $s_{2}$ é correta, visto que se tentarmos realizar a resolução sem recorrer à refutação, chegamos à cláusula $Ant(Sr.B, Bart)$, onde lá está, há a substituição $\{Sr.B/x\}$.
 
 ## Resolução SLD
 
@@ -132,7 +132,7 @@ $\gamma_{3} = \leftarrow AD(Sr.B, Marge)$
 $\gamma_{4} = \square$
 
 A **resposta calculada** é:  
-$(\{Sr.B/x, Bart/z\}, \{Marge/y\}, \{Sr.B/x, Marge/y\}, \epsilon)|_{\{\}} = \epsilon$
+$(\{Sr.B/x, Bart/z\} \circ \{Marge/y\} \circ \{Sr.B/x, Marge/y\} \circ \epsilon)|_{\{\}} = \epsilon$
 
 :::
 

@@ -10,7 +10,7 @@ Informação útil para perceberem o que está a acontecer na recursão: podem e
 
 ## Meta-Predicados sobre Listas
 
-Ponto importante - sempre que virem algo do género `<nome_func>/<numero>`, `<numero>` é o número de argumentos que a função recebe.
+Ponto importante - sempre que virem algo do género `<nome_func>/<numero>`, `<numero>` é o número de argumentos que a função recebe (a sua aridade).
 
 ### length
 

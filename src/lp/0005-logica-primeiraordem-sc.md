@@ -41,9 +41,9 @@ A segunda, a hipótese de representação do conhecimento, complementa a hipóte
 
 ### Representar Conhecimento em Lógica
 
-O primeiro passo a tomar é inventar um modelo daquilo que pretendemos representar.
+O primeiro passo a tomar é [inventar um modelo](https://i.imgur.com/kU3zFQ4.png) daquilo que pretendemos representar.
 
-- **Modelo** - abstração do mundo que apenas captura os seus aspetos que são relevantes para um certo problema ou tarefa. Neste modelo, devemos definir as entidades do mundo sobre as quais queremos falar - o _universo do discurso_ - e as funções e relações que vamos utilizar. Estamos, assim a definir o **vocabulário** utilizado pelas _fbfs_ da representação escolhida. Depois de tomadas essas decisões, escrevemos as _fbfs_ que relacionam constantes, funções e/ou relações (**axiomas próprios**, proposições aceites sem prova em relação ao domínio atual)- tarefa da **representação**.
+- **Modelo** - abstração do mundo que apenas captura os seus aspetos que são relevantes para um certo problema ou tarefa. Neste modelo, devemos definir as entidades do mundo sobre as quais queremos falar - o _universo do discurso_ - e as funções e relações que vamos utilizar. Estamos, assim a definir o **vocabulário** utilizado pelas _fbfs_ da representação escolhida. Depois de tomadas essas decisões, escrevemos as _fbfs_ que relacionam constantes, funções e/ou relações (**axiomas próprios**, proposições aceites sem prova em relação ao domínio atual) - tarefa da **representação**.
 
 O conjunto de todas as constantes, funções, relações e axiomas próprios é a **ontologia** do domínio.
 
@@ -116,11 +116,11 @@ Obtida de forma semelhante à da Lógica Proposicional, apesar de algumas difere
 
   $\neg\forall x[\alpha (x)] \leftrightarrow \exists x[\neg\alpha (x)]$
 
-  _Dizer que nem todo o x tem uma certa propriedade é o mesmo que dizer que há pelo menos um x que não a tem_.
+  _Dizer que nem todo o $x$ tem uma certa propriedade é o mesmo que dizer que há pelo menos um $x$ que não a tem_.
 
   $\neg\exists x[\alpha (x)] \leftrightarrow \forall x[\neg\alpha (x)]$
 
-  _Dizer que não há nenhum x que tenha uma certa propriedade é o mesmo que dizer que todo o x não tem a falta dessa propriedade_.
+  _Dizer que não há nenhum $x$ que tenha uma certa propriedade é o mesmo que dizer que todo o $x$ não tem a falta dessa propriedade_.
 
   :::
 

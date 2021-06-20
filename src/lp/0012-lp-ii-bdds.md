@@ -80,7 +80,7 @@ Percorre, por níveis, o grafo correspondente ao OBDD, começando pelas folhas. 
 
 - a atribuição dos identificadores de um nível é feita considerando que todos os OBDDs abaixo já foram identificados. Assim sendo:
 
-  - caso dois sub-OBDDs positivo e negativo (em relação ao "pai") tenham o mesmo identificador, esse identificador é também ao OBDD "pai";
+  - caso dois sub-OBDDs positivo e negativo (em relação ao "pai") tenham o mesmo identificador, esse identificador é dado também ao OBDD "pai";
 
   - caso entre os OBDDs já identificados exista um OBDD tal que o OBDD a identificar e ele têm raízes com rótulos iguais, com OBDDs positivos e negativos com os mesmos identificadores, então o identificador do OBDD a identificar é o mesmo desse que estamos a comparar.
 
@@ -148,11 +148,11 @@ A intuição utilizada durante o algoritmo é:
 
 (mais uma vez, provavelmente fica mais fácil a ver o exemplo e ler a explicação).
 
-Vejamos então o que acontece com $aplica(\wedge, O_{\neg P \wedge \neg R}, =_{P \vee (Q \wedge R)})$.
+Vejamos então o que acontece com $aplica(\wedge, O_{\neg P \wedge \neg R}, O_{P \vee (Q \wedge R)})$.
 
 <img src="./assets/0012-lp-aplica-1.png" alt="Aplica pt.1" class="invert-dark">
 
-(OBDDs reduzidos de cada FBF)
+(OBDDs reduzidos de cada _fbf_)
 
 <img src="./assets/0012-lp-aplica-2.png" alt="Aplica pt.2" class="invert-dark">
 

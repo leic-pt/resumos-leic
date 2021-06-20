@@ -11,7 +11,7 @@ A geração automática de provas utilizando sistemas de dedução natural não 
 
 ## Resolução
 
-Abordagem ao sistema dedutivo baseada numa única regra de inferência (ao contrário das provas abordadas anteriormente) - o **princípio da resolução**. A utilização deste obriga à transformação das _fbfs_ numa forma especial, a _forma clausal_ que corresponde a uma **conjunção de cláusulas**.
+Abordagem ao sistema dedutivo baseada numa única regra de inferência (ao contrário das provas abordadas anteriormente) - o **princípio da resolução**. A utilização deste obriga à transformação das _fbfs_ numa forma especial, a _forma clausal_, que corresponde a uma **conjunção de cláusulas**.
 
 ### Forma clausal
 
