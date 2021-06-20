@@ -245,10 +245,10 @@ Uma interpretação que satisfaz $\Delta$ é, portanto, $I(T)=V, I(S)=V, I(R)=V,
 
 Se, ainda em relação à _fbf_ anterior, tivéssemos optado pela ordem $S \prec R \prec P \prec Q \prec T$, obteríamos:
 
-$b_{P}: \{\neg P, S, T, R\}, \{\neg P, Q, S\}, \{S\}$  
-$b_{Q}: \{P, Q, \neg R\}, \{\neg Q, \neg R\}$  
-$b_{R}:$  
-$b_{S}:$  
+$b_{S}: \{\neg P, S, T, R\}, \{\neg P, Q, S\}, \{S\}$  
+$b_{R}: \{P, Q, \neg R\}, \{\neg Q, \neg R\}$  
+$b_{P}:$  
+$b_{Q}:$  
 $b_{T}:$
 
 A escolha desta ordem levou a menos processamento do que a escolha da ordem anterior, pelo que esta escolha teria sido bastante melhor (e mais simples).
