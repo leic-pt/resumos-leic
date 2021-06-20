@@ -131,7 +131,7 @@ Utilizam regras que transformam conjuntos de cláusulas em conjuntos de cláusul
 
 ::: tip DEFINIÇÃO
 
-(talvez reler na diagonal a secção sobre a [resolução](https://ist.diogotc.com/lp/0005-logica-primeiraordem-sc.html#resolucao) possa ajudar a relembrar conceitos esquecidos)
+(talvez reler na diagonal a secção sobre a [resolução](./0005-logica-primeiraordem-sc.md#resolucao) possa ajudar a relembrar conceitos esquecidos)
 
 Sendo $\Delta$ um conjunto de cláusulas e $P_{i}$ um símbolo de proposição, o **conjunto de cláusulas obtido de $\Delta$ por eliminação de $P_{i}$**, $\exists P_{i} (\Delta)$, é obtido tal que:
 
