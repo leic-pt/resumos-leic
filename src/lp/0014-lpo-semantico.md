@@ -150,7 +150,7 @@ Restam ainda referir algumas definições:
 
 - uma _fbf_ é **satisfazível** se existe uma interpretação que a satisfaz, **contraditória** se não houver nenhuma.
 
-- uma _fbf_ é **tautológica** se todas as interpretações a satisfazem, **falsificável** se pelo menos não a satisfaz.
+- uma _fbf_ é **tautológica** se todas as interpretações a satisfazem, **falsificável** se pelo menos uma não a satisfaz.
 
 Um **modelo** é, aqui, uma interpretação que satisfaz todas as _fbfs_ de um conjunto.
 
