@@ -33,7 +33,7 @@ Chegamos a este grafo através de:
 
   - $\neg \neg P \leftrightarrow P$ (não obrigatório, contudo sempre realizada no decorrer destes algoritmos)
 
-  Por exemplo, simplificar $\neg \neg (P \wedge \neg \neg (\neg P \vee Q))$ resultaria sucessivamente em $P \wedge (\neg P \vee Q)$, via eliminação da dupla negação, e $P \wedge \neg (P \wedge \neg Q)$, via a primeira equivalência referida acima.~
+  Por exemplo, simplificar $\neg \neg (P \wedge \neg \neg (\neg P \vee Q))$ resultaria sucessivamente em $P \wedge (\neg P \vee Q)$, via eliminação da dupla negação, e $P \wedge \neg (P \wedge \neg Q)$, via a primeira equivalência referida acima.
 
 - já com a _fbf_ tranformada nesta versão mais simplificada, podemos construir o nosso DAG:
 
