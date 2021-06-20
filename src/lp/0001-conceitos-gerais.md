@@ -34,7 +34,7 @@ O símbolo "∴" lê-se "logo".
 
 ---
 
-| Valores lógicos das premissas e da conclusão | Argumento válido                                                                           | Argumento Inválido                                                |
+| Valores lógicos das premissas e da conclusão | Argumento válido                                                                           | Argumento inválido                                                |
 | :------------------------------------------: | :----------------------------------------------------------------------------------------- | :---------------------------------------------------------------- |
 |           (Verdadeiro, Verdadeiro)           | Todos os homens são mortais. <br>Sócrates é um homem. <br>∴ Sócrates é mortal.             | Todas as pessoas são humanos. <br>∴ Todos os humanos são pessoas. |
 |             (Verdadeiro, Falso)              | (Não existe)                                                                               | Todos os cães são animais. <br>∴ Todos os animais são cães.       |
