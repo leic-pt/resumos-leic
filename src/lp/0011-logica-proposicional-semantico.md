@@ -139,7 +139,7 @@ A lógica proposicional é **correta e completa**.
 
 - **Completude** - Para quaisquer _fbfs_ $\alpha_{1}, \cdots, \alpha_{k}$ e $\beta$, se pudermos afirmar que $\beta$ é consequência semântica de $\{\alpha_{1}, \cdots, \alpha_{k}\}$, ou seja, se $\{\alpha_{1}, \cdots, \alpha_{k}\} \models \beta$, então $\{\alpha_{1}, \cdots, \alpha_{k}\} \vdash \beta$. Qualquer argumento válido de acordo com a semântica é demonstrável.
 
-Podemos, então, voltar a olhar para a relação entre os sistemas dedutivo e semântico.
+Podemos, então, voltar a olhar para a relação entre os sistemas dedutivo e semântico:
 
 <img src="./assets/0011-dedsem.png" alt="Dedutivo vs Semântico" class="invert-dark">
 
