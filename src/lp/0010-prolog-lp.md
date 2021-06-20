@@ -12,6 +12,7 @@ Aqui, o programador define entidades, factos, relações e regras, e o programa 
 Temos ainda mais uma diferença entre o Prolog e as linguagens convencionais: numa linguagem habitual, caso a execução não possa prosseguir, gera-se um erro de execução; em Prolog, há apenas um retrocesso até ao último "ponto de decisão", e o processo limita-se a continuar seguindo um caminho diferente.
 
 - **Tipos de informação**
+
   Prolog é uma linguagem sem declaração de tipos, que pode utilizar estruturas de dados com flexibilidade; as variáveis têm, claro, um **domínio** ou _scope_ ondem podem ser utilizadas - a cláusula onde esta se encontra. O domínio de um nome, por outro lado, é todo o programa.
   Átomos e números são os **tipos elementares**, podendo criar tipos **estruturados** compondo tipos elementares; considerando estes últimos, a lista é um deles, pré-definido.
 
