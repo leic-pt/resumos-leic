@@ -628,16 +628,16 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 
   2.3.6
 
-  | Interpretação | $P$ | $Q$ | $R$ | $P \to R$ | $Q \to R$ | $P \wedge Q$ | $(P \vee Q) \to R$ |
-  | ------------- | --- | --- | --- | --------- | --------- | ------------ | ------------------ |
-  | $I_1$         | V   | V   | V   | V         | V         | V            | V                  |
-  | $I_2$         | V   | V   | F   | F         |           |              |                    |
-  | $I_3$         | V   | F   | V   | V         | V         | V            | V                  |
-  | $I_4$         | V   | F   | F   | F         |           |              |                    |
-  | $I_5$         | F   | V   | V   | V         | V         | V            | V                  |
-  | $I_6$         | F   | V   | F   | V         | F         |              |                    |
-  | $I_7$         | F   | F   | V   | V         | V         | F            | V                  |
-  | $I_8$         | F   | F   | F   | V         | V         | F            | V                  |
+  | Interpretação | $P$ | $Q$ | $R$ | $P \to R$ | $Q \to R$ | $P \vee Q$ | $(P \vee Q) \to R$ |
+  | ------------- | --- | --- | --- | --------- | --------- | ---------- | ------------------ |
+  | $I_1$         | V   | V   | V   | V         | V         | V          | V                  |
+  | $I_2$         | V   | V   | F   | F         |           |            |                    |
+  | $I_3$         | V   | F   | V   | V         | V         | V          | V                  |
+  | $I_4$         | V   | F   | F   | F         |           |            |                    |
+  | $I_5$         | F   | V   | V   | V         | V         | V          | V                  |
+  | $I_6$         | F   | V   | F   | V         | F         |            |                    |
+  | $I_7$         | F   | F   | V   | V         | V         | F          | V                  |
+  | $I_8$         | F   | F   | F   | V         | V         | F          | V                  |
 
   (De notar que só foram marcados os espaços necessários, os outros não foram necessários porque é possível chegar à conclusão que a interpretação em questão não será modelo do conjunto, visto que uma das suas _fbfs_ já foi aferida como falsa segundo essa interpretação)
 
