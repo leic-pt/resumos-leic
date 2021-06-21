@@ -134,7 +134,7 @@ false.
 ?- 'a' == a.
 true.
 ?- X == a.
-false.`
+false.
 ?- X = a, X == a.
 X = a.
 ```
