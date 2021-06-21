@@ -32,7 +32,7 @@ Tamanho de um grafo $(q)$
 
 ### Teorema 2
 
-Um grafo $g$ de ordem $p$ é uma árvores, se e só se é conexo e tem tamanho $q=p-1$.
+Um grafo $g$ de ordem $p$ é uma árvore, se e só se é conexo e tem tamanho $q=p-1$.
 
 ### Árvore de cobertura
 
