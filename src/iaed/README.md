@@ -77,4 +77,4 @@ Grafos: representação, pesquisa em largura e profundidade, árvores abrangente
 ### 6ªs Feiras
 
 - Daniel Ramos, 14:45 - 15:30 [Zoom Link](https://videoconf-colibri.zoom.us/j/89790360189?pwd=YnBPaXlheFlZUGRzamtPeW5raEJEZz09)
-- Vasco Manquinho, 16:00 - 17:30 [Zoom Link](https://videoconf-colibri.zoom.us/j/83545686642?pwd=bkxWdnNzbFN2VWV6Y0N3SkRsMG9Fdz09)
+- Vasco Manquinho, 16:00 - 17:30 [GIF Link](https://cdn.discordapp.com/emojis/833791768696455188.gif?v=1)
