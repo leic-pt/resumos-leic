@@ -59,7 +59,7 @@ Assim, chegamos à definição em $dim > 1$:
 
 ::: tip DEFINIÇÃO
 
-Seja $f: D \subseteq \R^n \to \R^m$ é diferencial em $a\in D$ se existir uma transformação linear $Df(a): \R^n \to \R^n$
+Seja $f: D \subseteq \R^n \to \R^m$ é diferencial em $a\in D$ se existir uma transformação linear $Df(a): \R^n \to \R^m$
 (chamada transformação linear derivada de $f$ em $a$), tal que
 
 $$
@@ -248,7 +248,7 @@ Observações:
 
 2. Se $v=\overrightarrow{e_{i}} =\begin{pmatrix}0\\\vdots \\1\\\vdots \\0\end{pmatrix}$
    então $\displaystyle \frac{\partial f}{\partial v}( a) =\frac{\partial f}{\partial x_{i}}( a)$,
-   a que se chama **derivada parcial em ordem a $x_1$ em $a$**.
+   a que se chama **derivada parcial em ordem a $x_i$ em $a$**.
 
 ::: details Exemplos
 
@@ -362,6 +362,10 @@ $$
 
 :::
 
+::: warning
+Pode existir a jacobiana de uma função $f$ em $a$ sem que $f$ seja diferenciável em $a$.
+:::
+
 ### Gradiente de uma função
 
 Seja $f: D \subseteq \R^n \to \R$ isto é, seja $f$ uma função escalar.
@@ -385,7 +389,7 @@ $$
 
 $$
 J^{f}_{(1,1)} =\begin{pmatrix}
-\frac{\partial f}{\partial x}( 1,1) & \frac{\partial f}{\partial x}( 1,1)
+\frac{\partial f}{\partial x}( 1,1) & \frac{\partial f}{\partial y}( 1,1)
 \end{pmatrix} =\begin{pmatrix}
 2xy\Bigl|_{( 1,1)} & x^{2}\Bigl|_{( 1,1)}
 \end{pmatrix} =\begin{pmatrix}
@@ -412,7 +416,7 @@ $$
 
 $$
 \text{c.a.}\\
-\left| \frac{h}{\sqrt{h^{2} +k^{2}}}\right| =\frac{|h|}{\sqrt{h^{2} +k^{2}}} =\frac{\sqrt{h^{2}}}{\sqrt{h^{2} +k^{2}}} \leqslant \frac{\sqrt{h^{2} +k^{2}}}{h^{2} +k^{2}} =1
+\left| \frac{h}{\sqrt{h^{2} +k^{2}}}\right| =\frac{|h|}{\sqrt{h^{2} +k^{2}}} =\frac{\sqrt{h^{2}}}{\sqrt{h^{2} +k^{2}}} \leqslant \frac{\sqrt{h^{2} +k^{2}}}{\sqrt{h^{2} +k^{2}}} =1
 $$
 
 Logo, $f$ é diferenciável em $a$.
@@ -594,7 +598,7 @@ Tem-se então, de efetuar o cálculo pelo limite.
 $$
 \begin{aligned}
 \frac{\partial f}{\partial v}(0,0) &= \lim_{t\to 0}\frac{f((0,0) + t(1,1))- f(0,0)}{t}\\
-& =\lim_{t\to 0}\frac{f(t,t)}-0{t}\\
+& =\lim_{t\to 0}\frac{f(t,t)-0}{t}\\
 & =\lim_{t\to 0} \frac{\frac{t^2\cdot t}{t^2+t^2}}{t}\\
 & =\lim_{t\to 0} \frac{t^3}{t(2t^2)}\\
 & =\lim_{t\to 0} \frac{t^3}{2t^3}\\

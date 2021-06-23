@@ -34,7 +34,7 @@ O símbolo "∴" lê-se "logo".
 
 ---
 
-| Valores lógicos das premissas e da conclusão | Argumento válido                                                                           | Argumento Inválido                                                |
+| Valores lógicos das premissas e da conclusão | Argumento válido                                                                           | Argumento inválido                                                |
 | :------------------------------------------: | :----------------------------------------------------------------------------------------- | :---------------------------------------------------------------- |
 |           (Verdadeiro, Verdadeiro)           | Todos os homens são mortais. <br>Sócrates é um homem. <br>∴ Sócrates é mortal.             | Todas as pessoas são humanos. <br>∴ Todos os humanos são pessoas. |
 |             (Verdadeiro, Falso)              | (Não existe)                                                                               | Todos os cães são animais. <br>∴ Todos os animais são cães.       |
@@ -85,3 +85,5 @@ Por outro lado, caso encontremos um contra-argumento, é **sabido inválido**.
 Existe, ainda, uma terceira possibilidade - a de não encontrar nem um nem outro.
 Aqui, procuramos mudar o nosso palpite para o inverso, e tentar provar esse novo palpite.
 Caso esta tentativa também não tenha sucesso, a validade do argumento diz-se **desconhecida**.
+
+[Slides (até ao slide 23)](https://drive.google.com/file/d/10a-hns-uHSTWy8isSQwJfEOKxq955DM_/view?usp=sharing)

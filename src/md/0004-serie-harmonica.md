@@ -10,7 +10,7 @@ Se tivermos acesso às respetivas tabelas dos números de Stirling, é possível
 
 $$
 \sum_{k=0}^{n-1}k^3 =\\ \sum_{k=0}^{n-1}\left(\begin{Bmatrix}3\\0\end{Bmatrix}k^{\underline0} + \begin{Bmatrix}3\\1\end{Bmatrix}k^{\underline1} +
-\begin{Bmatrix}3\\2\end{Bmatrix}k^{\underline2}
+\begin{Bmatrix}3\\2\end{Bmatrix}k^{\underline2} +
 \begin{Bmatrix}3\\3\end{Bmatrix}k^{\underline3}\right) =\\\sum_{k=0}^{n-1}\left(0k^{\underline0} + 1k^{\underline1} + 3k^{\underline2} + 1k^{\underline3}\right)
 $$
 
@@ -115,7 +115,7 @@ Gráfico de $\frac{1}{x}$:
 
 <img src="./imgs/0004-integral.png" alt="Integral com 1/x" class="invert-dark">
 
-Sendo $H_k = \sum_{k=1}^{n}\frac{1}{k}$, tem-se:
+Sendo $H_n = \sum_{k=1}^{n}\frac{1}{k}$, tem-se:
 
 $$H_n - 1 <ln(n) <H_n$$
 

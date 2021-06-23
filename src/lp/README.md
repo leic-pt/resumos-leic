@@ -10,7 +10,7 @@
 - **Avaliação** - subdividida entre os exercícios das aulas práticas, um projeto individual de programação e um exame final.
   Tanto no projeto como no exame é necessário ter nota $\geq$ 9.5 para passar à UC.
 
-- **Nota final** - a melhor nota entre $(0.1 * T + 0.3 * P + 0.6 * E)$ e $(0.3 * P + 0.7 * E)$, onde T = media das avaliações das aulas práticas, P = nota do projeto e E = nota do exame.
+- **Nota final** - a melhor nota entre $(0.1 * T + 0.3 * P + 0.6 * E)$ e $(0.3 * P + 0.7 * E)$, onde T = media das avaliações das aulas práticas (exceto as duas piores), P = nota do projeto e E = nota do exame.
 
 - [Horários de Dúvidas](https://fenix.tecnico.ulisboa.pt/disciplinas/LP564511132646/2020-2021/2-semestre/horarios-de-duvidas)
 
@@ -18,7 +18,6 @@
 
 - [Livro da UC](https://drive.google.com/file/d/1vJO0sKzWqrFJDhPH6xfp90PilcihpY9F/view?usp=sharing)
 - [Exercícios (resolvidos)](https://drive.google.com/file/d/1IbxAfAji2WZxDuACSsGEME5vQDQyjPne/view)
-- [Resumos (by Diogo Gaspar)](https://drive.google.com/file/d/1yGAZiPmAqrBcZ02TPXNlIgw5VRAZBz2A/view?usp=sharing)
 - [Combinação PDFs das Teóricas do Pavão](https://s.rafael.ovh/lpteoricaspavao)
 
 ## Horários de Dúvidas

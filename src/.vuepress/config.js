@@ -16,9 +16,14 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/config/#head
    */
   head: [
-    ['meta', { name: 'theme-color', content: '#3eaf7c' }],
+    ['meta', { name: 'theme-color', content: '#00a0e4' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
+    ['link', { rel: 'icon', href: '/android-icon-192x192.png' }],
+    ['link', { rel: 'manifest', href: '/manifest.json' }],
+    ['link', { rel: 'apple-touch-icon', href: '/apple-icon-152x152.png' }],
+    ['meta', { name: 'msapplication-TileImage', content: '/ms-icon-144x144.png' }],
+    ['meta', { name: 'msapplication-TileColor', content: '#000000' }],
   ],
 
   theme: 'default-prefers-color-scheme',
@@ -48,13 +53,51 @@ module.exports = {
         {
           title: '📝 Conteúdo',
           collapsable: false,
-          children: ['0001-introducao-programacao-c', '0002-estruturas-controlo'],
+          children: [
+            '0001-introducao-programacao-c',
+            '0002-estruturas-controlo',
+            '0003-input-output',
+            '0004-tabelas',
+            '0005-ficheiros',
+            '0006-estruturas',
+            '0007-1elementos',
+            '0007-2control',
+            '0008-intro_algoritmos',
+            '0009-algo_ord',
+            '0010-more_algo',
+            '0011-even_more_algo',
+            '0012-ponteiros',
+            '0013-mem',
+            '0014-listas',
+            '0015-tad',
+            '0016-disp',
+            '0017-arv',
+            '0018-grafos',
+          ],
         },
         {
           title: '👨‍💻 Laboratórios',
           collapsable: false,
-          children: ['labs/lab02/', 'labs/lab03/'],
+          children: [
+            'labs/lab02/',
+            'labs/lab03/',
+            'labs/lab04/',
+            'labs/lab05/',
+            'labs/lab06/',
+            'labs/lab07/',
+            'labs/lab08/',
+            'labs/lab09/',
+            'labs/lab10/',
+            'labs/lab11/',
+            'labs/lab12/',
+          ],
         },
+        {
+          title: '📃 Cheat Sheets',
+          collapsable: false,
+          children: ['1000-algoritmos.sheet'],
+        },
+
         'meta/linux-setup',
       ],
       '/lp/': [
@@ -67,7 +110,27 @@ module.exports = {
             '0002-logica-proposicional-int',
             '0003-logica-proposicional-sc',
             '0004-logica-primeiraordem-int',
+            '0005-logica-primeiraordem-sc',
+            '0006-prog-logica',
+            '0007-prolog-intro',
+            '0008-prolog-mid',
+            '0009-prolog-corte-neg',
+            '0010-prolog-lp',
+            '0011-logica-proposicional-semantico',
+            '0012-lp-ii-bdds',
+            '0013-algs-sat',
+            '0014-lpo-semantico',
           ],
+        },
+        {
+          title: '✏️ Exercícios',
+          collapsable: false,
+          children: ['exercicios/fichas-aulas-praticas'],
+        },
+        {
+          title: '🚧 Projeto',
+          collapsable: false,
+          children: ['1000-faq'],
         },
       ],
       '/cdi-ii/': [
@@ -80,6 +143,21 @@ module.exports = {
             '0002-norma-topologia',
             '0003-funcoes-continuidade',
             '0004-diferenciabilidade',
+            '0005-derivada-composta',
+            '0006-conjunto-de-nivel',
+            '0007-derivada-ordem-superior',
+            '0008-integracao',
+            '0009-integracao-funcoes',
+            '0010-integracao-mudanca-var',
+            '0011-aplicacoes-integral',
+            '0012-teorema-leibniz',
+            '0013-funcao-inversa',
+            '0014-variedades',
+            '0015-extremos-condicionados',
+            '0016-campos-vetoriais',
+            '0017-green-fluxo-divergencia',
+            '0018-fluxo-divergencia',
+            '0019-rotacional-stokes',
           ],
         },
         {
@@ -99,13 +177,56 @@ module.exports = {
             '0003-formulas-fechadas-somatorios',
             '0004-serie-harmonica',
             '0005-inducao-matematica',
-            '0006-formula-de-abel'
+            '0006-formula-de-abel',
+            '0007-funcoesgeradoras',
+            '0008-teonewton',
+            '0009-combinatorio',
+            '0010-diffinitas',
+            '0011-FFT',
+            '0012-MDC',
+            '0013-calendario',
+            '0014-pascoa',
+            '0015-congruencias',
+            '0016-chines-restos',
+            '0017-rsa',
+            '0018-grafos-def',
+            '0019-pombal',
+            '0020-labirintos',
+            '0021-galeshapley',
+            '0022-kruskraldijkrsta',
+            '0023-teoriadofluxo',
+            '0024-grafoplanares',
+            '0025-teoremakuratowski',
+            '0026-automatos',
           ],
         },
         {
           title: '✏️ Exercícios',
           collapsable: false,
           children: ['exercicios/fichas-aulas-praticas'],
+        },
+        {
+          title: '📃 Cheat Sheets',
+          collapsable: false,
+          children: [
+            '1001-calc-finito',
+            '1002-geradoras-sheet',
+            '1003-calendarios',
+            '1004-mdc-cheat',
+            '1005-rsa-sheet',
+            '1006-grafos',
+          ],
+        },
+        {
+          title: '🛠 Ferramentas',
+          collapsable: false,
+          children: [
+            'tools/fft-calculator',
+            'tools/calendar-calculator',
+            'tools/bezout-calculator',
+            'tools/tcr-table-calculator',
+            'tools/rsa-calculator',
+          ],
         },
       ],
       '/': [
@@ -152,10 +273,23 @@ module.exports = {
    * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
    */
   plugins: [
-    '@vuepress/plugin-back-to-top',
-    '@vuepress/plugin-medium-zoom',
     'vuepress-plugin-seo',
-    '@maginapp/vuepress-plugin-katex',
+    [
+      '@diogotc/vuepress-plugin-katex',
+      {
+        katexOptions: {
+          macros: {
+            '\\d': '\\mathop{}\\!\\mathrm d',
+            '\\1': '1\\!\\!1',
+            '\\Q': '\\mathbb{Q}',
+            '\\car': '\\operatorname{car}',
+            '\\ondiv': '\\operatorname{div}',
+            '\\rot': '\\operatorname{rot}',
+          },
+          strict: false,
+        },
+      },
+    ],
     [
       'vuepress-plugin-meilisearch',
       {
@@ -171,10 +305,18 @@ module.exports = {
         jsUrl: 'https://umami.diogotc.com/umami.js',
       },
     ],
+    [
+      '@vuepress/pwa',
+      {
+        serviceWorker: true,
+        updatePopup: true,
+      },
+    ],
   ],
   markdown: {
     extendMarkdown: (md) => {
       md.use(require('markdown-it-footnote'));
+      md.use(require('markdown-it-color').default);
     },
   },
 };

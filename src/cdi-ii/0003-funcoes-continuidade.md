@@ -34,9 +34,9 @@ $$
 Diz-se que uma sucessão $(u_k) \subset \R^n$ converge para $a\in\R^n$ se, por definição,
 
 $$
-\forall r > 0, \exists N \in \N: k > N => || u_k - a || < r\\
+\forall r > 0, \exists N \in \N: k > N \implies || u_k - a || < r\\
 \text{ou}\\
-\forall r > 0, \exists N \in \N: k > N => u_k \in B_r(a)
+\forall r > 0, \exists N \in \N: k > N \implies u_k \in B_r(a)
 $$
 
 :::
@@ -129,7 +129,7 @@ Esta é outra das relações que naturalmente migra para $\R^n$, sem muitas alte
 
 ::: tip DEFINIÇÃO
 
-Seja $f: D \subseteq \R^n -> \R^m$, $f$ é contínua em $a$ se e só se
+Seja $f: D \subseteq \R^n \to \R^m$, $f$ é contínua em $a$ se e só se
 
 $$
 \forall r>0, \exists \epsilon > 0: x\in B_\epsilon (a) \implies f(x) \in B_r(f(a))\\
@@ -179,7 +179,7 @@ Vejamos um exemplo, ainda em $\R$.
 
 Seja $\displaystyle f(x) = \frac{\sin x}{x}, \forall x \in \R \backslash \{0\} = D$.
 Como existe $\displaystyle \lim_{x \to 0} \frac{\sin x}x = 1$,
-podemos definir o **prolongamento por continuidade de $f$ a $0 \in \overline D**.
+podemos definir o **prolongamento por continuidade de $f$ a $0 \in \overline D$**.
 
 $$
 \tilde{f}( x) =\begin{cases}
@@ -234,7 +234,7 @@ $||f(x) - f(a)|| = ||x-a||$ então, com $\epsilon = r$:
 $|| x - a|| < \epsilon (= r) => || f(x) - f(a)|| = || x- a|| < \epsilon = r$
 
 Logo esta função $f$ também é contínua em $a$.
-Como $a$ é genérico, logo $f$ é contínua em $\R^n$.
+Como $a$ é genérico, $f$ é contínua em $\R^n$.
 
 :::
 
@@ -395,7 +395,7 @@ Além de limites em $\R^2$ segundo retas, também podemos ter limites segundo a 
 Se o limite
 
 $$
-\lim_{(x,y)\to (0,0)} = \lim_{x\to 0} f(x, kx^2)
+\lim_{(x,y)\to (0,0)} f(x, y) = \lim_{x\to 0} f(x, kx^2)
 $$
 
 depender de $k$, então o limite não existe.
@@ -404,7 +404,7 @@ Esta é uma boa estratégia quando queremos provar que o limite não existe.
 
 ::: warning
 
-Não ser pode usar limites direcionais para provar que um limite existe.
+Não se pode usar limites direcionais para provar que um limite existe.
 Se obtivermos um valor que não depende de $m$, $k$, etc, **nada se pode concluir**.
 
 :::
@@ -474,7 +474,7 @@ Logo, o limite é $0$.
 
 ## Teorema de Bolzano-Weierstrass
 
-::: tip Definição
+::: tip DEFINIÇÃO
 
 Seja $D \subseteq \R^n$.
 
@@ -484,7 +484,13 @@ Se $D$ é compacto (isto é, fechado e limitado), então toda a sucessão de pon
 
 A demonstração deste teorema encontra-se nos slides da aula 5.
 
-## Teorema de Weirestrass
+## Teorema de Weierstrass
+
+::: tip DEFINIÇÃO
+
+Se $A \subset \R^n$ é compacto e $f: A \to \R$ é contínua, então $f$ tem máximo e mínimo em $A$.
+
+:::
 
 Deste teorema, podemos retirar:
 

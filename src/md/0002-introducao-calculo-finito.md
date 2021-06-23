@@ -141,7 +141,7 @@ Pode-se também tirar o valor de $n^r$ desta expressão:
 
 $$
 \Delta n^{\underline{r+1}} = (r+1)n^{\underline r}\Leftrightarrow
-n^{\underline r} = \Delta \left(\frac{n^{\underline {n+1}}}{r+1}\right)
+n^{\underline r} = \Delta \left(\frac{n^{\underline {r+1}}}{r+1}\right)
 $$
 
 Como exemplo, determina-se a soma fechada para $\displaystyle \sum_{k=0}^{n-1}k$:
