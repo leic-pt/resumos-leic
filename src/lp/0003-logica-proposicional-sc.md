@@ -148,11 +148,30 @@ As _fbfs_ podem, contudo, não nos ser apresentadas inicialmente nesta forma de 
   - Passar à forma clausal: $\{P\}$, $\{\neg P, Q\}$ e $\{Q\}$;
   - Aplicar a resolução:
 
-    <img src="./assets/0003-p-resolucao1.png" alt="Principio da Resolução 1" class="invert-dark">
+    $$
+    \def\arraystretch{1.5}
+    \begin{array}{lll}
+      1 & \{P\} && Prem\\
+      2 & \{\neg P, Q\} && Prem\\
+      3 & \{Q\} && Res(1, 2)
+    \end{array}
+    $$
 
   Podemos ainda realizar resoluções mais extensas:
 
-    <img src="./assets/0003-p-resolucao2.png" alt="Principio da Resolução 2" class="invert-dark">
+  Mostrar que $\{\{\neg P, Q\}, \{\neg P, \neg Q\}, \{P\}\} \vdash \{\}$:
+
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    1 & \{\neg P, Q\} && Prem\\
+    2 & \{\neg P, \neg Q\} && Prem\\
+    3 & \{P\} && Prem\\
+    4 & \{Q\} && Res(1, 3)\\
+    5 & \{\neg Q\} && Res(2, 3)\\
+    6 & \{\} && Res(4, 5)
+  \end{array}
+  $$
 
   **A cláusula vazia corresponde à existência de uma contradição.**
 
@@ -206,9 +225,7 @@ Para aumentar a eficiência da geração de provas por resolução, foram desenv
 
   ::: details Exemplo - Eliminar teoremas/cláusulas não mínimas
 
-  Um exemplo possível é:
-
-  <img src="./assets/0003-el-clausulas1.png" alt="Eliminação de Cláusulas 1" class="invert-dark">
+  Considerando as cláusulas $\{\{\neg P, \neg Q, R\}, \{\neg P, \neg Q, Q\}, \{\neg P, \neg Q\}\}$, podemos aplicar a eliminação de teoremas e ficar com $\{\{\neg P, \neg Q, R\}\}$. Posteriormente, podíamos ainda eliminar cláusulas não mínimas, ficando apenas com $\{\{\neg P, \neg Q\}\}$.
 
   :::
 

@@ -225,7 +225,15 @@ O sistema dedutivo da Lógica de Primeira Ordem difere do da Lógica Proposicion
 
 Abreviada por $I\forall$, pode ser utilizada quando uma propriedade arbitrária, $\alpha(t)$, for provada para $t$. Utilizamos, para tal, uma técnica semelhante à regra da introdução da implicação, criando um novo "contexto" no qual aparece um novo termo, que nunca apareceu na prova, e tentamos provar que esse termo tem essa propriedade. A regra afirma, portanto, que se numa prova iniciada pela introdução da variável $x_{0}$ pudermos derivar a _fbf_ $\alpha (x_{0})$, então podemos escrever $\forall x[\alpha(x)]$.
 
-  <img src="./assets/0004-int-univ1.png" alt="Int. Quantificador Universal 1" class="invert-dark">
+$$
+\def\arraystretch{1.5}
+\begin{array}{lll}
+  n & x_0 \bigg\vert\\
+  \vdots & \enspace\enspace\bigg\vert\enspace\vdots\\
+  m & \enspace\enspace\bigg\vert\enspace \alpha (x_0)\\
+  m + 1 & \forall x[\alpha (x)] && I\forall, (n, m)
+\end{array}
+$$
 
 Resta notar que aqui não estamos a trabalhar diretamente com as usuais provas hipotéticas, mas com um contexto iniciado por um qualquer termo (podemos, contudo, iniciar provas hipotéticas dentro desse contexto sem qualquer problema). A sua apresentação é também diferente, tal como pode ser observado acima.
 
@@ -235,7 +243,14 @@ Resta notar que aqui não estamos a trabalhar diretamente com as usuais provas h
 
 Abreviada por $E\forall$, indica que a partir de $\forall x[\alpha(x)]$ podemos inferir $\alpha(t)$, onde $t$ é qualquer termo.
 
-  <img src="./assets/0004-el-univ1.png" alt="El. Quantificador Universal 1" class="invert-dark">
+$$
+\def\arraystretch{1.5}
+\begin{array}{lll}
+  n & \forall x[\alpha (x)]\\
+  \vdots & \vdots\\
+  m & \alpha (t) && E\forall, n
+\end{array}
+$$
 
 :::
 
