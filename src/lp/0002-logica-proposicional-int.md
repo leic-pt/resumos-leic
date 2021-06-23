@@ -62,7 +62,12 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   A introdução de uma premissa tem sempre um aspeto deste género:
 
-  <img src="./assets/0002-regra-da-premissa1.png" alt="Regra da Premissa 1" class="invert-dark">
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{llll}
+    n & \alpha && Prem \\
+  \end{array}
+  $$
 
   :::
 
@@ -70,7 +75,13 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   Ao tentar provar que {P, Q} $\vdash$ P $\wedge$ Q, começamos a prova escrevendo as premissas, tal que:
 
-  <img src="./assets/0002-regra-da-premissa2.png" alt="Regra da Premissa 2" class="invert-dark">
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{llll}
+    1 & P && Prem \\
+    2 & Q && Prem \\
+  \end{array}
+  $$
 
   :::
 
@@ -82,7 +93,13 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   A regra da repetição tem sempre um aspeto deste género:
 
-  <img src ="./assets/0002-regra-da-repeticao1.png" alt = "Regra da Repetição 1" class = "invert-dark">
+  $$
+  \begin{array}{llll}
+    n & \alpha \\
+    \vdots & \vdots \\
+    m & \alpha && Rep, n
+  \end{array}
+  $$
 
   :::
 
@@ -90,7 +107,14 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   Em relação a um exemplo mais concreto:
 
-  <img src ="./assets/0002-regra-da-repeticao2.png" alt = "Regra da Repetição 2" class = "invert-dark">
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{llll}
+    1 & P && Prem \\
+    2 & Q && Prem \\
+    3 & P && Rep, 1
+  \end{array}
+  $$
 
   :::
 
@@ -104,7 +128,16 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
     A introdução da conjunção tem sempre um aspeto deste género:
 
-    <img src ="./assets/0002-int-conjuncao1.png" alt = "Introdução da Conjunção 1" class = "invert-dark">
+    $$
+    \def\arraystretch{1.5}
+    \begin{array}{lll}
+      n & \alpha\\
+      \vdots & \vdots\\
+      m & \beta\\
+      \vdots & \vdots\\
+      k & \alpha\wedge\beta & I\wedge, (n,m)
+    \end{array}
+    $$
 
     :::
 
@@ -112,7 +145,14 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
     Em relação a um exemplo mais concreto:
 
-    <img src ="./assets/0002-int-conjuncao2.png" alt = "Introdução da Conjunção 2" class = "invert-dark">
+    $$
+    \def\arraystretch{1.5}
+    \begin{array}{lll}
+      1 & P && Prem\\
+      2 & Q && Prem\\
+      3 & P \wedge Q && I\wedge, (1,2)
+    \end{array}
+    $$
 
     :::
 
@@ -123,7 +163,25 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
     A eliminação da conjunção tem sempre um aspeto deste género:
 
-    <img src ="./assets/0002-el-conjuncao1.png" alt = "Eliminação da Conjunção 1" class = "invert-dark">
+    $$
+    \def\arraystretch{1.5}
+    \begin{array}{lll}
+      n & \alpha\wedge\beta\\
+      \vdots & \vdots\\
+      m & \alpha && E\wedge, n
+    \end{array}
+    $$
+
+    ou
+
+    $$
+    \def\arraystretch{1.5}
+    \begin{array}{lll}
+      n & \alpha\wedge\beta\\
+      \vdots & \vdots\\
+      m & \beta && E\wedge, n
+    \end{array}
+    $$
 
     :::
 
@@ -131,7 +189,16 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
     Em relação a um exemplo mais concreto:
 
-    <img src ="./assets/0002-el-conjuncao2.png" alt = "Eliminação da Conjunção 2" class = "invert-dark">
+    $$
+    \def\arraystretch{1.5}
+    \begin{array}{lll}
+      1 & P \wedge Q && Prem\\
+      2 & R && Prem \\
+      3 & P && E\wedge, 1\\
+      4 & R && Rep, 2\\
+      5 & P \wedge R && I\wedge, (3,4)
+    \end{array}
+    $$
 
     De notar que começamos agora a ver várias aplicações de regras durante a prova.
 
@@ -146,7 +213,13 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   A regra da hipótese tem sempre um aspeto deste género:
 
-  <img src ="./assets/0002-r-hipotese1.png" alt = "Regra da hipótese 1" class = "invert-dark">
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    n & \bigg\vert\underline{\enspace \alpha \enspace} && Hip\\
+    n + 1 & \bigg\vert\cdots
+  \end{array}
+  $$
 
   :::
 
@@ -154,7 +227,15 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   Em relação a um exemplo mais concreto:
 
-  <img src ="./assets/0002-r-hipotese2.png" alt = "Regra da hipótese 2" class = "invert-dark">
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    1 & P \wedge Q && Prem\\
+    2 & P && E\wedge, 1\\
+    3 & \bigg\vert\underline{\enspace R \enspace} && Hip\\
+    4 & \bigg\vert\enspace R && Rep, 3
+  \end{array}
+  $$
 
   :::
 
@@ -166,7 +247,15 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   A regra da reiteração tem sempre um aspeto deste género:
 
-  <img src ="./assets/0002-r-reiteracao1.png" alt = "Regra da reiteração 1" class = "invert-dark">
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    n & \alpha\\
+    \vdots & \bigg\vert & \vdots\\
+    & \bigg\vert\\
+    m & \bigg\vert & \alpha && Rei, n
+  \end{array}
+  $$
 
   :::
 
@@ -174,7 +263,15 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   Em relação a um exemplo mais concreto:
 
-  <img src ="./assets/0002-r-reiteracao2.png" alt = "Regra da reiteração 2" class = "invert-dark">
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    1 & P \to\lnot P & Prem\\
+    2 & \bigg\vert\underline{\enspace \lnot Q \enspace} & Hip \\
+    3 & \bigg\vert\enspace \bigg\vert\underline{\enspace P \enspace} & Hip \\
+    4 & \bigg\vert\enspace \bigg\vert\enspace P \to\lnot P & Rei, 1
+  \end{array}
+  $$
 
   :::
 
@@ -192,7 +289,15 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   A introdução da implicação tem sempre um aspeto deste género:
 
-  <img src ="./assets/0002-int-implicacao1.png" alt = "Introdução da Implicação 1" class = "invert-dark">
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    n & \bigg\vert\underline{\enspace \alpha \enspace} && Hip\\
+    \vdots & \bigg\vert\enspace\vdots\\
+    m & \bigg\vert\enspace\beta\\
+    m + 1 & \alpha\to\beta && I\to, (n, m)
+  \end{array}
+  $$
 
   :::
 
@@ -200,7 +305,15 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   Em relação a um exemplo mais concreto:
 
-  <img src ="./assets/0002-int-implicacao2.png" alt = "Introdução da Implicação 2" class = "invert-dark">
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    1 & R && Prem\\
+    2 & \bigg\vert\underline{\enspace P \enspace} && Hip\\
+    3 & \bigg\vert\enspace R && Rei, 1\\
+    4 & P \to R && I\to, (2,3)
+  \end{array}
+  $$
 
   :::
 
@@ -211,7 +324,16 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   A eliminação da implicação tem um aspeto deste género, sendo que a ordem de $\alpha$ e $\alpha\to\beta$ não é relevante:
 
-  <img src ="./assets/0002-el-implicacao1.png" alt = "Eliminação da Implicação 1" class = "invert-dark">
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    n & \alpha\\
+    \vdots & \vdots\\
+    m & \alpha\to\beta\\
+    \vdots & \vdots\\
+    k & \beta && E\to, (n, m)
+  \end{array}
+  $$
 
   :::
 
@@ -219,7 +341,15 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   Em relação a um exemplo mais concreto:
 
-  <img src ="./assets/0002-el-implicacao2.png" alt = "Eliminação da Implicação 2" class = "invert-dark">
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    1 & P \to Q && Prem\\
+    2 & P && Prem\\
+    3 & P \to Q && Rep, 1\\
+    4 & Q && E\to, (2,3)
+  \end{array}
+  $$
 
   :::
 
@@ -232,7 +362,17 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   A introdução da negação tem sempre um aspeto deste género:
 
-  <img src ="./assets/0002-int-negacao1.png" alt = "Introdução da Negação 1" class = "invert-dark">
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    n & \bigg\vert\underline{\enspace \alpha \enspace} && Hip\\
+    \vdots & \bigg\vert\enspace\vdots\\
+    m & \bigg\vert\enspace\beta\\
+    \vdots & \bigg\vert\enspace\vdots\\
+    k & \bigg\vert\enspace\neg\beta\\
+    l & \neg\alpha && I\neg, (n, (m, k))
+  \end{array}
+  $$
 
   :::
 
@@ -240,7 +380,18 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   Em relação a um exemplo mais concreto:
 
-  <img src ="./assets/0002-int-negacao2.png" alt = "Introdução da Negação 2" class = "invert-dark">
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    1 & P \to Q && Prem\\
+    2 & \neg Q && Prem\\
+    3 & \bigg\vert\underline{\enspace P \enspace} && Hip\\
+    4 & \bigg\vert\enspace P \to Q && Rei, 1\\
+    5 & \bigg\vert\enspace Q && E\to, (3,4)\\
+    6 & \bigg\vert\enspace \neg Q && Rei, 2\\
+    7 & \neg P && I\neg, (3, (5, 6))
+  \end{array}
+  $$
 
   :::
 
@@ -251,7 +402,14 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   A eliminação da negação tem sempre um aspeto deste género:
 
-  <img src ="./assets/0002-el-negacao1.png" alt = "Eliminação da Negação 1" class = "invert-dark">
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    n & \neg\neg\alpha\\
+    \vdots & \vdots\\
+    m & \alpha && E\neg, n
+  \end{array}
+  $$
 
   :::
 
@@ -259,7 +417,19 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   Em relação a um exemplo mais concreto:
 
-  <img src ="./assets/0002-el-negacao2.png" alt = "Eliminação da Negação 2" class = "invert-dark">
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    1 & \bigg\vert\underline{\enspace P \wedge \neg P \enspace} && Hip\\
+    2 & \bigg\vert\enspace\bigg\vert\underline{\enspace \neg Q \enspace} && Hip\\
+    3 & \bigg\vert\enspace\bigg\vert\enspace P \wedge \neg P && Rei, 1\\
+    4 & \bigg\vert\enspace\bigg\vert\enspace P && E\wedge, 3\\
+    5 & \bigg\vert\enspace\bigg\vert\enspace \neg P && E\wedge, 3\\
+    6 & \bigg\vert\enspace \neg\neg Q && I\neg, (2, (4, 5))\\
+    7 & \bigg\vert\enspace Q && E\neg, 6\\
+    8 & (P \wedge \neg P) \to Q && I\to, (1,7)
+  \end{array}
+  $$
 
   :::
 
@@ -272,7 +442,25 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   A introdução da disjunção tem sempre um aspeto deste género:
 
-  <img src ="./assets/0002-int-disjuncao1.png" alt = "Introdução da Disjunção 1" class = "invert-dark">
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    n & \alpha\\
+    \vdots & \vdots\\
+    m & \alpha\vee\beta && I\vee, n
+  \end{array}
+  $$
+
+  ou
+
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    n & \alpha\\
+    \vdots & \vdots\\
+    m & \beta\vee\alpha && I\vee, n
+  \end{array}
+  $$
 
   :::
 
@@ -280,7 +468,20 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   Em relação a um exemplo mais concreto:
 
-  <img src ="./assets/0002-int-disjuncao2.png" alt = "Introdução da Disjunção 2" class = "invert-dark">
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    1 & \bigg\vert\underline{\enspace \neg (P \vee \neg P) \enspace} && Hip\\
+    2 & \bigg\vert\enspace\bigg\vert\underline{\enspace P \enspace} && Hip\\
+    3 & \bigg\vert\enspace\bigg\vert\enspace P \vee \neg P && I\vee, 2\\
+    4 & \bigg\vert\enspace\bigg\vert\enspace \neg (P \vee \neg P) && Rei, 1\\
+    5 & \bigg\vert\enspace \neg P && I\neg, (2, (3, 4))\\
+    6 & \bigg\vert\enspace P \vee \neg P && I\vee, 5\\
+    7 & \bigg\vert\enspace \neg (P \vee \neg P) && Rep, 1\\
+    8 & \neg\neg (P \vee \neg P) && I\neg, (1, (6, 7))\\
+    9 & P \vee \neg P && E\neg, 8
+  \end{array}
+  $$
 
   :::
 
@@ -291,7 +492,20 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   A Eliminação da disjunção tem sempre um aspeto deste género:
 
-  <img src ="./assets/0002-el-disjuncao1.png" alt = "Eliminação da Disjunção 1" class = "invert-dark">
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    n & \alpha\vee\beta\\
+    o & \bigg\vert\underline{\enspace \alpha \enspace} && Hip\\
+    \vdots & \bigg\vert\enspace\vdots\\
+    p & \bigg\vert\enspace\gamma\\ \\
+    r & \bigg\vert\underline{\enspace \beta \enspace} && Hip\\
+    \vdots & \bigg\vert\enspace\vdots\\
+    s & \bigg\vert\enspace\gamma\\
+    \vdots & \vdots\\
+    m & \gamma && E\vee, (n, (o, p), (r, s))
+  \end{array}
+  $$
 
   :::
 
@@ -299,7 +513,24 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   Em relação a um exemplo mais concreto:
 
-  <img src ="./assets/0002-el-disjuncao2.png" alt = "Eliminação da Disjunção 2" class = "invert-dark">
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    1 & \bigg\vert\underline{\enspace (P \vee Q) \wedge \neg P \enspace} && Hip\\
+    2 & \bigg\vert\enspace P \vee Q && E\wedge, 1\\
+    3 & \bigg\vert\enspace \neg P && E\wedge, 1\\
+    4 & \bigg\vert\enspace\bigg\vert\underline{\enspace P \enspace} && Hip\\
+    5 & \bigg\vert\enspace\bigg\vert\enspace\bigg\vert\underline{\enspace \neg Q \enspace} && Hip\\
+    6 & \bigg\vert\enspace\bigg\vert\enspace\bigg\vert\enspace P && Rei, 4\\
+    7 & \bigg\vert\enspace\bigg\vert\enspace\bigg\vert\enspace \neg P && Rei, 3\\
+    8 & \bigg\vert\enspace\bigg\vert\enspace \neg\neg Q && I\neg, (5, (6, 7))\\
+    9 & \bigg\vert\enspace\bigg\vert\enspace Q && E\neg, 8 \\ & \bigg\vert \\
+    10 & \bigg\vert\enspace\bigg\vert\underline{\enspace Q \enspace} && Hip\\
+    11 & \bigg\vert\enspace\bigg\vert\enspace Q && Rep, 10\\
+    12 & \bigg\vert\enspace Q && E\vee, (2, (4, 9), (10, 11))\\
+    13 & ((P \vee Q) \wedge \neg P) \to Q && I\to, (1, 12)
+  \end{array}
+  $$
 
   :::
 
@@ -321,11 +552,38 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   A introdução da equivalência tem sempre um aspeto deste género:
 
-  <img src ="./assets/0002-int-equivalencia.png" alt = "Introdução da Equivalência" class = "invert-dark">
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    n & \alpha\to\beta\\
+    \vdots & \vdots\\
+    m & \beta\to\alpha\\
+    \vdots & \vdots\\
+    k & \alpha\leftrightarrow\beta && I\leftrightarrow, (n, m)
+  \end{array}
+  $$
 
   A eliminação da equivalência tem sempre um aspeto deste género:
 
-  <img src ="./assets/0002-el-equivalencia.png" alt = "Eliminação da Equivalência" class = "invert-dark">
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    n & \alpha\leftrightarrow\beta\\
+    \vdots & \vdots\\
+    m & \alpha\to\beta
+  \end{array}
+  $$
+
+  ou
+
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    n & \alpha\leftrightarrow\beta\\
+    \vdots & \vdots\\
+    m & \beta\to\alpha
+  \end{array}
+  $$
 
   :::
 
@@ -337,7 +595,16 @@ Não obstante não haver uma relação direta entre a sua definição e as regra
 
 A seguinte prova mostra que P $\to$ (Q $\to$ P) é um teorema, visto que pode ser obtido sem premissas:
 
-<img src ="./assets/0002-teorema.png" alt = "Teorema" class = "invert-dark">
+$$
+\def\arraystretch{1.5}
+\begin{array}{lll}
+  1 & \bigg\vert\underline{\enspace P \enspace} && Hip\\
+  2 & \bigg\vert\enspace\bigg\vert\underline{\enspace Q \enspace} && Hip\\
+  3 & \bigg\vert\enspace\bigg\vert\enspace P && Rei, 1\\
+  4 & \bigg\vert\enspace Q \to P && I\to, (2,3)\\
+  5 & P \to (Q \to P) && I\to, (1, 4)
+\end{array}
+$$
 
 :::
 
