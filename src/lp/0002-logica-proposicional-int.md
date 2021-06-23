@@ -595,8 +595,6 @@ Não obstante não haver uma relação direta entre a sua definição e as regra
 
 A seguinte prova mostra que P $\to$ (Q $\to$ P) é um teorema, visto que pode ser obtido sem premissas:
 
-<img src ="./assets/0002-teorema.png" alt = "Teorema" class = "invert-dark">
-
 $$
 \def\arraystretch{1.5}
 \begin{array}{lll}
