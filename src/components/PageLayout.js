@@ -9,15 +9,15 @@ import '../styles/markdown.css';
 export default function Template({ data }) {
   const { markdownRemark: page, allFile: sidebarPaths } = data;
   return (
-    <aside className='page-container'>
+    <div className='page-container'>
       <Sidebar paths={sidebarPaths} />
       <div className='main-container'>
-        <h1>{page.frontmatter}</h1>
         <div className='content' dangerouslySetInnerHTML={{ __html: page.html }} />
       </div>
-    </aside>
+    </div>
   );
 }
+
 export const pageQuery = graphql`
   query PageByPath($path: String!, $pathRegex: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
