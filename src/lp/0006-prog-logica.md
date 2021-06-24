@@ -34,7 +34,20 @@ Em resolução com cláusulas de Horn, pelo menos um dos resolventes tem de ser 
 
 O exemplo abaixo é o mesmo que o da [prova por resolução - verdadeiro/falso](./0005-logica-primeiraordem-sc.md#resolucao) da matéria anterior, só que utilizando resolução com cláusulas de Horn.
 
-<img src="./assets/0006-res-chorn.png" alt="Resolução com cláusulas de Horn" class="invert-dark">
+$$
+\def\arraystretch{1.5}
+\begin{array}{lll}
+  1 & Ant(x, y) \leftarrow AD(x, y) && Prem\\
+  2 & Ant(x, z) \leftarrow Ant(x, y), AD(y, z) && Prem\\
+  3 & AD(Marge, Bart) \leftarrow && Prem\\
+  4 & AD(Sr.B, Marge) \leftarrow && Prem\\
+  5 & \leftarrow Ant(Sr.B, Bart) && Prem\\
+  6 & Ant(Sr.B, Marge) \leftarrow && Res, (1,4), \{Sr.B/x, Marge/y\}\\
+  7 & Ant(Sr.B, z) \leftarrow AD(Marge, z) && Res, (2, 6), \{Sr.B/x, Marge/y\}\\
+  8 & Ant(Sr.B, Bart) \leftarrow && Res, (3, 7), \{Bart/z\}\\
+  9 & \square && Res, (5, 8), \epsilon
+\end{array}
+$$
 
 :::
 
