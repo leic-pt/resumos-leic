@@ -2,19 +2,17 @@
 description: Repositório das fichas das aulas práticas de LP + resoluções.
 ---
 
-# Exercícios de LP
-
-## Material Útil
-
-- [Livro de Exercícios](https://drive.google.com/file/d/1TnTYnaNwd5IKWs_DgCcmPjGJcUfuchK2/view?usp=sharing)
+# Exercícios de LP - Aulas Práticas
 
 ## Fichas Aulas Práticas
 
 ::: tip
 
-Para além dos exercícios das aulas práticas, o livro de exercícios indicado acima tem uma coleção de exercícios bastante vasta. Se quiserem treinar e estar ainda melhor preparados, aconselho vivamente a que dêem uma vista de olhos!
+Para além dos exercícios das aulas práticas, o livro de exercícios indicado abaixo tem uma coleção de exercícios bastante vasta. Se quiserem treinar e estar ainda melhor preparados, aconselho vivamente a que dêem uma vista de olhos!
 
 :::
+
+- [Livro de Exercícios Resolvidos](https://drive.google.com/file/d/1TnTYnaNwd5IKWs_DgCcmPjGJcUfuchK2/view?usp=sharing)
 
 - [Semana 1 (Lógica Proposicional $I$ )](https://drive.google.com/file/d/1hTp2IvH3uJ7rOfcnMvxWoA6ULzVD8q2t/view?usp=sharing)
 

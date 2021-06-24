@@ -7,8 +7,6 @@ description: Proposições, argumentos, premissas, conclusão, validade de um ar
 
 [[toc]]
 
-O objetivo da UC é fornecer conhecimento sobre o que é uma lógica - quais os seus componentes, como desenvolver provas no sistema dedutivo, como utilizar o sistema semântico e como relacionar estes dois últimos. Iremos ainda perceber os conceitos subjacentes ao raciocínio automático e programar com o paradigma da programação em lógica (em _Prolog_).
-
 ## Conceitos Básicos
 
 A lógica estuda métodos para distinguir a validade dos argumentos. Lida com **frases declarativas**, frases que fazem uma afirmação, verdadeira ou falsa.
