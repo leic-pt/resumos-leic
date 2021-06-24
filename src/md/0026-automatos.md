@@ -7,7 +7,7 @@ Representação gráfica de um autómato que, numa palavra de $0$'s e $1$'s fini
 ![Auto Inic](./imgs/0026-autoInit.png)
 
 Onde $p$ é par, $i$ ímpar e primeiro referimo-nos aos $0$'s e depois aos $1$'s.  
-"Ei" aponta para o estado inicial quando começa.
+"Ei" aponta para o estado inicial.
 
 :::
 
@@ -110,19 +110,6 @@ A Linguagem (ou conjunto) reconhecido (ou decidido) pelo [AFD](#aceitacao-de-um-
 ### Linguagem Regular
 
 Uma Linguagem diz-se Regular se existir um AFD que a reconheça.
-
-### Teorema 1
-
-O **complementar** de uma Linguagem Regular (LR), a **interseção** de duas LR e a **união** de duas LR também são `Linguagens Regulares`.
-
-::: details Exemplo - Complementação
-
-O seguinte autómato serve para encontrar palavras formadas por $x,y,z$ que acabem em $yz$, onde $F=\{<yz>\}$.
-
-![Auto 2](./imgs/0026-auto2.png)
-
-A única diferença entre este e o seu complementar (palavras que não terminam em $yz$) é o $F$, que passa a $F=\{<Ei>,<y>\}$
-:::
 
 ## Autómato Completo
 
@@ -229,7 +216,7 @@ A `Linguagem Reconhecida` por um `AFND` $N=(Q,\Sigma,\delta,q_0,F)$ será:
 
 $$L(N)=\{w \in \Sigma^* : \delta^*(q_0,w) \cap F \neq \emptyset\}$$
 
-### Teorema 2
+### Teorema 1
 
 Qualquer que seja o `AFND` $D$, existe um `AFD` $N$ que lhe é equivalente, ou seja as `Linguagens Reconhecidas` são iguais. $L(N)=L(D)$
 
@@ -354,5 +341,184 @@ Temos um `AFND`. Precisamos de passar para um `AFD`.
 ![Troca 23](./imgs/0026-troca23.png)
 
 Neste último autómato está representado o `estado de rejeição` a {red}(**vermelho**)
+
+:::
+
+## Propriedades
+
+### Teorema 2
+
+O **complementar** de uma Linguagem Regular (LR), a **interseção** de duas LR e a **união** de duas LR também são `Linguagens Regulares`.
+
+::: details Exemplo - Complementação
+
+O seguinte autómato serve para encontrar palavras formadas por $x,y,z$ que acabem em $yz$, onde $F=\{<yz>\}$.
+
+![Auto 2](./imgs/0026-auto2.png)
+
+A única diferença entre este e o seu complementar (palavras que não terminam em $yz$) é o $F$, que passa a $F=\{<Ei>,<y>\}$
+:::
+
+### Teorema 3
+
+A classe das `Linguagens Regulares` está fechada para a **união**, a **concatenação** e a **estrela**.
+
+::: tip NOTA
+
+Com este Teorema conseguimos construir autómatos maiores/mais complexos, a partir de autómatos mais simples.
+
+:::
+
+::: details União
+
+Sejam $A_1$ e $A_2$ dois autómatos diferentes, cuja representação, omitindo as transições e com estados de aceitação duplamente identificados, é a seguinte:
+
+![União 1](./imgs/0026-uniao1.png)
+
+Seja $L_1 = L(A_1)$ e $L_2 = L(A_2)$, (**relembrar** que $L(B)$ é a [lingaugem de aceitação](#linguagem-reconhecida) do autómato $B$)
+
+$$L_1 \cup L_2 = L(?)$$
+
+Para representar o autómato de `linguagem reconehcida` $L_1 \cup L_2$ basta adicionar um novo estado inicial que se liga aos estados inicias de $A_1$ e $A_2$ por transições $\epsilon$.
+
+![União 2](./imgs/0026-uniao2.png)
+
+Esta última representação é de um `AFND`, para passar para `AFD` é só aplicar o [algoritmo](#passar-de-afnd-para-afd).
+
+:::
+
+::: details Concatenação
+
+Sejam $A_1$ e $A_2$ dois autómatos diferentes, cuja representação, omitindo as transições e com estados de aceitação duplamente identificados, é a seguinte:
+
+![União 1](./imgs/0026-uniao1.png)
+
+Seja $L_1 = L(A_1)$ e $L_2 = L(A_2)$,
+
+$$
+L_1 \circ L_2 = L(?)\\
+L_1 \circ L_2 = \{uv:u \in L_1 \quad \wedge \quad v \in L_2\}
+$$
+
+---
+
+Por exemplo, concatenação de dois autómatos. Um que aceita um número par de $0$'s e a palavra nula $(\epsilon)$ e outro que aceita um número ímpar de $1$'s.
+
+$$
+L_1 = \{\epsilon,00,0000,\dots\}\\
+L_2 = \{1,111,11111,\dots\}\\
+L_1 \circ L_2 = \{1,111,11111,\dots,001,00111,\dots,00001,\dots\}
+$$
+
+O autómato final aceita apenas uma sequência de $0$'s à direita e $1$'s à esquerda, onde há um número par $0$'s de e ímpar de $1$'s.
+
+---
+
+Para representar o autómato de `linguagem reconehcida` $L_1 \circ L_2$ basta adicionar transições $\epsilon$, que ligam os estados de aceitação de $A_1$ ao estado inicial de $A_2$.  
+O estado inicial é o estado inicial de $A_1$ e os de aceitação são os de $A_2$.
+
+![Concat 1](./imgs/0026-concat1.png)
+
+Esta representação é de um `AFND`, para passar para `AFD` é só aplicar o [algoritmo](#passar-de-afnd-para-afd).
+
+:::
+
+::: details Estrela
+
+Seja $A_1$ um autómato, cuja representação, omitindo as transições e com estados de aceitação duplamente identificados, é a seguinte:
+
+![Star 1](./imgs/0026-star2.png)
+
+Seja $L_1 = L(A_1)$,
+
+$$
+L_1^* = L(?)\\
+L_1^* = \{\epsilon\} \cup L_1 \cup (L_1 \circ L_1) \cup \dots\\
+= \bigcup_{n \in \N} L_1^n, \quad \text{onde}\\
+L_1^n \rightarrow \text{União do L }n\text{ vezes}
+$$
+
+Para representar o autómato de `linguagem reconehcida` $L_1^*$ adicionamos um novo estado inicial, que também é de aceitação (para aceitar a palavra nula) e transições $\epsilon$ como representado abaixo.
+
+![Star 2](./imgs/0026-star1.png)
+
+::: tip NOTA
+
+Também podemos chamar `Fecho de Kleene` à operação Estrela.
+
+:::
+
+### Teorema de Kleene
+
+Uma linguagem é regular se e só se pode ser obtida a partir de conjuntos finitos por união, concatenação e/ou estrela.
+
+---
+
+::: tip Nota
+
+Seja $t$ uma palavra, $|t|$ representa o tamanho da palavra
+
+:::
+
+---
+
+### Lema de Pumping
+
+Se $L_1$ é uma linguagem regular, então existe $p \in \N_1$ tal que toda a palavra $s \in L_1$ de tamanho $|s|\geq p$, pode ser subdividida em $3$ subpalavras, $s = xyz$ de tal modo que
+
+- $|y| > 0$
+- $|xy|\leq p$
+- $xyyz \in L_1, \quad \forall_i \in \N_0 \quad xy^iz \in L_1 ,\quad \text{onde}\\ y^i \rightarrow \text{repetir }y\text{ i vezes}$
+
+::: details Demonstração
+
+$L_1$ é uma linguagem regular, onde $L_1=L(A)$, com $A = (Q,\Sigma,\delta,q_0,F)$.  
+Seja $p = \#Q$ e $s$ uma palavra de $L$, onde $|s| = n \geq p$.
+
+Quando o autómato $A$ recebe a palavra $s$ lê $n$ letras e passa por $n+1$ estados, abaixo encontra-se uma pequena representação desta leitura
+
+$$
+q_0 \rightarrow^{s_1} q_1 \rightarrow^{s_2} \dots \rightarrow^{s_i} r_i \rightarrow^{s_{i+1}} \dots \rightarrow^{s_j} r_j \rightarrow^{s_{j+1}} \dots \rightarrow^{s_n} r_n\\
+r_n \in F
+$$
+
+Como a palavra $|s|=n$ é maior ou igual ao número de estados, como mencionado, se visita $n+1$ estados terá de repetir pelo menos um estado (aplicação direta do `Princípio de Pombal`).
+Sejam $r_j$ a primeira vez que se repete um estado, o estado $r_i$.  
+Podemos dividir a palavra $s$ em $3$ partes: $x$, $y$ e $z$, onde $s=xyz$.
+
+- $x$, as primeiras $i-1$ letras da palavra (antes de chegarmos a $r_i$)
+- $y$, da letra na posição $i$ até à posição $j-1$ (antes de chegarmos a $r_j$)
+- $z$, o resto da palavra a partir da letra na posição $j$.
+
+Com esta divisão, retiramos as conclusões finais
+
+- $|y| > 0$
+- $|xy|\leq p$, porque ainda não se repetiu estados
+- $xyyz \in L_1, \quad \forall_i \in \N_0 \quad xy^iz \in L_1 ,\quad \text{onde}\\ y^i \rightarrow \text{repetir }y\text{ i vezes}$
+
+:::
+
+::: details Exemplo - Provar que não é regular
+
+Com o alfabeto $\Sigma = \{0,1\}$, será que existe uma Linguagem Regular $L$ apenas aceita palavras com $0$'s à esquerda, $1$'s à direita, onde existe o mesmo número de $0$'s e $1$'s $?$
+
+Vamos supor que a linguagem $L$ **é** regular e vamos tentar verificar todas as condições do `Lema de Pumping`:  
+Como $L$ é regular tem de existir um $p \in \N_1$ tal que todas as palavras $s \in L$ com tamanho igual ou superior a $p$ podem ser decompostas em $3$ subpalavras $(s = xyz)$, tais que:
+
+- $|y| > 0$
+- $|xy|\leq p$
+- $xyyz \in L_1, \quad \forall_i \in \N_0 \quad xy^iz \in L_1 ,\quad \text{onde}\\ y^i \rightarrow \text{repetir }y\text{ }i\text{ vezes}$
+
+Se existe um $p$ que satisfaz as condições acima, então a palavra
+
+$$s=0^p1^p=0_1 \dots 0_p1_1 \dots 1_p$$
+
+Pertence à linguagem $L$ e tem de verificar as condições acima, uma vez que $|s| = 2p \geq p$.  
+Dividindo $s$ em $3$ subpalavras $(s=xyz)$, pelas condições do `Lema de Pumping` $|xy|\leq p$. Deste modo $xy$ é uma palavra somente constituída por $0$'s. (Relembrar que $s = 0^p1^p$).
+
+Segundo o `Lema de Pumping`, $|y|>0$ e $xyyz \in L$, assim, $y$ terá de ser uma palavra constituída por $0$'s, **MAS** quando se repete em $xyyz$ o número de $0$'s será maior que o número de $1$'s, ou seja $xyyz \notin L$.  
+Chegamos assim a uma Contradição.
+
+Com esta contradição podemos concluir que a linguaguem especificada **não é** regular.
 
 :::
