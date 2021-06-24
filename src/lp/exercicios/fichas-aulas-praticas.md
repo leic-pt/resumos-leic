@@ -12,7 +12,11 @@ description: Repositório das fichas das aulas práticas de LP + resoluções.
 
 ## Fichas Aulas Práticas
 
-As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão no livro de exercícios, e as (re)soluções desses também estão lá).
+::: tip
+
+Para além dos exercícios das aulas práticas, o livro de exercícios indicado acima tem uma coleção de exercícios bastante vasta. Se quiserem treinar e estar ainda melhor preparados, aconselho vivamente a que dêem uma vista de olhos!
+
+:::
 
 - [Semana 1 (Lógica Proposicional $I$ )](https://drive.google.com/file/d/1hTp2IvH3uJ7rOfcnMvxWoA6ULzVD8q2t/view?usp=sharing)
 
@@ -32,12 +36,9 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 
 - [Semana 5 (Programação em Lógica)](https://drive.google.com/file/d/1u18nl2kB7YcMqz4--XNOLkN1u1eJFUn6/view?usp=sharing)
 
-  - [Resolução](https://drive.google.com/file/d/1R77x8ghgq102edZtsi6-50H7Fn7sykmO/view?usp=sharing)  
-    Nota: Os exercícios da ficha para a aula prática são só 4. Se quiserem e tiverem tempo, aconselho a que façam os exercícios do livro de exercícios para ficarem melhor preparados.
+  - [Resolução](https://drive.google.com/file/d/1R77x8ghgq102edZtsi6-50H7Fn7sykmO/view?usp=sharing)
 
-**Esta semana, sai o exercício 7.2.3 da semana 6 e _todos_ os da semana 7**.
-
-- [Semana 6 (Prolog)](https://drive.google.com/file/d/1s59jQGSErL69dXC_6R7E1YPMzcB-Tzc2/view?usp=sharing)
+- [Semana 6 (Prolog - Conceitos Gerais/Árvores SLD em Prolog)](https://drive.google.com/file/d/1s59jQGSErL69dXC_6R7E1YPMzcB-Tzc2/view?usp=sharing)
 
   - [Resolução do Ex. 7.2.3](https://drive.google.com/file/d/12PS2eMpoM0Lu1v238mngn6HF-BPzkBkd/view?usp=sharing)
 
@@ -241,7 +242,7 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 
   :::
 
-- [Semana 9 (Prolog - Aritemética, I/O)](https://drive.google.com/file/d/1RovEx8Zcles6lAy4pJlX5bSIanLjASAF/view?usp=sharing)
+- [Semana 9 (Prolog - Aritmética, I/O)](https://drive.google.com/file/d/1RovEx8Zcles6lAy4pJlX5bSIanLjASAF/view?usp=sharing)
 
 - Aritmética
 
@@ -531,7 +532,7 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 
   :::
 
-- [Semana 11 (Lógica Proposicional $I$ )](https://drive.google.com/file/d/1xGiiyjYWocO16JyfXUZqUCjpbHxItXq4/view?usp=sharing)
+- [Semana 11 (Lógica Proposicional $I$ - Tabelas de verdade)](https://drive.google.com/file/d/1xGiiyjYWocO16JyfXUZqUCjpbHxItXq4/view?usp=sharing)
 
   ::: details Resolução
 
@@ -649,6 +650,6 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 
   :::
 
-- [Semana 12 (Lógica Proposicional $II$ )](https://drive.google.com/file/d/1t-EzC5lgm_SbQgIn068VWy-gL9rDdWej/view?usp=sharing)
+- [Semana 12 (Lógica Proposicional $II$ - OBDDs)](https://drive.google.com/file/d/1t-EzC5lgm_SbQgIn068VWy-gL9rDdWej/view?usp=sharing)
 
-- [Semana 13 (Lógica Proposicional $II$ - Continuação)](https://drive.google.com/file/d/104wc2uUZb3cmMSJ8KKKsKuug-_3MQS_1/view?usp=sharing)
+- [Semana 13 (Lógica Proposicional $II$ - Algoritmos de SAT)](https://drive.google.com/file/d/104wc2uUZb3cmMSJ8KKKsKuug-_3MQS_1/view?usp=sharing)

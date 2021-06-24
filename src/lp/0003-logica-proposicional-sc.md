@@ -192,7 +192,7 @@ Numa prova por resolução, a decisão sobre quais as cláusulas a utilizar em c
   ::: tip VANTAGENS VS DESVANTAGENS
 
   **Vantagem** - fornece um algoritmo que **garante** encontrar uma solução, se esta existir, que corresponde ao menor número de aplicações do princípio da resolução.  
-  **Desvantagem** - gera muitas cláusulas que acabam por ser inúteis para a prova, incluindo algumas repetidas.
+  **Desvantagem** - gera muitas cláusulas que acabam por ser inúteis para a prova.
 
   :::
 
