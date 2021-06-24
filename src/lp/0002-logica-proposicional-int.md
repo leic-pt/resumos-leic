@@ -73,7 +73,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   ::: details Exemplo - Regra da premissa
 
-  Ao tentar provar que {P, Q} $\vdash$ P $\wedge$ Q, começamos a prova escrevendo as premissas, tal que:
+  Ao tentar provar que $\{P, Q\} \vdash P \wedge Q$, começamos a prova escrevendo as premissas, tal que:
 
   $$
   \def\arraystretch{1.5}
