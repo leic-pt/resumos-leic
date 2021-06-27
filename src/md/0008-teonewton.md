@@ -20,7 +20,7 @@ $$
 p_n=p_0+a_1n^{\underline{1}}+a_2n^{\underline{2}}+a_3n^{\underline{3}}+a_4n^{\underline{4}}+\dots+a_rn^{\underline{r}} \\
 \Delta p_n=a_1+2\times a_2n^{\underline{1}}+3\times a_3n^{\underline{2}}+4 \times a_4n^{\underline{3}}+\dots+r \times a_rn^{\underline{r-1}}\\
 
-\Delta^2 p_n=a_1+2\times a_2+3\times 2\times a_3n^{\underline{1}}+4 \times 3\times a_4n^{\underline{2}}+\dots+r\times (r-1) \times a_rn^{\underline{r-2}}\\
+\Delta^2 p_n=2\times a_2+3\times 2\times a_3n^{\underline{1}}+4 \times 3\times a_4n^{\underline{2}}+\dots+r\times (r-1) \times a_rn^{\underline{r-2}}\\
 \vdots\\
 \Delta^rp_n=r!a_r
 $$
