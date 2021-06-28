@@ -63,7 +63,7 @@ O **Valor** de um Fluxo numa Rede Capacitada será igual ao somatório do fluxo 
 
 ::: details Dica
 
-Podemos ver uma `Rede Capacitada`, como uma rede de calanização da água, onde há uma fonte, destino(sumidouro) e as arestas são canos de água. Tal como na `Rede Capacitada`, um cano não tem água a circular nos dois sentidos, apenas num.  
+Podemos ver uma `Rede Capacitada`, como uma rede de canalização da água, onde há uma fonte, destino(sumidouro) e as arestas são canos de água. Tal como na `Rede Capacitada`, um cano não tem água a circular nos dois sentidos, apenas num.  
 Seguindo esta ideia,
 
 - `Capacidade` $(\operatorname{cap})$ indica a quantidade máxima de água que cada cano aguenta.
