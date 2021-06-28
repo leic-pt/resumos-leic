@@ -56,7 +56,7 @@ $$
 \Delta \frac{u_n}{v_n} = \frac{(\Delta u_n)v_n -u_n\Delta v_n}{v_nv_{n+1}}
 $$
 
-### Termo geral de uma sucessão pelas duas derivadas em n = 0
+### Termo geral de uma sucessão pelas suas derivadas em n = 0
 
 $$
 u_n = u_0 \cdot n^{\underline 0} + \frac{1}{1!} (\Delta u_0) n^{\underline 1} + \frac{1}{2!} (\Delta^2 u_0) n^{\underline 2} + \dots +
