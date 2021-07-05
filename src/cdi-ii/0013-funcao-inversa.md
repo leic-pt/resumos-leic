@@ -259,7 +259,7 @@ y=f(x)
 F(x,f(x)) = 0,\quad \forall x \text{ na vizinhança}\\
 & \Rightarrow D(F(x, f(x))) = 0\\
 & \Rightarrow D_xF + D_yF \cdot D_x f = 0\\
-& \Rightarrow D_yF + D_xf = - D_xF\\
+& \Rightarrow D_yF \cdot D_xf = - D_xF\\
 & \Rightarrow D_xf(x) = - (D_yF)^{-1} D_x F(x, f(x))
 \end{aligned}
 $$
