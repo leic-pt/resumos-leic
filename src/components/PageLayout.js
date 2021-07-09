@@ -5,11 +5,13 @@ import Sidebar from './Sidebar';
 import 'katex/dist/katex.min.css';
 import '../styles/main.css';
 import '../styles/markdown.css';
+import Navbar from './Navbar';
 
 export default function Template({ data }) {
   const { markdownRemark: page, allFile: sidebarPaths } = data;
   return (
     <div className='page-container'>
+      <Navbar />
       <Sidebar paths={sidebarPaths} />
       <div className='main-container'>
         <div className='content' dangerouslySetInnerHTML={{ __html: page.html }} />

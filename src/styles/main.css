@@ -48,6 +48,35 @@ h2 {
   padding-left: 20rem;
 }
 
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0.7rem 1.5rem;
+  line-height: 2.2rem;
+  z-index: 20;
+  right: 0;
+  height: 3.6rem;
+  background-color: var(--bgColor);
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--borderColor);
+  display: flex;
+}
+
+.navbar .site-title {
+  color: var(--textColor);
+  font-size: 1.3rem;
+  font-weight: 600;
+  flex-grow: 1;
+}
+
+.navbar .navbar-links a {
+  color: var(--textColor);
+  margin: 0 0.5rem;
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
 .sidebar {
   width: 20rem;
   border-right: 1px solid var(--borderColor);
@@ -57,6 +86,7 @@ h2 {
   bottom: 0;
   z-index: 10;
   overflow-y: auto;
+  margin-top: 60px;
 }
 
 .sidebar ul {
@@ -91,6 +121,6 @@ h2 {
 
 .main-container {
   max-width: 740px;
-  margin: 0 auto;
+  margin: 60px auto 0 auto;
   padding: 2rem 2.5rem;
 }

@@ -53,3 +53,9 @@ html {
   cursor: pointer;
   outline: none;
 }
+
+.content ol,
+.content p,
+.content ul {
+  line-height: 1.7;
+}

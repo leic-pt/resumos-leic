@@ -14,6 +14,19 @@ module.exports = {
       { key: 'tools', name: '🛠 Ferramentas' },
       { key: 'guides', name: '📚 Guias' },
     ],
+    navbar: {
+      siteTitle: 'Resumos LEIC-A',
+      links: [
+        {
+          title: 'IST LEIC-A',
+          href: 'https://fenix.tecnico.ulisboa.pt/cursos/leic-a',
+        },
+        {
+          title: 'GitHub',
+          href: 'https://github.com/diogotcorreia/resumos-leic',
+        },
+      ],
+    },
   },
   plugins: [
     {
