@@ -135,6 +135,10 @@ h2 {
   color: var(--accentColor);
 }
 
+.sidebar li a.link__active {
+  color: var(--accentColor);
+}
+
 .main-container {
   max-width: 740px;
   margin: 60px auto 0 auto;

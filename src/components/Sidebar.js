@@ -39,7 +39,9 @@ export default function Sidebar({ paths }) {
                   const { path, title } = v;
                   return (
                     <li key={path}>
-                      <Link to={path}>{title || path}</Link>
+                      <Link to={path} activeClassName='link__active'>
+                        {title || path}
+                      </Link>
                     </li>
                   );
                 })}
