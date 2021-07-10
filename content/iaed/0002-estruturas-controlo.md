@@ -72,15 +72,15 @@ o input recebido (assumindo que apenas recebe inteiros) até ser introduzido um 
 negativo. Na aba ao lado mostra-se como adicionar um contador ao programa, que conta
 o número de inteiros introduzidos, imprimindo-o no final.
 
-<code-group>
-<code-block title="SEM CONTADOR">
+::::tab-group
+:::tab[SEM CONTADOR]
 `embed:assets/0002-copia-inteiros-positivos.c`
-</code-block>
+:::
 
-<code-block title="C/ CONTADOR">
+:::tab[C/ CONTADOR]
 `embed:assets/0002-copia-contador.c`
-</code-block>
-</code-group>
+:::
+::::
 
 Como se pode ver no exemplo do contador, a forma de incrementar o valor de uma variável
 é algo que não existe em Python. `contador++` em C equivale a `contador += 1` em Python.

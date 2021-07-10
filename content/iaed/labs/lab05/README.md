@@ -30,13 +30,7 @@ funções `long score_disciplina(int disciplina, int valores[ALUNOS][DISCIPLINAS
 `long score_aluno(int aluno, int valores[ALUNOS][DISCIPLINAS])`.
 
 :::details[Resolução]
-<code-group>
-<code-block
-title="Diogo Correia">
-<<< @/src/iaed/labs/lab05/ex01_dc.c
-</code-block>
-
-</code-group>
+`embed:ex01_dc.c`
 :::
 
 ## Exercício 2
@@ -53,13 +47,7 @@ Por alguma razão, o Mooshak não tem `\n` no final do output deste teste.
 :::
 
 :::details[Resolução]
-<code-group>
-<code-block
-title="Diogo Correia">
-<<< @/src/iaed/labs/lab05/ex02_dc.c
-</code-block>
-
-</code-group>
+`embed:ex02_dc.c`
 :::
 
 ## Exercício 3
@@ -74,13 +62,7 @@ os números do tipo float são impressos usando `"%.2f"`.
 Pode assumir que o portfólio não tem mais do que 1000 títulos, e que não é vazio.
 
 :::details[Resolução]
-<code-group>
-<code-block
-title="Diogo Correia">
-<<< @/src/iaed/labs/lab05/ex03_dc.c
-</code-block>
-
-</code-group>
+`embed:ex03_dc.c`
 :::
 
 ## Exercício 4
@@ -103,10 +85,5 @@ que devolve 1 se jogador ganha, e que devolve 0 no caso contrário.
 :::
 
 :::details[Resolução]
-<code-group>
-<code-block
-title="Diogo Correia">
-<<< @/src/iaed/labs/lab05/ex04_dc.c
-</code-block>
-</code-group>
+`embed:ex04_dc.c`
 :::

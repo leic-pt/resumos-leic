@@ -33,19 +33,17 @@ Em cada linha, após o último número apenas deve existir um `'\n'`.
 `echo 5 | ./ex01` pode ser usado para rapidamente testar o programa.
 :::
 
-:::details[Resolução]
-<code-group>
-<code-block
-title="Diogo Correia">
-<<< @/src/iaed/labs/lab03/ex01_dc.c
-</code-block>
-
-<code-block
-title="Luís Fonseca">
-<<< @/src/iaed/labs/lab03/ex01_lf.c
-</code-block>
-</code-group>
+:::::details[Resolução]
+::::tab-group
+:::tab[Diogo Correia]
+`embed:ex01_dc.c`
 :::
+
+:::tab[Luís Fonseca]
+`embed:ex01_lf.c`
+:::
+::::
+:::::
 
 ## Exercício 2
 
@@ -63,19 +61,17 @@ Em cada linha, após o último número apenas deve existir um '\n'.
 1 2 3 4 5 4 3 2 1
 ```
 
-:::details[Resolução]
-<code-group>
-<code-block
-title="Diogo Correia">
-<<< @/src/iaed/labs/lab03/ex02_dc.c
-</code-block>
-
-<code-block
-title="Luís Fonseca">
-<<< @/src/iaed/labs/lab03/ex02_lf.c
-</code-block>
-</code-group>
+:::::details[Resolução]
+::::tab-group
+:::tab[Diogo Correia]
+`embed:ex02_dc.c`
 :::
+
+:::tab[Luís Fonseca]
+`embed:ex02_lf.c`
+:::
+::::
+:::::
 
 ## Exercício 3
 
@@ -102,19 +98,17 @@ Em cada linha, após o último caracter apenas deve existir um '\n'.
 * - - - - - - *
 ```
 
-:::details[Resolução]
-<code-group>
-<code-block
-title="Diogo Correia">
-<<< @/src/iaed/labs/lab03/ex03_dc.c
-</code-block>
-
-<code-block
-title="Luís Fonseca">
-<<< @/src/iaed/labs/lab03/ex03_lf.c
-</code-block>
-</code-group>
+:::::details[Resolução]
+::::tab-group
+:::tab[Diogo Correia]
+`embed:ex03_dc.c`
 :::
+
+:::tab[Luís Fonseca]
+`embed:ex03_lf.c`
+:::
+::::
+:::::
 
 ## Exercício 4
 
@@ -130,19 +124,17 @@ Os valores dos números poderão ser superiores ao valor máximo do tipo int ou 
 A função `int getchar()` pode ser usada para ler um carácter.
 :::
 
-:::details[Resolução]
-<code-group>
-<code-block
-title="Diogo Correia">
-<<< @/src/iaed/labs/lab03/ex04_dc.c
-</code-block>
-
-<code-block
-title="Luís Fonseca">
-<<< @/src/iaed/labs/lab03/ex04_lf.c
-</code-block>
-</code-group>
+:::::details[Resolução]
+::::tab-group
+:::tab[Diogo Correia]
+`embed:ex04_dc.c`
 :::
+
+:::tab[Luís Fonseca]
+`embed:ex04_lf.c`
+:::
+::::
+:::::
 
 ## Exercício 5
 
@@ -152,19 +144,17 @@ _(Mensagens)_ Escreva um programa que leia uma sequência de mensagens e imprima
 Utilize o conceito de estado como fizemos no contador de palavras na aula teórica.
 :::
 
-:::details[Resolução]
-<code-group>
-<code-block
-title="Diogo Correia">
-<<< @/src/iaed/labs/lab03/ex05_dc.c
-</code-block>
-
-<code-block
-title="Luís Fonseca">
-<<< @/src/iaed/labs/lab03/ex05_lf.c
-</code-block>
-</code-group>
+:::::details[Resolução]
+::::tab-group
+:::tab[Diogo Correia]
+`embed:ex05_dc.c`
 :::
+
+:::tab[Luís Fonseca]
+`embed:ex05_lf.c`
+:::
+::::
+:::::
 
 ## Exercício 6
 
@@ -185,19 +175,17 @@ $$
 
 :::
 
-:::details[Resolução]
-<code-group>
-<code-block
-title="Diogo Correia">
-<<< @/src/iaed/labs/lab03/ex06_dc.c
-</code-block>
-
-<code-block
-title="Luís Fonseca">
-<<< @/src/iaed/labs/lab03/ex06_lf.c
-</code-block>
-</code-group>
+:::::details[Resolução]
+::::tab-group
+:::tab[Diogo Correia]
+`embed:ex06_dc.c`
 :::
+
+:::tab[Luís Fonseca]
+`embed:ex06_lf.c`
+:::
+::::
+:::::
 
 ## Exercício 7
 
@@ -213,16 +201,14 @@ Exemplo: No input `70 + 22 - 3` deverá retornar `89`.
 Deverá começar por converter uma sequência de algarismos (carácteres) para um número inteiro.
 :::
 
-:::details[Resolução]
-<code-group>
-<code-block
-title="Diogo Correia">
-<<< @/src/iaed/labs/lab03/ex07_dc.c
-</code-block>
-
-<code-block
-title="Luís Fonseca">
-<<< @/src/iaed/labs/lab03/ex07_lf.c
-</code-block>
-</code-group>
+:::::details[Resolução]
+::::tab-group
+:::tab[Diogo Correia]
+`embed:ex07_dc.c`
 :::
+
+:::tab[Luís Fonseca]
+`embed:ex07_lf.c`
+:::
+::::
+:::::

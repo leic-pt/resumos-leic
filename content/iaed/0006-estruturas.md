@@ -34,13 +34,13 @@ Solução: Estruturas para representar dados agregados de tipos diferentes.
 
 Uma estrutura permite definir estruturas de dados sofisticadas, as quais possibilitam a agregação de diferentes tipos de declarações.
 
-<<< @/src/iaed/assets/0006-def.c
+`embed:assets/0006-def.c`
 
 ### Declaração de Variáveis
 
 - Definição da estrutura: introduz um novo tipo de dados
 
-<<< @/src/iaed/assets/0006-decl.c
+`embed:assets/0006-decl.c`
 
 - Declaração de variável: declara variável como estrutura
 
@@ -56,12 +56,12 @@ ou
 
 - Manipulação: `<variavel>.<membro> ;`
 
-<<< @/src/iaed/assets/0006-man.c
+`embed:assets/0006-man.c`
 
 :::tip
 As estruturas permitem incluir outras estruturas.
 
-<<< @/src/iaed/assets/0006-struception.c
+`embed:assets/0006-struception.c`
 :::
 
 :::danger
@@ -76,7 +76,7 @@ operador de comparação de igualdade
 
 A funções podem receber e retornar estruturas.
 
-<<< @/src/iaed/assets/0006-f.c
+`embed:assets/0006-f.c`
 
 - Função retorna uma cópia da estrutura `res`
 - Passagem de argumentos feita por valor
@@ -87,11 +87,11 @@ A funções podem receber e retornar estruturas.
 
 Permite criar tabelas que guardam estruturas
 
-<<< @/src/iaed/assets/0006-vectored.c
+`embed:assets/0006-vectored.c`
 
 - Inicialização
 
-<<< @/src/iaed/assets/0006-hugetip.c
+`embed:assets/0006-hugetip.c`
 
 ## Typedef
 
@@ -99,7 +99,7 @@ Permite criar tabelas que guardam estruturas
 
 - Formato - `typedef <tipo> <nome> {...} "Alcunha";`
 
-<<< @/src/iaed/assets/0006-typedef.c
+`embed:assets/0006-typedef.c`
 
 Para criar as variáveis:
 `"Alcunha" <nome da variavel>; ` ou `struct <nome> <nome da variavel> ;`

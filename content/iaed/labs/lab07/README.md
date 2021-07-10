@@ -23,20 +23,18 @@ Suponha que o procedimento `partition` é invocado com os seguintes argumentos:
 
 Considerando a posição `a[r]` como pivot, indique qual o conteúdo do vector `v` após a execução da função `partition`.
 
-:::details[Resolução]
+:::::details[Resolução]
 
 Resposta: `a = {9,6,5,7,4,10,16,18,14,13,12}`
 
 {green}(É possível ver o algoritmo em execução ao executar o código abaixo)
 
-<code-group>
-<code-block
-title="Quick Sort">
-<<< @/src/iaed/labs/lab07/quicksort.c
-
-</code-block>
-</code-group>
+::::tab-group
+:::tab[Quick Sort]
+`embed:quicksort.c`
 :::
+::::
+:::::
 
 ## Exercício 2
 
@@ -75,7 +73,7 @@ A primeira operação do algoritmo heapsort é transformar o vector num amontoad
 - Indique o conteúdo do vector após o passo de transformação num amontoado.
 - Indique o conteúdo do vector após os dois maiores elementos terem sido ordenados (colocados na sua posição final), durante a operação de ordenação (heapsort).
 
-:::details[Resolução]
+:::::details[Resolução]
 
 Resposta: `a = {17,15,16,13,12,14,11,9,19,20}`
 
@@ -87,15 +85,12 @@ Transformada em heap : `a = {20,19,17,13,15,14,16,9,11,12}`
 
 {green}(É possível ver o algoritmo em execução ao executar o código abaixo)
 
-<code-group>
-<code-block
-title="Heap Sort">
-<<< @/src/iaed/labs/lab07/heapsort.c
-
-</code-block>
-</code-group>
-
+::::tab-group
+:::tab[Heap Sort]
+`embed:heapsort.c`
 :::
+::::
+:::::
 
 ## Exercício 5
 

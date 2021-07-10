@@ -32,13 +32,7 @@ para poder avançar com um ponteiro `p` representando os diferentes sufixos e\
  passar esse ponteiro `p` como parâmetro para a função `printf`.
 
 :::details[Resolução]
-<code-group>
-<code-block
-title="Diogo Correia">
-<<< @/src/iaed/labs/lab08/ex01_dc.c
-</code-block>
-
-</code-group>
+`embed:ex01_dc.c`
 :::
 
 ## Exercício 2
@@ -66,14 +60,7 @@ Dica: A chamada `scanf("%s", buffer)` devolve 1 se e só se a palavra foi lida c
 Ex: a leitura pode terminar se o valor devolvido não estiver `1`.
 
 :::details[Resolução]
-<code-group>
-<code-block
-title="Diogo Correia">
-<<< @/src/iaed/labs/lab08/ex02_dc.c
-</code-block>
-
-</code-group>
-
+`embed:ex02_dc.c`
 :::
 
 ## Exercício 3
@@ -107,13 +94,7 @@ Nota: Não há testes automáticos para este exercício.
 Nota: Poderá começar por considerar uma implementação sem a realocação automática.
 
 :::details[Resolução]
-<code-group>
-<code-block
-title="Diogo Correia">
-<<< @/src/iaed/labs/lab08/ex03_dc.c
-</code-block>
-
-</code-group>
+`embed:ex03_dc.c`
 :::
 
 ## Exercício 4 (Facultativo)
@@ -134,11 +115,5 @@ Dica: Podem aproveitar o `ex03` para resolver este exercício.\
 Dica: Não é necessário guardar o input; é suficiente usar o stack.
 
 :::details[Resolução]
-<code-group>
-<code-block
-title="Diogo Correia">
-<<< @/src/iaed/labs/lab08/ex04_dc.c
-</code-block>
-
-</code-group>
+`embed:ex04_dc.c`
 :::

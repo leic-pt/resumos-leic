@@ -26,7 +26,7 @@ img[data-dark='1'] {
   filter: invert(1) hue-rotate(180deg) saturate(5);
 }
 
-code {
+code:not(code[class*='language-']) {
   color: var(--lighten20TextColor);
   background-color: var(--miniCodeBgColor);
   padding: 0.25rem 0.5rem;

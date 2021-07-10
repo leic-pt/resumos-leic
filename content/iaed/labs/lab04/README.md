@@ -36,13 +36,7 @@ O gráfico apresentado é o exemplo para `n = 3` e valores `1 3 4`.
 ```
 
 :::details[Resolução]
-<code-group>
-<code-block
-title="Diogo Correia">
-<<< @/src/iaed/labs/lab04/ex01_dc.c
-</code-block>
-
-</code-group>
+`embed:ex01_dc.c`
 :::
 
 ## Exercício 2
@@ -60,12 +54,7 @@ O gráfico apresentado é o exemplo para `n = 3` e valores `1 3 4`.
 ```
 
 :::details[Resolução]
-<code-group>
-<code-block
-title="Diogo Correia">
-<<< @/src/iaed/labs/lab04/ex02_dc.c
-</code-block>
-</code-group>
+`embed:ex02_dc.c`
 :::
 
 ## Exercício 3
@@ -83,13 +72,7 @@ O gráfico apresentado é o exemplo para `n = 3` e valores `1 3 4`.
 ```
 
 :::details[Resolução]
-<code-group>
-<code-block
-title="Diogo Correia">
-<<< @/src/iaed/labs/lab04/ex03_dc.c
-</code-block>
-
-</code-group>
+`embed:ex03_dc.c`
 :::
 
 ## Exercício 4
@@ -103,12 +86,7 @@ Podem usar `scanf("%s", s)` para ler uma palavra. Reparem que a string `s` não 
 :::
 
 :::details[Resolução]
-<code-group>
-<code-block
-title="Diogo Correia">
-<<< @/src/iaed/labs/lab04/ex04_dc.c
-</code-block>
-</code-group>
+`embed:ex04_dc.c`
 :::
 
 ## Exercício 5
@@ -122,13 +100,7 @@ Depois de resolver este exercício, experimente utilizar o comando `fgets`.
 :::
 
 :::details[Resolução]
-<code-group>
-<code-block
-title="Diogo Correia">
-<<< @/src/iaed/labs/lab04/ex05_dc.c
-</code-block>
-
-</code-group>
+`embed:ex05_dc.c`
 :::
 
 ## Exercício 6
@@ -143,12 +115,7 @@ Recorde que a string `s` é alterada pela função `maiusculas`.
 :::
 
 :::details[Resolução]
-<code-group>
-<code-block
-title="Diogo Correia">
-<<< @/src/iaed/labs/lab04/ex06_dc.c
-</code-block>
-</code-group>
+`embed:ex06_dc.c`
 :::
 
 ## Exercício 7
@@ -158,12 +125,7 @@ escreve no terminal a mesma linha onde todas as ocorrências do carácter foram 
 Implemente a função `void apagaCaracter(char s[], char c)` que apague o carácter `c` da string `s`.
 
 :::details[Resolução]
-<code-group>
-<code-block
-title="Diogo Correia">
-<<< @/src/iaed/labs/lab04/ex07_dc.c
-</code-block>
-</code-group>
+`embed:ex07_dc.c`
 :::
 
 ## Exercício 8
@@ -176,10 +138,5 @@ Os números podem ser demasiado grandes para ser guardados numa variável do tip
 :::
 
 :::details[Resolução]
-<code-group>
-<code-block
-title="Diogo Correia">
-<<< @/src/iaed/labs/lab04/ex08_dc.c
-</code-block>
-</code-group>
+`embed:ex08_dc.c`
 :::

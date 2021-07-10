@@ -23,20 +23,18 @@ _(BubbleSort)_ Considere a aplicação do algoritmo bubblesort ao vector `a`:
 
 Supondo que em cada iteração o algoritmo percorre o vector da esquerda para a direita, qual o conteúdo do vector a após as duas primeiras iterações?
 
-:::details[Resolução]
+:::::details[Resolução]
 
 Resposta: `a = { 11, 8, 16, 12, 10, 14, 17, 6, 20, 21 }`
 
 {green}(É possível ver o algoritmo em execução ao executar o código abaixo)
 
-<code-group>
-<code-block
-title="Bubble Sort">
-<<< @/src/iaed/labs/lab06/bubble.c
-
-</code-block>
-</code-group>
+::::tab-group
+:::tab[Bubble Sort]
+`embed:bubble.c`
 :::
+::::
+:::::
 
 ## Exercício 2
 
@@ -46,19 +44,18 @@ _(SelectionSort)_ Considere a aplicação do algoritmo selectionsort ao vector `
 
 Supondo que em cada iteração o algoritmo identifica o menor elemento e o coloca na posição mais à esquerda, qual o conteúdo do vector a após as três primeiras iterações?
 
-:::details[Resolução]
+:::::details[Resolução]
 
 Resposta: `a = { 6, 8, 10, 11, 21, 12, 16, 14, 17, 20 }`
 
 {green}(É possível ver o algoritmo em execução ao executar o código abaixo)
 
-<code-group>
-<code-block
-title="Selection Sort">
-<<< @/src/iaed/labs/lab06/selection.c
-</code-block>
-</code-group>
+::::tab-group
+:::tab[Selection Sort]
+`embed:selection.c`
 :::
+::::
+:::::
 
 ## Exercício 3
 
@@ -78,19 +75,18 @@ _(InsertionSort)_ Considere a aplicação do algoritmo insertionsort ao vector `
 
 Supondo que o algoritmo vai inserindo os elementos à esquerda, qual o conteúdo do vector `a` após as três primeiras iterações?
 
-:::details[Resolução]
+:::::details[Resolução]
 
 Resposta: `a = { 8, 11, 16, 20, 21, 12, 10, 14, 17, 6 }`
 
 {green}(É possível ver o algoritmo em execução ao executar o código abaixo)
 
-<code-group>
-<code-block
-title="Insertion Sort">
-<<< @/src/iaed/labs/lab06/insertion.c
-</code-block>
-</code-group>
+::::tab-group
+:::tab[Insertion Sort]
+`embed:insertion.c`
 :::
+::::
+:::::
 
 ## Exercício 5
 
@@ -114,7 +110,7 @@ No melhor caso é $\Omega(n)$ , se tiver condição de paragem.
 _(Análise Assimptótica)_ Considere a seguinte função de procura de um elemento num vector ordenado.
 A função recebe um vector `a`, o número de elementos `n` e o valor `elem` que se pretende encontrar no vector.
 
-<<< @/src/iaed/labs/lab06/ex06.c
+`embed:ex06.c`
 
 Indique a complexidade assimptótica da função search numa análise de pior caso e numa análise de melhor caso.
 
@@ -132,7 +128,7 @@ E o melhor caso é $\Omega(1)$
 _(Análise Assimptótica)_ Indique a complexidade assimptótica da função abaixo numa análise de pior caso.
 Indique ainda se o limite assimptótico é apertado ou se é apenas um limite superior.
 
-<<< @/src/iaed/labs/lab06/ex07.c
+`embed:ex07.c`
 
 :::details[Resposta]
 
@@ -150,7 +146,7 @@ Logo existe limite assimptótico apertado $\Theta(n)$
 _(Análise Assimptótica)_ Considere a função abaixo que recebe dois vectores (`a` e `b`)
 onde `n` e `m` denotam o número de elementos dos vectores `a` e `b`, respectivamente.
 
-<<< @/src/iaed/labs/lab06/ex08.c
+`embed:ex08.c`
 
 Indique a complexidade assimptótica da função em função de n e m numa análise de pior caso.
 
@@ -168,7 +164,7 @@ Assim, o pior caso é $O(m \log n)$
 
 _(Análise Assimptótica)_ Considere a função abaixo que recebe dois inteiros `n` e `m`.
 
-<<< @/src/iaed/labs/lab06/ex09.c
+`embed:ex09.c`
 
 Indique a complexidade assimptótica da função numa análise de pior caso.
 
@@ -184,7 +180,7 @@ Logo o pior caso é $O(n^2)$
 
 _(Análise Assimptótica)_ Considere a função abaixo que recebe dois inteiros `n` e `m`.
 
-<<< @/src/iaed/labs/lab06/ex10.c
+`embed:ex10.c`
 
 Indique a complexidade assimptótica da função numa análise de pior caso e numa análise de melhor caso.
 É possível estabelecer uma complexidade assimptótica apertada para esta função? Justifique.
