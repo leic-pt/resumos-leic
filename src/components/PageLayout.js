@@ -1,16 +1,17 @@
-import React from 'react';
 import { graphql } from 'gatsby';
-import Sidebar from './Sidebar';
-
 import 'katex/dist/katex.min.css';
+import React from 'react';
 import '../styles/main.css';
 import '../styles/markdown.css';
 import Navbar from './Navbar';
+import PageMetadata from './PageMetadata';
+import Sidebar from './Sidebar';
 
 export default function Template({ data }) {
   const { markdownRemark: page, allFile: sidebarPaths } = data;
   return (
     <div className='page-container'>
+      <PageMetadata title={page.frontmatter.title} description={page.frontmatter.description} />
       <Navbar />
       <Sidebar paths={sidebarPaths} />
       <div className='main-container'>
@@ -24,6 +25,10 @@ export const pageQuery = graphql`
   query PageByPath($path: String!, $pathRegex: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
+      frontmatter {
+        title
+        description
+      }
     }
     allFile(
       filter: {

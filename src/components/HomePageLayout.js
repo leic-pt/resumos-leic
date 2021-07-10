@@ -1,23 +1,23 @@
-import React from 'react';
 import { graphql } from 'gatsby';
-import SectionButton, { SectionButtonLayout } from './SectionButton';
-
+import React from 'react';
+import AlgebraIcon from '../images/algebra.svg';
+import CIcon from '../images/c.svg';
+import CalculusIcon from '../images/calc-1.svg';
+import CPUIcon from '../images/cpu.svg';
+import GraphIcon from '../images/graph.svg';
+import PythonIcon from '../images/python.svg';
+import TreeGraphIcon from '../images/treeGraph.svg';
+import '../styles/homepage.css';
 import '../styles/main.css';
 import '../styles/markdown.css';
-import '../styles/homepage.css';
-
-import CalculusIcon from '../images/calc-1.svg';
-import AlgebraIcon from '../images/algebra.svg';
-import GraphIcon from '../images/graph.svg';
-import TreeGraphIcon from '../images/treeGraph.svg';
-import CIcon from '../images/c.svg';
-import PythonIcon from '../images/python.svg';
-import CPUIcon from '../images/cpu.svg';
+import PageMetadata from './PageMetadata';
+import SectionButton, { SectionButtonLayout } from './SectionButton';
 
 const HomePageLayout = ({ data }) => {
   const { markdownRemark: page } = data;
   return (
     <div className='home-page-container'>
+      <PageMetadata title={page.frontmatter.title} description={page.frontmatter.description} />
       <div style={{ marginTop: 50 }}>
         <div className='year-section'>
           <h2>1º Ano</h2>
@@ -54,6 +54,10 @@ export const pageQuery = graphql`
   query HomePageByPath($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
+      frontmatter {
+        title
+        description
+      }
     }
   }
 `;
