@@ -70,8 +70,14 @@ module.exports = {
               },
             },
           },
-          `gatsby-remark-copy-linked-files`,
           `gatsby-remark-table-of-contents`,
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              noInlineHighlight: true,
+            },
+          },
+          `gatsby-remark-copy-linked-files`,
           `gatsby-remark-autolink-headers`,
         ],
       },
