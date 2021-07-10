@@ -44,7 +44,7 @@ Esta notação pode também ser usada para decrementar valores em 1 unidade:
 `i--` e `--i`
 :::
 
-`embed:assets/0003-a`++.c
+`embed:assets/0003-a++.c`
 
 ### Linha de Comandos
 

@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 const SectionButton = ({ name, link, image, color }) => {
-  console.log(image);
   return (
     <Link to={link} class='section-button' style={{ backgroundColor: color }}>
       <span>{name}</span>
