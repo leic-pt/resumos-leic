@@ -13,7 +13,7 @@ type: content
 
 ## Conversão de Temperaturas
 
-<<< @/src/iaed/assets/0002-conversao-temperaturas.c
+`embed:assets/0002-conversao-temperaturas.c`
 
 :::tip
 Podes (e deves!) comentar o código utilizando `/*` e `*/`.
@@ -37,7 +37,7 @@ Um erro comum na escrita de ciclos while consiste na colocação despropositada 
 Muitas vezes isto resultará num loop infinito. Um bom truque para evitar isto é abrir chavetas imediatamente
 a seguir à expressão, independentemente do while conter apenas uma instrução.
 
-<<< @/src/iaed/assets/0002-erro-while.c
+`embed:assets/0002-erro-while.c`
 :::
 
 ### Ciclo for
@@ -48,7 +48,7 @@ Sintaxe: `for (<inicialização de variáveis>; <teste>; <incremento>) <instruç
 
 Aplicado ao exemplo anterior,
 
-<<< @/src/iaed/assets/0002-ciclo-for.c
+`embed:assets/0002-ciclo-for.c`
 
 ## Input/Output
 
@@ -58,7 +58,7 @@ Aplicado ao exemplo anterior,
 
 Com o `scanf()` é possível ler o input introduzido no terminal, como podes ver neste exemplo.
 
-<<< @/src/iaed/assets/0002-quadrado-input.c
+`embed:assets/0002-quadrado-input.c`
 
 :::tip
 Utiliza-se o `%d` para ler um inteiro. Se pretendêssemos ler dois inteiros seguidos faríamos
@@ -74,11 +74,11 @@ o número de inteiros introduzidos, imprimindo-o no final.
 
 <code-group>
 <code-block title="SEM CONTADOR">
-<<< @/src/iaed/assets/0002-copia-inteiros-positivos.c
+`embed:assets/0002-copia-inteiros-positivos.c`
 </code-block>
 
 <code-block title="C/ CONTADOR">
-<<< @/src/iaed/assets/0002-copia-contador.c
+`embed:assets/0002-copia-contador.c`
 </code-block>
 </code-group>
 

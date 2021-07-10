@@ -22,19 +22,19 @@ type: content
 - Um ponteiro é uma variável que contém um endereço
   de outra variável.
 
-<<< @/src/iaed/assets/0012-ex.c
+`embed:assets/0012-ex.c`
 
 Na declaração de um ponteiro temos de indicar ao compilador para
 que tipo de variável estamos a endereçar.
 
-<<< @/src/iaed/assets/0012-def.c
+`embed:assets/0012-def.c`
 
 ### Operador &
 
 - O endereço de uma variável é obtido através do
   operador `&`
 
-<<< @/src/iaed/assets/0012-operador.c
+`embed:assets/0012-operador.c`
 
 ### Operador \*
 
@@ -45,9 +45,9 @@ que tipo de variável estamos a endereçar.
 - O valor guardado num determinado endereço é dado
   pelo operador \*
 
-<<< @/src/iaed/assets/0012-2operador.c
+`embed:assets/0012-2operador.c`
 
-<<< @/src/iaed/assets/0012-uso.c
+`embed:assets/0012-uso.c`
 
 - Declarção do Ponteiro
 
@@ -74,7 +74,7 @@ por `x`)
 
 Para mudar valores para fora de funções temos de usar ponteiros.
 
-<<< @/src/iaed/assets/0012-swap.c
+`embed:assets/0012-swap.c`
 
 ### Ponteiro Nulo
 
@@ -95,7 +95,7 @@ Os apontadores têm uma aritmética própria.
 
 É possível efectuar `+` e `-` com ponteiros.
 
-<<< @/src/iaed/assets/0012-arit.c
+`embed:assets/0012-arit.c`
 
 ### Declarações
 
@@ -131,7 +131,7 @@ a sequência de caracteres `'o','l','a','\0'`
   pôr `t1` a endereçar outra posição de memória
 - É possível alterar o valor de `t2`
 
-<<< @/src/iaed/assets/0012-arrays.c
+`embed:assets/0012-arrays.c`
 
 :::danger
 

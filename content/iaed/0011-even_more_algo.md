@@ -25,7 +25,7 @@ E depois colocar na lista os elementos de acordo com os valores da lista.
 
 ### Código
 
-<<< @/src/iaed/assets/0011-count.c
+`embed:assets/0011-count.c`
 
 - Complexidade: O(N + M)
 
@@ -57,7 +57,7 @@ Aplica o Counting Sort sucessivamente dos dígitos menos
 significativos (Less Significant Digits) para os dígitos mais
 significativos.
 
-<<< @/src/iaed/assets/0011-radix.c
+`embed:assets/0011-radix.c`
 
 ### RADIX MSD
 
@@ -65,7 +65,7 @@ Aplica o counting Sort sucessivamente
 começando pelos dígitos mais significativos
 (Most Significant Digits).
 
-<<< @/src/iaed/assets/0011-msd.c
+`embed:assets/0011-msd.c`
 
 Tal como na última aula aconselho vivamente a ver os exemplos da aula.
 

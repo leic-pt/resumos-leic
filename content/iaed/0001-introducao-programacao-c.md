@@ -10,7 +10,7 @@ type: content
 
 ## hello, world
 
-<<< @/src/iaed/assets/0001-hello-world.c
+`embed:assets/0001-hello-world.c`
 
 **Todos os programas têm uma função `main`.**
 Esta é a primeira função a ser executada no programa.
@@ -31,7 +31,7 @@ Não é possível alterar o tipo de uma variável/função durante a execução 
 
 ## Fibonacci
 
-<<< @/src/iaed/assets/0001-fibo.c
+`embed:assets/0001-fibo.c`
 
 O tipo de dados `int` em C representa um inteiro de 32 bits.  
 O tipo `long long int` já permite guardar mais do que 64 bits.

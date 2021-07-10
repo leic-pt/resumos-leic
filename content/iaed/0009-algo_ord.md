@@ -55,7 +55,7 @@ type: content
 - No entanto cada algoritmo tem comportamento igual :\
   Logo, vamos usar abstrações!!
 
-  <<< @/src/iaed/assets/0009-abs.c
+  `embed:assets/0009-abs.c`
 
 ## Implementação
 
@@ -64,7 +64,7 @@ type: content
 
   `void sort(int a[], int left, int right);`
 
-  <<< @/src/iaed/assets/0009-rand.c
+  `embed:assets/0009-rand.c`
 
 ## Selection Sort
 
@@ -76,7 +76,7 @@ Termina quando já só existe um valor.
 
 A troca consiste em trocar a posição do elemento menor com a primeira posição do vetor que não se encontra ordenado.
 
-<<< @/src/iaed/assets/0009-sel_sort.c
+`embed:assets/0009-sel_sort.c`
 
 Tempo de Execução:
 
@@ -96,7 +96,7 @@ Mas é possível ser estável.
 
 Percorre o vetor e guarda o elemento na posição em que à sua esquerda esteja um menor e à sua direita esteja um maior.
 
-<<< @/src/iaed/assets/0009-ins_sort.c
+`embed:assets/0009-ins_sort.c`
 
 Tempo de Execução:
 
@@ -111,7 +111,7 @@ Tempo de Execução:
 
 Pega no primeiro elemento, e vai andando no vetor até encontrar um maior, se encontrar um maior movimenta o maior até encontrar um outro ainda maior ou até chegar ao final do vetor.
 
-<<< @/src/iaed/assets/0009-bubble_sort.c
+`embed:assets/0009-bubble_sort.c`
 
 Tempo de Execução:
 
@@ -154,7 +154,7 @@ São vários insertion sorts.
 
 A sequência óptima ainda não foi descoberta `Cabe ao aluno descobrir \s`
 
-<<< @/src/iaed/assets/0009-shell.c
+`embed:assets/0009-shell.c`
 
 Tempo de Execução:
 

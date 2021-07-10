@@ -44,7 +44,7 @@ Esta notação pode também ser usada para decrementar valores em 1 unidade:
 `i--` e `--i`
 :::
 
-<<< @/src/iaed/assets/0003-a++.c
+`embed:assets/0003-a`++.c
 
 ### Linha de Comandos
 
@@ -73,7 +73,7 @@ Funções de manipulação de text streams (stdout/stdin):
 - `putchar(n)` escreve o caracter `c` cujo código ASCII é o
   número inteiro (n) passado como argumento.
 
-<<< @/src/iaed/assets/0003-ascii.c
+`embed:assets/0003-ascii.c`
 
 - As variáveis do tipo `char` são inteiros de 1 Byte.
 - Permitem realizar operações numéricas tal como
@@ -96,7 +96,7 @@ Sintaxe: `while((c = getchar()) != EOF)`
 
 :::
 
-<<< @/src/iaed/assets/0003-conta-palavras.c
+`embed:assets/0003-conta-palavras.c`
 
 Slides:
 

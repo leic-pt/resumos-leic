@@ -39,7 +39,7 @@ Aplica método dividir para conquistar para ordenar
 
 ### Código
 
-<<< @/src/iaed/assets/0010-qsort.c
+`embed:assets/0010-qsort.c`
 
 - Trocas: $2N \log (N)$
 - Pior Caso: $O(N^2)$
@@ -82,7 +82,7 @@ Quando chegamos a vetores de um elemento:
 
 ### Código
 
-<<< @/src/iaed/assets/0010-mergesort.c
+`embed:assets/0010-mergesort.c`
 
 - Pior Caso: $O(N \log (N))$
 - Melhor Caso: $\Omega(N \log (N))$
@@ -106,7 +106,7 @@ Quando chegamos a vetores de um elemento:
 
 ### Código
 
-<<< @/src/iaed/assets/0010-heap.c
+`embed:assets/0010-heap.c`
 
 - Construção do amontoado (ciclo `for`):
   - $O(N \log (N))$ no pior caso

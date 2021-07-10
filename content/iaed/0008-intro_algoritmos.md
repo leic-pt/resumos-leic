@@ -24,7 +24,7 @@ type: content
     - Caminhos mais curtos em grafos orientados
     - etc
 
-<<< @/src/iaed/assets/0008-masc.c
+`embed:assets/0008-masc.c`
 
 ### Eficiência
 
@@ -78,7 +78,7 @@ Assim vemos que a primeira função é quadrática porque executa `strlen(s)` to
 
 E vemos que a segunda função é linear porque executa apenas o corpo do `for`
 
-<<< @/src/iaed/assets/0008-masc.c
+`embed:assets/0008-masc.c`
 
 ### Análise de Algoritmos
 

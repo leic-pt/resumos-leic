@@ -39,14 +39,14 @@ type: content
 - Se `<expressao1>` tem valor igual a 0, e `<expressao2>` é diferente de 0
   então `<instrucao2>` é executada
 
-<<< @/src/iaed/assets/0007-cond1.c
+`embed:assets/0007-cond1.c`
 
 ### Switch
 
 - Decisão com opções múltiplas; testa se uma expressão
   assume um de um conjunto de valores constantes
 
-<<< @/src/iaed/assets/0007-switch.c
+`embed:assets/0007-switch.c`
 
 - default é opcional e é executado se a expressão é
   diferente de qualquer dos outros casos
@@ -55,7 +55,7 @@ type: content
 
 ### While
 
-<<< @/src/iaed/assets/0007-while.c
+`embed:assets/0007-while.c`
 
 Enquanto `<expressao>` for diferente de zero, a
 `<instrucao>` é executada
@@ -63,7 +63,7 @@ Ciclo termina quando valor de `<expressao>` for zero
 
 ### For
 
-<<< @/src/iaed/assets/0007-for.c
+`embed:assets/0007-for.c`
 
 - Expressão de inicialização: `<expr1>`
 - Condição de ciclo: `<expr2>`
@@ -72,7 +72,7 @@ Ciclo termina quando valor de `<expressao>` for zero
 
 ### Do-while
 
-<<< @/src/iaed/assets/0007-do.c
+`embed:assets/0007-do.c`
 
 - Enquanto `<expressao>` for diferente de zero, as
   `<instrucoes>` são executadas
@@ -91,7 +91,7 @@ Ciclo termina quando valor de `<expressao>` for zero
 
 Exemplo com algumas das funções dadas:
 
-<<< @/src/iaed/assets/0007-ex.c
+`embed:assets/0007-ex.c`
 
 Slides:
 

@@ -137,7 +137,7 @@ Pilha Dinâmica de Inteiros
 
 Nunca podemos perder o ponteiro para o topo da pilha.
 
-<<< @/src/iaed/assets/0014-pilha.c
+`embed:assets/0014-pilha.c`
 
 ### Lista Duplamente Ligada
 
@@ -178,13 +178,13 @@ int length(link head) {
 
 `$ ./myprogram bolo1 bolo2 bolo3 bolo4 bolo5`
 
-<<< @/src/iaed/assets/0014-arg.c
+`embed:assets/0014-arg.c`
 
 ### Funções de uma Lista
 
 ![ligada](./assets/0014-listaligada.png#dark=1)
 
-<<< @/src/iaed/assets/0014-lista.c
+`embed:assets/0014-lista.c`
 
 Encontram imagens de como isto funciona visualmente!
 

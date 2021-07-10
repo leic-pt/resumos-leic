@@ -59,3 +59,7 @@ html {
 .content ul {
   line-height: 1.7;
 }
+
+.gatsby-highlight pre {
+  border-radius: 5px;
+}

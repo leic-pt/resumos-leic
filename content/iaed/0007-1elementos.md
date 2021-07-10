@@ -63,7 +63,7 @@ type: content
 - `char` é um inteiro pequeno e podem-se fazer operações
   aritméticas com caracteres
 
-<<< @/src/iaed/assets/0007-conv.c
+`embed:assets/0007-conv.c`
 
 ### Conversão Forçada de Tipos
 
@@ -95,13 +95,13 @@ type: content
 - Permite criar uma abstracção dos valores quando se
   programa usando apenas os nomes do tipo enumerado
 
-<<< @/src/iaed/assets/0007-mes.c
+`embed:assets/0007-mes.c`
 
 ## Declarações de Variáveis
 
 Precedem utilização e especificam tipo e lista das variáveis
 
-<<< @/src/iaed/assets/0007-decvar.c
+`embed:assets/0007-decvar.c`
 
 - Inicialização de variáveis externas (`globais`) e estáticas: \
   `<tipo> <variável> = <expressão constante>;`
@@ -131,7 +131,7 @@ valor indefinido
 
 `Exemplo: int i, j = f(5);`
 
-<<< @/src/iaed/assets/0007-global.c
+`embed:assets/0007-global.c`
 
 - `const` pode anteceder qualquer declaração
 - Significa que valor não vai mudar
@@ -139,7 +139,7 @@ valor indefinido
   sendo um erro
 - Compilador pode tirar partido e fazer optimizações
 
-<<< @/src/iaed/assets/0007-cons.c
+`embed:assets/0007-cons.c`
 
 ## Inicialização de Variáveis
 
@@ -191,7 +191,7 @@ Manipular bits em inteiros (char, short, int, long):
 
 Ambos os shifts adicionam 0.
 
-<<< @/src/iaed/assets/0007-bit.c
+`embed:assets/0007-bit.c`
 
 ### Expressões Condicionais
 
@@ -201,7 +201,7 @@ Ambos os shifts adicionam 0.
 - Se `<expr1>` for verdadeiro, valor da expressão é `<expr2>`
 - Se `<expr1>` for falso, valor da expressão é `<expr3>`
 
-<<< @/src/iaed/assets/0007-cond.c
+`embed:assets/0007-cond.c`
 
 Slides:
 

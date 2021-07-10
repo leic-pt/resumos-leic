@@ -44,7 +44,7 @@ Quando a tabela é criada, os valores que esta guarda não são inicializadas a 
 Para defini-las a 0, faz-se um loop atribuindo a cada posição da tabela o valor 0.
 :::
 
-<<< @/src/iaed/assets/0004-vect.c
+`embed:assets/0004-vect.c`
 
 ### Tabelas Bidimensionais (Matrizes)
 
@@ -86,11 +86,11 @@ Para se ler ou escrever strings usa-se `%s`
 
 Os Vetores são copiados posição a posição!
 
-<<< @/src/iaed/assets/0004-copia-str.c
+`embed:assets/0004-copia-str.c`
 
 ### Leitura de Strings com o Scanf
 
-<<< @/src/iaed/assets/0004-scanf.c
+`embed:assets/0004-scanf.c`
 
 O scanf permite ler uma string através da formatação `%s`
 A leitura é feita até encontrar um "whitespace" (`" "`, `\n`, `\t`, etc)
