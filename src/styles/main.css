@@ -6,6 +6,22 @@ html {
   --borderColor: #4e4e4e;
   --lighten20TextColor: #e8e8e8;
   --miniCodeBgColor: hsla(0, 0%, 100%, 0.1);
+  --scrollbarColor: hsla(0, 0%, 100%, 0.4);
+
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+
+@media (min-width: 719px) {
+  ::-webkit-scrollbar {
+    max-width: 6px;
+    max-height: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbarColor);
+    border-radius: 6px;
+  }
 }
 
 body {
