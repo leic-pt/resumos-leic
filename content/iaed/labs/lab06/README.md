@@ -27,7 +27,7 @@ Supondo que em cada iteração o algoritmo percorre o vector da esquerda para a 
 
 Resposta: `a = { 11, 8, 16, 12, 10, 14, 17, 6, 20, 21 }`
 
-{green}(É possível ver o algoritmo em execução ao executar o código abaixo)
+[É possível ver o algoritmo em execução ao executar o código abaixo](color:green)
 
 ::::tab-group
 :::tab[Bubble Sort]
@@ -48,7 +48,7 @@ Supondo que em cada iteração o algoritmo identifica o menor elemento e o coloc
 
 Resposta: `a = { 6, 8, 10, 11, 21, 12, 16, 14, 17, 20 }`
 
-{green}(É possível ver o algoritmo em execução ao executar o código abaixo)
+[É possível ver o algoritmo em execução ao executar o código abaixo](color:green)
 
 ::::tab-group
 :::tab[Selection Sort]
@@ -79,7 +79,7 @@ Supondo que o algoritmo vai inserindo os elementos à esquerda, qual o conteúdo
 
 Resposta: `a = { 8, 11, 16, 20, 21, 12, 10, 14, 17, 6 }`
 
-{green}(É possível ver o algoritmo em execução ao executar o código abaixo)
+[É possível ver o algoritmo em execução ao executar o código abaixo](color:green)
 
 ::::tab-group
 :::tab[Insertion Sort]

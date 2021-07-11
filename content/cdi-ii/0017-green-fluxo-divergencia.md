@@ -17,7 +17,7 @@ Seja $D \subset \R^2$ um conjunto aberto e limitado.
 
 Então, **$\partial D$ é o bordo de $D$** (pode-se ver como sendo equivalente à fronteira).
 
-Podemos também definir a {orange}(orientação canónica de $\partial D$): é a orientação que deixa o conjunto do lado esquerdo da curva.
+Podemos também definir a [orientação canónica de $\partial D$](color:orange): é a orientação que deixa o conjunto do lado esquerdo da curva.
 
 ![Bordo de D](./assets/0017-bordo.svg)
 
@@ -42,7 +42,7 @@ $$
 \oint_{\partial D} F = \iint_D \left( \frac{\partial Q}{\partial x}- \frac{\partial P}{\partial y} \right) \d x \d y = 0
 $$
 
-Assim, {green}(**um campo fechado é conservativo nas curvas que delimitam regiões onde $F$ esteja definido.**)
+Assim, [**um campo fechado é conservativo nas curvas que delimitam regiões onde $F$ esteja definido.**](color:green)
 
 **NOTA:** Sentido Direto = Sentido Positivo = Sentido Anti-Horário
 

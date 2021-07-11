@@ -80,7 +80,7 @@ $$
 
 :::
 
-{green}(**Propriedades:**)
+[**Propriedades:**](color:green)
 
 1. Se $g_1$ e $g_2$ são duas parametrizações da curva $C$ que percorrem a curva no mesmo sentido, o integral $\int_C F \cdot \d g_1 = \int_C F \cdot \d g_2$
 2. Se $g_1$ e $g_2$ são duas parametrizações da curva $C$ que percorrem a curva em sentido contrário, o integral $\int_C F \cdot \d g_1 = - \int_C F \cdot \d g_2$
@@ -134,7 +134,7 @@ $$
 \end{aligned}
 $$
 
-O valor do integral só depende dos extremos da curva, pelo que $F$ é {green}(**conservativo**).
+O valor do integral só depende dos extremos da curva, pelo que $F$ é [**conservativo**](color:green).
 
 :::
 
@@ -172,9 +172,9 @@ $$
 
 :::
 
-{purple}(**Corolário 1:**) Se $\phi: \R^n \to \R$, $C^1$, então $\nabla \phi$ é conservativo e $\nabla \phi: \R^n \to \R^n$
+[**Corolário 1:**](color:purple) Se $\phi: \R^n \to \R$, $C^1$, então $\nabla \phi$ é conservativo e $\nabla \phi: \R^n \to \R^n$
 
-{pink}(**Corolário 2:**) Se $\phi: \R^n \to \R$, $C^1$, e $C$ for uma curva fechada ($B = A$, ou seja, o ponto inicial é o mesmo que o ponto final)
+[**Corolário 2:**](color:pink) Se $\phi: \R^n \to \R$, $C^1$, e $C$ for uma curva fechada ($B = A$, ou seja, o ponto inicial é o mesmo que o ponto final)
 então $\int_C \nabla \phi \d \gamma = 0$
 
 ## Campo Gradiente

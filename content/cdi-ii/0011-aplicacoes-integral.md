@@ -17,7 +17,7 @@ o momento de inércia em relação a um eixo, entre outros.
 
 ## Massa de Sólidos
 
-Se tivermos um {green}(sólido $S$, em $\R^3$) e uma função {blue}($f$ que representa a densidade de massa do sólido $S$),
+Se tivermos um [sólido $S$, em $\R^3$](color:green) e uma função [$f$ que representa a densidade de massa do sólido $S$](color:blue),
 então podemos calcular a **massa de $S$** através de:
 
 $$
@@ -26,13 +26,13 @@ $$
 
 :::details[Exemplos]
 
-Seja {green}($V$ um sólido)
+Seja [$V$ um sólido](color:green)
 
 $$
 V = \{(x,y,z) \in \R^3: x^2+y^2\leq 1, x^2+y^2 \leq z \leq 3-x^2-y^2 \}
 $$
 
-e {blue}(a função $f$, densidade de massa de $V$),
+e [a função $f$, densidade de massa de $V$](color:blue),
 
 $$f(x,y,z) = z^2$$
 
@@ -75,7 +75,7 @@ $$
 
 ## Centro de Massa
 
-Representado por $(\overline x, \overline y, \overline z)$, o {purple}(centro de massa) de um sólido
+Representado por $(\overline x, \overline y, \overline z)$, o [centro de massa](color:purple) de um sólido
 pode ser calculado através da seguinte expressão, para cada uma das suas coordenadas:
 
 $$
@@ -90,7 +90,7 @@ $$
 \overline z = \frac{\int_S zf}{\int_S f} = \frac{1}{\text{Massa}} \cdot \int_S zf
 $$
 
-No caso $f=1$, $(\overline x, \overline y, \overline z)$ chama-se {pink}(**centroide**).
+No caso $f=1$, $(\overline x, \overline y, \overline z)$ chama-se [**centroide**](color:pink).
 
 $$
 \overline x = \frac{\int_S x}{\int_S 1}
@@ -98,11 +98,11 @@ $$
 
 ## Momento de Inércia em Relação a um Eixo
 
-Podemos também, através do integral, calcular o {yellow}(**momento de inércia**) em relação a um eixo.
+Podemos também, através do integral, calcular o [**momento de inércia**](color:yellow) em relação a um eixo.
 
 ![Momento de Inércia em relação ao eixo zz](./assets/0011-inercia.svg#dark=1)
 
-O {yellow}(**momento de inércia**) em relação a um eixo $L$ pode ser calculado através de
+O [**momento de inércia**](color:yellow) em relação a um eixo $L$ pode ser calculado através de
 
 $$
 I_L = \int_S \text{densidade} \times (\text{distância à lateral})^2

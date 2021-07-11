@@ -21,7 +21,7 @@ M = \{x \in \R^n: F(x) = 0\} & F: \R^n \to \R^{n-m} & f: \R^n \to \R
 \end{array}
 $$
 
-{green}(**Como calcular máximo (ou mínimo) de $f$ em $M$?**)
+[**Como calcular máximo (ou mínimo) de $f$ em $M$?**](color:green)
 
 Seja $x_0$ um máximo local em $M$.  
 Sabemos que $\nabla f(x_0)$ pertence ao [espaço normal](./0014-variedades.md#espaco-tangente-e-espaco-normal) de $M$, pelo que, sendo
@@ -60,7 +60,7 @@ F_{n-m}(a) = 0
 \end{cases}
 $$
 
-tal que $\lambda_j$ são {orange}(**Multiplicadores de Lagrange**).
+tal que $\lambda_j$ são [**Multiplicadores de Lagrange**](color:orange).
 
 :::
 
@@ -119,7 +119,7 @@ $$
 
 Podemos escrever $M$ como o conjunto de nível: $F(x,y,z) = x^2+y^2+z^2-1$
 
-Assim, pelo {orange}(**método dos multiplicadores de Lagrange**):
+Assim, pelo [**método dos multiplicadores de Lagrange**](color:orange):
 
 $$
 \begin{array}{l}
@@ -170,10 +170,10 @@ Como nos encontramos numa esfera, $(0,0,1)$ será o máximo e $(0,0,-1)$ será o
 
 ### Justificar existência de extremos
 
-O {orange}(**método dos multiplicadores de Lagrange**) ajuda-nos a encontrar os candidatos a máximo e mínimo, mas
+O [**método dos multiplicadores de Lagrange**](color:orange) ajuda-nos a encontrar os candidatos a máximo e mínimo, mas
 não justifica a sua existência.
 
-Podemos assim recorrer ao {yellow}(**Teorema de Weierstrass**):
+Podemos assim recorrer ao [**Teorema de Weierstrass**](color:yellow):
 
 $f: M \to \R$, $M$ limitado fechado (compacto), $f$ contínua.
 
@@ -182,8 +182,8 @@ Então $f$ tem máximo e mínimo em $M$.
 Ficamos assim com dois passos que temos de fazer quando queremos
 encontrar extremos condicionados:
 
-1. Justificar a existência de máximo (ou mínimo) - {yellow}(**Teorema de Weierstrass**).
-2. Utilizar um critério para encontrar os candidatos a máximo ou mínimo - {orange}(**método dos multiplicadores de Lagrange**).
+1. Justificar a existência de máximo (ou mínimo) - [**Teorema de Weierstrass**](color:yellow).
+2. Utilizar um critério para encontrar os candidatos a máximo ou mínimo - [**método dos multiplicadores de Lagrange**](color:orange).
 
 :::details[Exemplos]
 
@@ -271,7 +271,7 @@ $$
 f(x,y,z) = (\text{distância à origem})^2 = (\sqrt{x^2+y^2+z^2})^2 = x^2+y^2+z^2
 $$
 
-Pelo {orange}(**método dos multiplicadores de Lagrange**):
+Pelo [**método dos multiplicadores de Lagrange**](color:orange):
 
 $$
 \begin{array}{l}
@@ -382,8 +382,8 @@ $$
 
 :::
 
-A estes integrais chamamos {orange}(**Integral de um campo escalar numa variedade de $\dim 1$**) ou
-{orange}(**Integral de linha de um campo escalar**).
+A estes integrais chamamos [**Integral de um campo escalar numa variedade de $\dim 1$**](color:orange) ou
+[**Integral de linha de um campo escalar**](color:orange).
 
 :::details[Exemplos]
 
@@ -458,7 +458,7 @@ $Dg^T$ é a matriz transposta de $Dg$
 
 :::
 
-{green}(Devido às propriedades da matriz transposta, sabemos sempre que $Dg^T Dg$ é uma matriz simétrica.)
+[Devido às propriedades da matriz transposta, sabemos sempre que $Dg^T Dg$ é uma matriz simétrica.](color:green)
 
 Podemos observar que se $m=1$, vamos ter a definição anterior:
 

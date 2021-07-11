@@ -19,7 +19,7 @@ Um grafo $g_1$ é `isomorfo` de um grafo $g_2$ se existe uma aplicação que col
 :::details[Exemplo]
 
 ![Iso 2](./imgs/0025-iso2.png)
-Os dois grafos separados pela linha {red}(**vermelha**) são isomorfos
+Os dois grafos separados pela linha [**vermelha**](color:red) são isomorfos
 
 :::
 
@@ -32,7 +32,7 @@ Dois grafos $g_1$ e $g_2$ são equivalentes se são [isomorfos](#grafos-isomorfo
 Os grafos acima **são** isomorfos e equivalentes.
 
 ![Iso 3](./imgs/0025-iso3.png)
-Os dois grafos separados pela linha {red}(**vermelha**) são isomorfos, mas como a região a {green}(**verde**) não é preservada (os vértices que forma a fronteira são diferentes nos $2$ casos), **não** é equivalente.
+Os dois grafos separados pela linha [**vermelha**](color:red) são isomorfos, mas como a região a [**verde**](color:green) não é preservada (os vértices que forma a fronteira são diferentes nos $2$ casos), **não** é equivalente.
 
 :::
 

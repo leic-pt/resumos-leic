@@ -41,6 +41,7 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          `gatsby-remark-color`,
           `gatsby-remark-pre-image-data`,
           {
             resolve: `gatsby-remark-images`,

@@ -104,3 +104,48 @@ html {
 .tab-group--tab__active {
   display: block;
 }
+
+/* COLORS */
+
+html {
+  --colorRed: #ff7369;
+  --colorGreen: #4dab9a;
+  --colorBlue: #529cca;
+  --colorPink: #e255a1;
+  --colorPurple: #946dd7;
+  --colorYellow: #ffdc49;
+  --colorOrange: #ffa334;
+  --colorBrown: #937264;
+}
+
+.md-color--red {
+  color: var(--colorRed);
+}
+
+.md-color--green {
+  color: var(--colorGreen);
+}
+
+.md-color--blue {
+  color: var(--colorBlue);
+}
+
+.md-color--pink {
+  color: var(--colorPink);
+}
+
+.md-color--purple {
+  color: var(--colorPurple);
+}
+
+.md-color--yellow {
+  color: var(--colorYellow);
+}
+
+.md-color--orange {
+  color: var(--colorOrange);
+}
+
+.md-color--brown {
+  color: var(--colorBrown);
+}

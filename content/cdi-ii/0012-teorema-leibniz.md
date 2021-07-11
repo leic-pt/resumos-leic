@@ -88,7 +88,7 @@ $$
 
 :::
 
-Outra aplicação do {orange}(**Teorema de Leibnitz**) é aplicá-lo juntamente com o {green}(**Teorema Fundamental do Cálculo**) e com a [Regra da Cadeia](./0005-derivada-composta.md#formula-da-cadeia-chain-rule).
+Outra aplicação do [**Teorema de Leibnitz**](color:orange) é aplicá-lo juntamente com o [**Teorema Fundamental do Cálculo**](color:green) e com a [Regra da Cadeia](./0005-derivada-composta.md#formula-da-cadeia-chain-rule).
 
 Sabendo que
 
@@ -102,7 +102,7 @@ $$
 H'(x) = f(x, b(x)) \cdot b'(x) - f(x, a(x)) \cdot a'(x) + \int^{b(x)}_{a(x)} \frac{\partial f}{\partial x}(x,y) \d y
 $$
 
-{brown}(_A demonstração desta fórmula encontra-se nos slides da aula 26._)
+[_A demonstração desta fórmula encontra-se nos slides da aula 26._](color:brown)
 
 :::details[Exemplo (correspondente ao exercício 9 da ficha 7)]
 
@@ -155,7 +155,7 @@ F(t)&= \int^{\pi}_0 \int^{\sqrt{t}}_1 \int^1_0 \frac{e^{tr^2}}{r^2} \cdot r \d z
 $$
 
 Chegamos um integral cuja função no interior não é fácil de primitivar.  
-Podemos então recorrer ao {orange}(**Teorema de Leibnitz**), ao {green}(**Teorema Fundamental do Cálculo**) e
+Podemos então recorrer ao [**Teorema de Leibnitz**](color:orange), ao [**Teorema Fundamental do Cálculo**](color:green) e
 à [Regra da Cadeia](./0005-derivada-composta.md#formula-da-cadeia-chain-rule) para determinar a expressão de $F'(t)$:
 
 $$

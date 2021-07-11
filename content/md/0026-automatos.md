@@ -255,9 +255,9 @@ Como fazemos para encontrar o `AFD`?
 2. Depois, dependendo do input que podemos receber (neste caso $a$ ou $b$) "apontamos" para um novo estado. Se não existir cria-se.  
    **Atenção:** o novo estado, tal como no estado inicial, pode ser um "conjunto de estados"
 
-3. Se temos $n$ estados no `AFND` teremos no máximo $2^n$ no `AFD` (os vários conjuntos possíveis formados pelos estados do `AFND`), contudo pode haver estados inúteis (a {red}(**vermelho**) abaixo). São estados a que nunca chegamos se partirmos do início. Podem ser omitidos na representação final
+3. Se temos $n$ estados no `AFND` teremos no máximo $2^n$ no `AFD` (os vários conjuntos possíveis formados pelos estados do `AFND`), contudo pode haver estados inúteis (a [**vermelho**](color:red) abaixo). São estados a que nunca chegamos se partirmos do início. Podem ser omitidos na representação final
 
-**Atenção:** Não esquecer do `estado de rejeição` se for necessário (abaixo está a {blue}(**azul**))
+**Atenção:** Não esquecer do `estado de rejeição` se for necessário (abaixo está a [**azul**](color:blue))
 
 Segue-se a representação final, com um pequeno exemplo de uma parte da execução abaixo
 
@@ -267,7 +267,7 @@ Segue-se a representação final, com um pequeno exemplo de uma parte da execuç
 2. Quando estamos em $q_0$ ou $q_2$ e recebemos $b$, vamos sempre para $q_1$. Se recebermos $a$, tanto podemos ir para $q_0$ ou para $q_1$, **por causa** da transição $\epsilon$.
 3. Quando estamos em $q_2$ e recebemos $a$, vamos para $q_0$, **mas** por causa da transição $\epsilon$, podemos voltar a $q_2$. Por isso, se recebermos $a$ em $\{q_0,q_2\}$ continuamos no mesmo estado.
 
-Repare-se que os estandos inúteis ({red}(**vermelho**)), nunca são atingidos desde o Ei.
+Repare-se que os estandos inúteis ([**vermelho**](color:red)), nunca são atingidos desde o Ei.
 
 :::tip[Aviso]
 
@@ -359,6 +359,6 @@ Temos um `AFND`. Precisamos de passar para um `AFD`.
 
 ![Troca 23](./imgs/0026-troca23.png)
 
-Neste último autómato está representado o `estado de rejeição` a {red}(**vermelho**)
+Neste último autómato está representado o `estado de rejeição` a [**vermelho**](color:red)
 
 :::

@@ -26,25 +26,25 @@ Tomando como exemplo os seguintes conjnutos:
 
 ![Representação do Conjunto 1](./assets/0014-conj-1.png#dark=1)
 
-{green}(É variedade de dimensão 1.)
+[É variedade de dimensão 1.](color:green)
 
 2. $M = \{(x,y,z) \in \R^3: x^2+y^2+z^2 = 1\}$
 
 ![Representação do Conjunto 2](./assets/0014-conj-2.png#dark=1)
 
-{green}(É variedade de dimensão 2.)
+[É variedade de dimensão 2.](color:green)
 
 3. $M= \{(x,y,z) \in \R^3: x^2 + y^2 = z^2\}$
 
 ![Representação do Conjunto 3](./assets/0014-conj-3.png#dark=1)
 
-{red}(Não é variedade.)
+[Não é variedade.](color:red)
 
 Na origem não é possível escrever nenhuma variável em função das outras duas, pois tem um "bico".
 
 4. $M = \{(x,y,z) \in \R^3: z=x+y\}$ que corresponde a um plano.  
    Logo, qualquer ponto é definido por $z=f(x,y) = x+y$.  
-   Então, temos uma {green}(variedade de dimensão 2).
+   Então, temos uma [variedade de dimensão 2](color:green).
 
 ### Relação com o Teorema da Função Implícita
 
@@ -119,7 +119,7 @@ $$
 
 Então, quando $\car = 0$, significa que $x,y,z=0$.
 
-Como este ponto pertence ao conjunto, {red}($M$ não é uma variedade).
+Como este ponto pertence ao conjunto, [$M$ não é uma variedade](color:red).
 
 ---
 
@@ -184,7 +184,7 @@ Então, o ponto $(\frac{\lambda}{2},\frac{\lambda}{2},\frac{\lambda}{2})$ nunca 
 
 Logo, $\forall x,y,z \in A$, $\car DF(x,y,z) = 2$
 
-{green}($A$ é uma variedade de $\dim 3 -2 = 1$.)
+[$A$ é uma variedade de $\dim 3 -2 = 1$.](color:green)
 
 $A$ é uma curva em $\R^3$
 
@@ -237,7 +237,7 @@ Será que $g$ é parametrização?
 - $Dg(t) = \begin{bmatrix}1\\f'(t)\end{bmatrix}$  
   $Dg$ tem 1 coluna linearmente independente
 
-{green}(Logo, $g$ é uma parametrização de $M$.)
+[Logo, $g$ é uma parametrização de $M$.](color:green)
 
 ---
 
@@ -309,7 +309,7 @@ Verificando novamente as condições da parametrização:
   $Dg$ não tem colunas linearmente independentes quando $\sin \theta, \cos \theta = 0$  
   Impossível em $M$ porque $\sin^2\theta + \cos^2\theta = 1$
 
-{green}(Logo, $g$ é uma parametrização de $M$.)
+[Logo, $g$ é uma parametrização de $M$.](color:green)
 
 ---
 
@@ -353,7 +353,7 @@ $$
 
   que é impossível em $M$, pois $\sin^2 \theta + \cos^2 \theta = 1$.
 
-{green}(Logo, $g$ é uma parametrização de $M$.)
+[Logo, $g$ é uma parametrização de $M$.](color:green)
 
 ---
 
@@ -403,7 +403,7 @@ com $\gamma (0) = a$ e $\gamma'(0) = v$.
 
 :::
 
-{orange}(**Espaço Tangente** a $M$ no ponto $a$)
+[**Espaço Tangente** a $M$ no ponto $a$](color:orange)
 
 $$
 T_aM = \{\text{vetores tangentes a } M \text{ no ponto } a\}
@@ -411,7 +411,7 @@ $$
 
 é espaço vetorial de dimensão $m$.
 
-{yellow}(**Espaço Normal** a $M$ no ponto $a$)
+[**Espaço Normal** a $M$ no ponto $a$](color:yellow)
 
 $$
 (T_aM)^\perp = \{\text{vetores perpendiculares a } T_aM\}
@@ -421,7 +421,7 @@ $$
 
 Pode-se facilmente obter o espaço normal através da matriz jacobiana $DF$, visto que cada linha da matriz é um vetor perpendicular ao caminho $\gamma$ num ponto $a$.
 
-{blue}(Vejamos um exemplo:)
+[Vejamos um exemplo:](color:blue)
 
 Considerando o conjunto $S = \{(x,y,z) \in \R^3: z = x^4+y^3\}$ e o ponto $a = (1,1,2)$, e sabendo que $S$ é variedade de $\dim 2$.
 
@@ -490,7 +490,7 @@ $$
 
 $DF$ tem (sempre) característica 2.
 
-{green}(Logo $L$ é variedade de $\dim 3 - 2 = 1$ (que corresponde a uma curva))
+[Logo $L$ é variedade de $\dim 3 - 2 = 1$ (que corresponde a uma curva)](color:green)
 
 Tomando agora a jacobiana no ponto $a = (1,2,3)$,
 

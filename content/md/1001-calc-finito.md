@@ -186,7 +186,7 @@ então $\forall_{n \in \mathbb N} P(n)$ é verdadeiro.
 
 ### Usando apenas a diferença finita (derivada)
 
-{brown}(Retirado da série 1, 1.2.1 a.)
+[Retirado da série 1, 1.2.1 a.](color:brown)
 
 $$
 \sum^n_{k=0} 4^k
@@ -220,7 +220,7 @@ $$
 
 ### Usando a Fórmula de Abel
 
-{brown}(Retirado da série 1, 1.2.1 d.)
+[Retirado da série 1, 1.2.1 d.](color:brown)
 
 $$
 \sum^n_{k=0} k\times 4^k
@@ -255,7 +255,7 @@ Este último passo foi feito através do exemplo anterior.
 
 ### Usando o Método de "Podar as Pontas"
 
-{brown}(Retirado da série 1, 1.2.3 g.)
+[Retirado da série 1, 1.2.3 g.](color:brown)
 
 Usa-se este método quando não se consegue imediatamente exprimir o quociente numa potência fatorial.
 
@@ -271,7 +271,7 @@ Ver a resolução do 1.2.3 g., que está na [página 2 deste PDF](https://drive.
 
 ### Usando a Fórmula do Quociente
 
-{brown}(Retirado da série 1, 1.2.5 a.)
+[Retirado da série 1, 1.2.5 a.](color:brown)
 
 $$
 \sum^{n-1}_{k=0} \frac{k2^k}{(k+1)(k+2)}
@@ -280,7 +280,7 @@ $$
 :::details[Resolução]
 
 Começar por tentar "adivinhar" a expressão que ao derivar dá aquilo que está "dentro" do somatório.  
-{green}(Em alguns casos, podemos usar variáveis que depois alteramos por um valor, para termos uma maior probabilidade de acertar.)
+[Em alguns casos, podemos usar variáveis que depois alteramos por um valor, para termos uma maior probabilidade de acertar.](color:green)
 
 $$
 \Delta \frac{2^k}{k+1} = \frac{(\Delta 2^k)(k+1)-2^k(\Delta k)}{(k+1)(k+2)}=\frac{2^k k + 2^k - 2^k}{(k+1)(k+2)} = \frac{k 2^k}{(k+1)(k+2)}

@@ -189,7 +189,7 @@ $$
 \end{aligned}
 $$
 
-{red}(Porquê integrar primeiro em $y$ e depois em $x$?) Porque simplifica os cálculos.
+[Porquê integrar primeiro em $y$ e depois em $x$?](color:red) Porque simplifica os cálculos.
 Ambas as estratégias irão chegar à resposta correta, mas como podemos ver pela expressão abaixo,
 teríamos de calcular o valor de dois integrais e não um.
 
@@ -255,7 +255,7 @@ $$
 $$
 
 Neste tipo de exercícios, podemos escolher que variável devemos fixar primeiro.  
-{orange}(**Esta escolha é muito importante porque nos pode simplificar bastante os cálculos, se escolhermos a variável certa.**)
+[**Esta escolha é muito importante porque nos pode simplificar bastante os cálculos, se escolhermos a variável certa.**](color:orange)
 
 $\text{Volume} = \int^1_0 \text{Área}(z) \d z$
 
@@ -331,7 +331,7 @@ $$
 \end{aligned}
 $$
 
-{red}(No entanto, podíamos tentar fixar primeiro $y$, mas rapidamente iríamos concluir que teríamos de calcular dois integrais em vez de um.)
+[No entanto, podíamos tentar fixar primeiro $y$, mas rapidamente iríamos concluir que teríamos de calcular dois integrais em vez de um.](color:red)
 Chegamos sempre à **mesma resposta**, com qualquer um dos métodos.
 
 Então, fixando primeiro $y$:
@@ -400,7 +400,7 @@ $$
 
 ---
 
-{yellow}(**Existem mais exemplos nos slides da aula 20**)
+[**Existem mais exemplos nos slides da aula 20**](color:yellow)
 
 :::
 

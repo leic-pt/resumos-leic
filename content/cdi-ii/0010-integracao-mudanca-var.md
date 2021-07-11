@@ -35,13 +35,13 @@ $$
 
 :::
 
-Para isso, multiplicamos o nosso integral pelo {orange}(**determinante da derivada da função**) que representa a nossa mudança de variável.
+Para isso, multiplicamos o nosso integral pelo [**determinante da derivada da função**](color:orange) que representa a nossa mudança de variável.
 
 $$
 \d x \d y = |\det D\varphi (x', y')| \d x' \d y'
 $$
 
-Por exemplo, considerando {purple}($\varphi(r,\theta) = (r\cos \theta, r \sin \theta)$), temos que
+Por exemplo, considerando [$\varphi(r,\theta) = (r\cos \theta, r \sin \theta)$](color:purple), temos que
 
 $$
 D\varphi (r,\theta)=
@@ -61,7 +61,7 @@ $$
 
 ## Coordenadas Polares
 
-{green}(**Coordenadas polares**) (em $\R^2$) são representadas através de um raio e um ângulo, em vez de $x$ e $y$.  
+[**Coordenadas polares**](color:green) (em $\R^2$) são representadas através de um raio e um ângulo, em vez de $x$ e $y$.  
 Isto permite-nos facilmente trabalhar com áreas curvas.
 
 Tomando como exemplo:
@@ -72,7 +72,7 @@ $$
 
 ![Conjunto A em Coordenadas Polares](./assets/0010-coordenadas-polares.svg#dark=1)
 
-Podemos converter esta figura para {green}(**coordenadas polares**), o que nos dá um quadrado.
+Podemos converter esta figura para [**coordenadas polares**](color:green), o que nos dá um quadrado.
 
 $$
 \begin{cases}
@@ -143,7 +143,7 @@ $$
 
 ## Coordenadas Cilíndricas
 
-Em $\R^3$, podemos querer representar regiões de revolução por {yellow}(**coordenadas cilíndricas**),
+Em $\R^3$, podemos querer representar regiões de revolução por [**coordenadas cilíndricas**](color:yellow),
 em vez de $x$, $y$ e $z$.
 
 ![Coordenadas Cilíndricas](./assets/0010-coordenadas-cilindricas.svg#dark=1)
@@ -199,7 +199,7 @@ $$
 \text{Volume} = \int_C 1 \d x \d y \d z
 $$
 
-Convertendo para {yellow}(**coordenadas cilíndricas**):
+Convertendo para [**coordenadas cilíndricas**](color:yellow):
 
 $$
 \begin{cases}
@@ -238,7 +238,7 @@ $$
 
 ## Coordenadas Esféricas
 
-Em $\R^3$, podemos querer representar esferas por {pink}(**coordenadas esféricas**),
+Em $\R^3$, podemos querer representar esferas por [**coordenadas esféricas**](color:pink),
 em vez de $x$, $y$ e $z$.
 
 ![Coordenadas Esféricas](./assets/0010-coordenadas-esfericas.svg#dark=1)
@@ -305,7 +305,7 @@ Vamos então calcular o seu volume:
 
 $\text{Volume} = \int_C 1 \d x \d y \d z$
 
-Convertendo para {pink}(**coordenadas esféricas**), com $r^2 < R^2$:
+Convertendo para [**coordenadas esféricas**](color:pink), com $r^2 < R^2$:
 
 $$
 \begin{array}{l l l l l}

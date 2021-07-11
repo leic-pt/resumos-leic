@@ -164,7 +164,7 @@ $$
 
 para $x_1, x_2, \cdots, x_m \in \mathbb{N}^+$ é dado pelo coeficiente binomial acima.
 
-{red}(**CUIDADO**: A explicação até aqui só é válida se cada caixa tiver no mínimo uma bola. E se este não for o caso?)
+[**CUIDADO**: A explicação até aqui só é válida se cada caixa tiver no mínimo uma bola. E se este não for o caso?](color:red)
 
 **Caso importante:** As variáveis têm domínio em $\mathbb{N}_0$ e não em $\mathbb{N}^+$.  
 Recuperemos o caso em que queremos distribuir as 10 bolas por 3 caixas, mas queremos que haja a possibilidade de haver caixas vazias.  

@@ -79,7 +79,7 @@ QED
 
 ![Tri Torto](./imgs/0024-triTorto.png)
 
-A região $R_1$ assinalada a {green}(verde) é limitada por um triângulo ("torto").  
+A região $R_1$ assinalada a [verde](color:green) é limitada por um triângulo ("torto").  
 **Mas atenção:** "torto" não foi uma designação dada pelo professor na aula, nem sei se existe.
 
 :::

@@ -117,7 +117,7 @@ $$
 
 ---
 
-{orange}(**Este exemplo corresponde ao exercício 1 da ficha 8**)
+[**Este exemplo corresponde ao exercício 1 da ficha 8**](color:orange)
 
 $$
 \begin{array}{ll}
@@ -190,7 +190,7 @@ Logo é injetiva
 
 Sim, porque $(2,2) \in D$ e $f$ é injetiva em $D$.
 
-Aplicando o {green}(**Teorema da Função Inversa**),
+Aplicando o [**Teorema da Função Inversa**](color:green),
 
 - $f \in C^1$
 - $f(x,y) = (xy, \frac{y}{x})$
@@ -213,7 +213,7 @@ $$
 
 - $\det Df(2,2) = 1-(-1) = 2 \ne 0$
 
-Pelo {green}(**Teorema da Função Inversa**), a função é localmente invertível em $(2,2)$.
+Pelo [**Teorema da Função Inversa**](color:green), a função é localmente invertível em $(2,2)$.
 
 **d. Calcule $Df^{-1} (4,1)$, em que $f^{-1}$ designa uma das funções inversas de $f$**
 
@@ -241,7 +241,7 @@ considerando a curva de nível $F = 0$ e um ponto $a = (x_0, y_0)$ nessa curva.
 
 Se $\det (D_y F)(a) \ne 0$, então numa vizinhança de $a$, a curva de nível é um gráfico $y=f(x)$ para uma função desconhecida $f$.
 
-{red}(_$D_y F$ é a matriz jacobiana só em relação às variáveis $y$_)
+[_$D_y F$ é a matriz jacobiana só em relação às variáveis $y$_](color:red)
 
 Além disso, ficamos também a saber que:
 
@@ -275,14 +275,14 @@ $$
 
 **Mostre que numa vizinhança de $(0, \pi)$ a equação $F(x,y) = x^2y + \sin(x+y) = 0$ define $y$ como função de $x$.**
 
-Começamos por certificar as condições para aplicar o {green}(**Teorema da Função Implícita**):
+Começamos por certificar as condições para aplicar o [**Teorema da Função Implícita**](color:green):
 
 - $F \in C^1$
 - $F(0, \pi) = 0^2 \times \pi + \sin(0 + \pi) = 0$
 - $\frac{\partial F}{\partial y}\big|_{(0,\pi)} = x^2+\cos(x+y) \big|_{(0,\pi)} = \cos(\pi) = -1 \ne 0$  
-  {red}(_$\frac{\partial F}{\partial y}$ é a matriz jacobiana relativa às variáveis que vão ficar dependentes_)
+  [_$\frac{\partial F}{\partial y}$ é a matriz jacobiana relativa às variáveis que vão ficar dependentes_](color:red)
 
-Pelo {green}(**Teorema da Função Implícita**), numa vizinhança de $(0, \pi)$, existe $y = f(x)$.
+Pelo [**Teorema da Função Implícita**](color:green), numa vizinhança de $(0, \pi)$, existe $y = f(x)$.
 
 $$
 \begin{aligned}
@@ -327,7 +327,7 @@ $$
 
 - $\det D_{(u,v)} F = 9 \ne 0$
 
-Pelo {green}(**Teorema da Função Implícita**), numa vizinhança de $(1,1,1,1)$, existe $(u,v) = f(x,y)$.
+Pelo [**Teorema da Função Implícita**](color:green), numa vizinhança de $(1,1,1,1)$, existe $(u,v) = f(x,y)$.
 
 $$
 \begin{aligned}
@@ -375,11 +375,11 @@ $$
 - $F(a) = 0 \Leftrightarrow F(1,1) = 1+1+1-3 = 0$
 - $\det D_yF = x^2+2ye^{y^2-1} \big|_{(x,y) = (1,1)} = 1+2=3 \ne 0$
 
-Pelo {green}(**Teorema da Função Implícita**), numa vizinhança de $(1,1)$, existe $y = y(x)$ e $F(x,y(x)) = 0$
+Pelo [**Teorema da Função Implícita**](color:green), numa vizinhança de $(1,1)$, existe $y = y(x)$ e $F(x,y(x)) = 0$
 
 **Qual o valor de $y'(1)$ e $y''(1)$?**
 
-Sabemos que $y(1) = 1$. Logo, pelo {green}(**Teorema da Função Implícita**), podemos escrever:
+Sabemos que $y(1) = 1$. Logo, pelo [**Teorema da Função Implícita**](color:green), podemos escrever:
 
 $$
 y'(1) = -\left(\frac{\partial F}{\partial y} \right)^{-1} \cdot \frac{\partial F}{\partial x} =
@@ -468,7 +468,7 @@ $$
 \frac{\partial F}{\partial y} = x |_{x_0,y_0 = 0} = 0
 $$
 
-{red}(**Não, pois o determinante é nulo.**)
+[**Não, pois o determinante é nulo.**](color:red)
 
 **E $x = x(y)$?**
 
@@ -476,7 +476,7 @@ $$
 \frac{\partial F}{\partial x} = y |_{x_0,y_0 = 0} = 0
 $$
 
-{red}(**Não, pois o determinante é nulo.**)
+[**Não, pois o determinante é nulo.**](color:red)
 
 Considerando agora o ponto $(x_0, y_0) = (0,1)$.
 
@@ -486,11 +486,11 @@ $$
 \frac{\partial F}{\partial x} = y |_{(x_0,y_0) = (0,1)} = 1
 $$
 
-{green}(**Sim, o Teorema da Função Implícita aplica-se.**)
+[**Sim, o Teorema da Função Implícita aplica-se.**](color:green)
 
 ---
 
-{orange}(**Este exemplo corresponde ao exercício 4 da ficha 8**)
+[**Este exemplo corresponde ao exercício 4 da ficha 8**](color:orange)
 
 **Mostre que a equação $2z + x^2z^5 + y^2x^3 + xy = 2$ define implicitamente $z$ como função de $x$ e
 de $y$, em torno do ponto $(0, 0, 1)$. Calcule o valor de $\frac{\partial^2 z}{\partial y \partial x}(0,0)$.**

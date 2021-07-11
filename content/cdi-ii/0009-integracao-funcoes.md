@@ -84,7 +84,7 @@ $$
 Tomando um conjunto $A$, a função indicatriz $\1_A$ é contínua no interior e exterior do conjunto (é sempre 1 ou 0, respetivamente).
 Então, a sua integrabilidade depende somente da fronteira de $A$.
 
-{green}(**Se a fronteira de um conjunto $A$ tiver conteúdo nulo então $\1_A$ é integrável.**)
+[**Se a fronteira de um conjunto $A$ tiver conteúdo nulo então $\1_A$ é integrável.**](color:green)
 
 Que conjuntos têm fronteira de conteúdo nulo?
 
@@ -118,7 +118,7 @@ I = ]a_1, b_1[ \times ]a_2, b_2[\\
 \end{array}
 $$
 
-{yellow}(**Integrar em $I$ é a mesma coisa que integrar em $\overline I$**) porque a diferença são arestas,
+[**Integrar em $I$ é a mesma coisa que integrar em $\overline I$**](color:yellow) porque a diferença são arestas,
 que têm conteúdo nulo (não têm área).
 
 ---

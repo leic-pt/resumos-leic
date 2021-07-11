@@ -27,7 +27,7 @@ Considerando a posição `a[r]` como pivot, indique qual o conteúdo do vector `
 
 Resposta: `a = {9,6,5,7,4,10,16,18,14,13,12}`
 
-{green}(É possível ver o algoritmo em execução ao executar o código abaixo)
+[É possível ver o algoritmo em execução ao executar o código abaixo](color:green)
 
 ::::tab-group
 :::tab[Quick Sort]
@@ -83,7 +83,7 @@ Transformada em heap : `a = {20,19,17,13,15,14,16,9,11,12}`
 
 2ª iteração: `a = {17,15,16,13,12,14,11,9,19,20}`
 
-{green}(É possível ver o algoritmo em execução ao executar o código abaixo)
+[É possível ver o algoritmo em execução ao executar o código abaixo](color:green)
 
 ::::tab-group
 :::tab[Heap Sort]

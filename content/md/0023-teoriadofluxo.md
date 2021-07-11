@@ -97,7 +97,7 @@ Soma das **capacidades** de todas as arestas do corte.
 
 ![Corte](./imgs/0023-corte.png)
 
-Neste Corte a {red}(vermelho) a capacidade do `Corte` será:
+Neste Corte a [vermelho](color:red) a capacidade do `Corte` será:
 
 $$
 6+3+10+9 = 28
@@ -152,7 +152,7 @@ uma Quasi-trajetória, pode existir uma aresta $a_i$ (\*com $1<i<k$) que está d
 
 ![Quase](./imgs/0023-Quasi.png)
 
-Ambas respresentam `Quasi-Trajetórias`, mesmo que a {red}(vermelha) não tenho arestas negativas
+Ambas respresentam `Quasi-Trajetórias`, mesmo que a [vermelha](color:red) não tenho arestas negativas
 
 :::
 
