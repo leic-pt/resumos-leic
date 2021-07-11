@@ -82,6 +82,7 @@ module.exports = {
           },
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-autolink-headers`,
+          `gatsby-remark-external-links`,
         ],
       },
     },
