@@ -53,7 +53,7 @@ Assim também podemos guardar tabelas dentro de tabelas.
 
 `char tab[DIM1][DIM2];` cria uma tabela `tab` de tamanho `DIM1` que armazena tabelas de tamanho `DIM2` que armazena caracteres.
 
-Para acesar o valor da tabela `i` na posição `j`
+Para acessar o valor da tabela `i` na posição `j`
 
 - `tab[i][j]`
 

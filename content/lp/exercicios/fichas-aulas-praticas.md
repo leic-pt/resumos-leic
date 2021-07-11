@@ -5,46 +5,43 @@ path: /lp/exercicios/fichas-aulas-praticas
 type: exercises
 ---
 
-# Exercícios de LP
-
-## Material Útil
-
-- [Livro de Exercícios](https://drive.google.com/file/d/1TnTYnaNwd5IKWs_DgCcmPjGJcUfuchK2/view?usp=sharing)
-
-- [Dump Avaliações by Rafael Girão](https://s.rafael.ovh/dumpavaliacoes) - repositório de avaliações semanais passadas, por favor contribuam. **Entrem com o email do IST.**
+# Exercícios de LP - Aulas Práticas
 
 ## Fichas Aulas Práticas
 
-As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão no livro de exercícios, e as (re)soluções desses também estão lá).
+:::tip
 
-- [Semana 1](https://drive.google.com/file/d/1hTp2IvH3uJ7rOfcnMvxWoA6ULzVD8q2t/view?usp=sharing)
+Para além dos exercícios das aulas práticas, o livro de exercícios indicado abaixo tem uma coleção de exercícios bastante vasta. Se quiserem treinar e estar ainda melhor preparados, aconselho vivamente a que dêem uma vista de olhos!
+
+:::
+
+- [Livro de Exercícios Resolvidos](https://drive.google.com/file/d/1TnTYnaNwd5IKWs_DgCcmPjGJcUfuchK2/view?usp=sharing)
+
+- [Semana 1 (Lógica Proposicional $I$ )](https://drive.google.com/file/d/1hTp2IvH3uJ7rOfcnMvxWoA6ULzVD8q2t/view?usp=sharing)
 
   - [Resolução](https://drive.google.com/file/d/1LAR2DoqgrCfr2BtedGrhuQ2P1O6N-Jq3/view?usp=sharing)
 
-- [Semana 2](https://drive.google.com/file/d/1M6lKs04JQcH-08As-ojF_vBiBul6VmKZ/view?usp=sharing)
+- [Semana 2 (Lógica Proposicional $II$ )](https://drive.google.com/file/d/1M6lKs04JQcH-08As-ojF_vBiBul6VmKZ/view?usp=sharing)
 
   - [Resolução](https://drive.google.com/file/d/1LGRomhscW637ng_THnhGTOFPYS6N3Cb3/view?usp=sharing)
 
-- [Semana 3](https://drive.google.com/file/d/1vbdUILHoIY9I7nt1VwVCbTdBZYMT8T5H/view?usp=sharing)
+- [Semana 3 (Lógica de Primeira Ordem $I$ )](https://drive.google.com/file/d/1vbdUILHoIY9I7nt1VwVCbTdBZYMT8T5H/view?usp=sharing)
 
   - [Resolução](https://drive.google.com/file/d/1MHMXpa-cB6yKKI12uNldEOm9LsuHpo2T/view?usp=sharing)
 
-- [Semana 4](https://drive.google.com/file/d/1mEbur70-2TbuVxMkIPmq4S0ADApP9Jis/view?usp=sharing)
+- [Semana 4 (Lógica de Primeira Ordem $II$ )](https://drive.google.com/file/d/1mEbur70-2TbuVxMkIPmq4S0ADApP9Jis/view?usp=sharing)
 
   - [Resolução](https://drive.google.com/file/d/1Oz-I9sp7arjDGHixjCNzU-Vn3mmu-72-/view?usp=sharing)
 
-- [Semana 5](https://drive.google.com/file/d/1u18nl2kB7YcMqz4--XNOLkN1u1eJFUn6/view?usp=sharing)
+- [Semana 5 (Programação em Lógica)](https://drive.google.com/file/d/1u18nl2kB7YcMqz4--XNOLkN1u1eJFUn6/view?usp=sharing)
 
-  - [Resolução](https://drive.google.com/file/d/1R77x8ghgq102edZtsi6-50H7Fn7sykmO/view?usp=sharing)  
-    Nota: Os exercícios da ficha para a aula prática são só 4. Se quiserem e tiverem tempo, aconselho a que façam os exercícios do livro de exercícios para ficarem melhor preparados.
+  - [Resolução](https://drive.google.com/file/d/1R77x8ghgq102edZtsi6-50H7Fn7sykmO/view?usp=sharing)
 
-**Esta semana, sai o exercício 7.2.3 da semana 6 e _todos_ os da semana 7**.
-
-- [Semana 6](https://drive.google.com/file/d/1s59jQGSErL69dXC_6R7E1YPMzcB-Tzc2/view?usp=sharing)
+- [Semana 6 (Prolog - Conceitos Gerais/Árvores SLD em Prolog)](https://drive.google.com/file/d/1s59jQGSErL69dXC_6R7E1YPMzcB-Tzc2/view?usp=sharing)
 
   - [Resolução do Ex. 7.2.3](https://drive.google.com/file/d/12PS2eMpoM0Lu1v238mngn6HF-BPzkBkd/view?usp=sharing)
 
-- [Semana 7](https://drive.google.com/file/d/1OdnfTgMvX2SqIgvT4wpmQNP2vcm2h7CM/view?usp=sharing)
+- [Semana 7 (Prolog - Listas $I$ )](https://drive.google.com/file/d/1OdnfTgMvX2SqIgvT4wpmQNP2vcm2h7CM/view?usp=sharing)
 
   :::details[Resolução]
 
@@ -164,7 +161,7 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 
   :::
 
-- [Semana 8](https://drive.google.com/file/d/1uYeclFgMh-BH_J8UVDFQ2iIpEnyxBvW4/view?usp=sharing)
+- [Semana 8 (Prolog - Listas $II$ )](https://drive.google.com/file/d/1uYeclFgMh-BH_J8UVDFQ2iIpEnyxBvW4/view?usp=sharing)
 
   Nota importante: Os exercícios desta secção devem ser realizados com predicados de ordem superior (sem recursão, portanto). A secção dos meta-predicados sobre listas poderá ser útil para este propósito.
 
@@ -244,7 +241,7 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 
   :::
 
-- [Semana 9](https://drive.google.com/file/d/1RovEx8Zcles6lAy4pJlX5bSIanLjASAF/view?usp=sharing)
+- [Semana 9 (Prolog - Aritmética, I/O)](https://drive.google.com/file/d/1RovEx8Zcles6lAy4pJlX5bSIanLjASAF/view?usp=sharing)
 
 - Aritmética
 
@@ -407,7 +404,7 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 
   :::
 
-- [Semana 10](https://drive.google.com/file/d/1Q_9vVqel8UUJ9ysYq3Gawoa19X1WfQT0/view?usp=sharing)
+- [Semana 10 (Prolog - Corte e Negação)](https://drive.google.com/file/d/1Q_9vVqel8UUJ9ysYq3Gawoa19X1WfQT0/view?usp=sharing)
 
   - [Resolução](https://swish.swi-prolog.org/p/Aula%2010.pl)
 
@@ -534,7 +531,7 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 
   :::
 
-- [Semana 11](https://drive.google.com/file/d/1xGiiyjYWocO16JyfXUZqUCjpbHxItXq4/view?usp=sharing)
+- [Semana 11 (Lógica Proposicional $I$ - Tabelas de verdade)](https://drive.google.com/file/d/1xGiiyjYWocO16JyfXUZqUCjpbHxItXq4/view?usp=sharing)
 
   :::details[Resolução]
 
@@ -631,16 +628,16 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 
   2.3.6
 
-  | Interpretação | $P$ | $Q$ | $R$ | $P \to R$ | $Q \to R$ | $P \wedge Q$ | $(P \vee Q) \to R$ |
-  | ------------- | --- | --- | --- | --------- | --------- | ------------ | ------------------ |
-  | $I_1$         | V   | V   | V   | V         | V         | V            | V                  |
-  | $I_2$         | V   | V   | F   | F         |           |              |                    |
-  | $I_3$         | V   | F   | V   | V         | V         | V            | V                  |
-  | $I_4$         | V   | F   | F   | F         |           |              |                    |
-  | $I_5$         | F   | V   | V   | V         | V         | V            | V                  |
-  | $I_6$         | F   | V   | F   | V         | F         |              |                    |
-  | $I_7$         | F   | F   | V   | V         | V         | F            | V                  |
-  | $I_8$         | F   | F   | F   | V         | V         | F            | V                  |
+  | Interpretação | $P$ | $Q$ | $R$ | $P \to R$ | $Q \to R$ | $P \vee Q$ | $(P \vee Q) \to R$ |
+  | ------------- | --- | --- | --- | --------- | --------- | ---------- | ------------------ |
+  | $I_1$         | V   | V   | V   | V         | V         | V          | V                  |
+  | $I_2$         | V   | V   | F   | F         |           |            |                    |
+  | $I_3$         | V   | F   | V   | V         | V         | V          | V                  |
+  | $I_4$         | V   | F   | F   | F         |           |            |                    |
+  | $I_5$         | F   | V   | V   | V         | V         | V          | V                  |
+  | $I_6$         | F   | V   | F   | V         | F         |            |                    |
+  | $I_7$         | F   | F   | V   | V         | V         | F          | V                  |
+  | $I_8$         | F   | F   | F   | V         | V         | F          | V                  |
 
   (De notar que só foram marcados os espaços necessários, os outros não foram necessários porque é possível chegar à conclusão que a interpretação em questão não será modelo do conjunto, visto que uma das suas _fbfs_ já foi aferida como falsa segundo essa interpretação)
 
@@ -652,6 +649,6 @@ As resoluções vão sendo adicionadas semanalmente (alguns exercícios estão n
 
   :::
 
-- [Semana 12](https://drive.google.com/file/d/1t-EzC5lgm_SbQgIn068VWy-gL9rDdWej/view?usp=sharing)
+- [Semana 12 (Lógica Proposicional $II$ - OBDDs)](https://drive.google.com/file/d/1t-EzC5lgm_SbQgIn068VWy-gL9rDdWej/view?usp=sharing)
 
-- [Semana 13](https://drive.google.com/file/d/104wc2uUZb3cmMSJ8KKKsKuug-_3MQS_1/view?usp=sharing)
+- [Semana 13 (Lógica Proposicional $II$ - Algoritmos de SAT)](https://drive.google.com/file/d/104wc2uUZb3cmMSJ8KKKsKuug-_3MQS_1/view?usp=sharing)

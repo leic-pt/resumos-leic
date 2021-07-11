@@ -68,7 +68,7 @@ O gráfico de esta função teria 4 dimensões (2 do domínio + 2 do contra dom�
 
 Anteriormente, foi definido a [distância entre dois pontos](/cdi-ii/transicao-para-dim-sup-1#distância).
 
-Podemos agora extender esta notação/terminologia para vetores, através da definição (muito semelhante) de **norma**.
+Podemos agora estender esta notação/terminologia para vetores, através da definição (muito semelhante) de **norma**.
 A norma consiste em medir comprimento de vetores. Caso o vetor não esteja na origem, basta fazer a sua "translação" para a origem.
 
 $$
@@ -114,7 +114,7 @@ Assim, encontra-se uma **relação entre a norma e o produto interno**: $||x|| =
 Em $\R$, dado $a\in\R, r\in \R^+$, tem-se:
 
 $$
-V_a(r)=\{x\in\R:|x-a|<r\}
+V_r(a)=\{x\in\R:|x-a|<r\}
 $$
 
 ### Bola
@@ -125,13 +125,13 @@ que estão a uma distância inferior a $r$ de um ponto $a$,
 Em $\R^2$, dado $a = (a_1,a_2)\in \R^2, r\in\R^+$, tem-se:
 
 $$
-B_a(r)=\{(x,y)\in\R^2: ||(x,y)-(a_1,a_2)||<r\}
+B_r(a)=\{(x,y)\in\R^2: ||(x,y)-(a_1,a_2)||<r\}
 $$
 
 Em $\R^3$, dado $a = (a_1,a_2,a_3)\in \R^3, r\in\R^+$, tem-se:
 
 $$
-B_a(r)=\{x\in\R^3: ||x-a||<r\}
+B_r(a)=\{x\in\R^3: ||x-a||<r\}
 $$
 
 :::tip[Caso Geral]
@@ -139,14 +139,14 @@ $$
 Em $\R^N$, dado $a = (a_1,a_2,\dotsc, a_n)\in \R^N, r\in\R^+$, tem-se:
 
 $$
-B_a(r)=\{x\in\R^N: ||x-a||<r\}
+B_r(a)=\{x\in\R^N: ||x-a||<r\}
 $$
 
 :::
 
 ## Topologia em Rⁿ
 
-Para definirmos as noções topológicas em $R^n$, precisamos do conceito de [norma](#norma).  
+Para definirmos as noções topológicas em $\R^n$, precisamos do conceito de [norma](#norma).  
 Pode ser também relevante relembrar as [noções topológicas a CDI-I](https://www.notion.so/diogocorreia/No-es-topol-gicas-Sucess-es-c3a4dddbe9bc49228e8e90eef244ae73).
 
 Tomando como exemplo o conjunto $K=\left\{(x,y)\in\R^2:0\leq x \leq 1 \land 0\leq y < 1\right\}$,

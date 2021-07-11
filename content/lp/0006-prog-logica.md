@@ -39,7 +39,20 @@ Em resolução com cláusulas de Horn, pelo menos um dos resolventes tem de ser 
 
 O exemplo abaixo é o mesmo que o da [prova por resolução - verdadeiro/falso](/lp/logica-primeira-ordem-sc#resolução) da matéria anterior, só que utilizando resolução com cláusulas de Horn.
 
-![Resolução com cláusulas de Horn](./assets/0006-res-chorn.png#dark=1)
+$$
+\def\arraystretch{1.5}
+\begin{array}{lll}
+  1 & Ant(x, y) \leftarrow AD(x, y) && Prem\\
+  2 & Ant(x, z) \leftarrow Ant(x, y), AD(y, z) && Prem\\
+  3 & AD(Marge, Bart) \leftarrow && Prem\\
+  4 & AD(Sr.B, Marge) \leftarrow && Prem\\
+  5 & \leftarrow Ant(Sr.B, Bart) && Prem\\
+  6 & Ant(Sr.B, Marge) \leftarrow && Res, (1,4), \{Sr.B/x, Marge/y\}\\
+  7 & Ant(Sr.B, z) \leftarrow AD(Marge, z) && Res, (2, 6), \{Sr.B/x, Marge/y\}\\
+  8 & Ant(Sr.B, Bart) \leftarrow && Res, (3, 7), \{Bart/z\}\\
+  9 & \square && Res, (5, 8), \epsilon
+\end{array}
+$$
 
 :::
 
@@ -71,7 +84,7 @@ Uma definição de predicado que contenha apenas cláusulas fechadas, isto é, s
 
 Ainda em relação ao exemplo anterior, a base de dados de $AD$ pode ser dada por:
 
-$\{AD(Marge, Bart) \leftarrow,       AD(Sr.B, Marge)\}$
+$\{AD(Marge, Bart) \leftarrow,       AD(Sr.B, Marge) \leftarrow \}$
 
 visto que a definição de predicado de $AD$ não contém cláusulas não fechadas.
 
@@ -91,8 +104,8 @@ Falemos em exemplos concretos. Tenhamos o programa:
 
 $Ant(x, y) \leftarrow AD(x, y)$  
 $Ant(x, z) \leftarrow Ant(x, y), AD(y, z)$  
-$AD(Marge, Bart)$  
-$AD(Sr.B, Marge)$
+$AD(Marge, Bart) \leftarrow$  
+$AD(Sr.B, Marge) \leftarrow$
 
 E o objetivo $\leftarrow Ant(x, Bart)$.
 
@@ -137,7 +150,7 @@ $\gamma_{3} = \leftarrow AD(Sr.B, Marge)$
 $\gamma_{4} = \square$
 
 A **resposta calculada** é:  
-$(\{Sr.B/x, Bart/z\}, \{Marge/y\}, \{Sr.B/x, Marge/y\}, \epsilon)|_{\{\}} = \epsilon$
+$(\{Sr.B/x, Bart/z\} \circ \{Marge/y\} \circ \{Sr.B/x, Marge/y\} \circ \epsilon)|_{\{\}} = \epsilon$
 
 :::
 
@@ -171,3 +184,5 @@ $\leftarrow P(x, b).$
 :::
 
 - **Independência da função de seleção** - seja $\Delta$ um programa e $\alpha$ um objetivo. Independentemente da função de seleção, todas as árvores SLD de $\Delta$ e $\alpha$ têm o mesmo número (finito ou infinito) de ramos **bem sucedidos**.
+
+[Slides](https://drive.google.com/file/d/1HHsikJwQmq6BHM1l2JdgZLIyZf95iMPd/view?usp=sharing)

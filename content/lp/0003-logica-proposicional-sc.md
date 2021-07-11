@@ -16,20 +16,20 @@ A geração automática de provas utilizando sistemas de dedução natural não 
 
 ## Resolução
 
-Abordagem ao sistema dedutivo baseada numa única regra de inferência (ao contrário das provas abordadas anteriormente) - o **princípio da resolução**. A utilização deste obriga à transformação das _fbfs_ numa forma especial, a _forma clausal_ que corresponde a uma **conjunção de cláusulas**.
+Abordagem ao sistema dedutivo baseada numa única regra de inferência (ao contrário das provas abordadas anteriormente) - o **princípio da resolução**. A utilização deste obriga à transformação das _fbfs_ numa forma especial, a _forma clausal_, que corresponde a uma **conjunção de cláusulas**.
 
 ### Forma clausal
 
 - **Literal** - uma _fbf_ atómica ou (a sua negação) é chamada uma literal. Um literal positivo é uma _fbf_ atómica não negada, sendo que um negativo é uma _fbf_ negada. Importante relembrar que uma _fbf_ atómica corresponde a uma _fbf_ composta por um símbolo de proposição, não contendo quaisquer conectores lógicos.
 
-- **Cláusula** - um literal/disjunção de laterais. Caso consista em apenas um literal, podemos chamá-la cláusula _unitária_. Pode ainda ser representada como um conjunto (através do uso de chavetas) de literais.
+- **Cláusula** - um literal/disjunção de literais. Caso consista em apenas um literal, podemos chamá-la cláusula _unitária_. Pode ainda ser representada como um conjunto (através do uso de chavetas) de literais.
 
 :::details[Exemplo - Literais + cláusulas]
 
-Sendo P e Q símbolos de proposição, P e $\neg$Q são literais (positivo e negativo, respetivamente); P, P$\vee$Q, $\neg$P$\vee$Q e $\neg$Q são cláusulas, sendo que a primeira e a última são cláusulas unitárias.
+Sendo $P$ e $Q$ símbolos de proposição, $P$ e $\neg Q$ são literais (positivo e negativo, respetivamente); $P$, $P\vee Q$, $\neg P\vee Q$ e $\neg Q$ são cláusulas, sendo que a primeira e a última são cláusulas unitárias.
 
-A cláusula unitária P pode ser representada como um conjunto tal que {P}.
-A cláusula P$\vee$Q pode ser representada como um conjunto tal que {P, Q}.
+A cláusula unitária $P$ pode ser representada como um conjunto tal que $\{P\}$.
+A cláusula $P\vee Q$ pode ser representada como um conjunto tal que $\{P, Q\}$.
 
 :::
 
@@ -37,8 +37,8 @@ Uma _fbf_ diz-se na **forma conjuntiva normal** caso seja da forma $\alpha\wedge
 
 :::details Exemplo - Forma conjuntiva normal
 
-A _fbf_ (P$\vee\neg$Q$\vee$R)$\wedge$($\neg$P$\vee$S) está na forma conjuntiva normal.
-A mesma _fbf_ pode ser representada como um conjunto tal que {{P, $\neg$Q, R}, {$\neg$P, S}}.
+A _fbf_ $(P\vee\neg Q\vee R)\wedge(\neg P\vee S)$ está na forma conjuntiva normal.
+A mesma _fbf_ pode ser representada como um conjunto tal que $\{\{P, \neg Q, R\}, \{\neg P, S\}\}$.
 
 :::
 
@@ -56,11 +56,11 @@ As _fbfs_ podem, contudo, não nos ser apresentadas inicialmente nesta forma de 
 
   :::details[Exemplo - Eliminar o símbolo →]
 
-  Partindo de P $\to \neg$(Q $\vee$ ((R $\wedge$ S) $\to$ P)):
+  Partindo de $P \to \neg(Q \vee ((R \wedge S) \to P))$:
 
-  $\neg$P $\vee$ $\neg$(Q $\vee$ ((R $\wedge$ S) $\to$ P));
+  $\neg P \vee \neg(Q \vee ((R \wedge S) \to P))$;
 
-  $\neg$P $\vee$ $\neg$(Q $\vee$ ($\neg$(R $\wedge$ S) $\vee$ P)).
+  $\neg P \vee \neg(Q \vee (\neg(R \wedge S) \vee P))$.
 
   :::
 
@@ -77,19 +77,19 @@ As _fbfs_ podem, contudo, não nos ser apresentadas inicialmente nesta forma de 
   - **Primeiras Leis de De Morgan**
 
   $\neg(\alpha\vee\beta) \leftrightarrow (\neg\alpha\wedge\neg\beta)$  
-   $\neg(\alpha\wedge\beta) \leftrightarrow (\neg\alpha\vee\neg\beta)$
+  $\neg(\alpha\wedge\beta) \leftrightarrow (\neg\alpha\vee\neg\beta)$
 
   :::details[Exemplo - Reduzir o domínio de ¬]
 
-  Partindo de $\neg$P $\vee$ $\neg$(Q $\wedge$ $\neg$($\neg$(R $\wedge$ S) $\vee$ P)):
+  Partindo de $\neg P \vee \neg(Q \wedge \neg(\neg(R \wedge S) \vee P))$:
 
   Aplicar as primeiras leis de De Morgan:
 
-  $\neg$P $\vee$ $\neg$(Q $\wedge$ ($\neg\neg$(R $\wedge$ S) $\wedge$ $\neg$P));
+  $\neg P \vee \neg(Q \wedge (\neg\neg(R \wedge S) \wedge \neg P))$;
 
   Aplicar a Lei da dupla negação
 
-  $\neg$P $\vee$ $\neg$(Q $\wedge$ ((R $\wedge$ S) $\wedge$ $\neg$P));
+  $\neg P \vee \neg(Q \wedge ((R \wedge S) \wedge \neg P))$;
 
   :::
 
@@ -101,11 +101,11 @@ As _fbfs_ podem, contudo, não nos ser apresentadas inicialmente nesta forma de 
 
   :::details[Exemplo - Obter a forma conjuntiva normal]
 
-  Partindo de ($\neg$P $\vee$ $\neg$Q) $\wedge$ ($\neg$P $\vee$ ((R $\wedge$ S) $\wedge$ P)):
+  Partindo de $(\neg P \vee \neg Q) \wedge (\neg P \vee ((R \wedge S) \wedge P))$:
 
-  ($\neg$P $\vee$ $\neg$Q) $\wedge$ ($\neg$P $\vee$ (R $\wedge$ S)) $\wedge$ ($\neg$P $\vee$ P);
+  $(\neg P \vee \neg Q) \wedge (\neg P \vee (R \wedge S)) \wedge (\neg P \vee P)$;
 
-  ($\neg$P $\vee$ $\neg$Q) $\wedge$ ($\neg$P $\vee$ R) $\wedge$ ($\neg$P $\vee$ S) $\wedge$ ($\neg$P $\vee$ P).
+  $(\neg P \vee \neg Q) \wedge (\neg P \vee R) \wedge (\neg P \vee S) \wedge (\neg P \vee P)$.
 
   :::
 
@@ -117,9 +117,9 @@ As _fbfs_ podem, contudo, não nos ser apresentadas inicialmente nesta forma de 
 
   :::details[Exemplo - Eliminar o símbolo ∧]
 
-  Partindo de ($\neg$P $\vee$ $\neg$Q) $\wedge$ ($\neg$P $\vee$ R) $\wedge$ ($\neg$P $\vee$ S) $\wedge$ ($\neg$P $\vee$ $\neg$P):
+  Partindo de $(\neg P \vee \neg Q) \wedge (\neg P \vee R) \wedge (\neg P \vee S) \wedge (\neg P \vee \neg P)$:
 
-  {$\neg$P $\vee$ $\neg$Q, $\neg$P $\vee$ R, $\neg$P $\vee$ S, $\neg$P $\vee$ $\neg$P}.
+  $\{\neg P \vee \neg Q, \neg P \vee R, \neg P \vee S, \neg P \vee \neg P\}$.
 
   :::
 
@@ -131,9 +131,9 @@ As _fbfs_ podem, contudo, não nos ser apresentadas inicialmente nesta forma de 
 
   :::details[Exemplo - Eliminar o símbolo ∨]
 
-  Partindo de {$\neg$P $\vee$ $\neg$Q, $\neg$P $\vee$ R, $\neg$P $\vee$ S, $\neg$P $\vee$ $\neg$P}:
+  Partindo de $\{\neg P \vee \neg Q, \neg P \vee R, \neg P \vee S, \neg P \vee \neg P\}$:
 
-  {{$\neg$P, $\neg$Q}, {$\neg$P, R}, {$\neg$P, S}, {$\neg$P}}
+  $\{\{\neg P, \neg Q\}, \{\neg P, R\}, \{\neg P, S\}, \{\neg P\}\}$
 
   :::
 
@@ -143,23 +143,42 @@ As _fbfs_ podem, contudo, não nos ser apresentadas inicialmente nesta forma de 
 
   :::details Exemplos - Princípio da resolução
 
-  Considerando as cláusulas {$\neg$P, Q, S} e {P, $\neg$Q}:
+  Considerando as cláusulas $\{\neg P, Q, S\}$ e $\{P, \neg Q\}$:
 
-  O seu resolvente-P é {Q, S, $\neg$Q}; (removemos os literais P e $\neg$P em conflito)  
-  O seu resolvente-Q é {$\neg$P, S, P}; (removemos os literais Q e $\neg$Q em conflito)
+  O seu _resolvente-P_ é $\{Q, S, \neg Q\}$; (removemos os literais $P$ e $\neg P$ em conflito)  
+  O seu _resolvente-Q_ é $\{\neg P, S, P\}$; (removemos os literais $Q$ e $\neg Q$ em conflito)
 
-  Usando resolução, provar que {P, P $\to$ Q} $\vdash$ Q:
+  Usando resolução, provar que $\{P, P \to Q\} \vdash Q$:
 
-  - Passar à forma clausal: {P}, {$\neg$P, Q} e {Q};
+  - Passar à forma clausal: $\{P\}$, $\{\neg P, Q\}$ e $\{Q\}$;
   - Aplicar a resolução:
 
-    ![Principio da Resolução 1](./assets/0003-p-resolucao1.png#dark=1)
+    $$
+    \def\arraystretch{1.5}
+    \begin{array}{lll}
+      1 & \{P\} && Prem\\
+      2 & \{\neg P, Q\} && Prem\\
+      3 & \{Q\} && Res(1, 2)
+    \end{array}
+    $$
 
   Podemos ainda realizar resoluções mais extensas:
 
-  ![Principio da Resolução 2](./assets/0003-p-resolucao2.png#dark=1)
+  Mostrar que $\{\{\neg P, Q\}, \{\neg P, \neg Q\}, \{P\}\} \vdash \{\}$:
 
-  **A cláusula vazia corresponde a uma contradição.**
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    1 & \{\neg P, Q\} && Prem\\
+    2 & \{\neg P, \neg Q\} && Prem\\
+    3 & \{P\} && Prem\\
+    4 & \{Q\} && Res(1, 3)\\
+    5 & \{\neg Q\} && Res(2, 3)\\
+    6 & \{\} && Res(4, 5)
+  \end{array}
+  $$
+
+  **A cláusula vazia corresponde à existência de uma contradição.**
 
   :::
 
@@ -178,7 +197,7 @@ Numa prova por resolução, a decisão sobre quais as cláusulas a utilizar em c
   :::tip[VANTAGENS VS DESVANTAGENS]
 
   **Vantagem** - fornece um algoritmo que **garante** encontrar uma solução, se esta existir, que corresponde ao menor número de aplicações do princípio da resolução.  
-  **Desvantagem** - gera muitas cláusulas que acabam por ser inúteis para a prova, incluindo algumas repetidas.
+  **Desvantagem** - gera muitas cláusulas que acabam por ser inúteis para a prova.
 
   :::
 
@@ -211,9 +230,7 @@ Para aumentar a eficiência da geração de provas por resolução, foram desenv
 
   :::details[Exemplo - Eliminar teoremas/cláusulas não mínimas]
 
-  Um exemplo possível é:
-
-  ![Eliminação de Cláusulas 1](./assets/0003-el-clausulas1.png#dark=1)
+  Considerando as cláusulas $\{\{\neg P, \neg Q, R\}, \{\neg P, \neg Q, Q\}, \{\neg P, \neg Q\}\}$, podemos aplicar a eliminação de teoremas e ficar com $\{\{\neg P, \neg Q, R\}\}$. Posteriormente, podíamos ainda eliminar cláusulas não mínimas, ficando apenas com $\{\{\neg P, \neg Q\}\}$.
 
   :::
 
@@ -221,7 +238,7 @@ Para aumentar a eficiência da geração de provas por resolução, foram desenv
 
   :::details[Exemplo - Literais puros]
 
-  Dado o conjunto de cláusulas {{P, Q, $\neg$R}, {P, $\neg$Q, $\neg$R}}, P e R são literais puros.
+  Dado o conjunto de cláusulas $\{\{P, Q, \neg R\}, \{P, \neg Q, \neg R\}\}$, $P$ e $R$ são literais puros.
 
   :::
 
@@ -235,7 +252,7 @@ Para aumentar a eficiência da geração de provas por resolução, foram desenv
 
   Corresponde a um processo de controlar as cláusulas geradas numa prova por resolução, impondo restrições às cláusulas que podem ser candidatas à aplicação do princípio da resolução. Aqui, consideramos as resoluções _unitária_ e _linear_.
 
-  :::tip[RESOLUÇÃO UNITÁRIA]
+  :::tip[Resolução unitária]
 
   Baseia-se no facto de ao utilizarmos a resolução tentarmos por norma diminuir o número de literais existentes nas cláusulas produzidas (mais evidente em provas por refutação). Se uma das cláusulas envolvidas numa aplicação do princípio da resolução apenas contiver um literal, uma _cláusula unitária_, é então garantido que o resolvente tem menos literais do que a cláusula mãe com maior número de literais. Esta estratégia consiste, portanto, em aplicar o princípio da resolução utilizando sempre pelo menos uma cláusula unitária. **Nem todas as proposições válidas podem ser provadas desta maneira**, visto que nem sempre estamos na presença de cláusulas unitárias. Não é, portanto, um processo de inferência **completo**.
 
@@ -249,7 +266,7 @@ Para aumentar a eficiência da geração de provas por resolução, foram desenv
 
   :::
 
-  :::tip[RESOLUÇÃO LINEAR]
+  :::tip[Resolução Linear]
 
   Começamos por selecionar uma cláusula entre as premissas, a _cláusula inicial_, obtendo um resolvente entre a cláusula inicial e outra qualquer pertencente às premissas. A partir daí, sempre que se aplica o princípio da resolução utiliza-se o último sucessor da cláusula inicial. Qualquer sucessor da cláusula inicial chama-se _cláusula central_. Geralmente como cláusula inicial escolhemos a que corresponde à negação da cláusula que pretendemos provar, usando portanto a prova por refutação. Nesta prova por refutação, adicionaríamos a negação da conclusão ao conjunto de premissas, e tentaríamos derivar { }.
 
@@ -269,3 +286,5 @@ Para aumentar a eficiência da geração de provas por resolução, foram desenv
 - **Correção e completude da resolução**
 
   A resolução é correta mas não completa. Não é possível demonstrar todos os argumentos válidos. Contudo, a resolução é completa no que à **refutação** diz respeito, visto que podemos sempre derivar a cláusula vazia caso o conjunto inicial de cláusulas seja insatisfazível.
+
+[Slides](https://drive.google.com/file/d/1bz5sZcAbO-5K_fWAGxk3CAbGUs-LIRIQ/view?usp=sharing)

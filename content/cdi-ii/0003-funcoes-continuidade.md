@@ -239,7 +239,7 @@ $||f(x) - f(a)|| = ||x-a||$ então, com $\epsilon = r$:
 $|| x - a|| < \epsilon (= r) => || f(x) - f(a)|| = || x- a|| < \epsilon = r$
 
 Logo esta função $f$ também é contínua em $a$.
-Como $a$ é genérico, logo $f$ é contínua em $\R^n$.
+Como $a$ é genérico, $f$ é contínua em $\R^n$.
 
 :::
 
@@ -409,7 +409,7 @@ Esta é uma boa estratégia quando queremos provar que o limite não existe.
 
 :::warning
 
-Não ser pode usar limites direcionais para provar que um limite existe.
+Não se pode usar limites direcionais para provar que um limite existe.
 Se obtivermos um valor que não depende de $m$, $k$, etc, **nada se pode concluir**.
 
 :::
@@ -489,7 +489,13 @@ Se $D$ é compacto (isto é, fechado e limitado), então toda a sucessão de pon
 
 A demonstração deste teorema encontra-se nos slides da aula 5.
 
-## Teorema de Weirestrass
+## Teorema de Weierstrass
+
+:::tip[DEFINIÇÃO]
+
+Se $A \subset \R^n$ é compacto e $f: A \to \R$ é contínua, então $f$ tem máximo e mínimo em $A$.
+
+:::
 
 Deste teorema, podemos retirar:
 

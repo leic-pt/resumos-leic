@@ -79,7 +79,7 @@ DF = \begin{bmatrix}
 \end{bmatrix}
 $$
 
-Quando $\car DF \ne 1$, então $x,y = 0$. No entanto, este ponto não pretence ao conjunto.
+Quando $\car DF \ne 1$, então $x,y = 0$. No entanto, este ponto não pertence ao conjunto.
 
 Logo, $\car DF$ é máxima em qualquer ponto do conjunto e $M$ é variedade de dimensão $1$.
 
@@ -204,13 +204,13 @@ Uma parametrização é uma função $g: V \to M$, em que:
 
 :::
 
-**Pode não ser possível parameterizar de uma só vez toda a variedade.**
+**Pode não ser possível parametrizar de uma só vez toda a variedade.**
 
 Como exemplo, temos o seguinte conjunto (circunferência de raio 1):
 
 ![Circunferência de Raio 1](./assets/0014-circulo.svg#dark=1)
 
-A sua parameterização é $g(t) = (\cos t, \sin t), t \in ]0, 2\pi[$.
+A sua parametrização é $g(t) = (\cos t, \sin t), t \in ]0, 2\pi[$.
 
 :::details[Exemplos]
 
@@ -247,7 +247,7 @@ $P = \{(x,y,z) \in \R^3, z=x^2+y^2, z <1\}$
 
 Sabemos que $P$ é o gráfico de $f(x,y) = x^2+y^2$, para $x^2+y^2 < 1$
 
-Então podemos escrever a função $g$ como parameterização de $P$:
+Então podemos escrever a função $g$ como parametrização de $P$:
 
 $g(x,y) = (x,y,f(x,y)), \quad x^2+y^2 < 1$
 
@@ -277,7 +277,7 @@ $$
 
 variedade de $\dim 1$, que representa um **semi-circulo**.
 
-Como $x >0 \implies x=\sqrt{1-y^2}$, podemos obter a parameterização:
+Como $x >0 \implies x=\sqrt{1-y^2}$, podemos obter a parametrização:
 
 $$
 \begin{array}{ll}

@@ -63,12 +63,12 @@ Com a `Matriz Lunar` conseguimos determinar as datas limite da Páscoa.
 
 :::details[Datas Limite da Páscoa]
 
-1. **Primerio Dia**
+1. **Primeiro Dia**
 
 Será quando a Lua Cheia calha o mais cedo possível, a partir do início da Primavera.  
 Vendo a `Matriz Lunar`, o `Número de Ouro` **XVI** tem uma Lua Nova dia `8 de março`, exatamente **13** dias antes do equinócio da Primavera.
 
-Nos anos com `Número de Ouro` **XVI**, onde há Lua Cheia no equinócio, se esta calhar a um sábado, a Páscoa será logo no dia `22 de março`, a **primeira data possível para a Pásoca**.
+Nos anos com `Número de Ouro` **XVI**, onde há Lua Cheia no equinócio, se esta calhar a um sábado, a Páscoa será logo no dia `22 de março`, a **primeira data possível para a Páscoa**.
 
 2. **Último dia**
 

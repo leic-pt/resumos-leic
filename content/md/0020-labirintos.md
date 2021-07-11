@@ -35,7 +35,7 @@ Um `multigrafo atravessável` é um multigrafo que tem um `atalho euleriano aber
 ## Representar um Labirinto com Grafo
 
 Seja uma encruzilhada um sítio no labirinto, onde se pode escolher vários caminhos.  
-Podemos representar um `Labirinto` atrvés de um grafo, onde todas as entradas, saídas, centros, encruzilhadas e becos sem sáida do labirinto são vértices e as arestas são os caminhos que existem entre cada vértice.
+Podemos representar um `Labirinto` através de um grafo, onde todas as entradas, saídas, centros, encruzilhadas e becos sem sáida do labirinto são vértices e as arestas são os caminhos que existem entre cada vértice.
 
 :::details[Exemplos]
 

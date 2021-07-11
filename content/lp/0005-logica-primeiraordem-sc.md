@@ -35,7 +35,7 @@ Os agentes cognitivos têm como componentes principais a _base de conhecimento_,
 
 Duas hipóteses (hipóteses porque ainda não foi provado que são falsas) importantes em relação a este tipo de sistemas - _hipótese do sistema de símbolos físicos_ e _hipótese de representação do conhecimento_.
 
-A primeira consiste em ter um sistema de símbolos físicos compostos por um conjunto de entidades, os tais símbolos, que correspondem a "padrões físicos", que podem ser agrupados em estruturas, e por um procedimentos que operam sobre eles. Haverá uma máquina a produzir sucessões de estruturas de símbolos, que contém memória para guardar informação sobre eles, entre outras propriedades.
+A primeira consiste em ter um sistema de símbolos físicos compostos por um conjunto de entidades, os tais símbolos, que correspondem a "padrões físicos", que podem ser agrupados em estruturas, e por um conjunto de procedimentos que operam sobre eles. Haverá uma máquina a produzir sucessões de estruturas de símbolos, que contém memória para guardar informação sobre eles, entre outras propriedades.
 
 - **Qualquer sistema que apresente comportamento inteligente pode ser visto como um sistema de símbolos físicos** - aplica-se a humanos por exemplo, onde os símbolos físicos aplicam-se na nossa memória. O nosso cérebro reage conforme identifica (ou não) um dado padrão, e tem capacidade de o memorizar.
 - **Qualquer sistema de símbolos físicos de tamanho adequado (não qualquer programa) pode ser organizado de modo a exibir comportamento inteligente**.
@@ -46,9 +46,9 @@ A segunda, a hipótese de representação do conhecimento, complementa a hipóte
 
 ### Representar Conhecimento em Lógica
 
-O primeiro passo a tomar é inventar um modelo daquilo que pretendemos representar.
+O primeiro passo a tomar é [inventar um modelo](https://i.imgur.com/kU3zFQ4.png) daquilo que pretendemos representar.
 
-- **Modelo** - abstração do mundo que apenas captura os seus aspetos que são relevantes para um certo problema ou tarefa. Neste modelo, devemos definir as entidades do mundo sobre as quais queremos falar - o _universo do discurso_ - e as funções e relações que vamos utilizar. Estamos, assim a definir o **vocabulário** utilizado pelas _fbfs_ da representação escolhida. Depois de tomadas essas decisões, escrevemos as _fbfs_ que relacionam constantes, funções e/ou relações (**axiomas próprios**, proposições aceites sem prova em relação ao domínio atual)- tarefa da **representação**.
+- **Modelo** - abstração do mundo que apenas captura os seus aspetos que são relevantes para um certo problema ou tarefa. Neste modelo, devemos definir as entidades do mundo sobre as quais queremos falar - o _universo do discurso_ - e as funções e relações que vamos utilizar. Estamos, assim a definir o **vocabulário** utilizado pelas _fbfs_ da representação escolhida. Depois de tomadas essas decisões, escrevemos as _fbfs_ que relacionam constantes, funções e/ou relações (**axiomas próprios**, proposições aceites sem prova em relação ao domínio atual) - tarefa da **representação**.
 
 O conjunto de todas as constantes, funções, relações e axiomas próprios é a **ontologia** do domínio.
 
@@ -102,13 +102,25 @@ _Durante esta secção, o exemplo demonstrado será o d'Os Simpsons, tal como no
 
 Podemos realizar **provas** utilizando estas representações.
 
-:::tip[Prova]
-
-![Prova - Representação de Conhecimento](./assets/0005-prova-repc.png#dark=1)
-
-<!--- fiz só esta imagem em vez de usar latex porque estava com problemas em relação ao espaçamento (por causa da indicação das regras de inferência no fim da linha) -->
-
-:::
+$$
+\def\arraystretch{1.5}
+\begin{array}{lll}
+  1 & Homem(Abe) && Prem\\
+  2 & Homem(Homer) && Prem\\
+  3 & Homem(Bart) && Prem\\
+  4 & AD(Abe, Homer) && Prem\\
+  5 & AD(Homer, Bart) && Prem\\
+  6 & \forall x, y, z[(AD(x, y) \wedge AD(y, z)) \to A2Linha(x, z)] && Prem\\
+  7 & \forall x, y[(A2Linha(x, y) \wedge Homem(x)) \leftrightarrow Avô(x, y)] && Prem\\
+  8 & (AD(Abe, Homer) \wedge AD(Homer, Bart)) \to A2Linha(Abe, Bart) && E\forall, 6\\
+  9 & AD(Abe, Homer) \wedge AD(Homer, Bart) && I\wedge, (4, 5)\\
+  10 & A2Linha(Abe, Bart) && E\to, (9, 8)\\
+  11 & (A2Linha(Abe, Bart) \wedge Homem(Abe)) \leftrightarrow Avô(Abe, Bart) && E\forall, 7\\
+  12 & (A2Linha(Abe, Bart) \wedge Homem(Abe)) \to Avô(Abe, Bart) && E\leftrightarrow, 11\\
+  13 & A2Linha(Abe, Bart) \wedge Homem(Abe) && I\wedge, (10, 1)\\
+  14 & Avô(Abe, Bart) && E\to, (13, 12)
+\end{array}
+$$
 
 ## Forma Clausal
 
@@ -122,11 +134,11 @@ Obtida de forma semelhante à da Lógica Proposicional, apesar de algumas difere
 
   $\neg\forall x[\alpha (x)] \leftrightarrow \exists x[\neg\alpha (x)]$
 
-  _Dizer que nem todo o x tem uma certa propriedade é o mesmo que dizer que há pelo menos um x que não a tem_.
+  _Dizer que nem todo o $x$ tem uma certa propriedade é o mesmo que dizer que há pelo menos um $x$ que não a tem_.
 
   $\neg\exists x[\alpha (x)] \leftrightarrow \forall x[\neg\alpha (x)]$
 
-  _Dizer que não há nenhum x que tenha uma certa propriedade é o mesmo que dizer que todo o x não tem a falta dessa propriedade_.
+  _Dizer que não há nenhum $x$ que tenha uma certa propriedade é o mesmo que dizer que todo o $x$ não tem a falta dessa propriedade_.
 
   :::
 
@@ -266,7 +278,7 @@ Seja $\Delta$ o conjunto $\{P(x, x), P(y, f(y))\}$. Se quisermos tentar determin
 | $\{P(y, y), P(y, f(y))\}$ | $\{y/x\}$ | $\{y,f(y)\}$ |  $falha$  |
 
 De cima para baixo, da esquerda para a direita:  
-Começamos por olhar para $\Delta$ da esquerda para a direita; como podemos constatar, $x$ e $y$ estão em desacordo, se considerarmos os primeiros argumentos de cada _fbf_. Assim sendo, o conjunto atual de desacordo, $D$, passa a ser $\{x, y\}$. Sabemos que _deixa de ficar em desacordo_ se substituirmos $x$ por $y$ (a decisão é feita, mais uma vez, ao ler da esquerda para a direita), e adicionamos, portanto essa mesma substituição ao conjunto $s = s \circ \{y/x\} = \{y/x\}$. Voltamos a verificar o conjunto de desacordo, desta vez para o segundo argumento de cada _fbf_. Como é possível constatar, $y$ e $f(y)$ estão em desacordo. Contudo, $y$ ocorre em $f(y)$, pelo que a substituição não é possível, não podendo, portanto, unificar o conjunto. O conjunto **não é unificável**, e o algoritmo para aqui.
+Começamos por olhar para $\Delta$ da esquerda para a direita; como podemos constatar, $x$ e $y$ estão em desacordo, se considerarmos os primeiros argumentos de cada _fbf_. Assim sendo, o conjunto atual de desacordo, $D$, passa a ser $\{x, y\}$. Sabemos que _deixa de ficar em desacordo_ se substituirmos $x$ por $y$ (a decisão é feita, mais uma vez, ao ler da esquerda para a direita), e adicionamos, portanto essa mesma substituição ao conjunto $s = s \circ \{y/x\} = \{y/x\}$. Voltamos a verificar o conjunto de desacordo, desta vez para o segundo argumento de cada _fbf_. Como é possível constatar, $y$ e $f(y)$ estão em desacordo. Contudo, $y$ ocorre em $f(y)$, pelo que a unificação não é possível (originaria uma espécie de recursão infinita), e o algoritmo falha. O conjunto **não é unificável**.
 
 :::
 
@@ -331,7 +343,20 @@ A partir das quais queremos derivar $Ant(Sr.B, Bart).$
 
 Primeiro, temos de passar as premissas à forma clausal. Negamos a conclusão (refutação), passando-a para as premissas, e a resolução dar-se-á assim:
 
-![Resolução do Sr.B](./assets/0005-resolucaosrb.png#dark=1)
+$$
+\def\arraystretch{1.5}
+\begin{array}{lll}
+  1 & \{\neg AD(x, y), Ant(x, y)\} && Prem\\
+  2 & \{\neg Ant(x, y), \neg AD(y, z), Ant(x, z)\} && Prem\\
+  3 & \{AD(Marge, Bart)\} && Prem\\
+  4 & \{AD(Sr.B, Marge)\} && Prem\\
+  5 & \{\neg Ant(Sr.B, Bart)\} && Prem\\
+  6 & \{\neg Ant(Sr.B, y), \neg AD(y, Bart)\} && Res, (2, 5), \{Sr.B/x, Bart/z\}\\
+  7 & \{\neg Ant(Sr.B, Marge)\} && Res, (3,  6), \{Marge/y\}\\
+  8 & \{\neg AD(Sr.B, Marge)\} && Res, (1, 7), \{Sr.B/x, Marge/y)\}\\
+  9 & \{\} && Res, (4, 8), \{\}
+\end{array}
+$$
 
 Na linha 6, o que se faz é reparar que com substituir $x$ por $Sr.B$ e $z$ por $Bart$ leva a um resolvente em ordem $Ant(Sr.B, Bart)$. Assim sendo, aplicamos essa substituição (a todos os membros, incluindo os que não desaparecem) e utilizamos o resolvente. Um processo semelhante pode ser aplicado a todos os passos seguintes.
 
@@ -343,7 +368,22 @@ Tenhamos como premissas as premissas do exemplo anterior (retirando a negação 
 
 $\forall x[Ant(x, Bart) \to R(x)]$, onde $R(x) = "x$ é uma resposta". A resolução passará a ser tal que:
 
-![Resolução Quem](./assets/0005-resolucao-pais.png#dark=1)
+$$
+\def\arraystretch{1.5}
+\begin{array}{lll}
+  1 & \{\neg AD(x, y), Ant(x, y)\} && Prem\\
+  2 & \{\neg Ant(x, y), \neg AD(y, z), Ant(x, z)\} && Prem\\
+  3 & \{AD(Marge, Bart)\} && Prem\\
+  4 & \{AD(Sr.B, Marge)\} && Prem\\
+  5 & \{\neg Ant(x, Bart), R(x)\} && Prem\\
+  6 & \{Ant(Marge, Bart)\} && Res, (1, 3), \{Marge/x, Bart/y\}\\
+  7 & \{R(Marge)\} && Res, (5, 6), \{Marge/x\}\\
+  8 & \{Ant(Sr.B, Marge)\} && Res, (1, 4), \{Sr.B/x, Marge/y\}\\
+  9 & \{\neg AD(Marge, z), Ant(Sr.B, z)\} && Res, (2, 8), \{Sr.B/x, Marge/y\}\\
+  10 & \{Ant(Sr.B, Bart)\} && Res, (3, 9), \{Bart/z\}\\
+  11 & \{R(Sr.B)\} && Res, (5, 10), \{Sr.B/x\}
+\end{array}
+$$
 
 Se repararmos, chegamos 2 vezes a $R(resposta)$, onde $resposta$ corresponde a um dos antepassados do Bart.
 
@@ -361,12 +401,25 @@ Tentemos fazê-lo com este conjunto de premissas:
 - $\forall x, y[Mãe(x, y) \to Mulher(x)]$
 - $Pessoa(Bart)$
 
-Suponhamos que queremos descobrir **quem são as mulheres envolvidas nestas proposições**. Bem, introduzimos a tal _fbf_ especial às premissas, $\forall x[Mulher(x) \to R(x)]$, e vamos trabalhar.
+Suponhamos que queremos descobrir **quais são as mulheres envolvidas nestas proposições**. Bem, introduzimos a tal _fbf_ especial às premissas, $\forall x[Mulher(x) \to R(x)]$, e vamos trabalhar.
 
-![Resolução quais](./assets/0005-resolucao-quais.png#dark=1)
+$$
+\def\arraystretch{1.5}
+\begin{array}{lll}
+  1 & \{\neg Pessoa(x), Mãe(m(x), x)\} && Prem\\
+  2 & \{\neg Mãe(x, y), Mulher(x)\} && Prem\\
+  3 & \{Pessoa(Bart)\} && Prem\\
+  4 & \{\neg Mulher(x), R(x))\} && Prem\\
+  5 & \{Mãe(m(Bart), Bart)\} && Res, (1, 3), \{Bart/x\}\\
+  6 & \{Mulher(m(Bart))\} && Res(2, 5), \{m(Bart)/x, Bart/y\}\\
+  7 & \{R(m(Bart))\} && Res, (4, 6), \{m(Bart)/x\}
+\end{array}
+$$
 
 Chegamos, portanto, a que a única mulher conhecida é a mãe do Bart, apesar de o seu nome não estar explícito nas premissas.
 
 De realçar que, tal como no exemplo anterior, não era necessário recorrer a esta _fbf_ extra - é só uma maneira diferente de se resolver.
 
 :::
+
+[Slides](https://drive.google.com/file/d/13T22fWhgHdQxErxsI105zGXH0_ytM-AY/view?usp=sharing)

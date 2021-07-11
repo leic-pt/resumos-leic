@@ -61,7 +61,7 @@ $$
 \Delta \frac{u_n}{v_n} = \frac{(\Delta u_n)v_n -u_n\Delta v_n}{v_nv_{n+1}}
 $$
 
-### Termo geral de uma sucessão pelas duas derivadas em n = 0
+### Termo geral de uma sucessão pelas suas derivadas em n = 0
 
 $$
 u_n = u_0 \cdot n^{\underline 0} + \frac{1}{1!} (\Delta u_0) n^{\underline 1} + \frac{1}{2!} (\Delta^2 u_0) n^{\underline 2} + \dots +
@@ -244,8 +244,8 @@ $$
 \begin{aligned}
 \sum^n_{k=0} k\times 4^k &= \sum^n_{k=0} k \times \Delta \frac{4^k}{3}\\
 &= \frac{1}{3} \left(\left[k\times 4^k \right]^{n+1}_0 - \sum^n_{k=0} 4^{k+1} \cdot \Delta k \right)\\
-&= \frac{1}{3} \left((n+1)4^{k+1} - 0 - 4\sum^n_{k=0} 4^{k} \times 1 \right)\\
-&= \frac{1}{3} \left((n+1)4^{k+1} - 4\left(\frac{1}{3}\left(4^{n+1}-1\right)\right) \right)\\
+&= \frac{1}{3} \left((n+1)4^{n+1} - 0 - 4\sum^n_{k=0} 4^{k} \times 1 \right)\\
+&= \frac{1}{3} \left((n+1)4^{n+1} - 4\left(\frac{1}{3}\left(4^{n+1}-1\right)\right) \right)\\
 \end{aligned}
 $$
 

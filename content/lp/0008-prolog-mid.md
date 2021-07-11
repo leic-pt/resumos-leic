@@ -15,7 +15,7 @@ Informação útil para perceberem o que está a acontecer na recursão: podem e
 
 ## Meta-Predicados sobre Listas
 
-Ponto importante - sempre que virem algo do género `<nome_func>/<numero>`, `<numero>` é o número de argumentos que a função recebe.
+Ponto importante - sempre que virem algo do género `<nome_func>/<numero>`, `<numero>` é o número de argumentos que a função recebe (a sua aridade).
 
 ### length
 
@@ -442,3 +442,6 @@ Nos slides há um exemplo giro do problema do homem, do lobo, da cabra e da couv
 :::tip
 Para correr código de dentro de um programa rapidamente sem criar um ficheiro, pode-se escrever `[user].` na prompt, seguido do código para pôr dentro do programa, seguido de Ctrl-D (EOF).
 :::
+
+[Slides (Meta-Predicados)](https://drive.google.com/file/d/1fXdFS_m-H_e_gx_EtxJltQjvD9h4GN9_/view?usp=sharing)
+[Slides (Aritmética, IO, Estruturas)](https://drive.google.com/file/d/1dH3f2Wq-ApjzpY835TxG5fNucu7eQ9E7/view?usp=sharing)

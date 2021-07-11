@@ -38,7 +38,7 @@ Chegamos a este grafo através de:
 
   - $\neg \neg P \leftrightarrow P$ (não obrigatório, contudo sempre realizada no decorrer destes algoritmos)
 
-  Por exemplo, simplificar $\neg \neg (P \wedge \neg \neg (\neg P \vee Q))$ resultaria sucessivamente em $P \wedge (\neg P \vee Q)$, via eliminação da dupla negação, e $P \wedge \neg (P \wedge \neg Q)$, via a primeira equivalência referida acima.~
+  Por exemplo, simplificar $\neg \neg (P \wedge \neg \neg (\neg P \vee Q))$ resultaria sucessivamente em $P \wedge (\neg P \vee Q)$, via eliminação da dupla negação, e $P \wedge \neg (P \wedge \neg Q)$, via a primeira equivalência referida acima.
 
 - já com a _fbf_ tranformada nesta versão mais simplificada, podemos construir o nosso DAG:
 
@@ -66,7 +66,7 @@ Por fim, juntamos as folhas com rótulos repetidos - neste caso, folhas com rót
 
 Chegámos agora à próxima fase do algoritmo, a propagação de marcas (V ou F) pelo grafo. O primeiro passo é **sempre** marcar a raiz com V. As seguintes marcas são dadas por um conjunto de regras:
 
-- Tendo um nó de rótulo $\neg$ marcado, o algoritmo propaga a marca "contrária" para os seus arcos; podemos ainda analisar o processo ao contrário - se temos um nó com rótulo marcado com arco "para cima" que leva a uma raiz com rótulo $\neg$, então, a raiz copm $\neg$ tem a marca oposta.
+- Tendo um nó de rótulo $\neg$ marcado, o algoritmo propaga a marca "contrária" para os seus arcos; podemos ainda analisar o processo ao contrário - se temos um nó com rótulo marcado com arco "para cima" que leva a uma raiz com rótulo $\neg$, então, a raiz com $\neg$ tem a marca oposta.
 
 <p align="center">
 ![Regra da Negação](./assets/0013-reg-neg.png#dark=1)
@@ -250,10 +250,12 @@ Uma interpretação que satisfaz $\Delta$ é, portanto, $I(T)=V, I(S)=V, I(R)=V,
 
 Se, ainda em relação à _fbf_ anterior, tivéssemos optado pela ordem $S \prec R \prec P \prec Q \prec T$, obteríamos:
 
-$b_{P}: \{\neg P, S, T, R\}, \{\neg P, Q, S\}, \{S\}$  
-$b_{Q}: \{P, Q, \neg R\}, \{\neg Q, \neg R\}$  
-$b_{R}:$  
-$b_{S}:$  
+$b_{S}: \{\neg P, S, T, R\}, \{\neg P, Q, S\}, \{S\}$  
+$b_{R}: \{P, Q, \neg R\}, \{\neg Q, \neg R\}$  
+$b_{P}:$  
+$b_{Q}:$  
 $b_{T}:$
 
 A escolha desta ordem levou a menos processamento do que a escolha da ordem anterior, pelo que esta escolha teria sido bastante melhor (e mais simples).
+
+[Slides (do 25 para a frente)](https://drive.google.com/file/d/1ZuegnTFgn5SmM4qh2zPu2wpbbNDi5KaP/view?usp=sharing)

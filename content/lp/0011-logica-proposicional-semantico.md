@@ -123,7 +123,7 @@ Por exemplo, dado o argumento $(\{P \wedge Q, R\}, P \wedge R)$, podemos verific
 | F   | F   | V   | V         | V         | F          | V                  |
 | F   | F   | F   | V         | V         | F          | V                  |
 
-Acima, podemos ver o exemplo do argumento $\{P \to Q, Q \to R\} \models (P \vee Q) \to R$. As colunas 4 e 5 são as das premissas, a 7 a da conclusão - como podemos notar, **não existe nenhuma interpretação onde as premissas sejam todas verdadeiras e a conclusão falsa**. Podemos, portanto, dizer que o argumento é válido.
+Acima, podemos ver o exemplo do argumento $\{P \to R, Q \to R\} \models (P \vee Q) \to R$. As colunas 4 e 5 são as das premissas, a 7 a da conclusão - como podemos notar, **não existe nenhuma interpretação onde as premissas sejam todas verdadeiras e a conclusão falsa**. Podemos, portanto, dizer que o argumento é válido.
 
 Podemos ainda demonstrar tautologias:
 
@@ -144,6 +144,8 @@ A lógica proposicional é **correta e completa**.
 
 - **Completude** - Para quaisquer _fbfs_ $\alpha_{1}, \cdots, \alpha_{k}$ e $\beta$, se pudermos afirmar que $\beta$ é consequência semântica de $\{\alpha_{1}, \cdots, \alpha_{k}\}$, ou seja, se $\{\alpha_{1}, \cdots, \alpha_{k}\} \models \beta$, então $\{\alpha_{1}, \cdots, \alpha_{k}\} \vdash \beta$. Qualquer argumento válido de acordo com a semântica é demonstrável.
 
-Podemos, então, voltar a olhar para a relação entre os sistemas dedutivo e semântico.
+Podemos, então, voltar a olhar para a relação entre os sistemas dedutivo e semântico:
 
 ![Dedutivo vs Semântico](./assets/0011-dedsem.png#dark=1)
+
+[Slides](https://drive.google.com/file/d/1mZ9-lO4AyAcMKgfXnf1O2zkXpkZojLNY/view?usp=sharing)

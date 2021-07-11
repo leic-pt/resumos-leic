@@ -49,7 +49,7 @@ Especifica as **regras de inferência**, regras que permitem a manipulação de 
 - **Deducão Natural:**  
   Nos sistemas abordados por dedução natural existem por norma duas regras de inferência por cada símbolo lógico - a **regra de introdução**, que diz como introduzir uma _fbf_ que utiliza um dado símbolo lógico, e a **regra de eliminação**, que diz como usar uma _fbf_ que contém o símbolo lógico.
 
-  Aqui, não existem _axiomas_ - _fbfs_ - que se aceitam como verdadeiras.
+  Aqui, não existem _axiomas_ - _fbfs_ que se aceitam como verdadeiras.
 
 ### Prova
 
@@ -67,27 +67,44 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   A introdução de uma premissa tem sempre um aspeto deste género:
 
-  ![Regra da Premissa 1](./assets/0002-regra-da-premissa1.png#dark=1)
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{llll}
+    n & \alpha && Prem \\
+  \end{array}
+  $$
 
   :::
 
   :::details[Exemplo - Regra da premissa]
 
-  Ao tentar provar que {P, Q} $\vdash$ P $\wedge$ Q, começamos a prova escrevendo as premissas, tal que:
+  Ao tentar provar que $\{P, Q\} \vdash P \wedge Q$, começamos a prova escrevendo as premissas, tal que:
 
-  ![Regra da Premissa 2](./assets/0002-regra-da-premissa2.png#dark=1)
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{llll}
+    1 & P && Prem \\
+    2 & Q && Prem \\
+  \end{array}
+  $$
 
   :::
 
 - **Regra da repetição:**
 
-  Regra que afirma que qualquer _fbf_ pode ser repetida dentro de uma prova - ou seja, se já existe uma _fbf_ numa linha anterior, podemos reescrevê-la na linha atual, justificando com a regra da repetição. Identificada por _Rep_, $n$, onde $n$ representa a linha onde a _fbf_ foi introduzida.
+  Regra que afirma que qualquer _fbf_ pode ser repetida dentro de uma prova - ou seja, se já existe uma _fbf_ numa linha anterior, podemos reescrevê-la na linha atual, justificando com a regra da repetição. Identificada por $Rep, n$, onde $n$ representa a linha onde a _fbf_ foi introduzida.
 
   :::tip[REGRA DA REPETIÇÃO]
 
   A regra da repetição tem sempre um aspeto deste género:
 
-  ![Regra da Repetição 1](./assets/0002-regra-da-repeticao1.png#dark=1)
+  $$
+  \begin{array}{llll}
+    n & \alpha \\
+    \vdots & \vdots \\
+    m & \alpha && Rep, n
+  \end{array}
+  $$
 
   :::
 
@@ -95,21 +112,37 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   Em relação a um exemplo mais concreto:
 
-  ![Regra da Repetição 2](./assets/0002-regra-da-repeticao2.png#dark=1)
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{llll}
+    1 & P && Prem \\
+    2 & Q && Prem \\
+    3 & P && Rep, 1
+  \end{array}
+  $$
 
   :::
 
 - **Regras associadas à conjunção:**
 
   - **Introdução da Conjunção:**
-    Diz-nos como introduzir (ou como construir) uma _fbf_ cujo símbolo lógico principal é uma conjunção - uma conjunção de _fbfs_. Abreviada por I$\wedge$, ($n$, $m$), onde $n$ e $m$ representam, respetivamente, as linhas onde as primeira e segunda _fbfs_ foram introduzidas.
+    Diz-nos como introduzir (ou como construir) uma _fbf_ cujo símbolo lógico principal é uma conjunção - uma conjunção de _fbfs_. Abreviada por $I\wedge, (n, m)$, onde $n$ e $m$ representam, respetivamente, as linhas onde as primeira e segunda _fbfs_ foram introduzidas.
     Um ponto importante a reter é que as _fbfs_ têm de ter sido introduzidas **por ordem**, caso contrário não podemos aplicar diretamente a regra, tendo de usar a regra da repetição.
 
     :::tip[INTRODUÇÃO DA CONJUNÇÃO]
 
     A introdução da conjunção tem sempre um aspeto deste género:
 
-    ![Introdução da Conjunção 1](./assets/0002-int-conjuncao1.png#dark=1)
+    $$
+    \def\arraystretch{1.5}
+    \begin{array}{lll}
+      n & \alpha\\
+      \vdots & \vdots\\
+      m & \beta\\
+      \vdots & \vdots\\
+      k & \alpha\wedge\beta & I\wedge, (n,m)
+    \end{array}
+    $$
 
     :::
 
@@ -117,18 +150,43 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
     Em relação a um exemplo mais concreto:
 
-    ![Introdução da Conjunção 2](./assets/0002-int-conjuncao2.png#dark=1)
+    $$
+    \def\arraystretch{1.5}
+    \begin{array}{lll}
+      1 & P && Prem\\
+      2 & Q && Prem\\
+      3 & P \wedge Q && I\wedge, (1,2)
+    \end{array}
+    $$
 
     :::
 
   - **Eliminação da Conjunção:**
-    Diz-nos que, de uma _fbf_ cujo símbolo principal é uma conjunção, podemos derivar tanto a _fbf_ da "esquerda" como a da "direita". Abreviada por E$\wedge$, ($n$), onde $n$ representa a linha onde a _fbf_ em causa foi introduzida.
+    Diz-nos que, de uma _fbf_ cujo símbolo principal é uma conjunção, podemos derivar tanto a _fbf_ da "esquerda" como a da "direita". Abreviada por $E\wedge, n$, onde $n$ representa a linha onde a _fbf_ em causa foi introduzida.
 
     :::tip[ELIMINAÇÃO DA CONJUNÇÃO]
 
     A eliminação da conjunção tem sempre um aspeto deste género:
 
-    ![Eliminação da Conjunção 1](./assets/0002-el-conjuncao1.png#dark=1)
+    $$
+    \def\arraystretch{1.5}
+    \begin{array}{lll}
+      n & \alpha\wedge\beta\\
+      \vdots & \vdots\\
+      m & \alpha && E\wedge, n
+    \end{array}
+    $$
+
+    ou
+
+    $$
+    \def\arraystretch{1.5}
+    \begin{array}{lll}
+      n & \alpha\wedge\beta\\
+      \vdots & \vdots\\
+      m & \beta && E\wedge, n
+    \end{array}
+    $$
 
     :::
 
@@ -136,7 +194,16 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
     Em relação a um exemplo mais concreto:
 
-    ![Eliminação da Conjunção 2](./assets/0002-el-conjuncao2.png#dark=1)
+    $$
+    \def\arraystretch{1.5}
+    \begin{array}{lll}
+      1 & P \wedge Q && Prem\\
+      2 & R && Prem \\
+      3 & P && E\wedge, 1\\
+      4 & R && Rep, 2\\
+      5 & P \wedge R && I\wedge, (3,4)
+    \end{array}
+    $$
 
     De notar que começamos agora a ver várias aplicações de regras durante a prova.
 
@@ -151,7 +218,13 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   A regra da hipótese tem sempre um aspeto deste género:
 
-  ![Regra da hipótese 1](./assets/0002-r-hipotese1.png#dark=1)
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    n & \bigg\vert\underline{\enspace \alpha \enspace} && Hip\\
+    n + 1 & \bigg\vert\cdots
+  \end{array}
+  $$
 
   :::
 
@@ -159,19 +232,35 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   Em relação a um exemplo mais concreto:
 
-  ![Regra da hipótese 2](./assets/0002-r-hipotese2.png#dark=1)
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    1 & P \wedge Q && Prem\\
+    2 & P && E\wedge, 1\\
+    3 & \bigg\vert\underline{\enspace R \enspace} && Hip\\
+    4 & \bigg\vert\enspace R && Rep, 3
+  \end{array}
+  $$
 
   :::
 
   - **Regra da reiteração:**
 
-  Regra de inferência especial, específica às provas hipotéticas. Diz-nos que qualquer _fbf_ introduzida num ponto da prova exterior à prova hipotética pode ser utilizado dentro da mesma. **O contrário não se aplica.** Abreviada por Rei, $n$, onde $n$ é a linha onde a _fbf_ foi inicialmente introduzida.
+  Regra de inferência especial, específica às provas hipotéticas. Diz-nos que qualquer _fbf_ introduzida num ponto da prova exterior à prova hipotética pode ser utilizado dentro da mesma. **O contrário não se aplica.** Abreviada por $Rei, n$, onde $n$ é a linha onde a _fbf_ foi inicialmente introduzida.
 
   :::tip[REGRA DA REITERAÇÃO]
 
   A regra da reiteração tem sempre um aspeto deste género:
 
-  ![Regra da reiteração 1](./assets/0002-r-reiteracao1.png#dark=1)
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    n & \alpha\\
+    \vdots & \bigg\vert & \vdots\\
+    & \bigg\vert\\
+    m & \bigg\vert & \alpha && Rei, n
+  \end{array}
+  $$
 
   :::
 
@@ -179,7 +268,15 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   Em relação a um exemplo mais concreto:
 
-  ![Regra da reiteração 2](./assets/0002-r-reiteracao2.png#dark=1)
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    1 & P \to\lnot P & Prem\\
+    2 & \bigg\vert\underline{\enspace \lnot Q \enspace} & Hip \\
+    3 & \bigg\vert\enspace \bigg\vert\underline{\enspace P \enspace} & Hip \\
+    4 & \bigg\vert\enspace \bigg\vert\enspace P \to\lnot P & Rei, 1
+  \end{array}
+  $$
 
   :::
 
@@ -191,13 +288,21 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 - **Regras para a implicação:**
 
   - **Introdução da Implicação:**
-    Afirma que se numa prova iniciada por uma hipótese $\alpha$ formos capazes de derivar $\beta$, então podemos terminar a prova hipotética, podendo derivar $\alpha\to\beta$ na prova que contém a prova hipotética. Abreviada por I$\to$, ($n$, $m$), onde $n$ e $m$ são, respetivamente, a linha onde a hipótese foi introduzida e a _fbf_ associada derivada.
+    Afirma que se numa prova iniciada por uma hipótese $\alpha$ formos capazes de derivar $\beta$, então podemos terminar a prova hipotética, podendo derivar $\alpha\to\beta$ na prova que contém a prova hipotética. Abreviada por $I\to, (n, m)$, onde $n$ e $m$ são, respetivamente, a linha onde a hipótese foi introduzida e a _fbf_ associada derivada.
 
   :::tip[INTRODUÇÃO DA IMPLICAÇÃO]
 
   A introdução da implicação tem sempre um aspeto deste género:
 
-  ![Introdução da Implicação 1](./assets/0002-int-implicacao1.png#dark=1)
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    n & \bigg\vert\underline{\enspace \alpha \enspace} && Hip\\
+    \vdots & \bigg\vert\enspace\vdots\\
+    m & \bigg\vert\enspace\beta\\
+    m + 1 & \alpha\to\beta && I\to, (n, m)
+  \end{array}
+  $$
 
   :::
 
@@ -205,18 +310,35 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   Em relação a um exemplo mais concreto:
 
-  ![Introdução da Implicação 2](./assets/0002-int-implicacao2.png#dark=1)
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    1 & R && Prem\\
+    2 & \bigg\vert\underline{\enspace P \enspace} && Hip\\
+    3 & \bigg\vert\enspace R && Rei, 1\\
+    4 & P \to R && I\to, (2,3)
+  \end{array}
+  $$
 
   :::
 
   - **Eliminação da Implicação:**
-    Regra que nos diz que de uma prova que contém tanto uma _fbf_ $\alpha$ como uma outra $\alpha\to\beta$ podemos derivar $\beta$. Abreviada por E$\to$, ($n$, $m$), onde $n$ e $m$ são, respetivamente, as linhas onde $\alpha$ e $\alpha\to\beta$ foram introduzidas.
+    Regra que nos diz que de uma prova que contém tanto uma _fbf_ $\alpha$ como uma outra $\alpha\to\beta$ podemos derivar $\beta$. Abreviada por $E\to, (n, m)$, onde $n$ e $m$ são, respetivamente, as linhas onde $\alpha$ e $\alpha\to\beta$ foram introduzidas.
 
   :::tip[ELIMINAÇÃO DA IMPLICAÇÃO]
 
   A eliminação da implicação tem um aspeto deste género, sendo que a ordem de $\alpha$ e $\alpha\to\beta$ não é relevante:
 
-  ![Eliminação da Implicação 1](./assets/0002-el-implicacao1.png#dark=1)
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    n & \alpha\\
+    \vdots & \vdots\\
+    m & \alpha\to\beta\\
+    \vdots & \vdots\\
+    k & \beta && E\to, (n, m)
+  \end{array}
+  $$
 
   :::
 
@@ -224,20 +346,38 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   Em relação a um exemplo mais concreto:
 
-  ![Eliminação da Implicação 2](./assets/0002-el-implicacao2.png#dark=1)
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    1 & P \to Q && Prem\\
+    2 & P && Prem\\
+    3 & P \to Q && Rep, 1\\
+    4 & Q && E\to, (2,3)
+  \end{array}
+  $$
 
   :::
 
 - **Regras para a negação:**
 
   - **Introdução da negação:**
-    Utiliza o conceito de _prova por absurdo_ - se a partir de uma dada hipótese podemos derivar uma contradição, então rejeitamos essa mesma hipótese, **aceitando a sua negação**, visto que caso contrário chegaríamos a uma conclusão absurda. Abreviada por I$\neg$, ($n$, ($m$, $k$)), onde $n$, $m$ e $k$ representam, respetivamente, a linha da introdução da hipótese, e as linhas correspondentes à contradição.
+    Utiliza o conceito de _prova por absurdo_ - se a partir de uma dada hipótese podemos derivar uma contradição, então rejeitamos essa mesma hipótese, **aceitando a sua negação**, visto que caso contrário chegaríamos a uma conclusão absurda. Abreviada por $I\neg, (n, (m, k))$, onde $n$, $m$ e $k$ representam, respetivamente, a linha da introdução da hipótese, e as linhas correspondentes à contradição.
 
   :::tip[INTRODUÇÃO DA NEGAÇÃO]
 
   A introdução da negação tem sempre um aspeto deste género:
 
-  ![Introdução da Negação 1](./assets/0002-int-negacao1.png#dark=1)
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    n & \bigg\vert\underline{\enspace \alpha \enspace} && Hip\\
+    \vdots & \bigg\vert\enspace\vdots\\
+    m & \bigg\vert\enspace\beta\\
+    \vdots & \bigg\vert\enspace\vdots\\
+    k & \bigg\vert\enspace\neg\beta\\
+    l & \neg\alpha && I\neg, (n, (m, k))
+  \end{array}
+  $$
 
   :::
 
@@ -245,18 +385,36 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   Em relação a um exemplo mais concreto:
 
-  ![Introdução da Negação 2](./assets/0002-int-negacao2.png#dark=1)
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    1 & P \to Q && Prem\\
+    2 & \neg Q && Prem\\
+    3 & \bigg\vert\underline{\enspace P \enspace} && Hip\\
+    4 & \bigg\vert\enspace P \to Q && Rei, 1\\
+    5 & \bigg\vert\enspace Q && E\to, (3,4)\\
+    6 & \bigg\vert\enspace \neg Q && Rei, 2\\
+    7 & \neg P && I\neg, (3, (5, 6))
+  \end{array}
+  $$
 
   :::
 
   - **Eliminação da negação:**
-    Afirma que negar uma proposição duas vezes é o mesmo que a afirmar. Abreviada por E$\neg$, $n$, onde $n$ é a linha onde apareceu a _fbf_ duplamente negada.
+    Afirma que negar uma proposição duas vezes é o mesmo que a afirmar. Abreviada por $E\neg, n$, onde $n$ é a linha onde apareceu a _fbf_ duplamente negada.
 
   :::tip[ELIMINAÇÃO DA NEGAÇÃO]
 
   A eliminação da negação tem sempre um aspeto deste género:
 
-  ![Eliminação da Negação 1](./assets/0002-el-negacao1.png#dark=1)
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    n & \neg\neg\alpha\\
+    \vdots & \vdots\\
+    m & \alpha && E\neg, n
+  \end{array}
+  $$
 
   :::
 
@@ -264,20 +422,50 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   Em relação a um exemplo mais concreto:
 
-  ![Eliminação da Negação 2](./assets/0002-el-negacao2.png#dark=1)
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    1 & \bigg\vert\underline{\enspace P \wedge \neg P \enspace} && Hip\\
+    2 & \bigg\vert\enspace\bigg\vert\underline{\enspace \neg Q \enspace} && Hip\\
+    3 & \bigg\vert\enspace\bigg\vert\enspace P \wedge \neg P && Rei, 1\\
+    4 & \bigg\vert\enspace\bigg\vert\enspace P && E\wedge, 3\\
+    5 & \bigg\vert\enspace\bigg\vert\enspace \neg P && E\wedge, 3\\
+    6 & \bigg\vert\enspace \neg\neg Q && I\neg, (2, (4, 5))\\
+    7 & \bigg\vert\enspace Q && E\neg, 6\\
+    8 & (P \wedge \neg P) \to Q && I\to, (1,7)
+  \end{array}
+  $$
 
   :::
 
 - **Regras para a disjunção:**
 
   - **Introdução da disjunção:**
-    Tem em conta o significado intuitivo de uma disjunção - esta apenas precisa requer que um dos elementos se verifique para ser verdadeira. Assim sendo, partindo de uma _fbf_ $\alpha$, podemos derivar tanto $\alpha\vee\beta$ como $\beta\vee\alpha$, sendo $\beta$ qualquer _fbf_. Abreviada por I$\vee$, $n$, com $n$ sendo a linha onde a _fbf_ $\alpha$ foi introduzida.
+    Tem em conta o significado intuitivo de uma disjunção - esta apenas requer que um dos elementos se verifique para ser verdadeira. Assim sendo, partindo de uma _fbf_ $\alpha$, podemos derivar tanto $\alpha\vee\beta$ como $\beta\vee\alpha$, sendo $\beta$ qualquer _fbf_. Abreviada por $I\vee, n$, com $n$ sendo a linha onde a _fbf_ $\alpha$ foi introduzida.
 
   :::tip[INTRODUÇÃO DA DISJUNÇÃO]
 
   A introdução da disjunção tem sempre um aspeto deste género:
 
-  ![Introdução da Disjunção 1](./assets/0002-int-disjuncao1.png#dark=1)
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    n & \alpha\\
+    \vdots & \vdots\\
+    m & \alpha\vee\beta && I\vee, n
+  \end{array}
+  $$
+
+  ou
+
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    n & \alpha\\
+    \vdots & \vdots\\
+    m & \beta\vee\alpha && I\vee, n
+  \end{array}
+  $$
 
   :::
 
@@ -285,18 +473,44 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   Em relação a um exemplo mais concreto:
 
-  ![Introdução da Disjunção 2](./assets/0002-int-disjuncao2.png#dark=1)
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    1 & \bigg\vert\underline{\enspace \neg (P \vee \neg P) \enspace} && Hip\\
+    2 & \bigg\vert\enspace\bigg\vert\underline{\enspace P \enspace} && Hip\\
+    3 & \bigg\vert\enspace\bigg\vert\enspace P \vee \neg P && I\vee, 2\\
+    4 & \bigg\vert\enspace\bigg\vert\enspace \neg (P \vee \neg P) && Rei, 1\\
+    5 & \bigg\vert\enspace \neg P && I\neg, (2, (3, 4))\\
+    6 & \bigg\vert\enspace P \vee \neg P && I\vee, 5\\
+    7 & \bigg\vert\enspace \neg (P \vee \neg P) && Rep, 1\\
+    8 & \neg\neg (P \vee \neg P) && I\neg, (1, (6, 7))\\
+    9 & P \vee \neg P && E\neg, 8
+  \end{array}
+  $$
 
   :::
 
   - **Eliminação da disjunção:**
-    "A regra mais complicada", segundo o prof. Pavão. A partir dela, podemos retirar que, tendo por base uma _fbf_ do tipo $\alpha\vee\beta$, caso sejamos capazes de derivar uma terceira _fbf_ $\gamma$ a partir de provas hipotéticas iniciadas por tanto $\alpha$ como por $\beta$, então certamente que $\gamma$ se verifica - voltando à tal intuição associada à disjunção, pelo menos um elemento é verdadeiro, se podemos derivar uma _fbf_ tanto de um como de outro, então ela verifica-se obrigatoriamente. Abreviada por E$\vee$, ($n$, ($o$, $p$), ($r$, $s$)), onde $n$ representa a _fbf_ disjunta inicial, $o$ e $r$ o início de cada hipótese e $p$ e $s$ a derivação da _fbf_ pretendida, dentro da respetiva hipótese.
+    "A regra mais complicada", segundo o prof. Pavão. A partir dela, podemos retirar que, tendo por base uma _fbf_ do tipo $\alpha\vee\beta$, caso sejamos capazes de derivar uma terceira _fbf_ $\gamma$ a partir de provas hipotéticas iniciadas por tanto $\alpha$ como por $\beta$, então certamente que $\gamma$ se verifica - voltando à tal intuição associada à disjunção, pelo menos um elemento é verdadeiro, se podemos derivar uma _fbf_ tanto de um como de outro, então ela verifica-se obrigatoriamente. Abreviada por $E\vee, (n, (o, p), (r, s))$, onde $n$ representa a _fbf_ disjunta inicial, $o$ e $r$ o início de cada hipótese e $p$ e $s$ a derivação da _fbf_ pretendida, dentro da respetiva hipótese.
 
   :::tip[ELIMINAÇÃO DA DISJUNÇÃO]
 
   A Eliminação da disjunção tem sempre um aspeto deste género:
 
-  ![Eliminação da Disjunção 1](./assets/0002-el-disjuncao1.png#dark=1)
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    n & \alpha\vee\beta\\
+    o & \bigg\vert\underline{\enspace \alpha \enspace} && Hip\\
+    \vdots & \bigg\vert\enspace\vdots\\
+    p & \bigg\vert\enspace\gamma\\ \\
+    r & \bigg\vert\underline{\enspace \beta \enspace} && Hip\\
+    \vdots & \bigg\vert\enspace\vdots\\
+    s & \bigg\vert\enspace\gamma\\
+    \vdots & \vdots\\
+    m & \gamma && E\vee, (n, (o, p), (r, s))
+  \end{array}
+  $$
 
   :::
 
@@ -304,7 +518,24 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   Em relação a um exemplo mais concreto:
 
-  ![Eliminação da Disjunção 2](./assets/0002-el-disjuncao2.png#dark=1)
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    1 & \bigg\vert\underline{\enspace (P \vee Q) \wedge \neg P \enspace} && Hip\\
+    2 & \bigg\vert\enspace P \vee Q && E\wedge, 1\\
+    3 & \bigg\vert\enspace \neg P && E\wedge, 1\\
+    4 & \bigg\vert\enspace\bigg\vert\underline{\enspace P \enspace} && Hip\\
+    5 & \bigg\vert\enspace\bigg\vert\enspace\bigg\vert\underline{\enspace \neg Q \enspace} && Hip\\
+    6 & \bigg\vert\enspace\bigg\vert\enspace\bigg\vert\enspace P && Rei, 4\\
+    7 & \bigg\vert\enspace\bigg\vert\enspace\bigg\vert\enspace \neg P && Rei, 3\\
+    8 & \bigg\vert\enspace\bigg\vert\enspace \neg\neg Q && I\neg, (5, (6, 7))\\
+    9 & \bigg\vert\enspace\bigg\vert\enspace Q && E\neg, 8 \\ & \bigg\vert \\
+    10 & \bigg\vert\enspace\bigg\vert\underline{\enspace Q \enspace} && Hip\\
+    11 & \bigg\vert\enspace\bigg\vert\enspace Q && Rep, 10\\
+    12 & \bigg\vert\enspace Q && E\vee, (2, (4, 9), (10, 11))\\
+    13 & ((P \vee Q) \wedge \neg P) \to Q && I\to, (1, 12)
+  \end{array}
+  $$
 
   :::
 
@@ -317,20 +548,47 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
   :::
 
   - **Introdução da equivalência:**
-    Desta regra podemos retirar que, caso tenhamos duas _fbfs_ distintas tais que $\alpha\to\beta$ e $\beta\to\alpha$, então podemos derivar que $\alpha$ e $\beta$ são equivalentes. Abreviada por I$\leftrightarrow$, ($n$, $m$), com $n$ e $m$ sendo as linhas onde as _fbfs_ necessárias foram introduzidas.
+    Desta regra podemos retirar que, caso tenhamos duas _fbfs_ distintas tais que $\alpha\to\beta$ e $\beta\to\alpha$, então podemos derivar que $\alpha$ e $\beta$ são equivalentes. Abreviada por $I\leftrightarrow, (n, m)$, com $n$ e $m$ sendo as linhas onde as _fbfs_ necessárias foram introduzidas.
 
   - **Eliminação da equivalência:**
-    Dada uma _fbf_ $\alpha\leftrightarrow\beta$, podemos derivar tanto $\alpha\to\beta$ como $\beta\to\alpha$. Abreviada por E$\leftrightarrow$, $n$, onde $n$ é a linha onde a _fbf_ a utilizar o símbolo da equivalência foi introduzida.
+    Dada uma _fbf_ $\alpha\leftrightarrow\beta$, podemos derivar tanto $\alpha\to\beta$ como $\beta\to\alpha$. Abreviada por $E\leftrightarrow, n$, onde $n$ é a linha onde a _fbf_ a utilizar o símbolo da equivalência foi introduzida.
 
   :::tip[INTRODUÇÃO/ELIMINAÇÃO DA EQUIVALÊNCIA]
 
   A introdução da equivalência tem sempre um aspeto deste género:
 
-  ![Introdução da Equivalência](./assets/0002-int-equivalencia.png#dark=1)
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    n & \alpha\to\beta\\
+    \vdots & \vdots\\
+    m & \beta\to\alpha\\
+    \vdots & \vdots\\
+    k & \alpha\leftrightarrow\beta && I\leftrightarrow, (n, m)
+  \end{array}
+  $$
 
   A eliminação da equivalência tem sempre um aspeto deste género:
 
-  ![Eliminação da Equivalência](./assets/0002-el-equivalencia.png#dark=1)
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    n & \alpha\leftrightarrow\beta\\
+    \vdots & \vdots\\
+    m & \alpha\to\beta
+  \end{array}
+  $$
+
+  ou
+
+  $$
+  \def\arraystretch{1.5}
+  \begin{array}{lll}
+    n & \alpha\leftrightarrow\beta\\
+    \vdots & \vdots\\
+    m & \beta\to\alpha
+  \end{array}
+  $$
 
   :::
 
@@ -342,7 +600,16 @@ Não obstante não haver uma relação direta entre a sua definição e as regra
 
 A seguinte prova mostra que P $\to$ (Q $\to$ P) é um teorema, visto que pode ser obtido sem premissas:
 
-![Teorema](./assets/0002-teorema.png#dark=1)
+$$
+\def\arraystretch{1.5}
+\begin{array}{lll}
+  1 & \bigg\vert\underline{\enspace P \enspace} && Hip\\
+  2 & \bigg\vert\enspace\bigg\vert\underline{\enspace Q \enspace} && Hip\\
+  3 & \bigg\vert\enspace\bigg\vert\enspace P && Rei, 1\\
+  4 & \bigg\vert\enspace Q \to P && I\to, (2,3)\\
+  5 & P \to (Q \to P) && I\to, (1, 4)
+\end{array}
+$$
 
 :::
 
@@ -353,3 +620,5 @@ A seguinte prova mostra que P $\to$ (Q $\to$ P) é um teorema, visto que pode se
 - Ao tentar provar uma _fbf_ da forma $\alpha\wedge\beta$, devemos tentar provar separadamente tanto $\alpha$ como $\beta$;
 
 Caso não resulte, podemos procurar **aplicações de regras de inferência** que levem à introdução da _fbf_ em questão, procurar uma **contradição de uma prova hipotética** por absurdo que nos leve à _fbf_, ou até mesmo tentar o **raciocínio por casos**, caso se trate de disjunções.
+
+[Slides (do 24 para a frente)](https://drive.google.com/file/d/10a-hns-uHSTWy8isSQwJfEOKxq955DM_/view?usp=sharing)

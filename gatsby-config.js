@@ -69,6 +69,8 @@ module.exports = {
                 '\\1': '1\\!\\!1',
                 '\\Q': '\\mathbb{Q}',
                 '\\car': '\\operatorname{car}',
+                '\\ondiv': '\\operatorname{div}',
+                '\\rot': '\\operatorname{rot}',
               },
             },
           },

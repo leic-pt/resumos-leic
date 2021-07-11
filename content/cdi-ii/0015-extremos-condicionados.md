@@ -413,7 +413,7 @@ $$
 **Sabe-se que a densidade de massa deste segmento é dada por $z^2$.**
 **Qual a massa do segmento?**
 
-Começemos por parameterizar o segmento, que podemos fazer
+Começemos por parametrizar o segmento, que podemos fazer
 através de da expressão vetorial de uma reta.
 
 $$
@@ -520,7 +520,7 @@ Dg^t \cdot Dg = \begin{bmatrix}
 \end{bmatrix}
 =
 \begin{bmatrix}
-1+4r^2 & 0
+1+4r^2 & 0\\
 0 & r^2
 \end{bmatrix}
 $$
@@ -681,7 +681,7 @@ $$
 
 **Qual o centroíde de $M$?**
 
-Começamos por fazer a sua paremetrização:
+Começamos por fazer a sua parametrização:
 
 $$
 \begin{array}{cc}

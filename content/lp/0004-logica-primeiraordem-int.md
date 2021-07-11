@@ -22,7 +22,7 @@ Símbolos que desempenham o papel de designações (sem ser propriamente designa
 
 ### Funções
 
-No contexto estudado, corresponde a um conjunto de pares ordenados, potencialmente infinito, que não contém dois pares distintos com o mesmo primeiro elemento (um pouco com a noção de dicionários e chaves em Python). Tal como na matemática, as funções têm um domínio (conjunto de todos os primeiros elementos dos pares) e um contradomínio (segundos elementos dos pares). Recebem um elemento do domínio, o _argumento_ da função, e calculam o elemento correspondente do contradomínio, o _valor_ da função.
+No contexto estudado, corresponde a um conjunto de pares ordenados, potencialmente infinito, que não contém dois pares distintos com o mesmo primeiro elemento (um pouco como a noção de dicionários e chaves em Python). Tal como na matemática, as funções têm um domínio (conjunto de todos os primeiros elementos dos pares) e um contradomínio (segundos elementos dos pares). Recebem um elemento do domínio, o _argumento_ da função, e calculam o elemento correspondente do contradomínio, o _valor_ da função.
 Sendo que correspondem a transformações, podemos utilizar funções para descrever entidades.
 
 A **aridade** de uma função é a quantidade de argumentos que esta recebe. Uma função de aridade 0 é considerada uma **constante**.
@@ -230,7 +230,15 @@ O sistema dedutivo da Lógica de Primeira Ordem difere do da Lógica Proposicion
 
 Abreviada por $I\forall$, pode ser utilizada quando uma propriedade arbitrária, $\alpha(t)$, for provada para $t$. Utilizamos, para tal, uma técnica semelhante à regra da introdução da implicação, criando um novo "contexto" no qual aparece um novo termo, que nunca apareceu na prova, e tentamos provar que esse termo tem essa propriedade. A regra afirma, portanto, que se numa prova iniciada pela introdução da variável $x_{0}$ pudermos derivar a _fbf_ $\alpha (x_{0})$, então podemos escrever $\forall x[\alpha(x)]$.
 
-![Int. Quantificador Universal 1](./assets/0004-int-univ1.png#dark=1)
+$$
+\def\arraystretch{1.5}
+\begin{array}{lll}
+  n & x_0 \bigg\vert\\
+  \vdots & \enspace\enspace\bigg\vert\enspace\vdots\\
+  m & \enspace\enspace\bigg\vert\enspace \alpha (x_0)\\
+  m + 1 & \forall x[\alpha (x)] && I\forall, (n, m)
+\end{array}
+$$
 
 Resta notar que aqui não estamos a trabalhar diretamente com as usuais provas hipotéticas, mas com um contexto iniciado por um qualquer termo (podemos, contudo, iniciar provas hipotéticas dentro desse contexto sem qualquer problema). A sua apresentação é também diferente, tal como pode ser observado acima.
 
@@ -240,7 +248,14 @@ Resta notar que aqui não estamos a trabalhar diretamente com as usuais provas h
 
 Abreviada por $E\forall$, indica que a partir de $\forall x[\alpha(x)]$ podemos inferir $\alpha(t)$, onde $t$ é qualquer termo.
 
-![El. Quantificador Universal 1](./assets/0004-el-univ1.png#dark=1)
+$$
+\def\arraystretch{1.5}
+\begin{array}{lll}
+  n & \forall x[\alpha (x)]\\
+  \vdots & \vdots\\
+  m & \alpha (t) && E\forall, n
+\end{array}
+$$
 
 :::
 
@@ -248,7 +263,22 @@ Abreviada por $E\forall$, indica que a partir de $\forall x[\alpha(x)]$ podemos 
 
 Prova do argumento $({\forall x[P(x) \to Q(x)], \forall x[Q(x) \to R(x)]}, \forall x[P(x) \to R(x)])$ (de notar que há mais que uma maneira de fazer esta prova):
 
-![Exemplo Universal](./assets/0004-ex-univ.png#dark=1)
+$$
+\def\arraystretch{1.5}
+\begin{array}{lll}
+  1 & \forall x[P(x) \to Q(x)] && Prem\\
+  2 & \forall x[Q(x) \to R(x)] && Prem\\
+  3 & x_0 \bigg\vert\enspace\bigg\vert\underline{\enspace P(x_0) \enspace} && Hip\\
+  4 & \enspace\enspace\bigg\vert\enspace\bigg\vert\enspace \forall x[P(x) \to Q(x)] && Rei, 1\\
+  5 & \enspace\enspace\bigg\vert\enspace\bigg\vert\enspace P(x_0) \to Q(x_0) && E\forall , 4\\
+  6 & \enspace\enspace\bigg\vert\enspace\bigg\vert\enspace Q(x_0) && E\to, (3, 5)\\
+  7 & \enspace\enspace\bigg\vert\enspace\bigg\vert\enspace \forall x[Q(x) \to R(x)] && Rei, 2\\
+  8 & \enspace\enspace\bigg\vert\enspace\bigg\vert\enspace Q(x_0) \to R(x_0) && E\forall, 7\\
+  9 & \enspace\enspace\bigg\vert\enspace\bigg\vert\enspace R(x_0) && E\to, (6, 8)\\
+  10 & \enspace\enspace\bigg\vert\enspace P(x_0) \to R(x_0) && I\to, (3, 9)\\
+  11 & \forall x[P(x) \to R(x)] && I\forall, (4, 10)
+\end{array}
+$$
 
 :::
 
@@ -258,7 +288,14 @@ Prova do argumento $({\forall x[P(x) \to Q(x)], \forall x[Q(x) \to R(x)]}, \fora
 
 Abreviada por $I\exists$, afirma que a partir de uma propriedade arbitrária $\alpha(t)$, podemos inferir $\exists x[\alpha(x)]$.
 
-![Int. Quantificador Existencial 1](./assets/0004-int-exi1.png#dark=1)
+$$
+\def\arraystretch{1.5}
+\begin{array}{lll}
+  n & \alpha (t)\\
+  \vdots & \vdots\\
+  m & \exists x[\alpha (x)] && I\exists, n
+\end{array}
+$$
 
 :::
 
@@ -266,7 +303,16 @@ Abreviada por $I\exists$, afirma que a partir de uma propriedade arbitrária $\a
 
 Abreviada por $E\exists$, é, porventura, a mais complicada das quatro regras introduzidas. Temos, a partir de $\exists x[\alpha(t)]$ que existe pelo menos uma entidade que satisfaz a propriedade $\alpha$ - só não sabemos qual. Como não sabemos nada sobre essa entidade, nada podemos afirmar sobre ela, para além de $\alpha(t)$. Na prova, o objetivo será criar um "contexto" em que surge uma entidade nunca mencionada anteriormente; se dentro desse contexto formos capazes de derivar uma _fbf_ $\beta$, que não menciona $t$, então $\beta$ verificar-se-á independentemente de $t$.
 
-![El. Quantificador Existencial 1](./assets/0004-el-exi1.png#dark=1)
+$$
+\def\arraystretch{1.5}
+\begin{array}{lll}
+  n & \exists x[\alpha (x)]\\
+  m & x_0 \bigg\vert\underline{\enspace \alpha(x_0) \enspace} && Hip\\
+  \vdots & \enspace\enspace\bigg\vert\enspace\vdots\\
+  k & \enspace\enspace\bigg\vert\enspace\beta\\
+  k + 1 & \enspace\beta && E\exists, (n, (m, k))
+\end{array}
+$$
 
 :::
 
@@ -274,6 +320,20 @@ Abreviada por $E\exists$, é, porventura, a mais complicada das quatro regras in
 
 Prova de $\exists x[P(x)] \to \neg\forall x[\neg P(x)]$:
 
-![Exemplo Existencial](./assets/0004-ex-exi.png#dark=1)
+$$
+\def\arraystretch{1.5}
+\begin{array}{lll}
+  1 & \bigg\vert\underline{\enspace \exists x[P(x)] \enspace} && Hip\\
+  2 & \bigg\vert\enspace x_0 \bigg\vert\underline{\enspace P(x_0) \enspace} && Hip\\
+  3 & \bigg\vert\enspace\enspace\enspace\bigg\vert\enspace\bigg\vert\underline{\enspace \forall x[\neg P(x)] \enspace} && Hip\\
+  4 & \bigg\vert\enspace\enspace\enspace\bigg\vert\enspace\bigg\vert\enspace P(x_0) && Rei, 2\\
+  5 & \bigg\vert\enspace\enspace\enspace\bigg\vert\enspace\bigg\vert\enspace \neg P(x_0) && E\forall, 3\\
+  6 & \bigg\vert\enspace\enspace\enspace\bigg\vert\enspace \neg\forall x[\neg P(x)] && I\neg, (3, (4, 5))\\
+  7 & \bigg\vert\enspace \forall x[\neg P(x)] && E\exists, (1, (2, 6))\\
+  8 & \exists x[P(x)] \to \neg\forall x[\neg P(x)] && I\to, (1, 7)
+\end{array}
+$$
 
 :::
+
+[Slides](https://drive.google.com/file/d/1izIvt-bDsqUgIca3irewRyCUNpeEbYDA/view?usp=sharing)

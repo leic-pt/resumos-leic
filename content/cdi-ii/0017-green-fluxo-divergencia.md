@@ -1,11 +1,11 @@
 ---
-title: Teorema de Green. Fluxos. Teorema da Divergência.
-description: Teorema de Green. Domínio Simplesmente Conexo. Fluxos. Teorema da Divergência.
-path: /cdi-ii/green-fluxo-divergencia
+title: Teorema de Green
+description: Teorema de Green. Domínio Simplesmente Conexo. Curvas Homotópicas.
+path: /cdi-ii/teorema-de-green
 type: content
 ---
 
-# Teorema de Green. Fluxos. Teorema da Divergência.
+# Teorema de Green
 
 ```toc
 

@@ -233,7 +233,7 @@ A interação acima pode ser ilustrada por:
 
 ![Piupiu Gelido](./assets/0009-piupiu.png#dark=1)
 
-A negação por falhanço não funciona, contudo, corretamente para objetivos não chãos (ou seja para para objetivos com variáveis).
+A negação por falhanço não funciona, contudo, corretamente para objetivos não chãos (ou seja para objetivos com variáveis).
 
 ## Execução Forçada
 
@@ -254,3 +254,5 @@ Por exemplo, se utilizarem o SWI-Prolog, podem ir às definições e ao `user in
 :- [<nome do ficheiro>].
 ...
 ```
+
+[Slides](https://drive.google.com/file/d/1afbQkFCtj6NenwOpm2eJc-mIyTV-0vrm/view?usp=sharing)

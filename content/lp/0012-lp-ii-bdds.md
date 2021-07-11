@@ -62,7 +62,7 @@ O livro aborda vários pormenores interessantes sobre os grafos que não serão 
 Um **diagrama de decisão binário ordenado**, OBDD, é um BDD que satisfaz alguma relação de ordem total para os símbolos de proposição que contém. Num OBDD não podem existir caminhos que contenham mais que uma vez o mesmo símbolo de proposição.
 
 - O **nível**, $i$, de um OBDD é o conjunto de todos os seus nós de profundidade $i$.
-- Dois OBDDs são compatíveis caso exista uma ordem aplicada aos seus símbolos de proposição tal que ambos os OBDDs a satisfaçam - se $P$ vem antes de $Q$ em $OBBD_{1}$, $P$ não pode vir depois de Q em $OBBD_{2}$.
+- Dois OBDDs são compatíveis caso exista uma ordem aplicada aos seus símbolos de proposição tal que ambos os OBDDs a satisfaçam - se $P$ vem antes de $Q$ em $OBDD_{1}$, $P$ não pode vir depois de Q em $OBDD_{2}$.
 
 :::details[Exemplos de OBDDs incompatíveis]
 
@@ -85,7 +85,7 @@ Percorre, por níveis, o grafo correspondente ao OBDD, começando pelas folhas. 
 
 - a atribuição dos identificadores de um nível é feita considerando que todos os OBDDs abaixo já foram identificados. Assim sendo:
 
-  - caso dois sub-OBDDs positivo e negativo (em relação ao "pai") tenham o mesmo identificador, esse identificador é também ao OBDD "pai";
+  - caso dois sub-OBDDs positivo e negativo (em relação ao "pai") tenham o mesmo identificador, esse identificador é dado também ao OBDD "pai";
 
   - caso entre os OBDDs já identificados exista um OBDD tal que o OBDD a identificar e ele têm raízes com rótulos iguais, com OBDDs positivos e negativos com os mesmos identificadores, então o identificador do OBDD a identificar é o mesmo desse que estamos a comparar.
 
@@ -153,11 +153,11 @@ A intuição utilizada durante o algoritmo é:
 
 (mais uma vez, provavelmente fica mais fácil a ver o exemplo e ler a explicação).
 
-Vejamos então o que acontece com $aplica(\wedge, O_{\neg P \wedge \neg R}, =_{P \vee (Q \wedge R)})$.
+Vejamos então o que acontece com $aplica(\wedge, O_{\neg P \wedge \neg R}, O_{P \vee (Q \wedge R)})$.
 
 ![Aplica pt.1](./assets/0012-lp-aplica-1.png#dark=1)
 
-(OBDDs reduzidos de cada FBF)
+(OBDDs reduzidos de cada _fbf_)
 
 ![Aplica pt.2](./assets/0012-lp-aplica-2.png#dark=1)
 
@@ -166,3 +166,5 @@ Podemos notar que em ambos os OBDDs o símbolo de proposição com maior priorid
 ![Aplica pt.3](./assets/0012-lp-aplica-3.png#dark=1)
 
 Aplicar o algoritmo ao OBDD negativo é diferente, visto que os sub-OBDDs não têm a mesma raiz. Assim sendo, pegamos no símbolo de proposição com mais prioridade na relação de ordem total (neste caso Q ou vem antes de R ou não aparece, pelo que escolhemos Q) e fazemos dele a raiz. Temos, então, que o seu OBDD negativo resulta de aplicar _op_ ao OBDD que não contém Q e ao OBDD negativo de Q; o seu OBDD positivo resulta de aplicar _op_ ao OBDD que não contém Q e ao OBDD positivo de Q. Aqui podemos verificar que ambos os caminhos resultam em falso, pelo que o resultado final é também falso (todos os caminhos levam a falso) e a conjunção das 2 _fbfs_ é uma contradição.
+
+[Slides (até ao 24)](https://drive.google.com/file/d/1ZuegnTFgn5SmM4qh2zPu2wpbbNDi5KaP/view?usp=sharing)
