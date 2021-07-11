@@ -22,11 +22,7 @@ const HomePageLayout = ({ data }) => {
       <PageMetadata title={page.frontmatter.title} description={page.frontmatter.description} />
       <Navbar />
       <div className='hero'>
-        <StaticImage
-          src='../../content/ist-logo.png'
-          alt='Instituto Superior Técnico'
-          width={150}
-        />
+        <StaticImage src='../images/ist-logo.png' alt='Instituto Superior Técnico' width={150} />
         <h1>Resumos LEIC-A</h1>
         <p>Bem vindo ao site comunitário de resumos de LEIC-A.</p>
         <p>Aqui irás encontrar tudo o que precisas ao longo do semestre.</p>
@@ -38,10 +34,10 @@ const HomePageLayout = ({ data }) => {
             <div className='semester-section'>
               <h3>1º Semestre</h3>
               <SectionButtonLayout>
-                <SectionButton name='CDI-I' link='/cdi-ii' image={CalculusIcon} color='#437AA1' />
-                <SectionButton name='AL' link='/cdi-ii' image={AlgebraIcon} color='#C48C31' />
-                <SectionButton name='FP' link='/cdi-ii' image={PythonIcon} color='#CE733B' />
-                <SectionButton name='IAC' link='/cdi-ii' image={CPUIcon} color='#5CAD7D' />
+                <SectionButton name='CDI-I' link='/cdi-i' image={CalculusIcon} color='#437AA1' />
+                <SectionButton name='AL' link='/al' image={AlgebraIcon} color='#C48C31' />
+                <SectionButton name='FP' link='/fp' image={PythonIcon} color='#CE733B' />
+                <SectionButton name='IAC' link='/iac' image={CPUIcon} color='#5CAD7D' />
               </SectionButtonLayout>
             </div>
             <div className='semester-section'>
