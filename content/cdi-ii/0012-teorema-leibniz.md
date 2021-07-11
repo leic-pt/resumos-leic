@@ -88,7 +88,7 @@ $$
 
 :::
 
-Outra aplicação do [**Teorema de Leibnitz**](color:orange) é aplicá-lo juntamente com o [**Teorema Fundamental do Cálculo**](color:green) e com a [Regra da Cadeia](./0005-derivada-composta.md#formula-da-cadeia-chain-rule).
+Outra aplicação do [**Teorema de Leibnitz**](color:orange) é aplicá-lo juntamente com o [**Teorema Fundamental do Cálculo**](color:green) e com a [Regra da Cadeia](/cdi-ii/derivada-composta#fórmula-da-cadeia-chain-rule).
 
 Sabendo que
 
@@ -119,7 +119,7 @@ $$
 Qual o valor de $F'(4)$?
 
 Começamos por identificar o tipo de sólido e se é preciso efetuar transformação de coordenadas.  
-Neste caso, como $V_t$ é de revolução, usamos as [coordenadas cilíndricas](./0010-integracao-mudanca-var.md#coordenadas-cilindricas).
+Neste caso, como $V_t$ é de revolução, usamos as [coordenadas cilíndricas](/cdi-ii/integracao-mudanca-var#coordenadas-cilíndricas).
 
 $$
 \begin{array}{ll}
@@ -156,7 +156,7 @@ $$
 
 Chegamos um integral cuja função no interior não é fácil de primitivar.  
 Podemos então recorrer ao [**Teorema de Leibnitz**](color:orange), ao [**Teorema Fundamental do Cálculo**](color:green) e
-à [Regra da Cadeia](./0005-derivada-composta.md#formula-da-cadeia-chain-rule) para determinar a expressão de $F'(t)$:
+à [Regra da Cadeia](/cdi-ii/derivada-composta#fórmula-da-cadeia-chain-rule) para determinar a expressão de $F'(t)$:
 
 $$
 \begin{aligned}

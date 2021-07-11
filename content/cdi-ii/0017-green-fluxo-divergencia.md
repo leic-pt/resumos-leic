@@ -205,7 +205,7 @@ $$
 **Seja $C$ a fronteira do quadrado de vértices $(3,0)$, $(0,3)$, $(-3,0)$ e $(0,-3)$ percorrida no sentido anti-horário.**  
 **Qual o valor de $\int_C F \d \vec g$?**
 
-Sabemos que $F$ corresponde a um [vórtice](./0016-campos-vetoriais.md#vortice) centrado em $(0,1)$ e que $F: \R^2 \backslash \{(0,1)\}$.  
+Sabemos que $F$ corresponde a um [vórtice](/cdi-ii/campos-vetoriais#vórtice) centrado em $(0,1)$ e que $F: \R^2 \backslash \{(0,1)\}$.  
 Como tal, $F$ é fechado, mas não é gradiente.
 
 Assim, se considerarmos uma curva $C_2$ homotópica a $C$, sabemos que

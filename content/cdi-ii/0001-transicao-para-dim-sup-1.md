@@ -29,7 +29,7 @@ No entanto, em CDI 2:
 
 - Há noções e/ou resultados que migram para dim > 1.
 - Outros não
-- _Surpresas_ - e.g. [ponto de sela](./0006-conjunto-de-nivel.md#ponto-de-sela)
+- _Surpresas_ - e.g. [ponto de sela](/cdi-ii/conjunto-de-nivel#ponto-de-sela)
 
 ![Ponto de Sela](./assets/0001-ponto-de-sela.svg#dark=1)
 

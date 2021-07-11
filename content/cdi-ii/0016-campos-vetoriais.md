@@ -236,7 +236,7 @@ Sabemos o seguinte:
 
 - Um campo vetorial gradiente é sempre fechado
 - Um campo vetorial gradiente é sempre conservativo e vice versa
-- Um campo vetorial fechado é gradiente/conservativo se é só se o seu domínio for [simplesmente conexo](0017-green-fluxo-divergencia.md#dominio-simplesmente-conexo)
+- Um campo vetorial fechado é gradiente/conservativo se é só se o seu domínio for [simplesmente conexo](/cdi-ii/green-fluxo-divergencia#domínio-simplesmente-conexo)
 - O trabalho de um campo conservativo ao longo de uma curva fechada é sempre nulo
 
 Tal pode ser resumido no seguinte esquema:

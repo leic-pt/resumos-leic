@@ -37,7 +37,7 @@ Em resolução com cláusulas de Horn, pelo menos um dos resolventes tem de ser 
 
 :::details[Resolução com Cláusulas de Horn]
 
-O exemplo abaixo é o mesmo que o da [prova por resolução - verdadeiro/falso](./0005-logica-primeiraordem-sc.md#resolucao) da matéria anterior, só que utilizando resolução com cláusulas de Horn.
+O exemplo abaixo é o mesmo que o da [prova por resolução - verdadeiro/falso](/lp/logica-primeira-ordem-sc#resolução) da matéria anterior, só que utilizando resolução com cláusulas de Horn.
 
 ![Resolução com cláusulas de Horn](./assets/0006-res-chorn.png#dark=1)
 
@@ -100,7 +100,7 @@ Tanto $s_{1} = \{Marge/x\}$ como $s_{2} = \{Sr.B/x\}$ são respostas do programa
 
 Agora, porque é que são estas as respostas?
 
-Bem, no fundo estas substituições são as tais respostas a que chegamos no [exemplo de prova por resolução que respondia à pergunta "quem"](./0005-logica-primeiraordem-sc.md#resolucao). Contudo, apenas $s_{2}$ é correta, visto que se tentarmos realizar a resolução sem recorrer à refutação, chegamos à cláusula $Ant(Sr.B, Bart)$, onde lá está, há a substituição $\{Sr.B/x\}$.
+Bem, no fundo estas substituições são as tais respostas a que chegamos no [exemplo de prova por resolução que respondia à pergunta "quem"](/lp/logica-primeira-ordem-sc#resolução). Contudo, apenas $s_{2}$ é correta, visto que se tentarmos realizar a resolução sem recorrer à refutação, chegamos à cláusula $Ant(Sr.B, Bart)$, onde lá está, há a substituição $\{Sr.B/x\}$.
 
 ## Resolução SLD
 

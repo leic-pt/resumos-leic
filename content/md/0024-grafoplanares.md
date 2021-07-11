@@ -152,7 +152,7 @@ Num grafo planar há sempre pelo menos um vértice de grau $\leq 5$.
 
 Imagine-se que afinal havia pelo menos um vértice de grau $\leq 6$.
 
-Então, para grafos onde os vértices têm todos grau $\geq 6$, pelo [Teorema Fundamental da Teoria dos Grafos](./0018-grafos-def.md#teorema-fundamental-da-teoria-dos-grafos)
+Então, para grafos onde os vértices têm todos grau $\geq 6$, pelo [Teorema Fundamental da Teoria dos Grafos](/md/grafos#teorema-fundamental-da-teoria-dos-grafos)
 
 $$6p \leq 2q$$
 

@@ -49,7 +49,7 @@ $$
 Calculámos assim o valor do somatório, $S_{n} = 2^{n+1} -1$.
 
 :::tip[MAIS EXEMPLOS]
-É possível encontrar mais exemplos de perturbação direta nos exercícios 1.1.1 da [Ficha Séries 1](./exercicios/fichas-aulas-praticas.md).
+É possível encontrar mais exemplos de perturbação direta nos exercícios 1.1.1 da [Ficha Séries 1](/md/exercicios/fichas-aulas-praticas).
 :::
 
 ## Perturbação Indireta
@@ -118,5 +118,5 @@ S'_{n} +(n+1)^{3} =S'_{n} +3S_{n} +3\sum ^{n}_{k=0} k+( n+1) \Leftrightarrow \\
 $$
 
 :::tip[MAIS EXEMPLOS]
-É possível encontrar mais exemplos de perturbação indireta nos exercícios 1.1.2 da [Ficha Séries 1](./exercicios/fichas-aulas-praticas.md).
+É possível encontrar mais exemplos de perturbação indireta nos exercícios 1.1.2 da [Ficha Séries 1](/md/exercicios/fichas-aulas-praticas).
 :::

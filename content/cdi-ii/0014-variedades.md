@@ -57,7 +57,7 @@ M = \{x \in \R^n: F(x) = 0\} & F: \R^n \to \R^{n-m} & C^1
 $$
 
 Então, $M$ é variedade de $\dim\ m$ se $\forall a \in M$ for possível aplicar o
-[Teorema da Função Implícita](./0013-funcao-inversa.md#teorema-da-funcao-implicita) com $m$ variáveis independentes.
+[Teorema da Função Implícita](/cdi-ii/funcao-inversa#teorema-da-função-implícita) com $m$ variáveis independentes.
 
 Basta encontrar $m$ variáveis para as quais $\det DF \ne 0 \implies \text{característica máxima}~n - m$.
 

@@ -394,7 +394,7 @@ $$
 $$
 
 Sabendo que $F(x,y(x)) = 0, \forall x$ na vizinhança de 1, podemos usar a
-[regra da cadeia](./0005-derivada-composta.md#formula-da-cadeia-chain-rule) para obter
+[regra da cadeia](/cdi-ii/derivada-composta#fórmula-da-cadeia-chain-rule) para obter
 a expressão de $y'(x)$:
 
 $$

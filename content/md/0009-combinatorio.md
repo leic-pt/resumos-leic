@@ -111,7 +111,7 @@ Esta secção é extra e alguma da informação abaixo não foi lecionada em aul
 Admita-se que temos um problema em que queremos dividir $n$ bolas por $m$ caixas de forma que todas as bolas são iguais,
 mas que as caixas são diferentes.
 Ou seja, se a caixa 1 tiver duas bolas, não interessa QUE bolas são, mas a caixa 1 tiver duas bolas é diferente da caixa 2 ter duas bolas.  
-Exemplos de enunciados deste tipo (referir ao [exercício 2.2 da série 1](./exercicios/fichas-aulas-praticas.md)):
+Exemplos de enunciados deste tipo (referir ao [exercício 2.2 da série 1](/md/exercicios/fichas-aulas-praticas)):
 
 - Exercício 2: **bolas** = chocolates; **caixas** = pessoas;
 - Exercício 3: **bolas** = 29 unidades; **caixas** = $n_i$;
@@ -245,7 +245,7 @@ $$
 Pode ser algo overkill para aprender mas reparem que não há nehuma razão para uma função geradora ser só numa variável.
 
 Não há muito que eu posso dizer sobre isto na teoria, portanto vou só dar um exemplo:  
-No [exercício 2.2.17 da série 1](./exercicios/fichas-aulas-praticas.md),
+No [exercício 2.2.17 da série 1](/md/exercicios/fichas-aulas-praticas),
 as nossas sequências são da seguinte forma:
 
 $$

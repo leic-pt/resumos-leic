@@ -219,7 +219,7 @@ Assim, é fácil encontrar a expressão para a soma de qualquer polinomial.
 
 ## Derivada de uma Sucessão Aritmética na Forma de Polinómio Fatorial
 
-Tal como já foi [visto anteriormente](./0002-introducao-calculo-finito.md#derivada-do-polinomio-fatorial), sabemos que:
+Tal como já foi [visto anteriormente](/md/introducao-calculo-finito#derivada-do-polinómio-fatorial), sabemos que:
 
 $$
 \Delta u_n^{\underline r} = u_n^{\underline{r-1}}\left(u_{n+1}-u_{n-r+1}\right)
@@ -305,7 +305,7 @@ $$\frac{1}{(2n+1)(2n+3)(2n+5)} = \frac{1}{(2(n+1)-1)(2(n+2)-1)(2(n+3)-1)} = (2n-
 
 ## Somas Fechadas do tipo aⁿ para n Negativo
 
-A [fórmula anteriormente conhecida](./0002-introducao-calculo-finito.md#somas-fechadas-do-tipo-an) para polinómios elevados a fatoriais positivos pode-se prolongar, funcionando da mesma maneira para os de expoente negativo, ou seja:
+A [fórmula anteriormente conhecida](/md/introducao-calculo-finito#somas-fechadas-do-tipo-aⁿ) para polinómios elevados a fatoriais positivos pode-se prolongar, funcionando da mesma maneira para os de expoente negativo, ou seja:
 
 :::tip[DEFINIÇÃO]
 

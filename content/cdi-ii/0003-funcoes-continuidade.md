@@ -93,7 +93,7 @@ $$
 :::
 
 :::tip[TEOREMA]
-Se $D\subset \R^n$ é [fechado](./0002-norma-topologia.md#conjunto-aberto-fechado-limitado-e-compacto)
+Se $D\subset \R^n$ é [fechado](/cdi-ii/norma-topologia#conjunto-aberto-fechado-limitado-e-compacto)
 (ou seja, $D = \overline D$), então qualquer sucessão de termos em $D$ ($(u_k)\subset D$)
 e convergente, tem o seu limite em $D$.
 :::

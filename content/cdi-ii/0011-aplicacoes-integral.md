@@ -11,7 +11,7 @@ type: content
 
 ```
 
-Além da determinação do [volume n-dimensional](./0008-integracao.html#volume-n-dimensional-de-um-conjunto-a) de um sólido,
+Além da determinação do [volume n-dimensional](/cdi-ii/integracao#volume-n-dimensional-de-um-conjunto-a) de um sólido,
 podemos usar o integral para calcular a massa de sólidos, o centro de massa e centroide,
 o momento de inércia em relação a um eixo, entre outros.
 
@@ -42,7 +42,7 @@ $$\int_V z^2 \d x \d y \d z$$
 
 $V$ é sólido de revolução em torno do eixo dos $z$.
 
-Então, transformando em [coordenadas cilíndricas](./0010-integracao-mudanca-var.html#coordenadas-cilindricas),
+Então, transformando em [coordenadas cilíndricas](/cdi-ii/integracao-mudanca-var#coordenadas-cilíndricas),
 
 $$
 \begin{cases}

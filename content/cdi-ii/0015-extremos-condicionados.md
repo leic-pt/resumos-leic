@@ -24,7 +24,7 @@ $$
 [**Como calcular máximo (ou mínimo) de $f$ em $M$?**](color:green)
 
 Seja $x_0$ um máximo local em $M$.  
-Sabemos que $\nabla f(x_0)$ pertence ao [espaço normal](./0014-variedades.md#espaco-tangente-e-espaco-normal) de $M$, pelo que, sendo
+Sabemos que $\nabla f(x_0)$ pertence ao [espaço normal](/cdi-ii/variedades#espaço-tangente-e-espaço-normal) de $M$, pelo que, sendo
 
 $$
 \begin{darray}{c}
@@ -656,7 +656,7 @@ $$
 
 ### Centroíde e Momento de Inércia
 
-Tal como referido em [Aplicações do Integral](./0011-aplicacoes-integral.md),
+Tal como referido em [Aplicações do Integral](/cdi-ii/aplicacoes-integral),
 é possível calcular o centroíde e momento de inércia de um sólido através do
 cálculo de um integral.
 

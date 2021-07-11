@@ -21,7 +21,7 @@ $$
 \frac{\partial f}{\partial v} (a)=J^{f}_{a} v=\nabla f( a) \cdot v=||\nabla f( a) ||\cdot ||v||\cdot \cos\widehat{( \nabla f( a) ,v)}
 $$
 
-pois podemos chamar à Jacobiana de uma função escalar, o [gradiente](0004-diferenciabilidade.md#gradiente-de-uma-funcao), $\nabla f(a)$, da função.
+pois podemos chamar à Jacobiana de uma função escalar, o [gradiente](/cdi-ii/diferenciabilidade#gradiente-de-uma-função), $\nabla f(a)$, da função.
 
 Se $||v|| = 1$, então $\frac{\partial f}{\partial v} (a) = ||\nabla f( a) ||\cdot \cos\widehat{( \nabla f( a) ,v)}$, ou ainda
 $v=\frac{\nabla f(a)}{|| \nabla f(a)||}$.

@@ -26,7 +26,7 @@ $$
 
 :::
 
-Também podemos obter a [Matriz Jacobiana](./0004-diferenciabilidade.md#matriz-jacobiana) de $f\circ g(a)$, $J^{f\circ g}_{a}$,
+Também podemos obter a [Matriz Jacobiana](/cdi-ii/diferenciabilidade#matriz-jacobiana) de $f\circ g(a)$, $J^{f\circ g}_{a}$,
 visto que é o produto da jacobiana de $f$ em $g(a)$, $J^f_{g(a)}$ com a jacobiana de $g$ em $a$, $J_a^g$:
 
 $$

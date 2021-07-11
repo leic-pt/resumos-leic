@@ -202,7 +202,7 @@ $\neg P(x) \vee ((\neg P(y) \vee P(f(x, y))) \wedge (Q(x, g_{sk}(x)) \wedge \neg
 
 ## Unificação
 
-**Processo ligado à [substituição](./0004-logica-primeiraordem-int.md#substituicao).**
+**Processo ligado à [substituição](/lp/logica-primeira-ordem-int#substituição).**
 
 Processo que permite determinar se duas _fbfs_ atómicas podem ser tornadas iguais através de substituições apropriadas para as suas variáveis livres. Antes de considerar o problema da unificação temos de introduzir a _composição de substituições_.
 

@@ -367,7 +367,7 @@ $$
 - $xy < 0$ se $x$ e $y$ têm o sinais distintos
   $(x > 0 \land y < 0) \lor (x < 0 \land y > 0)$
 
-Então, temos [ponto de sela](./0006-conjunto-de-nivel.md#ponto-de-sela) em $(0,0)$.
+Então, temos [ponto de sela](/cdi-ii/conjunto-de-nivel#ponto-de-sela) em $(0,0)$.
 
 Este é um exemplo de ponto crítico que não é extremo.
 
@@ -386,7 +386,7 @@ Será que ocorre extremo de $f$ em $(0,0)$?
 - Se $x = 0$ então $f(x,y) = -y^2 \leq 0$.
 - Se $y = 0$ então $f(x,y) = x^2 \geq 0$
 
-Então, este ponto crítico não corresponde a extremo, pois temos [ponto de sela](./0006-conjunto-de-nivel.md#ponto-de-sela) em $(0,0)$.
+Então, este ponto crítico não corresponde a extremo, pois temos [ponto de sela](/cdi-ii/conjunto-de-nivel#ponto-de-sela) em $(0,0)$.
 
 :::
 
