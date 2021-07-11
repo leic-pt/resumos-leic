@@ -6,6 +6,14 @@ html {
   --dangerBackground: rgba(72, 56, 57, 0.3);
 }
 
+.content img {
+  max-width: 100%;
+}
+
+.toc p {
+  margin: 0;
+}
+
 .custom-container {
   background-color: var(--cardColor);
   padding: 0.1rem 1.5rem;
