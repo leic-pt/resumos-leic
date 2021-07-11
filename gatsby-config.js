@@ -36,6 +36,7 @@ module.exports = {
         path: `${__dirname}/content`,
       },
     },
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-transformer-remark`,

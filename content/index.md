@@ -5,23 +5,6 @@ path: /
 template: homepage
 ---
 
-<div style="text-align: center">
-
-<div style="max-width: 150px; margin: 0 auto;">
-
-![Logo IST](./ist-logo.png)
-
-</div>
-
-# Resumos LEIC-A
-
-Bem vindo ao site comunitário de resumos de LEIC-A.
-
-Aqui irás encontrar tudo o que precisas ao longo do semestre.  
-Podes contribuir ao clicar no botão `Edit this page` no fim de qualquer página.
-
-</div>
-
 ## Links úteis
 
 - [EdenBox](https://www.edenbox.org/) - Testes, fichas e muito mais de todas as UCs de LEIC

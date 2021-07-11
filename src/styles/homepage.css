@@ -1,10 +1,21 @@
+.home-page-container {
+  width: clamp(100px, 80%, 900px);
+  margin: 70px auto 0 auto;
+}
+
+.hero {
+  text-align: center;
+}
+
 .year-section > div {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .semester-section {
-  margin: 0.7rem;
+  margin: 0 0.7rem;
+  flex-grow: 1;
 }
 
 .section-button-layout {
@@ -12,7 +23,6 @@
   grid-template-columns: 1fr 1fr;
   column-gap: 0.5rem;
   row-gap: 0.5rem;
-  width: 700px;
 }
 
 .section-button {
@@ -21,6 +31,7 @@
   padding: 0.5rem;
   border-radius: 5px;
   width: 100%;
+  min-width: 170px;
   height: 7rem;
   color: white;
   font-weight: bold;
@@ -34,6 +45,6 @@
 .section-button img {
   width: 5rem;
   position: absolute;
-  right: 0;
-  bottom: 1.5rem;
+  right: 0.5rem;
+  bottom: 1rem;
 }

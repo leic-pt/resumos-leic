@@ -10,14 +10,27 @@ import TreeGraphIcon from '../images/treeGraph.svg';
 import '../styles/homepage.css';
 import '../styles/main.css';
 import '../styles/markdown.css';
+import Navbar from './Navbar';
 import PageMetadata from './PageMetadata';
 import SectionButton, { SectionButtonLayout } from './SectionButton';
+import { StaticImage } from 'gatsby-plugin-image';
 
 const HomePageLayout = ({ data }) => {
   const { markdownRemark: page } = data;
   return (
     <div className='home-page-container'>
       <PageMetadata title={page.frontmatter.title} description={page.frontmatter.description} />
+      <Navbar />
+      <div className='hero'>
+        <StaticImage
+          src='../../content/ist-logo.png'
+          alt='Instituto Superior Técnico'
+          width={150}
+        />
+        <h1>Resumos LEIC-A</h1>
+        <p>Bem vindo ao site comunitário de resumos de LEIC-A.</p>
+        <p>Aqui irás encontrar tudo o que precisas ao longo do semestre.</p>
+      </div>
       <div style={{ marginTop: 50 }}>
         <div className='year-section'>
           <h2>1º Ano</h2>
