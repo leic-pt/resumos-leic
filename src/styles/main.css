@@ -169,6 +169,10 @@ h2 {
   left: 0;
 }
 
+.sidebar-nav-links {
+  display: none;
+}
+
 @media (max-width: 1199px) {
   .sidebar {
     transform: translateX(-100%);
@@ -189,6 +193,14 @@ h2 {
 
   .sidebar-button {
     display: block;
+  }
+
+  .sidebar-nav-links {
+    display: block;
+  }
+
+  .navbar-links {
+    display: none;
   }
 }
 

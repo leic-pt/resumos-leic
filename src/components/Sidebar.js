@@ -1,5 +1,6 @@
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import React from 'react';
+import ExternalLink from './ExternalLink';
 
 export default function Sidebar({ paths, sidebarOpen, toggleSidebar }) {
   const data = useStaticQuery(graphql`
@@ -10,11 +11,16 @@ export default function Sidebar({ paths, sidebarOpen, toggleSidebar }) {
             key
             name
           }
+          navbar {
+            links {
+              href
+              title
+            }
+          }
         }
       }
     }
   `);
-
   const sidebarSections = [...data.site.siteMetadata.sidebarSections].map((v) => ({ ...v }));
 
   paths.edges.forEach((v) => {
@@ -49,6 +55,16 @@ export default function Sidebar({ paths, sidebarOpen, toggleSidebar }) {
             </div>
           )
       )}
+      <div class='sidebar-nav-links'>
+        <hr />
+        <ul>
+          {data.site.siteMetadata.navbar.links.map(({ href, title }) => (
+            <li key={href}>
+              <ExternalLink href={href}>{title}</ExternalLink>
+            </li>
+          ))}
+        </ul>
+      </div>
     </aside>
   );
 }
