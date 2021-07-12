@@ -11,7 +11,7 @@ const SectionButton = ({ name, link, image, color }) => {
 };
 
 export const SectionButtonLayout = ({ children }) => {
-  return <div class='section-button-layout'>{children}</div>;
+  return <div className='section-button-layout'>{children}</div>;
 };
 
 export default SectionButton;

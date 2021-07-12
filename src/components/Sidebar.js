@@ -1,7 +1,7 @@
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import React from 'react';
 
-export default function Sidebar({ paths }) {
+export default function Sidebar({ paths, sidebarOpen, toggleSidebar }) {
   const data = useStaticQuery(graphql`
     query SidebarQuery {
       site {
