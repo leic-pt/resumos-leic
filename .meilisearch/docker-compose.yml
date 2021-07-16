@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  meilisearch:
+    image: getmeili/meilisearch:v0.20.0
+    ports:
+      - 7700:7700
+    volumes:
+      - ./data.ms:/data.ms
+    environment:
+      MEILI_ENV: development # change to production
+      MEILI_MASTER_KEY: changeme
+      MEILI_NO_ANALYTICS: 'true'
+    restart: unless-stopped
