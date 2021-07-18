@@ -1,7 +1,7 @@
 ---
 title: Lab 07
 description: Enunciado e resolução dos exercícios do Laboratório 7 de IAED
-path: /iaed/lab07
+path: /iaed/labs/lab07
 type: labsProg
 ---
 
