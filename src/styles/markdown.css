@@ -1,6 +1,14 @@
 html {
   --tipBorder: #42b983;
   --warningBorder: #e7c000;
+  --warningBackground: rgba(255, 229, 100, 0.3);
+  --dangerBorder: #da5961;
+  --dangerBackground: #ffe6e6;
+}
+
+html.dark {
+  --tipBorder: #42b983;
+  --warningBorder: #e7c000;
   --warningBackground: rgba(185, 174, 119, 0.3);
   --dangerBorder: #fb7981;
   --dangerBackground: rgba(72, 56, 57, 0.3);
@@ -73,7 +81,6 @@ html {
 }
 
 .tab-group {
-  /* background-color: var(--cardColor); */
   border: solid 1px var(--borderColor);
   border-radius: 5px;
   padding: 0.2rem 0.4rem;
@@ -116,6 +123,17 @@ html {
 /* COLORS */
 
 html {
+  --colorRed: #e03e3e;
+  --colorGreen: #0f7b6c;
+  --colorBlue: #0b6e99;
+  --colorPink: #ad1a72;
+  --colorPurple: #6940a5;
+  --colorYellow: #dfab01;
+  --colorOrange: #d9730d;
+  --colorBrown: #64473a;
+}
+
+html.dark {
   --colorRed: #ff7369;
   --colorGreen: #4dab9a;
   --colorBlue: #529cca;

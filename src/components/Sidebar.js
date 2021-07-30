@@ -55,7 +55,7 @@ export default function Sidebar({ paths, sidebarOpen, toggleSidebar }) {
             </div>
           )
       )}
-      <div class='sidebar-nav-links'>
+      <div className='sidebar-nav-links'>
         <hr />
         <ul>
           {data.site.siteMetadata.navbar.links.map(({ href, title }) => (

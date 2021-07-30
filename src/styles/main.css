@@ -1,4 +1,18 @@
 html {
+  --accentColor: #0576a7;
+  --bgColor: #fff;
+  --cardColor: #f3f5f7;
+  --textColor: #2c3e50;
+  --borderColor: #eaecef;
+  --lighten20TextColor: #476582;
+  --miniCodeBgColor: rgba(27, 31, 35, 0.05);
+  --scrollbarColor: rgba(0, 0, 0, 0.4);
+
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+
+html.dark {
   --accentColor: #00a0e4;
   --bgColor: #25272a;
   --cardColor: #3e3b3b;
@@ -7,9 +21,6 @@ html {
   --lighten20TextColor: #e8e8e8;
   --miniCodeBgColor: hsla(0, 0%, 100%, 0.1);
   --scrollbarColor: hsla(0, 0%, 100%, 0.4);
-
-  scroll-behavior: smooth;
-  scroll-padding-top: 70px;
 }
 
 @media (min-width: 719px) {
@@ -37,8 +48,8 @@ a {
   font-weight: 500;
 }
 
-.gatsby-resp-image-wrapper[data-dark='1'],
-img[data-dark='1'] {
+html.dark .gatsby-resp-image-wrapper[data-dark='1'],
+html.dark img[data-dark='1'] {
   filter: invert(1) hue-rotate(180deg) saturate(5);
 }
 
@@ -64,6 +75,10 @@ h2 {
   padding-left: 20rem;
 }
 
+.flex-grow {
+  flex-grow: 1;
+}
+
 .navbar {
   position: fixed;
   top: 0;
@@ -83,7 +98,6 @@ h2 {
   color: var(--textColor);
   font-size: 1.3rem;
   font-weight: 600;
-  flex-grow: 1;
 }
 
 .navbar .navbar-links a {
@@ -131,7 +145,7 @@ h2 {
 }
 
 .sidebar li {
-  color: white;
+  color: var(--textColor);
   padding: 4px 8px;
 }
 
@@ -208,4 +222,15 @@ h2 {
   max-width: 740px;
   margin: 60px auto 0 auto;
   padding: 2rem 2.5rem;
+}
+
+.dark-mode-toggle {
+  border: none;
+  color: var(--textColor);
+  background: none;
+  cursor: pointer;
+}
+
+.anchor.before {
+  fill: var(--accentColor);
 }

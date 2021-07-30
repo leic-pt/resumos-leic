@@ -2,6 +2,7 @@ import { Link, useStaticQuery, graphql } from 'gatsby';
 import React from 'react';
 import ExternalLink from './ExternalLink';
 import SearchBar from './SearchBar';
+import ThemeSettings from './ThemeSettings';
 
 const Navbar = ({ toggleSidebar }) => {
   const data = useStaticQuery(graphql`
@@ -41,7 +42,9 @@ const Navbar = ({ toggleSidebar }) => {
       <Link to='/' className='site-title'>
         {data.site.siteMetadata.navbar.siteTitle}
       </Link>
+      <div className='flex-grow' />
       <SearchBar />
+      <ThemeSettings />
       <div className='navbar-links'>
         {data.site.siteMetadata.navbar.links.map(({ href, title }) => (
           <ExternalLink href={href} key={href}>
