@@ -6,7 +6,7 @@ export function useFontSettings() {
 
   useEffect(() => {
     const element = window.document.body;
-    element.style.fontFamily = font;
+    element.style.fontFamily = font || null;
   }, [font, setFont]);
 }
 
