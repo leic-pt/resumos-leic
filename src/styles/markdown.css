@@ -1,4 +1,4 @@
-html {
+body {
   --tipBorder: #42b983;
   --warningBorder: #e7c000;
   --warningBackground: rgba(255, 229, 100, 0.3);
@@ -6,7 +6,7 @@ html {
   --dangerBackground: #ffe6e6;
 }
 
-html.dark {
+body.dark-mode {
   --tipBorder: #42b983;
   --warningBorder: #e7c000;
   --warningBackground: rgba(185, 174, 119, 0.3);
@@ -122,7 +122,7 @@ html.dark {
 
 /* COLORS */
 
-html {
+body {
   --colorRed: #e03e3e;
   --colorGreen: #0f7b6c;
   --colorBlue: #0b6e99;
@@ -133,7 +133,7 @@ html {
   --colorBrown: #64473a;
 }
 
-html.dark {
+body.dark-mode {
   --colorRed: #ff7369;
   --colorGreen: #4dab9a;
   --colorBlue: #529cca;

@@ -100,5 +100,6 @@ module.exports = {
         icon: `src/images/android-icon-192x192.png`, // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-use-dark-mode`,
   ],
 };

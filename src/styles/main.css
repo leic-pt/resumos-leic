@@ -1,4 +1,9 @@
 html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+
+body {
   --accentColor: #0576a7;
   --bgColor: #fff;
   --cardColor: #f3f5f7;
@@ -7,12 +12,9 @@ html {
   --lighten20TextColor: #476582;
   --miniCodeBgColor: rgba(27, 31, 35, 0.05);
   --scrollbarColor: rgba(0, 0, 0, 0.4);
-
-  scroll-behavior: smooth;
-  scroll-padding-top: 70px;
 }
 
-html.dark {
+body.dark-mode {
   --accentColor: #00a0e4;
   --bgColor: #25272a;
   --cardColor: #3e3b3b;
@@ -49,8 +51,8 @@ a {
   font-weight: 500;
 }
 
-html.dark .gatsby-resp-image-wrapper[data-dark='1'],
-html.dark img[data-dark='1'] {
+body.dark-mode .gatsby-resp-image-wrapper[data-dark='1'],
+body.dark-mode img[data-dark='1'] {
   filter: invert(1) hue-rotate(180deg) saturate(5);
 }
 

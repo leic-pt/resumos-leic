@@ -1,13 +1,12 @@
 import React from 'react';
-import { useDarkMode, useFontSettings } from '../hooks/theme-hooks';
+import useDarkMode from 'use-dark-mode';
+import { useFontSettings } from '../hooks/theme-hooks';
 import DarkModeOff from './icons/DarkModeOff';
 import DarkModeOn from './icons/DarkModeOn';
 
 const ThemeSettings = () => {
-  const [isDarkMode, setDarkMode] = useDarkMode();
+  const { value: isDarkMode, toggle: toggleDarkMode } = useDarkMode();
   useFontSettings();
-
-  const toggleDarkMode = () => setDarkMode(!isDarkMode);
 
   return (
     <button className='dark-mode-toggle' onClick={toggleDarkMode}>
