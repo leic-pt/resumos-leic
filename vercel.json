@@ -165,7 +165,7 @@
     { "source": "/iaed/0002-estruturas-controlo.html", "destination": "/iaed/estruturas-controlo" },
     { "source": "/iaed/0003-input-output.html", "destination": "/iaed/input-output" },
     { "source": "/iaed/0004-tabelas.html", "destination": "/iaed/tabelas" },
-    { "source": "/iaed/0005-ficheiros.html", "destination": "/iaed/ficheiros" },
+    { "source": "/iaed/0005-ficheiros.html", "destination": "/iaed/funcoes" },
     { "source": "/iaed/0006-estruturas.html", "destination": "/iaed/estruturas" },
     { "source": "/iaed/0007-1elementos.html", "destination": "/iaed/elementos-linguagem" },
     { "source": "/iaed/0007-2control.html", "destination": "/iaed/controlo-execucao" },
