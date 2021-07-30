@@ -100,12 +100,5 @@ module.exports = {
         icon: `src/images/android-icon-192x192.png`, // This path is relative to the root of the site.
       },
     },
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [`Nunito\:300,400,500`],
-        display: 'swap',
-      },
-    },
   ],
 };

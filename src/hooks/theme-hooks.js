@@ -1,4 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+
+// Custom hook
+export function useFontSettings() {
+  const [font, setFont] = useLocalStorage('custom-font');
+
+  useEffect(() => {
+    const element = window.document.body;
+    element.style.fontFamily = font;
+  }, [font, setFont]);
+}
 
 // Source: https://usehooks.com/useDarkMode/
 export function useDarkMode() {
@@ -52,10 +62,10 @@ export function useLocalStorage(key, initialValue) {
 // Source: https://usehooks.com/useMedia/
 export function useMedia(queries, values, defaultValue) {
   const mediaQueryLists = queries.map((q) => window.matchMedia(q));
-  const getValue = () => {
+  const getValue = useCallback(() => {
     const index = mediaQueryLists.findIndex((mql) => mql.matches);
     return typeof values[index] !== 'undefined' ? values[index] : defaultValue;
-  };
+  }, [mediaQueryLists, values, defaultValue]);
 
   const [value, setValue] = useState(getValue);
   useEffect(() => {
