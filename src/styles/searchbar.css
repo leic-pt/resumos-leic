@@ -9,4 +9,5 @@
   border: 1px solid;
   border-radius: 15px;
   padding: 0.5rem;
+  width: clamp(10px, 100%, 185px);
 }
