@@ -191,3 +191,7 @@ blockquote > p:first-child {
 blockquote > p:last-child {
   margin-bottom: 0;
 }
+
+.math.math-display {
+  overflow-x: auto;
+}
