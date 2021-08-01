@@ -68,7 +68,7 @@ const BezoutCalculator = () => {
       let b = remainder[1];
       const getEq = (gcd, n1, x, n2, y) =>
         `${gcd} = ${n1} \\times (${x}) ${numberSignal(n2)} ${n2} \\times (${y})`;
-      if (n3Int % gcd != 0) {
+      if (n3Int % gcd !== 0) {
         katexExpressions.push(
           `${gcd} \\text{ não divide } ${n3Int}\\text{, logo não dá para resolver eq. diofantina}`
         );
@@ -106,13 +106,17 @@ const BezoutCalculator = () => {
       <div className='num-inputs'>
         {input.map((n, i) => (
           <div className='input-box-div' key={i}>
-            <label>{i + 1}º número</label>
-            <input value={n} type='number' className='input-box' onChange={onChangeNumbers(i)} />
+            <label>
+              {i + 1}º número
+              <input value={n} type='number' className='input-box' onChange={onChangeNumbers(i)} />
+            </label>
           </div>
         ))}
         <div className='input-box-div'>
-          <label>Constante (opcional)</label>
-          <input value={n3} type='number' className='input-box' onChange={onChangeN3} />
+          <label>
+            Constante (opcional)
+            <input value={n3} type='number' className='input-box' onChange={onChangeN3} />
+          </label>
         </div>
       </div>
       <button className='calculate-btn' onClick={calculate}>
