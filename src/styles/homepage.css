@@ -1,5 +1,5 @@
 .home-page-container {
-  width: clamp(100px, 80%, 900px);
+  width: clamp(100px, 90%, 900px);
   margin: 70px auto 0 auto;
 }
 

@@ -42,7 +42,7 @@ body {
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   color: var(--textColor);
   background-color: var(--bgColor);
-  font-size: 18px;
+  font-size: 16px;
 }
 
 a {
@@ -226,6 +226,18 @@ h2 {
   max-width: 740px;
   margin: 60px auto 0 auto;
   padding: 2rem 2.5rem;
+}
+
+@media (max-width: 959px) {
+  .main-container {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 419px) {
+  .main-container {
+    padding: 1.5rem;
+  }
 }
 
 .dark-mode-toggle {
