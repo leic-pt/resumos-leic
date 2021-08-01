@@ -1,6 +1,4 @@
 ---
-title: Resumos LEIC-A
-description: Resumos das UCs de LEIC-A do IST
 path: /
 template: homepage
 ---
