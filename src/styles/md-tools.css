@@ -4,7 +4,7 @@
   color: var(--textColor);
 }
 
-.md-tools .input-box-div {
+.md-tools .input-box-div label {
   display: flex;
   flex-direction: column;
   margin-right: 5px;
