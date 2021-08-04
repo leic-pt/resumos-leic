@@ -32,9 +32,9 @@ const TCRTableCalculator = () => {
       b = temp;
     }
     while (true) {
-      if (b == 0) return a;
+      if (b === 0) return a;
       a %= b;
-      if (a == 0) return b;
+      if (a === 0) return b;
       b %= a;
     }
   };
@@ -55,10 +55,10 @@ const TCRTableCalculator = () => {
     mi = mi
       .map((m) => {
         let factors = [];
-        while (m != 1) {
+        while (m !== 1) {
           let i;
           for (i = 2; i < m; ++i) {
-            if (m % i == 0) break;
+            if (m % i === 0) break;
           }
           m /= i;
           factors.push(i);
@@ -83,7 +83,7 @@ const TCRTableCalculator = () => {
       .map((c) =>
         Object.fromEntries(
           Object.entries(c).filter(([k, c2]) => {
-            if (lcmFactors[k] && lcmFactors[k] == c2) {
+            if (lcmFactors[k] && lcmFactors[k] === c2) {
               lcmFactors[k] = 0;
               return true;
             }
@@ -100,7 +100,7 @@ const TCRTableCalculator = () => {
     // nx - cy = 1
     const remainder = [n, c];
     const quotients = [null];
-    while (remainder[remainder.length - 1] != 0) {
+    while (remainder[remainder.length - 1] !== 0) {
       const [a, b] = remainder.slice(-2);
       remainder.push(a % b);
       quotients.push(Math.floor(a / b));
@@ -109,7 +109,7 @@ const TCRTableCalculator = () => {
     for (let i = 2; i < quotients.length; ++i) {
       coefX[i] = coefX[i - 2] - quotients[i - 1] * coefX[i - 1];
     }
-    if (remainder.slice(-2)[0] != 1) return NaN; // probably won't happen
+    if (remainder.slice(-2)[0] !== 1) return NaN; // probably won't happen
     // x = coefX[-1] + ct
     return coefX[coefX.length - 1] % c;
   };
