@@ -15,7 +15,7 @@ type: content
 
 ### Explicação
 
-![Count](./assets/0011-count.png)
+![Count](./assets/0011-count.png#dark=1)
 
 Este algoritmo permite de forma rápida uma lista de números que sejam muito repitidos.
 
