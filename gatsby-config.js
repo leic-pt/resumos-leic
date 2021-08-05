@@ -106,5 +106,15 @@ module.exports = {
       },
     },
     `gatsby-plugin-use-dark-mode`,
+    {
+      resolve: `gatsby-plugin-umami`,
+      options: {
+        websiteId: '711c662a-45bd-41e0-bf82-302096490211',
+        srcUrl: 'https://umami.diogotc.com/umami.js',
+        includeInDevelopment: false,
+        autoTrack: true,
+        respectDoNotTrack: true,
+      },
+    },
   ],
 };

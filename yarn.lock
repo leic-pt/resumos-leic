@@ -5858,6 +5858,13 @@ gatsby-plugin-typescript@^3.9.0:
     "@babel/runtime" "^7.14.0"
     babel-plugin-remove-graphql-queries "^3.9.0"
 
+gatsby-plugin-umami@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-umami/-/gatsby-plugin-umami-0.1.3.tgz#3854862a02a252ce72b61dc2321245a7cffc2365"
+  integrity sha512-leUlkkU6YlFDt11vT2FFb7TdayBFTlvp6jF9kB9xa+IluzeM2FAi43lFefST5vWKFal4seUq5iFQzMQg49Sezw==
+  dependencies:
+    babel-runtime "^6.26.0"
+
 gatsby-plugin-use-dark-mode@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-use-dark-mode/-/gatsby-plugin-use-dark-mode-1.3.0.tgz#995ab84e3b867fe94797b7b1c081e90c7c12c8dc"
