@@ -1,5 +1,195 @@
 {
   "github": {
     "silent": true
-  }
+  },
+  "redirects": [
+    {
+      "source": "/cdi-ii/0001-transicao-para-dim-sup-1.html",
+      "destination": "/cdi-ii/transicao-para-dim-sup-1"
+    },
+    { "source": "/cdi-ii/0002-norma-topologia.html", "destination": "/cdi-ii/norma-topologia" },
+    {
+      "source": "/cdi-ii/0003-funcoes-continuidade.html",
+      "destination": "/cdi-ii/funcoes-continuidade"
+    },
+    {
+      "source": "/cdi-ii/0004-diferenciabilidade.html",
+      "destination": "/cdi-ii/diferenciabilidade"
+    },
+    { "source": "/cdi-ii/0005-derivada-composta.html", "destination": "/cdi-ii/derivada-composta" },
+    { "source": "/cdi-ii/0006-conjunto-de-nivel.html", "destination": "/cdi-ii/conjunto-de-nivel" },
+    {
+      "source": "/cdi-ii/0007-derivada-ordem-superior.html",
+      "destination": "/cdi-ii/derivada-de-ordem-superior"
+    },
+    { "source": "/cdi-ii/0008-integracao.html", "destination": "/cdi-ii/integracao" },
+    {
+      "source": "/cdi-ii/0009-integracao-funcoes.html",
+      "destination": "/cdi-ii/integracao-funcoes"
+    },
+    {
+      "source": "/cdi-ii/0010-integracao-mudanca-var.html",
+      "destination": "/cdi-ii/integracao-mudanca-var"
+    },
+    {
+      "source": "/cdi-ii/0011-aplicacoes-integral.html",
+      "destination": "/cdi-ii/aplicacoes-integral"
+    },
+    { "source": "/cdi-ii/0012-teorema-leibniz.html", "destination": "/cdi-ii/teorema-leibniz" },
+    { "source": "/cdi-ii/0013-funcao-inversa.html", "destination": "/cdi-ii/funcao-inversa" },
+    { "source": "/cdi-ii/0014-variedades.html", "destination": "/cdi-ii/variedades" },
+    {
+      "source": "/cdi-ii/0015-extremos-condicionados.html",
+      "destination": "/cdi-ii/extremos-condicionados"
+    },
+    { "source": "/cdi-ii/0016-campos-vetoriais.html", "destination": "/cdi-ii/campos-vetoriais" },
+    {
+      "source": "/cdi-ii/0017-green-fluxo-divergencia.html",
+      "destination": "/cdi-ii/teorema-de-green"
+    },
+    {
+      "source": "/cdi-ii/0018-fluxo-divergencia.html",
+      "destination": "/cdi-ii/fluxo-teorema-divergencia"
+    },
+    {
+      "source": "/cdi-ii/0019-rotacional-stokes.html",
+      "destination": "/cdi-ii/rotacional-teorema-stokes"
+    },
+    {
+      "source": "/cdi-ii/exercicios/fichas-aulas-praticas.html",
+      "destination": "/cdi-ii/exercicios/fichas-aulas-praticas"
+    },
+    { "source": "/md/0001-perturbacoes.html", "destination": "/md/perturbacoes" },
+    {
+      "source": "/md/0002-introducao-calculo-finito.html",
+      "destination": "/md/introducao-calculo-finito"
+    },
+    {
+      "source": "/md/0003-formulas-fechadas-somatorios.html",
+      "destination": "/md/formulas-fechadas-somatorios"
+    },
+    { "source": "/md/0004-serie-harmonica.html", "destination": "/md/serie-harmonica" },
+    { "source": "/md/0005-inducao-matematica.html", "destination": "/md/inducao-matematica" },
+    { "source": "/md/0006-formula-de-abel.html", "destination": "/md/formula-de-abel" },
+    { "source": "/md/0007-funcoesgeradoras.html", "destination": "/md/funcoes-geradoras" },
+    { "source": "/md/0008-teonewton.html", "destination": "/md/teorema-de-newton" },
+    { "source": "/md/0009-combinatorio.html", "destination": "/md/calculo-combinatorio" },
+    { "source": "/md/0010-diffinitas.html", "destination": "/md/equacoes-diferencas-finitas" },
+    { "source": "/md/0011-FFT.html", "destination": "/md/fft" },
+    { "source": "/md/0012-MDC.html", "destination": "/md/mdc-eq-diofantinas" },
+    { "source": "/md/0013-calendario.html", "destination": "/md/calendario" },
+    { "source": "/md/0014-pascoa.html", "destination": "/md/pascoa" },
+    { "source": "/md/0015-congruencias.html", "destination": "/md/congruencias" },
+    { "source": "/md/0016-chines-restos.html", "destination": "/md/teorema-chines-restos" },
+    { "source": "/md/0017-rsa.html", "destination": "/md/rsa" },
+    { "source": "/md/0018-grafos-def.html", "destination": "/md/grafos" },
+    { "source": "/md/0019-pombal.html", "destination": "/md/principio-pombal" },
+    { "source": "/md/0020-labirintos.html", "destination": "/md/labirintos" },
+    { "source": "/md/0021-galeshapley.html", "destination": "/md/relacionamentos-gale-shapley" },
+    { "source": "/md/0022-kruskraldijkrsta.html", "destination": "/md/kruskal-dijkstra" },
+    { "source": "/md/0023-teoriadofluxo.html", "destination": "/md/teoria-fluxo" },
+    { "source": "/md/0024-grafoplanares.html", "destination": "/md/grafos-planares" },
+    { "source": "/md/0025-teoremakuratowski.html", "destination": "/md/algoritmo-kuratowski" },
+    { "source": "/md/0026-automatos.html", "destination": "/md/automatos-finitos" },
+    {
+      "source": "/md/exercicios/fichas-aulas-praticas.html",
+      "destination": "/md/exercicios/fichas-aulas-praticas"
+    },
+    { "source": "/md/1001-calc-finito.html", "destination": "/md/cheatsheet/calculo-finito" },
+    {
+      "source": "/md/1002-geradoras-sheet.html",
+      "destination": "/md/cheatsheet/funcoes-geradoras"
+    },
+    { "source": "/md/1003-calendarios.html", "destination": "/md/cheatsheet/calendarios" },
+    {
+      "source": "/md/1004-mdc-cheat.html",
+      "destination": "/md/cheatsheet/mdc-equacoes-diofantinas"
+    },
+    { "source": "/md/1005-rsa-sheet.html", "destination": "/md/cheatsheet/rsa" },
+    { "source": "/md/1006-grafos.html", "destination": "/md/cheatsheet/grafos" },
+    {
+      "source": "/md/tools/bezout-calculator.html",
+      "destination": "/md/tools/mdc-bezout-calculator"
+    },
+    { "source": "/md/tools/fft-calculator.html", "destination": "/md/tools/fft-calculator" },
+    {
+      "source": "/md/tools/calendar-calculator.html",
+      "destination": "/md/tools/calendar-calculator"
+    },
+    { "source": "/md/tools/rsa-calculator.html", "destination": "/md/tools/rsa-calculator" },
+    {
+      "source": "/md/tools/tcr-table-calculator.html",
+      "destination": "/md/tools/teorema-chines-restos-table-calculator"
+    },
+    { "source": "/lp/0001-conceitos-gerais.html", "destination": "/lp/conceitos-gerais" },
+    {
+      "source": "/lp/0002-logica-proposicional-int.html",
+      "destination": "/lp/logica-proposicional-int"
+    },
+    {
+      "source": "/lp/0003-logica-proposicional-sc.html",
+      "destination": "/lp/logica-proposicional-sc"
+    },
+    {
+      "source": "/lp/0004-logica-primeiraordem-int.html",
+      "destination": "/lp/logica-primeira-ordem-int"
+    },
+    {
+      "source": "/lp/0005-logica-primeiraordem-sc.html",
+      "destination": "/lp/logica-primeira-ordem-sc"
+    },
+    { "source": "/lp/0006-prog-logica.html", "destination": "/lp/fundamentos-programacao-logica" },
+    { "source": "/lp/0007-prolog-intro.html", "destination": "/lp/prolog-intro" },
+    { "source": "/lp/0008-prolog-mid.html", "destination": "/lp/prolog-mid" },
+    { "source": "/lp/0009-prolog-corte-neg.html", "destination": "/lp/prolog-corte-neg" },
+    { "source": "/lp/0010-prolog-lp.html", "destination": "/lp/prolog-linguagem-programacao" },
+    {
+      "source": "/lp/0011-logica-proposicional-semantico.html",
+      "destination": "/lp/logica-proposicional-semantico"
+    },
+    { "source": "/lp/0012-lp-ii-bdds.html", "destination": "/lp/logica-proposicional-ii-bdds" },
+    { "source": "/lp/0013-algs-sat.html", "destination": "/lp/algoritmos-sat" },
+    {
+      "source": "/lp/0014-lpo-semantico.html",
+      "destination": "/lp/logica-primeira-ordem-semantico"
+    },
+    {
+      "source": "/lp/exercicios/fichas-aulas-praticas.html",
+      "destination": "/lp/exercicios/fichas-aulas-praticas"
+    },
+    { "source": "/lp/1000-faq.html", "destination": "/lp/projeto/faq" },
+    {
+      "source": "/iaed/0001-introducao-programacao-c.html",
+      "destination": "/iaed/introducao-programacao-c"
+    },
+    { "source": "/iaed/0002-estruturas-controlo.html", "destination": "/iaed/estruturas-controlo" },
+    { "source": "/iaed/0003-input-output.html", "destination": "/iaed/input-output" },
+    { "source": "/iaed/0004-tabelas.html", "destination": "/iaed/tabelas" },
+    { "source": "/iaed/0005-ficheiros.html", "destination": "/iaed/funcoes" },
+    { "source": "/iaed/0006-estruturas.html", "destination": "/iaed/estruturas" },
+    { "source": "/iaed/0007-1elementos.html", "destination": "/iaed/elementos-linguagem" },
+    { "source": "/iaed/0007-2control.html", "destination": "/iaed/controlo-execucao" },
+    { "source": "/iaed/0008-intro_algoritmos.html", "destination": "/iaed/introducao-algoritmos" },
+    {
+      "source": "/iaed/0009-algo_ord.html",
+      "destination": "/iaed/algorimos-elementares-ordenacao"
+    },
+    {
+      "source": "/iaed/0010-more_algo.html",
+      "destination": "/iaed/algorimos-eficientes-ordenacao"
+    },
+    {
+      "source": "/iaed/0011-even_more_algo.html",
+      "destination": "/iaed/algorimos-elementares-ordenacao-2"
+    },
+    { "source": "/iaed/0012-ponteiros.html", "destination": "/iaed/ponteiros" },
+    { "source": "/iaed/0013-mem.html", "destination": "/iaed/alocacao-dinamica-memoria" },
+    { "source": "/iaed/0014-listas.html", "destination": "/iaed/listas" },
+    { "source": "/iaed/0015-tad.html", "destination": "/iaed/tad" },
+    { "source": "/iaed/0016-disp.html", "destination": "/iaed/hash-tables" },
+    { "source": "/iaed/0017-arv.html", "destination": "/iaed/arvores-binarias" },
+    { "source": "/iaed/0018-grafos.html", "destination": "/iaed/grafos" },
+    { "source": "/iaed/1000-algoritmos.sheet.html", "destination": "/iaed/cheatsheet/algoritmos" },
+    { "source": "/iaed/meta/linux-setup.html", "destination": "/iaed/meta/linux-setup" }
+  ]
 }

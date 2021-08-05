@@ -1,0 +1,14 @@
+.searchbar {
+  margin-right: 1rem;
+}
+
+.searchbar #searchbar-input {
+  color: var(--textColor);
+  border-color: var(--borderColor);
+  background-color: var(--bgColor);
+  border: 1px solid;
+  border-radius: 15px;
+  padding: 0.5rem;
+  width: clamp(10px, 100%, 185px);
+  outline: 0;
+}

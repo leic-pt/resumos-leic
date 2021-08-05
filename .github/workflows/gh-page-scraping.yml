@@ -13,7 +13,7 @@ jobs:
         env:
           HOST_URL: ${{ secrets.MEILISEARCH_HOST_URL }}
           API_KEY: ${{ secrets.MEILISEARCH_API_KEY }}
-          CONFIG_FILE_PATH: ${{ github.workspace }}/src/.vuepress/docs-scraper/docs-scraper.config.json
+          CONFIG_FILE_PATH: ${{ github.workspace }}/.github/workflows/docs-scraper.config.json
         run: |
           docker run -t --rm \
             -e MEILISEARCH_HOST_URL=$HOST_URL \

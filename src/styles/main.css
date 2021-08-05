@@ -1,0 +1,279 @@
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+
+body {
+  --accentColor: #0576a7;
+  --bgColor: #fff;
+  --cardColor: #f3f5f7;
+  --textColor: #2c3e50;
+  --borderColor: #eaecef;
+  --lighten20TextColor: #476582;
+  --miniCodeBgColor: rgba(27, 31, 35, 0.05);
+  --scrollbarColor: rgba(0, 0, 0, 0.4);
+}
+
+@media not print {
+  body.dark-mode {
+    --accentColor: #00a0e4;
+    --bgColor: #25272a;
+    --cardColor: #3e3b3b;
+    --textColor: #e2e2e2;
+    --borderColor: #4e4e4e;
+    --lighten20TextColor: #e8e8e8;
+    --miniCodeBgColor: hsla(0, 0%, 100%, 0.1);
+    --scrollbarColor: hsla(0, 0%, 100%, 0.4);
+  }
+}
+
+@media (min-width: 719px) {
+  ::-webkit-scrollbar {
+    max-width: 6px;
+    max-height: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbarColor);
+    border-radius: 6px;
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  color: var(--textColor);
+  background-color: var(--bgColor);
+  font-size: 16px;
+}
+
+a {
+  color: var(--accentColor);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+@media not print {
+  body.dark-mode .gatsby-resp-image-wrapper[data-dark='1'],
+  body.dark-mode img[data-dark='1'] {
+    filter: invert(1) hue-rotate(180deg) saturate(5);
+  }
+}
+
+code:not(code[class*='language-']) {
+  color: var(--lighten20TextColor);
+  background-color: var(--miniCodeBgColor);
+  padding: 0.25rem 0.5rem;
+  margin: 0;
+  font-size: 0.85em;
+  border-radius: 3px;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--borderColor);
+}
+
+h2 {
+  border-bottom: 1px solid var(--borderColor);
+}
+
+.page-container {
+  padding-left: 20rem;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0.7rem 1.5rem;
+  line-height: 2.2rem;
+  z-index: 20;
+  right: 0;
+  height: 3.6rem;
+  background-color: var(--bgColor);
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--borderColor);
+  display: flex;
+}
+
+@media print {
+  .navbar {
+    display: none;
+  }
+}
+
+.navbar .site-title {
+  color: var(--textColor);
+  font-size: 1.3rem;
+  font-weight: 600;
+  overflow-y: hidden;
+}
+
+.navbar .navbar-links a {
+  color: var(--textColor);
+  margin: 0 0.5rem;
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+.sidebar-button .icon {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.sidebar-button {
+  cursor: pointer;
+  display: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  padding-right: 1rem;
+  align-self: center;
+  background: none;
+  border: none;
+  color: inherit;
+  box-sizing: content-box;
+}
+
+.sidebar {
+  width: 20rem;
+  border-right: 1px solid var(--borderColor);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  overflow-y: auto;
+  margin-top: 3.6rem;
+  background-color: var(--bgColor);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  color: var(--textColor);
+  padding: 4px 8px;
+}
+
+.sidebar p {
+  padding: 0px 8px;
+  font-weight: bold;
+}
+
+.sidebar div:not(.top-level) li {
+  font-size: 0.9em;
+  margin: 0px 8px;
+}
+
+.sidebar li a {
+  color: inherit;
+  width: 100%;
+  display: inline-block;
+}
+
+.sidebar li a:hover {
+  color: var(--accentColor);
+}
+
+.sidebar li a.link__active {
+  color: var(--accentColor);
+}
+
+.sidebar-mask {
+  width: 100vw;
+  height: 100vh;
+  z-index: 9;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.sidebar-nav-links {
+  display: none;
+}
+
+@media (max-width: 1199px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.2s ease;
+  }
+
+  .sidebar-open .sidebar {
+    transform: translateX(0);
+  }
+
+  .page-container {
+    padding-left: 0;
+  }
+
+  .sidebar-open .sidebar-mask {
+    display: block;
+  }
+
+  .sidebar-button {
+    display: block;
+  }
+
+  .sidebar-nav-links {
+    display: block;
+  }
+
+  .navbar-links {
+    display: none;
+  }
+}
+
+@media print {
+  .sidebar {
+    display: none;
+  }
+
+  .page-container {
+    padding-left: 0;
+  }
+}
+
+.main-container {
+  max-width: 740px;
+  margin: 3.6rem auto 0 auto;
+  padding: 2rem 2.5rem;
+}
+
+@media (max-width: 959px) {
+  .main-container {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 419px) {
+  .main-container {
+    padding: 1.5rem;
+  }
+}
+
+@media print {
+  .main-container {
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+
+.dark-mode-toggle {
+  border: none;
+  color: var(--textColor);
+  background: none;
+  cursor: pointer;
+}
+
+.anchor.before {
+  fill: var(--accentColor);
+}

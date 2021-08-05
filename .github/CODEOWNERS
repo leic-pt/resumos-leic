@@ -2,24 +2,31 @@
 
 * @diogotcorreia
 
+# CDI-I - Main maintainer Diogo Correia
+content/cdi-i/** @diogotcorreia [cdi-i]
+
+# AL - Main maintainer Diogo Correia
+content/al/** @diogotcorreia [al]
+
+# FP - Main maintainer Diogo Correia
+content/fp/** @diogotcorreia [fp]
+
+# IAC - Main maintainer Diogo Correia
+content/iac/** @diogotcorreia [iac]
+
 # CDI-II - Main maintainer Diogo Correia
-src/cdi-ii/* @diogotcorreia [cdi-ii]
-src/cdi-ii/exercicios/* @diogotcorreia [cdi-ii]
-src/cdi-ii/README.md @diogotcorreia [cdi-ii]
+content/cdi-ii/** @diogotcorreia [cdi-ii]
 
 # IAED - Main maintainer Tomás Esteves
-src/iaed/* @Pesteves2002 [iaed]
-src/iaed/labs/* @diogotcorreia @Pesteves2002 [iaed]
-src/iaed/meta/* @diogotcorreia [iaed]
-src/iaed/README.md @diogotcorreia [iaed]
+content/iaed/** @Pesteves2002 [iaed]
+content/iaed/labs/* @diogotcorreia @Pesteves2002 [iaed]
+content/iaed/meta/* @diogotcorreia [iaed]
 
 # LP - Main maintainer Diogo Gaspar
-src/lp/* @randomicecube [lp]
-src/lp/assets/* @randomicecube [lp]
-src/lp/exercicios/* @randomicecube [lp]
-src/lp/README.md @diogotcorreia [lp]
+content/lp/** @randomicecube [lp]
 
 # MD - Main maintainer João Fonseca
-src/md/* @jmseca [md]
-src/md/exercicios/* @diogotcorreia [md]
-src/md/README.md @diogotcorreia [md]
+content/md/* @jmseca [md]
+content/md/imgs/* @jmseca [md]
+content/md/exercicios/* @diogotcorreia [md]
+content/md/tools/* @diogotcorreia [md]
