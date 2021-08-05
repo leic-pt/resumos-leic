@@ -16,6 +16,7 @@ template: homepage
 
 Quero agradecer a [todos os que contribuíram](https://github.com/diogotcorreia/resumos-leic/graphs/contributors) para os conteúdos deste site:
 
+- [Diogo Correia](https://github.com/diogotcorreia/resumos-leic/commits?author=diogotcorreia) (**Website**, **CDI-II**, MD, IAED)
 - [Diogo Gaspar](https://github.com/diogotcorreia/resumos-leic/commits?author=randomicecube) (**LP**)
 - [Tomás Esteves](https://github.com/diogotcorreia/resumos-leic/commits?author=Pesteves2002) (**IAED**, MD, CDI-II, LP)
 - [Rúben Nobre](https://github.com/diogotcorreia/resumos-leic/commits?author=RubenNobre123) (**MD**)
