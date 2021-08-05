@@ -74,7 +74,12 @@ module.exports = {
               },
             },
           },
-          `gatsby-remark-table-of-contents`,
+          {
+            resolve: `gatsby-remark-table-of-contents`,
+            options: {
+              tight: true,
+            },
+          },
           `gatsby-remark-embed-snippet`,
           {
             resolve: `gatsby-remark-prismjs`,
