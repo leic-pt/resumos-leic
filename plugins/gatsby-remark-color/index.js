@@ -1,4 +1,3 @@
-const remarkDirective = require('remark-directive');
 const visit = require('unist-util-visit');
 
 const onTextVisit = (node) => {
@@ -18,5 +17,3 @@ const onTextVisit = (node) => {
 module.exports = ({ markdownAST }) => {
   visit(markdownAST, 'link', onTextVisit);
 };
-
-module.exports.setParserPlugins = () => [remarkDirective];
