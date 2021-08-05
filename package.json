@@ -10,7 +10,7 @@
   "repository": "https://github.com/diogotcorreia/resumos-leic",
   "scripts": {
     "dev": "gatsby develop",
-    "build": "gatsby build && mkdir -p src/.vuepress && cp -r public src/.vuepress/dist",
+    "build": "gatsby build",
     "clean": "gatsby clean",
     "serve": "gatsby serve",
     "format": "prettier -w 'src/**/*.{js,md,vue}'",
