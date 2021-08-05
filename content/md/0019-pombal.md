@@ -178,7 +178,7 @@ Resposta será $k+4=13$
 Para quem ainda não percebeu a razão pela qual tiramos as $4$ _T-SHIRTS_ brancas:  
 Tentem pensar em casos onde se consegue retirar no máximo $5$ _T-SHIRTS_ iguais, sem retirar as $4$ brancas.  
 Por exemplo, retirar logo $5$ azuis/verdes ou $5$ azuis/verdes, $4$ verdes/azuis e $3$ brancas (total $12$). Em todos esses casos conseguimos pensar em outros onde retiramos o mesmo número de _T-SHIRTS_ sem conseguir retirar as $5$ iguais.  
-Para termos a certeza que em $\lambda$ _T-SHIRTS_ temos $5$ iguais significa que quando temos $\lambda-1$ _T-SHIRTS_ a próxima será a $5ª$ igual para uma dada cor. Sem retirar todas as $4$ brancas, a $\lambda$-ésima _T-SHIRT_ pode ser uma branca, que nunca será a $5ª$ igual.
+Para termos a certeza que em $\lambda$ _T-SHIRTS_ temos $5$ iguais significa que quando temos $\lambda-1$ _T-SHIRTS_ a próxima será a $5$ª igual para uma dada cor. Sem retirar todas as $4$ brancas, a $\lambda$-ésima _T-SHIRT_ pode ser uma branca, que nunca será a $5$ª igual.
 
 **AVISO:** Existem mais alíneas nos slides para quem tiver curiosidade.
 :::
