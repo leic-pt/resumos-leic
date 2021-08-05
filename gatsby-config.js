@@ -116,5 +116,11 @@ module.exports = {
         respectDoNotTrack: true,
       },
     },
+    {
+      resolve: `gatsby-plugin-remove-serviceworker`,
+      options: {
+        filename: 'service-worker.js',
+      },
+    },
   ],
 };
