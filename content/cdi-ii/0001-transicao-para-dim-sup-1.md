@@ -1,6 +1,5 @@
 ---
 title: Transição para dimensões > 1
-prev: false
 description: Aplicação dos conhecimentos de CDI 1 a dimensões superiores a 1
 path: /cdi-ii/transicao-para-dim-sup-1
 type: content
