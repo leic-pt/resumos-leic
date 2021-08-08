@@ -12,6 +12,7 @@ body {
   --lighten20TextColor: #476582;
   --miniCodeBgColor: rgba(27, 31, 35, 0.05);
   --scrollbarColor: rgba(0, 0, 0, 0.4);
+  --tableStripeBgColor: #f6f8fa;
 }
 
 @media not print {
@@ -24,6 +25,7 @@ body {
     --lighten20TextColor: #e8e8e8;
     --miniCodeBgColor: hsla(0, 0%, 100%, 0.1);
     --scrollbarColor: hsla(0, 0%, 100%, 0.4);
+    --tableStripeBgColor: #444;
   }
 }
 
@@ -151,11 +153,13 @@ h2 {
   overflow-y: auto;
   margin-top: 3.6rem;
   background-color: var(--bgColor);
+  padding-left: 0.5rem;
 }
 
 .sidebar ul {
   list-style: none;
   padding: 0;
+  line-height: 1.7;
 }
 
 .sidebar li {
@@ -166,11 +170,16 @@ h2 {
 .sidebar p {
   padding: 0px 8px;
   font-weight: bold;
+  font-size: 1.1em;
 }
 
 .sidebar div:not(.top-level) li {
-  font-size: 0.9em;
+  font-size: 0.95em;
   margin: 0px 8px;
+}
+
+.sidebar .top-level {
+  font-size: 1.1em;
 }
 
 .sidebar li a {
