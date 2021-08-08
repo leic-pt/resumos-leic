@@ -9,6 +9,7 @@ import IconIAC from '../images/courses/iac.svg';
 import IconIAED from '../images/courses/iaed.svg';
 import IconLP from '../images/courses/lp.svg';
 import IconMD from '../images/courses/md.svg';
+import IstLogo from '../images/ist-logo.svg';
 import '../styles/homepage.css';
 import '../styles/main.css';
 import '../styles/markdown.css';
@@ -23,7 +24,7 @@ const HomePageLayout = ({ data }) => {
       <PageMetadata title={page.frontmatter.title} description={page.frontmatter.description} />
       <Navbar />
       <div className='hero'>
-        <StaticImage src='../images/ist-logo.png' alt='Instituto Superior Técnico' width={150} />
+        <img src={IstLogo} alt='Instituto Superior Técnico' width={150} />
         <h1>Resumos LEIC-A</h1>
         <p>Bem vindo ao site comunitário de resumos de LEIC-A.</p>
         <p>Aqui irás encontrar tudo o que precisas ao longo do semestre.</p>
