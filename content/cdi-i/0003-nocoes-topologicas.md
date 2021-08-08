@@ -1,11 +1,11 @@
 ---
-title: Noções topológicas. Sucessões
-description:
+title: Noções topológicas
+description: Noções topológicas. Conjunto numerável e contável. Vizinhanças. Interior, exterior, fronteira e fecho de um conjunto. Conjunto aberto, fechado e compacto. Ponto de Acumulação. Ponto Isolado. Derivado de um Conjunto.
 path: /cdi-i/nocoes-topologicas
 type: content
 ---
 
-# Noções topológicas. Sucessões
+# Noções topológicas
 
 ```toc
 
@@ -90,60 +90,6 @@ ou seja, se dado qualquer raio $r\in\mathbb R^+$: $V_r(a)\cap(A\backslash\{a\})\
 A qualquer ponto de $A$ que não seja um ponto de acumulação de $A$ chama-se [**ponto isolado**](color:orange).
 
 Ao conjunto dos pontos de acumulação de $A$ chama-se derivado de $A$ e representa-se por $A'$.
-
-## Sucessões
-
-:::tip[DEFINIÇÃO]
-
-- **Sucessão limitada:** O conjunto dos seus termos é limitado, isto é, é uma sucessão majorada e minorada.
-- **Sucessão monótona:** Quando uma sucessão é (estritamente) crescente ou (estritamente) decrescente.
-  Por outras palavras, quando $u_{n+1}\ge u_n$ ou $u_{n+1}\le u_n$, respetivamente.
-
-:::
-
-### Operações com sucessões
-
-Podemos efetuar as seguintes operações com sucessões:
-
-- multiplicar por um escalar
-- somar e subtrair duas sucessões
-- multiplicar duas sucessões
-- dividir duas sucessões (com atenção de que o denominador nunca pode ser zero).
-
-Também podemos, para uma sucessão $u_n$ real positiva, $\alpha\in\mathbb Q$ e $\{v_n\}\subset\mathbb Q$, efetuar $(u_n)^\alpha$ e $(u_n)^{v_n}$.
-
-### Sub-sucessões
-
-Seja ($u_n$) uma sucessão de números reais e ($m_n$) uma sucessão estritamente crescente de números naturais positivos. Chama-se à sucessão de termo geral $v_n = u_{m_n}$ uma sub-sucessão de ($u_n$).
-
-:::details[Exemplo 1]
-
-$$
-u_n=1+(-1)^n\\
-u_{2n}=2\\
-u_{2n-1}=0
-$$
-
-:::
-
-:::details[Exemplo 2]
-
-$$
-u_n=\cos\left(\frac{2n\pi}{3}\right)\\
-\text{ } \\
-u_{3n}=\cos\left(2n\pi\right)=1\\
-u_{3n+1}=\cos\left(2n\pi+\frac{2\pi}{3}\right)=-\frac{1}{2}\\
-u_{3n+2}=\cos\left(2n\pi+\frac{4\pi}{3}\right)=-\frac{1}{2}
-$$
-
-:::
-
-Utiliza-se as sub-sucessões para conseguir mais facilmente estudar uma sucessão, devido às seguintes propriedades:
-
-- Qualquer sub-sucessão de uma sucessão limitada é também limitada.
-- Qualquer sub-sucessão de uma sucessão monótona tem a mesma monotonia que a sucessão original.
-- Se uma família de sub-sucessões de uma mesma sub-sucessão é tal que a reunião dos seus termos é igual ao conjunto dos termos da sucessão original então se todas as sub-sucessões dessa família forem limitadas a sucessão original também o é.
-- Se duas sub-sucessões de uma mesma sucessão tiverem monotonias diferentes a sucessão original não é monótona. O mesmo se pode concluir se qualquer sub-sucessão da sucessão original não for monótona, evidentemente.
 
 ---
 
