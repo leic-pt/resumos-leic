@@ -272,6 +272,7 @@ h2 {
   color: var(--textColor);
   background: none;
   cursor: pointer;
+  font-size: 0;
 }
 
 .anchor.before {
