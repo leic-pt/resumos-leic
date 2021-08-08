@@ -105,7 +105,7 @@ Correspondem às entidades sobre as quais queremos falar, o menor conjunto defin
 
 Um **termo fechado/chão** é um termo que não contém variáveis.
 
-:::details Exemplo - Termos
+:::details[Exemplo - Termos]
 
 $$
 \begin{array}{c}
