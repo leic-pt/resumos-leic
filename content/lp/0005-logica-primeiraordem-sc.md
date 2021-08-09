@@ -48,7 +48,7 @@ A segunda, a hipótese de representação do conhecimento, complementa a hipóte
 
 O primeiro passo a tomar é [inventar um modelo](https://i.imgur.com/kU3zFQ4.png) daquilo que pretendemos representar.
 
-- **Modelo** - abstração do mundo que apenas captura os seus aspetos que são relevantes para um certo problema ou tarefa. Neste modelo, devemos definir as entidades do mundo sobre as quais queremos falar - o _universo do discurso_ - e as funções e relações que vamos utilizar. Estamos, assim a definir o **vocabulário** utilizado pelas _fbfs_ da representação escolhida. Depois de tomadas essas decisões, escrevemos as _fbfs_ que relacionam constantes, funções e/ou relações (**axiomas próprios**, proposições aceites sem prova em relação ao domínio atual) - tarefa da **representação**.
+- **Modelo** - abstração do mundo que apenas captura os seus aspetos que são relevantes para um certo problema ou tarefa. Neste modelo, devemos definir as entidades do mundo sobre as quais queremos falar - o _universo do discurso_ - e as funções e relações que vamos utilizar. Estamos, assim, a definir o **vocabulário** utilizado pelas _fbfs_ da representação escolhida. Depois de tomadas essas decisões, escrevemos as _fbfs_ que relacionam constantes, funções e/ou relações (**axiomas próprios**, proposições aceites sem prova em relação ao domínio atual) - tarefa da **representação**.
 
 O conjunto de todas as constantes, funções, relações e axiomas próprios é a **ontologia** do domínio.
 
@@ -157,12 +157,6 @@ Obtida de forma semelhante à da Lógica Proposicional, apesar de algumas difere
   :::
 
 - **Eliminação dos quantificadores existenciais**
-
-:::warning Aviso
-
-Esta secção não é particularmente fácil de perceber só a ler, e mesmo com exemplos pode ser díficil perceber. Recomendo que, caso não percebam, revejam a aula do prof. Pavão, ele explica esta parte muito bem.
-
-:::
 
 - Eliminar quantificadores **isolados** - substituir a _fbf_ $\exists x[\alpha (x)]$ por $\alpha (c)$, onde $c$ é uma nova constante - a _constante de Skolem_. **A constante de Skolem é considerada a entidade que verifica a propriedade $\alpha$**, apesar de nada sabermos em concreto sobre ela. Só pode ser aplicada a **quantificadores isolados**, fora do domínio de outros quantificadores.
 

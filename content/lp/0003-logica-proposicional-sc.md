@@ -35,7 +35,7 @@ A cláusula $P\vee Q$ pode ser representada como um conjunto tal que $\{P, Q\}$.
 
 Uma _fbf_ diz-se na **forma conjuntiva normal** caso seja da forma $\alpha\wedge\beta\wedge\dots\wedge\gamma$, onde $\alpha, \beta,\dots,\gamma$ são obrigatoriamente cláusulas, unitárias ou não.
 
-:::details Exemplo - Forma conjuntiva normal
+:::details[Exemplo - Forma conjuntiva normal]
 
 A _fbf_ $(P\vee\neg Q\vee R)\wedge(\neg P\vee S)$ está na forma conjuntiva normal.
 A mesma _fbf_ pode ser representada como um conjunto tal que $\{\{P, \neg Q, R\}, \{\neg P, S\}\}$.
@@ -141,7 +141,7 @@ As _fbfs_ podem, contudo, não nos ser apresentadas inicialmente nesta forma de 
 
   - **Princípio da Resolução** - sejam Ψ e Φ duas cláusulas e $\alpha$ uma _fbf_ atómica, tal que $\alpha \in$ Ψ e $\neg\alpha \in$ Φ. Nesse caso, é possível inferir a cláusula (Ψ - {$\alpha$}) $\cup$ (Φ - {$\neg\alpha$}). A cláusula obtida é chamada o _resolvente_ das cláusulas Ψ e Φ, representado por **Res(Ψ, Φ)**, as quais são designadas **cláusulas-mãe**. Os literais $\alpha$ e $\neg\alpha$ designam-se **literais em conflito**.
 
-  :::details Exemplos - Princípio da resolução
+  :::details[Exemplos - Princípio da resolução]
 
   Considerando as cláusulas $\{\neg P, Q, S\}$ e $\{P, \neg Q\}$:
 

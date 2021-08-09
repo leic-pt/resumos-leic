@@ -24,16 +24,21 @@ A lógica estuda métodos para distinguir a validade dos argumentos. Lida com **
 
 Todos os homens são mortais.  
 Sócrates é um homem.  
-∴ Sócrates é mortal.  
+∴ Sócrates é mortal.
+
+:::
+
 :::tip
-O símbolo "∴" lê-se "logo".  
+
+O símbolo "∴" lê-se "logo".
+
 :::
 
 - **Validade** - um argumento é válido caso seja _impossível_ que as premissas sejam verdadeiras e a conclusão falsa. Um argumento válido é um argumento onde as premissas implicam semanticamente a conclusão.
 
 É importante não confundir veracidade com validade - a veracidade está associada às proposições, enquanto que a validade está associada aos argumentos.
 
-:::details Exemplos - Validade de Argumentos
+:::details[Exemplos - Validade de Argumentos]
 
 ---
 

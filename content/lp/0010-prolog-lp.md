@@ -63,7 +63,6 @@ menor(X, Y, Z) :-
 Podemos ainda considerar outros mecanismos de controlo, os **geradores**, mecanismos que "simulam" ciclos em Prolog. Fazem com que uma expressão enumere múltiplos valores quando solicitados. Um gerador pode ser, por exemplo, um ciclo que escreve os `N` primeiros inteiros, como o abaixo:
 
 ```prolog
-
 % começa sempre em 1
 inteiro(1).
 % após começar em 1, vai aumentar até chegar a N
