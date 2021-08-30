@@ -15,7 +15,9 @@ type: cheatsheets
 
 ### Funções Geradoras mais Comuns
 
-$$U(z) = \sum_{k=0}^{+\infty}u_kz^k$$
+$$
+U(z) = \sum_{k=0}^{+\infty}u_kz^k
+$$
 
 |                Sucessão                |             Polinómio $U(z)$              |           Geradora $G(z)$           | Termo Geral $u_k$ |
 | :------------------------------------: | :---------------------------------------: | :---------------------------------: | :---------------: |
@@ -29,7 +31,9 @@ $$U(z) = \sum_{k=0}^{+\infty}u_kz^k$$
 |          $0,0,1,1,1,1,\dots$           |            $z^2+z^3+z^4+\dots$            |   $\displaystyle\frac{z^2}{1-z}$    | $1$ para $k > 1$  |
 |          $0,1,1,1,0,0,\dots$           |                $z+z^2+z^3$                | $\displaystyle\frac{z(1-z^3)}{1-z}$ | $1$ para $0< k<4$ |
 
-$$\frac 1 {(1-\lambda z^p)^m} = \sum_{k=0}^{+\infty} {k+m-1 \choose m-1}\lambda^kz^{pk} $$\\
+$$
+\frac 1 {(1-\lambda z^p)^m} = \sum_{k=0}^{+\infty} {k+m-1 \choose m-1}\lambda^kz^{pk}
+$$
 
 - [Verificação da geradora no WolframAlpha](https://www.wolframalpha.com/input/?i=GeneratingFunction%283%CB%86n+%2B+n+%2B+1%2C+n%2C+k%29)
 
@@ -62,9 +66,13 @@ $x$ = incógnitas
 
 ### Sem Restrições
 
-$$ x_1+x_2+...+x_n = l \Leftrightarrow {l+n-1 \choose n-1} $$\\
+$$
+x_1+x_2+...+x_n = l \Leftrightarrow {l+n-1 \choose n-1}
+$$
 
-$$ x_1+x_2+...+x_n \leqslant l \Leftrightarrow {l+n \choose n} $$\\
+$$
+x_1+x_2+...+x_n \leqslant l \Leftrightarrow {l+n \choose n}
+$$
 
 ### Restrições
 
@@ -73,7 +81,9 @@ $$
 \text{Se } x_1 \geqslant 4 ,\text{ então } l_1 = 4
 $$
 
-$$ x_1+x_2+...+x_n = l \Leftrightarrow {l - (l_1 +l_2 +...+l_n)+ n - 1 \choose n - 1} $$
+$$
+x_1+x_2+...+x_n = l \Leftrightarrow {l - (l_1 +l_2 +...+l_n)+ n - 1 \choose n - 1}
+$$
 
 ## Resolução de Recorrências
 
@@ -88,7 +98,6 @@ $$
 $$
 
 $$
-
 H_n - 1 - 2z= z(H_n - 1) + 2z^2H_n + \frac{1}{(1-3z)} - 3^0 - 3z  \\
 H_n(1-z-2z^2) = \frac{1}{(1-3z)} - 2z \\
 H_n= \frac{1}{(1-3z)(1-z-2z^2)} - \frac{2z}{(1-z-2z^2)}

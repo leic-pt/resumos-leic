@@ -195,3 +195,26 @@ blockquote > p:last-child {
 .math.math-display {
   overflow-x: auto;
 }
+
+/* Tables */
+
+table {
+  border-collapse: collapse;
+  margin: 1rem 0;
+  display: block;
+  overflow-x: auto;
+}
+
+tr {
+  border-top: 1px solid var(--borderColor);
+}
+
+td,
+th {
+  border: 1px solid var(--borderColor);
+  padding: 0.6em 1em;
+}
+
+tr:nth-child(2n) {
+  background-color: var(--tableStripeBgColor);
+}
