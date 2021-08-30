@@ -1,6 +1,6 @@
 ---
 title: Limites de Sucessões
-description: Infinitamente grande. Resolução de Indeterminações.
+description: Infinitamente grande. Levantamento de Indeterminações.
 path: /cdi-i/limites-sucessoes
 type: content
 ---
@@ -164,8 +164,105 @@ $$
 
 Ao resolver exercícios, pode ser necessário aumentar (isto é, adicionar parcelas) esta escala. Para isso, deve-se utilizar um dos dois teoremas apresentados acima.
 
+## Levantar indeterminações
+
+As indeterminações dos tipos $0\cdot\infin$, $\frac00$ e $\frac\infin\infin$ podem-se tratar todas da mesma maneira, visto que são equivalentes.
+
+### Indeterminações do tipo $\frac\infin\infin$
+
+#### Levantar através da escala de sucessões
+
+Pode-se começar por avaliar a sucessão com a escala básica de sucessões. Por exemplo:
+
+$$
+\lim\frac{2^n+1}{n^5+20}
+$$
+
+Esta indeterminação pode ser facilmente levantada através da divisão de todos os membros por $2^n$, de acordo com a escala básica de sucessões:
+
+$$
+\frac{2^n+1}{n^5+20}=
+\frac{1+2^{-n}}{n^52^{-n}+20\times2^{-n}}
+\longrightarrow
+\frac{1+0}{0+0}=+\infin
+$$
+
+#### Levantar através da diferença de quadrados
+
+Por vezes, usar a escala de sucessões não é suficiente para levantar uma indeterminação. Aqui pode-se usar a diferença de quadrados $a^2-b^2=(a-b)(a+b)$ para levantar a indeterminação.
+
+$$
+\begin{aligned}
+u_n&=\frac{\sqrt{4^n-2^n}-\sqrt{4^n+1}}{n^2}\\
+&=\frac{(4^n-2^n)-(4^n+1)}{n^2(\sqrt{4^n-2^n}+\sqrt{4^n+1})}\\
+&=\frac{-2^n-1}{n^2(\sqrt{4^n-2^n}+\sqrt{4^n+1})}
+\end{aligned}
+$$
+
+A sucessão dominante é $n^2\cdot2^n$ (no denominador), logo divide-se ambos os membros da fração por $n^2\cdot 2^n$.
+
+$$
+u_n=\frac{-\frac1{n^2}-\frac1{n^22^n}}{\sqrt{1-2^{-n}}+\sqrt{1+4^{-n}}}\longrightarrow 0
+$$
+
+#### Levantar raízes de índice $k$, $k\in\mathbb N^2$
+
+Também é possível utilizar a mesma estratégia para levantar a indeterminação de raízes, através da seguinte generalização:
+
+$$
+a^k-b^k=(a-b)\sum_{j=0}^{k-1}a^{k-1-j}b^j
+$$
+
+Um exemplo da aplicação desta generalização está disponível no PDF da aula 7 na página 2.
+
+#### "Casos notáveis"
+
+Sendo ($u_n$) um infinitésimo ($u_n\longrightarrow 0$) que não se anula para $n>>$:
+
+- $\displaystyle\lim\frac{\sin u_n}{u_n}=1$
+- $\displaystyle\lim\frac{e^{u_n}-1}{u_n}=1$
+- $\displaystyle\lim\frac{\log(1+u_n)}{u_n}=1$
+
+:::details[Exemplo]
+
+$$
+\lim\bigg[2^n\sin\bigg(\frac1{n!}\bigg)\bigg]=\lim\bigg[\frac{2^n}{n!}\cdot\frac{\sin(\frac1{n!})}{\frac1{n!}}\bigg]=0\cdot1=0
+$$
+
+:::
+
+#### Produto em potências
+
+É possível transformar uma indeterminação em potência numa indeterminação relativa ao produto:
+
+$$
+(u_n)^{v_n}=e^{v_n\log u_n}
+$$
+
+#### Cálculo do Limite de $\sqrt[n]{u_n}$
+
+:::tip[Definição]
+**Cálculo do limite de $\sqrt[n]{u_n}$**  
+Seja $u_n$ uma sucessão de termos positivos tal que
+$\displaystyle \frac{u_{n+1}}{u_n}\longrightarrow L \in \mathbb R^+_0 \cup \{+\infin\}$.  
+Então, $\sqrt[n]{u_n}\rightarrow L$.
+:::
+
+Caso não exista este limite, nada de pode concluir e o limite da raiz pode existir ou não.
+
+#### Indeterminações do tipo $1^\infin$
+
+Seja uma sucessão ($u_n$) uma sucessão tal que $|u_n|\rightarrow +\infin$ e $a\in\mathbb R$, tem-se que:
+
+$$
+\bigg(1+\frac a {u_n}\bigg)^{u_n}\longrightarrow e^a
+$$
+
+No PDF da aula 7 encontram-se exemplos, na página 5.
+
 ---
 
 PDFs:
 
 - [Aula 6](https://drive.google.com/file/d/11TnrA6vsVnlbzXtp_HnUhteg1inwMrxN/view?usp=sharing)
+- [Aula 7](https://drive.google.com/file/d/1s_3zvAzj2ynivQ70QdZuEmER943lMGUh/view?usp=sharing)
