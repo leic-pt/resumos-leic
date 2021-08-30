@@ -1,7 +1,7 @@
 ---
 title: Estruturas de Dados (Cheat Sheet)
 description: Estruturas de Dados ;
-path: /iaed/cheatsheet/Estruturas
+path: /iaed/cheatsheet/estruturas
 type: cheatsheets
 ---
 
@@ -11,9 +11,12 @@ type: cheatsheets
 
 ```
 
-## Listas
+:::warning[Uso em projetos e/ou avaliações]
+Qualquer uso do código abaixo em projetos e/ou avaliações é da responsabilidade do aluno. O código disponível nesta página foi retirado de slides dos docentes, bibliografia da UC ou projetos de outros alunos e adaptado quando necessário.
 
-### Lista Simplesmente Ligada
+:::
+
+## Lista Simplesmente Ligada
 
 `embed:assets/1001-simp-lig.c`
 
@@ -21,7 +24,7 @@ type: cheatsheets
 
 `embed:assets/1001-stack.c`
 
-## Hash Table
+## Hash Table (Linear Probing)
 
 `embed:assets/1001-hashexc.c`
 
