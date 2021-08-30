@@ -96,16 +96,14 @@ int hash(int value, int M)
     return value % M;
 }
 
-/*
-Hash for strings
-int hash(char *v, int M){
-	int h = 0, a = 127;
-	for(;*v != '\0'; v++) {
-		h =  (a*h + *v) % M;
+int hash_string(char* v, int size) {
+	long int hash, a = 31415, b = 27183;
+
+	for (hash = 0; *v != '\0'; v++, a = a * b % (size - 1)) {
+		hash = (a * hash + *v) % size;
 	}
-	return h;
+	return hash;
 }
-*/
 
 link NEWNode(Item item, link next)
 {

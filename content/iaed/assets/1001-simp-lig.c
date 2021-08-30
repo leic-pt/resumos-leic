@@ -6,7 +6,6 @@ typedef struct
 
 node *insertBegin(node *head, int number)
 {
-
     node *x = malloc(sizeof(node));
     x->value = number;
     x->next = head;
@@ -15,7 +14,6 @@ node *insertBegin(node *head, int number)
 
 node *insertEnd(node *head, int number)
 {
-
     node *x;
     node *aux;
     if (head == NULL)
@@ -24,7 +22,6 @@ node *insertEnd(node *head, int number)
         x->value = number;
         return x;
     }
-
     for (x = head; x->next != NULL; x = x->next)
 
         ;
@@ -60,6 +57,7 @@ int length(node *head)
     }
     return count;
 }
+
 void print(node *head)
 {
     node *x = head;
@@ -72,7 +70,6 @@ void print(node *head)
 
 node *lookup(node *head, int number)
 {
-
     node *t;
     for (t = head; t != NULL; t = t->next)
         if (t->value == number)
