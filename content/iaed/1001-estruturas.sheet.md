@@ -1,6 +1,6 @@
 ---
 title: Estruturas de Dados (Cheat Sheet)
-description: Estruturas de Dados ;
+description: Lista Simplesmente Ligada, Pilha (Stack), Hash Table e AVL
 path: /iaed/cheatsheet/estruturas
 type: cheatsheets
 ---
@@ -12,7 +12,9 @@ type: cheatsheets
 ```
 
 :::warning[Uso em projetos e/ou avaliações]
-Qualquer uso do código abaixo em projetos e/ou avaliações é da responsabilidade do aluno. O código disponível nesta página foi retirado de slides dos docentes, bibliografia da UC ou projetos de outros alunos e adaptado quando necessário.
+
+Qualquer uso do código abaixo em projetos e/ou avaliações é da responsabilidade do aluno.
+O código disponível nesta página foi retirado de slides dos docentes, bibliografia da UC ou projetos de outros alunos e adaptado quando necessário.
 
 :::
 

@@ -1,6 +1,6 @@
 ---
 title: Algoritmos de Ordenação (Cheat Sheet)
-description: Algoritmos;
+description: Selection Sort, Insertion Sort, Bubble Sort, Quick Sort, Merge Sort, Heap Sort, Counting Sort, Radix Sort LSD/MSD
 path: /iaed/cheatsheet/algoritmos
 type: cheatsheets
 ---
@@ -12,7 +12,9 @@ type: cheatsheets
 ```
 
 :::warning[Uso em projetos e/ou avaliações]
-Qualquer uso do código abaixo em projetos e/ou avaliações é da responsabilidade do aluno. O código disponível nesta página foi retirado de slides dos docentes, bibliografia da UC ou projetos de outros alunos e adaptado quando necessário.
+
+Qualquer uso do código abaixo em projetos e/ou avaliações é da responsabilidade do aluno.
+O código disponível nesta página foi retirado de slides dos docentes, bibliografia da UC ou projetos de outros alunos e adaptado quando necessário.
 
 :::
 
@@ -57,6 +59,8 @@ Qualquer um dos sorts precisa destes `define`
 ### Radix Sort MSD
 
 `embed:assets/1000-radixMSD.c`
+
+---
 
 Quando reparas que o Bogosort é o único algoritmo que consegue ordenar à primeira
 

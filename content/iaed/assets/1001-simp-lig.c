@@ -23,7 +23,6 @@ node *insertEnd(node *head, int number)
         return x;
     }
     for (x = head; x->next != NULL; x = x->next)
-
         ;
     aux = malloc(sizeof(node));
     aux->value = number;
