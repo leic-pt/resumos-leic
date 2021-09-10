@@ -172,7 +172,7 @@ const HomePageLayout = ({ data }) => {
                 />
                 <SectionButton
                   name='ASA'
-                  description='P3'
+                  description='P2'
                   link='/asa'
                   image={IconASA}
                   color='#33691e'
