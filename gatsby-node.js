@@ -1,4 +1,7 @@
 const path = require('path');
+const svgToMiniDataURI = require('mini-svg-data-uri');
+const fs = require('fs-extra');
+
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
   const templates = {
@@ -32,4 +35,24 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       }, // additional data can be passed via context
     });
   });
+};
+
+exports.createResolvers = ({ createResolvers }) => {
+  const resolvers = {
+    File: {
+      dataURI: {
+        type: 'String',
+        async resolve(parent) {
+          if (parent.extension === 'svg' && parent.sourceInstanceName === 'content') {
+            const svg = await fs.readFile(parent.absolutePath, 'utf8');
+            return svgToMiniDataURI(svg);
+          }
+
+          return null;
+        },
+      },
+    },
+  };
+
+  createResolvers(resolvers);
 };
