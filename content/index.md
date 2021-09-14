@@ -62,7 +62,7 @@ years:
           - name: EMD
             description: P4
             link: '/md'
-            image: assets/fis1.svg
+            image: assets/md.svg
             color: '#283593'
   - name: '2º Ano'
     semesters:
