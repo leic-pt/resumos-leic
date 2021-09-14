@@ -1,13 +1,5 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import IconAL from '../images/courses/al.svg';
-import IconCDI1 from '../images/courses/cdi1.svg';
-import IconCDI2 from '../images/courses/cdi2.svg';
-import IconFP from '../images/courses/fp.svg';
-import IconIAC from '../images/courses/iac.svg';
-import IconIAED from '../images/courses/iaed.svg';
-import IconLP from '../images/courses/lp.svg';
-import IconMD from '../images/courses/md.svg';
 import IstLogo from '../images/ist-logo.svg';
 import '../styles/homepage.css';
 import '../styles/main.css';
@@ -29,29 +21,31 @@ const HomePageLayout = ({ data }) => {
         <p>Aqui irás encontrar tudo o que precisas ao longo do semestre.</p>
       </div>
       <div style={{ marginTop: 50 }}>
-        <div className='year-section'>
-          <h2>1º Ano</h2>
-          <div>
-            <div className='semester-section'>
-              <h3>1º Semestre</h3>
-              <SectionButtonLayout>
-                <SectionButton name='CDI-I' link='/cdi-i' image={IconCDI1} color='#437AA1' />
-                <SectionButton name='AL' link='/al' image={IconAL} color='#C48C31' />
-                <SectionButton name='FP' link='/fp' image={IconFP} color='#CE733B' />
-                <SectionButton name='IAC' link='/iac' image={IconIAC} color='#5CAD7D' />
-              </SectionButtonLayout>
-            </div>
-            <div className='semester-section'>
-              <h3>2º Semestre</h3>
-              <SectionButtonLayout>
-                <SectionButton name='CDI-II' link='/cdi-ii' image={IconCDI2} color='#44a1a0' />
-                <SectionButton name='MD' link='/md' image={IconMD} color='#AD343E' />
-                <SectionButton name='LP' link='/lp' image={IconLP} color='#13B95B' />
-                <SectionButton name='IAED' link='/iaed' image={IconIAED} color='#D4910C' />
-              </SectionButtonLayout>
+        {page.frontmatter.years.map(({ name, semesters }) => (
+          <div className='year-section' key={name}>
+            <h2>{name}</h2>
+            <div>
+              {semesters.map(({ name, courses }) => (
+                <div className='semester-section' key={name}>
+                  <h3>{name}</h3>
+                  <SectionButtonLayout>
+                    {courses.map(({ name, description, link, image, color, long }) => (
+                      <SectionButton
+                        key={link}
+                        name={name}
+                        description={description}
+                        link={link}
+                        image={image?.dataURI}
+                        color={color}
+                        long={long}
+                      />
+                    ))}
+                  </SectionButtonLayout>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
+        ))}
       </div>
       <div className='content' dangerouslySetInnerHTML={{ __html: page.html }} />
     </div>
@@ -67,6 +61,22 @@ export const pageQuery = graphql`
       frontmatter {
         title
         description
+        years {
+          name
+          semesters {
+            name
+            courses {
+              color
+              description
+              image {
+                dataURI
+              }
+              name
+              link
+              long
+            }
+          }
+        }
       }
     }
   }

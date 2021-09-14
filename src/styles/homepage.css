@@ -38,7 +38,7 @@
   box-sizing: border-box;
 }
 
-.section-button span {
+.section-button span:first-child {
   font-size: 2rem;
 }
 
@@ -47,4 +47,15 @@
   position: absolute;
   right: 0.5rem;
   bottom: 1rem;
+}
+
+.section-button__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.section-button.section-button__long {
+  grid-column: 1 / 3;
 }
