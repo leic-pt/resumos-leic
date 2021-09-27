@@ -81,6 +81,7 @@ module.exports = {
               tight: true,
             },
           },
+          `gatsby-remark-mermaid`,
           `gatsby-remark-embed-snippet`,
           {
             resolve: `gatsby-remark-prismjs`,
