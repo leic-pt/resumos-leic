@@ -6,10 +6,8 @@ type: topLevelPage
 
 # Cálculo Diferencial e Integral I
 
-:::warning[PÁGINA EM CONSTRUÇÃO]
-De momento não existem resumos de CDI-I.  
-Procuram-se contribuidores.
-:::
+> Dominar conceitos e técnicas de cálculo diferencial e integral a uma variável.
+> Desenvolver pensamento analítico, criatividade e capacidade de inovação, através da aplicação desses conceitos e técnicas em contextos diferenciados.
 
 ## Recursos
 
