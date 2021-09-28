@@ -86,7 +86,7 @@ $$
 \frac{\d^2 x}{\d t^2} = \frac{x}{\sqrt((x^2+y^2+z^2)^3)}\\
 \frac{\d^2 y}{\d t^2} = \frac{y}{\sqrt((x^2+y^2+z^2)^3)}\\
 \frac{\d^2 z}{\d t^2} = \frac{z}{\sqrt((x^2+y^2+z^2)^3)}
-\end{array}
+\end{darray}
 $$
 
 $F=ma$
@@ -101,7 +101,7 @@ $y(t + \delta)$
 
 $$
 \frac{y(t + \delta) - y(t)}{\delta} = d(y,t)\\
-\frac{\d y}{\dt } (t) = f(y(t), t)
+\frac{\d y}{\d t} (t) = f(y(t), t)
 $$
 
 ---
@@ -177,7 +177,7 @@ $$
 $x(t_0) = x_0$
 
 $$
-\int_{t_0}^t \frac{\d x}{\d s} \d s = \int_{\t_0}^t b(s) \d s
+\int_{t_0}^t \frac{\d x}{\d s} \d s = \int_{t_0}^t b(s) \d s
 $$
 
 $$
@@ -259,7 +259,7 @@ $$
 $$
 
 $$
-x e^{- \int a(t) \d t} = \int b(t) e^{- \int a(t) \d t} \t
+x e^{- \int a(t) \d t} = \int b(t) e^{- \int a(t) \d t} \d t
 $$
 
 $$
