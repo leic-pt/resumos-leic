@@ -35,12 +35,6 @@ $$
 
 ## Equações diferenciais parciais (EDP)
 
-$u(x,y)$
-
-$$
-\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0
-$$
-
 ---
 
 EDO 2º ordem (escalar)
@@ -48,26 +42,6 @@ EDO 2º ordem (escalar)
 $y'' + \sin y = 0$
 
 $t, y(t)$
-
----
-
-$$
-x'' + t^2 x' + \sin x = \arctan t
-$$
-
-EDO 2º ordem
-
-$t$, $x(t)$
-
----
-
-$$
-\frac{\d u}{\d s} = u e^5 + s^2 + u^2
-$$
-
-$s$, $u(s)$
-
-EDO 1º ordem
 
 ---
 
@@ -106,97 +80,7 @@ $$
 
 ---
 
-Exercício
-
-O volume $v(t)$ de líquido num tanque ($v$ em litros, $t$ em segundos) é, no instante inicial $t = 0$, igual a $3$ litros.  
-Sabendo que o tanque enche à razão de $0.1$ litros por segundo, determine o volume de líquido no tanque ao fim de 10 segundos.
-
-$$
-\frac{v(t + \Delta) - v(t)}{\Delta} = 0.1
-$$
-
-$$
-\int_0^t \frac{\d v}{\d t} \d t = \int_0^t 0.1 \d t
-$$
-
-$v(t) - v(0) = 0.1 t$
-
-$v(t) = 3 + 0.1 t$
-
-Alterando agora a razão para $\frac{t}{100}$:
-
-$$
-\frac{v(t + \Delta) - v(t)}{\Delta} = \frac{t}{100}
-$$
-
-$$
-\int_0^t \frac{\d v}{\d s} \d s = \int_0^t \frac{t}{100} \d s
-$$
-
-$v(s) - v(0) = \frac{t^2}{200}$
-
-$v(t) = 3 + \frac{t^2}{200}$, sendo que com $t = 10$, temos $v(10) = 3 + \frac{10^2}{200} = 3.5$
-
-Alterando agora a razão para $\frac{t}{100} - \frac{v}{100}$ (como se tivesse um "furo"):
-
-$$
-\frac{v(t + \Delta) - v(t)}{\Delta} = \frac{t}{100} - \frac{v}{100}
-$$
-
-Isto é uma **EDO escalar de 1º ordem linear** ($\frac{\d x}{\d t} a(t) x + b(t)$)
-
-Neste caso, $a = -\frac{1}{100}$ e $b = \frac{t}{100}$
-
-$$
-\begin{cases}
-\frac{\d v}{\d t} &= \frac{t}{100} - \frac{v}{100}\\
-v(0) &= 3
-\end{cases}
-$$
-
-$$
-\int_0^t \frac{\d v}{\d s} \d s = \int_0^t \frac{t}{100} - \frac{v}{100} \d s
-$$
-
-$v(s) - v(0) = \frac{t^2}{200}$
-
-$v(t) = 3 + \frac{t^2}{200}$, sendo que com $t = 10$, temos $v(10) = 3 + \frac{10^2}{200} = 3.5$
-
-### EDO esclares 1º ordem lineares
-
-(ver o resto do exemplo)
-
-Caso trivial:
-
-$a(t) \equiv 0$, pelo que $\frac{\d x}{\d t} b(t)$
-
-$$
-x = \int b(t) + \d t + c
-$$
-
-$x(t_0) = x_0$
-
-$$
-\int_{t_0}^t \frac{\d x}{\d s} \d s = \int_{t_0}^t b(s) \d s
-$$
-
-$$
-x(t) = \int_{t_0}^t b(s) \d s + x_0
-$$
-
-2º caso:
-
-$b(t) \equiv 0$, pelo que $\frac{\d x}{\d t} a(t) x$
-
-$$
-x(t) = k e^{\int a(t) \d t}
-$$
-
-$x(t_0) = x_0$
-
-$x(t) = x_0 e^{\int_{t_0}^t a(s) \d s}$
-
----
+% depois do caso b(t) = 0, não sei em que contexto é que isto surgiu
 
 $\frac{1}{x} \frac{\d x}{\d t} = a(t)$, se $x(t_0) \ne 0$, num intervalo aberto $I$ tal que $t_0$ e $I$.
 
@@ -220,6 +104,8 @@ $\frac{\d}{\d t} (x e^{- \int a(t) \d t}) = 0$
 $x e^{-\int a(t) \d t} = k$
 
 $x = k e^{\int a(t) \d t}$
+
+---
 
 CASO GERAL
 

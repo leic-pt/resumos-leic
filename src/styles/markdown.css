@@ -1,4 +1,5 @@
 body {
+  --infoBorder: #4283b9;
   --tipBorder: #42b983;
   --warningBorder: #e7c000;
   --warningBackground: rgba(255, 229, 100, 0.3);
@@ -8,6 +9,7 @@ body {
 
 @media not print {
   body.dark-mode {
+    --infoBorder: #4283b9;
     --tipBorder: #42b983;
     --warningBorder: #e7c000;
     --warningBackground: rgba(185, 174, 119, 0.3);
@@ -36,6 +38,10 @@ body {
   font-weight: 600;
   margin-bottom: -0.4rem;
   font-size: 1.1em;
+}
+
+.custom-container.custom-container-info {
+  border-color: var(--infoBorder);
 }
 
 .custom-container.custom-container-tip {

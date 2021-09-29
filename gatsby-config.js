@@ -69,6 +69,7 @@ module.exports = {
                 '\\d': '\\mathop{}\\!\\mathrm d',
                 '\\1': '1\\!\\!1',
                 '\\Q': '\\mathbb{Q}',
+                '\\C': '\\mathbb{C}',
                 '\\car': '\\operatorname{car}',
                 '\\ondiv': '\\operatorname{div}',
                 '\\rot': '\\operatorname{rot}',
