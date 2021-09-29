@@ -73,6 +73,7 @@ module.exports = {
                 '\\ondiv': '\\operatorname{div}',
                 '\\rot': '\\operatorname{rot}',
               },
+              throwOnError: false,
             },
           },
           {
