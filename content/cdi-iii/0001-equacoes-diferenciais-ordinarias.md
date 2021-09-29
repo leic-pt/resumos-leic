@@ -181,7 +181,7 @@ $\mu \equiv \mu (t)$ ([a letra grega "mu"](<https://en.wikipedia.org/wiki/Mu_(le
    (x \cdot \mu)' = b(t) \mu
    $$
 
-3. Descobrir $\mu$, pela fórmula do [caso $a(t) \equiv 0$](#caso-at-equiv-0).
+3. Descobrir $\mu$, pela fórmula do [caso $b(t) \equiv 0$](#caso-bt-equiv-0).
 
 4. Substituir os valores na expressão
 
@@ -190,3 +190,72 @@ $\mu \equiv \mu (t)$ ([a letra grega "mu"](<https://en.wikipedia.org/wiki/Mu_(le
    $$
 
    e determinar $x(t)$.
+
+:::details[Exemplo]
+
+**Tomando a equação e um ponto,**
+
+$$
+\begin{darray}{cc}
+y' + 2ty = t & y(0) = 1
+\end{darray}
+$$
+
+**queremos determinal a expressão que define $y(t)$.**
+
+1. Começamos por multiplicar todos os membros por $\mu$:
+
+   $$
+   \underbrace{\mu y' + \overbrace{\mu \cdot 2t}^{\mu'}y}_{(\mu y)' = \mu y' + \mu' y} = \mu t
+   $$
+
+2. Simplificando agora a expressão, ficamos com $\mu' = 2t\mu$ e
+
+   $$
+   (\mu y)' = \mu t
+   $$
+
+3. Queremos agora descobrir $\mu$, pelo que podemos usar a fórmula do [caso $b(t) \equiv 0$](#caso-bt-equiv-0).
+
+   $$
+   \mu' = 2t\mu \Leftrightarrow \mu = e^{t^2}
+   $$
+
+   Não é necessário incluir a constante porque essa é adicionada na expressão abaixo.
+
+4. Substituindo agora os valores na expressão em (2), obtemos:
+
+   $$
+   \begin{darray}{c}
+   (e^{t^2} y)' = e^{t^2} \cdot t\\
+   e^{t^2} y = \int e^{t^2} \cdot t \d t\\
+   e^{t^2} y = \frac{e^{t^2}}{2} + c\\
+   y= \frac{1}{2} + c \cdot e^{-t^2}
+   \end{darray}
+   $$
+
+5. Por fim, descobrimos o valor de $c$:
+
+   $$
+   y(0) = \frac{1}{2} + c \cdot e^0 = \frac{1}{2} + c \underset{y(0)=1}{\Leftrightarrow} c = \frac{1}{2}
+   $$
+
+   Pelo que temos como resposta final
+
+   $$
+   y(t) = \frac{1 + e^{-t^2}}{2}
+   $$
+
+:::
+
+Alternativamente, pode-se utilizar o seguinte teorema, mas nem sempre se justifica aplicá-lo:
+
+:::tip[Teorema]
+
+**Variação das constantes**
+
+$$
+x(t) = x_0 e^{\int_{t_0}^t a(z) \d z} + \int_{t_0}^t b(s) e^{\int_s^t a(z) \d z} \d s
+$$
+
+:::
