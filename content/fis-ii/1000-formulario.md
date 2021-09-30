@@ -2,7 +2,7 @@
 title: Formulário
 description: Formulário-description
 path: /fis-ii/formulario
-type: content
+type: cheatsheets
 ---
 
 # Formulário
@@ -15,4 +15,4 @@ $h$ - Constante de Planck $ = 6.62\times10^{-49} J s $
 
 $v$ - Frequência da Onda Incidente
 
-Unidade eV (eletrão-Volt) $$= 1.6x10^-19 J $$
+Unidade eV (eletrão-Volt) $$= 1.6\times10^-19 J $$
