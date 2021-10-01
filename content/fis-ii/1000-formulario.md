@@ -1,6 +1,6 @@
 ---
 title: Formulário
-description: Formulário-description
+description: Formulário com Fórmulas e Constantes
 path: /fis-ii/formulario
 type: cheatsheets
 ---
