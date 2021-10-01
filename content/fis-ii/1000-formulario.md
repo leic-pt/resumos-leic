@@ -2,7 +2,7 @@
 title: Formulário
 description: Formulário-description
 path: /fis-ii/formulario
-type: content
+type: cheatsheets
 ---
 
 # Formulário
