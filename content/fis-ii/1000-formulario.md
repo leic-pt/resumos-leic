@@ -54,7 +54,7 @@ $Q$ - Calor $\ \ W$ - Trabalho
 
 2ª Lei da Termodinâmica
 
-$\eta < 100%$
+$\eta < 100\ \% $
 
 $\eta$ - Rendimento
 
