@@ -49,8 +49,8 @@ $\vec{p}$ - Momento Linear $\ \ m$ - Massa $\ \ \vec{v}$ - Velocidade
 
 $$ \Delta U = Q - W $$
 
-$\Delta U$ - Variação de energia interna do sistema \
-$Q$ - Calor $\ \ W$ - Trabalho
+$\Delta U$ - Variação de energia interna do sistema
+$\ \ Q$ - Calor $\ \ W$ - Trabalho
 
 2ª Lei da Termodinâmica
 
@@ -65,7 +65,7 @@ $\eta$ - Rendimento
 ## Fotões
 
 $
-E = hv
+E = h\times v
 $
 
 $E$ - Energia $\ \ h$ - Constante de Planck $\ \ v$ - Frequência
