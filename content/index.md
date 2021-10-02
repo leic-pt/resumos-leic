@@ -21,21 +21,21 @@ years:
             link: '/fp'
             image: assets/fp.svg
             color: '#d32f2f'
-          - name: Gestão
-            description: P2
-            link: '/ges'
-            image: assets/ges.svg
-            color: '#00695c'
-          - name: IEI
-            description: P1
-            link: '/iei'
-            image: assets/iei.svg
-            color: '#f57f17'
           - name: LP
             description: P2
             link: '/lp'
             image: assets/lp.svg
             color: '#33691e'
+          - name: IEI
+            description: P1
+            link: '/iei'
+            image: assets/iei.svg
+            color: '#f57f17'
+          - name: Gestão
+            description: P2
+            link: '/ges'
+            image: assets/ges.svg
+            color: '#00695c'
       - name: '2º Semestre'
         courses:
           - name: CDI-II
