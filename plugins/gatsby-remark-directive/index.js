@@ -3,7 +3,7 @@ const visit = require('unist-util-visit');
 const toString = require('mdast-util-to-string');
 
 const options = {
-  customComponentsTags: ['tip', 'warning', 'danger', 'details'],
+  customComponentsTags: ['info', 'tip', 'warning', 'danger', 'details'],
   tabGroupTag: 'tab-group',
   tabTag: 'tab',
 };
