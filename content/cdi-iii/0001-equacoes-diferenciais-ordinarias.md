@@ -81,7 +81,7 @@ $$
 v'(t) = \frac{t}{100} - \frac{v}{100}
 $$
 
-Esta equação é uma **EDO escalar de 1º ordem linear**, ou seja, é do tipo $\frac{\d x}{\d t} = a(t) x + b(t)$.  
+Esta equação é uma **EDO escalar de 1º ordem linear**, ou seja, é do tipo $\frac{\d v}{\d t} = a(t) v + b(t)$.  
 Neste caso, $a = -\frac{1}{100}$ e $b = \frac{t}{100}$
 
 Temos então de descobrir $v(t)$:
@@ -97,9 +97,8 @@ $$
 v(t) = \int_0^t \frac{\d v}{\d s} \d s = \int_0^t \frac{s}{100} - \frac{v}{100} \d s = \frac{t^2}{200} - \frac{vt}{100}
 $$
 
-No entanto, não conseguimos isolar $v(t)$. Mais à frente veremos como podemos resolver equações deste tipo.
-
-$% HELP, provavelmente dá para resolver sem usar a fórmula, mas não percebi como$
+Poderiamos isolar $v(t)$, atendendo ao domínio, mas o exemplo até agora demonstra a importância de saber resolver EDOs.
+Mais à frente veremos como podemos resolver equações deste tipo.
 
 :::
 
@@ -116,38 +115,77 @@ $$
 
 Consoante a nulidade de $a(t)$ e $b(t)$, temos várias formas de resolver uma equação deste tipo.
 
+:::details[Exemplos simples]
+**Equação diferencial ordinária de 1º ordem:**
+
+$$
+y' = e^t \Leftrightarrow y(t) = e^t + c
+$$
+
+Ou se soubermos um caso específico, e.g. $y(0) = 2$, podemos descobrir $c$: $y(t) = e^t + 1$
+
+**Equação diferencial ordinária de 2º ordem:**
+
+$$
+
+\begin{darray}{c}
+\frac{\d^2 x}{d t^2} = e^t\\
+\frac{\d x}{\d t} = e^t + c\\
+x = e^t + ct + d
+\end{darray}
+
+
+$$
+
+:::
+
 ### Caso $a(t) \equiv 0$
 
-Neste caso, como $a(t) \equiv 0$, temos que $\frac{\d x}{\d t} = b(t)$.  
+Neste caso, como $a(t) \equiv 0$, temos que $\frac{\d x}{\d t} = b(t)$.
 Este é o caso mais simples, pelo que podemos obter
 
 $$
+
 x'(t) = b(t) \Leftrightarrow x(t) = \int b(t) \d t + c
+
+
 $$
 
 Se soubermos um valor que pertence à função, por exemplo, $x(t_0) = x_0$, podemos descobrir diretamente a função $x(t)$:
 
 $$
-\int_{t_0}^t \frac{\d x}{\d s} \d s = \int_{t_0}^t b(s) \d s
+
+\int*{t_0}^t \frac{\d x}{\d s} \d s = \int*{t_0}^t b(s) \d s
+
+
 $$
 
 $$
-x(t) = \int_{t_0}^t b(s) \d s + x_0
+
+x(t) = \int\_{t_0}^t b(s) \d s + x_0
+
+
 $$
 
 ### Caso $b(t) \equiv 0$
 
-Neste caso, como $b(t) \equiv 0$, temos que $\frac{\d x}{\d t} = a(t) x$.  
+Neste caso, como $b(t) \equiv 0$, temos que $\frac{\d x}{\d t} = a(t) x$.
 Assim obtemos a seguinte fórmula:
 
 $$
+
 x(t) = k e^{\int a(t) \d t}
+
+
 $$
 
 Novamente, se soubermos um valor que pertence à função, por exemplo, $x(t_0) = x_0$, podemos descobrir diretamente a função $x(t)$:
 
 $$
-x(t) = x_0 e^{\int_{t_0}^t a(s) \d s}
+
+x(t) = x*0 e^{\int*{t_0}^t a(s) \d s}
+
+
 $$
 
 ### Caso Geral
@@ -157,11 +195,14 @@ $$
 pois são consideravelmente mais simples.
 :::
 
-O caso geral ocorre quando nada se pode assumir sobre a nulidade de $a(t)$ e $b(t)$.  
+O caso geral ocorre quando nada se pode assumir sobre a nulidade de $a(t)$ e $b(t)$.
 Ficamos assim com a expressão, em que $a,b \in \C$:
 
 $$
+
 \frac{\d x}{\d t} = a(t) x + b(t)
+
+
 $$
 
 Para resolver este tipo de equações, utilizamos uma função auxiliar, denomidada [**fator de integração**](color:orange)
@@ -169,82 +210,156 @@ $\mu \equiv \mu (t)$ ([a letra grega "mu"](<https://en.wikipedia.org/wiki/Mu_(le
 
 1. Começamos por multiplicar todos os membros da equação por $\mu$:
 
-   $$
-   x' \mu - a(t) x \mu = b(t) \mu
-   $$
+$$
+
+x' \mu - a(t) x \mu = b(t) \mu
+
+
+$$
 
 2. Utilizar as regras de derivação para simplificar a expressão:
 
    Sabe-se que $\mu x' + \mu' x = (\mu x)'$, pelo que podemos escrever que $\mu' = -a(t) \mu$, obtendo
 
-   $$
-   (x \cdot \mu)' = b(t) \mu
-   $$
+$$
+
+(x \cdot \mu)' = b(t) \mu
+
+
+$$
 
 3. Descobrir $\mu$, pela fórmula do [caso $b(t) \equiv 0$](#caso-bt-equiv-0).
 
 4. Substituir os valores na expressão
 
-   $$
-   (x \cdot \mu)' = b(t) \mu
-   $$
+$$
 
-   e determinar $x(t)$.
+(x \cdot \mu)' = b(t) \mu
 
-:::details[Exemplo]
+
+$$
+
+e determinar $x(t)$.
+
+:::details[Exemplos]
 
 **Tomando a equação e um ponto,**
 
 $$
+
 \begin{darray}{cc}
 y' + 2ty = t & y(0) = 1
 \end{darray}
+
+
 $$
 
-**queremos determinal a expressão que define $y(t)$.**
+**queremos determinar a expressão que define $y(t)$.**
 
 1. Começamos por multiplicar todos os membros por $\mu$:
 
-   $$
-   \underbrace{\mu y' + \overbrace{\mu \cdot 2t}^{\mu'}y}_{(\mu y)' = \mu y' + \mu' y} = \mu t
-   $$
+$$
+
+\underbrace{\mu y' + \overbrace{\mu \cdot 2t}^{\mu'}y}\_{(\mu y)' = \mu y' + \mu' y} = \mu t
+
+
+$$
 
 2. Simplificando agora a expressão, ficamos com $\mu' = 2t\mu$ e
 
-   $$
-   (\mu y)' = \mu t
-   $$
+$$
+
+(\mu y)' = \mu t
+
+
+$$
 
 3. Queremos agora descobrir $\mu$, pelo que podemos usar a fórmula do [caso $b(t) \equiv 0$](#caso-bt-equiv-0).
 
-   $$
-   \mu' = 2t\mu \Leftrightarrow \mu = e^{t^2}
-   $$
+$$
 
-   Não é necessário incluir a constante porque essa é adicionada na expressão abaixo.
+\mu' = 2t\mu \Leftrightarrow \mu = e^{t^2}
+
+
+$$
+
+Não é necessário incluir a constante porque essa é adicionada na expressão abaixo.
 
 4. Substituindo agora os valores na expressão em (2), obtemos:
 
-   $$
-   \begin{darray}{c}
-   (e^{t^2} y)' = e^{t^2} \cdot t\\
-   e^{t^2} y = \int e^{t^2} \cdot t \d t\\
-   e^{t^2} y = \frac{e^{t^2}}{2} + c\\
-   y= \frac{1}{2} + c \cdot e^{-t^2}
-   \end{darray}
-   $$
+$$
+
+\begin{darray}{c}
+(e^{t^2} y)' = e^{t^2} \cdot t\\
+e^{t^2} y = \int e^{t^2} \cdot t \d t\\
+e^{t^2} y = \frac{e^{t^2}}{2} + c\\
+y= \frac{1}{2} + c \cdot e^{-t^2}
+\end{darray}
+
+
+$$
 
 5. Por fim, descobrimos o valor de $c$:
 
-   $$
-   y(0) = \frac{1}{2} + c \cdot e^0 = \frac{1}{2} + c \underset{y(0)=1}{\Leftrightarrow} c = \frac{1}{2}
-   $$
+$$
 
-   Pelo que temos como resposta final
+y(0) = \frac{1}{2} + c \cdot e^0 = \frac{1}{2} + c \underset{y(0)=1}{\Leftrightarrow} c = \frac{1}{2}
 
-   $$
-   y(t) = \frac{1 + e^{-t^2}}{2}
-   $$
+
+$$
+
+Pelo que temos como resposta final
+
+$$
+
+y(t) = \frac{1 + e^{-t^2}}{2}
+
+
+$$
+
+---
+
+**Tomando a equação**
+
+$$
+
+\frac{\d y}{\d t} + \frac{1}{1 + t} y = 1
+
+
+$$
+
+**e sabendo que $y(0) = 0$, queremos determinar a expressão que define $y(t)$.**
+
+$$
+
+\begin{darray}{c}
+\overbrace{\mu \frac{\d y}{\d t} + \frac{\mu}{1 + t} y}^{\mu y' + \mu' y = (\mu y)'} = \mu\\
+\mu' = \frac{\mu}{1 + t} \Leftrightarrow \mu = e^{\log (1 +t)} = 1+ t
+\end{darray}
+
+
+$$
+
+$$
+
+(\mu y)' = \mu\\
+(1+t) y = \int (1 + t ) \d t\\
+(1+t) y = t + \frac{t^2}{2} + c\\
+y = \frac{t + \frac{t^2}{2} + c}{1+t}
+
+
+$$
+
+Como sabemos que $y(0) = 0$, temos $y(0) = \frac{0 + \frac{0^2}{2} + c}{1+0} = c \implies c = 0$.
+
+Assim, a expressão que define $y(t)$ é:
+
+$$
+
+y(t) = \frac{t + \frac{t^2}{2}}{1+t}
+
+
+$$
 
 :::
 
@@ -255,7 +370,13 @@ Alternativamente, pode-se utilizar o seguinte teorema, mas nem sempre se justifi
 **Variação das constantes**
 
 $$
-x(t) = x_0 e^{\int_{t_0}^t a(z) \d z} + \int_{t_0}^t b(s) e^{\int_s^t a(z) \d z} \d s
+
+x(t) = x*0 e^{\int*{t*0}^t a(z) \d z} + \int*{t_0}^t b(s) e^{\int_s^t a(z) \d z} \d s
+
+
 $$
 
 :::
+
+$$
+$$
