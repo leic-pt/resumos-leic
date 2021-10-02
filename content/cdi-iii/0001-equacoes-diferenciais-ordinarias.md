@@ -127,14 +127,11 @@ Ou se soubermos um caso específico, e.g. $y(0) = 2$, podemos descobrir $c$: $y(
 **Equação diferencial ordinária de 2º ordem:**
 
 $$
-
 \begin{darray}{c}
 \frac{\d^2 x}{d t^2} = e^t\\
 \frac{\d x}{\d t} = e^t + c\\
 x = e^t + ct + d
 \end{darray}
-
-
 $$
 
 :::
@@ -145,26 +142,17 @@ Neste caso, como $a(t) \equiv 0$, temos que $\frac{\d x}{\d t} = b(t)$.
 Este é o caso mais simples, pelo que podemos obter
 
 $$
-
 x'(t) = b(t) \Leftrightarrow x(t) = \int b(t) \d t + c
-
-
 $$
 
 Se soubermos um valor que pertence à função, por exemplo, $x(t_0) = x_0$, podemos descobrir diretamente a função $x(t)$:
 
 $$
-
 \int*{t_0}^t \frac{\d x}{\d s} \d s = \int*{t_0}^t b(s) \d s
-
-
 $$
 
 $$
-
 x(t) = \int\_{t_0}^t b(s) \d s + x_0
-
-
 $$
 
 ### Caso $b(t) \equiv 0$
@@ -173,19 +161,13 @@ Neste caso, como $b(t) \equiv 0$, temos que $\frac{\d x}{\d t} = a(t) x$.
 Assim obtemos a seguinte fórmula:
 
 $$
-
 x(t) = k e^{\int a(t) \d t}
-
-
 $$
 
 Novamente, se soubermos um valor que pertence à função, por exemplo, $x(t_0) = x_0$, podemos descobrir diretamente a função $x(t)$:
 
 $$
-
 x(t) = x*0 e^{\int*{t_0}^t a(s) \d s}
-
-
 $$
 
 ### Caso Geral
@@ -199,10 +181,7 @@ O caso geral ocorre quando nada se pode assumir sobre a nulidade de $a(t)$ e $b(
 Ficamos assim com a expressão, em que $a,b \in \C$:
 
 $$
-
 \frac{\d x}{\d t} = a(t) x + b(t)
-
-
 $$
 
 Para resolver este tipo de equações, utilizamos uma função auxiliar, denomidada [**fator de integração**](color:orange)
@@ -211,10 +190,7 @@ $\mu \equiv \mu (t)$ ([a letra grega "mu"](<https://en.wikipedia.org/wiki/Mu_(le
 1. Começamos por multiplicar todos os membros da equação por $\mu$:
 
 $$
-
 x' \mu - a(t) x \mu = b(t) \mu
-
-
 $$
 
 2. Utilizar as regras de derivação para simplificar a expressão:
@@ -222,10 +198,7 @@ $$
    Sabe-se que $\mu x' + \mu' x = (\mu x)'$, pelo que podemos escrever que $\mu' = -a(t) \mu$, obtendo
 
 $$
-
 (x \cdot \mu)' = b(t) \mu
-
-
 $$
 
 3. Descobrir $\mu$, pela fórmula do [caso $b(t) \equiv 0$](#caso-bt-equiv-0).
@@ -233,10 +206,7 @@ $$
 4. Substituir os valores na expressão
 
 $$
-
 (x \cdot \mu)' = b(t) \mu
-
-
 $$
 
 e determinar $x(t)$.
@@ -246,12 +216,9 @@ e determinar $x(t)$.
 **Tomando a equação e um ponto,**
 
 $$
-
 \begin{darray}{cc}
 y' + 2ty = t & y(0) = 1
 \end{darray}
-
-
 $$
 
 **queremos determinar a expressão que define $y(t)$.**
@@ -259,28 +226,19 @@ $$
 1. Começamos por multiplicar todos os membros por $\mu$:
 
 $$
-
 \underbrace{\mu y' + \overbrace{\mu \cdot 2t}^{\mu'}y}\_{(\mu y)' = \mu y' + \mu' y} = \mu t
-
-
 $$
 
 2. Simplificando agora a expressão, ficamos com $\mu' = 2t\mu$ e
 
 $$
-
 (\mu y)' = \mu t
-
-
 $$
 
 3. Queremos agora descobrir $\mu$, pelo que podemos usar a fórmula do [caso $b(t) \equiv 0$](#caso-bt-equiv-0).
 
 $$
-
 \mu' = 2t\mu \Leftrightarrow \mu = e^{t^2}
-
-
 $$
 
 Não é necessário incluir a constante porque essa é adicionada na expressão abaixo.
@@ -288,33 +246,24 @@ Não é necessário incluir a constante porque essa é adicionada na expressão 
 4. Substituindo agora os valores na expressão em (2), obtemos:
 
 $$
-
 \begin{darray}{c}
 (e^{t^2} y)' = e^{t^2} \cdot t\\
 e^{t^2} y = \int e^{t^2} \cdot t \d t\\
 e^{t^2} y = \frac{e^{t^2}}{2} + c\\
 y= \frac{1}{2} + c \cdot e^{-t^2}
 \end{darray}
-
-
 $$
 
 5. Por fim, descobrimos o valor de $c$:
 
 $$
-
 y(0) = \frac{1}{2} + c \cdot e^0 = \frac{1}{2} + c \underset{y(0)=1}{\Leftrightarrow} c = \frac{1}{2}
-
-
 $$
 
 Pelo que temos como resposta final
 
 $$
-
 y(t) = \frac{1 + e^{-t^2}}{2}
-
-
 $$
 
 ---
@@ -322,32 +271,23 @@ $$
 **Tomando a equação**
 
 $$
-
 \frac{\d y}{\d t} + \frac{1}{1 + t} y = 1
-
-
 $$
 
 **e sabendo que $y(0) = 0$, queremos determinar a expressão que define $y(t)$.**
 
 $$
-
 \begin{darray}{c}
 \overbrace{\mu \frac{\d y}{\d t} + \frac{\mu}{1 + t} y}^{\mu y' + \mu' y = (\mu y)'} = \mu\\
 \mu' = \frac{\mu}{1 + t} \Leftrightarrow \mu = e^{\log (1 +t)} = 1+ t
 \end{darray}
-
-
 $$
 
 $$
-
 (\mu y)' = \mu\\
 (1+t) y = \int (1 + t ) \d t\\
 (1+t) y = t + \frac{t^2}{2} + c\\
 y = \frac{t + \frac{t^2}{2} + c}{1+t}
-
-
 $$
 
 Como sabemos que $y(0) = 0$, temos $y(0) = \frac{0 + \frac{0^2}{2} + c}{1+0} = c \implies c = 0$.
@@ -355,10 +295,7 @@ Como sabemos que $y(0) = 0$, temos $y(0) = \frac{0 + \frac{0^2}{2} + c}{1+0} = c
 Assim, a expressão que define $y(t)$ é:
 
 $$
-
 y(t) = \frac{t + \frac{t^2}{2}}{1+t}
-
-
 $$
 
 :::
@@ -370,13 +307,165 @@ Alternativamente, pode-se utilizar o seguinte teorema, mas nem sempre se justifi
 **Variação das constantes**
 
 $$
-
 x(t) = x*0 e^{\int*{t*0}^t a(z) \d z} + \int*{t_0}^t b(s) e^{\int_s^t a(z) \d z} \d s
-
-
 $$
 
 :::
 
+## Equações Separáveis
+
+:::tip[Definição]
+Seja $y(t_0) = y_0$ e uma equação
+
 $$
+y' = \frac{g(t)}{f(y)}, f(y_0) \ne 0
 $$
+
+com $f$ e $g$ contínuas numa vizinhança de $y_0$.
+
+Então existe uma única solução definita implicitamente por
+
+$$
+F(y) = G(t) + c
+$$
+
+com $c=F(y_0) - G(t_0)$
+:::
+
+:::info[Exemplo]
+
+**Considerando a seguinte equação**
+
+$$
+\frac{\d y}{\d t} = (\cos^2 y) \cos t
+$$
+
+**e $y(0) = \pi$, determine a expressão que define $y(t)$**
+
+$$
+\begin{darray}{c}
+\frac{1}{cos^2 y} \frac{\d y}{\d t} = \cos t\\
+\Leftrightarrow \underbrace{\tan y}_{F(y)} = \underbrace{\sin t}_{G(t)} + c
+\end{darray}
+$$
+
+$$
+\begin{darray}{c}
+\tan \pi = \sin (0) + c\\
+\Leftrightarrow c = 0
+\end{darray}
+$$
+
+Assim temos que:
+
+$$
+\tan y = \sin t
+$$
+
+A função tangente não é invertível, pelo que temos de atender ao domínio e à condição $y(0)~=~\pi$
+
+$$
+y = \pi + \arctan(\sin t), t \in \R
+$$
+
+:::
+
+:::details[Mais Exemplos]
+
+**Consideramos a seguinte equação**
+
+$$
+\begin{darray}{cc}
+\frac{\d y}{\d t} = \frac{t}{\cos y} & y(0) = \pi
+\end{darray}
+$$
+
+**e queremos determinar a expressão que define $y(t)$.**
+
+$$
+\begin{darray}{c}
+\cos y \frac{\d y}{\d t} = t\\
+\sin y = \frac{t^2}{2} + c\\
+\sin \pi = c, \implies c = 0\\
+\sin y = \frac{t^2}{2}
+\end{darray}
+$$
+
+Temos assim como solução $y = \pi - \arcsin \frac{t^2}{2}$, atendendo que o domínio tem de ser tal que a derivada da expressão seja contínua.
+
+Assim, precisamos que $\frac{t^2}{2} \in ]-1, 1[$, ou seja, $t \in ]-\sqrt{2}, \sqrt{2}[$
+
+---
+
+**Consideramos a seguinte equação**
+
+$$
+\begin{darray}{cc}
+y^2 \frac{\d y}{\d t} = 3 t^8 & y(0) = 0
+\end{darray}
+$$
+
+**e queremos determinar a expressão que define $y(t)$.**
+
+$$
+\begin{darray}{c}
+\frac{y^3}{3} = \frac{t^9}{3} + c\\
+0 = 0 + c \implies c = 0\\
+\frac{y^3}{3} = \frac{t^9}{3}
+\end{darray}
+$$
+
+Temos assim:
+
+$$
+\begin{aligned}
+\frac{y^3}{3} = \frac{t^9}{3}
+& \Leftrightarrow y^3 = t^9\\
+& \Leftrightarrow y = \sqrt[3]{t^9}\\
+& \Leftrightarrow y = t^3
+\end{aligned}
+$$
+
+---
+
+**Consideramos a seguinte equação**
+
+$$
+\frac{\d y}{\d t} = t(y^2 - 1)
+$$
+
+**e queremos determinar a expressão que define $y(t)$.**
+
+$$
+\begin{aligned}
+\frac{\d y}{\d t} = t(y^2 - 1)
+& \Leftrightarrow \frac{1}{y^2 - 1}\frac{\d y}{\d t} = t\\
+& \Leftrightarrow \int \frac{1}{2} \left(\frac{1}{y-1}- \frac{1}{y+1} \right) \d y = \frac{t^2}{2} + c\\
+& \Leftrightarrow \frac{1}{2} \log \left|\frac{y-1}{y+1}\right| = \frac{t^2}{2} + c\\
+& \Leftrightarrow \frac{y-1}{y+1} = \pm e^{t^2 + 2c}\\
+& \Leftrightarrow \frac{y-1}{y+1} = (\pm e^{2c}) e^{t^2}
+\end{aligned}
+$$
+
+Considerando $k = \pm e^{2c}, k \ne 0$, temos:
+
+$$
+\begin{aligned}
+\frac{y-1}{y+1} = k e^{t^2}
+& \Leftrightarrow y-1 = k e^{t^2} (y+1)\\
+& \Leftrightarrow y(1- k e^{t^2}) = k e^{t^2} + 1
+\end{aligned}
+$$
+
+Então
+
+$$
+\begin{cases}
+y(t) = \frac{1+k e^{t^2}}{1-k e^{t^2}}, k \in \R\\
+y(t) \equiv -1, \forall t \in \R
+\end{cases}
+$$
+
+é a solução geral $t \in \R$
+
+:::

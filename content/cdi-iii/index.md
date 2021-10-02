@@ -6,7 +6,6 @@ type: topLevelPage
 
 # Cálculo Diferencial e Integral III
 
-:::warning[PÁGINA EM CONSTRUÇÃO]
-De momento não existem resumos de CDI-III.  
-Procuram-se contribuidores.
-:::
+## Recursos
+
+- [Notas Teóricas na EdenBox](https://www.edenbox.org/index.php/s/edenbox?path=%2FLEIC%2F2%C2%BA%20Ano%2F1%C2%BA%20Semestre%2FACED%2FMaterial%20de%20Apoio)
