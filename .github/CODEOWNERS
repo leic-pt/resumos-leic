@@ -2,25 +2,50 @@
 
 * @diogotcorreia
 
+# AL - Main maintainer Diogo Correia
+content/al/** @diogotcorreia [al]
+
+# ASA - Main maintainer Diogo Correia
+content/asa/** @diogotcorreia [asa]
+
+# BD - Main maintainer Diogo Correia
+content/bd/** @diogotcorreia [bd]
+
 # CDI-I - Main maintainer Diogo Correia
 content/cdi-i/** @diogotcorreia [cdi-i]
 
-# AL - Main maintainer Diogo Correia
-content/al/** @diogotcorreia [al]
+# CDI-II - Main maintainer Diogo Correia
+content/cdi-ii/** @diogotcorreia [cdi-ii]
+
+# Fis-I - Main maintainer Diogo Correia
+content/fis-i/** @diogotcorreia [fis-i]
+
+# Fis-II - Main maintainer Diogo Correia
+content/fis-ii/** @diogotcorreia [fis-ii]
+content/fis-ii/cheatsheets @Pesteves2002 [fis-ii]
 
 # FP - Main maintainer Diogo Correia
 content/fp/** @diogotcorreia [fp]
 
+# Ges - Main maintainer Diogo Correia
+content/ges/** @diogotcorreia [ges]
+
+# IA - Main maintainer Diogo Correia
+content/ia/** @diogotcorreia [ia]
+
 # IAC - Main maintainer Diogo Correia
 content/iac/** @diogotcorreia [iac]
-
-# CDI-II - Main maintainer Diogo Correia
-content/cdi-ii/** @diogotcorreia [cdi-ii]
 
 # IAED - Main maintainer Tomás Esteves
 content/iaed/** @Pesteves2002 [iaed]
 content/iaed/labs/* @diogotcorreia @Pesteves2002 [iaed]
 content/iaed/meta/* @diogotcorreia [iaed]
+
+# IEI - Main maintainer Diogo Correia
+content/iei/** @diogotcorreia [iei]
+
+# IPM - Main maintainer Diogo Correia
+content/ipm/** @diogotcorreia [ipm]
 
 # LP - Main maintainer Diogo Gaspar
 content/lp/** @randomicecube [lp]
@@ -30,3 +55,16 @@ content/md/* @jmseca [md]
 content/md/imgs/* @jmseca [md]
 content/md/exercicios/* @diogotcorreia [md]
 content/md/tools/* @diogotcorreia [md]
+
+# PE - Main maintainer Diogo Correia
+content/pe/** @diogotcorreia [pe]
+
+# PO - Main maintainer Diogo Correia
+content/po/** @diogotcorreia [po]
+content/po/guides/** @diogotcorreia [po]
+
+# SO - Main maintainer Diogo Correia
+content/so/** @diogotcorreia [so]
+
+# TC - Main maintainer Diogo Correia
+content/tc/** @diogotcorreia [tc]
