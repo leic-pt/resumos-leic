@@ -18,7 +18,7 @@ type: topLevelPage
 classDiagram
 class Student
 Student : +age: int
-Student : +void jumpOffTower(NorthTower: Tower)
+Student : +void jumpOffTower(northTower: Tower)
 
 class Course
 Course : +name: String
