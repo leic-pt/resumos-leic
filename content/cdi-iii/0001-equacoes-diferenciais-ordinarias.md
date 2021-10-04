@@ -148,11 +148,11 @@ $$
 Se soubermos um valor que pertence à função, por exemplo, $x(t_0) = x_0$, podemos descobrir diretamente a função $x(t)$:
 
 $$
-\int*{t_0}^t \frac{\d x}{\d s} \d s = \int*{t_0}^t b(s) \d s
+\int_{t_0}^t \frac{\d x}{\d s} \d s = \int_{t_0}^t b(s) \d s
 $$
 
 $$
-x(t) = \int\_{t_0}^t b(s) \d s + x_0
+x(t) = \int_{t_0}^t b(s) \d s + x_0
 $$
 
 ### Caso $b(t) \equiv 0$
@@ -167,7 +167,7 @@ $$
 Novamente, se soubermos um valor que pertence à função, por exemplo, $x(t_0) = x_0$, podemos descobrir diretamente a função $x(t)$:
 
 $$
-x(t) = x*0 e^{\int*{t_0}^t a(s) \d s}
+x(t) = x_0 e^{\int_{t_0}^t a(s) \d s}
 $$
 
 ### Caso Geral
@@ -307,7 +307,7 @@ Alternativamente, pode-se utilizar o seguinte teorema, mas nem sempre se justifi
 **Variação das constantes**
 
 $$
-x(t) = x*0 e^{\int*{t*0}^t a(z) \d z} + \int*{t_0}^t b(s) e^{\int_s^t a(z) \d z} \d s
+x(t) = x_0 e^{\int_{t_0}^t a(z) \d z} + \int_{t_0}^t b(s) e^{\int_s^t a(z) \d z} \d s
 $$
 
 :::
