@@ -3,3 +3,4 @@ node_modules/
 public/
 .vscode/
 src/.vuepress/dist
+yarn-error.log
