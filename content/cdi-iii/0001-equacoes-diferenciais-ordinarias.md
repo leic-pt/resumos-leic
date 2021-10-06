@@ -226,7 +226,7 @@ $$
 1. Começamos por multiplicar todos os membros por $\mu$:
 
 $$
-\underbrace{\mu y' + \overbrace{\mu \cdot 2t}^{\mu'}y}\_{(\mu y)' = \mu y' + \mu' y} = \mu t
+\underbrace{\mu y' + \overbrace{\mu \cdot 2t}^{\mu'}y}_{(\mu y)' = \mu y' + \mu' y} = \mu t
 $$
 
 2. Simplificando agora a expressão, ficamos com $\mu' = 2t\mu$ e
