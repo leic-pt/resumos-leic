@@ -25,6 +25,8 @@ $h$ - Constante de Planck - $6.626\times10^{-34} J s$ (Joules Segundo)
 
 Unidade $eV$ (eletrão-Volt) $= 1.6\times10^{-19 }J $ (Joules)
 
+O eletrão-Volt corresponde à energia ganha por 1 eletrão quando se desloca de 1 pólo positivo para 1 pólo negativo na distância de 1 metro.
+
 ## Fórmulas
 
 $v = \lambda \times f \ $

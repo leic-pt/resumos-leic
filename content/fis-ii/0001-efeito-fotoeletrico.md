@@ -6,7 +6,7 @@ path: /fis-ii/efeito-fotoeletrico
 type: content
 ---
 
-# Efeito Eletroestático
+# Efeito Fotoelétrico
 
 A luz é constituída por fotões, cada fotão transporta energia $E = hv$ \
 em que $h$ é a constante de Planck ( $6,626 \times 10^{-34} J \ s $ ) e \
