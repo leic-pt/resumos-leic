@@ -27,7 +27,7 @@ $K = hv - W_o = h(v-v_0)$
 ![graph](./imgs/0001-photoeletric-grap.png)
 
 Como podemos reparar pelo gráfico o declive das retas é igual e tem o valor da Constante de Planck ($h$).\
-Isto porque podemos rescrever a fórmula dada anteriormente da seguinte maneira
+Isto porque podemos reescrever a fórmula dada anteriormente da seguinte maneira
 $\cfrac{E}{v} = h$\
 O ponto em que a recta corta o eixo das abcissas é $v_0$\
 Também podemos escrever a fórmula da seguinte maneira:
