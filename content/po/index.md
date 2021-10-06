@@ -22,7 +22,7 @@ Student : +void jumpOffTower(northTower: Tower)
 
 class Course
 Course : +name: String
-Course : +students: List~Students~ 
+Course : +students: List~Students~
 Course : +void giveMaxGradeToAllStudents()
 
 Course --> Student
