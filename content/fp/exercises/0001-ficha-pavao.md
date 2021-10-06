@@ -20,14 +20,14 @@ type: exercises
 ## Capítulo 1
 
 1. a) Símbolos não terminais: <palavra>, <sílaba>, <vogal> e <consoante>
-   Símbolos terminais: `a b c d e f g h i j l m n o p q r s t u v x z`
+   Símbolos terminais: `a b c d e f g h i j l m n o p q r s t u v x z`  
    b) Cada palavra tem de conter exatamente duas sílabas, cada sílaba (par de dois caracteres) tem de conter obrigatoriamente uma consoante e uma vogal, por qualquer ordem, minúsculas. Logo, apenas `asno`, `gato`, `vaca` pertencem à gramática.
 2. a) Símbolos não terminais: `<S>`, `<A>`, `<B>`, `<x>` e `<y>`
-   Símbolos terminais: `A B C D 1 2 3 4`
-   b) A gramática permite frases que comecem com um qualquer número de letras (`A B C D`), seguidas de qualquer número de dígitos (`1 2 3 4`). Logo, apenas `AAAAB12` pertence à gramática.
+   Símbolos terminais: `A B C D 1 2 3 4`  
+   b) A gramática permite frases que comecem com um qualquer número de letras (`A B C D`), seguidas de qualquer número de dígitos (`1 2 3 4`). Logo, apenas `AAAAB12` pertence à gramática.  
    c) Sim
 3. a) Símbolos não terminais: `<Pric>`, `<Meio>` e `<Fim>`
-   Símbolos terminais: `a b c`
+   Símbolos terminais: `a b c`  
    b) As frases definidas por esta gramática é constituída por capicuas, cuja parte exterior começa com um `a`, seguida de um `b` e um qualquer número de `c`. Por exemplo: `abcccccccba`.
 4. BNF:
 
@@ -38,7 +38,7 @@ type: exercises
    ```
 
 5. a) Símbolos não terminais: `<operação>`, `<operador>`, `<argumento>` e `<dígito>`
-   Símbolos terminais: `2 4 6 8 0 + - * / ( )`
+   Símbolos terminais: `2 4 6 8 0 + - * / ( )`  
    b) Segundo a gramática, as frases começam com `(`, seguidas de um número com qualquer número dos dígitos `2 4 6 8 0`, seguidas de um operador `+ - * /`, novamente um número e acabam com `)`. Logo, apenas `(24 * 06)` e `(0 / 0)` pertencem à gramática.
 6. BNF:
 
@@ -492,7 +492,7 @@ type: exercises
         return newNum
     ```
 
-    b)
+    b) Um mágico nunca revela os seus truques.
 
 ## Capítulo 4
 
@@ -857,9 +857,9 @@ type: exercises
 
 ### Capítulo 6.2
 
-1. a) Soma todos os números entre 4 e 500
-   b) Soma os quadrados dos múltiplos de 5 entre 5 e 500
-   c) Soma os somatórios de 1 a N, de 1 a 5
+1. a) Soma todos os números entre 4 e 500  
+   b) Soma os quadrados dos múltiplos de 5 entre 5 e 500  
+   c) Soma os somatórios de 1 a N, de 1 a 5  
 2. a)
 
    ```python
@@ -1135,9 +1135,9 @@ type: exercises
 
 ## Capítulo 8
 
-1. a) `{’nome’:{’nomep’:’John’, ’apelido’:’Doe’}, ’morada’:{’rua’:’West Hazeltine Ave.’, ’num’: 57, ’andar’:’’, ’localidade’:’Kenmore’, ’estado’:’NY’, ’cp’:’14217’, ’pais’:’USA’}}`
-   b) `{’nomep’:’John’, ’apelido’:’Doe’}`
-   c) `’Doe’`
+1. a) `{’nome’:{’nomep’:’John’, ’apelido’:’Doe’}, ’morada’:{’rua’:’West Hazeltine Ave.’, ’num’: 57, ’andar’:’’, ’localidade’:’Kenmore’, ’estado’:’NY’, ’cp’:’14217’, ’pais’:’USA’}}`  
+   b) `{’nomep’:’John’, ’apelido’:’Doe’}`  
+   c) `’Doe’`  
    d) `’D’`
 2. ```python
    def agrupa_por_chave(list):
