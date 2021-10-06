@@ -492,7 +492,7 @@ type: exercises
         return newNum
     ```
 
-    b) Um mágico nunca revela os seus truques.
+    b) _Um mágico nunca revela os seus truques._
 
 ## Capítulo 4
 
