@@ -859,7 +859,7 @@ type: exercises
 
 1. a) Soma todos os números entre 4 e 500  
    b) Soma os quadrados dos múltiplos de 5 entre 5 e 500  
-   c) Soma os somatórios de 1 a N, de 1 a 5  
+   c) Soma os somatórios de 1 a N, de 1 a 5
 2. a)
 
    ```python
