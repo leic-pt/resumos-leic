@@ -17,13 +17,13 @@ type: topLevelPage
 ```mermaid
 classDiagram
 class Student
-Student : +age: int
-Student : +void jumpOffTower(northTower: Tower)
+Student : +age int
+Student : +jumpOffTower(northTower: Tower) void
 
 class Course
 Course : +name: String
 Course : +students: List~Students~
-Course : +void giveMaxGradeToAllStudents()
+Course : +giveMaxGradeToAllStudents() void
 
 Course --> Student
 
