@@ -14,6 +14,7 @@
     "clean": "gatsby clean",
     "serve": "gatsby serve",
     "format": "prettier -w 'src/**/*.{js,md,vue}'",
+    "format:content": "prettier -w 'content/**/*.md'",
     "format-win": "prettier -w 'src\\**\\*.{js,md,vue}'"
   },
   "license": "MIT",
