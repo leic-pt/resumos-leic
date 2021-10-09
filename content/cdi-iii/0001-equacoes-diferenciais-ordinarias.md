@@ -201,7 +201,11 @@ $$
 (x \cdot \mu)' = b(t) \mu
 $$
 
-3. Descobrir $\mu$, pela fórmula do [caso $b(t) \equiv 0$](#caso-bt-equiv-0).
+3. Descobrir $\mu$, pela fórmula do [caso $b(t) \equiv 0$](#caso-bt-equiv-0) .
+
+$$
+\mu' = -a(t) \mu
+$$
 
 4. Substituir os valores na expressão
 

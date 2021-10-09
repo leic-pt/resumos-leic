@@ -74,7 +74,7 @@ $E$ - Energia $\ \ h$ - Constante de Planck $\ \ v$ - Frequência
 
 $K =  h(v-v_0)$
 
-$K$ - Energia Cinética $\ \ h$ - Constante de Planck $\ \ v$ - Frequência $\ \ v_0$ - Frequência Miníma
+$K$ - Energia Cinética $\ \ h$ - Constante de Planck $\ \ v$ - Frequência $\ \ v_0$ - Frequência Mínima
 
 $$ p = \cfrac{E}{c} = \cfrac{hv}{c} = \cfrac{h} {\lambda} $$
 
