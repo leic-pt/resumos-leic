@@ -1,7 +1,7 @@
 ---
-title: Fundamentos
+title: Fundamentos e Campos
 description: >-
-  Fundamentos
+  Fundamentos e Campos
 path: /fis-ii/fundamentos
 type: content
 ---
@@ -55,13 +55,19 @@ Se a quantidade ($\vec\phi(\vec r) $) for um vetor podemos realizar 2 operaçõe
 
 #### Divergência (Produto Escalar)
 
-$\vec\bigtriangledown \cdot \phi(\vec r)$\
- O resultado será 1 número.
+$$
+\vec\bigtriangledown \cdot \phi(\vec r)
+$$
+
+O resultado será 1 número.
 
 #### Rotacional (Produto Externo)
 
-$\vec\bigtriangledown \times \phi(\vec r)$\
- O resultado será 1 (pseudo-)vetor, isto porque para 2 vetores $\vec a$ e $\vec b$, o rotacional de $\vec a \times \vec b$ vai ser igual ao rotacional de $- \vec a \times - \vec b$
+$$
+\vec\bigtriangledown \times \phi(\vec r)
+$$
+
+O resultado será 1 (pseudo-)vetor, isto porque para 2 vetores $\vec a$ e $\vec b$, o rotacional de $\vec a \times \vec b$ vai ser igual ao rotacional de $- \vec a \times - \vec b$
 
 ## Exemplo de Campos
 
@@ -107,7 +113,7 @@ $\vec\bigtriangledown \times \phi(\vec r) = - \cfrac{x_1\vec e_1 + x_2\vec e_2+ 
 
 Uma linha de campo é uma curva tal que em cada ponto o
 campo é tangente à curva.\
- Dirigem-se de + $\rightarrow$ -.
+ Dirigem-se de (+ $\rightarrow$ - ).
 As linhas de campo não se podem cruzar.
 
 ## Função $\delta$ de Dirac
@@ -117,14 +123,19 @@ A função de Dirac é uma função que em que é nula em todo o seu domínio ex
 $$
 
 \delta (x-a) =
-    \begin{cases}
-      0,  se \ x \neq a\\
-      \infty , se\ x = a
-    \end{cases}
+\begin{cases}
+0, se \ x \neq a\\
+\infty , se\ x = a
+\end{cases}
+
+
 $$
 
 $$
+
 \int^\infty_{-\infty} \delta (x-a) dx = 1
+
+
 $$
 
 ### Teorema de Helmholtz
@@ -132,11 +143,17 @@ $$
 Se tivermos um campo $\vec \phi$ :
 
 $$
+
 \vec \bigtriangledown \cdot \vec \phi = f,
+
+
 $$
 
 $$
+
 \vec \bigtriangledown \times \vec \phi = \vec \Theta, (\implies \vec \bigtriangledown \cdot \vec \Theta = 0)
+
+
 $$
 
 em que $f$ é uma função escalar e $\vec \Theta$ uma função vetorial.
@@ -171,3 +188,6 @@ $\int \vec \phi \ d\vec S $ para superfícies fechadas com a mesma fronteira e n
 Qualquer campo pode ser escrito na forma $\vec \phi = - \vec\bigtriangledown V + \vec\bigtriangledown \times \vec A$
 
 [Slides](https://drive.google.com/file/d/1JJ0hvtzRHPiJwS3mNjP8ffPkbRe7FWDs/view?usp=sharing)
+
+$$
+$$
