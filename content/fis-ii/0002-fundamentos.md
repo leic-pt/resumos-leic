@@ -6,6 +6,15 @@ path: /fis-ii/fundamentos
 type: content
 ---
 
+## Conceitos a Relembrar (CDI-II)
+
+- [Gradiente](../cdi-ii/diferenciabilidade#gradiente-de-uma-função)
+- [Coordenadas Esféricas](../cdi-ii/integracao-mudanca-var#coordenadas-esféricas)
+- [Coordenadas Cilíndricas](../cdi-ii/integracao-mudanca-var#coordenadas-cilíndricas)
+- [Divergência](../cdi-ii/fluxo-teorema-divergencia#divergência-de-um-campo-vetorial)
+- [Rotacional](../cdi-ii/rotacional-teorema-stokes#rotacional)
+- [Teorema de Stonks](../cdi-ii/rotacional-teorema-stokes#teorema-de-stokes)
+
 # Campo
 
 Um campo ($\phi$) é uma zona do espaço em que em cada ponto está definida uma quantidade.
@@ -58,6 +67,8 @@ $\vec\bigtriangledown \times \phi(\vec r)$\
 
 ### Campo Uniforme
 
+![Uniforme](./imgs/0002-campo-uniforme.jpg#dark=1)
+
 Para $\phi _i$ constantes
 
 $\phi(\vec r) = \sum\limits_{i =1}^{3}  \phi_i  \vec e_i$
@@ -67,6 +78,8 @@ $\vec\bigtriangledown \cdot \phi(\vec r) = 0$
 $\vec\bigtriangledown \times \phi(\vec r) = 0$
 
 ### Campo Radial
+
+![Radial](./imgs/0002-campo-radial.png#dark=1)
 
 Com $A$ constante
 
@@ -78,6 +91,8 @@ $\vec\bigtriangledown \times \phi(\vec r) = 0$
 
 ### Campo Rotacional
 
+![Rotacional](./imgs/0002-campo-rotacional2.png#dark=1)
+
 Com $\phi _1(\vec r) = \cfrac{x_2}{x_3},\ \phi _2(\vec r) = -\cfrac{x_1}{x_3},\ \phi _3(\vec r) = 0$
 
 $\phi(\vec r) = \sum\limits_{i =1}^{3}  \phi_i (\vec r)  \vec e_i$
@@ -88,19 +103,12 @@ $\vec\bigtriangledown \times \phi(\vec r) = - \cfrac{x_1\vec e_1 + x_2\vec e_2+ 
 
 ## Linhas de Campo
 
+![Linhas](./imgs/0002-linhas-campo.jpg#dark=1)
+
 Uma linha de campo é uma curva tal que em cada ponto o
 campo é tangente à curva.\
  Dirigem-se de + $\rightarrow$ -.
 As linhas de campo não se podem cruzar.
-
-## Conceitos a Relembrar (CDI-II)
-
-- [Gradiente](../cdi-ii/diferenciabilidade#gradiente-de-uma-função)
-- [Coordenadas Esféricas](../cdi-ii/integracao-mudanca-var#coordenadas-esféricas)
-- [Coordenadas Cilíndricas](../cdi-ii/integracao-mudanca-var#coordenadas-cilíndricas)
-- [Divergência](../cdi-ii/fluxo-teorema-divergencia#divergência-de-um-campo-vetorial)
-- [Rotacional](../cdi-ii/rotacional-teorema-stokes#rotacional)
-- [Teorema de Stonks](../cdi-ii/rotacional-teorema-stokes#teorema-de-stokes)
 
 ## Função $\delta$ de Dirac
 
@@ -121,11 +129,45 @@ $$
 
 ### Teorema de Helmholtz
 
-![graph](./imgs/0001-photoeletric-grap.png)
+Se tivermos um campo $\vec \phi$ :
 
-Como podemos reparar pelo gráfico o declive das retas é igual e tem o valor da Constante de Planck ($h$).\
-Isto porque podemos reescrever a fórmula dada anteriormente da seguinte maneira
-$\cfrac{E}{v} = h$\
-O ponto em que a recta corta o eixo das abcissas é $v_0$\
-Também podemos escrever a fórmula da seguinte maneira:
-$K = hv - \varphi \ $onde $\varphi = hv_0$
+$$
+\vec \bigtriangledown \cdot \vec \phi = f,
+$$
+
+$$
+\vec \bigtriangledown \times \vec \phi = \vec \Theta, (\implies \vec \bigtriangledown \cdot \vec \Theta = 0)
+$$
+
+em que $f$ é uma função escalar e $\vec \Theta$ uma função vetorial.
+
+É impossível calcular $\vec \phi$, a menos que nos sejam fornecidas as condições de fronteira.
+Isto corresponde a como os campos se comportam longe de todas as cargas (no $\infty$)
+
+### Potencial Escalar
+
+Se $\vec \bigtriangledown \times \vec \phi = 0 $ então:
+
+$\vec \phi = - \vec\bigtriangledown V$
+
+Onde $V$ é o potencial escalar.
+
+Assim:
+
+$\int^B_A \vec \phi \ d\vec r $ entre os pontos A e B não depende do caminho e num caminho fechado o valor é sempre 0.
+
+### Potencial Vetorial
+
+Se $\vec \bigtriangledown \cdot \vec \phi = 0 $ então:
+
+$\vec \phi = \vec\bigtriangledown \times \vec A$
+
+Onde $\vec A$ é o potencial vetorial.
+
+Assim:
+
+$\int \vec \phi \ d\vec S $ para superfícies fechadas com a mesma fronteira e numa superfíce fechada o valor é sempre 0.
+
+Qualquer campo pode ser escrito na forma $\vec \phi = - \vec\bigtriangledown V + \vec\bigtriangledown \times \vec A$
+
+[Slides](https://drive.google.com/file/d/1JJ0hvtzRHPiJwS3mNjP8ffPkbRe7FWDs/view?usp=sharing)
