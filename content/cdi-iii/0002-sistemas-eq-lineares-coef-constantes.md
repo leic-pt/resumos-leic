@@ -385,13 +385,13 @@ constituem um espaço linear de dimensão $n$.
 
 :::tip[Proposição]
 
-Um vetor $v$ é um vetor próprio de $A$ e corresponde ao valor próprio $\lambda$ se e só se
+Um vetor $v$ é um [vetor próprio](/al/valores-vetores-proprios) de $A$ e corresponde ao valor próprio $\lambda$ se e só se
 $y(t) = e^{t \lambda} v$ é solução de $\frac{\d y}{\d t} = Ay$.
 
 :::
 
 Com esta proposição, podemos concluir que é possível resolver equações do tipo $\frac{\d y}{\d t} = Ay$,
-se descobrirmos os vetores e valores próprios da matriz $A$.
+se descobrirmos os [vetores e valores próprios](/al/valores-vetores-proprios) da matriz $A$.
 
 :::info[Exemplo]
 
@@ -411,7 +411,7 @@ x' = \begin{bmatrix}
 \end{darray}
 $$
 
-Começamos então por determinar os valores e vetores próprios de $A$:
+Começamos então por determinar os [valores e vetores próprios](/al/valores-vetores-proprios) de $A$:
 
 $$
 \det (A - \lambda I) = \begin{vmatrix}
@@ -558,7 +558,7 @@ são soluções reais da mesma equação
 
 :::
 
-Esta proposição permite-nos resolver as equações quando os valores próprios da matriz são complexos.
+Esta proposição permite-nos resolver as equações quando os [valores próprios](/al/valores-vetores-proprios) da matriz são complexos.
 
 :::info[Exemplo]
 
@@ -571,7 +571,7 @@ x' = \begin{bmatrix}
 \end{bmatrix} x
 $$
 
-Começamos então por determinar os valores e vetores próprios de $A$:
+Começamos então por determinar os [valores e vetores próprios](/al/valores-vetores-proprios) de $A$:
 
 $$
 \det (A - \lambda I) = \begin{vmatrix}
