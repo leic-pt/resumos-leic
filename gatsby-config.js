@@ -73,6 +73,8 @@ module.exports = {
                 '\\car': '\\operatorname{car}',
                 '\\ondiv': '\\operatorname{div}',
                 '\\rot': '\\operatorname{rot}',
+                '\\augmatrix':
+                  '\\left[\\hspace{-5pt}\\begin{array}{#1}#2\\end{array}\\hspace{-5pt}\\right]',
               },
               throwOnError: false,
             },

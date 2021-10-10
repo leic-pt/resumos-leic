@@ -1,7 +1,9 @@
 ---
 title: Equações Diferenciais Ordinárias
 description: >-
-  Equações Diferenciais Ordinárias
+  Equações Diferenciais Ordinárias.
+  EDO Lineares.
+  Equações Separáveis.
 path: /cdi-iii/equacoes-diferenciais-ordinarias
 type: content
 ---
