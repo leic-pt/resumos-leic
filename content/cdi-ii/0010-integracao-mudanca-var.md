@@ -259,7 +259,7 @@ $$
 
 $$
 \begin{array}{l l l l l l l}
-r > 0 & , & 0 < \varphi < \pi & , & 0 < \theta < 2\pi & , & g=g(r,\pi,\varphi)
+r > 0 & , & 0 < \varphi < \pi & , & 0 < \theta < 2\pi & , & g=g(r,\theta,\varphi)
 \end{array}
 $$
 
