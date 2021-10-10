@@ -433,7 +433,7 @@ Temos então dois valores próprios: $\lambda = 2$ e $\lambda = 4$.
   \end{bmatrix}
   $$
 
-  Então, os vetores próprios são os vetores que pertencem ao espaço nulo da matriz:
+  Então, os vetores próprios são os vetores que pertencem ao [espaço nulo da matriz](/al/nucleo-caracteristica-matriz):
 
   $$
   \operatorname{Nul} \begin{bmatrix}
@@ -455,7 +455,7 @@ Temos então dois valores próprios: $\lambda = 2$ e $\lambda = 4$.
   \end{bmatrix}
   $$
 
-  Então, os vetores próprios são os vetores que pertencem ao espaço nulo da matriz:
+  Então, os vetores próprios são os vetores que pertencem ao [espaço nulo da matriz](/al/nucleo-caracteristica-matriz):
 
   $$
   \operatorname{Nul} \begin{bmatrix}
