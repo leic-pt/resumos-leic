@@ -21,7 +21,7 @@ Um campo ($\phi$) é uma zona do espaço em que em cada ponto está definida uma
 
 Essa quantidade pode ser escalar ou vetorial.
 
-Por exemplo, o campo gravítico é um campo vetorial:
+Por exemplo, o campo gravítico é um campo vetorial ($\phi: \mathbb{R}^3 \to \mathbb{R}^3$):
 
 $$
 \vec\phi (\vec r) = -G\cfrac{M}{r^2} \vec e_r
@@ -34,7 +34,7 @@ $$
 Para saber como um campo escalar varia com a posição temos de calcular o seu [Gradiente](/cdi-ii/diferenciabilidade#gradiente-de-uma-função)
 
 $$
-\vec\nabla \phi(\vec r) = \cfrac{\partial \phi}{\partial x_1}\vec e_1 + \cfrac{\partial \phi}{\partial x_2}\vec e_2 + \cfrac{\partial \phi}{\partial x_3}\vec e_3 = \sum\limits_{i =1}^{3} \dfrac {\partial \phi}{\partial x_i}\vec e_i
+\vec\nabla \phi(\vec r) = \cfrac{\partial \phi}{\partial x_1}\vec e_1 + \cfrac{\partial \phi}{\partial x_2}\vec e_2 + \cfrac{\partial \phi}{\partial x_3}\vec e_3 = \sum\limits_{i =1}^{3} \dfrac {\partial \phi}{\partial x_i}\vec e_i = (\frac{\partial \phi}{\partial x_i}, \frac{\partial \phi}{\partial x_2}, \frac{\partial \phi}{\partial x_3})
 $$
 
 Geometricamente a maior variação de $\phi$ ocorre quando $\vec\nabla \phi$ é paralelo a $d \vec l$, para $|d\vec l|$ fixo.
@@ -58,7 +58,7 @@ Se a quantidade ($\vec\phi(\vec r)$) for um vetor podemos realizar 2 operações
 #### Divergência (Produto Escalar)
 
 $$
-\vec\nabla \cdot \phi(\vec r)
+\vec\nabla \cdot \phi(\vec r) = \sum_{i=1}^3 \frac{\partial \phi_i}{\partial x_i}
 $$
 
 O resultado será um número.
@@ -66,7 +66,7 @@ O resultado será um número.
 #### Rotacional (Produto Externo)
 
 $$
-\vec\nabla \times \phi(\vec r)
+\vec\nabla \times \phi(\vec r) = (\frac{\partial \phi_2}{\partial x_3} - \frac{\partial \phi_2}{\partial x_3}, \frac{\partial \phi_3}{\partial x_1} - \frac{\partial \phi_1}{\partial x_3}, \frac{\partial \phi_1}{\partial x_2} - \frac{\partial \phi_2}{\partial x_1})
 $$
 
 O resultado será um (pseudo-)vetor, isto porque para dois vetores $\vec a$ e $\vec b$, o rotacional de $\vec a \times \vec b$ vai ser igual ao rotacional de $- \vec a \times - \vec b$
@@ -81,7 +81,7 @@ Para $\phi _i$ constantes:
 
 $$
 \begin{darray}{c}
-\phi(\vec r) = \sum\limits_{i =1}^{3} \phi_i \vec e_i\\
+\phi(\vec r) = \sum\limits_{i =1}^{3} \phi_i \vec e_i = (\phi_i, \phi_2, \phi_3)\\
 \vec\nabla \cdot \phi(\vec r) = 0\\
 \vec\nabla \times \phi(\vec r) = 0
 \end{darray}
@@ -95,7 +95,7 @@ Com $A$ constante:
 
 $$
 \begin{darray}{c}
-\phi(\vec r) = \sum\limits_{i =1}^{3} Ax_i \vec e_i\\
+\phi(\vec r) = \sum\limits_{i =1}^{3} Ax_i \vec e_i = (Ax_1, Ax_2, Ax_3)\\
 \vec\nabla \cdot \phi(\vec r) = 3A\\
 \vec\nabla \times \phi(\vec r) = 0
 \end{darray}
@@ -108,7 +108,7 @@ $$
 Com $\phi _1(\vec r) = \cfrac{x_2}{x_3},\ \phi _2(\vec r) = -\cfrac{x_1}{x_3},\ \phi _3(\vec r) = 0$:
 
 $$
-\phi(\vec r) = \sum\limits_{i =1}^{3}  \phi_i (\vec r)  \vec e_i
+\phi(\vec r) = \sum\limits_{i =1}^{3}  \phi_i (\vec r)  \vec e_i = (\frac{x_2}{x_3}, -\frac{x_1}{x_3}, 0)
 $$
 
 $$
