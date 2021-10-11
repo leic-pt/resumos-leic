@@ -84,3 +84,21 @@ $h$ - Constante de Planck $\ \ v$ - Frequência $\ \ \lambda$ - Comprimento de O
 Bosão - Sem restrições onde as partículas se encontram em cada estado
 
 Fermião - 1 partícula por estado
+
+## Eletrostática
+
+$$
+\vec F = \sum\limits_{i =1}^{n} \vec F_i
+$$
+
+$\vec F$ - Força exercida por todas as cargas num campo numa carga de prova.\
+$\vec F_i$ - Força exercida por 1 carga que se encontra no campo numa carga de prova.
+
+$\vec F = \cfrac{Q}{4\pi \epsilon_0}\ \sum\limits_{i =1}^{n} \cfrac{q_i}{|\vec r - \vec r_i'|^2}\ \vec e_{r_i}$
+
+$\vec F$ - força na carga de prova $Q$ criada pelo campo\
+$\epsilon_0$- permitividade elétrica do espaço livre - $8.85 \times 10^{-12} C^2 \ N ^{-1} \ m^{-2} $ \
+$Q$ e$\ q_i$ - Cargas - unidades SI - Coulomb ($C$)\
+$\vec r$ e $\vec r_i \ '$ - vetores com origem na origem e que apontam para as cargas $Q$ e $q_i$, respetivamente.\
+$\vec e_r = \cfrac{(\vec r - \vec r_i \ ')}{|\vec r -\vec r_i \ '|}$\
+Esta força é atrativa se as cargas tiverem sinais opostos.
