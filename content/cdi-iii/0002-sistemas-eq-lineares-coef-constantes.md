@@ -449,7 +449,7 @@ Temos então dois valores próprios: $\lambda = 2$ e $\lambda = 4$.
   Temos então que
 
   $$
-  A - 2I = \begin{bmatrix}
+  A - 4I = \begin{bmatrix}
   1 & -1\\
   3 & -3
   \end{bmatrix}
@@ -495,7 +495,7 @@ x(0) = \begin{bmatrix}
 \end{bmatrix} = \begin{bmatrix}
 2\\
 -1
-\end{bmatrix} \Leftrightarrow c_1 \begin{bmatrix}
+\end{bmatrix} \Leftrightarrow \begin{bmatrix}
 1 & 1\\
 3 & 1
 \end{bmatrix} \begin{bmatrix}
