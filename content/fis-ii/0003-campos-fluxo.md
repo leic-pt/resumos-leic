@@ -1,59 +1,67 @@
 ---
-title: Eletroestática e Fluxo
+title: Eletrostática e Fluxos
 description: >-
-  Eletroestática e Fluxo
-path: /fis-ii/t
+  Eletrostática e Fluxos
+path: /fis-ii/campos-fluxos
 type: content
 ---
 
-# Eletroestática e Fluxo
+# Eletrostática e Fluxo
 
-## Eletroestática
+## Eletrostática
 
-Supomos que temos uma distribuição de cargas $D$. Para calcularmos o valor do campo em cada ponto do espaço precisamos de uma carga de prova.
+Supomos que temos uma distribuição de cargas.
+
+![Carga de Prova](./imgs/0003-prova1.png#dark=1)
+
+Para calcularmos o valor do campo em cada ponto do espaço precisamos de uma carga de prova.
+
+Uma carga de prova é uma carga independente do campo e que pode ser escolhida pelo leitor.
 
 As cargas que criam o campo são as fontes do campo.
 
-Esta carga sofre a força criada pelas cargas que se encontram na fonte do campo.
+A carga de prova sofre a força criada pelas cargas que se encontram na fonte do campo.
 
-A posição das fontes(em função do tempo) é conhecida.
+A posição das fontes (em função do tempo) é conhecida.
 
 :::tip[Princípio da Sobreposição]
 
-A força exercida numa carga é igual à soma de todas as forças exercidas nela.\
-A interação entre duas cargas não é afetada pela presença das outras cargas.
+A interação entre duas cargas não é afetada pela presença das outras cargas.\
+A força exercida numa carga é igual à soma de todas as forças exercidas nela.
 
 $$
-\vec F = \sum\limits_{i =1}^{n} \vec F_i
+\vec F_{total} = \sum\limits_{i =1}^{n} \vec F_i
 $$
 
 :::
 
-Tanto as fontes como as cargas estão em sempre em movimento e o campo depende da posição, da velocidade e acelaração de todas as cargas.\
+Tanto as fontes como as cargas estão sempre em movimento e o campo depende da posição, da velocidade e acelaração de todas as cargas.\
 Além disso, o campo propaga-se à velocidade da luz ($c = 3 \times 10^8\ m/s$)
 
 :::warning[Eletroestática]
-Nesta parte da matéria assumi-mos que todas as fontes estão estacionárias,\
+Nesta parte da matéria assumimos que todas as fontes estão estacionárias,\
  no entanto a carga de prova pode se encontrar em movimento.
 :::
 
 ### Lei de Coulomb
 
+![Distância](./imgs/0003-distance1.png#dark=1)
+
 A força $\vec F$ na carga de prova $Q$ criada pela carga de fonte $q$ (em repouso) a uma distância $\Delta r$ é dada por
 
 $$
-\vec F = \cfrac{1}{4\pi \epsilon_0}\ \cfrac{q \ Q}{|\vec r - \vec r'|^2}\ \vec e_r
+\vec F = \cfrac{1}{4\pi \epsilon_0}\ \cfrac{q \ Q}{|\vec r - \vec r \ '|^2}\ \vec e_r
 $$
 
 $Q$ e$\ q$ - Cargas - unidades SI - Coulomb ($C$)\
-$\epsilon_0$- permitividade elétrica do espaço livre - $8.85 \times 10^{-12} C^2 \ N ^{-1} \ m^{-2} $ \
-$\vec e_r = \cfrac{(\vec r - \vec r')}{|\vec r -\vec r'|}$
+$\epsilon_0$- permitividade elétrica do espaço livre - $8.85 \times 10^{-12} \ C^2 \ N ^{-1} \ m^{-2} $ \
+$\vec e_r = \cfrac{(\vec r - \vec r \ ')}{|\vec r -\vec r \ '|}$
 
-:::danger
+:::danger[Sinal]
 Esta força só é atrativa se as cargas tiverem sinais diferentes.
 :::
 
-Assim podemos juntar a Lei de Coulomb e o Principío da Sopreposição:
+Juntando a Lei de Coulomb e o Principío da Sopreposição:
 
 $$
 \vec F = \cfrac{Q}{4\pi \epsilon_0}\ \sum\limits_{i =1}^{n} \cfrac{q_i}{|\vec r - \vec r_i'|^2}\ \vec e_{r_i} = Q \vec E (\vec r)
@@ -62,15 +70,16 @@ $$
 Assim o Campo Elétrico $\vec E (\vec r)$ gerado pelas fontes é:
 
 $$
-\vec F = \cfrac{1}{4\pi \epsilon_0}\ \sum\limits_{i =1}^{n} \cfrac{q_i}{|\vec r - \vec r_i'|^2}\ \vec e_{r_i}
+\vec E(\vec r) = \cfrac{1}{4\pi \epsilon_0}\ \sum\limits_{i =1}^{n} \cfrac{q_i}{|\vec r - \vec r_i'|^2}\ \vec e_{r_i}
 $$
 
-:::tip[Propriedades]
+:::tip[Propriedades do Campo Elétrico (Eletrostático)]
 
 - O Campo elétrico $\vec E (\vec r)$ é uma grandeza vetorial
 - Depende da posição da carga de prova $Q$
 - Depende da posição e da carga das fontes
-- Fisicamente representa a força por unidade de carga que seria exercida na carga de prova $Q$ se fosse colocada num ponto $P$
+- Fisicamente representa a força por unidade de carga que seria exercida na\
+  carga de prova $Q$ se fosse colocada num ponto $P$
 
 :::
 
@@ -96,7 +105,7 @@ $$
 
 :::
 
-Lei de Gauss
+### Lei de Gauss
 
 Imaginemos que temos uma carga $q$ na origem e uma esfera de
 raio $R$ centrada nela.
@@ -105,7 +114,7 @@ $$
 	\oint \vec E \ d \vec S = \cfrac{q}{4\pi \epsilon_0} \oint \cfrac{\vec e_r}{r^2} \ (r^2 sin(\theta)\  d\theta \  d \phi\  \vec e_r) = \cfrac{q}{\epsilon_0}
 $$
 
-Podemos reparar que o fluxo total não depende do raio da esfera e é proporiconal à carga.
+Podemos reparar que o fluxo total não depende do raio da esfera e é proporiconal à carga.\
 Isto é verdade para todas as superfíces fechadas e não precisa de estar centrada na carga.
 
 Se forem $N$ cargas $q_i$ o Princípio da Sobreposiçao permite escrever $ \vec E =$ $\sum\limits_{i=1}^{N}$ $ \vec E_i $ e
@@ -119,7 +128,7 @@ onde $Q_{inc} = \sum\limits_{i=1}^{N} q_i$ é a carga contida na superfície.
 :::tip[Lei de Gauss (Equação Integral)]
 
 $$
-\oint \vec E \ d \vec S = \cfrac{Q_{inc}}{\epsilon_0}
+\oint \vec E \cdot d \vec S = \cfrac{Q_{inc}}{\epsilon_0}
 $$
 
 :::
@@ -194,7 +203,9 @@ $$
 O campo fora da esfera é igual ao de uma carga pontual igual
 à da esfera centrada na origem.
 
-:::warning
+Além das superfícies esféricas, as superfíces cilíndricas e superfícies planas apresentam simetrias.
+
+:::warning[Pormenores]
 
 A lei de Gauss é sempre verdade, mas nem sempre é útil.
 Se a densidade não fosse uniforme, ou se a superfície gaussiana não fosse uma esfera centrada na distribuição de carga, ou simplesmente se a superfície gaussiana não fosse
@@ -237,142 +248,6 @@ $$
 $$
 
 Onde $V$ é uma função escalar
-
-### Potencial Elétrico
-
-- A função potencial é definida a menos de uma constante; essa constante corresponde a mudar o ponto de referência para o caminho escolhido
-
-- O campo elétrico $\vec E \rightarrow 0$ no infinito, ou seja, $V \rightarrow $constante
-
-$$
-V(\vec r) = - \int_O^{\vec r} \vec E \cdot d \vec l
-$$
-
-O pontencial é uma descrição muito económica do campo elétrico.
-A partir de uma função escalar podemos calcular as 3 componentes do campo elétrico.
-
-Como $\vec \nabla \times \vec E = 0$
-
-$$
-\cfrac{\delta E_1}{\delta x_2} =  \cfrac{\delta E_2}{\delta x_1} \ ,  \ \cfrac{\delta E_3}{\delta x_2} =  \cfrac{\delta E_2}{\delta x_2} \ , \  \cfrac{\delta E_1}{\delta x_3} =  \cfrac{\delta E_3}{\delta x_1}
-$$
-
-Assim a escolha do ponto de referência é arbitrária e induz ambiguidade mas não tem consequências fisícas.
-
-### Potencial da Esfera
-
-#### Potencial no exterior da esfera
-
-$$
-\vec E (\vec r) = \cfrac{1}{4 \pi \epsilon_0} \cfrac{q}{r^2} \vec e_r
-
-V(r) = - \cfrac{1}{4 \pi \epsilon_0} \int_{\infty}^r \cfrac{q}{r^2} \  dr = \cfrac{1}{4 \pi \epsilon_0} \cfrac{q}{r}
-
-
-$$
-
-#### Potencial no inteiror da esfera
-
-O campo é nulo e o potencial é constante ($ \neq 0$ )
-
-$$
-
-V(r) = - \cfrac{1}{4 \pi \epsilon_0}  \cfrac{q}{R}
-
-
-$$
-
-### Potencial de uma distribuição localizada de carga
-
-Usando o princípio de sobreposição
-
-$$
-V (\vec) = \cfrac {1}{4 \pi \epsilon_0} \sum_{i=1}^N \cfrac{q_i}{|\vec r - \vec r_i|}
-$$
-
-Para uma distribuição contínua de carga (Volume, sueprfície ou linha)
-
-$$
-V (\vec) = \cfrac {1}{4 \pi \epsilon_0} \int_D \cfrac{\rho (\vec r \ ')}{|\vec r \ ' - \vec r_i|} d \tau \ '
-$$
-
-## Equações para Campo Elétrico
-
-$$
-
-\delta \nabla \cdot \vec E = \cfrac{\rho}{\epsilon_0}
-
-\delta \nabla \times \vec E = 0
-
-\vec E = - \vec \nabla V
-
-
-$$
-
-Podemos também escrever $(\delta \nabla \cdot \vec E = \delta \nabla \cdot (- \delta \nabla V)) $
-
-#### Equação de Poisson 🐟
-
-$$
-\nabla^2 V = \cfrac{\rho}{\epsilon_0}
-
-
-$$
-
-#### Equação de Laplace
-
-Se $\rho = 0$
-
-$$
-\nabla^2 V = 0
-$$
-
-Para calcular o trabalho minímo para uma carga $Q$ se mover de $A$ para $B$ sabendo que existe um campo sabemos que existe sempre uma força ($\vec F = Q \vec E$)
-
-$$
-W = - Q \int_A^B \vec E \cdot d \vec l = Q \int_A^B (\vec \nabla V)  \cdot d \vec l = Q[V(B) - V(A)]
-
-V(B) - V(A) = \cfrac{W}{Q}
-$$
-
-Se o quiséssemos mandar a partícula para o infinito o trabalho seria igual a
-
-$$
-V(\vec r) = \cfrac{W}{Q}
-$$
-
-### Energia de Distribuição de Cargas
-
-A energia de uma distribuição de cargas é igual à energia
-necessária para as juntar todas desde o infinito (muito longe)
-até à sua posições relativas. (Explicação mais detalhadas nos slides no final da página)
-
-$$
-\cfrac {1}{2} \sum_{i=1}^{N} q_i V(\vec r_i)
-$$
-
-$V(\vec r_i)$ é o potencial na posição $\vec r_i$ provocado por todas as outras cargas $q_j (j \neq i)$
-
-#### Distribuição Contínua de Carga
-
-$$
-W = \cfrac {1}{2} \int V \ dq = \cfrac {1}{2} \int_V \rho V d\tau\\
-
-
-W = \cfrac {\epsilon_0}{2} \int_V (\vec \nabla \cdot \vec E) V d\tau\\
-
-
-W = \cfrac {\epsilon_0}{2} (\int_V E^2\ d \tau+ \oint_S V \ \vec E \cdot d \vec S)\\
-
-
-W = \cfrac {\epsilon_0}{2} \int_\Omega E^2 d \tau
-
-
-$$
-
-### Condições de fronteira numa superfície carregada
-
-// TO DO
 
 Slides:
 
