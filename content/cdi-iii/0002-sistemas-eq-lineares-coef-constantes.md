@@ -360,6 +360,10 @@ y_0
 e^{2(t-t_0)} & \frac{1}{2} (e^{2(t-t_0)} - 1)\\
 0 & 1
 \end{bmatrix}
+\begin{bmatrix}
+x_0\\
+y_0
+\end{bmatrix}
 $$
 
 $$
