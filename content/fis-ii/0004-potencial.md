@@ -76,7 +76,7 @@ $$
 V (\vec r ) = \cfrac {1}{4 \pi \epsilon_0} \sum_{i=1}^N \cfrac{q_i}{|\vec r - \vec r_i|}
 $$
 
-Para uma distribuição contínua de carga (Volume, sueprfície ou linha)
+Para uma distribuição contínua de carga (Volume, superfície ou linha)
 
 $$
 V (\vec r) = \cfrac {1}{4 \pi \epsilon_0} \int_D \cfrac{\rho (\vec r \ ')}{|\vec r \ ' - \vec r_i|} d \tau \ '
@@ -101,8 +101,6 @@ Podemos também escrever $(\vec \nabla \cdot \vec E = \vec \nabla \cdot (- \vec 
 
 $$
 \nabla^2 V = \cfrac{\rho}{\epsilon_0}
-
-
 $$
 
 ### Equação de Laplace
@@ -140,12 +138,12 @@ necessária para as juntar todas desde o infinito (muito longe)
 até à sua posições relativas. (Explicação mais detalhada nos slides)
 
 $$
-\cfrac {1}{2} \sum_{i=1}^{N} q_i V(\vec r_i)
+W = \cfrac {1}{2} \sum_{i=1}^{N} q_i V(\vec r_i)
 $$
 
 $V(\vec r_i)$ é o potencial na posição $\vec r_i$ provocado por todas as outras cargas $q_j (j \neq i)$
 
-#### Distribuição Contínua de Carga
+#### Energia Distribuição Contínua de Carga
 
 $$
 W = \cfrac {1}{2} \int V \ dq = \cfrac {1}{2} \int_V \rho V d\tau\\

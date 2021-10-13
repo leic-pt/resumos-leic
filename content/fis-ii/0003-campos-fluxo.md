@@ -98,7 +98,7 @@ $$
 O fluxo $\phi_E$ do campo elétrico $\vec E$ através de uma superfície $S$ é definido por:
 
 $$
-\phi_E \equiv \int^\infty_S \vec E\ d\vec S
+\phi_E \equiv \int_S \vec E\ d\vec S
 $$
 
 :::tip[Propriedades]
