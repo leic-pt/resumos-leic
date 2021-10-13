@@ -6,14 +6,30 @@ path: /fis-ii/potencial
 type: content
 ---
 
-### Potencial Elétrico
+# Potencial Elétrico
+
+```toc
+
+```
+
+## Definição
+
+O potencial elétrico é a capacidade que uma carga tem de realizar trabalho, neste caso, atrair ou repelir outras cargas elétricas.
 
 - A função potencial é definida a menos de uma constante; essa constante corresponde a mudar o ponto de referência para o caminho escolhido
 
 - O campo elétrico $\vec E \rightarrow 0$ no infinito, ou seja, $V \rightarrow $constante
 
 $$
-V(\vec r) = - \int_O^{\vec r} \vec E \cdot d \vec l
+V(\vec r) = - \int_O^{\vec r} \vec E \cdot d \vec l\\
+$$
+
+Num caminho de $Q \rightarrow P$
+
+$$
+V(P) -V(Q) = - \int_Q^P \vec E \cdot d \vec l\\
+
+\vec E = -\vec \nabla \cdot V
 $$
 
 O pontencial é uma descrição muito económica do campo elétrico.
@@ -32,7 +48,7 @@ Assim a escolha do ponto de referência é arbitrária e induz ambiguidade mas n
 #### Potencial no exterior da esfera
 
 $$
-\vec E (\vec r) = \cfrac{1}{4 \pi \epsilon_0} \cfrac{q}{r^2} \vec e_r
+\vec E (\vec r) = \cfrac{1}{4 \pi \epsilon_0} \cfrac{q}{r^2} \vec e_r\\
 
 V(r) = - \cfrac{1}{4 \pi \epsilon_0} \int_{\infty}^r \cfrac{q}{r^2} \  dr = \cfrac{1}{4 \pi \epsilon_0} \cfrac{q}{r}
 
@@ -45,41 +61,41 @@ O campo é nulo e o potencial é constante ($ \neq 0$ )
 
 $$
 
-V(r) = - \cfrac{1}{4 \pi \epsilon_0}  \cfrac{q}{R}
+V(r) = \cfrac{1}{4 \pi \epsilon_0}  \cfrac{q}{R}
 
 
 $$
 
-### Potencial de uma distribuição localizada de carga
+## Potencial de uma distribuição localizada de carga
 
 Usando o princípio de sobreposição
 
 $$
-V (\vec) = \cfrac {1}{4 \pi \epsilon_0} \sum_{i=1}^N \cfrac{q_i}{|\vec r - \vec r_i|}
+V (\vec r ) = \cfrac {1}{4 \pi \epsilon_0} \sum_{i=1}^N \cfrac{q_i}{|\vec r - \vec r_i|}
 $$
 
 Para uma distribuição contínua de carga (Volume, sueprfície ou linha)
 
 $$
-V (\vec) = \cfrac {1}{4 \pi \epsilon_0} \int_D \cfrac{\rho (\vec r \ ')}{|\vec r \ ' - \vec r_i|} d \tau \ '
+V (\vec r) = \cfrac {1}{4 \pi \epsilon_0} \int_D \cfrac{\rho (\vec r \ ')}{|\vec r \ ' - \vec r_i|} d \tau \ '
 $$
 
 ## Equações para Campo Elétrico
 
 $$
 
-\delta \nabla \cdot \vec E = \cfrac{\rho}{\epsilon_0}
+\vec \nabla \cdot \vec E = \cfrac{\rho}{\epsilon_0}\\
 
-\delta \nabla \times \vec E = 0
+\vec \nabla \times \vec E = 0\\
 
 \vec E = - \vec \nabla V
 
 
 $$
 
-Podemos também escrever $(\delta \nabla \cdot \vec E = \delta \nabla \cdot (- \delta \nabla V)) $
+Podemos também escrever $(\vec \nabla \cdot \vec E = \vec \nabla \cdot (- \vec \nabla V)) $
 
-#### Equação de Poisson 🐟
+### Equação de Poisson 🐟
 
 $$
 \nabla^2 V = \cfrac{\rho}{\epsilon_0}
@@ -87,7 +103,7 @@ $$
 
 $$
 
-#### Equação de Laplace
+### Equação de Laplace
 
 Se $\rho = 0$
 
@@ -95,10 +111,12 @@ $$
 \nabla^2 V = 0
 $$
 
+### Trabalho
+
 Para calcular o trabalho minímo para uma carga $Q$ se mover de $A$ para $B$ sabendo que existe um campo sabemos que existe sempre uma força ($\vec F = Q \vec E$)
 
 $$
-W = - Q \int_A^B \vec E \cdot d \vec l = Q \int_A^B (\vec \nabla V)  \cdot d \vec l = Q[V(B) - V(A)]
+W = - Q \int_A^B \vec E \cdot d \vec l = Q \int_A^B (\vec \nabla V)  \cdot d \vec l = Q[V(B) - V(A)]\\
 
 V(B) - V(A) = \cfrac{W}{Q}
 $$
@@ -109,11 +127,13 @@ $$
 V(\vec r) = \cfrac{W}{Q}
 $$
 
+Isto permite concluir que a força mostra-se conservativa pelo ponto de vista da Mecânica
+
 ### Energia de Distribuição de Cargas
 
 A energia de uma distribuição de cargas é igual à energia
 necessária para as juntar todas desde o infinito (muito longe)
-até à sua posições relativas. (Explicação mais detalhadas nos slides no final da página)
+até à sua posições relativas. (Explicação mais detalhada nos slides)
 
 $$
 \cfrac {1}{2} \sum_{i=1}^{N} q_i V(\vec r_i)
