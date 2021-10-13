@@ -93,6 +93,8 @@ $$
 
 ## Fluxo
 
+![Fluxo1](./imgs/0003-fluxos.png#dark=1)
+
 O fluxo $\phi_E$ do campo elétrico $\vec E$ através de uma superfície $S$ é definido por:
 
 $$
@@ -173,6 +175,8 @@ Para usar a Lei de Gauss devemos procurar usar para nossa vantajem a simetria do
 Se tivermos uma superfície esférica de raio $R$ com uma densidade superfícial de carga $\sigma$ uniforme,\
  como será o campo no exterior da esfera?
 
+![Esfera](./imgs/0003-esfera.png#dark=1)
+
 Imaginemos que o campo aponta para fora e para cima,
 se rodarmos a nossa esfera e a colocarmos de cabeça para baixo,
 agora esta aponta para fora e para baixo, no entanto, o campo manteve-se igual,
@@ -182,6 +186,8 @@ Concluímos assim que o Campo criado por esta esfera é [radial](./fundamentos#c
 Que forma de Lei de Gauss devemos usar para calcular o campo?
 
 Através da Lei de Gauss na versão integral.
+
+![exemple](./imgs/0003-ex.png#dark=1)
 
 Consideremos uma superfície esférica
 $S$ de raio $r > R$ centrada na esfera carregada.\
@@ -210,6 +216,8 @@ O campo fora da esfera é igual ao de uma carga pontual igual
 à da esfera centrada na origem.
 
 Além das superfícies esféricas, as superfíces cilíndricas e superfícies planas apresentam simetrias.
+
+![types](./imgs/0003-types.png)
 
 :::warning[Pormenores]
 

@@ -16,6 +16,8 @@ type: content
 
 O potencial elétrico é a capacidade que uma carga tem de realizar trabalho, neste caso, atrair ou repelir outras cargas elétricas.
 
+- $V(\vec r) = \sum_{i=1}^N V_i(\vec r)$ respeita o principío de sobreposição
+
 - A função potencial é definida a menos de uma constante; essa constante corresponde a mudar o ponto de referência para o caminho escolhido
 
 - O campo elétrico $\vec E \rightarrow 0$ no infinito, ou seja, $V \rightarrow $constante
@@ -112,6 +114,8 @@ $$
 $$
 
 ### Trabalho
+
+![Work](./imgs/0004-work.png#dark=1)
 
 Para calcular o trabalho minímo para uma carga $Q$ se mover de $A$ para $B$ sabendo que existe um campo sabemos que existe sempre uma força ($\vec F = Q \vec E$)
 
