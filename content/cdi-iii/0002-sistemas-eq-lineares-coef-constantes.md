@@ -272,7 +272,7 @@ $$
 $$
 \begin{aligned}
 \frac{\d E(t)}{\d t} &= \frac{\d }{\d t} \left(\sum_{k=0}^{+\infty} \frac{t^k}{k!}A^k\right)\\
-&=\sum_{k=0}^{+\infty} \frac{kt^{k-1}}{h!}A^k\\
+&=\sum_{k=1}^{+\infty} \frac{kt^{k-1}}{k!}A^k\\
 &=\sum_{k=1}^{+\infty} \frac{t^{k-1}}{(k-1)!} A^k\\
 &=\sum_{k=0}^{+\infty} \frac{t^k}{k!} A^{k+1}\\
 &=\lim_{n \to +\infty} \left(\sum_{k=0}^{N} \frac{t^k}{k!} A^{k+1}\right)\\
