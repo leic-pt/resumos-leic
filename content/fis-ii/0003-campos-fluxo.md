@@ -103,8 +103,8 @@ $$
 
 :::tip[Propriedades]
 
-- O fluxo $\phi_E$ do campo elétrico $\vec E$ através de uma superfície $S$ "mede" o número de dlinhas de vampo que cruza a superfíce
-- Só consideramos a compponentee de $\vec E$ segundo a direção perpendicular ao elemento de superfície de $dS$
+- O fluxo $\phi_E$ do campo elétrico $\vec E$ através de uma superfície $S$ "mede" o número de linhas de campo que cruzam a superfície.
+- Só consideramos a componente de $\vec E$ segundo a direção perpendicular ao elemento de superfície de $dS$.
 - A intensidade do campo é proporcional à densidade das linhas de campo.
 - Se o fluxo atravessa uma superfície fechada de um lado ao outro o fluxo total é nulo.
   No entanto, se as linhas de campo atravessam a superfície na mesma direção (sempre para
