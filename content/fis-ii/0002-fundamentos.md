@@ -21,7 +21,7 @@ Um campo ($\phi$) é uma zona do espaço em que em cada ponto está definida uma
 
 Essa quantidade pode ser escalar ou vetorial.
 
-Por exemplo, o campo gravítico é um campo vetorial ($\phi: \mathbb{R}^3 \to \mathbb{R}^3$):
+Por exemplo, o campo gravítico é um campo vetorial ($\vec \phi: \mathbb{R}^3 \to \mathbb{R}^3$):
 
 $$
 \vec\phi (\vec r) = -G\cfrac{M}{r^2} \vec e_r
@@ -34,7 +34,7 @@ $$
 Para saber como um campo escalar varia com a posição temos de calcular o seu [Gradiente](/cdi-ii/diferenciabilidade#gradiente-de-uma-função)
 
 $$
-\vec\nabla \phi(\vec r) = \cfrac{\partial \phi}{\partial x_1}\vec e_1 + \cfrac{\partial \phi}{\partial x_2}\vec e_2 + \cfrac{\partial \phi}{\partial x_3}\vec e_3 = \sum\limits_{i =1}^{3} \dfrac {\partial \phi}{\partial x_i}\vec e_i = (\frac{\partial \phi}{\partial x_i}, \frac{\partial \phi}{\partial x_2}, \frac{\partial \phi}{\partial x_3})
+\vec\nabla \phi(\vec r) = \cfrac{\partial \phi}{\partial x_1}\vec e_1 + \cfrac{\partial \phi}{\partial x_2}\vec e_2 + \cfrac{\partial \phi}{\partial x_3}\vec e_3 = \sum\limits_{i =1}^{3} \dfrac {\partial \phi}{\partial x_i}\vec e_i = (\frac{\partial \phi}{\partial x_1}, \frac{\partial \phi}{\partial x_2}, \frac{\partial \phi}{\partial x_3})
 $$
 
 Geometricamente a maior variação de $\phi$ ocorre quando $\vec\nabla \phi$ é paralelo a $d \vec l$, para $|d\vec l|$ fixo.
@@ -66,7 +66,7 @@ O resultado será um número.
 #### Rotacional (Produto Externo)
 
 $$
-\vec\nabla \times \phi(\vec r) = (\frac{\partial \phi_2}{\partial x_3} - \frac{\partial \phi_2}{\partial x_3}, \frac{\partial \phi_3}{\partial x_1} - \frac{\partial \phi_1}{\partial x_3}, \frac{\partial \phi_1}{\partial x_2} - \frac{\partial \phi_2}{\partial x_1})
+\vec\nabla \times \phi(\vec r) = (\frac{\partial \phi_3}{\partial x_2} - \frac{\partial \phi_2}{\partial x_3}, \frac{\partial \phi_3}{\partial x_1} - \frac{\partial \phi_1}{\partial x_3}, \frac{\partial \phi_1}{\partial x_2} - \frac{\partial \phi_2}{\partial x_1})
 $$
 
 O resultado será um (pseudo-)vetor, isto porque para dois vetores $\vec a$ e $\vec b$, o rotacional de $\vec a \times \vec b$ vai ser igual ao rotacional de $- \vec a \times - \vec b$
