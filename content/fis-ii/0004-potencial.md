@@ -47,7 +47,7 @@ Assim a escolha do ponto de referência é arbitrária e induz ambiguidade mas n
 
 ### Potencial da Esfera
 
-#### Potencial no exterior da esfera
+#### Potencial no Exterior da Esfera
 
 $$
 \vec E (\vec r) = \cfrac{1}{4 \pi \epsilon_0} \cfrac{q}{r^2} \vec e_r\\
@@ -57,7 +57,7 @@ V(r) = - \cfrac{1}{4 \pi \epsilon_0} \int_{\infty}^r \cfrac{q}{r^2} \  dr = \cfr
 
 $$
 
-#### Potencial no interior da esfera
+#### Potencial no Interior da Esfera
 
 O campo é nulo e o potencial é constante ($ \neq 0$ )
 
