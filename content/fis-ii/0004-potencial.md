@@ -34,7 +34,7 @@ V(P) -V(Q) = - \int_Q^P \vec E \cdot d \vec l\\
 \vec E = -\vec \nabla \cdot V
 $$
 
-O pontencial é uma descrição muito económica do campo elétrico.
+O potencial é uma descrição muito económica do campo elétrico.
 A partir de uma função escalar podemos calcular as 3 componentes do campo elétrico.
 
 Como $\vec \nabla \times \vec E = 0$
@@ -47,7 +47,7 @@ Assim a escolha do ponto de referência é arbitrária e induz ambiguidade mas n
 
 ### Potencial da Esfera
 
-#### Potencial no exterior da esfera
+#### Potencial no Exterior da Esfera
 
 $$
 \vec E (\vec r) = \cfrac{1}{4 \pi \epsilon_0} \cfrac{q}{r^2} \vec e_r\\
@@ -57,7 +57,7 @@ V(r) = - \cfrac{1}{4 \pi \epsilon_0} \int_{\infty}^r \cfrac{q}{r^2} \  dr = \cfr
 
 $$
 
-#### Potencial no inteiror da esfera
+#### Potencial no Interior da Esfera
 
 O campo é nulo e o potencial é constante ($ \neq 0$ )
 
