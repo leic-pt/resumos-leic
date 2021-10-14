@@ -266,3 +266,5 @@ Onde $V$ é uma função escalar
 Slides:
 
 - [Slides Módulo 2](https://drive.google.com/file/d/1g24-Be9s2j9LaQyaibxGor4YToR5jFqi/view?usp=sharing)
+
+- [Resolução mais Detelhada](https://drive.google.com/file/d/1lj2dFVGepDHGlc_xPwfTN20CqQ3wG4E_/view?usp=sharing)
