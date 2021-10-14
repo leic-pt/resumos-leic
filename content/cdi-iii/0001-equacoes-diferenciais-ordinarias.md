@@ -1,7 +1,9 @@
 ---
 title: Equações Diferenciais Ordinárias
 description: >-
-  Equações Diferenciais Ordinárias
+  Equações Diferenciais Ordinárias.
+  EDO Lineares.
+  Equações Separáveis.
 path: /cdi-iii/equacoes-diferenciais-ordinarias
 type: content
 ---
@@ -327,7 +329,7 @@ $$
 
 com $f$ e $g$ contínuas numa vizinhança de $y_0$.
 
-Então existe uma única solução definita implicitamente por
+Então existe uma única solução definida implicitamente por
 
 $$
 F(y) = G(t) + c
