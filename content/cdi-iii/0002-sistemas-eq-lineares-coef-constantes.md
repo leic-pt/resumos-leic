@@ -211,6 +211,175 @@ $$
 
 :::
 
+:::tip[Proposição]
+Se $A = S J S^{-1}$, em que $A, S, J$ são matrizes $n \times n$ e $S$ é invertível ($\det S \ne 0$),
+então
+
+$$
+e^A = S e^J S^{-1}
+$$
+
+:::
+
+:::details[Demonstração]
+
+$$
+\begin{darray}{l}
+A^2 = A A = S J S^{-1} S J S^{-1} = S J J S^{-1} = S J^2 S^{-1}\\
+A^3 = A^2 A = S J^2 S^{-1} S J S^{-1} = S J^2 J S^{-1} = S J^3 S^{-1}\\
+A^k = S J^k S^{-1}
+\end{darray}
+$$
+
+Temos assim,
+
+$$
+\begin{aligned}
+e^A &= \sum_{k=0}^{+\infty} \frac{1}{k!}A^k\\
+&= \sum_{k=0}^{+\infty} \frac{1}{k!}SJ^kS^{-1}\\
+&= S \sum_{k=0}^{+\infty} \frac{1}{k!} J^k S^{-1}\\
+&= S e^J S^{-1}
+\end{aligned}
+$$
+
+:::
+
+Esta proposição irá ser útil porque se repararmos, isto significa que se tivermos uma matriz diagonal $J$,
+ou seja, $A$ for diagonizável, podemos facilmente descobrir o exponencial de $A$ devido às seguinte duas propriedades:
+
+$$
+\begin{darray}{cc}
+A^k = \begin{bmatrix}
+\lambda_1^k & 0 & \dots & 0\\
+0 & \lambda_2^k & \dots & 0\\
+\vdots & \vdots & \ddots & 0\\
+0 & 0 & 0 & \lambda_n^k
+\end{bmatrix} & e^{tA} = \begin{bmatrix}
+e^{\lambda_1 t} & 0 & \dots & 0\\
+0 & e^{\lambda_2 t} & \dots & 0\\
+\vdots & \vdots & \ddots & 0\\
+0 & 0 & 0 & e^{\lambda_n t}
+\end{bmatrix}
+\end{darray}
+$$
+
+Se quisermos verificar que determinármos bem a exponencial de uma matrix $A$,
+podemos usar os seguintes **critérios de verificação**:
+
+1. $$
+   e^{tA} \big|_{t=0} = Id
+   $$
+2. $$
+   \frac{\d e^{tA}}{\d t} \big|_{t_0} = Ae^{tA} \big|_{t=0} = A
+   $$
+
+:::details[Exemplo]
+
+**Determinar exponencial da matriz $A$:**
+
+$$
+A = \begin{bmatrix}
+3 & 1\\
+1 & 3
+\end{bmatrix}
+$$
+
+Determinar valores e vetores próprios:
+
+$$
+\det(A - \lambda I) = \begin{vmatrix}
+3 - \lambda & 1\\
+1 & 3 - \lambda
+\end{vmatrix} = (3-\lambda) ^2 - 1
+$$
+
+Após calcular as raízes do polinómio, temos assim valores próprios: $\lambda = 2$ e $\lambda = 4$.  
+Vamos calcular agora os vetores próprios.
+
+- Para $\lambda = 2$:
+
+  $$
+  \operatorname{Nul} (A - 2I) = \operatorname{Nul} \begin{bmatrix}
+  1 & 1\\
+  1 & 1
+  \end{bmatrix} = \mathcal{L} \{(1,-1)\}
+  $$
+
+- Para $\lambda = 4$:
+
+  $$
+  \operatorname{Nul} (A - 4I) = \operatorname{Nul} \begin{bmatrix}
+  -1 & 1\\
+  1 & -1
+  \end{bmatrix} = \mathcal{L} \{(1,1)\}
+  $$
+
+Temos assim que $A = S \Lambda S^{-1}$ com
+
+$$
+\begin{darray}{cc}
+S = \begin{bmatrix}
+1 & 1\\
+-1 & 1
+\end{bmatrix} & \Lambda = \begin{bmatrix}
+2 & 0\\
+0 & 4
+\end{bmatrix}
+\end{darray}
+$$
+
+A matriz $S$ corresponde aos vetores próprios, e a matrix $\Lambda$ aos vetores próprios.
+
+Então,
+
+$$
+\begin{aligned}
+e^{tA} &= S e ^{t\Lambda} S^-1\\
+&= \begin{bmatrix}
+1 & 1\\
+-1 & 1
+\end{bmatrix} \begin{bmatrix}
+e^{2t} & 0\\
+0 & e^{4t}
+\end{bmatrix} S^{-1}\\
+&= \begin{bmatrix}
+e^{2t} & e^{4t}\\
+-e^{2t} & e^{4t}
+\end{bmatrix} \frac{1}{2} \begin{bmatrix}
+1 & -1\\
+1 & 1
+\end{bmatrix}\\
+&= \begin{bmatrix}
+\frac{e^{2t} + e^{4t}}{2} & \frac{e^{4t} - e^{2t}}{2}\\
+\frac{e^{4t} - e^{2t}}{2} & \frac{e^{4t} + e^{2t}}{2}
+\end{bmatrix}
+\end{aligned}
+$$
+
+Vamos agora testar os **critérios de verificação**:
+
+$$
+\begin{bmatrix}
+\frac{e^{0} + e^{0}}{2} & \frac{e^{0} - e^{0}}{2}\\
+\frac{e^{0} - e^{0}}{2} & \frac{e^{0} + e^{0}}{2}
+\end{bmatrix} = \begin{bmatrix}
+1 & 0\\
+0 & 1
+\end{bmatrix} = Id
+$$
+
+$$
+\begin{bmatrix}
+\frac{2e^{2t} + 4e^{4t}}{2} & \frac{4e^{4t} - 2e^2t}{2}\\
+\frac{4e^{4t} - 2e^2t}{2} & \frac{2e^{2t} + 4e^{4t}}{2}
+\end{bmatrix} \underset{t=0}{\longrightarrow} \begin{bmatrix}
+3 & 1\\
+1 & 3
+\end{bmatrix} = A
+$$
+
+:::
+
 ### Funções Matriciais
 
 Seja $C$ uma matrix $m \times n$ em que cada entrada é uma função escalar, e $c_{ij}$ são as entradas de $C$.
@@ -288,6 +457,8 @@ Um corolário deste teorema é que
 $$
 (e^A)^{-1} = e^{-A}
 $$
+
+### Resolução de Equações Homogéneas
 
 :::tip[Teorema]
 
@@ -386,6 +557,9 @@ $$
 constituem um espaço linear de dimensão $n$.
 
 :::
+
+Por outras palavras, este teorema diz que para uma equação da forma acima, com uma matrix $n \times n$, existem $n$ soluções.  
+Por exemplo, caso $A$ seja uma matrix $2 \times 2$, iremos ter duas soluções (isto é, como veremos abaixo, iremos encontrar dois vetores próprios).
 
 :::tip[Proposição]
 
@@ -547,6 +721,8 @@ $$
 
 :::
 
+#### Com valores próprios complexos
+
 :::tip[Proposição]
 
 Seja $A$ uma matriz $n\times n$ com entradas reais.  
@@ -644,6 +820,125 @@ x(t) = c_1 e^t \begin{bmatrix}
 \sin t\\
 -\cos t
 \end{bmatrix}
+$$
+
+:::
+
+É de notar que neste exemplo, só descobrimos os vetores próprios de um dos valores próprios complexos.  
+Como os números são o conjugado um do outro, os seus vetores próprios são linearmente dependentes,
+pelo que é inútil calcular os vetores próprios do outro.  
+Além disso, podemos notar que pelo teorema que diz que o as soluções constituem espaço linear um espaço linear de dimensão $n$,
+isto é, que existem $n$ soluções, como temos uma matrix $2\times 2$, iremos ter apenas duas soluções, que encontramos logo com
+apenas um valor próprio.
+
+## Equações Não Homogéneas
+
+Estas equações correspondem à forma
+
+$$
+\frac{\d y}{\d t} = Ay + B(t)
+$$
+
+em que $A$ é uma matriz constante $n \times n$ e $B$ é uma função $I \in \R \to \R^n$.
+
+Podemos assim redefinir o teorema da variação das constantes que [estava anteriormente definido](/cdi-iii/equacoes-diferenciais-ordinarias#caso-geral).
+
+:::tip[Teorema]
+
+**Variação das constantes**
+
+Seja uma equação do tipo
+
+$$
+\begin{darray}{cc}
+\frac{\d y}{\d t} = A y + B(t) & y(t_0) = y_0
+\end{darray}
+$$
+
+com $t_0 \in I$ e $y_0 \in \R^n$, a equação tem uma única solução:
+
+$$
+y(t) = e^{(t-t_0) A} y_0 + \int_{t_0}^{t} e^{(t-s) A} B(s) \d s
+$$
+
+:::
+
+:::details[Exemplo]
+
+**Seja a equação**
+
+$$
+\begin{cases}
+\frac{\d x}{\d t} = 2x + y\\
+\frac{\d y}{\d t} = 2 e^t
+\end{cases}
+$$
+
+**e $x(0) = y(0) = 0$, determine a solução.**
+
+$$
+\frac{\d }{\d t} \begin{bmatrix}
+x\\
+y
+\end{bmatrix} = \underbrace{\begin{bmatrix}
+2 & 1\\
+0 & 0
+\end{bmatrix}}_{A} \begin{bmatrix}
+x\\
+y
+\end{bmatrix} + \underbrace{\begin{bmatrix}
+0\\
+2e^t
+\end{bmatrix}}_{B(t)}
+$$
+
+Por um [exemplo anterior](#exponencial-de-matrizes), podemos calcular a exponencial da matriz:
+
+$$
+e^{tA} = \begin{bmatrix}
+e^{2t} & \frac{1}{2} (e^{2t} - 1)\\
+0 & 1
+\end{bmatrix}
+$$
+
+Então, pela **fórmula da variação das constantes**, temos que
+
+$$
+\begin{aligned}
+\begin{bmatrix}
+x\\
+y
+\end{bmatrix} &= e^{tA} \begin{bmatrix}
+0\\
+0
+\end{bmatrix} + \int_{0}^{t} \begin{bmatrix}
+e^{2t} & \frac{1}{2} (e^{2t} - 1)\\
+0 & 1
+\end{bmatrix} \begin{bmatrix}
+0\\
+2e^s
+\end{bmatrix} \d s\\
+& = \int_{0}^{t} \begin{bmatrix}
+e^{2t-s}-e^s\\
+2e^s
+\end{bmatrix} \d s\\
+&= \begin{bmatrix}
+\int_{0}^{t} e^{2ts} - e^s \d s\\
+\int_{0}^{t} 2e^s \d s
+\end{bmatrix}\\
+&= \begin{bmatrix}
+\left[ -e^{2t-s} - e^s\right]^t_0\\
+2(e^t-1)
+\end{bmatrix}\\
+&= \begin{bmatrix}
+-e^t -e^t + e^{2t} + 1\\
+2(e^t-1)
+\end{bmatrix}\\
+&= \begin{bmatrix}
+(e^t - 1)^2\\
+2(e^t - 1)
+\end{bmatrix}
+\end{aligned}
 $$
 
 :::
