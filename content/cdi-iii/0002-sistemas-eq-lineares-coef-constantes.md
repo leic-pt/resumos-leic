@@ -549,7 +549,7 @@ $$
 
 :::tip[Proposição]
 
-Seja $A$ $n\times n$ com entradas reais.  
+Seja $A$ uma matriz $n\times n$ com entradas reais.  
 Então $y: \R \to \C^n$ é solução de $\frac{\d y}{\d t} = Ay$ se e só se
 
 $$
