@@ -65,7 +65,7 @@ $\vec e_r = \cfrac{(\vec r - \vec r \ ')}{|\vec r -\vec r \ '|}$
 Esta força só é atrativa se as cargas tiverem sinais diferentes.
 :::
 
-Juntando a Lei de Coulomb e o Principío da Sopreposição:
+Juntando a Lei de Coulomb e o Principío da Sobreposição:
 
 $$
 \vec F = \cfrac{Q}{4\pi \epsilon_0}\ \sum\limits_{i =1}^{n} \cfrac{q_i}{|\vec r - \vec r_i'|^2}\ \vec e_{r_i} = Q \vec E (\vec r)
@@ -109,7 +109,7 @@ $$
 - Se o fluxo atravessa uma superfície fechada de um lado ao outro o fluxo total é nulo.
   No entanto, se as linhas de campo atravessam a superfície na mesma direção (sempre para
   fora ou sempre para dentro) há um fluxo não nulo e isso só acontece quando há cargas dentro da superfície.
-  Esta é a essência do Lei de Gauss.
+  Esta é a essência da Lei de Gauss.
 
 :::
 
@@ -143,7 +143,7 @@ $$
 
 A Lei de Gauss existe porque o campo varia como $\cfrac{1}{r^2}$
 
-Para $\rho$ (dendidade de carga)
+Para $\rho$ (densidade de carga)
 
 $$
 Q_{inc} = \int_V \rho \ dV
