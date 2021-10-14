@@ -52,7 +52,7 @@ Existem dois tipos de **Equações Diferenciais**:
 **Sabendo que o tanque enche à razão de $0.1$ litros por segundo, determine o volume de líquido no tanque ao fim de 10 segundos.**
 
 Este exercício é muito simples e pode-se resolver facilmente de cabeça: $3 + 0.1 \times 10 = 4 \operatorname{L}$.  
-No entanto, podemos também aplicar cálculo diferencial e rescrever o problema numa EDO:
+No entanto, podemos também aplicar cálculo diferencial e reescrever o problema numa EDO:
 
 $$
 \begin{darray}{c}
