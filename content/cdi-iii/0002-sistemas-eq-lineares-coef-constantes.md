@@ -273,7 +273,7 @@ podemos usar os seguintes **critérios de verificação**:
    \frac{\d e^{tA}}{\d t} \big|_{t_0} = Ae^{tA} \big|_{t=0} = A
    $$
 
-:::details[Exemplo]
+:::details[Exemplo 1]
 
 **Determinar exponencial da matriz $A$:**
 
@@ -376,6 +376,97 @@ $$
 3 & 1\\
 1 & 3
 \end{bmatrix} = A
+$$
+
+:::
+
+:::[Exemplo 2]
+
+**Determinar exponencial da matriz $A$:**
+
+$$
+A = \begin{bmatrix}
+1 & -1\\
+1 & 1
+\end{bmatrix}
+$$
+
+Calculemos agora os [valores e vetores próprios](/al/valores-vetores-proprios) de $A$:
+
+$$
+\begin{darray}{c}
+\det(A - \lambda I) = (1-\lambda) ^2 + 1\\
+\begin{darray}{cc}
+\lambda = 1 + i & \lambda = 1 - y
+\end{darray}\\
+\end{darray}
+$$
+
+- Para $\lambda = 1 + i$:
+
+  $$
+  \operatorname{Nul} (A - (1 + i)I) = \operatorname{Nul} \begin{bmatrix}
+  -i & -1\\
+  1 & -1
+  \end{bmatrix} = \mathcal{L} \{(1, -i)\}
+  $$
+
+- Para $\lambda = 1 - i$:
+
+  $$
+  \operatorname{Nul} (A - (1 - i)I) = \mathcal{L} \{(1, i)\}
+  $$
+
+Então, temos $S$ e $\Lambda$ que satisfazem $S\Lambda S^{-1}$:
+
+$$
+\begin{darray}{cc}
+S = \begin{bmatrix}
+1 & 1\\
+-i & i
+\end{bmatrix} & \Lambda = \begin{bmatrix}
+1 + i & 0\\
+0 & 1 - i
+\end{bmatrix}
+\end{darray}
+$$
+
+E finalmente:
+
+$$
+\begin{aligned}
+e^{tA} &= S e^{t\Lambda} S^{-1}\\
+&= \begin{bmatrix}
+1 & 1\\
+-i & i
+\end{bmatrix} \begin{bmatrix}
+e^{t-it} & 0\\
+0 & e^{t - it}
+\end{bmatrix} \frac{1}{2i} \begin{bmatrix}
+i & -1\\
+i & 1
+\end{bmatrix}\\
+&= \frac{e^t}{2} \begin{bmatrix}
+1 & 1\\
+-i & i
+\end{bmatrix} \begin{bmatrix}
+e^{it} & 0\\
+0 & e^{-it}
+\end{bmatrix} \begin{bmatrix}
+1 & i\\
+1 & -1
+\end{bmatrix}\\
+&= \dots\\
+&= \frac{e^t}{2} \begin{bmatrix}
+e^{it} + e^{-it} & i e^{it} - i e^{-it}\\
+- i e^{it} + i e^{-it} & e^{it} + e^{-it}
+\end{bmatrix}\\
+&= \dots\\
+&= e^t \begin{bmatrix}
+\cos t & -\sin t\\
+\sin t & \cos t
+\end{bmatrix}
+\end{aligned}
 $$
 
 :::
