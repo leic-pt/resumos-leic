@@ -11,25 +11,25 @@ type: cheatsheets
 
 ## Ordens de Grandeza
 
-Micro - $10^{-6}$
+Micro $= 10^{-6}$
 
-Nano - $10^{-9}$
+Nano $= 10^{-9}$
 
-Angstrom ($\AA$) - $10^{-10}$
+Angstrom ($\AA$) $= 10^{-10}$
 
-Pico - $10^{-12}$
+Pico $= 10^{-12}$
 
 ## Constantes
 
-$c$ - Velocidade da Luz - $3\times10^8 \ m/s $ (Metros por Segundo)
+$c$ - Velocidade da Luz $= 3\times10^8 \ m/s $ (Metros por Segundo)
 
-$h$ - Constante de Planck - $6.626\times10^{-34} J s$ (Joules Segundo)
+$h$ - Constante de Planck $= 6.626\times10^{-34} J s$ (Joules Segundo)
 
 Unidade $eV$ (eletrão-Volt) $= 1.6\times10^{-19 }J $ (Joules)
 
 O eletrão-Volt corresponde à energia ganha por 1 eletrão quando se desloca de 1 pólo positivo para 1 pólo negativo na distância de 1 metro.
 
-$\epsilon_0$- Permitividade Elétrica do Espaço Livre - $8.85 \times 10^{-12} C^2 \ N ^{-1} \ m^{-2} $
+$\epsilon_0$- Permitividade Elétrica do Espaço Livre $= 8.85 \times 10^{-12} C^2 \ N ^{-1} \ m^{-2} $
 
 ## Fórmulas
 
