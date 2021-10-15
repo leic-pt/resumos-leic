@@ -6,11 +6,19 @@ path: /fis-ii/potencial
 type: content
 ---
 
+:::danger[Esta matéria não sai para o 1º teste]
+A matéria que se encontra neste resumo não sairá para o primeiro teste
+:::
+
 # Potencial Elétrico
 
 ```toc
 
 ```
+
+:::danger[Esta matéria não sai para o 1º teste]
+A matéria que se encontra neste resumo não sairá para o primeiro teste
+:::
 
 ## Definição
 
@@ -163,6 +171,10 @@ $$
 ### Condições de fronteira numa superfície carregada
 
 // TO DO
+
+:::danger[Esta matéria não sai para o 1º teste]
+A matéria que se encontra neste resumo não sairá para o primeiro teste
+:::
 
 Slides:
 
