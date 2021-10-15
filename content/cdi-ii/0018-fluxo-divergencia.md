@@ -184,11 +184,11 @@ $$
 
 ### Teorema da Divergência
 
-Um domínio $D \subset \R^3$ aberto e limitado é {orange}(**domínio regular**) se e só se $\partial D$ é união finita de superfícies orientáveis.
+Um domínio $D \subset \R^3$ aberto e limitado é [**domínio regular**](color:orange) se e só se $\partial D$ é união finita de superfícies orientáveis.
 
 :::tip[DEFINIÇÃO]
 
-Seja $D \subset \R^3$ um {orange}(**domínio regular**), $\vec n$ a normal em $\partial D$ que aponta para fora de $D$,
+Seja $D \subset \R^3$ um [**domínio regular**](color:orange), $\vec n$ a normal em $\partial D$ que aponta para fora de $D$,
 então:
 
 $$
