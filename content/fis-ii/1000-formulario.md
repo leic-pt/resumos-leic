@@ -11,13 +11,13 @@ type: cheatsheets
 
 ## Ordens de Grandeza
 
-Micro $= 10^{-6}$
+Micro $(\mu)= 10^{-6} $
 
-Nano $= 10^{-9}$
+Nano $(n)= 10^{-9}$
 
-Angstrom ($\AA$) $= 10^{-10}$
+Angstrom $(\AA)= 10^{-10}$
 
-Pico $= 10^{-12}$
+Pico $(p)= 10^{-12}$
 
 ## Constantes
 
