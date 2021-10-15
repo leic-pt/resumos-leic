@@ -380,7 +380,7 @@ $$
 
 :::
 
-:::[Exemplo 2]
+:::details[Exemplo 2]
 
 **Determinar exponencial da matriz $A$:**
 
@@ -467,6 +467,62 @@ e^{it} + e^{-it} & i e^{it} - i e^{-it}\\
 \sin t & \cos t
 \end{bmatrix}
 \end{aligned}
+$$
+
+:::
+
+#### Matrizes por Blocos
+
+Por vezes as matrizes não são diagonizáveis. Vamos ver mais à frente como podemos usar
+matrizes divididas em blocos para determinar as exponenciais destas matrizes.
+
+Uma matriz está dividida em blocos, se tiver blocos $n \times n$ na sua diagonal, em que todos os outros valores fora da diagonal são $0$.
+Os blocos podem ser de qualquer tamanho, **inclusive $1 \times 1$**.
+
+$$
+\def\marray#1{\hspace{-5pt}\begin{array}{c}#1\end{array}\hspace{-5pt}}
+e^{tA} = \begin{bmatrix}
+\boxed{e^{tB_1}} & \marray{0&0&0} & 0 & \dots &\marray{0&0}\\
+\marray{0\\ 0\\ 0} & \boxed{\marray{&&\\ &e^{tB_2}&\\ &&}} & \marray{0\\0\\0} & \marray{\dots\\\dots\\\dots} & \marray{0&0\\0&0\\0&0}\\
+0 & \marray{0&0&0} & \ddots & \dots & \marray{0&0}\\
+\vdots & \marray{\vdots & \vdots & \vdots} & \vdots & \ddots & \marray{0& 0}\\
+\marray{0\\0} & \marray{0&0&0\\0&0&0} & \marray{0\\0} & \marray{0\\0} & \boxed{\marray{e^{tB_j} &\\&}}
+\end{bmatrix}
+$$
+
+Abaixo está um exemplo de uma matriz com dois blocos:
+
+$$
+\def\marray#1{\hspace{-5pt}\begin{array}{c}#1\end{array}\hspace{-5pt}}
+e^{tA} = \begin{bmatrix}
+\boxed{2} & \marray{0&0&0} &\marray{0&0}\\
+\marray{0\\ 0\\ 0} & \boxed{\marray{0&3&1\\4&-3&2\\5&2&0}} & \marray{0&0\\0&0\\0&0}\\
+\marray{0\\0} & \marray{0&0&0\\0&0&0} & \boxed{\marray{0&1\\1&0}}
+\end{bmatrix}
+$$
+
+:::details[Exemplo 3]
+
+Vendo o exemplo 1 e 2 do tópico anterior, podemos fazer uma matriz que tem dois blocos, um com cada uma das matrizes dos exemplos.
+
+$$
+A = \begin{bmatrix}
+1 & -1 & 0 & 0\\
+1 & 1 & 0 & 0\\
+0 & 0 & 3 & 1\\
+0 & 0 & 1 & 3
+\end{bmatrix}
+$$
+
+Assim, temos que
+
+$$
+e^{tA} = \begin{bmatrix}
+e^t \cos t & -e^t \sin t & 0 & 0\\
+e^t \sin t & e^t \cos t & 0 & 0\\
+0 & 0 & \frac{e^{2t} + e^{4t}}{2} & \frac{e^{4t} - e^{2t}}{2}\\
+0 & 0 & \frac{e^{4t} - e^{2t}}{2} & \frac{e^{4t} + e^{2t}}{2}
+\end{bmatrix}
 $$
 
 :::
