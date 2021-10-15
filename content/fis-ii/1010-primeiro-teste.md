@@ -113,6 +113,6 @@ $\oint_{\Gamma} \vec E \cdot d\vec l = 0$
 
 $\nabla \times \vec E = 0$
 
-$V_P = \int_P^{Ref} \vec E \cdot d \vecl$
+$V_P = \int_P^{Ref} \vec E \cdot d \vec l$
 
 $\vec E = - \vec \nabla V$
