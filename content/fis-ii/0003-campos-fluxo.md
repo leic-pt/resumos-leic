@@ -12,6 +12,10 @@ type: content
 
 ```
 
+:::warning[Exercícios]
+No final da página encontram-se resoluções mais pormenorizadas dos exercícios feitos em aula
+:::
+
 ## Eletrostática
 
 Supomos que temos uma distribuição de cargas.
