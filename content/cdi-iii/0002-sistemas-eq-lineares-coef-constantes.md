@@ -2,7 +2,8 @@
 title: Sistemas de Equações Lineares com Coeficientes Constantes
 description: >-
   Sistemas de Equações Lineares com Coeficientes Constantes.
-  Revisão de Álgebra Linear
+  Matrizes por Blocos: Blocos de Jordan.
+  Revisão de Álgebra Linear.
 path: /cdi-iii/sistemas-eq-lineares-coef-constantes
 type: content
 ---
@@ -526,6 +527,149 @@ e^t \sin t & e^t \cos t & 0 & 0\\
 $$
 
 :::
+
+#### Blocos de Jordan
+
+Dá-se o nome de **bloco de Jordan** de dimensão $n$ a uma matriz $J_\lambda$ quadrada $n \times n$ da forma:
+
+$$
+J_\lambda = \begin{bmatrix}
+\lambda & 1 & 0 & \dots & 0\\
+0 & \lambda & 1 & \ddots & \vdots\\
+0 & 0 & \lambda & \ddots & 0\\
+\vdots & \vdots & \ddots & \ddots & 1\\
+0 & 0 & \dots & 0 & \lambda
+\end{bmatrix}
+$$
+
+Portanto
+
+$$
+\begin{darray}{c}
+J_\lambda = [j_{u,j}]_{i,k = 1,\dots,n} & \text{com} & j_{i,k} = \begin{cases}
+\lambda & \text{se } i = k\\
+1 & \text{se } i=k-1\\
+0 & \text{nos restantes casos}
+\end{cases}
+\end{darray}
+$$
+
+:::details[Exemplos]
+
+$\begin{bmatrix}3\end{bmatrix}$ é um bloco de Jordan de dimensão $1$ ($J_3$)
+
+---
+
+$\begin{bmatrix}4&1&0\\0&4&1\\0&0&4\end{bmatrix}$ é um bloco de Jordan de dimensão $3$ ($J_4$)
+
+---
+
+$\begin{bmatrix}0&1\\0&0\end{bmatrix}$ é um bloco de Jordan de dimensão $2$ ($J_0$)
+
+:::
+
+É de realçar que um bloco de Jordan tem um único valor próprio e a dimensão do espaço próprio é unitária, isto é, tem apenas um vetor próprio linearmente independente.
+
+#### Matrizes na forma canónica de Jordan
+
+Uma matriz quadrada $J$ é uma matriz na forma canónica de Jordan se é formada exclusivamente por blocos de Jordan sobre a diagonal:
+
+$$
+\def\marray#1{\hspace{-5pt}\begin{array}{c}#1\end{array}\hspace{-5pt}}
+J = \begin{bmatrix}
+\boxed{J_{\lambda_1}} & \marray{0&0&0} & 0 & \dots &\marray{0&0}\\
+\marray{0\\ 0\\ 0} & \boxed{\marray{&&\\ & J_{\lambda_2}&\\ &&}} & \marray{0\\0\\0} & \marray{\dots\\\dots\\\dots} & \marray{0&0\\0&0\\0&0}\\
+0 & \marray{0&0&0} & \ddots & \dots & \marray{0&0}\\
+\vdots & \marray{\vdots & \vdots & \vdots} & \vdots & \ddots & \marray{0& 0}\\
+\marray{0\\0} & \marray{0&0&0\\0&0&0} & \marray{0\\0} & \marray{0\\0} & \boxed{\marray{J_{\lambda_j} &\\&}}
+\end{bmatrix}
+$$
+
+onde $J_{\lambda_1}, J_{\lambda_2}, \dots ,J_{\lambda_j}$ são blocos de Jordan.
+
+:::details[Exemplos]
+
+A matriz $\begin{bmatrix}1&0&0&0\\0&0&1&0\\0&0&0&0\\0&0&0&2\end{bmatrix}$ está na forma canónica de Jordan; é formada por 3 blocos de Jordan.
+
+---
+
+A matriz $\begin{bmatrix}2&0&0&0\\0&2&0&0\\0&0&2&1\\0&0&0&2\end{bmatrix}$ está na forma canónica de Jordan; é formada por 3 blocos de Jordan.
+
+---
+
+A matriz $\begin{bmatrix}3&0&0&0\\0&4&1&0\\0&0&4&1\\0&0&0&2\end{bmatrix}$ [**não está**](color:red) na forma canónica de Jordan.
+
+---
+
+A matriz $\begin{bmatrix}3&0&0&0\\0&4&1&0\\0&0&4&0\\0&0&0&2\end{bmatrix}$ está na forma canónica de Jordan; é formada por 3 blocos de Jordan.
+
+---
+
+A matriz $\begin{bmatrix}3&0&0&0\\0&4&1&0\\0&0&4&1\\0&0&0&4\end{bmatrix}$ está na forma canónica de Jordan; é formada por 2 blocos de Jordan.
+
+---
+
+A matriz $\begin{bmatrix}1&2\\0&1\end{bmatrix}$ [**não está**](color:red) na forma canónica de Jordan.
+
+---
+
+A matriz $\begin{bmatrix}4&1&0&0\\0&4&0&0\\0&0&4&1\\0&0&0&4\end{bmatrix}$ está na forma canónica de Jordan; é formada por 2 blocos de Jordan.
+
+---
+
+A matriz $\begin{bmatrix}1&0&0&0&0\\0&0&1&0&0\\0&0&0&1&0\\0&0&0&0&0\\0&0&0&0&1\end{bmatrix}$ está na forma canónica de Jordan; é formada por 3 blocos de Jordan.
+
+---
+
+A matriz $\begin{bmatrix}0&0&1&0\\0&0&0&0\\0&0&0&1\\0&0&0&0\end{bmatrix}$ [**não está**](color:red) na forma canónica de Jordan.
+
+:::
+
+:::tip[Teorema]
+
+**Teorema de Jordan**
+
+Seja $A$ uma matriz quadrada qualquer então existe $S$ tal que
+
+$$
+A = S J S^{-1}
+$$
+
+onde $J$ está na forma canónica de Jordan formada por $j$ blocos de Jordan $J_{\lambda_1}, J_{\lambda_2}, \dots , J_{\lambda_j}$ de dimensão $n_1, n_2, \dots , n_j$ respetivamente,
+onde $j$ é o número máximo de vetores próprios de $A$ linearmente independentes ($\lambda_1, \lambda_2, \dots, \lambda_j$ são valores próprios de $A$).
+
+:::
+
+É também importante observar que:
+
+$$
+\det(A-\lambda) = \det(J - \lambda) = (\lambda_1 - \lambda)^{n_1} (\lambda_2 - \lambda)^{n_2} \dots (\lambda_j - \lambda)^{n_j}
+$$
+
+**Nota:** Pode acontecer termos $\lambda_a = \lambda_b$ com $a \ne b$.
+
+#### Exponencial de Blocos de Jordan
+
+Para um bloco de Jordan $J_\lambda$ de dimensão $n$ temos
+
+$$
+\begin{aligned}
+e^{tJ_\lambda} &= \begin{bmatrix}
+e^{\lambda t} & t e^{\lambda t} & \frac{t^2}{2!} e^{\lambda t} & \dots & \frac{t^{n-1}}{(n-1)!} e^{\lambda t}\\
+0 & e^{\lambda t} & t e^{\lambda t} & \ddots & \vdots\\
+0 & 0 & e^{\lambda t} & \ddots & \frac{t^2}{2!} e^{\lambda t}\\
+\vdots & \vdots & \ddots & \ddots & t e^{\lambda t}\\
+0 & 0 & \dots & 0 & e^{\lambda t}
+\end{bmatrix}\\
+&= e^{\lambda t} \begin{bmatrix}
+1 & t & \frac{t^2}{2!} & \dots & \frac{t^{n-1}}{(n-1)!} \\
+0 & 1 & t & \ddots & \vdots\\
+0 & 0 & 1 & \ddots & \frac{t^2}{2!} \\
+\vdots & \vdots & \ddots & \ddots & t \\
+0 & 0 & \dots & 0 & 1
+\end{bmatrix}
+\end{aligned}
+$$
 
 ### Funções Matriciais
 
