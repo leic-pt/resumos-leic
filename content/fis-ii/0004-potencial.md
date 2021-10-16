@@ -1,7 +1,7 @@
 ---
-title: Potencial Elétrico (Não sai no Primeiro Teste)
+title: Continuação do Estudo do Potencial Elétrico (Não sai no Primeiro Teste)
 description: >-
-  Potencial Elétrico
+  Continuação do Estudo do Potencial Elétrico
 path: /fis-ii/potencial
 type: content
 ---
@@ -10,7 +10,7 @@ type: content
 A matéria que se encontra neste resumo não sairá para o primeiro teste
 :::
 
-# Potencial Elétrico
+# Continuação do Estudo do Potencial Elétrico
 
 ```toc
 
@@ -19,22 +19,6 @@ A matéria que se encontra neste resumo não sairá para o primeiro teste
 :::danger[Esta matéria não sai para o 1º teste]
 A matéria que se encontra neste resumo não sairá para o primeiro teste
 :::
-
-## Definição
-
-O potencial elétrico é a capacidade que uma carga tem de realizar trabalho, neste caso, atrair ou repelir outras cargas elétricas.
-
-- $V(\vec r) = \sum_{i=1}^N V_i(\vec r)$ respeita o principío de sobreposição
-
-- A função potencial é definida a menos de uma constante; essa constante corresponde a mudar o ponto de referência para o caminho escolhido
-
-- O campo elétrico $\vec E \rightarrow 0$ no infinito, ou seja, $V \rightarrow $constante, tomamos essa constante como ponto de referência
-
-Assim definimos o Potencial $V$ no ponto $\vec r$ como
-
-$$
-V(\vec r) = - \int_O^{\vec r} \vec E \cdot d \vec l\\
-$$
 
 Num caminho de $Q \rightarrow P$
 
