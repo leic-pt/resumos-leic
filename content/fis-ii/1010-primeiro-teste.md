@@ -5,19 +5,9 @@ path: /fis-ii/primeiro-teste
 type: cheatsheets
 ---
 
-# Formulário
+# Formulário Oficial
 
 [Formulário Oficial da Cadeira (PDF)](https://drive.google.com/file/d/1Ouk2xSUb-f50SnUSC4HWQzAzfl825A_J/view?usp=sharing)
-
-## Ordens de Grandeza
-
-Micro $(\mu)= 10^{-6} $
-
-Nano $(n)= 10^{-9}$
-
-Angstrom $(\AA)= 10^{-10}$
-
-Pico $(p)= 10^{-12}$
 
 ### Integrais
 
