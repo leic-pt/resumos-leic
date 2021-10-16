@@ -108,7 +108,7 @@ $$
 \end{aligned}
 $$
 
-De seguida calculamos o produto interno entre $\frac{\partial g}{\partial u}$ e $\frac{\partial g}{\partial v}$:
+De seguida calculamos o produto externo entre $\frac{\partial g}{\partial u}$ e $\frac{\partial g}{\partial v}$:
 
 $$
 \begin{aligned}
@@ -124,7 +124,7 @@ $$
 
 Temos de verificar agora se a orientação do campo é a correta.  
 Tomamos o ponto $(0,1,0)$, isto é, $u = \frac{\pi}{2}$ e $v = \frac{\pi}{2}$, e vemos que
-$-\sin u \sin^2 v = -1 < 0$, logo a orientação é {red}(errada).
+$-\sin u \sin^2 v = -1 < 0$, logo a orientação é $\color{red}(\text{errada}}$.
 
 $$
 F(g(u,v)) = (\sin v \cos u, \sin u \sin v, \cos v)
