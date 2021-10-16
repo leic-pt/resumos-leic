@@ -312,6 +312,16 @@ Alternativamente, pode-se utilizar o seguinte teorema, mas nem sempre se justifi
 
 **Variação das constantes**
 
+Seja uma equação do tipo
+
+$$
+\begin{darray}{cc}
+\frac{\d x}{\d t} = a(t) x + b(t) & x(t_0) = x_0
+\end{darray}
+$$
+
+com $t_0 \in I$ e $x_0 \in \R$, a equação tem uma única solução:
+
 $$
 x(t) = x_0 e^{\int_{t_0}^t a(z) \d z} + \int_{t_0}^t b(s) e^{\int_s^t a(z) \d z} \d s
 $$

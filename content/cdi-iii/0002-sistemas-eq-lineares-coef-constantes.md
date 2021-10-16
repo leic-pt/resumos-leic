@@ -2,7 +2,8 @@
 title: Sistemas de Equações Lineares com Coeficientes Constantes
 description: >-
   Sistemas de Equações Lineares com Coeficientes Constantes.
-  Revisão de Álgebra Linear
+  Matrizes por Blocos: Blocos de Jordan.
+  Revisão de Álgebra Linear.
 path: /cdi-iii/sistemas-eq-lineares-coef-constantes
 type: content
 ---
@@ -211,6 +212,465 @@ $$
 
 :::
 
+:::tip[Proposição]
+Se $A = S J S^{-1}$, em que $A, S, J$ são matrizes $n \times n$ e $S$ é invertível ($\det S \ne 0$),
+então
+
+$$
+e^A = S e^J S^{-1}
+$$
+
+:::
+
+:::details[Demonstração]
+
+$$
+\begin{darray}{l}
+A^2 = A A = S J S^{-1} S J S^{-1} = S J J S^{-1} = S J^2 S^{-1}\\
+A^3 = A^2 A = S J^2 S^{-1} S J S^{-1} = S J^2 J S^{-1} = S J^3 S^{-1}\\
+A^k = S J^k S^{-1}
+\end{darray}
+$$
+
+Temos assim,
+
+$$
+\begin{aligned}
+e^A &= \sum_{k=0}^{+\infty} \frac{1}{k!}A^k\\
+&= \sum_{k=0}^{+\infty} \frac{1}{k!}SJ^kS^{-1}\\
+&= S \sum_{k=0}^{+\infty} \frac{1}{k!} J^k S^{-1}\\
+&= S e^J S^{-1}
+\end{aligned}
+$$
+
+:::
+
+Esta proposição irá ser útil porque se repararmos, isto significa que se tivermos uma matriz diagonal $J$,
+ou seja, $A$ for diagonizável, podemos facilmente descobrir o exponencial de $A$ devido às seguinte duas propriedades:
+
+$$
+\begin{darray}{cc}
+A^k = \begin{bmatrix}
+\lambda_1^k & 0 & \dots & 0\\
+0 & \lambda_2^k & \dots & 0\\
+\vdots & \vdots & \ddots & 0\\
+0 & 0 & 0 & \lambda_n^k
+\end{bmatrix} & e^{tA} = \begin{bmatrix}
+e^{\lambda_1 t} & 0 & \dots & 0\\
+0 & e^{\lambda_2 t} & \dots & 0\\
+\vdots & \vdots & \ddots & 0\\
+0 & 0 & 0 & e^{\lambda_n t}
+\end{bmatrix}
+\end{darray}
+$$
+
+Se quisermos verificar que determinármos bem a exponencial de uma matrix $A$,
+podemos usar os seguintes **critérios de verificação**:
+
+1. $$
+   e^{tA} \big|_{t=0} = Id
+   $$
+2. $$
+   \frac{\d e^{tA}}{\d t} \big|_{t_0} = Ae^{tA} \big|_{t=0} = A
+   $$
+
+:::details[Exemplo 1]
+
+**Determinar exponencial da matriz $A$:**
+
+$$
+A = \begin{bmatrix}
+3 & 1\\
+1 & 3
+\end{bmatrix}
+$$
+
+Determinar valores e vetores próprios:
+
+$$
+\det(A - \lambda I) = \begin{vmatrix}
+3 - \lambda & 1\\
+1 & 3 - \lambda
+\end{vmatrix} = (3-\lambda) ^2 - 1
+$$
+
+Após calcular as raízes do polinómio, temos assim valores próprios: $\lambda = 2$ e $\lambda = 4$.  
+Vamos calcular agora os vetores próprios.
+
+- Para $\lambda = 2$:
+
+  $$
+  \operatorname{Nul} (A - 2I) = \operatorname{Nul} \begin{bmatrix}
+  1 & 1\\
+  1 & 1
+  \end{bmatrix} = \mathcal{L} \{(1,-1)\}
+  $$
+
+- Para $\lambda = 4$:
+
+  $$
+  \operatorname{Nul} (A - 4I) = \operatorname{Nul} \begin{bmatrix}
+  -1 & 1\\
+  1 & -1
+  \end{bmatrix} = \mathcal{L} \{(1,1)\}
+  $$
+
+Temos assim que $A = S \Lambda S^{-1}$ com
+
+$$
+\begin{darray}{cc}
+S = \begin{bmatrix}
+1 & 1\\
+-1 & 1
+\end{bmatrix} & \Lambda = \begin{bmatrix}
+2 & 0\\
+0 & 4
+\end{bmatrix}
+\end{darray}
+$$
+
+A matriz $S$ corresponde aos vetores próprios, e a matrix $\Lambda$ aos vetores próprios.
+
+Então,
+
+$$
+\begin{aligned}
+e^{tA} &= S e ^{t\Lambda} S^-1\\
+&= \begin{bmatrix}
+1 & 1\\
+-1 & 1
+\end{bmatrix} \begin{bmatrix}
+e^{2t} & 0\\
+0 & e^{4t}
+\end{bmatrix} S^{-1}\\
+&= \begin{bmatrix}
+e^{2t} & e^{4t}\\
+-e^{2t} & e^{4t}
+\end{bmatrix} \frac{1}{2} \begin{bmatrix}
+1 & -1\\
+1 & 1
+\end{bmatrix}\\
+&= \begin{bmatrix}
+\frac{e^{2t} + e^{4t}}{2} & \frac{e^{4t} - e^{2t}}{2}\\
+\frac{e^{4t} - e^{2t}}{2} & \frac{e^{4t} + e^{2t}}{2}
+\end{bmatrix}
+\end{aligned}
+$$
+
+Vamos agora testar os **critérios de verificação**:
+
+$$
+\begin{bmatrix}
+\frac{e^{0} + e^{0}}{2} & \frac{e^{0} - e^{0}}{2}\\
+\frac{e^{0} - e^{0}}{2} & \frac{e^{0} + e^{0}}{2}
+\end{bmatrix} = \begin{bmatrix}
+1 & 0\\
+0 & 1
+\end{bmatrix} = Id
+$$
+
+$$
+\begin{bmatrix}
+\frac{2e^{2t} + 4e^{4t}}{2} & \frac{4e^{4t} - 2e^2t}{2}\\
+\frac{4e^{4t} - 2e^2t}{2} & \frac{2e^{2t} + 4e^{4t}}{2}
+\end{bmatrix} \underset{t=0}{\longrightarrow} \begin{bmatrix}
+3 & 1\\
+1 & 3
+\end{bmatrix} = A
+$$
+
+:::
+
+:::details[Exemplo 2]
+
+**Determinar exponencial da matriz $A$:**
+
+$$
+A = \begin{bmatrix}
+1 & -1\\
+1 & 1
+\end{bmatrix}
+$$
+
+Calculemos agora os [valores e vetores próprios](/al/valores-vetores-proprios) de $A$:
+
+$$
+\begin{darray}{c}
+\det(A - \lambda I) = (1-\lambda) ^2 + 1\\
+\begin{darray}{cc}
+\lambda = 1 + i & \lambda = 1 - y
+\end{darray}\\
+\end{darray}
+$$
+
+- Para $\lambda = 1 + i$:
+
+  $$
+  \operatorname{Nul} (A - (1 + i)I) = \operatorname{Nul} \begin{bmatrix}
+  -i & -1\\
+  1 & -1
+  \end{bmatrix} = \mathcal{L} \{(1, -i)\}
+  $$
+
+- Para $\lambda = 1 - i$:
+
+  $$
+  \operatorname{Nul} (A - (1 - i)I) = \mathcal{L} \{(1, i)\}
+  $$
+
+Então, temos $S$ e $\Lambda$ que satisfazem $S\Lambda S^{-1}$:
+
+$$
+\begin{darray}{cc}
+S = \begin{bmatrix}
+1 & 1\\
+-i & i
+\end{bmatrix} & \Lambda = \begin{bmatrix}
+1 + i & 0\\
+0 & 1 - i
+\end{bmatrix}
+\end{darray}
+$$
+
+E finalmente:
+
+$$
+\begin{aligned}
+e^{tA} &= S e^{t\Lambda} S^{-1}\\
+&= \begin{bmatrix}
+1 & 1\\
+-i & i
+\end{bmatrix} \begin{bmatrix}
+e^{t-it} & 0\\
+0 & e^{t - it}
+\end{bmatrix} \frac{1}{2i} \begin{bmatrix}
+i & -1\\
+i & 1
+\end{bmatrix}\\
+&= \frac{e^t}{2} \begin{bmatrix}
+1 & 1\\
+-i & i
+\end{bmatrix} \begin{bmatrix}
+e^{it} & 0\\
+0 & e^{-it}
+\end{bmatrix} \begin{bmatrix}
+1 & i\\
+1 & -1
+\end{bmatrix}\\
+&= \dots\\
+&= \frac{e^t}{2} \begin{bmatrix}
+e^{it} + e^{-it} & i e^{it} - i e^{-it}\\
+- i e^{it} + i e^{-it} & e^{it} + e^{-it}
+\end{bmatrix}\\
+&= \dots\\
+&= e^t \begin{bmatrix}
+\cos t & -\sin t\\
+\sin t & \cos t
+\end{bmatrix}
+\end{aligned}
+$$
+
+:::
+
+#### Matrizes por Blocos
+
+Por vezes as matrizes não são diagonizáveis. Vamos ver mais à frente como podemos usar
+matrizes divididas em blocos para determinar as exponenciais destas matrizes.
+
+Uma matriz está dividida em blocos, se tiver blocos $n \times n$ na sua diagonal, em que todos os outros valores fora da diagonal são $0$.
+Os blocos podem ser de qualquer tamanho, **inclusive $1 \times 1$**.
+
+$$
+\def\marray#1{\hspace{-5pt}\begin{array}{c}#1\end{array}\hspace{-5pt}}
+e^{tA} = \begin{bmatrix}
+\boxed{e^{tB_1}} & \marray{0&0&0} & 0 & \dots &\marray{0&0}\\
+\marray{0\\ 0\\ 0} & \boxed{\marray{&&\\ &e^{tB_2}&\\ &&}} & \marray{0\\0\\0} & \marray{\dots\\\dots\\\dots} & \marray{0&0\\0&0\\0&0}\\
+0 & \marray{0&0&0} & \ddots & \dots & \marray{0&0}\\
+\vdots & \marray{\vdots & \vdots & \vdots} & \vdots & \ddots & \marray{0& 0}\\
+\marray{0\\0} & \marray{0&0&0\\0&0&0} & \marray{0\\0} & \marray{0\\0} & \boxed{\marray{e^{tB_j} &\\&}}
+\end{bmatrix}
+$$
+
+Abaixo está um exemplo de uma matriz com dois blocos:
+
+$$
+\def\marray#1{\hspace{-5pt}\begin{array}{c}#1\end{array}\hspace{-5pt}}
+e^{tA} = \begin{bmatrix}
+\boxed{2} & \marray{0&0&0} &\marray{0&0}\\
+\marray{0\\ 0\\ 0} & \boxed{\marray{0&3&1\\4&-3&2\\5&2&0}} & \marray{0&0\\0&0\\0&0}\\
+\marray{0\\0} & \marray{0&0&0\\0&0&0} & \boxed{\marray{0&1\\1&0}}
+\end{bmatrix}
+$$
+
+:::details[Exemplo 3]
+
+Vendo o exemplo 1 e 2 do tópico anterior, podemos fazer uma matriz que tem dois blocos, um com cada uma das matrizes dos exemplos.
+
+$$
+A = \begin{bmatrix}
+1 & -1 & 0 & 0\\
+1 & 1 & 0 & 0\\
+0 & 0 & 3 & 1\\
+0 & 0 & 1 & 3
+\end{bmatrix}
+$$
+
+Assim, temos que
+
+$$
+e^{tA} = \begin{bmatrix}
+e^t \cos t & -e^t \sin t & 0 & 0\\
+e^t \sin t & e^t \cos t & 0 & 0\\
+0 & 0 & \frac{e^{2t} + e^{4t}}{2} & \frac{e^{4t} - e^{2t}}{2}\\
+0 & 0 & \frac{e^{4t} - e^{2t}}{2} & \frac{e^{4t} + e^{2t}}{2}
+\end{bmatrix}
+$$
+
+:::
+
+#### Blocos de Jordan
+
+Dá-se o nome de **bloco de Jordan** de dimensão $n$ a uma matriz $J_\lambda$ quadrada $n \times n$ da forma:
+
+$$
+J_\lambda = \begin{bmatrix}
+\lambda & 1 & 0 & \dots & 0\\
+0 & \lambda & 1 & \ddots & \vdots\\
+0 & 0 & \lambda & \ddots & 0\\
+\vdots & \vdots & \ddots & \ddots & 1\\
+0 & 0 & \dots & 0 & \lambda
+\end{bmatrix}
+$$
+
+Portanto
+
+$$
+\begin{darray}{c}
+J_\lambda = [j_{u,j}]_{i,k = 1,\dots,n} & \text{com} & j_{i,k} = \begin{cases}
+\lambda & \text{se } i = k\\
+1 & \text{se } i=k-1\\
+0 & \text{nos restantes casos}
+\end{cases}
+\end{darray}
+$$
+
+:::details[Exemplos]
+
+$\begin{bmatrix}3\end{bmatrix}$ é um bloco de Jordan de dimensão $1$ ($J_3$)
+
+---
+
+$\begin{bmatrix}4&1&0\\0&4&1\\0&0&4\end{bmatrix}$ é um bloco de Jordan de dimensão $3$ ($J_4$)
+
+---
+
+$\begin{bmatrix}0&1\\0&0\end{bmatrix}$ é um bloco de Jordan de dimensão $2$ ($J_0$)
+
+:::
+
+É de realçar que um bloco de Jordan tem um único valor próprio e a dimensão do espaço próprio é unitária, isto é, tem apenas um vetor próprio linearmente independente.
+
+#### Matrizes na forma canónica de Jordan
+
+Uma matriz quadrada $J$ é uma matriz na forma canónica de Jordan se é formada exclusivamente por blocos de Jordan sobre a diagonal:
+
+$$
+\def\marray#1{\hspace{-5pt}\begin{array}{c}#1\end{array}\hspace{-5pt}}
+J = \begin{bmatrix}
+\boxed{J_{\lambda_1}} & \marray{0&0&0} & 0 & \dots &\marray{0&0}\\
+\marray{0\\ 0\\ 0} & \boxed{\marray{&&\\ & J_{\lambda_2}&\\ &&}} & \marray{0\\0\\0} & \marray{\dots\\\dots\\\dots} & \marray{0&0\\0&0\\0&0}\\
+0 & \marray{0&0&0} & \ddots & \dots & \marray{0&0}\\
+\vdots & \marray{\vdots & \vdots & \vdots} & \vdots & \ddots & \marray{0& 0}\\
+\marray{0\\0} & \marray{0&0&0\\0&0&0} & \marray{0\\0} & \marray{0\\0} & \boxed{\marray{J_{\lambda_j} &\\&}}
+\end{bmatrix}
+$$
+
+onde $J_{\lambda_1}, J_{\lambda_2}, \dots ,J_{\lambda_j}$ são blocos de Jordan.
+
+:::details[Exemplos]
+
+A matriz $\begin{bmatrix}1&0&0&0\\0&0&1&0\\0&0&0&0\\0&0&0&2\end{bmatrix}$ está na forma canónica de Jordan; é formada por 3 blocos de Jordan.
+
+---
+
+A matriz $\begin{bmatrix}2&0&0&0\\0&2&0&0\\0&0&2&1\\0&0&0&2\end{bmatrix}$ está na forma canónica de Jordan; é formada por 3 blocos de Jordan.
+
+---
+
+A matriz $\begin{bmatrix}3&0&0&0\\0&4&1&0\\0&0&4&1\\0&0&0&2\end{bmatrix}$ [**não está**](color:red) na forma canónica de Jordan.
+
+---
+
+A matriz $\begin{bmatrix}3&0&0&0\\0&4&1&0\\0&0&4&0\\0&0&0&2\end{bmatrix}$ está na forma canónica de Jordan; é formada por 3 blocos de Jordan.
+
+---
+
+A matriz $\begin{bmatrix}3&0&0&0\\0&4&1&0\\0&0&4&1\\0&0&0&4\end{bmatrix}$ está na forma canónica de Jordan; é formada por 2 blocos de Jordan.
+
+---
+
+A matriz $\begin{bmatrix}1&2\\0&1\end{bmatrix}$ [**não está**](color:red) na forma canónica de Jordan.
+
+---
+
+A matriz $\begin{bmatrix}4&1&0&0\\0&4&0&0\\0&0&4&1\\0&0&0&4\end{bmatrix}$ está na forma canónica de Jordan; é formada por 2 blocos de Jordan.
+
+---
+
+A matriz $\begin{bmatrix}1&0&0&0&0\\0&0&1&0&0\\0&0&0&1&0\\0&0&0&0&0\\0&0&0&0&1\end{bmatrix}$ está na forma canónica de Jordan; é formada por 3 blocos de Jordan.
+
+---
+
+A matriz $\begin{bmatrix}0&0&1&0\\0&0&0&0\\0&0&0&1\\0&0&0&0\end{bmatrix}$ [**não está**](color:red) na forma canónica de Jordan.
+
+:::
+
+:::tip[Teorema]
+
+**Teorema de Jordan**
+
+Seja $A$ uma matriz quadrada qualquer então existe $S$ tal que
+
+$$
+A = S J S^{-1}
+$$
+
+onde $J$ está na forma canónica de Jordan formada por $j$ blocos de Jordan $J_{\lambda_1}, J_{\lambda_2}, \dots , J_{\lambda_j}$ de dimensão $n_1, n_2, \dots , n_j$ respetivamente,
+onde $j$ é o número máximo de vetores próprios de $A$ linearmente independentes ($\lambda_1, \lambda_2, \dots, \lambda_j$ são valores próprios de $A$).
+
+:::
+
+É também importante observar que:
+
+$$
+\det(A-\lambda) = \det(J - \lambda) = (\lambda_1 - \lambda)^{n_1} (\lambda_2 - \lambda)^{n_2} \dots (\lambda_j - \lambda)^{n_j}
+$$
+
+**Nota:** Pode acontecer termos $\lambda_a = \lambda_b$ com $a \ne b$.
+
+#### Exponencial de Blocos de Jordan
+
+Para um bloco de Jordan $J_\lambda$ de dimensão $n$ temos
+
+$$
+\begin{aligned}
+e^{tJ_\lambda} &= \begin{bmatrix}
+e^{\lambda t} & t e^{\lambda t} & \frac{t^2}{2!} e^{\lambda t} & \dots & \frac{t^{n-1}}{(n-1)!} e^{\lambda t}\\
+0 & e^{\lambda t} & t e^{\lambda t} & \ddots & \vdots\\
+0 & 0 & e^{\lambda t} & \ddots & \frac{t^2}{2!} e^{\lambda t}\\
+\vdots & \vdots & \ddots & \ddots & t e^{\lambda t}\\
+0 & 0 & \dots & 0 & e^{\lambda t}
+\end{bmatrix}\\
+&= e^{\lambda t} \begin{bmatrix}
+1 & t & \frac{t^2}{2!} & \dots & \frac{t^{n-1}}{(n-1)!} \\
+0 & 1 & t & \ddots & \vdots\\
+0 & 0 & 1 & \ddots & \frac{t^2}{2!} \\
+\vdots & \vdots & \ddots & \ddots & t \\
+0 & 0 & \dots & 0 & 1
+\end{bmatrix}
+\end{aligned}
+$$
+
 ### Funções Matriciais
 
 Seja $C$ uma matrix $m \times n$ em que cada entrada é uma função escalar, e $c_{ij}$ são as entradas de $C$.
@@ -288,6 +748,8 @@ Um corolário deste teorema é que
 $$
 (e^A)^{-1} = e^{-A}
 $$
+
+### Resolução de Equações Homogéneas
 
 :::tip[Teorema]
 
@@ -386,6 +848,9 @@ $$
 constituem um espaço linear de dimensão $n$.
 
 :::
+
+Por outras palavras, este teorema diz que para uma equação da forma acima, com uma matrix $n \times n$, existem $n$ soluções.  
+Por exemplo, caso $A$ seja uma matrix $2 \times 2$, iremos ter duas soluções (isto é, como veremos abaixo, iremos encontrar dois vetores próprios).
 
 :::tip[Proposição]
 
@@ -547,6 +1012,8 @@ $$
 
 :::
 
+#### Com valores próprios complexos
+
 :::tip[Proposição]
 
 Seja $A$ uma matriz $n\times n$ com entradas reais.  
@@ -644,6 +1111,125 @@ x(t) = c_1 e^t \begin{bmatrix}
 \sin t\\
 -\cos t
 \end{bmatrix}
+$$
+
+:::
+
+É de notar que neste exemplo, só descobrimos os vetores próprios de um dos valores próprios complexos.  
+Como os números são o conjugado um do outro, os seus vetores próprios são linearmente dependentes,
+pelo que é inútil calcular os vetores próprios do outro.  
+Além disso, podemos notar que pelo teorema que diz que o as soluções constituem espaço linear um espaço linear de dimensão $n$,
+isto é, que existem $n$ soluções, como temos uma matrix $2\times 2$, iremos ter apenas duas soluções, que encontramos logo com
+apenas um valor próprio.
+
+## Equações Não Homogéneas
+
+Estas equações correspondem à forma
+
+$$
+\frac{\d y}{\d t} = Ay + B(t)
+$$
+
+em que $A$ é uma matriz constante $n \times n$ e $B$ é uma função $I \in \R \to \R^n$.
+
+Podemos assim redefinir o teorema da variação das constantes que [estava anteriormente definido](/cdi-iii/equacoes-diferenciais-ordinarias#caso-geral).
+
+:::tip[Teorema]
+
+**Variação das constantes**
+
+Seja uma equação do tipo
+
+$$
+\begin{darray}{cc}
+\frac{\d y}{\d t} = A y + B(t) & y(t_0) = y_0
+\end{darray}
+$$
+
+com $t_0 \in I$ e $y_0 \in \R^n$, a equação tem uma única solução:
+
+$$
+y(t) = e^{(t-t_0) A} y_0 + \int_{t_0}^{t} e^{(t-s) A} B(s) \d s
+$$
+
+:::
+
+:::details[Exemplo]
+
+**Seja a equação**
+
+$$
+\begin{cases}
+\frac{\d x}{\d t} = 2x + y\\
+\frac{\d y}{\d t} = 2 e^t
+\end{cases}
+$$
+
+**e $x(0) = y(0) = 0$, determine a solução.**
+
+$$
+\frac{\d }{\d t} \begin{bmatrix}
+x\\
+y
+\end{bmatrix} = \underbrace{\begin{bmatrix}
+2 & 1\\
+0 & 0
+\end{bmatrix}}_{A} \begin{bmatrix}
+x\\
+y
+\end{bmatrix} + \underbrace{\begin{bmatrix}
+0\\
+2e^t
+\end{bmatrix}}_{B(t)}
+$$
+
+Por um [exemplo anterior](#exponencial-de-matrizes), podemos calcular a exponencial da matriz:
+
+$$
+e^{tA} = \begin{bmatrix}
+e^{2t} & \frac{1}{2} (e^{2t} - 1)\\
+0 & 1
+\end{bmatrix}
+$$
+
+Então, pela **fórmula da variação das constantes**, temos que
+
+$$
+\begin{aligned}
+\begin{bmatrix}
+x\\
+y
+\end{bmatrix} &= e^{tA} \begin{bmatrix}
+0\\
+0
+\end{bmatrix} + \int_{0}^{t} \begin{bmatrix}
+e^{2t} & \frac{1}{2} (e^{2t} - 1)\\
+0 & 1
+\end{bmatrix} \begin{bmatrix}
+0\\
+2e^s
+\end{bmatrix} \d s\\
+& = \int_{0}^{t} \begin{bmatrix}
+e^{2t-s}-e^s\\
+2e^s
+\end{bmatrix} \d s\\
+&= \begin{bmatrix}
+\int_{0}^{t} e^{2ts} - e^s \d s\\
+\int_{0}^{t} 2e^s \d s
+\end{bmatrix}\\
+&= \begin{bmatrix}
+\left[ -e^{2t-s} - e^s\right]^t_0\\
+2(e^t-1)
+\end{bmatrix}\\
+&= \begin{bmatrix}
+-e^t -e^t + e^{2t} + 1\\
+2(e^t-1)
+\end{bmatrix}\\
+&= \begin{bmatrix}
+(e^t - 1)^2\\
+2(e^t - 1)
+\end{bmatrix}
+\end{aligned}
 $$
 
 :::
