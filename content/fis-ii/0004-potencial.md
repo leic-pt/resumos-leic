@@ -1,7 +1,7 @@
 ---
-title:  Continuação do Estudo do Potencial Elétrico (Não sai no Primeiro Teste)
+title: Continuação do Estudo do Potencial Elétrico (Não sai no Primeiro Teste)
 description: >-
-   Continuação do Estudo do Potencial Elétrico
+  Continuação do Estudo do Potencial Elétrico
 path: /fis-ii/potencial
 type: content
 ---
@@ -19,7 +19,6 @@ A matéria que se encontra neste resumo não sairá para o primeiro teste
 :::danger[Esta matéria não sai para o 1º teste]
 A matéria que se encontra neste resumo não sairá para o primeiro teste
 :::
-
 
 Num caminho de $Q \rightarrow P$
 
