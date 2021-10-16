@@ -61,7 +61,7 @@ $dv = r \ dr \ d \theta \ dz$
 
 $\vec \nabla F = ( \cfrac{\partial F}{\partial r},\cfrac{1}{r}\cfrac{\partial F}{\partial \theta},\cfrac{\partial F}{\partial z}) $
 
-$\vec \nabla \cdot \vec A = \cfrac{1}{r}\cfrac{\partial(r \ A_r)}{\partial r} + \cfrac{1}{r}\cfrac{\partial \ A{\theta}}{\partial \theta} + \cfrac{\partial A_z}{\partial z} $
+$\vec \nabla \cdot \vec A = \cfrac{1}{r}\cfrac{\partial(r \ A_r)}{\partial r} + \cfrac{1}{r}\cfrac{\partial  A_{\theta}}{\partial \theta} + \cfrac{\partial A_z}{\partial z}$
 
 $\vec \nabla \times \vec A = (\cfrac{1}{r} \cfrac{\partial A_z}{\partial \theta}- \cfrac{\partial A_\theta}{\partial z}) \vec u_r + (\cfrac{\partial A_r}{\partial z} - \cfrac{\partial A_z}{\partial r} ) \vec u_{\theta} + (\cfrac{1}{r} \cfrac{\partial(r \ A_{\theta})}{\partial r} - \cfrac{1}{r} \cfrac{\partial A_r}{\partial \theta} )\vec u_z$
 
@@ -73,13 +73,13 @@ $dv = r^2 \ dr \ sin \theta \ d\theta \ d\phi$
 
 $\vec \nabla F = ( \cfrac{\partial F}{\partial r},\cfrac{1}{r}\cfrac{\partial F}{\partial \theta},\cfrac{1}{r sin \theta}\cfrac{\partial F}{\partial \phi}) $
 
-$\vec \nabla \cdot \vec A = \cfrac{1}{r^2} \cfrac{\partial}{\partial r} (r^2 \ A_r) + \cfrac {1}{\r sin \theta} \cfrac{\partial}{\partial \theta} (sin \theta A_{\theta}) +  \cfrac {1}{\r sin \theta} \cfrac{\partial}{\partial \phi} (A_{\phi})$
+$\vec \nabla \cdot \vec A = \cfrac{1}{r^2} \cfrac{\partial}{\partial r} (r^2 \ A_r) + \cfrac {1}{r sin \theta} \cfrac{\partial}{\partial \theta} (sin \theta A_{\theta}) +  \cfrac {1}{r sin \theta} \cfrac{\partial}{\partial \phi} (A_{\phi})$
 
-$\vec \nabla \times \vec A = (\cfrac {1}{r sin \theta} \cfrac{\partial (sin \theta A_{\phi})}{\partial \theta} - \cfrac{\partial(sin \theta A_{\theta})} {\partial \phi} ) \vec u_r + \cfrac{1}{r} (\cfrac{1}{sin \theta} \cfrac{\partial A_r}{\partial \phi} - \cfrac{\partial(r A_{\phi})}{\partial r}) \vec u_{\theta} + \cfrac{1}{r} \cfrac{\partial (r A_{\phi})}{\partial \phi} - \cfrac{\partial A_r}{\partial \phi} \vec u_{\phi}$
+$\vec \nabla \times \vec A = (\cfrac {1}{r sin \theta} \cfrac{\partial (sin \theta A_{\phi})}{\partial \theta} - \cfrac{\partial(sin \theta A_{\theta})} {\partial \phi} ) \vec u_r + \cfrac{1}{r} (\cfrac{1}{sin \theta} \cfrac{\partial A_r}{\partial \phi} - \cfrac{\partial(r A_{\phi})}{\partial r}) \vec u_{\theta} + \cfrac{1}{r} (\cfrac{\partial (r A_{\theta})}{\partial r} - \cfrac{\partial A_r}{\partial \theta}) \vec u_{\phi}$
 
 ### Teorema da Divergência
 
-$\int_v{  \vec \nabla \cdot \vec A \ dv} = \oint_S \vec A \cdot \vec n dS$
+$\int_v{\vec \nabla \cdot \vec A \ dv} = \oint_S{ \vec A \cdot \vec n \ dS}$
 
 ### Teorema de Stokes
 
