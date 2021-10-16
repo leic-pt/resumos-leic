@@ -1,5 +1,5 @@
 ---
-title: Potencial Elétrico
+title: Potencial Elétrico (Não sai no Primeiro Teste)
 description: >-
   Potencial Elétrico
 path: /fis-ii/potencial
@@ -28,7 +28,9 @@ O potencial elétrico é a capacidade que uma carga tem de realizar trabalho, ne
 
 - A função potencial é definida a menos de uma constante; essa constante corresponde a mudar o ponto de referência para o caminho escolhido
 
-- O campo elétrico $\vec E \rightarrow 0$ no infinito, ou seja, $V \rightarrow $constante
+- O campo elétrico $\vec E \rightarrow 0$ no infinito, ou seja, $V \rightarrow $constante, tomamos essa constante como ponto de referência
+
+Assim definimos o Potencial $V$ no ponto $\vec r$ como
 
 $$
 V(\vec r) = - \int_O^{\vec r} \vec E \cdot d \vec l\\

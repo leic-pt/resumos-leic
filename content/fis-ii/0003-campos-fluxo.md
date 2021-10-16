@@ -1,12 +1,12 @@
 ---
-title: Eletrostática e Fluxos
+title: Eletrostática e Fluxos e Introdução ao Potencial
 description: >-
   Eletrostática e Fluxos
 path: /fis-ii/campos-fluxos
 type: content
 ---
 
-# Eletrostática e Fluxo
+# Eletrostática e Fluxo e Introdução ao Potencial
 
 ```toc
 
@@ -266,6 +266,22 @@ $$
 $$
 
 Onde $V$ é uma função escalar
+
+## Potencial
+
+O potencial elétrico é a capacidade que uma carga tem de realizar trabalho, neste caso, atrair ou repelir outras cargas elétricas.
+
+- $V(\vec r) = \sum_{i=1}^N V_i(\vec r)$ respeita o principío de sobreposição
+
+- A função potencial é definida a menos de uma constante; essa constante corresponde a mudar o ponto de referência para o caminho escolhido
+
+- O campo elétrico $\vec E \rightarrow 0$ no infinito, ou seja, $V \rightarrow $constante, tomamos essa constante como ponto de referência
+
+Assim definimos o Potencial $V$ no ponto $\vec r$ como
+
+$$
+V(\vec r) = - \int_O^{\vec r} \vec E \cdot d \vec l\\
+$$
 
 Slides:
 
