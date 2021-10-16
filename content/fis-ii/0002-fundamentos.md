@@ -66,7 +66,7 @@ O resultado será um número.
 #### Rotacional (Produto Externo)
 
 $$
-\vec\nabla \times \phi(\vec r) = (\frac{\partial \phi_3}{\partial x_2} - \frac{\partial \phi_2}{\partial x_3}, \frac{\partial \phi_3}{\partial x_1} - \frac{\partial \phi_1}{\partial x_3}, \frac{\partial \phi_1}{\partial x_2} - \frac{\partial \phi_2}{\partial x_1})
+\vec\nabla \times \phi(\vec r) = (\frac{\partial \phi_2}{\partial x_3} - \frac{\partial \phi_3}{\partial x_2}, \frac{\partial \phi_3}{\partial x_1} - \frac{\partial \phi_1}{\partial x_3}, \frac{\partial \phi_1}{\partial x_2} - \frac{\partial \phi_2}{\partial x_1})
 $$
 
 O resultado será um (pseudo-)vetor, isto porque para dois vetores $\vec a$ e $\vec b$, o rotacional de $\vec a \times \vec b$ vai ser igual ao rotacional de $- \vec a \times - \vec b$
@@ -120,7 +120,7 @@ $$
 
 ## Linhas de Campo
 
-![Linhas](./imgs/0002-linhas-campo.jpg#dark=1)
+![Linhascampo](./imgs/0002-linhas-campo.jpg#dark=1)
 
 Uma linha de campo é uma curva tal que em cada ponto o
 campo é tangente à curva.\
