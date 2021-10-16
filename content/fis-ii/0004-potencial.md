@@ -30,7 +30,7 @@ O potencial elétrico é a capacidade que uma carga tem de realizar trabalho, ne
 
 - O campo elétrico $\vec E \rightarrow 0$ no infinito, ou seja, $V \rightarrow $constante, tomamos essa constante como ponto de referência
 
-Assim definir o Potencial $V$ no ponto $\vec r$ como
+Assim definimos o Potencial $V$ no ponto $\vec r$ como
 
 $$
 V(\vec r) = - \int_O^{\vec r} \vec E \cdot d \vec l\\
