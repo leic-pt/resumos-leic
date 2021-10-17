@@ -37,7 +37,6 @@ O ponto em que a recta corta o eixo das abcissas é $v_0$\
 Também podemos escrever a fórmula da seguinte maneira:
 $K = hv - \varphi \ $onde $\varphi = hv_0$
 
-
 ---
 
 Slides:
