@@ -123,7 +123,7 @@ Imaginemos que temos uma carga $q$ na origem e uma esfera de
 raio $R$ centrada nela.
 
 $$
-	\oint \vec E \ d \vec S = \cfrac{q}{4\pi \epsilon_0} \oint \cfrac{\vec e_r}{r^2} \ (r^2 sin(\theta)\  d\theta \  d \phi\  \vec e_r) = \cfrac{q}{\epsilon_0}
+	\oint \vec E \ d \vec S = \cfrac{q}{4\pi \epsilon_0} \oint \cfrac{\vec e_r}{r^2} \ (r^2 \sin(\theta)\  d\theta \  d \phi\  \vec e_r) = \cfrac{q}{\epsilon_0}
 $$
 
 Podemos reparar que o fluxo total não depende do raio da esfera e é proporiconal à carga.\
