@@ -26,7 +26,7 @@ $K = h\nu - W_o = h(\nu-\nu_0)$
 Como podemos reparar pelo gráfico o declive das retas é igual e tem o valor da Constante de Planck ($h$).\
 Isto porque podemos reescrever a fórmula dada anteriormente da seguinte maneira
 $\cfrac{E}{\nu} = h$\
-O ponto em que a recta corta o eixo das abcissas é $\nu_0$\
+O ponto em que a reta corta o eixo das abcissas é $\nu_0$\
 Também podemos escrever a fórmula da seguinte maneira:
 $K = h\nu - \varphi \ $onde $\varphi = h\nu_0$
 
