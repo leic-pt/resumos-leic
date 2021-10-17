@@ -17,7 +17,7 @@ A energia de um fotão pode ser ainda obtida a partir do seu comprimento de onda
 uma vez que qualquer onda luminosa satisfaz $v \lambda = c$, em que $c = 3 \times 10^9 \ m \ s^{-1}$ corresponde à velocidade da luz no vácuo.
 
 A intensidade luminosa é determinada pelo número de fotões. Nomeadamente, a energia dum feixe luminoso corresponde ao produto da energia de cada fotão pelo número de fotões: \
-$ E = n \cdot E_{fotão}$
+$E = n \cdot E_{fotão}$
 
 Para cada metal existe uma energia mínima $W_0$ necessária para
 libertar os eletrões.
