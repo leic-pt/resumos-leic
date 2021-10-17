@@ -13,7 +13,11 @@ em que $h$ é a constante de Planck ( $6,626 \times 10^{-34} J \ s $ ) e \
  $\ v$ é a
 frequência da onda incidente (unidade de medida $s^{-1}$ ou $Hz$).
 
-A intensidade luminosa é determinada pelo número de fotões.
+A energia de um fotão pode ser ainda obtida a partir do seu comprimento de onda $\lambda$, \
+uma vez que qualquer onda luminosa satisfaz $v \lambda = c$, em que $c = 3 \cdot 10^9 m s^{-1}$ corresponde à velocidade da luz no vácuo.
+
+A intensidade luminosa é determinada pelo número de fotões. Nomeadamente, a energia dum feixe luminoso corresponde ao produto da energia de cada fotão pelo número de fotões: \
+$ E = n \cdot E_{fotão} $
 
 Para cada metal existe uma energia mínima $W_0$ necessária para
 libertar os eletrões.
@@ -32,6 +36,7 @@ $\cfrac{E}{v} = h$\
 O ponto em que a recta corta o eixo das abcissas é $v_0$\
 Também podemos escrever a fórmula da seguinte maneira:
 $K = hv - \varphi \ $onde $\varphi = hv_0$
+
 
 ---
 
