@@ -51,7 +51,7 @@ desta direção.
 
 ### Campos Vetoriais
 
-O operador $\vec \nabla$ funciona como um vetor.
+O operador $\vec \nabla$ funciona como um vetor, com $\vec \nabla = \sum_{i=1}^n\frac{\partial}{\partial x_i}\vec{e_i}
 
 Se a quantidade ($\vec\phi(\vec r)$) for um vetor podemos realizar 2 operações com o gradiente ($\vec\nabla$)
 
@@ -81,7 +81,7 @@ Para $\phi _i$ constantes:
 
 $$
 \begin{darray}{c}
-\phi(\vec r) = \sum\limits_{i =1}^{3} \phi_i \vec e_i = (\phi_i, \phi_2, \phi_3)\\
+\phi(\vec r) = \sum\limits_{i =1}^{3} \phi_i \vec e_i = (\phi_1, \phi_2, \phi_3)\\
 \vec\nabla \cdot \phi(\vec r) = 0\\
 \vec\nabla \times \phi(\vec r) = 0
 \end{darray}
