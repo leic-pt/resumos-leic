@@ -25,20 +25,20 @@ libertar os eletrões.
 Para cada metal existe uma energia mínima $W_0$ necessária para
 libertar os eletrões.
 
-Assim concluimos que $W_0 = hv_0$ e que existe uma frequência miníma $v_0$ para libertar eletrões.
+Assim concluimos que $W_0 = h\nu_0$ e que existe uma frequência miníma $\nu_0$ para libertar eletrões.
 
-Se um fotão com frequência $v > v_0$ interagir com um eletrão este
+Se um fotão com frequência $\nu > \nu_0$ interagir com um eletrão este
 adquire energia cinética \
-$K = hv - W_o = h(v-v_0)$
+$K = h\nu - W_o = h(\nu-\nu_0)$
 
 ![graph](./imgs/0001-photoeletric-grap.png)
 
 Como podemos reparar pelo gráfico o declive das retas é igual e tem o valor da Constante de Planck ($h$).\
 Isto porque podemos reescrever a fórmula dada anteriormente da seguinte maneira
-$\cfrac{E}{v} = h$\
-O ponto em que a recta corta o eixo das abcissas é $v_0$\
+$\cfrac{E}{\nu} = h$\
+O ponto em que a reta corta o eixo das abcissas é $\nu_0$\
 Também podemos escrever a fórmula da seguinte maneira:
-$K = hv - \varphi \ $onde $\varphi = hv_0$
+$K = h\nu - \varphi \ $onde $\varphi = h\nu_0$
 
 ---
 
