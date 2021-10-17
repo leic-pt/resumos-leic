@@ -8,8 +8,7 @@ type: content
 
 # Efeito Fotoelétrico
 
-A luz é constituída por fotões, cada fotão transporta energia $E = h\nu$ em que $h$ é a constante de Planck ( $6,626 \times 10^{-34} J\ s $ ) e $\nu$ é a
-frequência da onda incidente (unidade de medida $s^{-1}$ ou $Hz$).
+A luz é constituída por fotões, cada fotão transporta energia $E = h\nu$ em que $h$ é a constante de Planck ( $6,626 \times 10^{-34} J\ s $ ) e $\nu$ é a frequência da onda incidente (unidade de medida $s^{-1}$ ou $Hz$).
 
 A intensidade luminosa é determinada pelo número de fotões.
 
