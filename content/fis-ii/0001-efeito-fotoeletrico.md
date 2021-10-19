@@ -14,7 +14,7 @@ $\ v$ é a
 frequência da onda incidente (unidade de medida $s^{-1}$ ou $Hz$).
 
 A energia de um fotão pode ser ainda obtida a partir do seu comprimento de onda $\lambda$, \
-uma vez que qualquer onda luminosa satisfaz $v \lambda = c$, em que $c = 3 \times 10^9 \ m \ s^{-1}$ corresponde à velocidade da luz no vácuo.
+uma vez que qualquer onda luminosa satisfaz $v \lambda = c$, em que $c = 3 \times 10^8 \ m \ s^{-1}$ corresponde à velocidade da luz no vácuo.
 
 A intensidade luminosa é determinada pelo número de fotões. Nomeadamente, a energia dum feixe luminoso corresponde ao produto da energia de cada fotão pelo número de fotões: \
 $E = n \cdot E_{fotão}$
