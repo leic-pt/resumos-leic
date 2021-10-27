@@ -335,7 +335,7 @@ Então,
 
 $$
 \begin{aligned}
-e^{tA} &= S e ^{t\Lambda} S^-1\\
+e^{tA} &= S e ^{t\Lambda} S^{-1}\\
 &= \begin{bmatrix}
 1 & 1\\
 -1 & 1
