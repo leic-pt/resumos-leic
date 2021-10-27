@@ -1,7 +1,3 @@
-test
-ama
-zing
-
 _xournal 1_
 
 dado $c < d$:
@@ -21,92 +17,6 @@ $$
 várias notações:
 
 $y' = f(t,y)$ ; $x' = f(t,x)$ ; $y' = f(x,y)$ (dá tudo ao mesmo)
-
-## teorema de picard-lindelof
-
-:::tip[Definição]
-
-Seja $D \subset \R \times \R^n$ um conjunto aberto
-$f: D \to \R^n$ e $(t_0, y_0) \in D$
-e $f$ contínua em $D$ e $f(t,y) localmente Lipschitz em relação a $y$ em $D$.
-
-Então po problema de valor inicial
-
-$$
-\begin{darray}{cc}
-\frac{\d y}{\d t} = f(t, y) & y(t_0) = y_0
-\end{darray}
-$$
-
-tem uma única solução $y(t)$ que está definida numa vizinhança de $t_0$.
-
-:::
-
-## teorema de peano
-
-Se $f$ é contínua em $D$ então existe solução ...?
-
----
-
-$f: D \subset \R \times \R^n \to \R^n$
-
-$f$ é Lipschitz em relação a $y$ sse
-
-$f(y_1) - f(y_2) | \leq L |y_1 - y_2|$
-
-$L$ é constante de Lipschitz
-
-por exemplo:
-
-$f(y) = |y|$
-
-temos
-
-$| |y_1| - |y_2| | \leq |y_1 - y_2|$ ($L = 1$)
-
----
-
-localmente Lipschitz
-
-$\forall (t_0,y_0) \in D$, então $\exists$ uma vizinhança $B_\epsilon (t_0,y_0)$
-
-$$
-\exists L> 0 : \forall (t,y_1)(t,y_2) \in B_\epsilon (t_0, y_0)$
-$$
-
-então $f(y_1) - f(y_2) | \leq L |y_1 - y_2|$
-
-outra definição
-
-$\forall k \subset D$, $k$ compacto
-
-$\exists L > 0$: $\forall (t, y_1), (t, y_2) \in k \implies f(y_1) - f(y_2) | \leq L |y_1 - y_2|$
-
----
-
-exemplo 1 (lipschitz)
-
-$f(t, y) = | y - \sqrt(t) |$
-
-$| f(t, y_1) - f(t, y_2) | = ||y_1-\sqrt{t} | - |y_2 - \sqrt{t}|| \leq |y_1 - \sqrt{t} - (y_2 - \sqrt{t})| = |y_1 - y_2| (L = 1)$
-
-é Lipschitz em relação a $y$ em $\R^2$
-
-exemplo 2
-
-$f(t,y) = \sqrt{|y|} - \sqrt{|t|}$, $y_1, y_2 \gte 0$
-
-$f(t,y_1) - f(t,y_2) = \sqrt{y_1} - \sqrt{y_2} = \frac{(\sqrt{y_1} - \sqrt{y_2}) (\sqrt{y_1} + \sqrt{y_2})}{\sqrt{y_1} + \sqrt{y_2}} = \frac{1}{\sqrt <<{y_1} + \sqrt{y_2}} y_1 - y_2$ !!! check this
-
-$(y_1 = 0)$
-
-$$
-| f(t, 0) - f(t, y_2)| = \frac{1}{\sqrt{y_2}} | 0 - y_2| \leq L |y_1 - y_2|
-$$
-
-$\frac{1}{\sqrt{y_2}} \leq L$ o que é impossível porque precisamos de $t_2 \to 0$
-
-$f(t,y)$ não é localmente Lip. em relação a $y$ em $\R \times \R$.
 
 exemplo 3
 
