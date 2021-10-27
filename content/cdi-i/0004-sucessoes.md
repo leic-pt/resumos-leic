@@ -216,9 +216,9 @@ Para descobrirmos se a sucessão é convergente apenas precisamos de descobrir s
 $$
 u_1<3\Leftrightarrow 1<3\\\text{ }\\
 u_n<3\Rightarrow u_{n+1}<3\\
-u_n<3\Rightarrow u_{n+1}<3+3
+u_n<3\Rightarrow u_n+3<3+3
 \Rightarrow
-\frac{u_{n+1}}2<\frac 6 2\Rightarrow
+\frac{u_n+3}{2}<\frac{6}{2}\Rightarrow
 u_{n+1}<3
 $$
 
