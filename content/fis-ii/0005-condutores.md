@@ -24,6 +24,8 @@ Num condutor as cargas elétricas podem mover-se livremente no material.
 
 ### Dentro do Condutor
 
+![Condutor](./imgs/0005-condutor.png#dark=1)
+
 Quando aplicamos um campo $\vec E_1$ num condutor isolado, as cargas negativas (induzidas) movem-se na direção oposta ao campo $\vec E_1$, separando assim as cargas positivas das negativas.\
 Essas cargas induzidas criam 1 segundo campo $\vec E_2$ que é contrário ao campo $\vec E_1$, estes campos anulam-se e assim concluimos que o Campo Elétrico dentro do condutor é nulo.
 
@@ -90,7 +92,7 @@ $\propto\ $ significa "é proporcional a"
 Assim criamos a uma constante $C$ de proporcionalidade chamada de Capacitância
 
 $$
-C = \cfrac{Q}V
+C = \cfrac{Q} {\Delta V}
 $$
 
 Esta é uma grandeza geométrica que é determinada pela forma, tamanho e separação de 2 condutores.\
@@ -103,6 +105,8 @@ Normalmente usa-se o microfarad ou o picofarad.
 
 ### Condensadores em Série
 
+![Serie](./imgs/0005-serie.png#dark=1)
+
 Se tivermos 3 Condensadores em série, as 3 placas de cima estão ao mesmo potencial assim como as debaixo, isso equivale a ter uma placa grande em cima e uma grande em baixo, e assim essa placa é a soma das 3 placas pequenas.
 
 Assim a capacidade do Condensador é
@@ -112,6 +116,8 @@ C = \cfrac{Q_1+ Q_2 + Q_3}V = \cfrac{Q_1}V + \cfrac{ Q_2 }V + \cfrac{ Q_3}V = C_
 $$
 
 ### Condensadores em Paralelo
+
+![paralel](./imgs/0005-paralel.png#dark=1)
 
 Se tivermos 3 Condensadores em Paralelo, as ligações entre todas placas tem de ser igual para manter o equilíbrio.
 
