@@ -244,3 +244,48 @@ a solução de $\frac{\d y}{\d t} = f(t,y)$, $y(t_0) = y_0$
 TODO HELP
 
 :::
+
+---
+
+:::tip[Teorema]
+
+Sejam $D \subset \R \times \R$ e funções $f,g: D \to \R$ nas condições do Teorema de Picard-Lindelöf.
+
+Suponha-se que
+
+$$
+\begin{darray}{cr}
+f(t,y) \leq g(t,y) & \forall (t,y) \in D\\
+u_0 \leq v_0 & (t_0, u_0) \in D, (t_0, v_0) \in D
+\end{darray}
+$$
+
+Considere-se $u(t)$ e $v(t)$ soluções dos seguintes PVI:
+
+$$
+\begin{cases}
+\frac{\d u}{\d t} = f(t,u)\\
+u(t_0) = u_0
+\end{cases}
+$$
+
+e
+
+$$
+\begin{cases}
+\frac{\d v}{\d t} = g(t,v)\\
+v(t_0) = v_0
+\end{cases}
+$$
+
+definidas no intervalo $[t_0, b[$, com $b > t_0$.
+
+Então,
+
+$$
+\forall t \in [t_0, b[, u(t) \leq v(t)
+$$
+
+(só para $t > t_0$)
+
+:::
