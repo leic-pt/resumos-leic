@@ -1,24 +1,16 @@
 ---
-title: Continuação do Estudo do Potencial Elétrico (Não sai no Primeiro Teste)
+title: Continuação do Estudo do Potencial Elétrico
 description: >-
   Continuação do Estudo do Potencial Elétrico
 path: /fis-ii/potencial
 type: content
 ---
 
-:::danger[Esta matéria não sai para o 1º teste]
-A matéria que se encontra neste resumo não sairá para o primeiro teste
-:::
-
 # Continuação do Estudo do Potencial Elétrico
 
 ```toc
 
 ```
-
-:::danger[Esta matéria não sai para o 1º teste]
-A matéria que se encontra neste resumo não sairá para o primeiro teste
-:::
 
 Num caminho de $Q \rightarrow P$
 
@@ -156,11 +148,25 @@ $$
 
 ### Condições de fronteira numa superfície carregada
 
-// TO DO
+Consideremos uma superfície Gaussiana $S$ com uma altura $e$
 
-:::danger[Esta matéria não sai para o 1º teste]
-A matéria que se encontra neste resumo não sairá para o primeiro teste
-:::
+$$
+\oint_S \vec E \cdot d\vec S = \frac {\sigma A}{ \epsilon_{0}}
+$$
+
+Quando $e \rightarrow 0$ as faces laterais não contam, assim:
+
+$$
+E_{\perp}^+ - E_{\perp}^- = \frac {\sigma }{ \epsilon_{0}}
+$$
+
+Já o potencial é dado por
+
+$$
+V^+ = V^-
+$$
+
+Onde $+$ é acima da superfície e $-$ abaixo.
 
 Slides:
 
