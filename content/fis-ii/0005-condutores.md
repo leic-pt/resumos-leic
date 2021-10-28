@@ -73,6 +73,8 @@ No caso de não haver carga na cavidade, o campo elétrico $\vec E = 0 \ $ na ca
 
 ## Condensador
 
+Um condensador é um componente que armazena cargas elétricas num campo elétrico.
+
 Imaginemos que temos 2 condutores com carga $+Q$ e $-Q$
 
 Como são equipotenciais podemos calcular a sua diferença de potencial.
@@ -153,6 +155,42 @@ $$
 onde $q$ é um carga positiva que auxilia os cálculos
 
 ## Dielétricos
+
+Com os dielétricos entramos no estudo do campo elétrico na matéria.
+Existem 2 grandes grupos:
+
+- Condutores
+
+  - As cargas elétricas movem-se livremente através do material
+
+- Dielétricos ou Isolantes
+
+  - As cargas elétricas estão presas aos átomos ou moléculas e apenas se podem mover um pouco dentro deles
+  - Existem 2 mecanismos pelos quais um campo elétrico pode distorcer a distribuição de carga de um átomo ou molécula dielétrica
+    - Estiramento
+    - Rotação
+
+  Quando estes mecanismos acontecem dizemos que o átomo está Polarizado.
+
+  Imaginemos que colocamos um isolante entre 2 placas de 1 condensador.
+
+  Se o isolante tocar simultaneamente nas duas placas, a capacitância aumenta por um fator $k$
+
+  $k$ é assim a constante dielétrica do meio.
+
+  $k$ no vácuo é 1.
+
+  Isto acontece porque como vimos antes a Capacitância sem a presença do dielétrico é dada por
+
+  $$
+  C = \cfrac{\epsilon_{0}A}{\delta} \ , \ C = \cfrac{Q}V
+  $$
+
+  onde $A$ é a área das placas e $\delta$ a distância entre elas
+
+  Como podemos ver se a Capacitância aumentar $C$, para a mesma carga $Q$ a diferença de potencial $V$ é menor.
+
+  Se o potencial $V$ é menor, então o campo elétrico $E$ é também menor.
 
 Slides:
 
