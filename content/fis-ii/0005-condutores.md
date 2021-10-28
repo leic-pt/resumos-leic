@@ -44,6 +44,7 @@ Concluímos assim que a densidade de carga no interior do condutor é nula.
 Isto é equivalente a dizer que existe o mesmo número de cargas positivas $(+)$ e cargas negativas $(-)$, tais que a sua densidade se anula.
 
 - Qualquer carga remanescente situa-se na superfície do condutor
+  - Isto significa que nehuma carga pode sair do condutor e quando interagida por um campo elétrico as cargas deslocam-se para as extremidades do condutor
 
 Podemos também concluir que o Campo Elétrico $\vec E \perp \ $Superfície do Condutor
 
@@ -80,8 +81,10 @@ Imaginemos que temos 2 condutores com carga $+Q$ e $-Q$
 Como são equipotenciais podemos calcular a sua diferença de potencial.
 
 $$
-V = V_{+} - V_{-} = - \int_{(-)}^{(+)} \vec E \cdot d \vec l
+\Delta V = V_{+} - V_{-} = - \int_{(-)}^{(+)} \vec E \cdot d \vec l = E \cdot d
 $$
+
+$d$ é a distância das placas
 
 Para calcular o campo elétrico de cada condutor seria algo muito difícil, mas sabemos uma coisa
 
@@ -104,6 +107,16 @@ Normalmente usa-se o microfarad ou o picofarad.
 - Por definição o potencial é o do condutor com carga positiva $+Q$, e assim a capacitância é sempre maior que zero.
 
 - Para a capacitância de um único condutor, dizemos que o outro "condutor está no infinito e o seu campo é zero"
+
+Também sabemos que
+
+$$
+|\Delta V| = E d
+
+E =  \cfrac{\sigma}{\epsilon_{0}}
+Q = \sigma A
+C = \cfrac{\epsilon_{0} A}{d}
+$$
 
 ### Condensadores em Série
 
@@ -170,27 +183,109 @@ Existem 2 grandes grupos:
     - Estiramento
     - Rotação
 
-  Quando estes mecanismos acontecem dizemos que o átomo está Polarizado.
+Quando estes mecanismos acontecem dizemos que o átomo está Polarizado.
 
-  Imaginemos que colocamos um isolante entre 2 placas de 1 condensador.
+![Burguer](./imgs/0005-burguer.png#dark=1)
 
-  Se o isolante tocar simultaneamente nas duas placas, a capacitância aumenta por um fator $k$
+Imaginemos que colocamos um isolante entre 2 placas de 1 condensador.
 
-  $k$ é assim a constante dielétrica do meio.
+Se o isolante tocar simultaneamente nas duas placas, a capacitância aumenta por um fator $k$
 
-  $k$ no vácuo é 1.
+$k$ é assim a constante dielétrica do meio.
 
-  Isto acontece porque como vimos antes a Capacitância sem a presença do dielétrico é dada por
+$k$ no vácuo é 1.
 
-  $$
-  C = \cfrac{\epsilon_{0}A}{\delta} \ , \ C = \cfrac{Q}V
-  $$
+Isto acontece porque como vimos antes a Capacitância sem a presença do dielétrico é dada por
 
-  onde $A$ é a área das placas e $\delta$ a distância entre elas
+$$
+C = \cfrac{\epsilon_{0}A}{\delta} \ , \ C = \cfrac{Q}V
+$$
 
-  Como podemos ver se a Capacitância aumentar $C$, para a mesma carga $Q$ a diferença de potencial $V$ é menor.
+onde $A$ é a área das placas e $\delta$ a distância entre elas
 
-  Se o potencial $V$ é menor, então o campo elétrico $E$ é também menor.
+Como podemos ver se a Capacitância aumentar $C$, para a mesma carga $Q$ a diferença de potencial $V$ é menor.
+
+Se o potencial $V$ é menor, então o campo elétrico $E$ é também menor.
+
+Assim podemos concluir que na parte superior do condensador irão haver cargas positivas e na parte inferior do condensador irão haver cargas negativas.
+
+Isto leva nos a dizer que se houver N átomos por unidade de volume haverá momento dipolar por unidade de volume
+
+$$
+\vec P = N \vec p
+$$
+
+O $\vec P$ pode mudar de ponto para ponto mas em cada ponto $\vec P \propto \vec E$
+
+Consideremos uma superfície dipolar com um certo momento dipolar por unidade de volume. Haverá uma densidade de carga produzida por ela? Não se $\vec P$ for uniforme.
+
+Se as cargas que forma deslocadas têm a memsa densidade média não teremos uma carga líquida no volume.
+
+Se $\vec P$ fosse maior num lugar do que noutro então mais carga seria movida para dentro de 1 determinada região do que noutra e teríamos uma densidade de carga no volume.
+
+No condutor de placas paralelas vamos supor que $\vec P$ é uniforme e por isso só nos precisamos de preocupar com o que se passa nas superfícies.\
+Na superfície de baixo haverá uma distribuição superficial de carga negativa (chamada carga superficial de polarização)\
+com a correspondente carga positiva a uma distância $d = \cfrac{p}Q$ acima,\
+enquanto na superfície de cima acontecerá o fenómeno inverso.
+
+Vamos assumir que $\vec p \perp$ superfície.
+
+O número
+de dipolos que aparecem na superfície de baixo é dado pelo
+número de dipolos por unidade de volume $N$ multiplicados pelo
+volume de uma camada de superfície $A$ de altura $d$.
+Em cada dipolo há uma carga eletrónica $q_e$ e por isso a carga total é $A \cdot N \cdot d \cdot q_e$\
+Assim a densidade de carga superficial $\sigma_{pol}$ é
+
+$$
+\sigma_{pol} = \cfrac{A \cdot N \cdot d \cdot q_e}A = Ndq_e = P
+$$
+
+As placas dos condutores também têm uma densidade de carga $\sigma_{pc}$.
+
+As cargas de polarização só existem porque existe $\sigma_{pc}$.
+
+Se descarregarmos o condensador, $\sigma_{pc}$ desaparece porque os dipolos desaparecem por ausência de campo aplicado e não por serem transportados pelo fio de terra.
+
+Dentro do dielétrico
+
+$$
+E = \cfrac{\sigma_{pc} - \sigma_{pol}}{\epsilon_0} = \cfrac{\sigma_{pc} - P}{\epsilon_0}
+$$
+
+Como sabemos que $\vec P \propto \vec E$ podemos escrever que
+
+$$
+\vec P = \chi \epsilon_0 \vec E
+$$
+
+$\chi$ é a constante de susceptibilidade elétrica do dielétrico
+
+$$
+E = \cfrac{\sigma_{pc}}{\epsilon_0} \cfrac{1}{1+ \chi}
+$$
+
+$$\cfrac{1}{1+ \chi}$$ diz-nos quanto o campo diminui no interior do dielétrico
+
+A diferença de potencial entre as placas é o integral de campo elétrico. Como o campo é uniforme e a carga total no condensador é $\sigma_{pc}A$
+
+$$
+V = E\delta = E = \cfrac{\sigma_{pc}}{\epsilon_0} \cfrac{\delta}{1+ \chi}
+
+C = \cfrac{\epsilon_0A}{\sigma}(1+\chi) \implies k = 1 + \chi
+$$
+
+Se a polarização $\vec P $ não for uniforme
+
+A carga total $\sigma_{pol}$ por unidade de volume que atravessou a superfície é
+
+$$
+\sigma_{pol} = \vec P \cdot \vec n
+$$
+
+$$
+\rho_{pol} = -\vec \nabla \cdot \vec P
+$$
 
 Slides:
 
