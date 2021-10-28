@@ -16,6 +16,14 @@ type: content
 
 ```
 
+:::warning[Página Incompleta e/ou com Erros]
+
+Alguns conteúdos nesta página podem estar incompletos ou mesmo incorretos.
+
+Agradece-se contribuições.
+
+:::
+
 ## Teorema de Peano
 
 Este teorema ajuda-nos a dizer que existe uma solução local, exigindo apenas a continuidade de $f(t,y)$.
@@ -179,30 +187,24 @@ $u(t) \leq \alpha e^{| \int_{t_0}^{t} v(s) \d s|}$
 Se $\alpha = 0$ no Lema de Gronwall então $u(t) \equiv 0$.
 
 $$
-\begin{darray}{ccc}
-\frac{\d y_1}{\d t} = f(t,y_1) &
-\frac{\d y_2}{\d t} = f(t,y_2) &
-y_1(t_0) = y_2(t_0) = y_0
-\end{darray}
-$$
+% TODO this is confusing
 
+% \begin{darray}{ccc}
+% \frac{\d y*1}{\d t} = f(t,y_1) &
+% \frac{\d y_2}{\d t} = f(t,y_2) &
+% y_1(t_0) = y_2(t_0) = y_0
+% \end{darray}
+%
+% y_1(t) = y_0 + \int*{t*0}^{t} f(s,y_1(s)) \d s
+%
+% y_2(t) = y_0 + \int*{t*0}^{t} f(s,y_2(s)) \d s
+%
+% ||y_1 - y_2|| = || \int*{t*0}^{t} f(s, y_1) - f(s, y_2) \d s || \leq | \int*{t*0}^{t} ||f(s,y_1) - f(s,y_2)|| \d s \leq | \int*{t*1}^{t} L ||y_1 -y_2|| \d s|
+%
+% \leq | \int*{t_0}^{t} u(s) \d s
+%
+% HELP, no idea oq isto é suposto ser
 $$
-y_1(t) = y_0 + \int_{t_0}^{t} f(s,y_1(s)) \d s
-$$
-
-$$
-y_2(t) = y_0 + \int_{t_0}^{t} f(s,y_2(s)) \d s
-$$
-
-$$
-||y_1 - y_2|| = || \int_{t_0}^{t} f(s, y_1) - f(s, y_2) \d s || \leq | \int_{t_0}^{t} ||f(s,y_1) - f(s,y_2)|| \d s \leq | \int_{t_1}^{t} L ||y_1 -y_2|| \d s|
-$$
-
-$$
-\leq | \int_{t_0}^{t} u(s) \d s
-$$
-
-HELP, no idea oq isto é suposto ser
 
 ---
 
@@ -216,9 +218,12 @@ Seja $D \subset \R \times \R^n$ um conjunto aberto e $f: D \to \R^n$ tal que
 Se $y(t)$ é tal que, para certo intervalo $I$ aberto não vazio,
 
 $$
+
 \begin{darray}{cc}
 \frac{\d y}{\d t} = f(t,y) & \forall t \in I
 \end{darray}
+
+
 $$
 
 Então existe um intervalo máximo de definição $]a, b[$
@@ -234,14 +239,19 @@ e verifica-se uma das seguintes propriedades que caracterizam $b$ (e $a$, respet
 
 :::tip[Proposição]
 
-$f: \R \times \R^n \to \R^n$
+Seja $f: \R \times \R^n \to \R^n$ uma função localmente Lipschitz em $y$ e limitada, então para cada $(t_0, y_0) \in \R \times \R^n$
+a solução de
 
-uma função localmente lip. em $y$ e limitada então para cada $(t_0, y_0) \in \R \times \R^n$
-a solução de $\frac{\d y}{\d t} = f(t,y)$, $y(t_0) = y_0$
+$$
+\begin{cases}
+\frac{\d y}{\d t} = f(t,y)\\
+y(t_0) = y_0
+\end{cases}
+$$
 
 ... intervalo máximo de definição $\R$
 
-TODO HELP
+[TODO HELP. Esta última frase está incompleta e não sei o que dizia. Agradecem-se contribuições. Penso que esta proposição correspondia à proposição 1.55 do livro.](color:red)
 
 :::
 
@@ -254,28 +264,37 @@ Sejam $D \subset \R \times \R$ e funções $f,g: D \to \R$ nas condições do Te
 Suponha-se que
 
 $$
+
 \begin{darray}{cr}
 f(t,y) \leq g(t,y) & \forall (t,y) \in D\\
 u_0 \leq v_0 & (t_0, u_0) \in D, (t_0, v_0) \in D
 \end{darray}
+
+
 $$
 
 Considere-se $u(t)$ e $v(t)$ soluções dos seguintes PVI:
 
 $$
+
 \begin{cases}
 \frac{\d u}{\d t} = f(t,u)\\
 u(t_0) = u_0
 \end{cases}
+
+
 $$
 
 e
 
 $$
+
 \begin{cases}
 \frac{\d v}{\d t} = g(t,v)\\
 v(t_0) = v_0
 \end{cases}
+
+
 $$
 
 definidas no intervalo $[t_0, b[$, com $b > t_0$.
@@ -283,9 +302,15 @@ definidas no intervalo $[t_0, b[$, com $b > t_0$.
 Então,
 
 $$
+
 \forall t \in [t_0, b[, u(t) \leq v(t)
+
+
 $$
 
 (só para $t > t_0$)
 
 :::
+
+$$
+$$
