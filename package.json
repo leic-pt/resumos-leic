@@ -13,7 +13,8 @@
     "build": "gatsby build",
     "clean": "gatsby clean",
     "serve": "gatsby serve",
-    "format": "prettier -w 'src/**/*.{js,md,vue}'",
+    "format": "npm run format:content",
+    "format:code": "prettier -w 'src/**/*.{js,md,vue}'",
     "format:content": "prettier -w 'content/**/*.md'",
     "format-win": "prettier -w 'src\\**\\*.{js,md,vue}'"
   },
