@@ -104,7 +104,7 @@ Mais à frente veremos como podemos resolver equações deste tipo.
 
 :::
 
-Quando uma EDO na variável $x$ vem associada com uma condição inicial $x(t_0) = x_0$, dizemos que temos um \textbf{Problema do valor inicial (PVI)}.
+Quando uma EDO na variável $x$ vem associada com uma condição inicial $x(t_0) = x_0$, dizemos que temos um Problema do Valor Inicial (PVI).
 
 ## EDO Lineares
 
@@ -140,7 +140,7 @@ $$
 
 :::
 
-### Caso $a(t) \equiv 0$ - integração direta
+### Caso $a(t) \equiv 0$ - Integração Direta
 
 Neste caso, como $a(t) \equiv 0$, temos que $\frac{\d x}{\d t} = b(t)$.
 Este é o caso mais simples, pelo que podemos obter
@@ -159,7 +159,7 @@ $$
 x(t) = x_0 + \int_{t_0}^t b(s) \d s
 $$
 
-### Caso $b(t) \equiv 0$ - homogéneas
+### Caso $b(t) \equiv 0$ - Homogéneas
 
 Neste caso, como $b(t) \equiv 0$, temos que $\frac{\d x}{\d t} = a(t) x$.
 Assim obtemos a seguinte fórmula (para qualquer $K \in \R$):
@@ -195,7 +195,7 @@ $$
 x(t) = x_0 e^{\int_{t_0}^t a(s) \d s}
 $$
 
-### Caso Geral - não homogéneo
+### Caso Geral - Não Homogéneo
 
 :::tip[PRO TIP]
 É recomendado saber os casos particulares de cor em vez de usar o caso geral para lá chegar,
@@ -209,8 +209,9 @@ $$
 \frac{\d x}{\d t} = a(t) x + b(t)
 $$
 
-Para resolver este tipo de equações, utilizamos uma função auxiliar, denomidada [**fator de integração**](color:orange).
-O fator integrante é uma função $\mu : \R \to \R$ (normalmente representada pela [letra grega "mu"](<https://en.wikipedia.org/wiki/Mu_(letter)#Mathematics>)), tal que $\mu' = a(t)\mu$. Esta função permite-nos reduzir o caso geral aos casos mais simples que já sabemos resolver:
+Para resolver este tipo de equações, utilizamos uma função auxiliar, denomidada [**fator de integração**](color:orange).\
+O fator integrante é uma função $\mu : \R \to \R$ (normalmente representada pela [letra grega "mu"](<https://en.wikipedia.org/wiki/Mu_(letter)#Mathematics>)), tal que $\mu' = a(t)\mu$.\
+Esta função permite-nos reduzir o caso geral aos casos mais simples que já sabemos resolver:
 
 1. Começamos por multiplicar todos os membros da equação por $\mu$:
 
@@ -229,7 +230,7 @@ $$
 que é uma EDO resolúvel por integração direta.
 
 $$
-x \cdot \mu = \int b(s) \mu ds + C \Leftrightarrow x(t) = \int \frac{\mu(s)}{\mu(t)} b(s) ds + \frac{C}{\mu(t)}
+x \cdot \mu = \int b(s) \mu \ ds + C \Leftrightarrow x(t) = \int \frac{\mu(s)}{\mu(t)} \ b(s) ds + \frac{C}{\mu(t)}
 $$
 
 3. Note-se que a equação que define o fator integrante: $\mu' = a(t)\mu$ é linear homogénea de primeira ordem. Podemos então descobrir $\mu$, pela fórmula do [caso $b(t) \equiv 0$](#caso-bt-equiv-0) .
@@ -238,7 +239,7 @@ $$
 \mu' = -a(t) \mu \Leftrightarrow \mu(t) = K e^{\int a(s) ds}
 $$
 
-4. Substituir o $\mu$ obtido em 3. na expressão obtida em 2., determinando o conjunto solução da EDO.
+4. Substituir o $\mu$ obtido em 3. na expressão obtida em 2. determinando o conjunto solução da EDO.
 
 :::details[Exemplos]
 
@@ -337,8 +338,6 @@ $$
 x(t) = x_0 e^{\int_{t_0}^t a(z) \d z} + \int_{t_0}^t b(s) e^{\int_s^t a(z) \d z} \d s
 $$
 
-:::
-
 ## Equações Separáveis
 
 As equações separáveis generalizam a ideia que usámos no caso homogéneo de passar os termos que dependem de $y$ para um só lado da equação.
@@ -367,8 +366,6 @@ F[y(t)] = F(y_0) \int_{t_0}^t g(s) ds
 $$
 
 define uma solução única para o PVI, numa vizinhança de $y_0$.
-
-:::
 
 :::info[Exemplo]
 
