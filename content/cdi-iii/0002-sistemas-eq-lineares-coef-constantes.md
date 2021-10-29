@@ -491,7 +491,7 @@ e^{tA} = \begin{bmatrix}
 \end{bmatrix}
 $$
 
-Abaixo está um exemplo de uma matriz com dois blocos:
+Abaixo está um exemplo de uma matriz com três blocos:
 
 $$
 \def\marray#1{\hspace{-5pt}\begin{array}{c}#1\end{array}\hspace{-5pt}}
