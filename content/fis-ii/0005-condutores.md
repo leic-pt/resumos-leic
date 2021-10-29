@@ -94,10 +94,10 @@ $$
 
 $\propto\ $ significa "é proporcional a"
 
-Assim criamos a uma constante $C$ de proporcionalidade chamada de Capacitância
+Assim criamos a uma constante $C$ de proporcionalidade chamada de Capacitância ou Capacidade
 
 $$
-C = \cfrac{Q} {\Delta V}
+C = \cfrac{Q} {|\Delta V|}
 $$
 
 Esta é uma grandeza geométrica que é determinada pela forma, tamanho e separação de 2 condutores.\
@@ -108,15 +108,13 @@ Normalmente usa-se o microfarad ou o picofarad.
 
 - Para a capacitância de um único condutor, dizemos que o outro "condutor está no infinito e o seu campo é zero"
 
-Também sabemos que
+![Placa](./imgs/0005-palca.png#dark=1)
 
-$$
-|\Delta V| = E d
+Também sabemos que para 2 placas a uma distância $d$
 
-E =  \cfrac{\sigma}{\epsilon_{0}}
-Q = \sigma A
-C = \cfrac{\epsilon_{0} A}{d}
-$$
+$|\Delta V| = E d \ \ \ E = \cfrac{\sigma}{\epsilon_{0}} \ \ \ Q = \sigma A$
+
+$C = \cfrac{\epsilon_{0} A}{d}$
 
 ### Condensadores em Série
 
@@ -287,6 +285,97 @@ $$
 \rho_{pol} = -\vec \nabla \cdot \vec P
 $$
 
+## Polarização
+
+Como sabemos da Eletrostática
+
+$$
+\vec \nabla \cdot \vec E = \cfrac{\rho}{\epsilon_{0}} \ \ \vec \nabla \times \vec E = 0
+$$
+
+onde $\rho$ é a densidade de todas as cargas.
+No entanto num condutor existem cargas livres e cargas polarizadas, cada uma delas com a sua densidade de carga.
+
+$$
+\vec \nabla \cdot \vec E = \cfrac{\rho_{livre} + \rho_{pol}}{\epsilon_{0}}
+$$
+
+Mas sabemos que
+
+$$
+\rho_{pol} = -\vec \nabla \cdot \vec P
+
+\vec P = \chi \epsilon_0 \vec E
+
+k = 1 + \chi
+$$
+
+Então
+
+$$
+\vec \nabla \cdot \vec E = \cfrac{\rho_{livre} -\vec \nabla \cdot \vec P}{\epsilon_{0}} \implies \vec \nabla (\vec E + \cfrac{\vec P}{\epsilon_{0}}) = \cfrac{\rho_{livre}}{\epsilon_{0}}
+$$
+
+$$
+\vec \nabla [(1 + \chi) \vec E ] = \vec \nabla (k \vec E) = \cfrac{\rho_{livre}}{\epsilon_{0}}
+$$
+
+$k$ encontra-se dentro da divergência, isso deve-se ao seu valor variar de ponto para ponto.
+
+Para combinar o Campo Elétrico e a Polarização utiliza-se o Deslocamento Elétrico $D$
+O Deslocamento Elétrico tenta descrever as propriedades da matéria (nos dielétricos lineares)
+
+$$
+\vec D = \epsilon_{0} \vec E + \vec P
+$$
+
+Assim podemos escrever
+
+$$
+\vec \nabla \cdot \vec D = \rho_{livre}\\
+$$
+
+$$
+
+\vec \nabla \times \vec D = \vec \nabla \times \vec P\\
+$$
+
+$$
+
+\oint_S \vec D \cdot d \vec S = Q_{livre}
+$$
+
+$$
+\vec D = \epsilon_{0}(1 + \chi)\vec E = k \epsilon_{0} \vec E \iff \vec D = \epsilon \vec E
+$$
+
+$\epsilon = k \epsilon_{0}$ é a permitividade do meio
+
+E podemos concluir que
+
+$$
+D_{+}^{\perp} - D_{-}^{\perp} = \rho_{livre}
+
+D_{+}^{\parallel} - D_{-}^{\parallel} = P_{+}^{\parallel} - P_{-}^{\parallel}
+$$
+
+$+$ e $-$ indica acima e abaixo da superfíce respetivamente.
+
+Num dielétrico linear homogéneo a densidade (volumétrica) de cargas de polarização $\rho_{pol}$ é proporcional à densidade (volumétrica) de cargas livres $\rho_{livre}$
+
+$$
+\rho_{pol} = - \vec \nabla \cdot \vec P = - (\cfrac{\chi}{1+ \chi}) \vec \nabla \cdot \vec D =  - (\cfrac{\chi}{1+ \chi})\rho_{livre}
+$$
+
+Em particular, a menos que existam cargas livres inseridas no
+dielétrico $\rho_{pol} = 0$ e toda a carga tem de estar na superfície.
+As condições fronteira podem ser escritas na forma
+
+$$
+\epsilon_{+} E_{+}^{\perp} - \epsilon_{-} E_{-}^{\perp} = \sigma_{livre}
+$$
+
 Slides:
 
 - [Slides Módulo 3](https://drive.google.com/file/d/1zAAUvHuN-P_IzD0QDNA99_cCdzQsmLv4/view?usp=sharing)
+  $$
