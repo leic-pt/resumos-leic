@@ -398,7 +398,7 @@ $$
 \begin{darray}{c}
 \det(A - \lambda I) = (1-\lambda) ^2 + 1\\
 \begin{darray}{cc}
-\lambda = 1 + i & \lambda = 1 - y
+\lambda = 1 + i & \lambda = 1 - i
 \end{darray}\\
 \end{darray}
 $$
