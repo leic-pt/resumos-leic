@@ -22,10 +22,11 @@ Abaixo seguem alguns exemplos:
 ## Obter config do IST
 
 É possível obter a config copiando-a do sigma
+
 ```bash
 scp ist1XXXXX@sigma.tecnico.ulisboa.pt:/etc/krb5.conf
 sudo mv krb5.conf /etc/krb5.conf
-```  
+```
 
 ## Fazer login no Kerberos
 
@@ -35,7 +36,8 @@ kinit ist1XXXX@IST.UTL.PT
 
 ## Alterar a config de ssh para usar Kerberos
 
-Adicionar o seguinte a ``~/.ssh/config``
+Adicionar o seguinte a `~/.ssh/config`
+
 ```bash
 Host sigma
     HostName sigma01.tecnico.ulisboa.pt
@@ -43,7 +45,8 @@ Host sigma
     GSSAPIAuthentication yes
     GSSAPIDelegateCredentials yes
 ```
-Depois disto, é possível passar a fazer ssh para o sigma com o comando ``ssh sigma``  
+
+Depois disto, é possível passar a fazer ssh para o sigma com o comando `ssh sigma`  
 É aconselhável testar e ver se funciona.
 
 :::tip
