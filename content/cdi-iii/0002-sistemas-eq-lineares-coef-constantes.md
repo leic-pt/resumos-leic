@@ -441,7 +441,7 @@ e^{tA} &= S e^{t\Lambda} S^{-1}\\
 1 & 1\\
 -i & i
 \end{bmatrix} \begin{bmatrix}
-e^{t-it} & 0\\
+e^{t+it} & 0\\
 0 & e^{t - it}
 \end{bmatrix} \frac{1}{2i} \begin{bmatrix}
 i & -1\\
