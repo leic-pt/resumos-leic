@@ -1,0 +1,55 @@
+name: Resolução de Exercícios Incorreta
+description: Encontraste uma resolução de exercícios incorreta? Aqui é onde o podes reportar
+title: "[Incorrect Solution] "
+labels: ["incorrect solution"]
+body:
+  - type: markdown
+    attributes:
+      value: Preenche os campos abaixo para podermos corrigir a resolução do mais depressa possível!
+  - type: dropdown
+    id: course
+    attributes:
+      label: Qual a UC que tem a resolução incorreta?
+      options:
+        - "(AL) Álgebra Linear"
+        - "(ASA) Análise e Síntese de Algoritmos"
+        - "(BD) Bases de Dados"
+        - "(CDI-I) Cálculo Diferencial e Integral I"
+        - "(CDI-II) Cálculo Diferencial e Integral II"
+        - "(CDI-III) Cálculo Diferencial e Integral III"
+        - "(EMD) Elementos Matemática Discreta"
+        - "(Fis-I) Física I"
+        - "(Fis-II) Física II"
+        - "(FP) Fundamentos da Programação"
+        - "(Ges) Gestão"
+        - "(IA) Inteligência Artificial"
+        - "(IAC) Introdução à Arquitetura de Computadores"
+        - "(IAED) Introdução a Algoritmos e Estruturas de Dados"
+        - "(IEI) Introdução à Engenharia Informática"
+        - "(IPM) Interação Pessoa-Máquina"
+        - "(LP) Lógica para Programação"
+        - "(PE) Probabilidade e Estatística"
+        - "(PO) Programação com Objetos"
+        - "(SO) Sistemas Operativos"
+        - "(TC) Teoria da Computação"
+        - "Outro (especificar na descrição abaixo)"
+    validations:
+      required: true
+  - type: input
+    id: section_exercise
+    attributes:
+      label: Em que ficha/capítulo/exercício/passo se encontra o erro?
+      description: O mais específico possível, de forma a ser possível encontrar o erro
+      placeholder: "Ficha 1, exercício 1.4 b), determinação da matriz inversa"
+    validations:
+      required: true
+  - type: textarea
+    id: error_description
+    attributes:
+      label: O que está incorreto e qual é a resposta certa?
+      description: Aqui podes (e deves!) colocar screenshots do erro e explicar porque achas que a resposta está errada, e, se possível, indicar qual a solução correta!
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: Obrigado por reportares esta resolução incorreta.
