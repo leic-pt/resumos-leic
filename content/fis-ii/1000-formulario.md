@@ -285,3 +285,32 @@ $C = \cfrac{\epsilon_{0} A}{d}$
 
 $C$ - Capacitância (ou Capacidade) $\ \ \epsilon_{0}$ - Constante\
 $A$ - Área da Placa $\ \ d$ - Distância entre as 2 Placas
+
+$
+\vec P = N \vec p
+$
+
+$P$ - Momento dipolar por unidade de Volume $\ \ N$ - Número de Cargas $\ \ p$ - (IDK)
+
+$
+\sigma_{pol} = Ndq_e = P
+$
+
+$\sigma_{pol}$ - Densidade de Carga Superficial $\ \ N$ - Número de Cargas\
+$q_e$ - Carga Eletrónica $\ \ P$ - Momento dipolar por unidade de Volume
+
+$
+\vec P = \chi \epsilon_0 \vec E
+$
+
+$P$ - Momento dipolar por unidade de Volume $\ \ \chi$ - Constante de Susceptibilidade Elétrica do Dielétrico
+
+$
+E = \cfrac{\sigma_{pc}}{\epsilon_0} \cfrac{1}{1+ \chi}
+$
+
+$\cfrac{1}{1+ \chi}$ - Quanto o Campo Diminuiu no Interior do Dielétrico
+
+$K = 1 + \chi$
+
+$k$ - Constante Dielétrica do Meio - Capacitância aumenta por fator $k$
