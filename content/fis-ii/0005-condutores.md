@@ -39,18 +39,19 @@ $$
 \vec \nabla \cdot \vec E = \cfrac{\rho}{\epsilon_{0}}
 $$
 
-Como $\vec E = 0 \implies \rho = 0$
+Como $\vec E = 0 \implies \rho = 0$\
 Concluímos assim que a densidade de carga no interior do condutor é nula.
-Isto é equivalente a dizer que existe o mesmo número de cargas positivas $(+)$ e cargas negativas $(-)$, tais que a sua densidade se anula.
+Isto é equivalente a dizer que existe o mesmo número de cargas positivas $(+)$ e cargas negativas $(-)$, tais que as suas densidades se anulam.
 
 - Qualquer carga remanescente situa-se na superfície do condutor
+
   - Isto significa que nehuma carga pode sair do condutor e quando interagida por um campo elétrico as cargas deslocam-se para as extremidades do condutor
 
-Podemos também concluir que o Campo Elétrico $\vec E \perp \ $Superfície do Condutor
+  - O Campo Elétrico $\vec E \perp \ $Superfície do Condutor
 
 - Um condutor é uma equipotencial
 
-Isto é, tem o mesmo potencial em todo o seu interior.
+  - Isto é, tem o mesmo potencial em todo o seu interior.
 
 $$
 W = Q[V(B) - V(A)] = - \int_A^B \vec E \cdot d \vec l
@@ -60,11 +61,15 @@ Como $\vec E = 0  $ e $\vec E \perp d\vec l$ então o trabalho $W = 0$ e $V(B) =
 
 ### Cargas Induzidas
 
+![Carga](./imgs/0005-carga.png#dark=1)
+
 As Cargas procuram sempre o equilíbrio $(\vec E = 0)$.
 
 Se tivermos uma carga $+Q$ e um condutor não carregado, as cargas negativas são atraídas para a carga $+Q$, para que assim se anule o campo no interior do condutor.
 
 ### Cavidades
+
+![Cavidade](./imgs/0005-cav.png#dark=1)
 
 No caso de no interior do condutor houver uma cavidade e a carga $+Q$ estiver dentro dela, então o campo é não nulo nessa região.
 
@@ -83,8 +88,6 @@ Como são equipotenciais podemos calcular a sua diferença de potencial.
 $$
 \Delta V = V_{+} - V_{-} = - \int_{(-)}^{(+)} \vec E \cdot d \vec l = E \cdot d
 $$
-
-$d$ é a distância das placas
 
 Para calcular o campo elétrico de cada condutor seria algo muito difícil, mas sabemos uma coisa
 
@@ -189,9 +192,7 @@ Imaginemos que colocamos um isolante entre 2 placas de 1 condensador.
 
 Se o isolante tocar simultaneamente nas duas placas, a capacitância aumenta por um fator $k$
 
-$k$ é assim a constante dielétrica do meio.
-
-$k$ no vácuo é 1.
+$k$ é assim a constante dielétrica do meio, no vácuo $k = 1$.
 
 Isto acontece porque como vimos antes a Capacitância sem a presença do dielétrico é dada por
 
@@ -265,10 +266,10 @@ $$
 
 $$\cfrac{1}{1+ \chi}$$ diz-nos quanto o campo diminui no interior do dielétrico
 
-A diferença de potencial entre as placas é o integral de campo elétrico. Como o campo é uniforme e a carga total no condensador é $\sigma_{pc}A$
+A diferença de potencial entre as placas é o integral de campo elétrico. Como o campo é uniforme e a carga total no condensador é $\sigma_{pc} \ A$
 
 $$
-V = E\delta = E = \cfrac{\sigma_{pc}}{\epsilon_0} \cfrac{\delta}{1+ \chi}
+V = E\delta = E = \cfrac{\sigma_{pc}}{\epsilon_0} \cfrac{\delta}{1+ \chi}\\
 
 C = \cfrac{\epsilon_0A}{\sigma}(1+\chi) \implies k = 1 + \chi
 $$
@@ -280,6 +281,8 @@ A carga total $\sigma_{pol}$ por unidade de volume que atravessou a superfície 
 $$
 \sigma_{pol} = \vec P \cdot \vec n
 $$
+
+E a densidade de carga $\rho_{pol}$ é
 
 $$
 \rho_{pol} = -\vec \nabla \cdot \vec P
@@ -354,7 +357,7 @@ $\epsilon = k \epsilon_{0}$ é a permitividade do meio
 E podemos concluir que
 
 $$
-D_{+}^{\perp} - D_{-}^{\perp} = \rho_{livre}
+D_{+}^{\perp} - D_{-}^{\perp} = \rho_{livre}\\
 
 D_{+}^{\parallel} - D_{-}^{\parallel} = P_{+}^{\parallel} - P_{-}^{\parallel}
 $$

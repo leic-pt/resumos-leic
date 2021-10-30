@@ -163,6 +163,8 @@ $$
 
 ### Condições de fronteira numa superfície carregada
 
+![Plano](./imgs/0004-plano.png#dark=1)
+
 Consideremos uma superfície Gaussiana $S$ com uma altura $e$
 
 $$
