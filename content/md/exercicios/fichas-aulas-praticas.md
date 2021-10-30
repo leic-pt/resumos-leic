@@ -7,6 +7,12 @@ type: exercises
 
 # Fichas Aulas Práticas
 
+:::info[Resoluções Incorretas?]
+Caso encontres incorreções nas resoluções abaixo, por favor
+[reporta-as](https://github.com/diogotcorreia/resumos-leic/issues/new?assignees=&labels=incorrect+solution&template=incorrect_solution.yml&title=%5BIncorrect+Solution%5D+)
+para serem corrigidas.
+:::
+
 - [Séries 1](https://drive.google.com/file/d/1hUtsar3iMyzrPruihxWKprECdyN2A8mq/view?usp=sharing)
 
   - [Resolução (1.1)](https://drive.google.com/file/d/1FKySSlds5jFUWRGt_Z_nhzAR7WKgfT4h/view?usp=sharing)
