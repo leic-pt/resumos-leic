@@ -222,3 +222,95 @@ Energia Distribuição Contínua de Carga
 $
 W = \cfrac {\epsilon_0}{2} \int_\Omega E^2 d \tau
 $
+
+## Condutores
+
+$\vec E = 0 \implies \rho = 0$
+
+$\vec E$ - Campo Elétrico total no interior do condutor $\rho$ - densidade total de carga
+
+$
+W = Q[V(B) - V(A)] = - \int_A^B \vec E \cdot d \vec l
+$
+
+$\vec E = 0  \wedge \vec E \perp d\vec l \implies W = 0 \implies V(B) = V(A)$
+
+$\vec E$ - Campo Elétrico total no interior do condutor\
+$V$ - Potencial $\ \ W$ - Trabalho
+
+## Condensador
+
+$
+\Delta V = E \cdot d
+$
+
+$\Delta V$ - Diferença de Potencial $\ \ E$ - Campo Elétrico $\ \ d$ - Distância entre as 2 Placas
+
+$
+C = \cfrac{Q} {|\Delta V|}
+$
+
+$C$ - Capacitância (ou Capacidade) $\ \ Q$ - Carga da Placa Positiva $\ \ \Delta V$ - Diferença de Potencial
+
+Para 2 placas:
+
+$C = \cfrac{\epsilon_{0} A}{d}$
+
+$C$ - Capacitância (ou Capacidade) $\ \ \epsilon_{0}$ - Constante\
+$A$ - Área da Placa $\ \ d$ - Distância entre as 2 Placas
+
+### Condensadores em Série
+
+$
+C = \cfrac{Q_1+ Q_2 + Q_3}V = \cfrac{Q_1}V + \cfrac{ Q_2 }V + \cfrac{ Q_3}V = C_1 + C_2 + C_3
+$
+
+### Condensadores em Paralelo
+
+$
+C = \cfrac{Q}{V_1 + V_2 + V_3} = \cfrac{1}C = \cfrac {1}{ C_1 } + \cfrac {1}{ C_2 } + \cfrac {1}{ C_3}
+$
+
+### Trabalho
+
+$
+W = \cfrac{CV^2}{2}
+$
+
+$W$ - Trabalho $\ \ C$ - Capacitância (ou Capacidade) $\ \ V$ - Potencial
+
+## Dielétricos
+
+$C = \cfrac{\epsilon_{0} A}{d}$
+
+$C$ - Capacitância (ou Capacidade) $\ \ \epsilon_{0}$ - Constante\
+$A$ - Área da Placa $\ \ d$ - Distância entre as 2 Placas
+
+$
+\vec P = N \vec p
+$
+
+$P$ - Momento dipolar por unidade de Volume $\ \ N$ - Número de Cargas $\ \ p$ - (IDK)
+
+$
+\sigma_{pol} = Ndq_e = P
+$
+
+$\sigma_{pol}$ - Densidade de Carga Superficial $\ \ N$ - Número de Cargas\
+$q_e$ - Carga Eletrónica $\ \ P$ - Momento dipolar por unidade de Volume
+
+$
+\vec P = \chi \epsilon_0 \vec E
+$
+
+$P$ - Momento dipolar por unidade de Volume $\ \ \chi$ - Constante de Susceptibilidade Elétrica do Dielétrico
+
+$
+E = \cfrac{\sigma_{pc}}{\epsilon_0} \cfrac{1}{1+ \chi}
+$
+
+$\cfrac{1}{1+ \chi}$ - Quanto o Campo Diminuiu no Interior do Dielétrico
+
+$K = 1 + \chi$
+
+$k$ - Constante Dielétrica do Meio - Capacitância aumenta por fator $k$

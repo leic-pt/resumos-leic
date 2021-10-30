@@ -1,24 +1,32 @@
 ---
-title: Continuação do Estudo do Potencial Elétrico (Não sai no Primeiro Teste)
+title: Potencial Elétrico
 description: >-
-  Continuação do Estudo do Potencial Elétrico
+  Potencial Elétrico
 path: /fis-ii/potencial
 type: content
 ---
 
-:::danger[Esta matéria não sai para o 1º teste]
-A matéria que se encontra neste resumo não sairá para o primeiro teste
-:::
-
-# Continuação do Estudo do Potencial Elétrico
+# Potencial Elétrico
 
 ```toc
 
 ```
 
-:::danger[Esta matéria não sai para o 1º teste]
-A matéria que se encontra neste resumo não sairá para o primeiro teste
-:::
+## Definição
+
+O potencial elétrico é a capacidade que uma carga tem de realizar trabalho, neste caso, atrair ou repelir outras cargas elétricas.
+
+- $V(\vec r) = \sum_{i=1}^N V_i(\vec r)$ respeita o principío de sobreposição
+
+- A função potencial é definida a menos de uma constante; essa constante corresponde a mudar o ponto de referência para o caminho escolhido
+
+- O campo elétrico $\vec E \rightarrow 0$ no infinito, ou seja, $V \rightarrow $constante, tomamos essa constante como ponto de referência
+
+Assim definimos o Potencial $V$ no ponto $\vec r$ como
+
+$$
+V(\vec r) = - \int_O^{\vec r} \vec E \cdot d \vec l\\
+$$
 
 Num caminho de $Q \rightarrow P$
 
@@ -45,10 +53,10 @@ Assim a escolha do ponto de referência é arbitrária e induz ambiguidade mas n
 
 $$
 \vec E (\vec r) = \cfrac{1}{4 \pi \epsilon_0} \cfrac{q}{r^2} \vec e_r\\
+$$
 
+$$
 V(r) = - \cfrac{1}{4 \pi \epsilon_0} \int_{\infty}^r \cfrac{q}{r^2} \  dr = \cfrac{1}{4 \pi \epsilon_0} \cfrac{q}{r}
-
-
 $$
 
 #### Potencial no Interior da Esfera
@@ -79,17 +87,16 @@ $$
 ## Equações para Campo Elétrico
 
 $$
-
 \vec \nabla \cdot \vec E = \cfrac{\rho}{\epsilon_0}\\
-
-\vec \nabla \times \vec E = 0\\
-
-\vec E = - \vec \nabla V
-
-
 $$
 
-Podemos também escrever $(\vec \nabla \cdot \vec E = \vec \nabla \cdot (- \vec \nabla V)) $
+$$
+\vec \nabla \times \vec E = 0\\
+$$
+
+$$
+\vec E = - \vec \nabla V
+$$
 
 ### Equação de Poisson 🐟
 
@@ -105,7 +112,7 @@ $$
 \nabla^2 V = 0
 $$
 
-### Trabalho
+## Trabalho
 
 ![Work](./imgs/0004-work.png#dark=1)
 
@@ -156,11 +163,27 @@ $$
 
 ### Condições de fronteira numa superfície carregada
 
-// TO DO
+![Plano](./imgs/0004-plano.png#dark=1)
 
-:::danger[Esta matéria não sai para o 1º teste]
-A matéria que se encontra neste resumo não sairá para o primeiro teste
-:::
+Consideremos uma superfície Gaussiana $S$ com uma altura $e$
+
+$$
+\oint_S \vec E \cdot d\vec S = \frac {\sigma A}{ \epsilon_{0}}
+$$
+
+Quando $e \rightarrow 0$ as faces laterais não contam, assim:
+
+$$
+E_{\perp}^+ - E_{\perp}^- = \frac {\sigma }{ \epsilon_{0}}
+$$
+
+Já o potencial é dado por
+
+$$
+V^+ = V^-
+$$
+
+Onde $+$ é acima da superfície e $-$ abaixo.
 
 Slides:
 
