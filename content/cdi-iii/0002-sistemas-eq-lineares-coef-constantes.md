@@ -408,7 +408,7 @@ $$
   $$
   \operatorname{Nul} (A - (1 + i)I) = \operatorname{Nul} \begin{bmatrix}
   -i & -1\\
-  1 & -1
+  1 & -i
   \end{bmatrix} = \mathcal{L} \{(1, -i)\}
   $$
 
