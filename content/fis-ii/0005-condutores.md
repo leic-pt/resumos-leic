@@ -1,12 +1,12 @@
 ---
-title: Condutores e Dielétricos
+title: Condutores, Condensadores e Dielétricos
 description: >-
-  Condutores e Dielétricos
+  Condutores, Condensadores e Dielétricos
 path: /fis-ii/condutores
 type: content
 ---
 
-# Condutores e Dielétricos
+# Condutores, Condensadores e Dielétricos
 
 ```toc
 
@@ -288,7 +288,7 @@ $$
 \rho_{pol} = -\vec \nabla \cdot \vec P
 $$
 
-## Polarização
+### Polarização
 
 Como sabemos da Eletrostática
 
