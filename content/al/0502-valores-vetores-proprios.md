@@ -131,7 +131,7 @@ Continuando então com o exemplo acima, fazemos o seguinte para cada um dos valo
   Temos então que
 
   $$
-  A - 2I = \begin{bmatrix}
+  A - 4I = \begin{bmatrix}
   1 & -1\\
   3 & -3
   \end{bmatrix}
