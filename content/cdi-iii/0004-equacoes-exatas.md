@@ -162,7 +162,7 @@ Se trabalharmos esta igualdade, obtemos o seguinte:
 
 $$
 \begin{darray}{cc}
-\frac{\partial \mu}{\partial y} M + \mu \frac{\partial M}{\partial y} = \frac{\partial M}{\partial t} N + \mu \frac{\partial N}{\partial t}\Leftrightarrow\\
+\frac{\partial \mu}{\partial y} M + \mu \frac{\partial M}{\partial y} = \frac{\partial \mu}{\partial t} N + \mu \frac{\partial N}{\partial t}\Leftrightarrow\\
 \Leftrightarrow\frac{\partial \mu}{\partial t} N - \frac{\partial \mu}{\partial y} M = \left(\frac{\partial M}{\partial y} - \frac{\partial N}{\partial t}\right) \mu
 \end{darray}
 $$
