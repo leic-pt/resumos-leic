@@ -26,26 +26,26 @@ Num condutor as cargas elétricas podem mover-se livremente no material.
 
 ![Condutor](./imgs/0005-condutor.png#dark=1)
 
-Quando aplicamos um campo $\vec E_1$ num condutor isolado, as cargas negativas (induzidas) movem-se na direção oposta ao campo $\vec E_1$, separando assim as cargas positivas das negativas.\
-Essas cargas induzidas criam 1 segundo campo $\vec E_2$ que é contrário ao campo $\vec E_1$, estes campos anulam-se e assim concluimos que o Campo Elétrico dentro do condutor é nulo.
+Quando aplicamos um campo $\vec E$ num condutor isolado, as cargas negativas (induzidas) movem-se na direção oposta ao campo $\vec E$, separando assim as cargas positivas das negativas.\
+Essas cargas induzidas criam 1 segundo campo $\vec E \ '$ que é contrário ao campo $\vec E$, estes campos anulam-se e assim concluimos que o Campo Elétrico dentro do condutor é nulo.
 
 $$
-\vec E = 0
+\vec E_{total} = 0
 $$
 
 Assim pela Lei de Gauss
 
 $$
-\vec \nabla \cdot \vec E = \cfrac{\rho}{\epsilon_{0}}
+\vec \nabla \cdot \vec  E_{total} = \cfrac{\rho_{total}}{\epsilon_{0}}
 $$
 
-Como $\vec E = 0 \implies \rho = 0$\
+Como $\vec  E_{total} = 0 \implies \rho_{total} = 0$\
 Concluímos assim que a densidade de carga no interior do condutor é nula.
 Isto é equivalente a dizer que existe o mesmo número de cargas positivas $(+)$ e cargas negativas $(-)$, tais que as suas densidades se anulam.
 
 - Qualquer carga remanescente situa-se na superfície do condutor
 
-  - Isto significa que nehuma carga pode sair do condutor e quando interagida por um campo elétrico as cargas deslocam-se para as extremidades do condutor
+  - Isto significa que nehuma carga pode sair do condutor e quando interagida por um campo elétrico as cargas deslocam-se para as extremidades do condutor. Basta pensar que as cargas se deslocam para as tampas de uma caixa de Pringles
 
   - O Campo Elétrico $\vec E \perp \ $Superfície do Condutor
 
@@ -75,7 +75,7 @@ No caso de no interior do condutor houver uma cavidade e a carga $+Q$ estiver de
 
 Assim a carga induzida $Q_{ind}\ $ é igual a $-Q$ e a carga à superfície do condutor passa a ser positiva porque as cargas negativas aproximaram-se da carga $+Q$ deixando de estar na superfície.
 
-No caso de não haver carga na cavidade, o campo elétrico $\vec E = 0 \ $ na cavidade (Gaiola de Faraday)
+No caso de não haver carga na cavidade, $\vec E = 0 \ $ na cavidade (Gaiola de Faraday)
 
 ## Condensador
 
@@ -157,6 +157,8 @@ $$
 
 ### Trabalho
 
+Lembrar a Definição de [Trabalho](./potencial#trabalho)
+
 Para carregar um condensador é preciso eliminar eletrões do condutor positivo e movê-los para o condensador negativo.
 Isso requer trabalho pois é temos de puxar cargas negativas contra o campo elétrico.
 
@@ -170,7 +172,7 @@ onde $q$ é um carga positiva que auxilia os cálculos
 
 ## Dielétricos
 
-Com os dielétricos entramos no estudo do campo elétrico na matéria.
+Com os Dielétricos entramos no estudo do campo elétrico na matéria.
 Existem 2 grandes grupos:
 
 - Condutores
@@ -186,6 +188,8 @@ Existem 2 grandes grupos:
 
 Quando estes mecanismos acontecem dizemos que o átomo está Polarizado.
 
+### Isolante no Meio de um Condensador
+
 ![Burguer](./imgs/0005-burguer.png#dark=1)
 
 Imaginemos que colocamos um isolante entre 2 placas de 1 condensador.
@@ -197,16 +201,18 @@ $k$ é assim a constante dielétrica do meio, no vácuo $k = 1$.
 Isto acontece porque como vimos antes a Capacitância sem a presença do dielétrico é dada por
 
 $$
-C = \cfrac{\epsilon_{0}A}{\delta} \ , \ C = \cfrac{Q}V
+C = \cfrac{\epsilon_{0}A}{\delta} \ , \ C = \cfrac{Q}{| \Delta V|}
 $$
 
-onde $A$ é a área das placas e $\delta$ a distância entre elas
+onde $A$ é a área das placas e $\delta$ a distância entre elas.
 
-Como podemos ver se a Capacitância aumentar $C$, para a mesma carga $Q$ a diferença de potencial $V$ é menor.
+Se a Capacitância aumentar $C$, para a mesma carga $Q$ a diferença de potencial $V$ é menor.
 
-Se o potencial $V$ é menor, então o campo elétrico $E$ é também menor.
+Se a diferença de potencial $V$ é menor, então o campo elétrico $E$ é também menor.
 
 Assim podemos concluir que na parte superior do condensador irão haver cargas positivas e na parte inferior do condensador irão haver cargas negativas.
+
+### Momento Dipolar por Unidade de Volume
 
 Isto leva nos a dizer que se houver N átomos por unidade de volume haverá momento dipolar por unidade de volume
 
@@ -218,26 +224,24 @@ O $\vec P$ pode mudar de ponto para ponto mas em cada ponto $\vec P \propto \vec
 
 Consideremos uma superfície dipolar com um certo momento dipolar por unidade de volume. Haverá uma densidade de carga produzida por ela? Não se $\vec P$ for uniforme.
 
-Se as cargas que forma deslocadas têm a memsa densidade média não teremos uma carga líquida no volume.
+Se as cargas que foram deslocadas têm a memsa densidade média não teremos uma carga líquida no volume.
 
 Se $\vec P$ fosse maior num lugar do que noutro então mais carga seria movida para dentro de 1 determinada região do que noutra e teríamos uma densidade de carga no volume.
 
 No condutor de placas paralelas vamos supor que $\vec P$ é uniforme e por isso só nos precisamos de preocupar com o que se passa nas superfícies.\
-Na superfície de baixo haverá uma distribuição superficial de carga negativa (chamada carga superficial de polarização)\
-com a correspondente carga positiva a uma distância $d = \cfrac{p}Q$ acima,\
+Na superfície de baixo haverá uma distribuição superficial de carga negativa (chamada carga superficial de polarização) com a correspondente carga positiva a uma distância $d = \cfrac{p}Q$ acima,\
 enquanto na superfície de cima acontecerá o fenómeno inverso.
 
 Vamos assumir que $\vec p \perp$ superfície.
 
-O número
-de dipolos que aparecem na superfície de baixo é dado pelo
+O número de dipolos que aparecem na superfície de baixo é dado pelo
 número de dipolos por unidade de volume $N$ multiplicados pelo
 volume de uma camada de superfície $A$ de altura $d$.
 Em cada dipolo há uma carga eletrónica $q_e$ e por isso a carga total é $A \cdot N \cdot d \cdot q_e$\
 Assim a densidade de carga superficial $\sigma_{pol}$ é
 
 $$
-\sigma_{pol} = \cfrac{A \cdot N \cdot d \cdot q_e}A = Ndq_e = P
+\sigma_{pol} = \cfrac{A \cdot N \cdot d \cdot q_e}A = N \ d \ q_e = P
 $$
 
 As placas dos condutores também têm uma densidade de carga $\sigma_{pc}$.
@@ -245,6 +249,8 @@ As placas dos condutores também têm uma densidade de carga $\sigma_{pc}$.
 As cargas de polarização só existem porque existe $\sigma_{pc}$.
 
 Se descarregarmos o condensador, $\sigma_{pc}$ desaparece porque os dipolos desaparecem por ausência de campo aplicado e não por serem transportados pelo fio de terra.
+
+### Constante Dielétrica
 
 Dentro do dielétrico
 
@@ -274,7 +280,9 @@ V = E\delta = E = \cfrac{\sigma_{pc}}{\epsilon_0} \cfrac{\delta}{1+ \chi}\\
 C = \cfrac{\epsilon_0A}{\sigma}(1+\chi) \implies k = 1 + \chi
 $$
 
-Se a polarização $\vec P $ não for uniforme
+$k$ - [Constante Dielétrica](#isolante-no-meio-de-um-condensador)
+
+Se a polarização $\vec P $ não for uniforme,
 
 A carga total $\sigma_{pol}$ por unidade de volume que atravessou a superfície é
 
@@ -293,10 +301,11 @@ $$
 Como sabemos da Eletrostática
 
 $$
-\vec \nabla \cdot \vec E = \cfrac{\rho}{\epsilon_{0}} \ \ \vec \nabla \times \vec E = 0
+\vec \nabla \cdot \vec E = \cfrac{\rho}{\epsilon_{0}} \ \ \ \ \ \ \vec \nabla \times \vec E = 0
 $$
 
 onde $\rho$ é a densidade de todas as cargas.
+
 No entanto num condutor existem cargas livres e cargas polarizadas, cada uma delas com a sua densidade de carga.
 
 $$
@@ -307,9 +316,13 @@ Mas sabemos que
 
 $$
 \rho_{pol} = -\vec \nabla \cdot \vec P
+$$
 
+$$
 \vec P = \chi \epsilon_0 \vec E
+$$
 
+$$
 k = 1 + \chi
 $$
 
@@ -325,7 +338,9 @@ $$
 
 $k$ encontra-se dentro da divergência, isso deve-se ao seu valor variar de ponto para ponto.
 
-Para combinar o Campo Elétrico e a Polarização utiliza-se o Deslocamento Elétrico $D$
+### Deslocamento Elétrico
+
+Para combinar o Campo Elétrico e a Polarização utiliza-se o Deslocamento Elétrico $D$\
 O Deslocamento Elétrico tenta descrever as propriedades da matéria (nos dielétricos lineares)
 
 $$
