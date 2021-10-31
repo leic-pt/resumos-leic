@@ -143,7 +143,7 @@ Continuando então com o exemplo acima, fazemos o seguinte para cada um dos valo
   \operatorname{Nul} \begin{bmatrix}
   1 & -1\\
   3 & -3
-  \end{bmatrix} = \mathcal{L} \{(1,3)\}
+  \end{bmatrix} = \mathcal{L} \{(1,1)\}
   $$
 
   Assim, o vetor próprio do valor próprio $\lambda = 4$ é $(1,1)$.
