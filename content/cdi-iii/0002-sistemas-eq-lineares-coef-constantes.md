@@ -32,7 +32,7 @@ Se $B(t) \equiv 0$ a equação designa-se por [**homogénea**](color:orange).
 
 :::
 
-Se tivermos, por exemplo, o sistema, que [podemos facilmente resolver](/cdi-iii/equacoes-diferenciais-ordinarias#caso-bt-equiv-0) linha a linha:
+Se tivermos, por exemplo, o sistema, que [podemos facilmente resolver](/cdi-iii/equacoes-diferenciais-ordinarias#caso-bt-equiv-0---homogéneas) linha a linha:
 
 $$
 \begin{cases}
@@ -101,7 +101,7 @@ $$
 
 com uma matrix $A$ quadrada $n \times n$.
 
-Para $n=1$ [sabemos que $y = k e^{At}$](/cdi-iii/equacoes-diferenciais-ordinarias#caso-bt-equiv-0).
+Para $n=1$ [sabemos que $y = k e^{At}$](/cdi-iii/equacoes-diferenciais-ordinarias#caso-bt-equiv-0---homogéneas).
 Para $n>1$ vamos ter exatamente a mesma coisa, mas para isso temos de definir o exponencial de uma matriz.
 
 ### Exponencial de matrizes
@@ -1132,7 +1132,7 @@ $$
 
 em que $A$ é uma matriz constante $n \times n$ e $B$ é uma função $I \in \R \to \R^n$.
 
-Podemos assim redefinir o teorema da variação das constantes que [estava anteriormente definido](/cdi-iii/equacoes-diferenciais-ordinarias#caso-geral).
+Podemos assim redefinir o teorema da variação das constantes que [estava anteriormente definido](/cdi-iii/equacoes-diferenciais-ordinarias#caso-geral---não-homogéneo).
 
 :::tip[Teorema]
 

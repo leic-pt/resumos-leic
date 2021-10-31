@@ -168,7 +168,6 @@ $$
 x(t) = K e^{\int a(t) \d t}
 $$
 
-
 :::details[Prova]
 
 Note-se que $x(t) \equiv 0$ é trivialmente uma solução.
@@ -233,7 +232,7 @@ $$
 x \cdot \mu = \int b(s) \mu \ ds + C \Leftrightarrow x(t) = \int \frac{\mu(s)}{\mu(t)} \ b(s) ds + \frac{C}{\mu(t)}
 $$
 
-3. Note-se que a equação que define o fator integrante: $\mu' = a(t)\mu$ é linear homogénea de primeira ordem. Podemos então descobrir $\mu$, pela fórmula do [caso $b(t) \equiv 0$](#caso-bt-equiv-0) .
+3. Note-se que a equação que define o fator integrante: $\mu' = a(t)\mu$ é linear homogénea de primeira ordem. Podemos então descobrir $\mu$, pela fórmula do [caso $b(t) \equiv 0$](#caso-bt-equiv-0---homogéneas) .
 
 $$
 \mu' = -a(t) \mu \Leftrightarrow \mu(t) = K e^{\int a(s) ds}
@@ -265,7 +264,7 @@ $$
 (\mu y)' = \mu t
 $$
 
-3. Queremos agora descobrir $\mu$, pelo que podemos usar a fórmula do [caso $b(t) \equiv 0$](#caso-bt-equiv-0).
+3. Queremos agora descobrir $\mu$, pelo que podemos usar a fórmula do [caso $b(t) \equiv 0$](#caso-bt-equiv-0---homogéneas).
 
 $$
 \mu' = 2t\mu \Leftrightarrow \mu = e^{t^2}
@@ -330,7 +329,7 @@ $$
 
 :::
 
-Alternativamente, pode-se utilizar o seguinte teorema, mas nem sempre se justifica aplicá-lo:
+Alternativamente, pode-se utilizar o seguinte teorema (**Teorema da Variação das Constantes**), mas nem sempre se justifica aplicá-lo:
 
 Se tivermos uma EDO deste tipo associado a um valor inicial $x(t_0) = x_0$ obtemos a solução:
 
@@ -352,16 +351,16 @@ com $f$ e $g$ contínuas numa vizinhança de $y_0$.
 
 Então temos que
 
-$$ 
+$$
 f(y)y' = g(t) \Leftrightarrow F[y(t)] = \int g(t) dt + C
 $$
 
 em que $F$ é uma primitiva da função $f$. Note-se que este resultado não oferece uma
-solução explı́cita para y, mas uma solução implı́cita. Contudo, como $F'[y_0)] = f[y_0)] \neq 0$, podemos aplicar o Teorema da função implícita para afirmar que a equação a cima tem uma solução única numa vizinhança de $y_0$.
+solução explı́cita para y, mas uma solução implı́cita. Contudo, como $F'(y_0) = f(y_0) \neq 0$, podemos aplicar o Teorema da função implícita para afirmar que a equação a cima tem uma solução única numa vizinhança de $y_0$.
 
 Como $y(t_0)=y_0$, podemos especificar que a equação
 
-$$ 
+$$
 F[y(t)] = F(y_0) \int_{t_0}^t g(s) ds
 $$
 
