@@ -329,7 +329,7 @@ S = \begin{bmatrix}
 \end{darray}
 $$
 
-A matriz $S$ corresponde aos vetores próprios, e a matrix $\Lambda$ aos vetores próprios.
+A matriz $S$ corresponde aos vetores próprios, e a matrix $\Lambda$ aos valores próprios.
 
 Então,
 
