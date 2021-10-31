@@ -260,7 +260,7 @@ $$
 -\frac 1 n\le \frac{\sin n}n \le\frac 1 n,\text{  }n\in\mathbb N^+
 $$
 
-Como $-\frac 1 n$ e $\frac 1 n$ são [infinitésimos](Sucesso%CC%83es%20convergentes%20b3690a7a9f5148b3b189bb05dee46aa7.md), isto é, tendem para zero, podemos concluir que $u_n\rightarrow 0$.
+Como $-\frac 1 n$ e $\frac 1 n$ são [infinitésimos](#sucessão-convergente), isto é, tendem para zero, podemos concluir que $u_n\rightarrow 0$.
 
 :::
 
