@@ -1,5 +1,5 @@
 ---
-title: Existência, Unicidade e Intervalo de Definição de soluções para PVI's
+title: Existência, Unicidade e Intervalo de Definição de Soluções para PVI's
 description: >-
   Teorema de Peano.
   Continuidade à Lipschitz.
@@ -10,7 +10,7 @@ path: /cdi-iii/existencia-unicidade-continuidade-comparacao
 type: content
 ---
 
-# Existência, Unicidade, Continuidade e Comparação
+# Existência, Unicidade e Intervalo de Definição de Soluções para PVI's
 
 ```toc
 
@@ -24,7 +24,10 @@ Agradece-se contribuições.
 
 :::
 
-Nesta secção estamos interessados em determinar em que situações um determinado PVI tem solução. Como já vimos nos últimos capítulos, muitas vezes só podemos ambicionar soluções a nível duma vizinhança do ponto inicial. Estaremos também interessados em saber em que circunstâncias esta solução pode ser extendida para todo o domínio de definição da EDO associada ao PVI e, mais genericamente, qual o intervalo máximo de definição da solução de um PVI.
+Nesta secção estamos interessados em determinar em que situações um determinado PVI tem solução.
+Como já vimos nos últimos capítulos, muitas vezes só podemos ambicionar soluções a nível de uma vizinhança do ponto inicial.
+Estaremos também interessados em saber em que circunstâncias esta solução pode ser extendida para todo o domínio de definição da
+EDO associada ao PVI e, mais genericamente, qual o intervalo máximo de definição da solução de um PVI.
 
 ## Teorema de Peano
 
@@ -47,12 +50,16 @@ admite **pelo menos uma solução** numa vizinhança de $t_0$.
 
 ## Continuidade à Lipschitz
 
-Nas cadeiras de cálculo anteriores fomos habituados a um conceito de continuidade que, intuitivamente, corresponde ao conceito de "não haver saltos" no gráfico de uma função. No entanto, sendo mais/menos restritivos nas condições de continuidade que definimos, podemos definir continuidade de formas diferentes. Uma noção de continuidade que surge muito em Cálculo III é a \textbf{[continuidade à Lipschitz][https://en.wikipedia.org/wiki/Lipschitz_continuity].
+Nas cadeiras de cálculo anteriores fomos habituados a um conceito de continuidade que,
+intuitivamente, corresponde ao conceito de "não haver saltos" no gráfico de uma função.
+No entanto, sendo mais/menos restritivos nas condições de continuidade que definimos,
+podemos definir continuidade de formas diferentes.
+Uma noção de continuidade que surge muito em Cálculo III é a [continuidade à Lipschitz](https://en.wikipedia.org/wiki/lipschitz_continuity).
 
 :::tip[Definição]
 
 Seja uma função $f: D \R^n \to \R^m$.
-Diz-se que $f$ é Lipschitz ou lipschitziana ou contínua à Lipschitz se e só se existe um $L \in \R^+$ tal que
+Diz-se que $f$ é Lipschitz ou Lipschitziana ou contínua à Lipschitz se e só se existe um $L \in \R^+$ tal que
 
 $$
 |f(y_1) - f(y_2) | \leq L |y_1 - y_2|
@@ -127,11 +134,15 @@ Qualquer função $f \in C^1(D \subset \R)$ num aberto $D$ é localmente contín
 
 Como $f$ tem derivada contínua em $D$, temos que, $\forall x,y \in D$
 
-$$ \frac{f(x) - f(y)}{x-y} = f'(c) \Rightarrow | f(x)-f(y) | = |f'(c)||x,y|$$
+$$
+\frac{f(x) - f(y)}{x-y} = f'(c) \Rightarrow | f(x)-f(y) | = |f'(c)||x,y|
+$$
 
-para algum $c \in ]x,y\[$. No entanto, como $f'$ é contínua, a restrição de $f'$ a qualquer compacto $K \subset D$ é limitada pelo que, tirando $L = \sup | f'(c) |$, para $c \in K$, temos que
+para algum $c \in \left]x,y\right[$. No entanto, como $f'$ é contínua, a restrição de $f'$ a qualquer compacto $K \subset D$ é limitada pelo que, tirando $L = \sup | f'(c) |$, para $c \in K$, temos que
 
-$$ |f(x)-f(y)| \leq L|x,y| $$
+$$
+|f(x)-f(y)| \leq L|x,y|
+$$
 
 pelo que $f$ é lipschitziana em qualquer compacto de $D$, o que, como já vimos, equivale a ser localmente lipschitziana em $D$.
 
@@ -193,17 +204,21 @@ $$
 
 Esta sucessão vai então convergir para uma solução $y$ tal que
 
-$$ y(t) = y_0 + \int_{t_0}^t f(s, y_n(x)) \ds $$
+$$
+y(t) = y_0 + \int_{t_0}^t f(s, y_n(x)) \d s
+$$
 
 :::details[Prova]
 
 A prova não vai ser escrita aqui por ser muito extensa, mas ficam aqui os pontos principais para os mais curiosos:
-\begin{itemize}
-	\item Provar que existe $\epsilon$ tão pequeno como quisermos tal que todas as iterações da sucessão $y_n$ são tais que $t \in \[ t_0 - \epsilon, t_0 + \epsilon \], (t,y_n(t)) \in D$ (e portanto a sucessão está bem definida);
-	\item Provar que $y_n$ é uma sucessão de Cauchy e portanto converge em $\R^n$ (por $\R^n$ ser um [espaço métrico completo][https://en.wikipedia.org/wiki/Complete_metric_space]);
-	\item Provar que a função $T(y) := y_0 + \int_{x_0}^x f(t, y(t)) \, dt$ tem exatamente um ponto fixo (aplicar [Teorema do Ponto Fixo de Banach][https://en.wikipedia.org/wiki/Banach_fixed-point_theorem]);
-	\item Provar que a sucessão $y_n$ converge para esse ponto fixo.
-\end{itemize}
+
+- Provar que existe $\epsilon$ tão pequeno como quisermos tal que todas as iterações da sucessão $y_n$
+  são tais que $t \in \left[ t_0 - \epsilon, t_0 + \epsilon \right], (t,y_n(t)) \in D$ (e portanto a sucessão está bem definida);
+- Provar que $y_n$ é uma sucessão de Cauchy e portanto converge em $\R^n$
+  (por $\R^n$ ser um [espaço métrico completo](https://en.wikipedia.org/wiki/Complete_metric_space));
+- Provar que a função $T(y) = y_0 + \int_{x_0}^x f(t, y(t)) \, \d t$ tem exatamente um ponto fixo
+  (aplicar [Teorema do Ponto Fixo de Banach](https://en.wikipedia.org/wiki/Banach_fixed-point_theorem));
+- Provar que a sucessão $y_n$ converge para esse ponto fixo.
 
 :::
 
@@ -213,20 +228,18 @@ Note-se que o Teorema de Picard-Lindelof só nos oferece solução numa vizinhan
 
 :::tip[Teorema]
 
-Sejam $D$ e $f$ tal que que o PVI 
+Sejam $D$ e $f$ tal que que o PVI
 
 $$
-
 \begin{darray}{cc}
 \frac{\d y}{\d t} = f(t,y) & y(t_0) = y_0
 \end{darray}
-
 $$
 
-tem solução $y(t)$ num compacto de $K = \[ t_0 - \epsilon , t_0 + \epsilon \] \times \[ y_0 - h, y_0 + h \]$ segundo o Teorema de Picard-Lindelof.
+tem solução $y(t)$ num compacto de $K = \left[ t_0 - \epsilon , t_0 + \epsilon \right] \times \left[ y_0 - h, y_0 + h \right]$ segundo o Teorema de Picard-Lindelof.
 
-Então essa solução pode ser prolongada para um intervalo máximo de definição $\] a, b \[$
-tal que $V_\epsilon(t_0) \subset \] a,b \[$ e $y(t)$ de forma que:
+Então essa solução pode ser prolongada para um intervalo máximo de definição $\left] a, b \right[$
+tal que $V_\epsilon(t_0) \subset \left] a,b \right[$ e $y(t)$ de forma que:
 
 1. $b = + \infty$
 2. $y(t) \to \pm \infty$ quando $t \to b$
@@ -238,7 +251,9 @@ Sendo que $a$ satisfaz propriedades análogas
 
 ## Comparação
 
-O teorema a cima permite-nos extender a solução dada numa vizinhança por Picard-Lindelof "até não ser mais possível". No entanto, por vezes pode ser difícil verificar diretamente se uma solução tem intervalo de definição infinito ou se explode num intervalo limitado. A baixo introduzimos um critério que permite fazer esse estudo por comparação com funções mais simples.
+O teorema acima permite-nos extender a solução dada numa vizinhança por Picard-Lindelof "até não ser mais possível".
+No entanto, por vezes pode ser difícil verificar diretamente se uma solução tem intervalo de definição infinito ou se explode num intervalo limitado.
+Abaixo introduzimos um critério que permite fazer esse estudo por comparação com funções mais simples.
 
 :::tip[Teorema]
 
@@ -247,34 +262,37 @@ Sejam $D \subset \R \times \R$ e funções $f,g: D \to \R$ nas condições do Te
 Suponha-se que
 
 $$
-
 \begin{darray}{cr}
 f(t,y) \leq g(t,y) & \forall (t,y) \in D\\
 u_0 \leq v_0 & (t_0, u_0) \in D, (t_0, v_0) \in D
 \end{darray}
-
-
 $$
 
 Considere-se $u(t)$ e $v(t)$ soluções dos seguintes PVI:
 
 $$
-
 \begin{cases}
 \frac{\d u}{\d t} = f(t,u)\\
 u(t_0) = u_0
 \end{cases}
-
-$$
 $$
 
+$$
 \begin{cases}
 \frac{\d v}{\d t} = g(t,v)\\
 v(t_0) = v_0
 \end{cases}
-
 $$
 
+definidas no intervalo $\left[ t_0, b \right[$, com $b > t_0$.
+
+Então,
+
+$$
+\forall t \in \left[t_0, b\right[, u(t) \leq v(t)
+$$
+
+:::
 
 ## Continuidade de Problemas do Valor Inicial
 
@@ -282,23 +300,24 @@ Já sabemos verificar se uma EDO tem solução única para um dado valor inicial
 
 :::tip[Teorema]
 
-Nota: Este teorema NÃO sai no teste.
+Sejam $D \subset \R \times \R^n$ um aberto e $f: D \to \R^n$ nas condições de Picard-Lindelof.
 
-Segam $D \subset \R \times \R^n$ um aberto e $f: D \to \R^n$ nas condições de Picard-Lindelof. 
-Considere-se o domínio $E$ de definição de soluções para a equação $y' = f(t,y)$. 
-Seja ainda $\]a(t_0, y_0), b(t_0, y_0) \[$ o intervalo máximo de definição do PVI associado à equação anterior e ao valor inicial $y(t_0) = y_0$,
-e $Y(t,t_0,y_0)$ a função que a cada ponto $(t,t_0,y_0)$ atribui o valor da função solução do PVI no ponto $t \in \]a(t_0, y_0), b(t_0, y_0) \[$.
+Considere-se o domínio $E$ de definição de soluções para a equação $y' = f(t,y)$.
+
+Seja ainda $\left]a(t_0, y_0), b(t_0, y_0) \right[$ o intervalo máximo de definição do PVI associado à equação anterior e ao valor inicial $y(t_0) = y_0$,
+e $Y(t,t_0,y_0)$ a função que a cada ponto $(t,t_0,y_0)$ atribui o valor da função solução do PVI no ponto $t \in \left]a(t_0, y_0), b(t_0, y_0) \right[$.
+
 Então, $E$ é um conjunto aberto e a função $Y$ é contínua em $E$.
 
 :::
 
-Por outras palavras, se pensarmos nas funções solução de 
+Por outras palavras, se pensarmos nas funções solução de
 
 $$
 y' = f(t,y), \quad y(t_0) = y_0
 $$
 
-como uma função do valor inicial $(t_0, y_0)$, essa função é contínua (ou seja, uma pequena alteração no valor inicial origina uma pequena alteração na função solução).\\
+como uma função do valor inicial $(t_0, y_0)$, essa função é contínua (ou seja, uma pequena alteração no valor inicial origina uma pequena alteração na função solução).
 
 A prova deste teorema é complexa mas tira partido do seguinte lema:
 
@@ -306,26 +325,14 @@ A prova deste teorema é complexa mas tira partido do seguinte lema:
 
 Sejam $u, v: I \to \R$ tais que $u, v \geq 0$, $t_0 \in I$
 
-$\forall t \in I$, $u(t) \leq \alpha + | \int_{t_0}^{t} v(s)u(s) \d s|$
+$$
+\forall t \in I, \quad u(t) \leq \alpha + \left| \int_{t_0}^{t} v(s)u(s) \d s\right|
+$$
 
 Então
 
-$u(t) \leq \alpha e^{| \int_{t_0}^{t} v(s) \d s|}$
-
-:::
-
-
-definidas no intervalo $\[ t_0, b \[$, com $b > t_0$.
-
-Então,
-
 $$
-
-\forall t \in \[t_0, b\[, u(t) \leq v(t)
-
-
-
+u(t) \leq \alpha e^{\left| \int_{t_0}^{t} v(s) \d s\right|}
 $$
 
 :::
-
