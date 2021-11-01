@@ -849,8 +849,8 @@ constituem um espaço linear de dimensão $n$.
 
 :::
 
-Por outras palavras, este teorema diz que para uma equação da forma acima, com uma matrix $n \times n$, existem $n$ soluções.  
-Por exemplo, caso $A$ seja uma matrix $2 \times 2$, iremos ter duas soluções (isto é, como veremos abaixo, iremos encontrar dois vetores próprios).
+Por outras palavras, este teorema diz que para uma equação da forma acima, com uma matrix $n \times n$, existem $n$ soluções linearmente independentes.  
+Por exemplo, caso $A$ seja uma matrix $2 \times 2$, iremos ter duas soluções linearmente independentes (isto é, como veremos abaixo, iremos encontrar dois vetores próprios).
 
 :::tip[Proposição]
 
@@ -1119,8 +1119,8 @@ $$
 Como os números são o conjugado um do outro, os seus vetores próprios são linearmente dependentes,
 pelo que é inútil calcular os vetores próprios do outro.  
 Além disso, podemos notar que pelo teorema que diz que o as soluções constituem espaço linear um espaço linear de dimensão $n$,
-isto é, que existem $n$ soluções, como temos uma matrix $2\times 2$, iremos ter apenas duas soluções, que encontramos logo com
-apenas um valor próprio.
+isto é, que existem $n$ valores na base do espaço solução, como temos uma matrix $2\times 2$, iremos ter apenas dois vetores nessa base, que encontramos logo com
+apenas um valor próprio. As restantes soluções da EDO são obtidas a partir de combinação linear das duas respostas obtidas.
 
 ## Equações Não Homogéneas
 
