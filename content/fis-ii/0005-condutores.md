@@ -396,4 +396,3 @@ $$
 Slides:
 
 - [Slides Módulo 3](https://drive.google.com/file/d/1zAAUvHuN-P_IzD0QDNA99_cCdzQsmLv4/view?usp=sharing)
-  $$
