@@ -81,6 +81,10 @@ Se as cargas positivas e negativas se movimentarem no fio $I = \lambda_{+} v_{+}
 
 ### Lei de Kirchhoff
 
+:::danger[Não sai no 2ºTeste]
+As Leis de Kirchhoff não serão avaliadas no segundo teste
+:::
+
 #### Lei das Malhas
 
 ![Malha](./imgs/0006-malha.png#dark=1)
@@ -118,6 +122,74 @@ $$
 -I_1 + I_2 + I_3 = 0\\
 
 \sum_{k=1}^N I_{k} = 0
+$$
+
+## Lei de Ohm
+
+Para ter corrente é preciso empurrar as cargas, a velocidade que adquirem depende das características do material.
+
+A Densidade de Corrente $\vec j$ é proporcional à força por unidade de carga
+
+$$
+\vec j = \sigma \vec f
+$$
+
+$\sigma$ é uma constante experimental que depende do material e chama-se Condutividade do meio.
+
+Mais familiar deverá ser o termo $\rho = \cfrac{1}{\sigma}$ que é a Resistividade (Elétrica).
+
+Os [Isolantes](./condutores#isolante-no-meio-de-um-condensador) também têm uma condutividade mas que difere na ordem de $10^22$ a comparar com os Condutores.
+Por simplificação vamos assumir que os metais são condutores perfeitos $(\sigma = \infty)$
+
+![Tabeça](./imgs/0006-tabela.png#dark=1)
+
+A Lei de Ohm refere-se a quando a força aplicada nas cargas é a do Campo Eletromagnético.
+Para um único Campo Elétrico:
+
+$$
+\vec j = \sigma \vec E
+$$
+
+Num condutor em Equilíbrio Eletrostático temos $\vec E = 0$ e $\vec j = 0$
+
+Para condutores perfeitos $\vec E = \cfrac{\vec j}\sigma = 0$, mesmo que esteja corrente a fluir.
+
+Conclui-se que o campo elétrico necessário para movimentar as cargas é quase nulo.
+Assim consideramos estes fios como Equipotenciais.
+Já as resistências são feitos de materiais que conduzem pouco.
+
+A Lei de Ohm é então dada por
+
+$$
+R = \cfrac{V}I \ , \ \ \ \ \ \ R = \cfrac{\rho L}{A}
+$$
+
+$R$ é a Resitência, expressa-se em ohms $(\Omega)$
+
+$1 \Omega = 1 V A^{-1}$
+
+Quando a carga que entra num dado volume por unidade de tempo é igual à que sai, dizemos que temos uma corrente estacionária e a sua densidade de carga $\rho$ é constante.
+
+$$
+\cfrac{\partial \rho}{\partial t} = \vec \nabla \vec j = 0
+$$
+
+Para correntes estacionárias e condutividade uniforme
+
+$$
+\vec \nabla \vec j = \sigma \vec \nabla \vec E = 0
+$$
+
+Isto significa que qualquer carga não contrabalançada se situa na superfície.
+
+A partir das equações anteriores podemos calcular as condições fronteira onde numa corrente estacionária, as cargas não se acumulam na fronteira
+
+$$
+\vec \nabla \vec j =  0 \implies \int \vec j \ d \vec S = 0
+$$
+
+$$
+\vec \nabla \times \vec E = \vec \nabla \times (\cfrac{\vec j}\sigma) = 0 \implies \int (\cfrac{\vec j}\sigma) \ d \vec l = 0
 $$
 
 ### Dentro do Condutor
