@@ -141,7 +141,7 @@ Mais familiar deverá ser o termo $\rho = \cfrac{1}{\sigma}$ que é a Resistivid
 Os [Isolantes](./condutores#isolante-no-meio-de-um-condensador) também têm uma condutividade mas que difere na ordem de $10^22$ a comparar com os Condutores.
 Por simplificação vamos assumir que os metais são condutores perfeitos $(\sigma = \infty)$
 
-![Tabeça](./imgs/0006-tabela.png#dark=1)
+![Tabela](./imgs/0006-tab.png#dark=1)
 
 A Lei de Ohm refere-se a quando a força aplicada nas cargas é a do Campo Eletromagnético.
 Para um único Campo Elétrico:
@@ -206,6 +206,8 @@ Uma única carga elétrica em movimento não é uma corrente estacionária.
 
 ## A Experiência de Ampère
 
+![Experiencia](./imgs/0006-exp.png#dark=1)
+
 Se colocarmos 2 fios condutores em paralelo com uma certa corrente podemos observar certos fenónemos:
 
 - Quando a corrente nos dois fios tem a mesma direção os fios atraem-se
@@ -216,9 +218,13 @@ Ampère concluiu assim que este fenónemos eram explicados pela força magnétic
 
 Enquanto que uma carga parada produz um Campo Elétrico $\vec E$, uma carga em movimento produz um Campo Elétrico e um Campo Magnético $\vec B$
 
+![Bussola](./imgs/0006-bussola.png#dark=1)
+
 Ele verificou usando uma bússola e vendo que esta mudava a direção perto dos fios.
 
 ### Força de Lorentz
+
+![fixe](./imgs/0006-fixe.png#dark=1)
 
 A Força (de Lorentz) $\vec F$ que age sobre o fio pode ser descrita por um produto externo entre a Velocidade $\vec v$ de uma carga $Q$ e um Campo Magnético $\vec B$ que anda em círculo em torno do fio
 
