@@ -144,7 +144,7 @@ Por simplificação vamos assumir que os metais são condutores perfeitos $(\sig
 
 ![Tabela](./imgs/0006-tab.png#dark=1)
 
-Nesta parte da matéria assumimos que a força aplicada nas cargas é a do Campo Eletromagnético.
+Nesta parte da matéria assumimos que a força aplicada nas cargas é a do Campo Eletromagnético.\
 Para um único Campo Elétrico:
 
 $$
@@ -297,6 +297,8 @@ $$
 
 ## Lei de Biot-Savart
 
+![Biot](./imgs/0006-biot.png#dark=1)
+
 O Campo Magnético por um fio percorrido por corrente estacionária é dado por
 
 $$
@@ -320,7 +322,7 @@ Existem nos slides uma explicação de como se chegou a estas Leis
 :::
 
 $$
-\vec \nabla \times \vec \nabla = \mu_{0} \vec j
+\vec \nabla \times \vec B = \mu_{0} \vec j
 $$
 
 $$
