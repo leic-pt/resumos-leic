@@ -314,3 +314,25 @@ $\cfrac{1}{1+ \chi}$ - Quanto o Campo Diminuiu no Interior do Dielétrico
 $K = 1 + \chi$
 
 $k$ - Constante Dielétrica do Meio - Capacitância aumenta por fator $k$
+
+## Magnetostática
+
+$
+\vec j = Nq \vec v
+$
+
+$\vec j$ - Densidade de Corrente $\ \ N$ - Número de Cargas $\ \ \vec v$ - Velocidade (média)
+
+$
+I = \int_{S} \vec j \ d \vec S
+$
+
+$I$ - Corrente Elétrica $\ \ \vec j$ - Densidade de Corrente $\ \ S$ - Superfície
+
+$
+\vec j = \sigma \vec f
+$
+
+$\vec j$ - Densidade de Corrente $\sigma$ - Condutividade do Meio (Constante) $\vec f$ - força
+
+### Lei de Ohm
