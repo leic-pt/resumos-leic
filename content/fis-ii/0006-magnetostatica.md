@@ -192,6 +192,80 @@ $$
 \vec \nabla \times \vec E = \vec \nabla \times (\cfrac{\vec j}\sigma) = 0 \implies \int (\cfrac{\vec j}\sigma) \ d \vec l = 0
 $$
 
+### Lei de Joule
+
+$$
+P = VI = RI^2
+$$
+
+$P$ - Potência Emitida
+
+Só iremos estudar correntes estacionárias que produzem cmapos magnéticos constantes.
+
+Uma única carga elétrica em movimento não é uma corrente estacionária.
+
+## A Experiência de Ampère
+
+Se colocarmos 2 fios condutores em paralelo com uma certa corrente podemos observar certos fenónemos:
+
+- Quando a corrente nos dois fios tem a mesma direção os fios atraem-se
+
+- Quando a corrente nos dois fios tem a direção oposta os fios repelem-se
+
+Ampère concluiu assim que este fenónemos eram explicados pela força magnética.
+
+Enquanto que uma carga parada produz um Campo Elétrico $\vec E$, uma carga em movimento produz um Campo Elétrico e um Campo Magnético $\vec B$
+
+Ele verificou usando uma bússola e vendo que esta mudava a direção perto dos fios.
+
+### Força de Lorentz
+
+A Força (de Lorentz) $\vec F$ que age sobre o fio pode ser descrita por um produto externo entre a Velocidade $\vec v$ de uma carga $Q$ e um Campo Magnético $\vec B$ que anda em círculo em torno do fio
+
+$$
+\vec F = Q(\vec v \times \vec B)
+$$
+
+Na presença de campos elétricos $e$ magnéticos:
+
+$$
+\vec F = Q(\vec E + \vec v \times \vec B)
+$$
+
+As Forças Magnéticas não produzem Trabalho. Se a carga $Q$ se mover de $d \vec l = \vec v dt$
+
+$$
+dW = \vec F \ d \vec l = Q (\vec v \times \vec B) \ \vec v \ dt = Q(\vec v \times \vec v) \ \vec B \ dt = 0
+$$
+
+Esta Força apenas pode mudar a trajetória de uma partícula mas nunca pode acelará-la
+
+Assim a Força por unidade de volume é
+
+$$
+\cfrac{d \vec F}{d V} = \vec j \times \vec B
+$$
+
+Para o Vetor Corrente $\vec I = \vec j A$, podemos escrever
+
+$$
+\cfrac{d \vec F}{dl} = \vec I \times \vec B
+$$
+
+A Força Magnética num fio depende apenas da corrente total e não depende da carga de cada partícula nem do seu sinal.
+
+Num fio se o elemento $dl$ for suficientemente pequeno temos $d \vec l$ e $\vec I$ na mesma direção e portanto é equivalente escrever
+
+$$
+d \vec F = I (d \vec l \times \vec B )
+$$
+
+Para $I$ constante
+
+$$
+\vec F = \int I (d \vec l \times \vec B) \implies \vec F = I \int  (d \vec l \times \vec B)
+$$
+
 ### Dentro do Condutor
 
 ![Condutor](./imgs/0005-condutor.png#dark=1)
