@@ -16,41 +16,42 @@ type: content
 
 ### Densidade de Corrente
 
-Na Eletrostática estudámos que as cargas que criavam um campo estavam estáticas, ao contrário da Carga de Prova que se podia movimentar-se livremente.
-Agora estudaremos cargas de fonte que não se encontram paradas.
+Na Eletrostática estudámos que as cargas que criavam um campo estavam estáticas, ao contrário da Carga de Prova que se podia movimentar livremente.\
+Na Corrente Elétrica estudaremos cargas de fonte que não se encontram paradas.\
 Temos assim de definir o conceito de Corrente Elétrica.
 
-- A Corrente elétrica corresponde ao fluxo de eletrões ou outras cargas em movimento com um fluxo definido.
-
-Usando o conceito matemático de fluxo podemos definir a Densidade de Corrente $\vec j$
-
-- Quantidade de carga que passa através de um elemento de superfície perpendicular à corrente das cargas em movimento por unidade de tempo
+- A Corrente Elétrica corresponde ao fluxo de eletrões em movimento com um fluxo definido.
 
 ![Perp](./imgs/0006-perp.png#dark=1)
+
+Usando o conceito matemático de fluxo podemos definir a Densidade de Corrente $\vec j$
 
 $$
 \cfrac{dq}{dt} = \vec j \ \vec n \ dS = \vec j \ d \vec S
 $$
 
+A Densidade de Corrente $\vec J$ é a quantidade de carga que passa através de um elemento de superfície perpendicular à corrente das cargas em movimento por unidade de tempo
+
 ![Definicao](./imgs/0006-def.png#dark=0)
 
-A densidade da corrente está relacionada com a velocidade média do fluxo das cargas.
+A Densidade de Corrente está relacionada com a velocidade média do fluxo das cargas.
 
-Para uma distribuição de cargas com densidade $\rho$ com uma velocidade (média) $\vec v$, quando estas passa por um elemento de superfície $dS$ a carga $dq$ que atravessa essa superfície num intervalo de tempo $dt$ é igual à cargas contida num cilindro de base $dS$ e altura $(\vec v dt) \vec n$
+Para uma distribuição de cargas com densidade $\rho$ com uma velocidade (média) $\vec v$, quando passam por um elemento de superfície $dS$ a carga $dq$ que atravessa essa superfície num intervalo de tempo $dt$ é igual à cargas contida num cilindro de base $dS$ e altura $(\vec v dt) \vec n$
 
 $$
-dq = \rho [(\vec v dt) \vec n \ dS] \implies \cfrac{dq}{dt} = (\rho \vec v) \ \vec n \ d \vec S \implies \vec j = \rho \vec v
+dq = \rho [(\vec v dt) \vec n \ dS] \implies \cfrac{dq}{dt} = (\rho \vec v) \ \vec n \ d  S \implies \vec j = \rho \vec v
 $$
 
 Para $N$ cargas por unidade de volume temos que
 
 $$
-j = Nq \vec v
+\vec j = Nq \vec v
 $$
 
 ### Corrente Elétrica
 
-A carga total $I$ que passa por unidade de tempo através da superfície $S$ chama-se Corrente Elétrica e é igual ao fluxo da densidade de corrente através da superfície
+A carga total $I$ que passa por unidade de tempo através da superfície $S$ chama-se\
+Corrente Elétrica e é igual ao fluxo da densidade de corrente através da superfície
 
 $$
 I = \int_{S} \vec j \ d \vec S
@@ -138,12 +139,12 @@ $\sigma$ é uma constante experimental que depende do material e chama-se Condut
 
 Mais familiar deverá ser o termo $\rho = \cfrac{1}{\sigma}$ que é a Resistividade (Elétrica).
 
-Os [Isolantes](./condutores#isolante-no-meio-de-um-condensador) também têm uma condutividade mas que difere na ordem de $10^22$ a comparar com os Condutores.
+Os [Isolantes](./condutores#isolante-no-meio-de-um-condensador) também têm uma condutividade mas que difere na ordem de $10^{22}$ a comparar com os Condutores.
 Por simplificação vamos assumir que os metais são condutores perfeitos $(\sigma = \infty)$
 
 ![Tabela](./imgs/0006-tab.png#dark=1)
 
-A Lei de Ohm refere-se a quando a força aplicada nas cargas é a do Campo Eletromagnético.
+Nesta parte da matéria assumimos que a força aplicada nas cargas é a do Campo Eletromagnético.
 Para um único Campo Elétrico:
 
 $$
@@ -155,7 +156,7 @@ Num condutor em Equilíbrio Eletrostático temos $\vec E = 0$ e $\vec j = 0$
 Para condutores perfeitos $\vec E = \cfrac{\vec j}\sigma = 0$, mesmo que esteja corrente a fluir.
 
 Conclui-se que o campo elétrico necessário para movimentar as cargas é quase nulo.
-Assim consideramos estes fios como Equipotenciais.
+Assim consideramos estes fios como Equipotenciais.\
 Já as resistências são feitos de materiais que conduzem pouco.
 
 A Lei de Ohm é então dada por
@@ -168,7 +169,7 @@ $R$ é a Resitência, expressa-se em ohms $(\Omega)$
 
 $1 \Omega = 1 V A^{-1}$
 
-Quando a carga que entra num dado volume por unidade de tempo é igual à que sai, dizemos que temos uma corrente estacionária e a sua densidade de carga $\rho$ é constante.
+Quando a carga que entra num dado volume por unidade de tempo é igual à que sai, dizemos que temos uma Corrente Estacionária e a sua Densidade de Carga $\rho$ é constante.
 
 $$
 \cfrac{\partial \rho}{\partial t} = \vec \nabla \vec j = 0
@@ -200,7 +201,7 @@ $$
 
 $P$ - Potência Emitida
 
-Só iremos estudar correntes estacionárias que produzem cmapos magnéticos constantes.
+Só iremos estudar correntes estacionárias que produzem campos magnéticos constantes.
 
 Uma única carga elétrica em movimento não é uma corrente estacionária.
 
@@ -214,31 +215,32 @@ Se colocarmos 2 fios condutores em paralelo com uma certa corrente podemos obser
 
 - Quando a corrente nos dois fios tem a direção oposta os fios repelem-se
 
-Ampère concluiu assim que este fenónemos eram explicados pela força magnética.
+Ampère concluiu assim que este fenónemos eram explicados pela Força Magnética.
 
 Enquanto que uma carga parada produz um Campo Elétrico $\vec E$, uma carga em movimento produz um Campo Elétrico e um Campo Magnético $\vec B$
 
 ![Bussola](./imgs/0006-bussola.png#dark=1)
 
-Ele verificou usando uma bússola e vendo que esta mudava a direção perto dos fios.
+Ørsted verificou isso usando uma bússola e vendo que esta mudava a direção perto dos fios, sobre o efeito de corrente.
 
 ### Força de Lorentz
 
 ![fixe](./imgs/0006-fixe.png#dark=1)
 
-A Força (de Lorentz) $\vec F$ que age sobre o fio pode ser descrita por um produto externo entre a Velocidade $\vec v$ de uma carga $Q$ e um Campo Magnético $\vec B$ que anda em círculo em torno do fio
+A Força (de Lorentz) $\vec F$ que age sobre o fio pode ser descrita como o produto externo entre a Velocidade $\vec v$ de uma carga $Q$ e um Campo Magnético $\vec B$ que anda em círculo em torno do fio
 
 $$
 \vec F = Q(\vec v \times \vec B)
 $$
 
-Na presença de campos elétricos $e$ magnéticos:
+Na presença de campos elétricos e magnéticos:
 
 $$
 \vec F = Q(\vec E + \vec v \times \vec B)
 $$
 
-As Forças Magnéticas não produzem Trabalho. Se a carga $Q$ se mover de $d \vec l = \vec v dt$
+As Forças Magnéticas não produzem Trabalho.\
+Se a carga $Q$ se mover de $d \vec l = \vec v dt$ o trabalho é
 
 $$
 dW = \vec F \ d \vec l = Q (\vec v \times \vec B) \ \vec v \ dt = Q(\vec v \times \vec v) \ \vec B \ dt = 0
@@ -272,9 +274,58 @@ $$
 \vec F = \int I (d \vec l \times \vec B) \implies \vec F = I \int  (d \vec l \times \vec B)
 $$
 
-### Dentro do Condutor
+Sendo $\vec k$ a corrente (vetorial) por unidade de largura perpendicular ao fluxo:
 
-![Condutor](./imgs/0005-condutor.png#dark=1)
+$$
+\vec k = \sigma \vec v
+$$
+
+Onde $\sigma$ é a densidade superficial de carga (móvel) e $\vec v$ a velocidade das cargas,
+$\vec k$ varia de ponto para ponto porque $\sigma$ e $\vec v$ podem variar.
+
+A Força Magnética na corrente superficial é
+
+$$
+\vec F = \int (\vec v \times \vec B) \sigma \ dS = \int (\vec k \times \vec B) \ dS
+$$
+
+Para uma Corrente Volunétrica
+
+$$
+\vec F = \int (\vec j \times \vec B) \ dV
+$$
+
+## Lei de Biot-Savart
+
+O Campo Magnético por um fio percorrido por corrente estacionária é dado por
+
+$$
+\vec B (\vec r) = \cfrac {\mu_{0}}{4 \pi} \int_{C} \cfrac{\vec I \times \vec e_{r}}{r^2} \ dl \ ' = \cfrac {\mu_{0} \ '}{4 \pi} \int_{C} \cfrac{d \vec I \ ' \times \vec e_{r}}{r^2}
+$$
+
+A integração é feita segundo a direção da corrente.
+
+$\mu_{0} = 4 \pi \times 10^{-7} N \ A^{-2}$ é a Permeabilidade do Espaço Livre
+
+Este número é exato e não uma constante empírica. Serve para definir o Ampère, que define o Coulomb. As unidades foram definidas de forma a que $\vec B$ seja expresso em Newton por Ampère-metro ou Tesla (T) $\ 1 T =  1 N A^{-1} \ m ^{-1}$
+Usa-se mais a unidade Gausss od sistema CGS: 1 Tesla $=10^4$ Gauss
+
+Para temos de comparação, o Campo Magnético terrestre é igual a 0.5 Gauss.
+No Cern foi possível existe um íman com o valor de 3.8 Tesla
+
+## Lei de Ampère
+
+:::warning[Dedução da Lei de Ampère]
+Existem nos slides uma explicação de como se chegou a estas Leis
+:::
+
+$$
+\vec \nabla \times \vec \nabla = \mu_{0} \vec j
+$$
+
+$$
+\oint \vec B \ d \vec l = \mu_{0} I_{i}
+$$
 
 Slides:
 
