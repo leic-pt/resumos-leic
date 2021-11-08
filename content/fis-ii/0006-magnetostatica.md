@@ -1,12 +1,12 @@
 ---
-title: Magnetostática
+title: Corrente e Magnetostática
 description: >-
   Magnetostática
 path: /fis-ii/magnetostatica
 type: content
 ---
 
-# Magnetostática
+# Corrente e Magnetostática
 
 ```toc
 
@@ -24,10 +24,10 @@ Temos assim de definir o conceito de Corrente Elétrica.
 
 ![Perp](./imgs/0006-perp.png#dark=1)
 
-Usando o conceito matemático de fluxo podemos definir a Densidade de Corrente $\vec j$
+Usando o conceito matemático de fluxo podemos definir a Densidade de Corrente $\vec J$
 
 $$
-\cfrac{dq}{dt} = \vec j \ \vec n \ dS = \vec j \ d \vec S
+\cfrac{dq}{dt} = \vec J \ \vec n \ dS = \vec J \ d \vec S
 $$
 
 A Densidade de Corrente $\vec J$ é a quantidade de carga que passa através de um elemento de superfície perpendicular à corrente das cargas em movimento por unidade de tempo
@@ -39,13 +39,13 @@ A Densidade de Corrente está relacionada com a velocidade média do fluxo das c
 Para uma distribuição de cargas com densidade $\rho$ com uma velocidade (média) $\vec v$, quando passam por um elemento de superfície $dS$ a carga $dq$ que atravessa essa superfície num intervalo de tempo $dt$ é igual à cargas contida num cilindro de base $dS$ e altura $(\vec v dt) \vec n$
 
 $$
-dq = \rho [(\vec v dt) \vec n \ dS] \implies \cfrac{dq}{dt} = (\rho \vec v) \ \vec n \ d  S \implies \vec j = \rho \vec v
+dq = \rho [(\vec v dt) \vec n \ dS] \implies \cfrac{dq}{dt} = (\rho \vec v) \ \vec n \ d  S \implies \vec J = \rho \vec v
 $$
 
 Para $N$ cargas por unidade de volume temos que
 
 $$
-\vec j = Nq \vec v
+\vec J = Nq \vec v
 $$
 
 ### Corrente Elétrica
@@ -54,7 +54,7 @@ A carga total $I$ que passa por unidade de tempo através da superfície $S$ cha
 Corrente Elétrica e é igual ao fluxo da densidade de corrente através da superfície
 
 $$
-I = \int_{S} \vec j \ d \vec S
+I = \int_{S} \vec J \ d \vec S
 $$
 
 - Mede-se em Ampère $\ 1A = 1 C s^{-1}$
@@ -65,7 +65,7 @@ A Carga Elétrica é indestrutível, isto é, é conservada, não se pode criar 
 A Lei da Conservação da Carga é assim dada por
 
 $$
-- \cfrac{dQ_{int}}{dt} = \oint_{S} \vec j \ d \vec S
+- \cfrac{dQ_{int}}{dt} = \oint_{S} \vec J \ d \vec S
 $$
 
 $S$ é uma superfície fechada.
@@ -73,7 +73,7 @@ $S$ é uma superfície fechada.
 A Lei da Conservação da Carga pode também ser escrita na forma diferencial
 
 $$
-\vec \nabla \vec j = - \cfrac{d \rho}{dt}
+\vec \nabla \cdot \vec J = - \cfrac{d \rho}{dt}
 $$
 
 No caso de um fio de comprimento $L$ e secção $A$ e de corrente uniforme o elemento de volume é $\rho(LA) = \lambda$\
@@ -112,11 +112,11 @@ Para uma junção que não acumula nem perde energia, a carga total $Q$ permanec
 Assim
 
 $$
-\int \vec j \ d \vec S = - \cfrac{dQ}{dt} = 0
+\int \vec J \ d \vec S = - \cfrac{dQ}{dt} = 0
 $$
 
 $$
-\int \vec j \ d  \vec S = \int_{S_1} \vec j_1 \ d  \vec S_1 + \int_{S_2} \vec j_2 \ d \vec S_2 + \int_{S_3} \vec j_3 \ d \vec S_3 = 0
+\int \vec J \ d  \vec S = \int_{S_1} \vec j_1 \ d  \vec S_1 + \int_{S_2} \vec j_2 \ d \vec S_2 + \int_{S_3} \vec j_3 \ d \vec S_3 = 0
 $$
 
 $$
@@ -129,10 +129,10 @@ $$
 
 Para ter corrente é preciso empurrar as cargas, a velocidade que adquirem depende das características do material.
 
-A Densidade de Corrente $\vec j$ é proporcional à força por unidade de carga
+A Densidade de Corrente $\vec J$ é proporcional à força por unidade de carga
 
 $$
-\vec j = \sigma \vec f
+\vec J = \sigma \vec f
 $$
 
 $\sigma$ é uma constante experimental que depende do material e chama-se Condutividade do meio.
@@ -148,12 +148,12 @@ Nesta parte da matéria assumimos que a força aplicada nas cargas é a do Campo
 Para um único Campo Elétrico:
 
 $$
-\vec j = \sigma \vec E
+\vec J = \sigma \vec E
 $$
 
-Num condutor em Equilíbrio Eletrostático temos $\vec E = 0$ e $\vec j = 0$
+Num condutor em Equilíbrio Eletrostático temos $\vec E = 0$ e $\vec J = 0$
 
-Para condutores perfeitos $\vec E = \cfrac{\vec j}\sigma = 0$, mesmo que esteja corrente a fluir.
+Para condutores perfeitos $\vec E = \cfrac{\vec J}\sigma = 0$, mesmo que esteja corrente a fluir.
 
 Conclui-se que o campo elétrico necessário para movimentar as cargas é quase nulo.
 Assim consideramos estes fios como Equipotenciais.\
@@ -172,13 +172,13 @@ $1 \Omega = 1 V A^{-1}$
 Quando a carga que entra num dado volume por unidade de tempo é igual à que sai, dizemos que temos uma Corrente Estacionária e a sua Densidade de Carga $\rho$ é constante.
 
 $$
-\cfrac{\partial \rho}{\partial t} = \vec \nabla \vec j = 0
+\cfrac{\partial \rho}{\partial t} = \vec \nabla \vec J = 0
 $$
 
 Para correntes estacionárias e condutividade uniforme
 
 $$
-\vec \nabla \vec j = \sigma \vec \nabla \vec E = 0
+\vec \nabla \vec J = \sigma \vec \nabla \vec E = 0
 $$
 
 Isto significa que qualquer carga não contrabalançada se situa na superfície.
@@ -186,11 +186,11 @@ Isto significa que qualquer carga não contrabalançada se situa na superfície.
 A partir das equações anteriores podemos calcular as condições fronteira onde numa corrente estacionária, as cargas não se acumulam na fronteira
 
 $$
-\vec \nabla \vec j =  0 \implies \int \vec j \ d \vec S = 0
+\vec \nabla \vec J =  0 \implies \int \vec J \ d \vec S = 0
 $$
 
 $$
-\vec \nabla \times \vec E = \vec \nabla \times (\cfrac{\vec j}\sigma) = 0 \implies \int (\cfrac{\vec j}\sigma) \ d \vec l = 0
+\vec \nabla \times \vec E = \vec \nabla \times (\cfrac{\vec J}\sigma) = 0 \implies \int (\cfrac{\vec J}\sigma) \ d \vec l = 0
 $$
 
 ### Lei de Joule
@@ -251,10 +251,10 @@ Esta Força apenas pode mudar a trajetória de uma partícula mas nunca pode ace
 Assim a Força por unidade de volume é
 
 $$
-\cfrac{d \vec F}{d V} = \vec j \times \vec B
+\cfrac{d \vec F}{d V} = \vec J \times \vec B
 $$
 
-Para o Vetor Corrente $\vec I = \vec j A$, podemos escrever
+Para o Vetor Corrente $\vec I = \vec J A$, podemos escrever
 
 $$
 \cfrac{d \vec F}{dl} = \vec I \times \vec B
@@ -289,10 +289,10 @@ $$
 \vec F = \int (\vec v \times \vec B) \sigma \ dS = \int (\vec k \times \vec B) \ dS
 $$
 
-Para uma Corrente Volunétrica
+Para uma Corrente Volumétrica
 
 $$
-\vec F = \int (\vec j \times \vec B) \ dV
+\vec F = \int (\vec J \times \vec B) \ dV
 $$
 
 ## Lei de Biot-Savart
@@ -302,7 +302,7 @@ $$
 O Campo Magnético por um fio percorrido por corrente estacionária é dado por
 
 $$
-\vec B (\vec r) = \cfrac {\mu_{0}}{4 \pi} \int_{C} \cfrac{\vec I \times \vec e_{r}}{r^2} \ dl \ ' = \cfrac {\mu_{0} \ '}{4 \pi} \int_{C} \cfrac{d \vec I \ ' \times \vec e_{r}}{r^2}
+\vec B (\vec r) = \cfrac {\mu_{0}}{4 \pi} \int_{C} \cfrac{\vec I \times \vec e_{r}}{r^2} \ dl  ' = \cfrac {\mu_{0} '}{4 \pi} \int_{C} \cfrac{d \vec I  ' \times \vec e_{r}}{r^2}
 $$
 
 A integração é feita segundo a direção da corrente.
@@ -322,7 +322,7 @@ Existem nos slides uma explicação de como se chegou a estas Leis
 :::
 
 $$
-\vec \nabla \times \vec B = \mu_{0} \vec j
+\vec \nabla \times \vec B = \mu_{0} \vec J
 $$
 
 $$
