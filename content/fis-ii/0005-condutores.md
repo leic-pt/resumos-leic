@@ -121,7 +121,7 @@ $C = \cfrac{\epsilon_{0} A}{d}$
 
 ### Condensadores em Série
 
-![Serie](./imgs/0005-serie.png#dark=1)
+![paralel](./imgs/0005-paralel.png#dark=1)
 
 Se tivermos 3 Condensadores em série, as 3 placas de cima estão ao mesmo potencial assim como as debaixo, isso equivale a ter uma placa grande em cima e uma grande em baixo, e assim essa placa é a soma das 3 placas pequenas.
 
@@ -133,7 +133,7 @@ $$
 
 ### Condensadores em Paralelo
 
-![paralel](./imgs/0005-paralel.png#dark=1)
+![Serie](./imgs/0005-serie.png#dark=1)
 
 Se tivermos 3 Condensadores em Paralelo, as ligações entre todas placas tem de ser igual para manter o equilíbrio.
 
