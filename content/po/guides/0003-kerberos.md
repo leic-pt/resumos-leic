@@ -24,7 +24,7 @@ Abaixo seguem alguns exemplos:
 É possível obter a config copiando-a do sigma
 
 ```bash
-scp ist1XXXXX@sigma.tecnico.ulisboa.pt:/etc/krb5.conf
+scp ist1XXXXX@sigma.tecnico.ulisboa.pt:/etc/krb5.conf <path destino>
 sudo mv krb5.conf /etc/krb5.conf
 ```
 
