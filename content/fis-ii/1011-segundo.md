@@ -1,7 +1,7 @@
 ---
 title: Segundo Teste
 description: Cheat sheet - Teóricas
-path:
+path: /fis-ii/segundo
 type: cheatsheets
 ---
 
