@@ -7,6 +7,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const templates = {
     default: path.resolve(`src/components/PageLayout.js`),
     homepage: path.resolve(`src/components/HomePageLayout.js`),
+    calendar: path.resolve(`src/components/CalendarLayout.js`),
   };
   const result = await graphql(`
     {

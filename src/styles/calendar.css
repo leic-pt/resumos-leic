@@ -1,0 +1,22 @@
+.calendar-table {
+  width: 100%;
+  display: table;
+}
+
+.calendar-table tr:nth-child(2n) {
+  background-color: inherit;
+}
+
+.calendar-table tr.calendar-event--description {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-top: 2px dotted var(--borderColor);
+}
+
+.calendar-filter {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.calendar-filter div:not(:last-child) {
+  margin-right: 2rem;
+}
