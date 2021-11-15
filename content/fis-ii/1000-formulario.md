@@ -347,7 +347,7 @@ $\vec J$ - Densidade de Corrente $\ \ \sigma$ - Condutividade do Meio (Constante
 
 $R = \cfrac{V}I$
 
-$R$ - Resistência Elétrica $\ \ V$ - Difernça de Potencial $\ \ I$ - Corrente Elétrica
+$R$ - Resistência Elétrica $\ \ V$ - Diferença de Potencial $\ \ I$ - Corrente Elétrica
 
 ### Lei de Joule
 
