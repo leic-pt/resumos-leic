@@ -353,7 +353,7 @@ $R$ - Resistência Elétrica $\ \ V$ - Difernça de Potencial $\ \ I$ - Corrente
 
 $P = VI = RI^2$
 
-$P$ - Potência Emitida (Dissipada) $\ \ V$ - Difernça de Potencial\
+$P$ - Potência Emitida (Dissipada) $\ \ V$ - Diferença de Potencial\
 $I$ - Corrente Elétrica $\ \ R$ - Resistência Elétrica
 
 ## Magnetostática
