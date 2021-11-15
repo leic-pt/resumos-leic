@@ -9,6 +9,10 @@ type: cheatsheets
 
 [Formulário Oficial da Cadeira (PDF)](https://drive.google.com/file/d/1Ouk2xSUb-f50SnUSC4HWQzAzfl825A_J/view?usp=sharing)
 
+```toc
+
+```
+
 ## Ordens de Grandeza
 
 Micro $(\mu)= 10^{-6} $
@@ -19,7 +23,7 @@ Angstrom $(\AA)= 10^{-10}$
 
 Pico $(p)= 10^{-12}$
 
-## Constantes
+## Constantes Universais
 
 $c$ - Velocidade da Luz $= 3\times10^8 \ m/s $ (Metros por Segundo)
 
@@ -29,9 +33,11 @@ Unidade $eV$ (eletrão-Volt) $= 1.6\times10^{-19 }J $ (Joules)
 
 O eletrão-Volt corresponde à energia ganha por 1 eletrão quando se desloca de 1 pólo positivo para 1 pólo negativo na distância de 1 metro.
 
-$\epsilon_0$- Permitividade Elétrica do Espaço Livre $= 8.85 \times 10^{-12} C^2 \ N ^{-1} \ m^{-2} $
+$\epsilon_0$- Permitividade Elétrica do Espaço Livre $= 8.85 \times 10^{-12}\ C^2 \ N ^{-1} \ m^{-2} $
 
-## Fórmulas
+$\mu_{0}$ - Permeabilidade do Espaço Livre $= 4 \pi \times 10^{-7}\  N \ A^{-2}$
+
+## Fórmulas de Mecânica
 
 $v = \lambda \times f \ $
 
@@ -49,22 +55,22 @@ $\vec{p} = m\times \vec{v}$
 
 $\vec{p}$ - Momento Linear $\ \ m$ - Massa $\ \ \vec{v}$ - Velocidade
 
-## Leis
+## Leis da Termodinâmica
 
-1ª Lei da Termodinâmica ou Lei de Joule:
+### 1ª Lei da Termodinâmica ou Lei de Joule:
 
 $$ \Delta U = Q - W $$
 
 $\Delta U$ - Variação de energia interna do sistema
 $\ \ Q$ - Calor $\ \ W$ - Trabalho
 
-2ª Lei da Termodinâmica
+### 2ª Lei da Termodinâmica
 
 $\eta < 100\ \% $
 
 $\eta$ - Rendimento
 
-3ª Lei da Termodinâmica ou Lei de Nernst
+### 3ª Lei da Termodinâmica ou Lei de Nernst
 
 À medida que a temperatura de um sistema tende para o zero absoluto a sua entropia tende para um valor constante que é independente da pressão, estado de agregação, etc.
 
@@ -98,7 +104,7 @@ $
 $\vec F$ - Força exercida por todas as cargas num campo numa carga de prova.\
 $\vec F_i$ - Força exercida por 1 carga que se encontra no campo numa carga de prova.
 
-Lei de Coulomb
+### Lei de Coulomb
 
 $\vec F = \cfrac{Q}{4\pi \epsilon_0}\ \sum\limits_{i =1}^{n} \cfrac{q_i}{|\vec r - \vec r_i'|^2}\ \vec e_{r_i}$
 
@@ -113,11 +119,10 @@ $
 \vec E(\vec r) = \cfrac{\vec F}{Q}
 $
 
-$\vec E(\vec r)$ - Campo Elétrico - Newton por Coulomb ($N/C$)
-$\vec F$ - Força na carga de prova $Q$ criada pelo campo
-$Q$ - Carga de Prova
+$\vec E(\vec r)$ - Campo Elétrico - Newton por Coulomb ($N/C$)\
+$\vec F$ - Força na carga de prova $Q$ criada pelo Campo $\ \ Q$ - Carga de Prova
 
-Distribuição Contínua de Carga
+### Distribuição Contínua de Carga
 
 $
 \vec E(\vec r) = \cfrac{1}{4\pi \epsilon_0} \int_{\vartheta} \cfrac{dq}{|\vec r - \vec r \ ' |^2} \ \vec e_r
@@ -134,7 +139,7 @@ $
 
 $\phi_E$ - Fluxo do Campo Elétrico $\ \ \vec E$ - Campo Elétrico $\ \ S$- Superfície
 
-Lei de Gauss (Versão Integral)
+### Lei de Gauss (Versão Integral)
 
 $
 \oint \vec E \cdot d \vec S = \cfrac{Q_{inc}}{\epsilon_0}
@@ -143,7 +148,7 @@ $
 $\vec E$ - Campo Eletrostático $\ \ \vec S$- Superfície $\ \ \epsilon_0$ - Permitividade Elétrica do Espaço Livre\
 $Q_{inc} = \sum\limits_{i=1}^{N} q_i$ - carga contida na superfície
 
-Lei de Gauss (Versão Diferencial)
+### Lei de Gauss (Versão Diferencial)
 
 $
 \vec \nabla \cdot \vec E = \cfrac{\rho}{\epsilon_0}
@@ -167,9 +172,8 @@ $\ \ V$ - Função Escalar
 
 ## Potencial
 
-$
-V(\vec r) = - \int_O^{\vec r} \vec E \cdot d \vec l\\
-$
+$V(\vec r) = - \int_O^{\vec r} \vec E \cdot d \vec l$
+
 $\vec r$ - Ponto
 $\ \ \vec E(\vec r)$ - Campo Elétrico
 $\ \ V$ - Potencial Elétrico
@@ -185,19 +189,19 @@ $
 V (\vec r ) = \cfrac {1}{4 \pi \epsilon_0} \sum_{i=1}^N \cfrac{q_i}{|\vec r - \vec r_i|}
 $
 
-Para uma distribuição contínua de carga (Volume, superfície ou linha)
+### Distribuição Contínua de Carga (Volume, superfície ou linha)
 
 $
 V (\vec r) = \cfrac {1}{4 \pi \epsilon_0} \int_D \cfrac{\rho (\vec r \ ')}{|\vec r \ ' - \vec r_i|} d \tau \ '
 $
 
-Equação de Poisson 🐟
+### Equação de Poisson 🐟
 
 $
 \nabla^2 V = \cfrac{\rho}{\epsilon_0}
 $
 
-Equação de Laplace
+### Equação de Laplace
 
 Se $\rho = 0$
 
@@ -205,13 +209,13 @@ $
 \nabla^2 V = 0
 $
 
-Trabalho
+### Trabalho
 
 $
 V(B) - V(A) = \cfrac{W}{Q}
 $
 
-Energia de Distribuição de Cargas
+### Energia de Distribuição de Cargas
 
 $
 W = \cfrac {1}{2} \sum_{i=1}^{N} q_i V(\vec r_i)
@@ -279,6 +283,10 @@ $
 
 $W$ - Trabalho $\ \ C$ - Capacitância (ou Capacidade) $\ \ V$ - Potencial
 
+### Cheat-Sheet
+
+![Tabela](./imgs/1000-tabel.png#dark=0)
+
 ## Dielétricos
 
 $C = \cfrac{\epsilon_{0} A}{d}$
@@ -315,24 +323,86 @@ $K = 1 + \chi$
 
 $k$ - Constante Dielétrica do Meio - Capacitância aumenta por fator $k$
 
-## Magnetostática
+## Corrente
 
 $
-\vec j = Nq \vec v
+\vec J = Nq \vec v
 $
 
-$\vec j$ - Densidade de Corrente $\ \ N$ - Número de Cargas $\ \ \vec v$ - Velocidade (média)
+$\vec J$ - Densidade de Corrente $\ \ N$ - Número de Cargas $\ \ \vec v$ - Velocidade (média)
 
 $
-I = \int_{S} \vec j \ d \vec S
+I = \int_{S} \vec J \ d \vec S
 $
 
-$I$ - Corrente Elétrica $\ \ \vec j$ - Densidade de Corrente $\ \ S$ - Superfície
+$I$ - Corrente Elétrica $\ \ \vec J$ - Densidade de Corrente $\ \ S$ - Superfície
 
 $
-\vec j = \sigma \vec f
+\vec J = \sigma \vec f
 $
 
-$\vec j$ - Densidade de Corrente $\sigma$ - Condutividade do Meio (Constante) $\vec f$ - força
+$\vec J$ - Densidade de Corrente $\ \ \sigma$ - Condutividade do Meio (Constante) $\vec f$ - força
 
 ### Lei de Ohm
+
+$R = \cfrac{V}I$
+
+$R$ - Resistência Elétrica $\ \ V$ - Difernça de Potencial $\ \ I$ - Corrente Elétrica
+
+### Lei de Joule
+
+$P = VI = RI^2$
+
+$P$ - Potência Emitida (Dissipada) $\ \ V$ - Difernça de Potencial\
+$I$ - Corrente Elétrica $\ \ R$ - Resistência Elétrica
+
+## Magnetostática
+
+$\vec F = Q(\vec E + \vec v \times \vec B)$
+
+$\vec F$ - Força de Lorentz $\ \ Q$ - Carga $\ \ \vec E$ - Campo Elétrico\
+$\vec v$ - Velocidade da Carga $\ \ \vec B$ - Campo Magnético
+
+### Lei de Biot-Savart
+
+$
+\vec B (\vec r) = \cfrac {\mu_{0}}{4 \pi} \int_{C} \cfrac{\vec I \times \vec e_{r}}{r^2} \ dl  '
+$
+
+$vec B (\vec r)$ - Campo Magnético $\ \ \vec I$ - Corrente Elétrica $\ \ r$ - Distância a um Ponto
+
+### Lei de Ampére
+
+$\vec \nabla \times \vec B = \mu_{0} \vec J$
+
+$\vec B$ - Campo Magnético $\ \ J$ - Densidade de Corrente
+
+$\oint \vec B \ d \vec l = \mu_{0} I_{i}$
+
+$\vec B$ - Campo Magnético $\ \ I_i$ - Intensidade de Corrente induzida
+
+## Equações de Maxwell
+
+### Lei de Gauss - Campo Elétrico
+
+$
+\oint \vec E \cdot d \vec S = \cfrac{Q_{inc}}{\epsilon_0}
+$
+
+### Lei de Gauss - Campo Magnético
+
+$
+\oint \vec B \cdot d \vec S = 0
+$
+
+### Lei de Faraday
+
+$
+\oint \vec E \cdot d\vec s = - \cfrac {d \phi_B }{dt}
+$
+
+### Lei de Ampère-Maxwell
+
+$
+\oint \vec B \cdot d \vec s = \mu_{0} \epsilon_0 \cfrac {d \phi_B }{dt} + \mu_{0} I
+$
