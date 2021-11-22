@@ -19,11 +19,11 @@ path: /cdi-i/integrabilidade
 type: content
 ---
 
+# Integral de Riemann
+
 ```toc
 
 ```
-
-# Integral de Riemann
 
 ::youtube{#rfG8ce4nNh0}
 

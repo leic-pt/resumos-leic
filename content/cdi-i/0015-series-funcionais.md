@@ -17,11 +17,11 @@ path: /cdi-i/series-funcionais
 type: content
 ---
 
+# Séries Funcionais
+
 ```toc
 
 ```
-
-# Séries Funcionais
 
 São séries do tipo
 
@@ -41,11 +41,11 @@ $$
 
 em que $x$ é a variável e $p\in\N_0$. Chama-se centro da série ao ponto $x_0\in\R$ e coeficientes da série aos termos da sucessão $(a_n)$.
 
-:::ti
+:::tip
 
-$x$ → variável;
-$p\in\N_0$;
-$x_0\in\R$ → centro da série;
+$x$ → variável;  
+$p\in\N_0$;  
+$x_0\in\R$ → centro da série;  
 Termos de $(a_n)$ → coeficientes da série;
 
 :::

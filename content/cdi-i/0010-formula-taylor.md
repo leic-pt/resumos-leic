@@ -266,8 +266,7 @@ $$
 f(x)=ax+\frac{a^3}6x^3+\frac{a^5\ch(ac)}{120}x^5\quad,\quad x\in\R,|c|<|x|
 $$
 
-![Resto de Cauchy](./assets/0010-resto-cauchy.mp4)
-[TODO](color:orange) Adicionar vídeo
+::youtube{#fA8x8lF6bG4}
 
 Como podemos observar, a aproximação da função perto de $x_0=0$ é bastante boa, até porque $R(x)$ é praticamente zero.
 
@@ -343,7 +342,7 @@ Então, pode-se concluir o seguinte:
 
 👉 A demonstração do teorema encontra-se no PDF da aula 18, páginas 5 a 7.
 
-[TODO](color:orange) Adicionar vídeo
+::youtube{#QgDYPD3A80g}
 
 ## Concavidade
 
@@ -372,7 +371,7 @@ Então:
   - Se $f^{(n)}(x_0)<0$, $f$ é côncava em $x_0$
 - Se $n$ é impar, $f$ tem um ponto de inflexão em $x_0$
 
-[TODO](color:orange) Adicionar vídeo
+::youtube{#kHdRwzxIk8c}
 
 ---
 

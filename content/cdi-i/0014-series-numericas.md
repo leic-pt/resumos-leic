@@ -24,11 +24,11 @@ path: /cdi-i/series-numericas
 type: content
 ---
 
+# Série Numérica
+
 ```toc
 
 ```
-
-# Série Numérica
 
 :::warning
 
@@ -360,7 +360,9 @@ $$
 
 :::details[Exemplos]
 
-$$\sum ^{\infty }_{n=2}\frac{2}{n^{2} +4n+3}$$
+$$
+\sum ^{\infty }_{n=2}\frac{2}{n^{2} +4n+3}
+$$
 
 Podemos usar a técnica adquirida na [Primitivação de Funções Racionais](/cdi-i/primitivacao#primitivas-de-uma-função-racional) para decompor o termo geral numa soma de frações mais simples.
 

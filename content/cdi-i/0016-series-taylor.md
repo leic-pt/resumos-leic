@@ -12,11 +12,11 @@ path: /cdi-i/series-taylor
 type: content
 ---
 
+# Série de Taylor de uma Função Analítica
+
 ```toc
 
 ```
-
-# Série de Taylor de uma Função Analítica
 
 Seja $f$ uma função analítica em $x_0\in\R$.
 
