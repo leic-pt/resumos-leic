@@ -183,7 +183,7 @@ $$
 \lim_{x\to 0} \frac{e^x - 1 - x - \frac{x^2}{ 2}}{x^3} = \frac{1}{6}.
 $$
 
-[Existem mais alguns exemplos nas páginas 5 a 10 do PDF abaixo.](color:red)
+[Existem mais alguns exemplos nas páginas 5 a 10 do PDF da aula 16 abaixo.](color:red)
 
 :::
 
