@@ -418,7 +418,9 @@ $$
 
 Resumidamente, o que a expressão acima simboliza é que, a derivada de um produto com $n$ factores é uma soma de $n$ termos em que em cada um deles se deriva só um dos factores, mantendo os restantes inalterados.
 
-$(f\cdot g\cdot h)'(x_0)=f'(x_0)\cdot g(x_0)\cdot h(x_0)+f(x_0)\cdot g'(x_0)\cdot h(x_0)+f(x_0)\cdot g(x_0)\cdot h'(x_0)$
+$$
+(f\cdot g\cdot h)'(x_0)=f'(x_0)\cdot g(x_0)\cdot h(x_0)+f(x_0)\cdot g'(x_0)\cdot h(x_0)+f(x_0)\cdot g(x_0)\cdot h'(x_0)
+$$
 
 ## Função Derivada
 

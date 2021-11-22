@@ -259,7 +259,7 @@ A fração $\frac{R(x)}{Q(x)}$ já é [própria](color:orange), e $Q_1(x)$ é um
 
 :::details[Exemplo]
 
-![Quociente polinomial](./assets/0012-quociente-polinomios.png)
+![Quociente polinomial](./assets/0012-quociente-polinomios.png#dark=1)
 
 A igualdade abaixo pode ser verificada através do quociente polinomial acima.
 
