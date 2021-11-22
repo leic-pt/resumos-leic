@@ -32,7 +32,7 @@ type: content
 
 :::warning
 
-O PDF da aula 27, páginas 1-2 começa com um exemplo do Paradoxo de Zenão, que pode ajudar a perceber melhor o conceito de série. 
+O PDF da aula 27, páginas 1-2 começa com um exemplo do Paradoxo de Zenão, que pode ajudar a perceber melhor o conceito de série.
 
 :::
 
@@ -73,7 +73,8 @@ Também de pode escrever o mesmo para $\overline\R$, mas neste caso a série é 
 Define-se [**sucessão de somas parciais de uma série**](color:orange) $(S_n)$ como uma sucessão em que cada termo é a soma até $n$ termos de $(u_n)$.
 
 Por exemplo:
- - $S_2$ seria a soma dos dois primeiros termos de $(u_n)$: $S_2=u_1+u_2$.
+
+- $S_2$ seria a soma dos dois primeiros termos de $(u_n)$: $S_2=u_1+u_2$.
 
 Caso esta sucessão $(S_n)$ tenha limite finito, a série é [**convergente**](color:green), e o limite corresponde à **soma da série**.
 
@@ -143,7 +144,8 @@ Se $(u_n)$ é somável, então, $(r_n)$ é um infinitésimo.
 Chama-se [**resto de ordem $n$**](color:orange) à diferença entre o valor da soma de uma série e o valor de $S_n$. Caso a série seja convergente, o resto tende para zero (infinitésimo).
 
 Por exemplo:
- - Sendo $S_2=u_1+u_2$, então $r_2=u_3+u_4+\dots+u_n = \sum^\infin_{k=3}u_k$.
+
+- Sendo $S_2=u_1+u_2$, então $r_2=u_3+u_4+\dots+u_n = \sum^\infin_{k=3}u_k$.
 
 ## Soma de séries
 
@@ -154,7 +156,7 @@ $$
 $$
 
 - A série soma das suas séries é a série [**convergente**](color:green) cujo termo geral é $a_n+b_n$.
-- A série multiplicação da série de termo geral $a_n$ por $\alpha$ é  a série [**convergente**](color:green) cujo termo geral é $\alpha a_n$.
+- A série multiplicação da série de termo geral $a_n$ por $\alpha$ é a série [**convergente**](color:green) cujo termo geral é $\alpha a_n$.
 - O conjunto de séries convergentes é um [espaço linear](https://en.wikipedia.org/wiki/Vector_space#Definition) de dimensão infinita.
 
 Como a natureza de uma série não depende dos primeiros termos, pode definir-se a série soma de, com $p_1\ne p_2$:
@@ -172,6 +174,7 @@ $$
 👉 Apenas se pode realizar soma de séries entre séries convergentes.
 
 As somas entres todas as outras séries não estão definidas, mas pode-se somar o termo geral para obter uma nova série, tal que:
+
 - A soma do termo geral de uma série [**convergente**](color:green) com o termo geral de uma série [**divergente**](color:pink) é sempre o termo geral de uma série [**divergente**](color:pink).
 - A soma dos termo gerais de duas séries [**divergentes**](color:pink) pode ser o termo geral de uma série [**convergente**](color:green) ou [**divergente**](color:pink).
 
@@ -431,6 +434,7 @@ $$
 - Se a série de termo geral $b_n$ for [**convergente**](color:orange), a série de termo geral $a_n$ é [**convergente**](color:orange).
 
 Seja $(a_n)$ e $(b_n)$ tal que $0\le a_n\le b_n\quad,\quad n>>$:
+
 - Série de $a_n$ é [**divergente**](color:pink) $\implies$Série de $b_n$ é [**divergente**](color:pink)
 - Série de $b_n$ é [**convergente**](color:orange) $\implies$Série de $a_n$ é [**convergente**](color:orange)
 
@@ -506,7 +510,7 @@ $$
 \sum ^{\infty }( u_{n+1} -u_{n}) \quad \text{com} \quad u_{n} =\sqrt{n}\rightarrow +\infty
 $$
 
-Então, como a série de termo geral $\frac{1}{\sqrt{n+1} +\sqrt{n}}$  é [**divergente**](color:pink), pelo CGC, a série de termo geral $\frac1 {\sqrt n}$ também é [**divergente**](color:pink).
+Então, como a série de termo geral $\frac{1}{\sqrt{n+1} +\sqrt{n}}$ é [**divergente**](color:pink), pelo CGC, a série de termo geral $\frac1 {\sqrt n}$ também é [**divergente**](color:pink).
 
 :::
 
@@ -524,12 +528,13 @@ as séries de termos gerais $a_n$ e $b_n$ têm a mesma natureza.
 
 Se $\frac{a_n}{b_n}\to L\in\R^+$, então as séries de termos gerais $a_n$ e $b_n$ têm a mesma natureza (são ambas [**convergentes**](color:green) ou ambas [**divergentes**](color:pink))
 
-Mesmo se o limite for $0$ ou $+\infin$, o critério *pode* permitir alguma conclusão, a partir do CGC, se a sucessão de comparação tiver a natureza apropriada para esse fim.
-- Se o limite de comparação é $0$, então $a_n<b_n$, para $n>>$ 
+Mesmo se o limite for $0$ ou $+\infin$, o critério _pode_ permitir alguma conclusão, a partir do CGC, se a sucessão de comparação tiver a natureza apropriada para esse fim.
+
+- Se o limite de comparação é $0$, então $a_n<b_n$, para $n>>$
 - Se o limite de comparação é $+\infin$, então $b_n<a_n$, para $n>>$
 
 :::details[Exemplos]
-    
+
 Seja a série:
 
 $$
@@ -788,7 +793,7 @@ Este critério (sem nome), é útil para séries com termos gerais do tipo $\fra
 
 Seja $(a_n)$ uma sucessão **decrescente e positiva**. Então as séries de termos gerais $a_n$ e $2^na_{2^n}$ têm a mesma natureza.
 
-Se o termo geral é decrescente e positivo, podemos "*substituir $n$ por $2^n$ e multiplicar tudo por $2^n$*", mantendo a natureza da série.
+Se o termo geral é decrescente e positivo, podemos "_substituir $n$ por $2^n$ e multiplicar tudo por $2^n$_", mantendo a natureza da série.
 
 Este critério pode ser utilizado na obtenção da natureza das séries de Dirichlet.
 
@@ -1059,10 +1064,11 @@ Logo, a série dada é [**divergente**](color:pink).
 Seja $a_n$ uma sucessão alternada, ou seja, uma sucessão que verifica $a_n\cdot a_{n+1}<0$, para $n>>$, tal que $|a_n|$ é um infinitésimo e decrescente, também para $n>>$. Então a série de termo geral $a_n$ [**converge**](color:green).
 
 Se uma sucessão:
- - For alternadamente positiva e negativa
- - O seu módulo é um infinitésimo
- - O seu módulo é decrescente
-Então, a série dada por essa sucessão é [**simplesmente convergente**](color:yellow).
+
+- For alternadamente positiva e negativa
+- O seu módulo é um infinitésimo
+- O seu módulo é decrescente
+  Então, a série dada por essa sucessão é [**simplesmente convergente**](color:yellow).
 
 📖 A demonstração deste critério encontra-se no PDF da aula 29, página 11.
 
@@ -1138,13 +1144,12 @@ uma série [**absolutamente convergente**](color:orange). Então:
 
 - Qualquer série obtida a partir dessa série por permutação de termos, isto é, qualquer série de termo geral $u_{m_n}$ com $(m_n)$ uma bijeção do segmento terminal dos inteiros $\Z_p$ nele mesmo, é também absolutamente convergente e tem a mesma soma que a série de termo geral $u_n$.
 - Qualquer série obtida a partir dessa série por soma por blocos, isto é, qualquer série de termo geral
-    
+
   $$
   v_n=\sum^{m_{n+1}}_{k=m_n}u_k
   $$
-  
+
   com $(m_n)$ uma sucessão estritamente crescente de inteiros tal que $m_1=p$, é também absolutamente convergente e tem a mesma soma que a série de termo geral $u_n$.
-    
 
 Estas propriedades correspondem a dizer que em somas infinitas [**absolutamente convergentes**](color:orange) são válidas as propriedades comutativa e associativa da soma.
 
