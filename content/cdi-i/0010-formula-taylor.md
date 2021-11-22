@@ -28,7 +28,7 @@ type: content
 
 ## Derivadas de Ordem Superior
 
-Conceito já introduzido nas classes de funções.
+Conceito já introduzido nas [classes de funções](/cdi-i/diferenciabilidade#classes-de-funções).
 
 No entanto, este conceito pode ser definido por recorrência:
 
@@ -317,8 +317,6 @@ $$
 $$
 
 Assim, uma das grandes utilidades do **Resto de Peano** é o [cálculo de limites.](color:orange)
-
----
 
 ## Teorema de Taylor para os extremos
 
