@@ -95,7 +95,7 @@ garante que existe um $R_1 \in \R^+$ tal que $f$ é limitada em $V_{R_1}(- \inft
 
 ## Método da Bissecção
 
-Ao utilizar o [TVI](/cdi-i/continuidade-limites#teorema-do-valor-intermedio-tvi), este método permite diminuirmos o intervalo onde pode estar o ponto que pretendermos verificar que pertence ao contra domínio de uma função. Para quem conhece, este método funciona de forma semelhante à [binary search](https://en.wikipedia.org/wiki/Binary_search_algorithm).
+Ao utilizar o [TVI](/cdi-i/continuidade-limites#teorema-do-valor-intermédio-tvi), este método permite diminuirmos o intervalo onde pode estar o ponto que pretendermos verificar que pertence ao contra domínio de uma função. Para quem conhece, este método funciona de forma semelhante à [binary search](https://en.wikipedia.org/wiki/Binary_search_algorithm).
 
 Funciona da seguinte maneira:
 
