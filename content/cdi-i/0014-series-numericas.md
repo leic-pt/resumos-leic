@@ -180,7 +180,7 @@ As somas entres todas as outras séries não estão definidas, mas pode-se somar
 
 :::details[Exemplos]
 
-Considerando as séries [**convergentes**](color:green) (porque são [geométricas](https://www.notion.so/S-ries-Num-ricas-ddc404f4ceed4088ba6e343df7f9906b)):
+Considerando as séries [**convergentes**](color:green) (porque são geométricas):
 
 $$
 \sum ^{\infty }_{n=1} 3\cdot 2^{-n} \quad \text{e} \quad \sum ^{\infty }_{n=1} 2\cdot 3^{-n}

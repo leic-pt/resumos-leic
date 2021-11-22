@@ -28,7 +28,7 @@ type: content
 
 ## Derivadas de Ordem Superior
 
-Conceito já introduzido nas [classes de funções](https://www.notion.so/Derivada-da-composta-e-da-inversa-82b5a36ed1114cb18eee981275d55121).
+Conceito já introduzido nas classes de funções.
 
 No entanto, este conceito pode ser definido por recorrência:
 
