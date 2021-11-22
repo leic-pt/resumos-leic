@@ -25,7 +25,7 @@ type: content
 
 # Integral de Riemann
 
-[**TODO**](color:orange) Adicionar vídeo
+::youtube{#rfG8ce4nNh0}
 
 Suponha-se que $f$ é uma função contínua que só toma valores positivos. O gráfico de $f$ pode ser qualquer coisa como:
 
@@ -35,9 +35,7 @@ Definindo a função como restrita ao intervalo $[1,3]$, pretende-se que o integ
 
 O problema em definir esta área é como encontrar com rigor o seu valor. Para isso, divide-se a área em [**retângulos**](color:orange), que têm uma área fácil de calcular.
 
-Pode-se escolher retângulos acima da área, ou abaixo, mas sempre do mesmo tamanho:
-
-[**TODO**](color:orange) Adicionar vídeos
+Pode-se escolher retângulos acima da área, ou abaixo, mas sempre do mesmo tamanho.
 
 Pode verificar-se o seguinte:
 

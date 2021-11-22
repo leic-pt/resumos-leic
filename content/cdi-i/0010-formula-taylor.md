@@ -24,7 +24,7 @@ type: content
 
 É recomendada a visualização do seguinte vídeo, como suporte aos resumos:
 
-[TODO](color:orange) vídeo aqui
+::youtube{#3d6DsjIBzJ4}
 
 ## Derivadas de Ordem Superior
 
@@ -266,6 +266,7 @@ $$
 f(x)=ax+\frac{a^3}6x^3+\frac{a^5\ch(ac)}{120}x^5\quad,\quad x\in\R,|c|<|x|
 $$
 
+![Resto de Cauchy](./assets/0010-resto-cauchy.mp4)
 [TODO](color:orange) Adicionar vídeo
 
 Como podemos observar, a aproximação da função perto de $x_0=0$ é bastante boa, até porque $R(x)$ é praticamente zero.

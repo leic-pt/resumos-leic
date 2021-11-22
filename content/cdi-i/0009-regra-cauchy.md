@@ -17,7 +17,7 @@ type: content
 
 É recomendada a visualização do seguinte vídeo, como suporte aos resumos:
 
-[TODO](color:orange) vídeo aqui
+::youtube{#kfF40MiS7zA}
 
 ## Teorema de Cauchy
 
