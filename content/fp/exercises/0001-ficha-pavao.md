@@ -941,7 +941,7 @@ para serem corrigidas.
                return acc
            return acumula_aux(fn(acc, lst[0]), lst[1:], fn)
 
-       return acumula_aux(0, lst, fn)
+       return acumula_aux(lst[0], lst[1:], fn)
    ```
 
 5. ```python
