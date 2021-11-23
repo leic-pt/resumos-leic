@@ -104,6 +104,8 @@ Mais à frente veremos como podemos resolver equações deste tipo.
 
 :::
 
+Quando uma EDO na variável $x$ vem associada com uma condição inicial $x(t_0) = x_0$, dizemos que temos um Problema do Valor Inicial (PVI).
+
 ## EDO Lineares
 
 :::tip[Definição]
@@ -138,7 +140,7 @@ $$
 
 :::
 
-### Caso $a(t) \equiv 0$
+### Caso $a(t) \equiv 0$ - Integração Direta
 
 Neste caso, como $a(t) \equiv 0$, temos que $\frac{\d x}{\d t} = b(t)$.
 Este é o caso mais simples, pelo que podemos obter
@@ -147,24 +149,44 @@ $$
 x'(t) = b(t) \Leftrightarrow x(t) = \int b(t) \d t + c
 $$
 
-Se soubermos um valor que pertence à função, por exemplo, $x(t_0) = x_0$, podemos descobrir diretamente a função $x(t)$:
+Se tivermos um valor inicial $x(t_0) = x_0$, obtemos a função $x(t)$:
 
 $$
 \int_{t_0}^t \frac{\d x}{\d s} \d s = \int_{t_0}^t b(s) \d s
 $$
 
 $$
-x(t) = \int_{t_0}^t b(s) \d s + x_0
+x(t) = x_0 + \int_{t_0}^t b(s) \d s
 $$
 
-### Caso $b(t) \equiv 0$
+### Caso $b(t) \equiv 0$ - Homogéneas
 
 Neste caso, como $b(t) \equiv 0$, temos que $\frac{\d x}{\d t} = a(t) x$.
-Assim obtemos a seguinte fórmula:
+Assim obtemos a seguinte fórmula (para qualquer $K \in \R$):
 
 $$
-x(t) = k e^{\int a(t) \d t}
+x(t) = K e^{\int a(t) \d t}
 $$
+
+:::details[Prova]
+
+Note-se que $x(t) \equiv 0$ é trivialmente uma solução.
+
+Assumindo que $x(t_0) \neq 0$ para algum $t_0$, temos que, numa vizinhança desse ponto:
+
+$$
+x' = a(t)x \Leftrightarrow \frac{x'}{x} = a(t) \Leftrightarrow \ln |x| = \int a(s) ds + C \Leftrightarrow x = \pm e^C e^{\int a(s) ds}
+$$
+
+para algum valor de $C \in \R$. Por continuidade de $x$ (note-se que $x$ é diferenciável), temos que $C$ tem o mesmo valor em podos os pontos do domínio, pelo que a solução toma forma
+
+$$
+x(t) = K e^{\int a(t) \d t}
+$$
+
+em que $K$ é uma constante real não nula. Unificando com a solução nula, obtemos o resultado pretendido.
+
+:::
 
 Novamente, se soubermos um valor que pertence à função, por exemplo, $x(t_0) = x_0$, podemos descobrir diretamente a função $x(t)$:
 
@@ -172,7 +194,7 @@ $$
 x(t) = x_0 e^{\int_{t_0}^t a(s) \d s}
 $$
 
-### Caso Geral
+### Caso Geral - Não Homogéneo
 
 :::tip[PRO TIP]
 É recomendado saber os casos particulares de cor em vez de usar o caso geral para lá chegar,
@@ -186,8 +208,9 @@ $$
 \frac{\d x}{\d t} = a(t) x + b(t)
 $$
 
-Para resolver este tipo de equações, utilizamos uma função auxiliar, denomidada [**fator de integração**](color:orange)
-$\mu \equiv \mu (t)$ ([a letra grega "mu"](<https://en.wikipedia.org/wiki/Mu_(letter)#Mathematics>)).
+Para resolver este tipo de equações, utilizamos uma função auxiliar, denomidada [**fator de integração**](color:orange).\
+O fator integrante é uma função $\mu : \R \to \R$ (normalmente representada pela [letra grega "mu"](<https://en.wikipedia.org/wiki/Mu_(letter)#Mathematics>)), tal que $\mu' = a(t)\mu$.\
+Esta função permite-nos reduzir o caso geral aos casos mais simples que já sabemos resolver:
 
 1. Começamos por multiplicar todos os membros da equação por $\mu$:
 
@@ -197,25 +220,25 @@ $$
 
 2. Utilizar as regras de derivação para simplificar a expressão:
 
-   Sabe-se que $\mu x' + \mu' x = (\mu x)'$, pelo que podemos escrever que $\mu' = -a(t) \mu$, obtendo
+   Sabe-se que $\mu x' + a(t) \mu x = \mu x' + \mu' x = (\mu x)'$, pelo que obtemos
 
 $$
 (x \cdot \mu)' = b(t) \mu
 $$
 
-3. Descobrir $\mu$, pela fórmula do [caso $b(t) \equiv 0$](#caso-bt-equiv-0) .
+que é uma EDO resolúvel por integração direta.
 
 $$
-\mu' = -a(t) \mu
+x \cdot \mu = \int b(s) \mu \ ds + C \Leftrightarrow x(t) = \int \frac{\mu(s)}{\mu(t)} \ b(s) ds + \frac{C}{\mu(t)}
 $$
 
-4. Substituir os valores na expressão
+3. Note-se que a equação que define o fator integrante: $\mu' = a(t)\mu$ é linear homogénea de primeira ordem. Podemos então descobrir $\mu$, pela fórmula do [caso $b(t) \equiv 0$](#caso-bt-equiv-0---homogéneas) .
 
 $$
-(x \cdot \mu)' = b(t) \mu
+\mu' = -a(t) \mu \Leftrightarrow \mu(t) = K e^{\int a(s) ds}
 $$
 
-e determinar $x(t)$.
+4. Substituir o $\mu$ obtido em 3. na expressão obtida em 2. determinando o conjunto solução da EDO.
 
 :::details[Exemplos]
 
@@ -241,7 +264,7 @@ $$
 (\mu y)' = \mu t
 $$
 
-3. Queremos agora descobrir $\mu$, pelo que podemos usar a fórmula do [caso $b(t) \equiv 0$](#caso-bt-equiv-0).
+3. Queremos agora descobrir $\mu$, pelo que podemos usar a fórmula do [caso $b(t) \equiv 0$](#caso-bt-equiv-0---homogéneas).
 
 $$
 \mu' = 2t\mu \Leftrightarrow \mu = e^{t^2}
@@ -306,31 +329,18 @@ $$
 
 :::
 
-Alternativamente, pode-se utilizar o seguinte teorema, mas nem sempre se justifica aplicá-lo:
+Alternativamente, pode-se utilizar o seguinte teorema (**Teorema da Variação das Constantes**), mas nem sempre se justifica aplicá-lo:
 
-:::tip[Teorema]
-
-**Variação das constantes**
-
-Seja uma equação do tipo
-
-$$
-\begin{darray}{cc}
-\frac{\d x}{\d t} = a(t) x + b(t) & x(t_0) = x_0
-\end{darray}
-$$
-
-com $t_0 \in I$ e $x_0 \in \R$, a equação tem uma única solução:
+Se tivermos uma EDO deste tipo associado a um valor inicial $x(t_0) = x_0$ obtemos a solução:
 
 $$
 x(t) = x_0 e^{\int_{t_0}^t a(z) \d z} + \int_{t_0}^t b(s) e^{\int_s^t a(z) \d z} \d s
 $$
 
-:::
-
 ## Equações Separáveis
 
-:::tip[Definição]
+As equações separáveis generalizam a ideia que usámos no caso homogéneo de passar os termos que dependem de $y$ para um só lado da equação.
+
 Seja $y(t_0) = y_0$ e uma equação
 
 $$
@@ -339,14 +349,22 @@ $$
 
 com $f$ e $g$ contínuas numa vizinhança de $y_0$.
 
-Então existe uma única solução definida implicitamente por
+Então temos que
 
 $$
-F(y) = G(t) + c
+f(y)y' = g(t) \Leftrightarrow F[y(t)] = \int g(t) dt + C
 $$
 
-com $c=F(y_0) - G(t_0)$
-:::
+em que $F$ é uma primitiva da função $f$. Note-se que este resultado não oferece uma
+solução explı́cita para y, mas uma solução implı́cita. Contudo, como $F'(y_0) = f(y_0) \neq 0$, podemos aplicar o Teorema da função implícita para afirmar que a equação a cima tem uma solução única numa vizinhança de $y_0$.
+
+Como $y(t_0)=y_0$, podemos especificar que a equação
+
+$$
+F[y(t)] = F(y_0) \int_{t_0}^t g(s) ds
+$$
+
+define uma solução única para o PVI, numa vizinhança de $y_0$.
 
 :::info[Exemplo]
 

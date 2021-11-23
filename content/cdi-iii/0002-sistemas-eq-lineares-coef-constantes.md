@@ -32,7 +32,7 @@ Se $B(t) \equiv 0$ a equação designa-se por [**homogénea**](color:orange).
 
 :::
 
-Se tivermos, por exemplo, o sistema, que [podemos facilmente resolver](/cdi-iii/equacoes-diferenciais-ordinarias#caso-bt-equiv-0) linha a linha:
+Se tivermos, por exemplo, o sistema, que [podemos facilmente resolver](/cdi-iii/equacoes-diferenciais-ordinarias#caso-bt-equiv-0---homogéneas) linha a linha:
 
 $$
 \begin{cases}
@@ -101,7 +101,7 @@ $$
 
 com uma matrix $A$ quadrada $n \times n$.
 
-Para $n=1$ [sabemos que $y = k e^{At}$](/cdi-iii/equacoes-diferenciais-ordinarias#caso-bt-equiv-0).
+Para $n=1$ [sabemos que $y = k e^{At}$](/cdi-iii/equacoes-diferenciais-ordinarias#caso-bt-equiv-0---homogéneas).
 Para $n>1$ vamos ter exatamente a mesma coisa, mas para isso temos de definir o exponencial de uma matriz.
 
 ### Exponencial de matrizes
@@ -329,13 +329,13 @@ S = \begin{bmatrix}
 \end{darray}
 $$
 
-A matriz $S$ corresponde aos vetores próprios, e a matrix $\Lambda$ aos vetores próprios.
+A matriz $S$ corresponde aos vetores próprios, e a matrix $\Lambda$ aos valores próprios.
 
 Então,
 
 $$
 \begin{aligned}
-e^{tA} &= S e ^{t\Lambda} S^-1\\
+e^{tA} &= S e ^{t\Lambda} S^{-1}\\
 &= \begin{bmatrix}
 1 & 1\\
 -1 & 1
@@ -398,7 +398,7 @@ $$
 \begin{darray}{c}
 \det(A - \lambda I) = (1-\lambda) ^2 + 1\\
 \begin{darray}{cc}
-\lambda = 1 + i & \lambda = 1 - y
+\lambda = 1 + i & \lambda = 1 - i
 \end{darray}\\
 \end{darray}
 $$
@@ -408,7 +408,7 @@ $$
   $$
   \operatorname{Nul} (A - (1 + i)I) = \operatorname{Nul} \begin{bmatrix}
   -i & -1\\
-  1 & -1
+  1 & -i
   \end{bmatrix} = \mathcal{L} \{(1, -i)\}
   $$
 
@@ -441,7 +441,7 @@ e^{tA} &= S e^{t\Lambda} S^{-1}\\
 1 & 1\\
 -i & i
 \end{bmatrix} \begin{bmatrix}
-e^{t-it} & 0\\
+e^{t+it} & 0\\
 0 & e^{t - it}
 \end{bmatrix} \frac{1}{2i} \begin{bmatrix}
 i & -1\\
@@ -491,7 +491,7 @@ e^{tA} = \begin{bmatrix}
 \end{bmatrix}
 $$
 
-Abaixo está um exemplo de uma matriz com dois blocos:
+Abaixo está um exemplo de uma matriz com três blocos:
 
 $$
 \def\marray#1{\hspace{-5pt}\begin{array}{c}#1\end{array}\hspace{-5pt}}
@@ -849,8 +849,8 @@ constituem um espaço linear de dimensão $n$.
 
 :::
 
-Por outras palavras, este teorema diz que para uma equação da forma acima, com uma matrix $n \times n$, existem $n$ soluções.  
-Por exemplo, caso $A$ seja uma matrix $2 \times 2$, iremos ter duas soluções (isto é, como veremos abaixo, iremos encontrar dois vetores próprios).
+Por outras palavras, este teorema diz que para uma equação da forma acima, com uma matrix $n \times n$, existem $n$ soluções linearmente independentes.  
+Por exemplo, caso $A$ seja uma matrix $2 \times 2$, iremos ter duas soluções linearmente independentes (isto é, como veremos abaixo, iremos encontrar dois vetores próprios).
 
 :::tip[Proposição]
 
@@ -982,7 +982,7 @@ $$
   3 & 1 & -1
 } \to \augmatrix{cc|c}{
   1 & 1 & 2\\
-  0 & -2 & -1
+  0 & -2 & -7
 } \to \augmatrix{cc|c}{
   1 & 0 & -\frac{3}{2}\\
   0 & 1 & \frac{7}{2}
@@ -1119,8 +1119,8 @@ $$
 Como os números são o conjugado um do outro, os seus vetores próprios são linearmente dependentes,
 pelo que é inútil calcular os vetores próprios do outro.  
 Além disso, podemos notar que pelo teorema que diz que o as soluções constituem espaço linear um espaço linear de dimensão $n$,
-isto é, que existem $n$ soluções, como temos uma matrix $2\times 2$, iremos ter apenas duas soluções, que encontramos logo com
-apenas um valor próprio.
+isto é, que existem $n$ valores na base do espaço solução, como temos uma matrix $2\times 2$, iremos ter apenas dois vetores nessa base, que encontramos logo com
+apenas um valor próprio. As restantes soluções da EDO são obtidas a partir de combinação linear das duas respostas obtidas.
 
 ## Equações Não Homogéneas
 
@@ -1132,7 +1132,7 @@ $$
 
 em que $A$ é uma matriz constante $n \times n$ e $B$ é uma função $I \in \R \to \R^n$.
 
-Podemos assim redefinir o teorema da variação das constantes que [estava anteriormente definido](/cdi-iii/equacoes-diferenciais-ordinarias#caso-geral).
+Podemos assim redefinir o teorema da variação das constantes que [estava anteriormente definido](/cdi-iii/equacoes-diferenciais-ordinarias#caso-geral---não-homogéneo).
 
 :::tip[Teorema]
 

@@ -7,6 +7,12 @@ type: exercises
 
 # Fichas Aulas Práticas
 
+:::info[Resoluções Incorretas?]
+Caso encontres incorreções nas resoluções abaixo, por favor
+[reporta-as](https://github.com/diogotcorreia/resumos-leic/issues/new?assignees=&labels=incorrect+solution&template=incorrect_solution.yml&title=%5BIncorrect+Solution%5D+)
+para serem corrigidas.
+:::
+
 - [Ficha 1: Esboço de Conjuntos em Rⁿ](https://drive.google.com/file/d/13OVXw0mh59wXDvnZQ-pSWjAbUBXKZkvB/view?usp=sharing)
 
   - [Respostas (Oficial)](https://drive.google.com/file/d/1D9FeedDHoZRDlaoxhOuLJhmKmRKJGb2g/view?usp=sharing)

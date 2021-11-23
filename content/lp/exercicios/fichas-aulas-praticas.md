@@ -7,6 +7,12 @@ type: exercises
 
 # Exercícios de LP - Aulas Práticas
 
+:::info[Resoluções Incorretas?]
+Caso encontres incorreções nas resoluções abaixo, por favor
+[reporta-as](https://github.com/diogotcorreia/resumos-leic/issues/new?assignees=&labels=incorrect+solution&template=incorrect_solution.yml&title=%5BIncorrect+Solution%5D+)
+para serem corrigidas.
+:::
+
 ## Fichas Aulas Práticas
 
 :::tip

@@ -216,9 +216,9 @@ Para descobrirmos se a sucessão é convergente apenas precisamos de descobrir s
 $$
 u_1<3\Leftrightarrow 1<3\\\text{ }\\
 u_n<3\Rightarrow u_{n+1}<3\\
-u_n<3\Rightarrow u_{n+3}<3+3
+u_n<3\Rightarrow u_n+3<3+3
 \Rightarrow
-\frac{u_{n+3}}2<\frac 6 2\Rightarrow
+\frac{u_n+3}{2}<\frac{6}{2}\Rightarrow
 u_{n+1}<3
 $$
 
@@ -260,7 +260,7 @@ $$
 -\frac 1 n\le \frac{\sin n}n \le\frac 1 n,\text{  }n\in\mathbb N^+
 $$
 
-Como $-\frac 1 n$ e $\frac 1 n$ são [infinitésimos](Sucesso%CC%83es%20convergentes%20b3690a7a9f5148b3b189bb05dee46aa7.md), isto é, tendem para zero, podemos concluir que $u_n\rightarrow 0$.
+Como $-\frac 1 n$ e $\frac 1 n$ são [infinitésimos](#sucessão-convergente), isto é, tendem para zero, podemos concluir que $u_n\rightarrow 0$.
 
 :::
 
