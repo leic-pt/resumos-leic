@@ -299,7 +299,7 @@ $$
 
 ![Biot](./imgs/0006-biot.png#dark=1)
 
-O Campo Magnético por um fio percorrido por corrente estacionária é dado por
+O Campo Magnético por um fio percorrido por corrente estacionária $\vec I$ é dado por
 
 $$
 \vec B (\vec r) = \cfrac {\mu_{0}}{4 \pi} \int_{C} \cfrac{\vec I \times \vec e_{r}}{r^2} \ dl  ' = \cfrac {\mu_{0} '}{4 \pi} \int_{C} \cfrac{d \vec I  ' \times \vec e_{r}}{r^2}
