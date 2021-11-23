@@ -371,7 +371,7 @@ $
 
 $vec B (\vec r)$ - Campo Magnético $\ \ \vec I$ - Corrente Elétrica $\ \ r$ - Distância a um Ponto
 
-### Lei de Ampére
+### Lei de Ampère
 
 $\vec \nabla \times \vec B = \mu_{0} \vec J$
 
