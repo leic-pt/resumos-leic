@@ -368,3 +368,13 @@ y(t) = c_1 e^{-t} \cos t + c_2 e^{-t} \sin t + 2 e^{-t}
 $$
 
 :::
+
+### Método dos Coeficientes Indeterminados
+
+Este método pode-se revelar mais fácil de aplicar, mas tem a desvantagem de **apenas ser aplicável** nos casos em que o termo não homogéneo, $h(t)$ é uma função da forma (ou soma de funções da forma):
+
+$$
+\begin{darray}{c}
+t^p e^{\lambda t} & \text{ou} & t^p e^{at} \cos (bt) & \text{ou} & t^p e^{at} \sin (bt) &, & p \geq 0
+\end{darray}
+$$
