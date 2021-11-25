@@ -252,3 +252,119 @@ No entanto, pode não ser fácil de aplicar, e caso seja possível, pode ser ben
 Este método requer a inversão de uma matriz, pelo que se a matriz for de dimensão $3 \times 3$ ou superior, pode-se revelar trabalhoso.
 
 :::
+
+Para a aplicação desta fórmula, precisamos de definir a [**matriz Wronskiana**](color:orange).  
+Sendo $y_1, \dots, y_n$ as [soluções linearmente independentes da equação homogénea associada](#solução-geral-da-equação-homogénea), define-se a **matriz Wronskiana** como:
+
+$$
+W(t) = \begin{bmatrix}
+y_1 & \dots & y_n\\
+y'_1 & \dots & y'_n\\
+\vdots & \vdots & \vdots\\
+y_1^{(n-1)} & \dots & y_n^{(n-1)}
+\end{bmatrix}
+$$
+
+A expressão que define as soluções particulares é:
+
+$$
+y_P(t) = \begin{bmatrix}
+y_1(t) & \dots & y_n(t)
+\end{bmatrix}
+\int^t W^{-1}(s) \begin{bmatrix}
+0 \\ \vdots \\ 0 \\ h(s)
+\end{bmatrix} \d s
+$$
+
+Como se pode notar, é necessário inverter a matriz $W(t)$, algo que se pode mostrar bastante trabalhoso.
+
+:::details[Exemplo]
+
+**Pegando num exemplo da secção anterior, queremos determinar a solução geral da equação**
+
+$$
+y'' + 2y' + 2y = 2e^t
+$$
+
+[Como explicado acima](#obter-a-solução-geral), sabemos que a solução geral da equação é da forma
+
+$$
+y(t) = y_G(t) + y_P(t)
+$$
+
+Temos de calcular tanto $y_G$ como $y_P$ para obtermos a solução geral.
+
+- **Cálculo de $y_G$**
+
+  Pelo exemplo anterior, a solução geral de
+
+  $$
+  y'' + 2y' + 2y = 0
+  $$
+
+  é $y(t) = c_1 e^{-t} \cos t + c_2 e^{-t} \sin t$, pelo que vamos ter $y_G$:
+
+  $$
+  y_G(t) = c_1 e^{-t} \cos t + c_2 e^{-t} \sin t
+  $$
+
+- **Cálculo de $y_P$**
+
+  O primeiro passo é determinar a **matriz Wronskiana**:
+
+  $$
+  W(t) = \begin{bmatrix}
+  e^{-t} \cos t & e^{-t} \sin t\\
+  (e^{-t} \cos t)' & (e^{-t} \sin t)'
+  \end{bmatrix} = \begin{bmatrix}
+  e^{-t} \cos t & e^{-t} \sin t\\
+  -e^{-t} (\cos t + \sin t) & e^{-t} (-\sin t + \cos t)
+  \end{bmatrix}
+  $$
+
+  De seguida, determinar a inversa da matriz $W$, isto é, $W^{-1}$.  
+  Podemos otimizar este processo, reparando que apenas necessitamos da coluna direita, visto a esquerda irá sempre multiplicar por zero.
+
+  $$
+  W^{-1} = \dots = \begin{bmatrix}
+  ? & -e^t \sin t\\
+  ? & e^t \cos t
+  \end{bmatrix}
+  $$
+
+  Assim, podemos determinar $y_P(t)$:
+
+  $$
+  \begin{aligned}
+  y_P(t) &= \begin{bmatrix}
+  e^{-t} \cos t & e^{-t} \sin t
+  \end{bmatrix} \int^t \begin{bmatrix}
+  ? & -e^s \sin s\\
+  ? & e^s \cos s
+  \end{bmatrix} \begin{bmatrix}
+  0 \\ 2e^{-s}
+  \end{bmatrix} \d s\\
+  &= \begin{bmatrix}
+  e^{-t} \cos t & e^{-t} \sin t
+  \end{bmatrix} \int^t \begin{bmatrix}
+  -2 \sin s\\
+  2 \cos s
+  \end{bmatrix} \d s\\
+  &= \begin{bmatrix}
+  e^{-t} \cos t & e^{-t} \sin t
+  \end{bmatrix} \begin{bmatrix}
+  2 \cos t\\
+  2 \sin t
+  \end{bmatrix}\\
+  &= 2 e^{-t} \cos^2 t + 2 e^{-t} \sin^2 t\\
+  &= 2 e^{-t}
+  \end{aligned}
+  $$
+
+Então, a solução geral é:
+
+$$
+y(t) = c_1 e^{-t} \cos t + c_2 e^{-t} \sin t + 2 e^{-t}
+$$
+
+:::
