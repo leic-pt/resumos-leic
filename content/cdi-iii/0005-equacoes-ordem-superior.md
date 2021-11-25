@@ -103,7 +103,7 @@ As soluções $y_1, \dots, y_n$ podem ser calculadas da seguinte forma.
 
    em que $\lambda_j$ com $j = 1, 2, \dots, k$ são raízes distintas de $P(D)$
 
-3. Cada uma das soluções admitirá $m_j$ ($j = 1, \dots, k$) soluções linearmente independentes, obtidas do seguinte modo:
+3. Cada uma das soluções de $P(R) y = 0$ admitirá $m_j$ ($j = 1, \dots, k$) soluções linearmente independentes, obtidas do seguinte modo:
 
    - se $\lambda_j$ é uma [**raíz real**](color:green) de multiplicidade $m_j$ de $P(D)$, então a equação
 
@@ -131,6 +131,116 @@ As soluções $y_1, \dots, y_n$ podem ser calculadas da seguinte forma.
      e^{a_j t} \sin(b_j t), t e^{a_j t} \sin (b_j t), \dots, t^{m_j - 1} e^{a_j t} \sin (b_j t)
      \end{darray}
      $$
+
+     Dá para simplificar estas soluções:
+
+     $$
+     \begin{darray}{l}
+     t^k e^{at} \sin (bt) = \frac{1}{2i} t^k e^{at} \left(e^{i bt} - e^{i bt} \right) = \frac{1}{2i} t^k e^{(a+ib)t} + \frac{1}{2i} t^k e^{(a - ib)t}\\
+     t^k e^{at} \cos (bt) = \frac{1}{2} t^k e^{at} \left(e^{ibt} + e^{-ibt} \right) = \frac{1}{2} t^k e^{(a+ib) t} + \frac{1}{2} t^k e^{(a-ib)t}
+     \end{darray}
+     $$
+
+:::info[Exemplo]
+
+**Determinar a solução geral da equação**
+
+$$
+y''' + 4y'' + 4y' = 0
+$$
+
+Começamos por escrever o **polinómio característico**:
+
+$$
+P(D) = D^3 + 4D^2 + 4D = D(D+2)^2
+$$
+
+- Para $Dy = 0$, temos a solução $e^0t$;
+- Para $(D+2)^2 y = 0$ temos as soluções $e^{-2t}$ e $te^{-2t}$.
+
+Assim, a solução geral é
+
+$$
+y(t) = c_1 + c_2 e^{-2t} + c_3 t e^{-2t}
+$$
+
+:::
+
+:::details[Mais exemplos (complexos e PVI)]
+
+[**Exemplo com complexos**](color:yellow)
+
+**Determinar a solução geral da equação**
+
+$$
+y'' + 2y' + 2y = 0
+$$
+
+Começamos por escrever o **polinómio característico**:
+
+$$
+P(D) = D^2 + 2D + 2 = (D - (-1+i))(D-(-1-i))
+$$
+
+Temos assim duas soluções complexas, $e^{-t} \cos t$ e $e^{-t} \sin t$.
+
+Assim, a solução geral é
+
+$$
+y(t) = c_1 e^{-t} \cos t + c_2 e^{-t} \sin t
+$$
+
+---
+
+[**Exemplo PVI**](color:yellow)
+
+**Determinar a solução do Problema de Valor Inicial (PVI)**
+
+$$
+\begin{darray}{ccc}
+y'' + 8y' + 12y = 0 & y(0) = 3 & y'(0) = -14
+\end{darray}
+$$
+
+O primeiro passo é determinar a solução geral da equação, como feito anteriormente.  
+Começamos por determinar o **polinómio característico**:
+
+$$
+P(D) = D^2 + 8D + 12 = (D+6)(D+2)
+$$
+
+A solução geral é então
+
+$$
+y(t) = c_1 e^{-6t} + c_2 e^{-2t}
+$$
+
+Vamos agora determinar $c_1$ e $c_2$ de forma a respeitarem as condições iniciais.
+
+$$
+y'(t) = -6c_1e^{-6t} -2c_2e^{-2t}
+$$
+
+$$
+\begin{cases}
+y(0) = 3\\
+y'(0) = -14
+\end{cases} \implies \begin{cases}
+c_1 + c_2 = 3\\
+-6c_1 - 2c_2 = -14
+\end{cases} \implies \begin{cases}
+c_1 = 2\\
+c_2 = 1
+\end{cases}
+$$
+
+Assim, a solução é
+
+$$
+y(t) = 2e^{-6t} + e^{-2t}
+$$
+
+:::
 
 ### Fórmula da Variação das Constantes
 
