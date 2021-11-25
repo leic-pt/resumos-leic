@@ -119,11 +119,11 @@ $|\Delta V| = E d \ \ \ E = \cfrac{\sigma}{\epsilon_{0}} \ \ \ Q = \sigma A$
 
 $C = \cfrac{\epsilon_{0} A}{d}$
 
-### Condensadores em Série
+### Condensadores em Paralelo
 
-![Serie](./imgs/0005-serie.png#dark=1)
+![Paralelo](./imgs/0005-paralels.png#dark=1)
 
-Se tivermos 3 Condensadores em série, as 3 placas de cima estão ao mesmo potencial assim como as debaixo, isso equivale a ter uma placa grande em cima e uma grande em baixo, e assim essa placa é a soma das 3 placas pequenas.
+Se tivermos 3 Condensadores em Paralelo, as 3 placas de cima estão ao mesmo potencial assim como as debaixo, isso equivale a ter uma placa grande em cima e uma grande em baixo, e assim essa placa é a soma das 3 placas pequenas.
 
 Assim a capacidade do Condensador é
 
@@ -131,11 +131,11 @@ $$
 C = \cfrac{Q_1+ Q_2 + Q_3}V = \cfrac{Q_1}V + \cfrac{ Q_2 }V + \cfrac{ Q_3}V = C_1 + C_2 + C_3
 $$
 
-### Condensadores em Paralelo
+### Condensadores em Série
 
-![paralel](./imgs/0005-paralel.png#dark=1)
+![Serie](./imgs/0005-series.png#dark=1)
 
-Se tivermos 3 Condensadores em Paralelo, as ligações entre todas placas tem de ser igual para manter o equilíbrio.
+Se tivermos 3 Condensadores em Série, as ligações entre todas placas tem de ser igual para manter o equilíbrio.
 
 Assim
 
