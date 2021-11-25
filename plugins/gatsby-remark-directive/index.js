@@ -6,6 +6,7 @@ const options = {
   customComponentsTags: ['info', 'tip', 'warning', 'danger', 'details'],
   tabGroupTag: 'tab-group',
   tabTag: 'tab',
+  youtubeTag: 'youtube',
 };
 
 const onCustomComponentVisit = (node) => {
@@ -79,13 +80,49 @@ const onTabGroupVisit = (node) => {
   });
 };
 
+const onYoutubeVisit = (node) => {
+  const data = node.data || (node.data = {});
+  const attributes = node.attributes || {};
+  const id = attributes.id;
+  const children = node.children || (node.children = []);
+  const hProperties = data.hProperties || (data.hProperties = {});
+  const classes = hProperties.class || (hProperties.class = []);
+
+  data.hName = 'div';
+  classes.push('video-wrapper-16-9');
+
+  children.push({
+    type: 'youtubeEmbed',
+    attributes: {
+      videoId: id,
+    },
+    data: {
+      hName: 'iframe',
+      hProperties: {
+        src: 'https://www.youtube.com/embed/' + id,
+        width: 560,
+        height: 315,
+        frameBorder: 0,
+        allow: 'picture-in-picture',
+        allowFullScreen: true,
+      },
+    },
+  });
+};
+
 const onContainerDirectiveVisit = (node) => {
   if (options.customComponentsTags.indexOf(node.name) !== -1) onCustomComponentVisit(node);
   else if (node.name === options.tabGroupTag) onTabGroupVisit(node);
+  else if (node.name === options.youtubeTag) onYoutubeVisit(node);
+};
+
+const onLeafDirectiveVisit = (node) => {
+  if (node.name === options.youtubeTag) onYoutubeVisit(node);
 };
 
 module.exports = ({ markdownAST }) => {
   visit(markdownAST, 'containerDirective', onContainerDirectiveVisit);
+  visit(markdownAST, 'leafDirective', onLeafDirectiveVisit);
 };
 
 module.exports.setParserPlugins = () => [remarkDirective];
