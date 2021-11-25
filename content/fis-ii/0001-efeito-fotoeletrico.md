@@ -23,7 +23,7 @@ Para cada metal existe uma energia mínima $W_0$ necessária para
 libertar os eletrões.
 
 Para cada metal existe uma energia mínima $W_0$ necessária para
-libertar os eletrões.
+libertar os eletrões. A este valor dá-se o nome de **função de trabalho**.
 
 Assim concluimos que $W_0 = h\nu_0$ e que existe uma frequência miníma $\nu_0$ para libertar eletrões.
 
