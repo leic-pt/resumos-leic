@@ -2,6 +2,10 @@
 title: Equações Lineares de Ordem Superior
 description: >-
   Equações Lineares de Ordem Superior
+  Polinómio Característico (Diferencial)
+  Solução Geral da Equação Homogénea
+  Fórmula da Variação das Constantes
+  Método dos Coeficientes Indeterminados
 path: /cdi-iii/equacoes-ordem-superior
 type: content
 ---
@@ -48,6 +52,17 @@ Por exemplo, se $y$ é uma função de classe $C^2$:
 $$
 (D^2 - 4) y = (D - 2)(D + 2)y = (D + 2)(D - 2)y
 $$
+
+:::info[Exemplos]
+
+|    Equação     |      $P(D)$      |
+| :------------: | :--------------: |
+|  $y^{(5)}=0$   |      $D^5$       |
+|  $y'''+y''=0$  |   $D^3 + D^2$    |
+|  $y''+3y = 0$  |    $D^2 + 3$     |
+| $y'''+2y''+5y$ | $D^3 + 2D^2 + 5$ |
+
+:::
 
 ## Obter a Solução Geral
 
