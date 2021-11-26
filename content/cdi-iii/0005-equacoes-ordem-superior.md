@@ -371,10 +371,177 @@ $$
 
 ### Método dos Coeficientes Indeterminados
 
-Este método pode-se revelar mais fácil de aplicar, mas tem a desvantagem de **apenas ser aplicável** nos casos em que o termo não homogéneo, $h(t)$ é uma função da forma (ou soma de funções da forma):
+Este método pode-se revelar mais fácil de aplicar, mas tem a desvantagem de **apenas ser aplicável** nos casos em que o termo não homogéneo, $h(t)$ é uma função da forma (ou combinação linear, isto é, soma de funções da forma):
 
 $$
 \begin{darray}{c}
 t^p e^{\lambda t} & \text{ou} & t^p e^{at} \cos (bt) & \text{ou} & t^p e^{at} \sin (bt) &, & p \geq 0
 \end{darray}
 $$
+
+Dada uma função $h(t)$, define-se [**polinómio aniquilador**](color:orange) de $h$ ao polinómio diferencial $P_A(D)$ que verifica
+
+$$
+P_A(D) h = 0
+$$
+
+Se $h(t)$ satisfaz as condições indicadas acima, então existe um polinómio aniquilador:
+
+- se $b(t) = t^p e^{\lambda t}$, então o seu **polinómio aniquilador** é da forma
+
+  $$
+  P_A (D) = (D-\lambda)^{p + 1}
+  $$
+
+- se $b(t) = t^p e^{at} \cos (bt)$ ou $b(t) = t^p e^{at} \sin(bt)$, então o seu **poliómio aniquilador** é da forma
+
+  $$
+  P_A(D) =(D-(a+ib))^{p+1} (D-(a-ib))^{p+1} = ((D-a)^2 +b^2)^{p+1}
+  $$
+
+Para resolver uma equação do tipo $P(D)y=h(t)$ pelo método dos coeficientes indeterminados, segue-se os seguintes passos:
+
+1. Determinar o polinómio aniquilador, $P_A(D)$, de $b(t)$. Seja $k$ o seu grau.
+2. Aplicar $P_A(D)$ a ambos os membros da equação inicial, donde resulta:
+
+   $$
+   P(D)y=h(t) \implies P_A(D)P(D)y=P_A(D)h(t) \implies P_A(D)P(D)y=0
+   $$
+
+   Note-se que a aplicação de $P_A(D)$ [**não**](color:red) produz uma equação equivalente à inicial.
+   Embora qualquer solução de $P(D)y = h(t)$ seja solução de $P_A(D)P(D)y =0$, nem todas as equações da segunda
+   equação resolvem a primeira.
+
+   Assim, obtivemos uma equação linear homogénea de coeficientes constantes de ordem $n + k$.
+
+3. A solução geral da equação $P_A(D)P(D)y=0$ é dada por
+
+   $$
+   y(t) = \alpha_1 y_1 + \dots + \alpha_n y_n + \beta_1 w_1 + \dots + \beta_p w_p
+   $$
+
+   em que $y_1, \dots, y_n$ são as soluções linearmente independentes da equação $P(D)y= 0$
+   determinadas previamente, ou seja:
+
+   $$
+   y_G(t) = \alpha_1 y_1 + \dots + \alpha_n y_n
+   $$
+
+   Tem-se então que existem $\beta_1, \dots, \beta_n \in \R$ tais que
+
+   $$
+   y_P = \beta_1 w_1 + \dots + \beta_p w_p
+   $$
+
+   é uma solução particular de $P(D)y=h(t)$.
+
+4. Determinam-se os coeficientes $\beta_1, \dots, \beta_p$ de modo a que $w = \beta_1 w_1 + \dots + \beta_p w_p$ verifique $P(D) w = h(t)$.
+
+:::info[Exemplo]
+
+**Determinar a solução do PVI**
+
+$$
+\begin{darray}{c}
+y'' + 3y' + 2y = e^{-x} & y(0) = 0, y'(0) = 1
+\end{darray}
+$$
+
+Como já [vimos anteriormente](#obter-a-solução-geral), a solução da equação diferencial irá ser da forma
+
+$$
+y(x) = y_G(x) + y_P(x)
+$$
+
+- **Cálculo de $y_G$**
+
+  A equação homogénea associada é $y'' + 3y' + 2y = 0$.
+
+  O seu polinómio característico é
+
+  $$
+  P(D) = D^2 + 3D + 2 = (D+1)(D+2)
+  $$
+
+  Então, [como explicado anteriormente](#solução-geral-da-equação-homogénea), vamos ter
+
+  $$
+  y_G(x) = c_1 e^{-t} + c_2 e^{-2t}
+  $$
+
+- **Cálculo de $y_P$**
+
+  Começamos por determinar o **polinómio aniquilador** de $h(t)$, que neste caso será
+
+  $$
+  P_A(D) = D + 1
+  $$
+
+  Vamos então multiplicar ambos os membros da equação por $P_A(D)$:
+
+  $$
+  (D+1)(D+2)y = e^{-x} \implies (D+1)^2(D+2) = 0
+  $$
+
+  Resolvendo a equação homogénea, obtêm-se
+
+  $$
+  y(x) = c_1 e^{-x} + \underbrace{c_2 x e^{-x}}_{\text{solução particular}} + c_3 e^{-2x}
+  $$
+
+  Ambos os termos $c_1 e^{-x}$ e $c_3 e^{-2x}$ fazem parte da solução geral da equação homogénea.  
+  Assim, a solução particular é $w(x) = \alpha x e^{-x}$
+
+  Temos então de determinar o valor de $\alpha$ de forma a que $w(x)$ seja uma solução da equação do enunciado.
+  Para isso, substituímos esta solução na expressão inicial:
+
+  $$
+  \begin{aligned}
+  \left(\alpha x e^{-x}\right)'' + 3\left(\alpha x e^{-x}\right)' + 2\left(\alpha x e^{-x}\right) &= e^{-x}\\
+  \left(\alpha \left(1-x\right)e^{-x}\right)' + 3\left(\alpha \left(1-x\right)e^{-x}\right) + 2\left(\alpha x e^{-x}\right) &= e^{-x}\\
+  \left(\alpha \left(x-2\right)e^{-x}\right) + 3\left(\alpha \left(1-x\right)e^{-x}\right) + 2\left(\alpha x e^{-x}\right) &= e^{-x}\\
+  \alpha \left(x-2 + 3\left(1-x\right) + 2x\right) &= 1\\
+  \alpha &= 1
+  \end{aligned}
+  $$
+
+  Conclui-se que
+
+  $$
+  y_P (x) = x e^{-x}
+  $$
+
+- **Cálculo da solução do PVI**
+
+  Juntando o que calculámos até agora, temos a solução geral da equação:
+
+  $$
+  y(x) = y_G(x) + y_P(x) = c_1 e^{-x} + c_2e^{-2x} + xe^{-x}
+  $$
+
+  Então, para que as soluções iniciais se verifiquem:
+
+  $$
+  y'(x) = -c_1 e^{-x} -2 c_2 e^{-2x} + (1-x)e^{-x}
+  $$
+
+  $$
+  \begin{cases}
+  y(0) = 0\\
+  y'(0) = 1
+  \end{cases} \Leftrightarrow \begin{cases}
+  c_1+c_2= 0\\
+  -c_1-2c_2 + 1= 1
+  \end{cases} \Leftrightarrow \dots \Leftrightarrow \begin{cases}
+  c_1 = 0\\
+  c_2 = 0
+  \end{cases}
+  $$
+
+  Assim, a solução do PVI é:
+
+  $$
+  y(x) = xe^{-x}
+  $$
+
+:::
