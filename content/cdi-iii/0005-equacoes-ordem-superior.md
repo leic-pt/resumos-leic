@@ -55,12 +55,12 @@ $$
 
 :::info[Exemplos]
 
-|    Equação     |      $P(D)$      |
-| :------------: | :--------------: |
-|  $y^{(5)}=0$   |      $D^5$       |
-|  $y'''+y''=0$  |   $D^3 + D^2$    |
-|  $y''+3y = 0$  |    $D^2 + 3$     |
-| $y'''+2y''+5y$ | $D^3 + 2D^2 + 5$ |
+|      Equação       |      $P(D)$      |
+| :----------------: | :--------------: |
+|    $y^{(5)}=0$     |      $D^5$       |
+|    $y'''+y''=0$    |   $D^3 + D^2$    |
+|    $y''+3y = 0$    |    $D^2 + 3$     |
+| $y'''+2y''+5y = 0$ | $D^3 + 2D^2 + 5$ |
 
 :::
 
@@ -152,6 +152,7 @@ As soluções $y_1, \dots, y_n$ podem ser calculadas da seguinte forma.
      $$
      \begin{darray}{l}
      t^k e^{at} \sin (bt) = \frac{1}{2i} t^k e^{at} \left(e^{i bt} - e^{i bt} \right) = \frac{1}{2i} t^k e^{(a+ib)t} + \frac{1}{2i} t^k e^{(a - ib)t}\\
+     \\
      t^k e^{at} \cos (bt) = \frac{1}{2} t^k e^{at} \left(e^{ibt} + e^{-ibt} \right) = \frac{1}{2} t^k e^{(a+ib) t} + \frac{1}{2} t^k e^{(a-ib)t}
      \end{darray}
      $$
@@ -298,7 +299,7 @@ Como se pode notar, é necessário inverter a matriz $W(t)$, algo que se pode mo
 **Pegando num exemplo da secção anterior, queremos determinar a solução geral da equação**
 
 $$
-y'' + 2y' + 2y = 2e^t
+y'' + 2y' + 2y = 2e^{-t}
 $$
 
 [Como explicado acima](#obter-a-solução-geral), sabemos que a solução geral da equação é da forma
@@ -408,7 +409,7 @@ Se $h(t)$ satisfaz as condições indicadas acima, então existe um polinómio a
   P_A (D) = (D-\lambda)^{p + 1}
   $$
 
-- se $b(t) = t^p e^{at} \cos (bt)$ ou $b(t) = t^p e^{at} \sin(bt)$, então o seu **poliómio aniquilador** é da forma
+- se $b(t) = t^p e^{at} \cos (bt)$ ou $b(t) = t^p e^{at} \sin(bt)$, então o seu **polinómio aniquilador** é da forma
 
   $$
   P_A(D) =(D-(a+ib))^{p+1} (D-(a-ib))^{p+1} = ((D-a)^2 +b^2)^{p+1}
