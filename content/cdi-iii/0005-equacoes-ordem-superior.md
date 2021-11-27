@@ -299,7 +299,7 @@ Como se pode notar, é necessário inverter a matriz $W(t)$, algo que se pode mo
 **Pegando num exemplo da secção anterior, queremos determinar a solução geral da equação**
 
 $$
-y'' + 2y' + 2y = 2e^t
+y'' + 2y' + 2y = 2e^{-t}
 $$
 
 [Como explicado acima](#obter-a-solução-geral), sabemos que a solução geral da equação é da forma
@@ -409,7 +409,7 @@ Se $h(t)$ satisfaz as condições indicadas acima, então existe um polinómio a
   P_A (D) = (D-\lambda)^{p + 1}
   $$
 
-- se $b(t) = t^p e^{at} \cos (bt)$ ou $b(t) = t^p e^{at} \sin(bt)$, então o seu **poliómio aniquilador** é da forma
+- se $b(t) = t^p e^{at} \cos (bt)$ ou $b(t) = t^p e^{at} \sin(bt)$, então o seu **polinómio aniquilador** é da forma
 
   $$
   P_A(D) =(D-(a+ib))^{p+1} (D-(a-ib))^{p+1} = ((D-a)^2 +b^2)^{p+1}
