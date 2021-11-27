@@ -75,6 +75,7 @@ module.exports = {
                 '\\rot': '\\operatorname{rot}',
                 '\\augmatrix':
                   '\\left[\\hspace{-5pt}\\begin{array}{#1}#2\\end{array}\\hspace{-5pt}\\right]',
+                '\\lapt': '\\mathcal{L}\\left\\{#1\\right\\}', // Laplace Transfomation
               },
               throwOnError: false,
             },
