@@ -117,7 +117,7 @@ $$
   Para $a \in \R$,
 
   $$
-  \lapt{a^{-at} f(t)} (s) = \lapt{f(t) } (s+a)
+  \lapt{e^{-at} f(t)} (s) = \lapt{f(t) } (s+a)
   $$
 
 - **Derivada da Transformada de Laplace**
