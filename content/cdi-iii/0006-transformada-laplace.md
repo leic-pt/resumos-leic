@@ -152,6 +152,6 @@ $$
 
 ## Transformada de Laplace de Funções Comuns
 
-Através da definição e propriedades, é possível as Transformadas de Laplace de várias funções comuns.
+Através da definição e propriedades, é possível obter as Transformadas de Laplace de várias funções comuns.
 
 Uma tabela pode ser encontrada na [Cheat Sheet](/cdi-iii/cheatsheet/laplace-cheat).
