@@ -1,11 +1,11 @@
 ---
 title: Equações Lineares de Ordem Superior
 description: >-
-  Equações Lineares de Ordem Superior
-  Polinómio Característico (Diferencial)
-  Solução Geral da Equação Homogénea
-  Fórmula da Variação das Constantes
-  Método dos Coeficientes Indeterminados
+  Equações Lineares de Ordem Superior.
+  Polinómio Característico (Diferencial).
+  Solução Geral da Equação Homogénea.
+  Fórmula da Variação das Constantes.
+  Método dos Coeficientes Indeterminados.
 path: /cdi-iii/equacoes-ordem-superior
 type: content
 ---
