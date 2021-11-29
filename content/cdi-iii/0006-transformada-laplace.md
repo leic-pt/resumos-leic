@@ -22,7 +22,7 @@ para deduzir algumas expressões não frequementemente utilizadas e em exercíci
 Seja $f: [0, +\infty] \to \R$. Define-se a [**Transformada de Laplace**](color:green) de $f$ como sendo a função de variável complexa
 
 $$
-\lapt{f} (s) = F(s) = \int_{0}^{+\infty} f(t) e^{-st} \d t
+\lapt{f} (s) = F(s) = \int_{0}^{+\infty} f(t) \ e^{-st} \d t
 $$
 
 ### Domínio da Transformada de Laplace
