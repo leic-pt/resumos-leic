@@ -56,7 +56,7 @@ $$
 ### Derivada da Transformada de Laplace
 
 $$
- \frac{\d^n}{\d s^n} \left(\lapt{f(t)} (s) \right) = (-1)^n \lapt{t^n f(t)}(s)
+\frac{\d^n}{\d s^n} \left(\lapt{f(t)} (s) \right) = (-1)^n \lapt{t^n f(t)}(s)
 $$
 
 ### Transformada de Laplace da Derivada
