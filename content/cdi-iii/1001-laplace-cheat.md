@@ -62,5 +62,5 @@ $$
 ### Transformada de Laplace da Derivada
 
 $$
-  \lapt{f'(t)}(s) = - f(0) + s\lapt{f(t)}(s)
+\lapt{f'(t)}(s) = - f(0) + s\lapt{f(t)}(s)
 $$
