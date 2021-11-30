@@ -10,11 +10,7 @@ type: topLevelPage
 > Os alunos deverão ficar habilitados com as competências necessárias para poderem contribuir ativamene para o crescimento sustentável de organizações.  
 > A UC integra a simulação de gestão IST Management Challenge.
 
-:::warning[PÁGINA EM CONSTRUÇÃO]
-De momento não existem resumos de Gestão.  
-Procuram-se contribuidores.
-:::
-
 ## Recursos
 
 - [Página da Cadeira - Fénix](https://fenix.tecnico.ulisboa.pt/disciplinas/Ges/2021-2022/1-semestre)
+- [Resumos MEEC - Fonte original dos resumos desta UC](https://meec.ritacmendes.com/ges/)
