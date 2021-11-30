@@ -38,7 +38,7 @@ Gestão é o processo que visa atingir as metas e os objetivos de uma organizaç
 
 Gestão é o processo que visa atingir as metas e os objetivos de uma organização, de forma eficiente, através de 4 grandes funções (POLC)
 
-- **Planeamento:** Definição de metas/objetivos das tarefas e recursos necessários para as/os atingir. A brange a Gestão Estratégica e Marketing.
+- **Planeamento:** Definição de metas/objetivos das tarefas e recursos necessários para as/os atingir. Abrange a Gestão Estratégica e Marketing.
 
 - **Organização:** Forma como se pretende desenvolver a atividade preparada. Implica a definição da Estrutura Organizacional.
 
