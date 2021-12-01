@@ -66,7 +66,7 @@ Presidente da República > Primeiro Ministro > Ministros > Secretários > etc.
 
 - **Amplitude de Controlo**: Número de pessoas a que um gestor se pode dirigir de forma eficaz e eficiente. Divide-se em dois tipos:
 
-  - **Estrutura alta**: Empresa com 341 pessoas, divididas em 3 niveis organizacionais em que cada pessoa delega 4 pessoas.
+  - **Estrutura alta**: Empresa com 341 pessoas, divididas em 5 niveis organizacionais em que cada pessoa delega 4 pessoas.
 
   - **Estrutura baixa/plana/horizontal**: Empresa de 157 pessoas divididas em 3 niveis organizacionais em que cada pessoa delega 12 outras pessoas. Com este método a empresa tem uma estratégia orientada para a diferenciação e inovação.
 
