@@ -31,7 +31,8 @@ content/fis-ii/cheatsheets @Pesteves2002 [fis-ii]
 content/fp/** @diogotcorreia [fp]
 
 # Ges - Main maintainer Diogo Correia
-content/ges/** @diogotcorreia [ges]
+content/ges/** @trvds @diogotcorreia [ges]
+content/ges/exercicios/** @diogotcorreia [ges]
 
 # IA - Main maintainer Diogo Correia
 content/ia/** @diogotcorreia [ia]
