@@ -97,6 +97,14 @@ Fica, então, provado que $T(n) > fibo(n)$.
 
 :::
 
+Podemos, ainda, referir que:
+
+$$
+\forall_{n \geq 11} \text{ } fibo(n) \geq (\frac{3}{2})^n
+$$
+
+provado nas notas do professor (no fim desta página).
+
 ### Implementação 2 (Memoization)
 
 Ora, o nosso objetivo, para tornar o algoritmo mais eficiente, passará então por arranjar uma maneira de ir guardando os números já calculados, de modo a não ter de os calcular novamente. Uma das técnicas que nos pode ajudar a fazê-lo é a [**memoization**](color:yellow).
