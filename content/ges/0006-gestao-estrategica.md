@@ -1,7 +1,14 @@
 ---
 title: Gestão Estratégica
 description: >-
-
+  Processo de Formação e Execução de Estratégia.
+  Análise para a Formulação da Estratégia:
+  Análise Externa;
+  Análise Interna;
+  Matriz SWOT.
+  Formulação de Estratégia:
+  Estratégia ao Nível Corporativo;
+  Estratégia ao Nível do Negócio.
 path: /ges/gestao-estrategica
 type: content
 ---
