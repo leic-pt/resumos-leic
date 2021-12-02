@@ -171,7 +171,7 @@ $$
 P(D) = D^3 + 4D^2 + 4D = D(D+2)^2
 $$
 
-- Para $Dy = 0$, temos a solução $e^0t$;
+- Para $Dy = 0$, temos a solução $e^{0t}$;
 - Para $(D+2)^2 y = 0$ temos as soluções $e^{-2t}$ e $te^{-2t}$.
 
 Assim, a solução geral é
