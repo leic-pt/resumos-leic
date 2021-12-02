@@ -3,7 +3,7 @@ title: Introdução
 description: Diferentes maneiras de calcular os números de Fibonacci.
   Memoização.
   Invariantes de loops.
-  Introdução à notação assimptótica.
+  Introdução à notação assintótica.
 path: /asa/introducao
 type: content
 ---
