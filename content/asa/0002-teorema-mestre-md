@@ -1,0 +1,55 @@
+---
+title: Teorema Mestre
+description: >-
+  Teorema Mestre Simplificado.
+  Teorema Mestre Generalizado.
+path: /cdi-iii/equacoes-diferenciais-ordinarias
+type: content
+---
+
+Muitas vezes, uma abordagem que permite diminuir significativamente o tempo assintótico em que é possível resolver um problema é usar uma abordagem de \textbf{Dividir e Conquistar (D&C)}.
+Exemplos de problemas que têm soluções deste tipo são
+- Procura de um elemento numa array ordenada com [Binary Search](https://en.wikipedia.org/wiki/Binary_search_algorithm)
+- Traversia de uma árvore binária
+- Ordenação de uma array com [Merge Sort](https://resumos.leic.pt/iaed/algorimos-eficientes-ordenacao#merge-sort)
+O Teorema Mestre oferece um método para calcular o crescimento assintótico deste tipo de problemas.
+
+# Teorema Mestre
+
+```toc
+
+```
+
+## Teorema Mestre Simplificado
+Sejam $a \geq 1, b > 1, d \geq 0$ constantes e $T(n)$ definido por
+$$ T(n) = aT(n/b) + O(n^d) $$
+Diz então o Teorema Mestre Simplificado que
+$$ T(n) = \begin{cases}
+\Theta(n^{\log_b a}) && \text{if } d < \log_b a \\
+\Theta(n^d\log n) && \text{if } d = \log_b a \\
+\Theta(n^d) && \text{if } d > \log_b a
+$$
+
+// Meter uma data de exemplos, não há muito para ser dito (é só copiar da teórica/lab)
+// Talvez meta a prova se a encontrar e achar interessante
+// Ass: Rocha (caso não tenha sido claro quando mencionei provas)
+
+## Teorema Mestre Generalizado
+
+:::tip[Nota]
+
+O teorema generalizado não foi leccionado em aula e não é preciso saber para qualquer avaliação. 
+O aluno deve ler a seguinte secção se e só se estiver interessado.
+
+:::
+
+Sejam $a \geq 1, b > 1$ constantes e $T(n)$ definido por
+$$ T(n) = aT(n/b) + f(n) $$
+para alguma função $f(n)$ que 
+Diz então o Teorema Mestre Simplificado que
+$$ T(n) = \begin{cases}
+\Theta(n^{\log_b a}) && \text{if } d < \log_b a \\
+\Theta(n^d\log n) && \text{if } d = \log_b a \\
+\Theta(n^d) && \text{if } d > \log_b a
+$$
+
