@@ -204,6 +204,6 @@ onde $i$ é a variável do ciclo que vai sendo incrementada. Podemos verificar, 
 
 ---
 
-- [Slides](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+- [Slides](https://drive.google.com/file/d/1iyuzEQdYwsUpZR6HAjMK0jfS2JDtTBON/view?usp=sharing)
 
 - [Notas da Aula - Prof. José Fragoso](https://web.tecnico.ulisboa.pt/jose.fragoso/asa/aula1.pdf)

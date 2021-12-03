@@ -14,4 +14,4 @@ type: topLevelPage
 
 - [Notas Professor José Fragoso](https://web.tecnico.ulisboa.pt/jose.fragoso/#teaching)
 
-- [Coletânea de Exercícios](NÃO ESQUECER DE COLOCAR)
+- [Coletânea de Exercícios](https://drive.google.com/file/d/1Mk2Eu5uDlwJY_f_eaknYsQk4dljz7IBa/view?usp=sharing)
