@@ -1,5 +1,5 @@
 ---
-title: Teorema Mestre
+title: Notação Assimptótica e Teorema Mestre
 description: >-
   Teorema Mestre Simplificado.
   Teorema Mestre Generalizado.
@@ -7,22 +7,101 @@ path: /asa/teorema-mestre
 type: content
 ---
 
-# Teorema Mestre
+# Notação Assimptótica e Teorema Mestre
 
 ```toc
 
 ```
 
-Muitas vezes, uma abordagem que permite diminuir significativamente o tempo assintótico em que é possível resolver um problema é usar uma abordagem de [**Dividir e conquistar**](color:orange).
+## Notação Assimptótica
+
+A secção de IAED dos resumos sobre [esta matéria](../iaed/introducao-algoritmos#notação-assimptótica) já cobre os aspetos relevantes a abordar, ainda que relativamente superficialmente. Tentando relembrar estes conceitos de uma forma sucinta:
+
+- Majorante assimptótico:
+
+$$
+g \in O(f) \text{ sse } \exists_{c}\exists_{n_0}, \forall_{n \geq n_0}, \quad g(n) \leq c\cdot f(n)
+$$
+
+É o **limite assimptótico superior**, com notação $O$ - afere a complexidade no pior caso.
+
+:::details[**Limite assimptótico superior**]
+
+![Limite Assimptótico Superior](./assets/0002-maj-asympt.png)
+
+:::
+
+- Minorante assimptótico:
+
+$$
+g \in \Omega(f) \text{ sse } \exists_{c}\exists_{n_0}, \forall_{n \geq n_0}, \quad g(n) \geq c\cdot f(n)
+$$
+
+É o **limite assimptótico inferior**, com notação $\Omega$ - afere a complexidade no melhor caso.
+
+- _Tight-band_:
+
+$$
+g \in \Theta(f) \text{ sse } \exists_{c_1, c_2}\exists_{x_0}, \forall_{n \geq n_0}, \quad c_1\cdot f(n) \leq g(n) \leq c_2\cdot f(n)
+$$
+
+É o **limite assimptótico apertado**, com notação $\Theta$ - quando o melhor e o pior caso têm a mesma complexidade.
+
+:::details[**Limite Assimptótico Apertado**]
+
+![Limite Assimptótico Apertado](./assets/0002-tight-asympt.png)
+
+:::
+
+Houve ainda dois [**lemas**](color:yellow) associados à notação assimptótica abordados em aula, um deles diretamente relacionado com o limite acima:
+
+:::info[Lema 1]
+
+$$
+g \in \Theta(f) \text{ sse } g \in O(f) \wedge g \in \Omega(f).
+$$
+
+:::
+
+:::info[Lema 2 - **Transitividade**]
+
+$$
+f \in O(g) \wedge g \in O(h) \implies f \in O(h).
+$$
+
+:::
+
+[**As provas de ambos os lemas encontram-se nas notas do professor, no fim da página.**](color:green)
+
+---
+
+Muitas vezes, uma abordagem que permite diminuir significativamente o tempo assimptótico em que é possível resolver um problema é usar uma abordagem de [**Dividir e conquistar**](color:orange).
+
+:::info[Dividir para Conquistar]
+
+Metodologia:
+
+- [**D**](color:orange)ividir o problema a resolver num conjunto de subproblemas.
+
+- [**R**](color:yellow)esolver (recursivamente) cada um dos subproblemas.
+
+- [**C**](color:red)ombinar as soluções dos subproblemas para obter a solução do problema original.
+
+![Dividir e Conquistar](./assets/0002-divide-conquer.png)
+
+:::
+
 Exemplos de problemas que têm soluções deste tipo são
 
 - Procura de um elemento numa array ordenada com [Binary Search](https://en.wikipedia.org/wiki/Binary_search_algorithm)
-- Traversia de uma árvore binária
-- Ordenação de uma array com [Merge Sort](https://resumos.leic.pt/iaed/algorimos-eficientes-ordenacao#merge-sort)
+- Travessia de uma árvore binária
+- Ordenação de uma array com [Merge Sort](../iaed/algoritmos-eficientes-ordenacao#merge-sort) (pode ser útil rever, foi abordado em aula). As notas do professor abordam também a complexidade temporal de cada método do Merge Sort (e a sua complexidade total)
 
-O Teorema Mestre oferece um método para calcular o crescimento assintótico deste tipo de problemas.
+O Teorema Mestre oferece um método para calcular o crescimento Assimptótico deste tipo de problemas.
 
-## Teorema Mestre Simplificado
+## Teorema Mestre
+
+### Teorema Mestre Simplificado
 
 Sejam $a \geq 1, b > 1, d \geq 0$ constantes e $T(n)$ definido por
 
@@ -95,7 +174,7 @@ Analisemos agora caso a caso:
 
 // resto dos exemplos
 
-## Teorema Mestre Generalizado
+### Teorema Mestre Generalizado
 
 Este teorema pode ser estudado com mais detalhe [aqui](<https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)>) (incluindo a sua prova, bastante extensa).
 
@@ -137,3 +216,8 @@ Podemos encontrar um exemplo para cada caso na [página da Wikipedia](<https://e
 Para exemplos que trabalham com código, ver as fichas dos laboratórios (2021/2022). // meter link
 
 :::
+
+---
+
+- [Slides](hdshjbvdjhksvds)liuhh
+- [Notas da Aula - Prof. José Fragoso](https://web.tecnico.ulisboa.pt/jose.fragoso/asa/aula2.pdf)
