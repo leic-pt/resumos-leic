@@ -1,6 +1,8 @@
 ---
 title: Notação Assimptótica e Teorema Mestre
 description: >-
+  Notação Assimptótica: majorante, minorante e tight-band.
+  Dividir para Conquistar.
   Teorema Mestre Simplificado.
   Teorema Mestre Generalizado.
 path: /asa/teorema-mestre
@@ -19,39 +21,39 @@ A secção de IAED dos resumos sobre [esta matéria](../iaed/introducao-algoritm
 
 - Majorante assimptótico:
 
-$$
-g \in O(f) \text{ sse } \exists_{c}\exists_{n_0}, \forall_{n \geq n_0}, \quad g(n) \leq c\cdot f(n)
-$$
+  $$
+  g \in O(f) \text{ sse } \exists_{c}\exists_{n_0}, \forall_{n \geq n_0}, \quad g(n) \leq c\cdot f(n)
+  $$
 
-É o **limite assimptótico superior**, com notação $O$ - afere a complexidade no pior caso.
+  É o **limite assimptótico superior**, com notação $O$ - afere a complexidade no pior caso.
 
-:::details[**Limite assimptótico superior**]
+  :::details[**Limite assimptótico superior**]
 
-![Limite Assimptótico Superior](./assets/0002-maj-asympt.png)
+  ![Limite Assimptótico Superior](./assets/0002-maj-asympt.png)
 
-:::
+  :::
 
 - Minorante assimptótico:
 
-$$
-g \in \Omega(f) \text{ sse } \exists_{c}\exists_{n_0}, \forall_{n \geq n_0}, \quad g(n) \geq c\cdot f(n)
-$$
+  $$
+  g \in \Omega(f) \text{ sse } \exists_{c}\exists_{n_0}, \forall_{n \geq n_0}, \quad g(n) \geq c\cdot f(n)
+  $$
 
-É o **limite assimptótico inferior**, com notação $\Omega$ - afere a complexidade no melhor caso.
+  É o **limite assimptótico inferior**, com notação $\Omega$ - afere a complexidade no melhor caso.
 
 - _Tight-band_:
 
-$$
-g \in \Theta(f) \text{ sse } \exists_{c_1, c_2}\exists_{x_0}, \forall_{n \geq n_0}, \quad c_1\cdot f(n) \leq g(n) \leq c_2\cdot f(n)
-$$
+  $$
+  g \in \Theta(f) \text{ sse } \exists_{c_1, c_2}\exists_{x_0}, \forall_{n \geq n_0}, \quad c_1\cdot f(n) \leq g(n) \leq c_2\cdot f(n)
+  $$
 
-É o **limite assimptótico apertado**, com notação $\Theta$ - quando o melhor e o pior caso têm a mesma complexidade.
+  É o **limite assimptótico apertado**, com notação $\Theta$ - quando o melhor e o pior caso têm a mesma complexidade.
 
-:::details[**Limite Assimptótico Apertado**]
+  :::details[**Limite Assimptótico Apertado**]
 
-![Limite Assimptótico Apertado](./assets/0002-tight-asympt.png)
+  ![Limite Assimptótico Apertado](./assets/0002-tight-asympt.png)
 
-:::
+  :::
 
 Houve ainda dois [**lemas**](color:yellow) associados à notação assimptótica abordados em aula, um deles diretamente relacionado com o limite acima:
 
@@ -75,7 +77,7 @@ $$
 
 ---
 
-Muitas vezes, uma abordagem que permite diminuir significativamente o tempo assimptótico em que é possível resolver um problema é usar uma abordagem de [**Dividir e conquistar**](color:orange).
+Muitas vezes, uma abordagem que permite diminuir significativamente o tempo assimptótico em que é possível resolver um problema é usar uma abordagem de [**Dividir e Conquistar**](color:orange).
 
 :::info[Dividir para Conquistar]
 
@@ -146,7 +148,7 @@ Para isso precisamos de saber quantas divisões temos de fazer até chegar a ess
 Ficamos então com o somatório:
 
 $$
-\sum_{k=0}^{\log_b n} O \left( a^k (\frac{n}{b^k})^d \right) =
+\sum_{k=0}^{\log_b n} O \left( a^k \left(\frac{n}{b^k}\right)^d \right) =
 O \left( n^d \sum_{k=0}^{\log_b n} \left( \frac{a}{b^d} \right)^k \right)
 $$
 
@@ -234,7 +236,7 @@ Podemos, então, dizer que o ciclo corre $\frac{n}{2}$ vezes, e que a sua comple
 Como observado, $j = k$ no fim do ciclo, pelo que a chamada recursiva da função (dentro do bloco `if`) é realizada com [$j = \frac{n}{2}$](color:orange) [**duas vezes**](color:yellow) (a função recursiva é chamada duas vezes), pelo que podemos admitir que essa secção leva $2\cdot T(\frac{n}{2})$. A função $T(n)$ total da função corresponde, portanto, a
 
 $$
-T(n) = \textcolor{yellow}{2}\cdot T\left(\textcolor{orange}{\frac{n}{2}}\right) + O(n).
+T(n) = \smartcolor{yellow}{2}\cdot T\left(\smartcolor{orange}{\frac{n}{2}}\right) + O(n).
 $$
 
 Ora, daqui podemos retirar que
@@ -491,15 +493,15 @@ De qualquer maneira, para ter aqui algumas noções-chave:
 Um array $A[1, ..., n]$ diz-se um [**heap**](color:green) se:
 
 $$
-\forall_{1 < i \leq n}, \quad A[parent(i)] \geq A[i],
+\forall_{1 < i \leq n}, \quad A[\operatorname{parent}(i)] \geq A[i],
 $$
 
 com
 
 $$
-parent(i) = \left\lfloor{\frac{i}{2}}\right\rfloor\\
-left(i) = 2i\\
-right(i) = 2i + 1
+\operatorname{parent}(i) = \left\lfloor{\frac{i}{2}}\right\rfloor\\
+\operatorname{left}(i) = 2i\\
+\operatorname{right}(i) = 2i + 1
 $$
 
 :::
