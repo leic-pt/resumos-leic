@@ -1,5 +1,6 @@
 name: Search scraping
 
+concurrency: search_scraping
 on: deployment_status
 
 jobs:
