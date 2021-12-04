@@ -382,9 +382,9 @@ Diz então o Teorema Mestre Generalizado que:
 
 $$
 T(n) = \begin{cases}
-\Theta(n^{\log_b a}) && \text{if } f(n) \in O(n^{\log_b a}) \\
-\Theta(n^{\log_b a}\log n) && \text{if } f(n) \in \Theta(n^{\log_b a}) \\
-\Theta(f(n)) && \text{if } f(n) \in \Omega(n^{\log_b a})
+\Theta(n^{\log_b a}) && \text{se } f(n) \in O(n^{\log_b a}) \\
+\Theta(n^{\log_b a}\log n) && \text{se } f(n) \in \Theta(n^{\log_b a}) \\
+\Theta(f(n)) && \text{se } f(n) \in \Omega(n^{\log_b a})
 \end{cases}
 $$
 
@@ -407,15 +407,116 @@ Pode no entanto ser encontrada no livro [Introduction to Algorithms](https://edu
 
 :::
 
-:::info[Exemplos]
+:::details[Exemplo]
 
-Podemos encontrar um exemplo para cada caso na [página da Wikipedia](<https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)#Examples>).\\
-// actually não sei se há exemplos do generalizado na ficha, mas se houver:
-Para exemplos que trabalham com código, ver as fichas dos laboratórios (2021/2022). // meter link
+Tenhamos:
+
+```cpp
+int f(int n) {
+  int i = 0;
+  int j = n;
+
+  if (n <= 1) return 1;
+
+  while (j > 0) {
+    i+;
+    j /= 2;
+  }
+
+  for (int k = 0; k < 4; k++) {
+    j += f(n/2);
+  }
+
+  while (i > 0) {
+    j += 2;
+    i--;
+  }
+  return j;
+}
+```
+
+Neste exemplo estamos na presença de 3 loops. Em relação ao primeiro:
+
+| $k$ | $i$ | $j$             |
+| --- | --- | --------------- |
+| $0$ | $0$ | $n$             |
+| $1$ | $1$ | $\frac{n}{2}$   |
+| $2$ | $2$ | $\frac{n}{4}$   |
+| ... | ... | ...             |
+| $k$ | $k$ | $\frac{n}{2^k}$ |
+
+Ora, temos que a condição de paragem é `j == 1` (após isso acontece `j == 0` e para), pelo que ocorrerão
+
+$$
+\frac{n}{2^k} = 1 \leftrightarrow n = 2^k \leftrightarrow k = \log_{2}{n}
+$$
+
+$\log_{2}{n}$ iterações, ou seja o loop tem complexidade $O(\log n)$.
+
+O segundo loop corre em tempo constante (exatamente 4 vezes), e contém a chamada recursiva da função, que é chamada com $\frac{n}{2}$.
+
+O terceiro loop corre também em tempo logarítmico ($i = k$no final do primeiro loop, e neste estamos a decrementar $i$ 1 a 1 até chegar a 0).
+
+Podemos, assim, dizer que
+
+$$
+T(n) = 4 \cdot T\left(\frac{n}{2}\right) + O(\log n)
+$$
+
+Ora, aqui não podemos aplicar o Teorema Mestre simplificado (não temos algo do tipo $O(n^d)$, mas sim $O(\log n)$). Teremos, então, de recorrer ao Teorema Mestre generalizado.
+Aqui, consideramos $f(n)$ == $\log n$, e temos, claro, que
+
+$$
+a = 4, \quad b = 2, \quad f(n) = \log n \\
+\text{ } \\
+n^{\log_{b}{a}} = n^2 \\
+f(n) = \log n \in O(n^2),
+$$
+
+pelo que estamos na presença do [**caso 1**](color:orange), e portanto
+
+$$
+T(n) = \Theta(n^2).
+$$
 
 :::
 
+## Heaps e Heap Sort
+
+Na terceira aula foram também abordados os conceitos de Heap e Heap Sort. Estes conteúdos já estão disponíveis na [secção de resumos de IAED](../iaed/algoritmos-eficientes-ordenacao#heap-sort-enquadramento), pelo que não os abordaremos a fundo aqui. As notas do professor também explicam muito bem esta parte!
+
+De qualquer maneira, para ter aqui algumas noções-chave:
+
+:::info[Definição de Heap]
+Um array $A[1, ..., n]$ diz-se um [**heap**](color:green) se:
+
+$$
+\forall_{1 < i \leq n}, \quad A[parent(i)] \geq A[i],
+$$
+
+com
+
+$$
+parent(i) = \left\lfloor{\frac{i}{2}}\right\rfloor\\
+left(i) = 2i\\
+right(i) = 2i + 1
+$$
+
+:::
+
+- A função `maxHeapify`/`fixDown` assume que ambos os filhos do "nó" argumento são heaps.
+- A altura máxima de um heap com $n$ elementos é $\log n$.
+- Do ponto acima sai que podemos, no máximo, invocar recursivamente a função `maxHeapify` $\log n$ vezes.
+- A construção de um heap é feita de baixo para cima, da direita para a esquerda.
+- O índice pelo qual queremos começar a construção, o **índice do primeiro nó com filhos**, é dado por $\left\lfloor\frac{n}{2}\right\rfloor$. A prova está nas notas do professor. Abaixo podemos encontrar 2 exemplos que ilustram esta proposição (aqui, $i$ é o índice do primeiro nó com filhos).
+
+![Índice do primeiro nó com filhos](./assets/0002-heap-example.png)
+
+De realçar que aqui consideramos um array indexado a partir de 1 (e não 0), daí $i$ ser, respetivamente, 2 e 4, e não 1 e 3.
+
 ---
 
-- [Slides](hdshjbvdjhksvds)liuhh
-- [Notas da Aula - Prof. José Fragoso](https://web.tecnico.ulisboa.pt/jose.fragoso/asa/aula2.pdf)
+- [Slides Aula 2](https://drive.google.com/file/d/16UfEv6UZhIx3DS1dNa-aqZO2v1dxbOcW/view?usp=sharing)
+- [Slides Aula 3](https://drive.google.com/file/d/19ab4rx8FV2w9UOGv3xfUv7SdeYnSoa-y/view?usp=sharing)
+- [Notas da Aula 2 - Prof. José Fragoso](https://drive.google.com/file/d/1qEKC5v_2ESeRO97b8uRERu_-lJkYDwI1/view?usp=sharing)
+- [Notas da Aula 3 - Prof. José Fragoso](https://drive.google.com/file/d/1srY9m9W1ZjnvY3oZcpgl0fjhIQGsDen3/view?usp=sharing)
