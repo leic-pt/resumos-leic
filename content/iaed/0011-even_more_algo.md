@@ -1,7 +1,7 @@
 ---
 title: Algoritmos Elementares de Ordenação (Continuação)
 description: Counting Sort. Radix Sort.
-path: /iaed/algorimos-elementares-ordenacao-2
+path: /iaed/algoritmos-elementares-ordenacao-2
 type: content
 ---
 
