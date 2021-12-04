@@ -148,7 +148,7 @@ O ramo de cima é igual ao da implementação anterior. O de baixo, contudo, é 
 
 Esta implementação tem, ainda, um pormenor que pode ser melhorado - a complexidade no [**espaço**](color:yellow) é linear ($S(n) \in O(n)$), já que precisamos de criar um vetor com $n$ entradas. Podemos, no entanto, melhorar este aspeto.
 
-### Implementação 3 (Constantes auxiliares)
+### Implementação 3 (Constantes Auxiliares)
 
 O algoritmo seguinte é bastante semelhante ao anterior, recorrendo, no entanto, a **constantes auxiliares** temporárias ao invés de uma estrutura de dados adicional. Evita, na mesma, os cálculos repetidos desnecessários, mas sem o "incómodo" da complexidade no espaço ser linear - é $O(1)$.  
 Em C++, corresponderia a qualquer coisa como:
