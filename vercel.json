@@ -190,6 +190,18 @@
     { "source": "/iaed/0017-arv.html", "destination": "/iaed/arvores-binarias" },
     { "source": "/iaed/0018-grafos.html", "destination": "/iaed/grafos" },
     { "source": "/iaed/1000-algoritmos.sheet.html", "destination": "/iaed/cheatsheet/algoritmos" },
-    { "source": "/iaed/meta/linux-setup.html", "destination": "/iaed/meta/linux-setup" }
+    { "source": "/iaed/meta/linux-setup.html", "destination": "/iaed/meta/linux-setup" },
+    {
+      "source": "/iaed/algorimos-elementares-ordenacao",
+      "destination": "/iaed/algoritmos-elementares-ordenacao"
+    },
+    {
+      "source": "/iaed/algorimos-eficientes-ordenacao",
+      "destination": "/iaed/algoritmos-eficientes-ordenacao"
+    },
+    {
+      "source": "/iaed/algorimos-elementares-ordenacao-2",
+      "destination": "/iaed/algoritmos-elementares-ordenacao-2"
+    }
   ]
 }
