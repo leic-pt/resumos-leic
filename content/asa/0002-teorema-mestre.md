@@ -421,7 +421,7 @@ int f(int n) {
   if (n <= 1) return 1;
 
   while (j > 0) {
-    i+;
+    i++;
     j /= 2;
   }
 
