@@ -200,7 +200,7 @@ $$
 \operatorname{sum} = \sum^{i - 1}_{k = 0}\operatorname{arr} [k]
 $$
 
-onde $i$ é a variável do ciclo que vai sendo incrementada. Podemos verificar, a qualquer momento do loop, que `sum` corresponde, de facto, ao valor daquele somatório.
+onde `i` é a variável do ciclo que vai sendo incrementada. Podemos verificar, a qualquer momento do loop, que `sum` corresponde, de facto, ao valor daquele somatório.
 
 ---
 
