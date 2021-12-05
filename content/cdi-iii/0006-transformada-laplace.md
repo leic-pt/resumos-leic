@@ -155,3 +155,118 @@ $$
 Através da definição e propriedades, é possível obter as Transformadas de Laplace de várias funções comuns.
 
 Uma tabela pode ser encontrada na [Cheat Sheet](/cdi-iii/cheatsheet/laplace-cheat).
+
+## Inversa da Transformada de Laplace
+
+Para mais tarde conseguirmos resolver equações diferenciais através da Transformada de Laplace,
+necessitamos de conseguir inverter a transformação de Laplace.  
+Tal como fizemos com primitivas em CDI-I, este método requer conhecer as funções mais comuns.
+
+$$
+f(t) = \mathcal{L}^{-1} \{F(s)\} \Leftrightarrow \lapt{f(t)} = F(s)
+$$
+
+Vejamos alguns exemplos
+
+:::info[Exemplo]
+
+**Calcule a inversa da Transformada de Laplace da seguinte função**
+
+$$
+F(S) = \frac{1}{s^2+4s+5}
+$$
+
+Podemos reescrever a função numa forma que corresponde a uma transformada conhecida:
+
+$$
+F(s) = \frac{1}{s^2+4s+5} = \frac{1}{(s+2)^2 + 1}
+$$
+
+Facilmente conseguimos reconhecer a transformada de $e^{at} \sin(\omega t)$, pelo que:
+
+$$
+F(s) = \frac{1}{(s+2)^2 + 1} = \lapt{e^{-2t} \sin t}
+$$
+
+E, finalmente, obtemos a inversa:
+
+$$
+f(t) = \lapt{e^{-2t} \sin t}
+$$
+
+:::
+
+:::details[Exemplos Variados]
+
+[**Exemplo 1**](color:yellow)
+
+Algo que pode acontecer é aparecer um termo $e^{as}$ na transformada.
+Se tal acontecer, o mais provável é ser necessário utilizar a função de Heaviside.
+
+**Calcule a inversa da Transformada de Laplace da seguinte função**
+
+$$
+F(s) = \frac{e^{-3s}}{s+3}
+$$
+
+Podemos reparar na existência da transformada de $e^{at}$, pelo que:
+
+$$
+F(s) = e^{-3s} \times \frac{1}{s+3} = e^{-3s} \lapt{e^{-3t}}
+$$
+
+Se relembrarmos a [propriedade da Transformada de Laplace da Translação](#propriedades-elementares-da-transformada-de-laplace),
+reparamos que temos de usar a função de Heaviside.
+
+$$
+F(s) = e^{-3s} \lapt{e^{-3t}} = \lapt{H(t-3) e^{-3(t-3)}}
+$$
+
+Pelo que a inversa é:
+
+$$
+f(t) = H(t-3) e^{-3(t-3)}
+$$
+
+---
+
+[**Exemplo 2**](color:yellow)
+
+Pode ser necessário aplicar o [método da decomposição em frações simples](/cdi-i/primitivacao#decomposição-em-frações-simples),
+aprendido em CDI-I, de forma a conseguirmos identificar certas expressões.
+
+**Calcule a inversa da Transformada de Laplace da seguinte função**
+
+$$
+F(s) = \frac{1}{s^3+2s^2+s}
+$$
+
+Podemos começar por fatorizar o denominador:
+
+$$
+F(s) = \frac{1}{s(s+1)^2}
+$$
+
+Aplicado agora o [método da decomposição em frações simples](/cdi-i/primitivacao#decomposição-em-frações-simples),
+omitido aqui para brevidade, obtermos
+
+$$
+F(s) = \frac{1}{s(s+1)^2} = \frac{1}{s} - \frac{1}{s+1} - \frac{1}{(s+1)^2}
+$$
+
+Assim, identificamos as transfomadas de $1$, $e^{at}$ e $t^n e^{at}$, pelo que:
+
+$$
+\begin{aligned}
+F(s) &= \lapt{1} - \lapt{e^{-t}} - \lapt{te^{-t}}\\
+&= \lapt{1-e^{-t}-te^{-t}}
+\end{aligned}
+$$
+
+Pelo que a inversa é:
+
+$$
+f(t) = 1-e^{-t}-te^{-t}
+$$
+
+:::
