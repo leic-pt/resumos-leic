@@ -270,3 +270,170 @@ f(t) = 1-e^{-t}-te^{-t}
 $$
 
 :::
+
+## Aplicação da Transformada de Laplace às Equações Diferenciais
+
+É possível resolver problemas de valor inicial (PVI) para uma equação linear de ordem $n$,
+de coeficientes constantes, através da Transformada de Laplace.
+Para se aplicar este método, a equação diferencial tem de ser do tipo:
+
+$$
+\begin{cases}
+y^n + a_{n-1}y^{(n-1)} + \dots + a_1y' + a_0y = b(t)\\
+y(0) = b_0\\
+y'(0) = b_1\\
+\quad \vdots\\
+y^{(n-1)}(0) = b_{n-1}
+\end{cases}
+$$
+
+Este método consiste nos seguintes passos:
+
+1. Aplicar a Transformada de Laplace a ambos os membros da equação diferencial do problema:
+
+   $$
+   \lapt{y^n + a_{n-1}y^{(n-1)} + \dots + a_1y' + a_0y}(s) = \lapt{b(t)}(s)
+   $$
+
+2. Aplicando as propriedades da transformada de Laplace, determinar $Y(s)$, sendo que
+
+   $$
+   Y(s) = \lapt{y(s)}
+   $$
+
+3. Finalmente, determinar a função $y(t)$ tal que
+
+   $$
+   \lapt{y(t)}(s) = Y(s)
+   $$
+
+   ou seja,
+
+   $$
+   y(t) = \mathcal{L}^{-1} \{Y(s)\}(t)
+   $$
+
+   Diz-se que $y(t)$ é a Transformada de Laplace inversa de $Y(t)$.
+
+   Assim, obtém-se a solução $y(t)$ do PVI.
+
+:::info[Exemplo]
+
+**Resolva o seguinte problema de valor inicial**
+
+$$
+y'' - 2y' + y = t^5 e^t, y(0) = 1, y'(0) = 3
+$$
+
+1. Começamos por calcular a Transformada de Laplace de ambos os membros da equação.
+
+$$
+\lapt{y''} - 2\lapt{y'} + \lapt{y} = \lapt{t^5 e^t}
+$$
+
+2. Queremos agora decobrir $Y(s) = \lapt{y}$, pelo que continuamos a desenvolver a expressão acima,
+   até isolarmos o termo $Y(s)$.
+
+$$
+\begin{aligned}
+s^2 Y(s) - s y(0) - y'(0) - 2(s Y(s) - y(0)) + Y(s) &= \frac{5!}{(s-1)^6}\\
+(s^2 - 2s + 1) Y(s) - sy(0) - y'(0) + 2y(0) &= \frac{5!}{(s-1)^6}\\
+(s-1)^2 Y - s - 1 &= \frac{5!}{(s-1)^6}\\
+Y(s) &= \frac{s+1}{(s-1)^2} + \frac{5!}{(s-1)^8}\\
+\end{aligned}
+$$
+
+3. Finalmente, temos de calcular a inversa da Transformada de Laplace de $Y(s)$:
+
+$$
+\begin{aligned}
+Y(s) &= \frac{s-1+2}{(s-1)^2} + \frac{5!}{7!}\frac{7!}{(s-1)^8}\\
+&= \frac{1}{s-1} + \frac{2}{(s-1)^2} + \frac{1}{7 \times 6} \frac{7!}{(s-1)^8}\\
+&= \mathcal{L} \{e^t + 2 te^t + \frac{1}{42} t^7 e^t\}
+\end{aligned}
+$$
+
+Então, a solução geral da equação é
+
+$$
+y(t) = e^t + 2te^t + \frac{t^7}{42} e^t = (1+2t + \frac{t^7}{42}) e^t
+$$
+
+:::
+
+:::details[Exemplos]
+
+**Resolva o seguinte problema de valor inicial**
+
+$$
+\begin{array}{c}
+y'' - 2y' + y = \begin{cases}
+e^t &\text{se } 0 \leq t < 1\\
+-e^t &\text{se } 0 \leq t
+\end{cases} & y(0) = y'(0) = 0
+\end{array}
+$$
+
+Antes de começarmos a aplicar o método de resolução, temos de converter o "membro direito" da equação
+numa expressão única.
+Para isso, podemos usar a função Heaviside, pelo que obtemos
+
+$$
+\begin{cases}
+e^t &\text{se } 0 \leq t < 1\\
+-e^t &\text{se } 0 \leq t
+\end{cases} = e^t - 2e^t H(t-1)
+$$
+
+Ficamos assim com a equação:
+
+$$
+y'' - 2y' + y = e^t - 2e^t H(t-1)
+$$
+
+1. Começamos por calcular a Transformada de Laplace de ambos os membros.
+
+   $$
+   \lapt{y''} -2 \lapt{y'} + \lapt{y} = \lapt{e^t} - 2 \lapt{e^t H(t-1)}
+   $$
+
+2. Queremos agora decobrir $Y(s) = \lapt{y}$, pelo que continuamos a desenvolver a expressão acima,
+   até isolarmos o termo $Y(s)$.
+
+$$
+\begin{aligned}
+s^2 Y(s) - s y(0) - y'(0) - 2s (Y(s) - y(0)) + Y(s) &= \frac{1}{s-1} + 2e \mathcal{L} \{e^{t-1} H(t-1)\}\\
+(s^2 - 2s + 1) Y(s) &= \frac{1}{s-1} - 2e \times e^{-s} \times \frac{1}{s-1}\\
+Y(s) &= \frac{1}{(s-1)^3} - e\times e^{-s} \frac{2}{(s-1)^3}\\
+\end{aligned}
+$$
+
+3. Finalmente, temos de calcular a inversa da Transformada de Laplace de $Y(s)$:
+
+$$
+\begin{aligned}
+Y(s) &= \frac{1}{2} \mathcal{L} \{t^2 e^t \} - e \times e^{-s} \mathcal{L} \{t^2 e^t\}\\
+Y(s) &= \frac{1}{2} \mathcal{L} \{t^2 e^t \} - e \mathcal{L} \{(t-1)^2 e^{t-1} H(t-1)\}\\
+Y(s) &= \lapt{\frac{t^2}{2} e^t - e (t-1)^2 e^{t-1} H(t-1)}
+\end{aligned}
+$$
+
+Então, a solução geral da equação é:
+
+$$
+\begin{aligned}
+y(t) &= \frac{t^2}{2}e^t - e(t-1)^2 e^{t-1} H(t-1)\\
+y(t) &= \left(\frac{t^2}{2} - H(t-1) (t-1)^2\right) e^t
+\end{aligned}
+$$
+
+Opcionalmente, podemos dividir em dois casos para remover a função de Heaviside:
+
+$$
+y(t) = \begin{cases}
+\frac{t^2}{2} e^t & \text{se } 0 \leq t < 1\\
+\left(\frac{t^2}{2} - (t-1)^2\right) e^t & \text{se } t \geq 1
+\end{cases}
+$$
+
+:::
