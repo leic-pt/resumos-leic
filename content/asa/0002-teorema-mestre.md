@@ -170,7 +170,7 @@ Analisemos agora caso a caso:
 
 :::details[Exemplo 1]
 
-Tenhamos $T(n) = T(\frac{n}{3}) + n$.
+Tenhamos $T(n) = 9T(\frac{n}{3}) + n$.
 Aqui, podemos dizer que:
 
 $$
