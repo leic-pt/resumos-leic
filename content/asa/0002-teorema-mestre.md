@@ -348,7 +348,7 @@ Fazendo a tabela para o primeiro loop:
 Temos que o primeiro loop para quando
 
 $$
-i \geq n^2 \leftrightarrow 2k \geq n^2 \leftrightarrow k \ geq \frac{n^2}{2},
+i \geq n^2 \leftrightarrow 2k \geq n^2 \leftrightarrow k \geq \frac{n^2}{2},
 $$
 
 pelo que a sua complexidade será $O(\frac{n^2}{2}) = O(n^2)$.
@@ -421,7 +421,7 @@ int f(int n) {
   if (n <= 1) return 1;
 
   while (j > 0) {
-    i+;
+    i++;
     j /= 2;
   }
 
