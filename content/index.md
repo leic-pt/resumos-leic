@@ -140,8 +140,9 @@ years:
 Quero agradecer a [todos os que contribuíram](https://github.com/diogotcorreia/resumos-leic/graphs/contributors) para os conteúdos deste site:
 
 - [Diogo Correia](https://github.com/diogotcorreia/resumos-leic/commits?author=diogotcorreia) (**Website**, **CDI-I**, **CDI-II**, **CDI-III**, MD, IAED)
-- [Diogo Gaspar](https://github.com/diogotcorreia/resumos-leic/commits?author=randomicecube) (**LP**)
-- [Tomás Esteves](https://github.com/diogotcorreia/resumos-leic/commits?author=Pesteves2002) (**IAED**, MD, CDI-II, LP, Fis-II)
+- [Diogo Gaspar](https://github.com/diogotcorreia/resumos-leic/commits?author=randomicecube) (**LP**, ASA, CDI-I)
+- [Tomás Esteves](https://github.com/diogotcorreia/resumos-leic/commits?author=Pesteves2002) (**IAED**, **Fis-II**, MD, CDI-II, LP)
+- [João Rocha](https://github.com/diogotcorreia/resumos-leic/commits?author=Calhau18) (CDI-I, CDI-II, MD, CDI-III, Fis-II, ASA)
 - [Rúben Nobre](https://github.com/diogotcorreia/resumos-leic/commits?author=RubenNobre123) (**MD**)
 - [João Fonseca](https://github.com/diogotcorreia/resumos-leic/commits?author=jmseca) (**MD**)
 - [Rafael Oliveira](https://github.com/diogotcorreia/resumos-leic/commits?author=RafDevX) (MD, CDI-II, LP, IAED)
@@ -149,10 +150,11 @@ Quero agradecer a [todos os que contribuíram](https://github.com/diogotcorreia/
 - [Luís Fonseca](https://github.com/diogotcorreia/resumos-leic/commits?author=luishfonseca) (IAED, CDI-II)
 - [Diogo Cardoso](https://github.com/diogotcorreia/resumos-leic/commits?author=D-Card) (IAED)
 - [Diogo Melita](https://github.com/diogotcorreia/resumos-leic/commits?author=dmelita99) (CDI-II)
+- [Gonçalo Nunes](https://github.com/diogotcorreia/resumos-leic/commits?author=Goncalo-Palma-Nunes) (ASA)
 - [Rafael Girão](https://github.com/diogotcorreia/resumos-leic/commits?author=rafaelsgirao) (Meta)
 - [Mateus Pinho](https://github.com/diogotcorreia/resumos-leic/commits?author=footvaalvica) (Meta)
 - [Martim Monis](https://github.com/diogotcorreia/resumos-leic/commits?author=creaaidev) (LP)
-- Rita Mendes (Imagens CDI-II)
+- [Rita Mendes](https://github.com/diogotcorreia/resumos-leic/commits?author=SparklingRita) (Imagens CDI-II)
 - [André Teodósio](https://github.com/diogotcorreia/resumos-leic/commits?author=TioDosio) (CDI-II)
 - [Rafaela Oliveira](https://github.com/diogotcorreia/resumos-leic/commits?author=rafaelacorreiaoliveira) (CDI-II)
 

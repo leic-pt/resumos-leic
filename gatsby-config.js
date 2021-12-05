@@ -75,8 +75,12 @@ module.exports = {
                 '\\rot': '\\operatorname{rot}',
                 '\\augmatrix':
                   '\\left[\\hspace{-5pt}\\begin{array}{#1}#2\\end{array}\\hspace{-5pt}\\right]',
+                '\\lapt': '\\mathcal{L}\\left\\{#1\\right\\}', // Laplace Transfomation
+                '\\smartcolor': '\\htmlClass{md-color--#1}{#2}', // Handle colors on light/dark mode
               },
               throwOnError: false,
+              trust: (context) =>
+                context.command === '\\htmlClass' && /md-color--[a-zA-Z]+/.test(context.class),
             },
           },
           {
@@ -112,6 +116,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-use-dark-mode`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-umami`,
       options: {

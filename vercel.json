@@ -172,15 +172,15 @@
     { "source": "/iaed/0008-intro_algoritmos.html", "destination": "/iaed/introducao-algoritmos" },
     {
       "source": "/iaed/0009-algo_ord.html",
-      "destination": "/iaed/algorimos-elementares-ordenacao"
+      "destination": "/iaed/algoritmos-elementares-ordenacao"
     },
     {
       "source": "/iaed/0010-more_algo.html",
-      "destination": "/iaed/algorimos-eficientes-ordenacao"
+      "destination": "/iaed/algoritmos-eficientes-ordenacao"
     },
     {
       "source": "/iaed/0011-even_more_algo.html",
-      "destination": "/iaed/algorimos-elementares-ordenacao-2"
+      "destination": "/iaed/algoritmos-elementares-ordenacao-2"
     },
     { "source": "/iaed/0012-ponteiros.html", "destination": "/iaed/ponteiros" },
     { "source": "/iaed/0013-mem.html", "destination": "/iaed/alocacao-dinamica-memoria" },
@@ -190,6 +190,18 @@
     { "source": "/iaed/0017-arv.html", "destination": "/iaed/arvores-binarias" },
     { "source": "/iaed/0018-grafos.html", "destination": "/iaed/grafos" },
     { "source": "/iaed/1000-algoritmos.sheet.html", "destination": "/iaed/cheatsheet/algoritmos" },
-    { "source": "/iaed/meta/linux-setup.html", "destination": "/iaed/meta/linux-setup" }
+    { "source": "/iaed/meta/linux-setup.html", "destination": "/iaed/meta/linux-setup" },
+    {
+      "source": "/iaed/algorimos-elementares-ordenacao",
+      "destination": "/iaed/algoritmos-elementares-ordenacao"
+    },
+    {
+      "source": "/iaed/algorimos-eficientes-ordenacao",
+      "destination": "/iaed/algoritmos-eficientes-ordenacao"
+    },
+    {
+      "source": "/iaed/algorimos-elementares-ordenacao-2",
+      "destination": "/iaed/algoritmos-elementares-ordenacao-2"
+    }
   ]
 }

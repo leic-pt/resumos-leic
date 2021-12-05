@@ -2,7 +2,7 @@ name: Codeowners merging
 on:
   pull_request_target: { types: [opened] }
   issue_comment: { types: [created] }
-  pull_request_review: { types: [submitted] }
+#  pull_request_review: { types: [submitted] }
 
 jobs:
   build:
@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Run Codeowners merge check
-        uses: diogotcorreia/code-owner-self-merge@next
+        uses: diogotcorreia/code-owner-self-merge@always-use-pr-name
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
