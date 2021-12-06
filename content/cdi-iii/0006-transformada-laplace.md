@@ -2,6 +2,12 @@
 title: Transformada de Laplace
 description: >-
   Transformada de Laplace.
+  Função de Heaviside.
+  Propriedades Elementares da Transformada de Laplace.
+  Transformada de Laplace de Funções Comuns.
+  Inversa da Transformada de Laplace.
+  Aplicação da Transformada de Laplace às Equações Diferenciais.
+  Distribuição Delta de Dirac.
 path: /cdi-iii/transformada-laplace
 type: content
 ---
@@ -315,7 +321,7 @@ Este método consiste nos seguintes passos:
 
    Diz-se que $y(t)$ é a Transformada de Laplace inversa de $Y(t)$.
 
-   Assim, obtém-se a solução $y(t)$ do PVI.
+Assim, obtém-se a solução $y(t)$ do PVI.
 
 :::info[Exemplo]
 
@@ -327,31 +333,31 @@ $$
 
 1. Começamos por calcular a Transformada de Laplace de ambos os membros da equação.
 
-$$
-\lapt{y''} - 2\lapt{y'} + \lapt{y} = \lapt{t^5 e^t}
-$$
+   $$
+   \lapt{y''} - 2\lapt{y'} + \lapt{y} = \lapt{t^5 e^t}
+   $$
 
 2. Queremos agora decobrir $Y(s) = \lapt{y}$, pelo que continuamos a desenvolver a expressão acima,
    até isolarmos o termo $Y(s)$.
 
-$$
-\begin{aligned}
-s^2 Y(s) - s y(0) - y'(0) - 2(s Y(s) - y(0)) + Y(s) &= \frac{5!}{(s-1)^6}\\
-(s^2 - 2s + 1) Y(s) - sy(0) - y'(0) + 2y(0) &= \frac{5!}{(s-1)^6}\\
-(s-1)^2 Y - s - 1 &= \frac{5!}{(s-1)^6}\\
-Y(s) &= \frac{s+1}{(s-1)^2} + \frac{5!}{(s-1)^8}\\
-\end{aligned}
-$$
+   $$
+   \begin{aligned}
+   s^2 Y(s) - s y(0) - y'(0) - 2(s Y(s) - y(0)) + Y(s) &= \frac{5!}{(s-1)^6}\\
+   (s^2 - 2s + 1) Y(s) - sy(0) - y'(0) + 2y(0) &= \frac{5!}{(s-1)^6}\\
+   (s-1)^2 Y - s - 1 &= \frac{5!}{(s-1)^6}\\
+   Y(s) &= \frac{s+1}{(s-1)^2} + \frac{5!}{(s-1)^8}\\
+   \end{aligned}
+   $$
 
 3. Finalmente, temos de calcular a inversa da Transformada de Laplace de $Y(s)$:
 
-$$
-\begin{aligned}
-Y(s) &= \frac{s-1+2}{(s-1)^2} + \frac{5!}{7!}\frac{7!}{(s-1)^8}\\
-&= \frac{1}{s-1} + \frac{2}{(s-1)^2} + \frac{1}{7 \times 6} \frac{7!}{(s-1)^8}\\
-&= \mathcal{L} \{e^t + 2 te^t + \frac{1}{42} t^7 e^t\}
-\end{aligned}
-$$
+   $$
+   \begin{aligned}
+   Y(s) &= \frac{s-1+2}{(s-1)^2} + \frac{5!}{7!}\frac{7!}{(s-1)^8}\\
+   &= \frac{1}{s-1} + \frac{2}{(s-1)^2} + \frac{1}{7 \times 6} \frac{7!}{(s-1)^8}\\
+   &= \mathcal{L} \{e^t + 2 te^t + \frac{1}{42} t^7 e^t\}
+   \end{aligned}
+   $$
 
 Então, a solução geral da equação é
 
@@ -410,13 +416,13 @@ $$
 
 3. Finalmente, temos de calcular a inversa da Transformada de Laplace de $Y(s)$:
 
-$$
-\begin{aligned}
-Y(s) &= \frac{1}{2} \mathcal{L} \{t^2 e^t \} - e \times e^{-s} \mathcal{L} \{t^2 e^t\}\\
-Y(s) &= \frac{1}{2} \mathcal{L} \{t^2 e^t \} - e \mathcal{L} \{(t-1)^2 e^{t-1} H(t-1)\}\\
-Y(s) &= \lapt{\frac{t^2}{2} e^t - e (t-1)^2 e^{t-1} H(t-1)}
-\end{aligned}
-$$
+   $$
+   \begin{aligned}
+   Y(s) &= \frac{1}{2} \mathcal{L} \{t^2 e^t \} - e \times e^{-s} \mathcal{L} \{t^2 e^t\}\\
+   Y(s) &= \frac{1}{2} \mathcal{L} \{t^2 e^t \} - e \mathcal{L} \{(t-1)^2 e^{t-1} H(t-1)\}\\
+   Y(s) &= \lapt{\frac{t^2}{2} e^t - e (t-1)^2 e^{t-1} H(t-1)}
+   \end{aligned}
+   $$
 
 Então, a solução geral da equação é:
 
@@ -434,6 +440,94 @@ y(t) = \begin{cases}
 \frac{t^2}{2} e^t & \text{se } 0 \leq t < 1\\
 \left(\frac{t^2}{2} - (t-1)^2\right) e^t & \text{se } t \geq 1
 \end{cases}
+$$
+
+:::
+
+## Distribuição Delta de Dirac
+
+A delta de Dirac é a distribuição que verifica
+
+$$
+\begin{darray}{c}
+\delta(t) = 0 & \forall t \in \R \backslash \{0\}
+\end{darray}
+$$
+
+$$
+\int_{-\infty}^{+\infty} \delta(x) \d x = 1
+$$
+
+Se $f$ é contínua em $t=0$, então existe a propriedade:
+
+$$
+\int_{-\infty}^{+\infty} \delta(t) f(t) \d t = f(0)
+$$
+
+Mais genericamente, podemos definir a distribuição delta de Dirac centrada num dado $c \in \R$ por:
+
+$$
+\delta_c(t) = \delta(t-c)
+$$
+
+A distribuição $\delta_c(t)$ verifica, então:
+
+- $\delta_c(t) = 0$ para qualquer $t \in \R \backslash \{c\}$
+
+- $\displaystyle \int_{-\infty}^{+\infty} \delta_c(t) \d t = 1$
+
+- Se $f$ é contínua em $c$ então $\displaystyle \int_{-\infty}^{+\infty} \delta_c(t)f(t) \d t = f(c)$
+
+Desta forma, **obtemos a Transformada de Laplace da delta de Dirac**:
+
+:::tip[Transformada de Laplace da Delta de Dirac]
+
+$$
+\lapt{\delta_c(t)} = \int_{-\infty}^{+\infty} \delta_c(t)e^{-st} \d t = e^{-cs}
+$$
+
+:::
+
+:::details[Exemplo]
+
+**Resolva o seguinte problema de valor inicial**
+
+$$
+\begin{darray}{c}
+y'' + 2y' + y = 2\delta(t-2) & y(0) = y'(0) = 0
+\end{darray}
+$$
+
+1. Começamos por calcular a Transformada de Laplace de ambos os membros.
+
+   $$
+   \lapt{y''+y} = \lapt{2\delta(t - 2)}
+   $$
+
+2. Queremos agora decobrir $Y(s) = \lapt{y}$, pelo que continuamos a desenvolver a expressão acima,
+   até isolarmos o termo $Y(s)$.
+
+   $$
+   \begin{aligned}
+   -y'(0) - sy(0) + s^2 Y(s) + 2(-y(0) + sY(s)) + Y(s) &= 2e^{-2s}\\
+   (s^2+2s+1)Y(s) &= 2e^{-2s}\\
+   Y(s) &= e^{-2s} \frac{2}{(s+1)^2}
+   \end{aligned}
+   $$
+
+3. Finalmente, temos de calcular a inversa da Transformada de Laplace de $Y(s)$:
+
+   $$
+   \begin{aligned}
+   Y(s) &= e^{-2s} \lapt{2te^t}\\
+   &= \lapt{2H(t-2)(t-2)e^{-(t-2)}}
+   \end{aligned}
+   $$
+
+Então, a solução geral da equação é
+
+$$
+y(t) = 2H(t-2)(t-2)e^{-(t-2)}
 $$
 
 :::
