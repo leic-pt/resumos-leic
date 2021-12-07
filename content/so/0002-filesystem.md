@@ -361,7 +361,7 @@ HUGE TABELA 36
 Como organizar a informação necessária para
 suportar um sistema de ficheiros?
 
-![26](./imgs/0002/0026-a.png)
+![boot](./imgs/0002/0002-boot.png)
 
 Para qualquer partição do disco, existe sempre um `boot block`, que contém código (instruções) que vai ser carregado para RAM
 
@@ -369,7 +369,7 @@ O resto do disco irá conter informação, que pode ser organizada de várias fo
 
 ### Alternativa 1: Organização em Lista
 
-![29](./imgs/0002/0029-a.png)
+![list](./imgs/0002/0002-list.png)
 Organização em Lista
 
 - Forma mais simples de organizar um sistema de
@@ -421,7 +421,7 @@ Consiste em ter 2 Listas, 1 com os meta-dados(Nome, Dimensão, Pointeiro para os
 - Estrutura de uma entrada do directório do sistema de
   ficheiros do CP/M:
 
-![32](./imgs/0002/0032-a.png#dark=1)
+![block](./imgs/0002/0003-block.png#dark=1)
 
 - Neste sistema:
 
@@ -451,7 +451,7 @@ Mapa de blocos de dados contém os números dos blocos de dados do ficheiro (Dis
 
 ## File Allocation Table (FAT)
 
-![34](./imgs/0002/0034-a.png)
+![fat](./imgs/0002/0002-fat.png)
 
 - A partição contém três secções distintas:
   - a tabela de alocação (File Allocation Table, FAT)
@@ -477,7 +477,7 @@ Ainda na tabela de alocação podemos ter um ponteiro para outro indíce nessa t
   - com valores diferentes de zero indicam que o respectivo
     bloco faz parte de um ficheiro
 
-![37](./imgs/0002/0037-a.png)
+![fat](./imgs/0002/0002-fat.png)
 
 - Os blocos de um ficheiro são determinados assim:
   - 1º bloco: indicado por um número na respectiva entrada
@@ -673,7 +673,7 @@ Com blocos de 1 Kbyte e referências de 4 byte, a dimensão máxima de um fichei
 
 // inserir imagem 69 (nice)
 
-![38](./imgs/0002/0038-a.png)
+![aux](./imgs/0002/0002-aux.png)
 Estruturas de Suporte à Utilização dos Ficheiros
 
 - Quando existe uma operação sobre um ficheiro já aberto, o identificador do ficheiro permite
