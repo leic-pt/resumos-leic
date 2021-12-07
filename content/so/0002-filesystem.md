@@ -88,7 +88,7 @@ Temos assim 2 maneiras de o fazer:
 - A semântica utilizada na maioria dos sistemas de
   ficheiros é apagar apenas o nome /a/b/c
 
-### Como organizar múlLplos sistemas de ﬁcheiros?
+### Como organizar múltiplos sistemas de ﬁcheiros?
 
 // adicionar imagem 12
 
@@ -311,162 +311,59 @@ return 0;
 
 :::
 
-### O cursor
+### O Cursor
 
 - Para qualquer ficheiro aberto, é mantido um cursor
   - Avança automaticamente com cada byte lido ou escrito
-- Para sabermos em que posição estamos, usar função
-  ftell
-  long ftell(FILE \*stream);
-- Para repor o cursor noutra posição, usar função
-  fseek
-  - Por exemplo, colocar cursor no início ou final do ficheiro
-    int fseek(FILE \*stream, long offset, int whence);
-    39
+- Para sabermos em que posição estamos, usar função `ftell`\
+  `long ftell(FILE \*stream);`
+- Para repor o cursor noutra posição, usar função `fseek`
+  - Por exemplo, colocar cursor no início ou final do ficheiro\
+    `int fseek(FILE \*stream, long offset, int whence);`
 
-Escritas são imediatamente persistentes?
+#### Escritas são imediatamente persistentes?
 
 - Após escrita em ficheiro, essa escrita está
   garantidamente persistente no disco?
   - Nem sempre!
   - Para optimizar o desempenho, escritas são propagadas
     para disco tardiamente
-- Função fflush permite ao programa forçar que
+- Função `fflush` permite ao programa forçar que
   escritas feitas até agora sejam persistidas em disco
   - Função só retorna quando houver essa garantia
   - Função demorada, usar apenas quando necessário
-    int fflush(FILE \*stream);
-    40
+    `int fflush(FILE \*stream);`
 
-Modelo de programação:
-A API do sistema de ficheiros
-(Revisão de IAED)
-Abordagem 2:
-Trabalhar com ficheiros usando as funções
-da API do sistema de ficheiros do Unix
+## Trabalhar com ficheiros usando as Funções da API do SF do Unix
 
-O que ganho/perco?
-Prós:
+### Prós:
 
 - Em geral, são funções de mais baixo nível, logo
   permitem maior controlo
 - Algumas operações sobre ficheiros só estão
   disponíveis através desta API
-  Contras:
+
+### Contras:
+
 - Normalmente, programa que usa stdio é mais
-  simples e optimizado
-  - Discutiremos mais à frente em SO porque é que stdio é
-    mais optimizado
-    42
+  simples e optimizado (será falado no futuro)
 
-Sistema de Ficheiros do Unix
-Operações
-Genéricas
-Linux
-Simples
-Fd :=Abrir (Nome, Modo)
-Fd := Criar (Nome, Protecção)
-int open( const char *path, int flags,
-mode_t mode)
-Fechar (Fd)
-int close(int fd)
-Ficheiros Abertos
-Ler (Fd,Tampão, Bytes)
-int read(int fd, void *buffer, size_t count)
-Escrever (Fd,Tampão, Bytes)
-int write(int fd, void *buffer, size_t count)
-Posicionar (Fd, Posição)
-int lseek(int fd, off_t offset, int origin)
-Complexas
-Criar link (Origem, Destino)
-int symlink( const char *oldpath,
-const char *newpath)
-int link( const char *oldpath,
-const char *newpath)
-Mover (Origem, Destino)
-int rename( const char *oldpath,
-const char *newpath)
-Apagar link (Nome)
-int unlink(const char *path)
-int dup(int fd), int dup2(int oldfd,int newfd)
-LerAtributos (Nome,Tampão)
-int stat(
-const char *path,
-struct stat *buffer)
-EscreverAtributos (Nome,Atributos)
-int fcntl(int fd,int cmd,struct flock *buffer)
-int chown(const char *path,
-uid_t uid, gid_t gid)
-int chmod(const char *path, mode_t mode)
-Ficheiros em
-memória
-MapearFicheiro(Fd,pos,endereço,dim)
-void *mmap(void *addr, size_t len, int prot,
-int flags, int fd, off_t offset)
-DesMapearFicheiro(endereço,dim)
-int munmap(void *addr, size_t len)
-Directórios
-ListaDir (Nome,Tampão)
-int readdir(int fd, struct dirent *buffer,
-unsigned int count)
-MudaDir (Nome)
-int chdir(const char *path)
-CriaDir (Nome, Protecção)
-int mkdir(const char *path, mode_t mode)
-RemoveDir(Nome)
-int rmdir(const char *path)
-Sistemas de
-Ficheiros
-Montar (Directório, Dispositivo)
-int mount(const char *device,
-const char *path,
-const char *fstype,
-unsigned long flags,
-const void *data)
-Desmontar (Directório)
-int umount(const char \*path)
+## Sistema de Ficheiros do Unix
 
-![18](./imgs/0002/0018-a.png)
-![19](./imgs/0002/0019-a.png)
-![20](./imgs/0002/0020-a.png)
-![21](./imgs/0002/0021-a.png)
-![22](./imgs/0002/0022-a.png)
-![23](./imgs/0002/0023-a.png)
-Plano das próximas aulas
-1ª Parte
-2ª Parte
-Aprender a usar os sistemas
-de ficheiros (abstrações, APIs)
-Introduzir a organização interna
-dos sistemas de ficheiros: -
-relevante para o projeto -
-voltaremos à tópicos avançados
-(caching, VFSs) mais logo
+HUGE TABELA 36
 
-![24](./imgs/0002/0024-a.png)
-![25](./imgs/0002/0025-a.png)
-Como implementar estas abstrações?
-/
-b
-a
-c
-d
-e
-x
-y
-z
-/dev/hd0
-/dev/hd1
-f
+## Organização lógica de um disco
 
-![26](./imgs/0002/0026-a.png)
-![27](./imgs/0002/0027-a.png)
-Organização lógica de um disco
 Como organizar a informação necessária para
 suportar um sistema de ficheiros?
 
-![28](./imgs/0002/0028-a.png)
-Alternativa 1: Organização em Lista
+![26](./imgs/0002/0026-a.png)
+
+Para qualquer partição do disco, existe sempre um `boot block`, que contém código (instruções) que vai ser carregado para RAM
+
+O resto do disco irá conter informação, que pode ser organizada de várias formas
+
+### Alternativa 1: Organização em Lista
 
 ![29](./imgs/0002/0029-a.png)
 Organização em Lista
