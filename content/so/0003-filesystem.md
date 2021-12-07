@@ -1,6 +1,6 @@
 ---
 title: File System
-description: 'Sistema de ficheiros'
+description: 'Vários tipos de Sitemas de Ficheiros'
 path: /so/filesystem
 type: content
 ---

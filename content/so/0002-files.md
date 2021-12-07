@@ -1,6 +1,6 @@
 ---
 title: Everything is a File
-description: 'Sistema de ficheiros'
+description: 'Ficheiro; Programar com Ficheiros; Revisões IAED'
 path: /so/files
 type: content
 ---
