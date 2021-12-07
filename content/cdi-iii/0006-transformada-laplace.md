@@ -501,7 +501,7 @@ $$
 1. Começamos por calcular a Transformada de Laplace de ambos os membros.
 
    $$
-   \lapt{y''+y} = \lapt{2\delta(t - 2)}
+   \lapt{y''+2y'+y} = \lapt{2\delta(t - 2)}
    $$
 
 2. Queremos agora decobrir $Y(s) = \lapt{y}$, pelo que continuamos a desenvolver a expressão acima,
