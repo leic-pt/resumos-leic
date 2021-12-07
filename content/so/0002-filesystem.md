@@ -31,13 +31,13 @@ Vamos começar por aprender a usar os sistemas de ficheiros (abrastções, APIs)
 
 ### Árvore de diretórios
 
+![tree](./imgs/0002/0002-tree.png#dark=1)
+
 - Mantém a meta -informação sobre ﬁcheiros
   - no mesmo sistema de memória secundária que a
     informação que descreve
   - entre outros, estabelece a associação entre o nome e um
     identiﬁcador numérico do ﬁcheiro
-
-// add image pag 6
 
 ### O que é um ficheiro?
 
@@ -94,7 +94,7 @@ Temos assim 2 maneiras de o fazer:
 
 ### Como organizar múltiplos sistemas de ﬁcheiros?
 
-// adicionar imagem 12
+![mount](./imgs/0002/0002-mount.png#dark=1)
 
 `mount -t <filesystem> /dev/hd1 /b`
 
@@ -130,7 +130,7 @@ Um Processo é a instância de um programa em execução
   - Pesquisar o diretório
   - Veriﬁcar se o processo tem permissões para o modo de acesso que pede
   - Copia a meta-informação para memória (incluindo o modo de acesso solicitado)
-  - Devolve ao u@lizador um iden@ﬁcador que é usado como referência para essa posição de memória
+  - Devolve ao utilizador um identiﬁcador que é usado como referência para essa posição de memória
 - Ler e escrever sobre ﬁcheiros abertos:
   - Dado o identiﬁcador de ﬁcheiro aberto, permite obter rapidamente o descritor do ﬁcheiro em memória
 - Fechar do ﬁcheiro:
@@ -149,22 +149,22 @@ Um Processo é a instância de um programa em execução
 
 #### Abertura, Criação e Fecho de Ficheiros
 
-// adicionar tabela 19
+![tab1](./imgs/0002/0002-tab1.png)
 
 #### Operações sobre Ficheiros Abertos
 
-// adicionar tabela 20
+![tab2](./imgs/0002/0002-tab2.png)
 
 #### Operações complexas sobre ficheiros
 
 - Algumas operações sobre ficheiros permitem realizar operações sobre a
   totalidade do ficheiro, como copiá-lo, apagá-lo ou movê-lo
 
-  // adicionar tabela 21
+  ![tab3](./imgs/0002/0002-tab3.png)
 
 #### Operações sobre directórios
 
-// adicionar tabela 21
+![tab4](./imgs/0002/0002-tab4.png)
 
 #### Os canais standard
 
@@ -354,7 +354,7 @@ return 0;
 
 ## Sistema de Ficheiros do Unix
 
-HUGE TABELA 36
+![unix](./imgs/0002/0002-unix.png)
 
 ## Organização lógica de um disco
 
@@ -421,7 +421,7 @@ Consiste em ter 2 Listas, 1 com os meta-dados(Nome, Dimensão, Pointeiro para os
 - Estrutura de uma entrada do directório do sistema de
   ficheiros do CP/M:
 
-![block](./imgs/0002/0003-block.png#dark=1)
+![block](./imgs/0002/0002-block.png#dark=1)
 
 - Neste sistema:
 
@@ -514,7 +514,7 @@ Ainda na tabela de alocação podemos ter um ponteiro para outro indíce nessa t
 - Os i-nodes são guardados numa estrutura especial de
   tamanho fixo antes dos blocos de dados
 
-// inserir imagem 55
+![inodes](./imgs/0002/0002-inodes.png#dark=1)
 
 - No Linux tem o nome de tabela de $inodes$
 - No Windows tem o nome:
@@ -524,14 +524,14 @@ Ainda na tabela de alocação podemos ter um ponteiro para outro indíce nessa t
 
 ### A Sequência de Passos para Aceder ao Conteúdo de um Ficheiro
 
-// adicionar imagem 56
+![ins](./imgs/0002/0002-ins.png#dark=1)
 
 - Um ficheiro é univocamente identificado, dentro de
   cada partição, pelo número de i-node (muitas vezes
   chamado i-number)
 - Os directórios só têm que efetuar a ligação entre
   um nome do ficheiro e o número do seu descritor
-  // inserir imagem 57
+  ![tab5](./imgs/0002/0002-tab5.png#dark=1)
 
 ### Percorrer a árvore de diretórios
 
@@ -554,9 +554,9 @@ Ainda na tabela de alocação podemos ter um ponteiro para outro indíce nessa t
 
 Repetir do passo 2 a 6 recursivamente para cada elemento do pathname
 
-// adicionar imagem 56
+### Descritor do Volume
 
-### Descritor do Volume:
+![inodes](./imgs/0002/0002-inodes.png#dark=1)
 
 - possui a informação geral de descrição do sistema de ficheiros
 - por exemplo, a localização da tabela
@@ -575,6 +575,8 @@ Repetir do passo 2 a 6 recursivamente para cada elemento do pathname
     boot
 
 ### Tabela de Blocos Livres (ou Tabela de Alocação)
+
+![inodes](./imgs/0002/0002-inodes.png#dark=1)
 
 - Mantém um conjunto de estruturas necessárias à
   localização de blocos livres:
@@ -598,15 +600,15 @@ Repetir do passo 2 a 6 recursivamente para cada elemento do pathname
 
 ### i-node (index node)
 
-- Meta -dados do
+![index](./imgs/0002/0002-index.png#dark=2)
+
+- Meta-dados do
   ficheiro
 - Localização dos
   dados do ficheiro
 
   - Índices do 1º bloco,
     do 2º bloco, etc.
-
-  // inserir imagem 62
 
 #### Exemplo de FS que usa i-nodes: ext3
 
@@ -622,7 +624,7 @@ Repetir do passo 2 a 6 recursivamente para cada elemento do pathname
 - Só se usam as entradas (e blocos de índices)
   necessários
 
-// inserir imagem 64
+![ext3](./imgs/0002/0002-ext3.png#dark=1)
 
 dimensão máxima de um ficheiro $= B \times (12 + \frac{B}R + (\frac{B}R)^2 + (\frac{B}R)^3)$
 
@@ -632,12 +634,13 @@ Com blocos de 1 Kbyte e referências de 4 byte, a dimensão máxima de um fichei
 
 ### Tabela de i-nodes no Volume
 
+![inodes](./imgs/0002/0002-inodes.png#dark=1)
+
 - Mantidos em tabela em zona própria no volume
 - Dentro de um volume, cada i-node é identificado
   por um i-number
-  - Índice do i-node na tabela de i-nodes no volume
 
-// inserir imagem 65
+  - Índice do i-node na tabela de i-nodes no volume
 
 ### Tabelas de Inodes e Bitmaps
 
@@ -651,8 +654,13 @@ Com blocos de 1 Kbyte e referências de 4 byte, a dimensão máxima de um fichei
     tabela de inodes.
 - Para além da tabela de inodes existem em cada partição
   ainda duas outras tabelas:
+
   - o bitmap de i-nodes - posições dos i-nodes livres
   - o bitmap de blocos, - posições dos blocos livres
+
+## Visão Global
+
+![global](./imgs/0002/0002-global.png)
 
 ## Estruturas em RAM de Suporte ao FS
 
@@ -671,8 +679,6 @@ Com blocos de 1 Kbyte e referências de 4 byte, a dimensão máxima de um fichei
   - Possibilitar a gestão de várias organizações de estruturas de
     ficheiros em simultâneo
 
-// inserir imagem 69 (nice)
-
 ![aux](./imgs/0002/0002-aux.png)
 Estruturas de Suporte à Utilização dos Ficheiros
 
@@ -686,6 +692,8 @@ Estruturas de Suporte à Utilização dos Ficheiros
   localização dos blocos residente no descritor de ficheiro (passo 4).
 
 ### Tabelas de Ficheiros
+
+![ram](./imgs/0002/0002-ram.png#dark=1)
 
 - file table contem:
 
