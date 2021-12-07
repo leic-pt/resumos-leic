@@ -9,14 +9,26 @@ type: content
 
 ## Ficheiro
 
+Siemas de Ficheiros
+Siemas Opera,vos
+2021 - 2022
+
+![0](./imgs/0002/000-a.png)
 A abração: Ficheiro
+• Colecção de dados persientes, geralmente relacionados,
+identificados por um nome
+• Organizado em hierarquia de paas
 
-- Colecção de dados persientes, geralmente relacionados,
-  identificados por um nome
-- Organizado em hierarquia de paas
-
+![1](./imgs/0002/001-a.png)
+![2](./imgs/0002/002-a.png)
 A realidade
 
+![3](./imgs/0002/003-a.png)
+![4](./imgs/0002/004-a.png)
+![5](./imgs/0002/005-a.png)
+![6](./imgs/0002/006-a.png)
+![7](./imgs/0002/007-a.png)
+![8](./imgs/0002/008-a.png)
 Plano das próximas aulas
 1ª Parte
 2ª Parte
@@ -28,98 +40,101 @@ dos siemas de ficheiros:
 - relevante para o projeto
 
 Siema de Ficheiros
-
-- Compoo por um conjunto de entidades
-  fundamentais:
-  - um siema de organização de nomes para identificação
-    dos ficheiros
-  - uma interface programática para comunicação entre os
-    processos
-  - siema de ficheiros
+• Compoo por um conjunto de entidades
+fundamentais:
+– um siema de organização de nomes para identificação
+dos ficheiros
+– uma interface programática para comunicação entre os
+processos
+– siema de ficheiros
 
 Árvore de diretórios
-
-- Mantém a meta-informação sobre ﬁcheiros
-  - no mesmo siema de memória secundária que a
-    informação que descreve
-  - entre outros, eabelece a associação entre o nome e um
-    iden@ﬁcador numérico do ﬁcheiro
-    /
-    users
-    bin
-    etc
-    usr
-    unix
-    dev
-    sh
-    date
-    who
-    passwd
-    src
-    bin
-    tty00
-    tty01
-    jog
-    avz
+• Mantém a meta-informação sobre ﬁcheiros
+– no mesmo siema de memória secundária que a
+informação que descreve
+– entre outros, eabelece a associação entre o nome e um
+iden@ﬁcador numérico do ﬁcheiro
+/
+users
+bin
+etc
+usr
+unix
+dev
+sh
+date
+who
+passwd
+src
+bin
+tty00
+tty01
+jog
+avz
 
 O que é um ficheiro?
 ls
 -rwxr-xr-x 1 luis aff 8680 Nov 14 19:46 do_exec
 
+![9](./imgs/0002/009-a.png)
+![10](./imgs/0002/0010-a.png)
+![11](./imgs/0002/0011-a.png)
+![12](./imgs/0002/0012-a.png)
+![13](./imgs/0002/0013-a.png)
+![14](./imgs/0002/0014-a.png)
+![15](./imgs/0002/0015-a.png)
+![16](./imgs/0002/0016-a.png)
 “Everything is a ﬁle”
 
 O princípio “Everything is a file”
-
-- Objetos que o SO gere são acessíveis aos processos
-  através de descritores de ficheiro
-  - Ficheiros, diretorias, dispositivos lógicos, canais de
-    comunicação, etc.
-- Vantagens para os utilizadores/programadores
-  - Modelo de programação comum
-  - Modelo de segurança comum
-- Um dos princípios chave do Unix
-  - Seguido por muitos SOs modernos
-  - Algumas excepções (até no Unix)
+• Objetos que o SO gere são acessíveis aos processos
+através de descritores de ficheiro
+– Ficheiros, diretorias, dispositivos lógicos, canais de
+comunicação, etc.
+• Vantagens para os utilizadores/programadores
+– Modelo de programação comum
+– Modelo de segurança comum
+• Um dos princípios chave do Unix
+– Seguido por muitos SOs modernos
+– Algumas excepções (até no Unix)
 
 Nomes absolutos e nomes relativos
-
-- Nomes absolutos:
-  - caminho de acesso
-    desde a raiz
-  - Exemplo:
-    /home/joao/SO/project.zip
-    Mas ter de fornecer
-    sempre o nome absoluto
-    de um ﬁcheiro é
-    fas,dioso e pouco
-    ﬂexível...
-- Nomes rela,vos:
-  - caminho de acesso a
-    par@r do diretório
-    corrente
-  - diretório corrente man.do
-    para cada processo como
-    parte do seu contexto
-  - Exemplos:
-    ./SO/project.zip
-    (supondo que o diretório
-    corrente é /home/joao)
-    ../SO/project.zip
-    (supondo que o dir. corrente
-    seja /home/joao/teo)
+• Nomes absolutos:
+– caminho de acesso
+desde a raiz
+– Exemplo:
+/home/joao/SO/project.zip
+Mas ter de fornecer
+sempre o nome absoluto
+de um ﬁcheiro é
+fas,dioso e pouco
+ﬂexível...
+• Nomes rela,vos:
+– caminho de acesso a
+par@r do diretório
+corrente
+– diretório corrente man.do
+para cada processo como
+parte do seu contexto
+– Exemplos:
+./SO/project.zip
+(supondo que o diretório
+corrente é /home/joao)
+../SO/project.zip
+(supondo que o dir. corrente
+seja /home/joao/teo)
 
 Nomes vs. ficheiros
-
-- Um ficheiro pode ser conhecido por vários nomes:
-  - é possível designar o mesmo ficheiro com o nome /a/b/c
-    e com o nome /x/y.
-  - é comum chamar a cada um dees nomes links
-- Problema:
-  - quando se pretende apagar o ficheiro com o nome
-    /a/b/c.
-  - apagar o conteúdo do ficheiro ou apenas o nome?
-- A semântica utilizada na maioria dos siemas de
-  ficheiros é a última
+• Um ficheiro pode ser conhecido por vários nomes:
+– é possível designar o mesmo ficheiro com o nome /a/b/c
+e com o nome /x/y.
+– é comum chamar a cada um dees nomes links
+• Problema:
+– quando se pretende apagar o ficheiro com o nome
+/a/b/c.
+– apagar o conteúdo do ficheiro ou apenas o nome?
+• A semântica utilizada na maioria dos siemas de
+ficheiros é a última
 
 Como organizar múlLplos siemas de
 ﬁcheiros?
@@ -130,7 +145,7 @@ c
 d
 e
 /dev/hd0
-mount -t <filesyem> /dev/hd1 /b
+mount –t <filesyem> /dev/hd1 /b
 f
 x
 y
@@ -151,69 +166,68 @@ y
 z
 /dev/hd0
 /dev/hd1
-mount -t <filesyem> /dev/hd1 /b
+mount –t <filesyem> /dev/hd1 /b
 f
-
-- Mount:
-  - liga a raiz do novo
-    siema de ﬁcheiros a
-    um directório do
-    siema de ﬁcheiros
-    base
+• Mount:
+– liga a raiz do novo
+siema de ﬁcheiros a
+um directório do
+siema de ﬁcheiros
+base
 
 Atributos de um Ficheiro
-
-- Para além do tipo, a meta-informação do ficheiro
-  possui usualmente os seguintes atributos:
-  - Protecção
-- quem pode aceder ao ficheiro e quais as operações que pode
-  realizar.
-  - Identificação do dono do ficheiro
-- geralmente quem o criou.
-  - Dimensão do ficheiro
-  - Data de criação, última leitura e última escrita
+• Para além do tipo, a meta-informação do ficheiro
+possui usualmente os seguintes atributos:
+– Protecção
+• quem pode aceder ao ficheiro e quais as operações que pode
+realizar.
+– Identificação do dono do ficheiro
+• geralmente quem o criou.
+– Dimensão do ficheiro
+– Data de criação, última leitura e última escrita
 
 Programar com ﬁcheiros
 
 Como manipular ficheiros?
+• As operações mais frequentes sobre ficheiros são a
+leitura e escrita da sua informação
+• Baam eas funções para ler e escrever?
 
-- As operações mais frequentes sobre ficheiros são a
-  leitura e escrita da sua informação
-- Baam eas funções para ler e escrever?
-
-## Abrir e fechar ficheiros
-
-## É man:da uma Tabela de Ficheiros Abertos por processo
-
+![17](./imgs/0002/0017-a.png)
+Abrir e fechar ficheiros
+•
+É man:da uma Tabela de Ficheiros Abertos por processo
+•
 Abrir um ﬁcheiro:
-
-- Pesquisar o diretório
-- Veriﬁcar se o processo tem permissões para o modo de acesso que pede
-- Copia a meta-informação para memória (incluindo o modo de acesso
-  solicitado)
-- Devolve ao u@lizador um iden@ﬁcador que é usado como referência para
-  essa posição de memória
-- Ler e escrever sobre ﬁcheiros abertos:
-  - Dado o iden@ﬁcador de ﬁcheiro aberto, permite obter rapidamente o
-    descritor do ﬁcheiro em memória
-- Fechar do ﬁcheiro:
-  - Liberta a memória que con@nha a meta-informação do ﬁcheiro
-  - Caso necessário, atualiza essa informação no siema de memória
-    secundária
-    Processo: inância de um
-    programa em execução
+– Pesquisar o diretório
+– Veriﬁcar se o processo tem permissões para o modo de acesso que pede
+– Copia a meta-informação para memória (incluindo o modo de acesso
+solicitado)
+–
+Devolve ao u@lizador um iden@ﬁcador que é usado como referência para
+essa posição de memória
+•
+Ler e escrever sobre ﬁcheiros abertos:
+– Dado o iden@ﬁcador de ﬁcheiro aberto, permite obter rapidamente o
+descritor do ﬁcheiro em memória
+•
+Fechar do ﬁcheiro:
+– Liberta a memória que con@nha a meta-informação do ﬁcheiro
+– Caso necessário, atualiza essa informação no siema de memória
+secundária
+Processo: inância de um
+programa em execução
 
 Primitivas do Siema de Ficheiros
-
-- Podemos dividir as funções relacionadas com o
-  siema de ficheiros em seis grupos:
-  - Abertura, criação e fecho de ficheiros
-  - Operações sobre ficheiros abertos
-  - Operações complexas sobre ficheiros
-  - Operações sobre directórios
-  - Acesso a ficheiros mapeados em memória
-- Não cobertas nea disciplina
-  - Operações de geão dos siemas de ficheiros.
+• Podemos dividir as funções relacionadas com o
+siema de ficheiros em seis grupos:
+– Abertura, criação e fecho de ficheiros
+– Operações sobre ficheiros abertos
+– Operações complexas sobre ficheiros
+– Operações sobre directórios
+– Acesso a ficheiros mapeados em memória
+• Não cobertas nea disciplina
+– Operações de geão dos siemas de ficheiros.
 
 Abertura, criação e fecho de ficheiros
 Retorno
@@ -245,8 +259,8 @@ Posicionar
 (Fd, Posição)
 Posiciona o cursor de leitura ou escrita
 
-## Operações complexas sobre ficheiros
-
+Operações complexas sobre ficheiros
+•
 Algumas operações sobre ficheiros permitem realizar operações sobre a
 totalidade do ficheiro, como copiá-lo, apagá-lo ou movê-lo
 Nome
@@ -283,16 +297,15 @@ CriaDir
 Cria um novo directório
 
 Os canais andard
-
-- Inicialmente, tabela de ficheiros de um processo
-  preenchida com 3 ficheiros abertos:
-  - din, dout, derr
-- Normalmente, referenciam os canais de input e
-  output da consola em que o processo foi lançado
-- ...Mas nem sempre!
-  foo < out.txt
-  ls > liagem.txt
-  foo >& erros.txt
+• Inicialmente, tabela de ficheiros de um processo
+preenchida com 3 ficheiros abertos:
+– din, dout, derr
+• Normalmente, referenciam os canais de input e
+output da consola em que o processo foi lançado
+• ...Mas nem sempre!
+foo < out.txt
+ls > liagem.txt
+foo >& erros.txt
 
 Modelo de programação:
 A API do siema de ficheiros
@@ -303,42 +316,40 @@ da dio
 
 29
 Operações sobre ficheiros
-
-- Até ee momento fizemos sempre leituras do din
-  e escrevemos sempre para o dout. Vamos ver
-  agora como realizar eas operações sobre
-  ficheiros.
-- Como abrir um ficheiro?
-  FILE \*fp;
-  fp=fopen(”tes.txt", "r");
-  Modo de abertura
-  do ficheiro. Nee
-  caso eamos a
-  abrir o ficheiro em
-  modo de leitura
-  Ponteiro para
-  erutura que
-  representa o
-  ficheiro aberto
+• Até ee momento fizemos sempre leituras do din
+e escrevemos sempre para o dout. Vamos ver
+agora como realizar eas operações sobre
+ficheiros.
+• Como abrir um ficheiro?
+FILE \*fp;
+fp=fopen(”tes.txt", "r");
+Modo de abertura
+do ficheiro. Nee
+caso eamos a
+abrir o ficheiro em
+modo de leitura
+Ponteiro para
+erutura que
+representa o
+ficheiro aberto
 
 30
 Operações sobre ficheiros
-
-- Até ee momento fizemos sempre leituras do din
-  e escrevemos sempre para o dout. Vamos ver
-  agora como realizar eas operações sobre
-  ficheiros.
-- Como abrir um ficheiro?
-  r - abre para leitura (read)
-  w - abre um ficheiro vazio para escrita (o ficheiro não precisa de exiir)
-  a - abre para acrescentar no fim (“append” ; ficheiro não precisa de exiir)
-  r+ - abre para escrita e leitura; começa no início; o ficheiro tem de exiir
-  w+ - abre para escrita e leitura (tal como o “w” ignora qualquer ficheiro que
-  exia com o mesmo nome, criando um novo ficheiro)
-  a+ - abre para escrita e leitura (output é sempre colocado no fim)
-  …mas há mais
-  Modos de
-  abertura
+• Até ee momento fizemos sempre leituras do din
+e escrevemos sempre para o dout. Vamos ver
+agora como realizar eas operações sobre
+ficheiros.
+• Como abrir um ficheiro?
+r – abre para leitura (read)
+w – abre um ficheiro vazio para escrita (o ficheiro não precisa de exiir)
+a – abre para acrescentar no fim (“append” ; ficheiro não precisa de exiir)
+r+ – abre para escrita e leitura; começa no início; o ficheiro tem de exiir
+w+ – abre para escrita e leitura (tal como o “w” ignora qualquer ficheiro que
+exia com o mesmo nome, criando um novo ficheiro)
+a+ – abre para escrita e leitura (output é sempre colocado no fim)
+…mas há mais
+Modos de
+abertura
 
 31
 Exemplo
@@ -475,31 +486,29 @@ inteiros ao fim de um
 ficheiro
 
 O cursor
-
-- Para qualquer ficheiro aberto, é mantido um cursor
-  - Avança automaticamente com cada byte lido ou escrito
-- Para sabermos em que posição eamos, usar função
-  ftell
-  long ftell(FILE \*ream);
-- Para repor o cursor noutra posição, usar função
-  fseek
-  - Por exemplo, colocar cursor no início ou final do ficheiro
-    int fseek(FILE \*ream, long offset, int whence);
-    39
+• Para qualquer ficheiro aberto, é mantido um cursor
+– Avança automaticamente com cada byte lido ou escrito
+• Para sabermos em que posição eamos, usar função
+ftell
+long ftell(FILE *ream);
+• Para repor o cursor noutra posição, usar função
+fseek
+– Por exemplo, colocar cursor no início ou final do ficheiro
+int fseek(FILE *ream, long offset, int whence);
+39
 
 Escritas são imediatamente persientes?
-
-- Após escrita em ficheiro, essa escrita eá
-  garantidamente persiente no disco?
-  - Nem sempre!
-  - Para optimizar o desempenho, escritas são propagadas
-    para disco tardiamente
-- Função fflush permite ao programa forçar que
-  escritas feitas até agora sejam persiidas em disco
-  - Função só retorna quando houver essa garantia
-  - Função demorada, usar apenas quando necessário
-    int fflush(FILE \*ream);
-    40
+• Após escrita em ficheiro, essa escrita eá
+garantidamente persiente no disco?
+– Nem sempre!
+– Para optimizar o desempenho, escritas são propagadas
+para disco tardiamente
+• Função fflush permite ao programa forçar que
+escritas feitas até agora sejam persiidas em disco
+– Função só retorna quando houver essa garantia
+– Função demorada, usar apenas quando necessário
+int fflush(FILE \*ream);
+40
 
 Modelo de programação:
 A API do siema de ficheiros
@@ -510,17 +519,16 @@ da API do siema de ficheiros do Unix
 
 O que ganho/perco?
 Prós:
-
-- Em geral, são funções de mais baixo nível, logo
-  permitem maior controlo
-- Algumas operações sobre ficheiros só eão
-  disponíveis através dea API
-  Contras:
-- Normalmente, programa que usa dio é mais
-  simples e optimizado
-  - Discutiremos mais à frente em SO porque é que dio é
-    mais optimizado
-    42
+• Em geral, são funções de mais baixo nível, logo
+permitem maior controlo
+• Algumas operações sobre ficheiros só eão
+disponíveis através dea API
+Contras:
+• Normalmente, programa que usa dio é mais
+simples e optimizado
+– Discutiremos mais à frente em SO porque é que dio é
+mais optimizado
+42
 
 Siema de Ficheiros do Unix
 Operações
@@ -578,7 +586,7 @@ CriaDir (Nome, Protecção)
 int mkdir(con char *path, mode_t mode)
 RemoveDir(Nome)
 int rmdir(con char *path)
-Sistemas de
+Siemas de
 Ficheiros
 Montar (Directório, Dispositivo)
 int mount(con char *device,
@@ -589,6 +597,12 @@ con void *data)
 Desmontar (Directório)
 int umount(con char \*path)
 
+![18](./imgs/0002/0018-a.png)
+![19](./imgs/0002/0019-a.png)
+![20](./imgs/0002/0020-a.png)
+![21](./imgs/0002/0021-a.png)
+![22](./imgs/0002/0022-a.png)
+![23](./imgs/0002/0023-a.png)
 Plano das próximas aulas
 1ª Parte
 2ª Parte
@@ -601,6 +615,8 @@ dos siemas de ficheiros:
 - voltaremos à tópicos avançados
   (caching, VFSs) mais logo
 
+![24](./imgs/0002/0024-a.png)
+![25](./imgs/0002/0025-a.png)
 Como implementar eas abrações?
 /
 b
@@ -615,35 +631,37 @@ z
 /dev/hd1
 f
 
+![26](./imgs/0002/0026-a.png)
+![27](./imgs/0002/0027-a.png)
 Organização lógica de um disco
 Como organizar a informação necessária para
 suportar um siema de ficheiros?
 
+![28](./imgs/0002/0028-a.png)
 Alternativa 1: Organização em Lia
 
+![29](./imgs/0002/0029-a.png)
 Organização em Lia
-
-- Forma mais simples de organizar um siema de
-  ficheiros
-- Cada ficheiro é conituído por um regio de
-  dimensão variável com quatro campos
-- No caso dos siemas de ficheiros em CD/DVD, que
-  só podem ser escritos uma vez, todos os ficheiros
-  ficam compactados uns a seguir aos outros
-  - No caso de siemas onde é possível apagar ficheiros, é
-    necessário manter também uma lia de espaços livres
-    Desvantagens ?
+• Forma mais simples de organizar um siema de
+ficheiros
+• Cada ficheiro é conituído por um regio de
+dimensão variável com quatro campos
+• No caso dos siemas de ficheiros em CD/DVD, que
+só podem ser escritos uma vez, todos os ficheiros
+ficam compactados uns a seguir aos outros
+– No caso de siemas onde é possível apagar ficheiros, é
+necessário manter também uma lia de espaços livres
+Desvantagens ?
 
 Alternativa 1: desvantagens
-
-- Tempo necessário para localizar um ficheiro através
-  do seu nome
-- Ficheiros que mudam de tamanho ou são apagados
-  são problemáticos:
-  - Espaço ocupado por cada ficheiro é contínuo
-  - Fragmentação da memória
-    Todos ees problemas aplicam-se a siemas de
-    ficheiros em DVD?
+• Tempo necessário para localizar um ficheiro através
+do seu nome
+• Ficheiros que mudam de tamanho ou são apagados
+são problemáticos:
+– Espaço ocupado por cada ficheiro é contínuo
+– Fragmentação da memória
+Todos ees problemas aplicam-se a siemas de
+ficheiros em DVD?
 
 Alternativa 2
 
@@ -666,14 +684,13 @@ Directório
 Dados
 
 Alternativa 2
-
-- Solução para a primeira desvantagem:
-  - criando um directório único onde todos os nomes dos
-    ficheiros eão juntos
-  - os nomes dos ficheiros ficam perto uns dos outros no
-    disco
-  - aumenta a eficência da procura de um ficheiro dado o
-    seu nome
+• Solução para a primeira desvantagem:
+– criando um directório único onde todos os nomes dos
+ficheiros eão juntos
+– os nomes dos ficheiros ficam perto uns dos outros no
+disco
+– aumenta a eficência da procura de um ficheiro dado o
+seu nome
 
 Dimensão
 *dados
@@ -693,133 +710,131 @@ Nome
 Directório
 Dados
 
-Organização em Lia - desvantagens (cont.)
+![30](./imgs/0002/0030-a.png)
+Organização em Lia – desvantagens (cont.)
+• Solução para a segunda
+desvantagem: dividir os
+dados de cada ficheiro em
+blocos de dimensão fixa
+• O siema de ficheiros do
+CP/M (um dos primeiros
+para PCs, 1977) utilizava
+uma erutura dee tipo
+CP/M advertisement in the November
+29, 1982 issue of InfoWorld magazine
 
-- Solução para a segunda
-  desvantagem: dividir os
-  dados de cada ficheiro em
-  blocos de dimensão fixa
-- O siema de ficheiros do
-  CP/M (um dos primeiros
-  para PCs, 1977) utilizava
-  uma erutura dee tipo
-  CP/M advertisement in the November
-  29, 1982 issue of InfoWorld magazine
-
+![31](./imgs/0002/0031-a.png)
 Siema de Ficheiros do CP/M
+• Erutura de uma entrada do directório do siema de
+ficheiros do CP/M:
+• Nee siema:
+– cada bloco possuía 1 Kbyte (por omissão)
+– mapa de blocos com 16 entradas, logo dimensão máxima de
+um ficheiro = 16 KBytes
+• Como aumentar a dimensão máxima dos ficheiros?
+Mapa de blocos de dados
+contém os números dos
+blocos de dados do ficheiro
 
-- Erutura de uma entrada do directório do siema de
-  ficheiros do CP/M:
-- Nee siema:
-  - cada bloco possuía 1 Kbyte (por omissão)
-  - mapa de blocos com 16 entradas, logo dimensão máxima de
-    um ficheiro = 16 KBytes
-- Como aumentar a dimensão máxima dos ficheiros?
-  Mapa de blocos de dados
-  contém os números dos
-  blocos de dados do ficheiro
-
+![32](./imgs/0002/0032-a.png)
 Siema de Ficheiros do CP/M
+• Erutura de uma entrada do directório do siema de
+ficheiros do CP/M:
+• Nee siema:
+– cada bloco possuía 1 Kbyte (por omissão)
+– mapa de blocos com 16 entradas, logo dimensão máxima de
+um ficheiro = 16 KBytes
+• Como aumentar a dimensão máxima dos ficheiros?
+– Aumentar o mapa de blocos è ineficiente para fich. pequenos
+– Aumentar o tamanho dos blocos è maior fragmentação
+Mapa de blocos de dados
+contém os números dos
+blocos de dados do ficheiro
 
-- Erutura de uma entrada do directório do siema de
-  ficheiros do CP/M:
-- Nee siema:
-  - cada bloco possuía 1 Kbyte (por omissão)
-  - mapa de blocos com 16 entradas, logo dimensão máxima de
-    um ficheiro = 16 KBytes
-- Como aumentar a dimensão máxima dos ficheiros?
-  - Aumentar o mapa de blocos è ineficiente para fich. pequenos
-  - Aumentar o tamanho dos blocos è maior fragmentação
-    Mapa de blocos de dados
-    contém os números dos
-    blocos de dados do ficheiro
-
+![33](./imgs/0002/0033-a.png)
 Siema de Ficheiros do MS-DOS
+• Evoluiu a partir do siema CP/M
+• Possui uma erutura de siema de
+ficheiros semelhante
+• Em vez de um mapa de blocos por
+ficheiro, no MS-DOS exie:
+– uma tabela de blocos global partilhada por todos os ficheiros
+– ea tabela única é tão representativa da erutura do siema
+de ficheiros que deu origem ao nome do siema de ficheiros
+mais popular que a usa: o siema de ficheiros FAT (Tabela de
+Alocação de Ficheiros — File Allocation Table).
+The original MS-DOS advertisement
+in 1981
 
-- Evoluiu a partir do siema CP/M
-- Possui uma erutura de siema de
-  ficheiros semelhante
-- Em vez de um mapa de blocos por
-  ficheiro, no MS-DOS exie:
-  - uma tabela de blocos global partilhada por todos os ficheiros
-  - ea tabela única é tão representativa da erutura do siema
-    de ficheiros que deu origem ao nome do siema de ficheiros
-    mais popular que a usa: o siema de ficheiros FAT (Tabela de
-    Alocação de Ficheiros — File Allocation Table).
-    The original MS-DOS advertisement
-    in 1981
-
+![34](./imgs/0002/0034-a.png)
+![35](./imgs/0002/0035-a.png)
+![36](./imgs/0002/0036-a.png)
 Alternativa 4: File Allocation Table (FAT)
 Anúncio do MS-DOS, 1981
 
-Sistemas de Ficheiros do Tipo FAT
+Siemas de Ficheiros do Tipo FAT
+• A partição contém três secções diintas:
+– a tabela de alocação (File Allocation Table, FAT),
+– uma diretoria com os nomes dos ficheiros presentes no siema de
+ficheiros, e
+– uma secção com o espaço reante dividido em blocos, de igual
+dimensão, para conter os dados dos ficheiros
 
-- A partição contém três secções diintas:
-  - a tabela de alocação (File Allocation Table, FAT),
-  - uma diretoria com os nomes dos ficheiros presentes no siema de
-    ficheiros, e
-  - uma secção com o espaço reante dividido em blocos, de igual
-    dimensão, para conter os dados dos ficheiros
+Siemas de Ficheiros do Tipo FAT (cont.)
+• FAT é vetor compoo por 2n inteiros de n bits
+– Designado de FAT-16 (n=16) ou FAT-32 (n=32), etc.
+• Dimensionado para:
+– Caber em memória RAM (FAT carregada do disco em
+RAM quando o FS é montado)
+– Ter tantas entradas quanto o número de blocos de dados
+na partição em disco
+• As entradas da FAT:
+– com o valor zero indicam que o respectivo bloco eá
+livre,
+– com valores diferentes de zero indicam que o respectivo
+bloco faz parte de um ficheiro
 
-Sistemas de Ficheiros do Tipo FAT (cont.)
-
-- FAT é vetor compoo por 2n inteiros de n bits
-  - Designado de FAT-16 (n=16) ou FAT-32 (n=32), etc.
-- Dimensionado para:
-  - Caber em memória RAM (FAT carregada do disco em
-    RAM quando o FS é montado)
-  - Ter tantas entradas quanto o número de blocos de dados
-    na partição em disco
-- As entradas da FAT:
-  - com o valor zero indicam que o respectivo bloco eá
-    livre,
-  - com valores diferentes de zero indicam que o respectivo
-    bloco faz parte de um ficheiro
-
-Sistemas de Ficheiros do Tipo FAT (cont.)
-
-- Os blocos de um ficheiro são determinados assim:
-  - 1º bloco: indicado por um número na respectiva entrada
-    no directório.
-  - reantes blocos: referenciados em lia ligada pelas
-    entradas da FAT
+![37](./imgs/0002/0037-a.png)
+Siemas de Ficheiros do Tipo FAT (cont.)
+• Os blocos de um ficheiro são determinados assim:
+– 1º bloco: indicado por um número na respectiva entrada
+no directório.
+– reantes blocos: referenciados em lia ligada pelas
+entradas da FAT
 
 Desvantagens do FAT
-
-- Elevada dimensão da FAT quando os discos têm
-  dimensões muito grandes:
-  - Por exemplo, uma partição 1 Tbyte
-  - Usando FAT-32 e blocos de 4 Kbytes...
-  - ...a FAT pode ocupar 1 GByte (1TBytes/4KBytes × 4 bytes)
-- Tabelas dea dimensão não são possíveis de
-  manter em RAM permanentemente:
-  - Ler à FAT do disco, prejudica muito o acesso à cadeia de
-    blocos de um ficheiro
+• Elevada dimensão da FAT quando os discos têm
+dimensões muito grandes:
+– Por exemplo, uma partição 1 Tbyte
+– Usando FAT-32 e blocos de 4 Kbytes...
+– ...a FAT pode ocupar 1 GByte (1TBytes/4KBytes × 4 bytes)
+• Tabelas dea dimensão não são possíveis de
+manter em RAM permanentemente:
+– Ler à FAT do disco, prejudica muito o acesso à cadeia de
+blocos de um ficheiro
 
 Alternativa 5: Organização com Descritores
 Individuais de Ficheiros (i-nodes)
-
-- Manter a descrição do ficheiro num descritor
-  próprio de cada ficheiro, chamado i-node
-  - Exemplos de atributos incluídos no i-node: tipo de
-    ficheiro, dono, datas de últimos acessos, permissões,
-    dimensão, localizações dos blocos de dados
-  - É a erutura que eá entre as entradas dos diretórios
-    que referenciam o ficheiro e os seus blocos de dados
-- Vantagem: podem exiir várias entradas de
-  diretório a apontar para o mesmo ficheiro
-  - Noção de hard link
+• Manter a descrição do ficheiro num descritor
+próprio de cada ficheiro, chamado i-node
+– Exemplos de atributos incluídos no i-node: tipo de
+ficheiro, dono, datas de últimos acessos, permissões,
+dimensão, localizações dos blocos de dados
+– É a erutura que eá entre as entradas dos diretórios
+que referenciam o ficheiro e os seus blocos de dados
+• Vantagem: podem exiir várias entradas de
+diretório a apontar para o mesmo ficheiro
+– Noção de hard link
 
 Organização com Descritores
 Individuais de Ficheiros (i-nodes)
-
-- Os i-nodes são guardados numa erutura especial de
-  tamanho fixo antes dos blocos de dados
-- No Linux tem o nome de tabela de inodes
-- No Windows tem o nome:
-  - MFT (Maer File Table).
-- O número máximo de ficheiros numa partição é dado
-  pelo número máximo de i-nodes nessa tabela
+• Os i-nodes são guardados numa erutura especial de
+tamanho fixo antes dos blocos de dados
+• No Linux tem o nome de tabela de inodes
+• No Windows tem o nome:
+– MFT (Maer File Table).
+• O número máximo de ficheiros numa partição é dado
+pelo número máximo de i-nodes nessa tabela
 
 Directório
 Ficheiro
@@ -854,12 +869,11 @@ atual
 
 Organização com Descritores
 Individuais de Ficheiros (i-nodes)
-
-- Um ficheiro é univocamente identificado, dentro de
-  cada partição, pelo número de i-node (muitas vezes
-  chamado i-number)
-- Os directórios só têm que efetuar a ligação entre
-  um nome do ficheiro e o número do seu descritor
+• Um ficheiro é univocamente identificado, dentro de
+cada partição, pelo número de i-node (muitas vezes
+chamado i-number)
+• Os directórios só têm que efetuar a ligação entre
+um nome do ficheiro e o número do seu descritor
 
 Número
 do Inode
@@ -932,10 +946,10 @@ ts/projects/NATS-Bench
 Percorrer a árvore de diretórios
 
 1. Começar pelo diretório raíz
-   - i-number tem valor pré-conhecido (e.g., i-num=2)
+   – i-number tem valor pré-conhecido (e.g., i-num=2)
 2. Dado o i-number, obter o i-node do diretório
-   - Na cache de i-nodes (em RAM) ou na tabela de i-nodes
-     (em disco)
+   – Na cache de i-nodes (em RAM) ou na tabela de i-nodes
+   (em disco)
 3. A partir do i-node, descobrir os índices dos blocos
    de dados com o conteúdo do diretório
 4. Ler cada bloco do diretório e pesquisar nele uma
@@ -948,22 +962,21 @@ Percorrer a árvore de diretórios
 
 Organização com Descritores
 Individuais de Ficheiros (i-nodes)
-
-- Descritor do Volume:
-  - possui a informação geral de descrição do siema de ficheiros
-  - por exemplo, a localização da tabela
-    de descritores e a erutura da tabela
-    de blocos livres
-  - é geralmente replicado noutros
-    blocos (a informação nele guardada é
-    de importância fundamental)
-  - se se corromper pode ser impossível recuperar a
-    informação do siema de ficheiros
-- Implementação do descritor de volume:
-  - Unix - bloco especial denominado superbloco
-  - NTFS - ficheiro especial
-  - FAT - a informação em causa é descrita directamente no setor de
-    boot
+• Descritor do Volume:
+– possui a informação geral de descrição do siema de ficheiros
+– por exemplo, a localização da tabela
+de descritores e a erutura da tabela
+de blocos livres
+– é geralmente replicado noutros
+blocos (a informação nele guardada é
+de importância fundamental)
+– se se corromper pode ser impossível recuperar a
+informação do siema de ficheiros
+• Implementação do descritor de volume:
+– Unix - bloco especial denominado superbloco
+– NTFS - ficheiro especial
+– FAT – a informação em causa é descrita directamente no setor de
+boot
 
 Directório
 Ficheiro
@@ -979,20 +992,19 @@ boot
 Volume
 
 Tabela de Blocos Livres (ou Tabela de Alocação)
-
-- Mantém um conjunto de eruturas necessárias à
-  localização de blocos livres:
-  - i.e. blocos da partição que não eão ocupados por nenhum
-    bloco de nenhum ficheiro.
-- Pode ser um simples bitmap:
-  - um bit por cada bloco na partição,
-  - indica se o respetivo bloco eá livre ou ocupado
-- Tabela de blocos livres desacoplada dos i-nodes tem
-  vantagens:
-  - é possível ter eruturas muito mais densas (a tabela de blocos
-    livres possui, usualmente, apenas um bit por cada bloco)
-  - pode-se organizar a tabela de blocos livres em várias tabelas
-    de menor dimensão para blocos adjacentes
+• Mantém um conjunto de eruturas necessárias à
+localização de blocos livres:
+– i.e. blocos da partição que não eão ocupados por nenhum
+bloco de nenhum ficheiro.
+• Pode ser um simples bitmap:
+– um bit por cada bloco na partição,
+– indica se o respetivo bloco eá livre ou ocupado
+• Tabela de blocos livres desacoplada dos i-nodes tem
+vantagens:
+– é possível ter eruturas muito mais densas (a tabela de blocos
+livres possui, usualmente, apenas um bit por cada bloco)
+– pode-se organizar a tabela de blocos livres em várias tabelas
+de menor dimensão para blocos adjacentes
 
 Directório
 Ficheiro
@@ -1013,54 +1025,52 @@ Siema referência para outros siemas
 de ficheiros atuais
 
 i-node (index node)
-
-- Meta-dados do
-  ficheiro
-- Localização dos
-  dados do ficheiro
-  - Índices do 1º bloco,
-    do 2º bloco, etc.
-    Campo
-    Descrição
-    i_mode
-    Tipo de ficheiro e direitos de acesso
-    i_uid
-    Identificador do utilizador
-    i_size
-    Dimensão do ficheiro
-    i_atime
-    Tempo do último acesso
-    i_ctime
-    Tempo da última alteração do inode
-    i_mtime
-    Tempo da última alteração do ficheiro
-    i_dtime
-    Tempo da remoção do ficheiro
-    i_gid
-    Identificador do grupo do utilizador
-    i_links_count
-    Contador de hard links
-    i_blocks
-    Número de blocos ocupado pelo ficheiro
-    i_flags
-    Flags várias do ficheiro
-    i_block[15]
-    Vector de 15 unidades para blocos de dados
-    Outros campos ainda não utilizados
+• Meta-dados do
+ficheiro
+• Localização dos
+dados do ficheiro
+– Índices do 1º bloco,
+do 2º bloco, etc.
+Campo
+Descrição
+i_mode
+Tipo de ficheiro e direitos de acesso
+i_uid
+Identificador do utilizador
+i_size
+Dimensão do ficheiro
+i_atime
+Tempo do último acesso
+i_ctime
+Tempo da última alteração do inode
+i_mtime
+Tempo da última alteração do ficheiro
+i_dtime
+Tempo da remoção do ficheiro
+i_gid
+Identificador do grupo do utilizador
+i_links_count
+Contador de hard links
+i_blocks
+Número de blocos ocupado pelo ficheiro
+i_flags
+Flags várias do ficheiro
+i_block[15]
+Vector de 15 unidades para blocos de dados
+Outros campos ainda não utilizados
 
 Exemplo de FS que usa i-nodes: ext3
-
-- Índice dos blocos do ficheiro é mantido num vetor
-  i_block do i-node, com 15 posições
-  - 12 entradas diretas
-  - Caso dimensão > 12 blocos, 3 últimas posições do vector
-    contêm referências para blocos com índices para outros
-    blocos
-- Primeira entrada é indireção de 1 nível
-- Segunda é indireção de 2 níveis
-- Terceira é indireção de 3 níveis
-- Só se usam as entradas (e blocos de índices)
-  necessários
+• Índice dos blocos do ficheiro é mantido num vetor
+i_block do i-node, com 15 posições
+– 12 entradas diretas
+– Caso dimensão > 12 blocos, 3 últimas posições do vector
+contêm referências para blocos com índices para outros
+blocos
+• Primeira entrada é indireção de 1 nível
+• Segunda é indireção de 2 níveis
+• Terceira é indireção de 3 níveis
+• Só se usam as entradas (e blocos de índices)
+necessários
 
 Exemplo de FS que usa i-nodes: ext3
 
@@ -1084,11 +1094,10 @@ R é a dimensão em bytes de uma referência para um bloco
 Com blocos de 1 Kbyte e referências de 4 byte, a dimensão máxima de um ficheiro é ~16 Gbyte
 
 Tabela de i-nodes no volume
-
-- Mantidos em tabela em zona propria no volume
-- Dentro de um volume, cada i-node é identificado
-  por um i-number
-  - Índice do i-node na tabela de i-nodes no volume
+• Mantidos em tabela em zona propria no volume
+• Dentro de um volume, cada i-node é identificado
+por um i-number
+– Índice do i-node na tabela de i-nodes no volume
 
 Directório
 Ficheiro
@@ -1105,36 +1114,34 @@ Volume
 Tabela de i-nodes
 
 Tabelas de Inodes e Bitmaps
-
-- Cada partição tem um número máximo de i-nodes:
-  - que servem para armazenar os i-nodes de todos os ficheiros
-    da partição.
-  - logo, exie um número máximo de ficheiros, correspondente
-    à dimensão máxima da tabela de i-nodes
-- Dentro de uma partição:
-  - um i-node é univocamente identificado pelo índice dentro da
-    tabela de inodes.
-- Para além da tabela de inodes exiem em cada partição
-  ainda duas outras tabelas:
-  - o bitmap de i-nodes - posições dos i-nodes livres
-  - o bitmap de blocos, - posições dos blocos livres
+• Cada partição tem um número máximo de i-nodes:
+– que servem para armazenar os i-nodes de todos os ficheiros
+da partição.
+– logo, exie um número máximo de ficheiros, correspondente
+à dimensão máxima da tabela de i-nodes
+• Dentro de uma partição:
+– um i-node é univocamente identificado pelo índice dentro da
+tabela de inodes.
+• Para além da tabela de inodes exiem em cada partição
+ainda duas outras tabelas:
+– o bitmap de i-nodes – posições dos i-nodes livres
+– o bitmap de blocos, – posições dos blocos livres
 
 Eruturas em RAM de suporte ao FS
 
 Eruturas de Suporte à Utilização dos Ficheiros
-
-- Todos os siemas de ficheiros definem um conjunto de
-  eruturas em memória volátil para os ajudar a gerir a
-  informação persiente mantida em disco.
-- Objectivos:
-  - Criar e gerir os canais virtuais entre as aplicações e a informação em
-    disco
-  - Aumentar o desempenho do siema mantendo a informação em
-    caches
-  - Tolerar eventuais faltas
-  - Isolar as aplicações da organização do siema de ficheiros
-  - Possibilitar a geão de várias organizações de eruturas de
-    ficheiros em simultâneo
+• Todos os siemas de ficheiros definem um conjunto de
+eruturas em memória volátil para os ajudar a gerir a
+informação persiente mantida em disco.
+• Objectivos:
+– Criar e gerir os canais virtuais entre as aplicações e a informação em
+disco
+– Aumentar o desempenho do siema mantendo a informação em
+caches
+– Tolerar eventuais faltas
+– Isolar as aplicações da organização do siema de ficheiros
+– Possibilitar a geão de várias organizações de eruturas de
+ficheiros em simultâneo
 
 Visão Global
 open/read/write/close
@@ -1174,61 +1181,62 @@ blocos de índices dos ficheiros acedidos.
 Cada bloco de índices referencia os blocos
 do disco que compõem um ficheiro.
 
-## Eruturas de Suporte à Utilização dos Ficheiros
-
+![38](./imgs/0002/0038-a.png)
+Eruturas de Suporte à Utilização dos Ficheiros
+•
 Quando exie uma operação sobre um ficheiro já aberto, o identificador do ficheiro permite
 identificar na erutura de descritores de ficheiros abertos do processo o ponteiro para o objecto
 que descreve o ficheiro na erutura de ficheiros abertos global (passo ).
-
-- De seguida é perguntado ao geor de cache se o pedido pode ser satisfeito pela cache (passo ).
-- Se não puder então é invocada a função correspondente à operação desejada do siema de
-  ficheiros, dando-lhe como parâmetro o descritor de ficheiro correspondente (passo ).
-- Finalmente, os blocos de dados do ficheiro são lidos ou escritos a partir da informação de
-  localização dos blocos residente no descritor de ficheiro (passo ).
+•
+De seguida é perguntado ao geor de cache se o pedido pode ser satisfeito pela cache (passo ).
+•
+Se não puder então é invocada a função correspondente à operação desejada do siema de
+ficheiros, dando-lhe como parâmetro o descritor de ficheiro correspondente (passo ).
+•
+Finalmente, os blocos de dados do ficheiro são lidos ou escritos a partir da informação de
+localização dos blocos residente no descritor de ficheiro (passo ).
 
 Tabelas de Ficheiros
-
-- file table contem:
-  - Cursor que indica a
-    posição actual de
-    leitura/escrita
-  - modo como o ficheiro
-    foi aberto
-    fd1 = open (“fileA”, O_RDONLY);
-    fd2 = open (“fileB”, O_WRONLY);
-    fd3 = open (“fileA”, O_RDWR);
-    user file
-    descriptor
-    table
-    file
-    table
-    inode
-    table
-    uma por
-    cada processo
-    partilhadas por todos os processos
-    read
-    write
-    r/w
-    2 | file A
-    1 | file B
+• file table contem:
+– Cursor que indica a
+posição actual de
+leitura/escrita
+– modo como o ficheiro
+foi aberto
+fd1 = open (“fileA”, O_RDONLY);
+fd2 = open (“fileB”, O_WRONLY);
+fd3 = open (“fileA”, O_RDWR);
+user file
+descriptor
+table
+file
+table
+inode
+table
+uma por
+cada processo
+partilhadas por todos os processos
+read
+write
+r/w
+2 | file A
+1 | file B
 
 Eruturas de Suporte à Utilização dos Ficheiros
 (cont.)
-
-- Tabela de ficheiros abertos - por processo:
-  - contém um descritor para cada um dos ficheiros abertos
-  - mantida no espaço de memória protegida que só pode ser acedida pelo
-    núcleo
-- Tabela de ficheiros abertos - global:
-  - contém informação relativa a um ficheiro aberto
-  - mantida no espaço de memória protegida que só pode ser acedida pelo
-    núcleo
-- A exiência de duas tabelas é fundamental para:
-  - garantir o isolamento entre processos
-  - permitindo a partilha de ficheiros sempre que necessário (e.g. os
-    cursores de escrita e leitura de um ficheiro entre dois ou mais
-    processos)
-- Note-se que:
-  - os identificadores para a tabela global eão na tabela privada que eá
-    em memória protegida, pelo que não podem ser alterados
+• Tabela de ficheiros abertos – por processo:
+– contém um descritor para cada um dos ficheiros abertos
+– mantida no espaço de memória protegida que só pode ser acedida pelo
+núcleo
+• Tabela de ficheiros abertos – global:
+– contém informação relativa a um ficheiro aberto
+– mantida no espaço de memória protegida que só pode ser acedida pelo
+núcleo
+• A exiência de duas tabelas é fundamental para:
+– garantir o isolamento entre processos
+– permitindo a partilha de ficheiros sempre que necessário (e.g. os
+cursores de escrita e leitura de um ficheiro entre dois ou mais
+processos)
+• Note-se que:
+– os identificadores para a tabela global eão na tabela privada que eá
+em memória protegida, pelo que não podem ser alterados
