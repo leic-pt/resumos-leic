@@ -151,7 +151,7 @@ As soluções $y_1, \dots, y_n$ podem ser calculadas da seguinte forma.
 
      $$
      \begin{darray}{l}
-     t^k e^{at} \sin (bt) = \frac{1}{2i} t^k e^{at} \left(e^{i bt} - e^{i bt} \right) = \frac{1}{2i} t^k e^{(a+ib)t} + \frac{1}{2i} t^k e^{(a - ib)t}\\
+     t^k e^{at} \sin (bt) = \frac{1}{2i} t^k e^{at} \left(e^{i bt} - e^{-i bt} \right) = \frac{1}{2i} t^k e^{(a+ib)t} - \frac{1}{2i} t^k e^{(a - ib)t}\\
      \\
      t^k e^{at} \cos (bt) = \frac{1}{2} t^k e^{at} \left(e^{ibt} + e^{-ibt} \right) = \frac{1}{2} t^k e^{(a+ib) t} + \frac{1}{2} t^k e^{(a-ib)t}
      \end{darray}
