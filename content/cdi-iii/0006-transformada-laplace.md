@@ -197,7 +197,7 @@ $$
 E, finalmente, obtemos a inversa:
 
 $$
-f(t) = \lapt{e^{-2t} \sin t}
+f(t) = e^{-2t} \sin t
 $$
 
 :::
