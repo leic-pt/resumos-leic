@@ -378,3 +378,9 @@ Estruturas de Suporte à Utilização dos Ficheiros
 - Note-se que:
   - os identificadores para a tabela global estão na tabela privada que está
     em memória protegida, pelo que não podem ser alterados
+
+---
+
+Slides:
+
+- [Slides 2](https://drive.google.com/file/d/1dTCxBOOKYOcabgxErJXzgwMBrbSbPTc9/view?usp=sharing)

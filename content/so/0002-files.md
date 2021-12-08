@@ -351,3 +351,9 @@ return 0;
 
 - Normalmente, programa que usa stdio é mais
   simples e optimizado (será falado no futuro)
+
+---
+
+Slides:
+
+- [Slides 2](https://drive.google.com/file/d/1dTCxBOOKYOcabgxErJXzgwMBrbSbPTc9/view?usp=sharing)
