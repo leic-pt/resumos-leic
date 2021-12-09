@@ -33,7 +33,7 @@ Vamos começar por aprender a usar os sistemas de ficheiros (abrastções, APIs)
 
 ![tree](./imgs/0002/0002-tree.png#dark=1)
 
-- Mantém a meta -informação sobre ﬁcheiros
+- Mantém a meta-informação sobre ﬁcheiros
   - no mesmo sistema de memória secundária que a
     informação que descreve
   - entre outros, estabelece a associação entre o nome e um
@@ -88,7 +88,6 @@ Temos assim 2 maneiras de o fazer:
   - é comum chamar a cada um destes nomes links
 - Problema:
   - quando se pretende apagar o ficheiro com o nome /a/b/c.
-  - apagar o conteúdo do ficheiro ou apenas o nome?
 - A semântica utilizada na maioria dos sistemas de
   ficheiros é apagar apenas o nome /a/b/c
 
@@ -134,7 +133,7 @@ Um Processo é a instância de um programa em execução
 - Ler e escrever sobre ﬁcheiros abertos:
   - Dado o identiﬁcador de ﬁcheiro aberto, permite obter rapidamente o descritor do ﬁcheiro em memória
 - Fechar do ﬁcheiro:
-  - Liberta a memória que con@nha a meta -informação do ﬁcheiro
+  - Liberta a memória que continha a meta-informação do ﬁcheiro
   - Caso necessário, atualiza essa informação no sistema de memória secundária
 
 ### Primitivas do Sistema de Ficheiros
@@ -172,9 +171,12 @@ Um Processo é a instância de um programa em execução
   - stdin, stdout, stderr
 - Normalmente, referenciam os canais de input e output da consola em que o processo foi lançado
 - Podemos também receber e enviar para ficheiros
+
+```
   foo < out.txt
   ls > listagem.txt
   foo >& erros.txt
+```
 
 ## API do Sistema de Ficheiros (Revisão de IAED)
 

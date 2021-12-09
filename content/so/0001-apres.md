@@ -67,7 +67,8 @@ do hardware onde se executa
   - Optimização da memória
   - Persistência
   - Comunicação entre processos, local ou distribuída
-  - Tratamento de erros - Novos periféricos, protocolos, etc.
+  - Tratamento de erros
+  - Novos periféricos, protocolos, etc.
 
 ## “Interfaces” do Sistema Operativo
 
@@ -79,7 +80,7 @@ do hardware onde se executa
 
 ### Interface programática
 
-(bibliotecas de funções sistema)
+Bibliotecas de funções sistema - man
 
 ![man](./imgs/0001/0001-man.png)
 
@@ -87,7 +88,10 @@ do hardware onde se executa
 
 ![so](./imgs/0001/0001-so.png#dark=1)
 
-Desempenho - Gestão eficiente dos recursos físicos que suportam os recursos lógicos - Tempo de resposta, Débito, Previsibilidade, Justiça
+- Desempenho
+
+  - Gestão eficiente dos recursos físicos que suportam os recursos lógicos
+  - Tempo de resposta, Débito, Previsibilidade, Justiça
 
 - Segurança.
   - Isolamento dos Utilizadores
@@ -109,12 +113,12 @@ Unix/Linux
 - O Unix foi um sistema fundamental em toda a
   evolução da informática
   - O Unix é simples - Interfaces simples, centradas no conceito de ficheiro
-  - O Unix e os seus programas utilitários estão escritos em C - Exemplo de como se consegue conceber um programa que
-    com, muitas evoluções, vive há 4 décadas
+  - O Unix e os seus programas utilitários estão escritos em C
+    - Exemplo de como se consegue conceber um programa que com, muitas evoluções, vive há 4 décadas
 
 ---
 
 Slides:
 
 - [Slides 1](https://drive.google.com/file/d/1fO2-sTbu5bdwxVxBbaItqKj9ZWY65_GR/view?usp=sharing)
-- [BREAD](https://www.google.com/search?q=bread&sxsrf=AOaemvLQ29HbuAbtPG2XTd8UTCJ3Kjg_zg:1638991190589&source=lnms&tbm=isch&sa=X&ved=2ahUKEwi_tdH99dT0AhUL8BQKHVIcCTYQ_AUoAXoECAMQAw#imgrc=jNHrKSVMzjONhM)
+- [BREAD](https://i0.wp.com/confessionsofparenting.com/wp-content/uploads/2020/04/IMG_1537.jpg)

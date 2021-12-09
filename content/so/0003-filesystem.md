@@ -196,7 +196,7 @@ Ainda na tabela de alocação podemos ter um ponteiro para outro indíce nessa t
 
 1. Começar pelo diretório raíz
 
-- i-number tem valor pré -conhecido (e.g., i-num=2)
+- i-number tem valor pré-conhecido (e.g., i-num=2)
 
 2. Dado o i-number, obter o i-node do diretório
 
@@ -205,13 +205,13 @@ Ainda na tabela de alocação podemos ter um ponteiro para outro indíce nessa t
 
 3. A partir do i-node, descobrir os índices dos blocos
    de dados com o conteúdo do diretório
+
 4. Ler cada bloco do diretório e pesquisar nele uma
    entrada com o próximo nome do pathname
-5. Assim que seja encontrada, a entrada indica o i-
-   num do próximo nome
-6. Repetir a partir do passo 2 para este novo nome
 
-Repetir do passo 2 a 6 recursivamente para cada elemento do pathname
+5. Assim que seja encontrada, a entrada indica o i-num do próximo nome
+
+6. Repetir a partir do passo 2 para este novo nome
 
 ### Descritor do Volume
 
@@ -248,7 +248,7 @@ Repetir do passo 2 a 6 recursivamente para cada elemento do pathname
   vantagens:
   - é possível ter estruturas muito mais densas (a tabela de blocos
     livres possui, usualmente, apenas um bit por cada bloco)
-  - pode -se organizar a tabela de blocos livres em várias tabelas
+  - pode-se organizar a tabela de blocos livres em várias tabelas
     de menor dimensão para blocos adjacentes
 
 ## Sistema de Ficheiros Ext
