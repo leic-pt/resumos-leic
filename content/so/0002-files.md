@@ -88,7 +88,7 @@ e deixar o ficheiro se ainda tiver mais nomes associados.
 mount -t <filesystem> /dev/hd1 /b
 ```
 
-O comando `mount` liga a raiz do novo sistema de ﬁcheiros a um directório do sistema de ﬁcheiros base.
+O comando `mount` liga a raiz do novo sistema de ﬁcheiros a um diretório do sistema de ﬁcheiros base.
 
 Na figura acima, liga `/dev/hd1` ao diretório `/b`.
 
@@ -104,14 +104,13 @@ Na figura acima, liga `/dev/hd1` ao diretório `/b`.
 
 ### Como manipular ficheiros?
 
-- As operações mais frequentes sobre ficheiros são a
-  leitura e escrita da sua informação
+- As operações mais frequentes sobre ficheiros são a leitura e escrita da sua informação
 
 #### Abrir e fechar ficheiros
 
-Um Processo é a instância de um programa em execução
+**Processo:** é a instância de um programa em execução.
 
-- É mantida uma Tabela de Ficheiros Abertos por processo
+- É mantida uma **Tabela de Ficheiros Abertos** por processo
 - Abrir um ﬁcheiro:
   - Pesquisar o diretório
   - Veriﬁcar se o processo tem permissões para o modo de acesso que pede
@@ -125,180 +124,222 @@ Um Processo é a instância de um programa em execução
 
 ### Primitivas do Sistema de Ficheiros
 
-- Podemos dividir as funções relacionadas com o sistema de ficheiros em seis grupos:
-  - Abertura, criação e fecho de ficheiros
-  - Operações sobre ficheiros abertos
-  - Operações complexas sobre ficheiros
-  - Operações sobre directórios
-  - Acesso a ficheiros mapeados em memória (Não vai ser dado a SO)
-  - Operações de gestão dos sistemas de ficheiros.
+Podemos dividir as funções relacionadas com o sistema de ficheiros em seis grupos:
+
+- Abertura, criação e fecho de ficheiros
+- Operações sobre ficheiros abertos
+- Operações complexas sobre ficheiros
+- Operações sobre diretórios
+- Acesso a ficheiros mapeados em memória (Não vai ser dado a SO)
+- Operações de gestão dos sistemas de ficheiros.
 
 #### Abertura, Criação e Fecho de Ficheiros
 
-![tab1](./imgs/0002/0002-tab1.png)
+| Retorno |  Nome  |    Parâmetros    |       Descrição       |
+| :-----: | :----: | :--------------: | :-------------------: |
+| `fd :=` | Abrir  |   (Nome, Modo)   |   Abre um ficheiro    |
+| `fd :=` | Criar  | (Nome, Proteção) | Cria um novo ficheiro |
+|         | Fechar |       (fd)       |   Fecha um ficheiro   |
+
+Na tabela acima, `fd` simboliza o [_file descriptor_](https://en.wikipedia.org/wiki/File_descriptor).
 
 #### Operações sobre Ficheiros Abertos
 
-![tab2](./imgs/0002/0002-tab2.png)
+|    Nome    |     Parâmetros      |                  Descrição                  |
+| :--------: | :-----------------: | :-----------------------------------------: |
+|    Ler     | (fd, buffer, bytes) | Lê de um ficheiro para um buffer de memória |
+|  Escrever  | (fd, buffer, bytes) |     Escreve um buffer para um ficheiro      |
+| Posicionar |    (fd, posição)    |  Posiciona o cursor de leitura ou escrita   |
 
 #### Operações complexas sobre ficheiros
 
-- Algumas operações sobre ficheiros permitem realizar operações sobre a
-  totalidade do ficheiro, como copiá-lo, apagá-lo ou movê-lo
+Algumas operações sobre ficheiros permitem realizar operações sobre a totalidade do ficheiro, como copiá-lo, apagá-lo ou movê-lo.
 
-  ![tab3](./imgs/0002/0002-tab3.png)
+|       Nome        |    Parâmetros     |                  Descrição                  |
+| :---------------: | :---------------: | :-----------------------------------------: |
+|      Copiar       | (Origem, Destino) |              Copia um ficheiro              |
+|       Mover       | (Origem, Destino) | Move um ficheiro de um diretório para outro |
+|      Apagar       |      (Nome)       |              Apaga um ficheiro              |
+|   LerAtributos    |  (Nome, Tampão)   |         Lê atributos de um ficheiro         |
+| EscreverAtributos | (Nome, Atributos) |            Modifica os atributos            |
 
-#### Operações sobre directórios
+Na tabela acima, memória tampão significa _buffer_.
 
-![tab4](./imgs/0002/0002-tab4.png)
+#### Operações sobre diretórios
 
-#### Os canais standard
+|   Nome   |    Parâmetros    |                   Descrição                    |
+| :------: | :--------------: | :--------------------------------------------: |
+| ListaDir |  (Nome, Tampão)  |         Lê o conteúdo de um diretório          |
+| MudaDir  |      (Nome)      | Muda o diretório por omissão (diretório atual) |
+| CriaDir  | (Nome, Proteção) |             Cria um novo diretório             |
 
-- Inicialmente, tabela de ficheiros de um processo preenchida com 3 ficheiros abertos:
-  - stdin, stdout, stderr
-- Normalmente, referenciam os canais de input e output da consola em que o processo foi lançado
-- Podemos também receber e enviar para ficheiros
+#### Canais Standard
 
+Inicialmente, quando um processo é iniciado, a sua tabela de ficheiros é preenchida com 3 ficheiros abertos:
+
+- `stdin` (standard input)
+- `stdout` (standard output)
+- `stderr` (standard error)
+
+Normalmente, estes _ficheiros_ referenciam os canais de input e output da consola em que o processo foi lançado.
+
+No entanto, estes canais podem ser alterados, podendo também receber e enviar para ficheiros:
+
+```bash
+foo < out.txt      # redireciona o conteúdo de out.txt para o stdin de foo
+ls > listagem.txt  # redireciona o stdout de foo para listagem.txt
+foo >& erros.txt   # redireciona o stderr para o mesmo local que o stdout
 ```
-  foo < out.txt
-  ls > listagem.txt
-  foo >& erros.txt
-```
 
-## API do Sistema de Ficheiros (Revisão de IAED)
+## API do Sistema de Ficheiros
 
-### Trabalhar com Ficheiros usando as Funções da stdio
+### Trabalhar com Ficheiros usando as Funções da `stdio`
 
 #### Abrir Ficheiro
 
-- Até este momento fizemos sempre leituras do stdin
-  e escrevemos sempre para o stdout. Vamos ver
-  agora como realizar estas operações sobre
-  ficheiros.
+Até este momento fizemos sempre leituras do stdin e escrevemos sempre para o stdout.
+Vamos ver agora como realizar estas operações sobre ficheiros.
 
 ```cpp
-  FILE *fp; // Ponteiro para estrutura que representa o ficheiro aberto
-  fp=fopen("tests.txt", "r"); // Modo de abertura do ficheiro.
-                              // Neste caso estamos a abrir o ficheiro em
-                              // modo de leitura
+FILE *fp; // Ponteiro para estrutura que representa o ficheiro aberto
+fp=fopen("tests.txt", "r"); // Modo de abertura do ficheiro.
+                            // Neste caso estamos a abrir o ficheiro
+                            // em modo de leitura.
 ```
 
-r - abre para leitura (read)\
-w - abre um ficheiro vazio para escrita (o ficheiro não precisa de existir)\
-a - abre para acrescentar no fim (“append” ; ficheiro não precisa de existir)\
-r+ - abre para escrita e leitura; começa no início; o ficheiro tem de existir\
-w+ - abre para escrita e leitura (tal como o “w” ignora qualquer ficheiro que
-exista com o mesmo nome, criando um novo ficheiro)\
-a+ - abre para escrita e leitura (output é sempre colocado no fim)\
+- `r` - abre para leitura (read)
+- `w` - abre um ficheiro vazio para escrita (o ficheiro não precisa de existir)
+- `a` - abre para acrescentar no fim (“append” ; ficheiro não precisa de existir)
+- `r+` - abre para escrita e leitura; começa no início; o ficheiro tem de existir
+- `w+` - abre para escrita e leitura (tal como o “w” ignora qualquer ficheiro que exista com o mesmo nome, criando um novo ficheiro)
+- `a+` - abre para escrita e leitura (output é sempre colocado no fim)
 
-- Existem outros tipos de abertura
+Existem outros tipos de abertura, mas estes são os principais.
 
 :::details[Exemplos]
 
-```cpp
+```c
 #include <stdio.h>
 #include <stdlib.h>
 int main()
 {
-FILE *fp;
-fp = fopen("teste.txt", "r"); // Se não conseguir abrir,
-                              // fp fica igual a NULL
-if (fp == NULL) {
-   printf(“teste.txt: No such file or directory\n”);
-   exit(1);
+  FILE *fp;
+  fp = fopen("teste.txt", "r"); // Se não conseguir abrir,
+                                // fp fica igual a NULL
+  if (fp == NULL) {
+    printf("teste.txt: No such file or directory\n");
+    exit(1);
+  }
+  return 0;
 }
-return 0;
-}
-----------------------------------------------------------------------
+```
+
+```c
 #include <stdio.h>
 #include <stdlib.h>
 int main()
 {
-FILE *fp;
-fp = fopen("teste.txt", "r");
-if (fp == NULL) {
-   perror(“teste.txt”); // Escreve a mesma mensagem de erro.
-                        // perror() escreve no “standard error” (stderr)
-                        // a descrição do último erro encontrado na chamada a
-                        // um sistema ou biblioteca.
-   exit(1);
+  FILE *fp;
+  fp = fopen("teste.txt", "r");
+  if (fp == NULL) {
+    // Escreve a mesma mensagem de erro.
+    // perror() escreve no "standard error" (stderr)
+    // a descrição do último erro encontrado na chamada a
+    // um sistema ou biblioteca.
+    perror("teste.txt");
+    exit(1);
+  }
+  return 0;
 }
-return 0;
-}
-----------------------------------------------------------------------
+```
+
+```c
 #include <stdio.h>
 #include <stdlib.h>
 int main()
 {
-FILE *fp;
-fp = fopen("teste.txt", "r");
-if (fp == NULL) {
-   perror(“teste.txt”);
-   exit(1);
+  FILE *fp;
+  fp = fopen("teste.txt", "r");
+  if (fp == NULL) {
+    perror("teste.txt");
+    exit(1);
+  }
+  fclose(fp); // Fecha o ficheiro
+  return 0;
 }
-fclose(fp); // Fecha o ficheiro
-return 0;
-}
-----------------------------------------------------------------------
+```
+
+```c
 #include <stdio.h>
 #include <stdlib.h>
 int main()
 {
-FILE *fp;
-fp = fopen("teste.txt", "w"); // Pernite escrever para um ficheiro
-if (fp == NULL) {
-   perror(“teste.txt”);
-   exit(1);
+  FILE *fp;
+  // Permite escrever para um ficheiro
+  fp = fopen("teste.txt", "w");
+  if (fp == NULL) {
+    perror("teste.txt");
+    exit(1);
+  }
+  fprintf(fp, "Hi file!\n"); // Escreve para o ficheiro
+  fclose(fp); // Fecha o ficheiro
+  return 0;
 }
-fprintf(fp, "Hi file!\n"); // Escreve para o ficheiro
-fclose(fp); // Fecha o ficheiro
-return 0;
-}
-----------------------------------------------------------------------
+```
+
+```c
 #include <stdio.h>
 #include <stdlib.h>
 int main()
 {
-FILE *fp;
-fp = fopen("teste.txt", "w");
-if (fp == NULL) {
-   perror(“teste.txt”);
-   exit(1);
+  FILE *fp;
+  fp = fopen("teste.txt", "w");
+  if (fp == NULL) {
+    perror("teste.txt");
+    exit(1);
+  }
+  fputs("Hi file!", fp); // Escreve para um ficheiro (alternativa)
+  fclose(fp);
+  return 0;
 }
-fputs("Hi file!", fp); // Escreve para um ficheiro (alternativa)
-fclose(fp);
-return 0;
-}
-----------------------------------------------------------------------
+```
+
+A função `fputs` muda de linha após escrever no ficheiro (adiciona `\n`),
+mas não permite usar strings formatadas (e.g. `%s`, `%d`, etc) como o `fprintf`.
+
+```c
 #include <stdio.h>
 #include <stdlib.h>
 int main()
 {
-FILE *myfile; int i;
-float mydata[100];
-myfile = fopen(”info.dat", ”r"); // Permite ler o ficheiro
-if (myfile== NULL) {
-   perror(“info.dat”);
-   exit(1);
+  FILE *myfile; int i;
+  float mydata[100];
+  myfile = fopen("info.dat", "r"); // Permite ler o ficheiro
+  if (myfile == NULL) {
+    perror("info.dat");
+    exit(1);
+  }
+  // Lê um conjunto de 100 floats
+  for (i = 0; i < 100; i++)
+    fscanf(myfile, "%f", &mydata[i]); // guardados num ficheiro
+  fclose(myfile);
+  return 0;
 }
-for (i=0;i<100;i++)                 // Lê um conjunto
-                                    // de 100 floats
-   fscanf(myfile,”%f”,&mydata[i]);  // guardados num
-                                    //ficheiro
-fclose(myfile);
-return 0;
-}
-----------------------------------------------------------------------
+```
+
+```c
 #include <stdio.h>
 #include <stdlib.h>
 int main()
 {
-FILE *myfile; int i;
-myfile = fopen(”info.dat", ”a"); // Permite adicionar ao final do ficheiro
-for (i=0;i<100;i++)
-   fprintf(myfile,”%d\n”,i);
-fclose(myfile);
-return 0;
+  FILE *myfile;
+  int i;
+  // Permite adicionar ao final do ficheiro
+  myfile = fopen("info.dat", "a");
+  for (i = 0; i < 100; i++)
+    fprintf(myfile, "%d\n", i);
+  fclose(myfile);
+  return 0;
 }
 ```
 
@@ -306,40 +347,51 @@ return 0;
 
 ### O Cursor
 
-- Para qualquer ficheiro aberto, é mantido um cursor
-  - Avança automaticamente com cada byte lido ou escrito
-- Para sabermos em que posição estamos, usar função `ftell`\
-  `long ftell(FILE \*stream);`
-- Para repor o cursor noutra posição, usar função `fseek`
-  - Por exemplo, colocar cursor no início ou final do ficheiro\
-    `int fseek(FILE \*stream, long offset, int whence);`
+- Para qualquer ficheiro aberto, é mantido um cursor, isto é, em que local do ficheiro estamos.  
+  O cursor avança automaticamente com cada byte lido ou escrito.
+- Para sabermos em que posição estamos, podemos usar função `ftell`:
+  ```c
+  long ftell(FILE *stream);
+  ```
+- Para repor o cursor noutra posição, podemos usar a função `fseek`.
+  ```c
+  int fseek(FILE *stream, long offset, int whence);
+  ```
+  - O argumento `offset` indica quantos bytes queremos andar para frente (positivo) ou para trás (negativo),
+    relativo ao argumento que passamos para `whence`.
+  - O argumento `whence` recebe uma das constantes `SEEK_SET`, `SEEK_CUR` ou `SEEK_END`, que indica
+    se o `offset` é relativo ao início da `stream`, à posição atual ou ao final da `stream`, respetivamente.
 
 #### Escritas são imediatamente persistentes?
 
-- Após escrita em ficheiro, essa escrita está
-  garantidamente persistente no disco?
-  - Nem sempre!
-  - Para optimizar o desempenho, escritas são propagadas
-    para disco tardiamente
-- Função `fflush` permite ao programa forçar que
-  escritas feitas até agora sejam persistidas em disco
-  - Função só retorna quando houver essa garantia
-  - Função demorada, usar apenas quando necessário
-    `int fflush(FILE \*stream);`
+Após escrita em ficheiro, essa escrita está garantidamente persistente no disco? [**Nem sempre!**](color:red)
+
+Para optimizar o desempenho, escritas são propagadas para disco tardiamente,
+pelo que poderá não estar tudo guardado em disco quando a escrita termina.
+
+A função `fflush` permite ao programa forçar que escritas feitas até agora sejam persistidas em disco:
+
+- Função só retorna quando houver essa garantia
+- No entanto, é uma função demorada, pelo que se deve usar apenas quando necessário
+  ```c
+  int fflush(FILE *stream);
+  ```
 
 ## Trabalhar com ficheiros usando as Funções da API do SF do Unix
 
-### Prós:
+Em vez de usarmos a biblioteca `stdio`, poderíamos utilizar diretamente
+as funções da API do sistema de ficheiros do Unix.
 
-- Em geral, são funções de mais baixo nível, logo
-  permitem maior controlo
-- Algumas operações sobre ficheiros só estão
-  disponíveis através desta API
+Temos os seguintes prós e contras:
 
-### Contras:
+[**Prós:**](color:green)
 
-- Normalmente, programa que usa stdio é mais
-  simples e optimizado (será falado no futuro)
+- Em geral, são funções de mais baixo nível, logo permitem maior controlo
+- Algumas operações sobre ficheiros só estão disponíveis através desta API
+
+[**Contras:**](color:red)
+
+- Normalmente, programa que usa `stdio` é mais simples e optimizado (será falado no futuro)
 
 ---
 
