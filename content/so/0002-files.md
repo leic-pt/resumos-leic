@@ -13,31 +13,27 @@ type: content
 
 ## Ficheiro
 
-- Colecção de dados persientes, geralmente relacionados,
-  identificados por um nome
-- Organizado em hierarquia de pastas
+O que é um ficheiro?
 
-Vamos começar por aprender a usar os sistemas de ficheiros (abrastções, APIs)
+- Colecção de dados persientes, geralmente relacionados, identificados por um nome
+- Normalmente está organizado em hierarquia de pastas
+
+Vamos começar por aprender a usar os sistemas de ficheiros (abstrações, APIs).
 
 ### Sistema de Ficheiros
 
-- Composto por um conjunto de entidades
-  fundamentais:
-  - um sistema de organização de nomes para identificação
-    dos ficheiros
-  - uma interface programática para comunicação entre os
-    processos
+- Composto por um conjunto de entidades fundamentais:
+  - um sistema de organização de nomes para identificação dos ficheiros
+  - uma interface programática para comunicação entre os processos
   - sistema de ficheiros
 
-### Árvore de diretórios
+### Árvore de Diretórios
 
-![tree](./imgs/0002/0002-tree.png#dark=1)
+![Directory tree](./imgs/0002/0002-tree.png#dark=1)
 
 - Mantém a meta-informação sobre ﬁcheiros
-  - no mesmo sistema de memória secundária que a
-    informação que descreve
-  - entre outros, estabelece a associação entre o nome e um
-    identiﬁcador numérico do ﬁcheiro
+  - no mesmo sistema de memória secundária que a informação que descreve
+  - entre outros, estabelece a associação entre o nome e um identiﬁcador numérico do ﬁcheiro
 
 ### O que é um ficheiro?
 
@@ -45,14 +41,13 @@ Ao executar o comando `ls` na consola podemos ver os ficheiros que se encontram 
 
 ` -rwxr -xr -x 1 luis staff 8680 Nov 14 19:46 do_exec`
 
-## Everything is a ﬁle
+## Everything is a File
 
-Iremos estudar uma filosofia de organização de dados onde tanto pastas como ficheiros serão tratados da mesma forma
+Iremos estudar uma filosofia de organização de dados onde tanto pastas como ficheiros serão tratados da mesma forma,
+que é a base dos sistemas operativos Unix.
 
-- Objetos que o SO gere são acessíveis aos processos
-  através de descritores de ficheiro
-  - Ficheiros, diretorias, dispositivos lógicos, canais de
-    comunicação, etc.
+- Objetos que o SO gere são acessíveis aos processos através de descritores de ficheiro
+  - Ficheiros, diretorias, dispositivos lógicos, canais de comunicação, etc.
 - Vantagens para os utilizadores/programadores
   - Modelo de programação comum
   - Modelo de segurança comum
@@ -60,56 +55,48 @@ Iremos estudar uma filosofia de organização de dados onde tanto pastas como fi
   - Seguido por muitos SOs modernos
   - Algumas excepções (até no Unix)
 
-### Nomes absolutos e nomes relativos
+### Nomes Absolutos e Nomes Relativos
 
 Para aceder a um ficheiro temos de saber como referir ao SO a qual ficheiro estamos a querer aceder.
 
 Temos assim 2 maneiras de o fazer:
 
-- Nomes absolutos:
-  - caminho de acesso
-    desde a raiz
-  - Exemplo:
-    - /home/joao/SO/project.zip
-- Nomes relativos:
-
-  - caminho de acesso a partir do diretório corrente
-  - diretório corrente mantido para cada processo como parte do seu contexto
+- Nomes Absolutos:
+  - Caminho de acesso desde a raiz (_root_, normalmente denomidado `/`)
+  - **Exemplo:** `/home/joao/SO/project.zip`
+- Nomes Relativos:
+  - Caminho de acesso a partir do diretório corrente
+  - O diretório corrente é mantido para cada processo como parte do seu contexto
   - Exemplos:
-
-    - ./SO/project.zip (supondo que o diretório corrente é /home/joao)
-
-    - ../SO/project.zip (supondo que o diretório corrente seja /home/joao/teo)
+    - `./SO/project.zip` (supondo que o diretório corrente é `/home/joao`)
+    - `../SO/project.zip` (supondo que o diretório corrente seja `/home/joao/teo`)
 
 ### Nomes vs. Ficheiros
 
-- Um ficheiro pode ser conhecido por vários nomes:
-  - é possível designar o mesmo ficheiro com o nome /a/b/c e com o nome /x/y.
-  - é comum chamar a cada um destes nomes links
-- Problema:
-  - quando se pretende apagar o ficheiro com o nome /a/b/c.
-- A semântica utilizada na maioria dos sistemas de
-  ficheiros é apagar apenas o nome /a/b/c
+Um ficheiro pode ser conhecido por vários nomes, ou seja, é possível designar o mesmo ficheiro com o nome `/a/b/c` e com o nome `/x/y`.  
+É comum chamar a cada um destes nomes links (em Unix, chama-se _hard links_).
+
+No entanto, isto levanta um problema: o que acontece quando se pretende apagar o ficheiro com o nome `/a/b/c`?  
+A semântica utilizada na maioria dos sistemas de ficheiros é apagar apenas o nome `/a/b/c`
+e deixar o ficheiro se ainda tiver mais nomes associados.
 
 ### Como organizar múltiplos sistemas de ﬁcheiros?
 
-![mount](./imgs/0002/0002-mount.png#dark=1)
+![Mount: directory tree](./imgs/0002/0002-mount.png#dark=1)
 
-`mount -t <filesystem> /dev/hd1 /b`
+```bash
+mount -t <filesystem> /dev/hd1 /b
+```
 
-- Mount:
+O comando `mount` liga a raiz do novo sistema de ﬁcheiros a um directório do sistema de ﬁcheiros base.
 
-  - liga a raiz do novo sistema de ﬁcheiros a um directório do sistema de ﬁcheiros base
-
-  Neste casos liga /dev/hd1 ao diretório b
+Na figura acima, liga `/dev/hd1` ao diretório `/b`.
 
 ### Atributos de um Ficheiro
 
 - Para além do tipo, a meta-informação do ficheiro possui usualmente os seguintes atributos:
-  - Protecção
-    - quem pode aceder ao ficheiro e quais as operações que pode realizar.
-  - Identificação do dono do ficheiro
-    - geralmente quem o criou.
+  - **Protecção:** quem pode aceder ao ficheiro e quais as operações que pode realizar.
+  - **Identificação do dono do ficheiro:** geralmente quem o criou.
   - Dimensão do ficheiro
   - Data de criação, última leitura e última escrita
 
