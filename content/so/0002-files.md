@@ -393,6 +393,8 @@ Temos os seguintes prós e contras:
 
 - Normalmente, programa que usa `stdio` é mais simples e optimizado (será falado no futuro)
 
+![Filesystem Unix API](./imgs/0002/0002-unix.png)
+
 ---
 
 Slides:
