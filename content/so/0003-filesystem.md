@@ -70,7 +70,7 @@ Estrutura de uma entrada do directório do sistema de ficheiros do CP/M:
 
 Neste sistema:
 
-- cada bloco possuía 1 Kbyte (por omissão)
+- cada bloco possuía 1 KByte (por omissão)
 - mapa de blocos com 16 entradas, logo a dimensão máxima de um ficheiro é **16 KBytes**
 
 Mapa de blocos de dados contém os números dos blocos de dados do ficheiro (Disk Block Number)
@@ -126,7 +126,7 @@ Ainda na tabela de alocação podemos ter um ponteiro para outro indíce nessa t
 ### Desvantagens do FAT
 
 - Elevada dimensão da FAT quando os discos têm dimensões muito grandes:
-  - Por exemplo, numa partição 1 Tbyte: usando FAT-32 e blocos de 4 Kbytes, a FAT pode ocupar 1 GByte (1TBytes/4KBytes × 4 bytes)
+  - Por exemplo, numa partição 1 Tbyte: usando FAT-32 e blocos de 4 KBytes, a FAT pode ocupar 1 GByte (1TBytes/4KBytes × 4 bytes)
 - Tabelas desta dimensão não são possíveis de manter em RAM permanentemente:
   - Ler à FAT do disco, prejudica muito o acesso à cadeia de
     blocos de um ficheiro
@@ -196,7 +196,7 @@ Ainda na tabela de alocação podemos ter um ponteiro para outro indíce nessa t
   - i.e. blocos da partição que não estão ocupados por nenhum
     bloco de nenhum ficheiro.
 - Pode ser um simples bitmap:
-  - um bit por cada bloco na partição,
+  - um bit por cada bloco na partição
   - indica se o respetivo bloco está livre ou ocupado
 - Tabela de blocos livres desacoplada dos i-nodes tem
   vantagens:
@@ -226,7 +226,7 @@ Ainda na tabela de alocação podemos ter um ponteiro para outro indíce nessa t
 | `i_blocks`      | Número de blocos ocupado pelo ficheiro    |
 | `i_flags`       | Flags várias do ficheiro                  |
 | `i_block[15]`   | Vetor de 15 unidades para blocos de dados |
-|                 | Outros campo ainda não utilizados         |
+|                 | Outros campos ainda não utilizados        |
 
 O _i-node_ contém:
 
@@ -259,6 +259,7 @@ Com blocos de 1 Kbyte e referências de 4 byte, a dimensão máxima de um fichei
 
 ![inodes](./imgs/0003/0003-inodes.png#dark=1)
 
+- A tabela de i-nodes encontra-se no Descritor de Ficheiros
 - Mantidos em tabela em zona própria no volume.
 - Dentro de um volume, cada _i-node_ é identificado por um _i-number_ que corresponde ao índice do _i-node_ na tabela de _i-nodes_ no volume.
 
