@@ -229,6 +229,18 @@ De seguida, e já no segundo caso, teríamos então de ver o máximo entre $k(6,
 
 Este problema podia, claro, ser resolvido recorrendo à [memoization](./introducao#implementação-2-memoization-e-programação-dinâmica), caso optássemos por passar a tabela como argumento da função e a fôssemos preenchendo. O trade-off seria que a memoization, apesar de só calcular o que realmente é necessário (que, no pior caso, é tudo), ocupa mais espaço $(\Theta(W) \text{ vs } \Theta(n))$.
 
+### Maior Sub-sequência Comum (LCS)
+
+:::info[Definição do problema]
+
+Dadas duas sequências, $X$ e $Y$, encontrar a maior sub-sequência comum entre elas. **Não precisam de ser contíguas**, isto é, tendo "ABC" e "AC", a maior sub-sequência comum entre ambas as sequências é "AC", apesar de "A" e "C" não aparecerem consecutivamente na primeira sequência.
+
+A solução para este problema é a chave para ferramentas como o [diff](https://www.man7.org/linux/man-pages/man1/diff.1.html), [git](https://en.wikipedia.org/wiki/Git), entre outras ferramentas que requerem comparação de dados.
+
+:::
+
+Não podemos, obviamente, verificar literalmente todas as sub-sequências possíveis - cada sequência tem $2^{length}$ sub-sequências, tornando-se impraticável fazer a comparação.
+
 ## Algoritmos Greedy
 
 cenas
