@@ -103,7 +103,9 @@ Corresponde a algo como:
 ```cpp
 #define max(a, b) (a > b ? a : b)
 
-int knapsack(std::vector<int> values, std::vector<int> weights, int maxWeight) {
+int knapsack(std::vector<int> values,
+             std::vector<int> weights,
+             int maxWeight) {
   if (maxWeight == 0) return 0;
 
   int maxValue = 0;
@@ -139,7 +141,9 @@ Ora, mas [**o número de sub-problemas distintos é $n \cdot W$**](color:yellow)
 ```cpp
 #define max(a, b) (a > b ? a : b)
 
-int knapsack(std::vector<int> values, std::vector<int> weights, int maxWeight) {
+int knapsack(std::vector<int> values,
+             std::vector<int> weights,
+             int maxWeight) {
   int numElements = weights.size();
   // inicializar um vetor para substituir as chamadas recursivas
   // todos os indices sao inicializados a 0
@@ -185,7 +189,9 @@ Em código, corresponderia a algo deste género:
 ```cpp
 #define max(a, b) (a > b ? a : b)
 
-int knapsack(std::vector<int> values, std::vector<int> weights, int maxWeight) {
+int knapsack(std::vector<int> values,
+             std::vector<int> weights,
+             int maxWeight) {
   int numElements = weights.size();
   std::vector<int> prevColumn = std::vector<int>(maxWeight + 1, 0);
   std::vector<int> currColumn = std::vector<int>(maxWeight + 1, 0);
@@ -282,7 +288,10 @@ Utilizando programação dinâmica, podemos implementar um algoritmo que resolve
 
 int lcs(std::string x, std::string y) {
   std::vector<std::vector<int>> lengths =
-    std::vector<std::vector<int>>(x.size() + 1, std::vector<int>(y.size() + 1, 0));
+    std::vector<std::vector<int>>(
+      x.size() + 1,
+      std::vector<int>(y.size() + 1, 0)
+    );
   int lenX = x.size();
   int lenY = y.size();
 
@@ -427,7 +436,9 @@ Temos que a densidade de cada um dos objetos acima é, respetivamente, 6€/kg, 
 O código para este algoritmo seria qualquer coisa como:
 
 ```cpp
-int fracKnapsack(std::vector<int> values, std::vector<int> weights, int maxWeight) {
+int fracKnapsack(std::vector<int> values,
+                 std::vector<int> weights,
+                 int maxWeight) {
   // Assumimos, aqui, que os objetos estão ordenados por ordem decrescente de densidade
   int maxValue = 0;
   for (uint i = 0; maxWeight != 0 && i < weights.size(); i++) {
