@@ -95,7 +95,7 @@ Como podemos observar, não aparenta haver uma [**escolha ótima**](color:orange
 Procuramos, em programação dinâmica, definir a quantidade que queremos recursivamente. Neste caso, será dado por $v[i, j]$, o valor máximo que é possível transportar se o peso limite é $j$, com $j \leq W$, e se apenas podem ser selecionados os objetos numerados de 1 a $i$. A solução ótima encontra-se em $v[n, W]$.
 
 $$
-v[i, j] = max(v[i - 1, j], v[i - 1, j - w_i] + v_i)
+v[i, j] = \operatorname{max}(v[i - 1, j], v[i - 1, j - w_i] + v_i)
 $$
 
 Corresponde a algo como:
@@ -174,7 +174,7 @@ O problema da mochila sem repetição permite-nos olhar para o problema de uma m
 $$
 k(w, i) = \begin{cases}
 0, &\text{ se } w = 0 \vee i = 0\\
-max\{k(w, i - 1), k(w - w_i, i - 1) + v_i\} &\text{ caso contrário}
+\operatorname{max}\{k(w, i - 1), k(w - w_i, i - 1) + v_i\} &\text{ caso contrário}
 \end{cases}
 $$
 
@@ -251,7 +251,7 @@ A solução para este problema é a chave para ferramentas como o [diff](https:/
 
 :::
 
-Não podemos, obviamente, verificar literalmente todas as sub-sequências possíveis - cada sequência tem $2^{length}$ sub-sequências, tornando-se impraticável fazer a comparação. Podemos, contudo, procurar tirar algumas conclusões sobre o problema:
+Não podemos, obviamente, verificar literalmente todas as sub-sequências possíveis - cada sequência tem $2^{\text{length}}$ sub-sequências, tornando-se impraticável fazer a comparação. Podemos, contudo, procurar tirar algumas conclusões sobre o problema:
 
 - se duas sequências têm o último elemento igual, então esse elemento faz [**necessariamente**](color:yellow) parte da LCS, e procuramos os próximos elementos que fazem parte da LCS "cortando" o último elemento de cada sequência;
 
@@ -338,7 +338,7 @@ Tenhamos que $c(i, j)$ corresponde ao número mínimo de operações (produtos e
 $$
 c(i, j) = \begin{cases}
 0 &\text{se } i = j\\
-min_{i \leq k < j}\{c(i, k) + c(k + 1, j) + n_{i - 1} n_k n_j \} &\text{caso contrário}
+\operatorname{min}_{i \leq k < j}\{c(i, k) + c(k + 1, j) + n_{i - 1} n_k n_j \} &\text{caso contrário}
 \end{cases}
 $$
 
@@ -462,7 +462,7 @@ Podemos aqui fazer, também, uma escolha _greedy_:
 
 Aqui, a suposta escolha ótima levaria a podermos ter apenas uma tarefa compatível, quando na verdade existem duas - temos, portanto, um contra-exemplo que nos impossibilita de optar por esta escolha.
 
-- Nao é escolher, a cada momento, a que ocupa menos tempo. Tendo, por exemplo, três atividades tais que:
+- Não é escolher, a cada momento, a que ocupa menos tempo. Tendo, por exemplo, três atividades tais que:
 
   - $A_1$ começa à hora 8 e acaba à hora 11;
 
