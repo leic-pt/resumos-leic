@@ -110,7 +110,10 @@ int knapsack(std::vector<int> values, std::vector<int> weights, int maxWeight) {
   int numObjects = weights.size();
   for (int i = 0; i < numObjects; i++) {
     if (weights[i] <= maxWeight) {
-      maxValue = max(maxValue, knapsack(values, weights, maxWeight - weights[i])) + values[i];
+      maxValue = max(
+        maxValue,
+        knapsack(values, weights, maxWeight - weights[i]) + values[i]
+      );
     }
   }
 
@@ -145,7 +148,10 @@ int knapsack(std::vector<int> values, std::vector<int> weights, int maxWeight) {
     k[w] = k[w - 1]; // o valor guardado na mochila nunca é menor que o anterior
     for (int i = 0; i < numElements; i++) {
       if (weights[i] <= w) {
-        k[w] = max(k[w], k[w - weights[i]] + values[i]);
+        k[w] = max(
+          k[w],
+          k[w - weights[i]] + values[i]
+        );
       }
     }
   }
@@ -223,6 +229,8 @@ A tabela correspondente à aplicação do algoritmo seria:
 | 6   | 0   | 6   | 6   |
 | 7   | 0   | 6   | 6   |
 | 8   | 0   | 6   | 6   |
+
+(aqui, cada coluna corresponde ao índice de cada objeto, e cada linha corresponde à execução do algoritmo caso o peso máximo seja o correspondente ao índice dessa linha).
 
 Devemos calcular a matriz **por coluna** - se olharmos para o código, podemos observar que temos várias vezes $i - 1$ - só precisamos da coluna anterior para calcular a atual, o que poupa trabalho.
 
