@@ -103,9 +103,6 @@ Corresponde a algo como:
 ```cpp
 #define max(a, b) (a > b ? a : b)
 
-// Neste caso, a função retorna o valor máximo a colocar na mochila.
-// Contudo, o algoritmo em si não implica retornar esse valor:
-// Podíamos, por exemplo, fazer print da solução e retornar void.
 int knapsack(std::vector<int> values, std::vector<int> weights, int maxWeight) {
   if (maxWeight == 0) return 0;
 
