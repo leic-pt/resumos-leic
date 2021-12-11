@@ -239,7 +239,73 @@ A solução para este problema é a chave para ferramentas como o [diff](https:/
 
 :::
 
-Não podemos, obviamente, verificar literalmente todas as sub-sequências possíveis - cada sequência tem $2^{length}$ sub-sequências, tornando-se impraticável fazer a comparação.
+Não podemos, obviamente, verificar literalmente todas as sub-sequências possíveis - cada sequência tem $2^{length}$ sub-sequências, tornando-se impraticável fazer a comparação. Podemos, contudo, procurar tirar algumas conclusões sobre o problema:
+
+- se duas sequências têm o último elemento igual, então esse elemento faz [**necessariamente**](color:yellow) parte da LCS, e procuramos os próximos elementos que fazem parte da LCS "cortando" o último elemento de cada sequência;
+
+- caso não sejam iguais, então das duas uma:
+
+  - procuramos a maior sub-sequência comum "cortando" o último elemento da primeira subsequência;
+
+  - procuramos a maior sub-sequência comum "cortando" o último elemento da segunda subsequência.
+
+Em ambos os casos, voltamos a repetir estes passos sucessivamente, até chegar ao caso base (onde já não podemos cortar mais elementos).
+
+Podemos definir esta recursão tal que, tendo duas sequências $X$ e $Y$:
+
+$$
+c(i, j) = \begin{cases}
+0 &\text{se } i = 0 \vee j = 0\\
+c(i - 1, j - 1) + 1 &\text{se } X[i] = Y[j]\\
+max\{c(i - 1, j), c(i, j - 1)\} &\text{se } X[i] \neq Y[i]
+\end{cases}
+$$
+
+Onde aqui $i$ e $j$ correspondem, respetivamente, a índices de elementos de $X$ e $Y$.
+
+Utilizando programação dinâmica, podemos implementar um algoritmo que resolve este problema em $\Theta(nm)$, onde $n$ e $m$ são os comprimentos de cada sequência:
+
+```cpp
+#define max(a, b) (a > b ? a : b)
+
+int lcs(std::string x, std::string y) {
+  std::vector<std::vector<int>> lengths =
+    std::vector<std::vector<int>>(x.size() + 1, std::vector<int>(y.size() + 1, 0));
+  int lenX = x.size();
+  int lenY = y.size();
+
+  for (int i = 0; i <= lenX; i++) {
+    for (int j = 0; j <= lenY; j++) {
+      if (i == 0 || j == 0) {
+        lengths[i][j] = 0;
+      } else if (x[i - 1] == y[j - 1]) {
+        lengths[i][j] = lengths[i - 1][j - 1] + 1;
+      } else {
+        lengths[i][j] = max(lengths[i - 1][j], lengths[i][j - 1]);
+      }
+    }
+  }
+
+  return lengths[lenX][lenY];
+}
+```
+
+Podemos observar a matriz resultante de resolver o problema da LCS das sequências "BDCABA" e "ABCBDAB":
+
+|     |     | B   | D   | C   | A   | B   | A   |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|     | 0   | 0   | 0   | 0   | 0   | 0   | 0   |
+| A   | 0   | 0   | 0   | 0   | 1   | 1   | 1   |
+| B   | 0   | 1   | 1   | 1   | 1   | 2   | 2   |
+| C   | 0   | 1   | 1   | 2   | 2   | 2   | 2   |
+| B   | 0   | 1   | 1   | 2   | 2   | 3   | 3   |
+| D   | 0   | 1   | 2   | 2   | 2   | 3   | 3   |
+| A   | 0   | 1   | 2   | 2   | 3   | 3   | 4   |
+| B   | 0   | 1   | 2   | 2   | 3   | 4   | 4   |
+
+Aqui, não podemos escolher preencher a matriz só recorrendo à última coluna (como no último problema que tinhamos visto), pelo que a complexidade especial passa, necessariamente, por $\Theta(nm)$. Olhando para cada entrada da matriz, podemos ainda observar que o algoritmo é respeitado - caso estejamos na presença de 2 letras iguais, a entrada cresce em 1 sem depender dos elementos à sua esquerda/acima dela; caso contrário, está diretamente dependente do máximo entre esses dois elementos.
+
+### Multiplicação de Cadeias de Matrizes
 
 ## Algoritmos Greedy
 
@@ -248,3 +314,6 @@ cenas
 ---
 
 TODO - adicionar cenas
+
+$$
+$$
