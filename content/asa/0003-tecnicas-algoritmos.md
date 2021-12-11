@@ -329,7 +329,7 @@ No caso exposto acima, o custo varia entre:
 
 Temos, tendo duas matrizes $A_1$, $n_0 \text{ x } n_1$, e $A_2$, $n_1 \text{ x } n_2$, que o número de operações necessárias para fazer o seu produto é $n_0 \cdot n_1 \cdot n_2$:
 
-![Multiplicação de Matrizes](./assets/0003-mult-matrix.png)
+![Multiplicação de Matrizes](./assets/0003-mult-matrix.png#dark=1)
 
 O número de colocação de parêntesis cresce **exponencialmente** com o número de matrizes, pelo que, mais uma vez, não será célere experimentar todas as opções. Devemos, portanto, definir a recursão do problema, e procurar resolvê-lo utilizando programação dinâmica.
 
@@ -386,7 +386,7 @@ $$
 Aqui, optamos pela segunda opção, com custo menor.
 O resto do algoritmo seguirá uma lógica semelhante.
 
-![Árvore Matriz](./assets/0003-matrix-tree.png)
+![Árvore Matriz](./assets/0003-matrix-tree.png#dark=1)
 
 :::
 
