@@ -372,6 +372,7 @@ A_1 \cdot (A_2 \cdot A_3) = 12 + 5\cdot 2\cdot 2= 32\\
 $$
 
 Aqui, optamos pela segunda opção, com custo menor.
+O resto do algoritmo seguirá uma lógica semelhante.
 
 ![Árvore Matriz](./assets/0003-matrix-tree.png)
 
@@ -379,11 +380,62 @@ Aqui, optamos pela segunda opção, com custo menor.
 
 ## Algoritmos Greedy
 
-cenas
+:::info[Algoritmos Greedy]
+
+Corresponde a uma abordagem de resolução de problemas que escolhe **sempre** a melhor opção disponível atualmente - diferente da programação dinâmica usual, onde não temos necessariamente uma escolha ótima e temos sempre de ver todos os caminhos que podemos percorrer. São, geralmente, mais fáceis de explicar (têm uma escolha lógica a cada passo).
+
+A opção ótima escolhida num dado momento pode não ser a que leve ao melhor resultado; contudo, mesmo que isso aconteça, o algoritmo nunca volta atrás. Escolhe, portanto, a opção ótima [**localmente**](color:green), que não é necessariamente a melhor opção [**global**](color:yellow).
+
+Em Matemática Discreta, encontrámos um algoritmo que segue a abordagem greedy - o [Algoritmo de Dijkstra](../md/kruskal-dijkstra#algoritmo-de-dijkstra).
+
+:::
+
+Estão, de seguida, alguns problemas cuja resolução pode ajudar a perceber a abordagem greedy.
+
+### Problema da Mochila Fracionária sem Repetição
+
+Voltamos, aqui, ao problema da mochila sem repetição, com um _twist_ - desta vez, podemos colocar quantidades fracionárias de itens na mochila. Isto é, podemos colocar, por exemplo, meio objeto na mochila - coisa que não podia acontecer nas variantes do problema apresentadas acima.
+
+Tenhamos, por exemplo, uma mochila que pode levar até 50kg, e três objetos:
+
+- um primeiro objeto que pesa 10kg e vale 60€;
+- um segundo objeto que pesa 20kg e vale 100€;
+- um terceiro objeto que pesa 30kg e vale 120€;
+
+Será que podemos encontrar uma **escolha _greedy_** aqui? Bem, neste caso, como podemos "dividir" objetos, existe uma escolha ótima a cada passo - colocar os itens na mochila por ordem decrescente de densidade (€/kg). Tentamos sempre colocar o objeto inteiro. Quando não pudermos, o algoritmo para - colocamos a fração que podemos, e a partir daí a mochila está no seu limite de peso.
+
+Temos que a densidade de cada um dos objetos acima é, respetivamente, 6€/kg, 5€/kg e 4€/kg. Agora, teríamos de os ordenar por ordem decrescente de densidade (fantástico, já estão), e passar à fase "relevante" do algoritmo: colocá-los na mochila. Dar-se ia tal que:
+
+- num primeiro momento, a mochila ainda pode levar mais 50kg, e o objeto com maior densidade só pesa 10kg, pelo que o podemos colocar todo. A mochila fica a valer 60€, e pode, agora, levar mais 40kg;
+
+- num segundo momento, a mochila ainda pode levar mais 40kg, e o objeto com mais densidade (restante) só pesa 20kg, pelo que o podemos colocar todo. A mochila fica a valer 160€, e pode, agora, levar mais 20kg;
+
+- num terceiro e último momento, a mochila ainda pode levar mais 20kg. Contudo, o próximo objeto pesa 30kg, pelo que não o podemos colocar todo - colocamos 2/3 da sua quantidade, e o respetivo valor também é cortado (são colocados 80€ do objeto 3). A mochila passa, assim a valer 240€, e a mochila está completamente cheia. Pelo que o algoritmo para.
+
+O código para este algoritmo seria qualquer coisa como:
+
+```cpp
+int fracKnapsack(std::vector<int> values, std::vector<int> weights, int maxWeight) {
+  // Assumimos, aqui, que os objetos estão ordenados por ordem decrescente de densidade
+  int maxValue = 0;
+  for (uint i = 0; maxWeight != 0 && i < weights.size(); i++) {
+    if (maxWeight >= weights[i]) {
+      maxWeight -= weights[i];
+      maxValue += values[i];
+    } else {
+      float ratio = (float) maxWeight / weights[i];
+      maxValue += values[i] * ratio;
+      maxWeight = 0;
+    }
+  }
+  return maxValue;
+}
+```
+
+A complexidade é linear, $O(n)$ (de realçar que, sem a condição de paragem `maxWeight == 0` seria $\Theta(n)$, dado que correria _sempre_ as $n$ iterações).
+
+### Seleção de Atividades
 
 ---
 
 TODO - adicionar cenas
-
-$$
-$$
