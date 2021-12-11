@@ -307,6 +307,76 @@ Aqui, não podemos escolher preencher a matriz só recorrendo à última coluna 
 
 ### Multiplicação de Cadeias de Matrizes
 
+O problema colocado é, dado um número arbitrário de matrizes (por uma certa ordem), descobrir a maneira mais eficiente (menor número de operações) para calcular o seu produto encadeado. Por exemplo, dadas três matrizes $A_1, A_2, A_3$, fazer o seu produto pela ordem $(A_1 \cdot A_2) \cdot A_3$ é diferente de fazer o produto pela ordem $A_1 \cdot (A_2 \cdot A_3)$ - consoante a colocação dos parêntesis, o custo muda.
+
+No caso exposto acima, o custo varia entre:
+
+- $(n_0 \cdot n_1 \cdot n_2) + n_0 \cdot n_2 \cdot n_3$
+
+- $(n_1 \cdot n_2 \cdot n_3) + n_0 \cdot n_1 \cdot n_3$
+
+Temos, tendo duas matrizes $A_1$, $n_0 \text{ x } n_1$, e $A_2$, $n_1 \text{ x } n_2$, que o número de operações necessárias para fazer o seu produto é $n_0 \cdot n_1 \cdot n_2$:
+
+![Multiplicação de Matrizes](./assets/0003-mult-matrix.png)
+
+O número de colocação de parêntesis cresce **exponencialmente** com o número de matrizes, pelo que, mais uma vez, não será célere experimentar todas as opções. Devemos, portanto, definir a recursão do problema, e procurar resolvê-lo utilizando programação dinâmica.
+
+Tenhamos que $c(i, j)$ corresponde ao número mínimo de operações (produtos escalares) necessários para calcular os produtos das matrizes $A_i$ à $A_j$:
+
+$$
+c(i, j) = \begin{cases}
+0 &\text{se } i = j\\
+min_{i \leq k < j}\{c(i, k) + c(k + 1, j) + n_{i - 1} n_k n_j \} &\text{caso contrário}
+\end{cases}
+$$
+
+Este segundo ramo equivalente a encontrar a colocação de parêntesis ótima para que um produto
+
+$$
+(A_i \cdot ... \cdot A_k)(A_{k + 1} \cdot ... \cdot A_j)
+$$
+
+tenha o menor custo operacional associado possível.
+
+A solução proposta (utilizando DP) tem complexidade temporal $\Theta(O(n^3))$, podendo, contudo, ser melhorada para uma solução quadrática.
+
+:::details[Exemplo da aplicação do algoritmo]
+
+Tenhamos 4 matrizes:
+
+$$
+A_1, 5 \text{ x } 2, \quad A_2, 2 \text{ x } 3, \quad A_3, 3 \text{ x } 2, \quad A_4, 2 \text{ x } 3
+$$
+
+O algoritmo de resolução do problema irá criar uma matriz tal que:
+
+|     | 1   | 2   | 3   | 4   |
+| --- | --- | --- | --- | --- |
+| 1   | 0   | 30  | 32  | 54  |
+| 2   | -   | 0   | 12  | 24  |
+| 3   | -   | -   | 0   | 18  |
+| 4   | -   | -   | -   | 0   |
+
+Podemos pensar nas linhas como a "matriz mais à esquerda" do produto e nas colunas como a "matriz mais à direita". Assim, a entrada $1, 4$ da matriz corresponde ao custo mínimo de realizar o produto $A_1 \cdot ... \cdot A_4$, por exemplo.
+
+A diagonal principal é, claro, composta por zeros - a matriz não se irá multiplicar por si própria.
+
+A diagonal seguinte corresponde aos produtos dois a dois entre matrizes - a entrada $1, 2$ corresponde ao produto matricial entre $A_1$ e $A_2$, sendo que esse é "direto".
+
+A partir daí, a tarefa recai em pegar nos dois elementos "filhos" (esta noção pode ser melhor observada na árvore abaixo) e calcular qual será o menor custo, somando o custo dos filhos ao custo que o produto seguinte terá de ter. Por exemplo:
+
+$$
+A_1 \cdot A_2 \cdot A_3:\\
+(A_1 \cdot A_2) \cdot A_3 = 30 + 5\cdot 3\cdot 2 = 60\\
+A_1 \cdot (A_2 \cdot A_3) = 12 + 5\cdot 2\cdot 2= 32\\
+$$
+
+Aqui, optamos pela segunda opção, com custo menor.
+
+![Árvore Matriz](./assets/0003-matrix-tree.png)
+
+:::
+
 ## Algoritmos Greedy
 
 cenas
