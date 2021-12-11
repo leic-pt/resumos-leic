@@ -1,6 +1,13 @@
 ---
 title: Técnicas de Síntese de Algoritmos
-description: TODO.
+description: Programação Dinâmica.
+  Problema da Mochila com Repetição.
+  Problema da Mochila sem Repetição.
+  Maior Sub-sequência Comum (LCS).
+  Multiplicação de Cadeias de Matrizes.
+  Algoritmos Greedy.
+  Problema da Mochila Fracionária sem Repetição.
+  Seleção de Atividades.
 path: /asa/tecnicas-algoritmos
 type: content
 ---
@@ -436,6 +443,78 @@ A complexidade é linear, $O(n)$ (de realçar que, sem a condição de paragem `
 
 ### Seleção de Atividades
 
+O problema consiste em, tendo um conjunto de $n$ atividades que pretendem usar um recurso (e que não o podem usar ao mesmo tempo), encontrar o máximo de atividades mutuamente compatíveis - isto é, o máximo de atividades que conseguimos arranjar que não se "cruzam" com nenhuma das outras. Cada atividade é caraterizada pelo seu tempo de início e de fim. Iremos considerar que estão ordenadas por ordem crescente de tempo de fim.
+
+Podemos aqui fazer, também, uma escolha _greedy_:
+
+- Não é escolher, a cada momento, a atividade que começa mais cedo. Tendo, por exemplo, três atividades tais que:
+
+  - $A_1$ começa à hora 1 e acaba à hora 4;
+
+  - $A_2$ começa à hora 2 e acaba à hora 3;
+
+  - $A_3$ começa à hora 3 e acaba à hora 4.
+
+Aqui, a suposta escolha ótima levaria a podermos ter apenas uma tarefa compatível, quando na verdade existem duas - temos, portanto, um contra-exemplo que nos impossibilita de optar por esta escolha.
+
+- Nao é escolher, a cada momento, a que ocupa menos tempo. Tendo, por exemplo, três atividades tais que:
+
+  - $A_1$ começa à hora 8 e acaba à hora 11;
+
+  - $A_2$ começa à hora 1 e acaba à hora 9;
+
+  - $A_3$ começa à hora 10 e acaba à hora 20.
+
+Mais uma vez, a escolha ótima levar-nos-ia a apenas uma tarefa compatível, quando na verdade existem duas - mais uma vez, um contra-exemplo.
+
+A **escolha _greedy_** é, aqui, [**optar sempre pela próxima atividade que acabar mais cedo**](color:orange).
+
+:::details[Prova - porque é que esta escolha _greedy_ é correta?]
+
+Consideremos $S$ como um qualquer conjunto de atividades, e $a_0$ com menor tempo de fim em $S.$ Pretendemos, aqui, provar que, necessariamente $a_0 \in S^*$, onde $S^*$ corresponde a um **subconjunto máximo de atividades de $S$ mutuamente compatíveis**. De realçar que pode haver mais que um subconjunto $S^*$ possível.
+
+Temos, claro, dois casos:
+
+- um primeiro, onde $a_0 \in S^*$. Aqui, não temos nada a provar.
+
+- um segundo, onde $a_0 \notin S^*$.
+
+Aqui, consideremos então um conjunto $S^x = (S^* \backslash \{a_1\}) \cup a_0$ - retiramos a $S^*$ um elemento $a_1$, que vem diretamente a seguir de $a_0$ na lista de atividades, e adicionamos $a_0$. Temos, claro, que como $a_1$ tem tempo de fim maior que o de $a_0$, e todas as atividades de $S^*$ são necessariamente compatíveis com $a_1$, então também têm obrigatoriamente de ser compatíveis com $a_0$ (porque acaba primeiro que $a_1$, logo também não "interfere" com nenhuma das outras).
+
+Assim sendo, há necessariamente um subconjunto $S^*$ que é ótimo **e** inclui $a_0$, a atividade com menor tempo de fim.
+
+:::
+
+Seguindo esta escolha _greedy_, conseguíamos construir um algoritmo para calcular o maior número de atividades mutuamente compatíveis semelhante ao abaixo:
+
+```cpp
+int activitySelection(std::vector<int> start, std::vector<int> finish) {
+  // Consideramos que as atividades estão ordenadas por tempo de fim
+  int numElements = start.size();
+  if (numElements == 0) return 0;
+
+  int finishTime = finish[0];
+  int count = 1;
+
+  for (int i = 1; i < numElements; i++) {
+    if (s[i] >= finishTime) {
+      count++;
+      finishTime = finish[i];
+    }
+  }
+
+  return count;
+}
+```
+
+O algoritmo acima apresenta complexidade temporal $O(n)$ e espacial $O(1)$.
+
 ---
 
-TODO - adicionar cenas
+- [Slides Aulas 4 e 5](https://drive.google.com/file/d/1cY9AGDpyjc0ogfU_SN5b_axYxNv9zHdZ/view?usp=sharing)
+
+- [Slides Aula 6](https://drive.google.com/file/d/1548Oouxdmfh0DbYhSh6q_eMUKTLYs1Vv/view?usp=sharing)
+
+- [Notas da Aula 4 - Prof. José Fragoso](https://drive.google.com/file/d/1raxKYC4ve-qrO8Xgc1qxcI9UxpYCryrK/view?usp=sharing)
+
+- [Notas da Aula 5 - Prof. José Fragoso](https://drive.google.com/file/d/1tEMUFKuYdfHq61KC5Q2G0atqNR9wbNUG/view?usp=sharing)
