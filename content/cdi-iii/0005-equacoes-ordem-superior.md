@@ -276,7 +276,7 @@ $$
 W(t) = \begin{bmatrix}
 y_1 & \dots & y_n\\
 y'_1 & \dots & y'_n\\
-\vdots & \vdots & \vdots\\
+\vdots & \ddots & \vdots\\
 y_1^{(n-1)} & \dots & y_n^{(n-1)}
 \end{bmatrix}
 $$
