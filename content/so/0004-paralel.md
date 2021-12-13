@@ -337,224 +337,102 @@ Mas não partilham
 - No browser Chrome, criar um novo separador causa a chamada do `fork`
 - Processo ﬁlho usado para carregar e executar scripts dos sites abertos nesse separador
 
-## Programação de processos multi-tarefa em Unix
+## Programação de Processos Multi-Tarefa em Unix (Interface POSIX)
 
-### Interface POSIX
+### Criar Tarefa
 
-Interface POSIX: criar tarefa
-pthread_create(&tid, attr, function, arg)
-Apontador
-para o
-identificador
-da tarefa
-Define atributos
-da tarefa
-(prioridade, etc)
-Função a
-executar
-Ponteiro
-para
-parâmetros
-para a
-função
+`pthread_create(&tid, attr, function, arg)`
 
-Interface POSIX: terminação de tarefa
-pthread_exit(void \*value_ptr)
+`tid` é o apontador para o identificador da tarefa
+`attr ` define atributos da tarefa(prioridade, etc)
+`function` é a função a executar
+`arg` é o ponteiro para os parâmetros dados à função
+
+`pthread_exit(void *value_ptr)`
 
 - Tarefa chamadora termina
 - Retorna ponteiro para resultados
-  int pthread_join(pthread_t thread,
-  void \*value_ptr)
-- Tarefa chamadora espera até a tarefa indicada ter
-  terminado
-- O ponteiro retornado pela tarefa terminada é
-  colocado em (\*value_ptr)
 
-Regra de ouro
+`int pthread_join(pthread_t thread, void *value_ptr)`
 
-- O núcleo oferece a ilusão de uma máquina
-  com número infinito de processadores, sendo
-  que cada tarefa corre no seu processador
-- No entanto, as velocidades de cada
-  processador virtual podem ser diferentes e
+- Tarefa chamadora espera até a tarefa indicada ter terminado
+- O ponteiro retornado pela tarefa terminada é colocado em `(*value_ptr)`
+
+### Regra de ouro
+
+- O núcleo oferece a ilusão de uma máquina com número infinito de processadores,
+  sendo que cada tarefa corre no seu processador
+- No entanto, as velocidades de cada processador virtual podem ser diferentes e
   não podem ser previstas
-  - Porquê?
-  - Consequências para o programador?
-    Esta regra também se aplica a programação com
-    processos paralelos
 
-∑
-∑
-∑
-∑
-∑
-∑
-∑
-∑
-Exemplo: somar linhas de matriz
+Esta regra também se aplica a programação com processos paralelos
+
+Num programa para somar linhas de matrizes
 
 Solução sequencial
+
+```c
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <pthread.h>
+
 #define N 5
 #define TAMANHO 10
-int buffer [N] [TAMANHO];
+
+int buffer[N][TAMANHO];
+
 void *soma_linha (int *linha) {
-int c, soma=0;
-int _b = linha;
-for (c = 0; c < TAMANHO - 1; c++) {
-soma += b[c];
+  int c, soma=0;
+  int *b = linha;
+  for (c = 0; c < TAMANHO - 1; c++)
+    soma += b[c];
+  b[c]=soma; /* soma->ult.col. */
+  return NULL;
 }
-b[c]=soma; /_ soma->ult.col.\*/
-return NULL;  
-}
+
 int main (void) {
-int i,j;
-inicializaMatriz(buffer(N, TAMANHO);
-for (i=0; i< N; i++)
-soma_linha(buffer[i]);
-imprimeResultados(buffer);
-exit(0);
+  int i,j;
+  inicializaMatriz(buffer(N, TAMANHO);
+  for (i=0; i< N; i++)
+    soma_linha(buffer[i]);
+  imprimeResultados(buffer);
+  exit(0);
 }
-
-∑
-∑
-∑
-∑
-∑
-∑
-∑
-∑
-Execução sequencial
-
-Sistemas Opera4vos - DEI - IST
-∑
-∑
-∑
-∑
-∑
-∑
-∑
-∑
-Execução em N tarefas paralelas
-
-![6](./imgs/0004/006-a.png)
-Exemplo (paralelo)
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <pthread.h>
-#define N 5
-#define TAMANHO 10
-int buffer [N] [TAMANHO];
-void *soma_linha (int *linha) {
-int c, soma=0;
-int _b = linha;
-for (c = 0; c < TAMANHO - 1; c++) {
-soma += b[c];
-}
-b[c]=soma; /_ soma->ult.col.\*/
-return NULL;  
-}
-
-https://tinyurl.com/SO-20-21-pthread-create
+```
 
 Exemplo (paralelo)
+
+```c
 int main (void) {
-int i,j;
-pthread*t tid[N];
-inicializaMatriz(buffer, N, TAMANHO);
-for (i=0; i< N; i++){
-if(pthread_create (&tid[i], 0, soma_linha,
-buffer[i])== 0) {
-printf ("Criada a tarefa %d\n", tid[i]);
-}
-else {
-printf("Erro na criação da tarefa\n");
-exit(1);
-}
-}
-for (i=0; i<N; i++){
-pthread_join (tid[i], NULL);
-}
-printf ("Terminaram todas as threads\n");
-imprimeResultados(buffer);
-exit(0);
-}
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <pthread.h>
-#define N 5
-#define TAMANHO 10
-int buffer [N] [TAMANHO];
-void *soma*linha (void *linha) {
-int c, soma=0;
-int \_b = (int*) linha;
-for (c=0;c<TAMANHO-1;c++) {
-soma += b[c];
-}
-b[c]=soma; /* soma->ult.col.\_/
-return NULL;
-}
+  int i,j;
+  pthread_t tid[N];
+  inicializaMatriz(buffer, N, TAMANHO);
+  for (i=0; i< N; i++){
+    if(pthread_create (&tid[i], 0, soma_linha, buffer[i])== 0){
+      printf("Criada a tarefa %d\n", tid[i]);
+    }
+    else {
+      printf("Erro na criação da tarefa\n");
+      exit(1);
+  }
+  }
+  for (i=0; i<N; i++){
+    pthread_join(tid[i], NULL);
+  }
+  printf ("Terminaram todas as threads\n");
 
-Criação de tarefa:
-Como passar/receber parâmetros?
+  imprimeResultados(buffer);
+  exit(0);
+}
+```
 
-- Parâmetros podem ser de qualquer tipo, passados
-  por referência opaca (void\*)
+### Criação de tarefa: Passar/Receber parâmetros?
+
+- Parâmetros podem ser de qualquer tipo, passados por referência opaca `(void*)`
 - Parâmetro de entrada para a nova tarefa:
-  - Através do argumento de pthread_create
-  - Nova tarefa recebe parâmetro no argumento único da sua
-    função
+  - Através do argumento de `pthread_create`
+  - Nova tarefa recebe parâmetro no argumento único da sua função
 - Parâmetro de saída devolvido pela nova tarefa
   - Função da tarefa retorna ponteiro para o parâmetro
-  - Tarefa criadora recebe esse ponteiro através de
-    pthread_join (por referência)
-
-Atenção!
-Qual o problema neste programa?
-void *threadFn(void *arg) {
-MyStruct _s = (MyStruct_) arg;
-printf(“Nova thread criada com user %d:%s\n”,
-s->userId, s->userName);
-...
-}
-int main (void) {
-MyStruct s;  
-for (i=0; i< N; i++){
-//Prepara argumentos da próxima thread
-s.userId = i;
-s.userName = getUserName(i);
-//Cria thread, passando-lhe um user novo
-if(pthread_create (&tid[i], 0, threadFn, &s)== 0) {
-printf ("Criada a tarefa %d\n", tid[i]);
-}
-else ...
-}
-...
-}
-
-void *threadFn(void *arg) {
-AnotherStruct r;
-...
-r.x = ...;
-r.y = ...;
-return &r;
-}
-int main (void) {
-AnotherStruct \*s2;
-//Cria thread, passando-lhe um user novo
-if (pthread_create (&tid, 0, threadFn, NULL) < 0) {
-...
-}
-...
-pthread_join(tid, &s2);
-printf(“Tarefa devolveu: %d, %d\n”, s2->x, s2->y);
-}
-E neste programa?
-
-Então e se o programa não for
-embaraçosamente paralelo?
+  - Tarefa criadora recebe esse ponteiro através de `pthread_join` (por referência)
