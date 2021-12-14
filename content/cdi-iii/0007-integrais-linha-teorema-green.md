@@ -23,6 +23,12 @@ O conteúdo nesta página é duplicado da matéria de CDI-II:
 Daqui para baixo, apenas irá estar o conteúdo novo dado apenas em CDI-III e definições importantes.
 Recomenda-se a leitura das páginas indicadas acima.
 
+Pode ainda ser útil assistir às [Aulas do Calhau](https://drive.google.com/file/d/14Yzlr4939W5MQlrLWIhWF8v97GHaA1l4/view?usp=sharing):
+
+- [Aula 4](https://youtu.be/8yIDYS_R0_o): Integrais sobre variedades. Integrais de campos vetoriais e trabalho.
+- [Aula 5](https://youtu.be/l8llkzx-E7c): Teorema de Green. Teorema da Divergência.
+- [Aula 6](https://youtu.be/Su1RXp9mbCc): Teorema de Stokes.
+
 :::
 
 ```toc
