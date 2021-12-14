@@ -154,6 +154,7 @@ Quero agradecer a [todos os que contribuíram](https://github.com/diogotcorreia/
 - [Rafael Girão](https://github.com/diogotcorreia/resumos-leic/commits?author=rafaelsgirao) (Meta)
 - [Mateus Pinho](https://github.com/diogotcorreia/resumos-leic/commits?author=footvaalvica) (Meta)
 - [Martim Monis](https://github.com/diogotcorreia/resumos-leic/commits?author=creaaidev) (LP)
+- [Diogo Dinis](https://github.com/diogotcorreia/resumos-leic/commits?author=dmbdpt) (CDI-III)
 - [Rita Mendes](https://github.com/diogotcorreia/resumos-leic/commits?author=SparklingRita) (Imagens CDI-II)
 - [André Teodósio](https://github.com/diogotcorreia/resumos-leic/commits?author=TioDosio) (CDI-II)
 - [Rafaela Oliveira](https://github.com/diogotcorreia/resumos-leic/commits?author=rafaelacorreiaoliveira) (CDI-II)
