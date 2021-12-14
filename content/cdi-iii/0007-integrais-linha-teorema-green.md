@@ -59,7 +59,7 @@ $$
 Para [relembrar](/cdi-ii/conjunto-de-nivel#derivada-de-um-caminho), a derivada de um caminho está definida por
 
 $$
-\lim_{\gamma \to 0} \frac{\gamma(t+\delta) - \gamma(t)}{\delta} = \gamma'(t)
+\lim_{\delta \to 0} \frac{\gamma(t+\delta) - \gamma(t)}{\delta} = \gamma'(t)
 $$
 
 :::details[Exemplo de caminho não regular]
