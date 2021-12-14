@@ -403,13 +403,13 @@ $$
 
 Se $h(t)$ satisfaz as condições indicadas acima, então existe um polinómio aniquilador:
 
-- se $b(t) = t^p e^{\lambda t}$, então o seu **polinómio aniquilador** é da forma
+- se $h(t) = t^p e^{\lambda t}$, então o seu **polinómio aniquilador** é da forma
 
   $$
   P_A (D) = (D-\lambda)^{p + 1}
   $$
 
-- se $b(t) = t^p e^{at} \cos (bt)$ ou $b(t) = t^p e^{at} \sin(bt)$, então o seu **polinómio aniquilador** é da forma
+- se $h(t) = t^p e^{at} \cos (bt)$ ou $h(t) = t^p e^{at} \sin(bt)$, então o seu **polinómio aniquilador** é da forma
 
   $$
   P_A(D) =(D-(a+ib))^{p+1} (D-(a-ib))^{p+1} = ((D-a)^2 +b^2)^{p+1}
@@ -417,7 +417,7 @@ Se $h(t)$ satisfaz as condições indicadas acima, então existe um polinómio a
 
 Para resolver uma equação do tipo $P(D)y=h(t)$ pelo método dos coeficientes indeterminados, segue-se os seguintes passos:
 
-1. Determinar o polinómio aniquilador, $P_A(D)$, de $b(t)$. Seja $k$ o seu grau.
+1. Determinar o polinómio aniquilador, $P_A(D)$, de $h(t)$. Seja $k$ o seu grau.
 2. Aplicar $P_A(D)$ a ambos os membros da equação inicial, donde resulta:
 
    $$
@@ -446,7 +446,7 @@ Para resolver uma equação do tipo $P(D)y=h(t)$ pelo método dos coeficientes i
    Tem-se então que existem $\beta_1, \dots, \beta_n \in \R$ tais que
 
    $$
-   y_P = \beta_1 w_1 + \dots + \beta_p w_p
+   y_P(t) = \beta_1 w_1 + \dots + \beta_p w_p
    $$
 
    é uma solução particular de $P(D)y=h(t)$.
@@ -496,7 +496,7 @@ $$
   Vamos então multiplicar ambos os membros da equação por $P_A(D)$:
 
   $$
-  (D+1)(D+2)y = e^{-x} \implies (D+1)^2(D+2) = 0
+  (D+1)(D+2)y = e^{-x} \implies (D+1)^2(D+2)y = 0
   $$
 
   Resolvendo a equação homogénea, obtêm-se
