@@ -7,28 +7,35 @@ type: content
 
 # Programação Paralela
 
-### Motivos
+```toc
 
-![0](./imgs/0004/000-a.png)
-O ﬁm dos “almoços gra.s”
-Lei de Moore
-Mais transístores
-≠
-Processador mais rápido
-Mais transístores,
-Mais CPUs
-Como aproveitar?
+```
 
-- Permite explorar processadores múltiplos
-  - Incluindo os dual-cores, quad-cores, etc.
-- Interação com periféricos lentos
-  - Enquanto periférico demora a responder a um fluxo de execução,
-    outro fluxo paralelo pode continuar a fazer progresso
-  - Idem para programas interativos
-  - Enquanto um fluxo de execução espera por ação do utilizador,
-    outros podem progredir em fundo
+![moore's-law](./imgs/0004/0004-moore.png#dark=1)
 
-Programação Paralela melhora a performance de qualquer CPU, até aqueles quue só têm 1 core
+## Motivos
+
+Como podemos ver pelo gráfico mostrado em cima,
+o número de transistores aumenta de acordo com a [Lei de Moore](https://en.wikipedia.org/wiki/Moore%27s_law)\
+No entanto, a performance de uma thread do processador quase que estagnou no final da década de 2000
+
+Isso mostra que atualmente colocar mais transístores num processador, não o torna mais rápido.
+Foi preciso pensar noutra maneira de continuar a aumentar a performance.\
+Chegou-se à conclusão de que colocar vários "mini" processadores (cores) dentro do processador, iria permitir que este pudesse fazer várias instruções em paralelo.
+
+Assim aparecem os dual-cores(2), quad-cores(4),[ muitos-cores](https://en.wikichip.org/wiki/amd/ryzen_threadripper/3990x)(64)
+
+![nice-core](./imgs/0004/0004-cores.png)
+
+- Melhoramos assim a performance de:
+  - Interação com periféricos lentos
+    - Enquanto periférico demora a responder a um fluxo de execução,
+      outro fluxo paralelo pode continuar a fazer progresso
+  - Programas interativos
+    - Enquanto um fluxo de execução espera por ação do utilizador,
+      outros podem progredir em fundo
+
+Com Programação Paralela melhoramos a performance de qualquer CPU, até aqueles quue só têm [1 core](https://pt.wikipedia.org/wiki/Pentium)
 
 ## Introdução à Programação com Processos
 
@@ -39,9 +46,14 @@ Programação Paralela melhora a performance de qualquer CPU, até aqueles quue 
 - Cada instância de um programa em execução
   denomina-se um **processo**
 
-// introduzir iamgem 8
+#### Pseudoconcorrência
 
-## Processo = Programa?
+![graph](./imgs/0004/0004-graph.png#dark=1)
+
+Na realidade só pode estar a correr um processo de cada vez , mas como a troca entre processos é feita tão depressa (milésimos de segundo)
+para um humano, os processsos correm em paralelo.
+
+### Processo = Programa?
 
 - Programa = Fich. executável (sem atividade)
 - Um processo é um objecto do sistema operativo
@@ -52,12 +64,12 @@ Programação Paralela melhora a performance de qualquer CPU, até aqueles quue 
   ser partilhados por diversos processos
   - biblioteca partilhadas [DLL](https://en.wikipedia.org/wiki/Dynamic-link_library) no Windows
 
-// adicionar iamge 10
-
-Elementos principais da máquina virtual que o SO
-disponibiliza aos processos
-
 ### Processo como uma Máquina Virtual
+
+![virtual-machine](./imgs/0004/0004-vm.png#dark=1)
+
+Elementos principais da máquina virtual que o SO disponibiliza aos processos.\
+Pelo ponto de vista do processo este encontra-se isolado de tudo resto e com recursos ilimitados[.](https://incels.wiki/images/thumb/b/bb/Bluepill.png/300px-Bluepill.png)
 
 - Tal como uma máquina real, um processo tem:
   - Espaço de endereçamento (virtual):
@@ -73,7 +85,7 @@ disponibiliza aos processos
     processo
   - Memorizado quando o processo é retirado de execução
 
-### Modelo: Objecto “Processo”
+### Objeto Processo
 
 - Propriedades
   - Identificador
@@ -103,14 +115,15 @@ disponibiliza aos processos
 - Quando o processo pai termina os subprocessos continuam a executar-se
   - São adoptados pelo processo de inicialização (pid = 1)
 
-// Add imagem 16
+![priority](./imgs/0004/0004-priority.png#dark=1)
 
 Certas propriedades são herdadas
 
 ### Criação de um Processo
 
 `id = fork()`
-A função `fork` não tem parâmetros, em particular o ficheiro a executar.
+
+A função `fork` não tem parâmetros.
 
 - Processo filho é uma cópia do pai:
   - O espaço de endereçamento é copiado
@@ -118,7 +131,7 @@ A função `fork` não tem parâmetros, em particular o ficheiro a executar.
 
 Ao copiar o contexto de execução, poderíamos pensar que esse processo iria ser pesado (em tempo e espaço)
 Mas na verdade, a chamada `fork` é muito rápida.
-Iremos estudar mais à frente porquê
+Iremos estudar mais à frente porquê.
 
 O fork apenas permite lançar processo com o mesmo código
 
@@ -173,22 +186,16 @@ main_aux(argc, argv) {
 }
 ```
 
-#### wait
-
 ` int wait (int *status)`
 
-- Em Unix existe uma função para o processo
-  pai se sincronizar com a terminação de um
-  processo filho
-- Bloqueia o processo pai até que um dos filhos
-  termine
+Esta função para o processo pai até este se sincronizar com a terminação de um processo filho
 
 `wait` retorna o pid do processo terminado.
 O processo pai pode ter vários filhos sendo desbloqueado quando um terminar.
 
 `status` devolve o estado de terminação do processo filho que foi atribuído no parâmetro da função `exit`
 
-:::tip[man]
+:::tip[Macros Importantes]
 Usando `man wait`poderão encotrar Macros (WIFEXITED, WEXITSTATUS) que ajudam a saber como e se um processo terminou (com exit)
 :::
 
@@ -203,29 +210,61 @@ main () {
     } else {
     // processo pai bloqueia-se à espera da terminação do processo filho
     pid = wait(&estado);
-}
+  }
 }
 ```
 
-- Ao se fazer `exit` são mantidos os atributos necessários para quando o pai chamar `wait`:
+- Ao se fazer `exit` são mantidos os atributos necessários para quando o pai chamar `wait`
 
   - `pid` do processo terminado e do seu processo pai
   - `status` da terminação
 
-- Entre `exit` e `wait`, processo diz-se `zombie`
-- Só depois de `wait` o processo é totalmente esquecido
+Entre `exit` e `wait`, processo diz-se `zombie`\
+Só depois de `wait` o processo é totalmente esquecido
 
-### Exemplos
+#### Exemplos
 
 - Pai e filho a executarem trabalhos diferentes
 
-  - Pai executa fnPai(), filho executa fnFilho()
+  - Pai executa `fnPai()`, filho executa `fnFilho()`
+
+```c
+main () {
+  int r = fork();
+  if (r == 0) {
+     // execução de algoritmo pelo filho
+    fnFilho();
+  } else if (r > 0) {
+    // execução de algoritmo pelo pai
+    fnPai();
+  }
+  exit(EXIT_SUCCESS);
+}
+```
 
 - Pai espera pelo resultado do filho
 
-  - Filho: termina devolvendo o retorno de FnFilho()
-  - Pai: depois de executar fnPai(), aguarda até saber
-    o resultado do filho, e imprime soma de ambos
+  - Filho: termina devolvendo o retorno de `FnFilho()`
+  - Pai: depois de executar `fnPai()`, aguarda até saber o resultado do filho, e imprime soma de ambos
+
+```c
+main () {
+  int a,r , s;
+  r = fork();
+  if (r == 0) {
+     // execução de algoritmo pelo filho
+    a = fnFilho();
+    exit(a);
+  } else if (r > 0) {
+    // execução de algoritmo pelo pai
+    a = fnPai();
+    wait(&s);
+    if (WIFEXITED(s))
+      printf("Total: %d\n",a+WIFEXITED(s));
+    exit(EXIT_SUCCESS);
+  }
+}
+```
 
 ### Como ter filho a executar programa diferente?
 
@@ -233,7 +272,7 @@ main () {
 
 `int execv(char* ficheiro, char\* argv [])`
 
-`ficheiro` é o caminho (path) de acesso ao ficheiro executável
+`ficheiro` é o caminho `path` de acesso ao ficheiro executável
 
 Os argumentos podem ser passados de duas maneiras:
 
@@ -294,12 +333,14 @@ while (TRUE){
 
 ## Introdução à Programação com Tarefas (threads)
 
-## Tarefas
+### Tarefas
+
+![Tarefas](./imgs/0004/0004-tarefas.png#dark=1)
 
 - Mecanismo simples para criar fluxos de execução
   independentes, partilhando um contexto comum
 
-Num mesmo processo, as tarefas partilham entre si
+Num mesmo processo, as tarefas partilham entre si:
 
 - O código
 - Amontoado (heap)
@@ -307,7 +348,7 @@ Num mesmo processo, as tarefas partilham entre si
   - Variáveis dinamicamente alocadas (malloc)
 - Atributos do processo (Visto mais tarde na cadeira)
 
-Mas não partilham
+Mas não partilham:
 
 - Pilha (stack)
   - (atenção) não há isolamento entre pilhas!
@@ -330,7 +371,7 @@ Mas não partilham
   - Isolamento: confinamento de bugs
   - Outras (Visto mais tarde na cadeira)
 
-### Exemplo de uso de processos
+### Exemplo de Uso de Processos
 
 - Chrome
 
