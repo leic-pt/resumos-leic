@@ -35,7 +35,7 @@ Assim aparecem os dual-cores(2), quad-cores(4),[ muitos-cores](https://en.wikich
     - Enquanto um fluxo de execução espera por ação do utilizador,
       outros podem progredir em fundo
 
-Com Programação Paralela melhoramos a performance de qualquer CPU, até aqueles quue só têm [1 core](https://pt.wikipedia.org/wiki/Pentium)
+Com Programação Paralela melhoramos a performance de qualquer CPU, até aqueles que só têm [1 core](https://pt.wikipedia.org/wiki/Pentium)
 
 ## Introdução à Programação com Processos
 
