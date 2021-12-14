@@ -130,7 +130,7 @@ years:
 - [EdenBox](https://www.edenbox.org/) - Testes, fichas e muito mais de todas as UCs de LEIC
 - [IST Space Finder](https://spaces.leic.pt) - Find your way around the IST campi - Offline Web App made by Diogo Correia
 - [Fónix Mails](https://s.rafael.ovh/fonixmails) - Receber anúncios do Fénix por e-mail
-- [Gerador de Horários (Daniel Gonçalves)](https://horarios.dang.pt/)
+- [Criador de Horários (Daniel Gonçalves)](https://horarios.dang.pt/)
 - [Gerador de Horários (Joana Sesinando)](https://web.tecnico.ulisboa.pt/joanasesinando/gerador-horarios/)
 - [Reencaminhar emails do Técnico para o Gmail](https://www.notion.so/diogocorreia/Reenchaminhar-emails-do-T-cnico-para-Gmail-2975d496a1d3447a84b0d0cf163dd65f)
 - [Caderno Rita Mendes](https://www.notion.so/IST-MEEC-0c22d514a81645eca3c2a58739e323e1) - (IST - MEEC)
