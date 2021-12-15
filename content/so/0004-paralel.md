@@ -445,6 +445,25 @@ int main (void) {
 Exemplo (paralelo)
 
 ```c
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <pthread.h>
+
+#define N 5
+#define TAMANHO 10
+
+int buffer[N][TAMANHO];
+
+void *soma_linha (void *linha) {
+  int c, soma=0;
+  int *b = (int*) linha;
+  for (c = 0; c < TAMANHO - 1; c++)
+    soma += b[c];
+  b[c]=soma; /* soma->ult.col. */
+  return NULL;
+}
+
 int main (void) {
   int i,j;
   pthread_t tid[N];
