@@ -497,8 +497,7 @@ int main (void) {
   - Função da tarefa retorna ponteiro para o parâmetro
   - Tarefa criadora recebe esse ponteiro através de `pthread_join` (por referência)
 
-Execução Concorrente
-Problema se for multi-tarefa?
+### Exemplos de Erros Comuns
 
 ```c
 struct {
@@ -506,7 +505,7 @@ struct {
   // outras variáveis,ex. nome do titular, etc.
 } conta_t;
 
-int levantar_dinheiro(conta_t\* conta, int valor) {
+int levantar_dinheiro(conta_t *conta, int valor) {
   if (conta->saldo >= valor) {
     conta->saldo = conta->saldo - valor;
 }
@@ -517,11 +516,7 @@ int levantar_dinheiro(conta_t\* conta, int valor) {
 }
 ```
 
-Problema 1
-
-E assim?
-Se a função for chamada N vezes, o que pode
-corer mal?
+Se a função for chamada por várias threads, pode acontecer que `conta->saldo` mude o seu valor incorretamente!
 
 ```c
 struct {
@@ -529,23 +524,24 @@ struct {
   //outras variáveis,ex. nome do titular, etc.
 } conta_t;
 
-int levantar_dinheiro(conta_t\* conta, int valor) {
+int levantar_dinheiro(conta_t *conta, int valor) {
   conta->saldo = conta->saldo - valor;
   return valor;
 }
 ```
 
-Problema 2
-;assumindo que a variável conta->saldo está na posição SALDO da
-memória\
-;assumindo que variável valor está na posição VALOR da memória
+```
+mov AX, SALDO ;carrega conteúdo da posição de memória
+              ;SALDO para registo geral AX
 
-`mov AX, SALDO` ;carrega conteúdo da posição de memória\
-;SALDO para registo geral AX
+mov BX, VALOR ;carrega conteúdo da posição de memória
+              ;VALOR para registo geral BX
 
-`mov BX, VALOR` ;carrega conteúdo da posição de memória\
-;VALOR para registo geral BX
+sub AX, BX    ;efectua subtracção AX = AX - BX
 
-`sub AX, BX` ;efectua subtracção AX = AX - BX\
-`mov SALDO, AX` ;escreve resultado da subtracção na
-;posição de memória SALDO
+mov SALDO, AX ;escreve resultado da subtracção na
+              ;posição de memória SALDO
+```
+
+Ao vermos o código assembly desta função, podemos reparar que entre a chamada das variáveis para os registos e a voltar a guardar o valor nas variáveis, o seu valor pode sofrer alteração por outras threads que possam estar a escrever sobre elas.\
+Temos assim que evitar que threads acedam ao mesmo endereço de memória ao mesmo tempo.
