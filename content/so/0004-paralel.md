@@ -496,3 +496,56 @@ int main (void) {
 - Parâmetro de saída devolvido pela nova tarefa
   - Função da tarefa retorna ponteiro para o parâmetro
   - Tarefa criadora recebe esse ponteiro através de `pthread_join` (por referência)
+
+Execução Concorrente
+Problema se for multi-tarefa?
+
+```c
+struct {
+  int saldo;
+  // outras variáveis,ex. nome do titular, etc.
+} conta_t;
+
+int levantar_dinheiro(conta_t\* conta, int valor) {
+  if (conta->saldo >= valor) {
+    conta->saldo = conta->saldo - valor;
+}
+  else {
+    valor = -1;
+  assert(conta->saldo >= 0);
+  return valor;
+}
+```
+
+Problema 1
+
+E assim?
+Se a função for chamada N vezes, o que pode
+corer mal?
+
+```c
+struct {
+  int saldo;
+  //outras variáveis,ex. nome do titular, etc.
+} conta_t;
+
+int levantar_dinheiro(conta_t\* conta, int valor) {
+  conta->saldo = conta->saldo - valor;
+  return valor;
+}
+```
+
+Problema 2
+;assumindo que a variável conta->saldo está na posição SALDO da
+memória\
+;assumindo que variável valor está na posição VALOR da memória
+
+`mov AX, SALDO` ;carrega conteúdo da posição de memória\
+;SALDO para registo geral AX
+
+`mov BX, VALOR` ;carrega conteúdo da posição de memória\
+;VALOR para registo geral BX
+
+`sub AX, BX` ;efectua subtracção AX = AX - BX\
+`mov SALDO, AX` ;escreve resultado da subtracção na
+;posição de memória SALDO
