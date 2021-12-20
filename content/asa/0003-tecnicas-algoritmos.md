@@ -130,11 +130,7 @@ $$
 T(w) \leq n \cdot T(w - 1) = n^2 \cdot T(w - 2) = ... = n^w
 $$
 
-<!-- Is this the correct way to put it? cc @diogotcorreia-->
-
 Ou seja, a complexidade temporal da função é $O(n^w)$. Consideramos $T(w - 1), T((w - 1) - 1), \text{ etc }$ porque, no pior caso, estamos sempre a retirar objetos com peso 1 (considerando apenas peso naturais), e daí podemos retirar a natureza exponencial do problema. A primeira chamada pode correr $n$ vezes, mas cada uma das seguintes também pode correr $n$ vezes, e assim sucessivamente, $w$ vezes.
-
-<!-- Is this the correct way to put it? cc @diogotcorreia-->
 
 Ora, mas [**o número de sub-problemas distintos é $n \cdot W$**](color:yellow) (corresponde ao número de entradas numa possível tabela de resolução do problema com DP). Assim sendo, podemos definitivamente obter uma solução mais eficiente para o problema, **sem fazer os mesmos cálculos mais do que uma vez**, coisa que acontece na implementação acima.
 
@@ -149,7 +145,8 @@ int knapsack(std::vector<int> values,
   // todos os indices sao inicializados a 0
   std::vector<int> k = std::vector<int>(maxWeight + 1, 0);
   for (int w = 1; w <= maxWeight; w++) {
-    k[w] = k[w - 1]; // o valor guardado na mochila nunca é menor que o anterior
+    k[w] = k[w - 1]; // o valor guardado na mochila nunca
+                     // é menor que o anterior
     for (int i = 0; i < numElements; i++) {
       if (weights[i] <= w) {
         k[w] = max(
@@ -245,7 +242,7 @@ De seguida, e já no segundo caso, teríamos então de ver o máximo entre $k(6,
 
 :::
 
-Este problema podia, claro, ser resolvido recorrendo à [memoization](./introducao#implementação-2-memoization-e-programação-dinâmica), caso optássemos por passar a tabela como argumento da função e a fôssemos preenchendo. O trade-off seria que a memoization, apesar de só calcular o que realmente é necessário (que, no pior caso, é tudo), ocupa mais espaço $(\Theta(W) \text{ vs } \Theta(n))$.
+Este problema podia, claro, ser resolvido recorrendo à _[memoization](./introducao#implementação-2-memoization-e-programação-dinâmica)_, caso optássemos por passar a tabela como argumento da função e a fôssemos preenchendo. O trade-off seria que a memoization, apesar de só calcular o que realmente é necessário (que, no pior caso, é tudo), ocupa mais espaço $(\Theta(W) \text{ vs } \Theta(n))$.
 
 ### Maior Sub-sequência Comum (LCS)
 
@@ -275,7 +272,7 @@ $$
 c(i, j) = \begin{cases}
 0 &\text{se } i = 0 \vee j = 0\\
 c(i - 1, j - 1) + 1 &\text{se } X[i] = Y[j]\\
-max\{c(i - 1, j), c(i, j - 1)\} &\text{se } X[i] \neq Y[i]
+\operatorname{max}\{c(i - 1, j), c(i, j - 1)\} &\text{se } X[i] \neq Y[i]
 \end{cases}
 $$
 
