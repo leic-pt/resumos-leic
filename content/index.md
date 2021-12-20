@@ -122,6 +122,52 @@ years:
             link: '/ia'
             image: assets/ia.svg
             color: '#3f51b5'
+  - name: '3º Ano'
+    semesters:
+      - name: '1º Semestre'
+        courses:
+          - name: OC
+            description: P1
+            link: '/oc'
+            image: assets/oc.svg
+            color: '#e65100'
+          - name: AMS
+            description: P2
+            link: '/ams'
+            image: assets/ams.svg
+            color: '#ff5252'
+          - name: Apre
+            description: P1
+            link: '/apre'
+            image: assets/apre.svg
+            color: '#534bae'
+          - name: RC
+            description: P2
+            link: '/rc'
+            image: assets/rc.svg
+            color: '#524c00'
+      - name: 2º Semestre
+        courses:
+          - name: SD
+            description: P3
+            link: '/sd'
+            image: assets/sd.svg
+            color: '#827717'
+          - name: Comp
+            description: P4
+            link: '/comp'
+            image: assets/comp.svg
+            color: '#c50e29'
+          - name: ES
+            description: P3
+            link: '/es'
+            image: assets/es.svg
+            color: '#c56000'
+          - name: CG
+            description: P4
+            link: '/cg'
+            image: assets/cg.svg
+            color: '#3f51b5'
 ---
 
 ## Links úteis
