@@ -436,7 +436,8 @@ O código para este algoritmo seria qualquer coisa como:
 int fracKnapsack(std::vector<int> values,
                  std::vector<int> weights,
                  int maxWeight) {
-  // Assumimos, aqui, que os objetos estão ordenados por ordem decrescente de densidade
+  // Assumimos, aqui, que os objetos estão ordenados
+  // por ordem decrescente de densidade
   int maxValue = 0;
   for (uint i = 0; maxWeight != 0 && i < weights.size(); i++) {
     if (maxWeight >= weights[i]) {
