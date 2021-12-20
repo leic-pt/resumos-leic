@@ -591,7 +591,7 @@ Temos, portanto, que o algoritmo de Huffman quererá **minimizar** o custo do c�
 
 O algoritmo em si passa por, inicialmente, considerar todos os caracteres como nós, com valor = frequência. Cria-se uma **min priority queue** (com prioridade = valor), e inserem-se os nós na mesma. De seguida, extraem-se os dois nós com valor menor e somam-se os respetivos valores, criando um novo nó com valor igual a essa soma. Este nó é inserido na queue, e assim sucessivamente $|\Sigma| - 1$ vezes, onde $|\Sigma|$ corresponde ao tamanho do alfabeto. O pseudocódigo é o seguinte:
 
-```
+```rust
 Huffman(alphabet)
   let Q be a min priority queue with the elements of alphabet
   for i := 1 to |alphabet| - 1
@@ -633,7 +633,7 @@ O algoritmo acaba aqui, e podemos agora verificar que a árvore binária é tal 
 Temos, então, que o custo mínimo será obtido através de:
 
 $$
-B(T) = 45*1 + (16+25)*3 + 14*4 = 224
+B(T) = 45 \times 1 + (16+25) \times 3 + 14 \times 4 = 224
 $$
 
 :::
