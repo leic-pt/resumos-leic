@@ -213,6 +213,54 @@ Tendo dois vértices $u$ e $v$, temos que $v$ é descendente de $u$ se e apenas 
 
 :::
 
+Podemos, ainda, provar que **um grafo tem um caminho circular se e apenas se a DFS revela um arco para trás**. A prova encontra-se abaixo.
+
+:::details[Prova do Lema acima]
+
+Vamos ter, portanto, de procurar provar a equivalência apresentada. Provar a implicação da direita para a esquerda é fácil - temos que uma back edge só existe entre parentes diretos, pelo que se esta existir uma back edge $(u, v)$, então podemos começar um caminho que parte de $u$, chega a $v$ e volta a $u$, estando, portanto, na presença de um ciclo. A parte complicada reside em provar a implicação da esquerda para a direita - **se um grafo tem um caminho circular, então a DFS revela uma back edge**.
+
+Tenhamos um qualquer caminho **circular** do tipo $<v_1, ..., v_n, v_1>$. Podemos procurar ordená-lo por ordem crescente de tempo de descoberta - ficaríamos com um caminho $<v'_1, ..., v'_n, v'_1>$. Temos, pelo teorema do caminho branco, que $v'_2, ..., v'_n$ são todos descendentes de $v'_1$ na floresta DFS - assim sendo, $(v'_n, v'_1)$ é necessariamente uma back edge.
+
+:::
+
+### [Ordenação Topológica](color:orange)
+
+:::info[Ordenação Topológica]
+
+Sequência que contém todos os vértices de um grafo $G(V, E)$ apenas uma vez, tal que se $(u, v) \in E$, então $u$ aparece antes de $v$ na ordem topológica. Devido a esta última propriedade, só podemos realizar ordenações topológicas em **grafos acíclicos**.
+
+:::
+
+Segundo o professor, para resolver exercícios associados a ordenação topológica, pode dar jeito desenhar o grafo na horizontal, como pode ser observado abaixo:
+
+![Ordenação Topológica - Horizontal](./assets/0004-top-order-horizontal.png#dark=1)
+
+Podemos, aqui, admitir que uma ordenação topológica possível (**não a única**) é $ABCDEFGH$, já que ao escrever os arcos do grafo, estes apontam todos para a frente:
+
+![Ordenação Topológica - Arestas](./assets/0004-top-order-arrows.png#dark=1)
+
+:::tip[Lema]
+
+Se $G(V, E)$ é um DAG (grafo acíclico dirigido) e $(u, v) \in E$, então $v$ é fechado antes de $u$.
+
+- Caso $d(u) < d(v)$, então $d(u) < d(v) < f(v) < f(u)$, logo $v$ é fechado antes de $u$.
+
+- Caso contrário, então $d(v) < f(v) < d(u) < f(u)$[\*](color:orange), logo $u$ é fechado antes de $v$.
+
+[\*](color:orange) podemos afirmá-lo já que, caso contrário, poder-se ia descobrir primeiro $v$ e depois $u$, antes de se fechar $v$. Como há um arco de $u$ para $v$, teríamos encontrado um ciclo - o grafo, contudo, é um DAG, acíclico por definição - impossível de acontecer.
+
+:::
+
+Uma ordenação topológica pode, então, ser dada pela **ordem decrescente de tempos de fecho** de uma DFS a um dado grafo. Por exemplo, dado o grafo abaixo e respetiva DFS a começar em A:
+
+![DFS - Ordenação Topológica](./assets/0004-top-order-exemplo.png#dark=1)
+
+A ordenação topológica via ordem decrescente de tempos de fecho é dada por $GDEHABFC$. Podemos, claro, confirmar que não há back edges (para confirmar que a ordenação topológica está feita corretamente):
+
+![DFS - Ordenação Topológica - Back Edges](./assets/0004-top-order-exemplo-back-edges.png#dark=1)
+
+### [SCCs - Componentes Fortemente Ligados](color:green)
+
 ## BFS - _Breadth First Search_
 
 test
