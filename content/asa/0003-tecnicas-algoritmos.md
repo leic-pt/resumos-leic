@@ -523,6 +523,169 @@ int activitySelection(std::vector<int> start, std::vector<int> finish) {
 
 O algoritmo acima apresenta complexidade temporal $O(n)$ e espacial $O(1)$.
 
+### Algoritmo de Huffman
+
+O algoritmo de Huffman tem como objetivo a [**construção de códigos binários ótimos**](color:orange). Consiste em "comprimir os dados", reduzindo o seu tamanho, sem perder detalhes sobre os mesmos. É bastante útil para comprimir dados com caracteres que ocorrem frequentemente.
+
+:::info[Como funciona]
+
+Pretendemos transformar um alfabeto num conjunto de 0's e 1's. Tomemos, por exemplo, um alfabeto
+
+$$
+\Sigma = \{a, b, c\}.
+$$
+
+O nosso objetivo passará por tentar transformar cada um dos elementos do alfabeto num código binário. [**Cada código não pode ser prefixo de nenhum dos outros códigos**](color:yellow). Podemos criar códigos binários de duas maneiras - códigos de tamanho **fixo** ou **variável**. Optaremos, aqui, por criar códigos de tamanho [**variável**](color:orange), visto que podem ser otimizados bastante facilmente - os caracteres que aparecem mais frequentemente ocupam menos bits.
+
+:::
+
+:::details[Porque é que um código não pode ser prefixo de nenhum dos outros códigos?]
+
+Tomemos como exemplo um alfabeto de caracteres $\{a, b, c\}$. Poderíamos, teoricamente, criar um código binário tal que:
+
+$$
+a = 0\\
+b = 1\\
+c = 10
+$$
+
+Contudo, este código produz resultados **não determinísticos**, isto é, há mais que uma combinação de caracteres possível para uma dada sequência de bits, considerando os códigos em questão.  
+Consideremos, por exemplo, $010$ - podemos, aqui, ter $aba$ ou $ac$ como combinações de caracteres possíveis, já que ambas coincidem com a sequência de bits apresentada. Tal não aconteceria se cada código não pudesse ser prefixo de outro código.
+
+:::
+
+Podemos representar códigos livres de prefixo através de **árvores binárias** - é, aliás, nelas que o algoritmo de Huffman assenta.
+
+O conjunto de caracteres, com código binário tal que
+
+$$
+a = 01\\
+b = 00\\
+c = 1
+$$
+
+é livre de prefixo, já que nenhum código é prefixo de outro. Podemos representar o código com uma árvore binária (de realçar que aqui optamos por o 0 ser à esquerda e o 1 à direita, mas depende da implementação do algoritmo - no enunciado dos exercícios que eventualmente saírem vem especificado o sentido a escolher):
+
+![Árvore binária - código de Huffman](./assets/0003-arvore-huffman.png#dark=1)
+
+Se seguirmos o "caminho" da árvore binária, podemos observar o código a ser construído.
+
+:::info[Custo do Código Binário]
+
+Seja $C$ um código binário sobre um alfabeto $\Sigma$ e $f: \Sigma \to \N_0$ uma função de frequências (dos caracteres). Nesta situação, o custo do código é dado por:
+
+$$
+B(C) = \sum_{i \in \Sigma} f(i) \cdot C(i)
+$$
+
+Como o código tem uma árvore binária, $T$, associada, podemos também exprimir o custo desta maneira:
+
+$$
+B(T) = \sum_{i \in \Sigma} f(i) \cdot d_T(i)
+$$
+
+Aqui, $d_T$ corresponde à profundidade de $i$ na árvore binária.
+
+:::
+
+Temos, portanto, que o algoritmo de Huffman quererá **minimizar** o custo do código binário. O produto de um caracter muito frequente deve, num modelo ótimo, ser realizado com uma profundidade menor.
+
+O algoritmo em si passa por, inicialmente, considerar todos os caracteres como nós, com valor = frequência. Cria-se uma **min priority queue** (com prioridade = valor), e inserem-se os nós na mesma. De seguida, extraem-se os dois nós com valor menor e somam-se os respetivos valores, criando um novo nó com valor igual a essa soma. Este nó é inserido na queue, e assim sucessivamente $|\Sigma| - 1$ vezes, onde $|\Sigma|$ corresponde ao tamanho do alfabeto. O pseudocódigo é o seguinte:
+
+```rust
+Huffman(alphabet)
+  let Q be a min priority queue with the elements of alphabet
+  for i := 1 to |alphabet| - 1
+    let x := extract_min(Q) // complexidade é O(log |alphabet|)
+    let y := extract_min(Q) // complexidade é O(log |alphabet|)
+    let z := newNode()
+    z.freq = x.freq + y.freq
+    z.left = x
+    z.right = y
+    insert(z, Q) // complexidade desta operação é O(log |alphabet|)
+```
+
+:::details[Exemplo da aplicação do algoritmo]
+
+Tenhamos um conjunto de caracteres tal que as respetivas frequências são dadas por:
+
+$$
+f: 5\\
+e: 9\\
+c: 12\\
+b: 13\\
+d: 16\\
+a: 45
+$$
+
+O decorrer do algoritmo será:
+
+- Inserir os caracteres na queue, com prioridade = frequência.
+- Extrair os dois nós com menor frequência, neste caso $f$ e $e$, criar um nó com valor 5 + 9 = 14 e inseri-lo na queue.
+- Extrair os dois nós com menor frequência, neste caso $c$ e $b$, criar um nó com valor 12 + 13 = 25 e inseri-lo na queue.
+- Extrair os dois nós com menor frequência, neste caso $d$ e o nó com valor 14, criar um nó com valor 14 + 16 = 30 e inseri-lo na queue.
+- Extrair os dois nós com menor frequência, neste caso o nó com valor 25 e o nó com valor 30, criar um nó com valor 25 + 30 = 55 e inseri-lo na queue.
+- Extrair os dois nós com menor frequência, neste caso o nó com valor 45 e o nó com valor 55, criar um nó com valor 45 + 55 = 100 e inseri-lo na queue.
+
+O algoritmo acaba aqui, e podemos agora verificar que a árvore binária é tal que:
+
+![Árvore binária - exemplo](./assets/0003-arvore-exemplo.png#dark=1)
+
+Temos, então, que o custo mínimo será obtido através de:
+
+$$
+B(T) = 45 \times 1 + (16+25) \times 3 + 14 \times 4 = 224
+$$
+
+:::
+
+O algoritmo está, claro, inserido na categoria dos [**algoritmos Greedy**](color:orange): tem, portanto, uma escolha greedy associada. Aqui, a escolha consiste em extrair **sempre** os dois nós com menor frequência associada, procurando criar um nó com valor igual a soma dos valores dos dois nós.
+
+:::details[Prova desta escolha ser ótima]
+
+**Lema da escolha greedy** - Seja $\Sigma$ um alfabeto com $f$ a respetiva função de frequências. Então, existe uma árvore ótima $T$ para $\Sigma$ e $f$ tal que os dois nós com menor frequência são irmãos.
+
+Tenhamos $T^*$ como sendo uma árvore ótima para $\Sigma$ e $f$. Consideremos ainda $a$ e $b$ como sendo os dois caracteres menos frequentes (e $a$ o menos frequente entre ambos). Temos 2 casos possíveis:
+
+- $a$ e $b$ são irmãos: nada a provar;
+- $a$ e $b$ não são irmãos: construir, a partir de $T^*$ uma outra árvore ótima em que $a$ e $b$ são irmãos.
+
+Tenhamos, pegando neste último caso, o exemplo seguinte (onde $a$ e $b$ não são irmãos):
+
+![Árvore T estrela](./assets/0003-prova-t-estrela.png#dark=1)
+
+Temos, a partir daqui, que provar que, ao trocar $b$ com $c$ ($c$ é um qualquer caracter com frequência superior à de $a$ e $b$), a árvore continua a ser ótima, ou seja, que:
+
+$$
+B(T^*) \geq B(T^\wedge)
+$$
+
+onde $T^\wedge$ é a árvore que resulta da troca de $b$ com $c$.
+
+![Árvore T chapéu](./assets/0003-prova-t-chapeu.png#dark=1)
+
+A prova dá-se da seguite maneira:
+
+$$
+B(T^* - T^\wedge) \geq 0\\
+\sum_{i \in \Sigma} f(i) \cdot d_{T^*}(i) - \sum_{i \in \Sigma} f(i) \cdot d_{T^\wedge}(i) \geq 0
+$$
+
+(aqui cortamos todos os elementos em comum entre árvores, focando-nos apenas nos diferentes)
+
+$$
+f(b) \cdot d_{T^*}(b) + f(c) \cdot d_{T^*}(c) - f(b) \cdot d_{T^\wedge}(b) - f(c) \cdot d_{T^\wedge}(c) \geq 0\\
+f(b) (d_{T^*}(b) - d_{T^\wedge}(b)) + f(c) (d_{T^*}(c) - d_{T^\wedge}(c)) \geq 0\\
+f(b) (d_{T^*}(b) - d_{T^*}(c)) + f(c) (d_{T^*}(c) - d_{T^*}(b)) \geq 0\\
+(f(b) - f(c)) (d_{T^*}(b) - d_{T^*}(c)) \geq 0
+$$
+
+Explicação do antepenúltimo para o penúltimo passo - a troca é realizada porque a profundidade de $b$ em $T^\wedge$ é igual à de $c$ em $T^*$ (e vice-versa).
+
+Chegámos, portanto, a um produto com duas partes - temos, claro, que $f(b) - f(c) \leq 0$, já que $c$ é mais frequente que $b$. Além disso, a profundidade de $c$ em $T^*$ é maior que a de $b$ na mesma árvore, pelo que o segundo membro do produto é também menor ou igual a 0. Assim sendo, o produto é necessariamente maior ou igual a 0, e a prova está concluída.
+
+:::
+
 ---
 
 - [Slides Aulas 4 e 5](https://drive.google.com/file/d/1cY9AGDpyjc0ogfU_SN5b_axYxNv9zHdZ/view?usp=sharing)
