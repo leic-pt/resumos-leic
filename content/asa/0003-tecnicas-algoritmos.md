@@ -8,6 +8,7 @@ description: Programação Dinâmica.
   Algoritmos Greedy.
   Problema da Mochila Fracionária sem Repetição.
   Seleção de Atividades.
+  Algoritmo de Huffman.
 path: /asa/tecnicas-algoritmos
 type: content
 ---
