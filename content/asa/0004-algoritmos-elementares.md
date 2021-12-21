@@ -120,6 +120,8 @@ A complexidade do primeiro loop é trivial, o loop é claramente executado apena
 
 Resta ainda realçar que foi utilizado $\Theta$ e não $O$ - os loops, aqui, são executados _exatamente_ com aquela complexidade, sempre, qualquer que seja o grafo-argumento do algoritmo.
 
+A complexidade total do algoritmo é, portanto, $\Theta(V + E)$.
+
 :::info[Floresta DFS]
 
 Uma [**árvore DFS**](color:yellow) corresponde à representação de uma procura DFS pela ordem em que os vértices são descobertos. A raiz da árvore é o vértice inicial. Um vértice pode ter mais do que um filho, caso haja mais que um vértice a ser descoberto a partir dele, mas apenas um pai. O conjunto de árvores DFS de um grafo diz-se uma [**floresta DFS**](color:orange).
@@ -260,6 +262,104 @@ A ordenação topológica via ordem decrescente de tempos de fecho é dada por $
 ![DFS - Ordenação Topológica - Back Edges](./assets/0004-top-order-exemplo-back-edges.png#dark=1)
 
 ### [SCCs - Componentes Fortemente Ligados](color:green)
+
+:::info[SCC]
+
+Dado um grafo $G(V, E)$, um conjunto de vértices $\overset{\wedge}{V}$ diz-se um SCC, componente fortemente ligado, de $G$ se e apenas se:
+
+- $\forall_{u, v} \in \overset{\wedge}{V}, u \to v \wedge v \to u$ (por esta última parte entenda-se "há um caminho de $u$ para $v$ e um de $v$ para $u$"). Colocando em termos mais simples, escolhendo um vértice qualquer do SCC, podemos criar um caminho que chegue a todos os outros vértices do mesmo SCC.
+
+- É **maximal**, isto é, não está contido em nenhum outro SCC - não existe um $\overset{\wedge}{V'}$ tal que $\overset{\wedge}{V}$ é um subconjunto seu.
+
+:::
+
+Por exemplo, dado o grafo abaixo:
+
+![SCCs - Componentes Fortemente Ligados](./assets/0004-sccs-exemplo.png#dark=1)
+
+Temos dois SCCs - $ABC$ e $D$. $D$ não pertence a $ABC$ porque, apesar de ser possível construir um caminho de $D$ para $ABC$, o contrário não se verifica.
+
+Podemos desenhar um **grafo dos componentes**.
+
+:::info[Grafo dos Componentes]
+
+Seja $G(V, E)$ um grafo dirigido. O grafo dos componentes de $G$ é dado por $G(V_{SCC}, E_{SCC})$, onde:
+
+- $V_{SCC}$ é o conjunto dos SCCs de $G$.
+
+- $E_{SCC}$ é o conjunto de todas as arestas de $G$ que ligam um SCC a outro. Colocando a afirmação de forma mais formal, temos $\{(c_1, c_2) | \exists_{u, v}: u \in c1 \wedge v \in c_2 \wedge (u, v) \in E\}.$ De realçar que pode haver mais que uma aresta a ligar dois componentes.
+
+O tempo de descoberta de um componente corresponde ao tempo de descoberta do vértice que lhe pertence que é descoberto primeiro. O tempo de fecho de um componente corresponde ao tempo de fecho do vértice que lhe pertence que é fechado por último.
+
+Os componentes de um grafo e os do seu grafo **transposto** (com todos os arcos no sentido contrário) são necessariamente iguais.
+
+:::
+
+:::details[Exemplo - Grafo dos Componentes]
+
+Dado o grafo abaixo:
+
+![Grafo dos Componentes - Exemplo](./assets/0004-sccs-exemplo-graph.png#dark=1)
+
+O grafo dos componentes correspondente é dado por:
+
+![Grafo dos Componentes - Componentes](./assets/0004-sccs-graph-components.png#dark=1)
+
+:::
+
+Os grafos dos componentes gozam de um par de propriedades interessantes.
+
+A primeira diz-nos que, dados dois vértices $u$ e $v$ de $G$, se $u$ pertence a um SCC $C_1$ e $v$ pertence a um outro SCC $C_2$, e existe uma aresta $u, v$, então não pode existir qualquer aresta tal que $x \in C_1 \wedge y \in C_2 \wedge (y, x) \in E$ - caso contrário, nenhum dos componentes seria maximal, já que poderíamos fazer caminhos entre todos os vértices de ambos os componentes em questão. Esta propriedade permite-nos, ainda, afirmar que o grafo dos componentes é um DAG, necessariamente.
+
+A segunda diz-nos que, tendo dois SCCs, $C_1$ e $C_2$, se temos uma aresta que vai de um qualquer vértice de $C_1$ para um qualquer vértice de $C_2$, então obrigatoriamente $f(C_1) > f(C_2)$. A prova encontra-se abaixo.
+
+:::details[Prova da segunda propriedade - Grafo dos Componentes]
+
+Temos 2 casos em que precisamos de nos focar: $d(C_1) < d(C_2)$ e $d(C_1) > d(C_2)$.
+
+- No primeiro caso, descobrimos $C_1$ antes de $C_2$. Seja $u$ o primeiro vértice de $C_1$ a ser descoberto. No momento em que é descoberto, existe necessariamente (porque temos um caminho de $C_1$ para $C_2$) um caminho de vértices brancos a ligar $u$ a todos os vértices de $C_2$. Assim sendo, concluímos, pelo Teorema do Caminho Branco, que todos os vértices de $C_2$ são, nesta DFS, descendentes de $u$, pelo que o tempo de fecho de $C_2$ é necessariamente menor que o tempo de fecho de $u$ e, por consequência, que o tempo de fecho de $C_1$.
+
+- No segundo caso, descobrimos $C_2$ antes de $C_1$. Como, pela propriedade 1, não podemos ter um caminho de $C_2$ para $C_1$, podemos garantir que o tempo de fecho de $C_2$ é anterior ao tempo de descoberta de $C_1$ e, por consequência, anterior ao tempo de fecho de $C_1$.
+
+A propriedade 2 fica, então, provada.
+
+:::
+
+O algoritmo para chegar aos SCCs de um grafo é bastante simples:
+
+- Fazer uma DFS normal, guardando uma lista com os vértices ordenada de modo decrescente pelos respetivos tempos de fim.
+- Transpôr o grafo - alterar o sentido de todos os seus arcos.
+- Fazer outra DFS (ao grafo transposto), seguindo desta vez a ordem decrescente que guardámos no primeiro passo. A ordem decrescente é relevante ao escolher a raiz do caminho, mas aquando da exploração do caminho em si, não importa - podemos escolher qualquer vértice.
+
+[**Cada árvore da floresta DFS do grafo transposto corresponderá a um SCC do grafo original**](color:orange).
+
+A complexidade de ambas as DFS é $\Theta(V + E)$. A da transposição é $\Theta(E)$ (considerando que a representação das arestas é feita através de uma lista de adjacências). Assim, a complexidade do algoritmo como um todo será $\Theta(V + E)$.
+
+:::details[Exemplo da aplicação do algoritmo]
+
+Tenhamos o grafo abaixo (com DFS inicial já realizada, respetivos tempos de descoberta e de fecho indicados):
+
+![Exemplo - Grafo inicial](./assets/0004-sccs-exemplo-graph-dfs.png#dark=1)
+
+Os vértices, por ordem decrescente de tempo de fim, serão então $GIJLKHDCFBEA$.
+
+O respetivo grafo transposto será o seguinte:
+
+![Exemplo - Grafo transposto](./assets/0004-sccs-exemplo-graph-transposed.png#dark=1)
+
+Por fim, a DFS realizada por ordem decrescente dos tempos de fim da DFS inicial é tal que:
+
+![Exemplo - Grafo final](./assets/0004-sccs-exemplo-graph-final.png#dark=1)
+
+Assim sendo, a floresta DFS final é:
+
+![Exemplo - Floresta final](./assets/0004-sccs-exemplo-final-forest.png#dark=1)
+
+Temos 5 árvores na floresta DFS, pelo que temos 5 SCCs. O grafo dos componentes correspondente é, então:
+
+![Exemplo - Grafo dos Componentes](./assets/0004-sccs-exemplo-graph-components.png#dark=1)
+
+:::
 
 ## BFS - _Breadth First Search_
 
