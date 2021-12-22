@@ -62,13 +62,14 @@ int levantar_dinheiro (conta_t* conta, int valor) {
 - Objeto cujos métodos podem ser chamados em
   concorrência por diferentes tarefas
 - Devem ter:
+
   - Interface dos métodos públicos
   - Código de cada método
   - Variáveis de estado
   - Variáveis de sincronização
-- Um trinco para garantir que métodos críticos se executam em
-  exclusão mútua
-- Opcionalmente: semáforos, variáveis de condição
+    - Um trinco para garantir que métodos críticos se executam em
+      exclusão mútua
+    - Opcionalmente: semáforos, variáveis de condição
 
 - Em geral, maior paralelismo
 - Mas pode trazer bugs difíceis de resolver…
@@ -88,15 +89,19 @@ transferir(conta a, conta b, int montante) {
 
 - O que pode correr mal?
 
+Uma das execuções do processo, pode bloquear a, e outra bloqueia b, e depois ficam uma à espera da outra (?)
+
 ## Jantar dos Filósofos
 
 - Cinco Filósofos estão reunidos para filosofar e
   jantar spaghetti:
+
   - Para comer precisam de dois garfos, mas a mesa
     apenas tem um garfo por pessoa.
+
 - Condições:
   - Os filósofos podem estar em um de três estados :
-    Pensar; Decidir comer ; Comer.
+    Pensar, Decidir comer , Comer.
   - O lugar de cada filósofo é fixo.
   - Um filósofo apenas pode utilizar os garfos
     imediatamente à sua esquerda e direita.
@@ -130,11 +135,14 @@ filosofo(int id)
 }
 ```
 
-Problema?
+$0 \rightarrow 1 \rightarrow 2 \rightarrow 3 \rightarrow 4$
 
-Como prevenir interblocagem?
+Esta implementação segue o esquema em cima definido, um filósofo deve escolher sempre pela ordem.
+Se o filósofo quiser o garfo 3 e 4, deve escolher primeiro o 3 e só depois o 4.
 
-Prevenir de interblocagem: uma solução
+Isto abre um problema, no caso do filósofo número 4, este escolhe primeiro o 4 e depois o 0, indo contra o príncipio definido em cima.
+
+Temos assim de arranjar uma solução para esse caso.
 
 ```c
 mutex_t garfo[5] = {…};
@@ -156,22 +164,11 @@ while (TRUE) {
 }
 ```
 
-Princípio base: garantir que os recursos são todos
-adquiridos segundo uma ordem total pré-definida
-F0
-F1
-F2
-F3
-F4
-G0
-G1
-G2
-G3
-G4
+Nesta implementação, apenas o filósofo 4 se comporta de maneira diferente.
 
 ![0](./imgs/0005/000-a.png)
 
-Prevenir de interblocagem: outra solução
+Outra solução possível seria:
 
 ```c
 mutex_t garfo[5] = {…};
@@ -197,10 +194,6 @@ filosofo(int id){
 }
 ```
 
-Resolvemos o problema
-da interblocagem!
-...e o da míngua?
-
 Evitar míngua: recuo aleatório!
 
 - Pretende-se evitar que dois filósofos vizinhos
@@ -208,7 +201,7 @@ Evitar míngua: recuo aleatório!
 - Introduzir uma fase de espera/recuo (back-off) entre
   uma tentativa e outra de cada filósofo.
 - Como escolher a duração da fase de espera?
-  - Inúmeras politicas propostas na literatura
+  - Inúmeras políticas propostas na literatura
   - Vamos ilustrar apenas os princípios fundamentais das
     políticas mais genéricas e simples
 
@@ -223,7 +216,7 @@ escolha da duração do recuo
 - maior probabilidade de evitar contenção
   - Adaptar o valor de MAX consoante o número de
     tentativas
-- Por exemplo, MAX = constante \* num_tentativas
+- Por exemplo, MAX = constante $\times$ num_tentativas
 
 ![1](./imgs/0005/001-a.png)
 ![2](./imgs/0005/002-a.png)
@@ -290,17 +283,14 @@ void sair() {
 
 Algum problema?
 
-Variáveis de Condição
-
-Variável de Condição
+## Variáveis de Condição
 
 - Permite a uma tarefa esperar por uma
   condição que depende da ação de outra
   tarefa
+
   - Condição é boleano determinado em função do
     estado de variáveis partilhadas
-
-Variável de Condição
 
 - Variável de condição sempre associada a um
   trinco
@@ -312,34 +302,32 @@ Variável de Condição
 - O conjunto trinco + variáveis de condição é
   normalmente chamado um monitor
 
-Variável de Condição: primitivas
-(semântica Mesa)
+### primitivas (semântica Mesa)
 
-- wait(conditionVar, mutex)
+- `wait(conditionVar, mutex)`
   - Atomicamente, liberta o trinco associado e bloqueia a
     tarefa
 - Tarefa é colocada na fila de espera associada à variável de
   condição
   - Quando for desbloqueada, a tarefa re-adquire o trinco e
     só depois é que a função esperar retorna
-    Uma tarefa só pode chamar wait quando detenha o
-    trinco associado à variável de condição
 
-Variável de Condição: primitivas
-(semântica Mesa)
+Uma tarefa só pode chamar wait quando detenha o trinco associado à variável de condição
 
-- signal(conditionVar)
+- `signal(conditionVar)`
+
   - Se houver tarefas na fila da variável de condição,
     desbloqueia uma
-- Tarefa que estava bloqueada passa a executável
+    - Tarefa que estava bloqueada passa a executável
   - Se não houver tarefas na fila da variável de condição, não
     tem efeito
-- broadcast(conditionVar)
+
+- `broadcast(conditionVar)`
   - Análogo ao signal mas desbloqueia todas as tarefas na fila
     da variável de condição
-    Normalmente estas primitivas são chamadas
-    quando a tarefa ainda não libertou o trinco
-    associado à variável de condição
+
+Normalmente estas primitivas são chamadas quando a tarefa ainda não libertou o trinco
+associado à variável de condição
 
 Exemplo: acesso a parque de
 estacionamento
@@ -356,32 +344,32 @@ void sair() {
 }
 ```
 
-Padrões habituais de programação
-com variável de condição
+### Padrões habituais de programação com variável de condição
+
+- Código
+  que espera
+  por condição
 
 ```c
 lock(trinco);
-/_ ..acesso a variáveis partilhadas.. _/
+/* ..acesso a variáveis partilhadas.. */
 while (! condiçãoSobreEstadoPartilhado)
   wait(varCondicao, trinco);
-/_ ..acesso a variáveis partilhadas.. _/
-unlock(trinco);
-lock(trinco);
-/_ ..acesso a variáveis partilhadas.. _/
-/_ se o estado foi modificado de uma forma
-que pode permitir progresso a outras tarefas,
-chama signal (ou broadcast) _/
-signal/broadcast(varCondicao);
+/* ..acesso a variáveis partilhadas.. */
 unlock(trinco);
 ```
 
-Código
-que espera
-por condição
-Código
-que muda
-ativa
-condição
+- Código que muda ativa condição
+
+```c
+lock(trinco);
+/* ..acesso a variáveis partilhadas.. */
+/* se o estado foi modificado de uma forma
+que pode permitir progresso a outras tarefas,
+chama signal (ou broadcast) */
+signal/broadcast(varCondicao);
+unlock(trinco);
+```
 
 Variáveis de Condição - POSIX
 
