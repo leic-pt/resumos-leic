@@ -108,7 +108,7 @@ DFS_Visit(G, v)
   v.color = Black
 ```
 
-As complexidades ([**agregadas**](color:orange) - durante todo o decorrer do algoritmo) de cada loop acima são:
+As complexidades temporais([**agregadas**](color:orange) - durante todo o decorrer do algoritmo) de cada loop acima são:
 
 - Loop 1 - $\Theta(V)$
 - Loop 2 - $\Theta(V)$
@@ -120,7 +120,7 @@ A complexidade do primeiro loop é trivial, o loop é claramente executado apena
 
 Resta ainda realçar que foi utilizado $\Theta$ e não $O$ - os loops, aqui, são executados _exatamente_ com aquela complexidade, sempre, qualquer que seja o grafo-argumento do algoritmo.
 
-A complexidade total do algoritmo é, portanto, $\Theta(V + E)$.
+A complexidade temporal total do algoritmo é, portanto, $\Theta(V + E)$.
 
 :::info[Floresta DFS]
 
@@ -333,7 +333,7 @@ O algoritmo para chegar aos SCCs de um grafo é bastante simples:
 
 [**Cada árvore da floresta DFS do grafo transposto corresponderá a um SCC do grafo original**](color:orange).
 
-A complexidade de ambas as DFS é $\Theta(V + E)$. A da transposição é $\Theta(E)$ (considerando que a representação das arestas é feita através de uma lista de adjacências). Assim, a complexidade do algoritmo como um todo será $\Theta(V + E)$.
+A complexidade temporal de ambas as DFS é $\Theta(V + E)$. A da transposição é $\Theta(E)$ (considerando que a representação das arestas é feita através de uma lista de adjacências). Assim, a complexidade temporal do algoritmo como um todo será $\Theta(V + E)$.
 
 :::details[Exemplo da aplicação do algoritmo]
 
@@ -363,7 +363,66 @@ Temos 5 árvores na floresta DFS, pelo que temos 5 SCCs. O grafo dos componentes
 
 ## BFS - _Breadth First Search_
 
-test
+:::warning[Secção Incompleta]
+
+Esta secção encontra-se atualmente incompleta. Estão apenas incluídos os temas abordados em aula até à terceira semana do segundo período (inclusive) - assim que possível, adicionar-se-á o resto.
+
+:::
+
+É, tal como a DFS, um algoritmo para travessia de grafos. Se na DFS o objetivo prendia-se em percorrer os caminhos em profundidade, até eventualmente ter de voltar para trás (_backtracking_), na BFS o objetivo passa por percorrer os caminhos em largura. Utiliza a noção de fila (vulgo queue) para guardar os vértices a serem explorados num futuro próximo. O próximo vértice a ser explorado é sempre o que está no início da fila. De realçar ainda que utilizamos uma fila regular, do tipo FIFO, _first in first out_.
+
+Começamos na raiz, com a fila inicialmente vazia, e vamos adicionando os vértices adjacentes ao vértice atual à fila. Fazemo-lo sucessivamente, extraindo sempre o primeiro elemento da fila e repetindo o processo até a fila estar vazia - quando estiver, a procura está concluída.
+
+O pseudocódigo do algoritmo é o seguinte:
+
+```rust
+BFS(G, v) // v é o vértice-raiz da procura
+  for each n in V except v
+    n.color = white
+    n.d = inf // inicialmente a infinito
+    n.pi = nil
+  v.color = gray
+  v.d = 0
+  v.pi = nil
+  Q := new queue
+  Q.enqueue(v)
+  while Q is not empty
+    u := Q.dequeue()
+    for each n in Adj(u)
+      if n.color == white
+        n.color = gray
+        n.d = u.d + 1
+        n.pi = u
+        Q.enqueue(n)
+    u.color = black
+```
+
+:::details[Exemplo de Aplicação do Algoritmo]
+
+Vamos utilizar um grafo não dirigido, como o seguinte:
+
+![Exemplo BFS - Grafo](./assets/0004-exemplo-graph-bfs.png#dark=1)
+
+O decorrer do algoritmo é:
+
+- Começamos por explorar $S$ - tem adjacências $R$ e $W$, pelo que adicionamos esses vértices à queue.
+- Exploramos $R$, por ser o próximo vértice da queue, e adicionamos $V$ (a sua única adjacência) à queue.
+- Exploramos $W$, e adicionamos $T$ e $X$ à queue.
+- Exploramos $V$, que não tem qualquer adjacência, pelo que não se adiciona nada à queue.
+- Exploramos $T$, que tem como adjacências $X$ e $U$. $X$ já foi adicionado à queue por $W$, pelo que apenas $U$ é adicionado.
+- Exploramos $X$, que tem como adjacências $W$, $T$ e $Y$. Todos exceto $Y$ já foram adicionados à queue previamente, pelo que apenas $Y$ é adicionado.
+- Exploramos $U$, que não tem adjacências por explorar, pelo que nada é adicionado.
+- Exploramos $Y$, que não tem adjacências por explorar, pelo que nada é adicionado.
+
+O algoritmo termina aqui.
+
+Os números ao lado de cada vértice correspondem à distância do vértice que escolhemos como raiz da BFS, neste caso o vértice $S$. As distâncias acima podem, ainda, corresponder a **níveis** de uma árvore da floresta DFS (como se pode ver abaixo). A linha vertical de vértices corresponde à fila de vértices a serem explorados, à medida que iam sendo colocados na pilha - o X é colocado sempre que "acabamos de explorar" um vértice.
+
+![Exemplo BFS - Fila](./assets/0004-exemplo-graph-bfs-tree.png#dark=1)
+
+:::
+
+Em termos de complexidade (agregada), podemos dizer que o primeiro loop (`for`) tem complexidade $\Theta(V)$ (passa por todos os vértices menos um, sem operações recursivas no seu interior), enquanto que o segundo loop (`while`) tem complexidade $\Theta(V + E)$, já que a queue irá incluir todos os vértices, e para cada vértice são verificadas todas as suas adjacências. Podemos, assim, admitir que a complexidade temporal da BFS é $\Theta(V + E)$.
 
 ---
 
