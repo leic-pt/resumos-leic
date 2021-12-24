@@ -426,6 +426,9 @@ Em termos de complexidade (agregada), podemos dizer que o primeiro loop (`for`) 
 
 ---
 
-- [Slides]()
-- [Notas da Aula]()
+- [Slides DFS (geral)](https://drive.google.com/file/d/13GOYSkvAidqUVJozY1Fwu6cg96Xuma-S/view?usp=sharing)
+- [Slides DFS (Ordenação Topológica + SCCs)](https://drive.google.com/file/d/1HTYOS2p7ysnRLuX4gvaqRw9L9ijioFE9/view?usp=sharing)
+- [Slides BFS](https://drive.google.com/file/d/1HTYOS2p7ysnRLuX4gvaqRw9L9ijioFE9/view?usp=sharing)
+- [Notas DFS - Prof. José Fragoso](https://drive.google.com/file/d/1oqrsRIFE72_zZ7-1URzRsPrz8gXY_NWR/view?usp=sharing)
+- [Notas SCCs e BFS - Prof. José Fragoso](https://drive.google.com/file/d/1Fa14Veb5Q9sKgouVtpSClVmMxoGRgRGW/view?usp=sharing)
 - [Notas sobre DFS - Universidade de Edimburgo](https://www.inf.ed.ac.uk/teaching/courses/inf2b/algnotes/note10.pdf)
