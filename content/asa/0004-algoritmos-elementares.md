@@ -414,15 +414,25 @@ O decorrer do algoritmo é:
 - Exploramos $U$, que não tem adjacências por explorar, pelo que nada é adicionado.
 - Exploramos $Y$, que não tem adjacências por explorar, pelo que nada é adicionado.
 
-O algoritmo termina aqui.
-
-Os números ao lado de cada vértice correspondem à distância do vértice que escolhemos como raiz da BFS, neste caso o vértice $S$. As distâncias acima podem, ainda, corresponder a **níveis** de uma árvore da floresta DFS (como se pode ver abaixo). A linha vertical de vértices corresponde à fila de vértices a serem explorados, à medida que iam sendo colocados na pilha - o X é colocado sempre que "acabamos de explorar" um vértice.
-
-![Exemplo BFS - Fila](./assets/0004-exemplo-graph-bfs-tree.png#dark=1)
+O algoritmo termina aqui. Os números ao lado de cada vértice correspondem à distância do vértice que escolhemos como raiz da BFS, neste caso o vértice $S$. A estrutura vertical que podemos observar à esqueerda corresponde à fila em que os vértices iam sendo colocados.
 
 :::
 
 Em termos de complexidade (agregada), podemos dizer que o primeiro loop (`for`) tem complexidade $\Theta(V)$ (passa por todos os vértices menos um, sem operações recursivas no seu interior), enquanto que o segundo loop (`while`) tem complexidade $\Theta(V + E)$, já que a queue irá incluir todos os vértices, e para cada vértice são verificadas todas as suas adjacências. Podemos, assim, admitir que a complexidade temporal da BFS é $\Theta(V + E)$.
+
+### [Árvore _Breadth-First_](color:yellow)
+
+Por **árvore BF** temos um sub-grafo de $G$ correspondente à travessia BFS por $G$ a começar num dado vértice $v$. [**A árvore BF a começar num dado vértice $v$ é igual a uma árvore DFS a começar no mesmo vértice**](color:orange) - os vértices atingíveis a partir de uma fonte são sempre os mesmos, os "tempos" em que descobrimos cada vértice na procura é que podem ser diferentes.
+
+Por exemplo, para a BFS:
+
+![Exemplo Árvore BFS - Grafo](./assets/0004-exemplo-graph-bfs.png#dark=1)
+
+A árvore BF correspondente é a abaixo:
+
+![Exemplo BFS - Fila](./assets/0004-exemplo-graph-bfs-tree.png#dark=1)
+
+As "distâncias" (os tempos indicados na BFS) correspondem a **níveis** da árvore (como se pode ver acima).
 
 ---
 
