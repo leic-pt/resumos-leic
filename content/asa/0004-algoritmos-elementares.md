@@ -26,7 +26,7 @@ Consiste num algoritmo recursivo que utiliza a noção de _backtracking_. Procur
 
 Consideremos o seguinte grafo:
 
-![DFS - Grafo do primeiro exemplo](./assets/0004-dfs-grafo-primeiro-exemplo.png#dark=1)
+![DFS - Grafo do primeiro exemplo](./assets/0004-dfs-grafo-primeiro-exemplo.gif)
 
 Tenhamos ainda que, em caso de empate entre dois vértices, o algoritmo deve escolher o vértice que vem antes por ordem alfabética. Começaremos no vértice A.
 
