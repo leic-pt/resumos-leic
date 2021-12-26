@@ -7,6 +7,10 @@ type: content
 
 # Programação Multi-Tarefa
 
+```toc
+
+```
+
 ## Trincos
 
 Para saber como programar com vários processos que partilham memória temos de:
@@ -76,9 +80,9 @@ transferir(conta a, conta b, int montante) {
 }
 ```
 
-- O que pode correr mal?
+O que pode correr mal?
 
-Uma das execuções do processo, pode bloquear a, e outra bloqueia b, e depois ficam uma à espera da outra (?)
+Uma das execuções do processo, pode bloquear a, e outra bloqueia b, e depois ficam uma à espera da outra
 
 ## Jantar dos Filósofos
 
