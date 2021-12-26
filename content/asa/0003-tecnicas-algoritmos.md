@@ -8,6 +8,7 @@ description: Programação Dinâmica.
   Algoritmos Greedy.
   Problema da Mochila Fracionária sem Repetição.
   Seleção de Atividades.
+  Algoritmo de Huffman.
 path: /asa/tecnicas-algoritmos
 type: content
 ---
@@ -695,3 +696,5 @@ Chegámos, portanto, a um produto com duas partes - temos, claro, que $f(b) - f(
 - [Notas da Aula 4 - Prof. José Fragoso](https://drive.google.com/file/d/1raxKYC4ve-qrO8Xgc1qxcI9UxpYCryrK/view?usp=sharing)
 
 - [Notas da Aula 5 - Prof. José Fragoso](https://drive.google.com/file/d/1tEMUFKuYdfHq61KC5Q2G0atqNR9wbNUG/view?usp=sharing)
+
+- [Notas da Aula 6 - Prof. José Fragoso](https://drive.google.com/file/d/1oqrsRIFE72_zZ7-1URzRsPrz8gXY_NWR/view?usp=sharing)
