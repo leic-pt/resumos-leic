@@ -261,7 +261,7 @@ Só depois de `wait` é que o processo é totalmente esquecido.
       a = fnPai();
       wait(&s);
       if (WIFEXITED(s))
-        printf("Total: %d\n", a + WIFEXITED(s));
+        printf("Total: %d\n", a + WEXITSTATUS(s));
       exit(EXIT_SUCCESS);
     }
   }
