@@ -60,8 +60,8 @@ A tabela abaixo indica os tempos de descoberta e fecho de cada vértice:
 
 |       | A   | B   | C   | D   | E   | F   |
 | ----- | --- | --- | --- | --- | --- | --- |
-| $d_i$ | 1   | 2   | 3   | 4   | 9   | 10  |
-| $f_i$ | 8   | 7   | 6   | 5   | 12  | 11  |
+| $d_i$ | 1   | 2   | 9   | 4   | 3   | 10  |
+| $f_i$ | 8   | 7   | 12  | 5   | 6   | 11  |
 
 (Aqui, $d_i$ corresponde ao tempo de descoberta e $f_i$ ao tempo de fecho)
 
