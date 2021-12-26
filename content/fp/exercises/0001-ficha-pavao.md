@@ -1324,7 +1324,6 @@ para serem corrigidas.
             cNum = letra_numero(c)
 
             def verificar_posicoes(transformer, posicoes):
-                res = []
                 for pos in posicoes:
                     row, col = transformer(pos)
                     if (row, col) not in tabuleiro:
@@ -1332,8 +1331,8 @@ para serem corrigidas.
                     corTarget, tipo = tabuleiro[(row, col)]
                     if corTarget == cor:
                         break  # peça da mesma cor, não podemos passar por cima
-                    res += [tipo, corTarget, (row, col)]
-                return res
+                    return [tipo, corTarget, (row, col)]
+                return []
 
             # Linhas
             for pos in (range(l + 1, 9), range(l - 1, -1, -1)):
