@@ -21,7 +21,7 @@ Para saber como programar com vários processos que partilham memória temos de:
 Um trinco (mutex), muito resumidamente é uma flag que só permite que uma parte de memória seja acedida **apenas** por uma `thread`,
 se outra `thread` quiser aceder a essa parte de memória não o poderá fazer, assim vai ficar à espera até que essa parte de memória não esteja a ser acedida por nenhuma outra `thread`.
 
-### Trinco global
+### Trinco Global
 
 - Normalmente é a solução mais simples
 - Mas limita o paralelismo
@@ -31,8 +31,6 @@ se outra `thread` quiser aceder a essa parte de memória não o poderá fazer, a
   - Grande barreira de escalabilidade
   - Finalmente removido na versão 2.6
 
-Como sincronizar esta função?
-
 ```c
 struct {
   int saldo;
@@ -40,17 +38,17 @@ struct {
 } conta_t;
 
 int levantar_dinheiro (conta_t* conta, int valor) {
-  mutex_lock(conta->saldo);
+  mutex_lock(conta->saldo); // Bloqueia o acesso a este endereço de memória a outras threads
   if (conta->saldo >= valor)
     conta->saldo = conta->saldo - valor;
   else
-    valor = -1; /* -1 indica erro ocorrido \*/
-  mutex_unlock(conta->saldo);
+    valor = -1; /* -1 indica erro ocorrido */
+  mutex_unlock(conta->saldo); // Desbloqueia o acesso a este endereço de memória
   return valor;
 }
 ```
 
-### Trincos finos: programação com objetos partilhados
+### Trincos Finos: Programação com Objetos Partilhados
 
 - Objeto cujos métodos podem ser chamados em
   concorrência por diferentes tarefas
@@ -67,7 +65,7 @@ int levantar_dinheiro (conta_t* conta, int valor) {
 - Em geral, maior paralelismo
 - Mas pode trazer bugs difíceis de resolver…
 
-Exemplo com trincos finos
+#### Exemplo com Trincos Finos
 
 ```c
 transferir(conta a, conta b, int montante) {
@@ -99,7 +97,7 @@ Uma das execuções do processo, pode bloquear a, e outra bloqueia b, e depois f
   - Um filósofo apenas pode utilizar os garfos
     imediatamente à sua esquerda e direita.
 
-Implementação Naive
+### Implementação Naive
 
 ```c
 filosofo(int id){
@@ -112,7 +110,7 @@ filosofo(int id){
 }
 ```
 
-### Jantar dos Filósofos com Semáforos, versão #1
+### Jantar dos Filósofos com Semáforos
 
 ```c
 mutex_t garfo[5] = {…};
@@ -159,7 +157,8 @@ while (TRUE) {
 }
 ```
 
-Nesta implementação, apenas o filósofo 4 se comporta de maneira diferente.
+Nesta implementação, apenas o filósofo 4 se comporta de maneira diferente.\
+Assim todos cumprem a ordem definida.
 
 Outra solução possível seria:
 
@@ -187,24 +186,23 @@ filosofo(int id){
 }
 ```
 
-### Evitar míngua: recuo aleatório!
+### Evitar Míngua: Recuo Aleatório!
 
 - Pretende-se evitar que dois filósofos vizinhos possam conflituar indefinidamente
 - Introduzir uma fase de espera/recuo (back-off) entre uma tentativa e outra de cada filósofo.
 - Como escolher a duração da fase de espera?
   - Existem várias maneiras de escolher
 
-Uma implementação simples é escolher valores aleatórios
+Uma implementação simples é escolher valores aleatórios de espera
 
 - Duração aleatória entre [0, MAX]
-  - Porquê aleatória?
 - Como escolher o valor MAX?
   - Quanto maior o valor de MAX:
-    - menor desempenho
-    - maior probabilidade de evitar contenção
+    - [menor desempenho](color:red)
+    - [maior probabilidade de evitar contenção](color:green)
   - Adaptar o valor de MAX consoante o número de
     tentativas
-    - Por exemplo, MAX = constante $\times$ num_tentativas
+    - Por exemplo, MAX $=$ constante $\times$ num_tentativas
 
 :::tip[Prevenir Inteblocagem]
 
@@ -212,7 +210,7 @@ Uma implementação simples é escolher valores aleatórios
   segundo uma ordem total pré-definida
 - Quando a aquisição de um recurso não é
   possível, liberta-se todos os recursos detidos
-  e anulan-se as operações realizadas até esse
+  e anulam-se as operações realizadas até esse
   momento
   :::
 
@@ -229,7 +227,7 @@ Num dado ponto do código, tarefa só quer avançar quando uma condição se ver
 int vagas = N
 
 void entrar() {
-  if (vagas==0)
+  if (vagas == 0)
       // esperar até haver vaga
   vagas --;
 }
@@ -239,7 +237,7 @@ void sair() {
 }
 ```
 
-Com mutex implementados, podemos implementar da seguinte maneira:
+Com mutex implementados, o código fica da seguinte maneira:
 
 ```c
 int vagas = N;
@@ -248,7 +246,7 @@ mutex m;
 void entrar() {
   do {
     lock(m);
-    if (vagas>0) break;
+    if (vagas > 0) break;
     else unlock(m);
   } while (1); // Existe problema
   vagas --;
@@ -289,7 +287,7 @@ Uma tarefa só pode chamar `wait` quando detenha o trinco associado à variável
   - Se não houver tarefas na fila da variável de condição, não tem efeito
 
 - `broadcast(conditionVar)`
-  - Análogo ao signal mas desbloqueia todas as tarefas na fila
+  - Análogo ao `signal` mas desbloqueia todas as tarefas na fila
     da variável de condição
 
 Normalmente estas primitivas são chamadas quando a tarefa ainda não libertou o trinco
@@ -302,7 +300,7 @@ associado à variável de condição
 ```c
 lock(trinco);
 /* ..acesso a variáveis partilhadas.. */
-while (! condiçãoSobreEstadoPartilhado)
+while (!condiçãoSobreEstadoPartilhado)
   wait(varCondicao, trinco);
 /* ..acesso a variáveis partilhadas.. */
 unlock(trinco);
@@ -322,14 +320,14 @@ unlock(trinco);
 
 Variáveis de Condição - POSIX
 
-- pthread_cond_t
+- `pthread_cond_t`
 - Criação/destruição de variáveis de condição;
-  - pthread_cond_init (condition,attr)
-  - pthread_cond_destroy (condition)
+  - `pthread_cond_init (condition,attr)`
+  - `pthread_cond_destroy (condition)`
 - Assinalar e esperar nas variáveis de condição:
-  - pthread_cond_wait (condition,mutex)
-  - pthread_cond_signal (condition)
-  - pthread_cond_broadcast (condition)
+  - `pthread_cond_wait (condition,mutex)`
+  - `pthread_cond_signal (condition)`
+  - `pthread_cond_broadcast (condition)`
 
 Voltando ao exemplo do acesso ao parque de estacionamento
 

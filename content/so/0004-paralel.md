@@ -325,7 +325,7 @@ while(TRUE) {
     continue;
   }
   if (pid != 0) {
-    wait(&status) // Se o fork gerar um pai
+    wait(&status); // Se o fork gerar um pai
   } else{
     execv(command, params);
   }
