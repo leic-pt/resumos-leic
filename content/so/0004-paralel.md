@@ -261,7 +261,7 @@ Só depois de `wait` é que o processo é totalmente esquecido.
       a = fnPai();
       wait(&s);
       if (WIFEXITED(s))
-        printf("Total: %d\n", a + WIFEXITED(s));
+        printf("Total: %d\n", a + WEXITSTATUS(s));
       exit(EXIT_SUCCESS);
     }
   }
@@ -325,7 +325,7 @@ while(TRUE) {
     continue;
   }
   if (pid != 0) {
-    wait(&status) // Se o fork gerar um pai
+    wait(&status); // Se o fork gerar um pai
   } else{
     execv(command, params);
   }
@@ -553,3 +553,9 @@ Ao vermos o código assembly desta função, podemos reparar que entre a chamada
 para os registos e a voltar a guardar o valor nas variáveis, o seu valor pode sofrer alteração
 por outras threads que possam estar a escrever sobre elas.  
 Temos assim que evitar que threads acedam ao mesmo endereço de memória ao mesmo tempo.
+
+---
+
+Slides:
+
+- [Slides 3](https://drive.google.com/file/d/1z8LmFC_-qSNok2l4b8KznLK7sEPxwexY/view?usp=sharing)
