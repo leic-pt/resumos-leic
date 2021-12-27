@@ -1331,7 +1331,7 @@ para serem corrigidas.
                     corTarget, tipo = tabuleiro[(row, col)]
                     if corTarget == cor:
                         break  # peça da mesma cor, não podemos passar por cima
-                    return [tipo, corTarget, (row, col)]
+                    return [[tipo, corTarget, (row, col)]]
                 return []
 
             # Linhas
