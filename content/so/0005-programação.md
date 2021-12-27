@@ -34,16 +34,18 @@ se outra `thread` quiser aceder a essa parte de memória não o poderá fazer, a
 ```c
 struct {
   int saldo;
-  …
+  // ...
 } conta_t;
 
 int levantar_dinheiro (conta_t* conta, int valor) {
-  mutex_lock(conta->saldo); // Bloqueia o acesso a este endereço de memória a outras threads
+  mutex_lock(conta->saldo); // Bloqueia o acesso a este endereço
+                            // de memória a outras threads
   if (conta->saldo >= valor)
     conta->saldo = conta->saldo - valor;
   else
     valor = -1; /* -1 indica erro ocorrido */
-  mutex_unlock(conta->saldo); // Desbloqueia o acesso a este endereço de memória
+  mutex_unlock(conta->saldo); // Desbloqueia o acesso a este
+                              // endereço de memória
   return valor;
 }
 ```
@@ -53,7 +55,6 @@ int levantar_dinheiro (conta_t* conta, int valor) {
 - Objeto cujos métodos podem ser chamados em
   concorrência por diferentes tarefas
 - Devem ter:
-
   - Interface dos métodos públicos
   - Código de cada método
   - Variáveis de estado
@@ -61,9 +62,8 @@ int levantar_dinheiro (conta_t* conta, int valor) {
     - Um trinco para garantir que métodos críticos se executam em
       exclusão mútua
     - Opcionalmente: semáforos, variáveis de condição
-
 - Em geral, maior paralelismo
-- Mas pode trazer bugs difíceis de resolver…
+- Mas pode trazer bugs difíceis de resolver...
 
 #### Exemplo com Trincos Finos
 
@@ -80,7 +80,8 @@ transferir(conta a, conta b, int montante) {
 
 O que pode correr mal?
 
-Uma das execuções do processo, pode bloquear a, e outra bloqueia b, e depois ficam uma à espera da outra
+Uma das execuções do processo pode bloquear a e outra bloqueia b, e depois ficam uma à espera da outra (e.g. `transferir(a, b, 10)` e `transferir(b, a, 20)`).  
+Isto leva-nos a um exemplo conhecido: o Jantar dos Filósofos.
 
 ## Jantar dos Filósofos
 
@@ -91,8 +92,8 @@ Uma das execuções do processo, pode bloquear a, e outra bloqueia b, e depois f
     apenas tem um garfo por pessoa.
 
 - Condições:
-  - Os filósofos podem estar em um de três estados :
-    Pensar, Decidir comer , Comer.
+  - Os filósofos podem estar em um de três estados:
+    Pensar, Decidir comer, Comer.
   - O lugar de cada filósofo é fixo.
   - Um filósofo apenas pode utilizar os garfos
     imediatamente à sua esquerda e direita.
@@ -100,7 +101,7 @@ Uma das execuções do processo, pode bloquear a, e outra bloqueia b, e depois f
 ### Implementação Naive
 
 ```c
-filosofo(int id){
+filosofo(int id) {
   while (TRUE) {
     pensar();
     <adquirir os garfos>
@@ -110,27 +111,32 @@ filosofo(int id){
 }
 ```
 
+O problema desta implementação é que pode parar o programa para sempre.
+Por exemplo, se cada filósofo fizer _lock_ do garfo à sua direita, nenhum vai conseguir efetuar o segundo _lock_ do garfo à sua esquerda,
+ficando o programa parado infinitamente.
+
 ### Jantar dos Filósofos com Semáforos
 
 ```c
-mutex_t garfo[5] = {…};
+mutex_t garfo[5] = {...};
 
-filosofo(int id)
-{
+filosofo(int id) {
   while (TRUE) {
     pensar();
     fechar(garfo[id]);
-    fechar (garfo[(id+1)%5]);
+    fechar (garfo[(id + 1) % 5]);
     comer();
     abrir(garfo[id]);
-    abrir(garfo[(id+1)%5]);
+    abrir(garfo[(id + 1) % 5]);
   }
 }
 ```
 
-$0 \rightarrow 1 \rightarrow 2 \rightarrow 3 \rightarrow 4$
+$$
+0 \rightarrow 1 \rightarrow 2 \rightarrow 3 \rightarrow 4
+$$
 
-Esta implementação segue o esquema em cima definido, um filósofo deve escolher sempre pela ordem.
+Esta implementação segue o esquema acima definido, um filósofo deve escolher sempre pela ordem.
 Se o filósofo quiser o garfo 3 e 4, deve escolher primeiro o 3 e só depois o 4.
 
 Isto abre um problema, no caso do filósofo número 4, este escolhe primeiro o 4 e depois o 0, indo contra o príncipio definido em cima.
@@ -138,21 +144,20 @@ Isto abre um problema, no caso do filósofo número 4, este escolhe primeiro o 4
 Temos assim de arranjar uma solução para esse caso.
 
 ```c
-mutex_t garfo[5] = {…};
-filosofo(int id)
-{
-while (TRUE) {
-  pensar();
-  if (id < 4) {
-    fechar(garfo[id]);
-    fechar (garfo[(id+1)%5]);
-  else {
-    fechar (garfo[(id+1)%5]);
-    fechar(garfo[id]);
-  }
-  comer();
-  abrir(garfo[id]);
-  abrir(garfo[(id+1)%5]);
+mutex_t garfo[5] = {...};
+filosofo(int id){
+  while (TRUE) {
+    pensar();
+    if (id < 4) {
+      fechar(garfo[id]);
+      fechar(garfo[(id + 1) % 5]);
+    else {
+      fechar(garfo[(id + 1) % 5]);
+      fechar(garfo[id]);
+    }
+    comer();
+    abrir(garfo[id]);
+    abrir(garfo[(id + 1) % 5]);
   }
 }
 ```
@@ -160,33 +165,34 @@ while (TRUE) {
 Nesta implementação, apenas o filósofo 4 se comporta de maneira diferente.\
 Assim todos cumprem a ordem definida.
 
+### Evitar Míngua: Recuo Aleatório!
+
 Outra solução possível seria:
 
 ```c
-mutex_t garfo[5] = {…};
+mutex_t garfo[5] = {...};
 
-filosofo(int id){
+filosofo(int id) {
   int garfos;
   while (TRUE) {
     pensar();
     garfos = FALSE;
-    while (!garfos){
-      if (lock(garfo[id])
-        if (try_lock(garfo[(id+1)%5])
+    while (!garfos) {
+      if (lock(garfo[id])) {
+        if (try_lock(garfo[(id + 1) % 5])) {
           garfos = TRUE;
-        else { // adquisição 2º trinco falhou
-          unlock(garfo[id]); // abre 1ºtrinco e tenta outra vez
+        } else { // adquisição 2º trinco falhou
+          unlock(garfo[id]); // abre 1º trinco e tenta outra vez
           sleep(random([0, MAX]);
-          }
+        }
+      }
     }
-  comer();
-  unlock(garfo[id]);
-  unlock(garfo[(id+1)%5]);
+    comer();
+    unlock(garfo[id]);
+    unlock(garfo[(id + 1) % 5]);
   }
 }
 ```
-
-### Evitar Míngua: Recuo Aleatório!
 
 - Pretende-se evitar que dois filósofos vizinhos possam conflituar indefinidamente
 - Introduzir uma fase de espera/recuo (back-off) entre uma tentativa e outra de cada filósofo.
@@ -227,13 +233,14 @@ Num dado ponto do código, tarefa só quer avançar quando uma condição se ver
 int vagas = N
 
 void entrar() {
-  if (vagas == 0)
-      // esperar até haver vaga
-  vagas --;
+  if (vagas == 0) {
+    // esperar até haver vaga
+  }
+  vagas--;
 }
 
 void sair() {
-  vagas ++;
+  vagas++;
 }
 ```
 
@@ -299,10 +306,10 @@ associado à variável de condição
 
 ```c
 lock(trinco);
-/* ..acesso a variáveis partilhadas.. */
+/* ... acesso a variáveis partilhadas ... */
 while (!condiçãoSobreEstadoPartilhado)
   wait(varCondicao, trinco);
-/* ..acesso a variáveis partilhadas.. */
+/* ... acesso a variáveis partilhadas ... */
 unlock(trinco);
 ```
 
@@ -310,10 +317,10 @@ unlock(trinco);
 
 ```c
 lock(trinco);
-/* ..acesso a variáveis partilhadas.. */
+/* ... acesso a variáveis partilhadas ... */
 /* se o estado foi modificado de uma forma
-que pode permitir progresso a outras tarefas,
-chama signal (ou broadcast) */
+   que pode permitir progresso a outras tarefas,
+   chama signal (ou broadcast) */
 signal/broadcast(varCondicao);
 unlock(trinco);
 ```
@@ -321,15 +328,15 @@ unlock(trinco);
 Variáveis de Condição - POSIX
 
 - `pthread_cond_t`
-- Criação/destruição de variáveis de condição;
-  - `pthread_cond_init (condition,attr)`
+- Criação/destruição de variáveis de condição ([man page](https://man.archlinux.org/man/core/man-pages/pthread_cond_destroy.3p.en));
+  - `pthread_cond_init (condition, attr)`
   - `pthread_cond_destroy (condition)`
 - Assinalar e esperar nas variáveis de condição:
-  - `pthread_cond_wait (condition,mutex)`
-  - `pthread_cond_signal (condition)`
-  - `pthread_cond_broadcast (condition)`
+  - `pthread_cond_wait (condition, mutex)` ([man page](https://man.archlinux.org/man/core/man-pages/pthread_cond_timedwait.3p.en))
+  - `pthread_cond_signal (condition)` ([man page](https://man.archlinux.org/man/core/man-pages/pthread_cond_broadcast.3p.en))
+  - `pthread_cond_broadcast (condition)` ([man page](https://man.archlinux.org/man/core/man-pages/pthread_cond_broadcast.3p.en))
 
-Voltando ao exemplo do acesso ao parque de estacionamento
+Voltando ao exemplo do acesso ao parque de estacionamento:
 
 ```c
 int vagas = N;
@@ -339,13 +346,13 @@ void entrar() {
   lock(m);
   while (vagas == 0)
     wait(c, m);
-  vagas --;
+  vagas--;
   unlock(m);
 }
 
 void sair() {
   lock(m);
-  vagas ++;
+  vagas++;
   signal(c);
   unlock(m);
 }
