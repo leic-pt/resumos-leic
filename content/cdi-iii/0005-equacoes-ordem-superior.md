@@ -672,7 +672,7 @@ $$
 y_G = c_1 x^2 + c_2 x^{-3}.
 $$
 
-Procuraremos, agora, calcular a solução particular, recorrendo ao Wronskiano. Para este passo é importante que a o termo de ordem 2 da equação tenha coeficiente $1$, caso contrário o resultado será incorreto.
+Procuraremos, agora, calcular a solução particular, recorrendo ao Wronskiano. Para este passo é importante que o termo de ordem 2 da equação tenha coeficiente $1$, caso contrário o resultado será incorreto.
 
 Dadas as duas soluções da equação homogénea, teremos que a matriz Wronskiana é:
 
