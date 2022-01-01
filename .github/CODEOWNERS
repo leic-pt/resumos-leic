@@ -5,8 +5,8 @@
 # AL - Main maintainer Diogo Correia
 content/al/** @diogotcorreia [al]
 
-# ASA - Main maintainer Diogo Correia
-content/asa/** @diogotcorreia [asa]
+# ASA - Main maintainer Diogo Gaspar
+content/asa/** @randomicecube [asa]
 
 # BD - Main maintainer Diogo Correia
 content/bd/** @diogotcorreia [bd]
@@ -31,7 +31,8 @@ content/fis-ii/cheatsheets @Pesteves2002 [fis-ii]
 content/fp/** @diogotcorreia [fp]
 
 # Ges - Main maintainer Diogo Correia
-content/ges/** @diogotcorreia [ges]
+content/ges/** @trvds @diogotcorreia [ges]
+content/ges/exercicios/** @diogotcorreia [ges]
 
 # IA - Main maintainer Diogo Correia
 content/ia/** @diogotcorreia [ia]
@@ -66,8 +67,8 @@ content/pe/** @diogotcorreia [pe]
 content/po/** @diogotcorreia [po]
 content/po/guides/** @diogotcorreia [po]
 
-# SO - Main maintainer Diogo Correia
-content/so/** @diogotcorreia [so]
+# SO - Main maintainer Tomás Esteves
+content/so/** @Pesteves2002 [so]
 
 # TC - Main maintainer Diogo Correia
 content/tc/** @diogotcorreia [tc]

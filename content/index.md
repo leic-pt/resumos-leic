@@ -122,6 +122,52 @@ years:
             link: '/ia'
             image: assets/ia.svg
             color: '#3f51b5'
+  - name: '3º Ano'
+    semesters:
+      - name: '1º Semestre'
+        courses:
+          - name: OC
+            description: P1
+            link: '/oc'
+            image: assets/oc.svg
+            color: '#e65100'
+          - name: AMS
+            description: P2
+            link: '/ams'
+            image: assets/ams.svg
+            color: '#ff5252'
+          - name: Apre
+            description: P1
+            link: '/apre'
+            image: assets/apre.svg
+            color: '#534bae'
+          - name: RC
+            description: P2
+            link: '/rc'
+            image: assets/rc.svg
+            color: '#524c00'
+      - name: 2º Semestre
+        courses:
+          - name: SD
+            description: P3
+            link: '/sd'
+            image: assets/sd.svg
+            color: '#827717'
+          - name: Comp
+            description: P4
+            link: '/comp'
+            image: assets/comp.svg
+            color: '#c50e29'
+          - name: ES
+            description: P3
+            link: '/es'
+            image: assets/es.svg
+            color: '#c56000'
+          - name: CG
+            description: P4
+            link: '/cg'
+            image: assets/cg.svg
+            color: '#3f51b5'
 ---
 
 ## Links úteis
@@ -130,7 +176,7 @@ years:
 - [EdenBox](https://www.edenbox.org/) - Testes, fichas e muito mais de todas as UCs de LEIC
 - [IST Space Finder](https://spaces.leic.pt) - Find your way around the IST campi - Offline Web App made by Diogo Correia
 - [Fónix Mails](https://s.rafael.ovh/fonixmails) - Receber anúncios do Fénix por e-mail
-- [Gerador de Horários (Daniel Gonçalves)](https://horarios.dagoncalves.me/)
+- [Criador de Horários (Daniel Gonçalves)](https://horarios.dang.pt/)
 - [Gerador de Horários (Joana Sesinando)](https://web.tecnico.ulisboa.pt/joanasesinando/gerador-horarios/)
 - [Reencaminhar emails do Técnico para o Gmail](https://www.notion.so/diogocorreia/Reenchaminhar-emails-do-T-cnico-para-Gmail-2975d496a1d3447a84b0d0cf163dd65f)
 - [Caderno Rita Mendes](https://www.notion.so/IST-MEEC-0c22d514a81645eca3c2a58739e323e1) - (IST - MEEC)
@@ -140,9 +186,9 @@ years:
 Quero agradecer a [todos os que contribuíram](https://github.com/diogotcorreia/resumos-leic/graphs/contributors) para os conteúdos deste site:
 
 - [Diogo Correia](https://github.com/diogotcorreia/resumos-leic/commits?author=diogotcorreia) (**Website**, **CDI-I**, **CDI-II**, **CDI-III**, MD, IAED)
-- [Diogo Gaspar](https://github.com/diogotcorreia/resumos-leic/commits?author=randomicecube) (**LP**)
-- [Tomás Esteves](https://github.com/diogotcorreia/resumos-leic/commits?author=Pesteves2002) (**IAED**, **Fis-II**, MD, CDI-II, LP)
-- [João Rocha](https://github.com/diogotcorreia/resumos-leic/commits?author=Calhau18) (CDI-I, CDI-II, MD, CDI-III, Fis-II)
+- [Diogo Gaspar](https://github.com/diogotcorreia/resumos-leic/commits?author=randomicecube) (**LP**, **ASA**, CDI-I)
+- [Tomás Esteves](https://github.com/diogotcorreia/resumos-leic/commits?author=Pesteves2002) (**IAED**, **Fis-II**, **SO**, MD, CDI-II, LP)
+- [João Rocha](https://github.com/diogotcorreia/resumos-leic/commits?author=Calhau18) (CDI-I, CDI-II, MD, CDI-III, Fis-II, ASA)
 - [Rúben Nobre](https://github.com/diogotcorreia/resumos-leic/commits?author=RubenNobre123) (**MD**)
 - [João Fonseca](https://github.com/diogotcorreia/resumos-leic/commits?author=jmseca) (**MD**)
 - [Rafael Oliveira](https://github.com/diogotcorreia/resumos-leic/commits?author=RafDevX) (MD, CDI-II, LP, IAED)
@@ -150,10 +196,12 @@ Quero agradecer a [todos os que contribuíram](https://github.com/diogotcorreia/
 - [Luís Fonseca](https://github.com/diogotcorreia/resumos-leic/commits?author=luishfonseca) (IAED, CDI-II)
 - [Diogo Cardoso](https://github.com/diogotcorreia/resumos-leic/commits?author=D-Card) (IAED)
 - [Diogo Melita](https://github.com/diogotcorreia/resumos-leic/commits?author=dmelita99) (CDI-II)
+- [Gonçalo Nunes](https://github.com/diogotcorreia/resumos-leic/commits?author=Goncalo-Palma-Nunes) (ASA)
 - [Rafael Girão](https://github.com/diogotcorreia/resumos-leic/commits?author=rafaelsgirao) (Meta)
 - [Mateus Pinho](https://github.com/diogotcorreia/resumos-leic/commits?author=footvaalvica) (Meta)
 - [Martim Monis](https://github.com/diogotcorreia/resumos-leic/commits?author=creaaidev) (LP)
-- Rita Mendes (Imagens CDI-II)
+- [Diogo Dinis](https://github.com/diogotcorreia/resumos-leic/commits?author=dmbdpt) (CDI-III)
+- [Rita Mendes](https://github.com/diogotcorreia/resumos-leic/commits?author=SparklingRita) (Imagens CDI-II)
 - [André Teodósio](https://github.com/diogotcorreia/resumos-leic/commits?author=TioDosio) (CDI-II)
 - [Rafaela Oliveira](https://github.com/diogotcorreia/resumos-leic/commits?author=rafaelacorreiaoliveira) (CDI-II)
 
