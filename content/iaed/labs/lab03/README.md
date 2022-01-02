@@ -1,11 +1,11 @@
 ---
-title: Lab 03
-description: Enunciado e resolução dos exercícios do Laboratório 3 de IAED
+title: Leitura de Input
+description: Enunciado e resolução de exercícios sobre Leitura de Input
 path: /iaed/labs/lab03
 type: labsProg
 ---
 
-# Lab 03
+# Leitura de Input
 
 ```toc
 

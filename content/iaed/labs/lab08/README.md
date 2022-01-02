@@ -1,11 +1,11 @@
 ---
-title: Lab 08
-description: Enunciado e resolução dos exercícios do Laboratório 8 de IAED
+title: Alocação de Memória
+description: Enunciado e resolução de exercícios sobre Alocação de Memória
 path: /iaed/labs/lab08
 type: labsProg
 ---
 
-# Lab 08
+# Alocação de Memória
 
 ```toc
 
