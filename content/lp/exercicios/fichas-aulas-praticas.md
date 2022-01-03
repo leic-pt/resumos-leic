@@ -23,19 +23,19 @@ Para além dos exercícios das aulas práticas, o livro de exercícios indicado 
 
 - [Livro de Exercícios Resolvidos](https://drive.google.com/file/d/1TnTYnaNwd5IKWs_DgCcmPjGJcUfuchK2/view?usp=sharing)
 
-- [Semana 1: Lógica Proposicional $I$ ](https://drive.google.com/file/d/1hTp2IvH3uJ7rOfcnMvxWoA6ULzVD8q2t/view?usp=sharing)
+- [Semana 1: Lógica Proposicional $I$](https://drive.google.com/file/d/1hTp2IvH3uJ7rOfcnMvxWoA6ULzVD8q2t/view?usp=sharing)
 
   - [Resolução](https://drive.google.com/file/d/1LAR2DoqgrCfr2BtedGrhuQ2P1O6N-Jq3/view?usp=sharing)
 
-- [Semana 2: Lógica Proposicional $II$ ](https://drive.google.com/file/d/1M6lKs04JQcH-08As-ojF_vBiBul6VmKZ/view?usp=sharing)
+- [Semana 2: Lógica Proposicional $II$](https://drive.google.com/file/d/1M6lKs04JQcH-08As-ojF_vBiBul6VmKZ/view?usp=sharing)
 
   - [Resolução](https://drive.google.com/file/d/1LGRomhscW637ng_THnhGTOFPYS6N3Cb3/view?usp=sharing)
 
-- [Semana 3: Lógica de Primeira Ordem $I$ ](https://drive.google.com/file/d/1vbdUILHoIY9I7nt1VwVCbTdBZYMT8T5H/view?usp=sharing)
+- [Semana 3: Lógica de Primeira Ordem $I$](https://drive.google.com/file/d/1vbdUILHoIY9I7nt1VwVCbTdBZYMT8T5H/view?usp=sharing)
 
   - [Resolução](https://drive.google.com/file/d/1MHMXpa-cB6yKKI12uNldEOm9LsuHpo2T/view?usp=sharing)
 
-- [Semana 4: Lógica de Primeira Ordem $II$ ](https://drive.google.com/file/d/1mEbur70-2TbuVxMkIPmq4S0ADApP9Jis/view?usp=sharing)
+- [Semana 4: Lógica de Primeira Ordem $II$](https://drive.google.com/file/d/1mEbur70-2TbuVxMkIPmq4S0ADApP9Jis/view?usp=sharing)
 
   - [Resolução](https://drive.google.com/file/d/1Oz-I9sp7arjDGHixjCNzU-Vn3mmu-72-/view?usp=sharing)
 
@@ -167,7 +167,7 @@ Para além dos exercícios das aulas práticas, o livro de exercícios indicado 
 
   :::
 
-- [Semana 8: Prolog - Listas $II$ ](https://drive.google.com/file/d/1uYeclFgMh-BH_J8UVDFQ2iIpEnyxBvW4/view?usp=sharing)
+- [Semana 8: Prolog - Listas $II$](https://drive.google.com/file/d/1uYeclFgMh-BH_J8UVDFQ2iIpEnyxBvW4/view?usp=sharing)
 
   Nota importante: Os exercícios desta secção devem ser realizados com predicados de ordem superior (sem recursão, portanto). A secção dos meta-predicados sobre listas poderá ser útil para este propósito.
 
