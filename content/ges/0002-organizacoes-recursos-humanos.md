@@ -134,7 +134,7 @@ Presidente da República > Primeiro Ministro > Ministros > Secretários > Tu.
 ## Gestão de Recursos Humanos
 
 A gestão de recursos humanos inclui a concepção e implementação de sistemas formais que permitam
-a utilização do talento e capacidades das pessoas, de forma eficiente e eficaz, para atingir as metas da organização.\
+a utilização do talento e capacidades das pessoas, de forma eficiente e eficaz, para atingir as metas da organização.  
 A estratégia da gestão de recursos humanos passa pelas seguintes etapas:
 
 ![Etapas da Estratégia de Gestão de Recursos Humanos](./assets/0002-etapas-gestao-rh.png#dark=1)
