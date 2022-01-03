@@ -174,7 +174,7 @@ Podemos, na floresta DFS, representar vários tipos de arcos (arcos estes que re
 
 - **Cross edges** - arestas "cruzadas". Ao contrário das outras arestas, estas **não correspondem** a descendentes/ascendentes diretos - podemos pensar nelas como relações entre primos, tios, etc.
 
-:::details[Exemplo - tipos de Edges]
+:::details[Exemplo - Tipos de Edges]
 
 Pegando no grafo do Exemplo 1 acima:
 

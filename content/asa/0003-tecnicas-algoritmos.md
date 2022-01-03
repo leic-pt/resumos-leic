@@ -405,11 +405,11 @@ Corresponde a uma abordagem de resolução de problemas que escolhe **sempre** a
 
 A opção ótima escolhida num dado momento pode não ser a que leve ao melhor resultado; contudo, mesmo que isso aconteça, o algoritmo nunca volta atrás. Escolhe, portanto, a opção ótima [**localmente**](color:green), que não é necessariamente a melhor opção [**global**](color:yellow).
 
-Em Matemática Discreta, encontrámos um algoritmo que segue a abordagem greedy - o [Algoritmo de Dijkstra](../md/kruskal-dijkstra#algoritmo-de-dijkstra).
+Em Matemática Discreta, encontrámos um algoritmo que segue a abordagem _greedy_ - o [Algoritmo de Dijkstra](../md/kruskal-dijkstra#algoritmo-de-dijkstra).
 
 :::
 
-Estão, de seguida, alguns problemas cuja resolução pode ajudar a perceber a abordagem greedy.
+Estão, de seguida, alguns problemas cuja resolução pode ajudar a perceber a abordagem _greedy_.
 
 ### Problema da Mochila Fracionária sem Repetição
 
@@ -512,7 +512,7 @@ int activitySelection(std::vector<int> start, std::vector<int> finish) {
   int count = 1;
 
   for (int i = 1; i < numElements; i++) {
-    if (s[i] >= finishTime) {
+    if (start[i] >= finishTime) {
       count++;
       finishTime = finish[i];
     }
@@ -591,7 +591,7 @@ Aqui, $d_T$ corresponde à profundidade de $i$ na árvore binária.
 
 Temos, portanto, que o algoritmo de Huffman quererá **minimizar** o custo do código binário. O produto de um caracter muito frequente deve, num modelo ótimo, ser realizado com uma profundidade menor.
 
-O algoritmo em si passa por, inicialmente, considerar todos os caracteres como nós, com valor = frequência. Cria-se uma **min priority queue** (com prioridade = valor), e inserem-se os nós na mesma. De seguida, extraem-se os dois nós com valor menor e somam-se os respetivos valores, criando um novo nó com valor igual a essa soma. Este nó é inserido na queue, e assim sucessivamente $|\Sigma| - 1$ vezes, onde $|\Sigma|$ corresponde ao tamanho do alfabeto. O pseudocódigo é o seguinte:
+O algoritmo em si passa por, inicialmente, considerar todos os caracteres como nós, com valor $=$ frequência. Cria-se uma **min priority queue** (com prioridade $=$ valor), e inserem-se os nós na mesma. De seguida, extraem-se os dois nós com valor menor e somam-se os respetivos valores, criando um novo nó com valor igual a essa soma. Este nó é inserido na queue, e assim sucessivamente $|\Sigma| - 1$ vezes, onde $|\Sigma|$ corresponde ao tamanho do alfabeto. O pseudocódigo é o seguinte:
 
 ```rust
 Huffman(alphabet)
@@ -622,11 +622,11 @@ $$
 O decorrer do algoritmo será:
 
 - Inserir os caracteres na queue, com prioridade = frequência.
-- Extrair os dois nós com menor frequência, neste caso $f$ e $e$, criar um nó com valor 5 + 9 = 14 e inseri-lo na queue.
-- Extrair os dois nós com menor frequência, neste caso $c$ e $b$, criar um nó com valor 12 + 13 = 25 e inseri-lo na queue.
-- Extrair os dois nós com menor frequência, neste caso $d$ e o nó com valor 14, criar um nó com valor 14 + 16 = 30 e inseri-lo na queue.
-- Extrair os dois nós com menor frequência, neste caso o nó com valor 25 e o nó com valor 30, criar um nó com valor 25 + 30 = 55 e inseri-lo na queue.
-- Extrair os dois nós com menor frequência, neste caso o nó com valor 45 e o nó com valor 55, criar um nó com valor 45 + 55 = 100 e inseri-lo na queue.
+- Extrair os dois nós com menor frequência, neste caso $f$ e $e$, criar um nó com valor $5 + 9 = 14$ e inseri-lo na queue.
+- Extrair os dois nós com menor frequência, neste caso $c$ e $b$, criar um nó com valor $12 + 13 = 25$ e inseri-lo na queue.
+- Extrair os dois nós com menor frequência, neste caso $d$ e o nó com valor $14$, criar um nó com valor $14 + 16 = 30$ e inseri-lo na queue.
+- Extrair os dois nós com menor frequência, neste caso o nó com valor $25$ e o nó com valor $30$, criar um nó com valor $25 + 30 = 55$ e inseri-lo na queue.
+- Extrair os dois nós com menor frequência, neste caso o nó com valor $45$ e o nó com valor $55$, criar um nó com valor $45 + 55 = 100$ e inseri-lo na queue.
 
 O algoritmo acaba aqui, e podemos agora verificar que a árvore binária é tal que:
 
@@ -640,11 +640,11 @@ $$
 
 :::
 
-O algoritmo está, claro, inserido na categoria dos [**algoritmos Greedy**](color:orange): tem, portanto, uma escolha greedy associada. Aqui, a escolha consiste em extrair **sempre** os dois nós com menor frequência associada, procurando criar um nó com valor igual a soma dos valores dos dois nós.
+O algoritmo está, claro, inserido na categoria dos [**algoritmos Greedy**](color:orange): tem, portanto, uma escolha _greedy_ associada. Aqui, a escolha consiste em extrair **sempre** os dois nós com menor frequência associada, procurando criar um nó com valor igual a soma dos valores dos dois nós.
 
 :::details[Prova desta escolha ser ótima]
 
-**Lema da escolha greedy** - Seja $\Sigma$ um alfabeto com $f$ a respetiva função de frequências. Então, existe uma árvore ótima $T$ para $\Sigma$ e $f$ tal que os dois nós com menor frequência são irmãos.
+**Lema da escolha _greedy_** - Seja $\Sigma$ um alfabeto com $f$ a respetiva função de frequências. Então, existe uma árvore ótima $T$ para $\Sigma$ e $f$ tal que os dois nós com menor frequência são irmãos.
 
 Tenhamos $T^*$ como sendo uma árvore ótima para $\Sigma$ e $f$. Consideremos ainda $a$ e $b$ como sendo os dois caracteres menos frequentes (e $a$ o menos frequente entre ambos). Temos 2 casos possíveis:
 
