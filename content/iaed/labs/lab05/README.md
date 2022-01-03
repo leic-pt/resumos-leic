@@ -1,11 +1,11 @@
 ---
-title: Lab 05
-description: Enunciado e resolução dos exercícios do Laboratório 5 de IAED
+title: Estruturas
+description: Enunciado e resolução de exercícios sobre Estruturas
 path: /iaed/labs/lab05
 type: labsProg
 ---
 
-# Lab 05
+# Estruturas
 
 ```toc
 

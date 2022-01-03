@@ -1,11 +1,11 @@
 ---
-title: Lab 07
-description: Enunciado e resolução dos exercícios do Laboratório 7 de IAED
+title: Algoritmos Avançados de Ordenação
+description: Enunciado e resolução de exercícios sobre Algoritmos Avançados de Ordenação
 path: /iaed/labs/lab07
 type: labsProg
 ---
 
-# Lab 07
+# Algoritmos Avançados de Ordenação
 
 ```toc
 

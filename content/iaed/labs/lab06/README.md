@@ -1,11 +1,11 @@
 ---
-title: Lab 06
-description: Enunciado e resolução dos exercícios do Laboratório 6 de IAED
+title: Algoritmos Simples de Ordenação e Análise Assimptótica
+description: Enunciado e resolução de exercícios sobre Algoritmos Simples de Ordenação e Análise Assimptótica
 path: /iaed/labs/lab06
 type: labsProg
 ---
 
-# Lab 06
+# Algoritmos Simples de Ordenação e Análise Assimptótica
 
 ```toc
 

@@ -1,11 +1,11 @@
 ---
-title: Lab 04
-description: Enunciado e resolução dos exercícios do Laboratório 4 de IAED
+title: Manipulação de Strings
+description: Enunciado e resolução de exercícios sobre Manipulação de Strings
 path: /iaed/labs/lab04
 type: labsProg
 ---
 
-# Lab 04
+# Manipulação de Strings
 
 ```toc
 
