@@ -187,6 +187,6 @@ Na etapa de desenvolvimento dos recursos humanos distingue-se:
 - **Formação Interna/Externa**: A existência de aprendizagem em aulas, formação dos trabalhadores de modo a que estes possam evoluir na sua carreira.
 
 - **Avaliação de Desempenho**: O processo de observação e valorização do desempenho dos empregados; registo do desempenho;
-  informação dos avaliados e aos gestores responsáveis na tomade de decisões com base nos desempenhos dos individuos.\
-  Os sistemas de avaliação devem ser objetivos/claros, adaptados às mudanças das condições e dos requisitos para o exercicio de tarefas.\
+  informação dos avaliados e aos gestores responsáveis na tomade de decisões com base nos desempenhos dos individuos.  
+  Os sistemas de avaliação devem ser objetivos/claros, adaptados às mudanças das condições e dos requisitos para o exercicio de tarefas.  
   A avaliação deve refletir bem o desempenho de um empregado de forma a que este seja motivado por ela nunca desmotivado.
