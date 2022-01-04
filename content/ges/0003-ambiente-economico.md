@@ -26,7 +26,7 @@ A economia subdivide-se em duas grandes áreas:
 
 - **Microeconomia**: Estuda o comportamento económico de entidades individuais como os mercados, as empresas e as famílias.
 
-Como o próprio nome indica a **Macroeconomia** retrata o grande cenário - o Estado, a Economia Nacional
+Como o próprio nome indica, a **Macroeconomia** retrata o grande cenário - o Estado, a Economia Nacional
 e as relações económicas internacionais - recorrendo a indicadores, como o PIB, a Taxa de Desemprego, a Inflação, etc.
 A **Microeconomia** foca-se no pequeno, no detalhe, nos individuos e nas suas ações, nas empresas e no seu processamento produtivo.
 
