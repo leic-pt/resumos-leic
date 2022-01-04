@@ -115,7 +115,7 @@ $$
 \Delta\text{ativo} = \Delta\text{passivo} + \Delta\text{capital próprio}
 $$
 
-O capital próprio traduz o valor contabilístico da empresa num determinado momento:\
+O capital próprio traduz o valor contabilístico da empresa num determinado momento:  
 o valor que os proprietários receberiam se cessassem a atividade, liquidando todo o ativo e passivo,
 e se os valores de balanço correspondessem exatamente aos valores de mercado.
 
