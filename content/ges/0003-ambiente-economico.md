@@ -125,7 +125,7 @@ em que $n = \text{número de anos}$
 
 :::
 
-A **Deflação** é o processo inverso à inflação, ou seja, uma diminuição do indíce de preços do consumidor, associada a uma queda de preços.
+A **Deflação** é o processo inverso à inflação, ou seja, uma diminuição do índice de preços do consumidor, associada a uma queda de preços.
 Apesar de, intuitivamente pensarmos que se trata de uma coisa boa (comprar mais com a mesma quantidade de dinheiro),
 a deflação está associada a períodos de recessão nacional.
 
