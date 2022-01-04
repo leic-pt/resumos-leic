@@ -176,7 +176,7 @@ criaram e iniciaram a atividade de uma empresa de computadores. Nesse mês ocorr
 - Durante o 1.º mês a empresa faturou 15.000€, com pagamento a 60 dias. O material vendido teve um custo de aquisição de 10.000€.
 - Pagou-se no final do mês ordenados e outros encargos com o pessoal no montante de 1.500€
 
-Balança do Resultados:
+Balança dos Resultados:
 
 ![Balança dos Resultados](./assets/0004-exemplo-balanca-resultados.png)
 
