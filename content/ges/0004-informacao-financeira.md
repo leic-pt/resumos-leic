@@ -21,16 +21,16 @@ type: content
 
 Processo formal de identificar, medir e comunicar a informação sobre o património e resultados da empresa para os decisores e outros agentes.
 
-- **Contabilidade Geral** $\rightsquigarrow$ Financeira/externa
+- **Contabilidade Geral** $\rightsquigarrow$ Financeira/Externa
 
-  - Gera informação para os elementos externos à empresa;
-  - Segue as normas internacionais de contabilidade;
+  - Gera informação para os elementos externos à empresa
+  - Segue as normas internacionais de contabilidade
 
 - **Contabilidade Analítica** $\rightsquigarrow$ Gestão/Interna
 
-  - Gera informação específica e desagregada para apoiar a gestão;
-  - Apura resultados por produtos, regiões, etc;
-  - É a base para orçamentação e análise de custos.
+  - Gera informação específica e desagregada para apoiar a gestão
+  - Apura resultados por produtos, regiões, etc
+  - É a base para orçamentação e análise de custos
 
 - **Contabilidade Pessoal**
 
@@ -81,16 +81,16 @@ O balanço é uma fotografia num dado momento da situação patrimonial da empre
 
 - **Ativo**: Bens e direitos que a empresa possui ou tem direito a receber:
 
-  - **Ativos fixos tangiveis**: Edifícios, equipamentos...
-  - **Ativos fixos intagíveis**: Marcas, patentes...
-  - **Inventários**: Produtos fabricados, em vias de fabricação ou matéria prima.
-  - **Valores Monetários**: Dinheiro, depósitos e titúlos financeiros.
-  - Dívidas de clientes.
+  - **Ativos Fixos Tangíveis**: Edifícios, equipamentos,...
+  - **Ativos Fixos Intagíveis**: Marcas, patentes,...
+  - **Inventários**: Produtos fabricados, em vias de fabricação ou matéria prima
+  - **Valores Monetários**: Dinheiro, depósitos e titúlos financeiros
+  - Dívidas de clientes
 
-- **Passivo**: Responsabilidades da empresa perante terceiros.
+- **Passivo**: Responsabilidades da empresa perante terceiros
 
-- **Capital próprio**: Capital realizado e lucros do período ou de períodos anteriores retidos na empresa. (não distribuido aos sócios ou acionistas).
-  - **Capital Subscrito**: Dinheiro investido formalmente pelos sócios para suportar as necessidades financeiras da empresa.
+- **Capital próprio**: Capital realizado e lucros do período ou de períodos anteriores retidos na empresa. (não distribuido aos sócios ou acionistas)
+  - **Capital Subscrito**: Dinheiro investido formalmente pelos sócios para suportar as necessidades financeiras da empresa
 
 :::tip
 
@@ -105,7 +105,7 @@ O balanço é feito segundo o diagrama seguinte:
 ![Ativo, Passivo e Capital Próprio](./assets/0004-ativo-passivo-capital-proprio.png)
 
 Uma vez que isto é um balanço, a soma do dinheiro do lado esquerdo deve ser igual à soma do dinheiro no lado direito.
-Cada alteração em elementos do **balanço** é causada por uma transação.
+Cada alteração em elementos do **Balanço** é causada por uma transação.
 Cada transação implica sempre no mínimo, dois registos, ou seja, qualquer variação no ativo deverá ser equilibrada
 por uma variação no capital próprio ou no passivo ou, então, com um balanço simétrico no próprio ativo e vice-versa.
 
@@ -115,7 +115,7 @@ $$
 \Delta\text{ativo} = \Delta\text{passivo} + \Delta\text{capital próprio}
 $$
 
-O capital próprio traduz o valor contabilístico da empresa num determinado momento:
+O capital próprio traduz o valor contabilístico da empresa num determinado momento:  
 o valor que os proprietários receberiam se cessassem a atividade, liquidando todo o ativo e passivo,
 e se os valores de balanço correspondessem exatamente aos valores de mercado.
 
@@ -134,15 +134,15 @@ Dia 01/01: Passo para o resultado transitado:
 
 Cada alteração em elementos de Balanço é causada por uma transação. Cada transação implica sempre pelo menos < registos: o sistema de transações chama-se **Dupla Entrada**.
 
-- **Início da atividade** $\rightsquigarrow$ Capital (subscrito): Dinheiro investido formalmente pelos sócios para suportar as necessidades financeiras da empresa.
+- **Início da Atividade** $\rightsquigarrow$ Capital (subscrito): Dinheiro investido formalmente pelos sócios para suportar as necessidades financeiras da empresa.
 
-- **Resultado líquido**: $\rightsquigarrow$ Lucro, prejuizo ou resultado nulo: Fluxo financeiro anual que corresponde à diferença entre rendimentos e gastos.
+- **Resultado Líquido**: $\rightsquigarrow$ Lucro, prejuízo ou resultado nulo: Fluxo financeiro anual que corresponde à diferença entre rendimentos e gastos.
 
-- **Património líquido a cada momento** $\rightsquigarrow$ capital próprio: Os resultados líquidos não distribuidos (ou seja, os que não são usados para pagar dívidas ou dar aos sócios) ficam no capital próprio como reservas.
+- **Património Líquido a cada Momento** $\rightsquigarrow$ capital próprio: Os resultados líquidos não distribuidos (ou seja, os que não são usados para pagar dívidas ou dar aos sócios) ficam no capital próprio como reservas.
 
 O balanço contabilistico e a demonstração de resultados pode ser feita segundo diferentes óticas:
 
-- **Ótica de Caixa**: Permite ver o dinheiro que uma empresa tem num determinado momento, a liquidez;
+- **Ótica de Caixa**: Permite ver o dinheiro que uma empresa tem num determinado momento, a liquidez
 
 - **Ótica de Exercício**: Permite ver se a empresa é rentável
 
@@ -157,11 +157,11 @@ Existem diversos tipos de resultados na demonstração dos mesmos:
 
   RO = Rendimentos Operacionais - Gastos Operacionais
 
-- **Resultado antes do imposto (RAI)**: Resultado operacional deduzido dos gastos de financiamentos líquido.
+- **Resultado Antes do Imposto (RAI)**: Resultado operacional deduzido dos gastos de financiamentos líquido.
 
   RAI = RO - Gastos de Financiamento líquidos
 
-- **Resultado líquido do período (RL)**: Resultada da dedução do imposto sobre o resultado antes de impostos ao RAI.
+- **Resultado Líquido do Período (RL)**: Resultada da dedução do imposto sobre o resultado antes de impostos ao RAI.
 
 :::info[Exemplo]
 
@@ -176,7 +176,7 @@ criaram e iniciaram a atividade de uma empresa de computadores. Nesse mês ocorr
 - Durante o 1.º mês a empresa faturou 15.000€, com pagamento a 60 dias. O material vendido teve um custo de aquisição de 10.000€.
 - Pagou-se no final do mês ordenados e outros encargos com o pessoal no montante de 1.500€
 
-Balança do resultados:
+Balança dos Resultados:
 
 ![Balança dos Resultados](./assets/0004-exemplo-balanca-resultados.png)
 
@@ -221,11 +221,11 @@ mas o seu valor é fracionado consoante o tipo de ativo, sendo em cada ano levad
 
 - **Amortização**: Corresponde à quebra de valor dos bens do ativo fixo intangível;
 
-- **Depreciações e amortizações do Exercicio**: Quebra do valor das propriedades de investimento, dos ativos biológicos
+- **Depreciações e Amortizações do Exercício**: Quebra do valor das propriedades de investimento, dos ativos biológicos
   não consumíveis e dos ativos fixos tangíveis e intangíveis durante um período contabilístico.
   São consideradas um gasto na Demonstração de resultados;
 
-- **Depreciações e Amortizações acumuladas**: Valores acumulados das depreciações e amortizações à data do Balanço
+- **Depreciações e Amortizações Acumuladas**: Valores acumulados das depreciações e amortizações à data do Balanço
   (que é igual à soma das depreciações e amortizações das D.R. até essa data).
   Subtraídas aos valores de aquisição, produção ou reavaliação desses ativos dão origem aos valores dos ativos que aparecem registados no Balanço em cada Período.
 
@@ -244,9 +244,9 @@ mas têm um impacto fiscal → mais gastos, menos resultados antes de impostos, 
 
 ### Principais Orientadores de Solidez Financeira
 
-- Quanto maior o capital próprio e menor o passivo (melhor ainda se o passivo for não corrente);
-- Quanto maior for o somatório do capital próprio com o passivo não corrente, relativamente ao ativo corrente;
-- Quanto maior a rentabilidade do capital total em relação ao juro a pagar pelo capital alheio.
+- Quanto maior o capital próprio e menor o passivo (melhor ainda se o passivo for não corrente)
+- Quanto maior for o somatório do capital próprio com o passivo não corrente, relativamente ao ativo corrente
+- Quanto maior a rentabilidade do capital total em relação ao juro a pagar pelo capital alheio
 
 ## Tipos de Rácios Financeiros:
 
@@ -292,9 +292,9 @@ $$
 
    Podemos avaliar o grau de liquidez da empresa, que é em função de:
 
-   - Política de crédito a clientes (+clientes $\rightsquigarrow$ + risco);
-   - Político de inventários (+ inventários produtos $\rightsquigarrow$ + risco);
-   - Política de aprovisionamento (+ inventário matérias-primas $\rightsquigarrow$ + risco).
+   - Política de crédito a clientes (+clientes $\rightsquigarrow$ + risco)
+   - Político de inventários (+ inventários produtos $\rightsquigarrow$ + risco)
+   - Política de aprovisionamento (+ inventário matérias-primas $\rightsquigarrow$ + risco)
 
    $$
    \begin{aligned}
@@ -310,10 +310,10 @@ $$
 
 ### Limitações dos Rácios Financeiros:
 
-- Os rácios devem ser comparados com dados de outras empresas com atividade semelhante;
-- Devem ser comparados, dentro da mesma empresa, ao longo do tempo;
-- Podem variar em função do país ou práticas contabilísticas;
-- Atualmente, há cada vez mais consciência de que o lucro não pode ser o objetivo exclusivo das empresas.
+- Os rácios devem ser comparados com dados de outras empresas com atividade semelhante
+- Devem ser comparados, dentro da mesma empresa, ao longo do tempo
+- Podem variar em função do país ou práticas contabilísticas
+- Atualmente, há cada vez mais consciência de que o lucro não pode ser o objetivo exclusivo das empresas
 
 :::info[Exemplo]
 
@@ -346,7 +346,7 @@ Tem uma má solubilidade total uma vez que o valor é inferior a 1/3.
 - **Indireto**: Segundo taxas predeterminadas custo/unidade. - Orçamentam-se os custos indiretos no período; - Estima-se
   o número de horas/máquina do período; - Estima-se o número de horas/homem no período; - Estima-se o custo de mão de obra direta.
 
-**Objeto de custo**: Qualquer entidade para qual se deseje uma medida separada de custo. Por exemplo: produtos, serviços, projetos, departamentos, etc
+**Objeto de Custo**: Qualquer entidade para qual se deseje uma medida separada de custo. Por exemplo: produtos, serviços, projetos, departamentos, etc
 
 $$
 \text {Custos totais} = \text {Custos indiretos de fabricos + Mão de obra direta + Matéria prima}
@@ -428,14 +428,14 @@ Isto pode ser feito através da reta decorrente do produto do preço de venda un
 e vendida (Q) e da reta do total dos custos fixos (CF) somado pela multiplicação do custo variável unitário ($cv_u$)
 com a mesma quantidade produzida e vendida (Q).
 
-- **Ponto Critico**: Ponto em que uma empresa deixa de estar no prejuízo e passa a estar no lucro (ou seja, passa a ser rentável).
+- **Ponto Crítico**: Ponto em que uma empresa deixa de estar no prejuízo e passa a estar no lucro (ou seja, passa a ser rentável).
   Corresponde a uma receita e a uma quantidade crítica (Rc e Qc).
   Trata-se de um ponto em que o nível de atividade corresponde a um lucro zero.
 
-  ![Ponto Critico](./assets/0004-ponto-critico.png)
+  ![Ponto Crítico](./assets/0004-ponto-critico.png)
 
-- **Custos fixos**: Gastos em que a empresa incorre independentemente da quantidade produzida (ex: Gastos de instalação).
-- **Custos variáveis**: Variam proporcionalmente com a quantidade produzida (ex: custos de matéria-prima).
+- **Custos Fixos**: Gastos em que a empresa incorre independentemente da quantidade produzida (ex: Gastos de instalação).
+- **Custos Variáveis**: Variam proporcionalmente com a quantidade produzida (ex: custos de matéria-prima).
 
 O lucro pode ser matematicamente definido por:
 
