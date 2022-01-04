@@ -39,7 +39,7 @@ Cada empresa/organização é influenciada por:
 - **Responsabilidade Social**: Responsabilidade dos gestores em fazerem escolhas e promoverem ações que contribuem para o bem-estar e interesses da sociedade e da organização. Numa definição menos formal, podemos dizer que caem no âmbito da responsabilidade social decisões que vão para além do previsto e estipulado, por exemplo, questões ambientais, atividades em benefício da sociedade, respeito para os consumidores.
 
 :::info[Exemplo]
-O IST preza-se pela sua excelência, pela formação teórica e prática de elevado nível dos seus alunos (**Elemento Invisíveis da Cultura**),
+O IST preza-se pela sua excelência, pela formação teórica e prática de elevado nível dos seus alunos (**Elemento Invisível da Cultura**),
 tem como sua marca o logótipo que desde o início inclui o símbolo da integral e as cores azul e branco (**Elemento Visível de Cultura**).
 Esta instituição é considerada bastante séria e assume uma posição antipraxe (**Código Moral - Ética**).
 O facto de garantir que todos os alunos tenham acesso aos seus professores num horário de dúvidas que deve ser estipulado,
