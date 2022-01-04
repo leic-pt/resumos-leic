@@ -72,7 +72,7 @@ $$
 
 - **Taxa de Desemprego**: Percentagem de população ativa em situação de desemprego involuntário.
 
-- **Taxa de Inflação**: Taxa de variação de preços medido pelo indíce de preços do consumidor (IPC).
+- **Taxa de Inflação**: Taxa de variação de preços medido pelo índice de preços do consumidor (IPC).
 
 - **Taxa de Juro**: Taxa de renumeração de um empréstimo ou de um depósito.
 
