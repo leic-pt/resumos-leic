@@ -206,8 +206,8 @@ blockquote > p:last-child {
 
 table {
   border-collapse: collapse;
-  margin: 1rem 0;
-  display: block;
+  margin: 1rem auto;
+  /* display: block; */
   overflow-x: auto;
 }
 

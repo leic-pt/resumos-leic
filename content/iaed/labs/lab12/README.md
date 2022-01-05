@@ -1,11 +1,11 @@
 ---
-title: Lab 12
-description: Enunciado e resolução dos exercícios do Laboratório 12 de IAED
+title: Grafos
+description: Enunciado e resolução de exercícios de Grafos
 path: /iaed/labs/lab12
 type: labsProg
 ---
 
-# Lab 12
+# Grafos
 
 ```toc
 

@@ -1,11 +1,11 @@
 ---
-title: Lab 02
-description: Enunciado e resolução dos exercícios do Laboratório 2 de IAED
+title: Introdução a C
+description: Enunciado e resolução de exercícios de Introdução a C
 path: /iaed/labs/lab02
 type: labsProg
 ---
 
-# Lab 02
+# Introdução a C
 
 ```toc
 

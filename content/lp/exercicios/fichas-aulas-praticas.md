@@ -23,31 +23,31 @@ Para além dos exercícios das aulas práticas, o livro de exercícios indicado 
 
 - [Livro de Exercícios Resolvidos](https://drive.google.com/file/d/1TnTYnaNwd5IKWs_DgCcmPjGJcUfuchK2/view?usp=sharing)
 
-- [Semana 1 (Lógica Proposicional $I$ )](https://drive.google.com/file/d/1hTp2IvH3uJ7rOfcnMvxWoA6ULzVD8q2t/view?usp=sharing)
+- [Semana 1: Lógica Proposicional $I$](https://drive.google.com/file/d/1hTp2IvH3uJ7rOfcnMvxWoA6ULzVD8q2t/view?usp=sharing)
 
   - [Resolução](https://drive.google.com/file/d/1LAR2DoqgrCfr2BtedGrhuQ2P1O6N-Jq3/view?usp=sharing)
 
-- [Semana 2 (Lógica Proposicional $II$ )](https://drive.google.com/file/d/1M6lKs04JQcH-08As-ojF_vBiBul6VmKZ/view?usp=sharing)
+- [Semana 2: Lógica Proposicional $II$](https://drive.google.com/file/d/1M6lKs04JQcH-08As-ojF_vBiBul6VmKZ/view?usp=sharing)
 
   - [Resolução](https://drive.google.com/file/d/1LGRomhscW637ng_THnhGTOFPYS6N3Cb3/view?usp=sharing)
 
-- [Semana 3 (Lógica de Primeira Ordem $I$ )](https://drive.google.com/file/d/1vbdUILHoIY9I7nt1VwVCbTdBZYMT8T5H/view?usp=sharing)
+- [Semana 3: Lógica de Primeira Ordem $I$](https://drive.google.com/file/d/1vbdUILHoIY9I7nt1VwVCbTdBZYMT8T5H/view?usp=sharing)
 
   - [Resolução](https://drive.google.com/file/d/1MHMXpa-cB6yKKI12uNldEOm9LsuHpo2T/view?usp=sharing)
 
-- [Semana 4 (Lógica de Primeira Ordem $II$ )](https://drive.google.com/file/d/1mEbur70-2TbuVxMkIPmq4S0ADApP9Jis/view?usp=sharing)
+- [Semana 4: Lógica de Primeira Ordem $II$](https://drive.google.com/file/d/1mEbur70-2TbuVxMkIPmq4S0ADApP9Jis/view?usp=sharing)
 
   - [Resolução](https://drive.google.com/file/d/1Oz-I9sp7arjDGHixjCNzU-Vn3mmu-72-/view?usp=sharing)
 
-- [Semana 5 (Programação em Lógica)](https://drive.google.com/file/d/1u18nl2kB7YcMqz4--XNOLkN1u1eJFUn6/view?usp=sharing)
+- [Semana 5: Programação em Lógica](https://drive.google.com/file/d/1u18nl2kB7YcMqz4--XNOLkN1u1eJFUn6/view?usp=sharing)
 
   - [Resolução](https://drive.google.com/file/d/1R77x8ghgq102edZtsi6-50H7Fn7sykmO/view?usp=sharing)
 
-- [Semana 6 (Prolog - Conceitos Gerais/Árvores SLD em Prolog)](https://drive.google.com/file/d/1s59jQGSErL69dXC_6R7E1YPMzcB-Tzc2/view?usp=sharing)
+- [Semana 6: Prolog - Conceitos Gerais/Árvores SLD em Prolog](https://drive.google.com/file/d/1s59jQGSErL69dXC_6R7E1YPMzcB-Tzc2/view?usp=sharing)
 
   - [Resolução do Ex. 7.2.3](https://drive.google.com/file/d/12PS2eMpoM0Lu1v238mngn6HF-BPzkBkd/view?usp=sharing)
 
-- [Semana 7 (Prolog - Listas $I$ )](https://drive.google.com/file/d/1OdnfTgMvX2SqIgvT4wpmQNP2vcm2h7CM/view?usp=sharing)
+- [Semana 7: Prolog - Listas $I$](https://drive.google.com/file/d/1OdnfTgMvX2SqIgvT4wpmQNP2vcm2h7CM/view?usp=sharing)
 
   :::details[Resolução]
 
@@ -167,7 +167,7 @@ Para além dos exercícios das aulas práticas, o livro de exercícios indicado 
 
   :::
 
-- [Semana 8 (Prolog - Listas $II$ )](https://drive.google.com/file/d/1uYeclFgMh-BH_J8UVDFQ2iIpEnyxBvW4/view?usp=sharing)
+- [Semana 8: Prolog - Listas $II$](https://drive.google.com/file/d/1uYeclFgMh-BH_J8UVDFQ2iIpEnyxBvW4/view?usp=sharing)
 
   Nota importante: Os exercícios desta secção devem ser realizados com predicados de ordem superior (sem recursão, portanto). A secção dos meta-predicados sobre listas poderá ser útil para este propósito.
 
@@ -247,7 +247,7 @@ Para além dos exercícios das aulas práticas, o livro de exercícios indicado 
 
   :::
 
-- [Semana 9 (Prolog - Aritmética, I/O)](https://drive.google.com/file/d/1RovEx8Zcles6lAy4pJlX5bSIanLjASAF/view?usp=sharing)
+- [Semana 9: Prolog - Aritmética, I/O](https://drive.google.com/file/d/1RovEx8Zcles6lAy4pJlX5bSIanLjASAF/view?usp=sharing)
 
 - Aritmética
 
@@ -410,7 +410,7 @@ Para além dos exercícios das aulas práticas, o livro de exercícios indicado 
 
   :::
 
-- [Semana 10 (Prolog - Corte e Negação)](https://drive.google.com/file/d/1Q_9vVqel8UUJ9ysYq3Gawoa19X1WfQT0/view?usp=sharing)
+- [Semana 10: Prolog - Corte e Negação](https://drive.google.com/file/d/1Q_9vVqel8UUJ9ysYq3Gawoa19X1WfQT0/view?usp=sharing)
 
   - [Resolução](https://swish.swi-prolog.org/p/Aula%2010.pl)
 
@@ -537,7 +537,7 @@ Para além dos exercícios das aulas práticas, o livro de exercícios indicado 
 
   :::
 
-- [Semana 11 (Lógica Proposicional $I$ - Tabelas de verdade)](https://drive.google.com/file/d/1xGiiyjYWocO16JyfXUZqUCjpbHxItXq4/view?usp=sharing)
+- [Semana 11: Lógica Proposicional $I$ - Tabelas de verdade](https://drive.google.com/file/d/1xGiiyjYWocO16JyfXUZqUCjpbHxItXq4/view?usp=sharing)
 
   :::details[Resolução]
 
@@ -655,6 +655,6 @@ Para além dos exercícios das aulas práticas, o livro de exercícios indicado 
 
   :::
 
-- [Semana 12 (Lógica Proposicional $II$ - OBDDs)](https://drive.google.com/file/d/1t-EzC5lgm_SbQgIn068VWy-gL9rDdWej/view?usp=sharing)
+- [Semana 12: Lógica Proposicional $II$ - OBDDs](https://drive.google.com/file/d/1t-EzC5lgm_SbQgIn068VWy-gL9rDdWej/view?usp=sharing)
 
-- [Semana 13 (Lógica Proposicional $II$ - Algoritmos de SAT)](https://drive.google.com/file/d/104wc2uUZb3cmMSJ8KKKsKuug-_3MQS_1/view?usp=sharing)
+- [Semana 13: Lógica Proposicional $II$ - Algoritmos de SAT](https://drive.google.com/file/d/104wc2uUZb3cmMSJ8KKKsKuug-_3MQS_1/view?usp=sharing)

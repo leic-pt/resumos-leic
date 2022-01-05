@@ -516,6 +516,12 @@ $$
 
 De realçar que aqui consideramos um array indexado a partir de 1 (e não 0), daí $i$ ser, respetivamente, 2 e 4, e não 1 e 3.
 
+### Priority queues
+
+Priority queues, ou [**filas de prioridade**](color:orange) em português, são estruturas de dados cuja implementação corresponde, tipicamente, a heaps - há, tal como _max Heaps_ e _min Heaps_ (sendo o heap ordenado de modo decrescente ou crescente, respetivamente), _max Priority Queues_ e _min Priority Queues_ (heaps ordenados pela sua prioridade, portanto). Funcionam como uma "fila de supermercado" - cada pessoa pode ter um valor de prioridade, e o seu lugar é ditado por essa ordem.
+
+São normalmente implementados desta maneira por ser uma maneira particularmente eficiente de organizar este tipo de informação. O **elemento com mais prioridade**, por exemplo, pode ser obtido em tempo constante ($O(1)$), a operação de obter qualquer valor (consoante, claro, a sua prioridade) realizada em $O(\log{n})$, e a inserção e remoção de elementos também.
+
 ---
 
 - [Slides Aula 2](https://drive.google.com/file/d/16UfEv6UZhIx3DS1dNa-aqZO2v1dxbOcW/view?usp=sharing)

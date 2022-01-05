@@ -23,7 +23,7 @@ para serem corrigidas.
 
 [EdSwordsmith/ExerciciosFP](https://github.com/EdSwordsmith/ExerciciosFP) - Resolução alternativa dos exercícios pelo Eduardo Espadeiro
 
-## Capítulo 1
+## Capítulo 1: Computadores, Algoritmos e Programas
 
 1. a) Símbolos não terminais: <palavra>, <sílaba>, <vogal> e <consoante>
    Símbolos terminais: `a b c d e f g h i j l m n o p q r s t u v x z`  
@@ -73,7 +73,7 @@ para serem corrigidas.
    b) Símbolos não terminais: `<palavra>`, `<letra>` e `<numero>`
    Símbolos terminais: `A B C 1 2 3`
 
-## Capítulo 2
+## Capítulo 2: Elementos Básicos de Programação
 
 1.  ```python
     print('Vou pedir-lhe dois numeros')
@@ -352,7 +352,7 @@ para serem corrigidas.
         x += 1
     ```
 
-## Capítulo 3
+## Capítulo 3: Funções
 
 1.  ```python
     def cinco(num):
@@ -500,7 +500,7 @@ para serem corrigidas.
 
     b) _Um mágico nunca revela os seus truques._
 
-## Capítulo 4
+## Capítulo 4: Tuplos e Ciclos Contados
 
 1.  ```python
     soma = 0
@@ -640,7 +640,7 @@ para serem corrigidas.
         return result
     ```
 
-## Capítulo 5
+## Capítulo 5: Listas
 
 1.  ```python
     def lista_codigo(string):
@@ -760,9 +760,9 @@ para serem corrigidas.
     print(euromilhoes())
     ```
 
-## Capítulo 6
+## Capítulo 6: Funções Revisitadas
 
-### Capítulo 6.1
+### Capítulo 6.1: Funções Recursivas
 
 1.  ```python
     def apenas_digitos_impares(n):
@@ -861,7 +861,7 @@ para serem corrigidas.
         return maior_aux(l, l[0])
     ```
 
-### Capítulo 6.2
+### Capítulo 6.2: Funções de Ordem Superior
 
 1. a) Soma todos os números entre 4 e 500  
    b) Soma os quadrados dos múltiplos de 5 entre 5 e 500  
@@ -982,7 +982,7 @@ para serem corrigidas.
         return reduce(lambda x, y: x*10+y, filter(lambda x: x % 2 != 0, lista_digitos(n)))
     ```
 
-## Capítulo 7
+## Capítulo 7: Recursão e Iteração
 
 1. _nope_
 2. a)
@@ -1139,7 +1139,7 @@ para serem corrigidas.
         return perfeitos_entre(low + 1, high)
     ```
 
-## Capítulo 8
+## Capítulo 8: Dicionários
 
 1. a) `{’nome’:{’nomep’:’John’, ’apelido’:’Doe’}, ’morada’:{’rua’:’West Hazeltine Ave.’, ’num’: 57, ’andar’:’’, ’localidade’:’Kenmore’, ’estado’:’NY’, ’cp’:’14217’, ’pais’:’USA’}}`  
    b) `{’nomep’:’John’, ’apelido’:’Doe’}`  
@@ -1324,7 +1324,6 @@ para serem corrigidas.
             cNum = letra_numero(c)
 
             def verificar_posicoes(transformer, posicoes):
-                res = []
                 for pos in posicoes:
                     row, col = transformer(pos)
                     if (row, col) not in tabuleiro:
@@ -1332,8 +1331,8 @@ para serem corrigidas.
                     corTarget, tipo = tabuleiro[(row, col)]
                     if corTarget == cor:
                         break  # peça da mesma cor, não podemos passar por cima
-                    res += [tipo, corTarget, (row, col)]
-                return res
+                    return [[tipo, corTarget, (row, col)]]
+                return []
 
             # Linhas
             for pos in (range(l + 1, 9), range(l - 1, -1, -1)):
@@ -1366,7 +1365,7 @@ para serem corrigidas.
         return result
     ```
 
-## Capítulo 9
+## Capítulo 9: Abstração de Dados
 
 1.  ```python
     # R[n/d] = {'n': numerador, 'd': denominador}
@@ -1605,7 +1604,7 @@ para serem corrigidas.
         return abcissa(v1) * abcissa(v2) + ordenada(v1) * ordenada(v2)
     ```
 
-## Capítulo 10
+## Capítulo 10: Ficheiros
 
 1.  ```python
     def conta_linhas(file_name):
@@ -1704,7 +1703,7 @@ para serem corrigidas.
                         f1.write(l1 + '\n')
     ```
 
-## Capítulo 11
+## Capítulo 11: Programação com Objetos
 
 1.  ```python
     class estacionamento():

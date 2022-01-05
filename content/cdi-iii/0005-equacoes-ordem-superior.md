@@ -6,6 +6,7 @@ description: >-
   Solução Geral da Equação Homogénea.
   Fórmula da Variação das Constantes.
   Método dos Coeficientes Indeterminados.
+  Redução de Ordem.
 path: /cdi-iii/equacoes-ordem-superior
 type: content
 ---
@@ -151,7 +152,7 @@ As soluções $y_1, \dots, y_n$ podem ser calculadas da seguinte forma.
 
      $$
      \begin{darray}{l}
-     t^k e^{at} \sin (bt) = \frac{1}{2i} t^k e^{at} \left(e^{i bt} - e^{i bt} \right) = \frac{1}{2i} t^k e^{(a+ib)t} + \frac{1}{2i} t^k e^{(a - ib)t}\\
+     t^k e^{at} \sin (bt) = \frac{1}{2i} t^k e^{at} \left(e^{i bt} - e^{-i bt} \right) = \frac{1}{2i} t^k e^{(a+ib)t} - \frac{1}{2i} t^k e^{(a - ib)t}\\
      \\
      t^k e^{at} \cos (bt) = \frac{1}{2} t^k e^{at} \left(e^{ibt} + e^{-ibt} \right) = \frac{1}{2} t^k e^{(a+ib) t} + \frac{1}{2} t^k e^{(a-ib)t}
      \end{darray}
@@ -276,7 +277,7 @@ $$
 W(t) = \begin{bmatrix}
 y_1 & \dots & y_n\\
 y'_1 & \dots & y'_n\\
-\vdots & \vdots & \vdots\\
+\vdots & \ddots & \vdots\\
 y_1^{(n-1)} & \dots & y_n^{(n-1)}
 \end{bmatrix}
 $$
@@ -403,13 +404,13 @@ $$
 
 Se $h(t)$ satisfaz as condições indicadas acima, então existe um polinómio aniquilador:
 
-- se $b(t) = t^p e^{\lambda t}$, então o seu **polinómio aniquilador** é da forma
+- se $h(t) = t^p e^{\lambda t}$, então o seu **polinómio aniquilador** é da forma
 
   $$
   P_A (D) = (D-\lambda)^{p + 1}
   $$
 
-- se $b(t) = t^p e^{at} \cos (bt)$ ou $b(t) = t^p e^{at} \sin(bt)$, então o seu **polinómio aniquilador** é da forma
+- se $h(t) = t^p e^{at} \cos (bt)$ ou $h(t) = t^p e^{at} \sin(bt)$, então o seu **polinómio aniquilador** é da forma
 
   $$
   P_A(D) =(D-(a+ib))^{p+1} (D-(a-ib))^{p+1} = ((D-a)^2 +b^2)^{p+1}
@@ -417,7 +418,7 @@ Se $h(t)$ satisfaz as condições indicadas acima, então existe um polinómio a
 
 Para resolver uma equação do tipo $P(D)y=h(t)$ pelo método dos coeficientes indeterminados, segue-se os seguintes passos:
 
-1. Determinar o polinómio aniquilador, $P_A(D)$, de $b(t)$. Seja $k$ o seu grau.
+1. Determinar o polinómio aniquilador, $P_A(D)$, de $h(t)$. Seja $k$ o seu grau.
 2. Aplicar $P_A(D)$ a ambos os membros da equação inicial, donde resulta:
 
    $$
@@ -446,7 +447,7 @@ Para resolver uma equação do tipo $P(D)y=h(t)$ pelo método dos coeficientes i
    Tem-se então que existem $\beta_1, \dots, \beta_n \in \R$ tais que
 
    $$
-   y_P = \beta_1 w_1 + \dots + \beta_p w_p
+   y_P(t) = \beta_1 w_1 + \dots + \beta_p w_p
    $$
 
    é uma solução particular de $P(D)y=h(t)$.
@@ -496,7 +497,7 @@ $$
   Vamos então multiplicar ambos os membros da equação por $P_A(D)$:
 
   $$
-  (D+1)(D+2)y = e^{-x} \implies (D+1)^2(D+2) = 0
+  (D+1)(D+2)y = e^{-x} \implies (D+1)^2(D+2)y = 0
   $$
 
   Resolvendo a equação homogénea, obtêm-se
@@ -561,3 +562,153 @@ $$
   $$
 
 :::
+
+### Redução de ordem
+
+Por vezes, a equação que nos é dada não tem todos os coeficientes constantes, como por exemplo:
+
+$$
+t y'' + 2 y' + t y = 0.
+$$
+
+Quando temos uma equação deste género, não podemos aplicar diretamente nenhum dos métodos referidos acima. Aprendemos, em CDI-III, dois métodos que nos podem ajudar a resolver estes problemas - um deles com ajuda do Wronskiano, outro onde voltamos a ir buscar noções de equações de primeira ordem. Abordaremos primeiro o segundo caso.
+
+Para poder aplicar o segundo caso precisamos, necessariamente, que seja dada [**uma das soluções da equação**](color:orange). Consideremos essa solução como $y_1$. Esta solução está, atualmente, **livre de constante** - não continuará assim até ao final. Posto isto, precisaremos de encontrar uma segunda solução, $y_2$. Para a obtermos, assumimos que terá a forma:
+
+$$
+y_2 = v(t) \cdot y_1,
+$$
+
+onde $v(t)$ é uma função de $t$, atualmente desconhecida. Para determinar $y_2$, teremos de colocar $v(t) \cdot y_1$ na equação original, obtendo assim uma nova equação. O objetivo passará, então, por resolver a equação resultante para $v(t)$. Ao descobrir $v(t)$, podemos chegar a $y_2$, e a solução geral será dada por:
+
+$$
+y_G(t) = c_1 \cdot y_1 + c_2 \cdot y_2, c_1, c_2 \in \R
+$$
+
+O método (ou uma variação dele) resulta também para casos onde não é dada nenhuma solução _e_ onde não temos termos $y$ - algo do género $at^\alpha y'' + bt^\beta y' = c$. Aqui, podemos saltar a parte do $v(t)$ e ir diretamente para a parte, no exemplo, que refere $v'(t) = w(t)$, e resolver a partir daí.
+
+:::info[Exemplo - Redução de Ordem com Solução dada]
+Tenhamos, mais uma vez, a equação:
+
+$$
+t y'' + 2 y' + t y = 0,
+$$
+
+com solução $y_1 = \frac{\sin{t}}{t}$. Teremos, portanto, que:
+
+$$
+y_2 = v(t) \cdot \frac{\sin{t}}{t} \\
+y_2'= v'(t) \cdot \frac{\sin{t}}{t} + v(t) \cdot \frac{\cos{t} \cdot t - \sin{t}}{t^2} \\
+y_2'' = v''(t) \cdot \frac{\sin{t}}{t} + 2 v'(t) \cdot \frac{\cos{t} \cdot t - \sin{t}}{t^2} + v(t) \cdot \frac{(-\sin{t} \cdot t^2 - 2(\cos{t} \cdot t - \sin{t}))}{t^3}
+$$
+
+Substituímos, agora, $y$ por $y_2$ na equação original, e ficamos com:
+
+$$
+v''(t) \cdot \sin{t} + 2 v'(t) \cdot \cos{t} = 0
+$$
+
+Estamos, agora, na presença de uma equação sem o termo $v(t)$ - podemos, portanto, [**reduzir a ordem**](color:orange) da equação, com $w = v'$, e escrevê-la tal que:
+
+$$
+w'(t) \cdot \sin{t} + 2 w(t) \cdot \cos{t} = 0 \\
+\frac{dw}{dt} \cdot \sin{t} = - 2 w(t) \cdot \cos{t} \\
+dw \cdot \frac{1}{w} = -2 \cdot \frac{1}{\tg{t}} \\
+\log{w} = -2 \log{\sin{t}} + C \\
+w = e^{-2 \log{\sin{t}} + C} \\
+w = \frac{K}{\sin{t}^2} \quad \text{ (aqui, $K = e^C$) }
+$$
+
+Descobrimos, assim, $w$. Como $w = v'$, podemos facilmente chegar a $v$:
+
+$$
+v = \int{w(t)dt} = \int{\frac{K}{\sin{t}^2}dt} = \frac{-K}{\tg{t}}.
+$$
+
+Agora, tendo $v$ e $y_1$, podemos indicar que $y_2 = \frac{-K}{\tg{t}} \cdot \frac{\sin{t}}{t} = \frac{-K \cos{t}}{t}$. A solução geral da equação é, assim, dada por:
+
+$$
+y_G = \frac{-K \cos{t}}{t} + \frac{B \sin{t}}{t}
+$$
+
+(temos que adicionar a constante a $y_1$, como referido anteriormente).
+
+:::
+
+Encontra-se abaixo uma explicação do método em formato vídeo, com um exemplo:
+
+::youtube{#qw7lsWSkfGA}
+
+[**Existem, contudo, casos onde nenhuma solução é dada, e onde temos um termo do tipo $y$.**](color:green) Nestes casos, temos de recorrer à matriz Wronskiana.
+
+O primeiro passo será determinar as soluções da equação homogénea do tipo $x^\lambda$. Cada uma dessas soluções será entrada da matriz Wronskiana, construída a partir destas. Através da formula da variação das constantes vamos chegar à solução particular, _sem constantes_ - a solução geral corresponderá à soma das soluções da equação homogénea com as soluções particulares.
+
+:::info[Exemplo - Sem Solução Dada]
+
+Tenhamos a equação:
+
+$$
+x^2 y'' + 2xy' - 6y = x \leftrightarrow y'' + \frac{2}{x} y' - \frac{6}{x^2}y = \frac{1}{x}.
+$$
+
+Para descobrir a solução geral, devemos começar por descobrir as soluções do tipo $x^\lambda$ da equação **homogénea**:
+
+$$
+y = x^\lambda, \quad y' = \lambda x^{\lambda-1}, \quad y'' = \lambda (\lambda - 1) x^{\lambda-2} \\.
+$$
+
+Substituindo os termos $y$, ficamos com:
+
+$$
+\lambda (\lambda - 1) x^{\lambda-2} x^2 + 2 \lambda x^{\lambda-1} x - 6 x^\lambda = 0 \\
+x^\lambda (\lambda (\lambda - 1) + 2 \lambda - 6) = 0 \\
+x^\lambda (\lambda - 2)(\lambda + 3) = 0 \\
+\lambda = 2 \vee \lambda = -3.
+$$
+
+Temos, então, que a dimensão do espaço de soluções da equação é $2$ e que a solução da equação homogénea será, então, dada por:
+
+$$
+y_G = c_1 x^2 + c_2 x^{-3}.
+$$
+
+Procuraremos, agora, calcular a solução particular, recorrendo ao Wronskiano. Para este passo é importante que o termo de ordem 2 da equação tenha coeficiente $1$, caso contrário o resultado será incorreto.
+
+Dadas as duas soluções da equação homogénea, teremos que a matriz Wronskiana é:
+
+$$
+W = \begin{bmatrix}
+  x^2 & \frac{1}{x^3} \\
+  2x & \frac{-3}{x^4}
+\end{bmatrix} \quad\quad
+W^{-1} = \frac{-x^2}{5} \cdot \begin{bmatrix}
+  \frac{-3}{x^4} & \frac{-1}{x^3} \\
+  -2x & x^2
+\end{bmatrix} \quad\quad
+\det(W) = -3 \cdot \frac{1}{x^2} - \frac{2}{x^2} = \frac{-5}{x^2}
+$$
+
+Temos, pela fórmula da variação das constantes, que:
+
+$$
+y_p (x) = \begin{bmatrix} x^2 & \frac{1}{x^3} \end{bmatrix} \cdot \int_0^x{
+  \begin{bmatrix}
+    \frac{3}{5x^2} & \frac{1}{5x} \\
+    \frac{2x^3}{5} & \frac{-x^4}{5}
+  \end{bmatrix}
+} \cdot \begin{bmatrix} 0 \\ \frac{1}{x} \end{bmatrix}dx \\
+
+= \begin{bmatrix} x^2 & \frac{1}{x^3} \end{bmatrix} \cdot \int_0^x{
+  \begin{bmatrix} \frac{1}{5x^2} \\ \frac{-x^3}{5} \end{bmatrix}
+}dx \\
+
+= \begin{bmatrix} x^2 & \frac{1}{x^3} \end{bmatrix} \cdot \begin{bmatrix} \frac{-1}{5x} \\ \frac{-x^4}{20} \end{bmatrix} \\
+
+= -\frac{x}{5} - \frac{x}{20} = -\frac{x}{4}.
+$$
+
+Assim, e como $y = y_G + y_p$, temos que:
+
+$$
+y = c_1 x^2 + c_2 x^{-3} - \frac{x}{4}.
+$$

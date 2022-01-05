@@ -1,11 +1,11 @@
 ---
-title: Lab 10
-description: Enunciado e resolução dos exercícios do Laboratório 10 de IAED
+title: Hash Tables
+description: Enunciado e resolução de exercícios de Hash Tables
 path: /iaed/labs/lab10
 type: labsProg
 ---
 
-# Lab 10
+# Hash Tables
 
 ```toc
 
