@@ -74,3 +74,7 @@ SF_f(x) = \begin{cases}
 \frac{\overline{f} (x^+) + \overline{f} (x^-)}{2} & \text{sendo } x \text{ um ponto de descontinuidade de } \overline{f}
 \end{cases}
 $$
+
+:::warning[Página em Construção]
+Mais conteúdo será adicionado brevemente: exemplos, série de senos e série de cossenos.
+:::
