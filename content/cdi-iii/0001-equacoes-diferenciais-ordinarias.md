@@ -34,6 +34,8 @@ Existem dois tipos de **Equações Diferenciais**:
   \end{darray}
   $$
 
+  Iniciamos o estudo das mesmas mais tarde, com as [Equações do Calor](/cdi-iii/equacao-calor-solucoes-separaveis).
+
 ## Equações Diferenciais Ordinárias
 
 - **Equações Diferencias Ordinárias (EDO) de $X$ª ordem**: A ordem de uma EDO é dada pela maior ordem da derivada que existe na equação.  
