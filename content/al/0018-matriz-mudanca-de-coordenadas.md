@@ -1,18 +1,18 @@
 ---
-title: Matriz de mudança de coordenadas
+title: Matriz de Mudança de Coordenadas
 description: >-
   Como obter uma matriz de mudança de coordenadas
 path: /al/matriz-mudanca-de-coordenadas
 type: content
 ---
 
-# Matriz de mudança de coordenadas
+# Matriz de Mudança de Coordenadas
 
 ```toc
 
 ```
 
-## Matriz de mudança de coordenadas
+## Matriz de Mudança de Coordenadas
 
 :::tip[Definição]
 
@@ -21,8 +21,6 @@ a matriz $S_{B_1 \to B_2} = (s_{ij})_{n\times n}$, cujas colunas são as coorden
 chama-se matriz de mudança de coordenadas de $B_1$ para $B_2$.
 
 :::
-
-:::tip[Teoremas]
 
 A matriz $S_{B_1 \to B_2}$ satisfaz a igualdade:
 
@@ -53,18 +51,12 @@ $$
 Sendo aplicada a matriz de mudança de coordenadas $S_{B_2 \to B_3}$ após a matriz de mudança de coordenadas $S_{B_1 \to B_2}$,
 podemos obter a matriz de mudança de coordenadas $S_{B_1 \to B_3}$.
 
-:::
-
-## Construção da matriz de mudança de coordenadas
-
-:::tip[Resolução]
+## Construção da Matriz de Mudança de Coordenadas
 
 Para obtermos a matriz de mudança de coordenadas de $B_1 \to B_2$ tomamos os seguintes passos:
 
 1. Escrever os vetores de $B_1$ na base $B_2$
 2. Construir uma matriz cujas colunas são os vetores de $B_1$ escritos na base $B_2$
-
-:::
 
 :::info[Exemplo]
 
