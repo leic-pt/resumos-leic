@@ -75,6 +75,90 @@ SF_f(x) = \begin{cases}
 \end{cases}
 $$
 
-:::warning[Página em Construção]
-Mais conteúdo será adicionado brevemente: exemplos, série de senos e série de cossenos.
+:::info[Exemplo]
+
+**Determine a Série de Fourier da função $f: [-1, 1] \to \R$ definida por**
+
+$$
+f(x) = \begin{cases}
+-\pi & \text{se } x \in [-1, 0[\\
+\pi & \text{se } x \in [0, 1]
+\end{cases}
+$$
+
+Atendendo ao domínio, temos que, segundo a definição acima, $L= 1$.  
+Portanto, vamos ter a seguinte expressão para a Série de Fourier de $f$:
+
+$$
+SF_f(x) = \frac{a_0}{2} + \sum_{n=1}^{+\infty} \left( a_n \cos\left(n \pi x\right) + b_n \sin\left(n\pi x\right) \right)
+$$
+
+O próximo passo é determinar $a_0$, $a_n$ e $b_n$. Tanto $a_0$ como $a_n$ são simples de determinar,
+visto que $f$ é uma [função ímpar](https://en.wikipedia.org/wiki/Even_and_odd_functions#Odd_functions).
+
+Para $a_0$, como o integral num intervalo simétrico de uma função ímpar é nulo, temos que:
+
+$$
+a_0 = \int_{-1}^{1} f(x) \d x = 0
+$$
+
+Para $a_n$, como o produto de uma [função par](https://en.wikipedia.org/wiki/Even_and_odd_functions#Even_functions) (o cosseno)
+com uma função ímpar ($f$) é também uma função ímpar, temos novamente um integral num intervalo simétrico de uma função ímpar,
+que é nulo:
+
+$$
+a_n = \int_{-1}^{1} f(x)\cos(n\pi x) \d x = 0, \forall n \in \N
+$$
+
+Por outro lado, para $b_n$, já temos de fazer mais cálculos, embora seja possível simplificá-los
+se repararmos que o produto de duas funções ímpares (o seno e $f$) é uma função par, sabemos que o seu
+integral num intervalo simétrico, é o dobro do integral numa das "metades" do intervalo:
+
+$$
+\begin{aligned}
+b_n &= \int_{-1}^{1} f(x)\sin(n\pi x) \d x\\
+&= 2 \int_{-1}^{1} \pi \sin(n \pi x) \d x\\
+&= - \frac{2\pi}{n\pi} \left[\cos(n\pi x)\right]_0^1\\
+&= - \frac{2}{n} \left(\cos(n \pi) - 1\right)\\
+&= \frac{2}{n} \left(1 - \cos(n \pi) \right)
+\end{aligned}
+$$
+
+Podemos fazer ainda mais uma simplificação que nos irá ser útil no futuro.
+Se repararmos, $\cos(n\pi)$ é igual a $-1$ quando $n$ é ímpar, e igual a $1$ quando $n$ é par.
+Ou seja, sabemos que $\cos(n\pi) = \left(-1\right)^n$.  
+Então:
+
+$$
+b_n = \frac{2}{n} \left(1- (-1)^n\right)
+$$
+
+Determinámos assim a Série de Fourier de $f$:
+
+$$
+SF_f(x) = \sum_{n=1}^{\infty} \frac{2}{n} \left(1-(-1)^n\right) \sin (n\pi x)
+$$
+
+No entanto, podemos ainda reparar que $1- (-1)^n = 0$ para todo o $n$ par.
+Como se trata de uma soma infinita, podemos "ignorar" todos os termos com $n$ par,
+tomando que $n = 2k - 1$.
+
+$$
+SF_f(x) = \sum_{k=1}^{\infty} \frac{4}{2k-1} \sin \left((2k-1)\pi x\right)
+$$
+
+Abaixo encontra-se uma visualização desta solução, à medida que se incrementa $N$:
+
+::youtube{#0jyZKFm8x5c}
+
+Considerando então a soma infinita, temos que, em $[-1, 1]$, a soma da Série de Fourier de $f$ será dada por:
+
+$$
+SF_f(x) = \begin{cases}
+-\pi &\text{se } x \in ]-1, 0[\\
+\pi & \text{se } x \in ]0, 1[\\
+0 & \text{se } x = \pm 1 \lor x = 0
+\end{cases}
+$$
+
 :::
