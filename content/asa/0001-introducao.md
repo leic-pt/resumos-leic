@@ -1,7 +1,7 @@
 ---
 title: Introdução
 description: Diferentes maneiras de calcular os números de Fibonacci.
-  Memoização.
+  Memorização.
   Invariantes de loops.
   Introdução à notação assintótica.
 path: /asa/introducao
@@ -105,7 +105,7 @@ $$
 
 provado nas notas do professor (no fim desta página).
 
-### Implementação 2 (Memoization)
+### Implementação 2 (Memoization e Programação Dinâmica)
 
 Ora, o nosso objetivo, para tornar o algoritmo mais eficiente, passará então por arranjar uma maneira de ir guardando os números já calculados, de modo a não ter de os calcular novamente. Uma das técnicas que nos pode ajudar a fazê-lo é a [**memoization**](color:yellow).
 
@@ -116,6 +116,28 @@ Técnica que garante que um método não calcula os mesmos valores mais do que u
 :::
 
 Em C++, a aplicação da memoization ao cálculo de um número de Fibonacci passaria por qualquer coisa como:
+
+```cpp
+int Fib(int n) {
+  if (n <= 1) return n;
+  else {
+    std::vector<int> table = std::vector<int>(n + 1);
+    table[0] = 0;
+    table[1] = 1;
+    return FibAux(n, table);
+  }
+}
+
+int FibAux(int n, std::vector<int> &v) {
+  if (n < v.size()) return v[n];
+
+  int fibNum = FibAux(n - 1, table) + FibAux(n - 2, table);
+  table[n] = fibNum;
+  return fibNum;
+}
+```
+
+Podemos ainda ter uma implementação em [programação dinâmica normal](./tecnicas-algoritmos#programação-dinâmica), com a diferença de na memoization se passar necessariamente a tabela como argumento.
 
 ```cpp
 int Fib(int n) {

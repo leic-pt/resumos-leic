@@ -1,11 +1,11 @@
 ---
-title: Lab 11
-description: Enunciado e resolução dos exercícios do Laboratório 11 de IAED
+title: Árvores Binárias
+description: Enunciado e resolução de Árvores Binárias
 path: /iaed/labs/lab11
 type: labsProg
 ---
 
-# Lab 11
+# Árvores Binárias
 
 ```toc
 
