@@ -28,12 +28,12 @@ Cada empresa/organização é influenciada por:
 ## Cultura Organizacional, Ètica e Responsabilidade Social
 
 - **Cultura da Organização**: Conjunto de valores, crenças e regras que os membros de uma organização partilham
-  que podem ser expressos através de elementos visíveis (Símbolos, Histórias, Cerimónias) e invisíveis (Convicções).
+  que podem ser expressos através de elementos Visíveis (Símbolos, Histórias, Cerimónias) e Invisíveis (Convicções).
 
-- **Ética**: Código de conduta/principios morais e dos valores pelos quais os indivíduos e grupos regem o seu comportamento.
+- **Ética**: Código de conduta/princípios morais e dos valores pelos quais os indivíduos e grupos regem o seu comportamento.
   Faz parte da cultura e condiciona as decisões que dizem respeito à forma de atuação da empresa no desenvolvimento dos
   seus negócios e à responsabilidade social interna ou externa.
-  Muitas vezes podem surgir dilemas éticos que são conflitos de valores entre individuos.
+  Muitas vezes podem surgir dilemas éticos que são conflitos de valores entre indivíduos.
   As escolhas éticas são influenciadas pela mentalidade do gestor, pela cultura da empresa, etc.
 
 - **Responsabilidade Social**: Responsabilidade dos gestores em fazerem escolhas e promoverem ações que contribuem para o bem-estar e interesses da sociedade e da organização. Numa definição menos formal, podemos dizer que caem no âmbito da responsabilidade social decisões que vão para além do previsto e estipulado, por exemplo, questões ambientais, atividades em benefício da sociedade, respeito para os consumidores.
@@ -43,7 +43,7 @@ O IST preza-se pela sua excelência, pela formação teórica e prática de elev
 tem como sua marca o logótipo que desde o início inclui o símbolo da integral e as cores azul e branco (**Elemento Visível de Cultura**).
 Esta instituição é considerada bastante séria e assume uma posição antipraxe (**Código Moral - Ética**).
 O facto de garantir que todos os alunos tenham acesso aos seus professores num horário de dúvidas que deve ser estipulado,
-distengue-o das demais faculdades (**Responsabilidade Social**).
+distingue-o das demais faculdades (**Responsabilidade Social**).
 :::
 
 ## Estrutura Organizacional
@@ -83,7 +83,7 @@ Presidente da República > Primeiro Ministro > Ministros > Secretários > Tu.
 
 - **Formalização**: O grau com que os trabalhos da organização estão padronizados.
   :::info[Exemplo]
-  Ao telefonar para a Saúde24, todos os pacientes serão interrogados com as mesmas questões de forma a discriminar eficientemente cada caso.
+  Ao telefonar para a Saúde24, se atendidos, todos os pacientes serão interrogados com as mesmas questões de forma a discriminar eficientemente cada caso.
   :::
 
 - **Departamentalização**: A base de agrupamento de tarefas em departamentos e destes na organização de acordo com a cadeia de comando desejada.
@@ -96,7 +96,7 @@ Presidente da República > Primeiro Ministro > Ministros > Secretários > Tu.
 
    - **Vantagens**: Especialização dos empregados. Economias de Escala.
    - **Desvantagens**: Fraca comunicação dos departamentos.
-   - **Características**: Estabilidade, Eficiência e Empresas de grande Dimensão.
+   - **Características**: Estabilidade, Eficiência em Empresas de grande Dimensão.
 
    ![Vertical Funcional](./assets/0002-vertical-funcional.png#dark=1)
 
@@ -124,9 +124,9 @@ Presidente da República > Primeiro Ministro > Ministros > Secretários > Tu.
 
 5. Rede Virtual
 
-   - **Vantagens**: Flexibilidade; Poucos custos estruturais.
+   - **Vantagens**: Flexibilidade. Poucos custos estruturais.
    - **Desvantagens**: Difícil coordenação e controlo.
-   - Empresas com esta estrutura costuma recorrer ao **outsourcing** que consiste na contratação de um conjunto de atividades
+   - Empresas com esta estrutura costumam recorrer ao **outsourcing** que consiste na contratação de um conjunto de atividades
      como especialistas em formação e engenheiros, para se focar na sua atividade principal.
 
    ![Rede Virtual](./assets/0002-rede-virtual.png#dark=1)
@@ -187,6 +187,6 @@ Na etapa de desenvolvimento dos recursos humanos distingue-se:
 - **Formação Interna/Externa**: A existência de aprendizagem em aulas, formação dos trabalhadores de modo a que estes possam evoluir na sua carreira.
 
 - **Avaliação de Desempenho**: O processo de observação e valorização do desempenho dos empregados; registo do desempenho;
-  informação dos avaliados e aos gestores responsáveis na tomade de decisões com base nos desempenhos dos individuos.  
+  informação dos avaliados e aos gestores responsáveis na tomade de decisões com base nos desempenhos dos indivíduos.  
   Os sistemas de avaliação devem ser objetivos/claros, adaptados às mudanças das condições e dos requisitos para o exercicio de tarefas.  
   A avaliação deve refletir bem o desempenho de um empregado de forma a que este seja motivado por ela nunca desmotivado.

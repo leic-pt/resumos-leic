@@ -38,13 +38,20 @@ Gestão é o processo que visa atingir as metas e os objetivos de uma organizaç
 
 Gestão é o processo que visa atingir as metas e os objetivos de uma organização, de forma eficiente, através de 4 grandes funções (POLC)
 
-- **Planeamento:** Definição de metas/objetivos das tarefas e recursos necessários para as/os atingir. Abrange a Gestão Estratégica e Marketing.
+- **Planeamento:** Definição de metas/objetivos das tarefas e recursos necessários para as/os atingir.
 
-- **Organização:** Forma como se pretende desenvolver a atividade preparada. Implica a definição da Estrutura Organizacional.
+  - Abrange a Gestão Estratégica e Marketing.
 
-- **Liderança:** Dirigir, influenciar e motivar os membros da organização. Está associada à Gestão de Recursos Humanos.
+- **Organização:** Forma como se pretende desenvolver a atividade preparada.
 
-- **Controlo:** Monitorização das atividades e das pessoas e verificação se os objetivos estão a ser atingidos. Engloba nomeadamente a Análise da Informação Financeira.
+  - Implica a definição da Estrutura Organizacional.
+
+- **Liderança:** Dirigir, influenciar e motivar os membros da organização.
+
+  - Está associada à Gestão de Recursos Humanos.
+
+- **Controlo:** Monitorização das atividades e das pessoas e verificação se os objetivos estão a ser atingidos.
+  - Engloba nomeadamente a Análise da Informação Financeira.
 
 ## Definição de Organização
 
@@ -54,7 +61,7 @@ Empresas cujo objetivo principal não é o lucro, mas, em primeiro lugar, presta
 1. Empresas (fins lucrativos)
 2. Universidades (fins de benefício social-públicas)
 3. Hospitais (benefício social, hospitais públicos)
-4. Fundações (benefício social, cultural,...), ONGs
+4. Fundações (benefício social, cultural, ONGs, ... )
 5. Partidos Políticos
 
 :::
