@@ -375,7 +375,7 @@ $$
 
 - Mais difícil de ver o custo do produto.
 
-- **Custeio Total**: A empresa valoriza a produção como o total dos CIF (Custos Fndiretos de Fabrico).
+- **Custeio Total**: A empresa valoriza a produção como o total dos CIF (Custos Indiretos de Fabrico).
   Os CIF vão todos para o custo das vendas na DR $\rightsquigarrow$ só são contabilizados quando há uma venda.
 
 ![Empresa Comercial - Custeio Total](./assets/0004-empresa-industrial-custeio-total.png#dark=1)
