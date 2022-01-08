@@ -162,3 +162,53 @@ SF_f(x) = \begin{cases}
 $$
 
 :::
+
+:::details[Mais exemplos]
+
+**Calcule a **Série de Fourier** de**
+
+$$
+\begin{darray}{cc}
+f(x) = x & f: [-\pi, \pi]
+\end{darray}
+$$
+
+**no intervalo $[-\pi, \pi]$.**
+
+Temos então que $L = \pi$, pelo que
+
+$$
+SF_f(x) = \frac{a_0}{2} + \sum_{n=1}^{+\infty} \left( a_n \cos\left(n x\right) + b_n \sin\left(n x\right) \right)
+$$
+
+Como $x$ é função ímpar, que está a ser integrada num intervalo simétrico:
+
+$$
+a_0 = \frac{1}{\pi} \int_{-\pi}^{\pi} x \d x = 0
+$$
+
+Como $x$ é função ímpar e $\cos(nx)$ é função par, o produto de ambas vai resultar numa função ímpar, que está a ser integrada num intervalo simétrico, pelo que:
+
+$$
+a_n = \frac{1}{\pi} \int_{-\pi}^{\pi} x \cos(nx) \d x = 0
+$$
+
+Para determinarmos $b_n$, já necessitamos mais cálculos:
+
+$$
+\begin{aligned}
+b_n &= \frac{1}{\pi} \int_{-\pi}^{\pi} x \sin(nx) \d x\\
+&= \frac{2}{\pi} \int_{0}^{\pi} x\sin(nx) \d x\\
+&= \frac{2}{\pi} \left(\left[\frac{-x\cos(nx)}{n}\right]^\pi_0 + \int_{0}^{\pi} \frac{\cos(nx)}{n} \d x\right)\\
+&= \frac{2}{\pi} \left(\frac{-\pi\cos(n\pi)}{n}\right) & \cos(n\pi) = (-1)^n\\
+&= \frac{-2(-1)^n}{n}
+\end{aligned}
+$$
+
+Então, obtemos a expressão da Série de Fourier de $f$:
+
+$$
+SF_f(x) = \sum_{n = 1}^{+\infty} \frac{2(-1)^{n+1}}{n}\sin (n x)
+$$
+
+:::
