@@ -54,7 +54,7 @@ $$
 A expressão resultante, $SF_f(x)$ vai corresponder exatamente a $f$ no intervalo $]-L, L[$, exceto onde a função tem pontos de descontinuidade.  
 Aliás, uma das grandes vantagens da Série de Fourier é que a função não precisa de ser contínua, apenas seccionalmente contínua (e ter derivada seccionalmente contínua).
 
-Nos pontos de descontinuidade e nas "pontas" do intervalo ($-L$ e $L$), a expressão da Série de Fourier equivale ao ponto médio entre os dois pontos adjacentes. Traduzindo isto para um sistema:
+Nos pontos de descontinuidade e nas "pontas" do intervalo ($-L$ e $L$), a expressão da Série de Fourier equivale ao ponto médio entre os dois pontos adjacentes. Traduzindo isto para um sistema, obtemos o [**Teorema da Convergência Pontual da Série de Fourier**](color:green):
 
 $$
 SF_f(x) = \begin{cases}
