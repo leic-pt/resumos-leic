@@ -14,6 +14,11 @@ path: /ges/ambiente-economico
 type: content
 ---
 
+:::danger[Matéria não lecionada]
+Com o MEPP esta matéria (Ambiente Económico) foi retirada do programa.
+Logo não é preciso estudá-la.
+:::
+
 # Ambiente Económico
 
 ```toc

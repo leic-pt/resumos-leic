@@ -338,92 +338,6 @@ $$
 Tem uma má solubilidade total uma vez que o valor é inferior a $1/3$.
 :::
 
-## Noções Básicas de Custeio
-
-**Custeio**: Atribuição de custo a um objeto de custo (qualquer entidade para a qual e deseje uma medida separada de custo)
-
-- **Direto**: Valores diretamente observados;
-- **Indireto**: Segundo taxas predeterminadas custo/unidade.
-  - Orçamentam-se os custos indiretos no período
-  - Estima-se o número de horas/máquina do período
-  - Estima-se o número de horas/homem no período
-  - Estima-se o custo de mão de obra direta
-
-**Objeto de Custo**: Qualquer entidade para qual se deseje uma medida separada de custo. Por exemplo: produtos, serviços, projetos, departamentos, etc
-
-$$
-\text {Custos Totais} = \text {Custos Indiretos de Fabricos + Mão de Obra Direta + Matéria Prima}
-$$
-
-$$
-\text {Custo Unitário de Fabrico} = \frac {\text{Custos Totais de Fabrico}} {\text{Quantidade Produzida}}
-$$
-
-### Custeio de Produto e Custeios de Período
-
-- **Produto**: Custos que valorizam a produção só são lançadas no DR quando a mercadoria é vendida.
-- **Período**: No ano em que ocorrem aparecem logo na DR.
-
-### Empresa Comercial
-
-- Compra e vende
-- Custo do produto fácil de obter, depende do custo de aquisição.
-
-![Empresa Comercial](./assets/0004-empresa-comercial.png#dark=1)
-
-### Empresa Industrial - Custeio Total
-
-- Mais difícil de ver o custo do produto.
-
-- **Custeio Total**: A empresa valoriza a produção como o total dos CIF (Custos Indiretos de Fabrico).
-  Os CIF vão todos para o custo das vendas na DR $\rightsquigarrow$ só são contabilizados quando há uma venda.
-
-![Empresa Comercial - Custeio Total](./assets/0004-empresa-industrial-custeio-total.png#dark=1)
-
-:::tip
-
-$$
-\textstyle
-{\text {Custo das vendas}} =
-\frac {\text{M.O.B} + \text{M.P} + \text{CIFvariáveis} + \text{CIF fixos}} {\text {Unidades Produzidas}} \times {\text {Unidades Vendidas}}
-$$
-
-:::
-
-### Empresa Industrial - Custeio Variável
-
-- **Custeio Variável**: A empresa valoriza a produção a produção apenas com os CIF variáveis
-  (a parte fixa integra os custos do período $\rightsquigarrow$ vai sempre para a DR; a parte variável só entra na DR quando há uma renda).
-
-![Empresa Industrial - Custeio Variável](./assets/0004-empresa-industrial-custeio-variavel.png#dark=1)
-
-:::tip
-
-$$
-\textstyle
-{\text {Custo das vendas}} = \frac {\text{M.O.B} + \text{M.P} + \text{CIFvariáveis}} {\text {Unidades Produzidas}} \times {\text {Unidades Vendidas}}
-$$
-
-:::
-
-- Os inventários no custeio variável não entram com os custos indiretos de fabrico fixos
-- O RO e os resultados líquidos do período estão deduzidos de todos os custos indiretos de fabrico fixos do exercício,
-  independentemente de parte dos produtos continuarem em inventário (não terem sido vendidos)
-- Há diferença nos dois métodos só se houver variação de inventários
-
-:::info[Exemplo]
-
-A empresa Phyta-Kola, empresa especializada na venda de fita-cola, iniciou as suas atividades em janeiro de 2020.
-Durante o ano produziu $190000$ unidades do seu produto gastando 400000€ em matéria-prima (MP),
-$150000€$ em mão de obra (MO) e $400000€$ em custos indiretos de fabrico (CIF), $52,5%$ dos quais variáveis.
-Além disso, a empresa gastou $200000€$ com administração, depreciações, etc.
-A empresa vendeu neste mesmo ano $120000$ unidades por $8€$ cada. Usando cada um dos métodos de custeio,
-calcule o custo fabril por unidade produzida, o resultado operacional de 2020.
-
-![Demonstração de Resultados](./assets/0004-exemplo-demonstracao-resultados.png)
-
-:::
-
 ## Análise Custo-Volume-Resultado
 
 Tendo já estabelecido os tipos de custeio, podemos perceber graficamente as zonas que correspondem a um prejuízo ou lucro da empresa.
@@ -511,5 +425,96 @@ $$
 $$
 Qc = \frac {CF} {P - CVu} = \frac {2000000} {1000 − 600} = 500 {\text { Unidades}}
 $$
+
+:::
+
+:::danger[Matéria não lecionada]
+Com o MEPP esta matéria (Noções Básicas de Custeio) foi retirada do programa.
+Logo não é preciso estudá-la.
+:::
+
+## Noções Básicas de Custeio
+
+**Custeio**: Atribuição de custo a um objeto de custo (qualquer entidade para a qual e deseje uma medida separada de custo)
+
+- **Direto**: Valores diretamente observados;
+- **Indireto**: Segundo taxas predeterminadas custo/unidade.
+  - Orçamentam-se os custos indiretos no período
+  - Estima-se o número de horas/máquina do período
+  - Estima-se o número de horas/homem no período
+  - Estima-se o custo de mão de obra direta
+
+**Objeto de Custo**: Qualquer entidade para qual se deseje uma medida separada de custo. Por exemplo: produtos, serviços, projetos, departamentos, etc
+
+$$
+\text {Custos Totais} = \text {Custos Indiretos de Fabricos + Mão de Obra Direta + Matéria Prima}
+$$
+
+$$
+\text {Custo Unitário de Fabrico} = \frac {\text{Custos Totais de Fabrico}} {\text{Quantidade Produzida}}
+$$
+
+### Custeio de Produto e Custeios de Período
+
+- **Produto**: Custos que valorizam a produção só são lançadas no DR quando a mercadoria é vendida.
+- **Período**: No ano em que ocorrem aparecem logo na DR.
+
+### Empresa Comercial
+
+- Compra e vende
+- Custo do produto fácil de obter, depende do custo de aquisição.
+
+![Empresa Comercial](./assets/0004-empresa-comercial.png#dark=1)
+
+### Empresa Industrial - Custeio Total
+
+- Mais difícil de ver o custo do produto.
+
+- **Custeio Total**: A empresa valoriza a produção como o total dos CIF (Custos Indiretos de Fabrico).
+  Os CIF vão todos para o custo das vendas na DR $\rightsquigarrow$ só são contabilizados quando há uma venda.
+
+![Empresa Comercial - Custeio Total](./assets/0004-empresa-industrial-custeio-total.png#dark=1)
+
+:::tip
+
+$$
+\textstyle
+{\text {Custo das vendas}} =
+\frac {\text{M.O.B} + \text{M.P} + \text{CIFvariáveis} + \text{CIF fixos}} {\text {Unidades Produzidas}} \times {\text {Unidades Vendidas}}
+$$
+
+:::
+
+### Empresa Industrial - Custeio Variável
+
+- **Custeio Variável**: A empresa valoriza a produção a produção apenas com os CIF variáveis
+  (a parte fixa integra os custos do período $\rightsquigarrow$ vai sempre para a DR; a parte variável só entra na DR quando há uma renda).
+
+![Empresa Industrial - Custeio Variável](./assets/0004-empresa-industrial-custeio-variavel.png#dark=1)
+
+:::tip
+
+$$
+\textstyle
+{\text {Custo das vendas}} = \frac {\text{M.O.B} + \text{M.P} + \text{CIFvariáveis}} {\text {Unidades Produzidas}} \times {\text {Unidades Vendidas}}
+$$
+
+:::
+
+- Os inventários no custeio variável não entram com os custos indiretos de fabrico fixos
+- O RO e os resultados líquidos do período estão deduzidos de todos os custos indiretos de fabrico fixos do exercício,
+  independentemente de parte dos produtos continuarem em inventário (não terem sido vendidos)
+- Há diferença nos dois métodos só se houver variação de inventários
+
+:::info[Exemplo]
+
+A empresa Phyta-Kola, empresa especializada na venda de fita-cola, iniciou as suas atividades em janeiro de 2020.
+Durante o ano produziu $190000$ unidades do seu produto gastando 400000€ em matéria-prima (MP),
+$150000€$ em mão de obra (MO) e $400000€$ em custos indiretos de fabrico (CIF), $52,5%$ dos quais variáveis.
+Além disso, a empresa gastou $200000€$ com administração, depreciações, etc.
+A empresa vendeu neste mesmo ano $120000$ unidades por $8€$ cada. Usando cada um dos métodos de custeio,
+calcule o custo fabril por unidade produzida, o resultado operacional de 2020.
+
+![Demonstração de Resultados](./assets/0004-exemplo-demonstracao-resultados.png)
 
 :::
