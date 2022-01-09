@@ -102,9 +102,9 @@ Podemos, por fim, afirmar que $\delta(s, v) \leq \delta(s, u) + w(u, v)$. Escrev
 Os algoritmos abordados mais abaixo irão recorrer à operação de **relaxação**. É mantido um vector, $d$, com $|V|$ elementos, onde para cada vértice $v \in V$ de $G = (V, E)$, $d[v]$ denota a estimativa atual do caminho mais curto de $s$ até $v$. Corresponderá a um **majorante** do peso do mesmo - isto é, se já sabemos que a melhor estimativa que temos é aquela, nunca iremos atualizar a mesma caso se trate de um custo mais caro. O algoritmo começa por inicializar todas as estimativas a $+\infty$, bem como todos os pais de todos os vértices a `Nil`:
 
 ```rust
-InitializeSingleSource(G, s) // ocorre em \Theta(|V|) tempo
+InitializeSingleSource(G, s) // ocorre em Theta(|V|) tempo
   for each v in V[G] do
-    d[v] := +\infty
+    d[v] := +infinity
     pi[v] := Nil
   d[s] := 0 // temos, claro, que o custo de s a s é 0
 ```
@@ -112,7 +112,7 @@ InitializeSingleSource(G, s) // ocorre em \Theta(|V|) tempo
 **Relaxar** uma aresta $(u, v)$ consiste em verificar se podemos imediatamente melhorar a nossa estimativa atual do custo de $s$ a $v$ passando pela aresta $(u, v)$ - caso possamos, atualizamos tanto a nossa estimativa como o pai de $v$:
 
 ```rust
-Relax(G, u, v, w) // ocorre em \Theta(1) tempo
+Relax(G, u, v, w) // ocorre em Theta(1) tempo
   if d[v] > d[u] + w(u, v) then
     d[v] := d[u] + w(u, v)
     pi[v] := u
@@ -148,13 +148,13 @@ O algoritmo tem complexidade temporal no pior caso melhor que a do algoritmo de 
 
 ```rust
 Dijkstra(G, w, s)
-  InitializeSingleSource(G, s) // ocorre em \Theta(V) tempo
+  InitializeSingleSource(G, s) // ocorre em Theta(V) tempo
   let S := new array
   let Q := new queue(V)
-  while Q is not empty do // ocorre \Theta(V) vezes
+  while Q is not empty do // ocorre Theta(V) vezes
     let u := extractMin(Q) // V vezes * O(logV) durante o algoritmo
     S.add(u)
-    for each v in Adj[u] do // \Theta(E) vezes durante o algoritmo
+    for each v in Adj[u] do // Theta(E) vezes durante o algoritmo
       Relax(G, u, v, w(u, v))
 ```
 
