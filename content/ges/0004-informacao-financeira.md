@@ -42,11 +42,11 @@ Processo formal de identificar, medir e comunicar a informação sobre o patrim�
 
 :::info[Exemplo de Contabilidade Pessoal]
 
-**Património Ativo**: ${\text{casa} + \text{carro} + \text{depósitos} + \text{nota}} = 162.050€$
+**Património Ativo**: ${\text{Casa} + \text{Carro} + \text{Depósitos} + \text{Nota}} = 162.050€$
 
-**Património Passivo**: Empréstimo
+**Património Passivo**:$ \text{ Empréstimo } = 100.000€$
 
-**Património Liquido**: ${\text{Ativo} - \text{Passivo}} = 62.050€$
+**Património Líquido**: ${\text{Ativo} - \text{Passivo}} = 62.050€$
 
 :::
 
@@ -56,7 +56,7 @@ Processo formal de identificar, medir e comunicar a informação sobre o patrim�
 
 **Património Passivo**: Obrigações $\rightsquigarrow$ Valor do que devo.
 
-**Património Liquido**: Bens e direitos.
+**Património Líquido**: Diferença entre Bens/Direitos e Obrigações.
 
 - **Contabilidade Empresarial**
   - 5 sócios criam uma empresa de consultadoria, investindo nela 50.000€
@@ -67,11 +67,11 @@ Processo formal de identificar, medir e comunicar a informação sobre o patrim�
 
 :::info[Exemplo de Contabilidade Empresarial]
 
-**Património Ativo**: ${\text{depósitos bancários} + \text{bens investidos}} = 58.000€$
+**Património Ativo**: ${\text{Depósitos bancários} + \text{Bens Investidos}} = 58.000€$
 
-**Património Passivo**: ${\text{dividas ao banco}} = 3.000€$
+**Património Passivo**: ${\text{Dívidas ao banco}} = 3.000€$
 
-**Património Liquido ou capital próprio**: ${\text{Ativo} - \text{Passivo}} = 55.000€$
+**Património Líquido ou Capital Próprio**: ${\text{Ativo} - \text{Passivo}} = 55.000€$
 
 :::
 
@@ -94,9 +94,9 @@ O balanço é uma fotografia num dado momento da situação patrimonial da empre
 
 :::tip
 
-Se ativo > passivo $\rightsquigarrow$ Capital próprio > 0
+Se Ativo > Passivo $\rightsquigarrow$ Capital Próprio > 0
 
-Se ativo < passivo $\rightsquigarrow$ Capital próprio < 0 - Falência técnica
+Se Ativo < Passivo $\rightsquigarrow$ Capital Próprio < 0 - Falência Técnica
 
 :::
 
@@ -123,7 +123,7 @@ e se os valores de balanço correspondessem exatamente aos valores de mercado.
 
 Normalmente, os balanços são feitos ano a ano, por exemplo:
 
-Dia 31/12: lucro de 1000€ (resultado liquido)
+Dia 31/12: Lucro de 1000€ (resultado líquido)
 
 Dia 01/01: Passo para o resultado transitado:
 
@@ -132,21 +132,21 @@ Dia 01/01: Passo para o resultado transitado:
 
 :::
 
-Cada alteração em elementos de Balanço é causada por uma transação. Cada transação implica sempre pelo menos < registos: o sistema de transações chama-se **Dupla Entrada**.
+Cada alteração em elementos de Balanço é causada por uma transação. Cada transação implica sempre pelo menos 2 registos: o sistema de transações chama-se **Dupla Entrada**.
 
 - **Início da Atividade** $\rightsquigarrow$ Capital (subscrito): Dinheiro investido formalmente pelos sócios para suportar as necessidades financeiras da empresa.
 
 - **Resultado Líquido**: $\rightsquigarrow$ Lucro, prejuízo ou resultado nulo: Fluxo financeiro anual que corresponde à diferença entre rendimentos e gastos.
 
-- **Património Líquido a cada Momento** $\rightsquigarrow$ capital próprio: Os resultados líquidos não distribuidos (ou seja, os que não são usados para pagar dívidas ou dar aos sócios) ficam no capital próprio como reservas.
+- **Património Líquido a cada Momento** $\rightsquigarrow$ Capital próprio: Os resultados líquidos não distribuídos (ou seja, os que não são usados para pagar dívidas ou dar aos sócios) ficam no capital próprio como reservas.
 
 O balanço contabilistico e a demonstração de resultados pode ser feita segundo diferentes óticas:
 
-- **Ótica de Caixa**: Permite ver o dinheiro que uma empresa tem num determinado momento, a liquidez
+- **Ótica de Caixa**: Permite ver o dinheiro que uma empresa tem num determinado momento, a Liquidez
 
 - **Ótica de Exercício**: Permite ver se a empresa é rentável
 
-![Balanço contabilistico segundo duas óticas](./assets/0004-oticas-balanco.png)
+![Balanço contabilistico segundo duas óticas](./assets/0004-oticas-balanco.png#dark=1)
 
 A demonstração de resultados é o resultado líquido do período que encontramos no lado direito do Balanço,
 no capital próprio, é, essencialmente, um mapa que exprime para um dado período diferença entre os fluxos de rendimentos.
@@ -155,13 +155,13 @@ Existem diversos tipos de resultados na demonstração dos mesmos:
 
 - **Resultado Operacinal (RO)**: Dependem somente da atividade produtiva no período em análise.
 
-  RO = Rendimentos Operacionais - Gastos Operacionais
+  RO $=$ Rendimentos Operacionais $-$ Gastos Operacionais
 
 - **Resultado Antes do Imposto (RAI)**: Resultado operacional deduzido dos gastos de financiamentos líquido.
 
-  RAI = RO - Gastos de Financiamento líquidos
+  RAI $=$ RO $-$ Gastos de Financiamento líquidos
 
-- **Resultado Líquido do Período (RL)**: Resultada da dedução do imposto sobre o resultado antes de impostos ao RAI.
+- **Resultado Líquido do Período (RL)**: Resulta da dedução do imposto sobre o resultado antes de impostos ao RAI.
 
 :::info[Exemplo]
 
@@ -186,29 +186,29 @@ Demonstração de Resultados:
 
 1. **Capital Próprio**: Capital subscrito: $+ 3 \times 10.000€$ (Valor pago para formar a empresa);
 
-   **Ativo**: Depósitos à ordem e caixa: + 3 $\times$ 10.000€ (Quanto vale a empresa ao ser formada);
+   **Ativo**: Depósitos à ordem e caixa: +$ 3 \times 10.000€$ (Quanto vale a empresa ao ser formada);
 
-2. **Ativo**: +100.000€ (Recebido em empréstimo);
+2. **Ativo**: $+100.000€$ (Recebido em empréstimo);
 
-   **Passivo**: +100.000€ (Obrigação de pagar o empréstimo);
+   **Passivo**: $+100.000€$ (Obrigação de pagar o empréstimo);
 
-3. **Ativo**: Aquisição de um espaço próprio $\rightsquigarrow$ Ativo Fixo Tangíveis: +80.000€;
+3. **Ativo**: Aquisição de um espaço próprio $\rightsquigarrow$ Ativo Fixo Tangíveis: $+80.000€$;
 
-   Pagamento da loja à vista $\rightsquigarrow$ Depósito à ordem e caixa: -80.000€;
+   Pagamento da loja à vista $\rightsquigarrow$ Depósito à ordem e caixa: $-80.000€$;
 
-4. **Ativo**: Aquisição de material $\rightsquigarrow$ Inventário +20.000€;
+4. **Ativo**: Aquisição de material $\rightsquigarrow$ Inventário $+20.000€$;
 
-   **Passivo**: Obrigação de pagar aos fornecedores num prazo de 90 dias $\rightsquigarrow$ Fornecedores: +20.000;
+   **Passivo**: Obrigação de pagar aos fornecedores num prazo de $90$ dias $\rightsquigarrow$ Fornecedores: $+20.000$;
 
-5. **Passivo**: Demonstração de Resultados: Resultados Líquidos: Vendas no valor de 15.000€,
-   a ser pago em 60 dias, de um material que custou 10.000€ $\rightsquigarrow$ Resultado Bruto das vendas: 5000€;
+5. **Passivo**: Demonstração de Resultados: Resultados Líquidos: Vendas no valor de $15.000€$,
+   a ser pago em $60$ dias, de um material que custou $10.000€ \rightsquigarrow$ Resultado Bruto das vendas: $5000€$;
 
-   **Ativo**: Perda de inventário $\rightsquigarrow$ Inventário: -10.000€
-   Direito de receber dinheiro dos clientes $\rightsquigarrow$ Clientes: +15.000;
+   **Ativo**: Perda de inventário $\rightsquigarrow$ Inventário: $-10.000€$
+   Direito de receber dinheiro dos clientes $\rightsquigarrow$ Clientes: $+15.000$;
 
-6. **Ativo**: Pagamento dos ordenados $\rightsquigarrow$ Depósitos à ordem e caixa: -1500€;
+6. **Ativo**: Pagamento dos ordenados $\rightsquigarrow$ Depósitos à ordem e caixa: $-1500€$;
 
-   **Passivo**: Demonstração de resultados: Gastos com o pessoal: -1500€;
+   **Passivo**: Demonstração de resultados: Gastos com o pessoal: $-1500€$;
 
 Notar como cada balanço num lado da tabela implica um mesmo balanço do outro lado da tabela
 
@@ -238,7 +238,7 @@ mas têm um impacto fiscal → mais gastos, menos resultados antes de impostos, 
 
 ## Análise de Rácios Financeiros
 
-**Rácios**: indicadores de gestão que exprimem uma relação entre elementos dos documentos contabilísticos
+**Rácios**: Indicadores de gestão que exprimem uma relação entre elementos dos documentos contabilísticos
 (Balanço, Demonstração de Resultados) e a partir dos quais é possível tirar ilações sobre a situação da empresa
 (Solidez Financeira e níveis de desempenho económico e financeiro).
 
@@ -263,11 +263,11 @@ mas têm um impacto fiscal → mais gastos, menos resultados antes de impostos, 
 2. **Rácios de Atividade ou Funcionamento**: Indicam o grau de utilização dos recursos da empresa.
 
 $$
-\text{Prazo médio de recebimentos (dias)}=\frac {\text{Clientes}} {\text{Vendas}} \times 365(\text{dias})
+\text{Prazo Médio de Recebimentos (em dias)}=\frac {\text{Clientes}} {\text{Vendas}} \times 365
 $$
 
 $$
-\text{Prazo médio de pagamentos (em dias)}=\frac {\text{Fornecedores}} {\text{Compras}} \times 365
+\text{Prazo Médio de Pagamentos (em dias)}=\frac {\text{Fornecedores}} {\text{Compras}} \times 365
 $$
 
 3. **Rácio de Solvabilidade/Endividamento**: Indicam a capacidade da empresa de sastifazer os compromissos financeiros de médio e longo prazo.
@@ -275,7 +275,7 @@ $$
    - **Solvabilidade**: Capacidade da empresa para responder aos seus compromissos a médio e a longo prazo:
 
    $$
-   \text{Solvabilidade Total ou Autonomia financeira}=\frac {\text{Capital Próprio}} {\text{Capital Ativo}}
+   \text{Solvabilidade Total ou Autonomia Financeira}=\frac {\text{Capital Próprio}} {\text{Capital Ativo}}
    $$
 
    - Uma boa solvabilidade total corresponde a valores acima de 1/3
@@ -288,7 +288,7 @@ $$
 
 4. **Rácio de Liquidez**: Indicam a capacidade de a empresa satisfazer os compromissos financeiros de curto prazo.
 
-   - **Liquidez**: Capacidade de a empresa solver os seus compromissos de curto prazo através do fundo de maneio (Ativo corrente – Passivo corrente).
+   - **Liquidez**: Capacidade de a empresa solver os seus compromissos de curto prazo através do fundo de maneio (Ativo corrente $–$ Passivo corrente).
 
    Podemos avaliar o grau de liquidez da empresa, que é em função de:
 
@@ -298,13 +298,13 @@ $$
 
    $$
    \begin{aligned}
-   \text{Liquidez geral}&=\frac {\text{Ativo corrente}} {\text{Passivo corrente}}\\
+   \text{Liquidez geral}&=\frac {\text{Ativo Corrente}} {\text{Passivo Corrente}}\\
    \\
-   &= \frac {\text{Caixa de depósitos à ordem + clientes + Inventários}} {\text{Passivo Corrente}}\\
+   &= \frac {\text{Caixa de Depósitos à Ordem + Clientes + Inventários}} {\text{Passivo Corrente}}\\
    \\
-   \text{Liquidez Reduzida}&=\frac {\text{Ativo corrente - Inventário}} {\text{Passivo Corrente}}\\
+   \text{Liquidez Reduzida}&=\frac {\text{Ativo Corrente - Inventário}} {\text{Passivo Corrente}}\\
    \\
-   &= \frac {\text{Caixa e depósitos à ordem + clientes}} {\text{Passivo Corrente}}
+   &= \frac {\text{Caixa e Depósitos à Ordem + Clientes}} {\text{Passivo Corrente}}
    \end{aligned}
    $$
 
@@ -325,7 +325,7 @@ Qual é o rácio de liquidez reduzida e o rácio de solvabilidade total? Trata-s
 
 $$
 \begin{aligned}
-\text{Liquidez geral \%}&=\frac {\text{Ativo corrente} - \text{Inventário}} {\text{Passivo corrente}}\%\\
+\text{Liquidez Reduzida \%}&=\frac {\text{Ativo corrente} - \text{Inventário}} {\text{Passivo Corrente}}\%\\
 \\
 &=\frac {10000 + 15000 + 48500 - 10000} {20000} = 317,5\%\\
 \\
@@ -335,7 +335,7 @@ $$
 \end{aligned}
 $$
 
-Tem uma má solubilidade total uma vez que o valor é inferior a 1/3.
+Tem uma má solubilidade total uma vez que o valor é inferior a $1/3$.
 :::
 
 ## Noções Básicas de Custeio
@@ -343,17 +343,20 @@ Tem uma má solubilidade total uma vez que o valor é inferior a 1/3.
 **Custeio**: Atribuição de custo a um objeto de custo (qualquer entidade para a qual e deseje uma medida separada de custo)
 
 - **Direto**: Valores diretamente observados;
-- **Indireto**: Segundo taxas predeterminadas custo/unidade. - Orçamentam-se os custos indiretos no período; - Estima-se
-  o número de horas/máquina do período; - Estima-se o número de horas/homem no período; - Estima-se o custo de mão de obra direta.
+- **Indireto**: Segundo taxas predeterminadas custo/unidade.
+  - Orçamentam-se os custos indiretos no período
+  - Estima-se o número de horas/máquina do período
+  - Estima-se o número de horas/homem no período
+  - Estima-se o custo de mão de obra direta
 
 **Objeto de Custo**: Qualquer entidade para qual se deseje uma medida separada de custo. Por exemplo: produtos, serviços, projetos, departamentos, etc
 
 $$
-\text {Custos totais} = \text {Custos indiretos de fabricos + Mão de obra direta + Matéria prima}
+\text {Custos Totais} = \text {Custos Indiretos de Fabricos + Mão de Obra Direta + Matéria Prima}
 $$
 
 $$
-\text {Custo unitário de fabrico} = \frac {\text{Custos totais de fabrico}} {\text{Quantidade produzida}}
+\text {Custo Unitário de Fabrico} = \frac {\text{Custos Totais de Fabrico}} {\text{Quantidade Produzida}}
 $$
 
 ### Custeio de Produto e Custeios de Período
@@ -363,26 +366,26 @@ $$
 
 ### Empresa Comercial
 
-- Compra e vende;
+- Compra e vende
 - Custo do produto fácil de obter, depende do custo de aquisição.
 
-![Empresa Comercial](./assets/0004-empresa-comercial.png)
+![Empresa Comercial](./assets/0004-empresa-comercial.png#dark=1)
 
 ### Empresa Industrial - Custeio Total
 
 - Mais difícil de ver o custo do produto.
 
-- **Custeio Total**: A empresa valoriza a produção como o total dos CIF (custos indiretos de fabrico).
+- **Custeio Total**: A empresa valoriza a produção como o total dos CIF (Custos Indiretos de Fabrico).
   Os CIF vão todos para o custo das vendas na DR $\rightsquigarrow$ só são contabilizados quando há uma venda.
 
-![Empresa Comercial - Custeio Total](./assets/0004-empresa-industrial-custeio-total.png)
+![Empresa Comercial - Custeio Total](./assets/0004-empresa-industrial-custeio-total.png#dark=1)
 
 :::tip
 
 $$
 \textstyle
 {\text {Custo das vendas}} =
-\frac {\text{M.O.B} + \text{M.P} + \text{CIFvariáveis} + \text{CIF fixos}} {\text {Unidades produzidas}} \times {\text {Unidades vendidas}}
+\frac {\text{M.O.B} + \text{M.P} + \text{CIFvariáveis} + \text{CIF fixos}} {\text {Unidades Produzidas}} \times {\text {Unidades Vendidas}}
 $$
 
 :::
@@ -392,29 +395,29 @@ $$
 - **Custeio Variável**: A empresa valoriza a produção a produção apenas com os CIF variáveis
   (a parte fixa integra os custos do período $\rightsquigarrow$ vai sempre para a DR; a parte variável só entra na DR quando há uma renda).
 
-![Empresa Industrial - Custeio Variável](./assets/0004-empresa-industrial-custeio-variavel.png)
+![Empresa Industrial - Custeio Variável](./assets/0004-empresa-industrial-custeio-variavel.png#dark=1)
 
 :::tip
 
 $$
 \textstyle
-{\text {Custo das vendas}} = \frac {\text{M.O.B} + \text{M.P} + \text{CIFvariáveis}} {\text {Unidades produzidas}} \times {\text {Unidades vendidas}}
+{\text {Custo das vendas}} = \frac {\text{M.O.B} + \text{M.P} + \text{CIFvariáveis}} {\text {Unidades Produzidas}} \times {\text {Unidades Vendidas}}
 $$
 
 :::
 
-- Os inventários no custeio variável não entram com os custos indiretos de fabrico fixos;
+- Os inventários no custeio variável não entram com os custos indiretos de fabrico fixos
 - O RO e os resultados líquidos do período estão deduzidos de todos os custos indiretos de fabrico fixos do exercício,
-  independentemente de parte dos produtos continuarem em inventário (não terem sido vendidos);
-- Há diferença nos dois métodos só se houver variação de inventários.
+  independentemente de parte dos produtos continuarem em inventário (não terem sido vendidos)
+- Há diferença nos dois métodos só se houver variação de inventários
 
 :::info[Exemplo]
 
 A empresa Phyta-Kola, empresa especializada na venda de fita-cola, iniciou as suas atividades em janeiro de 2020.
-Durante o ano produziu 190000 unidades do seu produto gastando 400000€ em matéria-prima (MP),
-150000€ em mão de obra (MO) e 400000€ em custos indiretos de fabrico (CIF), 52,5% dos quais variáveis.
-Além disso, a empresa gastou 200000€ com administração, depreciações, etc.
-A empresa vendeu neste mesmo ano 120000 unidades por 8€ cada. Usando cada um dos métodos de custeio,
+Durante o ano produziu $190000$ unidades do seu produto gastando 400000€ em matéria-prima (MP),
+$150000€$ em mão de obra (MO) e $400000€$ em custos indiretos de fabrico (CIF), $52,5%$ dos quais variáveis.
+Além disso, a empresa gastou $200000€$ com administração, depreciações, etc.
+A empresa vendeu neste mesmo ano $120000$ unidades por $8€$ cada. Usando cada um dos métodos de custeio,
 calcule o custo fabril por unidade produzida, o resultado operacional de 2020.
 
 ![Demonstração de Resultados](./assets/0004-exemplo-demonstracao-resultados.png)
@@ -424,43 +427,20 @@ calcule o custo fabril por unidade produzida, o resultado operacional de 2020.
 ## Análise Custo-Volume-Resultado
 
 Tendo já estabelecido os tipos de custeio, podemos perceber graficamente as zonas que correspondem a um prejuízo ou lucro da empresa.
-Isto pode ser feito através da reta decorrente do produto do preço de venda unitários (P) pela quantidade produzida
-e vendida (Q) e da reta do total dos custos fixos (CF) somado pela multiplicação do custo variável unitário ($cv_u$)
-com a mesma quantidade produzida e vendida (Q).
+Isto pode ser feito através da reta decorrente do produto do preço de venda unitários ($P$) pela quantidade produzida
+e vendida ($Q$) e da reta do total dos custos fixos ($CF$) somado pela multiplicação do custo variável unitário ($cv_u$)
+com a mesma quantidade produzida e vendida ($Q$).
 
 - **Ponto Crítico**: Ponto em que uma empresa deixa de estar no prejuízo e passa a estar no lucro (ou seja, passa a ser rentável).
-  Corresponde a uma receita e a uma quantidade crítica (Rc e Qc).
+  Corresponde a uma receita e a uma quantidade crítica ($Rc$ e $Qc$).
   Trata-se de um ponto em que o nível de atividade corresponde a um lucro zero.
 
-  ![Ponto Crítico](./assets/0004-ponto-critico.png)
+  ![Ponto Crítico](./assets/0004-ponto-critico.png#dark=1)
 
 - **Custos Fixos**: Gastos em que a empresa incorre independentemente da quantidade produzida (ex: Gastos de instalação).
 - **Custos Variáveis**: Variam proporcionalmente com a quantidade produzida (ex: custos de matéria-prima).
 
-O lucro pode ser matematicamente definido por:
-
-$$
-\text{Lucro} = p \times Q - CV -CF
-$$
-
-De acordo com a análise gráfica, podemos chegar a uma expressão para a quantidade crítica:
-
-$$
-Qc = \frac {CF} {mCu} = \frac {CF} {p-CVu} = \frac {\text {Total dos custos fixos}} {\text {margem de contribuição unitária}}
-$$
-
-Em que mCu significa margem de contribuição unitária.
-Logicamente:
-
-$$
-Rc = p \times Qc = \frac {CF} {mCu \%}
-$$
-
-$$
-mCu = p - CVu
-$$
-
-:::tip[Relembrar]
+:::tip[Resumo]
 
 $Q =$ Quantidades produzidas e vendidas;
 
@@ -477,6 +457,29 @@ $CF =$ Total dos custos fixos;
 $CV =$ Total dos custos variáveis.
 
 :::
+
+O lucro pode ser matematicamente definido por:
+
+$$
+\text{Lucro} = p \times Q - CV -CF
+$$
+
+De acordo com a análise gráfica, podemos chegar a uma expressão para a quantidade crítica:
+
+$$
+Qc = \frac {CF} {mCu} = \frac {CF} {p-CVu} = \frac {\text {Total dos custos fixos}} {\text {margem de contribuição unitária}}
+$$
+
+Em que $mCu$ significa margem de contribuição unitária.
+Logicamente:
+
+$$
+Rc = p \times Qc = \frac {CF} {mCu \%}
+$$
+
+$$
+mCu = p - CVu
+$$
 
 :::info[Exemplo]
 
