@@ -117,7 +117,7 @@ integral num intervalo simétrico, é o dobro do integral numa das "metades" do 
 $$
 \begin{aligned}
 b_n &= \int_{-1}^{1} f(x)\sin(n\pi x) \d x\\
-&= 2 \int_{-1}^{1} \pi \sin(n \pi x) \d x\\
+&= 2 \int_{0}^{1} \pi \sin(n \pi x) \d x\\
 &= - \frac{2\pi}{n\pi} \left[\cos(n\pi x)\right]_0^1\\
 &= - \frac{2}{n} \left(\cos(n \pi) - 1\right)\\
 &= \frac{2}{n} \left(1 - \cos(n \pi) \right)
