@@ -187,7 +187,6 @@ A árvore DFS da respetiva floresta é, normalmente, representada por:
 Contudo, **nem todas as arestas do grafo estão representadas** nesta árvore DFS - estão apenas representadas as arestas "normais" da árvore - **tree edges**. As restantes arestas são, respetivamente:
 
 - $AF$ - Forward edge
-- $EG$ - Forward edge
 - $FB$ - Back edge
 - $DA$ - Back edge
 - $DH$ - Cross edge
