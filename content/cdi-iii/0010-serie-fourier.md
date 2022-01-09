@@ -212,3 +212,179 @@ SF_f(x) = \sum_{n = 1}^{+\infty} \frac{2(-1)^{n+1}}{n}\sin (n x)
 $$
 
 :::
+
+## Série de Senos
+
+Como já deves ter reparado, se determinarmos a Série de Fourier de uma função [**ímpar**](color:yellow),
+vamos ter sempre que $a_n \equiv 0$, eliminado os termos com cosseno.  
+Podemos então fazer uma definição mais explícita neste caso, e até a estender a funções que não são ímpares.
+
+Para isto, ao contrário da Série de Fourier, consideramos apenas um dos "lados" do intervalo simétrico, e efetuamos a extensão ímpar de $f$.
+
+:::tip[Definição]
+
+Sendo $L > 0$ e $f: [0, L] \to \R$ uma função seccionalmente contínua e de derivada seccionalmente contínua em $]0, L[$,
+pode-se associar a $f$ a [**Série de Senos**](color:yellow)
+
+$$
+S_{\sin}f(x) = \sum_{n=1}^{\infty} b_n \sin \left(\frac{n\pi x}{L}\right)
+$$
+
+em que
+
+$$
+b_n = \frac{2}{L} \int_{0}^{L} f(x)\sin\left(\frac{n\pi x }{L}\right) \d x
+$$
+
+:::
+
+Se repararmos, a [**Série de Senos**](color:yellow) de $f$ em $[0,L]$ corresponde à [**Série de Fourier**](color:orange)
+da sua extensão ímpar a $[-L,L]$, $g(x)$:
+
+$$
+g(x) = \begin{cases}
+f(x) & \text{se } x \in ]0, L]\\
+0 & \text{se } x = 0\\
+-f(-x) & \text{se } x \in [-L, 0[
+\end{cases}
+$$
+
+:::details[Exemplo]
+
+**Determine a [**Série de Senos**](color:yellow) da função $f: [0, 2] \to \R$ definida por**
+
+$$
+f(x) = \begin{cases}
+1-x & \text{se } x \in [0, 1[\\
+0 & \text{se } x \in [1, 2]
+\end{cases}
+$$
+
+Atendendo ao domínio, temos que, segundo a definição acima, $L = 2$.  
+Portanto, vamos ter a seguinte expressão para a Série de Senos de $f$:
+
+$$
+S_{\sin}f(x) = \sum_{n=1}^{\infty} b_n \sin \left(\frac{n\pi x}{2}\right)
+$$
+
+Podemos agora calcular $b_n$:
+
+$$
+\begin{aligned}
+b_n &= \int_{0}^{2} f(x) \sin \left(\frac{n\pi x}{2}\right) \d x\\
+&= \int_{0}^{1} (1-x) \sin \left(\frac{n\pi x}{2}\right) \d x\\
+&= \int_{0}^{1} \sin \left(\frac{n\pi x}{2}\right) \d x - \int_{0}^{1} x\sin \left(\frac{n\pi x}{2}\right) \d x\\
+&= -\frac{2}{n\pi} \left[\cos \left(\frac{n\pi x}{2}\right)\right]_0^1 +\frac{2}{n\pi} \left( \left[x\cos \left(\frac{n\pi x}{2}\right)\right]_0^1 - \int_{0}^{1} \cos \left(\frac{n\pi x}{2}\right) \d x \right)\\
+&= -\frac{2}{n\pi} \times (\cos \left(\frac{n\pi}{2}\right)-1) +\frac{2}{n\pi} \left(\cos \left(\frac{n\pi}{2}\right) +\frac{2}{n\pi} \left[\sin \left(\frac{n\pi x}{2}\right)\right]_0^1 \right)\\
+&= \frac{2}{n\pi} + \frac{4}{n^2 \pi^2} \sin \left(\frac{n\pi}{2}\right)
+\end{aligned}
+$$
+
+Concluímos então que a [**Série de Senos**](color:yellow) de $f$ é:
+
+$$
+S_{\sin} f(x) = \sum_{n=1}^{\infty} \left(\frac{2}{n\pi} + \frac{4}{n^2 \pi^2} \sin \left(\frac{n\pi}{2}\right)\right) \sin \left(\frac{n\pi x}{2}\right)
+$$
+
+Pelo Teorema da Convergência Pontual das Séries de Fourier, temos que, em $[-2, 2]$,
+
+$$
+S_{\sin} f(x) = \begin{cases}
+f(x) & \text{se } x \in ]0, 2]\\
+0 & \text{se } x = 0\\
+-f(-x) & \text{se } x \in [-2, 0[
+\end{cases}
+$$
+
+:::
+
+## Série de Cossenos
+
+De forma semelhante à Série de Senos, se determinarmos a Série de Fourier de uma função [**par**](color:green),
+vamos ter sempre que $b_n \equiv 0$, eliminado os termos com seno.  
+Podemos então fazer uma definição mais explícita neste caso, e até a estender a funções que não são pares.
+
+Para isto, ao contrário da Série de Fourier, consideramos apenas um dos "lados" do intervalo simétrico, e efetuamos a extensão par de $f$.
+
+:::tip[Definição]
+
+Sendo $L > 0$ e $f: [0, L] \to \R$ uma função seccionalmente contínua e de derivada seccionalmente contínua em $]0, L[$,
+pode-se associar a $f$ a [**Série de Cossenos**](color:green)
+
+$$
+S_{\cos}f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} a_n \cos \left(\frac{n\pi x}{L}\right)
+$$
+
+em que
+
+$$
+a_0 = \frac{2}{L} \int_{0}^{L} f(x) \d x
+$$
+
+$$
+a_n = \frac{2}{L} \int_{0}^{L} f(x)\cos\left(\frac{n\pi x }{L}\right) \d x
+$$
+
+:::
+
+Se repararmos, a [**Série de Cossenos**](color:green) de $f$ em $[0,L]$ corresponde à [**Série de Fourier**](color:orange)
+da sua extensão par a $[-L,L]$, $g(x)$:
+
+$$
+g(x) = \begin{cases}
+f(x) & \text{se } x \in ]0, L]\\
+0 & \text{se } x = 0\\
+f(-x) & \text{se } x \in [-L, 0[
+\end{cases}
+$$
+
+:::details[Exemplo]
+
+**Determine a [**Série de Cossenos**](color:green) da função $f: [0, \pi] \to \R$ definida por**
+
+$$
+f(x) = \begin{cases}
+0 & \text{se } x \in [0, \frac{\pi}{4}[\\
+1 & \text{se } x \in [\frac{\pi}{4}, \pi]
+\end{cases}
+$$
+
+Atendendo ao domínio, temos que, segundo a definição acima, $L = \pi$.  
+Portanto, vamos ter a seguinte expressão para a Série de Cossenos de $f$:
+
+$$
+S_{\cos}f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} a_n \cos (nx)
+$$
+
+Podemos agora calcular $a_0$ e $a_n$:
+
+$$
+a_0 = \frac{2}{\pi} \int_{0}^{\pi} f(x) \d x = \frac{2}{\pi} \int_{\frac{\pi}{4}}^{\pi} 1 \d x = \frac{2}{\pi} \left(\pi - \frac{\pi}{4}\right) = \frac{3}{2}
+$$
+
+$$
+\begin{aligned}
+a_n &= \frac{2}{\pi} \int_{0}^{\pi} f(x) \cos (nx) \d x\\
+&= \frac{2}{\pi} \int_{\frac{\pi}{4}}^{\pi} \cos (nx) \d x\\
+&= \frac{2}{n \pi} \left[\sin(nx)\right]_{\frac{\pi}{4}}^{\pi}\\
+&= -\frac{2}{n\pi} \sin \left(\frac{n\pi}{4}\right)
+\end{aligned}
+$$
+
+Concluímos então que a [**Série de Cossenos**](color:green) de $f$ é:
+
+$$
+S_{\cos} f(x) = \frac{3}{4} - \sum_{n=1}^{\infty} \left(\frac{2}{n\pi} \sin \left(\frac{n\pi}{4}\right) \cos(nx)\right)
+$$
+
+Pelo Teorema da Convergência Pontual das Séries de Fourier, temos que, em $[-\pi, \pi]$,
+
+$$
+S_{\cos} f(x) = \begin{cases}
+0 & \text{se } x \in \left]-\frac{\pi}{4}, \frac{\pi}{4}\right]\\
+1 & \text{se } x \in \left[-\pi, -\frac{\pi}{4}\right[ \cup \left]\frac{\pi}{4},\pi\right]\\
+\frac{1}{2} & \text{se } x = \pm \frac{\pi}{4}
+\end{cases}
+$$
+
+:::
