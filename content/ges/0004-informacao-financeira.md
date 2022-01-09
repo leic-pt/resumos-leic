@@ -428,7 +428,7 @@ $$
 
 :::
 
-:::danger[Matéria não lecionada]
+:::danger[Matéria Não Lecionada]
 Com o MEPP esta matéria (Noções Básicas de Custeio) foi retirada do programa.
 Logo não é preciso estudá-la.
 :::
