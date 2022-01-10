@@ -378,11 +378,11 @@ O pseudocódigo do algoritmo é o seguinte:
 BFS(G, v) // v é o vértice-raiz da procura
   for each n in V except v
     n.color = white
-    n.d = inf // inicialmente a infinito
-    n.pi = nil
+    n.distance = inf // inicialmente a infinito
+    n.parent = nil
   v.color = gray
-  v.d = 0
-  v.pi = nil
+  v.distance = 0
+  v.parent = nil
   Q := new queue
   Q.enqueue(v)
   while Q is not empty
@@ -390,8 +390,8 @@ BFS(G, v) // v é o vértice-raiz da procura
     for each n in Adj(u)
       if n.color == white
         n.color = gray
-        n.d = u.d + 1
-        n.pi = u
+        n.distance = u.distance + 1
+        n.parent = u
         Q.enqueue(n)
     u.color = black
 ```
