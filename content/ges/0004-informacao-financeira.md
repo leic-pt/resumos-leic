@@ -82,7 +82,7 @@ O balanço é uma fotografia num dado momento da situação patrimonial da empre
 - **Ativo**: Bens e direitos que a empresa possui ou tem direito a receber:
 
   - **Ativos Fixos Tangíveis**: Edifícios, equipamentos,...
-  - **Ativos Fixos Intagíveis**: Marcas, patentes,...
+  - **Ativos Fixos Intangíveis**: Marcas, patentes,...
   - **Inventários**: Produtos fabricados, em vias de fabricação ou matéria prima
   - **Valores Monetários**: Dinheiro, depósitos e titúlos financeiros
   - Dívidas de clientes
@@ -140,20 +140,20 @@ Cada alteração em elementos de Balanço é causada por uma transação. Cada t
 
 - **Património Líquido a cada Momento** $\rightsquigarrow$ Capital próprio: Os resultados líquidos não distribuídos (ou seja, os que não são usados para pagar dívidas ou dar aos sócios) ficam no capital próprio como reservas.
 
-O balanço contabilistico e a demonstração de resultados pode ser feita segundo diferentes óticas:
+O balanço contabilístico e a demonstração de resultados pode ser feita segundo diferentes óticas:
 
 - **Ótica de Caixa**: Permite ver o dinheiro que uma empresa tem num determinado momento, a Liquidez
 
 - **Ótica de Exercício**: Permite ver se a empresa é rentável
 
-![Balanço contabilistico segundo duas óticas](./assets/0004-oticas-balanco.png#dark=1)
+![Balanço contabilístico segundo duas óticas](./assets/0004-oticas-balanco.png#dark=1)
 
 A demonstração de resultados é o resultado líquido do período que encontramos no lado direito do Balanço,
 no capital próprio, é, essencialmente, um mapa que exprime para um dado período diferença entre os fluxos de rendimentos.
 
 Existem diversos tipos de resultados na demonstração dos mesmos:
 
-- **Resultado Operacinal (RO)**: Dependem somente da atividade produtiva no período em análise.
+- **Resultado Operacional (RO)**: Dependem somente da atividade produtiva no período em análise.
 
   RO $=$ Rendimentos Operacionais $-$ Gastos Operacionais
 
@@ -165,7 +165,7 @@ Existem diversos tipos de resultados na demonstração dos mesmos:
 
 :::info[Exemplo]
 
-Em janeiro de 2020, a Rita, o Tomás e o Rui, após terminarem o curso de Eng. Eletrótecnica,
+Em janeiro de 2020, a Rita, o Tomás e o Rui, após terminarem o curso de Eng. Eletrotécnica,
 criaram e iniciaram a atividade de uma empresa de computadores. Nesse mês ocorreram os seguintes factos:
 
 - Para iniciar a atividade, cada um dos três sócios participou com um capital de 10.000€, totalmente realizado em dinheiro.
@@ -270,7 +270,7 @@ $$
 \text{Prazo Médio de Pagamentos (em dias)}=\frac {\text{Fornecedores}} {\text{Compras}} \times 365
 $$
 
-3. **Rácio de Solvabilidade/Endividamento**: Indicam a capacidade da empresa de sastifazer os compromissos financeiros de médio e longo prazo.
+3. **Rácio de Solvabilidade/Endividamento**: Indicam a capacidade da empresa de satisfazer os compromissos financeiros de médio e longo prazo.
 
    - **Solvabilidade**: Capacidade da empresa para responder aos seus compromissos a médio e a longo prazo:
 
