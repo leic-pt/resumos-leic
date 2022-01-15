@@ -363,12 +363,6 @@ Temos 5 árvores na floresta DFS, pelo que temos 5 SCCs. O grafo dos componentes
 
 ## BFS - _Breadth First Search_
 
-:::warning[Secção Incompleta]
-
-Esta secção encontra-se atualmente incompleta. Estão apenas incluídos os temas abordados em aula até à terceira semana do segundo período (inclusive) - assim que possível, adicionar-se-á o resto.
-
-:::
-
 É, tal como a DFS, um algoritmo para travessia de grafos. Se na DFS o objetivo prendia-se em percorrer os caminhos em profundidade, até eventualmente ter de voltar para trás (_backtracking_), na BFS o objetivo passa por percorrer os caminhos em largura. Utiliza a noção de fila (vulgo queue) para guardar os vértices a serem explorados num futuro próximo. O próximo vértice a ser explorado é sempre o que está no início da fila. De realçar ainda que utilizamos uma fila regular, do tipo FIFO, _first in first out_.
 
 Começamos na raiz, com a fila inicialmente vazia, e vamos adicionando os vértices adjacentes ao vértice atual à fila. Fazemo-lo sucessivamente, extraindo sempre o primeiro elemento da fila e repetindo o processo até a fila estar vazia - quando estiver, a procura está concluída.
@@ -414,7 +408,7 @@ O decorrer do algoritmo é:
 - Exploramos $U$, que não tem adjacências por explorar, pelo que nada é adicionado.
 - Exploramos $Y$, que não tem adjacências por explorar, pelo que nada é adicionado.
 
-O algoritmo termina aqui. Os números ao lado de cada vértice correspondem à distância do vértice que escolhemos como raiz da BFS, neste caso o vértice $S$. A estrutura vertical que podemos observar à esqueerda corresponde à fila em que os vértices iam sendo colocados.
+O algoritmo termina aqui. Os números ao lado de cada vértice correspondem à distância do vértice que escolhemos como raiz da BFS, neste caso o vértice $S$. A estrutura vertical que podemos observar à esquerda corresponde à fila em que os vértices iam sendo colocados.
 
 :::
 
