@@ -1,5 +1,5 @@
 ---
-title: Caminhos mais Curtos
+title: Caminhos Mais Curtos
 description: Caminhos mais Curtos de Origem Única.
   Representação e Propriedades dos Caminhos mais Curtos.
   Operação de Relaxação.
@@ -11,7 +11,7 @@ path: /asa/caminhos-mais-curtos
 type: content
 ---
 
-# Caminhos mais Curtos
+# Caminhos Mais Curtos
 
 ```toc
 
@@ -19,7 +19,7 @@ type: content
 
 :::tip[Problema]
 
-O professor Patrick quer descobrir o caminho mais curto de Phoenix a Indianapolis. Dado um mapa dos Estados Unidos (onde a distância entre cada par de interseções adjacentes está marcada), como pode ele determinar o caminho mais curto?
+O professor Patrick quer descobrir o caminho mais curto de Phoenix a Indianápolis. Dado um mapa dos Estados Unidos (onde a distância entre cada par de interseções adjacentes está marcada), como pode ele determinar o caminho mais curto?
 
 :::
 
@@ -336,7 +336,8 @@ Como consideração inicial, podemos notar que se um vértice $v$ não é ating�
 
 :::tip[Curiosidade]
 
-A título de curiosidade, podemos notar que o **caminho mais longo** entre dois vértices num grafo (assumindo que podemos atingir o vértice-destino a partir da fonte) pode ser obtido ao negar os pesos de todas as arestas, passar os $+\infty$ iniciais para $-\infty$ e, na operação de relaxação, trocar os $>$ por $<$! O caminho mais longo pode ser particularmente útil para, entre outros, calcular um minorante para a quantidade de tempo/operações que uma dada tarefa vai levar - daí o nome pelo qual também é conhecido, **caminho crítico**.
+A título de curiosidade, podemos notar que o **caminho mais longo** entre dois vértices num grafo (assumindo que podemos atingir o vértice-destino a partir da fonte) pode ser obtido ao negar os pesos de todas as arestas, passar os $+\infty$ iniciais para $-\infty$ e, na operação de relaxação, trocar os $>$ por $<$\
+O caminho mais longo pode ser particularmente útil para, entre outros, calcular um minorante para a quantidade de tempo/operações que uma dada tarefa vai levar - daí o nome pelo qual também é conhecido, **caminho crítico**.
 
 :::
 
@@ -495,8 +496,6 @@ Ora, chegámos então a $w(p') < w(p)$. Tínhamos, contudo, começado por afirma
 Resta, então, notar que a complexidade temporal do algoritmo é $O(V (V + E) \log V)$, predominando, portanto, a complexidade de Dijkstra pelos $|V|$ vértices.
 
 ---
-
-<!-- TODO - ADD NOTES WHEN AVAILABLE  -->
 
 - [Slides Dijkstra/DAG SP/Bellman-Ford](https://drive.google.com/file/d/10QzxNY5Z2dHZLaYdyhG2S3-jTQwFjjgv/view?usp=sharing)
 - [Slides Johnson](https://drive.google.com/file/d/1dIMIW3ThdJv2bFsRL7fyKJDkl9SKmB-Z/view?usp=sharing)
