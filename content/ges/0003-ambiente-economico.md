@@ -14,6 +14,11 @@ path: /ges/ambiente-economico
 type: content
 ---
 
+:::danger[Matéria Não Lecionada]
+Com o MEPP esta matéria (Ambiente Económico) foi retirada do programa.
+Logo não é preciso estudá-la.
+:::
+
 # Ambiente Económico
 
 ```toc
@@ -26,9 +31,9 @@ A economia subdivide-se em duas grandes áreas:
 
 - **Microeconomia**: Estuda o comportamento económico de entidades individuais como os mercados, as empresas e as famílias.
 
-Como o próprio nome indica a **macroeconomia** retrata o grande cenário - o Estado, a economia Nacional
-e as relações económicas internacionais - recorrendo a indicadores, como o PIB, a Taxa de Desemprego, a inflação, etc.
-A **microeconomia** foca-se no pequeno, no detalhe, nos individuos e nas suas ações, nas empresas e no seu processamento produtivo.
+Como o próprio nome indica, a **Macroeconomia** retrata o grande cenário - o Estado, a Economia Nacional
+e as relações económicas internacionais - recorrendo a indicadores, como o PIB, a Taxa de Desemprego, a Inflação, etc.
+A **Microeconomia** foca-se no pequeno, no detalhe, nos individuos e nas suas ações, nas empresas e no seu processamento produtivo.
 
 ## Macroeconomia
 
@@ -40,7 +45,7 @@ A macroeconomia recorre a diversos indicadores aos quais é dado o nome de vari�
 
 - **Produção Nacional**: Valor dos bens e serviços produzidos por todas as empresas.
 
-- **Valor acrescentado bruto (VAB)**: Valor do rendimento gerado pelas empresas, ou seja, do que se produziu menos aquilo que se gastou.
+- **Valor Acrescentado Bruto (VAB)**: Valor do rendimento gerado pelas empresas, ou seja, do que se produziu menos aquilo que se gastou.
 
 :::tip[Fórmula]
 
@@ -62,17 +67,17 @@ $$
 - **Despesa Interna**: Gastos das unidades institucionais realizados no interior da sua fronteira económica em relação à produção interna.
   :::tip[Fórmula]
 
-  **Despesa interna**
+  **Despesa Interna**
 
   Despesa interna = Consumo privado + Gastos do estado + Investimentos + Exportações - Importações
   :::
 
-- **Produtividade do trabalho**: Rácio entre o PIB e o número de horas efetivamente trabalhadas.
+- **Produtividade do Trabalho**: Rácio entre o PIB e o número de horas efetivamente trabalhadas.
   Trata-se de um indicador de competitividade económica, pois elimina-se as diferenças na distribuição de população empregada a tempo completo e parcial.
 
 - **Taxa de Desemprego**: Percentagem de população ativa em situação de desemprego involuntário.
 
-- **Taxa de Inflação**: Taxa de variação de preços medido pelo indice de preços do consumidor (IPC).
+- **Taxa de Inflação**: Taxa de variação de preços medido pelo índice de preços do consumidor (IPC).
 
 - **Taxa de Juro**: Taxa de renumeração de um empréstimo ou de um depósito.
 
@@ -85,7 +90,7 @@ A inflação pode ser definida como o aumento generalizado dos preços.
 Quando há inflação (positiva) o mesmo valor em euros, compra no futuro menos bens do que no presente.
 Na realidade, a inflação não é algo completamente mau.
 É saúdavel para uma economia ter uma determinada taxa de inflação.
-No entanto, quando esta atinge niveis extremamente elevados torna-se algo problemático.
+No entanto, quando esta atinge níveis extremamente elevados torna-se algo problemático.
 
 :::info[Exemplo]
 
@@ -99,7 +104,7 @@ ainda seria capaz de comparar o refrigerante em Portugal (situação saudável),
 mas não seria capaz de comprar o refrigerante na Venezuela (situação pouco saudável).
 :::
 
-Para calcular a taxa de inflação recorre-se ao Índice de Preços no consumidor (IPC).
+Para calcular a taxa de inflação recorre-se ao Índice de Preços no Consumidor (IPC).
 Trata-se de um indicador que mede a evolução conjunta e simultânea dos preços de um cabaz de bens
 e serviços representativos da estrutura de consumo da população residente em Portugal.
 
@@ -109,7 +114,7 @@ $$
 IPC = \frac{\sum  Q_{anterior}\ P_{atual}}{\sum  Q_{anterior} P_{anterior}}
 $$
 
-Podemos então definir matemáticamente o índice entre o ano $x$ e o ano $y$ como:
+Podemos então definir matematicamente o índice entre o ano $x$ e o ano $y$ como:
 
 $$
 I^P_{x/y} = \frac{\text{Custo de um cabaz de bens no ano } x}{\text{Custo de um cabaz de bens no ano } y}
@@ -125,12 +130,12 @@ em que $n = \text{número de anos}$
 
 :::
 
-A **deflação** é o processo inverso à inflação, ou seja, uma diminuição do indice de preços do consumidor, associada a uma queda de preços.
+A **Deflação** é o processo inverso à inflação, ou seja, uma diminuição do índice de preços do consumidor, associada a uma queda de preços.
 Apesar de, intuitivamente pensarmos que se trata de uma coisa boa (comprar mais com a mesma quantidade de dinheiro),
 a deflação está associada a períodos de recessão nacional.
 
 $$
-\text{Taxa de variação real} = \frac {1 +\text{taxa nominal}} {\text{1 + taxa de inflação}} -1
+\text{Taxa de Variação Real} = \frac {1 +\text{taxa nominal}} {\text{1 + taxa de inflação}} -1
 $$
 
 ## Microeconomia
@@ -144,20 +149,20 @@ A procura de bens pode ser definida pela curva azul do gráfico a baixo.
 
 ![Gráfico Procura de Bens](./assets/0003-procura-bens.png#dark=1)
 
-- $P \to$ Preço do mercado
-- $Q \to$ Quantidade procurada
-- $D \to$ Curva de procura
+- $P \to$ Preço do Mercado
+- $Q \to$ Quantidade Procurada
+- $D \to$ Curva de Procura
 
 Apesar de estar invertido, a variável $P$ é independente e a $Q$ é dependente de $P$,
 ou seja, segundo esta curva, o aumento do preço implica uma diminuição da procura.
 
-## Fatores que determinam a procura
+## Fatores que Determinam a Procura
 
 - **Preço**: Normalmente, quando o preço aumenta, a quantidade procurada diminui, com a excepção dos bens de luxo.
   A variação da quantidade de procura depende da elasticidade da procura relativamente ao preço.
 
   :::info[Exemplo]
-  O preço dos cinemas subiu em 5€ no último ano:
+  O preço da Placas Gráficas subiu em 5€ no último ano:
 
   ![Gráfico com subida de preços](./assets/0003-fatores-preco.png#dark=1)
   :::
@@ -182,8 +187,8 @@ ou seja, segundo esta curva, o aumento do preço implica uma diminuição da pro
   :::
 
 - **Rendimento**: O efeito do rendimento do consumidor nos bens difere consoante o tipo de bem.
-  No caso dos **bens normais**, quando o rendimento aumenta, a procura aumenta, um exemplo são as viagens de avião.
-  No caso dos **bens inferiores**, a procura diminui com o aumento do rendimento, um exemplo são os produtos
+  No caso dos **Bens Normais**, quando o rendimento aumenta, a procura aumenta, um exemplo são as viagens de avião.
+  No caso dos **Bens Inferiores**, a procura diminui com o aumento do rendimento, um exemplo são os produtos
   resultantes de pirataria ou os produtos de "marca branca".
 
 - **Gastos/Preferências/Moda/Cultura**: Este fator depende do tipo de consumidor.
@@ -196,13 +201,13 @@ ou seja, segundo esta curva, o aumento do preço implica uma diminuição da pro
 
 Como foi possível observar, a única deslocação sobre a curva dá-se quando há uma alteração do preço.
 As variações dos demais fatores resultam numa alteração na ordenada na origem.
-Como foi referido, a variação da quantidade de procura depende da **elasticidade** da procura relativamente ao preço.
+Como foi referido, a variação da quantidade de procura depende da **Elasticidade** da procura relativamente ao preço.
 
 ## Elasticidade
 
 :::tip[Definição]
 
-**Elasticidade procura-preço (Ed)**: Medida de sensibilidade da quantidade procurada face à variação do preço.
+**Elasticidade Procura-Preço (Ed)**: Medida de sensibilidade da quantidade procurada face à variação do preço.
 Esta é dada pelo quociente entre duas variações proporcionais:
 
 $$
@@ -219,12 +224,12 @@ $$
 
 Esta, depende:
 
-- Das preferências;
-- Do tipo de bens/grau de necessidade;
-- Do peso no orçamento;
-- Da presença de substitutos;
-- Do horizonte temporal;
-- Dos determinantes da própria procura.
+- Das preferências
+- Do tipo de bens/grau de necessidade
+- Do peso no orçamento
+- Da presença de substitutos
+- Do horizonte temporal
+- Dos determinantes da própria procura
 
 A elasticidade pode ser caracterizada consoante o seu valor:
 
@@ -236,14 +241,14 @@ $E<1 \Rightarrow \text{Rígida Inelástica} \rightsquigarrow$ Quando o preço au
 
 ![Elasticidade](./assets/0003-elasticidade.png#dark=1)
 
-## Fatores que determinam a oferta
+## Fatores que Determinam a Oferta
 
 A procura de bens pode ser definida pela curva vermelha do gráfico abaixo.
-De acordo com a curva do **demand(D)**, quando a quantidade de procura aumenta, o preço aumenta também.
+De acordo com a curva do **Demand(D)**, quando a quantidade de procura aumenta, o preço aumenta também.
 
 :::info[Exemplo]
 
-Com a pandemia o preço das mascáras aumentou bastante porque, o **demand** era maior.
+Com a pandemia o preço das mascáras aumentou bastante porque, o **Demand** era maior.
 
 ![Aumento da Procura](./assets/0003-aumento-procura.png)
 
@@ -255,7 +260,7 @@ Com a pandemia o preço das mascáras aumentou bastante porque, o **demand** era
 O custo dos fatores produtivos, o progresso tecnológico e a expetativa de preços futuros são fatores influenciados da oferta.
 Novamente, o único fator que provoca uma deslocação sobre a curva é o preço, os demais provocam uma alteração da ordenada na origem.
 
-**O custo do mercado ocorre na interseção das curvas de procura e de oferta.**
+**O Custo do Mercado Ocorre na Interseção das Curvas de Procura e de Oferta.**
 
 :::tip
 
@@ -273,8 +278,8 @@ Este ponto marca a região de equilíbrio entre excesso e a escassez.
 
 O progresso tecnológico influencia os mercados da seguinte maneira:
 
-- Desloca a curva de oferta para a direita (aumenta a quantidade, diminui o preço);
-- Dá origem a um novo equilíbrio do mercado, com maior quantidade transacionada e o preço mais baixo.
+- Desloca a curva de oferta para a direita (aumenta a quantidade, diminui o preço)
+- Dá origem a um novo equilíbrio do mercado, com maior quantidade transacionada e o preço mais baixo
 
 ## Tipos de Economias
 
@@ -282,9 +287,9 @@ O progresso tecnológico influencia os mercados da seguinte maneira:
 
 A longo prazo os custos das empresas podem crescer:
 
-- Proporcionalmente à quantidade (rendimentos à escala constante);
-- Mais do que proporção (rendimentos decrescentes à escala/deseconomia de escala);
-- Menos do que a proporção (rendimentos crescentes à escala ou economias de escala).
+- Proporcionalmente à quantidade (rendimentos à escala constante)
+- Mais do que proporção (rendimentos decrescentes à escala/deseconomia de escala)
+- Menos do que a proporção (rendimentos crescentes à escala ou economias de escala)
 
 ![Economias de Escala](./assets/0003-economias-escala.png)
 
@@ -304,14 +309,14 @@ A venda e produção de hambúrgueres e batatas fritas.
 
 ### Economias de Experiência
 
-Economias de aprendizagem (custo unitário ou médio de produção decrescente com a quantidade produzida no passado).
+Economias de Aprendizagem (custo unitário ou médio de produção decrescente com a quantidade produzida no passado).
 Há acumulação de experiência e **know-how**.
 
 ## Estruturas de Mercado
 
 A forma como uma empresa age depende do tipo de mercado onde ela se insere.
 A estrutura de mercado associada, frequentemente, aos tipos de custos mencionados,
-determina a margem (diferença entre o preço e o custo) que a empresa pode praticar - **poder de mercado**.
+determina a margem (diferença entre o preço e o custo) que a empresa pode praticar - **Poder de Mercado**.
 Se houver economias de escala permanentes, por exemplo, o mercado tenderá a ser só de uma empresa.
 As diferentes estruturas de mercado são as seguintes:
 
@@ -319,27 +324,27 @@ As diferentes estruturas de mercado são as seguintes:
 
 - Empresas de concorrência perfeita são **prince-taker** $\rightarrow$ não tem influência sobre o preço do mercado.
 
-## O papel do estado
+## O Papel do Estado
 
 A intervenção do estado é necessária em duas situações:
 
-1. **Corrigir falhas de mercado** $\rightsquigarrow$ quando o mercado falha na afetação eficiente de recursos, por exemplo.
+1. **Corrigir Falhas de Mercado** $\rightsquigarrow$ quando o mercado falha na afetação eficiente de recursos, por exemplo.
 
-   - Corrigir externalidades, isto é, quando as ações de um agente prejudicam ou beneficiam terceiros;
-   - Regular a atividade de determinados setores que são monópolios naturais (p.ex.: água) $\rightsquigarrow$ Oligopólios ;
-   - Fornecer bens que o setor privado não está interessado em produzir (ex: defesa nacional).
+   - Corrigir externalidades, isto é, quando as ações de um agente prejudicam ou beneficiam terceiros
+   - Regular a atividade de determinados setores que são monópolios naturais (p.ex.: água) $\rightsquigarrow$ Oligopólios
+   - Fornecer bens que o setor privado não está interessado em produzir (ex: defesa nacional)
 
-2. **Promover a equidade** $\rightsquigarrow$ correção de desigualdades sociais inaceitáveis, por exemplo.
-   - Proceder à redistribuição do rendimento, através de taxas de imposto mais elevadas para rendimentos mais elevados, atribuição de subsídio de desemprego, etc;
-   - Estabilizar a economia, desenvolvendo para tal as políticas adequadas.
+2. **Promover a Equidade** $\rightsquigarrow$ correção de desigualdades sociais inaceitáveis, por exemplo.
+   - Proceder à redistribuição do rendimento, através de taxas de imposto mais elevadas para rendimentos mais elevados, atribuição de subsídio de desemprego, etc
+   - Estabilizar a economia, desenvolvendo para tal as políticas adequadas
 
 :::tip
 
 Assim, as empresas tomam decisões com base:
 
-- No enquadramento legal e macroeconómico;
-- No comportamento dos consumidores;
-- Nos determinantes da oferta (concorrência);
-- Em função de medidas públicas específicas.
+- No enquadramento legal e macroeconómico
+- No comportamento dos consumidores
+- Nos determinantes da oferta (concorrência)
+- Em função de medidas públicas específicas
 
 :::
