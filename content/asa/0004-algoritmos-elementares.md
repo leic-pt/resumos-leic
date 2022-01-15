@@ -75,7 +75,7 @@ Podíamos ainda, no fim, desenhar a **floresta DFS** do grafo acima. O conceito 
 
 No algoritmo que estudámos em aula, cada vértice do grafo tem algumas propriedades que facilitam o desenrolar da DFS:
 
-- cada vértice tem um pai, `pi`, inicialmente nulo (`Nil`, no pseudocódigo).
+- cada vértice tem um pai, `pi`, inicialmente nulo (`Nil`, no pseudocódigo), que corresponde ao seu predecessor na procura.
 
 - cada vértice tem uma cor - `White`, `Gray` ou `Black`. Um vértice é `White` antes de ser descoberto, `Gray` entre descoberta e fecho, e `Black` quando está fechado.
 
@@ -84,11 +84,12 @@ No algoritmo que estudámos em aula, cada vértice do grafo tem algumas propried
 Tendo como argumento um grafo $G$, o pseudocódigo do algoritmo da DFS pode ser tal que:
 
 ```rust
+// Graph G has a set of vertices V, assecessed as seen below
 DFS(G)
   for v in G.V // loop 1
     v.color = White
-    v.d = 0
-    v.f = 0
+    v.discovery = 0
+    v.closure = 0
     v.pi = Nil
   time := 0
   for v in G.V // loop 2
@@ -97,14 +98,14 @@ DFS(G)
 
 DFS_Visit(G, v)
   time = time + 1
-  v.d = time
+  v.discovery = time
   v.color = Gray
   for w in G.Adj[v] // loop 3
     if w.color == White
       w.pi = v
       DFS_Visit(G, w)
   time = time + 1
-  v.f = time
+  v.closure = time
   v.color = Black
 ```
 
