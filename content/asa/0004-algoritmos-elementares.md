@@ -379,7 +379,7 @@ BFS(G, v) // v é o vértice-raiz da procura
   for each n in V except v
     n.color = white
     n.distance = inf // inicialmente a infinito
-    n.parent = nil
+    n.pi = nil
   v.color = gray
   v.distance = 0
   v.parent = nil
@@ -391,7 +391,7 @@ BFS(G, v) // v é o vértice-raiz da procura
       if n.color == white
         n.color = gray
         n.distance = u.distance + 1
-        n.parent = u
+        n.pi = u
         Q.enqueue(n)
     u.color = black
 ```
