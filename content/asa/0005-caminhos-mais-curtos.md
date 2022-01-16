@@ -241,7 +241,7 @@ A complexidade temporal do algoritmo é $\Theta(V) + \Theta(VE) + O(E) = \Theta(
 
 Seja $G = (V, E)$ um grafo pesado dirigido, com fonte $s$ e função de pesos $w$. Assumindo que não há ciclos negativos, após as $V$ iterações do primeiro loop do algoritmo de Bellman-Ford, temos que $d[v] = \delta(s, v), \forall_{v \in V}$ tal que $v$ é atingível a partir de $s$.
 
-A prova baseia-se, claro, nas propriedades da relaxação. Começemos por considerar qualquer vértice atingível a partir de $s$, com $p = (v_0, v_1, ..., v_k)$ (com $v_0 = s \wedge v_k = v$) o caminho mais curto de $s$ a $v$ em $G$. Temos que $p$ é simples - tem, no máximo, $|V| - 1$ arcos, já que um caminho mais curto não passará por um vértice mais que uma vez, caso contrário estaríamos necessariamente na presença de um ciclo negativo. Cada arco é relaxado $|E|$ vezes. Temos, então, de procurar provar que $d[v_i] = \delta(s, v_i), \forall_{v_i \in V}$, após a iteração $i$ do primeiro loop de Bellman-Ford sobre os arcos de $G$, e que nunca se altera.
+A prova baseia-se, claro, nas propriedades da relaxação. Começemos por considerar qualquer vértice atingível a partir de $s$, com $p = (v_0, v_1, ..., v_k)$ (com $v_0 = s \wedge v_k = v$) o caminho mais curto de $s$ a $v$ em $G$. Temos que $p$ é simples - tem, no máximo, $|V| - 1$ arcos, já que um caminho mais curto não passará por um vértice mais que uma vez, caso contrário estaríamos necessariamente na presença de um ciclo negativo. Cada arco é relaxado $|V|$ vezes. Temos, então, de procurar provar que $d[v_i] = \delta(s, v_i), \forall_{v_i \in V}$, após a iteração $i$ do primeiro loop de Bellman-Ford sobre os arcos de $G$, e que nunca se altera.
 
 Provando por indução:
 
