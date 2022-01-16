@@ -408,8 +408,8 @@ Assim sendo, os novos pesos dos arcos de $G$ são:
 - $w(X, U) = 1 + 0 - 0 = 1$;
 - $w(U, V) = -2 + 0 - (-2) = 0$;
 - $w(U, T) = -2 + 0 - (-3) = 1$;
-- $w(V, X) = 2 + -2 - 0 = 0$;
-- $w(V, T) = -1 + -2 - (-3) = 0$;
+- $w(V, X) = 2 + (-2) - 0 = 0$;
+- $w(V, T) = -1 + (-2) - (-3) = 0$;
 
 Assim, temos que $G^\wedge$ é tal que:
 
