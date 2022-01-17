@@ -358,6 +358,92 @@ void sair() {
 }
 ```
 
+Variável de Condição: discussão (I)
+
+- Tarefa que chama wait liberta o trinco e entra
+  na fila de espera atomicamente
+  - Consequência: caso a condição mude e haja
+    signal, pelo menos uma tarefa na fila será
+    desbloqueada
+
+Variável de Condição: discussão(II)
+
+- Tarefa em espera que seja desbloqueada por
+  signal/broadcast não corre imediatamente
+  - Simplesmente é tornada executável
+  - Para que wait retorne, tem de re-adquirir o trinco
+
+## Variável de Condição: discussão(II)
+
+durante o
+tempo que
+medeia entre
+o signal (feito
+por T3) e uma
+tarefa ser
+“acordada”
+(T1)
+adquirindo o
+trinco
+
+- a variável de
+  condição pode
+  ser alterada
+  por outra
+  tarefa (T2) !!!
+  T1
+  T2
+  T3
+  wait
+  signal
+  lock
+  unlock
+  T1 é
+  “acordada” mas
+  não “ganha” o
+  processador
+  T2 altera
+  estado
+  partilhado
+  unlock
+  T1 adquire
+  o lock
+  unlock
+  T1 pode
+  encontrar valor
+  partilhado com
+  valor “errado”
+  T3 altera
+  estado partilhado
+  lock
+  Condição
+  verdadeira
+  Condição
+  falsa
+  Condição
+  falsa
+
+Variável de Condição: discussão(II)
+
+- Retorno do wait não garante que condição
+  que lhe deu origem se verifique
+  - Tarefa pode não ter sido a primeira tarefa a entrar
+    na secção crítica depois da tarefa que assinalou a
+    ter libertado
+- Logo, após retorno do wait, re-verificar a
+  condição:
+  - Não fazer: if (testa variável partilhada) wait
+  - Fazer: while (testa variável partilhada) wait
+
+Variável de Condição: discussão(II)
+
+- Algumas implementações de variáveis de
+  condição permitem que tarefa retorne do
+  wait sem ter ocorrido signal/broadcast
+  - “Spurious wakeups”
+- Mais uma razão para testar condição com
+  while em vez de if
+
 ---
 
 Slides:
