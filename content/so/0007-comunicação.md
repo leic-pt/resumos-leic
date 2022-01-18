@@ -1,81 +1,67 @@
 ---
-title: Comunicação por Troca de Mensagem entre
-description: Comunicação por Troca de Mensagem entre
+title: Comunicação por Troca de Mensagem entre Processos
+description: Comunicação por Troca de Mensagem entre Processos
 path: /so/comunicação
 type: content
 ---
 
-Comunicação por Troca de Mensagem entre
-Processos
-Canal de comunicação
-Arquitetura da comunicação
-Modelos de comunicação
-Sistemas Operativos
-2021 - 2022
+# Comunicação por Troca de Mensagem entre Processos
 
-![0](./imgs/0007/000-a.png)
-![1](./imgs/0007/001-a.png)
-![2](./imgs/0007/002-a.png)
 Dois paradigmas para programação concorrente
 
-- Por memória partilhada
+- Por Memória Partilhada
   - Tarefas partilham dados (no heap/amontoado)
   - Troca de dados é feita escrevendo e lendo da memória
     partilhada
   - Sincronização recorre a mecanismos adicionais (p.e., trincos,
-    semaforos,…).
-- Por troca de mensagens
+    semáforos,…).
+- Por Troca de Mensagens
   - Cada tarefa trabalha exclusivamente sobre dados privados
   - Tarefas transmitem dados trocando mensagens
   - Mensagens também servem para sincronizar tarefas
 
-Analogia:
-Edição concorrente de um documento
-Memória partilhada
-Troca de mensagens
+**Analogia**
 
-- Cada editor mantem uma
-  cópia privada do documento
-  no seu computador
-- Alterações enviadas por email
-  e aplicadas
-  independentemente
-- Google docs
-  - Única cópia online do
-    documento
-  - As alterações de um editor são
-    imediatamente aplicadas ao
-    documento partilhado e visíveis
-    logo aos outros editores
+- Edição concorrente de um documento
 
-Porquê diferentes paradigmas?
+  - Google docs
+    - Única cópia online do
+      documento
+    - As alterações de um editor são
+      imediatamente aplicadas ao
+      documento partilhado e visíveis
+      logo aos outros editores
+
+- Troca de Mensagens
+
+  - Cada editor mantem uma
+    cópia privada do documento
+    no seu computador
+  - Alterações enviadas por email
+    e aplicadas
+    independentemente
+
+### Porquê Diferentes Paradigmas?
 
 - Historicamente:
+
   - Algumas arquiteturas só permitiam que programas a correr em
     CPUs distintos trocassem mensagens
-- Cada CPU com a sua memória privada, interligados por alguma rede
+    - Cada CPU com a sua memória privada, interligados por alguma rede
   - Outras suportavam memória partilhada
-- E.g. CPUs podiam aceder à mesma memória RAM através de protocolo
-  de coerência de cache
+    - E.g. CPUs podiam aceder à mesma memória RAM através de protocolo
+      de coerência de cache
 
-Porquê diferentes paradigmas?
-
-- Estilos diferentes de programação, com virtudes e
-  defeitos:
+- Estilos diferentes de programação, com virtudes e defeitos:
   - Diferentes ambientes de programação mais apropriados para
     cada paradigma
   - Preferências de cada programador
   - Alguns problemas mais fáceis de resolver eficientemente num
     paradigma que noutro
-- Voltaremos a esta discussão daqui a umas semanas
 
-![3](./imgs/0007/003-a.png)
-![4](./imgs/0007/004-a.png)
-Combinações de modelos de
-paralelismo e coordenação
+## Combinações de Modelos de Paralelismo e Coordenação
 
-- Dois modelos de
-  paralelismo:
+- Dois modelos de paralelismo:
 
 1. por tarefa
 2. por processo
@@ -89,352 +75,173 @@ paralelismo e coordenação
 - Os modelos de paralelismo
   e concorrência podem ser
   combinados!
-  - resultado: 4 alternativas
-    paralelismo
-    concorrência
-    processos
-    tarefas
-    troca de
-    mensagens
-    memória
-    partilhada
-    processos
-    &
-    troca de
-    mensagens
-    tarefas &
-    troca de
-    mensagens
-    tarefas &
-    memória
-    partilhada
-    processos &
-    memória
-    partilhada
 
-![5](./imgs/0007/005-a.png)
-O que construímos até agora...
-A abstração de processo
-A possibilidade de ter
-paralelismo e partilha de
-dados dentro do processo
+![Matrix](./imgs/0007/matrix.png#dark=1)
 
-Combinações de modelos de
-paralelismo e coordenação
-paralelismo
-concorrência
-processos
-tarefas
-troca de
-mensagens
-memória
-partilhada
-processos
-&
-troca de
-mensagens
-tarefas &
-troca de
-mensagens
-tarefas &
-memória
-partilhada
-processos &
-memória
-partilhada
-Próximo capítulo
+Anteriormente vimos Memória Partilhada e Tarefas, Agora iremos ver Troca de Mensagens e Processos
 
-Comunicação por Troca de Mensagem
-entre Processos
-Processo
-Produtor
-Processo
-Consumidor
-Mensagem
-Canal de Comunicação
-Enviar
-Receber
+### Comunicação por Troca de Mensagem
 
-Exemplos
+![Communications](./imgs/0007/comms.png#dark=1)
 
-- A comunicação entre processos pode realizar -se no âmbito:
-  - de uma única aplicação,
+- A comunicação entre processos pode realizar-se no âmbito:
+  - de uma única aplicação
   - entre aplicações numa mesma máquina
   - entre máquinas interligadas por uma redes de dados
 - Exemplos:
-  - servidores de base de dados,
-  - browser e servidor WWW,
-  - cliente e servidor SSH,
-  - cliente e servidor de e-mail,
+  - servidores de base de dados
+  - browser e servidor WWW
+  - cliente e servidor SSH
+  - cliente e servidor de e-mail
   - nós BitTorrent
 
-Como implementar comunicação entre
-processos?
-
-Exemplo de implementação de um canal de comunicação
-(solução para o problema do Produtor - Consumidor)
-Produtor
-Produtor
-Consumidor
-Consumidor
-prodptr
-consptr
-
-Implementação do Canal de Comunicação
+### Implementação de um Canal de Comunicação
 
 - O canal de comunicação pode ser implementado a dois
   níveis:
-  - No núcleo do sistema operativo: os dados são
-    enviados/recebidos por chamadas sistema
-  - No user level: os processos acedem a uma zona de memória
-    partilhada entre ambos os processos comunicantes
-- Veremos mais à frente como isto é possível
+  - No núcleo do sistema operativo: os dados são enviados/recebidos por chamadas sistema
+  - No user level: os processos acedem a uma zona de memória partilhada entre ambos os processos comunicantes
 
-Arquitetura da Comunicação:
-por memória partilhada
-Espaço de endereçamento
-do processo P2
-Zona de memória partilhada por P1 e P2
-Espaço de endereçamento
-do processo P1
-Espaço de
-Endereçamento
+#### Por Memória Partilhada
 
-Arquitetura da Comunicação: cópia através
-do núcleo
-Variável com a
-mensagem
-Variável que recebe
-a mensagem
-Tampão no núcleo
-Espaço de endereçamento
-do produtor
-Espaço de endereçamento
-do consumidor
-Espaço de endereçamento
-do núcleo do SO
+![Shared Memory](./imgs/0007/shared.png#dark=1)
 
-Inicialmente, consideraremos apenas canais de
-comunicação implementados pelo núcleo do SO
+#### Cópia Através do Núcleo
 
-Unix - Modelo Computacional - IPC
-pipes
-signals
+![Core Copy](./imgs/0007/core.png#dark=1)
 
-IPC no UNIX
+Iremos começar por falar neste última forma de implementação
 
-- Mecanismo inicial:
-  - pipes
-- Extensão dos pipes:
-  - pipes com nome
-- Gestão de eventos assíncronos:
-  - signals (System V e BSD)
+## Unix - Modelo Computacional - IPC
 
-## Pipes
+### Pipes
 
-## Mecanismo original do Unix para comunicação entre processos.
-
-## Canal byte stream ligando dois processos, unidirecional
-
-Não tem nome externo
-
-- Os descritores são internos a um processo
-- Podem ser transmitidos para os processos filhos através do mecanismo de herança
+- Mecanismo original do Unix para comunicação entre processos.
+- Canal `byte stream` ligando dois processos, unidirecional
+- Não tem nome externo
+  - Os descritores são internos a um processo
+  - Podem ser transmitidos para os processos filhos através do mecanismo de herança
 - Os descritores de um pipe são análogos ao dos ficheiros
   - As operações de read e write sobre ficheiros são válidas para os pipes
   - O processo fica bloqueado quando escreve num pipe cheio
   - O processo fica bloqueado quando lê de um pipe vazio
-    write fd
-    read fd
-    pipe
-    sistema operativo
-    processo pai
-    processo filho
 
-Criação de um pipe
-int pipe (int \*fds);
-fds[0] - descritor aberto para leitura
-fds[1] - descritor aberto para escrita
+![Pipes](./imgs/0007/tubinhos.png#dark=1)
 
-Criar e usar pipe
-(Exemplo inútil)
-char msg[] = “utilizacao de pipes”;
-main() {
-char tampao[1024];
-int fds[2];
-pipe(fds);
-for (;;) {
-write (fds[1], msg, sizeof (msg));
-read (fds[0], tampao, sizeof (tampao));
-}
-}
+:::details[Exemplo: Comunicação Pai-Filho]
 
-Criar e usar pipe
-(exemplo inútil!)
-pipe
-read fds
-write fds
-Processo Utilizador
-
-Como partir do exemplo (inútil) anterior para
-conseguir comunicação de processo pai para filho?
-
-- http://tinyurl.com/so-2020-aula14-fork
-  write fd
-  read fd
-  pipe
-  sistema operativo
-  processo pai
-  processo filho
-
-Criar e usar pipe
-(Exemplo útil: comunicação pai-filho)
+```c
 #include <stdio.h>
 #include <fnctl.h>
+
 #define TAMSG 100
+
 char msg[] = “mensagem de teste”;
 char tmp[TAMSG];
+
 main() {
-int fds[2], pid*filho;
-if (pipe (fds) < 0) exit(-1);
-if (fork () == 0) {
-/* processo filho*/
-close(fds[1]);
-/* lê do pipe _/
-read (fds[0], tmp, sizeof (msg));
-printf (“%s\n”, tmp);
-exit (0);
+  int fds[2], pid_filho;
+  // fds[0] - descritor aberto para leitura
+  // fds[1] - descritor aberto para escrita
+
+  if (pipe (fds) < 0) exit(-1); // Criação de um pipe
+  if (fork () == 0) {
+    /* processo filho*/
+    close(fds[1]);
+    /* lê do pipe */
+    read (fds[0], tmp, sizeof (msg));
+    printf (“%s\n”, tmp);
+    exit (0);
+  }
+  else {
+    /* processo pai */
+    close(fds[0]);
+    /* escreve no pipe */
+    write (fds[1], msg, sizeof (msg));
+    pid_filho = wait();
+  }
 }
-else {
-/_ processo pai _/
-close(fds[0]);
-/_ escreve no pipe \_/
-write (fds[1], msg, sizeof (msg));
-pid_filho = wait();
-}
-}
+```
 
-Redirecção de entradas/saídas
-com pipes
+:::
 
-DUP - System Call
-NAME
-dup - duplicate an open file descriptor
-SYNOPSIS
-#include <unistd.h>
-int dup(int fildes);
-DESCRIPTION
-The dup() function returns a new file descriptor having the following in common with the
-original open file descriptor fildes:
+### Redirecção de Entradas/Saídas com Pipes
 
-- same open file (or pipe)
-- same file pointer (that is, both file descriptors share one file pointer)
-- same access mode (read, write or read/write)
-  The new file descriptor is set to remain open across exec functions (see fcntl(2)).
-  The file descriptor returned is the lowest one available.
-  The dup(fildes) function call is equivalent to: fcntl(fildes, F_DUPFD, 0)
+[**DUP - System Call**](https://man7.org/linux/man-pages/man2/dup.2.html)
 
-Redireccionamento de Entradas/Saídas
+:::details[Exemplo: Redireccionamento de Entradas/Saídas]
+
+```c
 #include <stdio.h>
 #include <fnctl.h>
+
 #define TAMSG 100
+
 char msg[] = “mensagem de teste”;
 char tmp[TAMSG];
-main() {
-int fds[2], pid*filho;
-if (pipe (fds) < 0) exit(-1);
-if (fork () == 0) {
-/* processo filho _/
-/_ liberta o stdin (posição zero) _/
-close (0);
-/_ redirecciona o stdin para o pipe de
-leitura _/
-dup (fds[0]);
-/_ fecha os descritores não usados pelo
-filho _/
-close (fds[0]);
-close (fds[1]);
-/_ lê do pipe _/
-read (0, tmp, sizeof (msg));
-printf (“%s\n”, tmp);
-exit (0);
-}
-else {
-/_ processo pai _/
-/_ escreve no pipe \_/
-write (fds[1], msg, sizeof (msg));
-pid_filho = wait();
-}
-}
 
-Redireccionamento de Entradas/Saídas no Shell
-write fds
-processo ls
-write fds
-read fds
-processo grep
-read fds
-...etc...
-sistema operativo
-pipe 1
-pipe 2
-exemplo:
+main() {
+  int fds[2], pid*filho;
+  if (pipe (fds) < 0) exit(-1);
+  if (fork () == 0) {
+    /* processo filho */
+    /* liberta o stdin (posição zero) */
+    close (0);
+
+    /* redirecciona o stdin para o pipe de
+    leitura */
+    dup (fds[0]);
+
+    /* fecha os descritores não usados pelo
+    filho */
+    close (fds[0]);
+    close (fds[1]);
+    /* lê do pipe */
+    read (0, tmp, sizeof (msg));
+    printf (“%s\n”, tmp);
+    exit (0);
+  }
+  else {
+    /* processo pai */
+    /* escreve no pipe */
+    write (fds[1], msg, sizeof (msg));
+    pid_filho = wait();
+  }
+}
+```
+
+:::
+
+**Redireccionamento de Entradas/Saídas no Shell**
+
 ls -la | grep xpto | ...etc...
-stdout
-stdin
-stdout
-stdin
-Como implementar a situação acima?
-http://tinyurl.com/so-2020-aula14-redirect
 
-Redireccionamento de Entradas/Saídas (2)
-pai
-filho
-[1] pipe [0]
-stdin
-stdout
-stderr
-fd[0]
-fd[1]
-stdin
-stdout
-stderr
-fd[0]
-fd[1]
-else if (p==0) {
-close (0)
-dup (fds[0]);
-close (fds[0]);
-close (fds[1]);
-execv(...)
+![ls](./imgs/0007/ls.png#dark=1)
+
+:::details[Exemplo: Redireccionamento de Entradas/Saídas]
+
+```c
+int main()
+{
+  int fsd[2]; int p;
+  pipe(fds);
+  p = fork();
+  if (p > 0){ // pai
+    close(1); dup(fds[1]);
+    execl("/bin/ls", "ls", "-la", 0);
+  }
+  else if (p == 0)
+  {
+    close(0); dup(fds[0]);
+    execl("/bin/grep", "grep", "xpto", 0);
+  }
+  return EXIT_FAILURE;
 }
-pipe(fds[0], fds[1]);
-p = fork();
-if (p>0) {
-close (1);
-dup (fds[1]);
-close (fds[0]);
-close (fds[1]);
-execv(...);
-}
-Sem saber, o programa
-executado escreverá
-(stdout) para o pipe
-Sem saber,
-o programa
-executado lerá
-(stdin) do pipe
+```
 
-IPC no UNIX
+:::
 
-- Mecanismo inicial:
-  - pipes
-- Extensão dos pipes:
-  - pipes com nome
-- Gestão de eventos assíncronos:
-  - signals (System V e BSD)
-
-Named Pipes ou FIFO
+## Named Pipes ou FIFO
 
 - Para dois processos (que não sejam pai e filho)
   comunicarem é preciso que o pipe seja identificado por um
@@ -766,8 +573,6 @@ Funções “async-signal-safe”
   - funções cuja execução não pode ser interrompidas por
     signals (pois os bloqueiam durante a própria execução)
 
-![6](./imgs/0007/006-a.png)
-![7](./imgs/0007/007-a.png)
 Signals em processos multi-tarefa
 Processo com múltiplas tarefas recebe um signal
 associado a uma função de tratamento.
@@ -997,9 +802,6 @@ em memória partilhada (II)
   - Exemplo: processo adquiriu mutex sobre variável partilhada
     mas crasha sem libertar o mutex
 
-![8](./imgs/0007/008-a.png)
-![9](./imgs/0007/009-a.png)
-![10](./imgs/0007/0010-a.png)
 Então o que é melhor para comunicar entre processos?
 Memória partilhada vs. canal de comunicação do SO
 
