@@ -33,6 +33,7 @@ type: content
 
 ## Soluções Algorítmicas
 
+:::details[Tentativas de Solução]
 **Tentativa de Solução 1**
 
 ```c
@@ -102,6 +103,7 @@ t1_abrir() {trinco_vez = 2;}    t2_abrir() {trinco_vez = 1;}
 ```
 
 [Dá prioridade a 1 deles](color:red)
+:::
 
 ## Algoritmo da Padaria
 
