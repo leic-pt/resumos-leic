@@ -361,22 +361,22 @@ void sair() {
 ```
 
 :::tip[Exemplos]
-Mais exemplos no slides em baixo
+Mais exemplos nos slides em baixo
 :::
 
 ### Problemas
 
-- Tarefa que chama wait liberta o trinco e entra
+- Tarefa que chama `wait` liberta o trinco e entra
   na fila de espera **atomicamente**
 
   - Consequência: caso a condição mude e haja
-    signal, pelo menos uma tarefa na fila será
+    `signal`, pelo menos uma tarefa na fila será
     desbloqueada
 
 - Tarefa em espera que seja desbloqueada por
-  signal/broadcast não corre imediatamente
+  `signal/broadcast` não corre imediatamente
   - Simplesmente é tornada executável
-  - Para que wait retorne, tem de re-adquirir o trinco
+  - Para que `wait` retorne, tem de re-adquirir o trinco
 
 Como a tarefa pode não correr imediatamente a seguir a se tornar executável o valor da condição pode ser alterada, podendo gerar problemas graves.
 

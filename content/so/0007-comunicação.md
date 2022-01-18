@@ -13,7 +13,7 @@ Dois paradigmas para programação concorrente
   - Tarefas partilham dados (no heap/amontoado)
   - Troca de dados é feita escrevendo e lendo da memória
     partilhada
-  - Sincronização recorre a mecanismos adicionais (p.e., trincos,
+  - Sincronização recorre a mecanismos adicionais (e.g., trincos,
     semáforos,…).
 - Por Troca de Mensagens
   - Cada tarefa trabalha exclusivamente sobre dados privados

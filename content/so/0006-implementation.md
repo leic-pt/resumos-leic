@@ -13,14 +13,14 @@ type: content
 
 ## Propriedades Desejáveis num Trinco
 
-- Propriedade de correção (safety)
+- Propriedade de Correção (Safety)
   - Exclusão mútua
     - no máximo uma tarefa detém o trinco
-- Propriedades de progresso (liveness)
-  - Ausência de interblocagem (deadlock)
+- Propriedades de Progresso (Liveness)
+  - Ausência de Interblocagem (Deadlock)
     - Se pelo menos uma tarefa tenta obter o trinco, então alguma o
       obterá (dentro de um tempo finito)
-- Ausência de míngua (starvation)
+- Ausência de Míngua (Starvation)
   - Se uma dada tarefa tenta obter o trinco, essa tarefa conseguirá obtê-
     lo (dentro de um tempo finito)
   - Eficiência
@@ -171,7 +171,7 @@ Abrir (int i) {senha [i] = 0;}
 
 ### Conclusão
 
-- Complexas => Latência
+- Complexas $\implies$ Latência
 - Só são corretas se não houver reordenação de acessos a memória
 - Implica perder otimizações de desempenho que são
   possíveis por compiladores modernos e caches
@@ -190,7 +190,7 @@ Abrir (int i) {senha [i] = 0;}
 
 ### Intruções de Hardware Atómicas
 
-`[BTS]() varX`
+[BTS varX](https://youtu.be/9GJuoAQ-eVg?t=56)
 
 - De forma indivisível :
 
