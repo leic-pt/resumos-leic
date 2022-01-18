@@ -360,6 +360,10 @@ void sair() {
 }
 ```
 
+:::tip[Exemplos]
+Mais exemplos no slides em baixo
+:::
+
 ### Problemas
 
 - Tarefa que chama wait liberta o trinco e entra
