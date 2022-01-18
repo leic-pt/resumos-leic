@@ -295,12 +295,12 @@ Criar e usar pipe
 char msg[] = “mensagem de teste”;
 char tmp[TAMSG];
 main() {
-int fds[2], pid_filho;
+int fds[2], pid*filho;
 if (pipe (fds) < 0) exit(-1);
 if (fork () == 0) {
-/_ processo filho_/
+/* processo filho*/
 close(fds[1]);
-/_ lê do pipe _/
+/* lê do pipe _/
 read (fds[0], tmp, sizeof (msg));
 printf (“%s\n”, tmp);
 exit (0);
@@ -308,7 +308,7 @@ exit (0);
 else {
 /_ processo pai _/
 close(fds[0]);
-/_ escreve no pipe _/
+/_ escreve no pipe \_/
 write (fds[1], msg, sizeof (msg));
 pid_filho = wait();
 }
@@ -341,10 +341,10 @@ Redireccionamento de Entradas/Saídas
 char msg[] = “mensagem de teste”;
 char tmp[TAMSG];
 main() {
-int fds[2], pid_filho;
+int fds[2], pid*filho;
 if (pipe (fds) < 0) exit(-1);
 if (fork () == 0) {
-/_ processo filho _/
+/* processo filho _/
 /_ liberta o stdin (posição zero) _/
 close (0);
 /_ redirecciona o stdin para o pipe de
@@ -361,7 +361,7 @@ exit (0);
 }
 else {
 /_ processo pai _/
-/_ escreve no pipe _/
+/_ escreve no pipe \_/
 write (fds[1], msg, sizeof (msg));
 pid_filho = wait();
 }
@@ -484,7 +484,7 @@ exit (1);
 if (mkfifo ("/tmp/cliente", 0777) < 0)
 exit (1);
 if ((fserv = open ("/tmp/servidor",
-O_RDONLY)) < 0) exit(1);
+O*RDONLY)) < 0) exit(1);
 if ((fcli = open ("/tmp/cliente",
 O_WRONLY)) < 0) exit(1);
 for (;;) {
@@ -498,7 +498,7 @@ close (fcli);
 unlink("/tmp/servidor");
 unlink("/tmp/cliente");
 }
-/_ Cliente _/
+/* Cliente \_/
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -1103,15 +1103,15 @@ Nome de um socket (socket address)
 /_ ficheiro <sys/socket.h> _/
 struct sockaddr {
 /_ definição do dominio (AF_XX) _/
-u_short family;
-/_ endereço específico do dominio_/
+u*short family;
+/* endereço específico do dominio*/
 char sa_data[14];
 };
-/_ ficheiro <sys/un.h> _/
+/* ficheiro <sys/un.h> _/
 struct sockaddr_un {
-/_ definição do domínio (AF_UNIX) _/
-u_short family;
-/_ nome _/
+/_ definição do domínio (AF*UNIX) */
+u*short family;
+/* nome _/
 char sun_path[108];
 };
 /_ ficheiro <netinet/in.h> _/
@@ -1119,11 +1119,11 @@ struct in_addr {
 u_long addr; /_ Netid+Hostid _/
 };
 struct sockaddr_in {
-u_short sin_family; /_ AF_INET _/
+u_short sin_family; /_ AF*INET */
 /_ número do porto - 16 bits _/
-u_short sin_port;
-struct in_addr sin_addr; /_ Netid+Hostid _/
-/_ não utilizado_/
+u*short sin_port;
+struct in_addr sin_addr; /* Netid+Hostid _/
+/_ não utilizado\_/
 char sin_zero[8];
 };
 family
@@ -1288,8 +1288,8 @@ Select
 
 Espera Múltipla com Select (2)
 struct timeval {
-long tv_sec; /_ seconds /_
-long tv_usec; /_ microseconds /_
+long tv*sec; /* seconds /_
+long tv_usec; /_ microseconds /\_
 }
 
 - esperar para sempre → parâmetro efectivo é null pointer
@@ -1337,11 +1337,11 @@ datagram socket"
 167
 int main(void) {
 int strmfd,dgrmfd,newfd;
-struct sockaddr_un
+struct sockaddr*un
 servstrmaddr,servdgrmaddr,clientaddr;
 int len,clientlen;
 fd_set testmask,mask;
-/_ Cria socket stream _/
+/* Cria socket stream \_/
 if((strmfd=socket(AF_UNIX,SOCK_STREAM,0))<0){
 perror(ERRORMSG1);
 exit(1);
@@ -1364,11 +1364,11 @@ exit(1);
 no socket stream_/
 listen(strmfd,5);
 /_ Cria socket datagram _/
-if((dgrmfd = socket(AF_UNIX,SOCK_DGRAM,0)) < 0) {
+if((dgrmfd = socket(AF*UNIX,SOCK_DGRAM,0)) < 0) {
 perror(ERRORMSG3);
 exit(1);
 }  
-/_Inicializa socket datagram: tipo + nome _/
+/\_Inicializa socket datagram: tipo + nome */
 bzero((char _)&servdgrmaddr,sizeof(servdgrmaddr));
 servdgrmaddr.sun_family = AF_UNIX;
 strcpy(servdgrmaddr.sun_path,UNIXDG_PATH);
@@ -1423,8 +1423,8 @@ mask = testmask;
 /_ Bloqueia servidor até que se dê um evento. _/
 select(MAXSOCKS,&mask,0,0,0);
 /_ Verificar se chegaram clientes para o socket stream _/
-if(FD_ISSET(strmfd,&mask)) {
-/_ Aceitar o cliente e associa-lo a newfd. _/
+if(FD*ISSET(strmfd,&mask)) {
+/* Aceitar o cliente e associa-lo a newfd. \_/
 clientlen = sizeof (clientaddr);
 newfd = accept(strmfd,(struct sockaddr*)&clientaddr, &clientlen);
 echo(newfd);
