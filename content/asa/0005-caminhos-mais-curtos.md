@@ -372,7 +372,7 @@ A [**abordagem correta**](color:orange) passa, então, por adicionar um novo vé
 Obtidas as alturas de Jonhson, temos que o peso de cada arco em $G^\wedge$, $w^\wedge$, é dado por[**\***](color:yellow):
 
 $$
-w^\wedge(i, j) = w(i, j) + h(u) - h(v).
+w^\wedge(i, j) = w(i, j) + h(i) - h(j).
 $$
 
 No fim, ao remover o vértice $s$ e respetivos arcos, ficamos com $G^\wedge$! A complexidade temporal da repesagem é, claro, $O(VE)$, tal como no usual Bellman-Ford.
