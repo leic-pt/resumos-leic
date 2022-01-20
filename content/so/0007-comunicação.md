@@ -136,7 +136,7 @@ Iremos começar por falar neste última forma de implementação
 
 #define TAMSG 100
 
-char msg[] = “mensagem de teste”;
+char msg[] = "mensagem de teste";
 char tmp[TAMSG];
 
 main() {
@@ -150,7 +150,7 @@ main() {
     close(fds[1]);
     /* lê do pipe */
     read (fds[0], tmp, sizeof (msg));
-    printf (“%s\n”, tmp);
+    printf ("%s\n", tmp);
     exit (0);
   }
   else {
@@ -177,11 +177,11 @@ main() {
 
 #define TAMSG 100
 
-char msg[] = “mensagem de teste”;
+char msg[] = "mensagem de teste";
 char tmp[TAMSG];
 
 main() {
-  int fds[2], pid*filho;
+  int fds[2], pid_filho;
   if (pipe (fds) < 0) exit(-1);
   if (fork () == 0) {
     /* processo filho */
@@ -198,7 +198,7 @@ main() {
     close (fds[1]);
     /* lê do pipe */
     read (0, tmp, sizeof (msg));
-    printf (“%s\n”, tmp);
+    printf ("%s\n", tmp);
     exit (0);
   }
   else {
@@ -223,7 +223,7 @@ ls -la | grep xpto | ...etc...
 ```c
 int main()
 {
-  int fsd[2]; int p;
+  int fds[2]; int p;
   pipe(fds);
   p = fork();
   if (p > 0){ // pai
@@ -293,7 +293,7 @@ main () {
   if (mkfifo ("/tmp/cliente", 0777) < 0)
     exit (1);
   if ((fserv = open ("/tmp/servidor",
-  O*RDONLY)) < 0) exit(1);
+  O_RDONLY)) < 0) exit(1);
   if ((fcli = open ("/tmp/cliente",
   O_WRONLY)) < 0) exit(1);
 
@@ -316,12 +316,12 @@ main () {
 
 #define TAMMSG 1000
 
-void produzMsg (char \*buf) {
-strcpy (buf, “Mensagem de teste”);
+void produzMsg (char *buf) {
+strcpy (buf, "Mensagem de teste");
 }
 
 void trataMsg (buf) {
-printf (“Recebeu: %s\n”, buf);
+printf ("Recebeu: %s\n", buf);
 }
 
 main() {
@@ -369,7 +369,7 @@ Rotinas Assíncronas para Tratamento de acontecimentos assíncronos e excepçõe
   - Ex: `Ctrl-C`
   - Ex: Acção desencadeada por um timeout
 - Como tratá-los na programação sequencial?
-  - Interrupções (?)
+  - Interrupções de Sistema
 
 **Modelo de Eventos**
 
@@ -393,7 +393,7 @@ Rotinas Assíncronas para Tratamento de acontecimentos assíncronos e excepçõe
 - Cada signal tem um tratamento por omissão, que
   pode ser:
   - Terminar o processo
-  - Terminar o processo e criar ficheiro “core”
+  - Terminar o processo e criar ficheiro "core"
   - Ignorar signal
   - Suspender o processo
   - Continuar o processo suspenso
@@ -412,8 +412,9 @@ Rotinas Assíncronas para Tratamento de acontecimentos assíncronos e excepçõe
 `int sig` - Identificador do `signal` para o qual se pretende definir um `handler`\
 `void(*func)(int)` - Ponteiro para a função ou macro especificando:
 
-- SIG_DFL - acção por omissão
-- SIG_IGN - ignorar o signal
+- `SIG_DFL` - acção por omissão
+- `SIG_IGN` - ignorar o signal
+
   `(int)` - Parâmetro para a função de tratamento
 
 :::details[Exemplo de redefinir o tratamento de um Signal]
@@ -450,9 +451,9 @@ int main () {
 
 - Envia um signal ao processo
 
-`pid` - Identificador do processo.
+`pid` - Identificador do processo.\
 Se o pid for zero é enviado a todos os
-processos do grupo.
+processos do grupo.\
 Está restrito ao superuser o envio de
 signals para processos de outro user\
 `sig` - Identificador do `signal`
@@ -506,7 +507,7 @@ Unix System V e Unix BSD
 - A lista das funções que podem ser chamadas a partir
   dum signal pode ser obtida na página de manual do
   signal(7)
-- Estas funções são também chamadas `async-signal- safe` e incluem:
+- Estas funções são também chamadas `async-signal-safe` e incluem:
   - funções reentrantes
   - funções cuja execução não pode ser interrompidas por
     signals (pois os bloqueiam durante a própria execução)
