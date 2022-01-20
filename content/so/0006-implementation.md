@@ -27,9 +27,9 @@ type: content
 
 ## Implementações
 
-- [Algorítmicas](./implementation#soluções-algorítmicas)
-- [Hardware](./implementation#soluções-com-suporte-do-hardware)
-- [Sistema Operativo](./implementation#trincos-como-objetos-geridos-pelo-núcleo-do-sistema-operativo)
+- [Algorítmicas](#soluções-algorítmicas)
+- [Hardware](#soluções-com-suporte-do-hardware)
+- [Sistema Operativo](#trincos-como-objetos-geridos-pelo-núcleo-do-sistema-operativo)
 
 ## Soluções Algorítmicas
 
