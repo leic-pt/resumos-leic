@@ -359,7 +359,7 @@ Vamos por partes:
 
 :::info[Repesagem de Johnson]
 
-Tendo um grafo $G = (V, E)$, a repesagem de Jonhson devolve um grafo $G^\wedge = (V^\wedge, E^\wedge)$, onde $E^\wedge$ corresponde a arcos "equivalentes" aos de $E$, porém sem arcos negativos. Queremos, claro, que os caminhos mais curtos em $G^\wedge$ sejam os mesmos que os de $G$.
+Tendo um grafo $G = (V, E)$, a repesagem de Jonhson devolve um grafo $G^\wedge = (V, E^\wedge)$, onde $E^\wedge$ corresponde a arcos "equivalentes" aos de $E$, porém sem arcos negativos. Queremos, claro, que os caminhos mais curtos em $G^\wedge$ sejam os mesmos que os de $G$.
 
 A intuição poderá levar-nos a pensar que uma maneira possível de chegar a $G^\wedge$ é encontrar a aresta com peso mais negativo, pegar no seu módulo e somá-lo ao peso de todas os arcos de $G$. A estratégia, contudo, não funciona para todos os casos - temos um contra-exemplo abaixo:
 
