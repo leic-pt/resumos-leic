@@ -2,6 +2,7 @@
 title: Fluxos Máximos
 description: Definição de Fluxo Máximo.
   Método de Ford-Fulkerson.
+  Algoritmo genérico de Ford-Fulkerson.
   Algoritmo de Edmonds-Karp.
   Emparelhamento bipartido máximo.
 path: /asa/fluxos-maximos
@@ -183,7 +184,7 @@ $$
 \end{aligned}
 $$
 
-Esta última diferença entre parêntesis anula-se, pelo que ficamos com:
+Esta última diferença entre parêntesis anula-se, pela conservação do fluxo, pelo que ficamos com:
 
 $$
 \begin{aligned}|f| &= \sum_{v \in T} \sum_{u \in S}f(u,v) - \sum_{v \in T} \sum_{u \in S}f(v, u) \\
@@ -221,11 +222,23 @@ Seja $f$ o fluxo de uma rede $G$ com fonte $s$ e sumidouro $t$. Para uma rede as
 
 A equivalência das três afirmações pode ser provada através de uma **implicação cíclica** entre elas. Procuremos prová-las:
 
-$(1) \implies (2)$ indica que se $f$ for o fluxo máximo da rede, então $G_f$ não contém caminhos de aumento. Suponhamos o oposto: que $G_f$ contém caminhos de aumento, mesmo considerando $f$ como um fluxo máximo da rede. Nesse caso, haveria pelo menos um caminho $p$ tal que $|f| + |f_p| > |f|$, uma contradição, já que $f$ já é máximo.
+:::details[Prova do teorema]
 
-$(2) \implies (3)$ indica que se $G_f$ for uma rede residual sem caminhos de aumento, então $|f| = c(S, T)$ para algum corte $(S, T)$ na rede.
+[**$(1) \implies (2)$**](color:orange) indica que se $f$ for o fluxo máximo da rede, então $G_f$ não contém caminhos de aumento. Suponhamos o oposto: que $G_f$ contém caminhos de aumento, mesmo considerando $f$ como um fluxo máximo da rede. Nesse caso, haveria pelo menos um caminho $p$ tal que $|f| + |f_p| > |f|$, uma contradição, já que $f$ já é máximo.
 
-<!-- TODO - TERMINAR PROVA -->
+[**$(2) \implies (3)$**](color:yellow) indica que se $G_f$ for uma rede residual sem caminhos de aumento, então $|f| = c(S, T)$ para algum corte $(S, T)$ na rede. Tenhamos $S = \{v | G_f \text{ tal que há um caminho de s para v} \}$, $T = V - S$. Por contradição, suponhamos que $|f| \neq c(S, T)$ para todo o corte da rede. Isso implicaria, claro, que $f(S, T) < c(S, T)$ para todo o corte, já que é impossível ter o contrário. Agora das duas uma:
+
+- Existe um arco $(u, v)$ tal que $c_f(u, v) > 0$; caso tal acontecesse, esse arco estaria na rede residual, pelo que não pode ser verdade.
+
+- Existe um arco de refluxo; contudo, se tal acontesse seria possível chegar a $u$ a partir de $t$, o que também não pode acontecer.
+
+A proposição fica então provada.
+
+Por fim, [**$(3) \implies (1)$**](color:red). Temos, claro, que $|f| \leq c(S, T)$ para todo o corte da rede. Tendo $|f| = c(S, T)$, temos obrigatoriamente que $|f|$ terá de ser o fluxo máximo da rede, visto que caso não fosse, $|f| > c(S, T)$ para um qualquer corte na rede, o que não pode acontecer.
+
+A implicação cíclica fica assim provada, pelo que as afirmações são necessariamente equivalentes.
+
+:::
 
 ### Implementação Genérica de Ford-Fulkerson
 
@@ -271,6 +284,10 @@ Os passos seguintes seguem todos a mesma lógica, até que não existam mais cam
 ![Caminho de aumento - 5](./assets/0007-ff-caminho-5.png#dark=1)
 
 Chegámos, por fim, a uma rede sem caminhos de aumento restantes. O valor do corte mínimo corresponde, então, ao valor do fluxo máximo da rede: $23$.
+
+Podemos dizer, aqui, que um corte mínimo seria tal que $S = \{s, v_1, v_3, v_4\} \wedge T = \{v_2, t\}$. Os arcos que cruzam o corte têm necessariamente de estar saturados (ou seja, o fluxo deles é igual à capacidade máxima do arco). Mais ainda, **a soma do fluxo que atravessa o corte é igual ao valor do fluxo**. Abaixo podemos observar o corte mínimo na rede:
+
+![Corte Mínimo](./assets/0007-ff-corte-minimo.png#dark=1)
 
 :::
 
