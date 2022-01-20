@@ -3,6 +3,8 @@ title: Árvores Abrangentes de Menor Custo
 description: Definição de MST.
   Algoritmo de Prim.
   Algoritmo de Kruskal.
+	Estruturas de Dados para Conjuntos Disjuntos.
+	Algoritmo Union-Find.
 path: /asa/arvores-abrangentes-menor-custo
 type: content
 ---
