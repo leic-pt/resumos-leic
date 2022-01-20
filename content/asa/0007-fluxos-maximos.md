@@ -291,6 +291,20 @@ Podemos dizer, aqui, que um corte mínimo seria tal que $S = \{s, v_1, v_3, v_4\
 
 :::
 
+Em relação à análise da complexidade temporal do algoritmo, podemos afirmar que:
+
+- o loop inicial leva $\Theta(E)$ tempo;
+
+- calcular a capacidade residual mínima do caminho pode levar $O(E)$ tempo;
+
+- atualizar o fluxo do arco $e$ em $p$ leva $O(1)$ tempo; é realizado no máximo $E$ vezes por ciclo.
+
+Resta, então, falar sobre a complexidade do ciclo `while` em si: encontrar um caminho leva $O(E)$ tempo, recorrendo a uma DFS/BFS adequada. O ciclo em si, contudo, pode ser executado até $|f^*|$ vezes (onde $f^{*}$ é o fluxo máximo da rede), tornando a complexidade temporal do algoritmo $O(|f^{*}|E)$. A razão para ter de ser executado até $|f^{*}|$ vezes, da maneira que está construído atualmente, pode ficar mais aparente ao olhar para o exemplo seguinte:
+
+![Complexidade Ford-Fulkerson](./assets/0007-ff-complexidade.png#dark=1)
+
+Considerando uma rede como a que está acima, temos que $|f^{*}|$ = $2000000$. Na pior das hipóteses, teremos de realizar igual quantidade de caminhos que passem pelo arco $(u, v)$, o que pode tornar a aplicação do algoritmo impraticável. Assim sendo, vamos estudar o algoritmo de Edmonds-Karp, que permite uma redução drástica da complexidade de Ford-Fulkerson (para $O(VE^2)$).
+
 ## Algoritmo de Edmonds-Karp
 
 :::warning
