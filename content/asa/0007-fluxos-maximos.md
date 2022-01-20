@@ -147,11 +147,140 @@ $$
 c(S, T) = \sum_{u \in S} \sum_{v \in T} c(u, v)
 $$
 
+O **corte mínimo** de uma rede será, então, o corte com a menor capacidade de entre todos os cortes da mesma.
+
 Pegando ainda na imagem anterior, teríamos que a capacidade do corte referido seria igual a $12 + 14 = 26$.
+
+Temos ainda algumas afirmações a fazer quanto aos cortes:
+
+- Dado um fluxo $f$ para uma rede $G$, o fluxo líquido de qualquer corte da rede é o mesmo, sendo igual a $|f|$.
+
+- O valor de qualquer fluxo $f$ numa rede $G$ é majorado pela capacidade de qualquer corte da rede.
+
+:::details[Prova do primeiro ponto]
+
+Temos que $V = T \cup S$, e então $f(S, V) = f(S, T \cup S) = f(S, T) + f(S, S) = f(S, T) + 0 = f(S, T)$, já que $f(S, S) = 0$.
+
+Tendo $f(S, V) = f(S, T)$, e com $|f| = f(S, T) = f(S, V)$, podemos começar a construir a prova pretendida:
+
+$$
+\begin{aligned}|f| &= f(S, V) = f(s, V) + f(S - \{s\}, V)\\
+\\
+&= \sum_{v \in V}f(s, v) - \sum_{v \in V}f(v, s) + \sum_{u \in S - \{s\}}(\sum_{v \in V}f(u, v) - \sum_{v \in V}f(v, u)) \\
+\\
+&= \sum_{v \in V}(f(s, v) + \sum_{u \in S - \{s\}}f(u, v)) - \sum_{v \in V}(f(v, s) + \sum_{u \in S - \{s\}}f(v, u)) \\
+\\
+&= \sum_{v \in V}\sum_{u \in S}f(u, v) - \sum_{v \in V}\sum_{u \in S}f(v, u)
+\end{aligned}
+$$
+
+Ora, visto que $V = S \cup T \wedge S \cap T = \emptyset$, podemos simplificar a soma acima mais ainda (em função de $S$ e $T$ em vez de $S$ e $V$):
+
+$$
+\begin{aligned}|f| &= \sum_{v \in S} \sum_{u \in S}f(u, v) + \sum_{v \in T} \sum_{u \in S}f(u, v) - \sum_{v \in S} \sum_{u \in s}f(v, u) - \sum_{v \in T} \sum_{u \in S}f(v, u) \\
+\\
+&= \sum_{v \in T} \sum_{u \in S}f(u,v) - \sum_{v \in T} \sum_{u \in S}f(v, u) + (\sum_{v \in S}\sum_{u \in S}f(u, v) - \sum_{v \in S}\sum_{u \in S}f(v, u))
+\end{aligned}
+$$
+
+Esta última diferença entre parêntesis anula-se, pelo que ficamos com:
+
+$$
+\begin{aligned}|f| &= \sum_{v \in T} \sum_{u \in S}f(u,v) - \sum_{v \in T} \sum_{u \in S}f(v, u) \\
+\\
+&= f(S, T)
+\end{aligned}
+$$
+
+:::
+
+Seja $(S, T)$ um corte de $G$ e $f$ um qualquer fluxo da rede. Temos, pela afirmação provada imediatamente acima, que $|f| = f(S, T)$. A partir daí, podemos facilmente deduzir:
+
+$$
+\begin{aligned}|f|&=f(S, T)\\
+&= \sum_{u \in S} \sum_{v \in T} f(u, v) - \sum_{u \in S} \sum_{v \in T} f(v, u)\\
+&\leq \sum_{u \in S} \sum_{v \in T} f(u, v)\\
+&\leq \sum_{u \in S} \sum_{v \in T} c(u, v)\\
+&= c(S, T)
+\end{aligned}
+$$
+
+Assim sendo, podemos extrair que o valor do fluxo mínimo é majorado pelo valor de qualquer corte da rede. Mais ainda, **o valor do fluxo máximo de uma rede é majorado pela capacidade do corte mínimo da mesma**, afirmação particularmente útil para o Teorema apresentado abaixo:
+
+:::info[Teorema do Fluxo Máximo - Corte Mínimo]
+
+Seja $f$ o fluxo de uma rede $G$ com fonte $s$ e sumidouro $t$. Para uma rede assim apresentada, as seguintes proposições são equivalentes:
+
+- $f$ é o fluxo máximo da rede.
+
+- A rede residual $G_f$ não contém caminhos de aumento.
+
+- $|f| = c(S, T)$ para algum corte $(S, T)$ na rede.
+
+:::
+
+A equivalência das três afirmações pode ser provada através de uma **implicação cíclica** entre elas. Procuremos prová-las:
+
+$(1) \implies (2)$ indica que se $f$ for o fluxo máximo da rede, então $G_f$ não contém caminhos de aumento. Suponhamos o oposto: que $G_f$ contém caminhos de aumento, mesmo considerando $f$ como um fluxo máximo da rede. Nesse caso, haveria pelo menos um caminho $p$ tal que $|f| + |f_p| > |f|$, uma contradição, já que $f$ já é máximo.
+
+$(2) \implies (3)$ indica que se $G_f$ for uma rede residual sem caminhos de aumento, então $|f| = c(S, T)$ para algum corte $(S, T)$ na rede.
+
+<!-- TODO - TERMINAR PROVA -->
 
 ### Implementação Genérica de Ford-Fulkerson
 
+Depois de explicada a teoria por detrás do método de Ford-Fulkerson, chegou então a altura de mostrar a sua implementação:
+
+```rust
+FordFulkerson(G, s, t)
+  for each edge e in G.E
+    e.f = 0 // fluxo pelo arco = 0 inicialmente
+  while (existe um caminho p de s para t na rede residual)
+    c_f(p) = min{c_f(u, v) | (u, v) in p} // capacidade residual de p
+    for each edge e in p
+      if e in E_f
+        e.f += c_f(p) // incrementa fluxo pelo arco
+      else
+        e.f -= c_f(p) // decrementa fluxo pelo arco
+```
+
+Começamos por inicializar o fluxo de todos os arcos da rede a $0$. De seguida, procuramos sucessivamente encontrar caminhos de aumento na rede residual (até estes deixarem de existir), e atualizamos os arcos que formam cada caminho de acordo com o fluxo a aumentar: se o arco pertence a $E$, o fluxo é aumentado; caso não corresponda a um arco da rede original, o fluxo é subtraído pela quantidade indicada.
+
+Encontra-se abaixo um exemplo da aplicação do algoritmo de Ford-Fulkerson:
+
+:::details[Exemplo da aplicação do Algoritmo]
+
+Consideremos uma rede $G$, inicialmente vazia, com capacidades tais que:
+
+![Capacidades da rede](./assets/0007-ff-capacidade.png#dark=1)
+
+O primeiro caminho de aumento encontrado é o que se segue. Podemos notar que neste primeiro instante não se vêem arestas com sentido contrário, já que todas têm fluxo $0$ atualmente:
+
+![Caminho de aumento - 1](./assets/0007-ff-caminho-1.png#dark=1)
+
+Foi encontrado mais um caminho de aumento, e agora já podemos notar as tais "arestas contrárias" a aparecer:
+
+![Caminho de aumento - 2](./assets/0007-ff-caminho-2.png#dark=1)
+
+Os passos seguintes seguem todos a mesma lógica, até que não existam mais caminhos de aumento.
+
+![Caminho de aumento - 3](./assets/0007-ff-caminho-3.png#dark=1)
+
+![Caminho de aumento - 4](./assets/0007-ff-caminho-4.png#dark=1)
+
+![Caminho de aumento - 5](./assets/0007-ff-caminho-5.png#dark=1)
+
+Chegámos, por fim, a uma rede sem caminhos de aumento restantes. O valor do corte mínimo corresponde, então, ao valor do fluxo máximo da rede: $23$.
+
+:::
+
 ## Algoritmo de Edmonds-Karp
+
+:::warning
+
+A secção encontra-se atualmente incompleta, o conteúdo será adicionado brevemente.
+
+:::
 
 ---
 
@@ -160,4 +289,3 @@ Pegando ainda na imagem anterior, teríamos que a capacidade do corte referido s
 - [Slides - Algoritmos Baseados em Caminhos de Aumento](https://drive.google.com/file/d/1swL85O4Fu1XuMBdWEJksVsrcFxF6iYeT/view?usp=sharing)
 - [Slides - Algoritmos de Pré-Fluxo](https://drive.google.com/file/d/1OqY6-EqfHIU5W1ho5pigFTjKl7IbZDcA/view?usp=sharing)
 - [Notas Prof.]()
-  $$
