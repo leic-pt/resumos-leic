@@ -73,12 +73,6 @@ FordFulkersonMethod(G, s, t)
 
 Vamos, então, introduzir as três ideias fulcrais ao algoritmo.
 
-:::warning[Incompleto]
-
-O conteúdo abaixo encontra-se incompleto, será adicionado brevemente.
-
-:::
-
 ### Redes Residuais
 
 ### Caminhos de Aumento
