@@ -195,7 +195,7 @@ O algoritmo tem complexidade temporal $O(E \log V)$. Dissecando-o em pormenor, t
 
 São realizadas $O(E)$ operações de `findSet` e `union`. Recorrendo às estruturas de dados certas[**\***](color:yellow), podemos afirmar que a complexidade temporal do `for` loop é de $O(E \cdot\alpha(V))$, onde $\alpha(V)$ é uma função de crescimento prolongado (sub-logarítmico). Visto que $E < V^2$, temos necessariamente que $\log E = O(\log V)$, e que o algoritmo tem complexidade temporal $O(E \log V)$.
 
-[**\***](color:yellow) As estruturas referidas podem ser encontradas [aqui](https://cp-algorithms.com/data_structures/disjoint_set_union.html). São utilizadas, para além do algoritmo de Kruskal, no algoritmo de Tarjan para encontrar $LCAs$ (_lowest common ancestors_).
+[**\***](color:yellow) As estruturas referidas podem ser encontradas mais abaixo. São utilizadas, para além do algoritmo de Kruskal, no algoritmo de Tarjan para encontrar $LCAs$ (_lowest common ancestors_).
 
 :::details[Prova da Correção do Algoritmo]
 
@@ -213,9 +213,106 @@ Podemos, então, partir para o caso geral - tenhamos então que estamos a explor
 
 :::
 
+### Estruturas de Dados para Conjuntos Disjuntos
+
+Na secção imediatamente acima, foi referido que a complexidade do algoritmo de Kruskal poderia ser drasticamente reduzida caso se recorresse às estruturas de dados certas.
+
+Inventada em meados dos anos 60, a estrutura _Union-Find_ responde precisamente a este problema em tempo ótimo.
+Foi descrita pela primeira vez por Bernard Galler e Michael Fischer, num artigo para o _Journal of the ACM_, e passada cerca de uma década Robert Tarjan (inventor, entre outros, do algoritmo que estudámos para encontrar SCCs) provou que a complexidade temporal do algoritmo de união de conjuntos da estrutura era majorada por $O(m \cdot \alpha(n))$, onde $\alpha$ corresponde à inversa da [função de Ackermann](https://en.wikipedia.org/wiki/Ackermann_function#Inverse), sub-logarítmica.
+
+A estrutura em questão mantém uma coleção de conjunto disjuntos dinâmicos, $S$, onde cada conjunto é representado por um dos seus membros. É, aqui, relevante que o representante seja o mesmo em qualquer momento do algoritmo - isto é, que um pedido do representante de um conjunto seja **determinístico** para esse conjunto. Precisaremos de suportar três operações principais para a manipulação da estrutura:
+
+- `makeSet(x)`: cria um conjunto disjunto com um único membro, membro esse que, claro, fica como seu representante. Insere este novo conjunto em $S$.
+
+- `findSet(x)`: retorna o representante do conjunto que contém o membro `x`.
+
+- `union(x, y)`: une os conjuntos que contêm os membros `x` e `y`. A implementação abordada em aula leva a que o representante deste novo conjunto seja ou o representante do anterior conjunto de `x` ou do de `y`. Os dois conjuntos, agora irrelevantes, são removidos de $S$.
+
+A estrutura em si possui várias implementações internas. Iremos nesta secção apenas abordar a implementação utilizada no algoritmo de Kruskal, que recorre à noção de floresta - $S$ é, aqui, uma floresta de conjuntos disjuntos, onde cada um dos seus conjuntos corresponde a uma árvore _n-ária_. A raiz de cada árvore tem-se a si própria como pai, e corresponde ao representante do conjunto em que está. Abaixo encontram-se exemplos de árvores que podem representar conjuntos disjuntos nesta implementação:
+
+![Conjuntos Disjuntos - Exemplo Árvores](./assets/0007-conjuntos-disjuntos-arvores.png#dark=1)
+
+Em $(a)$ podemos observar duas árvores de um hipotético conjunto $S$, e em $(b)$ o resultado da união dos dois conjuntos - parece, então, correto introduzir agora a implementação (ainda não ótima) da estrutura com árvores:
+
+- `makeSet(x)`: cria uma árvore cujo único vértice é `x`, sendo ele o seu próprio antecessor.
+
+- `findSet(x)`: percorre os antecessores de `x` até encontrar o representante do conjunto em que se encontra.
+
+- `union(x, y)`: a raiz de uma das árvores passa a apontar para a raiz da outra (observável na figura acima).
+
+Em relação à complexidade temporal, contudo, estamos longe do ideal - $n$ chamadas a `union` podem levar à criação de uma árvore linear de $n$ nós em cadeia, algo que não queremos (a operação `findSet` levaria até $n$ operações, por exemplo). Podemos, claro, melhorá-la, e vamos fazê-lo seguindo um par de heurísticas:
+
+:::info[União por Categoria]
+
+O representante de cada árvore mantém um majorante para o tamanho da árvore em que se encontra, o `rank`. Aquando da união de duas árvores, a raiz da árvore mais pequena passa a apontar para a raíz da maior, levando assim a uma complexidade temporal $O(\log n)$ para `findSet`:
+
+![FindSet Logarítmico](./assets/0007-findset-log.png#dark=1)
+
+Temos, claro, que aquando de `makeSet` o `rank` é inicializado a zero, e que a cada união o `rank` da árvore maior pode ser aumentado (caso aumente com a introdução da nova sub-árvore). Já que `findSet` corresponde a, na pior das hipóteses, subir a árvore toda a partir de uma das folhas até a raiz, a sua complexidade é agora $O(\log n)$, com esta alteração.
+
+:::
+
+:::info[Compressão de Caminhos]
+
+Cada operação `findSet` achata a árvore de procura que está a explorar, colocando cada nó a apontar diretamente para o representante do conjunto.
+
+![FindSet Compressão](./assets/0007-findset-compressao.png#dark=1)
+
+Podemos na imagem acima observar o antes e depois do efeito que a operação `findSet` tem na árvore - todas as procuras seguintes serão efetivamente realizadas em tempo constante.
+
+:::
+
+Postas estas duas heurísticas em prática, o pseudo-código das operações será:
+
+```rust
+makeSet(x)
+  parent[x] = x
+  rank[x] = 0
+
+findSet(x)
+  if parent[x] != x
+    parent[x] = findSet(parent[x])
+  return parent[x]
+
+union(x, y)
+  link(findSet(x), findSet(y))
+
+link(x, y)
+  if rank[x] > rank[y]
+    parent[y] = x
+  else
+    parent[x] = y
+    if rank[x] == rank[y]
+      rank[y]++
+```
+
+Podemos notar que o próprio `union` chama, por definição, `findSet`, produzindo assim resultados mais eficientes para várias chamadas sucessivas.
+
+A execução de $m$ operações levará, então, $O(m \cdot \alpha(n))$ tempo. Visto que para qualquer aplicação concebível para a estrutura o número de árvores iniciais é menor que $10^{80}$, podemos considerar $\alpha(n) \leq 4$ (a prova encontra-se nos slides), pelo que podemos até considerar o algoritmo linear para o número de operações requeridas. Resta notar que apenas utilizando a união por categoria (sem compressão de caminhos), a complexidade seria $O(m \cdot \log n)$, já assim bastante melhor que a original $O(mn)$.
+
+:::details[Exemplo da aplicação de Union sucessivamente]
+
+Tenhamos que inicialmente $S$ encontra-se assim:
+
+![Conjuntos Disjuntos - Exemplo Início](./assets/0007-union-inicio.png#dark=1)
+
+Chamar sucessivamente `union(A, B)`, `union(B, C)`, `union(D, E)` e `union(F, G)` produzirá os seguintes resultados:
+
+![Conjuntos Disjuntos - Exemplo Básico](./assets/0007-union-basico.png#dark=1)
+
+De seguida, é chamado `union(C, F)`. Para achatar a árvore, temos de chamar de novo `findSet` com um dos nós para ver o efeito a ser produzido (numa possível chamada futura de `union` um efeito semelhante seria observado).
+
+![Conjuntos Disjuntos - Exemplo Intermédio](./assets/0007-union-intermedio.png#dark=1)
+
+Finalizamos ao unir as duas árvores finais, e a observar o achatamento (não completo) da árvore resultante com uma chamada `findSet`:
+
+![Conjuntos Disjuntos - Exemplo Final](./assets/0007-union-final.png#dark=1)
+
+:::
+
 ---
 
-<!-- TODO - NOTES (WHENEVER AVAILABLE) -->
-
-- [Slides](https://drive.google.com/file/d/1TucBPnDwq49gX3yRaLscM2QDJV6Ijcep/view?usp=sharing)
-- [Notas Prof.](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+- [Slides - Kruskal, Prim](https://drive.google.com/file/d/1TucBPnDwq49gX3yRaLscM2QDJV6Ijcep/view?usp=sharing)
+- [Slides - Conjuntos Disjuntos](https://drive.google.com/file/d/1MUA_k7duC-TyzlMlm1gAoOZHRxHEuf4v/view?usp=sharing)
+- [Notas Kruskal, Prim - Prof. José Fragoso](https://drive.google.com/file/d/1Wr_pz90HdpozQkmqrjHrpISow5oJnjrc/view?usp=sharing)
+- [Notas Kruskal, Union-Find - Prof. José Fragoso](https://drive.google.com/file/d/1XhlrKXV241FoD4qjXO3Ql7r-0jDhJ4ok/view?usp=sharing)
