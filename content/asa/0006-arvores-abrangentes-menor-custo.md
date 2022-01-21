@@ -242,7 +242,7 @@ Em $(a)$ podemos observar duas árvores de um hipotético conjunto $S$, e em $(b
 
 - `union(x, y)`: a raiz de uma das árvores passa a apontar para a raiz da outra (observável na figura acima).
 
-Em relação à complexidade temporal, contudo, estamos longe do ideal - $n$ chamadas a `union` podem levar à criação de uma árvore linear de $n$ nós em cadeia, algo que não queremos (a operação `findSet` levaria até $n$ operações, por exemplo). Podemos, claro, melhorá-la, e vamos fazê-lo seguindo um par de heurísticas:
+Em relação à complexidade temporal, contudo, estamos longe do ideal - $n$ chamadas a `union` podem levar à criação de uma árvore linear de $n$ nós em cadeia, algo que não queremos (a operação `findSet` levaria até $n$ subidas pela árvore, por exemplo). Podemos, claro, melhorá-la, e vamos fazê-lo seguindo um par de heurísticas:
 
 :::info[União por Categoria]
 
@@ -260,7 +260,7 @@ Cada operação `findSet` achata a árvore de procura que está a explorar, colo
 
 ![FindSet Compressão](./assets/0007-findset-compressao.png#dark=1)
 
-Podemos na imagem acima observar o antes e depois do efeito que a operação `findSet` tem na árvore - todas as procuras seguintes serão efetivamente realizadas em tempo constante.
+Podemos na imagem acima observar o antes e depois do efeito que a operação `findSet(a)` tem na árvore - todas as procuras seguintes serão efetivamente realizadas em tempo constante.
 
 :::
 
