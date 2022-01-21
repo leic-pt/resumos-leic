@@ -102,7 +102,7 @@ mas não equivalente do ponto de vista financeiro.
 Quando TAN = 12%
 
 $$
-J_m = \frac{12\%}{12} = 1%
+J_m = \frac{12\%}{12} = 1\%
 $$
 
 A taxa mensal equivalente à taxa anual efetiva (TAE) é:
@@ -124,7 +124,7 @@ $$
 
 Em que $j_k$ é a taxa do sub-periodo k e k é o número de subperíodos do periodo.
 
-## Anualidades e Perpetuidades
+## Anuaidades e Perpetuidades
 
 Numa situação em que os valores dos cash-flows se repetem ao longo do tempo,
 estamos perante anuidades e perpetuidades que se distinguem pelo facto de a sequência de cash-flows
@@ -166,7 +166,7 @@ $$
 
 :::info[Exemplo]
 
-A Teresa possui um aqueduto que gerará 2 milhões de euros de fluxos de tesouraria durante o ano de 2020. Os custos de operação do aqueduto são negligenciáveis e a sua durabilidade muito grande. Infelizmente, o preço da água transportada tem diminuído e prevêse que os fluxos de tesouraria diminuam 4% ao ano. A taxa de atualização é de 10%. Qual é o valor atual dos fluxos de tesouraria do aqueduto se se assumir que os fluxos de tesouraria durarão para sempre?
+A Teresa possui um aqueduto que gerará 2 milhões de euros de fluxos de tesouraria durante o ano de 2020. Os custos de operação do aqueduto são negligenciáveis e a sua durabilidade muito grande. Infelizmente, o preço da água transportada tem diminuído e prevê-se que os fluxos de tesouraria diminuam 4% ao ano. A taxa de atualização é de 10%. Qual é o valor atual dos fluxos de tesouraria do aqueduto se se assumir que os fluxos de tesouraria durarão para sempre?
 
 Usando a fórmula de cima:
 
@@ -202,7 +202,7 @@ $$
 Os cash-flows durante a fase de exploração (passada a fase inicial de investimento) serão habitualmente positivos se o projeto for lucrativo.
 
 $$
-\text{CF exploração} = RAJI \times (1 - \text{Taxa de imposto}) + \text{Amortizações e depreciações}
+\text{CF exploração} = RAJI \times (1 - \text{Taxa de imposto}) - \text{Amortizações e depreciações}
 $$
 
 Em que RAJI corresponde ao resultado antes de juros e impostos, ou seja, o mesmo que EBIT, resultados operacionais.
@@ -230,9 +230,9 @@ $$
 
 Quando o $RAJI < 0$:
 
-- Projeto/ empresa não lucrativa o imposto não existe $t = 0$
+- Projeto/Empresa não lucrativa, então o imposto não existe $t = 0$
 
-- Projeto implementado por uma empresa lucrativa tem-se em conta o imposto e o cash-flow será negativo.
+- Projeto implementado por uma empresa lucrativa, então tem-se em conta o imposto, que será negativo.
 
 Na avaliação de projetos de investimentos estamos confrontados com a necessidade de
 comparar fluxos financeiros aplicados numa fase inicial, com fluxos gerados nos anos seguintes. Para isso usamos os seguintes indicadores:
