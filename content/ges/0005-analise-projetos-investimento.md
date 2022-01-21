@@ -124,7 +124,7 @@ $$
 
 Em que $j_k$ é a taxa do sub-periodo k e k é o número de subperíodos do periodo.
 
-## Anuaidades e Perpetuidades
+## Anuidades e Perpetuidades
 
 Numa situação em que os valores dos cash-flows se repetem ao longo do tempo,
 estamos perante anuidades e perpetuidades que se distinguem pelo facto de a sequência de cash-flows
