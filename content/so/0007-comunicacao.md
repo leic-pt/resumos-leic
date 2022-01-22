@@ -1,20 +1,24 @@
 ---
 title: Comunicação por Troca de Mensagem entre Processos
-description: Comunicação por Troca de Mensagem entre Processos
+description: Comunicação por Troca de Mensagem entre Processos. Pipes, Named Pipes e Signals.
 path: /so/comunicacao
 type: content
 ---
 
 # Comunicação por Troca de Mensagem entre Processos
 
-Dois paradigmas para programação concorrente
+```toc
+
+```
+
+Quando estamos a programar concorrentemente, podemos fazê-lo segundo dois paradigmas:
 
 - Por Memória Partilhada
   - Tarefas partilham dados (no heap/amontoado)
   - Troca de dados é feita escrevendo e lendo da memória
     partilhada
   - Sincronização recorre a mecanismos adicionais (e.g., trincos,
-    semáforos,…).
+    semáforos, ...).
 - Por Troca de Mensagens
   - Cada tarefa trabalha exclusivamente sobre dados privados
   - Tarefas transmitem dados trocando mensagens
@@ -24,24 +28,16 @@ Dois paradigmas para programação concorrente
 
 - Edição concorrente de um documento
 
-  - Google docs
-    - Única cópia online do
-      documento
-    - As alterações de um editor são
-      imediatamente aplicadas ao
-      documento partilhado e visíveis
-      logo aos outros editores
+  - Por exemplo, no Google Docs
+    - Única cópia online do documento
+    - As alterações de um editor são imediatamente aplicadas ao
+      documento partilhado e visíveis logo aos outros editores
 
 - Troca de Mensagens
+  - Cada editor mantem uma cópia privada do documento no seu computador
+  - Alterações enviadas por email e aplicadas independentemente
 
-  - Cada editor mantem uma
-    cópia privada do documento
-    no seu computador
-  - Alterações enviadas por email
-    e aplicadas
-    independentemente
-
-### Porquê Diferentes Paradigmas?
+## Porquê Diferentes Paradigmas?
 
 - Historicamente:
 
@@ -63,22 +59,20 @@ Dois paradigmas para programação concorrente
 
 - Dois modelos de paralelismo:
 
-1. por tarefa
-2. por processo
+  1. por tarefa
+  2. por processo
 
 - Dois modelos de
   concorrência:
 
-1. por troca de mensagens
-2. por memória partilhada
+  1. por troca de mensagens
+  2. por memória partilhada
 
-- Os modelos de paralelismo
-  e concorrência podem ser
-  combinados!
+- Os modelos de paralelismo e concorrência podem ser combinados!
 
 ![Matrix](./imgs/0007/matrix.png#dark=1)
 
-Anteriormente vimos Memória Partilhada e Tarefas, Agora iremos ver Troca de Mensagens e Processos
+Anteriormente vimos Memória Partilhada e Tarefas, agora iremos ver Troca de Mensagens e Processos
 
 ### Comunicação por Troca de Mensagem
 
@@ -152,8 +146,7 @@ main() {
     read (fds[0], tmp, sizeof (msg));
     printf ("%s\n", tmp);
     exit (0);
-  }
-  else {
+  } else {
     /* processo pai */
     close(fds[0]);
     /* escreve no pipe */
@@ -466,7 +459,7 @@ signals para processos de outro user\
     argumento for zero, o envio é cancelado.
 - `pause()`
   - aguarda a chegada de um signal
-- unsigned sleep (unsigned int segundos);
+- `unsigned sleep (unsigned int segundos)`
   - A função chama alarm e bloqueia-se à espera do `signal`
 - `int raise(int sig)`
   - o `signal` especificado em input é enviado para o próprio
