@@ -1,7 +1,7 @@
 ---
 title: Comunicação por Troca de Mensagem entre Processos
 description: Comunicação por Troca de Mensagem entre Processos
-path: /so/comunicação
+path: /so/comunicacao
 type: content
 ---
 
