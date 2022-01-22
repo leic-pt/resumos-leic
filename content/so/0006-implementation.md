@@ -1,6 +1,6 @@
 ---
 title: Implementação de um Mutex
-description: Implementação de um Mutex
+description: Implementação de um Mutex. Suporte algorítmico, de hardware e do sistema operativo.
 path: /so/implementation
 type: content
 ---
@@ -11,7 +11,12 @@ type: content
 
 ```
 
+Até agora vimos como usar os `mutex`es que nos são dados pela linguagem.
+No entanto, o que aconteceria se tentássemos implementar o nosso próprio `mutex`?
+
 ## Propriedades Desejáveis num Trinco
+
+Ao desenhar um trinco, existem várias propriedades que são essenciais para o seu bom-funcionamento:
 
 - Propriedade de Correção (Safety)
   - Exclusão mútua
@@ -26,6 +31,9 @@ type: content
   - Eficiência
 
 ## Implementações
+
+Podemos abordar a implementação do trinco de várias formas.
+Rapidamente nos apercebemos que não conseguimos implementar um trinco apenas com software, e que iremos necessitar de ajuda do hardware.
 
 - [Algorítmicas](#soluções-algorítmicas)
 - [Hardware](#soluções-com-suporte-do-hardware)
@@ -57,7 +65,7 @@ int trinco_t1 = ABERTO;
 int trinco_t2 = ABERTO;
 
 Tarefa T1                           Tarefa T2
-t1_fechar () {                      t2_fechar ( ) {
+t1_fechar () {                      t2_fechar () {
   while (trinco_t2 == FECHADO);       while (trinco_t1 == FECHADO);
   trinco_t1 = FECHADO;                trinco_t2 = FECHADO;
 }                                   }
@@ -77,7 +85,7 @@ int trinco_t1 = ABERTO;
 int trinco_t2 = ABERTO;
 
 Tarefa T1                           Tarefa T2
-t1_fechar () {                      t2_fechar ( ) {
+t1_fechar () {                      t2_fechar () {
   trinco_t1 = FECHADO;                trinco_t2 = FECHADO;
   while (trinco_t2 == FECHADO);       while (trinco_t1 == FECHADO);
 }                                   }
@@ -94,8 +102,8 @@ t1_abrir() {trinco_t1 = ABERTO;}    t2_abrir() {trinco_t2 = ABERTO;}
 int trinco_vez = 1;
 
 Tarefa T1                           Tarefa T2
-t1_fechar () {                      t2_fechar ( ) {
-  while (trinco_vez == 2);       while (trinco_vez == 1);
+t1_fechar () {                      t2_fechar () {
+  while (trinco_vez == 2);            while (trinco_vez == 1);
 }                                   }
 
 t1_abrir() {trinco_vez = 2;}    t2_abrir() {trinco_vez = 1;}
@@ -105,7 +113,7 @@ t1_abrir() {trinco_vez = 2;}    t2_abrir() {trinco_vez = 1;}
 [Dá prioridade a 1 deles](color:red)
 :::
 
-## Algoritmo da Padaria
+### Algoritmo da Padaria
 
 [Lamport’s Bakery algorithm](https://en.wikipedia.org/wiki/Lamport%27s_bakery_algorithm) (proposto por Leslie Lamport)
 
@@ -153,14 +161,14 @@ Fechar (int i) {
                                // Escolhe uma senha maior que todas as outras
                                // Anuncia que escolheu já a senha
   escolha[i] = FALSE;
-  for (j=0; j<N; j++) { // Pi verifica se tem a menor senha de todos os Pj
-    if (j==i) continue;
-    while (escolha[j]) ; // Se Pj estiver a escolher uma senha, espera que termine
+  for (j = 0; j < N; j++) { // Pi verifica se tem a menor senha de todos os Pj
+    if (j == i) continue;
+    while (escolha[j]); // Se Pj estiver a escolher uma senha, espera que termine
 
     while (senha [j] && (senha [j] < senha [i]) ||
-    (senha [i] == senha [j] && j < i))); // Se a senha de Pi for menor, Pi entra
-                                         // Se as senhas forem iguais,
-                                         // entra o que tiver o menor identificador
+      (senha [i] == senha [j] && j < i)); // Se a senha de Pi for menor, Pi entra
+                                           // Se as senhas forem iguais,
+                                           // entra o que tiver o menor identificador
   }
 }
 Abrir (int i) {senha [i] = 0;}
@@ -169,7 +177,7 @@ Abrir (int i) {senha [i] = 0;}
 
 **Se não usássemos escolha** 2 tarefas podiam entrar na mesma secção critíca ao mesmo tempo
 
-### Conclusão
+#### Conclusão
 
 - Complexas $\implies$ Latência
 - Só são corretas se não houver reordenação de acessos a memória
@@ -239,7 +247,9 @@ Abrir_hard:
   retira-a de execução, bloqueando-a!
 
 ```c
-trinco_t t; t.var=ABERTO; t.tarefasBloqueadas = {};
+trinco_t t;
+t.var = ABERTO;
+t.tarefasBloqueadas = {};
 t.t_interior;
 
 Fechar (trinco_t t) {
@@ -248,8 +258,7 @@ Fechar (trinco_t t) {
     t.tarefasBloqueadas += estaTarefa;
     abrir_hw(t.t_interior);
     bloqueia_tarefa(estaTarefa);
-  }
-  else {
+  } else {
     t.var = FECHADO;
     abrir_hw(t.t_interior);
   }
@@ -261,8 +270,7 @@ Abrir (trinco_t t) {
     outraTarefa = t.tarefasBloqueadas.dequeue();
     abrir_hw(t.t_interior);
     desbloqueia_tarefa(outraTarefa);
-  }
-  else {
+  } else {
     t.var = ABERTO;
     abrir_hw(t.t_interior);
   }
@@ -276,7 +284,7 @@ Abrir (trinco_t t) {
     fechar()
 
 Em que categoria está o
-pthread_mutex?
+`pthread_mutex`?
 
 - É trinco com suporte do núcleo
 - No entanto, tem otimizações para que,
