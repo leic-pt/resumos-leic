@@ -57,19 +57,21 @@ Prim(G, r) // r = vértice inicial
   r.distance = 0
   r.pi = nil
   Q = new MinPriorityQueue(G.V) // queue com prioridade = distancia
-  // implicito: A é mantido, sendo adicionado cada vértice gradualmente
+  // implícito: A é mantido, sendo adicionado cada vértice gradualmente
   while (!Q.empty())
     u = Q.extractMin()
     for each edge (u, v) in G.adj(u)
       if (v in Q && w(u, v) < v.distance)
         v.pi = u
         v.distance = w(u, v)
-        // implicito - Q.decreaseKey(v)
+        // implícito - Q.decreaseKey(v)
 ```
 
 :::details[Exemplo da aplicação do algoritmo]
 
 O grafo abaixo considera $a$ como vértice inicial, e já tem o primeiro passo de Prim realizado (explorou todos os arcos que dele saem, atualizando os pais e distâncias à MST). De realçar que, ao longo do algoritmo, as arestas que vão estando preenchidas a verde são as que estão nesse momento a ser exploradas.
+
+[As arestas que pertencem à MST são as arsestas que se encontram menos destacadas.](color:red)
 
 ![Exemplo da aplicação do algoritmo - 1](./assets/0006-prim-exemplo-1.png#dark=1)
 
@@ -130,6 +132,8 @@ O algoritmo de Kruskal, já abordado em Matemática Discreta, é também bastant
 :::details[Exemplo da aplicação do algoritmo]
 
 Começamos com o grafo abaixo (note-se que já estamos no primeiro passo, em que foi escolhido o arco $(h, g)$, com menor peso). Como atualmente $h$ e $g$ não pertencem à mesma árvore, os respetivos sets são unidos, e $(h, g)$ é adicionado à MST.
+
+[As arestas que pertencem à MST são as arsestas que se encontram menos destacadas.](color:red)
 
 ![Exemplo da aplicação do algoritmo - 1](./assets/0006-kruskal-exemplo-1.png#dark=1)
 
