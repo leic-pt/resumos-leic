@@ -75,7 +75,7 @@ Podíamos ainda, no fim, desenhar a **floresta DFS** do grafo acima. O conceito 
 
 No algoritmo que estudámos em aula, cada vértice do grafo tem algumas propriedades que facilitam o desenrolar da DFS:
 
-- cada vértice tem um pai, `pi`, inicialmente nulo (`Nil`, no pseudocódigo).
+- cada vértice tem um pai, `pi`, inicialmente nulo (`Nil`, no pseudocódigo), que corresponde ao seu predecessor na procura.
 
 - cada vértice tem uma cor - `White`, `Gray` ou `Black`. Um vértice é `White` antes de ser descoberto, `Gray` entre descoberta e fecho, e `Black` quando está fechado.
 
@@ -84,11 +84,12 @@ No algoritmo que estudámos em aula, cada vértice do grafo tem algumas propried
 Tendo como argumento um grafo $G$, o pseudocódigo do algoritmo da DFS pode ser tal que:
 
 ```rust
+// Graph G has a set of vertices V, assecessed as seen below
 DFS(G)
   for v in G.V // loop 1
     v.color = White
-    v.d = 0
-    v.f = 0
+    v.discovery = 0
+    v.closure = 0
     v.pi = Nil
   time := 0
   for v in G.V // loop 2
@@ -97,14 +98,14 @@ DFS(G)
 
 DFS_Visit(G, v)
   time = time + 1
-  v.d = time
+  v.discovery = time
   v.color = Gray
   for w in G.Adj[v] // loop 3
     if w.color == White
       w.pi = v
       DFS_Visit(G, w)
   time = time + 1
-  v.f = time
+  v.closure = time
   v.color = Black
 ```
 
@@ -362,12 +363,6 @@ Temos 5 árvores na floresta DFS, pelo que temos 5 SCCs. O grafo dos componentes
 
 ## BFS - _Breadth First Search_
 
-:::warning[Secção Incompleta]
-
-Esta secção encontra-se atualmente incompleta. Estão apenas incluídos os temas abordados em aula até à terceira semana do segundo período (inclusive) - assim que possível, adicionar-se-á o resto.
-
-:::
-
 É, tal como a DFS, um algoritmo para travessia de grafos. Se na DFS o objetivo prendia-se em percorrer os caminhos em profundidade, até eventualmente ter de voltar para trás (_backtracking_), na BFS o objetivo passa por percorrer os caminhos em largura. Utiliza a noção de fila (vulgo queue) para guardar os vértices a serem explorados num futuro próximo. O próximo vértice a ser explorado é sempre o que está no início da fila. De realçar ainda que utilizamos uma fila regular, do tipo FIFO, _first in first out_.
 
 Começamos na raiz, com a fila inicialmente vazia, e vamos adicionando os vértices adjacentes ao vértice atual à fila. Fazemo-lo sucessivamente, extraindo sempre o primeiro elemento da fila e repetindo o processo até a fila estar vazia - quando estiver, a procura está concluída.
@@ -378,11 +373,11 @@ O pseudocódigo do algoritmo é o seguinte:
 BFS(G, v) // v é o vértice-raiz da procura
   for each n in V except v
     n.color = white
-    n.d = inf // inicialmente a infinito
+    n.distance = inf // inicialmente a infinito
     n.pi = nil
   v.color = gray
-  v.d = 0
-  v.pi = nil
+  v.distance = 0
+  v.parent = nil
   Q := new queue
   Q.enqueue(v)
   while Q is not empty
@@ -390,7 +385,7 @@ BFS(G, v) // v é o vértice-raiz da procura
     for each n in Adj(u)
       if n.color == white
         n.color = gray
-        n.d = u.d + 1
+        n.distance = u.distance + 1
         n.pi = u
         Q.enqueue(n)
     u.color = black
@@ -413,7 +408,7 @@ O decorrer do algoritmo é:
 - Exploramos $U$, que não tem adjacências por explorar, pelo que nada é adicionado.
 - Exploramos $Y$, que não tem adjacências por explorar, pelo que nada é adicionado.
 
-O algoritmo termina aqui. Os números ao lado de cada vértice correspondem à distância do vértice que escolhemos como raiz da BFS, neste caso o vértice $S$. A estrutura vertical que podemos observar à esqueerda corresponde à fila em que os vértices iam sendo colocados.
+O algoritmo termina aqui. Os números ao lado de cada vértice correspondem à distância do vértice que escolhemos como raiz da BFS, neste caso o vértice $S$. A estrutura vertical que podemos observar à esquerda corresponde à fila em que os vértices iam sendo colocados.
 
 :::
 

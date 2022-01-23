@@ -1,16 +1,17 @@
 ---
-title: Caminhos mais Curtos
+title: Caminhos Mais Curtos
 description: Caminhos mais Curtos de Origem Única.
   Representação e Propriedades dos Caminhos mais Curtos.
   Operação de Relaxação.
   Algoritmo de Dijkstra.
   Algoritmo de Bellman-Ford.
   Caminhos mais Curtos em DAGs.
+  Caminhos mais Curtos entre todos os pares.
 path: /asa/caminhos-mais-curtos
 type: content
 ---
 
-# Caminhos mais Curtos
+# Caminhos Mais Curtos
 
 ```toc
 
@@ -18,7 +19,7 @@ type: content
 
 :::tip[Problema]
 
-O professor Patrick quer descobrir o caminho mais curto de Phoenix a Indianapolis. Dado um mapa dos Estados Unidos (onde a distância entre cada par de interseções adjacentes está marcada), como pode ele determinar o caminho mais curto?
+O professor Patrick quer descobrir o caminho mais curto de Phoenix a Indianápolis. Dado um mapa dos Estados Unidos (onde a distância entre cada par de interseções adjacentes está marcada), como pode ele determinar o caminho mais curto?
 
 :::
 
@@ -225,7 +226,7 @@ O algoritmo em si tem um aspeto bastante mais simples que o de Dijkstra: trata-s
 ```rust
 BellmanFord(G, w, s)
   InitializeSingleSource(G, s)
-  for each u in V do
+  for each i in 1 .. |V| - 1 do
     for each (u, v) in E do
       Relax(G, u, v, w(u, v))
   for each (u, v) in E do
@@ -240,7 +241,7 @@ A complexidade temporal do algoritmo é $\Theta(V) + \Theta(VE) + O(E) = \Theta(
 
 Seja $G = (V, E)$ um grafo pesado dirigido, com fonte $s$ e função de pesos $w$. Assumindo que não há ciclos negativos, após as $V$ iterações do primeiro loop do algoritmo de Bellman-Ford, temos que $d[v] = \delta(s, v), \forall_{v \in V}$ tal que $v$ é atingível a partir de $s$.
 
-A prova baseia-se, claro, nas propriedades da relaxação. Começemos por considerar qualquer vértice atingível a partir de $s$, com $p = (v_0, v_1, ..., v_k)$ (com $v_0 = s \wedge v_k = v$) o caminho mais curto de $s$ a $v$ em $G$. Temos que $p$ é simples - tem, no máximo, $|V| - 1$ arcos, já que um caminho mais curto não passará por um vértice mais que uma vez, caso contrário estaríamos necessariamente na presença de um ciclo negativo. Cada arco é relaxado $|E|$ vezes. Temos, então, de procurar provar que $d[v_i] = \delta(s, v_i), \forall_{v_i \in V}$, após a iteração $i$ do primeiro loop de Bellman-Ford sobre os arcos de $G$, e que nunca se altera.
+A prova baseia-se, claro, nas propriedades da relaxação. Começemos por considerar qualquer vértice atingível a partir de $s$, com $p = (v_0, v_1, ..., v_k)$ (com $v_0 = s \wedge v_k = v$) o caminho mais curto de $s$ a $v$ em $G$. Temos que $p$ é simples - tem, no máximo, $|V| - 1$ arcos, já que um caminho mais curto não passará por um vértice mais que uma vez, caso contrário estaríamos necessariamente na presença de um ciclo negativo. Cada arco é relaxado $|V|$ vezes. Temos, então, de procurar provar que $d[v_i] = \delta(s, v_i), \forall_{v_i \in V}$, após a iteração $i$ do primeiro loop de Bellman-Ford sobre os arcos de $G$, e que nunca se altera.
 
 Provando por indução:
 
@@ -335,13 +336,170 @@ Como consideração inicial, podemos notar que se um vértice $v$ não é ating�
 
 :::tip[Curiosidade]
 
-A título de curiosidade, podemos notar que o **caminho mais longo** entre dois vértices num grafo (assumindo que podemos atingir o vértice-destino a partir da fonte) pode ser obtido ao negar os pesos de todas as arestas, passar os $+\infty$ iniciais para $-\infty$ e, na operação de relaxação, trocar os $>$ por $<$! O caminho mais longo pode ser particularmente útil para, entre outros, calcular um minorante para a quantidade de tempo/operações que uma dada tarefa vai levar - daí o nome pelo qual também é conhecido, **caminho crítico**.
+A título de curiosidade, podemos notar que o **caminho mais longo** entre dois vértices num grafo (assumindo que podemos atingir o vértice-destino a partir da fonte) pode ser obtido ao negar os pesos de todas as arestas, passar os $+\infty$ iniciais para $-\infty$ e, na operação de relaxação, trocar os $>$ por $<$\
+O caminho mais longo pode ser particularmente útil para, entre outros, calcular um minorante para a quantidade de tempo/operações que uma dada tarefa vai levar - daí o nome pelo qual também é conhecido, **caminho crítico**.
 
 :::
 
+## Caminhos mais Curtos entre Todos os Pares
+
+Os algoritmos de Dijkstra e Bellman-Ford, abordados acima, permitem-nos encontrar caminhos mais curtos **de fonte única**. Conhecendo-os, a nossa primeira intuição para descobrir os caminhos mais curtos entre **todos os pares** de vértices de um grafo poderá apenas passar por aplicar o algoritmo de Dijkstra $|V|$ vezes, com vértice-fonte a alterar para cada aplicação. [**A ideia não está errada**](color:yellow), claro: funciona! Temos, contudo, um problema em mãos - continuamos a ter a limitação estudada acima (Dijkstra requer a ausência de arcos negativos). Será, então, interessante procurar uma solução alternativa que a remova, e é aqui que entra o algoritmo de Johnson, que curiosamente combina os algoritmos de Dijkstra e Bellman-Ford para chegar a este fim.
+
+### Algoritmo de Jonhson
+
+O algoritmo de Johnson permite-nos justamente remover a limitação acima mencionada. Para tal, usa uma estratégia: a [**repesagem de Johnson**](color:orange), baseada em Bellman-Ford, e acaba na aplicação de Dijkstra, usando todos os vértices como fonte. De realçar que a repesagem só é requerida caso haja pelo menos um arco negativo.
+
+Durante o decorrer do algoritmo, são calculadas duas matrizes bi-dimensionais (onde cada dimensão tem tamanho $|V|$):
+
+- $D$, onde $D(i, j)$ corresponde ao peso do caminho mais curto de $i$ a $j$;
+
+- $\pi$, onde $\pi(i, j)$ corresponde ao predecessor de $j$ no caminho mais curto de $i$ a $j$.
+
+Vamos por partes:
+
+:::info[Repesagem de Johnson]
+
+Tendo um grafo $G = (V, E)$, a repesagem de Jonhson devolve um grafo $G^\wedge = (V, E^\wedge)$, onde $E^\wedge$ corresponde a arcos "equivalentes" aos de $E$, porém sem arcos negativos. Queremos, claro, que os caminhos mais curtos em $G^\wedge$ sejam os mesmos que os de $G$.
+
+A intuição poderá levar-nos a pensar que uma maneira possível de chegar a $G^\wedge$ é encontrar a aresta com peso mais negativo, pegar no seu módulo e somá-lo ao peso de todas os arcos de $G$. A estratégia, contudo, não funciona para todos os casos - temos um contra-exemplo abaixo:
+
+![Repesagem de Jonhson - abordagem errada](assets/0005-johnson-errado.png#dark=1)
+
+Podemos observar, então, que esta abordagem acaba por **penalizar caminhos mais curtos com mais arcos**.
+
+A [**abordagem correta**](color:orange) passa, então, por adicionar um novo vértice, $s$, ao grafo, e conectá-lo com arcos $(s, v)$ de peso 0 a todo o vértice $v$ de $G$. De seguida, aplicar o algoritmo de Bellman-Ford ao grafo para descobrir as **alturas de Johnson, $h$, de cada vértice** - correspondem ao peso do caminho mais curto de $s$ a cada vértice.
+
+Obtidas as alturas de Jonhson, temos que o peso de cada arco em $G^\wedge$, $w^\wedge$, é dado por[**\***](color:yellow):
+
+$$
+w^\wedge(i, j) = w(i, j) + h(i) - h(j).
+$$
+
+No fim, ao remover o vértice $s$ e respetivos arcos, ficamos com $G^\wedge$! A complexidade temporal da repesagem é, claro, $O(VE)$, tal como no usual Bellman-Ford.
+
+[**\***](color:yellow) A razão pela qual a repesagem funciona não é trivial à primeira vista. A prova da sua correção encontra-se mais abaixo, pelo que podem preferir ler a mesma antes de ver o exemplo seguinte.
+:::
+
+:::details[Exemplo da Repesagem de Jonhson]
+
+Consideremos o grafo $G$ abaixo:
+
+![Repesagem de Jonhson - exemplo](assets/0005-johnson-exemplo.png#dark=1)
+
+Após adicionar o vértice $s$ (e respetivas arestas), o grafo fica assim:
+
+![Repesagem de Jonhson - exemplo - adicionado](assets/0005-johnson-exemplo-2.png#dark=1)
+
+Tenhamos, ainda, uma ordem arbitrária de relaxação de arcos, por exemplo $(S, X), (S, U), (S, T), (S, V), (X, U), (U, V), (U, T), (V, X), (V, T)$.
+
+A primeira iteração de Bellman-Ford dará:
+
+![Repesagem de Jonhson - exemplo - relaxação](assets/0005-johnson-exemplo-3.png#dark=1)
+
+A próxima iteração resulta num grafo igual, pelo que o algoritmo de Bellman-Ford termina aqui. Temos, então, que as alturas de Johnson dos vértices do grafo são:
+
+- $h(X) = 0$;
+- $h(U) = 0$;
+- $h(T) = -3$;
+- $h(V) = -2$;
+
+Assim sendo, os novos pesos dos arcos de $G$ são:
+
+- $w(X, U) = 1 + 0 - 0 = 1$;
+- $w(U, V) = -2 + 0 - (-2) = 0$;
+- $w(U, T) = -2 + 0 - (-3) = 1$;
+- $w(V, X) = 2 + (-2) - 0 = 0$;
+- $w(V, T) = -1 + (-2) - (-3) = 0$;
+
+Assim, temos que $G^\wedge$ é tal que:
+
+![Repesagem de Jonhson - exemplo - resultado](assets/0005-johnson-exemplo-4.png#dark=1)
+
+De realçar que nenhum arco tem agora peso negativo!
+
+Por fim, aplicamos Dijkstra a cada um dos vértices do grafo (não mostrado aqui, é igual à aplicação normal de Dijkstra), e obteríamos os caminhos mais curtos no grafo para todos os pares! Cada linha $i$ da matriz $D$ corresponde, claro, à aplicação de Dijkstra a $G^\wedge$ com $i$ como fonte.
+
+:::
+
+A repesagem de Johnson assenta em três pilares:
+
+- Se $G$ não contém ciclos negativos, $G^\wedge$ não contém ciclos negativos;
+
+- Se $G$ contém um ciclo negativo, $G^\wedge$ contém um ciclo negativo;
+
+- Se $p$ é um caminho mais curto de $u$ a $v$ em $G$, então também o é em $G^\wedge$.
+
+:::details[Prova dos dois primeiros pontos]
+
+Para provar o [**primeiro ponto**](color:yellow), podemos recorrer à **desigualdade triangular**. Temos como base que:
+
+$$
+w^\wedge (i, j) = w(i, j) + h(i) - h(j)
+$$
+
+Como referido acima, as alturas de Johnson correspondem ao peso do caminho mais curto de $s$ ao vértice no grafo onde tínhamos $s$ como fonte:
+
+$$
+w^\wedge (i, j) = w(i, j) + \delta(s, i) - \delta(s, j)
+$$
+
+Temos, pela desigualdade triangular, que $\delta(s, j) \leq \delta(s, i) + w(i, j)$. Assim sendo:
+
+$$
+w^\wedge (i, j) \geq \delta(s, j) - \delta(s, j) \\
+w^\wedge (i, j) \geq 0
+$$
+
+Ora, podemos assim admitir que o peso de todo o arco de $G^\wedge$ é não negativo, pelo que será impossível que ocorra ciclos negativos no mesmo (considerando que estes não existiam em $G$, claro, caso contrário a desigualdade triangular não se verificaria).
+
+Consideremos, agora, o [**segundo ponto**](color:green): existe (pelo menos um) ciclo negativo em $G$. Tenhamos ainda que $p = (v_0, ..., v_n)$ é o caminho correspondente, com $v_0 = v_n$. Para provar que o ciclo continua a ocorrer em $G^\wedge$, basta notar que:
+
+$$
+w^\wedge (v_0, v_n) = w(v_0, v_n) + h(v_0) - h(v_n)
+$$
+
+Como $v_0 = v_n$ (é um ciclo), temos que $h(v_0) = h(v_n)$, pelo que:
+
+$$
+w^\wedge (v_0, v_n) = w(v_0, v_n)
+$$
+
+Podemos, então, confirmar que o peso do ciclo continua negativo, e que se em $G$ existe um ciclo negativo, o mesmo existirá também em $G^\wedge$.
+
+:::
+
+:::details[Prova do terceiro ponto]
+
+Resta agora provar o terceiro ponto acima proposto. Começemos por notar que, com $p = (v_0, ..., v_n)$, um caminho mais curto em $G$, temos que:
+
+$$
+w^\wedge (p) = \sum_{i = 0}^{n-1} w^\wedge(v_i, v_{i+1})\\
+w^\wedge (p) = \sum_{i = 0}^{n-1} w(v_i, v_{i+1}) + h(v_i) - h(v_{i+1})\\
+w^\wedge (p) = \sum_{i = 0}^{n-1} w(v_i, v_{i+1}) + \sum_{i = 0}^{n-1} h(v_i) - h(v_{i+1})\\
+w^\wedge (p) = w(p) + h(v_0) - h(v_n)
+$$
+
+A passagem de $\sum_{i = 0}^{n-1} h(v_i) - h(v_{i+1})$ para $h(v_0) - h(v_n)$ é feita através de somas telescópicas - teríamos $h(v_0) - h(v_1) + h(v_1) - h(v_2) + ... -h(v_{n-1}) + h(v_{n-1}) - h(v_n) = h(v_0) - h(v_n)$.
+
+Suponhamos agora, por contradição, que $p$ é um caminho mais curto de $v_0$ a $v_n$ em $G$ mas não em $G^\wedge$. Assim, teríamos um caminho, $p'$, que teria peso menor que $p$ em $G^\wedge$ a ligar $v_0$ a $v_n$. Teríamos, então:
+
+$$
+w^\wedge(p') < w^\wedge(p)\\
+w(p') + h(v_0) - h(v_n) < w(p) + h(v_0) - h(v_n)\\
+w(p') < w(p)
+$$
+
+Ora, chegámos então a $w(p') < w(p)$. Tínhamos, contudo, começado por afirmar que $p$ é um caminho mais curto de $v_0$ a $v_n$ em $G$. Partindo dessa premissa, não pode haver nenhum caminho que ligue $v_0$ a $v_n$ em $G$, pelo que estamos perante uma contradição, e o terceiro ponto fica então provado.
+
+:::
+
+Resta, então, notar que a complexidade temporal do algoritmo é $O(V (V + E) \log V)$, predominando, portanto, a complexidade de Dijkstra pelos $|V|$ vértices.
+
 ---
 
-<!-- TODO - ADD NOTES WHEN AVAILABLE  -->
-
-- [Slides](https://drive.google.com/file/d/10QzxNY5Z2dHZLaYdyhG2S3-jTQwFjjgv/view?usp=sharing)
-- [Notas Prof - Atualmente indisponíveis]()
+- [Slides Dijkstra/DAG SP/Bellman-Ford](https://drive.google.com/file/d/10QzxNY5Z2dHZLaYdyhG2S3-jTQwFjjgv/view?usp=sharing)
+- [Slides Johnson](https://drive.google.com/file/d/1dIMIW3ThdJv2bFsRL7fyKJDkl9SKmB-Z/view?usp=sharing)
+- [Notas Dijkstra - Prof. José Fragoso](https://drive.google.com/file/d/17ZHiH-78uT031iApOqSUN5XIH38WXXwD/view?usp=sharing)
+- [Notas DAG Shortest Paths/Bellman-Ford - Prof. José Fragoso](https://drive.google.com/file/d/1tw3RwjiLK8Y0EOw-IRQKZ9vXqfI9h8A1/view?usp=sharing)
+- [Notas Johnson - Prof. José Fragoso](https://drive.google.com/file/d/1ljYGTXrxBskLaY3WKEsr6fPY4kDpTRgo/view?usp=sharing)
+  $$

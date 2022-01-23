@@ -37,14 +37,16 @@ struct {
   // ...
 } conta_t;
 
+pthread_mutex_t mutex;
+
 int levantar_dinheiro (conta_t* conta, int valor) {
-  mutex_lock(conta->saldo); // Bloqueia o acesso a este endereço
+  mutex_lock(&mutex); // Bloqueia o acesso a este endereço
                             // de memória a outras threads
   if (conta->saldo >= valor)
     conta->saldo = conta->saldo - valor;
   else
     valor = -1; /* -1 indica erro ocorrido */
-  mutex_unlock(conta->saldo); // Desbloqueia o acesso a este
+  mutex_unlock(&mutex); // Desbloqueia o acesso a este
                               // endereço de memória
   return valor;
 }
@@ -278,7 +280,7 @@ void sair() {
   - Pode haver mais que uma variável de condição associada ao mesmo trinco
 - O conjunto trinco + variáveis de condição é normalmente chamado um monitor
 
-### Primitivas (semântica Mesa)
+### Primitivas (Semântica Mesa)
 
 - `wait(conditionVar, mutex)`
   - Atomicamente, liberta o trinco associado e bloqueia a tarefa
@@ -325,7 +327,7 @@ signal/broadcast(varCondicao);
 unlock(trinco);
 ```
 
-Variáveis de Condição - POSIX
+#### Variáveis de Condição - POSIX
 
 - `pthread_cond_t`
 - Criação/destruição de variáveis de condição ([man page](https://man.archlinux.org/man/core/man-pages/pthread_cond_destroy.3p.en));
@@ -358,8 +360,46 @@ void sair() {
 }
 ```
 
+:::tip[Exemplos]
+Mais exemplos nos slides em baixo
+:::
+
+### Problemas
+
+- Tarefa que chama `wait` liberta o trinco e entra
+  na fila de espera **atomicamente**
+
+  - Consequência: caso a condição mude e haja
+    `signal`, pelo menos uma tarefa na fila será
+    desbloqueada
+
+- Tarefa em espera que seja desbloqueada por
+  `signal/broadcast` não corre imediatamente
+  - Simplesmente é tornada executável
+  - Para que `wait` retorne, tem de re-adquirir o trinco
+
+Como a tarefa pode não correr imediatamente a seguir a se tornar executável o valor da condição pode ser alterada, podendo gerar problemas graves.
+
+![Problem with conditions](./imgs/0005/cond-problems.png#dark=1)
+
+Podemos observar pela imagem que durante o tempo entre o `signal` (feito por T3) e uma tarefa ser "acordada" (T1) onde adquire o trinco, a variável de condição foi alterada pela tarefa (T2), isto irá resultar em problemas.
+
+- Retorno do `wait` não garante que condição
+  que lhe deu origem se verifique
+  - Tarefa pode não ter sido a primeira tarefa a entrar
+    na secção crítica depois da tarefa que assinalou a
+    ter libertado
+- Logo, após retorno do `wait`, re-verificar a
+  condição:
+  - [Não fazer](color:red): `if` (testa variável partilhada)
+  - [Fazer](color:green): `while` (testa variável partilhada)
+
+Algumas implementações de variáveis de
+condição permitem que tarefa retorne do
+`wait` sem ter ocorrido `signal/broadcast` - [Spurious Wakeup](https://en.wikipedia.org/wiki/Spurious_wakeup)
+
 ---
 
 Slides:
 
-- [Slides 4](https://drive.google.com/file/d/1hwK5TFCFlGemwb9SVtnIEkQe9zZDY7wZ/view?usp=sharing)
+- [Slides 4](https://drive.google.com/file/d/1HD7UhXM4tYqEiZy_mYG0bUyKgKIntGyK/view?usp=sharing)
