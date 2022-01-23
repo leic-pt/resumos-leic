@@ -74,18 +74,26 @@ Então temos uma de duas situações, ambas em que a segunda derivada segundo $x
 - $u(x) = C$
 - $u(x) = Ax + B$
 
-### Soluções Separáveis
+## Soluções Separáveis
 
-:::warning
-O conteúdo abaixo está ligeiramente incompleto e provavelmente confuso.
-Quando se aprofundar o estudo das equações do calor, será feita uma revisão deste conteúdo de forma a melhorá-lo.
+:::warning[Nota do Autor]
+O método descrito abaixo não é fácil e requer perícia a resolver equações diferenciais.
+Pode ser necessário ler várias vezes e acompanhar com exemplos para se perceber.
 :::
 
 Para conseguirmos determinar soluções para a **Equação do Calor**, vamos aprender um novo método chamado [**Soluções Separáveis**](color:orange) (ou Separação de Variáveis).
+Mais tarde iremos ver que este método também nos irá ser útil para outras equações, como a **Equação das Ondas** e a **Equação de Laplace**.
+Abaixo vamos apenas trabalhar com Equações do Calor.
 
 O método consiste em tentar descobrir várias soluções, depois tentar fazer várias combinações lineares, e, por fim, chegar à nossa solução.
 
-Vamos supor que a nossa função é o produto de duas funções (cada uma só depende de uma das variáveis):
+Pegando então na equação do calor, vamos aplicar o método das soluções separáveis:
+
+$$
+\frac{\partial u}{\partial t} = k \frac{\partial^2 u}{\partial x^2}
+$$
+
+Começamos por supor que a nossa função é o produto de duas funções (cada uma só depende de uma das variáveis):
 
 $$
 u(t,x) = T(t) X(x)
@@ -98,16 +106,16 @@ T'(t) X (x) = k T(t) X''(x)
 $$
 
 $$
-\frac{\partial T'(t)}{\partial k}\frac{1}{T(t)} = \frac{X''(x)}{X(x)} = \lambda
+\frac{T'(t)}{kT(t)} = \frac{X''(x)}{X(x)} = \lambda
 $$
 
 Para os dois membros da equação serem iguais, visto que um depende apenas de $t$ e outro apenas de $x$,
-então têm necessariamente de ser funções constantes.
+então têm necessariamente de ser funções constantes, daí igualamos ambos os membros a uma constante $\lambda$.
 
 Daqui sai, para $T$, a seguite equação diferencial de primeira ordem
 
 $$
-T'(t) = \lambda k T(t) \Leftrightarrow T(t) = c e^{\lambda k t}
+T'(t) = \lambda k T(t) \Leftrightarrow T(t) = c_1 e^{\lambda k t}
 $$
 
 A constante irá ser irrelevante no futuro quando fizermos combinações lineares, desde que seja não nula.
@@ -115,10 +123,10 @@ A constante irá ser irrelevante no futuro quando fizermos combinações lineare
 Por outro lado, para $X$, temos a seguinte [equação diferencial de ordem superior](/cdi-iii/equacoes-ordem-superior/),
 
 $$
-X'' = \lambda X
+X'' = \lambda X \Leftrightarrow X'' - \lambda X
 $$
 
-O polinómio característico é $P(Z) = Z^2 - \lambda$
+O polinómio característico é $P(D) = D^2 - \lambda$
 
 Pelo que, omitindo os cálculos intermédios,
 
@@ -130,7 +138,11 @@ X(x) = Ax + B & \text{se } \lambda = 0
 \end{cases}
 $$
 
-### Problema Homogéneo
+Determinados $X(x)$ e $T(t)$, basta fazer o seu produto para obter $u(x,t)$.
+No entanto, as soluções obtidas acima são muito generalizadas. Vamos também querer descobrir o valor de $\lambda$.
+Quando estamos a resolver um problema, vamos deparar-nos com **condições fronteira**, que nos vão restringir a apenas algumas soluções, e a ajudar-nos a descobrir $\lambda$.
+
+### Condições Fronteira Periódicas
 
 Imaginando agora um caso em que temos um fio circular de perímetro L.
 Como o fio é circular, o início e o fim do fio são o mesmo ponto.
@@ -147,81 +159,114 @@ $$
 
 Então: $X(0) = X(L)$ e $X'(0) = X'(L)$
 
-Tomando então os resultados obtidos para $X$ na secção anterior.
+Tomando então os resultados obtidos para $X$ na secção anterior, vamos determinar as soluções, caso existam, para cada valor de $\lambda$.
 
 - Se $\lambda = 0$:
 
+  Como visto anteriormente, para $\lambda = 0$ temos que:
+
   $$
-  X(0) = B = AL + B = X(L)\\
-  X'(x) = A
+  X(x) = Ax + B
   $$
 
-  Temos a solução constante, $X(x) = B$, pois para ser verdade, $A = 0$.
+  $$
+  \begin{darray}{c}
+  X(0) = B & X(L) = AL + B\\
+  \end{darray}
+  $$
+
+  $$
+  X(0) = X(L) \Leftrightarrow B = AL + B \implies A = 0
+  $$
+
+  $$
+  X'(x) = A = 0 = X'(0) = X'(L)
+  $$
+
+  Descobrimos assim uma a solução constante, $X(x) = B$.
 
 - Se $\lambda > 0$:
 
-  $$
-  X(0) = A + B = A e^{\sqrt{\lambda} L} + B e^{-\sqrt{\lambda} L} = X(L)\\
-  X'(x) = A \sqrt{\lambda} e^{\sqrt{\lambda} x} - B\sqrt{\lambda} e^{-\sqrt{\lambda} x}\\
-  X'(0) = A \sqrt{\lambda} - B \sqrt{\lambda} = A \sqrt{\lambda} e^{\sqrt{\lambda} x} - B\sqrt{\lambda} e^{-\sqrt{\lambda} x}
-  $$
-
-  Resolvemos agora o sistema:
+  Como visto anteriormente, para $\lambda > 0$ temos que:
 
   $$
-  \begin{cases}
-  A\left(1-e^{\sqrt{\lambda} L}\right) + B\left(1-e^{-\sqrt{\lambda}L}\right) = 0 & \text{(sai da primeira equação)}\\
-  A\sqrt{\lambda} \left(1- e^{\sqrt{\lambda} L}\right) + B \sqrt{\lambda} \left(1-e^{-\sqrt{\lambda} L}\right)
-  \end{cases}
+  X(x) = A e^{\sqrt{\lambda} x} + B e^{-\sqrt{\lambda} x}
   $$
 
-  queremos que
+  $$
+  \begin{darray}{c}
+  X(0) = A + B & X(L) = A e^{\sqrt{\lambda} L} + B e^{-\sqrt{\lambda} L}
+  \end{darray}
+  $$
 
   $$
-  -2\left(1-e^{\sqrt{\lambda} L}\right)\left(1- e^{-\sqrt{\lambda}L}\right) = 0
+  X(0) = X(L) \Leftrightarrow A + B = A e^{\sqrt{\lambda} L} + B e^{-\sqrt{\lambda} L} \implies e^{\sqrt{\lambda} L} = 1 \land e^{-\sqrt{\lambda} L} = 1
   $$
 
-  isto só acontece quando $e^{\sqrt{\lambda} L} = 1$, que é impossível se $\lambda > 0$.
+  Tanto $e^{\sqrt{\lambda} L} = 1$ como $e^{-\sqrt{\lambda} L} = 1$ são impossíveis se $\lambda > 0$, visto que para serem verdade, era necessário que $\lambda = 0$.
 
   Portanto, não existe nenhuma solução em que $\lambda > 0$.
 
 - Se $\lambda < 0$:
 
-  $$
-  e^{\sqrt{\lambda} L} = e^{i\sqrt{-\lambda} L} = \cos\left(\sqrt{-\lambda} L\right) + i\sin\left(\sqrt{-\lambda} L\right)
-  $$
+  Como visto anteriormente, para $\lambda < 0$ temos que:
 
   $$
-  e^{\sqrt{\lambda} L} = 1\\
-  \sqrt{-\lambda} L = 2\pi n, n\in \Z
+  X(x) = A \cos\left(\sqrt{-\lambda} x\right) + B \sin\left(\sqrt{-\lambda} x\right)
   $$
 
   $$
   \begin{darray}{c}
-  \sqrt{-\lambda} = \frac{2\pi n}{L} & \lambda = - \frac{4\pi^2 n^2}{L^2} & n \in \Z^+
+  X(0) = A & X(L) = A \cos\left(\sqrt{-\lambda} L\right) + B \sin\left(\sqrt{-\lambda} L\right)
   \end{darray}
   $$
 
-Juntando agora tudo o que temos:
+  $$
+  \begin{aligned}
+  X(0) = X(L) & \implies A = A \cos\left(\sqrt{-\lambda} L\right) + B \sin\left(\sqrt{-\lambda} L\right)\\
+  & \implies \cos\left(\sqrt{-\lambda} L\right) = 1\\
+  & \implies \sqrt{-\lambda} L = 2n\pi & n \in \Z^+_0
+  \end{aligned}
+  $$
+
+  Se continuarmos a desenvolver esta expressão, podemos então determinar uma expressão para $\lambda$
+
+  $$
+  \sqrt{-\lambda} L = 2n\pi \Leftrightarrow \sqrt{-\lambda} = \frac{2n\pi}{L} \Leftrightarrow \lambda = - \frac{4n^2\pi^2}{L^2}, n \in \Z^+_0
+  $$
+
+Assumindo que $u(x,t)$ é não nula (se fosse, a solução seria trivial), podemos agora juntar tudo o que calculámos.
+
+Pegando na expressão não nula de $X(x)$, substituímos o valor de $\lambda$ com o que acabámos de determinar.
+Fazemos o mesmo para $T(x)$.
 
 $$
-X\left(x\right) = A \cos \frac{2\pi n}{L}x + B \sin \frac{2\pi n}{L}x
+\begin{darray}{c}
+X(x) = A \cos\left(\sqrt{-\lambda} x\right) + B \sin\left(\sqrt{-\lambda} x\right)\\
+X(x) = A \cos \frac{2\pi n}{L}x + B \sin \frac{2\pi n}{L}x
+\end{darray}
 $$
 
 $$
-X\left(0\right) = X\left(L\right)\\
-X'\left(0\right) = X'\left(L\right)
+\begin{darray}{c}
+T(t) = c e^{\lambda k t}\\
+T(t) = c e^{-\frac{4\pi^2 n^2}{L^2}t}
+\end{darray}
 $$
+
+Finalmente, fazemos os produtos entre as duas expressões.
 
 $$
 u\left(t,x\right) = T\left(t\right)X\left(t\right) = e^{-\frac{4\pi^2 n^2}{L^2}t} \left(a_n \cos \frac{2\pi n}{L} + b_n \sin \frac{2\pi n}{L}\right)
 $$
 
+Segundo o Teorema da Sobreposição, podemos escrever a nossa solução como a soma de várias soluções.
+
 $$
 u\left(t,x\right) = B + \sum_{n = 1}^N e^{-\frac{4\pi^2 n^2}{L^2}t} \left(a_n \cos \frac{2\pi n}{L} + b_n \sin \frac{2\pi n}{L}\right)
 $$
 
-Dando agora uma função à temperatura inicial:
+Podemos dar uma função à temperatura inicial, que funciona como condição inicial.
 
 $$
 u\left(0, x\right) = f\left(x\right)
@@ -232,3 +277,7 @@ f\left(x\right) = B + \sum_{n = 1}^N \left(a_n \cos \frac{2\pi n x}{L} + b_n \si
 $$
 
 Como vamos ver mais à frente, esta expressão é muito semelhante à [Série de Fourier](/cdi-iii/serie-fourier).
+Isto permite-nos facilmente descobrir os valores de $a_n$ e $b_n$ de forma a chegar a uma solução particular da equação.
+
+Caso a função $f$ já esteja em forma de Série de Fourier, é trivial descobrir estes valores.
+Caso contrário, é necessário primeiro calcular a sua Série de Fourier.
