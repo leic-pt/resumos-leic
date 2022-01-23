@@ -306,7 +306,7 @@ Chamar sucessivamente `union(A, B)`, `union(B, C)`, `union(D, E)` e `union(F, G)
 
 ![Conjuntos Disjuntos - Exemplo Básico](./assets/0007-union-basico.png#dark=1)
 
-De seguida, é chamado `union(C, F)`. Para achatar a árvore, temos de chamar de novo `findSet` com um dos nós para ver o efeito a ser produzido (numa possível chamada futura de `union` um efeito semelhante seria observado).
+De seguida, é chamado `union(D, F)`. Para achatar a árvore, temos de chamar de novo `findSet` com um dos nós para ver o efeito a ser produzido (numa possível chamada futura de `union` um efeito semelhante seria observado).
 
 ![Conjuntos Disjuntos - Exemplo Intermédio](./assets/0007-union-intermedio.png#dark=1)
 
