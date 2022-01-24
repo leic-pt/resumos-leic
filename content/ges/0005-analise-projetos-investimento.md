@@ -102,7 +102,7 @@ mas não equivalente do ponto de vista financeiro.
 Quando TAN = 12%
 
 $$
-J_m = \frac{12\%}{12} = 1\%
+j_m = \frac{12\%}{12} = 1\%
 $$
 
 A taxa mensal equivalente à taxa anual efetiva (TAE) é:
@@ -188,7 +188,7 @@ $$
 
 $$
 \begin{aligned}
-VR &= \text{Valor do mercado} -\\
+VR &= \text{Valor do mercado} \ - \\
 & \quad \quad- (\text{Valor do Mercado} - \text{Valor Contabilístico}) \times \text{Taxa de Imposto}
 \end{aligned}
 $$
