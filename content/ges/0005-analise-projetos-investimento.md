@@ -10,7 +10,7 @@ description: >-
   Custo médio ponderado do capital (CMPC ou WACC);
   Valor Atual Liquido (VAL);
   Taxa Interna de Rentabilidade (TIR);
-  Periodo de Recuperação do Investimento (PRI);
+  período de Recuperação do Investimento (PRI);
   Indice de Rentabilidade (IR).
 path: /ges/analise-projetos-investimento
 type: content
@@ -24,22 +24,22 @@ type: content
 
 **Investimento**: Aplicação atual de recursos, com o objetivo de obter benefícios futuros. Estes benefícios podem corresponder a:
 
-- **Fluxos financeiros**: Dinheiro (cash-flows).
+- **Fluxos Financeiros**: Dinheiro (cash-flows).
 
-- **Investimentos sociais**: Estradas, educação, saúde.
+- **Investimentos Sociais**: Estradas, educação, saúde.
 
-- Aplicações em **ativos financeiros** (compra de ações) ou reais (ex: apartamentos).
+- Aplicações em **Ativos Financeiros** (compra de ações) ou reais (ex: apartamentos).
 
-Na análise de projetos procura-se avaliar genericamente uma afetação de recursos (R),
-feita inicialmente, é capaz de vir a gerar uma sucessão de benefícios líquidos (B) que excedem esse investimento inicial.
+Na análise de projetos procura-se avaliar genericamente uma afetação de recursos ($R$),
+feita inicialmente, é capaz de vir a gerar uma sucessão de benefícios líquidos ($B$) que excedem esse investimento inicial.
 
-Concentrando num domínio puramente financeiro R e B representam dinheiro, fluxos
-financeiros negativos e positivos (CF- ou CF+). Sendo que CF são _Cash Flows_.
+Concentrando num domínio puramente financeiro $R$ e $B$ representam dinheiro, fluxos
+financeiros negativos e positivos ($CF-$ ou $CF+$). Sendo que $CF$ são _Cash Flows_.
 
-Idealmente, estaremos mais interessados em investir em projetos em que a soma dos CF- seja inferior à soma dos CF+.
-O problema é que esta análise é dependente do tempo e, com o tempo,o dinheiro está sujeito a determinados fatores como,
+Idealmente, estaremos mais interessados em investir em projetos em que a soma dos $CF-$ seja inferior à soma dos $CF+$.
+O problema é que esta análise é dependente do tempo e, com o tempo, o dinheiro está sujeito a determinados fatores como,
 por exemplo, a _inflação_ e os _juros_.
-Para sabermos lidar com estes fatores, de modo a comparar CF em diferentes momentos precisamos de aprender alguns princípios do Cálculo Financeiro.
+Para sabermos lidar com estes fatores, de modo a comparar $CF$ em diferentes momentos precisamos de aprender alguns princípios do Cálculo Financeiro.
 
 ## Cálculo Financeiro
 
@@ -51,7 +51,7 @@ $$
 jC_0 + C_0 = (1 + j)C_0
 $$
 
-Em que j é a taxa de juro anual e o $C_0$ é o capital inicial.
+Em que $j$ é a taxa de juro anual e o $C_0$ é o capital inicial.
 
 - [**Juros Compostos**](color:green): Juros corrigíveis de cada período são somados ao capital para o cálculo de juros nos períodos seguintes. Neste caso, o valor da dívida é sempre corrigido e a taxa de juros é sempre calculada sobre esse novo valor.
 
@@ -59,17 +59,17 @@ $$
 C_n = C_0(1 + j)^n
 $$
 
-Em que **n** é o número de anos.
+Em que $n$ é o número de anos.
 
 No caso destes juros pode ocorrer o processo de _capitalização_, que permite chegar de forma inversa à noção de _atualização_,
-em que se faz o cálculo do valor atual (VA) ou presente de dinheiro a receber no futuro,
-sendo a respetiva taxa designada por [**taxa de atualização**](color:pink).
+em que se faz o cálculo do valor atual ($VA$) ou presente de dinheiro a receber no futuro,
+sendo a respetiva taxa designada por [**Taxa de Atualização**](color:pink).
 
 $$
 VA = \frac{C_n}{(1 + r)^n}
 $$
 
-Em que $C_n$ é o valor a receber daqui a x anos e **r** a taxa de juros.
+Em que $C_n$ é o valor a receber daqui a $n$ anos e $r$ a taxa de juros.
 
 ## Inflação e Taxas Reais
 
@@ -77,9 +77,9 @@ Em que $C_n$ é o valor a receber daqui a x anos e **r** a taxa de juros.
 não sendo necessariamente constante, um dos fatores que pode causar essa alteração é a **inflação**.
 As taxas de inflação podem incorporar a noção de inflação ou não.
 
-- [**Taxa de juro nominal (jn)**](color:orange): Usa-se em avaliação de projetos a preços **correntes**, não é corrigida tendo em conta o efeito da inflação.
+- [**Taxa de Juro Nominal ($jn$)**](color:orange): Usa-se em avaliação de projetos a preços **correntes**, não é corrigida tendo em conta o efeito da inflação.
 
-- [**Taxa de juro real (jr)**](color:yellow): Taxa nominal expurgada do efeito da inflação.Usa-se em avaliação de projetos a preços **constantes**
+- [**Taxa de Juro Real ($jr$)**](color:yellow): Taxa nominal expurgada do efeito da inflação.Usa-se em avaliação de projetos a preços **constantes**
 
 $$
 jr = \frac{1 + j_n}{1 + i} - 1 \approx j_n - i
@@ -87,7 +87,7 @@ $$
 
 ## Taxas de Juro Nominais e Efetivas
 
-É também possivel trabalhar com períodos infra-anuais, usando na atualização uma taxa de juro equivalente,
+É também possível trabalhar com períodos infra-anuais, usando na atualização uma taxa de juro equivalente,
 isto é, uma taxa efetiva que aplicada ao mesmo capital inicial conduz ao mesmo capital final.
 
 $$
@@ -108,21 +108,21 @@ $$
 A taxa mensal equivalente à taxa anual efetiva (TAE) é:
 
 $$
-j_m = (1 + j_a)^1/12
+j_m = (1 + j_a)^{1/12}
 $$
 
 :::
 
-[**TAEG**](color:green): Taxa anual efetiva global, inclui encargos como seguros de vida e taxas adicionais associados ao empréstimo.
+[**TAEG**](color:green): Taxa Anual Efetiva Global, inclui encargos como seguros de vida e taxas adicionais associados ao empréstimo.
 
-**Equivalências das taxas de juro**. Duas taxas de juro referidas a períodos diferentes de capitalização
+**Equivalências das Taxas de Juro**. Duas taxas de juro referidas a períodos diferentes de capitalização
 são equivalentes quando aplicadas ao mesmo capital, produzem o mesmo resultado no mesmo período de tempo. É dada por:
 
 $$
 (1 + j_k)^k = 1 + j_a
 $$
 
-Em que $j_k$ é a taxa do sub-periodo k e k é o número de subperíodos do periodo.
+Em que $j_k$ é a taxa do sub-período $k$ e $k$ é o número de subperíodos do período.
 
 ## Anuidades e Perpetuidades
 
@@ -132,7 +132,7 @@ ser limitada no tempo ou ser infinita, respetivamente.
 
 _Anuidade_ é uma designação que pode ser utilizada quer a frequência de cash-flows seja anual ou não.
 Numa situação em que se obtém um empréstimo num período e temos rendas ou pagamentos constantes (Anuidades),
-durante $n$ períodos com uma taxa de atualização, o cálculo do valor atual (VA) de todos os cash-flows dá-se por:
+durante $n$ períodos com uma taxa de atualização, o cálculo do valor atual ($VA$) de todos os cash-flows dá-se por:
 
 $$
 \sum \frac{A_t}{(1 + r)^t}, t = 1,...,n
@@ -152,7 +152,7 @@ $$
 f(r, \infty) = A \times \frac{1}{r}
 $$
 
-Estes casos excluem os casos de rendas crescentes. Tendo em conta rendas crescentes a uma taxa g < r, temos a anuidade:
+Estes casos excluem os casos de rendas crescentes. Tendo em conta rendas crescentes a uma taxa $g < r$, temos a anuidade:
 
 $$
 VA = A \times \left(\frac{1}{r - g} - \frac{(1+g)^n}{(1 + r)^n \times (r -g)}\right)
@@ -178,31 +178,31 @@ $$
 
 ## Análise de Rentabilidade de Projetos de Investimento
 
-**Investimento**: Sequência de fluxos financeiros (cash-flows) distribuidos por diversos periodos. O primeiro cash-flow normalmente é negativo:
+**Investimento**: Sequência de fluxos financeiros (cash-flows) distribuidos por diversos períodos. O primeiro cash-flow normalmente é negativo:
 
-- **Despesas de investimento**: Terrenos, edíficios, equipamentos licenças e patentes ou,
+- **Despesas de Investimento**: Terrenos, edíficios, equipamentos licenças e patentes ou,
   até em fundo de maneio, como a constituição e reforço de stocks de matérias primas ou mercadorias.
 - **No final de vida do projeto**: O valor destas despesas que seja recuperável dará origem ao valor residual do investimento.
 
-**Valor residual do investimento**: Gerado pela venda de um imobilizado no final do tempo de vida do projeto.
+**Valor Residual do Investimento**: Gerado pela venda de um imobilizado no final do tempo de vida do projeto.
 
 $$
 \begin{aligned}
-VR &= \text{Valor do mercado n} -\\
-& \quad \quad- (\text{Valor do mercado n} - \text{Valor contabilistico}) \times \text{Taxa de imposto}
+VR &= \text{Valor do mercado} -\\
+& \quad \quad- (\text{Valor do Mercado} - \text{Valor Contabilístico}) \times \text{Taxa de Imposto}
 \end{aligned}
 $$
 
-O **valor de mercado** é o valor esperado de venda do ativo no ano **n** e o valor contabilístico é:
+O **Valor de Mercado** é o valor esperado de venda do ativo no ano $n$ e o valor contabilístico é:
 
 $$
-\text{Valor contabilistico} = \text{Valor de compra} - \text{Amortizações acumuladas}
+\text{Valor Contabilístico} = \text{Valor de Compra} - \text{Amortizações Acumuladas}
 $$
 
 Os cash-flows durante a fase de exploração (passada a fase inicial de investimento) serão habitualmente positivos se o projeto for lucrativo.
 
 $$
-\text{CF exploração} = RAJI \times (1 - \text{Taxa de imposto}) - \text{Amortizações e depreciações}
+\text{CF Exploração} = \text{RAJI} \times (1 - \text{Taxa de Imposto}) - \text{Amortizações e Depreciações}
 $$
 
 Em que RAJI corresponde ao resultado antes de juros e impostos, ou seja, o mesmo que EBIT, resultados operacionais.
@@ -237,7 +237,7 @@ Quando o $RAJI < 0$:
 Na avaliação de projetos de investimentos estamos confrontados com a necessidade de
 comparar fluxos financeiros aplicados numa fase inicial, com fluxos gerados nos anos seguintes. Para isso usamos os seguintes indicadores:
 
-### Taxa de atualização
+### Taxa de Atualização
 
 Exprime o custo de oportunidade do capital, ou seja,
 o rendimento que o investidor pretende tendo em conta o risco do investimento.
@@ -358,7 +358,7 @@ Problemas no cálculo e utilização da TIR:
 
 ![Taxa Interna de Rentabilidade](./assets/0005-tir.png)
 
-### Periodo de Recuperação do Investimento (PRI)
+### período de Recuperação do Investimento (PRI)
 
 Tempo necessário para que os cash-flows atualizados gerados pelo projeto igualem o capital investido inicialmente.
 
