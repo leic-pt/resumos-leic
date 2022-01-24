@@ -10,7 +10,7 @@ description: >-
   Custo médio ponderado do capital (CMPC ou WACC);
   Valor Atual Liquido (VAL);
   Taxa Interna de Rentabilidade (TIR);
-  período de Recuperação do Investimento (PRI);
+  Período de Recuperação do Investimento (PRI);
   Indice de Rentabilidade (IR).
 path: /ges/analise-projetos-investimento
 type: content
@@ -358,7 +358,7 @@ Problemas no cálculo e utilização da TIR:
 
 ![Taxa Interna de Rentabilidade](./assets/0005-tir.png)
 
-### período de Recuperação do Investimento (PRI)
+### Período de Recuperação do Investimento (PRI)
 
 Tempo necessário para que os cash-flows atualizados gerados pelo projeto igualem o capital investido inicialmente.
 
