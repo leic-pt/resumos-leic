@@ -311,6 +311,96 @@ $$
 X(x)T'(T) = k X''(x)T(t) \Leftrightarrow \frac{T'(t)}{kT(t)} = \frac{X''(x)}{X(x)}
 $$
 
-// TODO
+Como podemos reparar, o lado esquerdo da igualdade acima apenas depende de $t$, sendo que o lado direito apenas depende de $x$.
+Então, a única forma de estes serem iguais é se ambos forem constantes. Então, dizemos que:
+
+$$
+\frac{T'(t)}{kT(t)} = \frac{X''(x)}{X(x)} = \lambda
+$$
+
+Podemos então resolver cada uma das equações, começando por determinar $T$, que resulta da resolução
+de uma [Equação Diferencial Ordinária Linear Homogénea](/cdi-iii/equacoes-diferenciais-ordinarias#caso-bt-equiv-0---homogéneas):
+
+$$
+\frac{T'}{kT} = \lambda \Leftrightarrow \frac{T'}{T} = k \lambda \Leftrightarrow T = c_1 e^{\lambda k t}, c_1 \ne 0
+$$
+
+Como podemos reparar aqui, conseguimos determinar facilmente a expressão de $T(t)$.
+No entanto, para $X(x)$ já vamos ter de efetuar mais cálculos, visto que se trata de uma equação de segunda ordem.
+
+Antes de mais, vamos analisar com mais atenção as [**condições fronteira**](color:yellow), $u(0,t) = u(2,t) = 0$.
+Como podemos reparar, temos no enunciado do problema que a [**condição inicial**](color:orange) $u(x,0)$ é igual a uma função não nula.
+Por este motivo, sabemos que $u(x,t)$ [**não é identicamente nula**](color:red).
+
+- Para $u(0,t) = 0 \Leftrightarrow X(0)T(t) = 0 \Leftrightarrow X(0) = 0 \lor T(t) = 0$: Como sabemos que $T(t) = 0$ não pode ser verdade,
+  caso contrário a função $u(x,t)$ seria [**identicamente nula**](color:red), temos então que $X(0) = 0$.
+- Do mesmo modo, para $u(2,t) = 0 \Leftrightarrow X(2)T(t) = 0 \Leftrightarrow X(2) = 0 \lor T(t) = 0$: Sabemos que $T(t) = 0$ não pode ser verdade,
+  temos então que $X(0) = 0$.
+
+Vamos então resolver a equação $\frac{X''(x)}{X(x)} = \lambda$:
+
+$$
+X''(x) -\lambda X(x) = 0
+$$
+
+Esta é uma [Equação Diferencial de Ordem Superior](/cdi-iii/equacoes-ordem-superior), pelo que vamos escrever o seu polinómio característico:
+
+$$
+P(D) = D^2 - \lambda
+$$
+
+Temos então 3 casos distintos: $\lambda = 0$, $\lambda > 0$ e $\lambda < 0$.
+
+- Para $\lambda = 0$:
+
+  Este é o caso mais simples. Ficamos com um polinómio característico $P(D) = D^2$, pelo que
+
+  $$
+  X(x) = c_2 x + c_3
+  $$
+
+  Pegando agora nas [**condições fronteira**](color:yellow), vamos concluir o seguinte:
+
+  $$
+  \begin{aligned}
+  X(0) &= 0 \implies c_2 \times 0 + c_3 = 0 \implies c_3 = 0\\
+  X(2) &= 0 \implies 2 c_2 + 0 = 0 \implies c_2 = 0
+  \end{aligned}
+  $$
+
+  Concluímos assim, que se $\lambda = 0$, temos que $X(x) \equiv 0$.
+  Tal não é verdade para a [**condição inicial**](color:orange) que temos, visto que $u(x,t) = 0 \times T(t) = 0$, que já vimos que não pode acontecer.  
+  Assim, **não existem soluções** para $\lambda = 0$.
+
+- Para $\lambda > 0$:
+
+  Sendo que temos $P(D) = D^2 - \lambda = (D + \sqrt{\lambda})(D - \sqrt{\lambda})$ com $\lambda > 0$.  
+  Um pequeno **truque** que podemos utilizar é fazer a mudança de variável $\lambda = w^2$, de forma a simplificar os cálculos.
+  Ficamos assim com $P(D) = (D + w)(D - w)$.
+
+  Resolvendo agora a equação:
+
+  $$
+  X(x) = c_4 e^{wx} + c_5 e^{-wx}
+  $$
+
+  Pegando agora nas [**condições fronteira**](color:yellow), vamos concluir o seguinte:
+
+  $$
+  \begin{aligned}
+  X(0) = 0 &\Leftrightarrow c_4 e^{0} + c_5 e^{0} = 0 \Leftrightarrow c_4 + c_5 = 0 \Leftrightarrow c_5 = - c_4\\
+  X(2) = 0 &\Leftrightarrow c_4 e^{2w} + c_5 e^{-2w} = 0\\
+  &\Leftrightarrow c_4 e^{2w} - c_4 e^{-2w} = 0\\
+  &\Leftrightarrow c_4 (e^{2w} - e^{-2w}) = 0 \\
+  &\implies c_4 = 0 \implies c_5 = 0
+  \end{aligned}
+  $$
+
+  Caso não seja claro o porquê de $c_4 = 0$, temos de notar que $e^{2w} - e^{-2w}$ só
+  poderia ser nulo caso $\lambda = 0$, que não é o caso onde nos encontramos.
+
+  Concluímos assim, que se $\lambda > 0$, temos que $X(x) \equiv 0$.
+  Tal como já vimos para $\lambda = 0$, isto não é verdade para a [**condição inicial**](color:orange) que temos, visto que $u(x,t) = 0 \times T(t) = 0$, que já vimos que não pode acontecer.  
+  Assim, **não existem soluções** para $\lambda > 0$.
 
 :::
