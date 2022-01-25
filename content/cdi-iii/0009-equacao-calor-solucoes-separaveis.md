@@ -281,3 +281,36 @@ Isto permite-nos facilmente descobrir os valores de $a_n$ e $b_n$ de forma a che
 
 Caso a função $f$ já esteja em forma de Série de Fourier, é trivial descobrir estes valores.
 Caso contrário, é necessário primeiro calcular a sua Série de Fourier.
+
+Vejamos abaixo um exemplo que mostra como utilizar este método, passo a passo.
+Vamos utilizar uma equação de calor, embora seja possível aplicar este método a outras equações diferenciais parciais.
+
+:::info[Exemplo]
+
+**Queremos determinar uma solução para o problema**
+
+$$
+\begin{aligned}
+\frac{\partial u}{\partial t} &= 1.71 \frac{\partial^2 u}{\partial x^2}\\
+u(x,0) &= \sin\left(\frac{\pi x}{2}\right) + 3\sin \left(\frac{5\pi x}{2} \right) , 0<x<2\\
+u(0,t) &= u(2,t)= 0
+\end{aligned}
+$$
+
+Para simplificar, vamos associar $k = 1.71$.
+
+Vamos começar por separar as duas variáveis, definindo a função $u$ como o produto de duas funções $X$ e $T$:
+
+$$
+u(x,t) = X(x)T(t)
+$$
+
+Aplicando o método descrito acima, substituímos na equação do enunciado:
+
+$$
+X(x)T'(T) = k X''(x)T(t) \Leftrightarrow \frac{T'(t)}{kT(t)} = \frac{X''(x)}{X(x)}
+$$
+
+// TODO
+
+:::
