@@ -1,3 +1,10 @@
+---
+title: Draft2
+description: 'draft2'
+path: /cdi-iii/draft2
+type: content
+---
+
 Exemplo:
 
 $k = 1$

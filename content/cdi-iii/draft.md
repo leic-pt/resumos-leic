@@ -1,3 +1,10 @@
+---
+title: Draft
+description: 'draft'
+path: /cdi-iii/draft
+type: content
+---
+
 duvido que seja útil, mas estamos a passar a série de fourier para complexos
 
 $$
