@@ -449,7 +449,7 @@ Substituindo agora $\lambda$ em $T(t)$, ficamos com as duas expressões:
 
 $$
 \begin{darray}{cc}
-X(x) = c_6 \sin\left(\frac{n^2\pi^2}{4}x\right) & T(t) = c_1 e^{-\frac{n^2\pi^2 k t}{4}}
+X(x) = c_6 \sin\left(\frac{n^2\pi^2}{4}x\right) & T(t) = c_1 e^{-\dfrac{n^2\pi^2 k t}{4}}
 \end{darray}
 $$
 
@@ -457,13 +457,13 @@ Finalmente, podemos voltar a juntar as duas expressões, pelo produto $u(x,t) = 
 Vamos usar uma nova constante $c = c_1 \times c_6$ para simplificar.
 
 $$
-u_n(x,t) = c e^{-\frac{n^2\pi^2 k t}{4}} \sin\left(\frac{n^2\pi^2}{4}x\right), n \in \Z_0^+
+u_n(x,t) = c e^{-\dfrac{n^2\pi^2 k t}{4}} \sin\left(\frac{n^2\pi^2}{4}x\right), n \in \Z_0^+
 $$
 
 Podemos agora generalizar esta expressão pelo [**Princípio da Generalização**](color:green).
 
 $$
-u(x,t) = \sum_{n=1}^{+\infty} c_n u_n(x,t) = \sum_{n=1}^{+\infty} c_n e^{-\frac{n^2\pi^2 k t}{4}} \sin\left(\frac{n^2\pi^2}{4}x\right)
+u(x,t) = \sum_{n=1}^{+\infty} c_n u_n(x,t) = \sum_{n=1}^{+\infty} c_n e^{-\dfrac{n^2\pi^2 k t}{4}} \sin\left(\frac{n^2\pi^2}{4}x\right)
 $$
 
 Finalmente, vamos determinar a solução particular definida pela [**condição inicial**](color:orange).  
@@ -473,8 +473,23 @@ Caso não se encontrasse nesta forma, teríamos de a ir determinar.
 
 Sendo assim, temos apenas de descobrir os valores de $c_n$ que resultam na condição inicial, que podemos fazer facilmente por intuição.
 
-Pegando na primeira parcela da condição inicial, $\sin\left(\frac{\pi x}{2}\right)$, vemos que $c_1 = 1$.
+Pegando na primeira parcela da condição inicial, $\sin\left(\frac{\pi x}{2}\right)$, vemos que $c_1 = 1$.  
+Quanto à segunda parcela, $3\sin \left(\frac{5\pi x}{2} \right)$, vemos que $c_5 = 3$.
 
-// TODO
+Então, descobrimos que $c_n$ é a seguinte sucessão:
+
+$$
+\begin{darray}{l}
+c_1 = 1\\
+c_5 = 3\\
+c_n = 0 & n \ne 1 \land n \ne 5
+\end{darray}
+$$
+
+Finalmente, obtemos assim a **solução do problema**!
+
+$$
+u(x,t) = e^{-\dfrac{1.71 \pi^2 t}{4}} \sin\left(\frac{\pi x}{2}\right) + e^{-\dfrac{25 \times 1.71 \pi^2 t}{4}} \sin\left(\frac{5 \pi x}{2}\right)
+$$
 
 :::
