@@ -364,7 +364,7 @@ Tempo necessário para que os cash-flows atualizados gerados pelo projeto iguale
 É o valor $K$ tal que:
 
 $$
-\sum_{k=0}{PB} \frac{CF_K}{(1 + r)^K} = 0
+\sum_{k=0}^{PB} \frac{CF_K}{(1 + r)^K} = 0
 $$
 
 $$
