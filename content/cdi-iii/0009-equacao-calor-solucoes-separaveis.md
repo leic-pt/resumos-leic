@@ -403,4 +403,78 @@ Temos então 3 casos distintos: $\lambda = 0$, $\lambda > 0$ e $\lambda < 0$.
   Tal como já vimos para $\lambda = 0$, isto não é verdade para a [**condição inicial**](color:orange) que temos, visto que $u(x,t) = 0 \times T(t) = 0$, que já vimos que não pode acontecer.  
   Assim, **não existem soluções** para $\lambda > 0$.
 
+- Para $\lambda < 0$:
+
+  Chegamos ao último caso, e ao único onde vamos ter soluções.
+
+  Sendo que temos $P(D) = D^2 - \lambda$ com $\lambda < 0$.  
+  Um pequeno **truque** que podemos utilizar é fazer a mudança de variável $\lambda = - w^2$, de forma a simplificar os cálculos.
+  Ficamos assim com $P(D) = D^2 + w^2$.
+
+  Resolvendo agora a equação:
+
+  $$
+  X(x) = c_6 \sin(wx) + c_7 \cos(wx)
+  $$
+
+  Pegando agora nas [**condições fronteira**](color:yellow), vamos concluir o seguinte:
+
+  $$
+  \begin{aligned}
+  X(0) = 0 &\Leftrightarrow 0 + c_7 \times 1 = 0 \Leftrightarrow c_7 = 0\\
+  X(2) = 0 &\Leftrightarrow c_6 \sin(2w) = 0 \Leftrightarrow c_6 = 0 \lor \sin(2w) = 0
+  \end{aligned}
+  $$
+
+  Se $c_6 = 0$ isso vai implicar que $u(x, t) = 0$ e, como já vimos, isso **não é solução**.  
+  Vamos então resolver a equação $\sin (2w) = 0$.
+
+  $$
+  \sin (2w) = 0 \implies 2w = n\pi \implies w = \frac{n \pi}{2}
+  $$
+
+  Desfazendo agora a mudança de variável, ficamos com:
+
+  $$
+  \sqrt{-\lambda} = \frac{n \pi}{2} \implies \lambda = - \frac{n^2 \pi^2}{4}
+  $$
+
+  Substituindo $w$ na expressão de $X(x)$ acima ficamos com
+
+  $$
+  X(x) = c_6 \sin\left(\frac{n^2\pi^2}{4}x\right)
+  $$
+
+Substituindo agora $\lambda$ em $T(t)$, ficamos com as duas expressões:
+
+$$
+\begin{darray}{cc}
+X(x) = c_6 \sin\left(\frac{n^2\pi^2}{4}x\right) & T(t) = c_1 e^{-\frac{n^2\pi^2 k t}{4}}
+\end{darray}
+$$
+
+Finalmente, podemos voltar a juntar as duas expressões, pelo produto $u(x,t) = X(x)T(t)$.
+Vamos usar uma nova constante $c = c_1 \times c_6$ para simplificar.
+
+$$
+u_n(x,t) = c e^{-\frac{n^2\pi^2 k t}{4}} \sin\left(\frac{n^2\pi^2}{4}x\right), n \in \Z_0^+
+$$
+
+Podemos agora generalizar esta expressão pelo [**Princípio da Generalização**](color:green).
+
+$$
+u(x,t) = \sum_{n=1}^{+\infty} c_n u_n(x,t) = \sum_{n=1}^{+\infty} c_n e^{-\frac{n^2\pi^2 k t}{4}} \sin\left(\frac{n^2\pi^2}{4}x\right)
+$$
+
+Finalmente, vamos determinar a solução particular definida pela [**condição inicial**](color:orange).  
+Relembra-se que a condição inicial é $u(x,0) = \sin\left(\frac{\pi x}{2}\right) + 3\sin \left(\frac{5\pi x}{2} \right)$, que
+já se encontra na forma de [Série de Fourier](/cdi-iii/serie-fourier).
+Caso não se encontrasse nesta forma, teríamos de a ir determinar.
+
+Sendo assim, temos apenas de descobrir os valores de $c_n$ que resultam na condição inicial, que podemos fazer facilmente por intuição.
+
+Pegando na primeira parcela da condição inicial, $\sin\left(\frac{\pi x}{2}\right)$, vemos que $c_1 = 1$.
+
+// TODO
+
 :::
