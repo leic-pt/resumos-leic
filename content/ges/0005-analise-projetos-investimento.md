@@ -361,9 +361,10 @@ Problemas no cálculo e utilização da TIR:
 ### Período de Recuperação do Investimento (PRI)
 
 Tempo necessário para que os cash-flows atualizados gerados pelo projeto igualem o capital investido inicialmente.
+É o valor $K$ tal que:
 
 $$
-\sum = \frac{CF_K}{(1 + r)^K} = 0
+\sum \frac{CF_K}{(1 + r)^K} = 0
 $$
 
 $$
