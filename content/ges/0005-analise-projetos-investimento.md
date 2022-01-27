@@ -258,7 +258,7 @@ Quando houver financiamento com capital alheio:
 - A taxa de atualização deve ser igual ao custo médio ponderado do capital,
   sendo a ponderação dada pelas percentagens dos dois tipos de capital, calculados ao valor de mercado.
 
-### Custo médio ponderado do capital ($CMPC$ ou $WACC$)
+### Custo médio ponderado do capital ($\operatorname{CMPC}$ ou $\operatorname{WACC}$)
 
 $$
 \text{Taxa de atualização com financiamento misto} = r_CP \times CP\% + r_D \times (1 -t) \times D\%
@@ -270,7 +270,7 @@ $$
 - $D\%$ é a percentagem de capital alheio.
 
 $$
-CMPC = \frac{C_\text{alheio}}{CP + C_{alheio}} \times r_D \times (1 - t) + \frac{CP}{CP + C_{alheio}} \times r_CP
+\operatorname{CMPC} = \frac{C_\text{alheio}}{CP + C_{alheio}} \times r_D \times (1 - t) + \frac{CP}{CP + C_{alheio}} \times r_CP
 $$
 
 - $r_D$ é o custo médio da dívida.
@@ -318,45 +318,45 @@ $$
 
 :::
 
-### Valor Atual Líquido ($VAL$)
+### Valor Atual Líquido ($\operatorname{VAL}$)
 
 Soma de todos os $CF$ do projeto devidamente atualizados.
 
 $$
-VAL(r) = \sum \frac{CF_K}{(1 + r)^K}
+\operatorname{VAL}(r) = \sum \frac{CF_K}{(1 + r)^K}
 $$
 
 Em que $CF = \text{cash-flow}$ e $r$ a taxa de atualização
 
-Se $VAL(r) > 0$, o projeto é rentável à taxa de atualização.\
+Se $\operatorname{VAL}(r) > 0$, o projeto é rentável à taxa de atualização.\
 Entre dois projetos A e B, se $\operatorname{VAL}_A > \operatorname{VAL}_B$ então $P_A$ melhor que o $P_B$.
 
 :::info[Exemplo]
 
-O João comprou 100 ações da empresa MGM, tendo pagado 7€ por ação na expectativa de receber
-dividendos de $1€ \times 100$ nos anos 1 e 2, e de vender os títulos no ano 3 por 10€ cada.
-Sabendo que ações de empresas com idêntico grau de risco oferecem uma rentabilidade anual de 5%,
-calcule o VAL e diga se aconselha o investimento.
+O João comprou $100$ ações da empresa MGM, tendo pagado $7$€ por ação na expectativa de receber
+dividendos de $1$€ $ \times 100$ nos anos $1$ e $2$, e de vender os títulos no ano $3$ por $10$€ cada.
+Sabendo que ações de empresas com idêntico grau de risco oferecem uma rentabilidade anual de $5$%,
+calcule o $\operatorname{VAL}$ e diga se aconselha o investimento.
 
 $$
 \operatorname{VAL}(5\%) = -\frac{700}{(1 + 0,05)^0} + \frac{100}{(1 + 0,05)^1} + \frac{100}{(1 + 0,05)^2} + \frac{1000}{(1 + 0,05)^3} = 349,78€
 $$
 
-O VAL é positivo, o investimento é rentável.
+O $\operatorname{VAL}$ é positivo, o investimento é rentável.
 
 :::
 
-### Taxa Interna de Rentabilidade ($TIR$)
+### Taxa Interna de Rentabilidade ($\operatorname{TIR}$)
 
 É a taxa $r$ de atualização para a qual o $\operatorname{VAL} = 0$, o seu cálculo resulta de um processo iterativo.
-Aceitar um projeto com $\operatorname{VAL}(r) > 0$ significa aceitá-lo quando $\operatorname{TIR} > R$.
+Aceitar um projeto com $\operatorname{VAL}(r) > 0$ significa aceitá-lo quando $\operatorname{TIR} > \operatorname{R}$.
 
-Problemas no cálculo e utilização da $TIR$:
+Problemas no cálculo e utilização da $\operatorname{TIR}$:
 
-- Pode existir mais do que uma $TIR.$ É o caso, por exemplo,
+- Pode existir mais do que uma $\operatorname{TIR}$. É o caso, por exemplo,
   da existência de cash-flows negativos intermédios ou finais (investimentos não convencionais).
-- Não existir $TIR$.
-- A $TIR$ é inadequada para projetos mutuamente exclusivos, isto é, em que só podemos fazer um deles.
+- Não existir $\operatorname{TIR}$.
+- A $\operatorname{TIR}$ é inadequada para projetos mutuamente exclusivos, isto é, em que só podemos fazer um deles.
 
 ![Taxa Interna de Rentabilidade](./assets/0005-tir.png#dark=1)
 
