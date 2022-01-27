@@ -8,7 +8,7 @@ description: >-
   Análise de Rentabilidade de Projetos de Investimento:
   Taxa de atualização;
   Custo médio ponderado do capital (CMPC ou WACC);
-  Valor Atual Liquido (VAL);
+  Valor Atual Líquido (VAL);
   Taxa Interna de Rentabilidade (TIR);
   Período de Recuperação do Investimento (PRI);
   Indice de Rentabilidade (IR).
@@ -184,16 +184,17 @@ $$
   até em fundo de maneio, como a constituição e reforço de stocks de matérias primas ou mercadorias.
 - **No final de vida do projeto**: O valor destas despesas que seja recuperável dará origem ao valor residual do investimento.
 
-**Valor Residual do Investimento**: Gerado pela venda de um imobilizado no final do tempo de vida do projeto.
+**Valor Residual do Investimento** $VR$: Gerado pela venda de um imobilizado no final do tempo de vida do projeto.
 
 $$
-\begin{aligned}
-VR &= \text{Valor do mercado} \ - \\
-& \quad \quad- (\text{Valor do Mercado} - \text{Valor Contabilístico}) \times \text{Taxa de Imposto}
-\end{aligned}
+VR = \text{VM} - (\text{VM} - \text{Valor Contabilístico}) \times \text{Taxa de Imposto}
 $$
 
-O **Valor de Mercado** é o valor esperado de venda do ativo no ano $n$ e o valor contabilístico é:
+Onde $\text{VM}$ corresponde ao Valor de Mercado.
+
+O **Valor de Mercado** é o valor esperado de venda do ativo no ano $n$.
+
+O **Valor Contabilístico** é dado por:
 
 $$
 \text{Valor Contabilístico} = \text{Valor de Compra} - \text{Amortizações Acumuladas}
@@ -209,21 +210,43 @@ Em que RAJI corresponde ao resultado antes de juros e impostos, ou seja, o mesmo
 
 :::info[Exemplo]
 
-1. A empresa MGM investiu 100 mil € numa nova máquina para os próximos 4 anos;
-2. Esta é depreciável em 5 anos, findos os quais pode ainda ser vendida por 10 mil € (valor de mercado no ano 5);
-3. Sabe-se que as vendas anuais adicionais serão de 150 mil € durante todo o projeto;
+1. A empresa MGM investiu $100$ mil € numa nova máquina para os próximos $4$ anos.
+2. Esta é depreciável em $5$ anos, s e pode ser vendida ao fim de $4$ anos por $10$ mil € (Valor Comercial).
+3. Sabe-se que as vendas anuais adicionais serão de $150$ mil € durante todo o projeto.
 4. Os custos operacionais anuais adicionais com pessoal, fornecimentos e
-   serviços externos e matéria prima serão de 100 mil €, acrescidos dos custos com amortizações (depreciações), 20%;
-5. A taxa de imposto a pagar pela empresa é de 25%.
+   serviços externos e matéria prima serão de $100$ mil €, acrescidos dos custos com amortizações (Depreciações), $20$%.
+5. A taxa de imposto a pagar pela empresa é de $25\%$.
+6. A taxa de atualização é de $10\%$.
 
-![Análise de rentabilidade de investimento](./assets/0005-exemplo-analise-investimento.png)
+![Análise de rentabilidade de investimento](./assets/0005-exemplo-analise-investimento.png#dark=1)
+
+<!--
+
+Mobile support for this is terrible, until that's fixed this is gonna stay as an image
+
+| Rubrica/Período                                                                                         |      0 |           1 |           2 |         3 |          4 |
+| ------------------------------------------------------------------------------------------------------- | -----: | ----------: | ----------: | --------: | ---------: |
+| **1. Despesas de Investimento**                                                                         | $-100$ |             |             |           |            |
+| **2. Valor Residual do Investimento**                                                                   |        |             |             |           |     $12.5$ |
+| **3. _Cash Flow_ do Investimento (= 1 + 2)**                                                            | $-100$ |         $0$ |         $0$ |       $0$ |     $12.5$ |
+| **4. Vendas**                                                                                           |        |       $150$ |       $150$ |     $150$ |      $150$ |
+| **5. Custos Operacionais (RH, fse, m. pr)**                                                             |        |      $-100$ |      $-100$ |    $-100$ |     $-100$ |
+| **6. Amortizações (Depreciações)**                                                                      |        |       $-20$ |       $-20$ |     $-20$ |      $-20$ |
+| **7. Resultado Operacional (EBIT) (= 4 + 5 + 6)**                                                       |        |        $30$ |        $30$ |      $30$ |       $30$ |
+| **8. EBIT $\times (1 - 0.25)$** ($0.25$ é o imposto)                                                    |        |      $22.5$ |      $22.5$ |    $22.5$ |     $22.5$ |
+| **9. _Cash Flow_ Exploração (= 8 + 6)**                                                                 |        |      $42.5$ |      $42.5$ |    $42.5$ |     $42.5$ |
+| **10. _Cash Flow_ Total (= 3 + 9)**                                                                     | $-100$ |      $42.5$ |      $42.5$ |    $42.5$ |       $55$ |
+| **11. _Cash Flow_ Atualizado** (= $\frac{\operatorname{CFT}}{(1 + tx_{\operatorname{atualização}})^i}$) | $-100$ |  $38.63636$ |     $35.12$ |   $31.93$ | $37.56574$ |
+| **12. $\sum$ _Cash Flow_ Atualizado (cumulativo)**                                                      | $-100$ | $-61.36364$ | $-26.24364$ | $5.68636$ |  $43.2521$ |
+
+-->
 
 $$
 VR = VM -(VM - VC)t = 10 - (10 - 20) \times 0,25 = 12,5
 $$
 
 $$
-VC = \frac{100}{5}
+VC = 100 - 20 \times 4 \leftrightarrow VC = 20
 $$
 
 :::
@@ -256,7 +279,7 @@ Quando houver financiamento com capital alheio:
 - A taxa de atualização deve ser igual ao custo médio ponderado do capital,
   sendo a ponderação dada pelas percentagens dos dois tipos de capital, calculados ao valor de mercado.
 
-### Custo médio ponderado do capital (CMPC ou WACC)
+### Custo médio ponderado do capital ($\operatorname{CMPC}$ ou $\operatorname{WACC}$)
 
 $$
 \text{Taxa de atualização com financiamento misto} = r_CP \times CP\% + r_D \times (1 -t) \times D\%
@@ -268,7 +291,7 @@ $$
 - $D\%$ é a percentagem de capital alheio.
 
 $$
-CMPC = \frac{C_\text{alheio}}{CP + C_{alheio}} \times r_D \times (1 - t) + \frac{CP}{CP + C_{alheio}} \times r_CP
+\operatorname{CMPC} = \frac{C_\text{alheio}}{CP + C_{alheio}} \times r_D \times (1 - t) + \frac{CP}{CP + C_{alheio}} \times r_CP
 $$
 
 - $r_D$ é o custo médio da dívida.
@@ -316,49 +339,49 @@ $$
 
 :::
 
-### Valor Atual Liquido (VAL)
+### Valor Atual Líquido ($\operatorname{VAL}$)
 
-Soma de todos os CF do projeto devidamente atualizados.
+Soma de todos os $CF$ do projeto devidamente atualizados.
 
 $$
-VAL(r) = \sum \frac{CF_K}{(1 + r)^K}
+\operatorname{VAL}(r) = \sum \frac{CF_K}{(1 + r)^K}
 $$
 
 Em que $CF = \text{cash-flow}$ e $r$ a taxa de atualização
 
-Se VAL(r) > 0, o projeto é rentável à taxa de atualização.
+Se $\operatorname{VAL}(r) > 0$, o projeto é rentável à taxa de atualização.\
 Entre dois projetos A e B, se $\operatorname{VAL}_A > \operatorname{VAL}_B$ então $P_A$ melhor que o $P_B$.
 
 :::info[Exemplo]
 
-O João comprou 100 ações da empresa MGM, tendo pagado 7€ por ação na expectativa de receber
-dividendos de $1€ \times 100$ nos anos 1 e 2, e de vender os títulos no ano 3 por 10€ cada.
-Sabendo que ações de empresas com idêntico grau de risco oferecem uma rentabilidade anual de 5%,
-calcule o VAL e diga se aconselha o investimento.
+O João comprou $100$ ações da empresa MGM, tendo pagado $7$€ por ação na expectativa de receber
+dividendos de $1$€ $ \times 100$ nos anos $1$ e $2$, e de vender os títulos no ano $3$ por $10$€ cada.
+Sabendo que ações de empresas com idêntico grau de risco oferecem uma rentabilidade anual de $5\%$,
+calcule o $\operatorname{VAL}$ e diga se aconselha o investimento.
 
 $$
 \operatorname{VAL}(5\%) = -\frac{700}{(1 + 0,05)^0} + \frac{100}{(1 + 0,05)^1} + \frac{100}{(1 + 0,05)^2} + \frac{1000}{(1 + 0,05)^3} = 349,78€
 $$
 
-O VAL é positivo, o investimento é rentável.
+O $\operatorname{VAL}$ é positivo, o investimento é rentável.
 
 :::
 
-### Taxa Interna de Rentabilidade (TIR)
+### Taxa Interna de Rentabilidade ($\operatorname{TIR}$)
 
-É a taxa $r*$de atualização para a qual o $\operatorname{VAL} = 0$, o seu cálculo resulta de um processo iterativo.
-Aceitar um projeto com $\operatorname{VAL}(r) > 0$ significa aceitá-lo quando $\operatorname{TIR} > R$.
+É a taxa $r$ de atualização para a qual o $\operatorname{VAL} = 0$, o seu cálculo resulta de um processo iterativo.
+Aceitar um projeto com $\operatorname{VAL}(r) > 0$ significa aceitá-lo quando $\operatorname{TIR} > \operatorname{R}$.
 
-Problemas no cálculo e utilização da TIR:
+Problemas no cálculo e utilização da $\operatorname{TIR}$:
 
-- Pode existir mais do que uma TIR. É o caso, por exemplo,
+- Pode existir mais do que uma $\operatorname{TIR}$. É o caso, por exemplo,
   da existência de cash-flows negativos intermédios ou finais (investimentos não convencionais).
-- Não existir TIR.
-- A TIR é inadequada para projetos mutuamente exclusivos, isto é, em que só podemos fazer um deles.
+- Não existir $\operatorname{TIR}$.
+- A $\operatorname{TIR}$ é inadequada para projetos mutuamente exclusivos, isto é, em que só podemos fazer um deles.
 
-![Taxa Interna de Rentabilidade](./assets/0005-tir.png)
+![Taxa Interna de Rentabilidade](./assets/0005-tir.png#dark=1)
 
-### Período de Recuperação do Investimento (PRI)
+### Período de Recuperação do Investimento ($PRI$)
 
 Tempo necessário para que os cash-flows atualizados gerados pelo projeto igualem o capital investido inicialmente.
 É o valor $K$ tal que:
@@ -368,13 +391,13 @@ $$
 $$
 
 $$
-PB = \text{Ano anterior a mudança de sinal no }CF_{\text{acumulado}} - \frac{\text{útimo }CF_{\text{acumulado negativo}}}{CF_\text{atualizado no primeiro positivo}}
+PB = \text{Ano anterior à mudança de sinal no }CF_{\text{acumulado}} - \frac{\text{útimo }CF_{\text{acumulado negativo}}}{CF_\text{atualizado no primeiro positivo}}
 $$
 
-### Indice de Rentabilidade (IR)
+### Indice de Rentabilidade ($IR$)
 
 $$
-IR = \frac{\operatorname{VAL} + \text{Inventário Inicial}}{Inventário Inicial} = \frac{\operatorname{VA}}{\text{Inventário Inicial}}
+IR = \frac{\operatorname{VAL} + \text{Inventário Inicial}}{\text{Inventário Inicial}} = \frac{\operatorname{VA}}{\text{Inventário Inicial}}
 $$
 
-Um projeto considera-se aceitável quando $\operatorname{IR} > 1$. Tal como a TIR, este indicador peca na análise de projetos mutuamente exclusivos.
+Um projeto considera-se aceitável quando $\operatorname{IR} > 1$. Tal como a $TIR$, este indicador peca na análise de projetos mutuamente exclusivos.
