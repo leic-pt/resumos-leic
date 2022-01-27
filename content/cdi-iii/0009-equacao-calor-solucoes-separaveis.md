@@ -142,6 +142,20 @@ Determinados $X(x)$ e $T(t)$, basta fazer o seu produto para obter $u(x,t)$.
 No entanto, as soluções obtidas acima são muito generalizadas. Vamos também querer descobrir o valor de $\lambda$.
 Quando estamos a resolver um problema, vamos deparar-nos com **condições fronteira**, que nos vão restringir a apenas algumas soluções, e a ajudar-nos a descobrir $\lambda$.
 
+### Princípio da Sobreposição
+
+Qualquer combinação linear de soluções de equações diferenciais lineares homogéneas
+é também solução da equação e verifica as mesmas condições de fronteira.  
+Deste modo, podemos concluir o seguinte:
+
+:::tip[Definição]
+
+$$
+u(t,x) = \sum_{n=1}^{\infty} c_n u_n (t,x)
+$$
+
+:::
+
 ### Condições Fronteira Periódicas
 
 Imaginando agora um caso em que temos um fio circular de perímetro L.
@@ -260,10 +274,10 @@ $$
 u\left(t,x\right) = T\left(t\right)X\left(t\right) = e^{-\frac{4\pi^2 n^2}{L^2}t} \left(a_n \cos \frac{2\pi n}{L} + b_n \sin \frac{2\pi n}{L}\right)
 $$
 
-Segundo o Teorema da Sobreposição, podemos escrever a nossa solução como a soma de várias soluções.
+Segundo o [Princípio da Sobreposição](#princípio-da-sobreposição), podemos escrever a nossa solução como a soma de várias soluções.
 
 $$
-u\left(t,x\right) = B + \sum_{n = 1}^N e^{-\frac{4\pi^2 n^2}{L^2}t} \left(a_n \cos \frac{2\pi n}{L} + b_n \sin \frac{2\pi n}{L}\right)
+u\left(t,x\right) = B + \sum_{n = 1}^{\infty} e^{-\frac{4\pi^2 n^2}{L^2}t} \left(a_n \cos \frac{2\pi n}{L} + b_n \sin \frac{2\pi n}{L}\right)
 $$
 
 Podemos dar uma função à temperatura inicial, que funciona como condição inicial.
@@ -273,7 +287,7 @@ u\left(0, x\right) = f\left(x\right)
 $$
 
 $$
-f\left(x\right) = B + \sum_{n = 1}^N \left(a_n \cos \frac{2\pi n x}{L} + b_n \sin \frac{2\pi n x}{L}\right)
+f\left(x\right) = B + \sum_{n = 1}^{\infty} \left(a_n \cos \frac{2\pi n x}{L} + b_n \sin \frac{2\pi n x}{L}\right)
 $$
 
 Como vamos ver mais à frente, esta expressão é muito semelhante à [Série de Fourier](/cdi-iii/serie-fourier).
@@ -460,7 +474,7 @@ $$
 u_n(x,t) = c e^{-\dfrac{n^2\pi^2 k t}{4}} \sin\left(\frac{n^2\pi^2}{4}x\right), n \in \Z_0^+
 $$
 
-Podemos agora generalizar esta expressão pelo [**Princípio da Generalização**](color:green).
+Podemos agora generalizar esta expressão pelo [**Princípio da Sobreposição**](color:green).
 
 $$
 u(x,t) = \sum_{n=1}^{+\infty} c_n u_n(x,t) = \sum_{n=1}^{+\infty} c_n e^{-\dfrac{n^2\pi^2 k t}{4}} \sin\left(\frac{n^2\pi^2}{4}x\right)
