@@ -1,11 +1,15 @@
 ---
-title: Sistemas
-description: Sistemas2
+title: Organização do Sistema Operativo
+description: Organização do Sistema Operativo
 path: /so/sistemas
 type: content
 ---
 
 # Organização do Sistema Operativo
+
+```toc
+
+```
 
 ## Aplicações executam em modo não priveligiado
 
