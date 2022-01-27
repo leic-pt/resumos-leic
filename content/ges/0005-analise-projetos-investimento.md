@@ -211,12 +211,12 @@ Em que RAJI corresponde ao resultado antes de juros e impostos, ou seja, o mesmo
 :::info[Exemplo]
 
 1. A empresa MGM investiu $100$ mil € numa nova máquina para os próximos $4$ anos.
-2. Esta é depreciável em $5$ anos, s e pode ser vendida ao fim de $4$ anos por $10 mil$ € (Valor Comercial).
+2. Esta é depreciável em $5$ anos, s e pode ser vendida ao fim de $4$ anos por $10$ mil € (Valor Comercial).
 3. Sabe-se que as vendas anuais adicionais serão de $150$ mil € durante todo o projeto.
 4. Os custos operacionais anuais adicionais com pessoal, fornecimentos e
    serviços externos e matéria prima serão de $100$ mil €, acrescidos dos custos com amortizações (Depreciações), $20$%.
-5. A taxa de imposto a pagar pela empresa é de $25$%.
-6. A taxa de Atualização é de $10$%.
+5. A taxa de imposto a pagar pela empresa é de $25\%$.
+6. A taxa de Atualização é de $10\%$.
 
 ![Análise de rentabilidade de investimento](./assets/0005-exemplo-analise-investimento.png#dark=1)
 
@@ -335,7 +335,7 @@ Entre dois projetos A e B, se $\operatorname{VAL}_A > \operatorname{VAL}_B$ ent�
 
 O João comprou $100$ ações da empresa MGM, tendo pagado $7$€ por ação na expectativa de receber
 dividendos de $1$€ $ \times 100$ nos anos $1$ e $2$, e de vender os títulos no ano $3$ por $10$€ cada.
-Sabendo que ações de empresas com idêntico grau de risco oferecem uma rentabilidade anual de $5$%,
+Sabendo que ações de empresas com idêntico grau de risco oferecem uma rentabilidade anual de $5\%$,
 calcule o $\operatorname{VAL}$ e diga se aconselha o investimento.
 
 $$
