@@ -8,7 +8,7 @@ description: >-
   Análise de Rentabilidade de Projetos de Investimento:
   Taxa de atualização;
   Custo médio ponderado do capital (CMPC ou WACC);
-  Valor Atual Liquido (VAL);
+  Valor Atual Líquido (VAL);
   Taxa Interna de Rentabilidade (TIR);
   Período de Recuperação do Investimento (PRI);
   Indice de Rentabilidade (IR).
@@ -184,16 +184,17 @@ $$
   até em fundo de maneio, como a constituição e reforço de stocks de matérias primas ou mercadorias.
 - **No final de vida do projeto**: O valor destas despesas que seja recuperável dará origem ao valor residual do investimento.
 
-**Valor Residual do Investimento**: Gerado pela venda de um imobilizado no final do tempo de vida do projeto.
+**Valor Residual do Investimento** $VR$: Gerado pela venda de um imobilizado no final do tempo de vida do projeto.
 
 $$
-\begin{aligned}
-VR &= \text{Valor do mercado} \ - \\
-& \quad \quad- (\text{Valor do Mercado} - \text{Valor Contabilístico}) \times \text{Taxa de Imposto}
-\end{aligned}
+VR = \text{VM} - (\text{VM} - \text{Valor Contabilístico}) \times \text{Taxa de Imposto}
 $$
 
-O **Valor de Mercado** é o valor esperado de venda do ativo no ano $n$ e o valor contabilístico é:
+Onde $\text{VM}$ corresponde ao Valor de Mercado.
+
+O **Valor de Mercado** é o valor esperado de venda do ativo no ano $n$.
+
+O **Valor Contabilístico** é dado por:
 
 $$
 \text{Valor Contabilístico} = \text{Valor de Compra} - \text{Amortizações Acumuladas}
@@ -209,21 +210,22 @@ Em que RAJI corresponde ao resultado antes de juros e impostos, ou seja, o mesmo
 
 :::info[Exemplo]
 
-1. A empresa MGM investiu 100 mil € numa nova máquina para os próximos 4 anos;
-2. Esta é depreciável em 5 anos, findos os quais pode ainda ser vendida por 10 mil € (valor de mercado no ano 5);
-3. Sabe-se que as vendas anuais adicionais serão de 150 mil € durante todo o projeto;
+1. A empresa MGM investiu $100$ mil € numa nova máquina para os próximos $4$ anos.
+2. Esta é depreciável em $5$ anos, s e pode ser vendida ao fim de $4$ anos por $10 mil$ € (Valor Comercial).
+3. Sabe-se que as vendas anuais adicionais serão de $150$ mil € durante todo o projeto.
 4. Os custos operacionais anuais adicionais com pessoal, fornecimentos e
-   serviços externos e matéria prima serão de 100 mil €, acrescidos dos custos com amortizações (depreciações), 20%;
-5. A taxa de imposto a pagar pela empresa é de 25%.
+   serviços externos e matéria prima serão de $100$ mil €, acrescidos dos custos com amortizações (Depreciações), $20$%.
+5. A taxa de imposto a pagar pela empresa é de $25$%.
+6. A taxa de Atualização é de $10$%.
 
-![Análise de rentabilidade de investimento](./assets/0005-exemplo-analise-investimento.png)
+![Análise de rentabilidade de investimento](./assets/0005-exemplo-analise-investimento.png#dark=1)
 
 $$
 VR = VM -(VM - VC)t = 10 - (10 - 20) \times 0,25 = 12,5
 $$
 
 $$
-VC = \frac{100}{5}
+VC = 100 - 20 \times 4 \leftrightarrow VC = 20
 $$
 
 :::
@@ -256,7 +258,7 @@ Quando houver financiamento com capital alheio:
 - A taxa de atualização deve ser igual ao custo médio ponderado do capital,
   sendo a ponderação dada pelas percentagens dos dois tipos de capital, calculados ao valor de mercado.
 
-### Custo médio ponderado do capital (CMPC ou WACC)
+### Custo médio ponderado do capital ($CMPC$ ou $WACC$)
 
 $$
 \text{Taxa de atualização com financiamento misto} = r_CP \times CP\% + r_D \times (1 -t) \times D\%
@@ -316,9 +318,9 @@ $$
 
 :::
 
-### Valor Atual Liquido (VAL)
+### Valor Atual Líquido ($VAL$)
 
-Soma de todos os CF do projeto devidamente atualizados.
+Soma de todos os $CF$ do projeto devidamente atualizados.
 
 $$
 VAL(r) = \sum \frac{CF_K}{(1 + r)^K}
@@ -326,7 +328,7 @@ $$
 
 Em que $CF = \text{cash-flow}$ e $r$ a taxa de atualização
 
-Se VAL(r) > 0, o projeto é rentável à taxa de atualização.
+Se $VAL(r) > 0$, o projeto é rentável à taxa de atualização.\
 Entre dois projetos A e B, se $\operatorname{VAL}_A > \operatorname{VAL}_B$ então $P_A$ melhor que o $P_B$.
 
 :::info[Exemplo]
@@ -344,21 +346,21 @@ O VAL é positivo, o investimento é rentável.
 
 :::
 
-### Taxa Interna de Rentabilidade (TIR)
+### Taxa Interna de Rentabilidade ($TIR$)
 
-É a taxa $r*$de atualização para a qual o $\operatorname{VAL} = 0$, o seu cálculo resulta de um processo iterativo.
+É a taxa $r$ de atualização para a qual o $\operatorname{VAL} = 0$, o seu cálculo resulta de um processo iterativo.
 Aceitar um projeto com $\operatorname{VAL}(r) > 0$ significa aceitá-lo quando $\operatorname{TIR} > R$.
 
-Problemas no cálculo e utilização da TIR:
+Problemas no cálculo e utilização da $TIR$:
 
-- Pode existir mais do que uma TIR. É o caso, por exemplo,
+- Pode existir mais do que uma $TIR.$ É o caso, por exemplo,
   da existência de cash-flows negativos intermédios ou finais (investimentos não convencionais).
-- Não existir TIR.
-- A TIR é inadequada para projetos mutuamente exclusivos, isto é, em que só podemos fazer um deles.
+- Não existir $TIR$.
+- A $TIR$ é inadequada para projetos mutuamente exclusivos, isto é, em que só podemos fazer um deles.
 
-![Taxa Interna de Rentabilidade](./assets/0005-tir.png)
+![Taxa Interna de Rentabilidade](./assets/0005-tir.png#dark=1)
 
-### Período de Recuperação do Investimento (PRI)
+### Período de Recuperação do Investimento ($PRI$)
 
 Tempo necessário para que os cash-flows atualizados gerados pelo projeto igualem o capital investido inicialmente.
 É o valor $K$ tal que:
@@ -368,13 +370,13 @@ $$
 $$
 
 $$
-PB = \text{Ano anterior a mudança de sinal no }CF_{\text{acumulado}} - \frac{\text{útimo }CF_{\text{acumulado negativo}}}{CF_\text{atualizado no primeiro positivo}}
+PB = \text{Ano anterior à mudança de sinal no }CF_{\text{acumulado}} - \frac{\text{útimo }CF_{\text{acumulado negativo}}}{CF_\text{atualizado no primeiro positivo}}
 $$
 
-### Indice de Rentabilidade (IR)
+### Indice de Rentabilidade ($IR$)
 
 $$
-IR = \frac{\operatorname{VAL} + \text{Inventário Inicial}}{Inventário Inicial} = \frac{\operatorname{VA}}{\text{Inventário Inicial}}
+IR = \frac{\operatorname{VAL} + \text{Inventário Inicial}}{\text{Inventário Inicial}} = \frac{\operatorname{VA}}{\text{Inventário Inicial}}
 $$
 
-Um projeto considera-se aceitável quando $\operatorname{IR} > 1$. Tal como a TIR, este indicador peca na análise de projetos mutuamente exclusivos.
+Um projeto considera-se aceitável quando $\operatorname{IR} > 1$. Tal como a $TIR$, este indicador peca na análise de projetos mutuamente exclusivos.
