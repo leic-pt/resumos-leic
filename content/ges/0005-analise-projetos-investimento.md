@@ -216,9 +216,30 @@ Em que RAJI corresponde ao resultado antes de juros e impostos, ou seja, o mesmo
 4. Os custos operacionais anuais adicionais com pessoal, fornecimentos e
    serviços externos e matéria prima serão de $100$ mil €, acrescidos dos custos com amortizações (Depreciações), $20$%.
 5. A taxa de imposto a pagar pela empresa é de $25\%$.
-6. A taxa de Atualização é de $10\%$.
+6. A taxa de atualização é de $10\%$.
 
 ![Análise de rentabilidade de investimento](./assets/0005-exemplo-analise-investimento.png#dark=1)
+
+<!--
+
+Mobile support for this is terrible, until that's fixed this is gonna stay as an image
+
+| Rubrica/Período                                                                                         |      0 |           1 |           2 |         3 |          4 |
+| ------------------------------------------------------------------------------------------------------- | -----: | ----------: | ----------: | --------: | ---------: |
+| **1. Despesas de Investimento**                                                                         | $-100$ |             |             |           |            |
+| **2. Valor Residual do Investimento**                                                                   |        |             |             |           |     $12.5$ |
+| **3. _Cash Flow_ do Investimento (= 1 + 2)**                                                            | $-100$ |         $0$ |         $0$ |       $0$ |     $12.5$ |
+| **4. Vendas**                                                                                           |        |       $150$ |       $150$ |     $150$ |      $150$ |
+| **5. Custos Operacionais (RH, fse, m. pr)**                                                             |        |      $-100$ |      $-100$ |    $-100$ |     $-100$ |
+| **6. Amortizações (Depreciações)**                                                                      |        |       $-20$ |       $-20$ |     $-20$ |      $-20$ |
+| **7. Resultado Operacional (EBIT) (= 4 + 5 + 6)**                                                       |        |        $30$ |        $30$ |      $30$ |       $30$ |
+| **8. EBIT $\times (1 - 0.25)$** ($0.25$ é o imposto)                                                    |        |      $22.5$ |      $22.5$ |    $22.5$ |     $22.5$ |
+| **9. _Cash Flow_ Exploração (= 8 + 6)**                                                                 |        |      $42.5$ |      $42.5$ |    $42.5$ |     $42.5$ |
+| **10. _Cash Flow_ Total (= 3 + 9)**                                                                     | $-100$ |      $42.5$ |      $42.5$ |    $42.5$ |       $55$ |
+| **11. _Cash Flow_ Atualizado** (= $\frac{\operatorname{CFT}}{(1 + tx_{\operatorname{atualização}})^i}$) | $-100$ |  $38.63636$ |     $35.12$ |   $31.93$ | $37.56574$ |
+| **12. $\sum$ _Cash Flow_ Atualizado (cumulativo)**                                                      | $-100$ | $-61.36364$ | $-26.24364$ | $5.68636$ |  $43.2521$ |
+
+-->
 
 $$
 VR = VM -(VM - VC)t = 10 - (10 - 20) \times 0,25 = 12,5
