@@ -5,6 +5,9 @@ description: Definição de Fluxo Máximo.
   Algoritmo genérico de Ford-Fulkerson.
   Algoritmo de Edmonds-Karp.
   Emparelhamento bipartido máximo.
+  Algoritmos Baseados em Pré-Fluxo.
+  Algoritmo Push-Relabel.
+  Algoritmo Relabel-To-Front.
 path: /asa/fluxos-maximos
 type: content
 ---
@@ -303,13 +306,73 @@ Resta, então, falar sobre a complexidade do ciclo `while` em si: encontrar um c
 
 ![Complexidade Ford-Fulkerson](./assets/0007-ff-complexidade.png#dark=1)
 
-Considerando uma rede como a que está acima, temos que $|f^{*}|$ = $2000000$. Na pior das hipóteses, teremos de realizar igual quantidade de caminhos que passem pelo arco $(u, v)$, o que pode tornar a aplicação do algoritmo impraticável. Assim sendo, vamos estudar o algoritmo de Edmonds-Karp, que permite uma redução drástica da complexidade de Ford-Fulkerson (para $O(VE^2)$).
+Considerando uma rede como a que está acima, temos que $|f^{*}|$ = $2000000$. Na pior das hipóteses, teremos de realizar igual quantidade de caminhos que passem pelo arco $(u, v)$, o que pode tornar a aplicação do algoritmo impraticável. Assim sendo, vamos estudar o algoritmo de Edmonds-Karp, que permite uma majoração da complexidade de $O(VE^2)$, bastante melhor na vasta maioria dos casos.
 
 ## Algoritmo de Edmonds-Karp
 
-:::warning
+O algoritmo de Edmonds-Karp tem por base o método de Ford-Fulkerson, procurando uma majoração diferente para a complexidade temporal do mesmo.
 
-A secção encontra-se atualmente incompleta, o conteúdo será adicionado brevemente.
+O objetivo aqui passa por encontrar sempre o [**caminho de aumento mais curto**](color:orange), isto é, com menos arcos, não menos pesado, presente na rede residual $G_f$. Para tal, o algoritmo recorre a uma **BFS** com origem em $s$ e destino em $t$ - a procura pára assim que encontrar um caminho de aumento que os una. O algoritmo termina quando não existem mais caminhos de aumento - isto é, quando a BFS não consegue encontrar mais caminhos de aumento que unam $s$ e $t$.
+
+:::info[Monotonia de Edmonds-Karp]
+
+É interessante definir [**distância de Edmonds-Karp**](color:yellow): $\delta_f(s, t)$, a distância do caminho mais curto entre $s$ e $t$ em $G_f$.
+
+Mais ainda, é relevante notar que, visto que a BFS vai sempre encontrando os caminhos de aumentado _atualmente_ mais curtos (e que estes vão desaparecendo), podemos afirmar com segurança que, durante o decorrer de Edmonds-Karp, $\delta_f(s, t)$ terá uma **tendência crescente** (não estritamente, claro).
+
+:::
+
+Abaixo segue um exemplo bastante simples do decorrer do algoritmo sobre uma rede:
+
+:::details[Exemplo da aplicação do Algoritmo]
+
+Começemos com uma rede que inicialmente se encontra assim:
+
+![Rede inicial](./assets/0007-ek-inicial.png#dark=1)
+
+Podemos notar que inicialmente o fluxo que passa por todas as arestas é 0, e que portanto a respetiva capacidade residual é igual à capacidade máxima do arco.
+
+Nas BFSs abaixo, os números acima de cada vértice correspondem à distância percorrida desde $s$ até ao vértice em questão. Podemos, nesta primeira procura, notar que há 2 caminhos de aumento de tamanho $3$. Escolhemos um deles (por exemplo $s \to c \to d \to t$), e, ao escolhê-lo, verificamos que a capacidade residual mínima de entre as arestas do caminho é $4$ - o fluxo em todos os arcos é incrementado em $4$ unidades.
+
+![BFS 1](./assets/0007-ek-passo-1.png#dark=1)
+
+De seguida, vamos ao outro caminho de aumento com 3 unidades (descoberto anteriormente), $s \to a \to b \to t$. Aqui, a menor capacidade residual dos seus arcos é $12$, e o fluxo em todos os arcos é incrementado em $12$.
+
+![BFS 2](./assets/0007-ek-passo-2.png#dark=1)
+
+Explorados todos os caminhos de aumento de tamanho $3$, a BFS seguinte encontra um caminho de tamanho $4$. A menor capacidade residual de um dos seus arcos é $7$, e o fluxo em todos os arcos é incrementado em $7$.
+
+![BFS 3](./assets/0007-ek-passo-3.png#dark=1)
+
+A partir daqui não existe uma procura que encontre um caminho de aumento para a rede, pelo que o algoritmo termina.
+
+Temos que o fluxo máximo encontrado é igual à soma dos fluxos que saem da fonte, que é igual à soma dos fluxos que chegam ao sumidouro e à soma dos fluxos que atravessam o corte mínimo da rede, $23$:
+
+![Corte](./assets/0007-ek-corte.png#dark=1)
+
+Podemos notar que todos os arcos que atravessam o corte no sentido "positivo", da partição de $s$ para a de $t$ estão saturados. Mais ainda, e apesar de não ser aqui percetível, é relevante verificar que o fluxo dos arcos que cruzam o corte no sentido "negativo" contribui negativamente para o fluxo máximo da rede: se tivéssemos um arco que cruzasse aqui o corte no sentido contrário com fluxo $4$, o fluxo máximo da rede seria $23 - 4 = 19$.
+
+Por fim, é interessante verificar que o fluxo máximo pode também ser dado pela quantidade de fluxo aumentada a cada BFS realizada: é óbvio, claro, a cada BFS o fluxo é aumentado, nunca decrescido. Aqui, verifica-se com $4 + 12 + 7 = 23$.
+
+:::
+
+Podemos notar que as distâncias de Edmonds-Karp podem variar entre $1, ..., |V| - 1$: um caminho de aumento pode ter no mínimo 1 aresta (se o grafo ligar diretamente $s$ a $t$), e no máximo $|V| - 1$ arcos (tal como o exemplo de seguida demonstra):
+
+![Distância de Edmonds-Karp](./assets/0007-ek-max-arcos.png#dark=1)
+
+Ora, temos ainda que podemos ter $|E|$ caminhos de aumento até $\delta_f(s, t)$ aumenta (podemos ter um caminho que contenha todas as arestas, onde uma aresta vai ficando saturada de cada vez), e assim podem existir $O(|V|\cdot|E|)$ caminhos de aumento numa rede.
+
+Visto que cada caminho de aumento pode ser encontrado em $O(|V| + |E|) = O(|E|)$ tempo (via BFS), temos que a complexidade temporal de Edmonds-Karp é $O(|V|\cdot|E|^2)$.
+
+:::danger[A complexidade pode enganar]
+
+Não nos podemos esquecer que o algoritmo de Edmonds-Karp não é mais que uma implementação do método de Ford-Fulkerson, partilhando assim a sua majoração temporal ($O(|f^*| |E|)$). Assim sendo, dependendo da topologia do grafo, a realização do algoritmo pode até levar tempo inferior a $V E^2$ a terminar! Este tipo de perguntas pode sair em exame, e é bastante útil ter em mente: o algoritmo tem ambas as majorações temporais, consideramos a que for menor perante a topologia da rede apresentada.
+
+:::
+
+:::warning[Página em Construção]
+
+O conteúdo restante (algoritmos baseados em pré-fluxo, correspondência bipartida máxima) será adicionado assim que possível.
 
 :::
 
@@ -319,4 +382,6 @@ A secção encontra-se atualmente incompleta, o conteúdo será adicionado breve
 
 - [Slides - Algoritmos Baseados em Caminhos de Aumento](https://drive.google.com/file/d/1swL85O4Fu1XuMBdWEJksVsrcFxF6iYeT/view?usp=sharing)
 - [Slides - Algoritmos de Pré-Fluxo](https://drive.google.com/file/d/1OqY6-EqfHIU5W1ho5pigFTjKl7IbZDcA/view?usp=sharing)
-- [Notas Fluxos - Prof. José Fragoso](https://drive.google.com/file/d/13Ua5JJ6mJZUhEImbcAMGrCBG5iPiUxN3/view?usp=sharing)
+- [Notas Ford-Fulkerson - Prof. José Fragoso](https://drive.google.com/file/d/13Ua5JJ6mJZUhEImbcAMGrCBG5iPiUxN3/view?usp=sharing)
+- [Notas Edmonds-Karp/CBM - Prof. José Fragoso](https://drive.google.com/file/d/1YRzHWWA4glyzkYj2eshiLtD2XNWw8fmw/view?usp=sharing)
+- [Notas Pré-Fluxos - Prof. José Fragoso](https://drive.google.com/file/d/13_3-tNuxZuiHZNPZXiXUL8hVudvSO4uC/view?usp=sharing)
