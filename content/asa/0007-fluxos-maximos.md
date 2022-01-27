@@ -370,15 +370,47 @@ Não nos podemos esquecer que o algoritmo de Edmonds-Karp não é mais que uma i
 
 :::
 
+## Emparelhamento Bipartido Máximo
+
 :::warning[Página em Construção]
 
 O conteúdo restante (algoritmos baseados em pré-fluxo, correspondência bipartida máxima) será adicionado assim que possível.
 
 :::
 
----
+## Algoritmos baseados em Pré-Fluxo
 
-<!-- TODO - ADD TEACHER'S NOTES -->
+Até aqui observámos algoritmos para o fluxo máximo baseados em caminhos de aumento. Estes algoritmos têm, contudo, a particularidade menos agradável de possuírem operações **pouco localizadas** - as procuras por caminhos de aumento iniciam-se sempre em $s$, mesmo que percorrer a rede desde aí se possa tornar pouco eficiente. Abaixo encontra-se um exemplo de uma situação onde os algoritmos baseados em caminhos de aumento se podem tornar mais morosos do que podiam/deviam ser idealmente:
+
+![Exemplo desagradável - caminhos de aumento](./assets/0007-pre-fluxo-desagradaveis.png#dark=1)
+
+Ao olhar para este exemplo, podemos até pensar no porquê de não levarmos só o fluxo $k$ todo até $v_k$ e depois verificar os caminhos a partir daí, escusando de percorrer _sempre_ a rede toda - pensamos nós e pensou [Karzanov](https://en.wikipedia.org/wiki/Alexander_V._Karzanov) em 1974, uns bons anos depois do aparecimento do método de Ford-Fulkerson. O matemático russo expôs um dos algoritmos que vamos abordar mais à frente, _Push-Relabel_, para fazer frente a esta mesma situação. Tarjan e Goldberg, sensivelmente uma década depois, apresentaram o algoritmo _Relabel-To-Front_ baseado neste último.
+
+:::tip[Pré-Fluxos]
+
+Os algoritmos baseados em pré-fluxos são, como referido acima, mais **localizados** que os baseados em caminhos de aumento. Trabalham sobre um vértice de cada vez, em vez de procurar encontrar caminhos por toda a rede, observando os vizinhos de cada vértice.
+
+Durante o decorrer do algoritmo, [**a conservação do fluxo não se verifica**](color:orange).
+
+Cada vértice contém um pré-fluxo, fluxo que nele incide, sendo que o objetivo será "expulsá-lo" completamente de si para os vizinhos (tendo como objetivo final que todo o fluxo que sai de $s$ atinja $t$). O primeiro passo é **sempre** saturar todos os arcos que ligam $s$ aos seus vizinhos, expulsando o máximo de fluxo possível da fonte, sendo que futuramente poderão (e normalmente irão) ocorrer refluxos.
+
+:::
+
+Antes de definir pré-fluxo, é importar referir uma das suas propriedades: a restrição de capacidade. $f$ só pode ser considerado um pré-fluxo caso:
+
+$$
+\forall_{(u, v) \in E}, 0 \leq f(u, v) \leq c(u, v)
+$$
+
+Posto isto, podemos ainda afirmar que o fluxo que entra num vértice $u$ deve ser **maior** (sim, maior) ou **igual** ao que dele sai para este poder ser considerado um pré-fluxo, sendo a respetiva quantidade de fluxo _a mais_ considerada o seu **excesso**, $e$:
+
+$$
+e(u) = \sum_{v \in V} f(v, u) - \sum_{v \in V} f(u, v).
+$$
+
+A primeira coisa a fazer é, como referido acima, **saturar** todos os arcos que ligam $s$ aos seus vizinhos, expulsando o máximo de fluxo possível da fonte.
+
+---
 
 - [Slides - Algoritmos Baseados em Caminhos de Aumento](https://drive.google.com/file/d/1swL85O4Fu1XuMBdWEJksVsrcFxF6iYeT/view?usp=sharing)
 - [Slides - Algoritmos de Pré-Fluxo](https://drive.google.com/file/d/1OqY6-EqfHIU5W1ho5pigFTjKl7IbZDcA/view?usp=sharing)
