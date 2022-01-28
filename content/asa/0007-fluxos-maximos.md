@@ -61,7 +61,7 @@ Tanto a super-fonte como o super-sumidouro limitam-se a fornecer tanto fluxo qua
 
 ![Transformação de Rede de Fluxos com Várias Fontes/Destinos - Exemplo](./assets/0007-transformacao-rede-fluxos-exemplo.png#dark=1)
 
-## Método de Ford-Fulkerson
+## [Método de Ford-Fulkerson](color:green)
 
 O **método de Ford-Fulkerson** transcende uma implementação de algoritmo especifíca - corresponde a uma combinação de ideias e implementações de outros algoritmos: redes residuais, caminhos de aumento e cortes. Será, contudo, abordada uma implementação para um algoritmo génerico de Ford-Fulkerson mais abaixo.
 
@@ -75,7 +75,7 @@ FordFulkersonMethod(G, s, t)
   return f
 ```
 
-Vamos, então, introduzir as três ideias fulcrais ao algoritmo.
+Vamos, então, introduzir as três ideias fulcrais ao método.
 
 ### Redes Residuais
 
@@ -308,7 +308,7 @@ Resta, então, falar sobre a complexidade do ciclo `while` em si: encontrar um c
 
 Considerando uma rede como a que está acima, temos que $|f^{*}|$ = $2000000$. Na pior das hipóteses, teremos de realizar igual quantidade de caminhos que passem pelo arco $(u, v)$, o que pode tornar a aplicação do algoritmo impraticável. Assim sendo, vamos estudar o algoritmo de Edmonds-Karp, que permite uma majoração da complexidade de $O(VE^2)$, bastante melhor na vasta maioria dos casos.
 
-## Algoritmo de Edmonds-Karp
+## [Algoritmo de Edmonds-Karp](color:pink)
 
 O algoritmo de Edmonds-Karp tem por base o método de Ford-Fulkerson, procurando uma majoração diferente para a complexidade temporal do mesmo.
 
@@ -495,9 +495,26 @@ InitializePreFlow(G, s)
     s.e -= f(s, u) // excesso em s incrementado conforme o fluxo atirado
 ```
 
-<!-- TODO - FALTA PUSH-RELABEL -->
+### [Método Push-Relabel](color:orange)
 
-### Algoritmo Relabel-To-Front
+O pseudocódigo génerico do método de _push-relabel_ é:
+
+```rust
+PushRelabel(G)
+  InitializePreFlow(G)
+  while there is a vertex u with excess
+    let v be a vertex where (u, v) is a residual edge and h(u) = h(v) + 1
+    if v exists // se houver um vértice que respeite a condição acima
+      push(u, v)
+    else
+      relabel(u)
+```
+
+Tal como o método de Ford-Fulkerson, _push-relabel_ não é considerado um algoritmo - não nos dá, de forma determínistica, uma opção a escolher. Pode, contudo, parecer algo "básico", pelo que será interessante provar a sua correção (e que de facto resolve o problema do fluxo máximo)[**\***](color:yellow). A complexidade temporal do algoritmo é $O(V^2 \cdot E)$, já melhor que a de Edmonds-Karp.
+
+[**\***](color:yellow) As provas serão adicionadas assim que possível. Por agora apenas é mencionado o método em si, já que apenas é avaliado o algoritmo abaixo (e esse tem exemplo associado, incluindo uma abordagem mais aprofundada).
+
+### [Algoritmo Relabel-To-Front](color:yellow)
 
 O método _push-relabel_, como referido acima, tem complexidade $O(|V|^2) \cdot E)$ - uma melhoria em relação a Edmonds-Karp. Contudo, estudaremos de seguida um algoritmo (que implementa as operações básicas _push_ e _relabel_), com uma terceira operação-base adicional que permite a alteração da complexidade temporal para $O(|V|^3)$, bastante melhor para redes muito densas, com muito mais arcos que vértices.
 
@@ -603,6 +620,8 @@ A complexidade temporal do algoritmo é, então, $O(V^3)$. Podemos trivialmente 
 <!-- TODO REFERIR QUE NEM SEMPRE ESTES ALGORITMOS SÃO MAIS EFICIENTES - TEMOS DE COMPARAR COMPLEXIDADES, VER QUAL O MELHOR -> EXEMPLO DO CARROTT, P EX -->
 
 <!-- TODO ADICIONAR PROVAS E NOTAS SOBRE COMPLEXIDADES (WHENEVER TIVER TEMPO) -->
+
+<!-- TODO MENCIONAR ARCOS ADMISSÍVEIS E CENAS -->
 
 ---
 
