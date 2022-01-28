@@ -517,9 +517,92 @@ Discharge(u)
       u.current = v.next
 ```
 
+Aqui, consideramos que `u.current` corresponde ao vértice da lista de adjacências de $u$ que estamos atualmente a visitar.
+
+- Caso este seja `nil`, chegámos ao fim das adjacências do vértice. Assim sendo, e como ainda não expulsámos o fluxo todo de $u$, precisamos de realizar um _relabel_ (com vista a poder, agora, atirar mais fluxo pela colina), voltando a ler a lista desde o início.
+
+- Caso não seja `nil` **e** possamos atirar fluxo para `u.current`, atiramo-lo (via _push_) e passamos ao próximo vizinho.
+
+- Caso não seja `nil` mas também não possamos atirar fluxo, passamos só ao próximo vizinho.
+
+O algoritmo corresponde, então, a uma sequência de descargas por $L$ até haver uma passagem completa pela mesma sem necessidade de descarregar fluxo. O pseudocódigo é o que se segue:
+
+```rust
+RelabelToFront(G, s, t)
+  // consideramos L já inicializada
+  InitializePreFlow(G, s)
+  for each u in L
+    u.current = head(u.neighbors)
+  u = head(L)
+  while u != nil
+    let previous_height := h(u)
+    Discharge(u)
+    if h(u) > previous_height
+      head(L) = u
+    u = u.next // next -> proximo vertice de L
+```
+
+A aplicação do algoritmo é trivial, porém é bastante fácil enganarmo-nos num passo intermédio (costumam ser uns quantos, e é fácil haver detalhes a passar despercebidos). Abaixo encontramos um exemplo do decorrer do mesmo (retirado dos slides):
+
+:::details[Exemplo da Aplicação do Algoritmo]
+
+Começemos com uma rede tal que:
+
+![Rede inicial - R2F](./assets/0007-r2f-initial-network.png#dark=1)
+
+No canto superior direito podemos observar como $L$ se encontra inicialmente: $L = (v_1, v_2, v_3, v_4)$, sendo esta a ordem pela qual os vértices serão visitados inicialmente.
+
+O primeiro passo é, claro, saturar todos os arcos que saem de $s$ (os arcos são, respetivamente, $(s, v_1)$ e $(s, v_2)$). A altura do vértice $s$ é, claro, $|V| = 6$ e fica com excesso associado $-29$:
+
+![Passo 1 - R2F](./assets/0007-r2f-passo-1.png#dark=1)
+
+Podemos notar que acima os excessos de $v_1$ e $v_2$ foram também atualizados. A iteração sobre $v_1$ gera descargas para dois vértices distintos, $v_2$ e $v_3$. Mais ainda, a primeira descarga leva a uma alteração na altura do vértice (para o fluxo poder descer a colina). Como $v_1$ já era o primeiro elemento da lista, a ordem da mesma não é alterada:
+
+![Passo 2 - R2F](./assets/0007-r2f-passo-2.png#dark=1)
+
+Vejamos agora $v_2$. Num primeiro momento, consegue lançar parte do seu fluxo para $v_4$ (como demonstrado na imagem imediatamente abaixo). Contudo, continua com excesso! Tem um arco da rede para $v_1$, o que o obrigará a incrementar a sua altura para $2$, para o resto do fluxo poder então descer para $v_1$ (observável na segunda imagem abaixo). Visto que a altura do vértice foi alterada, a ordem da lista $L$ também foi: agora, $L = (v_2, v_1, v_3, v_4)$.
+
+![Passo 3 - R2F](./assets/0007-r2f-passo-3.png#dark=1)
+![Passo 4 - R2F](./assets/0007-r2f-passo-4.png#dark=1)
+
+Com a ordem da lista alterada, voltamos então a observar $v_1$. Com excesso por expulsar, e com arco para $v_3$ saturado, sobe a altura para $3$, podendo assim enviar fluxo colina abaixo até $v_2$, tal como a imagem abaixo sugere. A lista é mais uma vez alterada, agora para as posições iniciais: $L = (v_1, v_2, v_3, v_4)$.
+
+![Passo 5 - R2F](./assets/0007-r2f-passo-5.png#dark=1)
+
+Ora, levanta-se uma questão - parece que ficamos infinitamente a atirar fluxo $3$ colina abaixo entre $v_1$ e $v_2$.
+
+De facto parece, mas eventualmente as operações levam a que $v_1$ atinja altura $7$, superior ao número de vértices da rede (e portanto à altura de $s$). $v_1$ poderá agora, via refluxo, enviar fluxo de volta para $s$ (os tais $3$ que precisava), eliminando assim este ciclo que parecia quasi-infinito!
+
+(De notar que foram omitidos alguns passos intermédios, visto que seriam algo repetitivos e desinteressantes - para retirar quaisquer dúvidas que possam surgir devido à ausência dos mesmos, aconselha-se a consulta dos [slides](https://drive.google.com/file/d/1OqY6-EqfHIU5W1ho5pigFTjKl7IbZDcA/view?usp=sharing), por volta do slide 45).
+
+![Passo 6 - R2F](./assets/0007-r2f-passo-6.png#dark=1)
+
+Podemos finalmente passar o Cabo das Tormentas que $v_1$ e $v_2$ estavam a apresentar e visitar finalmente $v_3$. Aqui as descargas são bastante pacíficas: a altura do vértice é aumentada para $1$, e o excesso é enviado para $v_4$ e $t$. $v_3$ é inserido no início da lista. A passagem por $v_1$ e $v_2$ ocorrerá sem qualquer descarga, já que ambos encontram-se atualmente sem excesso associado (estes 2 passos foram, portanto, omitidos).
+
+![Passo 7 - R2F](./assets/0007-r2f-passo-7.png#dark=1)
+
+Chegámos, por fim, a $v_4$. Infelizmente o algoritmo não termina aqui - apenas conseguimos enviar $4$ dos $14$ de excesso que tínhamos no vértice, pelo que temos de alterar a altura (2 vezes!) para o conseguir fazer, e a lisya é novamente reordenada: $L = (v_4, v_3, v_1, v_2)$.
+
+![Passo 8 - R2F](./assets/0007-r2f-passo-8.png#dark=1)
+![Passo 9 - R2F](./assets/0007-r2f-passo-9.png#dark=1)
+![Passo 10 - R2F](./assets/0007-r2f-passo-10.png#dark=1)
+
+A descarga de $v_3$ é pacífica - limitamo-nos a enviar os $7$ de excesso acumulado para $t$. A altura do vértice não é aumentada, pelo que a lista não é alterada, podendo então continuar a percorrê-la. $v_1$ não tem excesso associado, sendo ignorado, e passamos por fim a $v_2$. O excesso de $v_2$ pode ser enviado para $s$ (via refluxo) ao aumentar a sua altura. A ordem da lista é novamente alterada, mas agora, sem nenhum dos membros da mesma a apresentar excesso de fluxo, podemos dar o algoritmo por terminado!
+
+![Passo 11 - R2F](./assets/0007-r2f-passo-11.png#dark=1)
+![Passo 12 - R2F](./assets/0007-r2f-passo-12.png#dark=1)
+
+O fluxo máximo é, então igual a $23$! Podemos verificar, como esperado, que o excesso de fluxo da fonte é simétrico ao do sumidouro!
+
+:::
+
+A complexidade temporal do algoritmo é, então, $O(V^3)$. Podemos trivialmente provar que, por vértice, podemos realizar no máximo $V$ operações de _relabel_ (começando da altura base, podemos encontrar todos os vértices em escada, subindo a altura de $1$ em $1$ até V). Havendo $V$ vértices, podemos afirmar que no máximo ocorrerão $V^2$ operações de _relabel_ durante _relabel-to-front_. Por fim, temos que cada iteração pode ter até $V$ descargas (atirando fluxo para todos os vértices), e havendo no máximo $V^2$ _relabels_, podemos claramente majorar a complexidade temporal da execução do algoritmo em $O(V^3)$.
+
 <!-- TODO REFERIR QUE NO FIM O EXCESSO DE S DEVE SER SIMÉTRICO AO DE T -->
 
 <!-- TODO REFERIR QUE NEM SEMPRE ESTES ALGORITMOS SÃO MAIS EFICIENTES - TEMOS DE COMPARAR COMPLEXIDADES, VER QUAL O MELHOR -> EXEMPLO DO CARROTT, P EX -->
+
+<!-- TODO ADICIONAR PROVAS E NOTAS SOBRE COMPLEXIDADES (WHENEVER TIVER TEMPO) -->
 
 ---
 
