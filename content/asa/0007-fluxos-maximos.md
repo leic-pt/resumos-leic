@@ -374,7 +374,7 @@ Não nos podemos esquecer que o algoritmo de Edmonds-Karp não é mais que uma i
 
 :::warning[Página em Construção]
 
-O conteúdo restante (algoritmos baseados em pré-fluxo, correspondência bipartida máxima) será adicionado assim que possível.
+O conteúdo será adicionado assim que possível.
 
 :::
 
@@ -509,6 +509,12 @@ PushRelabel(G)
     else
       relabel(u)
 ```
+
+Dois pontos interessantes a retirar do método (e de todos os algoritmos que o implementam, **incluindo o algoritmo abaixo**) é que:
+
+- os vértices $s$ e $t$ devem, no final, ter fluxos simétricos, e o seu respetivo módulo deve corresponder ao fluxo máximo da rede;
+
+- todos os outros vértices devem, no final, apresentar excesso $0$.
 
 Tal como o método de Ford-Fulkerson, _push-relabel_ não é considerado um algoritmo - não nos dá, de forma determínistica, uma opção a escolher. Pode, contudo, parecer algo "básico", pelo que será interessante provar a sua correção (e que de facto resolve o problema do fluxo máximo)[**\***](color:yellow). A complexidade temporal do algoritmo é $O(V^2 \cdot E)$, já melhor que a de Edmonds-Karp.
 
