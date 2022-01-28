@@ -391,13 +391,13 @@ $$
 $$
 
 $$
-PB = \text{Ano anterior à mudança de sinal no }CF_{\text{acumulado}} - \frac{\text{útimo }CF_{\text{acumulado negativo}}}{CF_\text{atualizado no primeiro positivo}}
+PR = \text{Ano anterior à mudança de sinal no }CF_{\text{acumulado}} - \frac{\text{útimo }CF_{\text{acumulado negativo}}}{CF_\text{atualizado no primeiro positivo}}
 $$
 
 ### Indice de Rentabilidade ($IR$)
 
 $$
-IR = \frac{\operatorname{VAL} + \text{Inventário Inicial}}{\text{Inventário Inicial}} = \frac{\operatorname{VA}}{\text{Inventário Inicial}}
+IR = \frac{\operatorname{VAL} + \text{Investimento Inicial}}{\text{Investimento Inicial}} = \frac{\operatorname{VA}}{\text{Investimento Inicial}}
 $$
 
 Um projeto considera-se aceitável quando $\operatorname{IR} > 1$. Tal como a $TIR$, este indicador peca na análise de projetos mutuamente exclusivos.
