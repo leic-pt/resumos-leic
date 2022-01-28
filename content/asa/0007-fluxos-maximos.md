@@ -408,7 +408,118 @@ $$
 e(u) = \sum_{v \in V} f(v, u) - \sum_{v \in V} f(u, v).
 $$
 
-A primeira coisa a fazer é, como referido acima, **saturar** todos os arcos que ligam $s$ aos seus vizinhos, expulsando o máximo de fluxo possível da fonte.
+A primeira coisa a fazer é, como referido acima, **saturar** todos os arcos que ligam $s$ aos seus vizinhos, expulsando o máximo de fluxo possível da fonte. Este passo é partilhado pelos dois algoritmos estudados abaixo, e é um dos pontos fulcrais dos mesmos.
+
+De seguida, é importante ter em conta que cada vértice tem uma [**altura**](color:orange) associada - podemos pensar nas várias alturas como as várias secções de uma encosta - o fluxo _cairá_ pela encosta até ao sumidouro. O fluxo, claro, só poderá cair de um vértice $u$ para outro $v$ caso esteja "mais alto" na colina - para tal, é necessário ir atualizando as alturas dos vértices da rede com o decorrer do algoritmo.
+
+![Exemplo de alturas](./assets/0007-pre-fluxo-exemplo-colina.png)
+
+Poderemos, no decorrer do algoritmo, encontrar situações em que queremos expulsar fluxo de um vértice, mas todos os arcos que dele saem estão ou saturados ou com as respetivas adjacências à mesma altura/acima dele. Quando isso acontece, efetuamos a operação _**relabel**_, explorada mais à frente, que atualiza a sua altura (permitindo então que o fluxo caia).
+
+No final do algoritmo, nenhum dos vértices (exceto $s$ e $t$) tem excesso de fluxo no seu resevervatório.
+
+:::tip[Função de Alturas]
+
+Seja $G=(V, E)$ uma rede de fluxo com fonte $s$ e sumidouro $t$. Mais ainda, seja $f$ um pré-fluxo da rede. Uma função $h: V \to \N$ é uma função tal que:
+
+- $h(s) = |V|$;
+
+- $h(t) = 0$;
+
+- $h(u) \leq h(v) + 1$
+
+para todo o arco residual $(u, v) \in E_f$. Caso $h(u) > h(v) + 1$, então o arco $(u, v)$ não pertence à rede residual.
+
+:::
+
+### Operações Básicas
+
+O conjunto dos algoritmos baseados em pré-fluxo é composto por algumas operações básicas (que todos partilham) - _push_ e _relabel_.
+
+_Push_ ocorre quando um dado vértice $u$ possui excesso. Recebe como argumento $v$, para além de $u$, onde $v$ corresponde ao vértice-destino de um arco que sai de $p$. Caso o arco $(u, v)$ **não esteja saturado** e $h(u) = h(v) + 1$, podemos _expulsar_ fluxo de $u$ para $v$, isto é, "atirar fluxo pela colina abaixo". O pseudocódigo da operação é bastante simples:
+
+```rust
+Push(u, v) // complexidade temporal: O(1)
+  // excesso < capacidade residual -> não saturamos o arco
+  let delta := min(e(u), c_f(u, v))
+  if (u, v) in E // arco da rede
+    (u, v).f = delta
+  else // arco residual
+    (u, v).f -= delta
+    e(u) -= delta
+    e(v) += delta
+```
+
+Existem dois tipos (bastante óbvios, pelo nomes) de _pushes_:
+
+- **_pushes_ saturantes**, onde a operação _push_ satura o arco pelo qual vai enviar o fluxo;
+
+- **_pushes_ não-saturantes**, caso contrário. De notar que após um _push_ deste tipo, $u$ deixa de ter excesso (caso contrário poderia, e deveria, enviar mais fluxo pelo arco).
+
+A utilidade desta definição será clara mais à frente.
+
+Acima foi referido que _push_ só pode ser realizado caso, entre outras condições, $h(u) = h(v) + 1$ - isto é, caso o **diferencial de altura** entre os vértices seja igual a 1. Caso não seja o caso (e não houver nenhum vértice que atualmente nos permita expulsar fluxo em excesso do vértice), somos forçados a fazer _**relabel**_ do mesmo: a alterar a sua altura, de modo a poder expulsá-lo.
+
+```rust
+Relabel(u)
+  h(u) := 1 + min{h(v) | (u, v) \in E_f}
+```
+
+Ou seja, a nova altura de $u$ corresponde à menor altura de um dos seus vizinhos, mais 1 (para ficar mais alto que ele).
+
+Tal como Dijkstra e Bellman-Ford tinham `InitializeSingleSource` no seu início, temos aqui uma operação semelhante. Queremos:
+
+- Inicializar a altura de $s$ a $|V|$;
+
+- Inicializar a altura de todos os outros vértices a 0, bem como o respetivo excesso;
+
+- Inicializar o fluxo de todos os arcos (e dos respetivos residuais) a 0;
+
+- Expulsar todo o fluxo possível da fonte, atirando para as suas adjacências. Os excessos de cada vértice vizinho são atualizados de acordo com o fluxo atirado.
+
+O nome da operação não foge muito do apontado acima: `InitializePreFlow`, com pseudo-código como este:
+
+```rust
+InitializePreFlow(G, s)
+  for each v in V
+    u.h = 0
+    u.e = 0
+  for each (u, v) in E
+    (u, v).f = 0
+    (v, u).f = 0
+  s.h = |V|
+  for each u in s.adj
+    f(s, u) = c(s, u) // saturar o arco
+    f(u, s) = -f(s, u) // arco residual
+    u.e = f(s, u)
+    s.e -= f(s, u) // excesso em s incrementado conforme o fluxo atirado
+```
+
+<!-- TODO - FALTA PUSH-RELABEL -->
+
+### Algoritmo Relabel-To-Front
+
+O método _push-relabel_, como referido acima, tem complexidade $O(|V|^2) \cdot E)$ - uma melhoria em relação a Edmonds-Karp. Contudo, estudaremos de seguida um algoritmo (que implementa as operações básicas _push_ e _relabel_), com uma terceira operação-base adicional que permite a alteração da complexidade temporal para $O(|V|^3)$, bastante melhor para redes muito densas, com muito mais arcos que vértices.
+
+Um dos pilares do algoritmo é uma lista $L$, que mantém todos os vértices $V \backslash \{s, t\}$, inicialmente ordenados arbitrariamente. O algoritmo atravessa $L$ do início ao fim, aplicando [**_Discharge_**](color:yellow) a cada um dos vértices: sucessivos _pushes_ e _relabels_ até que o vértice já não possua excesso. Caso o vértice tenha sido _relabeled_, passa para o início de $L$ (daí o nome do algoritmo, _relabel-to-front_), e a passagem pela lista é recomeçada. O algoritmo termina caso consiga passar por todos os elementos da lista sem realizar qualquer descarga - estamos, então, na presença do fluxo máximo da rede.
+
+```rust
+Discharge(u)
+  while u.e != 0
+    v = u.current
+    if v = nil
+      Relabel(u)
+      u.current = head(u.neighbors) // primeiro vizinho de u
+    else if c_f(u, v) > 0 and h(u) = h(v) + 1
+      Push(u, v)
+      u.current = v.next // proximo vizinho
+    else
+      u.current = v.next
+```
+
+<!-- TODO REFERIR QUE NO FIM O EXCESSO DE S DEVE SER SIMÉTRICO AO DE T -->
+
+<!-- TODO REFERIR QUE NEM SEMPRE ESTES ALGORITMOS SÃO MAIS EFICIENTES - TEMOS DE COMPARAR COMPLEXIDADES, VER QUAL O MELHOR -> EXEMPLO DO CARROTT, P EX -->
 
 ---
 
