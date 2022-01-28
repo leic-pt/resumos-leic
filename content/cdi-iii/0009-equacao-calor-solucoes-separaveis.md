@@ -349,7 +349,7 @@ Por este motivo, sabemos que $u(x,t)$ [**não é identicamente nula**](color:red
 - Para $u(0,t) = 0 \Leftrightarrow X(0)T(t) = 0 \Leftrightarrow X(0) = 0 \lor T(t) = 0$: Como sabemos que $T(t) = 0$ não pode ser verdade,
   caso contrário a função $u(x,t)$ seria [**identicamente nula**](color:red), temos então que $X(0) = 0$.
 - Do mesmo modo, para $u(2,t) = 0 \Leftrightarrow X(2)T(t) = 0 \Leftrightarrow X(2) = 0 \lor T(t) = 0$: Sabemos que $T(t) = 0$ não pode ser verdade,
-  temos então que $X(0) = 0$.
+  temos então que $X(2) = 0$.
 
 Vamos então resolver a equação $\frac{X''(x)}{X(x)} = \lambda$:
 
