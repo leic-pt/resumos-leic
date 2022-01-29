@@ -288,7 +288,7 @@ Os passos seguintes seguem todos a mesma lógica, até que não existam mais cam
 
 Chegámos, por fim, a uma rede sem caminhos de aumento restantes. O valor do corte mínimo corresponde, então, ao valor do fluxo máximo da rede: $23$.
 
-Podemos dizer, aqui, que um corte mínimo seria tal que $S = \{s, v_1, v_3, v_4\} \wedge T = \{v_2, t\}$. Os arcos que cruzam o corte têm necessariamente de estar saturados (ou seja, o fluxo deles é igual à capacidade máxima do arco). Mais ainda, **a soma do fluxo que atravessa o corte é igual ao valor do fluxo**. Abaixo podemos observar o corte mínimo na rede:
+Podemos dizer, aqui, que um corte mínimo seria tal que $S = \{s, v_1, v_2, v_4\} \wedge T = \{v_3, t\}$. Os arcos que cruzam o corte têm necessariamente de estar saturados (ou seja, o fluxo deles é igual à capacidade máxima do arco). Mais ainda, **a soma do fluxo que atravessa o corte é igual ao valor do fluxo**. Abaixo podemos observar o corte mínimo na rede:
 
 ![Corte Mínimo](./assets/0007-ff-corte-minimo.png#dark=1)
 
