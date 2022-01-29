@@ -1,5 +1,5 @@
 ---
-title: Equação do Calor. Soluções Separáveis.
+title: Equação do Calor e Soluções Separáveis
 description: >-
   Introdução ao estudo das equações diferenciais parciais.
   Equação do Calor.
@@ -8,7 +8,7 @@ path: /cdi-iii/equacao-calor-solucoes-separaveis
 type: content
 ---
 
-# Equação do Calor. Soluções Separáveis.
+# Equação do Calor e Soluções Separáveis
 
 ```toc
 
@@ -123,7 +123,7 @@ A constante irá ser irrelevante no futuro quando fizermos combinações lineare
 Por outro lado, para $X$, temos a seguinte [equação diferencial de ordem superior](/cdi-iii/equacoes-ordem-superior/),
 
 $$
-X'' = \lambda X \Leftrightarrow X'' - \lambda X
+X'' = \lambda X \Leftrightarrow X'' - \lambda X = 0
 $$
 
 O polinómio característico é $P(D) = D^2 - \lambda$
@@ -252,7 +252,7 @@ Tomando então os resultados obtidos para $X$ na secção anterior, vamos determ
 Assumindo que $u(x,t)$ é não nula (se fosse, a solução seria trivial), podemos agora juntar tudo o que calculámos.
 
 Pegando na expressão não nula de $X(x)$, substituímos o valor de $\lambda$ com o que acabámos de determinar.
-Fazemos o mesmo para $T(x)$.
+Fazemos o mesmo para $T(t)$.
 
 $$
 \begin{darray}{c}
@@ -271,7 +271,7 @@ $$
 Finalmente, fazemos os produtos entre as duas expressões.
 
 $$
-u\left(t,x\right) = T\left(t\right)X\left(t\right) = e^{-\frac{4\pi^2 n^2}{L^2}t} \left(a_n \cos \frac{2\pi n}{L} + b_n \sin \frac{2\pi n}{L}\right)
+u\left(t,x\right) = T\left(t\right)X\left(x\right) = e^{-\frac{4\pi^2 n^2}{L^2}t} \left(a_n \cos \frac{2\pi n}{L} + b_n \sin \frac{2\pi n}{L}\right)
 $$
 
 Segundo o [Princípio da Sobreposição](#princípio-da-sobreposição), podemos escrever a nossa solução como a soma de várias soluções.
@@ -322,7 +322,7 @@ $$
 Aplicando o método descrito acima, substituímos na equação do enunciado:
 
 $$
-X(x)T'(T) = k X''(x)T(t) \Leftrightarrow \frac{T'(t)}{kT(t)} = \frac{X''(x)}{X(x)}
+X(x)T'(t) = k X''(x)T(t) \Leftrightarrow \frac{T'(t)}{kT(t)} = \frac{X''(x)}{X(x)}
 $$
 
 Como podemos reparar, o lado esquerdo da igualdade acima apenas depende de $t$, sendo que o lado direito apenas depende de $x$.
@@ -349,7 +349,7 @@ Por este motivo, sabemos que $u(x,t)$ [**não é identicamente nula**](color:red
 - Para $u(0,t) = 0 \Leftrightarrow X(0)T(t) = 0 \Leftrightarrow X(0) = 0 \lor T(t) = 0$: Como sabemos que $T(t) = 0$ não pode ser verdade,
   caso contrário a função $u(x,t)$ seria [**identicamente nula**](color:red), temos então que $X(0) = 0$.
 - Do mesmo modo, para $u(2,t) = 0 \Leftrightarrow X(2)T(t) = 0 \Leftrightarrow X(2) = 0 \lor T(t) = 0$: Sabemos que $T(t) = 0$ não pode ser verdade,
-  temos então que $X(0) = 0$.
+  temos então que $X(2) = 0$.
 
 Vamos então resolver a equação $\frac{X''(x)}{X(x)} = \lambda$:
 
