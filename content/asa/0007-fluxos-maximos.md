@@ -446,8 +446,8 @@ Push(u, v) // complexidade temporal: O(1)
     (u, v).f = delta
   else // arco residual
     (u, v).f -= delta
-    e(u) -= delta
-    e(v) += delta
+  e(u) -= delta
+  e(v) += delta
 ```
 
 Existem dois tipos (bastante óbvios, pelo nomes) de _pushes_:
