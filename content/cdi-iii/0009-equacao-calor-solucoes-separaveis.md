@@ -456,14 +456,14 @@ Temos então 3 casos distintos: $\lambda = 0$, $\lambda > 0$ e $\lambda < 0$.
   Substituindo $w$ na expressão de $X(x)$ acima ficamos com
 
   $$
-  X(x) = c_6 \sin\left(\frac{n^2\pi^2}{4}x\right)
+  X(x) = c_6 \sin\left(\frac{n\pi}{2}x\right)
   $$
 
 Substituindo agora $\lambda$ em $T(t)$, ficamos com as duas expressões:
 
 $$
 \begin{darray}{cc}
-X(x) = c_6 \sin\left(\frac{n^2\pi^2}{4}x\right) & T(t) = c_1 e^{-\dfrac{n^2\pi^2 k t}{4}}
+X(x) = c_6 \sin\left(\frac{n\pi}{2}x\right) & T(t) = c_1 e^{-\dfrac{n^2\pi^2 k t}{4}}
 \end{darray}
 $$
 
@@ -471,13 +471,13 @@ Finalmente, podemos voltar a juntar as duas expressões, pelo produto $u(x,t) = 
 Vamos usar uma nova constante $c = c_1 \times c_6$ para simplificar.
 
 $$
-u_n(x,t) = c e^{-\dfrac{n^2\pi^2 k t}{4}} \sin\left(\frac{n^2\pi^2}{4}x\right), n \in \Z_0^+
+u_n(x,t) = c e^{-\dfrac{n^2\pi^2 k t}{4}} \sin\left(\frac{n\pi}{2}x\right), n \in \Z_0^+
 $$
 
 Podemos agora generalizar esta expressão pelo [**Princípio da Sobreposição**](color:green).
 
 $$
-u(x,t) = \sum_{n=1}^{+\infty} c_n u_n(x,t) = \sum_{n=1}^{+\infty} c_n e^{-\dfrac{n^2\pi^2 k t}{4}} \sin\left(\frac{n^2\pi^2}{4}x\right)
+u(x,t) = \sum_{n=1}^{+\infty} c_n u_n(x,t) = \sum_{n=1}^{+\infty} c_n e^{-\dfrac{n^2\pi^2 k t}{4}} \sin\left(\frac{n\pi}{2}x\right)
 $$
 
 Finalmente, vamos determinar a solução particular definida pela [**condição inicial**](color:orange).  
