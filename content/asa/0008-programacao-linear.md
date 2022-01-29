@@ -40,14 +40,16 @@ Como podemos observar, diferentes círculos eleitorais reagem de forma diferente
 
 O objetivo passará, então, por tentar obter a maioria absoluta (pelo menos $50%$ dos votos) minimizando os custos. A resposta, claro, será obtida através da programação linear. Antes de introduzir o conceito em si, tentemos formalizar o problema:
 
-Temos que as quantias a gastar por medida em publicidade são dados, respetivamente, por $x_1, x_2, x_3$ e $x_4$. O nosso objetivo passa, então, por minimizar $\sum_{i=1}^4 x_i$. Visto que queremos procurar satisfazer ao máximo o eleitorado, procuramos também que cada círculo eleitoral tenha, no mínimo, $50%$ dos votos. Assim sendo, iremos procurar a solução que minimize os custos sujeita às restrições:
+Temos que as quantias a gastar por medida em publicidade são dados, respetivamente, por $x_1, x_2, x_3$ e $x_4$. O nosso objetivo passa, então, por minimizar $\sum_{i=1}^4 x_i$. Visto que queremos procurar satisfazer ao máximo o eleitorado, procuramos também que cada círculo eleitoral tenha, no mínimo, $50%$ dos votos. Assim sendo, iríamos procurar a solução que minimize os custos sujeita às restrições:
 
 $$
 -2x_1 + 8x_2 + 0x_3 + 10x_4 \geq 50\\
 5x_1 + 2x_2 + 0x_3 + 0x_4 \geq 100\\
 3x_1 - 5x_2 + 10x_3 + -2x_4 \geq 25\\
-x_1, x_2, x_3, x_4 \geq 0
+x_1, x_2, x_3, x_4 \geq 0.
 $$
+
+## Formulações
 
 :::info[Formulação Geral - Programação Linear]
 
@@ -61,7 +63,7 @@ $$
 
 Uma função linear pode estar sujeita a um dado conjunto de **restrições lineares**, igualdades e/ou desigualdades lineares (em relação a um qualquer número real).
 
-Temos que qualquer solução que satisfaça o conjunto de restrições de uma dada função é uma **solução exequível**, e que o conjunto de soluções deste género corresponde à **região exequível** da função.
+Temos que qualquer solução que satisfaça o conjunto de restrições de uma dada função é uma **solução exequível**, e que o conjunto de soluções deste género corresponde à **região exequível** da função. Por fim, diz-se que uma dada formulação é exequível se tiver pelo menos uma solução exequível (e não exequível caso contrário). Se atingir a solução levar tempo exponencial (vs tempo polinomial), a formulação diz-se **não limitada**.
 
 :::
 
@@ -94,9 +96,20 @@ Importa realçar que as soluções ótimas para este tipo de problemas encontram
 
 O conjunto convexo, a região que andamos a referir tantas vezes, chama-se **Simplex** - nome este que vamos ouvir bastante durante esta secção.
 
-## Formulações
+São estudadas duas formas de especificar programas lineares - as formas Standard e Slack. Diferem quanto à especificação das respetivas restrições: a primeira opta por especificar as restrições como **desigualdades**, enquanto a segunda opta por especificar as restrições como **igualdades** (exceto para os problemas que requerem variáveis necessariamente não negativas). Olhemos para ambas:
 
-## Algoritmo Simplex
+### [Forma Standard](color:green)
+
+A forma standard procura maximizar $\sum_{i=1}^n a_i x_i$, tendo em conta um conjunto de restrições tal que:
+
+$$
+\sum_{i=1}^n a_{ij} x_j \leq b_i \quad \forall i \in \{1, ..., m\}.\\
+x_j \geq 0 \quad \forall j \in \{1, ..., n\}.
+$$
+
+### [Forma Slack](color:yellow)
+
+## [Algoritmo Simplex](color:orange)
 
 ## Dualidade
 
@@ -104,3 +117,4 @@ O conjunto convexo, a região que andamos a referir tantas vezes, chama-se **Sim
 
 - [Slides]()
 - [Notas]()
+  $$

@@ -136,7 +136,7 @@ A imagem abaixo poderá tornar o conceito mais claro:
 
 ![Fluxo Líquido - Exemplo](./assets/0007-net-flow-example.png#dark=1)
 
-Na rede da imagem, consideramos $S = \{s, v_1, v_2\} \wedge T = \{v_3, v_4, t\}$. Os arcos que cruzam o corte são $(v_1, v_2), (v_3, v_2)$ e $(v_2, v_4)$.
+Na rede da imagem, consideramos $S = \{s, v_1, v_2\} \wedge T = \{v_3, v_4, t\}$. Os arcos que cruzam o corte são $(v_1, v_3), (v_3, v_2)$ e $(v_2, v_4)$.
 Como a definição acima indica, **o sentido dos arcos é relevante** para a determinação do fluxo líquido do corte: voltando a olhar para a imagem-exemplo dos caminhos de aumento, temos que:
 
 $$
