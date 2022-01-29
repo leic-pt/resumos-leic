@@ -122,7 +122,7 @@ Ou seja, que o fluxo da rede após a aplicação do aumento à rede, $f'$ é est
 
 ### Cortes em Redes de Fluxo
 
-Os cortes em redes de fluxo correspondem a uma partição de $V$ tal que $(S, V-S)$, com $T = V-S$, tal que $s \in S \wedge t \in T$.
+Os cortes em redes de fluxo correspondem a uma partição de $V$ tal que $(S, T)$, com $T = V-S$, tal que $s \in S \wedge t \in T$.
 Seja $f$ um fluxo, o **fluxo líquido de um corte** corresponde a:
 
 $$
