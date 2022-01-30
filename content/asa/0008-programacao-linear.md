@@ -477,5 +477,5 @@ O conteúdo será adicionado brevemente.
 
 ---
 
-- [Slides](https://www.edenbox.org/index.php/s/edenbox?dir=undefined&path=%2FLEIC%2F2%C2%BA%20Ano%2F1%C2%BA%20Semestre%2FASA%2FTe%C3%B3ricas%2F2015-2016&openfile=5148)
+- [Slides](https://drive.google.com/file/d/1IGRwXhtKGG0P9SRQxB3RTf5bIxtpvG1Y/view?usp=sharing)
 - [Notas Prog. Linear - Prof. José Fragoso](https://drive.google.com/file/d/1mDyBymCHkOOU0IrikVmHZ0kcdku9X23A/view?usp=sharing)
