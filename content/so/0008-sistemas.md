@@ -49,6 +49,8 @@ type: content
 
 ## Organização Típica
 
+![Organização do SO](./imgs/0008/organization.png#dark=1)
+
 - SO divide-se em:
   - Núcleo (kernel) - dividido em módulos
   - Biblioteca das funções sistema (system calls) - usadas pelas aplicações
@@ -71,12 +73,12 @@ type: content
 - Processo pede (através de sys.call)
   ação sobre um periférico
 - O núcleo envia pedido ao periférico e
-  bloqueia o processo
+  bloqueia o processo (Gestor de Periférico)
 - Quando o pedido for servido, o
   periférico lança uma interrupção
 - Consequentemente, o núcleo é
   ativado, entrega a resposta ao
-  processo e torna-o executável
+  processo e torna-o executável (Gestor de Periférico)
 
 ### E caso um processo não largue o processador?
 
@@ -98,6 +100,8 @@ type: content
 
 ## Estrutura Monolítica
 
+![Estrutura Monolítica](./imgs/0008/monolitic.png#dark=1)
+
 - Um único sistema
 
 - Internamente organizado em módulos
@@ -113,6 +117,8 @@ type: content
 - Problemas?
 
 ### Sistemas em Camadas
+
+![Sistema em Camadas](./imgs/0008/onion.png#dark=1)
 
 - Cada camada usa os serviços da camada precedente
 
@@ -142,6 +148,14 @@ essencial do sistema operativo:
   - Device drivers
   - Sistema de ficheiro
 
-![11](./imgs/0008/0011-a.png)
+![Micro-Núcleo](./imgs/0008/nucleo.png#dark=1)
 
 ### Micro-Núcleo vs Monolítico
+
+![VS](./imgs/0008/vs.png)
+
+---
+
+Slides:
+
+- [Slides 6](https://drive.google.com/file/d/1FgdQU7hYV-WhvOQq9uUzElgzeeXp9Shc/view?usp=sharing)
