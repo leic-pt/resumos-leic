@@ -100,14 +100,180 @@ São estudadas duas formas de especificar programas lineares - as formas Standar
 
 ### [Forma Standard](color:green)
 
-A forma standard procura maximizar $\sum_{i=1}^n a_i x_i$, tendo em conta um conjunto de restrições tal que:
+A forma standard procura **maximizar** $\sum_{i=1}^n a_i x_i$, tendo em conta um conjunto de restrições tal que:
 
 $$
 \sum_{i=1}^n a_{ij} x_j \leq b_i \quad \forall i \in \{1, ..., m\}.\\
 x_j \geq 0 \quad \forall j \in \{1, ..., n\}.
 $$
 
+Mais ainda, notar que a forma standard requer **variáveis com valor não negativo**, e que todas as suas desigualdades sejam apresentadas tal que **menor-ou-igual-a**, não havendo lugar a restrições de igualdade.
+
+Podemos representar o programa de forma mais compacta ainda, recorrendo a uma representação matricial do problema.
+
+Ao criar uma matriz $A = (a_{ij})$, matriz essa $m \times n$, e recorrendo a três vetores $b = (b_i)$, $c = (c_j)$ e $x = (x_j)$, podemos representar o programa tal que procuramos maximizar $c^T x$, tendo em conta as restrições:
+
+$$
+Ax \leq b \\
+x \geq 0
+$$
+
+Podemos reparar que as reprsentações coincidem com as apresentadas anteriormente.
+
+A conversão de um programa linear para a forma standard pode não ser trivial: podemos enfrentar problemas com resolução não óbvia.
+
+- Caso o objetivo seja [**minimizar**](color:orange) o objetivo (em vez de procurar a maximização do mesmo), a solução passa por inverter o sinal de todos os coeficientes da função objetivo (mantendo os das restrições), procurando agora a maximização desse novo objetivo. Por exemplo, minimizar uma função objetivo $3x_1 - 17x_2 + 4x_3$ seria o mesmo que maximizar $-3x_1 + 17x_2 - 4x_3$ (não havendo quaisquer alterações nos coeficientes das restrições).
+
+- Caso haja [**variáveis que possam ser negativas**](color:yellow), essas mesmas variáveis são substituídas pela diferença de duas variáveis auxiliares, essas sim com a restrição de serem não negativas. Por exemplo, no programa abaixo:
+
+  - Objetivo: Maximizar $2x_1 - 3x_2$
+  - Restrições:
+    - $x_1 + x_2 = 7$
+    - $x_1 - 2x_2 \leq 4$
+    - $x_1 \geq 0$
+
+  Aqui, $x_2$ não apresenta a restrição requerida. Assim sendo, substituímo-la por $x_2 = x_2' - x_2''$, ficando então com o programa linear:
+
+  - Objetivo: Maximizar $2x_1 - 3(x_2' - x_2'')$
+  - Restrições:
+    - $x_1 + x_2' - x_2'' = 7$
+    - $x_1 - 2(x_2' - x_2'') \leq 4$
+    - $x_1, x_2', x_2'' \geq 0$
+
+- Caso haja [**restrições via igualdade**](color:green), ao invés de desigualdades, estas são substituídas por um par de desigualdades. Ter $f(x_1, x_2, x_3) = b$ é equivalente a ter $x_1 + x_2 + x_3 \leq b \wedge x_1 + x_2 + x_3 \geq b$, pelo que podemos pegar no exemplo imediatamente acima e reescrevê-lo tal que:
+
+  - Objetivo: Maximizar $2x_1 - 3(x_2' - x_2'')$
+  - Restrições:
+    - $x_1 + x_2' - x_2'' \leq 7$
+    - $x_1 + x_2' - x_2'' \geq 7$
+    - $x_1 - 2(x_2' - x_2'') \leq 4$
+    - $x_1, x_2', x_2'' \geq 0$
+
+- Caso haja [**restrições via desigualdade maior-ou-igua-a**](color:pink), basta apenas trocar os sinais em ambos os lados. Pegando no programa acima, ficaríamos com:
+
+  - Objetivo: Maximizar $2x_1 - 3(x_2' - x_2'')$
+  - Restrições:
+    - $x_1 + x_2' - x_2'' \leq 7$
+    - $-x_1 - x_2' + x_2'' \leq -7$
+    - $x_1 - 2(x_2' - x_2'') \leq 4$
+    - $x_1, x_2', x_2'' \geq 0$
+
+  De realçar que a restrição que obriga as variáveis a ser não negativas é mantida.
+
+Por fim, as variáveis com apóstrofes acabariam por ser renomeadas, ficando então com:
+
+- Objetivo: Maximizar $2x_1 - 3(x_2 - x_3)$
+- Restrições:
+  - $x_1 + x_2 - x_3 \leq 7$
+  - $-x_1 - x_2 + x_3 \leq -7$
+  - $x_1 - 2(x_2 - x_3) \leq 4$
+  - $x_1, x_2, x_3 \geq 0$
+
 ### [Forma Slack](color:yellow)
+
+O tratamento que estamos a fazer ao programa não é despropositado - não estamos a fazê-lo só porque sim, este tratamento é fulcral para o algoritmo Simplex, abordado mais abaixo, resolver o problema de forma eficiente. O algoritmo, contudo, prefere ainda uma forma diferente de expressar o programa: todas as restrições (exceto as das variáveis serem não negativas) devem ser expressadas sob a forma de **igualdade**. Para tal, recorremos a $s$, uma [**variável de slack**](color:purple) que representa a diferença entre ambos os lados da nova igualdade - atualmente é uma igualdade, logo algo teve necessariamente de mudar para deixar de ser uma inequação.
+
+Por exemplo, tendo a restrição
+
+$$
+\sum_{i=1}^{n} a_{ij}x_j \leq b_i
+$$
+
+convertê-la-iamos para a forma Slack tal que:
+
+$$
+s = b_i - \sum_{i=1}^{n} a_{ij}x_j\\
+s \geq 0
+$$
+
+Na forma slack, optamos por escrever as novas igualdades sob a notação $x_{n + i}$, ao invés de $s$. O exemplo utilizado na forma standard ficaria então:
+
+- Objetivo: Maximizar $2x_1 - 3(x_2 - x_3)$
+- Restrições:
+  - $x_4 = 7 - (x_1 + x_2 - x_3)$
+  - $x_5 = -7 - (-x_1 - x_2 + x_3)$
+  - $x_6 = 4 - (x_1 - 2(x_2 - x_3))$
+  - $x_1, x_2, x_3, x_4, x_5, x_6 \geq 0$
+
+Podemos reparar num pormenor interessante: estamos a procurar sempre escrever os $x_{n + i}$ em função de outras variáveis - neste caso em função das "variáveis iniciais", as da função que pretendemos maximizar. Dizemos que estas variáveis auxiliares (as do lado esquerdo das equações, portanto) são as **variáveis básicas**, e que as restantes são as **variáveis não-básicas**. Mais ainda, tal como no exemplo do gráfico que foi utilizado acima onde denotámos $x_1 + x_2 = z$, temos que na forma slack a função objetivo está definida como
+
+$$
+z = \sum_{i=1}^{n} c_{j}x_{j},
+$$
+
+e que portanto o programa acima na forma slack seria escrito tal que:
+
+- $z = 2x_1 - 3(x_2 - x_3)$
+- $x_4 = 7 - (x_1 + x_2 - x_3)$
+- $x_5 = -7 - (-x_1 - x_2 + x_3)$
+- $x_6 = 4 - (x_1 - 2(x_2 - x_3))$
+
+Formalizando por fim, a forma slack pode ser então descrita tal que:
+
+- $N$ corresponde ao conjunto de índices das variáveis não-básicas;
+
+- $B$ corresponde ao conjunto de índices das variáveis básicas;
+
+- $N \cup B = {1, 2, ..., n + m}$, com $|N| = n$ e $|B| = m$;
+
+$$
+z = v + \sum_{i=1}^{n} c_{j}x_{j}\\
+x_{i} = b_i - \sum_{i=1}^{n} a_{ij}x_j \quad \text{para } i \in B\\
+$$
+
+Na função objetivo, $v$ corresponde a uma constante, cuja utilidade será aparente mais à frente.
+
+:::details[Exemplo - Representação Matricial]
+
+Tenhamos o seguinte programa na forma slack:
+
+$$
+z = 28 - \frac{x_3}{6} - \frac{x_5}{6} - \frac{2x_6}{3}\\
+x_1 = 8 + \frac{x_3}{6} + \frac{x_5}{6} - \frac{x_6}{3}\\
+x_2 = 4 - \frac{8x_3}{3} - \frac{2x_5}{3} + \frac{x_6}{3}\\
+x_4 = 18 - \frac{x_3}{2} + \frac{x_5}{2}\\
+$$
+
+Ora, temos aqui que $N = \{3, 5, 6\}$ (as **variáveis não-básicas**) e $B = \{1, 2, 4\}$ (as **variáveis básicas**).
+
+Voltando a pegar na representação matricial abordada inicialmente na forma Standard, podemos então escrever:
+
+$$
+A = \begin{pmatrix}
+  a_{13} & a_{15} & a_{16}\\
+  a_{23} & a_{25} & a_{26}\\
+  a_{43} & a_{45} & a_{46}\\
+\end{pmatrix} = \begin{pmatrix}
+  \frac{-1}{6} & \frac{-1}{6} & \frac{1}{3}\\
+  \frac{8}{3} & \frac{2}{3} & \frac{-1}{3}\\
+  \frac{1}{2} & \frac{-1}{2} & 0\\
+\end{pmatrix}\\
+b = \begin{pmatrix}
+  b_1\\
+  b_2\\
+  b_4\\
+\end{pmatrix} = \begin{pmatrix}
+  8\\
+  4\\
+  18\\
+\end{pmatrix}\\
+c = \begin{pmatrix}
+  c_3 & c_5 & c_6\\
+\end{pmatrix}^T = \begin{pmatrix}
+  \frac{-1}{6} & \frac{-1}{6} & \frac{-2}{3}\\
+\end{pmatrix}^T\\
+v = 28.
+$$
+
+Podemos então notar que, de forma sucinta:
+
+- As colunas de $a$ correspondem às variáveis não-básicas, $N$;
+- As linhas de $a$ correspondem às variáveis básicas, $B$;
+- As entradas de $A$ correspondem aos coeficientes de cada variável não básica na equação associada a cada variável básica do conjunto de restrições;
+
+Mais ainda, as linhas da matriz vertical $b$ correspodem à variável de slack de cada igualdade do conjunto de restrições associada a cada variável básica. Para além disso, $c_3, c_5, c_6$ em $c$ correspondem aos coeficientes de cada variável não básica na função objetivo.
+
+:::
 
 ## [Algoritmo Simplex](color:orange)
 

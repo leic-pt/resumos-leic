@@ -462,7 +462,7 @@ Acima foi referido que _push_ só pode ser realizado caso, entre outras condiç�
 
 ```rust
 Relabel(u)
-  h(u) := 1 + min{h(v) | (u, v) \in E_f}
+  h(u) := 1 + min{h(v) | (u, v) in E_f}
 ```
 
 Ou seja, a nova altura de $u$ corresponde à menor altura de um dos seus vizinhos, mais 1 (para ficar mais alto que ele).
@@ -604,7 +604,7 @@ Podemos finalmente passar o Cabo das Tormentas que $v_1$ e $v_2$ estavam a apres
 
 ![Passo 7 - R2F](./assets/0007-r2f-passo-7.png#dark=1)
 
-Chegámos, por fim, a $v_4$. Infelizmente o algoritmo não termina aqui - apenas conseguimos enviar $4$ dos $14$ de excesso que tínhamos no vértice, pelo que temos de alterar a altura (2 vezes!) para o conseguir fazer, e a lisya é novamente reordenada: $L = (v_4, v_3, v_1, v_2)$.
+Chegámos, por fim, a $v_4$. Infelizmente o algoritmo não termina aqui - apenas conseguimos enviar $4$ dos $14$ de excesso que tínhamos no vértice, pelo que temos de alterar a altura (2 vezes!) para o conseguir fazer, e a lista é novamente reordenada: $L = (v_4, v_3, v_1, v_2)$.
 
 ![Passo 8 - R2F](./assets/0007-r2f-passo-8.png#dark=1)
 ![Passo 9 - R2F](./assets/0007-r2f-passo-9.png#dark=1)
