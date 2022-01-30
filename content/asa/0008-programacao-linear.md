@@ -438,9 +438,17 @@ Abaixo encontra-se o gráfico correspondente a um programa linear _unbounded_. P
 
 ![Região Exequível - Unbounded](./assets/0008-regiao-exequivel-unbounded.png#dark=1)
 
+Como nota final, resta afirmar que caso após $\binom{n + m}{n}$ iterações o algoritmo ainda não tenha terminado, podemos admitir que este está [**em ciclo**](color:orange). Há, ao todo, $n + m$ variáveis e $m$ formas de escolher $B$, pelo que há $\binom{n + m}{n}$ formas de slack únicas - mais que isso e o algoritmo está em ciclo. São raros, mas existem, e para os eliminar recorre-se à [**Regra de Bland**]: em caso de empate na escolha de variáveis, escolhe-se sempre a variável com menor índice.
+
 ## Dualidade
+
+:::warning[Página em Construção]
+
+O conteúdo será adicionado brevemente.
+
+:::
 
 ---
 
-- [Slides]()
-- [Notas]()
+- [Slides](https://www.edenbox.org/index.php/s/edenbox?dir=undefined&path=%2FLEIC%2F2%C2%BA%20Ano%2F1%C2%BA%20Semestre%2FASA%2FTe%C3%B3ricas%2F2015-2016&openfile=5148)
+- [Notas Prog. Linear - Prof. José Fragoso](https://drive.google.com/file/d/1mDyBymCHkOOU0IrikVmHZ0kcdku9X23A/view?usp=sharing)
