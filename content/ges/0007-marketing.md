@@ -318,7 +318,8 @@ o Marketing é bem mais amplo, sendo a promoção uma das partes.A comunicação
   websites, comunidades on-line, blogs e redes sociais como Facebook e Twitter, mensagens de texto e apps para smartphones e tablets
 - **Relações Públicas**: Programas destinados a promover e/ou proteger a imagem da organização ou dos seus produtos
 - **Eventos e experiências**: Eventos e experiências são atividades e programas patrocinados e concebidos para criar interações diárias ou especiais com marcas.
-  A resposta comportamental pretendida pela ação de comunicação é condicionada pelo estado do comprador:
+
+A resposta comportamental pretendida pela ação de comunicação é condicionada pelo estado do comprador:
 
 ![Comunicação (lado do marketer)](./assets/0007-comunicacao-marketer.png#dark=1)
 
