@@ -36,7 +36,7 @@ O exemplo dos partidos políticos referido acima é bastante fácil de explicar 
 
 Aqui, cada coluna corresponde a um círculo eleitoral, enquanto que cada linha corresponde a uma política. Cada círculo eleitoral tem, claro, número diferente de eleitores: respetivamente cem mil, duzentos mil e cinquenta mil eleitores recenseados. Cada entrada na matriz corresponde aos ganhos (em milhares de eleitores) por cada $1000€$ gastos em publicidades.
 
-Como podemos observar, diferentes círculos eleitorais reagem de forma diferente à mesma medida: subsídios agrícolas, por exemplo, são recebidos com enorme satisfação pela população rural, diretamente beneficiada pelos mesmos, enquanto que os setores urbano e suburbano reagem com indiferença, visto que não os afeta diretamente.
+Como podemos observar, diferentes círculos eleitorais reagem de forma diferente à mesma medida: subsídios agrícolas, por exemplo, são recebidos com enorme satisfação pela população rural, diretamente beneficiada pelos mesmos, enquanto que os setores urbano e suburbano reagem com indiferença, visto que a medida não os afeta diretamente.
 
 O objetivo passará, então, por tentar obter a maioria absoluta (pelo menos $50%$ dos votos) minimizando os custos. A resposta, claro, será obtida através da programação linear. Antes de introduzir o conceito em si, tentemos formalizar o problema:
 
@@ -53,7 +53,7 @@ $$
 
 :::info[Formulação Geral - Programação Linear]
 
-Procuramos, ao resolver problemas via programação linear, a otimizar uma função linear sujeita a um conjunto de restrições (desigualdades) lineares.
+Procuramos, ao resolver problemas via programação linear, otimizar uma função linear sujeita a um conjunto de restrições (desigualdades) lineares.
 
 Dados um conjunto de números reais $[a_1, ..., a_n]$ e um conjunto de variáveis $[x_1, ..., x_n]$, podemos definir uma **função linear** para essas variáveis tal que:
 
@@ -63,7 +63,7 @@ $$
 
 Uma função linear pode estar sujeita a um dado conjunto de **restrições lineares**, igualdades e/ou desigualdades lineares (em relação a um qualquer número real).
 
-Temos que qualquer solução que satisfaça o conjunto de restrições de uma dada função é uma **solução exequível**, e que o conjunto de soluções deste género corresponde à **região exequível** da função. Por fim, diz-se que uma dada formulação é exequível se tiver pelo menos uma solução exequível (e não exequível caso contrário). Se atingir a solução levar tempo exponencial (vs tempo polinomial), a formulação diz-se **não limitada**.
+Temos que qualquer solução que satisfaça o conjunto de restrições de uma dada função é uma **solução exequível**, e que o conjunto de soluções deste género corresponde à **região exequível** da função. Por fim, diz-se que uma dada formulação é exequível se tiver pelo menos uma solução exequível (e não exequível caso contrário).
 
 :::
 
@@ -84,7 +84,9 @@ Ora, a interseção de todas estas restrições resulta num conjunto convexo com
 
 ![Região Exequível - Região Convexa](./assets/0008-regiao-exequivel-regiao.png#dark=1)
 
-Visto que temos que maximizar a função objetivo, $x_1 + x_2$, vamos considerar aqui várias linhas tal que $x_1 + x_2 = z$, onde $z$ é um número real. O objetivo será encontrar o maior número $z$ tal que a interseção da linha com o conjunto convexo apresentado acima não é vazio - aí, **maximizamos o objetivo**!
+Tenhamos ainda que a função objetivo é $f(x_1, x_2) = x_1 + x_2$.
+
+Visto que temos que a maximizar, vamos considerar aqui várias linhas tal que $x_1 + x_2 = z$, onde $z$ é um número real. O objetivo será encontrar o maior número $z$ tal que a interseção da linha com o conjunto convexo apresentado acima não é vazio - aí, **maximizamos o objetivo**!
 
 Observemos a imagem abaixo:
 
@@ -96,7 +98,7 @@ Importa realçar que as soluções ótimas para este tipo de problemas encontram
 
 O conjunto convexo, a região que andamos a referir tantas vezes, chama-se **Simplex** - nome este que vamos ouvir bastante durante esta secção.
 
-São estudadas duas formas de especificar programas lineares - as formas Standard e Slack. Diferem quanto à especificação das respetivas restrições: a primeira opta por especificar as restrições como **desigualdades**, enquanto a segunda opta por especificar as restrições como **igualdades** (exceto para os problemas que requerem variáveis necessariamente não negativas). Olhemos para ambas:
+São estudadas duas formas de especificar programas lineares - as formas Standard e Slack. Diferem quanto à especificação das respetivas restrições: a primeira opta por especificar as restrições como **desigualdades**, enquanto que a segunda opta por especificar as restrições como **igualdades** (exceto para os problemas que requerem variáveis necessariamente não negativas). Olhemos para ambas:
 
 ### [Forma Standard](color:green)
 
@@ -107,7 +109,7 @@ $$
 x_j \geq 0 \quad \forall j \in \{1, ..., n\}.
 $$
 
-Mais ainda, notar que a forma standard requer **variáveis com valor não negativo**, e que todas as suas desigualdades sejam apresentadas tal que **menor-ou-igual-a**, não havendo lugar a restrições de igualdade.
+Mais ainda, notar que a forma standard requer **variáveis com valor não negativo**, e que todas as suas desigualdades sejam apresentadas tal que **menor-ou-igual-a**, não havendo lugar a restrições de igualdade (a importância da orientação do sinal da inequação será claro mais à frente).
 
 Podemos representar o programa de forma mais compacta ainda, recorrendo a uma representação matricial do problema.
 
@@ -149,7 +151,7 @@ A conversão de um programa linear para a forma standard pode não ser trivial: 
     - $x_1 - 2(x_2' - x_2'') \leq 4$
     - $x_1, x_2', x_2'' \geq 0$
 
-- Caso haja [**restrições via desigualdade maior-ou-igua-a**](color:pink), basta apenas trocar os sinais em ambos os lados. Pegando no programa acima, ficaríamos com:
+- Caso haja [**restrições via desigualdade maior-ou-igual-a**](color:pink), basta apenas trocar os sinais em ambos os lados. Pegando no programa acima, ficaríamos com:
 
   - Objetivo: Maximizar $2x_1 - 3(x_2' - x_2'')$
   - Restrições:
@@ -171,7 +173,7 @@ Por fim, as variáveis com apóstrofes acabariam por ser renomeadas, ficando ent
 
 ### [Forma Slack](color:yellow)
 
-O tratamento que estamos a fazer ao programa não é despropositado - não estamos a fazê-lo só porque sim, este tratamento é fulcral para o algoritmo Simplex, abordado mais abaixo, resolver o problema de forma eficiente. O algoritmo, contudo, prefere ainda uma forma diferente de expressar o programa: todas as restrições (exceto as das variáveis serem não negativas) devem ser expressadas sob a forma de **igualdade**. Para tal, recorremos a $s$, uma [**variável de slack**](color:purple) que representa a diferença entre ambos os lados da nova igualdade - atualmente é uma igualdade, logo algo teve necessariamente de mudar para deixar de ser uma inequação.
+O tratamento que estamos a fazer ao programa não é despropositado - é fulcral para o algoritmo Simplex, abordado mais abaixo, resolver o problema de forma eficiente. O algoritmo, contudo, prefere ainda uma forma diferente de expressar o programa: todas as restrições (exceto as das variáveis serem não negativas) devem ser expressadas sob a forma de **igualdade**. Para tal, recorremos a $s$, uma [**variável de slack**](color:purple) que representa a diferença entre ambos os lados da nova igualdade - a inequação passou a equação, logo algo teve necessariamente de mudar para deixar de ser uma inequação.
 
 Por exemplo, tendo a restrição
 
@@ -195,7 +197,7 @@ Na forma slack, optamos por escrever as novas igualdades sob a notação $x_{n +
   - $x_6 = 4 - (x_1 - 2(x_2 - x_3))$
   - $x_1, x_2, x_3, x_4, x_5, x_6 \geq 0$
 
-Podemos reparar num pormenor interessante: estamos a procurar sempre escrever os $x_{n + i}$ em função de outras variáveis - neste caso em função das "variáveis iniciais", as da função que pretendemos maximizar. Dizemos que estas variáveis auxiliares (as do lado esquerdo das equações, portanto) são as **variáveis básicas**, e que as restantes são as **variáveis não-básicas**. Mais ainda, tal como no exemplo do gráfico que foi utilizado acima onde denotámos $x_1 + x_2 = z$, temos que na forma slack a função objetivo está definida como
+Podemos reparar num pormenor interessante: estamos a procurar sempre escrever os $x_{n + i}$ em função de outras variáveis - neste caso em função das "variáveis iniciais", as da função que pretendemos maximizar. Dizemos que estas variáveis auxiliares (as do lado esquerdo das equações, portanto) são as **variáveis básicas**, que dependem das outras, e que as restantes são as **variáveis não-básicas**. Mais ainda, tal como no exemplo do gráfico que foi utilizado acima onde denotámos $x_1 + x_2 = z$, temos que na forma slack a função objetivo está definida como
 
 $$
 z = \sum_{i=1}^{n} c_{j}x_{j},
@@ -203,10 +205,14 @@ $$
 
 e que portanto o programa acima na forma slack seria escrito tal que:
 
-- $z = 2x_1 - 3(x_2 - x_3)$
-- $x_4 = 7 - (x_1 + x_2 - x_3)$
-- $x_5 = -7 - (-x_1 - x_2 + x_3)$
-- $x_6 = 4 - (x_1 - 2(x_2 - x_3))$
+$$
+\begin{aligned}
+z &= 2x_1 - 3(x_2 - x_3)\\
+x_4 &= 7 - (x_1 + x_2 - x_3)\\
+x_5 &= -7 - (-x_1 - x_2 + x_3)\\
+x_6 &= 4 - (x_1 - 2(x_2 - x_3))
+\end{aligned}
+$$
 
 Formalizando por fim, a forma slack pode ser então descrita tal que:
 
@@ -228,10 +234,12 @@ Na função objetivo, $v$ corresponde a uma constante, cuja utilidade será apar
 Tenhamos o seguinte programa na forma slack:
 
 $$
-z = 28 - \frac{x_3}{6} - \frac{x_5}{6} - \frac{2x_6}{3}\\
-x_1 = 8 + \frac{x_3}{6} + \frac{x_5}{6} - \frac{x_6}{3}\\
-x_2 = 4 - \frac{8x_3}{3} - \frac{2x_5}{3} + \frac{x_6}{3}\\
-x_4 = 18 - \frac{x_3}{2} + \frac{x_5}{2}\\
+\begin{aligned}
+z &= 28 - \frac{x_3}{6} - \frac{x_5}{6} - \frac{2x_6}{3}\\
+x_1 &= 8 + \frac{x_3}{6} + \frac{x_5}{6} - \frac{x_6}{3}\\
+x_2 &= 4 - \frac{8x_3}{3} - \frac{2x_5}{3} + \frac{x_6}{3}\\
+x_4 &= 18 - \frac{x_3}{2} + \frac{x_5}{2}\\
+\end{aligned}
 $$
 
 Ora, temos aqui que $N = \{3, 5, 6\}$ (as **variáveis não-básicas**) e $B = \{1, 2, 4\}$ (as **variáveis básicas**).
@@ -239,7 +247,8 @@ Ora, temos aqui que $N = \{3, 5, 6\}$ (as **variáveis não-básicas**) e $B = \
 Voltando a pegar na representação matricial abordada inicialmente na forma Standard, podemos então escrever:
 
 $$
-A = \begin{pmatrix}
+\begin{aligned}
+A &= \begin{pmatrix}
   a_{13} & a_{15} & a_{16}\\
   a_{23} & a_{25} & a_{26}\\
   a_{43} & a_{45} & a_{46}\\
@@ -248,7 +257,7 @@ A = \begin{pmatrix}
   \frac{8}{3} & \frac{2}{3} & \frac{-1}{3}\\
   \frac{1}{2} & \frac{-1}{2} & 0\\
 \end{pmatrix}\\
-b = \begin{pmatrix}
+b &= \begin{pmatrix}
   b_1\\
   b_2\\
   b_4\\
@@ -257,12 +266,13 @@ b = \begin{pmatrix}
   4\\
   18\\
 \end{pmatrix}\\
-c = \begin{pmatrix}
+c &= \begin{pmatrix}
   c_3 & c_5 & c_6\\
 \end{pmatrix}^T = \begin{pmatrix}
   \frac{-1}{6} & \frac{-1}{6} & \frac{-2}{3}\\
 \end{pmatrix}^T\\
-v = 28.
+v &= 28.
+\end{aligned}
 $$
 
 Podemos então notar que, de forma sucinta:
@@ -282,17 +292,19 @@ O Algoritmo Simplex corresponde à abordagem clássica para resolver problemas d
 A ideia por detrás do algoritmo poderá ser entendida mais facilmente com a ajuda de um exemplo. Tenhamos o seguinte programa linear na forma slack:
 
 $$
-z = 3x_1 + x_2 + 2x_3\\
-x_4 = 30 - x_1 - x_2 - 3x_3\\
-x_5 = 24 - 2x_1 - 2x_2 - 3x_3\\
-x_6 = 36 - 4x_1 - x_2 - 2x_3
+\begin{aligned}
+z &= 3x_1 + x_2 + 2x_3\\
+x_4 &= 30 - x_1 - x_2 - 3x_3\\
+x_5 &= 24 - 2x_1 - 2x_2 - 3x_3\\
+x_6 &= 36 - 4x_1 - x_2 - 2x_3
+\end{aligned}
 $$
 
 Inicialmente, olhamos para a **solução básica** para o problema: colocamos todas as variáveis não-básicas a zero, ficando com a solução igual a $(0, 0, 0, 30, 24, 36)$, $z = 3 \cdot 0 + 1 \cdot 0 + 2 \cdot 0 = 0$. Se for exequível, dizemos que se trata de uma **solução básica exequível**.
 
-O algoritmo procura, a cada iteração, reescrever as equações do programa, de forma a encontrar diferentes soluções para o mesmo. Além disso, queremos sempre **aumentar o valor de $z$**, pelo que só iremos reescrever o problema se isso nos levar a um valor de $z$ maior que o anterior.
+O algoritmo procura, a cada iteração, reescrever as equações do programa, de forma a encontrar diferentes soluções para o mesmo. Além disso, temos que as alterações que faremos serão sempre com vista a **não decrescer** $z$ - não tem necessariamente de aumentar, mas nunca irá diminuir entre iterações.
 
-Para reescrever as igualdades, pegamos numa das variáveis não-básicas do programa e olhamos para as variáveis básicas, procurando pensar "qual é o máximo que podes aumentar sem que as variáveis básicas se tornem negativas". Para isso, temos de olhar para cada uma das restrições e procurar percebê-lo - pensemos, em relação ao programa acima, qual é o máximo que podemos aumentar $x_1$:
+Para reescrever as igualdades, pegamos numa das variáveis não-básicas do programa e olhamos para as variáveis básicas, procurando pensar "qual é o máximo que posso aumentar a variável não-básica sem que as variáveis básicas se tornem negativas". Para isso, temos de olhar para cada uma das restrições e procurar percebê-lo - pensemos, em relação ao programa acima, qual é o máximo que podemos aumentar $x_1$:
 
 - $x_4 = 30 - x_1 - x_2 - 3x_3$. Igualando todas as variáveis exceto $x_1$ a zero, obtemos uma maximização de $x_1$ para esta restrição: $x_1 = 30$;
 
@@ -305,10 +317,12 @@ Temos, então, que uma restrição no programa reescrito será $x_1 = 9 - \frac{
 Descoberta a restrição mais apertada, trocamos os papéis de $x_1$ e $x_6$, tanto nas restrições como no objetivo, ficando com um programa tal que:
 
 $$
-z = 27 + \frac{x_2}{4} + \frac{x_3}{2} - \frac{3x_6}{4}\\
-x_1 = 9 - \frac{x_2}{4} - \frac{x_3}{2} - \frac{x_6}{4}\\
-x_4 = 21 - \frac{3x_2}{4} - \frac{5x_3}{2} + \frac{x_6}{4}\\
-x_5 = 6 - \frac{3x_2}{2} - 4x_3 + \frac{x_6}{2}
+\begin{aligned}
+z &= 27 + \frac{x_2}{4} + \frac{x_3}{2} - \frac{3x_6}{4}\\
+x_1 &= 9 - \frac{x_2}{4} - \frac{x_3}{2} - \frac{x_6}{4}\\
+x_4 &= 21 - \frac{3x_2}{4} - \frac{5x_3}{2} + \frac{x_6}{4}\\
+x_5 &= 6 - \frac{3x_2}{2} - 4x_3 + \frac{x_6}{2}
+\end{aligned}
 $$
 
 De realçar que as duas últimas restrições foram obtidas substituíndo $x_1$ pelo lado direito da nova igualdade que envolve $x_1$ como variável básica: $9 - \frac{x_2}{4} - \frac{x_3}{2} - \frac{x_6}{4}$.
@@ -320,10 +334,12 @@ Voltamos então a igualar todas as variáveis não-básicas a zero, ficando com 
 De seguida, procuramos reescrever novamente o problema: desta vez, foquemo-nos na variável $x_3$. Aqui, a terceira restrição (a que tem $x_5$ como variável básica) é a mais apertada, restringindo $x_3$ a $6$. Assim sendo, o programa reescrito será (e tendo em conta agora $x_3 = \frac{3}{2} - \frac{3x_2}{8} - \frac{x_5}{4} + \frac{x_6}{8}$):
 
 $$
-z = \frac{111}{4} + \frac{x_2}{16} - \frac{x_5}{8} + \frac{11x_6}{16}\\
-x_1 = \frac{33}{4} - \frac{x_2}{16} + \frac{x_5}{8} - \frac{5x_6}{16}\\
-x_3 = \frac{3}{2} - \frac{3x_2}{8} - \frac{x_5}{4} + \frac{x_6}{8}\\
-x_4 = \frac{69}{4} + \frac{3x_2}{16} + \frac{5x_5}{8} - \frac{x_6}{16}\\
+\begin{aligned}
+z &= \frac{111}{4} + \frac{x_2}{16} - \frac{x_5}{8} + \frac{11x_6}{16}\\
+x_1 &= \frac{33}{4} - \frac{x_2}{16} + \frac{x_5}{8} - \frac{5x_6}{16}\\
+x_3 &= \frac{3}{2} - \frac{3x_2}{8} - \frac{x_5}{4} + \frac{x_6}{8}\\
+x_4 &= \frac{69}{4} + \frac{3x_2}{16} + \frac{5x_5}{8} - \frac{x_6}{16}
+\end{aligned}
 $$
 
 O objetivo $z$ é, então, aumentado para $\frac{111}{4}$.
@@ -331,10 +347,12 @@ O objetivo $z$ é, então, aumentado para $\frac{111}{4}$.
 Por fim, reescrevemos o programa olhando para $x_2$, ficando com:
 
 $$
-z = 28 - \frac{x_3}{6} - \frac{x_5}{6} - \frac{2x_6}{3}\\
-x_1 = 8 + \frac{x_3}{6} + \frac{x_5}{6} - \frac{x_6}{3}\\
-x_2 = 4 - \frac{8x_3}{3} - \frac{2x_5}{3} + \frac{x_6}{3}\\
-x_4 = 18 - \frac{x_3}{2} + \frac{x_5}{2}.
+\begin{aligned}
+z &= 28 - \frac{x_3}{6} - \frac{x_5}{6} - \frac{2x_6}{3}\\
+x_1 &= 8 + \frac{x_3}{6} + \frac{x_5}{6} - \frac{x_6}{3}\\
+x_2 &= 4 - \frac{8x_3}{3} - \frac{2x_5}{3} + \frac{x_6}{3}\\
+x_4 &= 18 - \frac{x_3}{2} + \frac{x_5}{2}.
+\end{aligned}
 $$
 
 Chegámos, assim, a um ponto em que todas as variáveis não-básicas na função objetivo têm coeficiente negativo. Assim sendo, podemos dar o algoritmo por terminado, dizendo que a **solução ótima** para o programa é $(8, 4, 0, 18, 0, 0)$, com $z = 28$.
@@ -389,9 +407,11 @@ Temos que a solução básica não é exequível. Assim sendo, construímos um p
 O programa encontra-se atualmente na forma standard. A sua conversão para a forma slack é trivial:
 
 $$
-z = -x_0\\
-x_3 = 2 - 2x_1 + x_2 + x_0\\
-x_4 = -4 - x_1 + 5x_2 + x_0\\
+\begin{aligned}
+&z = -x_0\\
+&x_3 = 2 - 2x_1 + x_2 + x_0\\
+&x_4 = -4 - x_1 + 5x_2 + x_0\\
+\end{aligned}
 $$
 
 A solução básica deste programa continua sem ser exequível: igualar todas as variáveis não-básicas a $0$ levaria a $x_4 = -4$, que vai diretamente contra a restrição de todas as variáveis terem de ser não negativas. Assim sendo, executamos uma operação pivot entre $x_0$ e $x_4$, com vista a eliminar o problema em questão - se após todos os Pivots possíveis continuar sem haver solução exequível, o próprio programa diz-se **não exequível**.
@@ -399,25 +419,32 @@ A solução básica deste programa continua sem ser exequível: igualar todas as
 A operação pivot leva então a:
 
 $$
-z = -4 - x_1 + 5x_2 - x_4\\
-x_0 = 4 + x_1 - 5x_2 + x_4\\
-x_3 = 6 - x_1 - 4x_2 + x_4\\
+\begin{aligned}
+z &= -4 - x_1 + 5x_2 - x_4\\
+x_0 &= 4 + x_1 - 5x_2 + x_4\\
+x_3 &= 6 - x_1 - 4x_2 + x_4\\
+x_1 &= -4 + x_1 - 5x_2 + x_4\\
+\end{aligned}
 $$
 
 Este programa apresenta solução básica exequível! Aplicaríamos agora o algoritmo Simplex até obter uma solução para este programa auxiliar tal que $z = 0$: caso tal solução exista, o programa original é exequível. A solução para o programa auxiliar seria:
 
 $$
-z = -x_0\\
-x_2 = \frac{4}{5} - \frac{x_0}{5} + \frac{x_1}{5} + \frac{x_4}{5}\\
-x_3 = \frac{14}{5} + \frac{4x_0}{5} - \frac{9x_1}{5} + \frac{x_4}{5}
+\begin{aligned}
+&z = -x_0\\
+&x_2 = \frac{4}{5} - \frac{x_0}{5} + \frac{x_1}{5} + \frac{x_4}{5}\\
+&x_3 = \frac{14}{5} + \frac{4x_0}{5} - \frac{9x_1}{5} + \frac{x_4}{5}
+\end{aligned}
 $$
 
 Para resolver o problema inicial, teríamos que ter em conta $2x_1 - x_2 = 2x_1 - \frac{4}{5} - \frac{x_0}{5} + \frac{x_1}{5} + \frac{x_4}{5}$, ficando então escrito na forma slack tal que:
 
 $$
-z = - \frac{4}{5} + \frac{9x_0}{5} - \frac{x_4}{5}\\
-x_2 = \frac{4}{5} - \frac{x_0}{5} + \frac{x_1}{5} + \frac{x_4}{5}\\
-x_3 = \frac{14}{5} + \frac{4x_0}{5} - \frac{9x_1}{5} + \frac{x_4}{5}
+\begin{aligned}
+&z = - \frac{4}{5} + \frac{9x_0}{5} - \frac{x_4}{5}\\
+&x_2 = \frac{4}{5} - \frac{x_0}{5} + \frac{x_1}{5} + \frac{x_4}{5}\\
+&x_3 = \frac{14}{5} + \frac{4x_0}{5} - \frac{9x_1}{5} + \frac{x_4}{5}
+\end{aligned}
 $$
 
 A partir daqui, resolveríamos este programa linear com a ajuda do algoritmo Simplex.
