@@ -277,6 +277,68 @@ Mais ainda, as linhas da matriz vertical $b$ correspodem à variável de slack d
 
 ## [Algoritmo Simplex](color:orange)
 
+O Algoritmo Simplex corresponde à abordagem clássica para resolver problemas de otimização linear. Tem por base a interpretação geométrica (o conjunto convexo) apresentada no início desta página. Funciona como uma espécie de "eliminação de Gauss-Jordan" para inequações.
+
+A ideia por detrás do algoritmo poderá ser entendida mais facilmente com a ajuda de um exemplo. Tenhamos o seguinte programa linear na forma slack:
+
+$$
+z = 3x_1 + x_2 + 2x_3\\
+x_4 = 30 - x_1 - x_2 - 3x_3\\
+x_5 = 24 - 2x_1 - 2x_2 - 3x_3\\
+x_6 = 36 - 4x_1 - x_2 - 2x_3
+$$
+
+Inicialmente, olhamos para a **solução básica** para o problema: colocamos todas as variáveis não-básicas a zero, ficando com a solução igual a $(0, 0, 0, 30, 24, 36)$, $z = 3 \cdot 0 + 1 \cdot 0 + 2 \cdot 0 = 0$. Se for exequível, dizemos que se trata de uma **solução básica exequível**.
+
+O algoritmo procura, a cada iteração, reescrever as equações do programa, de forma a encontrar diferentes soluções para o mesmo. Além disso, queremos sempre **aumentar o valor de $z$**, pelo que só iremos reescrever o problema se isso nos levar a um valor de $z$ maior que o anterior.
+
+Para reescrever as igualdades, pegamos numa das variáveis não-básicas do programa e olhamos para as variáveis básicas, procurando pensar "qual é o máximo que podes aumentar sem que as variáveis básicas se tornem negativas". Para isso, temos de olhar para cada uma das restrições e procurar percebê-lo - pensemos, em relação ao programa acima, qual é o máximo que podemos aumentar $x_1$:
+
+- $x_4 = 30 - x_1 - x_2 - 3x_3$. Igualando todas as variáveis exceto $x_1$ a zero, obtemos uma maximização de $x_1$ para esta restrição: $x_1 = 30$;
+
+- $x_5 = 24 - 2x_1 - 2x_2 - 5x_3$ - fazemos o mesmo que acima, ficando com $x_1 = 12$;
+
+- $x_6 = 36 - 4x_1 - x_2 - 2x_3$ - fazemos o mesmo que acima, ficando com $x_1 = 9$. Esta é a [**restrição mais apertada**](color:orange), dando então o máximo que podemos aumentar $x_1$.
+
+Temos, então, que uma restrição no programa reescrito será $x_1 = 9 - \frac{x_2}{4} - \frac{x_3}{2} - \frac{x_6}{4}$ (vem da última restrição, a que considerámos apertada, escrita agora com $x_1$ em função das outras variáveis).
+
+Descoberta a restrição mais apertada, trocamos os papéis de $x_1$ e $x_6$, tanto nas restrições como no objetivo, ficando com um programa tal que:
+
+$$
+z = 27 + \frac{x_2}{4} + \frac{x_3}{2} - \frac{3x_6}{4}\\
+x_1 = 9 - \frac{x_2}{4} - \frac{x_3}{2} - \frac{x_6}{4}\\
+x_4 = 21 - \frac{3x_2}{4} - \frac{5x_3}{2} + \frac{x_6}{4}\\
+x_5 = 6 - \frac{3x_2}{2} - 4x_3 + \frac{x_6}{2}
+$$
+
+De realçar que as duas últimas restrições foram obtidas substituíndo $x_1$ pelo lado direito da nova igualdade que envolve $x_1$ como variável básica: $9 - \frac{x_2}{4} - \frac{x_3}{2} - \frac{x_6}{4}$.
+
+A operação que foi agora realizada, esta troca entre uma variável básica e uma não-básica, é a [**Operação Pivot**](color:yellow). Nesta operação, consideramos a variável não-básica $x_1$ a **variável de entrada** (vai entrar no conjunto das variáveis básicas), e a variável básica $x_6$ a **variável de saída** (vai sair do conjunto de variáveis básicas). O algoritmo Simplex procura, então, realizar sucessivos Pivots até não haver mais soluções básicas exequíveis - [**até todos os coeficientes das variáveis não-básicas na função objetivo serem negativos**](color:pink).
+
+Voltamos então a igualar todas as variáveis não-básicas a zero, ficando com solução igual a $(9, 0, 0, 21, 6, 0)$ e $z = 27$.
+
+De seguida, procuramos reescrever novamente o problema: desta vez, foquemo-nos na variável $x_3$. Aqui, a terceira restrição (a que tem $x_5$ como variável básica) é a mais apertada, restringindo $x_3$ a $6$. Assim sendo, o programa reescrito será (e tendo em conta agora $x_3 = \frac{3}{2} - \frac{3x_2}{8} - \frac{x_5}{4} + \frac{x_6}{8}$):
+
+$$
+z = \frac{111}{4} + \frac{x_2}{16} - \frac{x_5}{8} + \frac{11x_6}{16}\\
+x_1 = \frac{33}{4} - \frac{x_2}{16} + \frac{x_5}{8} - \frac{5x_6}{16}\\
+x_3 = \frac{3}{2} - \frac{3x_2}{8} - \frac{x_5}{4} + \frac{x_6}{8}\\
+x_4 = \frac{69}{4} + \frac{3x_2}{16} + \frac{5x_5}{8} - \frac{x_6}{16}\\
+$$
+
+O objetivo $z$ é, então, aumentado para $\frac{111}{4}$.
+
+Por fim, reescrevemos o programa olhando para $x_2$, ficando com:
+
+$$
+z = 28 - \frac{x_3}{6} - \frac{x_5}{6} - \frac{2x_6}{3}\\
+x_1 = 8 + \frac{x_3}{6} + \frac{x_5}{6} - \frac{x_6}{3}\\
+x_2 = 4 - \frac{8x_3}{3} - \frac{2x_5}{3} + \frac{x_6}{3}\\
+x_4 = 18 - \frac{x_3}{2} + \frac{x_5}{2}.
+$$
+
+Chegámos, assim, a um ponto em que todas as variáveis não-básicas na função objetivo têm coeficiente negativo. Assim sendo, podemos dar o algoritmo por terminado, dizendo que a **solução ótima** para o programa é $(8, 4, 0, 18, 0, 0)$, com $z = 28$.
+
 ## Dualidade
 
 ---
