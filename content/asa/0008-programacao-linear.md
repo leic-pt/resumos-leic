@@ -339,10 +339,108 @@ $$
 
 Chegámos, assim, a um ponto em que todas as variáveis não-básicas na função objetivo têm coeficiente negativo. Assim sendo, podemos dar o algoritmo por terminado, dizendo que a **solução ótima** para o programa é $(8, 4, 0, 18, 0, 0)$, com $z = 28$.
 
+:::info[Solução Exequível Inicial]
+
+A conversão de um programa linear para a forma slack nem sempre é simples. Vejamos o caso abaixo:
+
+- Objetivo: Maximizar $2x_1 - x_2$;
+- Restrições:
+  $$
+  2x_1 - x_2 \leq 2\\
+  x_1 - 5x_2 \leq -4\\
+  x_1, x_2 \geq 0.
+  $$
+
+A conversão deste programa para a forma slack resulta nas restrições $x_1 = 0 \wedge x_2 = 0$, o que vai diretamente contra a segunda restrição acima apresentada - **não há uma solução exequível inicial**. Podemos, contudo, verificar se o programa tem alguma solução exequível, recorrendo a um programa auxiliar.
+
+Seja $L$ um programa linear na forma standard, $L_{aux}$ é definido tal que:
+
+- Objetivo: Maximizar $x_0$;
+- Restrições:
+  $$
+    \sum_{i=1}^{n} a_{ij}x_j - x_0 \leq b_i, \quad i = 1, 2, ..., m\\
+    x_j \geq 0, \quad j = 0, 1, 2, ..., n.
+  $$
+
+Temos assim que $L$ só é exequível caso o valor ótimo para o objetivo de $L_{aux}$ seja $0$ (a prova será adicionada num futuro próximo).
+
+:::
+
+Começemos com o programa linear inicial abaixo:
+
+- Objetivo: Maximizar $2x_1 - x_2$;
+- Restrições:
+  $$
+  2x_1 - x_2 \leq 2\\
+  x_1 - 5x_2 \leq -4\\
+  x_1, x_2 \geq 0.
+  $$
+
+Temos que a solução básica não é exequível. Assim sendo, construímos um programa linear auxiliar tal que:
+
+- Objetivo: Maximizar $-x_0$;
+- Restrições:
+  $$
+  2x_1 - x_2 - x_0 \leq -2\\
+  x_1 - 5x_2 - x_0 \leq -4\\
+  x_1, x_2, x_0 \geq 0.
+  $$
+
+O programa encontra-se atualmente na forma standard. A sua conversão para a forma slack é trivial:
+
+$$
+z = -x_0\\
+x_3 = 2 - 2x_1 + x_2 + x_0\\
+x_4 = -4 - x_1 + 5x_2 + x_0\\
+$$
+
+A solução básica deste programa continua sem ser exequível: igualar todas as variáveis não-básicas a $0$ levaria a $x_4 = -4$, que vai diretamente contra a restrição de todas as variáveis terem de ser não negativas. Assim sendo, executamos uma operação pivot entre $x_0$ e $x_4$, com vista a eliminar o problema em questão - se após todos os Pivots possíveis continuar sem haver solução exequível, o próprio programa diz-se **não exequível**.
+
+A operação pivot leva então a:
+
+$$
+z = -4 - x_1 + 5x_2 - x_4\\
+x_0 = 4 + x_1 - 5x_2 + x_4\\
+x_3 = 6 - x_1 - 4x_2 + x_4\\
+$$
+
+Este programa apresenta solução básica exequível! Aplicaríamos agora o algoritmo Simplex até obter uma solução para este programa auxiliar tal que $z = 0$: caso tal solução exista, o programa original é exequível. A solução para o programa auxiliar seria:
+
+$$
+z = -x_0\\
+x_2 = \frac{4}{5} - \frac{x_0}{5} + \frac{x_1}{5} + \frac{x_4}{5}\\
+x_3 = \frac{14}{5} + \frac{4x_0}{5} - \frac{9x_1}{5} + \frac{x_4}{5}
+$$
+
+Para resolver o problema inicial, teríamos que ter em conta $2x_1 - x_2 = 2x_1 - \frac{4}{5} - \frac{x_0}{5} + \frac{x_1}{5} + \frac{x_4}{5}$, ficando então escrito na forma slack tal que:
+
+$$
+z = - \frac{4}{5} + \frac{9x_0}{5} - \frac{x_4}{5}\\
+x_2 = \frac{4}{5} - \frac{x_0}{5} + \frac{x_1}{5} + \frac{x_4}{5}\\
+x_3 = \frac{14}{5} + \frac{4x_0}{5} - \frac{9x_1}{5} + \frac{x_4}{5}
+$$
+
+A partir daqui, resolveríamos este programa linear com a ajuda do algoritmo Simplex.
+
+:::info[Teorema Fundamental da Programação Linear]
+
+Qualquer programa linear na forma standard:
+
+- Tem uma [**solução ótima**](color:pink) com valor objetivo finito;
+
+- É [**não exequível**](color:purple);
+
+- É [**unbounded**](color:red), não limitado: o valor objetivo pode ser arbitrariamente maximizado.
+
+:::
+
+Abaixo encontra-se o gráfico correspondente a um programa linear _unbounded_. Podemos notar que há infinitas retas que maximizam o valor objetivo, cada uma com $z$ arbitrariamente maior que a anterior, e todas elas cuja interseção com a região exequível é não vazia:
+
+![Região Exequível - Unbounded](./assets/0008-regiao-exequivel-unbounded.png#dark=1)
+
 ## Dualidade
 
 ---
 
 - [Slides]()
 - [Notas]()
-  $$
