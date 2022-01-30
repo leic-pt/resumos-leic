@@ -120,15 +120,13 @@ type: content
 
 ![Sistema em Camadas](./imgs/0008/onion.png#dark=1)
 
-- Cada camada usa os serviços da camada precedente
+- Cada [camada](https://youtu.be/-FtCTW2rVFM?t=44) usa os serviços da camada precedente
 
 - Fácil modificar código de uma camada
 
 - Mecanismos de protecção $\rightarrow$ maior segurança e robustez
 
 - Influenciou arquitecturas como Intel
-
-Desvantagem principal?
 
 ## Micro-núcleo
 
