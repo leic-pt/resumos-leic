@@ -112,7 +112,7 @@ $$
 Para os dois membros da equação serem iguais, visto que um depende apenas de $t$ e outro apenas de $x$,
 então têm necessariamente de ser funções constantes, daí igualamos ambos os membros a uma constante $\lambda$.
 
-Daqui sai, para $T$, a seguite equação diferencial de primeira ordem
+Daqui sai, para $T$, a seguinte equação diferencial de primeira ordem [linear homogénea](/cdi-iii/equacoes-diferenciais-ordinarias#caso-bt-equiv-0---homogéneas)
 
 $$
 T'(t) = \lambda k T(t) \Leftrightarrow T(t) = c_1 e^{\lambda k t}
@@ -197,7 +197,7 @@ Tomando então os resultados obtidos para $X$ na secção anterior, vamos determ
   X'(x) = A = 0 = X'(0) = X'(L)
   $$
 
-  Descobrimos assim uma a solução constante, $X(x) = B$.
+  Descobrimos assim uma solução constante, $X(x) = B$.
 
 - Se $\lambda > 0$:
 
