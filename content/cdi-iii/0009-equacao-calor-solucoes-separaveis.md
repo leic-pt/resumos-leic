@@ -47,7 +47,7 @@ Podemos ainda estender esta definição a $x \in \R^n$.
 Para tal, podemos definir o [Laplaciano](https://en.wikipedia.org/wiki/Laplace_operator) de uma função como:
 
 $$
-\Delta f = \nabla^2 f = \nabla (\nabla f)
+\Delta f = \nabla^2 f = \nabla \cdot (\nabla f)
 = \frac{\partial^2 f}{\partial x_1^2} + \frac{\partial^2 f}{\partial x_2^2} + \frac{\partial^2 f}{\partial x_3^2} + \dots + \frac{\partial^2 f}{\partial x_n^2}
 $$
 
