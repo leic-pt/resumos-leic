@@ -8,9 +8,9 @@ description: >-
   Análise de Rentabilidade de Projetos de Investimento:
   Taxa de atualização;
   Custo médio ponderado do capital (CMPC ou WACC);
-  Valor Atual Liquido (VAL);
+  Valor Atual Líquido (VAL);
   Taxa Interna de Rentabilidade (TIR);
-  Periodo de Recuperação do Investimento (PRI);
+  Período de Recuperação do Investimento (PRI);
   Indice de Rentabilidade (IR).
 path: /ges/analise-projetos-investimento
 type: content
@@ -24,22 +24,22 @@ type: content
 
 **Investimento**: Aplicação atual de recursos, com o objetivo de obter benefícios futuros. Estes benefícios podem corresponder a:
 
-- **Fluxos financeiros**: Dinheiro (cash-flows).
+- **Fluxos Financeiros**: Dinheiro (cash-flows).
 
-- **Investimentos sociais**: Estradas, educação, saúde.
+- **Investimentos Sociais**: Estradas, educação, saúde.
 
-- Aplicações em **ativos financeiros** (compra de ações) ou reais (ex: apartamentos).
+- Aplicações em **Ativos Financeiros** (compra de ações) ou reais (ex: apartamentos).
 
-Na análise de projetos procura-se avaliar genericamente uma afetação de recursos (R),
-feita inicialmente, é capaz de vir a gerar uma sucessão de benefícios líquidos (B) que excedem esse investimento inicial.
+Na análise de projetos procura-se avaliar genericamente uma afetação de recursos ($R$),
+feita inicialmente, é capaz de vir a gerar uma sucessão de benefícios líquidos ($B$) que excedem esse investimento inicial.
 
-Concentrando num domínio puramente financeiro R e B representam dinheiro, fluxos
-financeiros negativos e positivos (CF- ou CF+). Sendo que CF são _Cash Flows_.
+Concentrando num domínio puramente financeiro $R$ e $B$ representam dinheiro, fluxos
+financeiros negativos e positivos ($CF-$ ou $CF+$). Sendo que $CF$ são _Cash Flows_.
 
-Idealmente, estaremos mais interessados em investir em projetos em que a soma dos CF- seja inferior à soma dos CF+.
-O problema é que esta análise é dependente do tempo e, com o tempo,o dinheiro está sujeito a determinados fatores como,
+Idealmente, estaremos mais interessados em investir em projetos em que a soma dos $CF-$ seja inferior à soma dos $CF+$.
+O problema é que esta análise é dependente do tempo e, com o tempo, o dinheiro está sujeito a determinados fatores como,
 por exemplo, a _inflação_ e os _juros_.
-Para sabermos lidar com estes fatores, de modo a comparar CF em diferentes momentos precisamos de aprender alguns princípios do Cálculo Financeiro.
+Para sabermos lidar com estes fatores, de modo a comparar $CF$ em diferentes momentos precisamos de aprender alguns princípios do Cálculo Financeiro.
 
 ## Cálculo Financeiro
 
@@ -51,7 +51,7 @@ $$
 jC_0 + C_0 = (1 + j)C_0
 $$
 
-Em que j é a taxa de juro anual e o $C_0$ é o capital inicial.
+Em que $j$ é a taxa de juro anual e o $C_0$ é o capital inicial.
 
 - [**Juros Compostos**](color:green): Juros corrigíveis de cada período são somados ao capital para o cálculo de juros nos períodos seguintes. Neste caso, o valor da dívida é sempre corrigido e a taxa de juros é sempre calculada sobre esse novo valor.
 
@@ -59,17 +59,17 @@ $$
 C_n = C_0(1 + j)^n
 $$
 
-Em que **n** é o número de anos.
+Em que $n$ é o número de anos.
 
 No caso destes juros pode ocorrer o processo de _capitalização_, que permite chegar de forma inversa à noção de _atualização_,
-em que se faz o cálculo do valor atual (VA) ou presente de dinheiro a receber no futuro,
-sendo a respetiva taxa designada por [**taxa de atualização**](color:pink).
+em que se faz o cálculo do valor atual ($VA$) ou presente de dinheiro a receber no futuro,
+sendo a respetiva taxa designada por [**Taxa de Atualização**](color:pink).
 
 $$
 VA = \frac{C_n}{(1 + r)^n}
 $$
 
-Em que $C_n$ é o valor a receber daqui a x anos e **r** a taxa de juros.
+Em que $C_n$ é o valor a receber daqui a $n$ anos e $r$ a taxa de juros.
 
 ## Inflação e Taxas Reais
 
@@ -77,9 +77,9 @@ Em que $C_n$ é o valor a receber daqui a x anos e **r** a taxa de juros.
 não sendo necessariamente constante, um dos fatores que pode causar essa alteração é a **inflação**.
 As taxas de inflação podem incorporar a noção de inflação ou não.
 
-- [**Taxa de juro nominal (jn)**](color:orange): Usa-se em avaliação de projetos a preços **correntes**, não é corrigida tendo em conta o efeito da inflação.
+- [**Taxa de Juro Nominal ($jn$)**](color:orange): Usa-se em avaliação de projetos a preços **correntes**, não é corrigida tendo em conta o efeito da inflação.
 
-- [**Taxa de juro real (jr)**](color:yellow): Taxa nominal expurgada do efeito da inflação.Usa-se em avaliação de projetos a preços **constantes**
+- [**Taxa de Juro Real ($jr$)**](color:yellow): Taxa nominal expurgada do efeito da inflação.Usa-se em avaliação de projetos a preços **constantes**
 
 $$
 jr = \frac{1 + j_n}{1 + i} - 1 \approx j_n - i
@@ -87,7 +87,7 @@ $$
 
 ## Taxas de Juro Nominais e Efetivas
 
-É também possivel trabalhar com períodos infra-anuais, usando na atualização uma taxa de juro equivalente,
+É também possível trabalhar com períodos infra-anuais, usando na atualização uma taxa de juro equivalente,
 isto é, uma taxa efetiva que aplicada ao mesmo capital inicial conduz ao mesmo capital final.
 
 $$
@@ -102,27 +102,27 @@ mas não equivalente do ponto de vista financeiro.
 Quando TAN = 12%
 
 $$
-J_m = \frac{12\%}{12} = 1\%
+j_m = \frac{12\%}{12} = 1\%
 $$
 
 A taxa mensal equivalente à taxa anual efetiva (TAE) é:
 
 $$
-j_m = (1 + j_a)^1/12
+j_m = (1 + j_a)^{1/12}
 $$
 
 :::
 
-[**TAEG**](color:green): Taxa anual efetiva global, inclui encargos como seguros de vida e taxas adicionais associados ao empréstimo.
+[**TAEG**](color:green): Taxa Anual Efetiva Global, inclui encargos como seguros de vida e taxas adicionais associados ao empréstimo.
 
-**Equivalências das taxas de juro**. Duas taxas de juro referidas a períodos diferentes de capitalização
+**Equivalências das Taxas de Juro**. Duas taxas de juro referidas a períodos diferentes de capitalização
 são equivalentes quando aplicadas ao mesmo capital, produzem o mesmo resultado no mesmo período de tempo. É dada por:
 
 $$
 (1 + j_k)^k = 1 + j_a
 $$
 
-Em que $j_k$ é a taxa do sub-periodo k e k é o número de subperíodos do periodo.
+Em que $j_k$ é a taxa do sub-período $k$ e $k$ é o número de subperíodos do período.
 
 ## Anuidades e Perpetuidades
 
@@ -132,7 +132,7 @@ ser limitada no tempo ou ser infinita, respetivamente.
 
 _Anuidade_ é uma designação que pode ser utilizada quer a frequência de cash-flows seja anual ou não.
 Numa situação em que se obtém um empréstimo num período e temos rendas ou pagamentos constantes (Anuidades),
-durante $n$ períodos com uma taxa de atualização, o cálculo do valor atual (VA) de todos os cash-flows dá-se por:
+durante $n$ períodos com uma taxa de atualização, o cálculo do valor atual ($VA$) de todos os cash-flows dá-se por:
 
 $$
 \sum \frac{A_t}{(1 + r)^t}, t = 1,...,n
@@ -152,7 +152,7 @@ $$
 f(r, \infty) = A \times \frac{1}{r}
 $$
 
-Estes casos excluem os casos de rendas crescentes. Tendo em conta rendas crescentes a uma taxa g < r, temos a anuidade:
+Estes casos excluem os casos de rendas crescentes. Tendo em conta rendas crescentes a uma taxa $g < r$, temos a anuidade:
 
 $$
 VA = A \times \left(\frac{1}{r - g} - \frac{(1+g)^n}{(1 + r)^n \times (r -g)}\right)
@@ -178,52 +178,75 @@ $$
 
 ## Análise de Rentabilidade de Projetos de Investimento
 
-**Investimento**: Sequência de fluxos financeiros (cash-flows) distribuidos por diversos periodos. O primeiro cash-flow normalmente é negativo:
+**Investimento**: Sequência de fluxos financeiros (cash-flows) distribuidos por diversos períodos. O primeiro cash-flow normalmente é negativo:
 
-- **Despesas de investimento**: Terrenos, edíficios, equipamentos licenças e patentes ou,
+- **Despesas de Investimento**: Terrenos, edíficios, equipamentos licenças e patentes ou,
   até em fundo de maneio, como a constituição e reforço de stocks de matérias primas ou mercadorias.
 - **No final de vida do projeto**: O valor destas despesas que seja recuperável dará origem ao valor residual do investimento.
 
-**Valor residual do investimento**: Gerado pela venda de um imobilizado no final do tempo de vida do projeto.
+**Valor Residual do Investimento** $VR$: Gerado pela venda de um imobilizado no final do tempo de vida do projeto.
 
 $$
-\begin{aligned}
-VR &= \text{Valor do mercado n} -\\
-& \quad \quad- (\text{Valor do mercado n} - \text{Valor contabilistico}) \times \text{Taxa de imposto}
-\end{aligned}
+VR = \text{VM} - (\text{VM} - \text{Valor Contabilístico}) \times \text{Taxa de Imposto}
 $$
 
-O **valor de mercado** é o valor esperado de venda do ativo no ano **n** e o valor contabilístico é:
+Onde $\text{VM}$ corresponde ao Valor de Mercado.
+
+O **Valor de Mercado** é o valor esperado de venda do ativo no ano $n$.
+
+O **Valor Contabilístico** é dado por:
 
 $$
-\text{Valor contabilistico} = \text{Valor de compra} - \text{Amortizações acumuladas}
+\text{Valor Contabilístico} = \text{Valor de Compra} - \text{Amortizações Acumuladas}
 $$
 
 Os cash-flows durante a fase de exploração (passada a fase inicial de investimento) serão habitualmente positivos se o projeto for lucrativo.
 
 $$
-\text{CF exploração} = RAJI \times (1 - \text{Taxa de imposto}) - \text{Amortizações e depreciações}
+\text{CF Exploração} = \text{RAJI} \times (1 - \text{Taxa de Imposto}) - \text{Amortizações e Depreciações}
 $$
 
 Em que RAJI corresponde ao resultado antes de juros e impostos, ou seja, o mesmo que EBIT, resultados operacionais.
 
 :::info[Exemplo]
 
-1. A empresa MGM investiu 100 mil € numa nova máquina para os próximos 4 anos;
-2. Esta é depreciável em 5 anos, findos os quais pode ainda ser vendida por 10 mil € (valor de mercado no ano 5);
-3. Sabe-se que as vendas anuais adicionais serão de 150 mil € durante todo o projeto;
+1. A empresa MGM investiu $100$ mil € numa nova máquina para os próximos $4$ anos.
+2. Esta é depreciável em $5$ anos, s e pode ser vendida ao fim de $4$ anos por $10$ mil € (Valor Comercial).
+3. Sabe-se que as vendas anuais adicionais serão de $150$ mil € durante todo o projeto.
 4. Os custos operacionais anuais adicionais com pessoal, fornecimentos e
-   serviços externos e matéria prima serão de 100 mil €, acrescidos dos custos com amortizações (depreciações), 20%;
-5. A taxa de imposto a pagar pela empresa é de 25%.
+   serviços externos e matéria prima serão de $100$ mil €, acrescidos dos custos com amortizações (Depreciações), $20$%.
+5. A taxa de imposto a pagar pela empresa é de $25\%$.
+6. A taxa de atualização é de $10\%$.
 
-![Análise de rentabilidade de investimento](./assets/0005-exemplo-analise-investimento.png)
+![Análise de rentabilidade de investimento](./assets/0005-exemplo-analise-investimento.png#dark=1)
+
+<!--
+
+Mobile support for this is terrible, until that's fixed this is gonna stay as an image
+
+| Rubrica/Período                                                                                         |      0 |           1 |           2 |         3 |          4 |
+| ------------------------------------------------------------------------------------------------------- | -----: | ----------: | ----------: | --------: | ---------: |
+| **1. Despesas de Investimento**                                                                         | $-100$ |             |             |           |            |
+| **2. Valor Residual do Investimento**                                                                   |        |             |             |           |     $12.5$ |
+| **3. _Cash Flow_ do Investimento (= 1 + 2)**                                                            | $-100$ |         $0$ |         $0$ |       $0$ |     $12.5$ |
+| **4. Vendas**                                                                                           |        |       $150$ |       $150$ |     $150$ |      $150$ |
+| **5. Custos Operacionais (RH, fse, m. pr)**                                                             |        |      $-100$ |      $-100$ |    $-100$ |     $-100$ |
+| **6. Amortizações (Depreciações)**                                                                      |        |       $-20$ |       $-20$ |     $-20$ |      $-20$ |
+| **7. Resultado Operacional (EBIT) (= 4 + 5 + 6)**                                                       |        |        $30$ |        $30$ |      $30$ |       $30$ |
+| **8. EBIT $\times (1 - 0.25)$** ($0.25$ é o imposto)                                                    |        |      $22.5$ |      $22.5$ |    $22.5$ |     $22.5$ |
+| **9. _Cash Flow_ Exploração (= 8 + 6)**                                                                 |        |      $42.5$ |      $42.5$ |    $42.5$ |     $42.5$ |
+| **10. _Cash Flow_ Total (= 3 + 9)**                                                                     | $-100$ |      $42.5$ |      $42.5$ |    $42.5$ |       $55$ |
+| **11. _Cash Flow_ Atualizado** (= $\frac{\operatorname{CFT}}{(1 + tx_{\operatorname{atualização}})^i}$) | $-100$ |  $38.63636$ |     $35.12$ |   $31.93$ | $37.56574$ |
+| **12. $\sum$ _Cash Flow_ Atualizado (cumulativo)**                                                      | $-100$ | $-61.36364$ | $-26.24364$ | $5.68636$ |  $43.2521$ |
+
+-->
 
 $$
 VR = VM -(VM - VC)t = 10 - (10 - 20) \times 0,25 = 12,5
 $$
 
 $$
-VC = \frac{100}{5}
+VC = 100 - 20 \times 4 \leftrightarrow VC = 20
 $$
 
 :::
@@ -237,7 +260,7 @@ Quando o $RAJI < 0$:
 Na avaliação de projetos de investimentos estamos confrontados com a necessidade de
 comparar fluxos financeiros aplicados numa fase inicial, com fluxos gerados nos anos seguintes. Para isso usamos os seguintes indicadores:
 
-### Taxa de atualização
+### Taxa de Atualização
 
 Exprime o custo de oportunidade do capital, ou seja,
 o rendimento que o investidor pretende tendo em conta o risco do investimento.
@@ -256,7 +279,7 @@ Quando houver financiamento com capital alheio:
 - A taxa de atualização deve ser igual ao custo médio ponderado do capital,
   sendo a ponderação dada pelas percentagens dos dois tipos de capital, calculados ao valor de mercado.
 
-### Custo médio ponderado do capital (CMPC ou WACC)
+### Custo médio ponderado do capital ($\operatorname{CMPC}$ ou $\operatorname{WACC}$)
 
 $$
 \text{Taxa de atualização com financiamento misto} = r_CP \times CP\% + r_D \times (1 -t) \times D\%
@@ -268,7 +291,7 @@ $$
 - $D\%$ é a percentagem de capital alheio.
 
 $$
-CMPC = \frac{C_\text{alheio}}{CP + C_{alheio}} \times r_D \times (1 - t) + \frac{CP}{CP + C_{alheio}} \times r_CP
+\operatorname{CMPC} = \frac{C_\text{alheio}}{CP + C_{alheio}} \times r_D \times (1 - t) + \frac{CP}{CP + C_{alheio}} \times r_CP
 $$
 
 - $r_D$ é o custo médio da dívida.
@@ -316,64 +339,65 @@ $$
 
 :::
 
-### Valor Atual Liquido (VAL)
+### Valor Atual Líquido ($\operatorname{VAL}$)
 
-Soma de todos os CF do projeto devidamente atualizados.
+Soma de todos os $CF$ do projeto devidamente atualizados.
 
 $$
-VAL(r) = \sum \frac{CF_K}{(1 + r)^K}
+\operatorname{VAL}(r) = \sum \frac{CF_K}{(1 + r)^K}
 $$
 
 Em que $CF = \text{cash-flow}$ e $r$ a taxa de atualização
 
-Se VAL(r) > 0, o projeto é rentável à taxa de atualização.
+Se $\operatorname{VAL}(r) > 0$, o projeto é rentável à taxa de atualização.\
 Entre dois projetos A e B, se $\operatorname{VAL}_A > \operatorname{VAL}_B$ então $P_A$ melhor que o $P_B$.
 
 :::info[Exemplo]
 
-O João comprou 100 ações da empresa MGM, tendo pagado 7€ por ação na expectativa de receber
-dividendos de $1€ \times 100$ nos anos 1 e 2, e de vender os títulos no ano 3 por 10€ cada.
-Sabendo que ações de empresas com idêntico grau de risco oferecem uma rentabilidade anual de 5%,
-calcule o VAL e diga se aconselha o investimento.
+O João comprou $100$ ações da empresa MGM, tendo pagado $7$€ por ação na expectativa de receber
+dividendos de $1$€ $ \times 100$ nos anos $1$ e $2$, e de vender os títulos no ano $3$ por $10$€ cada.
+Sabendo que ações de empresas com idêntico grau de risco oferecem uma rentabilidade anual de $5\%$,
+calcule o $\operatorname{VAL}$ e diga se aconselha o investimento.
 
 $$
 \operatorname{VAL}(5\%) = -\frac{700}{(1 + 0,05)^0} + \frac{100}{(1 + 0,05)^1} + \frac{100}{(1 + 0,05)^2} + \frac{1000}{(1 + 0,05)^3} = 349,78€
 $$
 
-O VAL é positivo, o investimento é rentável.
+O $\operatorname{VAL}$ é positivo, o investimento é rentável.
 
 :::
 
-### Taxa Interna de Rentabilidade (TIR)
+### Taxa Interna de Rentabilidade ($\operatorname{TIR}$)
 
-É a taxa $r*$de atualização para a qual o $\operatorname{VAL} = 0$, o seu cálculo resulta de um processo iterativo.
-Aceitar um projeto com $\operatorname{VAL}(r) > 0$ significa aceitá-lo quando $\operatorname{TIR} > R$.
+É a taxa $r$ de atualização para a qual o $\operatorname{VAL} = 0$, o seu cálculo resulta de um processo iterativo.
+Aceitar um projeto com $\operatorname{VAL}(r) > 0$ significa aceitá-lo quando $\operatorname{TIR} > \operatorname{R}$.
 
-Problemas no cálculo e utilização da TIR:
+Problemas no cálculo e utilização da $\operatorname{TIR}$:
 
-- Pode existir mais do que uma TIR. É o caso, por exemplo,
+- Pode existir mais do que uma $\operatorname{TIR}$. É o caso, por exemplo,
   da existência de cash-flows negativos intermédios ou finais (investimentos não convencionais).
-- Não existir TIR.
-- A TIR é inadequada para projetos mutuamente exclusivos, isto é, em que só podemos fazer um deles.
+- Não existir $\operatorname{TIR}$.
+- A $\operatorname{TIR}$ é inadequada para projetos mutuamente exclusivos, isto é, em que só podemos fazer um deles.
 
-![Taxa Interna de Rentabilidade](./assets/0005-tir.png)
+![Taxa Interna de Rentabilidade](./assets/0005-tir.png#dark=1)
 
-### Periodo de Recuperação do Investimento (PRI)
+### Período de Recuperação do Investimento ($PRI$)
 
 Tempo necessário para que os cash-flows atualizados gerados pelo projeto igualem o capital investido inicialmente.
+É o valor $K$ tal que:
 
 $$
-\sum = \frac{CF_K}{(1 + r)^K} = 0
+\sum_{k=0}^{PB} \frac{CF_K}{(1 + r)^K} = 0
 $$
 
 $$
-PB = \text{Ano anterior a mudança de sinal no }CF_{\text{acumulado}} - \frac{\text{útimo }CF_{\text{acumulado negativo}}}{CF_\text{atualizado no primeiro positivo}}
+PR = \text{Ano anterior à mudança de sinal no }CF_{\text{acumulado}} - \frac{\text{útimo }CF_{\text{acumulado negativo}}}{CF_\text{atualizado no primeiro positivo}}
 $$
 
-### Indice de Rentabilidade (IR)
+### Indice de Rentabilidade ($IR$)
 
 $$
-IR = \frac{\operatorname{VAL} + \text{Inventário Inicial}}{Inventário Inicial} = \frac{\operatorname{VA}}{\text{Inventário Inicial}}
+IR = \frac{\operatorname{VAL} + \text{Investimento Inicial}}{\text{Investimento Inicial}} = \frac{\operatorname{VA}}{\text{Investimento Inicial}}
 $$
 
-Um projeto considera-se aceitável quando $\operatorname{IR} > 1$. Tal como a TIR, este indicador peca na análise de projetos mutuamente exclusivos.
+Um projeto considera-se aceitável quando $\operatorname{IR} > 1$. Tal como a $TIR$, este indicador peca na análise de projetos mutuamente exclusivos.

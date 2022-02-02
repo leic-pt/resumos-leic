@@ -29,15 +29,15 @@ Necessidades $\to$ Desejos $\to$ Produtos $\to$ Mercados
 
 Durante um passeio em Lisboa:
 
-"Mãe, tenho fome, que um Big Mac!"
+"Mãe, tenho fome, quero um Big Mac!"
 
-"Não, André, está muita gente na fila, vamos a outro lado."
+"Não, Correia, está muita gente na fila, vamos a outro lado."
 
 **Necessidade**: Ter fome, precisar de comida.
 
-**Desejo**: Quer comida, mas em particular, um hamburguer.
+**Desejo**: Quer comida, mas em particular, um hambúrguer.
 
-**Produtos**: Quer comida, que um hamburguer, mas não quer um qualquer, tem de ser um Big Mac.
+**Produtos**: Quer comida, que um hambúrguer, mas não quer um qualquer, tem de ser um Big Mac.
 
 **Mercados**: O conjunto de pessoas que querem comprar este produto condicionam a vontade da mãe.
 
@@ -45,13 +45,16 @@ Durante um passeio em Lisboa:
 
 ## Filosofias das Organizações na Abordagem ao Mercado
 
-- **Conceito de Produção**: Os consumidores privilegiam produtos largamente disponiveis. $\to$ Eficiência, custos baratos, produção em massa.
+- **Conceito de Produção**: Os consumidores privilegiam produtos largamente disponiveis.\
+  $\to$ Eficiência, custos baratos, produção em massa.
 
-- **Conceito de Produto**: Os consumidores preferem produtos com melhor qualidade desempenho e inovação. $\to$ Excelência e qualidade.
+- **Conceito de Produto**: Os consumidores preferem produtos com melhor qualidade desempenho e inovação.\
+  $\to$ Excelência e qualidade.
 
-- **Conceito de Venda**: Os consumidores exibem algum interesse em consumir o que lhes é proposto $\to$ Proatividade, Força de Vendas, Promoção.
+- **Conceito de Venda**: Os consumidores exibem algum interesse em consumir o que lhes é proposto.\
+  $\to$ Proatividade, Força de Vendas, Promoção.
 
-- **Conceito de Marketing**: O centro da ação devem ser os consumidores e a satisfação da sua necessidade e não o produto.
+- **Conceito de Marketing**: O centro da ação devem ser os consumidores e a satisfação da sua necessidade e não o produto.\
   $\to$ Encontrar o produto adptado a essas necessidades.
 
 - **Conceito de Marketing Social**: Marketing em que existe ainda a preocupação com o bem estar dos consumidores e da sociedade em geral.
@@ -60,38 +63,38 @@ Durante um passeio em Lisboa:
 
 O processo de decisão do comprador (consumidores individuais) passa essencialmente por 5 etapas:
 
-![5 Etapas do Comportamento do Consumidor](./assets/0007-comportamento-consumidor.png)
+![5 Etapas do Comportamento do Consumidor](./assets/0007-comportamento-consumidor.png#dark=1)
 
 ### Características e Psicologia do Consumidor
 
-- **Culturais**: Cultura, subcultura e classe social;
-- **Sociais**: Grupos de referência, família, papéis e _status_;
-- **Pessoais**: Idade, ocupação, estilo de vida;
-- **Psicológicas**: Motivação, perceção, aprendizagem, crenças e atitudes.
+- **Culturais**: Cultura, subcultura e classe social
+- **Sociais**: Grupos de referência, família, papéis e _status_
+- **Pessoais**: Idade, ocupação, estilo de vida
+- **Psicológicas**: Motivação, perceção, aprendizagem, crenças e atitudes
 
 ### Processo de Decisão do Comprador
 
-1. **Reconhecimento do problema ou necessidade**: Motivação desencadeada por Estímulos internos (por exemplo, fome) e/ou Estímulos externos (por
-   exemplo, o anúncio de um novo hamburger Atlanta);
+1. **Reconhecimento do Problema ou Necessidade**: Motivação desencadeada por Estímulos internos (por exemplo, fome) e/ou Estímulos externos (por
+   exemplo, o anúncio de um novo hambúrguer Atlanta)
 
-2. **Pesquisa de informação**: Fontes: Pessoais, Comerciais, Públicas, Experienciais;
+2. **Pesquisa de Informação**: Fontes: Pessoais, Comerciais, Públicas, Experienciais
 
-3. **Avaliação de alternativas**: Atributos e seu grau de importância: Procedimento de Avaliação (por exemplo, comparando os produtos com
+3. **Avaliação de Alternativas**: Atributos e seu grau de importância: Procedimento de Avaliação (por exemplo, comparando os produtos com
    base nos atributos, e na importância que damos a cada um daqueles)
 
-4. **Decisão de compra**: Compra Intenção vs. Compra: Atitudes de Terceiros, Situações Inesperadas (por exemplo sugestões na loja);
+4. **Decisão de Compra**: Compra Intenção vs. Compra: Atitudes de Terceiros, Situações Inesperadas (por exemplo sugestões na loja)
 
-5. **Avaliação pós-compra**: Expectativas vs. Perceção de Desempenho: Satisfação/Insatisfação;
+5. **Avaliação Pós-Compra**: Expectativas vs. Perceção de Desempenho: Satisfação/Insatisfação
 
 ## Mercados Organizacionais
 
-**Compra organizacional**: Processo pelo qual organizações formais estabelecem a necessidade
+**Compra Organizacional**: Processo pelo qual organizações formais estabelecem a necessidade
 da compra de produtos e serviços e identificam, avaliam e escolhem entre marcas e fornecedores alternativos.
 
 Os mercados organizacionais podem ser:
 
 - Industriais
-- De revenda
+- De Revenda
 - Governamentais
 
 Estes normalmente encontram-se em número relativamente reduzido de clientes de grande dimensão
@@ -103,16 +106,16 @@ e frequentemente concentrados geograficamente. A sua procura pode ser derivada:
 
 ## Segmentação, Targeting e Posicionamento (STP)
 
-- **Marketing indiferenciado (ou de massas)**: Abordagem mais antiga.
+- **Marketing Indiferenciado (ou de massas)**: Abordagem mais antiga.
   Desenvolveu-se com a produção em massa, promovendo a venda do mesmo produto a todos os clientes.
 
-- **Marketing diferenciado (ou segmentado)**: Permite a diferenciação de um ou vários elementos do
+- **Marketing Diferenciado (ou segmentado)**: Permite a diferenciação de um ou vários elementos do
   _Marketing Mix_ para cada um dos diferentes clientes selecionados.
   Abordagem mais precisa sabendo-se antecipadamente a quem queremos que a oferta interesse.
 
 A estratégia de Marketing passa por 3 grandes etapas:
 
-![3 Etapas da Estratégia de Marketing](./assets/0007-estrategia-marketing.png)
+![3 Etapas da Estratégia de Marketing](./assets/0007-estrategia-marketing.png#dark=1)
 
 ### Segmentação
 
@@ -128,16 +131,16 @@ A segmentação pode ser feita segundo:
 
 1. Características dos consumidores:
 
-   - Geográficas (País, Clima, etc);
-   - Demográficas (Idade, Sexo, Classe, etc);
-   - Psicográficas (Personalidade, Valores, etc);
+   - Geográficas (País, Clima, etc)
+   - Demográficas (Idade, Sexo, Classe, etc)
+   - Psicográficas (Personalidade, Valores, etc)
 
 2. Comportamento dos consumidores:
-   - Por ocasiões (ex: viagens de férias/negócio);
-   - Por benefícios pretendidos (qualidade, serviço, etc);
-   - Por lealdade para com as marcas;
-   - Por taxa de utilização do tipo de produto;
-   - Por estado de prontidão.
+   - Por ocasiões (ex: viagens de férias/negócio)
+   - Por benefícios pretendidos (qualidade, serviço, etc)
+   - Por lealdade para com as marcas
+   - Por taxa de utilização do tipo de produto
+   - Por estado de prontidão
 
 ### Targeting (Escolha de Alvos)
 
@@ -145,8 +148,8 @@ O targeting compreende a escolha dos segmentos de mercado que a organização se
 Esta escolha baseia-se numa avaliação da atratividade dos segmentos.
 Esta escolha pode ser de 3 tipos:
 
-1. **Marketing concentrado**: Seleção de um só segmento;
-2. **Especialização seletiva**: Cobertura de vários segmentos atraentes, relacionados ou não;
+1. **Marketing Concentrado**: Seleção de um só segmento;
+2. **Especialização Seletiva**: Cobertura de vários segmentos atraentes, relacionados ou não;
 3. Cobertura total dos segmentos do mercado.
 
 ### Posicionamento
@@ -175,22 +178,22 @@ Produto constitui tudo o que pode ser oferecido a um mercado para aquisição, a
 
 Na mente do consumidor o produto possui imensos níveis de interesse:
 
-![Nível de interesse de um produto](./assets/0007-mix-produto.png)
+![Nível de interesse de um produto](./assets/0007-mix-produto.png#dark=1)
 
 O benefício nuclear corresponde à satisfação da necessidade original do consumidor.
 A partir daí o produto vai ganhando espaço no desejo do consumidor consoante aquilo que o produto oferece,
 para além da satisfação da necessidade: uma embalagem diferenciadas, uma qualidade maior, uma marca de renome.
 A organização ainda pode “aumentar” as qualidades oferecidas pelo produto através de garantias, por exemplo.
 
-Os produtos podem ser bens físicos (ex. PlayStation 4), um serviço (ex. Aulas), eventos
+Os produtos podem ser bens físicos (ex. PlayStation 5), um serviço (ex. Aulas), eventos
 e experiências (ex. NOS Alive), lugares (ex. Arquipélago da Madeira), pessoas (ex. Cristiano Ronaldo),
-informações (ex. Lisboa 2020) ou ideais (ex. Política).
+informações (ex. Lisboa 2069) ou ideais (ex. Política).
 
 Quanto à durabilidade ou tangibilidade os produtos podem ser classificados em:
 
-- Não duradores;
-- Duradouros;
-- Serviços.
+- Não duradores
+- Duradouros
+- Serviços
 
 :::info[Exemplo]
 
@@ -201,16 +204,16 @@ no dia específico, uma vez por ano, e não é algo tangível.
 
 Os bens de consumo podem ser classificados, consoante aos hábitos de compra dos consumidores em:
 
-- Bens de conveniência;
-- Bens de comparação;
-- Bens de especialidade;
-- Bens não procurados.
+- Bens de Conveniência
+- Bens de Comparação
+- Bens de Especialidade
+- Bens Não Procurados
 
 Os produtos industriais podem ser classificados em:
 
-- **Bens de capital**: Não integram o produto final (Ex: instalações e equipamentos);
-- **Partes e materiais**: Que integram o produto final (ex: Matérias primas, componentes, etc);
-- **Fornecimentos e serviços**: Bens que facilitam a produção.
+- **Bens de Capital**: Não integram o produto final (Ex: instalações e equipamentos)
+- **Partes e Materiais**: Que integram o produto final (ex: Matérias primas, componentes, etc)
+- **Fornecimentos e Serviços**: Bens que facilitam a produção
 
 Um serviço é qualquer ato ou desempenho que uma parte pode oferecer a outra,
 que é essencialmente intangível e não resulta na posse de algo.
@@ -219,10 +222,10 @@ A sua produção pode ou não estar ligada a um produto físico.
 Embora seja difícil generalizar, devido à sua grande heterogeneidade,
 os serviços partilham (mas com diferentes graus) características que condicionam/determinam o Marketing Mix apropriado:
 
-- Intangibilidade;
-- Inseparabilidade (Simultaneidade);
-- Variabilidade (Heterogeneidade);
-- Perecibilidade.
+- Intangibilidade
+- Inseparabilidade (Simultaneidade)
+- Variabilidade (Heterogeneidade)
+- Perecibilidade
 
 :::info[Exemplo]
 
@@ -234,7 +237,7 @@ Se a Joana faltar à aula, ela perde-a completamente (Inseparabilidade) pois est
 
 A história de venda de um produto apresenta diferentes estágios, com potenciais de lucro, oportunidades e problemas de estratégia, e políticas de Marketing Mix.
 
-![Ciclo de Vida de um Produto](./assets/0007-ciclo-vida-produto.png)
+![Ciclo de Vida de um Produto](./assets/0007-ciclo-vida-produto.png#dark=1)
 
 ### [Preço](color:yellow)
 
@@ -243,10 +246,10 @@ O preço é somente um entre muitos outros fatores que afetam a escolha do produ
 Uma competição com base no preço é uma estratégia indesejável.
 A decisão de um preço é fruto de vários fatores externos e internos:
 
-- Sensibilidade ao preço $\to$ Muito dependente do segmento e da situação económica;
-- Situação competitiva $\to$ Apesar de ser indesejável, o ajuste do preço é dependente da competição;
-- Perceção do comprador da relação preço/valor $\to$ Dependente do restante Marketing Mix,
-  da qualidade do produto e do efeito psicológico que este tem no consumidor.
+- Sensibilidade ao preço $\to$ Muito dependente do segmento e da situação económica
+- Situação competitiva $\to$ Apesar de ser indesejável, o ajuste do preço é dependente da competição
+- Perceção do comprador da relação preço/valor $\to$ Dependente do restante Marketing Mix
+  da qualidade do produto e do efeito psicológico que este tem no consumidor
 
 O preço escolhido tem em conta os fatores acima. Os custos levados com a produção
 e os encargos do Marketing Mix definem um preço mínimo do produto, enquanto isso,
@@ -262,17 +265,17 @@ de um preço elevado (particularmente tendo em conta os custos de produção) du
 A penetração consiste, basicamente, na fixação de um preço reduzido, inicial no sentido de
 tornar possível uma rápida e profunda aceitação do produto em causa no mercado correspondente.
 
-![Preço de Penetração](./assets/0007-preco-penetracao.png)
+![Preço de Penetração](./assets/0007-preco-penetracao.png#dark=1)
 
 Para a redefinição do preço de um produto já existente devemos considerar a perecibilidade,
 o grau de diferenciação e estado do ciclo de vida que o produto se encontra.
 
 A adaptação momentânea do preço de um produto pode ser consoante quatro fatores:
 
-- Preços promocionais (ex. acontecimentos especiais);
-- Preços discriminatórios (ex. Por segmento de clientes ou por data/hora);
-- Preços de gama (ex. Por linhas de produtos);
-- Preço base e descontos (ex. Descontos financeiros, sazonais, etc.).
+- Preços promocionais (ex. acontecimentos especiais)
+- Preços discriminatórios (ex. Por segmento de clientes ou por data/hora)
+- Preços de gama (ex. Por linhas de produtos)
+- Preço base e descontos (ex. Descontos financeiros, sazonais, etc.)
 
 ### [Distribuição](color:yellow)
 
@@ -292,10 +295,10 @@ Os circuitos de distribuição podem ter vários níveis, consoante as “mãos�
 Em cada nível do canal, os intermediários podem ser vários tipos:
 
 - Distribuição exclusiva (apenas uma ou muito poucas lojas de uma pequena cadeia – restringindo o número por área geográfica.
-  Por exemplo venda de produtos Gucci através das lojas daquela marca);
+  Por exemplo venda de produtos Gucci através das lojas daquela marca)
 - Distribuição seletiva (apenas alguns intermediários, para manter controlo – por exemplo sobre o tipo de serviço.
-  Por exemplo certos modelos de televisores podem ser vendidos apenas através de certas cadeias de lojas);
-- Distribuição intensiva (em muitos pontos de distribuição; frequentemente associada a bens de conveniência, tais como refrigerantes, massas, arroz, jornais).
+  Por exemplo certos modelos de televisores podem ser vendidos apenas através de certas cadeias de lojas)
+- Distribuição intensiva (em muitos pontos de distribuição; frequentemente associada a bens de conveniência, tais como refrigerantes, massas, arroz, jornais)
 
 ### [Comunicação](color:yellow)
 
@@ -306,19 +309,19 @@ o Marketing é bem mais amplo, sendo a promoção uma das partes.A comunicação
 
 - **Publicidade**: Forma paga de apresentação e de comunicação não pessoal de organizações, ideias,
   bens ou serviços, efetuada por um patrocinador identificado, para uma audiência alvo,
-  através de um meio de comunicação de massas;
+  através de um meio de comunicação de massas
 - **Promoção de vendas**: Incentivos de curto prazo e temporários destinados a encorajar experimentação ou compra (ou recompra) de um bem ou serviço;
-- **Força de vendas**: Interação pessoal com compradores (correntes e potenciais);
+- **Força de vendas**: Interação pessoal com compradores (correntes e potenciais)
 - **Marketing Direto**: Comunicação ou solicitação direta da atuação de clientes atuais e
-  potenciais específicos utilizando o correio, telefone, e-mail ou outros meios não pessoais;
+  potenciais específicos utilizando o correio, telefone, e-mail ou outros meios não pessoais
 - **Online, social media e mobile marketing**: Atividades on-line e programas desenhados para envolver clientes atuais ou potenciais:
-  websites, comunidades on-line, blogs e redes sociais como Facebook e Twitter, mensagens de texto e apps para smartphones e tablets;
-- **Relações Públicas**: Programas destinados a promover e/ou proteger a imagem da organização ou dos seus produtos;
+  websites, comunidades on-line, blogs e redes sociais como Facebook e Twitter, mensagens de texto e apps para smartphones e tablets
+- **Relações Públicas**: Programas destinados a promover e/ou proteger a imagem da organização ou dos seus produtos
 - **Eventos e experiências**: Eventos e experiências são atividades e programas patrocinados e concebidos para criar interações diárias ou especiais com marcas.
 
 A resposta comportamental pretendida pela ação de comunicação é condicionada pelo estado do comprador:
 
-![Comunicação (lado do marketer)](./assets/0007-comunicacao-marketer.png)
+![Comunicação (lado do marketer)](./assets/0007-comunicacao-marketer.png#dark=1)
 
 Podemos definir duas estratégias de marketing possíveis: Push e Pull.
 
@@ -326,9 +329,9 @@ Podemos definir duas estratégias de marketing possíveis: Push e Pull.
   tem que se promover junto dos distribuidores e dos retalhistas até chegar ao consumidor final;
 - **Marketing pull**: É promover diretamente junto do consumidor final que vai pedir os produtos às lojas e estas aos distribuidores.
 
-![Estratégias push e pull](./assets/0007-push-pull.png)
+![Estratégias push e pull](./assets/0007-push-pull.png#dark=1)
 
 Resumindo o que foi abordado neste capítulo, embora esteja longe de universalmente aplicável,
 o quadro seguinte ajuda a entender a ênfase do Marketing em cada fase do ciclo de vida do produto
 
-![Ênfase do Marketing em cada fase do ciclo de vida do produto](./assets/0007-marketing-ciclo-vida-produto.png)
+![Ênfase do Marketing em cada fase do ciclo de vida do produto](./assets/0007-marketing-ciclo-vida-produto.png#dark=1)
