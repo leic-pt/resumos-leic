@@ -399,7 +399,7 @@ Temos que a solução básica não é exequível. Assim sendo, construímos um p
 - Objetivo: Maximizar $-x_0$;
 - Restrições:
   $$
-  2x_1 - x_2 - x_0 \leq -2\\
+  2x_1 - x_2 - x_0 \leq 2\\
   x_1 - 5x_2 - x_0 \leq -4\\
   x_1, x_2, x_0 \geq 0.
   $$
