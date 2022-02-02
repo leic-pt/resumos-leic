@@ -1,3 +1,10 @@
+---
+title: Draft 1
+description:
+path: /cdi-iii/draft
+type: content
+---
+
 Exemplo Equação de Laplace (caso geral)
 
 $$

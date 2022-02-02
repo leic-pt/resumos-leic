@@ -1,3 +1,10 @@
+---
+title: Draft 2
+description:
+path: /cdi-iii/draft2
+type: content
+---
+
 $$
 \begin{cases}
 \frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2}\\
