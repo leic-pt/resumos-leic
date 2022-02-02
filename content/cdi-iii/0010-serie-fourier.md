@@ -333,7 +333,7 @@ da sua extensão par a $[-L,L]$, $g(x)$:
 $$
 g(x) = \begin{cases}
 f(x) & \text{se } x \in ]0, L]\\
-0 & \text{se } x = 0\\
+f(0) & \text{se } x = 0\\
 f(-x) & \text{se } x \in [-L, 0[
 \end{cases}
 $$
