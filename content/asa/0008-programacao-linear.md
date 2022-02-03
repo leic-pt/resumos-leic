@@ -120,7 +120,7 @@ Ax \leq b \\
 x \geq 0
 $$
 
-Podemos reparar que as reprsentações coincidem com as apresentadas anteriormente.
+Podemos reparar que as representações coincidem com as apresentadas anteriormente.
 
 A conversão de um programa linear para a forma standard pode não ser trivial: podemos enfrentar problemas com resolução não óbvia.
 
