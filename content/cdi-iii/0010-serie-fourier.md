@@ -65,7 +65,7 @@ f(x) & \text{sendo } x \text{ um ponto de continuidade de } f\\
 $$
 
 Como já foi referido, a Série de Fourier, $SF_f(x)$ é periódica em $\R$ com período $2L$, ao contrário de $f$ que pode não o ser.
-Por outro lado, se considerarmos a extensão períodica, $\overline{f}$ de $f$, isto é, pegarmos no intervalo $]-L, L[$ e "repetirmos" a função com período $2L$,
+Por outro lado, se considerarmos a extensão periódica, $\overline{f}$, de $f$, isto é, pegarmos no intervalo $]-L, L[$ e "repetirmos" a função com período $2L$,
 ficamos com a seguinte equivalência:
 
 $$
@@ -333,7 +333,7 @@ da sua extensão par a $[-L,L]$, $g(x)$:
 $$
 g(x) = \begin{cases}
 f(x) & \text{se } x \in ]0, L]\\
-0 & \text{se } x = 0\\
+f(0) & \text{se } x = 0\\
 f(-x) & \text{se } x \in [-L, 0[
 \end{cases}
 $$

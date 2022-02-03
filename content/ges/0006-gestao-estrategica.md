@@ -42,20 +42,20 @@ Uma das responsabilidades primárias dos gestores é definir **objetivos** que a
   nos produtos e serviços oferecidos atualmente, na área geográfica onde a empresa atua,
   nas necessidades dos clientes que estão a ser servidas e nas capacidades que a empresa possui.
 
-- [**Objetivos**](color:orange): Convertem a visão em alvos de desempenho específicos e permitem monitorar o desempenha da organização.
+- [**Objetivos**](color:orange): Convertem a visão em alvos de desempenho específicos e permitem monitorar o desempenho da organização.
   São necessários objetivos para todos os níveis da organização, devem ser definidos através de um processo _top-down_,
   com colaboração entre níveis, de modo a garantir que os objetivos estabelecidos para níveis inferiores apoiam os objetivos dos níveis superiores.
 
 Os objetivos bem definidos são:
 
-1. Quantificáveis;
-2. Mensuráveis;
-3. Com um prazo.
+1. Quantificáveis
+2. Mensuráveis
+3. Com um prazo
 
 Tipos de objetivos:
 
-1. Curto/longo prazo;
-2. Financeiros/Estratégicos.
+1. Curto/longo prazo
+2. Financeiros/Estratégicos
 
 ## Análise para a Formulação da Estratégia
 
@@ -65,10 +65,10 @@ A existência de uma boa estratégia combinada com a sua boa execução demonstr
 
 A análise interna e externa tem como objetivo obter informação que permita ajudar a organização a elaborar a sua estratégia.
 
-- [**Análise externa**](color:yellow): Identificar os principais desenvolvimentos que existem no exterior
-  da organização e que a afetam na forma de oportunidades ou ameaças;
+- [**Análise Externa**](color:yellow): Identificar os principais desenvolvimentos que existem no exterior
+  da organização e que a afetam na forma de oportunidades ou ameaças
 
-- [**Análise interna**](color:orange): Estuda o ambiente interno da organização de modo a identificar os pontos fortes e fracos que aí existem.
+- [**Análise Interna**](color:orange): Estuda o ambiente interno da organização de modo a identificar os pontos fortes e fracos que aí existem
 
 ### [Análise Externa](color:yellow)
 
@@ -80,15 +80,15 @@ a sua atividade direta e indiretamente, ao nível local, nacional, internacional
 A **envolvente geral** interage com todas as organizações da mesma área de atividade de forma
 exógena, i.e., as empresas não conseguem influenciar este envolvente. Este é composto pelos fatores PESTL, da envolvente nacional e internacional:
 
-- **P**oliticos;
-- **E**conómicos;
-- **S**ocioculturais e Demográficos;
-- **T**ecnológicos;
+- **P**oliticos
+- **E**conómicos
+- **S**ocioculturais e Demográficos
+- **T**ecnológicos
 - **L**egais.
 
-Além de outros fatores como: Ecologia, Ambiente sustentável, etc.
+Além de outros fatores como: Ecologia, Ambiente Sustentável, etc.
 
-A **envolvente transacional** trata-se das entidades que interagem diretamente com a organização e cuja influência é recíproca.
+A **Envolvente Transacional** trata-se das entidades que interagem diretamente com a organização e cuja influência é recíproca.
 É constituída essencialmente por três partes:
 
 - **Clientes**: Individuais ou organizações que adquirem bens e/ou serviços e são a razão de existência da organização.
@@ -96,23 +96,23 @@ A **envolvente transacional** trata-se das entidades que interagem diretamente c
 - **Concorrentes**: Organizações que oferecem no mercado o mesmo bem/valor ao cliente.
   Concorrem também no mercado de trabalho e no mercado de fornecedores. Podem ser:
 
-  - **Intra-tipo**: Empresas que concorrem com o mesmo tipo de bem ou serviço (ex. automóveis, computadores, empresas de aviação);
-  - **Inter-tipo**: Empresas que fornecem um produto substituto para o fornecimento do mesmo bem/valor (ex. comboios vs carros, livros vs e-books).
+  - **Intra-tipo**: Empresas que concorrem com o mesmo tipo de bem ou serviço (ex. automóveis, computadores, empresas de aviação)
+  - **Inter-tipo**: Empresas que fornecem um produto substituto para o fornecimento do mesmo bem/valor (ex. comboios vs carros, livros vs e-books)
 
 - **Fornecedores**: Podem afetar a qualidade, custos e prazos de entrega dos produtos/serviços da empresa.
 
 O **Modelo das Cinco Forças de Porter** faz uma análise a uma indústria/setor de atividade.
 Segundo este modelo, a intensidade da competição numa indústria, assim como o potencial lucro dessa indústria é função de cinco forças competitivas.
 
-![Modelo das Cinco Forças de Porter](./assets/0006-cinco-forcas-porter.png)
+![Modelo das Cinco Forças de Porter](./assets/0006-cinco-forcas-porter.png#dark=1)
 
 **Como medir a atratividade de um setor de atividade?**
 
 1. Analisar cada uma das 5 forças competitivas?
 
-   - Maior competição interna $\to$ Menores Lucros;
-   - Menores barreiras de entrada $\to$ Preços mais baixos $\to$ Menores Lucros;
-   - Poucos fornecedores e clientes $\to$ Inputs mais caros $\to$ Menores Lucros.
+   - Maior competição interna $\to$ Menores Lucros
+   - Menores barreiras de entrada $\to$ Preços mais baixos $\to$ Menores Lucros
+   - Poucos fornecedores e clientes $\to$ Inputs mais caros $\to$ Menores Lucros
 
 2. Caracterizar a intensidade de cada força competitiva em:
 
@@ -130,10 +130,10 @@ Segundo este modelo, a intensidade da competição numa indústria, assim como o
 
 Trata-se do levantamento dos recursos, capacidades e competências da organização com o objetivo de identificar o que está ao alcance da organização fazer.
 
-- **Recursos**: Físicos, financeiros, humanos, organizacionais, etc.;
-- **Capacidades**: Capacidade para integrar os recursos, de forma a criar competências;
-- **Competências**: Uma atividade que a organização faz bem;
-- **Competências centrais (core)**: atividades que a organização faz melhor do que os seus concorrentes;
+- **Recursos**: Físicos, financeiros, humanos, organizacionais, etc.
+- **Capacidades**: Capacidade para integrar os recursos, de forma a criar competências
+- **Competências**: Uma atividade que a organização faz bem
+- **Competências Centrais (Core)**: atividades que a organização faz melhor do que os seus concorrentes
 
 Para análise interna usamos o modelo da cadeia de valor que agrupa o conjunto de atividades
 desenvolvidos internamente por uma empresa de modo a evidenciar como estas criam valor para os clientes.
@@ -141,9 +141,9 @@ desenvolvidos internamente por uma empresa de modo a evidenciar como estas criam
 As atividades desenvolvidas podem ser:
 
 - **Primárias**: Atividades principais na criação de valor para o cliente
-  (ex. atividades envolvidas na criação física do produto, venda, distribuição e serviço após venda);
+  (ex. atividades envolvidas na criação física do produto, venda, distribuição e serviço após venda)
 
-- **Suporte**: Atividades que apoiam as primárias a serem bem executadas;
+- **Suporte**: Atividades que apoiam as primárias a serem bem executadas
 
 ![Atividades numa Análise Interna](./assets/0006-atividades-analise-interna.png#dark=1)
 
@@ -151,9 +151,9 @@ As atividades desenvolvidas podem ser:
 
 Uma vez feita a análise externa e interna e recolhidas as principais forças (_strengths_, S),
 fraquezas (_weaknesses_, W), oportunidades (_opportunities_, O) e ameaças (_threats_, T)
-podemos reuni-las numa matriz SWOT que serve de base à formulação de estratégias:
+podemos reuní-las numa matriz SWOT que serve de base à formulação de estratégias:
 
-![Matriz SWOT](./assets/0006-matriz-swot.png)
+![Matriz SWOT](./assets/0006-matriz-swot.png#dark=1)
 
 Uma vez feita esta matriz, uma empresa pode, por exemplo, perseguir as oportunidades
 que melhor se ajustem aos pontos fortes da empresa, ou usar os seus pontos fortes para tentar minimizar uma ameaça, enfim, várias decisões possíveis.
@@ -162,22 +162,22 @@ que melhor se ajustem aos pontos fortes da empresa, ou usar os seus pontos forte
 
 A formulação da estratégia pode passar essencialmente em 4 níveis diferentes:
 
-- Corporativo;
-- Negócio;
-- Funcional;
-- Operacional.
+- Corporativo
+- Negócio
+- Funcional
+- Operacional
 
 ### Estratégia ao Nível Corporativo
 
 Principais estratégias possíveis:
 
-1. Diversificação para outras áreas de atividade;
-2. Integração vertical;
-3. Internacionalização.
+1. Diversificação para outras áreas de atividade
+2. Integração Vertical
+3. Internacionalização
 
 A matriz **BCG** pode ajudar a decidir uma estratégia possível. Esta matriz ajuda a perceber em que ponto se encontra uma empresa e a estratégia a tomar.
 
-![Matriz BCG](./assets/0006-matriz-bcg.png)
+![Matriz BCG](./assets/0006-matriz-bcg.png#dark=1)
 
 :::tip[Matriz BCG]
 
@@ -185,7 +185,7 @@ A matriz **BCG** pode ajudar a decidir uma estratégia possível. Esta matriz aj
 
 - **Stars**: O setor está em crescimento e o seu produto é o mais vendido.
 
-- **Question-marks**: O setor está num mercado em crescimento, mas o seu produto não é o mais vendido.
+- **Question-Marks**: O setor está num mercado em crescimento, mas o seu produto não é o mais vendido.
 
 - **Dogs**: O setor não está em crescimento e também não tem uma posição dominante no mercado.
 
@@ -201,7 +201,7 @@ Fornecedor $\xleftarrow{Backward}$ Distribuidor $\xrightarrow{Forward}$ Retalhis
 Isto pode ter vantagens ou desvantagens:
 
 - **Vantagens**: Reduz custos das matérias primas e do canal de distribuição, diminui a dependência
-  de fornecedores ou de distribuidores (promove a concorrência entre eles), e aumenta a visibilidade da empresa junto ao cliente final;
+  de fornecedores ou de distribuidores (promove a concorrência entre eles), e aumenta a visibilidade da empresa junto ao cliente final
 
 - **Desvantagens**: Maior necessidade de recursos, a existência de fornecedores físicos,
   o que pode significar menor flexibilidade para lidar com novas necessidades dos clientes,
@@ -209,10 +209,10 @@ Isto pode ter vantagens ou desvantagens:
 
 A internacionalização pode ser uma mais-valia no sentido de:
 
-- Obter acesso a novos clientes;
-- Alcançar menores custos, capturando mais facilmente economias de escala;
-- Explorar as competências centrais desenvolvidas no mercado doméstico em mercados estrangeiros;
-- Obter acesso a recursos e capacidades localizadas em mercados estrangeiros, para espalhar o risco do negócio por um conjunto mais amplo de mercados.
+- Obter acesso a novos clientes
+- Alcançar menores custos, capturando mais facilmente economias de escala
+- Explorar as competências centrais desenvolvidas no mercado doméstico em mercados estrangeiros
+- Obter acesso a recursos e capacidades localizadas em mercados estrangeiros, para espalhar o risco do negócio por um conjunto mais amplo de mercados
 
 As opções estratégicas possíveis de internacionalização podem ser:
 
@@ -233,25 +233,25 @@ Existem cinco estratégias genéricas que visam a obtenção de vantagens compet
 
 As empresas devem selecionar a sua estratégia tendo em conta:
 
-1. Se deseja entrar em muitos ou poucos segmentos de mercado;
-2. Se a sua vantagem competitiva é baseada em custos baixos ou diferenciação.
+1. Se deseja entrar em muitos ou poucos segmentos de mercado
+2. Se a sua vantagem competitiva é baseada em custos baixos ou diferenciação
 
 As estratégias possíveis são, então:
 
-1. [**Liderança de baixo custo**](color:pink): O objetivo é agressivamente conseguir custos mais baixos
+1. [**Liderança de Baixo Custo**](color:pink): O objetivo é agressivamente conseguir custos mais baixos
    do que a concorrência (custos totais; não apenas custos de produção),
    de preferência utilizando abordagens que sejam difíceis de igualar ou copiar pelos rivais;
 
 2. [**Diferenciação**](color:orange): Envolve distinguir os produtos/ serviços da firma dos da concorrência
    de um modo a captar a preferência dos clientes para a oferta da empresa;
 
-3. [**Nicho ou foco**](color:yellow) _“Focused Differentiation”_: Servir só um segmento de mercado
+3. [**Nicho ou Foco**](color:yellow) _“Focused Differentiation”_: Servir só um segmento de mercado
    e ser a organização mais diferenciada (única) desse segmento;
 
-4. [**Nicho ou foco**](color:green) _“Focused Low-Cost”_: Servir só um segmento de mercado
+4. [**Nicho ou Foco**](color:green) _“Focused Low-Cost”_: Servir só um segmento de mercado
    e ser a organização de mais baixo-custo desse segmento;
 
 5. [**“Best-Cost Provider”**](color:blue): Tentar seguir simultaneamente uma estratégia de Liderança de baixo-custo e de Diferenciação.
    Os clientes-alvo serão aqueles que atribuem valor à diferenciação mas têm em atenção se pagam um preço baixo – _"value for money"_.
 
-![Estratégia ao Nível do Negócio](./assets/0006-estrategia-nivel-negocio.png)
+![Estratégia ao Nível do Negócio](./assets/0006-estrategia-nivel-negocio.png#dark=1)
