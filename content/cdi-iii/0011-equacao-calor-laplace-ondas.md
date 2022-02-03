@@ -193,10 +193,6 @@ $$
 
 ## Equação de Laplace
 
-:::warning[Página em Construção]
-Conteúdo brevemente.
-:::
-
 A **Equação de Laplace** homogénea tem a seguinte forma:
 
 $$
@@ -278,6 +274,13 @@ u_4(x,b) = 0\\ % III
 u_4(a,y) = f_4(x) % IV
 \end{darray}
 $$
+
+:::warning[Nota do Autor]
+Abaixo mostram-se imediatamente as soluções dos problemas.  
+Não é necessário decorar estas soluções, visto que conseguem facilmente ser obtidas através do método de separação de variáveis,
+como ilustrado no exemplo abaixo.  
+Estas soluções apenas se encontram aqui para referência.
+:::
 
 Resolvendo agora cada um dos problemas, omitindo os cálculos (mais abaixo irá estar um exemplo passo a passo):
 
@@ -424,7 +427,29 @@ $$
 E, como existem infinitas soluções,
 
 $$
-u(x,y) = \sum_{n=1}^{+\infty} b_n \sinh(\sqrt{1 + n^2 \pi^2}x)\sin(n \pi y)
+u(x,y) = \sum_{n=1}^{+\infty} d_n \sinh(\sqrt{1 + n^2 \pi^2}x)\sin(n \pi y)
+$$
+
+Finalmente, vamos determinar $d_n$, de acordo com a condição inicial $u(1,y)$:
+
+$$
+u(1,y) = \sum_{n=1}^{+\infty} d_n \sinh(\sqrt{1 + n^2 \pi^2})\sin(n \pi y) = y
+$$
+
+Novamente, isto relembra-nos uma [série de senos](/cdi-iii/serie-fourier#série-de-senos), mas com uma pequena diferença:
+
+$$
+d_n \sinh(\sqrt{1 + n^2 \pi^2}) = b_n = \frac{2}{1} \int_{0}^{1} y \sin(n\pi y) \d y = \frac{2(-1)^{n+1}}{n\pi}
+$$
+
+$$
+d_n \sinh(\sqrt{1 + n^2 \pi^2}) = \frac{2(-1)^{n+1}}{n\pi} \implies d_n = \frac{2(-1)^{n+1}}{n\pi \sinh(\sqrt{1 + n^2 \pi^2})}
+$$
+
+Assim, a [**solução do problema**](color:green) é:
+
+$$
+u(x,y) = \sum_{n=1}^{+\infty} \frac{2(-1)^{n+1}}{n\pi \sinh(\sqrt{1 + n^2 \pi^2})} \sinh(\sqrt{1 + n^2 \pi^2}x)\sin(n \pi y)
 $$
 
 :::
