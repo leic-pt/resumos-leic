@@ -373,7 +373,7 @@ A conversão deste programa para a forma slack resulta nas restrições $x_1 = 0
 
 Seja $L$ um programa linear na forma standard, $L_{aux}$ é definido tal que:
 
-- Objetivo: Maximizar $x_0$;
+- Objetivo: Maximizar $-x_0$;
 - Restrições:
   $$
     \sum_{i=1}^{n} a_{ij}x_j - x_0 \leq b_i, \quad i = 1, 2, ..., m\\
