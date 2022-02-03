@@ -388,3 +388,13 @@ S_{\cos} f(x) = \begin{cases}
 $$
 
 :::
+
+## Identidade de Parseval
+
+:::tip[Definição]
+
+$$
+\frac{1}{L} \int_{-L}^{L} \left[f(x)\right]^2 \d x = \frac{a_0^2}{2} + \sum_{n=1}^{+\infty} \left(a_n^2 + b_n^2\right)
+$$
+
+:::
