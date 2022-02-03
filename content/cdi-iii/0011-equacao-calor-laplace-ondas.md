@@ -36,9 +36,9 @@ Trata-se de um problema muito comum, que é descrito pelo seguinte sistema:
 
 $$
 \begin{cases}
-\dfrac{\partial u}{\partial t} = k \dfrac{\partial^2 u}{\partial x^2} & t > 0, x \in \left]0, \pi \right[\\
+\dfrac{\partial u}{\partial t} = k \dfrac{\partial^2 u}{\partial x^2} & t > 0, x \in \left]0, L \right[\\
 u(t,0 ) = u(t,L) = 0 & t>0\\
-u(0,x) = f(x) & x \in \left]0, \pi\right[
+u(0,x) = f(x) & x \in \left]0, L\right[
 \end{cases}
 $$
 
