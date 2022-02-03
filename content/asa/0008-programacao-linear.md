@@ -38,9 +38,9 @@ Aqui, cada coluna corresponde a um círculo eleitoral, enquanto que cada linha c
 
 Como podemos observar, diferentes círculos eleitorais reagem de forma diferente à mesma medida: subsídios agrícolas, por exemplo, são recebidos com enorme satisfação pela população rural, diretamente beneficiada pelos mesmos, enquanto que os setores urbano e suburbano reagem com indiferença, visto que a medida não os afeta diretamente.
 
-O objetivo passará, então, por tentar obter a maioria absoluta (pelo menos $50%$ dos votos) minimizando os custos. A resposta, claro, será obtida através da programação linear. Antes de introduzir o conceito em si, tentemos formalizar o problema:
+O objetivo passará, então, por tentar obter a maioria absoluta (pelo menos $50\%$ dos votos) minimizando os custos. A resposta, claro, será obtida através da programação linear. Antes de introduzir o conceito em si, tentemos formalizar o problema:
 
-Temos que as quantias a gastar por medida em publicidade são dados, respetivamente, por $x_1, x_2, x_3$ e $x_4$. O nosso objetivo passa, então, por minimizar $\sum_{i=1}^4 x_i$. Visto que queremos procurar satisfazer ao máximo o eleitorado, procuramos também que cada círculo eleitoral tenha, no mínimo, $50%$ dos votos. Assim sendo, iríamos procurar a solução que minimize os custos sujeita às restrições:
+Temos que as quantias a gastar por medida em publicidade são dados, respetivamente, por $x_1, x_2, x_3$ e $x_4$. O nosso objetivo passa, então, por minimizar $\sum_{i=1}^4 x_i$. Visto que queremos procurar satisfazer ao máximo o eleitorado, procuramos também que cada círculo eleitoral tenha, no mínimo, $50\%$ dos votos. Assim sendo, iríamos procurar a solução que minimize os custos sujeita às restrições:
 
 $$
 -2x_1 + 8x_2 + 0x_3 + 10x_4 \geq 50\\
