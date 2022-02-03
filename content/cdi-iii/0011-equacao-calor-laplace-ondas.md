@@ -456,6 +456,136 @@ $$
 
 ## Equação das Ondas
 
-:::warning[Página em Construção]
-Conteúdo brevemente.
+A equação das ondas tem a forma de
+
+$$
+\frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2}
+$$
+
+Outra notação possível para este problema (e para outros vistos anteriormente) é a seguinte:
+
+$$
+u_{tt} = c^2 u_{xx}
+$$
+
+Mais genericamente, o problema pode ser definido por
+
+$$
+\begin{cases}
+u_{xx} = c^2 u_{tt}\\
+u(t,0) = 0\\
+u(t,L) = 0\\
+u(0,x) = u_0 (x)\\
+\frac{\partial u}{\partial t} (0, x) = v_0(x)
+\end{cases}
+$$
+
+Pelo método de separação de variáveis conseguimos chegar à seguinte solução geral:
+
+$$
+u(t,x) = \sum_{n=1}^{+\infty} \left(A_n \cos\left(\frac{c\pi n}{L}t\right) + B_n \sin\left(\frac{c\pi n}{L}t\right)\right) \sin\left(\frac{\pi n}{L}x\right)
+$$
+
+$$
+A_n = \frac{2}{L} \int_{0}^{L} u_0(x) \sin\left(\frac{\pi n}{L}x\right) \d x
+$$
+
+$$
+B_n = \frac{2}{c\pi n} \int_{0}^{L} v_0(x) \sin\left(\frac{\pi n}{L}x\right) \d x
+$$
+
+Obviamente, se $B_n = 0$
+
+$$
+u(t,x) = \sum_{n=1}^{+\infty} A_n \cos\left(\frac{c\pi n}{L}t\right) \sin\left(\frac{\pi n}{L}x\right)
+$$
+
+No entanto, como podemos reparar, esta expressão é muito confusa e complicada.
+Por esta razão, existe outra fórmula, que nos permite expressar a equação das ondas de uma forma mais simples.
+
+### Fórmula de D'Alembert
+
+Esta forma vem-nos simplificar a equação das ondas. Novamente, tendo o problema
+
+$$
+\begin{cases}
+u_{xx} = c^2 u_{tt}\\
+u(0,x) = f(x)\\
+\frac{\partial u}{\partial t} (0, x) = g(x)
+\end{cases}
+$$
+
+é possível descrever a sua solução segundo duas funções $p$ e $q$:
+
+$$
+u(x,t) = p(x+ct) + q(x-ct)
+$$
+
+A [**Fórmula de D'Alembert**](color:orange) diz-nos que a solução da equação será
+
+$$
+u(x,t) = \frac{f(x-ct) + f(x+ct)}{2} + \frac{1}{2c} \int_{x-ct}^{x+ct} g(s) \d s
+$$
+
+:::details[Demonstração da Fórmula de D'Alembert]
+
+::youtube{#j2G91naZ8bo}
+
+:::
+
+:::info[Exemplo]
+
+**Resolva o seguinte problema**
+
+$$
+\begin{darray}{ll}
+\frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2}\\
+u(x,0) = \cos(x) - 1 & \frac{\partial u}{\partial t} (x,0) = 0, 0 \leq x \leq 2\pi\\
+u(0,t) = 0 & u(2\pi,t) = 0
+\end{darray}
+$$
+
+Vamos aplicar a [**Fórmula de D'Alembert**](color:orange) para resolver este problema:
+
+$$
+\begin{darray}{cc}
+f(x) = \cos(x) - 1 & g(x) = 0
+\end{darray}
+$$
+
+Pelo que
+
+$$
+\begin{aligned}
+u(x,t) &= \frac{\cos(x+ct) - 1 + \cos(x-ct) - 1}{2}\\
+&= \frac{\cos(x+ct) + \cos(x-ct) - 2}{2}
+\end{aligned}
+$$
+
+Aplicando agora a condição fronteira,
+
+$$
+\begin{aligned}
+u(0,t) = 0 & \Leftrightarrow \frac{\cos(ct) + \cos(ct) - 2}{2} = 0\\
+& \Leftrightarrow \cos(ct) + \cos(ct) = 2\\
+& \Leftrightarrow 2 \cos(ct) = 2\\
+& \Leftrightarrow \cos(ct) = 1\\
+& \Leftrightarrow ct = 2\pi n & n \in \Z
+\end{aligned}
+$$
+
+Substituindo na solução obtida, ficamos com
+
+$$
+\begin{aligned}
+u(x,t) &= \frac{\cos(x+ct) + \cos(x-ct) - 2}{2}\\
+&= \frac{\cos(x+2 \pi n) + \cos(x-2 \pi n) - 2}{2}\\
+&= \frac{\cos(x) + \cos(x) - 2}{2}\\
+&= \frac{2\cos(x) - 2}{2}\\
+&= \cos(x) - 1
+\end{aligned}
+$$
+
+A **solução do problema** é $u(x,t) = \cos(x) - 1$
+
 :::
