@@ -341,6 +341,16 @@ $$
 u(x,y) = X(x)Y(y)
 $$
 
+Já vimos anteriormente na equação de calor que é possível trabalharmos as condições fronteira para obter:
+
+$$
+\begin{aligned}
+u(x,0) = 0 & \implies X(x)Y(0) = 0 \implies X(x) = 0 \lor Y(0) = 0 \implies Y(0) = 0\\
+u(x,1) = 0 & \implies X(x)Y(1) = 0 \implies X(x) = 0 \lor Y(1) = 0 \implies Y(1) = 0\\
+u(0,y) = 0 & \implies X(0)Y(u) = 0 \implies X(0) = 0 \lor Y(0) = 0 \implies X(0) = 0
+\end{aligned}
+$$
+
 Substituindo na expressão inicial e efetuando os cálculos segundo o método,
 
 $$
@@ -348,43 +358,74 @@ $$
 &X''(x) Y(y) + X(x) Y''(y) = X(x) Y(y)\\\\
 \Leftrightarrow & X''(x) Y(y) = X(x) Y(y) - X(x) Y''(y)\\\\
 \Leftrightarrow & \frac{X''(x) Y(y)}{X(x)} = Y(y) - Y''(y)\\\\
-\Leftrightarrow & \frac{X''(x)}{X(x)} = 1 - \frac{Y''(y)}{Y(y)} = \lambda
+\Leftrightarrow & \frac{X''(x)}{X(x)} = 1 - \frac{Y''(y)}{Y(y)}\\\\
+\Leftrightarrow & \frac{Y''(y)}{Y(y)} = 1 - \frac{X''(x)}{X(x)} = \lambda
 \end{darray}
 $$
 
-Pegando em $X(x)$, já conhecemos esta equação, pelo que podemos evitar certos cálculos.
+Pegando em $Y(y)$, já conhecemos esta equação, com condições fronteira de Dirichlet, pelo que podemos evitar certos cálculos.
 
 $$
-X''(x) - \lambda X(x) = 0
+Y''(y) - \lambda Y(y) = 0
 $$
 
 Como vimos na Equação do Calor, a única solução não nula ocorre quando $\lambda < 0$, em que
 
 $$
 \begin{darray}{cc}
-X(x) = c_1 \sin(n \pi x) & \lambda = - n^2 \pi^2
+Y(y) = c_1 \sin(n \pi y) & \lambda = - n^2 \pi^2
 \end{darray}
 $$
 
-De seguida, pegamos em $Y(y)$, que já temos de efetuar alguns cálculos:
+De seguida, pegamos em $X(x)$, que já temos de efetuar alguns cálculos:
 
 $$
 \begin{aligned}
-- \frac{Y''(y)}{Y(y)} = \lambda - 1 &\implies Y''(y) + (\lambda - 1) Y(y) = 0\\
-&\implies Y''(y) + (- n^2 \pi^2 - 1) Y(y) = 0\\
-&\implies Y''(y) - (n^2 \pi^2 + 1) Y(y) = 0
+- \frac{X''(x)}{X(x)} = \lambda - 1 &\implies X''(x) + (\lambda - 1) X(x) = 0\\
+&\implies X''(x) + (- n^2 \pi^2 - 1) X(x) = 0\\
+&\implies X''(x) - (n^2 \pi^2 + 1) X(x) = 0
 \end{aligned}
 $$
 
 Logo, resolvendo a [equação de ordem superior](/cdi-iii/equacoes-ordem-superior),
 
 $$
-Y(y) = c_2 e^{\sqrt{1 + n^2 \pi^2}y} + c_3 e^{-\sqrt{1 + n^2 \pi^2}y}
+X(x) = c_2 e^{\sqrt{1 + n^2 \pi^2}x} + c_3 e^{-\sqrt{1 + n^2 \pi^2}x}
 $$
 
-Pela condição fronteira $u(0,y) = 0$, obtemos o seguinte: $Y(0) = 0$.
+Pela condição fronteira $u(0,y) = 0$, obtemos o seguinte: $X(0) = 0$, pelo que
 
-// TODO isto está mal, é preciso fazer o Y primeiro
+$$
+\begin{aligned}
+X(0) = 0 &\implies c_2 e^{0} + c_3 e^{0} = 0\\
+&\implies c_2 + c_3 = 0\\
+&\implies c_3 = - c_2
+\end{aligned}
+$$
+
+Substituindo em $X(x)$, obtemos
+
+$$
+X(x) = c_2 \left(e^{\sqrt{1 + n^2 \pi^2}x} - e^{-\sqrt{1 + n^2 \pi^2}x} \right)
+$$
+
+Relembrando que $\sinh(ax) = \frac{e^{ax} - e^{-ax}}{2}$, obtemos que
+
+$$
+X(x) = c_3 \sinh(\sqrt{1 + n^2 \pi^2}x)
+$$
+
+Assim, finalmente, obtemos a expressão geral para a função $u(x,y)$.
+
+$$
+u(x,y)=X(x)Y(y) = c_4 \sinh(\sqrt{1 + n^2 \pi^2}x)\sin(n \pi y)
+$$
+
+E, como existem infinitas soluções,
+
+$$
+u(x,y) = \sum_{n=1}^{+\infty} b_n \sinh(\sqrt{1 + n^2 \pi^2}x)\sin(n \pi y)
+$$
 
 :::
 
