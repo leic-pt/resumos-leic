@@ -277,8 +277,8 @@ $$
 
 Podemos então notar que, de forma sucinta:
 
-- As colunas de $a$ correspondem às variáveis não-básicas, $N$;
-- As linhas de $a$ correspondem às variáveis básicas, $B$;
+- As colunas de $A$ correspondem às variáveis não-básicas, $N$;
+- As linhas de $A$ correspondem às variáveis básicas, $B$;
 - As entradas de $A$ correspondem aos coeficientes de cada variável não básica na equação associada a cada variável básica do conjunto de restrições;
 
 Mais ainda, as linhas da matriz vertical $b$ correspodem à variável de slack de cada igualdade do conjunto de restrições associada a cada variável básica. Para além disso, $c_3, c_5, c_6$ em $c$ correspondem aos coeficientes de cada variável não básica na função objetivo.
