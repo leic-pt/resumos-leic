@@ -46,7 +46,7 @@ Após aplicar o [método de separação de variáveis](/cdi-iii/equacao-calor-so
 obtemos a seguinte solução para este problema:
 
 $$
-u(t,x) = \sum_{n=1}^{\infty} c_n e^{\dfrac{n^2 \pi^2 k t}{L^2}} \sin \left(\frac{n\pi x}{L}\right) \quad, \quad c_n \in \R
+u(t,x) = \sum_{n=1}^{\infty} c_n e^{-\dfrac{n^2 \pi^2 k t}{L^2}} \sin \left(\frac{n\pi x}{L}\right) \quad, \quad c_n \in \R
 $$
 
 Para determinar sucessão $c_n$, usamos a condição inicial, pelo que
