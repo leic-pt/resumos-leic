@@ -38,9 +38,9 @@ Aqui, cada coluna corresponde a um círculo eleitoral, enquanto que cada linha c
 
 Como podemos observar, diferentes círculos eleitorais reagem de forma diferente à mesma medida: subsídios agrícolas, por exemplo, são recebidos com enorme satisfação pela população rural, diretamente beneficiada pelos mesmos, enquanto que os setores urbano e suburbano reagem com indiferença, visto que a medida não os afeta diretamente.
 
-O objetivo passará, então, por tentar obter a maioria absoluta (pelo menos $50%$ dos votos) minimizando os custos. A resposta, claro, será obtida através da programação linear. Antes de introduzir o conceito em si, tentemos formalizar o problema:
+O objetivo passará, então, por tentar obter a maioria absoluta (pelo menos $50\%$ dos votos) minimizando os custos. A resposta, claro, será obtida através da programação linear. Antes de introduzir o conceito em si, tentemos formalizar o problema:
 
-Temos que as quantias a gastar por medida em publicidade são dados, respetivamente, por $x_1, x_2, x_3$ e $x_4$. O nosso objetivo passa, então, por minimizar $\sum_{i=1}^4 x_i$. Visto que queremos procurar satisfazer ao máximo o eleitorado, procuramos também que cada círculo eleitoral tenha, no mínimo, $50%$ dos votos. Assim sendo, iríamos procurar a solução que minimize os custos sujeita às restrições:
+Temos que as quantias a gastar por medida em publicidade são dados, respetivamente, por $x_1, x_2, x_3$ e $x_4$. O nosso objetivo passa, então, por minimizar $\sum_{i=1}^4 x_i$. Visto que queremos procurar satisfazer ao máximo o eleitorado, procuramos também que cada círculo eleitoral tenha, no mínimo, $50\%$ dos votos. Assim sendo, iríamos procurar a solução que minimize os custos sujeita às restrições:
 
 $$
 -2x_1 + 8x_2 + 0x_3 + 10x_4 \geq 50\\
@@ -120,7 +120,7 @@ Ax \leq b \\
 x \geq 0
 $$
 
-Podemos reparar que as reprsentações coincidem com as apresentadas anteriormente.
+Podemos reparar que as representações coincidem com as apresentadas anteriormente.
 
 A conversão de um programa linear para a forma standard pode não ser trivial: podemos enfrentar problemas com resolução não óbvia.
 
@@ -277,8 +277,8 @@ $$
 
 Podemos então notar que, de forma sucinta:
 
-- As colunas de $a$ correspondem às variáveis não-básicas, $N$;
-- As linhas de $a$ correspondem às variáveis básicas, $B$;
+- As colunas de $A$ correspondem às variáveis não-básicas, $N$;
+- As linhas de $A$ correspondem às variáveis básicas, $B$;
 - As entradas de $A$ correspondem aos coeficientes de cada variável não básica na equação associada a cada variável básica do conjunto de restrições;
 
 Mais ainda, as linhas da matriz vertical $b$ correspodem à variável de slack de cada igualdade do conjunto de restrições associada a cada variável básica. Para além disso, $c_3, c_5, c_6$ em $c$ correspondem aos coeficientes de cada variável não básica na função objetivo.
@@ -373,7 +373,7 @@ A conversão deste programa para a forma slack resulta nas restrições $x_1 = 0
 
 Seja $L$ um programa linear na forma standard, $L_{aux}$ é definido tal que:
 
-- Objetivo: Maximizar $x_0$;
+- Objetivo: Maximizar $-x_0$;
 - Restrições:
   $$
     \sum_{i=1}^{n} a_{ij}x_j - x_0 \leq b_i, \quad i = 1, 2, ..., m\\

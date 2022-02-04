@@ -137,7 +137,7 @@ Começamos com o grafo abaixo (note-se que já estamos no primeiro passo, em que
 
 ![Exemplo da aplicação do algoritmo - 1](./assets/0006-kruskal-exemplo-1.png#dark=1)
 
-De seguida, temos 2 arcos com peso 2 - podemos escolher qualquer um, o algoritmo escolhe $(c, i)$. Os vértices não pertencem à mesma árvore, pelo que as respetivas árvoras são unidas, e $(c, i)$ é adicionado à MST.
+De seguida, temos 2 arcos com peso 2 - podemos escolher qualquer um, o algoritmo escolhe $(c, i)$. Os vértices não pertencem à mesma árvore, pelo que as respetivas árvores são unidas, e $(c, i)$ é adicionado à MST.
 
 ![Exemplo da aplicação do algoritmo - 2](./assets/0006-kruskal-exemplo-2.png#dark=1)
 
