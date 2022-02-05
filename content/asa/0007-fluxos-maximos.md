@@ -105,7 +105,7 @@ Significa, então, que podemos aumentar o fluxo em todo o arco de $p$ por uma qu
 
 ![Caminhos de Aumento](./assets/0007-augmentation-path.png#dark=1)
 
-O caminho destacado em $(b)$ corresponde a um caminho de aumento $p$ para a rede em $(a)$. Temos que $c_f(p) = \min\{5, 5, 5\} = 5$, pelo que podemos aumentar o fluxo em todo o caminho de aumento $p$ por $5$.
+O caminho destacado em $(b)$ corresponde a um caminho de aumento $p$ para a rede em $(a)$. Temos que $c_f(p) = \min\{5, 4, 5\} = 4$, pelo que podemos aumentar o fluxo em todo o caminho de aumento $p$ por $4$.
 
 De realçar que podemos aqui observar a rede residual, e as noções de caminhos residuais devem então ficar mais claras: existem arcos nos dois sentidos do arco de $G$, respeitando a definição proposta acima para $c_f(u, v)$. Os arcos que já transportam capacidade máxima de fluxo apenas apresentam arco numa direção.
 
