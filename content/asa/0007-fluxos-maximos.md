@@ -522,7 +522,7 @@ Tal como o método de Ford-Fulkerson, _push-relabel_ não é considerado um algo
 
 ### [Algoritmo Relabel-To-Front](color:yellow)
 
-O método _push-relabel_, como referido acima, tem complexidade $O(|V|^2) \cdot E)$ - uma melhoria em relação a Edmonds-Karp. Contudo, estudaremos de seguida um algoritmo (que implementa as operações básicas _push_ e _relabel_), com uma terceira operação-base adicional que permite a alteração da complexidade temporal para $O(|V|^3)$, bastante melhor para redes muito densas, com muito mais arcos que vértices.
+O método _push-relabel_, como referido acima, tem complexidade $O(|V|^2 \cdot E)$ - uma melhoria em relação a Edmonds-Karp. Contudo, estudaremos de seguida um algoritmo (que implementa as operações básicas _push_ e _relabel_), com uma terceira operação-base adicional que permite a alteração da complexidade temporal para $O(|V|^3)$, bastante melhor para redes muito densas, com muito mais arcos que vértices.
 
 Um dos pilares do algoritmo é uma lista $L$, que mantém todos os vértices $V \backslash \{s, t\}$, inicialmente ordenados arbitrariamente. O algoritmo atravessa $L$ do início ao fim, aplicando [**_Discharge_**](color:yellow) a cada um dos vértices: sucessivos _pushes_ e _relabels_ até que o vértice já não possua excesso. Caso o vértice tenha sido _relabeled_, passa para o início de $L$ (daí o nome do algoritmo, _relabel-to-front_), e a passagem pela lista é recomeçada. O algoritmo termina caso consiga passar por todos os elementos da lista sem realizar qualquer descarga - estamos, então, na presença do fluxo máximo da rede.
 
