@@ -366,17 +366,49 @@ Visto que cada caminho de aumento pode ser encontrado em $O(|V| + |E|) = O(|E|)$
 
 :::danger[A complexidade pode enganar]
 
-Não nos podemos esquecer que o algoritmo de Edmonds-Karp não é mais que uma implementação do método de Ford-Fulkerson, partilhando assim a sua majoração temporal ($O(|f^*| |E|)$). Assim sendo, dependendo da topologia do grafo, a realização do algoritmo pode até levar tempo inferior a $V E^2$ a terminar! Este tipo de perguntas pode sair em exame, e é bastante útil ter em mente: o algoritmo tem ambas as majorações temporais, consideramos a que for menor perante a topologia da rede apresentada.
+Não nos podemos esquecer que o algoritmo de Edmonds-Karp não é mais que uma implementação do método de Ford-Fulkerson, partilhando assim a sua majoração temporal ($O(|f^*| |E|)$). Assim sendo, dependendo da topologia do grafo, a realização do algoritmo pode até levar tempo inferior a $V E^2$ a terminar!
+
+Este tipo de perguntas pode sair em exame, e é bastante útil ter em mente: o algoritmo tem ambas as majorações temporais, consideramos a que for menor perante a topologia da rede apresentada. O algoritmo apresentado abaixo (para encontrar emparelhamentos bipartidos máximos) é um dos casos onde isto acontece.
 
 :::
 
 ## Emparelhamento Bipartido Máximo
 
-:::warning[Página em Construção]
+:::info[Motivação]
 
-O conteúdo será adicionado assim que possível.
+Imaginemos que temos um conjunto de $m$ máquinas e outro de $n$ tarefas. Cada máquina pode ser atribuída a apenas uma tarefa, mas nem todas as máquinas podem realizar todas as tarefas. Na melhor das hipóteses, qual será o maior número de tarefas que o conjunto de máquinas pode realizar simultaneamente? Mais ainda, nesse mesmo melhor caso, que máquina realiza que tarefa?
 
 :::
+
+Podemos formalizar o problema acima através de um conjunto $J$, um conjunto que mapeia todas as máquinas a todas as tarefas que podem executar, tal que:
+
+$$
+J = \{(m_i, t_j), m_i \longmapsto t_j\}.
+$$
+
+O nosso objetivo passará então por procurar o melhor emparelhamento possível tal que há um valor ótimo de "arestas ativas" - máquinas a realizar tarefas, portanto. $J$ pode ser representado por um grafo, claro:
+
+![Exemplo - EBM](./assets/0007-max-bip-example.png#dark=1)
+
+Como podemos notar, o grafo que corresponde a $J$ diz-se um **grafo bipartido** - um grafo onde $V$ pode ser separado em $V_1$ e $V_2$, em que não existem arestas entre os vértices de $V_1$ nem entre os de $V_2$, apenas de $V_1$ para $V_2$ (e possivelmente vice-versa). O problema do [**emparelhamento bipartido máximo**](color:orange) passará, então, por encontrar o emparelhamento com cardinalidade máxima num grafo bipartido: em relação a este exemplo, encontrar o número máximo de tarefas que podem ser executadas simultaneamente, considerando que cada máquina pode estar ligada a apenas uma tarefa ao mesmo tempo.
+
+Em relação ao grafo acima, podíamos dizer que um possível emparelhamento bipartido seria $(m_2, t_1)$, $(m_4, t_2)$ e $(m_3, t_3)$. Este emparelhamento não é máximo - existem outros emparelhamentos com cardinalidade superior a este. Um **emparelhamento bipartido máximo** correspondente a este conjunto seria, por exemplo, $(m_1, t_1)$, $(m_2, t_2)$ e $(m_3, t_4)$ e $(m_4, t_3)$. Aqui, verificamos que a cardinalidade do emparelhamento é $4$, não podendo sequer aumentá-la mais. Pode ser importante realçar ainda que um emparelhamento bipartido ser **máximo** não significa que este cobre necessariamente todas as "máquinas" do mesmo - significa apenas que não é possível encontrar um outro emparelhamento bipartido com cardinalidade superior.
+
+### Como encontrar o emparelhamento bipartido máximo?
+
+Será interessante ter um algoritmo que nos permita encontrar o emparelhamento bipartido máximo de um grafo. A lógica utilizada para o mesmo é bastante simples: adicionamos uma fonte e um sumidouro ao grafo, com a fonte ligada à partição das "máquinas" e o sumidouro ligado à partição das "tarefas". Atribuímos então fluxo unitário a cada arco, de modo a que uma máquina possa apenas realizar uma tarefa ao mesmo tempo. Pegando no grafo acima, podemos verificar como ficaria depois destas alterações:
+
+![Exemplo - EBM Fluxo Unitário](./assets/0007-max-bip-fluxo-unitario.png#dark=1)
+
+O fluxo máximo nunca poderá, claro, exceder $\min{\{f_s, f_t\}}$, ou seja nunca poderá haver uma máquina a realizar múltiplas tarefas, nem poderá haver tarefas a ser realizadas por mais que uma máquina. Podemos ainda notar que, formalmente, $f(u, v) = 1$ apenas se a máquina $u$ estiver a realizar a tarefa $j$.
+
+Este algoritmo corresponde a uma situação em que a complexidade temporal do método de Ford-Fulkerson prevalece sobre a de Edmonds-Karp. Temos necessariamente que:
+
+$$
+|f^*| \leq m \leq |V|, \quad \text{ onde m corresponde ao número de máquinas}
+$$
+
+já que no pior caso todas as máquinas podem realizar uma tarefa. Nesse caso, podemos afirmar que por Ford-Fulkerson a complexidade temporal do algoritmo é dada poe $O(f^* E) = O(VE)$, que é melhor que a de Edmonds-Karp, dada por $O(VE^2)$.
 
 ## Algoritmos baseados em Pré-Fluxo
 
