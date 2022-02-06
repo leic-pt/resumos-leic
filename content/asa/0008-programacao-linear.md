@@ -469,7 +469,7 @@ Como nota final, resta afirmar que caso após $\binom{n + m}{n}$ iterações o a
 
 :::warning[Página em Construção]
 
-O conteúdo será adicionado brevemente.
+O conteúdo será adicionado assim que possível.
 
 :::
 
