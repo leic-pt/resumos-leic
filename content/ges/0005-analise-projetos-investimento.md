@@ -218,7 +218,7 @@ Em que RAJI corresponde ao resultado antes de juros e impostos, ou seja, o mesmo
 5. A taxa de imposto a pagar pela empresa é de $25\%$.
 6. A taxa de atualização é de $10\%$.
 
-![Análise de rentabilidade de investimento](./assets/0005-exemplo-analise-investimento.png#dark=1)
+![Análise de rentabilidade de investimento](./assets/0005-exemplo-analise-investimento.png#dark=3)
 
 <!--
 
@@ -379,7 +379,7 @@ Problemas no cálculo e utilização da $\operatorname{TIR}$:
 - Não existir $\operatorname{TIR}$.
 - A $\operatorname{TIR}$ é inadequada para projetos mutuamente exclusivos, isto é, em que só podemos fazer um deles.
 
-![Taxa Interna de Rentabilidade](./assets/0005-tir.png#dark=1)
+![Taxa Interna de Rentabilidade](./assets/0005-tir.png#dark=2)
 
 ### Período de Recuperação do Investimento ($PRI$)
 

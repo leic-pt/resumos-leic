@@ -39,7 +39,7 @@ A **Microeconomia** foca-se no pequeno, no detalhe, nos individuos e nas suas a�
 
 Como foi referido, a macroeconomia é o estudo, medida e observação de uma economia regional ou nacional como um todo individual. Este todo é composto por diversas pequenas partes que podem ser identificadas de acordo com o seguinte diagrama:
 
-![Diagrama da Macroeconomia](./assets/0003-macroeconomia.png)
+![Diagrama da Macroeconomia](./assets/0003-macroeconomia.png#dark=3)
 
 A macroeconomia recorre a diversos indicadores aos quais é dado o nome de variáveis macroeconómicas, são eles:
 
@@ -147,7 +147,7 @@ A microeconomia trata de assuntos menores que a macroeconomia. O mercado é um d
 
 A procura de bens pode ser definida pela curva azul do gráfico a baixo.
 
-![Gráfico Procura de Bens](./assets/0003-procura-bens.png#dark=1)
+![Gráfico Procura de Bens](./assets/0003-procura-bens.png#dark=2)
 
 - $P \to$ Preço do Mercado
 - $Q \to$ Quantidade Procurada
@@ -164,7 +164,7 @@ ou seja, segundo esta curva, o aumento do preço implica uma diminuição da pro
   :::info[Exemplo]
   O preço da Placas Gráficas subiu em 5€ no último ano:
 
-  ![Gráfico com subida de preços](./assets/0003-fatores-preco.png#dark=1)
+  ![Gráfico com subida de preços](./assets/0003-fatores-preco.png#dark=2)
   :::
 
 - **Bens Substitutos**: São bens que oferecem o mesmo, mas de empresas diferentes, por exemplo, Coca-Cola VS Pepsi.
@@ -173,7 +173,7 @@ ou seja, segundo esta curva, o aumento do preço implica uma diminuição da pro
   - Quando o preço aumenta, a quantidade procurada desse bem retrai-se em proporção maior que a da subida do preço.
 
   :::info[Exemplo]
-  ![Gráfico com oferta de bens substitutos](./assets/0003-fatores-bens-substitutos.png#dark=1)
+  ![Gráfico com oferta de bens substitutos](./assets/0003-fatores-bens-substitutos.png#dark=2)
   :::
 
 - **Bens Complementares**: São bens que não são funcionais sem um outro bem, é necessário comprar um segundo item para conjugar o primero.
@@ -239,7 +239,7 @@ $E>1 \Rightarrow \text{Elástica} \rightsquigarrow$ Quando o preço aumenta, a r
 
 $E<1 \Rightarrow \text{Rígida Inelástica} \rightsquigarrow$ Quando o preço aumenta, a receita das vendas $R = p \times Q$ aumenta. Uma pequena variação do preço implica uma variação quase nula na quantidade de procura.
 
-![Elasticidade](./assets/0003-elasticidade.png#dark=1)
+![Elasticidade](./assets/0003-elasticidade.png#dark=2)
 
 ## Fatores que Determinam a Oferta
 
@@ -250,7 +250,7 @@ De acordo com a curva do **Demand(D)**, quando a quantidade de procura aumenta, 
 
 Com a pandemia o preço das mascáras aumentou bastante porque, o **Demand** era maior.
 
-![Aumento da Procura](./assets/0003-aumento-procura.png)
+![Aumento da Procura](./assets/0003-aumento-procura.png#dark=2)
 
 - $D \rightsquigarrow$ demand
 - $S \rightsquigarrow$ oferta
@@ -267,7 +267,7 @@ Novamente, o único fator que provoca uma deslocação sobre a curva é o preço
 Quando uma das curvas se desloca para a direita dizemos que houve uma expansão do mercado.
 Em contrapartida, uma deslocação para a esquerda implica uma contração do mercado.
 
-![Preço de Equilíbrio](./assets/0003-preco-equilibrio.png)
+![Preço de Equilíbrio](./assets/0003-preco-equilibrio.png#dark=3)
 
 Define-se como preço de equilíbrio, o preço referente à interseção das curvas de procura e oferta.
 Este ponto marca a região de equilíbrio entre excesso e a escassez.
@@ -291,7 +291,7 @@ A longo prazo os custos das empresas podem crescer:
 - Mais do que proporção (rendimentos decrescentes à escala/deseconomia de escala)
 - Menos do que a proporção (rendimentos crescentes à escala ou economias de escala)
 
-![Economias de Escala](./assets/0003-economias-escala.png)
+![Economias de Escala](./assets/0003-economias-escala.png#dark=3)
 
 Economias de escala ocorrem quando se aumenta a escala da produção e com isso se consegue a diminuição dos custos médios.
 Estão associadas a mercados de monopólio.
@@ -320,7 +320,7 @@ determina a margem (diferença entre o preço e o custo) que a empresa pode prat
 Se houver economias de escala permanentes, por exemplo, o mercado tenderá a ser só de uma empresa.
 As diferentes estruturas de mercado são as seguintes:
 
-![Estruturas de Mercado](./assets/0003-estruturas-mercado.png#dark=1)
+![Estruturas de Mercado](./assets/0003-estruturas-mercado.png#dark=3)
 
 - Empresas de concorrência perfeita são **prince-taker** $\rightarrow$ não tem influência sobre o preço do mercado.
 
