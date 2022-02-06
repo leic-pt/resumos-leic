@@ -120,6 +120,8 @@ Temos que uma _fórmula_ está na forma CNF SAT, _conjunctive normal form_ (equi
 
 A forma 3CNF-SAT é praticamente igual a esta última, com um _twist_: cada cláusula deve conter **exatamente** 3 literais. Sendo assim, para reduzir CNF-SAT a 3CNF-SAT, teremos de arranjar um algoritmo que nos transforme um dado conjunto de cláusulas noutro conjunto equivalente, mas em que cada cláusula contenha agora 3 literais. Mais ainda, se $\phi$ é uma fórmula na forma CNF-SAT e $\phi'$ é a mesma fórmula, reescrita na forma 3CNF-SAT, temos que $\phi$ só é satisfazível caso $\phi'$ também o seja.
 
+Primeiro, devemos provar que 3CNF-SAT é $NP$ - para tal, podemos referir que tendo um certificado (uma dada função de valoração para o conjunto de variáveis da fórmula em 3CNF-SAT), podemos verificar o valor lógico da fórmula em tempo polinomial (e podemos). De seguida, teremos então de verificar se conseguimos reduzir CNF-SAT a 3CNF-SAT - sendo CNF-SAT $NP$-Completo, 3CNF-SAT seria também $NP$-Completo (tendo em conta ser $NP$).
+
 Para reescrever uma cláusula de CNF-SAT para 3CNF-SAT, teremos então de considerar quatro casos:
 
 - a cláusula contém 1 literal;
@@ -195,6 +197,48 @@ O professor disse nas aulas teóricas que uma pergunta-exemplo semelhante a algo
 :::
 
 ### Redução de 3CNF-SAT para Clique
+
+:::info[Clique]
+
+Seja $G$ um grafo não dirigido. $V'$ diz-se um **clique** de $G$ caso $\forall_{x, y \in V'}, (x, y) \in E$ - todos os vértices de $V'$ "vêem" todos os outros, têm uma aresta direta para todos os outros que também pertencem a $V'$. Corresponde, portanto, a um **subgrafo completo** de $G$.
+
+Abaixo podemos observar um clique de tamanho 3:
+
+![Clique - Exemplo 1](./assets/0009-clique-exemplo-1.png#dark=1)
+
+O clique corresponde a $V' = \{A, B, C\} = V$, e $|V'| = 3$ - todos os vértices têm arestas que os ligam aos outros em $V'$.
+
+De seguida apresenta-se outro exemplo, onde aqui há dois cliques de tamanho máximo (3):
+
+![Clique - Exemplo 2](./assets/0009-clique-exemplo-2.png#dark=1)
+
+Os dois cliques são, então, $V' = \{A, B, C\}$ e $V' = \{B, C, D\}$, ambos com tamanho 3.
+
+:::
+
+Seguindo a cadeia de reduções inicial, procuraremos agora reduzir 3CNF-SAT ao problema Clique - dados um grafo $G$ e um inteiro $k$, verificar se existe um clique de tamanho $k$ em $G$.
+
+Primeiro, devemos referir que Clique é $NP$: o certificado aqui corresponde a um clique, e a sua verificação ocorre em tempo polinomial - basta verificar se existem arestas entre cada par de vértices de $V'$.
+
+De seguida, teremos de provar que podemos então reduzir 3CNF-SAT ao problema Clique em tempo polinomial. Num primeiro momento, será relevante notar que as fórmulas na forma 3CNF-SAT são tal que $C_1 \wedge C_2 \wedge ... \wedge C_k$, onde $C_i = l_{i1} \wedge l_{i2} \wedge l_{i3}$. Temos, claro, que a fórmula só tem valor lógico verdadeiro se houver pelo menos um literal em cada cláusula com valor lógico verdadeiro. O paralelismo com o problema Clique entra exatamente aqui: iremos organizar um grafo $n-partido$, onde cada partição corresponde a uma cláusula, e vamos ligar todos os literais de uma cláusula - os vértices de uma partição - a todos os outros das outras cláusulas que não sejam a respetiva negação: podemos ligar $x_2$ a $x_2$ e a $x_3$, mas não a $\neg x_2$. Um **clique** neste grafo corresponderá, então, a um conjunto de valores lógicos de literais que permitem satisfazer a fórmula, já que haverá ligações diretas entre todas as cláusulas (as partições) do grafo! Caso não exista qualquer clique no grafo, a fórmula não é satisfazível.
+
+É sem dúvida mais simples transmitir a ideia através de suporte visual. Tenhamos o conjunto de cláusulas $C_1, C_2, C_3$ tal que:
+
+$$
+C_1 = x_1 \vee \neg x_2 \vee \neg x_3\\
+C_2 = \neg x_1 \vee x_2 \vee x_3\\
+C_3 = x_1 \vee x_2 \vee x_3
+$$
+
+A construção do grafo tripartido equivalente levaria a:
+
+![Clique - Grafo Tripartido](./assets/0009-clique-tripartido.png#dark=1)
+
+Um clique possível seria, aqui, tornar $\neg x_2$ e $x_3$ verdadeiros, e podemos reparar que independentemente do valor lógico de $x_1$, a fórmula é satisfazível. Uma fórmula na forma 3CNF-SAT é satisfazível apenas se houver um clique no grafo $n$-partido correspondente.
+
+Resta provar que o algoritmo de redução é polinomial. Tendo $n$ cláusulas, podemos ter no máximo $\frac{3n*3(n - 1)}{2}$[**\***](color:yellow) arestas, caso se trate de um grafo completo, pelo que a redução de 3CNF-SAT a Clique é polinomial, e podemos afirmar então que Clique é $NPC$.
+
+[**\***](color:yellow) Temos $3n$ vértices, cada um deles pode estar ligado a, no máximo, $3(n-1)$ vértices (estar ligado a todos os outros das outras partições). Como não queremos contar arestas nos dois sentidos, dividimos o produto por $2$.
 
 ---
 
