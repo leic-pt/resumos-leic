@@ -467,11 +467,79 @@ Como nota final, resta afirmar que caso após $\binom{n + m}{n}$ iterações o a
 
 ## Dualidade
 
-:::warning[Página em Construção]
+Em programação linear, a dualidade é uma propriedade associada à própria análise de um problema: podemos exprimir um programa de duas maneiras diferentes, com soluções equivalentes, com a diferença principal entre elas a ser o **objetivo** pretendido: maximizar ou minimizar um dado objetivo. Vamos, nesta secção, finalmente aproveitar a representação matricial de um programa linear introduzida mais acima.
 
-O conteúdo será adicionado assim que possível.
+Pensemos então num exemplo concreto. Uma empresa procura maximizar o lucro obtido ao vender dois produtos, $x$ e $y$, sendo que:
 
-:::
+- vende uma unidade do produto $x$ por $1$ euro e uma unidade do produto $y$ por $6$ euros (consideremos que _produzir_ o produto não tem qualquer custo monetário);
+- gasta uma hora a produzir $1$ produto (seja ele $x$ ou $y$);
+- pode gastar no máximo $200$ horas a produzir $x$;
+- pode gastar no máximo $300$ horas a produzir $y$;
+- ao todo, a combinação das horas gastas para produzir $x$ e $y$ não pode ultrapassar $400$ horas.
+
+Podemos procurar escrever o problema apresentado como um programa linear, tal que:
+
+$$
+\begin{aligned}
+max \quad&x + 6y\\
+s.a: \quad&x \leq 200\\
+&y \leq 300\\
+&x + y \leq 400\\
+&x, y \geq 0
+\end{aligned}
+$$
+
+Chamemos a este programa o programa [**Primal**](color:pink). A aplicação do algoritmo Simplex neste programa levaria a uma solução ótima com $x = 100 \wedge y = 300 \implies z = 1900$. Podemos, contudo, tentar perceber de maneira diferente no problema: e se o noso objetivo for _minimizar_ as horas de produção dispendidas, tendo em conta certas margens de lucro que queremos ter? A dualidade entra precisamente aqui: vamos procurar construir um outro program, o respetivo programa [**Dual**](color:orange), que procurará representar esse mesmo espelho de restrições:
+
+$$
+\begin{aligned}
+min \quad &200\lambda_1 + 300\lambda_2 + 400\lambda_3\\
+s.a: \quad&\lambda_1 + \lambda_3 \geq 1\\
+&\lambda_2 + \lambda_3 \geq 6\\
+&\lambda_1, \lambda_2, \lambda_3 \geq 0
+\end{aligned}
+$$
+
+Há uma mnemónica relativamente simples a ter em conta para esta transformação:
+
+| Primal     | Dual       |
+| ---------- | ---------- |
+| Variáveis  | Restrições |
+| Restrições | Variáveis  |
+| Max        | Min        |
+
+A regra, pegando então na representação matricial do programa, é a seguinte:
+
+$$
+\begin{aligned}
+max \quad& c^T x\\
+s.a: \quad&A x \leq b\\
+&x \geq 0
+\end{aligned} \xRightarrow{\text{Dual}}
+\begin{aligned}
+min \quad& y^T b\\
+s.a: \quad&y^T A \geq c^T\\
+&y \geq 0
+\end{aligned}
+$$
+
+Pela [**Dualidade Fraca**](color:yellow), sendo $x^*$ uma solução do programa Primal e $y^*$ uma solução do respetivo Dual, então
+
+$$
+c^T x^* \leq (y^*)^T b.
+$$
+
+Podemos olhar para o que está a acontecer através de um esboço das hipotéticas regiões exequíveis de um programa Primal e respetivo Dual:
+
+![Primal vs Dual (Gráfico)](./assets/0008-primal-dual-graph.png#dark=1)
+
+Fica então aparente que os programas são em tudo semelhantes (em espelho): um deles procura minimizar um dado objetivo, o Dual, e vai minimizá-lo tanto quanto possível, até um ponto em que coincide com a solução ótima do programa Primal.
+
+Por fim, olhamos para a [**Dualidade Forte**](color:green), que nos diz que:
+
+- a solução ótima do programa Primal coincide com a solução ótima do programa Dual, caso ela exista;
+
+- o programa Primal tem solução se e apenas se o respetivo Dual tem solução.
 
 ---
 
