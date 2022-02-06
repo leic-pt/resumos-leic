@@ -312,7 +312,7 @@ De seguida, é chamado `union(D, F)`. Para achatar a árvore, temos de chamar de
 
 Finalizamos ao unir as duas árvores finais, e a observar o achatamento (não completo) da árvore resultante com uma chamada `findSet`:
 
-![Conjuntos Disjuntos - Exemplo Final](./assets/0007-union-final.png#dark=1)
+![Conjuntos Disjuntos - Exemplo Final](./assets/0007-union-end.png#dark=1)
 
 :::
 
