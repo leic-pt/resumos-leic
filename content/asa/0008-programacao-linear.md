@@ -300,11 +300,11 @@ x_6 &= 36 - 4x_1 - x_2 - 2x_3
 \end{aligned}
 $$
 
-Inicialmente, olhamos para a **solução básica** para o problema: colocamos todas as variáveis não-básicas a zero, ficando com a solução igual a $(0, 0, 0, 30, 24, 36)$, $z = 3 \cdot 0 + 1 \cdot 0 + 2 \cdot 0 = 0$. Se for exequível, dizemos que se trata de uma **solução básica exequível**.
+Inicialmente, olhamos para a **solução básica** para o problema: colocamos todas as variáveis não-básicas a zero, ficando com a solução igual a $(0, 0, 0, 30, 24, 36)$, $z = 3 \cdot 0 + 1 \cdot 0 + 2 \cdot 0 = 0$. Se for exequível, dizemos que o programa tem uma uma **solução básica exequível**.
 
 O algoritmo procura, a cada iteração, reescrever as equações do programa, de forma a encontrar diferentes soluções para o mesmo. Além disso, temos que as alterações que faremos serão sempre com vista a **não decrescer** $z$ - não tem necessariamente de aumentar, mas nunca irá diminuir entre iterações.
 
-Para reescrever as igualdades, pegamos numa das variáveis não-básicas do programa e olhamos para as variáveis básicas, procurando pensar "qual é o máximo que posso aumentar a variável não-básica sem que as variáveis básicas se tornem negativas". Para isso, temos de olhar para cada uma das restrições e procurar percebê-lo - pensemos, em relação ao programa acima, qual é o máximo que podemos aumentar $x_1$:
+Para reescrever as igualdades, pegamos na variável não-básica do programa cujo **coeficiente no objetivo é mais positivo** e olhamos para as variáveis básicas, procurando pensar "qual é o máximo que posso aumentar a variável não-básica sem que as variáveis básicas se tornem negativas". Mais ainda, temos que o algoritmo termina quando todas as variáveis não-básicas do objetivo tiverem coeficientes negativos. Temos então de olhar para cada uma das restrições e procurar qual a variável a alterar (e como) em relação ao programa acima, qual é o máximo que podemos aumentar $x_1$ (já que tem o coeficiente mais positivo)?
 
 - $x_4 = 30 - x_1 - x_2 - 3x_3$. Igualando todas as variáveis exceto $x_1$ a zero, obtemos uma maximização de $x_1$ para esta restrição: $x_1 = 30$;
 
@@ -325,17 +325,17 @@ x_5 &= 6 - \frac{3x_2}{2} - 4x_3 + \frac{x_6}{2}
 \end{aligned}
 $$
 
-De realçar que as duas últimas restrições foram obtidas substituíndo $x_1$ pelo lado direito da nova igualdade que envolve $x_1$ como variável básica: $9 - \frac{x_2}{4} - \frac{x_3}{2} - \frac{x_6}{4}$.
+De realçar que as duas últimas restrições e o objetivo foram obtidos substituíndo $x_1$ pelo lado direito da nova igualdade que envolve $x_1$ como variável básica: $9 - \frac{x_2}{4} - \frac{x_3}{2} - \frac{x_6}{4}$.
 
-A operação que foi agora realizada, esta troca entre uma variável básica e uma não-básica, é a [**Operação Pivot**](color:yellow). Nesta operação, consideramos a variável não-básica $x_1$ a **variável de entrada** (vai entrar no conjunto das variáveis básicas), e a variável básica $x_6$ a **variável de saída** (vai sair do conjunto de variáveis básicas). O algoritmo Simplex procura, então, realizar sucessivos Pivots até não haver mais soluções básicas exequíveis - [**até todos os coeficientes das variáveis não-básicas na função objetivo serem negativos**](color:pink).
+A operação que foi agora realizada, esta troca entre uma variável básica e uma não-básica, é a [**Operação Pivot**](color:yellow). Numa pivotagem, consideramos a variável não-básica $x_1$ a **variável de entrada** (vai entrar no conjunto das variáveis básicas), e a variável básica $x_6$ a **variável de saída** (vai sair do conjunto de variáveis básicas). O algoritmo Simplex procura, então, realizar pivotagens sucessivas até não haver mais soluções básicas exequíveis - [**até todos os coeficientes das variáveis não-básicas na função objetivo serem negativos**](color:pink).
 
 Voltamos então a igualar todas as variáveis não-básicas a zero, ficando com solução igual a $(9, 0, 0, 21, 6, 0)$ e $z = 27$.
 
-De seguida, procuramos reescrever novamente o problema: desta vez, foquemo-nos na variável $x_3$. Aqui, a terceira restrição (a que tem $x_5$ como variável básica) é a mais apertada, restringindo $x_3$ a $6$. Assim sendo, o programa reescrito será (e tendo em conta agora $x_3 = \frac{3}{2} - \frac{3x_2}{8} - \frac{x_5}{4} + \frac{x_6}{8}$):
+De seguida, procuramos reescrever novamente o problema: desta vez, foquemo-nos na variável $x_3$, a variável não-básica com coeficiente mais positivo no objetivo. Aqui, a terceira restrição (a que tem $x_5$ como variável básica) é a mais apertada, restringindo $x_3$ a $6$. Assim sendo, o programa reescrito será (e tendo em conta agora $x_3 = \frac{3}{2} - \frac{3x_2}{8} - \frac{x_5}{4} + \frac{x_6}{8}$):
 
 $$
 \begin{aligned}
-z &= \frac{111}{4} + \frac{x_2}{16} - \frac{x_5}{8} + \frac{11x_6}{16}\\
+z &= \frac{111}{4} + \frac{x_2}{16} - \frac{x_5}{8} - \frac{11x_6}{16}\\
 x_1 &= \frac{33}{4} - \frac{x_2}{16} + \frac{x_5}{8} - \frac{5x_6}{16}\\
 x_3 &= \frac{3}{2} - \frac{3x_2}{8} - \frac{x_5}{4} + \frac{x_6}{8}\\
 x_4 &= \frac{69}{4} + \frac{3x_2}{16} + \frac{5x_5}{8} - \frac{x_6}{16}
@@ -344,7 +344,7 @@ $$
 
 O objetivo $z$ é, então, aumentado para $\frac{111}{4}$.
 
-Por fim, reescrevemos o programa olhando para $x_2$, ficando com:
+Por fim, reescrevemos o programa tendo em conta $x_2$ (a única variável não-básica com coeficiente positivo restante), ficando com:
 
 $$
 \begin{aligned}
@@ -369,7 +369,7 @@ A conversão de um programa linear para a forma slack nem sempre é simples. Vej
   x_1, x_2 \geq 0.
   $$
 
-A conversão deste programa para a forma slack resulta nas restrições $x_1 = 0 \wedge x_2 = 0$, o que vai diretamente contra a segunda restrição acima apresentada - **não há uma solução exequível inicial**. Podemos, contudo, verificar se o programa tem alguma solução exequível, recorrendo a um programa auxiliar.
+Ao igualar $x_1$ e $x_2$ a $0$, a segunda restrição é desrespeitada (ficamos com $0 \leq -4$) - **não há uma solução exequível inicial**. Podemos, contudo, verificar se o programa tem alguma solução exequível, recorrendo a um programa auxiliar.
 
 Seja $L$ um programa linear na forma standard, $L_{aux}$ é definido tal que:
 
@@ -394,7 +394,7 @@ Começemos com o programa linear inicial abaixo:
   x_1, x_2 \geq 0.
   $$
 
-Temos que a solução básica não é exequível. Assim sendo, construímos um programa linear auxiliar tal que:
+Temos que a solução básica não é exequível (ficaríamos com $0 \leq -4$). Assim sendo, construímos um programa linear auxiliar tal que:
 
 - Objetivo: Maximizar $-x_0$;
 - Restrições:
@@ -407,16 +407,13 @@ Temos que a solução básica não é exequível. Assim sendo, construímos um p
 O programa encontra-se atualmente na forma standard. A sua conversão para a forma slack é trivial:
 
 $$
-\begin{aligned}
-&z = -x_0\\
-&x_3 = 2 - 2x_1 + x_2 + x_0\\
-&x_4 = -4 - x_1 + 5x_2 + x_0\\
-\end{aligned}
+z = -x_0\\
+x_3 = 2 - 2x_1 + x_2 + x_0\\
+x_4 = -4 - x_1 + 5x_2 + x_0\\
+x_1, x_2, x_0, x_3, x_4 \geq 0.
 $$
 
-A solução básica deste programa continua sem ser exequível: igualar todas as variáveis não-básicas a $0$ levaria a $x_4 = -4$, que vai diretamente contra a restrição de todas as variáveis terem de ser não negativas. Assim sendo, executamos uma operação pivot entre $x_0$ e $x_4$, com vista a eliminar o problema em questão - se após todos os Pivots possíveis continuar sem haver solução exequível, o próprio programa diz-se **não exequível**.
-
-A operação pivot leva então a:
+O primeiro passo ao resolver os programas auxiliares passa **sempre** por pivotar $x_0$ - o algoritmo estaria concluído caso contrário, já temos o $z = -x_0$ pretendido. Optamos, aqui, por pivotar $x_0$ com a restrição que contiver a constante mais negativa - neste caso, pivotando $x_0$ com a restrição que contém $x_4$ como variável básica, tal que:
 
 $$
 \begin{aligned}
@@ -426,7 +423,7 @@ x_3 &= 6 - x_1 - 4x_2 + x_4\\
 \end{aligned}
 $$
 
-Este programa apresenta solução básica exequível! Aplicaríamos agora o algoritmo Simplex até obter uma solução para este programa auxiliar tal que $z = 0$: caso tal solução exista, o programa original é exequível. A solução para o programa auxiliar seria:
+Este programa apresenta solução básica exequível! Aplicaríamos agora o algoritmo Simplex normalmente até obter uma solução para este programa auxiliar tal que $z = -x_0$: caso tal solução exista, o programa original é exequível, e partiremos da solução aqui encontrada quando voltarmos ao programa original. A solução para o programa auxiliar seria (depois de alguns passos):
 
 $$
 \begin{aligned}
@@ -436,13 +433,15 @@ $$
 \end{aligned}
 $$
 
-Para resolver o problema inicial, teríamos que ter em conta $2x_1 - x_2 = 2x_1 - \frac{4}{5} - \frac{x_0}{5} + \frac{x_1}{5} + \frac{x_4}{5}$, ficando então escrito na forma slack tal que:
+Teríamos, então, uma solução tal que $(0, \frac{4}{5}, \frac{14}{5}, 0)$.
+
+Para resolver o problema inicial, substituíriamos o objetivo $z = x_0$ pelo original (substituíndo $x_2$ no objetivo pela restrição $x_2$ acima), e mantendo o conjunto de restrições praticamente intacto, com exceção da remoção de qualquer referência a $x_0$ nas mesmas. Procuraríamos, então, resolver:
 
 $$
 \begin{aligned}
-&z = - \frac{4}{5} + \frac{9x_0}{5} - \frac{x_4}{5}\\
-&x_2 = \frac{4}{5} - \frac{x_0}{5} + \frac{x_1}{5} + \frac{x_4}{5}\\
-&x_3 = \frac{14}{5} + \frac{4x_0}{5} - \frac{9x_1}{5} + \frac{x_4}{5}
+&z = 2x_1 - x_2 = 2x_1 - (\frac{4}{5} + \frac{x_1}{5} + \frac{x_4}{5}) = - \frac{4}{5} + \frac{9x_1}{5} - \frac{x_4}{5}\\
+&x_2 = \frac{4}{5} + \frac{x_1}{5} + \frac{x_4}{5}\\
+&x_3 = \frac{14}{5} - \frac{9x_1}{5} + \frac{x_4}{5}
 \end{aligned}
 $$
 
@@ -464,13 +463,13 @@ Abaixo encontra-se o gráfico correspondente a um programa linear _unbounded_. P
 
 ![Região Exequível - Unbounded](./assets/0008-regiao-exequivel-unbounded.png#dark=1)
 
-Como nota final, resta afirmar que caso após $\binom{n + m}{n}$ iterações o algoritmo ainda não tenha terminado, podemos admitir que este está [**em ciclo**](color:orange). Há, ao todo, $n + m$ variáveis e $m$ formas de escolher $B$, pelo que há $\binom{n + m}{n}$ formas de slack únicas - mais que isso e o algoritmo está em ciclo. São raros, mas existem, e para os eliminar recorre-se à [**Regra de Bland**]: em caso de empate na escolha de variáveis, escolhe-se sempre a variável com menor índice.
+Como nota final, resta afirmar que caso após $\binom{n + m}{n}$ iterações o algoritmo ainda não tenha terminado, podemos admitir que este está [**em ciclo**](color:orange). Há, ao todo, $n + m$ variáveis e $m$ formas de escolher $B$, pelo que há $\binom{n + m}{n}$ formas de slack únicas - mais que isso e o algoritmo está em ciclo. São raros, mas existem, e para os eliminar recorre-se à [**Regra de Bland**](color:yellow): em caso de empate na escolha de variáveis, escolhe-se sempre a variável com menor índice.
 
 ## Dualidade
 
 :::warning[Página em Construção]
 
-O conteúdo será adicionado brevemente.
+O conteúdo será adicionado assim que possível.
 
 :::
 
