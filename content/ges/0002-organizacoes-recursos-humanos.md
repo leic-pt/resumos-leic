@@ -70,7 +70,7 @@ Presidente da República > Primeiro Ministro > Ministros > Secretários > Tu.
 
   - **Estrutura Baixa/Plana/Horizontal**: Empresa de 157 pessoas divididas em 3 níveis organizacionais em que cada pessoa delega 12 outras pessoas. Com este método a empresa tem uma estratégia orientada para a diferenciação e inovação.
 
-  ![Amplitude de controlo](./assets/0002-amplitude-controlo.png#dark=1)
+  ![Amplitude de controlo](./assets/0002-amplitude-controlo.png#dark=2)
 
   A amplitude de controlo diz-se mais reduzida quando os elementos da mesma equipa desempenham tarefas complexas e independentes.
 
@@ -98,7 +98,7 @@ Presidente da República > Primeiro Ministro > Ministros > Secretários > Tu.
    - **Desvantagens**: Fraca comunicação dos departamentos.
    - **Características**: Estabilidade, Eficiência , normalmtente usado em Empresas de grande Dimensão.
 
-   ![Vertical Funcional](./assets/0002-vertical-funcional.png#dark=1)
+   ![Vertical Funcional](./assets/0002-vertical-funcional.png#dark=2)
 
 2. Divisional
 
@@ -106,21 +106,21 @@ Presidente da República > Primeiro Ministro > Ministros > Secretários > Tu.
    - **Desvantagens**: Duplicação de Recursos, Fraca coordenação entre divisões.
    - Este tipo de empresas tem várias unidades de negócio autossuficientes distribuídas pelo país.
 
-   ![Divisional](./assets/0002-divisional.png#dark=1)
+   ![Divisional](./assets/0002-divisional.png#dark=2)
 
 3. Matricial
 
    - **Vantagens**: Interdisciplinaridade.
    - **Desvantagens**: Conflitos na cadeia de comando.
 
-   ![Matricial](./assets/0002-matricial.png#dark=1)
+   ![Matricial](./assets/0002-matricial.png#dark=2)
 
 4. Trabalho em Equipa
 
    - **Vantagens**: Rapidez de resposta, entusiasmo dos membros.
    - **Desvantagens**: Tempo em reuniões, conflitos eventuais.
 
-   ![Trabalho em Equipa](./assets/0002-trabalho-equipa.png#dark=1)
+   ![Trabalho em Equipa](./assets/0002-trabalho-equipa.png#dark=2)
 
 5. Rede Virtual
 
@@ -129,7 +129,7 @@ Presidente da República > Primeiro Ministro > Ministros > Secretários > Tu.
    - Empresas com esta estrutura costumam recorrer ao **outsourcing** que consiste na contratação de um conjunto de atividades
      como especialistas em formação e engenheiros, para se focar na sua atividade principal.
 
-   ![Rede Virtual](./assets/0002-rede-virtual.png#dark=1)
+   ![Rede Virtual](./assets/0002-rede-virtual.png#dark=2)
 
 ## Gestão de Recursos Humanos
 
@@ -137,7 +137,7 @@ A gestão de recursos humanos inclui a concepção e implementação de sistemas
 a utilização do talento e capacidades das pessoas, de forma eficiente e eficaz, para atingir as metas da organização.  
 A estratégia da gestão de recursos humanos passa pelas seguintes etapas:
 
-![Etapas da Estratégia de Gestão de Recursos Humanos](./assets/0002-etapas-gestao-rh.png#dark=1)
+![Etapas da Estratégia de Gestão de Recursos Humanos](./assets/0002-etapas-gestao-rh.png#dark=3)
 
 Na etapa de atração de pessoal competente podemos distinguir vários processos, entre os quais:
 

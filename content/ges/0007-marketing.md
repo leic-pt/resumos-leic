@@ -63,7 +63,7 @@ Durante um passeio em Lisboa:
 
 O processo de decisão do comprador (consumidores individuais) passa essencialmente por 5 etapas:
 
-![5 Etapas do Comportamento do Consumidor](./assets/0007-comportamento-consumidor.png#dark=1)
+![5 Etapas do Comportamento do Consumidor](./assets/0007-comportamento-consumidor.png#dark=2)
 
 ### Características e Psicologia do Consumidor
 
@@ -115,7 +115,7 @@ e frequentemente concentrados geograficamente. A sua procura pode ser derivada:
 
 A estratégia de Marketing passa por 3 grandes etapas:
 
-![3 Etapas da Estratégia de Marketing](./assets/0007-estrategia-marketing.png#dark=1)
+![3 Etapas da Estratégia de Marketing](./assets/0007-estrategia-marketing.png#dark=2)
 
 ### Segmentação
 
@@ -178,7 +178,7 @@ Produto constitui tudo o que pode ser oferecido a um mercado para aquisição, a
 
 Na mente do consumidor o produto possui imensos níveis de interesse:
 
-![Nível de interesse de um produto](./assets/0007-mix-produto.png#dark=1)
+![Nível de interesse de um produto](./assets/0007-mix-produto.png#dark=3)
 
 O benefício nuclear corresponde à satisfação da necessidade original do consumidor.
 A partir daí o produto vai ganhando espaço no desejo do consumidor consoante aquilo que o produto oferece,
@@ -237,7 +237,7 @@ Se a Joana faltar à aula, ela perde-a completamente (Inseparabilidade) pois est
 
 A história de venda de um produto apresenta diferentes estágios, com potenciais de lucro, oportunidades e problemas de estratégia, e políticas de Marketing Mix.
 
-![Ciclo de Vida de um Produto](./assets/0007-ciclo-vida-produto.png#dark=1)
+![Ciclo de Vida de um Produto](./assets/0007-ciclo-vida-produto.png#dark=2)
 
 ### [Preço](color:yellow)
 
@@ -265,7 +265,7 @@ de um preço elevado (particularmente tendo em conta os custos de produção) du
 A penetração consiste, basicamente, na fixação de um preço reduzido, inicial no sentido de
 tornar possível uma rápida e profunda aceitação do produto em causa no mercado correspondente.
 
-![Preço de Penetração](./assets/0007-preco-penetracao.png#dark=1)
+![Preço de Penetração](./assets/0007-preco-penetracao.png#dark=3)
 
 Para a redefinição do preço de um produto já existente devemos considerar a perecibilidade,
 o grau de diferenciação e estado do ciclo de vida que o produto se encontra.
@@ -321,7 +321,7 @@ o Marketing é bem mais amplo, sendo a promoção uma das partes.A comunicação
 
 A resposta comportamental pretendida pela ação de comunicação é condicionada pelo estado do comprador:
 
-![Comunicação (lado do marketer)](./assets/0007-comunicacao-marketer.png#dark=1)
+![Comunicação (lado do marketer)](./assets/0007-comunicacao-marketer.png#dark=3)
 
 Podemos definir duas estratégias de marketing possíveis: Push e Pull.
 
@@ -329,9 +329,9 @@ Podemos definir duas estratégias de marketing possíveis: Push e Pull.
   tem que se promover junto dos distribuidores e dos retalhistas até chegar ao consumidor final;
 - **Marketing pull**: É promover diretamente junto do consumidor final que vai pedir os produtos às lojas e estas aos distribuidores.
 
-![Estratégias push e pull](./assets/0007-push-pull.png#dark=1)
+![Estratégias push e pull](./assets/0007-push-pull.png#dark=2)
 
 Resumindo o que foi abordado neste capítulo, embora esteja longe de universalmente aplicável,
 o quadro seguinte ajuda a entender a ênfase do Marketing em cada fase do ciclo de vida do produto
 
-![Ênfase do Marketing em cada fase do ciclo de vida do produto](./assets/0007-marketing-ciclo-vida-produto.png#dark=1)
+![Ênfase do Marketing em cada fase do ciclo de vida do produto](./assets/0007-marketing-ciclo-vida-produto.png#dark=3)

@@ -102,7 +102,7 @@ Se Ativo < Passivo $\rightsquigarrow$ Capital Próprio < 0 - Falência Técnica
 
 O balanço é feito segundo o diagrama seguinte:
 
-![Ativo, Passivo e Capital Próprio](./assets/0004-ativo-passivo-capital-proprio.png)
+![Ativo, Passivo e Capital Próprio](./assets/0004-ativo-passivo-capital-proprio.png#dark=3)
 
 Uma vez que isto é um balanço, a soma do dinheiro do lado esquerdo deve ser igual à soma do dinheiro no lado direito.
 Cada alteração em elementos do **Balanço** é causada por uma transação.
@@ -146,7 +146,7 @@ O balanço contabilístico e a demonstração de resultados pode ser feita segun
 
 - **Ótica de Exercício**: Permite ver se a empresa é rentável
 
-![Balanço contabilístico segundo duas óticas](./assets/0004-oticas-balanco.png#dark=1)
+![Balanço contabilístico segundo duas óticas](./assets/0004-oticas-balanco.png#dark=3)
 
 A demonstração de resultados é o resultado líquido do período que encontramos no lado direito do Balanço,
 no capital próprio, é, essencialmente, um mapa que exprime para um dado período diferença entre os fluxos de rendimentos.
@@ -178,11 +178,11 @@ criaram e iniciaram a atividade de uma empresa de computadores. Nesse mês ocorr
 
 Balança dos Resultados:
 
-![Balança dos Resultados](./assets/0004-exemplo-balanca-resultados.png)
+![Balança dos Resultados](./assets/0004-exemplo-balanca-resultados.png#dark=3)
 
 Demonstração de Resultados:
 
-![Demonstração de Resultados](./assets/0004-demonstracao-resultados.png)
+![Demonstração de Resultados](./assets/0004-demonstracao-resultados.png#dark=3)
 
 1. **Capital Próprio**: Capital subscrito: $+ 3 \times 10.000€$ (Valor pago para formar a empresa);
 
@@ -319,7 +319,7 @@ $$
 
 De acordo com o balanço feito à empresa da Rita, do Tomás e do Rui anteriormente:
 
-![Balanço](./assets/0004-exemplo2-balanco.png)
+![Balanço](./assets/0004-exemplo2-balanco.png#dark=3)
 
 Qual é o rácio de liquidez reduzida e o rácio de solvabilidade total? Trata-se de uma boa solvabilidade total?
 
@@ -349,7 +349,7 @@ com a mesma quantidade produzida e vendida ($Q$).
   Corresponde a uma receita e a uma quantidade crítica ($Rc$ e $Qc$).
   Trata-se de um ponto em que o nível de atividade corresponde a um lucro zero.
 
-  ![Ponto Crítico](./assets/0004-ponto-critico.png#dark=1)
+  ![Ponto Crítico](./assets/0004-ponto-critico.png#dark=2)
 
 - **Custos Fixos**: Gastos em que a empresa incorre independentemente da quantidade produzida (ex: Gastos de instalação).
 - **Custos Variáveis**: Variam proporcionalmente com a quantidade produzida (ex: custos de matéria-prima).
@@ -464,7 +464,7 @@ $$
 - Compra e vende
 - Custo do produto fácil de obter, depende do custo de aquisição.
 
-![Empresa Comercial](./assets/0004-empresa-comercial.png#dark=1)
+![Empresa Comercial](./assets/0004-empresa-comercial.png#dark=3)
 
 ### Empresa Industrial - Custeio Total
 
@@ -473,7 +473,7 @@ $$
 - **Custeio Total**: A empresa valoriza a produção como o total dos CIF (Custos Indiretos de Fabrico).
   Os CIF vão todos para o custo das vendas na DR $\rightsquigarrow$ só são contabilizados quando há uma venda.
 
-![Empresa Comercial - Custeio Total](./assets/0004-empresa-industrial-custeio-total.png#dark=1)
+![Empresa Comercial - Custeio Total](./assets/0004-empresa-industrial-custeio-total.png#dark=3)
 
 :::tip
 
@@ -490,7 +490,7 @@ $$
 - **Custeio Variável**: A empresa valoriza a produção a produção apenas com os CIF variáveis
   (a parte fixa integra os custos do período $\rightsquigarrow$ vai sempre para a DR; a parte variável só entra na DR quando há uma renda).
 
-![Empresa Industrial - Custeio Variável](./assets/0004-empresa-industrial-custeio-variavel.png#dark=1)
+![Empresa Industrial - Custeio Variável](./assets/0004-empresa-industrial-custeio-variavel.png#dark=3)
 
 :::tip
 
@@ -515,6 +515,6 @@ Além disso, a empresa gastou $200000€$ com administração, depreciações, e
 A empresa vendeu neste mesmo ano $120000$ unidades por $8€$ cada. Usando cada um dos métodos de custeio,
 calcule o custo fabril por unidade produzida, o resultado operacional de 2020.
 
-![Demonstração de Resultados](./assets/0004-exemplo-demonstracao-resultados.png)
+![Demonstração de Resultados](./assets/0004-exemplo-demonstracao-resultados.png#dark=3)
 
 :::
