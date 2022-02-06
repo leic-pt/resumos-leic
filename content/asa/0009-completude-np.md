@@ -8,7 +8,7 @@ path: /asa/completude-np
 type: content
 ---
 
-# Completude $NP$
+# Completude NP
 
 ```toc
 
@@ -236,12 +236,17 @@ A construção do grafo tripartido equivalente levaria a:
 
 Um clique possível seria, aqui, tornar $\neg x_2$ e $x_3$ verdadeiros, e podemos reparar que independentemente do valor lógico de $x_1$, a fórmula é satisfazível. Uma fórmula na forma 3CNF-SAT é satisfazível apenas se houver um clique no grafo $n$-partido correspondente.
 
-Resta provar que o algoritmo de redução é polinomial. Tendo $n$ cláusulas, podemos ter no máximo $\frac{3n*3(n - 1)}{2}$[**\***](color:yellow) arestas, caso se trate de um grafo completo, pelo que a redução de 3CNF-SAT a Clique é polinomial, e podemos afirmar então que Clique é $NPC$.
+Resta provar que o algoritmo de redução é polinomial. Tendo $n$ cláusulas, podemos ter no máximo $\frac{3n*3(n - 1)}{2}$[**\***](color:yellow) arestas, caso se trate de um grafo completo, pelo que a redução de 3CNF-SAT a Clique é polinomial, e podemos afirmar finalmente que Clique é $NPC$.
 
 [**\***](color:yellow) Temos $3n$ vértices, cada um deles pode estar ligado a, no máximo, $3(n-1)$ vértices (estar ligado a todos os outros das outras partições). Como não queremos contar arestas nos dois sentidos, dividimos o produto por $2$.
 
+Por fim, no vídeo abaixo encontram-se mais alguns exemplos de reduções que podem ser interessantes para uma melhor compreensão das estratégias que devemos tomar para as fazer.
+
+::youtube{#u5W32YxmnL8}
+
 ---
 
-- [Slides]()
-- [Notas]()
+- [Slides](https://drive.google.com/file/d/1BZ5JGFCOM9CNRxV0fUGUM3mo-InpG_kX/view?usp=sharing)
+- [Notas Prof. José Fragoso - Completude NP](https://drive.google.com/file/d/1tIOEeyIF2SpV08aihCva-fkUqjtX8dFp/view?usp=sharing)
+- [Notas Prof. José Fragoso - Redutibilidade](https://drive.google.com/file/d/1weBRRJPjoqDzfmUZt8rH1Mmk4KdosG0i/view?usp=sharing)
 <!-- second test -->
