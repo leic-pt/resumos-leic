@@ -24,9 +24,7 @@ Temos, então, três principais classes de problemas:
 
 - os problemas [$P$](color:orange), para os quais podemos encontrar uma solução de forma eficiente, em tempo polinomial.
 
-- os problemas [$NP$](color:yellow), "Não-Determínisticos Polinomiais", que possuem solução (conhecida) superpolinomial, mas que são **verificáveis** em tempo polinomial: dado um [**certificado**](color:green), é possível verificar em tempo eficiente se o mesmo corresponde a uma solução para o problema. Aqui, dizemos que um certificado corresponde a uma potencial solução para o problema: no caso de um programa que procura descobrir o caminho mais longo de um grafo, um _certificado-exemplo_ corresponderia a um qualquer caminho que fosse fornecido como i$np$ut. Podemos afirmar que $P \subseteq NP$: todos os problemas com solução em tempo polinomial também são, claro, verificáveis em tempo polinomial.
-
-- os problemas [$NPC$](color:pink), ditos "$NP$-Completos". Um problema diz-se $NP$-Completo se for $NP$ _e_ for tão "difícil" quanto qualquer problema $NP$ - isto é, dado um problema $X$, se $X$ for $NP$ e qualquer problema $NP$ for redutível a $X$, então $X$ é $NP$-Completo. A noção de redutibilidade de um problema será clara mais à frente. Se alguma vez for descoberto que um problema $NP$-Completo pode ser resolvido em tempo polinomial, **todos os problemas $NP$** podem ser resolvidos em tempo polinomial, fazendo colapsar grande parte da criptografia moderna, bem como outras áreas da computação. Acredita-se, portanto, que $P \neq NP$.
+- os problemas [$NP$](color:yellow), "Não-Determínisticos Polinomiais", que possuem solução (conhecida) superpolinomial, mas que são **verificáveis** em tempo polinomial: dado um [**certificado**](color:green), é possível verificar em tempo eficiente se o mesmo corresponde a uma solução para o problema. Aqui, dizemos que um certificado corresponde a uma potencial solução para o problema: no caso de um programa que procura descobrir o caminho mais longo de um grafo, um _certificado-exemplo_ corresponderia a um qualquer caminho que fosse fornecido como input. Podemos afirmar que $P \subseteq NP$: todos os problemas com solução em tempo polinomial também são, claro, verificáveis em tempo polinomial (basta procurar a solução, que é feita em tempo polinomial).
 
 Até agora, o nosso objetivo ao analisar algoritmos sempre foi procurar encontrar uma majoração, notação $O$, para a complexidade temporal que um dado algoritmo pode ter - um pior caso. Nos problemas $NPC$, vamos procurar fazer precisamente o oposto: tentar demonstrar que um dado problema é "pelo menos tão difícil" como outro que já sabemos ser díficil, algo semelhante à noção de $\Omega$, minorante da complexidade temporal.
 
@@ -46,9 +44,19 @@ Acima podemos ver o exemplo de como a lógica funciona - pegamos numa instância
 
 Intuitivamente, se podemos reduzir um problema $X$ a outro $Y$ em tempo polinomial, então $X$ não deverá ser "mais difícil" de resolver que $Y$.
 
-Um problema diz-se **$NP$-Díficil** caso possamos reduzir qualquer problema $NP$ a ele próprio em tempo polinomial - nenhum dos outros será "mais díficil" que ele próprio. São também, portanto, **tão difíceis** quanto problemas $NP$-Completos. Não têm necessariamente de ser problemas em $NP$ - o _halting problem_ é $NP$-Díficil, já que é tão ou mais difícil de resolver que qualquer problema $NP$, mas nem sequer tem solução (nem polinomial nem superpolinomial), não fazendo portanto parte de $NP$.
+Um problema $x$ diz-se **$NP$-Díficil** ($NPH$, de $NP$_-hard_) caso possamos reduzir qualquer problema $NP$ a $x$ em tempo polinomial - nenhum dos outros será "mais díficil" que $x$. Não têm necessariamente de ser problemas em $NP$ - o _halting problem_ é $NP$-Díficil, mas nem sequer tem solução (nem polinomial nem superpolinomial), não fazendo portanto parte de $NP$.
 
-**Se alguma vez for descoberta uma solução em tempo polinomial para um problema $NP$-Difícil, foi descoberta uma solução em tempo polinomial para todos os problemas $NP$**.
+Aos problemas que são tanto $NP$ como $NP$-difíceis, damos o nome de **$NP$-completos** ($NPC$). Estes são portanto, problemas cuja solução pode ser verificada em tempo polinomial, que são no máximo tão difíceis como qualquer problema $NP$ (isto é, a solução eficiente para qualquer problema $NP$ implica solução eficiente para este problema).
+
+:::tip[P vs NP]
+
+Em 2000, o [Clay Mathematics Institute](https://en.wikipedia.org/wiki/Clay_Mathematics_Institute) estabeleceu 7 problemas matemáticos como os "Millenium Prize Problems". Estes 7 problemas são considerados como alguns dos problemas mais difíceis e importantes por resolver em matemática, e qualquer pessoa que os resolva é premiada com um prémio de 1,000,000\$.
+
+Um destes problemas é conhecido como ["P versus NP"](https://en.wikipedia.org/wiki/P_versus_NP_problem). Este problema consiste em provar ou refutar que qualquer problema $NP$ é também de classe $P$.
+
+Considerando a definição que oferecemos para problemas $NPH$, concluímos que para provar que $P = NP$ basta encontrar um problema $NPH$ com solução em tempo polinomial. Esta descoberta teria inúmeras consequências nas áreas da matemática, criptografia, filosofia, economia, medicina, etc. Contudo, há mais de 50 anos que os investigadores mais brilhantes do mundo não conseguem encontrar tal solução, pelo que é [genericamente acreditado que $P \neq NP$](https://www.newscientist.com/article/dn21578-poll-consensus-on-million-dollar-logic-problem/) (no entanto, também ainda ninguém o conseguiu provar).
+
+:::
 
 Podemos, agora, ter uma noção melhor das relações entre estas várias classes de problemas:
 
@@ -64,19 +72,21 @@ Isto é, se houver um problema que é $NP$-Completo (e, portanto, $NP$-Díficil)
 
 ### Teorema de Cook-Levin
 
-Ora, precisamos então de ter um problema raiz que seja $NP$-Completo para, a partir desse, conseguir extrair todos os outros: todos os outros problemas $NP$-Completos poderão ser reduzidos para esta raiz, provando-se então que também são $NP$-Completos.
+Ora, precisamos então de ter um problema raiz que seja $NP$-Completo para, a partir desse, conseguir extrair todos os outros. Assim, provar a conjetura $P$ vs $NP$, por exemplo, reduz-se a provar que esse algoritmo é ou não é de classe $P$.
 
 O **teorema de Cook-Levin** diz-nos, de forma muito sucinta, que o [problema de SAT](../lp/algoritmos-sat), abordado em LP, é $NP$-Completo. A prova é bastante extensa, pelo que não será apresentada aqui. Contudo, tanto as notas do prof. Fragoso como o vídeo abaixo contêm excelentes explicações do mesmo!
 
 ::youtube{#LW_37i96htQ}
 
-SAT é então a raiz da completude $NP$, e SAT pode reduzir-se a todos os outros problemas $NPC$. Contudo, nem sempre é simples fazê-lo, devido às diferenças que podem existir entre SAT e o outro problema em mãos. É então aí que entra a noção de **transitividade** na redução de problemas:
+SAT é então a raiz da completude $NP$, e SAT pode reduzir-se a todos os outros problemas $NPC$ (por definição de problemas $NPC$, qualquer problema $NP$ - incluindo o SAT - pode ser reduzido a eles). Contudo, nem sempre é simples fazê-lo, devido às diferenças que podem existir entre SAT e o outro problema em mãos.
+
+Introduzimos agora a noção de **transitividade** na redução de problemas:
 
 $$
 X \leq_p Y \wedge Y \leq_p Z \implies X \leq_p Z.
 $$
 
-Esta propriedade permite-nos pegar em qualquer problema $NP$-Completo e dizer que SAT é necessariamente redutível ao mesmo, mesmo que inicialmente tenhamos provado que é $NP$-Completo via outro problema $NPC$.
+Esta propriedade permite-nos provar a $NP$-Completude de um problema apenas provando que esse problema é redutível ao SAT.
 
 A prova da transitividade é bastante simples: voltando à noção de função de redução, e com
 
@@ -153,7 +163,11 @@ x_1 \vee \neg x_2 \vee y_1\\
 \neg y_2 \vee \neg x_4 \vee x_5
 $$
 
-Ou seja, as cláusulas das "pontas" terão ambas 2 literais da cláusula original, enquanto que todas as outras terão apenas 1, procurando ir "cortando" os valores das variáveis de controlo. A lógica pode não ser aparente assim de repente, por isso experimentemos atribuir valores lógicos às variáveis originais.
+Ou seja, as cláusulas das "pontas" terão ambas 2 literais da cláusula original, enquanto que todas as outras terão apenas 1, procurando ir "cortando" os valores das variáveis de controlo.
+
+Desta forma, se a cláusula inicial for verdadeira, será possível encontrar uma função de valoração que torne todas as cláusulas resultantes também verdadeiras. Caso contrário, isto é, se a cláusula inicial for falsa, não haverá tal função de valoração (note-se que há $n-1$ variáveis de controlo (com $n$ sendo o novo número de cláusulas), pelo que a existência de um literal verdadeiro na cláusula inicial é condição necessária e suficiente para que haja tal função de valoração).
+
+A lógica pode não ser aparente assim de repente, por isso experimentemos atribuir valores lógicos às variáveis originais.
 
 - Tenhamos $x_1 = x_3 = x_5 = F \wedge x_2 = x_4 = T$. Podemos facilmente reparar que a cláusula original teria valor lógico $F$. Experimentemos olhar para o comportamento das três novas cláusulas:
 
@@ -218,7 +232,7 @@ Seguindo a cadeia de reduções inicial, procuraremos agora reduzir 3CNF-SAT ao 
 
 Primeiro, devemos referir que Clique é $NP$: o certificado aqui corresponde a um clique, e a sua verificação ocorre em tempo polinomial - basta verificar se existem arestas entre cada par de vértices de $V'$.
 
-De seguida, teremos de provar que podemos então reduzir 3CNF-SAT ao problema Clique em tempo polinomial. Num primeiro momento, será relevante notar que as fórmulas na forma 3CNF-SAT são tal que $C_1 \wedge C_2 \wedge ... \wedge C_k$, onde $C_i = l_{i1} \wedge l_{i2} \wedge l_{i3}$. Temos, claro, que a fórmula só tem valor lógico verdadeiro se houver pelo menos um literal em cada cláusula com valor lógico verdadeiro. O paralelismo com o problema Clique entra exatamente aqui: iremos organizar um grafo $n$-partido, onde cada partição corresponde a uma cláusula, e vamos ligar todos os literais de uma cláusula - os vértices de uma partição - a todos os outros das outras cláusulas que não sejam a respetiva negação: podemos ligar $x_2$ a $x_2$ (uma instância dele próprio noutra cláusula) e a $x_3$, mas não a $\neg x_2$. Um **clique** neste grafo corresponderá, então, a um conjunto de valores lógicos de literais que permitem satisfazer a fórmula, já que haverá ligações diretas entre todas as cláusulas (as partições) do grafo! Caso não exista qualquer clique no grafo, a fórmula não é satisfazível.
+De seguida, teremos de provar que podemos então reduzir 3CNF-SAT ao problema Clique em tempo polinomial. Num primeiro momento, será relevante notar que as fórmulas na forma 3CNF-SAT são tal que $C_1 \wedge C_2 \wedge ... \wedge C_k$, onde $C_i = l_{i1} \vee l_{i2} \vee l_{i3}$. Temos, claro, que a fórmula só tem valor lógico verdadeiro se houver pelo menos um literal em cada cláusula com valor lógico verdadeiro. O paralelismo com o problema Clique entra exatamente aqui: iremos organizar um grafo $k$-partido, onde cada partição corresponde a uma cláusula, e vamos ligar todos os literais de uma cláusula - os vértices de uma partição - a todos os outros das outras cláusulas que não sejam a respetiva negação: podemos ligar $x_2$ a $x_2$ (uma instância dele próprio noutra cláusula) e a $x_3$, mas não a $\neg x_2$. Um **clique** neste grafo corresponderá, então, a um conjunto de valores lógicos de literais que permitem satisfazer a fórmula, já que haverá ligações diretas entre todas as cláusulas (as partições) do grafo! Caso não exista qualquer clique no grafo, a fórmula não é satisfazível.
 
 É sem dúvida mais simples transmitir a ideia através de suporte visual. Tenhamos o conjunto de cláusulas $C_1, C_2, C_3$ tal que:
 
