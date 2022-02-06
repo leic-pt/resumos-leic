@@ -195,9 +195,12 @@ Para além dos exercícios das aulas práticas, o livro de exercícios indicado 
   % têm de vir sob a forma de lista
 
   junta_novo_aleatorio(L1, LI, LS, L2) :-
-    random_between(LI, LS, E),
-    \+ member(E, L1),
-    insere_ordenado(E, L1, L2).
+    findall(X, between(LI, LS, X), Todas),
+    subtract(Todas, L1, Possiveis),
+    length(Possiveis, Len),
+    random_between(1, Len, IndiceAleatorio),
+    nth1(IndiceAleatorio, Possiveis, El),
+    insere_ordenado(El, L1, L2).
   ```
 
   Exercício 3
