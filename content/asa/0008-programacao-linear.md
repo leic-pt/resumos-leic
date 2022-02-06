@@ -500,6 +500,8 @@ s.a: \quad&\lambda_1 + \lambda_3 \geq 1\\
 \end{aligned}
 $$
 
+A solução ótima também seria aqui $1900$: $(\lambda_1, \lambda_2, \lambda_3) = (0, 5, 1)$ leva ao objetivo $0 + 300 * 5 + 400 * 1 = 1900$, que bate certo com a solução ótima do programa Primal.
+
 Há uma mnemónica relativamente simples a ter em conta para esta transformação:
 
 | Primal     | Dual       |
