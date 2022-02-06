@@ -50,11 +50,11 @@ Aos problemas que são tanto $NP$ como $NP$-difíceis, damos o nome de **$NP$-co
 
 :::tip[P vs NP]
 
-Em 2000, o [Clay Mathematics Institute](https://en.wikipedia.org/wiki/Clay_Mathematics_Institute) estabeleceu 7 problemas matemáticos como os "Millenium Prize Problems". Estes 7 problemas são considerados como alguns dos problemas mais difíceis e importantes por resolver em matemática, o qualquer pessoa que os resolva é premiada com um prémio de 1,000,000\$.
+Em 2000, o [Clay Mathematics Institute](https://en.wikipedia.org/wiki/Clay_Mathematics_Institute) estabeleceu 7 problemas matemáticos como os "Millenium Prize Problems". Estes 7 problemas são considerados como alguns dos problemas mais difíceis e importantes por resolver em matemática, e qualquer pessoa que os resolva é premiada com um prémio de 1,000,000\$.
 
 Um destes problemas é conhecido como ["P versus NP"](https://en.wikipedia.org/wiki/P_versus_NP_problem). Este problema consiste em provar ou refutar que qualquer problema $NP$ é também de classe $P$.
 
-Considerando a definição que oferecemos para problemas $NPH$, concluímos que para provar que $P = NP$ basta encontrar um problema $NPH$ com solução em tempo polinomial. Esta descoberta teria inúmeras consequências nas áreas da matemática, criptografia, filosofia, economia, medicina, etc. Contudo, há mais de 50 anos que os investigadores mais brilhantes do mundo que falham para encontrar tal solução, pelo que é [genericamente acreditado que $P \neq NP$](https://www.newscientist.com/article/dn21578-poll-consensus-on-million-dollar-logic-problem/) (no entanto, também ainda ninguém o conseguiu provar).
+Considerando a definição que oferecemos para problemas $NPH$, concluímos que para provar que $P = NP$ basta encontrar um problema $NPH$ com solução em tempo polinomial. Esta descoberta teria inúmeras consequências nas áreas da matemática, criptografia, filosofia, economia, medicina, etc. Contudo, há mais de 50 anos que os investigadores mais brilhantes do mundo não conseguem encontrar tal solução, pelo que é [genericamente acreditado que $P \neq NP$](https://www.newscientist.com/article/dn21578-poll-consensus-on-million-dollar-logic-problem/) (no entanto, também ainda ninguém o conseguiu provar).
 
 :::
 
@@ -165,7 +165,7 @@ $$
 
 Ou seja, as cláusulas das "pontas" terão ambas 2 literais da cláusula original, enquanto que todas as outras terão apenas 1, procurando ir "cortando" os valores das variáveis de controlo.
 
-Desta forma, se a cláusula inicial for verdadeira, será possível encontrar uma função de valoração que torne todas as cláusulas resultantes também verdadeiras. Caso contrário, isto é, se a cláusula inicial for falsa, não haverá tal função de valoração (note-se que há $n-1$ variáveis de controlo, pelo que a existência de um literal verdadeiro na cláusula inicial é condição necessária e suficiente para que haja tal função de valoração).
+Desta forma, se a cláusula inicial for verdadeira, será possível encontrar uma função de valoração que torne todas as cláusulas resultantes também verdadeiras. Caso contrário, isto é, se a cláusula inicial for falsa, não haverá tal função de valoração (note-se que há $n-1$ variáveis de controlo (com $n$ sendo o novo número de cláusulas), pelo que a existência de um literal verdadeiro na cláusula inicial é condição necessária e suficiente para que haja tal função de valoração).
 
 A lógica pode não ser aparente assim de repente, por isso experimentemos atribuir valores lógicos às variáveis originais.
 
