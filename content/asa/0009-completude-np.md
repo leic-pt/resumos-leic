@@ -24,15 +24,15 @@ Temos, então, três principais classes de problemas:
 
 - os problemas [$P$](color:orange), para os quais podemos encontrar uma solução de forma eficiente, em tempo polinomial.
 
-- os problemas [$NP$](color:yellow), "Não-Determínisticos Polinomiais", que possuem solução (conhecida) superpolinomial, mas que são **verificáveis** em tempo polinomial: dado um [**certificado**](color:green), é possível verificar em tempo eficiente se o mesmo corresponde a uma solução para o problema. Aqui, dizemos que um certfificado corresponde a uma potencial solução para o problema: no caso de um programa que procura descobrir o caminho mais longo de um grafo, um _certificado-exemplo_ corresponderia a um qualquer caminho que fosse fornecido como i$np$ut. Podemos afirmar que $P \subseteq NP$: todos os problemas com solução em tempo polinomial também são, claro, verificáveis em tempo polinomial.
+- os problemas [$NP$](color:yellow), "Não-Determínisticos Polinomiais", que possuem solução (conhecida) superpolinomial, mas que são **verificáveis** em tempo polinomial: dado um [**certificado**](color:green), é possível verificar em tempo eficiente se o mesmo corresponde a uma solução para o problema. Aqui, dizemos que um certificado corresponde a uma potencial solução para o problema: no caso de um programa que procura descobrir o caminho mais longo de um grafo, um _certificado-exemplo_ corresponderia a um qualquer caminho que fosse fornecido como i$np$ut. Podemos afirmar que $P \subseteq NP$: todos os problemas com solução em tempo polinomial também são, claro, verificáveis em tempo polinomial.
 
-- os problemas [$NPC$](color:pink), ditos "$NP$-Completos". Um problema diz-se $NP$-Completo se for $NP$ _e_ for tão "difícil" quanto qualquer problema $NP$ - isto é, dado um problema $P$, se $P$ for $NP$ e qualquer problema $NP$ for redutível a $P$, então $P$ é $NP$-Completo. A noção de redutibilidade de um problema será clara mais à frente. Se alguma vez for descoberto que um problema $NP$-Completo pode ser resolvido em tempo polinomial, **todos os problemas $NP$** podem ser resolvidos em tempo polinomial, fazendo colapsar grande parte da criptografia moderna, bem como outras áreas da computação. Acredita-se, portanto, que $P \neq NP$.
+- os problemas [$NPC$](color:pink), ditos "$NP$-Completos". Um problema diz-se $NP$-Completo se for $NP$ _e_ for tão "difícil" quanto qualquer problema $NP$ - isto é, dado um problema $X$, se $X$ for $NP$ e qualquer problema $NP$ for redutível a $X$, então $X$ é $NP$-Completo. A noção de redutibilidade de um problema será clara mais à frente. Se alguma vez for descoberto que um problema $NP$-Completo pode ser resolvido em tempo polinomial, **todos os problemas $NP$** podem ser resolvidos em tempo polinomial, fazendo colapsar grande parte da criptografia moderna, bem como outras áreas da computação. Acredita-se, portanto, que $P \neq NP$.
 
 Até agora, o nosso objetivo ao analisar algoritmos sempre foi procurar encontrar uma majoração, notação $O$, para a complexidade temporal que um dado algoritmo pode ter - um pior caso. Nos problemas $NPC$, vamos procurar fazer precisamente o oposto: tentar demonstrar que um dado problema é "pelo menos tão difícil" como outro que já sabemos ser díficil, algo semelhante à noção de $\Omega$, minorante da complexidade temporal.
 
 ## Redutibilidade de um Problema
 
-Dados dois problemas $X$ e $Y$, podemos afirmar que $X$ é redutível em tempo polinomial a $Y$, $X \leq_p Y$, caso possamos reescrever $X$ como instância do problema $Y$ de forma a que qualquer solução para o problema $Y$ seja uma solução para o problema $X$. Formalmente, dizemos que tem de existir uma função $f: X \to Y$ tal que $X \leq_p Y$ se:
+Dados dois problemas $X$ e $Y$, podemos afirmar que $X$ é redutível em tempo polinomial a $Y$, $X \leq_p Y$, caso possamos reescrever uma instância de $X$ como instância do problema $Y$ de forma a que qualquer solução para o problema $Y$ seja uma solução para o problema $X$. Formalmente, dizemos que tem de existir uma função $f: X \to Y$ tal que $X \leq_p Y$ se:
 
 $$
 \forall_{x \in X}, \quad X(x) = 1 \quad \text { se e só se } \quad Y(y) = Y(f(x)) = 1
@@ -42,11 +42,11 @@ Dizemos que $f$ é uma **função de redução**, com respetivo **algoritmo de r
 
 ![Redução - Intuição](./assets/0009-np-reducao.png)
 
-Acima podemos ver o exemplo de como a lógica funciona - pegamos numa instância de um problema, reduzimo-la numa instância de outro problema através de um algoritmo de redução que leva tempo polinomial, e a resposta ao problema reescrito será a mesma que a do problema original!
+Acima podemos ver o exemplo de como a lógica funciona - pegamos numa instância de um problema, reduzimo-la numa instância de outro problema através de um algoritmo de redução que leva **necessariamente** tempo polinomial, tendo que a resposta ao problema reescrito terá de ser a mesma que a do problema original!
 
 Intuitivamente, se podemos reduzir um problema $X$ a outro $Y$ em tempo polinomial, então $X$ não deverá ser "mais difícil" de resolver que $Y$.
 
-Um problema diz-se **$NP$-Díficil** caso possamos reduzir qualquer problema $NP$ a ele próprio em tempo polinomial - nenhum dos outros será "mais díficil" que ele próprio. São também, portanto, **tão difíceis** quanto problemas $NP$-Completos. Não têm necessariamente de ser problemas em $NP$ - o _halting problem_ é $NP$-Díficil, já que é tão ou mais difícil de resolver que qualquer problema $NP$, mas nem sequer tem solução (nem polinomial nem superpolinomial).
+Um problema diz-se **$NP$-Díficil** caso possamos reduzir qualquer problema $NP$ a ele próprio em tempo polinomial - nenhum dos outros será "mais díficil" que ele próprio. São também, portanto, **tão difíceis** quanto problemas $NP$-Completos. Não têm necessariamente de ser problemas em $NP$ - o _halting problem_ é $NP$-Díficil, já que é tão ou mais difícil de resolver que qualquer problema $NP$, mas nem sequer tem solução (nem polinomial nem superpolinomial), não fazendo portanto parte de $NP$.
 
 **Se alguma vez for descoberta uma solução em tempo polinomial para um problema $NP$-Difícil, foi descoberta uma solução em tempo polinomial para todos os problemas $NP$**.
 
@@ -96,9 +96,7 @@ $$
 x \in X \leftrightarrow f(x) \in Y \leftrightarrow g(f(x)) \in Z,
 $$
 
-já que a composição de reduções continua a custar tempo polinomial!
-
-<!-- TODO: ADICIONAR JUSTIFICAÇÃO PARA A COMPOSIÇÃO DE REDUÇÕES CONTINUAR A CUSTAR TEMPO POLINOMIAL -->
+já que a composição de reduções continua a custar tempo polinomial (corresponderia a uma soma de reduções que levam todas tempo polinomial).
 
 ## Reduções Clássicas
 
@@ -106,7 +104,7 @@ Há um conjunto de reduções clássicas entre vários problemas $NPC$, problema
 
 ![Reduções Clássicas](./assets/0009-reducoes-classicas.png#dark=1)
 
-Todos os problemas acima mencionados são $NPC$, e podemos utilizá-los nas reduções em exame - temos sempre de partir de um problema que sabemos ser $NPC$, problema esse que não é necessariamente dado no enunciado. Nesta secção vão ser abordadas algumas destas reduções clássicas.
+Todos os problemas acima mencionados são $NPC$. Nesta secção vão ser abordadas algumas destas reduções clássicas.
 
 ### Redução de CNF-SAT para 3CNF-SAT
 
@@ -220,7 +218,7 @@ Seguindo a cadeia de reduções inicial, procuraremos agora reduzir 3CNF-SAT ao 
 
 Primeiro, devemos referir que Clique é $NP$: o certificado aqui corresponde a um clique, e a sua verificação ocorre em tempo polinomial - basta verificar se existem arestas entre cada par de vértices de $V'$.
 
-De seguida, teremos de provar que podemos então reduzir 3CNF-SAT ao problema Clique em tempo polinomial. Num primeiro momento, será relevante notar que as fórmulas na forma 3CNF-SAT são tal que $C_1 \wedge C_2 \wedge ... \wedge C_k$, onde $C_i = l_{i1} \wedge l_{i2} \wedge l_{i3}$. Temos, claro, que a fórmula só tem valor lógico verdadeiro se houver pelo menos um literal em cada cláusula com valor lógico verdadeiro. O paralelismo com o problema Clique entra exatamente aqui: iremos organizar um grafo $n-partido$, onde cada partição corresponde a uma cláusula, e vamos ligar todos os literais de uma cláusula - os vértices de uma partição - a todos os outros das outras cláusulas que não sejam a respetiva negação: podemos ligar $x_2$ a $x_2$ e a $x_3$, mas não a $\neg x_2$. Um **clique** neste grafo corresponderá, então, a um conjunto de valores lógicos de literais que permitem satisfazer a fórmula, já que haverá ligações diretas entre todas as cláusulas (as partições) do grafo! Caso não exista qualquer clique no grafo, a fórmula não é satisfazível.
+De seguida, teremos de provar que podemos então reduzir 3CNF-SAT ao problema Clique em tempo polinomial. Num primeiro momento, será relevante notar que as fórmulas na forma 3CNF-SAT são tal que $C_1 \wedge C_2 \wedge ... \wedge C_k$, onde $C_i = l_{i1} \wedge l_{i2} \wedge l_{i3}$. Temos, claro, que a fórmula só tem valor lógico verdadeiro se houver pelo menos um literal em cada cláusula com valor lógico verdadeiro. O paralelismo com o problema Clique entra exatamente aqui: iremos organizar um grafo $n$-partido, onde cada partição corresponde a uma cláusula, e vamos ligar todos os literais de uma cláusula - os vértices de uma partição - a todos os outros das outras cláusulas que não sejam a respetiva negação: podemos ligar $x_2$ a $x_2$ (uma instância dele próprio noutra cláusula) e a $x_3$, mas não a $\neg x_2$. Um **clique** neste grafo corresponderá, então, a um conjunto de valores lógicos de literais que permitem satisfazer a fórmula, já que haverá ligações diretas entre todas as cláusulas (as partições) do grafo! Caso não exista qualquer clique no grafo, a fórmula não é satisfazível.
 
 É sem dúvida mais simples transmitir a ideia através de suporte visual. Tenhamos o conjunto de cláusulas $C_1, C_2, C_3$ tal que:
 
