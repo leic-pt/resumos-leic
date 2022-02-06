@@ -78,7 +78,7 @@ O **teorema de Cook-Levin** diz-nos, de forma muito sucinta, que o [problema de 
 
 ::youtube{#LW_37i96htQ}
 
-SAT é então a raiz da completude $NP$, e SAT pode reduzir-se a todos os outros problemas $NPC$ (por definição de problemas $NPC$, qualquer problema $NP$ - incluindo o SAT - pode ser reduzido a eles). Contudo, nem sempre é simples fazê-lo, devido às diferenças que podem existir entre SAT e o outro problema em mãos. 
+SAT é então a raiz da completude $NP$, e SAT pode reduzir-se a todos os outros problemas $NPC$ (por definição de problemas $NPC$, qualquer problema $NP$ - incluindo o SAT - pode ser reduzido a eles). Contudo, nem sempre é simples fazê-lo, devido às diferenças que podem existir entre SAT e o outro problema em mãos.
 
 Introduzimos agora a noção de **transitividade** na redução de problemas:
 
@@ -163,7 +163,7 @@ x_1 \vee \neg x_2 \vee y_1\\
 \neg y_2 \vee \neg x_4 \vee x_5
 $$
 
-Ou seja, as cláusulas das "pontas" terão ambas 2 literais da cláusula original, enquanto que todas as outras terão apenas 1, procurando ir "cortando" os valores das variáveis de controlo. 
+Ou seja, as cláusulas das "pontas" terão ambas 2 literais da cláusula original, enquanto que todas as outras terão apenas 1, procurando ir "cortando" os valores das variáveis de controlo.
 
 Desta forma, se a cláusula inicial for verdadeira, será possível encontrar uma função de valoração que torne todas as cláusulas resultantes também verdadeiras. Caso contrário, isto é, se a cláusula inicial for falsa, não haverá tal função de valoração (note-se que há $n-1$ variáveis de controlo, pelo que a existência de um literal verdadeiro na cláusula inicial é condição necessária e suficiente para que haja tal função de valoração).
 
