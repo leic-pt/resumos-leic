@@ -398,32 +398,50 @@ $$
 :::info[Exemplo]
 
 O Rodrigo Coimbra é proprietário de uma empresa especializada na produção de colunas de destilação.
-Em 2020, a empresa do Rodrigo produziu 5000 destiladores cujo preço de mercado é 1000€/unidade.
-Para esta produção, o custo anual total foi de 5 mi€, representando os custos variáveis anuais 60% deste valor.
+Em 2020, a empresa do Rodrigo produziu destiladores cujo preço de mercado é 1000€/unidade e cujo custo variável unitário representa 60% deste valor.
+Para esta produção, os custos fixos foram de 200 000€.
 Quantos destiladores precisará ele de vender para ter lucro?
 
 Dados:
 
-- $Q = 5000$
 - $p = 1000€$
-- $CT = =5000000€$
+- $CVu = 1000 \times 0,6 = 600€$
+- $CF = 200 000€$
 
 ---
 
 $$
-CVT = 0,6 \times CT = 3000000€
+Qc = \frac {CF} {p - CVu} = \frac {2000000} {1000 − 600} = 5000 {\text { Unidades}}
+$$
+
+De forma mais intuitiva, queremos que o valor das vendas seja igual aos custos (lucro = 0). Logo, partindo de
+
+$$
+\text{Lucro } = p_{re\c{c}o} \times Q_{uantidade} - C_{usto}F_{ixo} -C_{usto}V_{ariável}
+$$
+
+e igualando o lucro a zero, $Qc$ é o $Q$ para o qual
+
+$$
+p \times Q = CF + CV
 $$
 
 $$
-CVu = 0,6 \times p = 600€
+\Leftrightarrow p \times Q = CF + CVu \times Q
 $$
 
 $$
-CF = CT - CVT = 5000000 − 3000000 = 2000000€
+\Leftrightarrow Q = \frac {CF} {p-CVu}
+$$
+
+Ou seja,
+
+$$
+1000Q = 200 000 + 600Q
 $$
 
 $$
-Qc = \frac {CF} {P - CVu} = \frac {2000000} {1000 − 600} = 500 {\text { Unidades}}
+\Leftrightarrow Q = \frac {200 000} {1000-600} = 5000{\text { unidades}}
 $$
 
 :::
