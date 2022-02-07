@@ -399,19 +399,19 @@ $$
 
 O Rodrigo Coimbra é proprietário de uma empresa especializada na produção de colunas de destilação.
 Em 2020, a empresa do Rodrigo produziu destiladores cujo preço de mercado é 1000€/unidade e cujo custo variável unitário representa 60% deste valor.
-Para esta produção, os custos fixos foram de 200 000€.
+Para esta produção, os custos fixos foram de 2 000 000€.
 Quantos destiladores precisará ele de vender para ter lucro?
 
 Dados:
 
 - $p = 1000€$
 - $CVu = 1000 \times 0,6 = 600€$
-- $CF = 200 000€$
+- $CF = 2 000 000€$
 
 ---
 
 $$
-Qc = \frac {CF} {p - CVu} = \frac {2000000} {1000 − 600} = 5000 {\text { Unidades}}
+Qc = \frac {CF} {p - CVu} = \frac {2 000 000} {1000 − 600} = 5000 {\text { Unidades}}
 $$
 
 De forma mais intuitiva, queremos que o valor das vendas seja igual aos custos (lucro = 0). Logo, partindo de
@@ -437,11 +437,11 @@ $$
 Ou seja,
 
 $$
-1000Q = 200 000 + 600Q
+1000Q = 2 000 000 + 600Q
 $$
 
 $$
-\Leftrightarrow Q = \frac {200 000} {1000-600} = 5000{\text { unidades}}
+\Leftrightarrow Q = \frac {2 000 000} {1000-600} = 5000{\text { unidades}}
 $$
 
 :::
