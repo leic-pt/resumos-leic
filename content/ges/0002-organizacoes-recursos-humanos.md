@@ -141,7 +141,7 @@ A estratégia da gestão de recursos humanos passa pelas seguintes etapas:
 
 Na etapa de atração de pessoal competente podemos distinguir vários processos, entre os quais:
 
-1. **Planemamento**: Inclui as previsões das necessidades da organização, a curto, médio e a longo prazo, por:
+1. **Planeamento**: Inclui as previsões das necessidades da organização, a curto, médio e a longo prazo, por:
 
    - Tipo de Competências
    - Número de pessoas necessárias
