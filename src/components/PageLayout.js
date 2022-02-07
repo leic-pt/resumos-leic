@@ -1,8 +1,8 @@
 import { graphql } from 'gatsby';
 import 'katex/dist/katex.min.css';
 import React, { useCallback, useState } from 'react';
-import '../styles/main.css';
-import '../styles/markdown.css';
+//import '../styles/main.css';
+//import '../styles/markdown.css';
 import { customComponents } from '../utils/customComponents';
 import Navbar from './Navbar';
 import PageMetadata from './PageMetadata';

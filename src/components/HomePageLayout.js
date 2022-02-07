@@ -1,9 +1,9 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import IstLogo from '../images/ist-logo.svg';
-import '../styles/homepage.css';
-import '../styles/main.css';
-import '../styles/markdown.css';
+//import '../styles/homepage.css';
+//import '../styles/main.css';
+//import '../styles/markdown.css';
 import Navbar from './Navbar';
 import PageMetadata from './PageMetadata';
 import SectionButton, { SectionButtonLayout } from './SectionButton';

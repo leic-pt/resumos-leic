@@ -29,6 +29,7 @@ module.exports = {
     },
   },
   plugins: [
+    'gatsby-plugin-top-layout',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -133,5 +134,6 @@ module.exports = {
         filename: 'service-worker.js',
       },
     },
+    'gatsby-plugin-mui-emotion',
   ],
 };

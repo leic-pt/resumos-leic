@@ -1,4 +1,5 @@
-import { Link, useStaticQuery, graphql } from 'gatsby';
+import { Drawer, List, ListItemButton, ListItemText, ListSubheader } from '@mui/material';
+import { Link as GatsbyLink, useStaticQuery, graphql } from 'gatsby';
 import React from 'react';
 import ExternalLink from './ExternalLink';
 
@@ -34,28 +35,25 @@ export default function Sidebar({ paths, sidebarOpen, toggleSidebar }) {
   });
 
   return (
-    <aside className='sidebar'>
-      {sidebarSections.map(
-        (section) =>
-          section.links && (
-            <div key={section.key} className={section.name ? '' : 'top-level'}>
-              {section.name && <p>{section.name}</p>}
-              <ul>
+    <Drawer variant='permanent' anchor='left'>
+      <List>
+        {sidebarSections.map(
+          (section) =>
+            section.links && (
+              <>
+                {section.name && <ListSubheader>{section.name}</ListSubheader>}
                 {section.links.map((v) => {
                   const { path, title } = v;
                   return (
-                    <li key={path}>
-                      <Link to={path} activeClassName='link__active'>
-                        {title || path}
-                      </Link>
-                    </li>
+                    <ListItemButton key={path} to={path} component={GatsbyLink}>
+                      <ListItemText primary={title || path} />
+                    </ListItemButton>
                   );
                 })}
-              </ul>
-            </div>
-          )
-      )}
-      <div className='sidebar-nav-links'>
+              </>
+            )
+        )}
+        {/*<div className='sidebar-nav-links'>
         <hr />
         <ul>
           {data.site.siteMetadata.navbar.links.map(({ href, title }) => (
@@ -64,7 +62,8 @@ export default function Sidebar({ paths, sidebarOpen, toggleSidebar }) {
             </li>
           ))}
         </ul>
-      </div>
-    </aside>
+          </div>*/}
+      </List>
+    </Drawer>
   );
 }

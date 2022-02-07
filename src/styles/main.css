@@ -19,6 +19,7 @@ body {
   body.dark-mode {
     --accentColor: #00a0e4;
     --bgColor: #25272a;
+    --shadowColor: rgba(0, 0, 0, 0.2);
     --cardColor: #3e3b3b;
     --textColor: #e2e2e2;
     --borderColor: #4e4e4e;
@@ -159,7 +160,6 @@ h2 {
 
 .sidebar {
   width: 20rem;
-  border-right: 1px solid var(--borderColor);
   position: fixed;
   top: 0;
   left: 0;
@@ -168,7 +168,10 @@ h2 {
   overflow-y: auto;
   margin-top: 3.6rem;
   background-color: var(--bgColor);
+  box-shadow: rgb(15 17 21 / 25%) 0px 4px 6px, rgb(15 17 21 / 10%) 0px 5px 7px;
   padding-left: 0.5rem;
+  margin: 4.6rem 1rem 1rem 1rem;
+  border-radius: 1rem;
 }
 
 .sidebar ul {
