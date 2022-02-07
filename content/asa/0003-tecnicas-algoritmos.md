@@ -334,7 +334,7 @@ No caso exposto acima, o custo varia entre:
 
 - $(n_1 \cdot n_2 \cdot n_3) + n_0 \cdot n_1 \cdot n_3$
 
-Temos, tendo duas matrizes $A_1$, $n_0 \text{ x } n_1$, e $A_2$, $n_1 \text{ x } n_2$, que o número de operações necessárias para fazer o seu produto é $n_0 \cdot n_1 \cdot n_2$:
+Temos, tendo duas matrizes $A_1$, $n_0 \times n_1$, e $A_2$, $n_1 \times n_2$, que o número de operações necessárias para fazer o seu produto é $n_0 \cdot n_1 \cdot n_2$:
 
 ![Multiplicação de Matrizes](./assets/0003-mult-matrix.png#dark=1)
 
@@ -364,7 +364,7 @@ A solução proposta (utilizando DP) tem complexidade temporal $\Theta(O(n^3))$,
 Tenhamos 4 matrizes:
 
 $$
-A_1, 5 \text{ x } 2, \quad A_2, 2 \text{ x } 3, \quad A_3, 3 \text{ x } 2, \quad A_4, 2 \text{ x } 3
+A_1, 5 \times 2, \quad A_2, 2 \times 3, \quad A_3, 3 \times 2, \quad A_4, 2 \times 3
 $$
 
 O algoritmo de resolução do problema irá criar uma matriz tal que:
