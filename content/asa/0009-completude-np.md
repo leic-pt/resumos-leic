@@ -20,7 +20,7 @@ Os algoritmos abordados até agora podem ser resolvidos em tempo polinomial - a 
 
 Além desses, há também problemas que se julgam apenas ter soluções em tempo superpolinomial, e será esse o foco desta secção: procurar provar que há problemas que são necessariamente difíceis, sem resolução eficiente (polinomial). É importante conseguir provar que há certos problemas sem resolução eficiente, mais não seja para evitar estar à procura de uma solução eficiente que não existe.
 
-Temos, então, três principais classes de problemas:
+Temos, então, duas principais classes de problemas:
 
 - os problemas [$P$](color:orange), para os quais podemos encontrar uma solução de forma eficiente, em tempo polinomial.
 
@@ -68,7 +68,7 @@ $$
 X \in NP \wedge Y \in NPC \wedge Y \leq_p X \implies X \in NPC
 $$
 
-Isto é, se houver um problema que é $NP$-Completo (e, portanto, $NP$-Díficil), todos os problemas em $NP$ para os quais o podemos reduzir serão também $NP$-Completos, já que terão de ser _pelo menos tão difíceis_ quanto $Y$, que já é, por definição, $NP-$Díficil.
+Isto é, se houver um problema que é $NP$-Completo (e, portanto, $NP$-Díficil), todos os problemas em $NP$ para os quais o podemos reduzir serão também $NP$-Completos, já que terão de ser _pelo menos tão difíceis_ quanto $Y$, que já é, por definição, $NP$-Díficil.
 
 ### Teorema de Cook-Levin
 
@@ -246,7 +246,7 @@ A construção do grafo tripartido equivalente levaria a:
 
 ![Clique - Grafo Tripartido](./assets/0009-clique-tripartido.png#dark=1)
 
-Um clique possível seria, aqui, tornar $\neg x_2$ e $x_3$ verdadeiros, e podemos reparar que independentemente do valor lógico de $x_1$, a fórmula é satisfazível. Uma fórmula na forma 3CNF-SAT é satisfazível apenas se houver um clique no grafo $n$-partido correspondente.
+Um clique possível seria, aqui, tornar $\neg x_2$ e $x_3$ verdadeiros, e podemos reparar que independentemente do valor lógico de $x_1$, a fórmula é satisfazível. **Uma fórmula na forma 3CNF-SAT é satisfazível apenas se houver um clique no grafo $n$-partido correspondente.**
 
 Resta provar que o algoritmo de redução é polinomial. Tendo $n$ cláusulas, podemos ter no máximo $\frac{3n*3(n - 1)}{2}$[**\***](color:yellow) arestas, caso se trate de um grafo completo, pelo que a redução de 3CNF-SAT a Clique é polinomial, e podemos afirmar finalmente que Clique é $NPC$.
 
