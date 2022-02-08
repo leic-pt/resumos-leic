@@ -421,50 +421,24 @@ Por fim, aplicamos Dijkstra a cada um dos vértices do grafo (não mostrado aqui
 
 :::
 
-A repesagem de Johnson assenta em três pilares:
+A repesagem de Johnson assenta em dois pilares:
 
-- Se $G$ não contém ciclos negativos, $G^\wedge$ não contém ciclos negativos;
-
-- Se $G$ contém um ciclo negativo, $G^\wedge$ contém um ciclo negativo;
+- $G$ contém um ciclo negativo se e só se $G^\wedge$ contém um ciclo negativo;
 
 - Se $p$ é um caminho mais curto de $u$ a $v$ em $G$, então também o é em $G^\wedge$.
 
-:::details[Prova dos dois primeiros pontos]
+:::details[Prova do primeiro ponto]
 
-Para provar o [**primeiro ponto**](color:yellow), podemos recorrer à **desigualdade triangular**. Temos como base que:
-
-$$
-w^\wedge (i, j) = w(i, j) + h(i) - h(j)
-$$
-
-Como referido acima, as alturas de Johnson correspondem ao peso do caminho mais curto de $s$ ao vértice no grafo onde tínhamos $s$ como fonte:
+Admita-se que $G$ tem um ciclo $v_0, v_1, v_2, \cdots , v_{k-1}, v_k$ (em que $v_k = v_0$). Temos que:
 
 $$
-w^\wedge (i, j) = w(i, j) + \delta(s, i) - \delta(s, j)
+\sum_{i=0}^{k-1} w(v_i, v_{i+1}) = 
+\sum_{i=0}^{k-1} w^\wedge(v_i, v_{i+1}) + h(i+1) - h(i) = 
+\sum_{i=0}^{k-1} w^\wedge(v_i, v_{i+1}) + \sum_{i=0}^{k-1} h(i+1) - \sum_{i=0}^{k-1} h(i) =
+\sum_{i=0}^{k-1} w^\wedge(v_i, v_{i+1})
 $$
 
-Temos, pela desigualdade triangular, que $\delta(s, j) \leq \delta(s, i) + w(i, j)$. Assim sendo:
-
-$$
-w^\wedge (i, j) \geq \delta(s, j) - \delta(s, j) \\
-w^\wedge (i, j) \geq 0
-$$
-
-Ora, podemos assim admitir que o peso de todo o arco de $G^\wedge$ é não negativo, pelo que será impossível que ocorra ciclos negativos no mesmo (considerando que estes não existiam em $G$, claro, caso contrário a desigualdade triangular não se verificaria).
-
-Consideremos, agora, o [**segundo ponto**](color:green): existe (pelo menos um) ciclo negativo em $G$. Tenhamos ainda que $p = (v_0, ..., v_n)$ é o caminho correspondente, com $v_0 = v_n$. Para provar que o ciclo continua a ocorrer em $G^\wedge$, basta notar que:
-
-$$
-w^\wedge (v_0, v_n) = w(v_0, v_n) + h(v_0) - h(v_n)
-$$
-
-Como $v_0 = v_n$ (é um ciclo), temos que $h(v_0) = h(v_n)$, pelo que:
-
-$$
-w^\wedge (v_0, v_n) = w(v_0, v_n)
-$$
-
-Podemos, então, confirmar que o peso do ciclo continua negativo, e que se em $G$ existe um ciclo negativo, o mesmo existirá também em $G^\wedge$.
+Ou seja, o peso de qualquer ciclo em $G$ é igual ao peso de qualquer ciclo em $G^\wedge$. Desta forma, a existência de um ciclo negativo em qualquer um dos grafos equivale à existência de um ciclo negativo no outro grafo.
 
 :::
 
