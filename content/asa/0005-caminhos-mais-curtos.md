@@ -432,8 +432,8 @@ A repesagem de Johnson assenta em dois pilares:
 Admita-se que $G$ tem um ciclo $v_0, v_1, v_2, \cdots , v_{k-1}, v_k$ (em que $v_k = v_0$). Temos que:
 
 $$
-\sum_{i=0}^{k-1} w(v_i, v_{i+1}) = 
-\sum_{i=0}^{k-1} w^\wedge(v_i, v_{i+1}) + h(i+1) - h(i) = 
+\sum_{i=0}^{k-1} w(v_i, v_{i+1}) =
+\sum_{i=0}^{k-1} w^\wedge(v_i, v_{i+1}) + h(i+1) - h(i) =
 \sum_{i=0}^{k-1} w^\wedge(v_i, v_{i+1}) + \sum_{i=0}^{k-1} h(i+1) - \sum_{i=0}^{k-1} h(i) =
 \sum_{i=0}^{k-1} w^\wedge(v_i, v_{i+1})
 $$
