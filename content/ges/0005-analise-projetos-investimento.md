@@ -75,7 +75,7 @@ Em que $C_n$ é o valor a receber daqui a $n$ anos e $r$ a taxa de juros.
 
 É preciso ter noção que a taxa de juro pode ir variando ao longo dos anos,
 não sendo necessariamente constante, um dos fatores que pode causar essa alteração é a **inflação**.
-As taxas de inflação podem incorporar a noção de inflação ou não.
+As taxas de juros podem incorporar a noção de inflação ou não.
 
 - [**Taxa de Juro Nominal ($jn$)**](color:orange): Usa-se em avaliação de projetos a preços **correntes**, não é corrigida tendo em conta o efeito da inflação.
 
@@ -89,10 +89,6 @@ $$
 
 É também possível trabalhar com períodos infra-anuais, usando na atualização uma taxa de juro equivalente,
 isto é, uma taxa efetiva que aplicada ao mesmo capital inicial conduz ao mesmo capital final.
-
-$$
-(1 + j_k)^k = 1 + j_a
-$$
 
 [**TAN**](color:blue): Eventuais pagamentos ou recebimentos infra-anuais são calculados de forma proporcional,
 mas não equivalente do ponto de vista financeiro.
@@ -135,7 +131,7 @@ Numa situação em que se obtém um empréstimo num período e temos rendas ou p
 durante $n$ períodos com uma taxa de atualização, o cálculo do valor atual ($VA$) de todos os cash-flows dá-se por:
 
 $$
-\sum \frac{A_t}{(1 + r)^t}, t = 1,...,n
+VA = \sum \frac{A_t}{(1 + r)^t}, t = 1,...,n
 $$
 
 Trata-se de um progressão geométrica que pode ser descrita na forma:
@@ -149,7 +145,7 @@ Em que $f(r,n)$ é o fator de anuidade e $n$ é a perpetuidade.
 Quando $n = \infty$ estamos perante o valor atual de uma perpetuidade:
 
 $$
-f(r, \infty) = A \times \frac{1}{r}
+f(r, \infty) = \frac{1}{r}
 $$
 
 Estes casos excluem os casos de rendas crescentes. Tendo em conta rendas crescentes a uma taxa $g < r$, temos a anuidade:
