@@ -90,10 +90,6 @@ $$
 É também possível trabalhar com períodos infra-anuais, usando na atualização uma taxa de juro equivalente,
 isto é, uma taxa efetiva que aplicada ao mesmo capital inicial conduz ao mesmo capital final.
 
-$$
-(1 + j_k)^k = 1 + j_a
-$$
-
 [**TAN**](color:blue): Eventuais pagamentos ou recebimentos infra-anuais são calculados de forma proporcional,
 mas não equivalente do ponto de vista financeiro.
 
