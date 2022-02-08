@@ -55,7 +55,7 @@ Durante um passeio em Lisboa:
   $\to$ Proatividade, Força de Vendas, Promoção.
 
 - **Conceito de Marketing**: O centro da ação devem ser os consumidores e a satisfação da sua necessidade e não o produto.\
-  $\to$ Encontrar o produto adptado a essas necessidades.
+  $\to$ Encontrar o produto adaptado a essas necessidades.
 
 - **Conceito de Marketing Social**: Marketing em que existe ainda a preocupação com o bem estar dos consumidores e da sociedade em geral.
 
