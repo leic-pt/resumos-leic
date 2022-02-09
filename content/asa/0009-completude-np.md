@@ -116,7 +116,7 @@ Há um conjunto de reduções clássicas entre vários problemas $NPC$, problema
 
 Todos os problemas acima mencionados são $NPC$. Nesta secção vão ser abordadas algumas destas reduções clássicas.
 
-### Redução de CNF-SAT para 3CNF-SAT
+### [Redução de CNF-SAT para 3CNF-SAT](color:yellow)
 
 Numa primeira fase, devemos definir CNF-SAT e 3CNF-SAT.
 
@@ -208,7 +208,7 @@ O professor disse nas aulas teóricas que uma pergunta-exemplo semelhante a algo
 
 :::
 
-### Redução de 3CNF-SAT para Clique
+### [Redução de 3CNF-SAT para Clique](color:purple)
 
 :::info[Clique]
 
@@ -252,6 +252,40 @@ Resta provar que o algoritmo de redução é polinomial. Tendo $n$ cláusulas, p
 
 [**\***](color:yellow) Temos $3n$ vértices, cada um deles pode estar ligado a, no máximo, $3(n-1)$ vértices (estar ligado a todos os outros das outras partições). Como não queremos contar arestas nos dois sentidos, dividimos o produto por $2$.
 
+### [Redução de Clique para Cobertura de Vértices](color:pink)
+
+Diz-se que a **cobertura de vértices** de um grafo $G = (V, E)$ é um subconjunto de $V$, $V'$, tal que para todo o arco $(u, v)$ de $E$ ou $u$ ou $v$ estão representados em $V'$:
+
+$$
+\forall_{(u, v) \in V}, \quad u \in V' \vee v \in V'
+$$
+
+O problema associado a esta noção prende-se precisamente na existência (ou não) de uma cobertura de vértices em $G$ com um dado tamanho $k$. Corresponde a um dos [21 Problemas $NP$-Completos de Karp](https://en.wikipedia.org/wiki/Karp%27s_21_NP-complete_problems).
+
+Abaixo encontram-se dois exemplos de duas coberturas diferentes em grafos diferentes:
+
+![Cobertura de Vértices - Exemplo](./assets/0009-vcover-example.png#dark=1)
+
+O objetivo será aqui provar, sabendo que Clique é $NP$-Completo, que a cobertura de vértices também o é.
+
+Num primeiro momento, teremos de provar que o problema está em NP, prova essa trivial: basta passa por todas as arestas do grafo e verificar se pelo menos um dos vértices do arco está na cobertura, realizável facilmente em tempo polinomial ($O(E)$).
+
+Pretendemos então reduzir o problema Clique ao problema Cobertura de Vértices. Para tal, vamos recorrer à noção de **grafo complementar**: dado um grafo $G = (V, E)$, o seu complementar, $\overset{-}{G} = (V, \overset{-}{E})$ corresponde a um grafo tal que todas as ligações presentes em $E$ são removidas e todas as ligações não presentes são adicionadas. Encontra-se abaixo o exemplo de um grafo e respetivo complementar:
+
+![Grafo Complementar - Exemplo](./assets/0009-complementar-example.png#dark=1)
+
+A redução inicia-se precisamente com a criação de um grafo complementar ao grafo dado, facilmente realizável em tempo polinomial (verificam-se todos os pares de vértices e criam-se arestas caso estas não existam no grafo original, $O(V^2)$). Afirmamos então que um grafo só tem um clique de tamanho $k$ se o grafo complementar tiver uma cobertura de vértices de tamanho $|V| - k$.
+
+Para o provar, consideremos que $A$ corresponde a um clique de tamanho $k$ em $G$, e que $\overset{-}{A}$ corresponde a uma cobertura de tamanho $|V| - k$ em $\overset{-}{G}$, tal que $\overset{-}{A} = V - A$. De seguida, peguemos numa qualquer aresta $(u, v)$ de $\overset{-}{E}$ (aresta esta não presente em $E$, portanto). Temos, necessariamente, que ou $u$ ou $v$ não pertencem a $A$ - se estivessem ambos no clique, **teriam necessariamente de estar ambos ligados no mesmo**, por definição de clique, e essa ligação teria de existir em $E$. Ao mesmo tempo, pelo menos um dos vértices terá de estar contido em $\overset{-}{A}$, já que a cobertura tem de passar por todos os vértices de $\overset{-}{G}$, e portanto o arco $(u, v)$ está também na cobertura. Assim sendo, das duas uma:
+
+- Se um dado arco $(u, v)$ pertencer a $\overset{-}{E}$, então pelo menos um dos seus vértices pertence a $\overset{-}{A}$.
+
+- Se nem $u$ nem $v$ pertencerem a $\overset{-}{A}$, então o arco terá de estar em $E$, visto que um arco entre os dois não pode existir no complementar (existindo portanto no original).
+
+Assim sendo, só existirá um clique de tamanho $k$ se o grafo complementar tiver uma cobertura de vértices de tamanho $|V| - k$, já que o clique acaba por capturar todos
+
+---
+
 Por fim, no vídeo abaixo encontram-se mais alguns exemplos de reduções que podem ser interessantes para uma melhor compreensão das estratégias que devemos tomar para as fazer.
 
 ::youtube{#u5W32YxmnL8}
@@ -261,4 +295,3 @@ Por fim, no vídeo abaixo encontram-se mais alguns exemplos de reduções que po
 - [Slides](https://drive.google.com/file/d/1BZ5JGFCOM9CNRxV0fUGUM3mo-InpG_kX/view?usp=sharing)
 - [Notas Prof. José Fragoso - Completude NP](https://drive.google.com/file/d/1tIOEeyIF2SpV08aihCva-fkUqjtX8dFp/view?usp=sharing)
 - [Notas Prof. José Fragoso - Redutibilidade](https://drive.google.com/file/d/1weBRRJPjoqDzfmUZt8rH1Mmk4KdosG0i/view?usp=sharing)
-<!-- second test -->
