@@ -270,19 +270,25 @@ O objetivo será aqui provar, sabendo que Clique é $NP$-Completo, que a cobertu
 
 Num primeiro momento, teremos de provar que o problema está em NP, prova essa trivial: basta passa por todas as arestas do grafo e verificar se pelo menos um dos vértices do arco está na cobertura, realizável facilmente em tempo polinomial ($O(E)$).
 
-Pretendemos então reduzir o problema Clique ao problema Cobertura de Vértices. Para tal, vamos recorrer à noção de **grafo complementar**: dado um grafo $G = (V, E)$, o seu complementar, $\overset{-}{G} = (V, \overset{-}{E})$ corresponde a um grafo tal que todas as ligações presentes em $E$ são removidas e todas as ligações não presentes são adicionadas. Encontra-se abaixo o exemplo de um grafo e respetivo complementar:
+Pretendemos então reduzir o problema Clique ao problema Cobertura de Vértices. Para tal, vamos recorrer à noção de **grafo complementar**: dado um grafo $G = (V, E)$, o seu complementar, $\overline{G} = (V, \overline{E})$ corresponde a um grafo tal que todas as ligações presentes em $E$ são removidas e todas as ligações não presentes são adicionadas. Encontra-se abaixo o exemplo de um grafo e respetivo complementar:
 
 ![Grafo Complementar - Exemplo](./assets/0009-complementar-example.png#dark=1)
 
 A redução inicia-se precisamente com a criação de um grafo complementar ao grafo dado, facilmente realizável em tempo polinomial (verificam-se todos os pares de vértices e criam-se arestas caso estas não existam no grafo original, $O(V^2)$). Afirmamos então que um grafo só tem um clique de tamanho $k$ se o grafo complementar tiver uma cobertura de vértices de tamanho $|V| - k$.
 
-Para o provar, consideremos que $A$ corresponde a um clique de tamanho $k$ em $G$, e que $\overset{-}{A}$ corresponde a uma cobertura de tamanho $|V| - k$ em $\overset{-}{G}$, tal que $\overset{-}{A} = V - A$. De seguida, peguemos numa qualquer aresta $(u, v)$ de $\overset{-}{E}$ (aresta esta não presente em $E$, portanto). Temos, necessariamente, que ou $u$ ou $v$ não pertencem a $A$ - se estivessem ambos no clique, **teriam necessariamente de estar ambos ligados no mesmo**, por definição de clique, e essa ligação teria de existir em $E$. Ao mesmo tempo, pelo menos um dos vértices terá de estar contido em $\overset{-}{A}$, já que a cobertura tem de passar por todos os vértices de $\overset{-}{G}$, e portanto o arco $(u, v)$ está também na cobertura. Assim sendo, das duas uma:
+Para o provar, consideremos que $A$ corresponde a um clique de tamanho $k$ em $G$, e que $\overline{A}$ corresponde a uma cobertura de tamanho $|V| - k$ em $\overline{G}$, tal que $\overline{A} = V - A$. De seguida, peguemos numa qualquer aresta $(u, v)$ de $\overline{E}$ (aresta esta não presente em $E$, portanto). Temos, necessariamente, que pelo menos um dos vértices entre $u$ e $v$ não pertence a $A$ - caso contrário, **teriam necessariamente de estar ambos ligados no mesmo**, por definição de clique, e essa ligação teria de existir em $E$. Ao mesmo tempo, pelo menos um dos vértices terá de estar contido em $\overline{A}$, já que a cobertura tem de passar por todos os arcos de $\overline{E}$. Assim sendo:
 
-- Se um dado arco $(u, v)$ pertencer a $\overset{-}{E}$, então pelo menos um dos seus vértices pertence a $\overset{-}{A}$.
+- o conjunto $\overline{A}$ forma uma cobertura de vértices de tamanho $|V| - k$, "capturando" todos os vértices que no grafo original tinham "ligações em falta";
 
-- Se nem $u$ nem $v$ pertencerem a $\overset{-}{A}$, então o arco terá de estar em $E$, visto que um arco entre os dois não pode existir no complementar (existindo portanto no original).
+- o conjunto $A$ forma um clique de tamanho $k$.
 
-Assim sendo, só existirá um clique de tamanho $k$ se o grafo complementar tiver uma cobertura de vértices de tamanho $|V| - k$, já que o clique acaba por capturar todos
+O exemplo abaixo torna esta ideia mais aparente:
+
+![VCover - Exemplo Pós-Teoria](./assets/0009-vcover-graph.png#dark=1)
+
+Pegando em todos os arcos do grafo complementar, podemos verificar que pelo menos um dos seus elementos não está no clique de tamanho $4$ do grafo original.
+
+A redução foi feita em tempo polinomial, pelo que podemos afirmar que o problema da Cobertura de Vértices é $NP$-Difícil; aliado a estar em $NP$, podemos então admitir que o problema é $NP$-Completo.
 
 ---
 
