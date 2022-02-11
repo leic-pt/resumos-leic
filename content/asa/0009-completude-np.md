@@ -268,7 +268,7 @@ Abaixo encontram-se dois exemplos de duas coberturas diferentes em grafos difere
 
 O objetivo será aqui provar, sabendo que Clique é $NP$-Completo, que a cobertura de vértices também o é.
 
-Num primeiro momento, teremos de provar que o problema está em NP, prova essa trivial: basta passa por todas as arestas do grafo e verificar se pelo menos um dos vértices do arco está na cobertura, realizável facilmente em tempo polinomial ($O(E)$).
+Num primeiro momento, teremos de provar que o problema está em NP, prova essa trivial: basta passar por todas as arestas do grafo e verificar se pelo menos um dos vértices do arco está na cobertura, realizável facilmente em tempo polinomial ($O(E)$).
 
 Pretendemos então reduzir o problema Clique ao problema Cobertura de Vértices. Para tal, vamos recorrer à noção de **grafo complementar**: dado um grafo $G = (V, E)$, o seu complementar, $\overline{G} = (V, \overline{E})$ corresponde a um grafo tal que todas as ligações presentes em $E$ são removidas e todas as ligações não presentes são adicionadas. Encontra-se abaixo o exemplo de um grafo e respetivo complementar:
 
