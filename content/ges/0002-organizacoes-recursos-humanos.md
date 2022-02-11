@@ -96,7 +96,7 @@ Presidente da República > Primeiro Ministro > Ministros > Secretários > Tu.
 
    - **Vantagens**: Especialização dos empregados. Economias de Escala.
    - **Desvantagens**: Fraca comunicação dos departamentos.
-   - **Características**: Estabilidade, Eficiência , normalmtente usado em Empresas de grande Dimensão.
+   - **Características**: Estabilidade, eficiência, normalmente usado em empresas de grande dimensão.
 
    ![Vertical Funcional](./assets/0002-vertical-funcional.png#dark=2)
 

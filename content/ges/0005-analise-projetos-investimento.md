@@ -79,7 +79,7 @@ As taxas de juros podem incorporar a noção de inflação ou não.
 
 - [**Taxa de Juro Nominal ($jn$)**](color:orange): Usa-se em avaliação de projetos a preços **correntes**, não é corrigida tendo em conta o efeito da inflação.
 
-- [**Taxa de Juro Real ($jr$)**](color:yellow): Taxa nominal expurgada do efeito da inflação.Usa-se em avaliação de projetos a preços **constantes**
+- [**Taxa de Juro Real ($jr$)**](color:yellow): Taxa nominal expurgada do efeito da inflação. Usa-se em avaliação de projetos a preços **constantes**
 
 $$
 jr = \frac{1 + j_n}{1 + i} - 1 \approx j_n - i
