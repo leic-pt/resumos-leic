@@ -104,7 +104,7 @@ $$
 A taxa mensal equivalente à taxa anual efetiva (TAE) é:
 
 $$
-j_m = (1 + j_a)^{1/12}
+1 + j_m = (1 + j_a)^{1/12}
 $$
 
 :::
