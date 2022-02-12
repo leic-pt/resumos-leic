@@ -1,5 +1,7 @@
 ---
-title: description: path: /so/sistemas
+title: Algoritmos de Gestão de Memória
+description: Algoritmos de Gestão de Memória
+path: /so/memalgos
 type: content
 ---
 

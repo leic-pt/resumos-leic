@@ -1,7 +1,7 @@
 ---
 title: Organização do Sistema Operativo
 description: Organização do Sistema Operativo
-path: /so/sistemas
+path: /so/organizacao
 type: content
 ---
 

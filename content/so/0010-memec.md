@@ -1,5 +1,7 @@
 ---
-title: description: path: /so/sistemas
+title: Mecanismos de Gestão de Memória
+description: Mecanismos de Gestão de Memória
+path: /so/memec
 type: content
 ---
 
