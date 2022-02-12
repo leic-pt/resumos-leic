@@ -14,7 +14,7 @@ const SiteTitle = () => {
   `);
 
   return (
-    <Paper sx={{ mx: 2, mt: 1, px: 2, py: 1 }}>
+    <Paper sx={{ mx: 2, px: 2, py: 1, borderTopLeftRadius: 0, borderTopRightRadius: 0 }}>
       <Typography variant='h6' component='h1'>
         {site.siteMetadata.title}
       </Typography>
