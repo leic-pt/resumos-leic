@@ -5,85 +5,69 @@ path: /so/memalgos
 type: content
 ---
 
-Gestão de Memória
-Parte II - algoritmos
-Sistemas Operativos
-2021 / 2022
+# Algoritmos de Gestão de Memória
 
-Algoritmos de Gestão de Memória
+```toc
 
-- Tipos de decisões que o sistema operativo tem
-  de tomar em relação à memória principal:
-  -Alocação - Onde colocar um bloco na memória
+```
+
+## Tipos de Decisões que o SO tem de Tomar
+
+- Alocação - Onde colocar um bloco na memória
   primária
-  -Transferência - Quando transferir um bloco de
+- Transferência - Quando transferir um bloco de
   memória secundária para memória primária e
   vice-versa
-  -Substituição - Qual o bloco a retirar da memória
+- Substituição - Qual o bloco a retirar da memória
   primária.
 
-Algoritmos de Alocação
+## Algoritmos de Alocação
 
-Reserva de Memória Física
+### Reserva de Memória Física
 
 - Paginação
   - Muito simples:
-- basta encontrar uma página livre
-- normalmente existentes numa Lista de Páginas Livres
-  do SO
+    - basta encontrar uma página livre
+    - normalmente existentes numa Lista de Páginas Livres
+      do SO
 - Segmentação
   - O tamanho variável dos segmentos torna mais
     complexa a reserva de espaço para um segmento
   - Na libertação de memória é necessário
     recompactar os segmentos
 
-Reserva de Segmentos:
-Critérios de Escolha de Blocos Livres
+### Reserva de Segmentos:
+
+**Critérios de Escolha de Blocos Livres**
 
 - Best-fit (o menor possível):
+
   - gera elevado número de pequenos fragmentos
   - em média percorre-se metade da lista de blocos livres
     na procura (com lista ordenada por tamanho)
   - a lista tem de ser percorrida outra vez para introduzir
     o fragmento
+
 - Worst-fit (o maior possível):
+
   - pode facilmente impossibilitar a reserva de blocos de
     grandes dimensões
   - a lista de blocos livres tem de ser percorrida para
     introduzir o fragmento
 
-Reserva de Segmentos:
-Critérios de Escolha de Blocos Livres
-
 - First-fit (o primeiro possível):
+
   - minimiza a tempo gasto a percorrer a lista de
     blocos livres
   - gera muita fragmentação externa
   - acumula muitos blocos pequenos no início da
     lista, ficando para o fim os blocos maiores
+
 - Next-fit (o primeiro possível a seguir à
   pesquisa anterior):
   - espalha os blocos pequenos por toda a memória
 
-Critérios de Escolha de Blocos
-Livres (cont.)
-
-- dimensão do
-  pedido: 15k
-  -best-ﬁt - ?
-  -worst-ﬁt - ?
-  -ﬁrst-ﬁt - ?
-- KAHOOT!
-  13K A
-  13K A
-  22K B
-  16K C  
-  C
-  32K D
-  29K E
-
-Critérios de Escolha de Blocos
-Livres: Algoritmo Buddy
+### Algoritmo Buddy
 
 - Procura um bom equilíbrio entre o tempo de
   procura e a fragmentação interna e externa
@@ -96,10 +80,6 @@ Livres: Algoritmo Buddy
 - Ou atingir o tamanho mínimo possível para os blocos
   alocados (b^min)
 - Alocação e libertação de blocos têm custo logarítmico
-
-![0](./imgs/00010/000-a.png)
-Critérios de Escolha de Blocos
-Livres: Algoritmo Buddy
 
 - A memória livre é dividida em blocos de dimensão bn
   - Se b = 2 então designa-se por buddy binário
@@ -115,41 +95,9 @@ Livres: Algoritmo Buddy
   repetida até se obter um bloco com a maior dimensão
   possível
 
-![1](./imgs/00010/001-a.png)
-Processo A pede segmento de 34KB.
-Fonte do exemplo: wikipedia
+Ver Exemplo nos Slides!
 
-![2](./imgs/00010/002-a.png)
-Processo B pede segmento de 66KB.
-Fonte do exemplo: wikipedia
-
-![3](./imgs/00010/003-a.png)
-Processo C pede segmento de 35KB.
-Fonte do exemplo: wikipedia
-
-![4](./imgs/00010/004-a.png)
-Processo D pede segmento de 67KB.
-Fonte do exemplo: wikipedia
-
-![5](./imgs/00010/005-a.png)
-Processo C liberta o seu segmento.
-Fonte do exemplo: wikipedia
-
-![6](./imgs/00010/006-a.png)
-Processo A liberta o seu segmento.
-Fonte do exemplo: wikipedia
-
-![7](./imgs/00010/007-a.png)
-Processo B liberta o seu segmento.
-Fonte do exemplo: wikipedia
-
-![8](./imgs/00010/008-a.png)
-Processo D liberta o seu segmento.
-Fonte do exemplo: wikipedia
-
-Fonte do exemplo: wikipedia
-
-Algoritmo de Buddy: conclusões
+#### Conclusões
 
 - Complexidade?
   - Reservar e libertar segmentos cresce
@@ -162,10 +110,9 @@ Algoritmo de Buddy: conclusões
 - Fragmentação interna?
   - Sim! (ao contrário dos algoritmos anteriores)
 
-Algoritmos de Transferência
+## Algoritmos de Transferência
 
-Três abordagens para a
-transferência
+**Três abordagens para a transferência**
 
 - A pedido (on request):
   o programa ou o sistema operativo determinam quando se
@@ -175,13 +122,13 @@ transferência
     o bloco é acedido e gera-se uma falta (de segmento ou de
     página), sendo necessário carregá-lo para a memória
     principal
-- normalmente usado na memória paginada
+    - normalmente usado na memória paginada
   - Por antecipação (prefetching):
     o bloco é carregado na memória principal pelo sistema
     operativo porque este considera fortemente provável que
     ele venha a ser acedido nos próximos instantes
 
-## Transferência de Segmentos
+### Transferência de Segmentos
 
 normalmente um processo para se executar precisa de ter pelo
 menos um segmento de código, de dados e de stack em memória
@@ -198,7 +145,7 @@ menos um segmento de código, de dados e de stack em memória
     segmentos de um programa podem ser transferidos para memória
     principal por necessidade
 
-## Transferência de Páginas
+### Transferência de Páginas
 
 o mecanismo normal de transferência de páginas é por
 necessidade:
@@ -214,7 +161,7 @@ necessidade:
 - as páginas modificadas são transferidas em grupos para memória
   secundária de modo a optimizar os acessos a disco
 
-Swapping / Paging
+### Swapping / Paging
 
 - Quando é necessário libertar espaço na memória
   física o SO copia páginas para disco
@@ -227,8 +174,7 @@ Swapping / Paging
 - Minimizar latência: pre-fetching
   - traz páginas antes de serem pedidas
 
-Algoritmos de Swapping de
-Processos ou de Segmentos
+#### Algoritmos de Swapping de Processos ou de Segmentos
 
 - Possíveis critérios para decidir qual o processo a
   transferir para disco:
@@ -241,9 +187,7 @@ Processos ou de Segmentos
     para disco
   - dimensão do processo
 
-Quanto espaço deve estar
-reservado/ocupado em memória
-física por um processo?
+### Quanto espaço deve estar reservado/ocupado em memória física por um processo?
 
 Espaços de Trabalho (working sets)
 Espaço de trabalho de um processo num dado
@@ -446,3 +390,9 @@ SubsTtuição de Páginas
   anulada
 - Se a página atingir uma certa idade marca-a para
   ser transferida
+
+---
+
+Slides:
+
+- [Slides 9](https://drive.google.com/file/d/1c3-GbQ6ORWBfyodPDP9NQzFM5zutHaF4/view?usp=sharing)
