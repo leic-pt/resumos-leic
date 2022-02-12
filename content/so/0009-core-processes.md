@@ -729,3 +729,9 @@ Linux: Escalonamento “Real-Time”
 - Coloca-se quando:
   - Multiprocessadores
   - Uniprocessadores - interrupções
+
+---
+
+Slides:
+
+- [Slides 7](https://drive.google.com/file/d/19bLC1NfJ-17k2izJppU0fMk4o-J3ITMr/view?usp=sharing)
