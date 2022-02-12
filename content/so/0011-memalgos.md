@@ -95,7 +95,9 @@ type: content
   repetida até se obter um bloco com a maior dimensão
   possível
 
-Ver Exemplo nos Slides!
+:::tip[Exemplo]
+Existe um exemplo desta parte da matéria nos slides(págs 10 a 18)
+:::
 
 #### Conclusões
 
@@ -189,31 +191,16 @@ necessidade:
 
 ### Quanto espaço deve estar reservado/ocupado em memória física por um processo?
 
-Espaços de Trabalho (working sets)
-Espaço de trabalho de um processo num dado
-intervalo de tempo
-=
-conjunto de páginas acedidas pelo processo
-nesse intervalo de tempo
+#### Espaços de Trabalho (working sets)
+
+Espaço de trabalho de um processo num dado intervalo de tempo é igual ao conjunto de páginas acedidas pelo processo nesse intervalo de tempo.
 
 - O espaço de trabalho de um processo tende a
   ter dimensão constante e muito menor que o
   seu espaço de endereçamento
   - SO pode tentar estimar essa dimensão!
 
-Espaços de Trabalho (cont.)
-faltas de
-páginas
-fracção do processo
-carregado em memória
-1
-1
-Acessos aleatórios
-a memória
-Acessos à memória
-com localidade de referência
-
-Espaços de Trabalho (cont. II)
+![Inversamente Porpocional](./imgs/0010/graph.png#dark=1)
 
 - Se estimarmos que o espaço de trabalho de
   um processo é W, podemos
@@ -221,136 +208,109 @@ Espaços de Trabalho (cont. II)
     não houver pelo menos suficientes páginas livres
     em RAM
   - Limitar o número de páginas do processo em RAM
-- O que acontece se a estimativa for muito baixa?
-- E se for muito alta?
 
-Algoritmos de Substituição
-(analisaremos apenas soluções
-usadas com paginação)
+## Algoritmos de Substituição
 
-Algoritmos de SubsTtuição de
-Páginas
+### Algoritmos de Substituição de Páginas
 
 - Óptimo
+
   - Retira a página cujo próximo pedido seja mais
     distante no tempo
   - Requer conhecimento futuro
   - Usado como “benchmark”
 
-Algoritmos de Substituição de
-Páginas
-
 - FIFO:
+
   - Associar a cada PTE um timestamp de quando
     esta foi colocada em RAM
   - Muito eficiente mas não atende ao grau de
     utilização das páginas
-- Apenas ao seu tempo de permanência em memória
-  primária
-
-Algoritmos de Substituição de
-Páginas
+    - Apenas ao seu tempo de permanência em memória
+      primária
 
 - Não usada recentemente (Not Recently Used, NRU):
+
   - Bits R e M mantidos na tabela de páginas
   - UGM automaticamente coloca R=1 quando há leitura, M=1
     quando há escrita
   - O paginador percorre regularmente as tabelas de páginas
     e coloca o bit R a 0
   - Páginas ordenadas em 4 grupos:
-- 0: (R = 0, M = 0) Não referenciada, não modificada
-- 1: (R = 0, M = 1) Não referenciada, modificada
-- 2: (R = 1, M = 0) Referenciada, não modificada
-- 3: (R = 1, M = 1) Referenciada, modificada
+    - 0: (R = 0, M = 0) Não referenciada, não modificada
+    - 1: (R = 0, M = 1) Não referenciada, modificada
+    - 2: (R = 1, M = 0) Referenciada, não modificada
+    - 3: (R = 1, M = 1) Referenciada, modificada
   - libertam-se primeiro as páginas dos grupos de número
     mais baixo
-
-Algoritmos de Substituição de
-Páginas
 
 - Menos usada recentemente (Least Recently Used, LRU):
   - eﬁcaz segundo o princípio de localidade de referência
   - latência associada à sua implementação rigorosa.
 - Aproximação:
   - Bit R na tabela de páginas
-- colocado a 1 pela UGM quando página é acedida
+    - colocado a 1 pela UGM quando página é acedida
   - Gestor de memória do núcleo mantém um contador por página
     que indica a que “grupo etário” ela pertence
-- Actualizado regularmente pelo paginador
-- Quando R=0, grupo etário incrementa
-- Quando R=1, volta ao grupo etário inicial
-- Bit R recolocado a 0
-  - Quando aOngir um grupo etário máximo, a página passa para a
+    - Actualizado regularmente pelo paginador
+    - Quando R=0, grupo etário incrementa
+    - Quando R=1, volta ao grupo etário inicial
+    - Bit R recolocado a 0
+  - Quando atingir um grupo etário máximo, a página passa para a
     lista das livres ou das livres mas modiﬁcadas
 
-Comparação: segmentação e
-paginação (1)
+### Comparação: Segmentação e Paginação
 
-- Segmentação:
-  - vantagens:
-- adapta-se à estrutura lógica dos programas
-- permite a realização de sistemas simples sobre hardware simples
-- permite realizar eficientemente as operações que agem sobre
-  segmentos inteiros
-  - desvantagens:
-- o programador tem de ter sempre algum conhecimento dos
-  segmentos subjacentes
-- os algoritmos tornam-se bastantes complicados em sistema mais
-  sofisticados, p.e., alocação de segmentos na memória fisica
-- o tempo de transferência de segmentos entre memória principal e
-  disco torna-se incomportável para segmentos muito grandes
-- a dimensão máxima dos segmentos é limitada
+#### Segmentação:
 
-Comparação: segmentação e
-paginação (2)
+- vantagens:
+  - adapta-se à estrutura lógica dos programas
+  - permite a realização de sistemas simples sobre hardware simples
+  - permite realizar eficientemente as operações que agem sobre
+    segmentos inteiros
+- desvantagens:
+  - o programador tem de ter sempre algum conhecimento dos
+    segmentos subjacentes
+  - os algoritmos tornam-se bastantes complicados em sistema mais
+    sofisticados, p.e., alocação de segmentos na memória fisica
+  - o tempo de transferência de segmentos entre memória principal e
+    disco torna-se incomportável para segmentos muito grandes
+  - a dimensão máxima dos segmentos é limitada
 
-- Paginação:
-  - vantagens:
-- o programador não tem que se preocupar com a gestão de memória
-- os algoritmos de reserva, substituição e transferência são mais simples
-  e eficientes
-- o tempo de leitura de uma página de disco é razoavelmente pequeno
-- a dimensão dos programas é virtualmente ilimitada
-  - desvantagens:
-- o hardware é mais complexo que o de memória segmentada, p.e.,
-  instruções precisam de ser recomeçãveis
-- operações sobre segmentos lógicos são mais complexos e menos
-  elegantes, pois têm de ser realizadas sobre um conjunto de páginas
-- o tratamento das faltas de páginas representa uma sobrecarga
-  adicional de processamento
-- Tamanho potencial das tabelas de páginas
+#### Paginação:
 
-TPC:
-Ver no livro como é o gestor de
-memória concreto do Unix/Linux
+- vantagens:
+  - o programador não tem que se preocupar com a gestão de memória
+  - os algoritmos de reserva, substituição e transferência são mais simples
+    e eficientes
+  - o tempo de leitura de uma página de disco é razoavelmente pequeno
+  - a dimensão dos programas é virtualmente ilimitada
+- desvantagens:
+  - o hardware é mais complexo que o de memória segmentada, p.e.,
+    instruções precisam de ser recomeçãveis
+  - operações sobre segmentos lógicos são mais complexos e menos
+    elegantes, pois têm de ser realizadas sobre um conjunto de páginas
+  - o tratamento das faltas de páginas representa uma sobrecarga
+    adicional de processamento
+  - Tamanho potencial das tabelas de páginas
 
-UNIX
-Gestão de Memória
+## Unix - Gestão de Memória
 
-Unix - Gestão de Memória
-
-- Unix implementado sobre arquitecturas
-  diferentes
+- Unix implementado sobre arquitecturas diferentes
 - Dois grupos de implementações:
   - Segmentação com swapping
   - Paginação
 
-Paginação
+### Paginação
 
 - Um processo tem inicialmente 3 regiões:
   código, dados e stack
 - Cada região tem uma tabela de páginas
   própria
 
-Tabela de Páginas e de
-Descritores de Blocos de Disco
-região
-P | R | M | C/W | PROT | Idade | End. Físico
-Nº do Dispositivo | Nº do Bloco | Tipo
-Tabela de Páginas
-Tabela de Descritores de Blocos de Disco
+![Table](./imgs/0010/table.png#dark=1)
 
-Tabela pfdata
+#### Tabela pfdata
 
 - Permite a gestão eficaz das páginas de memória
   física
@@ -377,7 +337,7 @@ Significado dos campos das tabelas
   onde se encontra
 - Tipo - swap, demand fill, demand zero
 
-SubsTtuição de Páginas
+#### Substituição de Páginas
 
 - Aproximação ao algoritmo Menos Usada
   Recentemente (LRU)
