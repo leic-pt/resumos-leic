@@ -1,7 +1,6 @@
-import { Drawer, List, ListItemButton, ListItemText, ListSubheader } from '@mui/material';
-import { Link as GatsbyLink, useStaticQuery, graphql } from 'gatsby';
+import { List, ListItemButton, ListItemText, ListSubheader, Paper } from '@mui/material';
+import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
 import React from 'react';
-import ExternalLink from './ExternalLink';
 
 export default function Sidebar({ paths, sidebarOpen, toggleSidebar }) {
   const data = useStaticQuery(graphql`
@@ -35,8 +34,8 @@ export default function Sidebar({ paths, sidebarOpen, toggleSidebar }) {
   });
 
   return (
-    <Drawer variant='permanent' anchor='left'>
-      <List>
+    <Paper sx={{ mx: 2 }}>
+      <List dense>
         {sidebarSections.map(
           (section) =>
             section.links && (
@@ -64,6 +63,6 @@ export default function Sidebar({ paths, sidebarOpen, toggleSidebar }) {
         </ul>
           </div>*/}
       </List>
-    </Drawer>
+    </Paper>
   );
 }

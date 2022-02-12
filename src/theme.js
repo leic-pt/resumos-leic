@@ -15,9 +15,12 @@ const nordTheme = createTheme({
       main: red.A400,
     },
     background: {
-      default: '#2E3440',
-      paper: '#3B4252',
+      default: '#242933',
+      paper: '#2E3440',
     },
+  },
+  shape: {
+    borderRadius: 20,
   },
 });
 
