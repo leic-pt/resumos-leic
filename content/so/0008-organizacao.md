@@ -11,7 +11,7 @@ type: content
 
 ```
 
-## Aplicações executam em modo não priveligiado
+## Aplicações que Executam em Modo Não Priveligiado
 
 - Aplicações
   - Aceder às suas variáveis,
@@ -70,7 +70,7 @@ type: content
 
 ### Interação com periférico passo-por-passo
 
-- Processo pede (através de sys.call)
+- Processo pede (através de sys. call)
   ação sobre um periférico
 - O núcleo envia pedido ao periférico e
   bloqueia o processo (Gestor de Periférico)
@@ -120,7 +120,7 @@ type: content
 
 ![Sistema em Camadas](./imgs/0008/onion.png#dark=1)
 
-- Cada [camada](https://youtu.be/-FtCTW2rVFM?t=44) usa os serviços da camada precedente
+- Cada [camada](https://youtu.be/8T7O0BMRX-M?t=6) ([layer](https://youtu.be/-FtCTW2rVFM?t=44)) usa os serviços da camada precedente
 
 - Fácil modificar código de uma camada
 
