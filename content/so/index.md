@@ -12,3 +12,8 @@ type: topLevelPage
 ## Recursos
 
 - [Página da Cadeira - Fénix](https://fenix.tecnico.ulisboa.pt/disciplinas/SO/2021-2022/1-semestre)
+
+:::warning[PÁGINA EM CONSTRUÇÃO]
+De momento não existem resumos de RC.  
+Procuram-se contribuidores.
+:::
