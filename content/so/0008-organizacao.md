@@ -88,7 +88,7 @@ type: content
   - Oportunidade para o núcleo tirar esse processo de
     execução e executar outro processo
 
-#### Razões para passar de modo utilizador para modo núcleo?
+#### Razões para passar de modo utilizador para modo Núcleo?
 
 - Chamadas sistema
 - Exceções
@@ -128,9 +128,9 @@ type: content
 
 - Influenciou arquitecturas como Intel
 
-## Micro-núcleo
+## Micro-Núcleo
 
-- Propostas de investigação à separação entre:
+- Propostas de investigação $\rightarrow$ separação entre:
 
 Um micro-núcleo de reduzidas dimensões e que só continha o
 essencial do sistema operativo:
@@ -139,12 +139,14 @@ essencial do sistema operativo:
 - Gestão dos espaços de endereçamento
 - Comunicação entre processos
 - Gestão das interrupções
-- Servidores sistema que executavam em processos independentes a
-  restante funcionalidade:
-  - Gestão de processos
-  - Memória virtual
-  - Device drivers
-  - Sistema de ficheiro
+
+Servidores sistema que executavam em processos independentes a
+restante funcionalidade:
+
+- Gestão de processos
+- Memória virtual
+- Device drivers
+- Sistema de ficheiro
 
 ![Micro-Núcleo](./imgs/0008/nucleo.png#dark=1)
 

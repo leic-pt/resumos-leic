@@ -275,7 +275,7 @@ ciclicamente
   um processo no processo de escalonamento
 - Um processo mais prioritário tem maior
   probabilidade de dispor do processador
-- A prioridade pode ser
+- A prioridade pode ser:
   - Fixa, usual em processos de tempo real
   - Dinâmica consoante o comportamento do processo:
     - usual nos sistemas de tempo virtual e normalmente
@@ -451,7 +451,7 @@ siginfo_t *last_siginfo;
 
 Contexto dos Processos
 
-- Em Unix, divido em duas estruturas:
+- Em Unix, divide-se em duas estruturas:
   - A estrutura `proc`
     - Apenas a informação que tem estar disponível (em RAM), mesmo
       quando processo não está em execução
@@ -474,11 +474,10 @@ Contexto dos Processos
   operações de escalonamento
 
   - A estrutura `u` (user)
+
     - Todo o resto do contexto que só é preciso quando processo está
       em execução
     - Podia estar em disco quando processo não estava em execução
-      Primeiras versões do Unix conseguiam
-      correr em máquinas com 50kB de RAM
 
 - estrutura `u`:
   - registos do processador
@@ -491,6 +490,8 @@ Contexto dos Processos
     proc
   - parâmetros da função sistema
     em execução
+
+Primeiras versões do Unix conseguiam correr em máquinas com 50kB de RAM
 
 ### Diagrama de Estados do Unix
 
@@ -526,7 +527,7 @@ Algoritmo de escalonamento
     - TempoProcessador = TempoProcessador / 2
     - Prioridade = TempoProcessador/2 + PrioridadeBase
 
-Ao dividir-se o TempoProcessador por 2, o existe esquecimento progressivo dos usos mais antigos do CPU.
+Ao dividir-se o TempoProcessador por 2, existe esquecimento progressivo dos usos mais antigos do CPU.
 
 Escalonamento: Chamadas Sistema
 
@@ -589,7 +590,7 @@ Escalonamento: Chamadas Sistema
 
 - Processos diferentes têm durações do
   quantum diferentes
-  - quantum $=$ quantum_base $+$ quantum_por_utilizar_epoca_anterior $/2$
+  - quantum $=$ quantum_base $+ \cfrac{quantumPorUtilizarEpocaAnterior}{2}$
   - Pode ser reduzido com chamadas sistema
 
 :::tip[Exemplo]
@@ -599,7 +600,7 @@ Ver nos slides exemplo da adaptação do quantum.
 ### Linux: Prioridades
 
 - Prioridade de um processo:
-  - Linux: prioridade mais alta à mais prioritario
+  - Linux: prioridade mais alta ao mais prioritário
     - oposto do que no Unix
   - Prio = prio*base + quantum_por_usar_nesta*época - nice
 - Processo mais prioritário é escolhido em primeiro lugar
@@ -639,7 +640,7 @@ Linux: Escalonamento “Real-Time”
 
 `fork()`
 
-- Reservar uma entrada na tabela proc (Unix) e verificar se o
+- Reservar uma entrada na tabela `proc` (Unix) e verificar se o
   utilizador não excedeu o número máximo de subprocessos
 - Atribuir um valor ao pid
   - normalmente um incremento de um inteiro mantido pelo núcleo
