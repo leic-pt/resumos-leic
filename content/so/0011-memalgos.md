@@ -27,8 +27,8 @@ type: content
 
 - Paginação
   - Muito simples:
-    - basta encontrar uma página livre
-    - normalmente existentes numa Lista de Páginas Livres
+    - Basta encontrar uma página livre
+    - Normalmente existentes numa Lista de Páginas Livres
       do SO
 - Segmentação
   - O tamanho variável dos segmentos torna mais
@@ -40,56 +40,55 @@ type: content
 
 **Critérios de Escolha de Blocos Livres**
 
-- Best-fit (o menor possível):
+- Best-Fit (o menor possível):
 
-  - gera elevado número de pequenos fragmentos
-  - em média percorre-se metade da lista de blocos livres
+  - Gera elevado número de pequenos fragmentos
+  - Em média percorre-se metade da lista de blocos livres
     na procura (com lista ordenada por tamanho)
-  - a lista tem de ser percorrida outra vez para introduzir
+  - A lista tem de ser percorrida outra vez para introduzir
     o fragmento
 
-- Worst-fit (o maior possível):
+- Worst-Fit (o maior possível):
 
-  - pode facilmente impossibilitar a reserva de blocos de
+  - Pode facilmente impossibilitar a reserva de blocos de
     grandes dimensões
-  - a lista de blocos livres tem de ser percorrida para
+  - A lista de blocos livres tem de ser percorrida para
     introduzir o fragmento
 
-- First-fit (o primeiro possível):
+- First-Fit (o primeiro possível):
 
-  - minimiza a tempo gasto a percorrer a lista de
+  - Minimiza a tempo gasto a percorrer a lista de
     blocos livres
-  - gera muita fragmentação externa
-  - acumula muitos blocos pequenos no início da
+  - Gera muita fragmentação externa
+  - Acumula muitos blocos pequenos no início da
     lista, ficando para o fim os blocos maiores
 
-- Next-fit (o primeiro possível a seguir à
+- Next-Fit (o primeiro possível a seguir à
   pesquisa anterior):
-  - espalha os blocos pequenos por toda a memória
+  - Espalha os blocos pequenos por toda a memória
 
 ### Algoritmo Buddy
 
 - Procura um bom equilíbrio entre o tempo de
   procura e a fragmentação interna e externa
 - Pedidos de alocação satisfeitos usando blocos de
-  dimensão fixa b^i, i=[min, max]
-  ØPermite fragmentação interna
+  dimensão fixa $b^i, i=[min, max]$
+  - Permite fragmentação interna
 - Subdivide recursivamente os blocos livres até:
 - Obter um bloco de tamanho mínimo para satisfazer o
   pedido de alocação
 - Ou atingir o tamanho mínimo possível para os blocos
-  alocados (b^min)
+  alocados ($b^{min}$)
 - Alocação e libertação de blocos têm custo logarítmico
 
-- A memória livre é dividida em blocos de dimensão bn
-  - Se b = 2 então designa-se por buddy binário
+- A memória livre é dividida em blocos de dimensão $b^n$
+  - Se $b = 2$ então designa-se por buddy binário
 - Para satisfazer um pedido de dimensão D percorre-se a
-  lista à procura de um bloco de dimensão 2k tal que 2k-1
-  < D ≤ 2k
-  - Se não for encontrado procura-se um de dimensão 2k+i , i
-    > 0, que será dividido em duas partes iguais (buddies)
+  lista à procura de um bloco de dimensão $2^k$ tal que $2^{k-1}
+  < D ≤ 2^k$
+  - Se não for encontrado procura-se um de dimensão $2^{k+i}$ , $i > 0$, que será dividido em duas partes iguais (buddies)
 - Um dos buddies será subdividido quantas vezes for
-  necessário até se obter um bloco de dimensão 2k
+  necessário até se obter um bloco de dimensão $2^k$
 - Se possível, na libertação um bloco é recombinado com
   o seu buddy, sendo a associação entre buddies
   repetida até se obter um bloco com a maior dimensão
@@ -106,10 +105,10 @@ Existe um exemplo desta parte da matéria nos slides(págs 10 a 18)
     logaritmicamente com o número de subdivisões de
     segmentos suportadas
   - e.g. 1MB até 64KB: 4 subdivisões
-- Fragmentação externa?
+- Fragmentação Externa?
   - Sim (como todos os algoritmos de reserva para
     segmentação)
-- Fragmentação interna?
+- Fragmentação Interna?
   - Sim! (ao contrário dos algoritmos anteriores)
 
 ## Algoritmos de Transferência
@@ -119,62 +118,61 @@ Existe um exemplo desta parte da matéria nos slides(págs 10 a 18)
 - A pedido (on request):
   o programa ou o sistema operativo determinam quando se
   deve carregar o bloco em memória principal
-- normalmente usado na memória segmentada
-  - Por necessidade (on demand):
-    o bloco é acedido e gera-se uma falta (de segmento ou de
-    página), sendo necessário carregá-lo para a memória
-    principal
-    - normalmente usado na memória paginada
-  - Por antecipação (prefetching):
-    o bloco é carregado na memória principal pelo sistema
-    operativo porque este considera fortemente provável que
-    ele venha a ser acedido nos próximos instantes
+  - normalmente usado na memória segmentada
+- Por necessidade (on demand):
+  o bloco é acedido e gera-se uma falta (de segmento ou de
+  página), sendo necessário carregá-lo para a memória
+  principal
+  - normalmente usado na memória paginada
+- Por antecipação (prefetching):
+  o bloco é carregado na memória principal pelo sistema
+  operativo porque este considera fortemente provável que
+  ele venha a ser acedido nos próximos instantes
 
 ### Transferência de Segmentos
 
-normalmente um processo para se executar precisa de ter pelo
-menos um segmento de código, de dados e de stack em memória
-
-- caso haja escassez de memória os segmentos de outros processos
+- Normalmente um processo para se executar precisa de ter pelo
+  menos um segmento de código, de dados e de stack em memória
+- Caso haja escassez de memória os segmentos de outros processos
   que não estejam em execução são transferidos na íntegra para
   disco (swapping)
-- os segmentos são guardados numa zona separada do disco
+- Os segmentos são guardados numa zona separada do disco
   chamada área de transferência (swap area)
-- quando são transferidos todos os segmentos de um processo diz-se
+- Quando são transferidos todos os segmentos de um processo diz-se
   que o processo foi transferido para disco (swapped out)
-- a transferência de segmentos faz-se usualmente a pedido:
-  - em arquitecturas que suportem a falta de segmentos, certos
+- A transferência de segmentos faz-se usualmente a pedido:
+  - Em arquitecturas que suportem a falta de segmentos, certos
     segmentos de um programa podem ser transferidos para memória
     principal por necessidade
 
 ### Transferência de Páginas
 
-o mecanismo normal de transferência de páginas é por
+O mecanismo normal de transferência de páginas é por
 necessidade:
 
-- páginas de um programa que não sejam acedidas durante a execução
+- Páginas de um programa que não sejam acedidas durante a execução
   de um processo não chegam a ser carregadas em memória principal
-- usam-se também políticas de transferência por antecipação para:
-  - diminuir o número de faltas de página
-  - optimizar os acessos a disco
-- as páginas retiradas de memória principal são guardadas numa
+- Usam-se também políticas de transferência por antecipação para:
+  - Diminuir o número de faltas de página
+  - Optimizar os acessos a disco
+- As páginas retiradas de memória principal são guardadas numa
   zona separada do disco chamada área de paginação:
-  - apenas se ainda não existir uma cópia atualizada da página em disco
-- as páginas modificadas são transferidas em grupos para memória
+  - Apenas se ainda não existir uma cópia atualizada da página em disco
+- As páginas modificadas são transferidas em grupos para memória
   secundária de modo a optimizar os acessos a disco
 
 ### Swapping / Paging
 
 - Quando é necessário libertar espaço na memória
   física o SO copia páginas para disco
-  - escolhe aquelas que previsivelmente não irão ser
+  - Escolhe aquelas que previsivelmente não irão ser
     usadas brevemente
-  - zona do disco que as contém - “swap area”
+  - Zona do disco que as contém - “swap area”
 - Terminologia: swapping vs. paging
-  - granularidade: todas as páginas do processo (processo
+  - Granularidade: todas as páginas do processo (processo
     swapped out) vs. páginas individuais
 - Minimizar latência: pre-fetching
-  - traz páginas antes de serem pedidas
+  - Traz páginas antes de serem pedidas
 
 #### Algoritmos de Swapping de Processos ou de Segmentos
 
@@ -200,7 +198,7 @@ Espaço de trabalho de um processo num dado intervalo de tempo é igual ao conju
   seu espaço de endereçamento
   - SO pode tentar estimar essa dimensão!
 
-![Inversamente Porpocional](./imgs/0010/graph.png#dark=1)
+![Inversamente Porpocional](./imgs/0011/graph.png#dark=1)
 
 - Se estimarmos que o espaço de trabalho de
   um processo é W, podemos
@@ -263,12 +261,12 @@ Espaço de trabalho de um processo num dado intervalo de tempo é igual ao conju
 
 #### Segmentação:
 
-- vantagens:
+- [Vantagens](color:green):
   - adapta-se à estrutura lógica dos programas
   - permite a realização de sistemas simples sobre hardware simples
   - permite realizar eficientemente as operações que agem sobre
     segmentos inteiros
-- desvantagens:
+- [Desvantagens](color:red):
   - o programador tem de ter sempre algum conhecimento dos
     segmentos subjacentes
   - os algoritmos tornam-se bastantes complicados em sistema mais
@@ -279,13 +277,13 @@ Espaço de trabalho de um processo num dado intervalo de tempo é igual ao conju
 
 #### Paginação:
 
-- vantagens:
+- [Vantagens](color:green):
   - o programador não tem que se preocupar com a gestão de memória
   - os algoritmos de reserva, substituição e transferência são mais simples
     e eficientes
   - o tempo de leitura de uma página de disco é razoavelmente pequeno
   - a dimensão dos programas é virtualmente ilimitada
-- desvantagens:
+- [Desvantagens](color:red):
   - o hardware é mais complexo que o de memória segmentada, p.e.,
     instruções precisam de ser recomeçãveis
   - operações sobre segmentos lógicos são mais complexos e menos
@@ -308,7 +306,7 @@ Espaço de trabalho de um processo num dado intervalo de tempo é igual ao conju
 - Cada região tem uma tabela de páginas
   própria
 
-![Table](./imgs/0010/table.png#dark=1)
+![Table](./imgs/0011/table.png#dark=1)
 
 #### Tabela pfdata
 

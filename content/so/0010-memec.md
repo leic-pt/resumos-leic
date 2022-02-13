@@ -33,7 +33,7 @@ type: content
   - custo reduzido, logo mais abundante
   - informação persistente
 
-### Gestão de Memória - Obje:vos
+### Gestão de Memória - Objetivos
 
 - Gerir o espaço de endereçamento dos
   processos
@@ -80,7 +80,7 @@ type: content
 
 - Divisão dos programas em segmentos lógicos que
   reﬂectem a sua estrutura funcional:
-  - roInas, módulos, código, dados, pilha, etc.
+  - rotinas, módulos, código, dados, pilha, etc.
   - conversão de endereços virtuais linear em cada segmento
   - o programador pode ter que se preocupar com a gestão de
     memória quando escreve um programa
@@ -97,14 +97,13 @@ type: content
 ### Memória Virtual Segmentada
 
 - Proteção:
-  - veriﬁcação de limites de endereçamento intra-
-    segmentos
-  - veriﬁcação e limitação dos Kpos de acesso ao
+  - veriﬁcação de limites de endereçamento intra-segmentos
+  - veriﬁcação e limitação dos tipos de acesso ao
     segmento: leitura, escrita e execução
   - processos diferentes têm tabelas de segmentos
     diferentes: espaços de endereçamento disjuntos e
     inacessíveis a terceiros
-- Pode sofrer de fragmentação? De que :po?
+- Pode sofrer de fragmentação? De que tipo?
 
 ### Paginação
 
@@ -116,13 +115,13 @@ type: content
 
 ![Memória Paginada](./imgs/0010/pag.png#dark=1)
 
-### Paginação: consequências
+### [Paginação: consequências](color:red)
 
 - Espaço de endereçamento virtual linear, i.e.,
-  conRguo:
+  contínuo:
   - o programador não “vê” a gestão de memória
 - Segmentos lógicos do espaço de endereçamento
-  passam a ser compostos por múlKplas páginas
+  passam a ser compostos por múltiplas páginas
   - Passa a ser possível um segmento lógico estar
     parcialmente presente
   - Se uma instrução do processador aceder a endereços em
@@ -155,7 +154,7 @@ type: content
 
 - A maioria dos acessos a memória são
   traduzidos e servidos pela UGM
-  - Se processo está em modo uKlizador, mantém-se
+  - Se processo está em modo utilizador, mantém-se
     nesse modo
 - Núcleo só se envolve na tradução nestes
   momentos:
@@ -197,11 +196,11 @@ type: content
 - Assumindo endereços de 64 bits e páginas de 4 Kbytes,
   quantas páginas pode ter o espaço de endereçamento
   de um processo?
-  - 264/212=252 páginas
+  - $\cfrac{2^{64}}{2^{12}} = 2^{52}$ páginas
 - Assumindo que cada entrada na tabela de páginas
-  (PTE) ocupa 4bytes, qual a dimensão da tabela de
+  (PTE) ocupa 4 bytes, qual a dimensão da tabela de
   páginas?
-  - 22\*252=254 bytes=16 Petabytes
+  - $2^2 \times 2^{52} =2^{54}$ bytes= 16 Petabytes
 - Irrealista assumir que tabela de páginas caberá sempre
   em memória primária!
 
@@ -218,7 +217,7 @@ type: content
 
 ![Níveis](./imgs/0010/nivel.png#dark=1)
 
-## Partilha memória entre processos
+## Partilha Memória entre Processos
 
 - Basta ter, nas tabelas de páginas dos
   processos em causa, PTEs com a mesma base
@@ -255,11 +254,11 @@ type: content
   - Aloca nova página e copia para lá o conteúdo da página
     partilhada
   - Atualiza a PTE do processo onde ocorreu a excepção com:
-- A base (endereço físico) da nova página
-- Permissão de escrita ativada, CoW desativado
+    - A base (endereço físico) da nova página
+    - Permissão de escrita ativada, CoW desativado
   - Caso a página original já só seja referenciada por um
     processo, atualiza a sua PTE também:
-- Permissão de escrita ativada, CoW desativado
+    - Permissão de escrita ativada, CoW desativado
 
 ### Tratamento do Copy on Write
 
@@ -276,7 +275,7 @@ type: content
     segmentos de 8 Kbytes cada
 - Gestão de memória muito simples:
   - Processos carregados na sua totalidade em memória
-  - caso não houvesse espaço disponível em memória, o
+  - Caso não houvesse espaço disponível em memória, o
     sistema operativo transferia para memória secundária os
     processos que estivessem bloqueados ou com menor
     prioridade
@@ -290,9 +289,9 @@ type: content
     memória virtual paginada tal como a conhecemos
     hoje
 - Na evolução introduzida pelo Unix V:
-  - espaço de endereçamento dividido em três
+  - Espaço de endereçamento dividido em três
     regiões: código, dados e pilha.
-  - novas regiões podem ser criadas dinamicamente
+  - Novas regiões podem ser criadas dinamicamente
     durante a execução dos programas
   - Cada região contém tabela de páginas própria
 
@@ -301,7 +300,7 @@ type: content
 ![linux](./imgs/0010/linux.png#dark=1)
 
 - Tabelas de páginas
-  mulKnível com três
+  multinível com três
   níveis
 - Tabela de mais alto
   nível é designada por

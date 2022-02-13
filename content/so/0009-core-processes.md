@@ -18,7 +18,7 @@ type: content
   - Gestão das Interrupções
   - Multiplexagem do Processador
     - Despacho
-    - efectua a transferência de controlo entre dois processos
+    - Efectua a transferência de controlo entre dois processos
     - Escalonamento: optimiza a gestão dos recursos
   - Sincronização no núcleo
   - Implementação das funções sistema relacionadas com os processos e sincronização
@@ -29,7 +29,7 @@ type: content
   um programa na Boot ROM
   - Nos computadores pessoais, o programa na Boot
     ROM chama-se BIOS (basic input/output system)
-- O BIOS:
+- A BIOS:
 
   - Copia bloco de código do disco (ou flash RAM, etc.) para RAM
   - Salta para a primeira instrução desse programa,
@@ -74,13 +74,13 @@ type: content
 
 ![Processos Executáveis](./imgs/0009/proc-exec.png#dark=1)
 
-São usadas estruturas mais complexas.
+São usadas estruturas mais complexas que a mostrada aqui.
 
 #### Diagrama de Estado dos Processos
 
 ![Estado dos Processos](./imgs/0009/state-proc.png#dark=1)
 
-## Modo utilizador vs modo núcleo
+## Modo Utilizador vs Modo Núcleo
 
 ### Estrutura Monolítica
 
@@ -92,7 +92,7 @@ São usadas estruturas mais complexas.
 - A mudança automática entre os dois modos é efectuada pelas
   interrupções (e excepções) e pela instrução de Return from Interrupt
 
-**Invocação do Sistema Operativo**
+### Invocação do Sistema Operativo
 
 - Todas as atividades do núcleo desencadeadas por interrupções
 - As interrupções podem ser provocadas por:
@@ -105,8 +105,9 @@ São usadas estruturas mais complexas.
 
 Sistema Operativo como o gestor global de todas as interrupções
 
-### Trap: Instrução INT na Intel 80x86
+**Trap: Instrução INT na Intel 80x86**
 
+```
 `INT` - Interrupt Usage:
 
 `INT num`
@@ -122,17 +123,18 @@ Note on x86 registers:
 
 - CS: Code Segment
 - IP: Instruction Pointer
+```
 
 ### Chamada a Funções Sistema RTI
 
 ![System Calls](./imgs/0009/sys-calls.png#dark=1)
 
 - Estruturadas em duas entidades funcionais:
-  - rotina de interface
+  - Rotina de Interface
     - ligada com o código do utilizador
     - usa trap para invocar a função no núcleo.
   - função propriamente dita, faz parte do código do núcleo
-- Vantagens:
+- [Vantagens](color:green):
   - Protecção
     - Código das funções sistema está residente no núcleo e não pode ser
       acedido pelos processos utilizador
@@ -156,7 +158,7 @@ Note on x86 registers:
 - Invoca o despacho para eventualmente
   escolher outro processo para execução
 
-## Despacho
+### Despacho
 
 ![Despacho](./imgs/0009/despacho.png#dark=1)
 
@@ -257,23 +259,17 @@ ciclicamente
 - Tipicamente, há duas classes de processos:
   - CPU-intensivos
     - Uso intensivo do processador, raramente se bloqueiam
-  - E/S-intensivos
-    - Uso intensivo das E/S, quase sempre bloqueados
+  - I/0-intensivos
+    - Uso intensivo das I/0, quase sempre bloqueados
 
 ### Deve a classe do processo influenciar o acesso ao CPU?
 
-- Num dado momento, há um processo CPU-
-  intensivo e outro E/S-intensivo executáveis
+- Num dado momento, há um processo CPU-intensivo e outro I/0-intensivo executáveis
 - Qual deve ter maior prioridade no acesso ao
   CPU?
-  - O processo E/S-intensivo!
-- Ok, mas como saber a classe de cada
-  processo?
-  - Exigir que o programador/utilizador a indique?
-  - Mais interessante: inferir a classe estudando o
-    comportamento recente do processo
+  - O processo I/0-intensivo!
 
-#### Escalonamento com prioridades
+#### Escalonamento com Prioridades
 
 - As prioridades permitem definir a importância de
   um processo no processo de escalonamento
@@ -294,24 +290,26 @@ ciclicamente
 ![Gestão Multilista com Quantum](./imgs/0009/quantum.png#dark=1)
 
 - Adaptar o valor do quantum ao comportamento dos processos
-- Diferentes estratégias possíveis
+- Diferentes estratégias possíveis:
   - Alguns escalonadores aumentam quantum de processos de menor prioridade
   - Outros dão maior quantum a processos de maior prioridade
 
-#### Preempção em teoria
+#### Preempção em Teoria
 
-- O que é? Retirar o processador a um processo
-  em execução assim que existe outro processo
-  mais prioritário executável
-- Objectivo? permite que os processos mais
-  prioritários reajam rapidamente a um dado
-  acontecimento
-  - Por exemplo, mais prioritário estava bloqueado
-    mas acontecimento externo desbloqueou-o
-  - Assim que processo receber execução, pode reagir
-    ao acontecimento
+Preempção é retirar o processador a um processo
+em execução assim que existe outro processo
+mais prioritário executável
 
-#### Preempção na prática
+Isto permite que os processos mais
+prioritários reajam rapidamente a um dado
+acontecimento
+
+- Por exemplo, mais prioritário estava bloqueado
+  mas acontecimento externo desbloqueou-o
+- Assim que processo receber execução, pode reagir
+  ao acontecimento
+
+#### Preempção na Prática
 
 - Em teoria, o despacho deve ser chamado na
   sequência de qualquer ação suscetível de
@@ -322,7 +320,7 @@ ciclicamente
   - Assegurar que processo menos prioritário só
     perde processador após tempo mínimo
   - Em algumas situações, processo menos prioritário
-    não perde CPU (por exemplo quando está a
+    não perdem CPU (por exemplo quando está a
     executar rotina do núcleo)
 
 ### Escalonadores de hoje em dia
@@ -460,16 +458,16 @@ Contexto dos Processos
     - Atributos necessários ao escalonamento e o funcionamento dos
       signals
 - estrutura `proc`:
-  - p_stat - estado do processo
-  - p_pri - prioridade
-  - p_sig - sinais enviados ao
+  - `p_stat` - estado do processo
+  - `p_pri`- prioridade
+  - `p_sig`- sinais enviados ao
     processo
-  - p_time - tempo que está em
+  - `p_time` - tempo que está em
     memória
-  - p_cpu - tempo de utilização
-  - p_pid - identificador do
+  - `p_cpu`- tempo de utilização
+  - `p_pid`- identificador do
     processo
-  - p_ppid - identificador do
+  - `p_ppid` - identificador do
     processo pai
 - parte do contexto do processo
   necessária para efectuar as
@@ -527,14 +525,14 @@ Algoritmo de escalonamento
   - Para cada processo:
     - TempoProcessador = TempoProcessador / 2
     - Prioridade = TempoProcessador/2 + PrioridadeBase
-      Esquecimento progressivo dos
-      usos mais antigos do CPU
+
+Ao dividir-se o TempoProcessador por 2, o existe esquecimento progressivo dos usos mais antigos do CPU.
 
 Escalonamento: Chamadas Sistema
 
 - `nice (int val)`
-  - Decrementa a prioridade “val” unidades
-  - Apenas superutilizador pode invocar com “val”
+  - Decrementa a prioridade `val` unidades
+  - Apenas superutilizador pode invocar com `val`
     negativo
 - `int getpriority (int which, int id)`
   - Retorna prioridade do processo (ou grupo de
@@ -542,7 +540,7 @@ Escalonamento: Chamadas Sistema
 - `setpriority (int which, int id, int prio)`
   - Altera prioridade do processo (ou grupo de procs.)
 
-#### Prioridades em modo núcleo
+#### Prioridades em Modo Núcleo
 
 - Definidas com base no acontecimento que o
   processo está a tratar e são fixas
@@ -554,7 +552,7 @@ Escalonamento: Chamadas Sistema
 
 **Unix: Prioridades**
 
-![Prioridades Unix](./imgs/0009/prioritites.png#dark=1)
+![Prioridades Unix](./imgs/0009/priorities.png#dark=1)
 
 ### Breve Resumo
 
@@ -572,7 +570,7 @@ Escalonamento: Chamadas Sistema
     usaram mais o CPU
 
 - Todos os segundos é necessário efectuar o
-  cálculo das prioridades de todos os processos,
+  cálculo das prioridades de todos os processos
 - Má escalabilidade com o número elevado de
   processos
 
@@ -594,7 +592,9 @@ Escalonamento: Chamadas Sistema
   - quantum $=$ quantum_base $+$ quantum_por_utilizar_epoca_anterior $/2$
   - Pode ser reduzido com chamadas sistema
 
+:::tip[Exemplo]
 Ver nos slides exemplo da adaptação do quantum.
+:::
 
 ### Linux: Prioridades
 
@@ -621,7 +621,7 @@ Ver nos slides exemplo da adaptação do quantum.
 - Processos executáveis mantidos em red-black
   tree ordenada por vruntime:
   - encontrar processo mais prioritário:
-    complexidade asimptotica de desce de O(n)
+    complexidade assimptótica desce de O(n)
     (kernel 2.4) para O(log(n)), onde n é o número de
     processos
 
@@ -715,6 +715,10 @@ Linux: Escalonamento “Real-Time”
 
 - Fechar e abrir são chamadas sistema
 - Núcleo mantém estado de cada trinco
+
+:::tip[Exemplo]
+Ver nos slides exemplo de mutexes.
+:::
 
 ### Sincronização no Núcleo
 
