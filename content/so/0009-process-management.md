@@ -2,7 +2,9 @@
 title: Gestão de Processos
 description: >-
   Gestão de Processos.
+  Interrupções.
   Chamadas de Sistema (syscalls).
+  Despacho.
   Escalonamento (scheduling).
 path: /so/process-management
 type: content
@@ -104,3 +106,15 @@ stateDiagram-v2
 - **Rotina de Serviço da Interrupção**: É feito o tratamento da interrupção.
 - **Despacho**: Volta-se a colocar um processo em execução, e o seu contexto é carregado.
 - **Retorno da Interrupção (RTI)**: Saída do modo núcleo (_kernelland_).
+
+## Despacho
+
+:::warning[Página em Construção]
+A página encontra-se em construção, sendo que os conteúdos ainda não estão disponíveis.
+:::
+
+## Scheduling (Escalonamento)
+
+:::warning[Página em Construção]
+A página encontra-se em construção, sendo que os conteúdos ainda não estão disponíveis.
+:::
