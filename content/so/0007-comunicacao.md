@@ -476,7 +476,7 @@ Unix System V e Unix BSD
   - A associação de uma rotina a um signal é apenas efetiva para uma ativação
     - Depois de receber o signal, o tratamento passa a ser novamente o por omissão
       (necessário associar de novo)
-    - Entre o lançamento de rotina de tratamento e a nova associação à tratamento
+    - Entre o lançamento de rotina de tratamento e a nova associação -> tratamento
       por omissão
     - Preciso restabelecer a associação na primeira linha da rotina de tratamento
       - Problema se houver receção sucessiva de signals
