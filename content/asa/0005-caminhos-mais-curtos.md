@@ -475,7 +475,6 @@ Ora, chegámos então a $w(p') < w(p)$. Tínhamos, contudo, começado por afirma
 
 Resta, então, notar que a complexidade temporal do algoritmo é $O(V (V + E) \log V)$, predominando, portanto, a complexidade de Dijkstra pelos $|V|$ vértices.
 
-
 ---
 
 - [Slides Dijkstra/DAG SP/Bellman-Ford](https://drive.google.com/file/d/10QzxNY5Z2dHZLaYdyhG2S3-jTQwFjjgv/view?usp=sharing)
