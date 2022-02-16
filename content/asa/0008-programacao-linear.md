@@ -489,7 +489,7 @@ s.a: \quad&x \leq 200\\
 \end{aligned}
 $$
 
-Chamemos a este programa o programa [**Primal**](color:pink). A aplicação do algoritmo Simplex neste programa levaria a uma solução ótima com $x = 100 \wedge y = 300 \implies z = 1900$. Podemos, contudo, tentar perceber de maneira diferente no problema: e se o noso objetivo for _minimizar_ as horas de produção dispendidas, tendo em conta certas margens de lucro que queremos ter? A dualidade entra precisamente aqui: vamos procurar construir um outro program, o respetivo programa [**Dual**](color:orange), que procurará representar esse mesmo espelho de restrições:
+Chamemos a este programa o programa [**Primal**](color:pink). A aplicação do algoritmo Simplex neste programa levaria a uma solução ótima com $x = 100 \wedge y = 300 \implies z = 1900$. Podemos, contudo, tentar perceber de maneira diferente no problema: e se o nosso objetivo for _minimizar_ as horas de produção dispendidas, tendo em conta certas margens de lucro que queremos ter? A dualidade entra precisamente aqui: vamos procurar construir um outro program, o respetivo programa [**Dual**](color:orange), que procurará representar esse mesmo espelho de restrições:
 
 $$
 \begin{aligned}
