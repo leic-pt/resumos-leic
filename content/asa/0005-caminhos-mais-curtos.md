@@ -343,6 +343,12 @@ O caminho mais longo pode ser particularmente útil para, entre outros, calcular
 
 ## Caminhos mais Curtos entre Todos os Pares
 
+:::tip[Nota]
+
+Esta secção tem a co-autoria do [João Rocha](https://github.com/calhau18).
+
+:::
+
 Os algoritmos de Dijkstra e Bellman-Ford, abordados acima, permitem-nos encontrar caminhos mais curtos **de fonte única**. Conhecendo-os, a nossa primeira intuição para descobrir os caminhos mais curtos entre **todos os pares** de vértices de um grafo poderá apenas passar por aplicar o algoritmo de Dijkstra $|V|$ vezes, com vértice-fonte a alterar para cada aplicação. [**A ideia não está errada**](color:yellow), claro: funciona! Temos, contudo, um problema em mãos - continuamos a ter a limitação estudada acima (Dijkstra requer a ausência de arcos negativos). Será, então, interessante procurar uma solução alternativa que a remova, e é aqui que entra o algoritmo de Johnson, que curiosamente combina os algoritmos de Dijkstra e Bellman-Ford para chegar a este fim.
 
 ### Algoritmo de Jonhson
@@ -442,9 +448,9 @@ Ou seja, o peso de qualquer ciclo em $G$ é igual ao peso de qualquer ciclo em $
 
 :::
 
-:::details[Prova do terceiro ponto]
+:::details[Prova do segundo ponto]
 
-Resta agora provar o terceiro ponto acima proposto. Começemos por notar que, com $p = (v_0, ..., v_n)$, um caminho mais curto em $G$, temos que:
+Resta agora provar o segundoo ponto acima proposto. Começemos por notar que, com $p = (v_0, ..., v_n)$, um caminho mais curto em $G$, temos que:
 
 $$
 w^\wedge (p) = \sum_{i = 0}^{n-1} w^\wedge(v_i, v_{i+1})\\
@@ -463,11 +469,12 @@ w(p') + h(v_0) - h(v_n) < w(p) + h(v_0) - h(v_n)\\
 w(p') < w(p)
 $$
 
-Ora, chegámos então a $w(p') < w(p)$. Tínhamos, contudo, começado por afirmar que $p$ é um caminho mais curto de $v_0$ a $v_n$ em $G$. Partindo dessa premissa, não pode haver nenhum caminho que ligue $v_0$ a $v_n$ em $G$, pelo que estamos perante uma contradição, e o terceiro ponto fica então provado.
+Ora, chegámos então a $w(p') < w(p)$. Tínhamos, contudo, começado por afirmar que $p$ é um caminho mais curto de $v_0$ a $v_n$ em $G$. Partindo dessa premissa, não pode haver nenhum caminho que ligue $v_0$ a $v_n$ em $G$, pelo que estamos perante uma contradição, e o segundo ponto fica então provado.
 
 :::
 
 Resta, então, notar que a complexidade temporal do algoritmo é $O(V (V + E) \log V)$, predominando, portanto, a complexidade de Dijkstra pelos $|V|$ vértices.
+
 
 ---
 

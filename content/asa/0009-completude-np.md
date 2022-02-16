@@ -14,6 +14,12 @@ type: content
 
 ```
 
+:::tip[Nota]
+
+Esta secção tem a co-autoria do [João Rocha](https://github.com/calhau18).
+
+:::
+
 Os algoritmos abordados até agora podem ser resolvidos em tempo polinomial - a sua complexidade temporal do pior caso é sempre do tipo $O(n^k)$, para alguma constante $k$. Contudo, nem todos os programas partilham esta propriedade: há problemas, como o clássico _Halting problem_ que não possuem qualquer solução:
 
 ::youtube{#macM_MtS_w4}
