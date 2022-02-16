@@ -329,7 +329,7 @@ $$
   4 & \bigg\vert\enspace\enspace\enspace\bigg\vert\enspace\bigg\vert\enspace P(x_0) && Rei, 2\\
   5 & \bigg\vert\enspace\enspace\enspace\bigg\vert\enspace\bigg\vert\enspace \neg P(x_0) && E\forall, 3\\
   6 & \bigg\vert\enspace\enspace\enspace\bigg\vert\enspace \neg\forall x[\neg P(x)] && I\neg, (3, (4, 5))\\
-  7 & \bigg\vert\enspace \forall x[\neg P(x)] && E\exists, (1, (2, 6))\\
+  7 & \bigg\vert\enspace \neg \forall x[\neg P(x)] && E\exists, (1, (2, 6))\\
   8 & \exists x[P(x)] \to \neg\forall x[\neg P(x)] && I\to, (1, 7)
 \end{array}
 $$
