@@ -1,6 +1,7 @@
 ---
 title: Lógica de Primeira Ordem - Introdução
-description: Lógica de primeira ordem, quantificadores, regras de inferência.
+description: >-
+  Lógica de primeira ordem quantificadores, regras de inferência.
 path: /lp/logica-primeira-ordem-int
 type: content
 ---
@@ -42,7 +43,7 @@ $$
 Sendo que os conjuntos de pares ordenados têm, por norma, este aspeto:
 
 $$
-\{(Portugal, Lisboa), (França, Paris), (Espanha, Madrid),\dots\}\\
+\{(Portugal, Lisboa), (Franca, Paris), (Espanha, Madrid),\dots\}\\
 \{(Augustus\_De\_Morgan, 1806), (Alonzo\_Church, 1903),\dots\}\\
 \{(1,2),(2,3),(3,4),\dots\}
 $$
@@ -59,7 +60,7 @@ Relações com apenas um argumento também se chamam **classes** ou **propriedad
 Relação correspondendo ao conjunto dos países que partilham fronteira terrestre:
 
 $$
-\{(Portugal, Espanha), (Espanha, Portugal), (Espanha, França),\dots\}
+\{(Portugal, Espanha), (Espanha, Portugal), (Espanha, Franca),\dots\}
 $$
 
 _Como podemos observar, Espanha é primeiro elemento duas vezes, pelo que não pode ser uma função._

@@ -1,7 +1,12 @@
 ---
 title: Conceitos Gerais
 prev: false
-description: Proposições, argumentos, premissas, conclusão, validade de um argumento, princípio da irrelevância do valor lógico, forma de um argumento. Metodologia da lógica. Introdução a Lógica Proposicional.
+description: >-
+  Definições básicas: Proposições, argumentos, premissas, conclusão.
+  Validade de um argumento.
+  Princípio da irrelevância do valor lógico e Forma de um argumento. 
+  Metodologia da lógica. 
+  Introdução a Lógica Proposicional.
 path: /lp/conceitos-gerais
 type: content
 ---
@@ -18,15 +23,13 @@ A lógica estuda métodos para distinguir a validade dos argumentos. Lida com **
 
 - **Proposição** - frase declarativa à qual podemos associar um valor lógico. Qualquer proposição é verdadeira ou falsa.
 
-- **Argumento** - par composto por um conjunto de proposições, as **premissas**, e por uma proposição particular, a **conclusão**. Podem ser válidos, inválidos, ou sem validade conhecida.
+- **Argumento** - par composto por um conjunto de proposições, as [**premissas**](color:yellow), e por uma proposição particular, a [**conclusão**](color:pink). Podem ser válidos, inválidos, ou sem validade conhecida.
 
-:::details[Exemplo - Argumento]
+Um argumento-exemplo pode ser:
 
-Todos os homens são mortais.  
-Sócrates é um homem.  
-∴ Sócrates é mortal.
-
-:::
+<p align="center"> Todos os homens são mortais. </p>
+<p align="center"> Sócrates é um homem. </p>
+<p align="center"> ∴ Sócrates é mortal. </p>
 
 :::tip
 
@@ -57,32 +60,36 @@ Temos que uma proposição pode conter **termos lógicos** ("e", "ou", "então",
 
 - **Forma de um argumento** - argumento em que os termos específicos de cada uma das proposições que o constituem são substituídos por um símbolo associado à sua _categoria gramatical_.
 
-:::details[Exemplo - Forma de um Argumento]
+Um exemplo da propriedade acima referida seria algo como ter o argumento:
 
-O argumento:
+<p align="center"> O Benfica está fora da Champions. </p> 
+<p align="center"> Quem está fora da Champions não recebe muito dinheiro. </p>
+<p align="center"> ∴ O Benfica não recebe muito dinheiro. </p>
 
-O Benfica está fora da Champions.  
-Quem está fora da Champions não recebe muito dinheiro.  
-∴ O Benfica não recebe muito dinheiro.
+Ora, este argumento é da forma:
 
-é da forma:
+$$
+\text{O {\boxed A} está {\boxed B}.}\\
+\text{Quem {\boxed B} não {\boxed C}.}\\
+\text{∴ O {\boxed A} não {\boxed C}.}
+$$
 
-O $\boxed A$ está $\boxed B$ .  
-Quem $\boxed B$ não $\boxed C$ .  
-∴ O $\boxed A$ não $\boxed C$ .
-
-**Vários argumentos podem ter a mesma forma**.
-
-:::
+[**Vários argumentos podem ter a mesma forma**](color:green). Esta propriedade está diretamente associada ao princípio seguinte:
 
 - **Princípio da forma** - se dois argumentos têm a mesma forma, partilham a sua validade.
 
-Associada a este princípio está a noção de **contra-argumento**. Um argumento é um contra-argumento a outro caso seja inválido e partilhe a forma do argumento que pretende contra-argumentar.
+Associada a este princípio está a noção de **contra-argumento**. Um argumento diz-se um contra-argumento a outro caso seja inválido e partilhe a forma do argumento que pretende contra-argumentar.
 
 ### Correção e Completude
 
-Uma dada lógica é **correta** caso qualquer argumento demonstrável segundo a mesma seja válido de acordo com a sua semântica. É **completa** quando qualquer argumento válido de acordo com a semântica é demonstrável. Os sistemas dedutivo e semântico estão, portanto, intrinsecamente ligados nestas noções. As noções de correção e completude não são propriedades dos sistemas, mas sim uma relação entre eles.  
+Uma dada lógica é **correta** caso qualquer argumento demonstrável segundo a mesma seja válido de acordo com a sua semântica. É **completa** quando qualquer argumento válido de acordo com a semântica é demonstrável. Os sistemas dedutivo e semântico estão, portanto, intrinsecamente ligados quanto a estas noções. As noções de correção e completude não são propriedades dos sistemas, mas sim uma relação entre eles.  
 Numa lógica simultaneamente _correta_ e _completa_ os argumentos demonstráveis são exatamente os mesmos que os válidos.
+
+:::tip[Nota]
+
+A noção de correção e completude pode não ficar já clara. Ao estudar as Lógicas Proposicional e de Primeira Ordem voltaremos a tocar nesta questão, e porventura fique então mais claro.
+
+:::
 
 ### Metodologia da Lógica
 
