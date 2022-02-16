@@ -118,11 +118,11 @@ f' = f + f_p \wedge |f'| = |f| + |f_p| > |f|
 
 $$
 
-Ou seja, que o fluxo da rede após a aplicação do aumento à rede, $f'$ é estritamente maior que o fluxo da rede original, $f$. Consideramos para este efeito que $f_p = c_f(p) > 0$.
+Ou seja, que o fluxo da rede após a aplicação do aumento à rede, $f'$, é estritamente maior que o fluxo da rede original, $f$. Consideramos para este efeito que $f_p = c_f(p) > 0$.
 
 ### Cortes em Redes de Fluxo
 
-Os cortes em redes de fluxo correspondem a uma partição de $V$ tal que $(S, T)$, com $T = V-S$, tal que $s \in S \wedge t \in T$.
+Os cortes em redes de fluxo correspondem a uma partição $(S, T)$ de $V$, com $T = V-S$, tal que $s \in S \wedge t \in T$.
 Seja $f$ um fluxo, o **fluxo líquido de um corte** corresponde a:
 
 $$

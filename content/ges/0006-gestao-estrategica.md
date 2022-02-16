@@ -123,8 +123,8 @@ Segundo este modelo, a intensidade da competição numa indústria, assim como o
    - Muito Forte (5)
 
 3. O somatário das 5 forças (S) indica se o setor é atrativo ou não:
-   - S $\approx$ 25 $\to$ Setor Não atrativo
-   - S $\approx$ 5 $\to$ Setor atrativo
+   - S $\approx$ 25 $\to$ Setor Não Atrativo
+   - S $\approx$ 5 $\to$ Setor Atrativo
 
 ### [Análise Interna](color:orange)
 

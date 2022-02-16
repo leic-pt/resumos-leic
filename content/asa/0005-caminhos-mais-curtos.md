@@ -88,7 +88,7 @@ Podemos, claro, notar que os caminhos mais curtos não são necessariamente úni
 
 Temos ainda que **todo o sub-caminho de um caminho mais curto é também um caminho mais curto**. Tenhamos, por exemplo, o caminho $p = (s, v_1, v_2, ..., v_k)$. Seja, ainda, $p_{ij}$ um sub-caminho de $p$, de $v_i$ até $v_j$. Podemos afirmar que $p_{ij}$ é um caminho mais curto de $v_i$ até $v_j$ em $G$, dado que, caso tal não acontecesse, poderíamos construir um caminho mais curto de $s$ a $v_k$, contradizendo a premissa de $p$ ser um caminho mais curto.
 
-Podemos, decompondo um caminho, voltar definir uma recorrência para o seu peso. Tendo $p = (s, ..., u, v)$ e $p_{su}$ um caminho tal que $p$ pode ser decomposto em $p_{su} = (s, ..., u)$ e $(u, v)$, então $\delta(s, v) = \delta(s, u) + w(u, v)$:
+Podemos, decompondo um caminho, voltar a definir uma recorrência para o seu peso. Tendo $p = (s, ..., u, v)$ e $p_{su}$ um caminho tal que $p$ pode ser decomposto em $p_{su} = (s, ..., u)$ e $(u, v)$, então $\delta(s, v) = \delta(s, u) + w(u, v)$:
 
 - $p_{su}$ é um caminho mais curto de $s$ a $u$.
 
@@ -365,9 +365,9 @@ Vamos por partes:
 
 :::info[Repesagem de Johnson]
 
-Tendo um grafo $G = (V, E)$, a repesagem de Jonhson devolve um grafo $G^\wedge = (V, E^\wedge)$, onde $E^\wedge$ corresponde a arcos "equivalentes" aos de $E$, porém sem arcos negativos. Queremos, claro, que os caminhos mais curtos em $G^\wedge$ sejam os mesmos que os de $G$.
+Tendo um grafo $G = (V, E)$, a repesagem de Jonhson devolve um grafo $\overset{\wedge}{G} = (V, \overset{\wedge}{E})$, onde $\overset{\wedge}{E}$ corresponde a arcos "equivalentes" aos de $E$, porém sem arcos negativos. Queremos, claro, que os caminhos mais curtos em $\overset{\wedge}{G}$ sejam os mesmos que os de $G$.
 
-A intuição poderá levar-nos a pensar que uma maneira possível de chegar a $G^\wedge$ é encontrar a aresta com peso mais negativo, pegar no seu módulo e somá-lo ao peso de todas os arcos de $G$. A estratégia, contudo, não funciona para todos os casos - temos um contra-exemplo abaixo:
+A intuição poderá levar-nos a pensar que uma maneira possível de chegar a $\overset{\wedge}{G}$ é encontrar a aresta com peso mais negativo, pegar no seu módulo e somá-lo ao peso de todas os arcos de $G$. A estratégia, contudo, não funciona para todos os casos - temos um contra-exemplo abaixo:
 
 ![Repesagem de Jonhson - abordagem errada](assets/0005-johnson-errado.png#dark=1)
 
@@ -375,13 +375,13 @@ Podemos observar, então, que esta abordagem acaba por **penalizar caminhos mais
 
 A [**abordagem correta**](color:orange) passa, então, por adicionar um novo vértice, $s$, ao grafo, e conectá-lo com arcos $(s, v)$ de peso 0 a todo o vértice $v$ de $G$. De seguida, aplicar o algoritmo de Bellman-Ford ao grafo para descobrir as **alturas de Johnson, $h$, de cada vértice** - correspondem ao peso do caminho mais curto de $s$ a cada vértice.
 
-Obtidas as alturas de Jonhson, temos que o peso de cada arco em $G^\wedge$, $w^\wedge$, é dado por[**\***](color:yellow):
+Obtidas as alturas de Jonhson, temos que o peso de cada arco em $\overset{\wedge}{G}$, $\overset{\wedge}{w}$, é dado por[**\***](color:yellow):
 
 $$
-w^\wedge(i, j) = w(i, j) + h(i) - h(j).
+\overset{\wedge}{w}(i, j) = w(i, j) + h(i) - h(j).
 $$
 
-No fim, ao remover o vértice $s$ e respetivos arcos, ficamos com $G^\wedge$! A complexidade temporal da repesagem é, claro, $O(VE)$, tal como no usual Bellman-Ford.
+No fim, ao remover o vértice $s$ e respetivos arcos, ficamos com $\overset{\wedge}{G}$! A complexidade temporal da repesagem é, claro, $O(VE)$, tal como no usual Bellman-Ford.
 
 [**\***](color:yellow) A razão pela qual a repesagem funciona não é trivial à primeira vista. A prova da sua correção encontra-se mais abaixo, pelo que podem preferir ler a mesma antes de ver o exemplo seguinte.
 :::
@@ -417,13 +417,13 @@ Assim sendo, os novos pesos dos arcos de $G$ são:
 - $w(V, X) = 2 + (-2) - 0 = 0$;
 - $w(V, T) = -1 + (-2) - (-3) = 0$;
 
-Assim, temos que $G^\wedge$ é tal que:
+Assim, temos que $\overset{\wedge}{G}$ é tal que:
 
 ![Repesagem de Jonhson - exemplo - resultado](assets/0005-johnson-exemplo-4.png#dark=1)
 
 De realçar que nenhum arco tem agora peso negativo!
 
-Por fim, aplicamos Dijkstra a cada um dos vértices do grafo (não mostrado aqui, é igual à aplicação normal de Dijkstra), e obteríamos os caminhos mais curtos no grafo para todos os pares! Cada linha $i$ da matriz $D$ corresponde, claro, à aplicação de Dijkstra a $G^\wedge$ com $i$ como fonte.
+Por fim, aplicamos Dijkstra a cada um dos vértices do grafo (não mostrado aqui, é igual à aplicação normal de Dijkstra), e obteríamos os caminhos mais curtos no grafo para todos os pares! Cada linha $i$ da matriz $D$ corresponde, claro, à aplicação de Dijkstra a $\overset{\wedge}{G}$ com $i$ como fonte.
 
 :::
 
@@ -431,7 +431,7 @@ A repesagem de Johnson assenta em dois pilares:
 
 - $G$ contém um ciclo negativo se e só se $G^\wedge$ contém um ciclo negativo;
 
-- Se $p$ é um caminho mais curto de $u$ a $v$ em $G$, então também o é em $G^\wedge$.
+- Se $p$ é um caminho mais curto de $u$ a $v$ em $G$, então também o é em $\overset{\wedge}{G}$.
 
 :::details[Prova do primeiro ponto]
 
@@ -453,18 +453,18 @@ Ou seja, o peso de qualquer ciclo em $G$ é igual ao peso de qualquer ciclo em $
 Resta agora provar o segundoo ponto acima proposto. Começemos por notar que, com $p = (v_0, ..., v_n)$, um caminho mais curto em $G$, temos que:
 
 $$
-w^\wedge (p) = \sum_{i = 0}^{n-1} w^\wedge(v_i, v_{i+1})\\
-w^\wedge (p) = \sum_{i = 0}^{n-1} w(v_i, v_{i+1}) + h(v_i) - h(v_{i+1})\\
-w^\wedge (p) = \sum_{i = 0}^{n-1} w(v_i, v_{i+1}) + \sum_{i = 0}^{n-1} h(v_i) - h(v_{i+1})\\
-w^\wedge (p) = w(p) + h(v_0) - h(v_n)
+\overset{\wedge}{w} (p) = \sum_{i = 0}^{n-1} \overset{\wedge}{w}(v_i, v_{i+1})\\
+\overset{\wedge}{w} (p) = \sum_{i = 0}^{n-1} w(v_i, v_{i+1}) + h(v_i) - h(v_{i+1})\\
+\overset{\wedge}{w} (p) = \sum_{i = 0}^{n-1} w(v_i, v_{i+1}) + \sum_{i = 0}^{n-1} h(v_i) - h(v_{i+1})\\
+\overset{\wedge}{w} (p) = w(p) + h(v_0) - h(v_n)
 $$
 
 A passagem de $\sum_{i = 0}^{n-1} h(v_i) - h(v_{i+1})$ para $h(v_0) - h(v_n)$ é feita através de somas telescópicas - teríamos $h(v_0) - h(v_1) + h(v_1) - h(v_2) + ... -h(v_{n-1}) + h(v_{n-1}) - h(v_n) = h(v_0) - h(v_n)$.
 
-Suponhamos agora, por contradição, que $p$ é um caminho mais curto de $v_0$ a $v_n$ em $G$ mas não em $G^\wedge$. Assim, teríamos um caminho, $p'$, que teria peso menor que $p$ em $G^\wedge$ a ligar $v_0$ a $v_n$. Teríamos, então:
+Suponhamos agora, por contradição, que $p$ é um caminho mais curto de $v_0$ a $v_n$ em $G$ mas não em $\overset{\wedge}{G}$. Assim, teríamos um caminho, $p'$, que teria peso menor que $p$ em $\overset{\wedge}{G}$ a ligar $v_0$ a $v_n$. Teríamos, então:
 
 $$
-w^\wedge(p') < w^\wedge(p)\\
+\overset{\wedge}{w}(p') < \overset{\wedge}{w}(p)\\
 w(p') + h(v_0) - h(v_n) < w(p) + h(v_0) - h(v_n)\\
 w(p') < w(p)
 $$

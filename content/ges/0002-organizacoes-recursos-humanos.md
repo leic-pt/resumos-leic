@@ -25,7 +25,7 @@ Cada empresa/organização é influenciada por:
 - **Elementos Internos**: Capacidade de se adptar às alterações decorrentes da influência externa.
   Envolvem nomeadamente a cultura da organização, a sua estrutura organizativa, os trabalhadores e a gestão.
 
-## Cultura Organizacional, Ètica e Responsabilidade Social
+## Cultura Organizacional, Ética e Responsabilidade Social
 
 - **Cultura da Organização**: Conjunto de valores, crenças e regras que os membros de uma organização partilham
   que podem ser expressos através de elementos Visíveis (Símbolos, Histórias, Cerimónias) e Invisíveis (Convicções).
@@ -40,7 +40,7 @@ Cada empresa/organização é influenciada por:
 
 :::info[Exemplo]
 O IST preza-se pela sua excelência, pela formação teórica e prática de elevado nível dos seus alunos (**Elemento Invisível da Cultura**),
-tem como sua marca o logótipo que desde o início inclui o símbolo da integral e as cores azul e branco (**Elemento Visível de Cultura**).
+tem como sua marca o logótipo que desde o início inclui o símbolo do integral e as cores azul e branco (**Elemento Visível de Cultura**).
 Esta instituição é considerada bastante séria e assume uma posição antipraxe (**Código Moral - Ética**).
 O facto de garantir que todos os alunos tenham acesso aos seus professores num horário de dúvidas que deve ser estipulado,
 distingue-o das demais faculdades (**Responsabilidade Social**).
@@ -96,7 +96,7 @@ Presidente da República > Primeiro Ministro > Ministros > Secretários > Tu.
 
    - **Vantagens**: Especialização dos empregados. Economias de Escala.
    - **Desvantagens**: Fraca comunicação dos departamentos.
-   - **Características**: Estabilidade, Eficiência , normalmtente usado em Empresas de grande Dimensão.
+   - **Características**: Estabilidade, eficiência, normalmente usado em empresas de grande dimensão.
 
    ![Vertical Funcional](./assets/0002-vertical-funcional.png#dark=2)
 
