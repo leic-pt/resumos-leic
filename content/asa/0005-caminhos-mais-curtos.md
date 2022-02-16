@@ -450,7 +450,7 @@ Ou seja, o peso de qualquer ciclo em $G$ é igual ao peso de qualquer ciclo em $
 
 :::details[Prova do segundo ponto]
 
-Resta agora provar o segundoo ponto acima proposto. Começemos por notar que, com $p = (v_0, ..., v_n)$, um caminho mais curto em $G$, temos que:
+Resta agora provar o segundo ponto acima proposto. Começemos por notar que, com $p = (v_0, ..., v_n)$, um caminho mais curto em $G$, temos que:
 
 $$
 w^\wedge (p) = \sum_{i = 0}^{n-1} w^\wedge(v_i, v_{i+1})\\
