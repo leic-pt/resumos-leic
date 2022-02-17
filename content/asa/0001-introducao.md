@@ -14,7 +14,7 @@ type: content
 
 ```
 
-A cadeira é perfeitamente acompanhável recorrendo apenas aos slides, notas do professor, coletânea de exercícios e a estes resumos. Contudo, e segundo o professor regente da UC, alunos que queiram aprofundar conhecimento podem (e devem) fazê-lo recorrendo a alguns livros indicados na bibliografia:
+A cadeira é perfeitamente acompanhável recorrendo apenas aos slides (que podem ser encontrados na página da UC), notas do professor (http://web.ist.utl.pt/jose.fragoso/#teaching), coletânea de exercícios e a estes resumos. Contudo, e segundo o professor regente da UC, alunos que queiram aprofundar conhecimento podem (e devem) fazê-lo recorrendo a alguns livros indicados na bibliografia:
 
 - [Introduction to Algorithms](https://mitpress.mit.edu/books/introduction-algorithms-third-edition), de Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest e Clifford Stein (MIT Press)
 
@@ -225,7 +225,5 @@ $$
 onde `i` é a variável do ciclo que vai sendo incrementada. Podemos verificar, a qualquer momento do loop, que `sum` corresponde, de facto, ao valor daquele somatório.
 
 ---
-
-- [Slides](https://drive.google.com/file/d/1iyuzEQdYwsUpZR6HAjMK0jfS2JDtTBON/view?usp=sharing)
 
 - [Notas da Aula - Prof. José Fragoso](https://drive.google.com/file/d/1E1Ch3yhfTJKf9Df7jj2_3O8kx1efN1xD/view?usp=sharing)
