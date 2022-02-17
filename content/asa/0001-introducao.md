@@ -16,9 +16,9 @@ type: content
 
 A cadeira é perfeitamente acompanhável recorrendo apenas aos slides, notas do professor, coletânea de exercícios e a estes resumos. Contudo, e segundo o professor regente da UC, alunos que queiram aprofundar conhecimento podem (e devem) fazê-lo recorrendo a alguns livros indicados na bibliografia:
 
-- [Introduction to Algorithms](https://edutechlearners.com/download/Introduction_to_algorithms-3rd%20Edition.pdf), de Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest e Clifford Stein (MIT Press)
+- [Introduction to Algorithms](https://mitpress.mit.edu/books/introduction-algorithms-third-edition), de Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest e Clifford Stein (MIT Press)
 
-- [Algorithms](http://algorithmics.lsi.upc.edu/docs/Dasgupta-Papadimitriou-Vazirani.pdf), de S. Dasgupta, C. Papadimitriou e U. Vazirani, McGraw-Hill
+- [Algorithms](https://www.mheducation.com/highered/product/algorithms-dasgupta-papadimitriou/M9780073523408.html), de S. Dasgupta, C. Papadimitriou e U. Vazirani, McGraw-Hill
 
 ## Cálculo dos Números de Fibonacci
 
