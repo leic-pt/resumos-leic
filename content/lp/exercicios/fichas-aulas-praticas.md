@@ -21,8 +21,6 @@ Para além dos exercícios das aulas práticas, o livro de exercícios indicado 
 
 :::
 
-- [Livro de Exercícios Resolvidos](https://drive.google.com/file/d/1TnTYnaNwd5IKWs_DgCcmPjGJcUfuchK2/view?usp=sharing)
-
 - [Semana 1: Lógica Proposicional $I$](https://drive.google.com/file/d/1hTp2IvH3uJ7rOfcnMvxWoA6ULzVD8q2t/view?usp=sharing)
 
   - [Resolução](https://drive.google.com/file/d/1LAR2DoqgrCfr2BtedGrhuQ2P1O6N-Jq3/view?usp=sharing)
