@@ -105,7 +105,3 @@ Para criar as variáveis:
 `"Alcunha" <nome da variavel>; ` ou `struct <nome> <nome da variavel> ;`
 
 Existem 2 exemplos dados sobre estas funções que se encontram no slides da aula.
-
-Slides:
-
-- [Aula 6](https://drive.google.com/file/d/1lfr6pJF6VBb3nFeo3yMe-VH7dif6CD-I/view?usp=sharing)
