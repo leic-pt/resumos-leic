@@ -19,7 +19,3 @@ Algoritmos de ordenação: inserção direta, seleção direta, bubblesort, quic
 Estruturas de dados: pilhas, filas de espera, filas de prioridade, amontoados, árvores e tabelas de dispersão.
 
 Grafos: representação, pesquisa em largura e profundidade, árvores abrangentes de menor curto, caminhos mais curtos de fonte única.
-
-## Recursos
-
-- [Combinação PDFs das Teóricas](https://s.rafael.ovh/iaedteoricas)
