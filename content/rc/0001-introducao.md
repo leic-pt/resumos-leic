@@ -80,12 +80,21 @@ O tempo de transmissão é calculado a partir da velocidade de transmissão e do
 ### Arquitetura em camadas
 Cada camada fornece um serviço às camadas que se encontram acima.
 
-#### Modelo Internet
-- Aplicação: HTTP, SMTP, SSH, FTP, ...
-- Transporte: TCP, UDP, ...
-- Rede (Network): IP, ...
-- Ligação: Ethernet, Wi-Fi, ...
-- Física
+#### Modelo Internet (Pilha de protocolos da Internet)
+- Aplicação: 
+    - Suporta aplicações de rede
+    - Exemplos: HTTP, SMTP, SSH, FTP, ...
+- Transporte:
+    - Transferência de dados entre processos
+    - Exemplos: TCP, UDP, ...
+- Rede (Network):
+    - Encaminhamento de *datagrams* da origem ao destino
+    - Exemplos: IP, protocolos de encaminhamento
+- Ligação: 
+    - Transferência de dados entre elementos da rede vizinhos
+    - Exemplos: Ethernet, Wi-Fi, PPP, ...
+- Física:
+    - Bits "no cabo"
 
 #### Modelo OSI
 - Application
