@@ -14,7 +14,7 @@ type: content
 
 ```
 
-A cadeira é perfeitamente acompanhável recorrendo apenas aos slides (que podem ser encontrados na página da UC), notas do professor (http://web.ist.utl.pt/jose.fragoso/#teaching), coletânea de exercícios e a estes resumos. Contudo, e segundo o professor regente da UC, alunos que queiram aprofundar conhecimento podem (e devem) fazê-lo recorrendo a alguns livros indicados na bibliografia:
+A cadeira é perfeitamente acompanhável recorrendo apenas aos slides (que podem ser encontrados na página da UC), [notas do professor](https://web.ist.utl.pt/jose.fragoso/#teaching), coletânea de exercícios e a estes resumos. Contudo, e segundo o professor regente da UC, alunos que queiram aprofundar conhecimento podem (e devem) fazê-lo recorrendo a alguns livros indicados na bibliografia:
 
 - [Introduction to Algorithms](https://mitpress.mit.edu/books/introduction-algorithms-third-edition), de Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest e Clifford Stein (MIT Press)
 
