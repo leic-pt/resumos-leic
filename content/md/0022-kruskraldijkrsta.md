@@ -101,8 +101,9 @@ Por convenção, só se deve identificar arestas que formam ciclos, quando o val
 
 :::details[Exemplos:]
 
-[Exemplo 1](https://drive.google.com/file/d/1NgSvB6UQeGYJ6huZq3bs-H_5HmP4DyvF/view?usp=sharing)
+[Exemplo 1](https://drive.google.com/file/d/1NgSvB6UQeGYJ6huZq3bs-H_5HmP4DyvF/view?usp=sharing)  
 [Exemplo 2](https://drive.google.com/file/d/1Q6XZtKX0j555RMUbwCqzEgGrdyuN2jon/view?usp=sharing)
+
 :::
 
 Também se pode usar o `Algoritmos de Kruskal` para encontrar uma `árvore de cobertura máxima`, basta ir assinalando as arestas pela ordem inversa (1º as que têm valor máximo).  
@@ -175,8 +176,8 @@ O resultado final será uma `Árvore de Cobertura`, onde para cada $v_i$, $\oper
 
 :::details[Exemplos]
 
-[Exemplo 1](https://drive.google.com/file/d/1l_czeoOKD8iraUcvxC6frQ5woZ0ZPxL8/view?usp=sharing)
-[Exemplo 2](https://drive.google.com/file/d/1SsrPh9jPIYL2Tll_Y2WCII27PtXHkMZt/view?usp=sharing)
+[Exemplo 1](https://drive.google.com/file/d/1l_czeoOKD8iraUcvxC6frQ5woZ0ZPxL8/view?usp=sharing)  
+[Exemplo 2](https://drive.google.com/file/d/1SsrPh9jPIYL2Tll_Y2WCII27PtXHkMZt/view?usp=sharing)  
 [Exemplo 3](https://drive.google.com/file/d/1OlzA0vowlUEHniqPvHfMmRDl1poWhBQ2/view?usp=sharing)
 
 :::

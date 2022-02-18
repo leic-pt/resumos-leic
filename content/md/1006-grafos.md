@@ -271,15 +271,15 @@ O resultado final é uma [Árvore Económica](#arvore-economica), que também se
 
 Também se pode usar o Algoritmos de Kruskal para encontrar uma árvore de cobertura máxima, basta ir assinalando as arestas pela ordem inversa (1º as que têm valor máximo).
 
-[Exemplo 1](https://drive.google.com/file/d/1NgSvB6UQeGYJ6huZq3bs-H_5HmP4DyvF/view?usp=sharing)
+[Exemplo 1](https://drive.google.com/file/d/1NgSvB6UQeGYJ6huZq3bs-H_5HmP4DyvF/view?usp=sharing)  
 [Exemplo 2](https://drive.google.com/file/d/1Q6XZtKX0j555RMUbwCqzEgGrdyuN2jon/view?usp=sharing)
 
 ### Algoritmo de Dijkstra
 
 O resultado final será uma `Árvore de Cobertura`, onde para cada $v_i$, $\operatorname{F}(i)$ é o `custo mínimo possível`.
 
-[Exemplo 1](https://drive.google.com/file/d/1l_czeoOKD8iraUcvxC6frQ5woZ0ZPxL8/view?usp=sharing)
-[Exemplo 2](https://drive.google.com/file/d/1SsrPh9jPIYL2Tll_Y2WCII27PtXHkMZt/view?usp=sharing)
+[Exemplo 1](https://drive.google.com/file/d/1l_czeoOKD8iraUcvxC6frQ5woZ0ZPxL8/view?usp=sharing)  
+[Exemplo 2](https://drive.google.com/file/d/1SsrPh9jPIYL2Tll_Y2WCII27PtXHkMZt/view?usp=sharing)  
 [Exemplo 3](https://drive.google.com/file/d/1OlzA0vowlUEHniqPvHfMmRDl1poWhBQ2/view?usp=sharing)
 
 ## Fluxos
