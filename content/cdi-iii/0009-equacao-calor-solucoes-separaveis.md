@@ -15,7 +15,7 @@ type: content
 ```
 
 // Vê o que achas desta apresentação
-Enquanto que, como vimos nos capítulos anteriores, as equações parciais ordinárias podem frequentemente ser resolvidas, o mesmo não se pode dizer sobre as **Equações Diferenciais Parciais**. 
+Enquanto que, como vimos nos capítulos anteriores, as equações parciais ordinárias podem frequentemente ser resolvidas, o mesmo não se pode dizer sobre as **Equações Diferenciais Parciais**.
 O estudo deste tipo de equações é uma das áreas em que a investigação matemática se mantém mais ativa ainda nos dias de hoje, e muito pouco se sabe sobre estas equações.
 Desta forma, apenas situações muito específicas e simples podem ser estudadas neste ramo.
 As equações estudadas no fim desta cadeira coincidem assim com as EDP mais simples e clássicas.
@@ -23,11 +23,11 @@ Estas são a equação do calor, das ondas e de Laplace.
 
 Nesta secção começamos com a equação do calor, que serve principalmente como introdução às **séries de Fourier** (o próprio Fourier usou as séries que hoje têm o seu nome para dar solução à equação do calor).
 
-/*
+/_
 Começamos o estudo das **Equações Diferenciais Parciais** através de uma pequena introdução
 à equação do calor e a soluções separáveis.
 Alguns destes conceitos podem ser úteis para o estudo da Série de Fourier.
-*/
+_/
 
 ## Equação do Calor
 
@@ -82,11 +82,11 @@ $$
 Du = \frac{\partial u}{\partial t} - k \frac{\partial ^u}{\partial x^2}
 $$
 
-que permite reescrever a equação do calor como o espaço nulo da transformação linear $D$, 
+que permite reescrever a equação do calor como o espaço nulo da transformação linear $D$,
 implicando que as soluções da equação formam um espaço linear.
 
-Sendo assim, encontrar uma base deste espaço é suficiente para descrever todas as soluções! 
-Sim, mas calma... Aqui estamos a trabalhar com espaços lineares de dimensão infinita, 
+Sendo assim, encontrar uma base deste espaço é suficiente para descrever todas as soluções!
+Sim, mas calma... Aqui estamos a trabalhar com espaços lineares de dimensão infinita,
 pelo que as coisas não são assim tão simples. No entanto, como vamos ver, é possível oferecer uma base com uma quantidade contável de elementos para soluções da equação do calor.
 
 :::
@@ -111,7 +111,7 @@ Para conseguirmos determinar soluções para a **Equação do Calor**, vamos apr
 Mais tarde iremos ver que este método também nos irá ser útil para outras equações, como a **Equação das Ondas** e a **Equação de Laplace**.
 Abaixo vamos apenas trabalhar com Equações do Calor.
 
-O método consiste em considerar a seguinte simplificação do problema inicial: 
+O método consiste em considerar a seguinte simplificação do problema inicial:
 a variação da função em relação ao tempo é independente da variação em relação à posição.
 Assim, podemos expressar a nossa função como produto de duas funções (em que cada uma só depende de uma das variáveis):
 
@@ -187,9 +187,10 @@ $$
 
 Este facto é tudo menos trivial. Na verdade, estamos a fazer um salto gigantesco de raciocínio.
 Ao fazer este salto estamos a assumir sem provar, por exemplo, que:
+
 - a quantidade de soluções da equação linear homogénea é contável, e portanto podemos expressar a sua soma com uma série;
 - mesmo assumindo o ponto anterior, não estamos a fazer qualquer verificação da correção da série apresentada, nomeadamente se converge ou não.
-No entanto, estas verificações são de um nível bastante superior ao que seria razoável neste resumo pelo que são omitidos.
+  No entanto, estas verificações são de um nível bastante superior ao que seria razoável neste resumo pelo que são omitidos.
 
 Note-se que o próprio Fourier, quando descobriu as séries de Fourier não se preocupou em fazer estas verificações, que só viriam a ser feitas por outros matemáticos que lhe sucederam.
 
@@ -222,24 +223,26 @@ Tomando então os resultados obtidos para $X$ na secção anterior, vamos determ
   X(x) = Ax + B
   $$
 
-/*
+/\*
 Acho que este passo só torna a coisa mais difícil de ler
-  $$
-  \begin{darray}{c}
-  X(0) = B & X(L) = AL + B\\
-  \end{darray}
-  $$
-*/
 
-  $$
-  X(0) = X(L) \Leftrightarrow B = AL + B \implies A = 0
-  $$
+$$
+\begin{darray}{c}
+X(0) = B & X(L) = AL + B\\
+\end{darray}
+$$
 
-  $$
-  X'(x) = A = 0, \forall x \Leftrightarrow X'(0) = X'(L)
-  $$
+\*/
 
-  Descobrimos assim uma solução constante, $X(x) = B$.
+$$
+X(0) = X(L) \Leftrightarrow B = AL + B \implies A = 0
+$$
+
+$$
+X'(x) = A = 0, \forall x \Leftrightarrow X'(0) = X'(L)
+$$
+
+Descobrimos assim uma solução constante, $X(x) = B$.
 
 - Se $\lambda > 0$:
 
@@ -249,22 +252,24 @@ Acho que este passo só torna a coisa mais difícil de ler
   X(x) = A e^{\sqrt{\lambda} x} + B e^{-\sqrt{\lambda} x}
   $$
 
-/*
+/\*
 Acho que este passo só torna a coisa mais difícil de ler
-  $$
-  \begin{darray}{c}
-  X(0) = A + B & X(L) = A e^{\sqrt{\lambda} L} + B e^{-\sqrt{\lambda} L}
-  \end{darray}
-  $$
-*/
 
-  $$
-  X(0) = X(L) \Leftrightarrow A + B = A e^{\sqrt{\lambda} L} + B e^{-\sqrt{\lambda} L} \implies e^{\sqrt{\lambda} L} = 1 \land e^{-\sqrt{\lambda} L} = 1
-  $$
+$$
+\begin{darray}{c}
+X(0) = A + B & X(L) = A e^{\sqrt{\lambda} L} + B e^{-\sqrt{\lambda} L}
+\end{darray}
+$$
 
-  Tanto $e^{\sqrt{\lambda} L} = 1$ como $e^{-\sqrt{\lambda} L} = 1$ são impossíveis se $\lambda > 0$, visto que para serem verdade, era necessário que $\lambda = 0$.
+\*/
 
-  Portanto, não existe nenhuma solução em que $\lambda > 0$.
+$$
+X(0) = X(L) \Leftrightarrow A + B = A e^{\sqrt{\lambda} L} + B e^{-\sqrt{\lambda} L} \implies e^{\sqrt{\lambda} L} = 1 \land e^{-\sqrt{\lambda} L} = 1
+$$
+
+Tanto $e^{\sqrt{\lambda} L} = 1$ como $e^{-\sqrt{\lambda} L} = 1$ são impossíveis se $\lambda > 0$, visto que para serem verdade, era necessário que $\lambda = 0$.
+
+Portanto, não existe nenhuma solução em que $\lambda > 0$.
 
 - Se $\lambda < 0$:
 
@@ -274,28 +279,30 @@ Acho que este passo só torna a coisa mais difícil de ler
   X(x) = A \cos\left(\sqrt{-\lambda} x\right) + B \sin\left(\sqrt{-\lambda} x\right)
   $$
 
-/*
+/\*
 Acho que este passo só torna a coisa mais difícil de ler
-  $$
-  \begin{darray}{c}
-  X(0) = A & X(L) = A \cos\left(\sqrt{-\lambda} L\right) + B \sin\left(\sqrt{-\lambda} L\right)
-  \end{darray}
-  $$
-*/
 
-  $$
-  \begin{aligned}
-  X(0) = X(L) & \implies A = A \cos\left(\sqrt{-\lambda} L\right) + B \sin\left(\sqrt{-\lambda} L\right)\\
-  & \implies \cos\left(\sqrt{-\lambda} L\right) = 1\\
-  & \implies \sqrt{-\lambda} L = 2n\pi & n \in \Z^+_0
-  \end{aligned}
-  $$
+$$
+\begin{darray}{c}
+X(0) = A & X(L) = A \cos\left(\sqrt{-\lambda} L\right) + B \sin\left(\sqrt{-\lambda} L\right)
+\end{darray}
+$$
 
-  Se continuarmos a desenvolver esta expressão, podemos então determinar uma expressão para $\lambda$
+\*/
 
-  $$
-  \sqrt{-\lambda} L = 2n\pi \Leftrightarrow \sqrt{-\lambda} = \frac{2n\pi}{L} \Leftrightarrow \lambda = - \frac{4n^2\pi^2}{L^2}, n \in \Z^+_0
-  $$
+$$
+\begin{aligned}
+X(0) = X(L) & \implies A = A \cos\left(\sqrt{-\lambda} L\right) + B \sin\left(\sqrt{-\lambda} L\right)\\
+& \implies \cos\left(\sqrt{-\lambda} L\right) = 1\\
+& \implies \sqrt{-\lambda} L = 2n\pi & n \in \Z^+_0
+\end{aligned}
+$$
+
+Se continuarmos a desenvolver esta expressão, podemos então determinar uma expressão para $\lambda$
+
+$$
+\sqrt{-\lambda} L = 2n\pi \Leftrightarrow \sqrt{-\lambda} = \frac{2n\pi}{L} \Leftrightarrow \lambda = - \frac{4n^2\pi^2}{L^2}, n \in \Z^+_0
+$$
 
 Assumindo que $u(x,t)$ é não nula (se fosse, a solução seria trivial), podemos agora juntar tudo o que calculámos.
 
@@ -304,14 +311,14 @@ Fazemos o mesmo para $T(t)$.
 
 $$
 \begin{darray}{c}
-X(x) = A \cos\left(\sqrt{-\lambda} x\right) + B \sin\left(\sqrt{-\lambda} x\right) 
+X(x) = A \cos\left(\sqrt{-\lambda} x\right) + B \sin\left(\sqrt{-\lambda} x\right)
 = A \cos \frac{2\pi n}{L}x + B \sin \frac{2\pi n}{L}x
 \end{darray}
 $$
 
 $$
 \begin{darray}{c}
-T(t) = c e^{\lambda k t} 
+T(t) = c e^{\lambda k t}
 = c e^{-\frac{4\pi^2 n^2}{L^2}t}
 \end{darray}
 $$
