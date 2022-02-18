@@ -19,3 +19,11 @@ Algoritmos de ordenação: inserção direta, seleção direta, bubblesort, quic
 Estruturas de dados: pilhas, filas de espera, filas de prioridade, amontoados, árvores e tabelas de dispersão.
 
 Grafos: representação, pesquisa em largura e profundidade, árvores abrangentes de menor curto, caminhos mais curtos de fonte única.
+
+## Recursos
+
+:::info[Slides]
+
+Os Slides que tipicamente acompanham a cadeira, bem como o conjunto de exercícios encontram-se disponíveis na página da cadeira no Fénix, não sendo possível disponibilizá-los nesta página.
+
+:::
