@@ -38,11 +38,9 @@ $$
 
 em que:
 
-/* esta fórmula é redundante
 $$
 a_0 = \frac{1}{L} \int_{-L}^{L} f(x) \d x
 $$
-*/
 
 $$
 a_n = \frac{1}{L} \int_{-L}^{L} f(x) \cos\left(\frac{n\pi x}{L}\right) \d x
@@ -52,12 +50,7 @@ $$
 b_n = \frac{1}{L} \int_{-L}^{L} f(x) \sin\left(\frac{n\pi x}{L}\right) \d x
 $$
 
-:::
-
-// this should colapse
-:::tip
-
-Note-se que na expressão a cima passámos o termo $n=0$ para fora da série e trocamos $a_0$ por $\frac{a_0}{2}$. Isto é feito para que a fórmula do $a_n$ se aplique também ao $a_0$.
+Note-se que na expressão acima passámos o termo $n=0$ para fora da série e trocamos $a_0$ por $\frac{a_0}{2}$. Isto é feito para que a fórmula do $a_n$ se aplique também ao $a_0$.
 
 :::
 
@@ -80,7 +73,7 @@ ficamos com a seguinte equivalência:
 $$
 SF_f(x) = \begin{cases}
 \overline{f} (x) & \text{sendo } x \text{ um ponto de continuidade de } \overline{f}\\
-\frac{\overline{f} (x^+) + \overline{f} (x^-)}{2} & \text{sendo } x \text{ um ponto de descontinuidade de } \overline{f}
+\frac{\overline{f} (x^+) + \overline{f} (x^-)}{2} & \text{sendo } x \text{ um ponto de descontinuidade de } \overline{f}\\
 \frac{\overline{f} (L^-) + \overline{f} (-L^+)}{2} & \text{sendo } x = -L \vee x = L
 \end{cases}
 $$
@@ -103,13 +96,15 @@ $$
 SF_f(x) = \frac{a_0}{2} + \sum_{n=1}^{+\infty} \left( a_n \cos\left(n \pi x\right) + b_n \sin\left(n\pi x\right) \right)
 $$
 
-O próximo passo é determinar $a_n$ e $b_n$. Tanto $a_n$ é simples de determinar,
+O próximo passo é determinar $a_n$ e $b_n$. $a_n$ é simples de determinar,
 visto que $f$ é uma [função ímpar](https://en.wikipedia.org/wiki/Even_and_odd_functions#Odd_functions).
 Isto significa que $f(x) \cdot cos(n \pi x)$ também é ímpar (já que o cosseno é par), e portanto
 
 $$
 a_n = \int_{-1}^{1} f(x)\cos(n\pi x) \d x = 0, \forall n \in \N
 $$
+
+Mais ainda, $a_0$ também será 0, já que teríamos $\int_{-1}^{1} f(x) \d x$: o integral de uma função ímpar num intervalo do tipo $[-L, L]$ é 0.
 
 Por outro lado, para $b_n$, já temos de fazer mais cálculos, embora seja possível simplificá-los
 se repararmos que o produto de duas funções ímpares (o seno e $f$) é uma função par, sabemos que o seu
@@ -187,6 +182,8 @@ Como $x$ é função ímpar e $\cos(nx)$ é função par, o produto de ambas vai
 $$
 a_n = \frac{1}{\pi} \int_{-\pi}^{\pi} x \cos(nx) \d x = 0
 $$
+
+Mais ainda, visto que $x$ é ímpar, tal como visto mais acima, $\int_{-\pi}^{\pi} x  \d x = 0$.
 
 Para determinarmos $b_n$, já necessitamos mais cálculos:
 
@@ -311,6 +308,12 @@ S_{\cos}f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} a_n \cos \left(\frac{n\pi x}{
 $$
 
 em que
+
+$$
+a_0 = \frac{2}{L} \int_{0}^{L} f(x) \d x
+$$
+
+e
 
 $$
 a_n = \frac{2}{L} \int_{0}^{L} f(x)\cos\left(\frac{n\pi x }{L}\right) \d x
