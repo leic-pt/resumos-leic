@@ -286,5 +286,3 @@ Para aumentar a eficiência da geração de provas por resolução, foram desenv
 - **Correção e completude da resolução**
 
   A resolução é correta mas não completa. Não é possível demonstrar todos os argumentos válidos. Contudo, a resolução é completa no que à **refutação** diz respeito, visto que podemos sempre derivar a cláusula vazia caso o conjunto inicial de cláusulas seja insatisfazível.
-
-[Slides](https://drive.google.com/file/d/1bz5sZcAbO-5K_fWAGxk3CAbGUs-LIRIQ/view?usp=sharing)

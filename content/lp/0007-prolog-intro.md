@@ -434,7 +434,3 @@ Sequência de objetivos neste processo:
 :::
 
 Há ainda mais exemplos nos slides e no livro.
-
-[Slides (até às listas, não inclusive)](https://drive.google.com/file/d/1SFMZOOwxJFUZESPVZkRkDygGzmgsLad1/view?usp=sharing)
-
-[Slides (listas)](https://drive.google.com/file/d/1g8IvdcEWB4nkGthrSACSWA6HYFlwmBRp/view?usp=sharing)

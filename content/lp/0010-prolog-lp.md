@@ -262,5 +262,3 @@ a(M, N, V) :-
 
 true.
 ```
-
-[Slides](https://drive.google.com/file/d/16k6BT2NKYoqjn8oNd4-kzMgjK2Nrdv_i/view?usp=sharing)

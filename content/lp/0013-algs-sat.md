@@ -241,5 +241,3 @@ $b_{Q}:$
 $b_{T}:$
 
 A escolha desta ordem levou a menos processamento do que a escolha da ordem anterior, pelo que esta escolha teria sido bastante melhor (e mais simples).
-
-[Slides (do 25 para a frente)](https://drive.google.com/file/d/1ZuegnTFgn5SmM4qh2zPu2wpbbNDi5KaP/view?usp=sharing)
