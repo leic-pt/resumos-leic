@@ -5,6 +5,12 @@
 # AL - Main maintainer Diogo Correia
 content/al/** @diogotcorreia
 
+# AMS - Main maintainer Diogo Correia
+content/ams/** @diogotcorreia
+
+# Apre - Main maintainer Diogo Correia
+content/apre/** @diogotcorreia
+
 # ASA - Main maintainer Diogo Gaspar
 content/asa/** @randomicecube
 
@@ -19,6 +25,15 @@ content/cdi-ii/** @diogotcorreia
 
 # CDI-III - Main maintainer Diogo Correia
 content/cdi-iii/** @diogotcorreia
+
+# CG - Main maintainer Diogo Correia
+content/cg/** @diogotcorreia
+
+# Comp - Main maintainer Diogo Correia
+content/comp/** @diogotcorreia
+
+# ES - Main maintainer Diogo Correia
+content/es/** @diogotcorreia
 
 # Fis-I - Main maintainer Diogo Correia
 content/fis-i/** @diogotcorreia
@@ -60,12 +75,21 @@ content/md/imgs/* @jmseca
 content/md/exercicios/* @diogotcorreia
 content/md/tools/* @diogotcorreia
 
+# OC - Main maintainer Diogo Correia
+content/oc/** @diogotcorreia
+
 # PE - Main maintainer Diogo Correia
 content/pe/** @diogotcorreia
 
 # PO - Main maintainer Diogo Correia
 content/po/** @diogotcorreia
 content/po/guides/** @diogotcorreia
+
+# RC - Main maintainer Diogo Correia
+content/rc/** @diogotcorreia
+
+# SD - Main maintainer Diogo Correia
+content/sd/** @diogotcorreia
 
 # SO - Main maintainer Tomás Esteves
 content/so/** @Pesteves2002
