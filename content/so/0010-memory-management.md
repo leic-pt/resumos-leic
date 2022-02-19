@@ -21,14 +21,11 @@ type: content
 
 ## Gestor de Memória
 
-Definimos **espaço de endereçamento** como o conjunto de posições de memória que um processo pode referenciar.
+Definimos [**espaço de endereçamento**](color:red) de um processo como o conjunto de posições de memória que este pode referenciar.  
 Mais uma vez, é a função do SO oferecer ao utilizador uma interface que lhe permita aceder indiretamente à memória, de forma segura.
-Esta interface deve então impedir um processo de aceder a posições que não pertencem ao seu espaço de endereçamento (lançando uma exceção, e resolvendo-a apropriadamente - tipicamente terminando o processo).
 
 O gestor de memória deve também ter em consideração que a memória é constituída por:
-
 - **Memória Principal (física ou primária)**:
-
   - tempo de acesso reduzido;
   - bom desempenho com acessos aleatórios;
   - custo elevado;
@@ -51,10 +48,14 @@ O gestor de memória tem então a responsabilidade de gerir o espaço de endere�
 
 ## Endereçamento Virtual
 
-Os endereços referenciados por um processo não correspondem diretamente ao espaços em memória onde a informação está guardada.
-A unidade de gestão de memória (UGM) estabelece um filtro que converte os endereços virtuais em endereços reais.
+Os endereços referenciados por um processo não correspondem diretamente ao espaços em memória onde a informação está guardada.  
+Os computadores têm um pedaço de hardware a que se dá o nome de [**unidade de gestão de memória**](https://en.wikipedia.org/wiki/Memory_management_unit) (**UGM**) que estabelece um filtro que converte os endereços virtuais em endereços reais.
+
+![Papel da Unidade de Gestão de Memória](./imgs/0010/ugm.png#dark=1)
+
 Para minimizar a informação necessária à conversão, a memória virtual é logicamente dividida em blocos contíguos.
-Um endereço virtual corresponde então a um par (bloco, deslocamento).
+Um endereço virtual corresponde então a um par (bloco, deslocamento).  
+Como vamos ver mais à frente há dois tipos de blocos: [**segmentos**](color:red) (dimensão variável) e [**páginas**](color:yellow) (dimensão constante).
 
 A maioria dos acessos a memória são traduzidos e servidos pela UGM, sendo que um processo em modo utilizador mantém-se nesse modo.
 O núcleo só se envolve na tradução quando:
@@ -63,41 +64,51 @@ O núcleo só se envolve na tradução quando:
 - a página acedida não está presente (vamos ver mais à frente);
 - acesso é ilegal (fora dos limites ou sem permissões)
 
-Devido às limitações da memória principal, nem todos os blocos podem residir lá.
-Desta forma é relevante tentar prever que blocos vão ser acedidos num futuro príxmo.
-Para isto é usado o **princípio da localidade de referência**:
-se um certo endereço é acedido, a probabilidade de haver um acesso a um endereço primo num futuro próximo é mais elevada.
+Um bom gestor de memória deve evitar **fragmentação**:
 
-Um bom gestor de memória deve ainda evitar **fragmentação**:
-
-- **interna**: desperdício de memório **dentro** de um bloco;
-- **externa**: desperdício de memório **entre** blocos.
-
-Vamos então estudar dois modelos de gestão de memória: segmentação e paginação.
+- **interna**: desperdício de memória **dentro** de um bloco;
+- **externa**: desperdício de memória **entre** blocos.
 
 ### Segmentos
 
 A **segmentação** consiste na divisão dos programas em segmentos lógicos que refletem a sua estrutura funcional (rotinas, módulos, código, dados, pilha, etc).
-Assim, a conversão de endereços virtuais é linear em cada segmento.
-O programador pode ter que se preocupar com a gestao de memória quando escreve um programa.
-Nesta solução, o segmento torna-se a unidade de carregamento em memória e de proteção.
-A dimensão dos segmentos fica então limitada: nomeadamente não pode exceder a dimensão da memória principal.
+Assim, a conversão de endereços virtuais é linear em cada segmento, sendo o segmento a unidade de proteção e de carregamento em memória. Desta forma, a dimensão dos segmentos fica limitada: não pode exceder a dimensão da memória principal.  
+Nesta solução, o programador pode ter que se preocupar com a gestao de memória quando escreve um programa.
+
+Os endereços físicos são obtidos pela UGM como descrito na imagem a baixo:
 
 ![Tradução de Endereços Virtuais em Memória Segmentada](./imgs/0010/segments_translation.png#dark=1)
 
-A memória virtual segmentada tem a seguinte proteção:
+Como dito atrás, um endereço virtual é um par ([segmento](color:orange), [deslocamento](color:yellow)). Informação sobre os segmentos pode ser encontrada numa **tabela de segmentos**. 
+Através do [segmento](color:orange) no endereço virtual, encontramos a posição nesta tabela em que se encontra a informação relativa a este segmento.  
+Uma entrada da tabela de segmentos é constituída por:
 
-- verificação de limites de endereçamento intra-segmentos;
-- verificação e limitação dos tipos de acesso ao segmento: leitura, escrita e execução;
-- processos diferentes têm tabelas de segmentos diferentes: espaços de endereçamento disjuntos e inacessíveis a terceiros.
+- bit **P**, que indica se o segmento correspondente a esta entrada está presente na memória principal;
+- bits **Prot** que definem as proteções do segmento em causa, nomeadamente se o processo tem permissão para ler nele, escrever nele e/ou executá-lo.
+- **Limite**, que indica o número de endereços que constiutuem este segmento. Desta forma, podemos verificar se estamos a aceder fora do endereço comparando o [deslocamento](color:yellow) com o Limite;
+- **Base**, que corresponde ao endereço na memória principal em que está a informação relativa ao segmento.
 
-Este tipo de gestão é muito suscetível a fragmentação externa.
+:::tip[Nota]
+
+A posição na tabela de segmentos correspondente a um segmento é obtida somando à posição do segmento o valor de **BTS** - **Base da Tabela de Segmentos**, um valor que corresponde à posição em memória em que a tabela de segmentos está guardada.  
+Este valor, bem como o **LTS** - **Limite da Tabela de Segmentos**, é guardado num registo da UGM, sendo mudado sempre que o CPU é atribuído a um processo novo.
+O LTS serve para garantir que nenhum acesso a este segmento é feito fora do seu limite.
+
+:::
 
 ### Páginas
 
 A **paginação** consiste em constituir a memória por blocos de tamanho fixo, chamados **páginas**.
 
 ![Tradução de Endereços Virtuais em Memória Segmentada](./imgs/0010/pages_translation.png#dark=1)
+
+Em sistemas paginados, um endereço virtual será então um par ([página](color:orange), [deslocamento](color:yellow)) em que [página](color:orange) define uma entrada na tabela de páginas.  
+Uma entrada da tabela de páginas é constituída por:
+
+- bit **P**, que indica se a página correspondente a esta entrada está presente na memória principal;
+- bits **R** e **M** que vamos ver mais à frente para que servem;
+- bits **Prot** que definem as proteções da página em causa, nomeadamente se o processo tem permissão para ler nele, escrever nele e/ou executá-lo.
+- **Base**, que corresponde ao endereço na memória principal em que está a informação relativa à página.
 
 Nesta solução, os segmentos lógicos do espaço de endereçamento passam a ser compostos por múltiplas páginas, sendo possível um segmento lógico estar parcialmente presente.
 Se uma instrução do processador aceder a endereços em mais que uma página, a instrução pode encontrar uma falta de página a meio da execução.
@@ -110,12 +121,14 @@ Nesta solução, é relevante discutir qual a melhor dimensão para as páginas.
 - tempo de transferência de páginas;
 - a dimensão das tabelas de páginas e listas de páginas mantidas pelo sistema operativo.
 
-Hoje em dia, o valor típico para o tamanho de páginas é 4 KBytes.
+Hoje em dia, o valor típico para o tamanho de páginas é 4 KBytes.  
 
-A memória paginada tem a seguinte proteçao:
+:::details[Nota]
 
-- verificação dos tipos de acesso: leitura, escrita e execução;
-- processos diferentes têm tabelas de páginas diferentes: espaços de endereçamento disjuntos e inacessíveis a terceiros.
+O facto de este valor ser uma potência de base 2 garante que o deslocamento de um dado endereço num bloco corresponde aos dígitos menos significativos do endereço real associado.
+Desta forma, a nível de arquitetura, a operação de obtenção do endereço real (base + deslocamento) pode ser feita com uma disjunção lógica (como aludido na imagem a cima).
+
+:::
 
 ## Otimização de tradução de endereços
 
@@ -125,7 +138,9 @@ Esta tabela permite acesso bastante mais rápido às páginas pois está guardad
 ![Tabela de Tradução de Endereços](./imgs/0010/tlb.png#dark=1)
 
 A ideia é que as próximas páginas a que um programa aceda estejam nesta tabela.
-Como é impossível prever isso, mais uma vez, a UGM toma o comportamento recente do programa como uma boa previsão do seu futuro próximo.
+Como é impossível prever isso, mais uma vez, a UGM usa o **princípio da localidade de referência**.
+Desta forma, sempre que uma página é visitada, a UGM coloca a hipótese que esta página poderá voltar a ser requesitada num futuro próxima, pelo que coloca a sua posição em memória no TLB.
+
 A dimensão desta tabela é pequena, em geral (64, 128 entradas), uma vez que o seu custo é elevado.
 A sua dimensão é testada de forma a obter percentagens de sucesso muito elevadas (90-95%).
 
@@ -138,16 +153,17 @@ O carregamento das páginas na TLB é feito de acordo com o seguinte diagrama:
 
 ## Tabelas de páginas multi-nível
 
-Assumindo que o espaço de endereçamento virtual tem endereços de 64 bits e páginas de 4 Kbytes ($2^12$ bytes), temos que o espaço de endereçamento virtual consegue guardar $\frac{2^{64}}{2^{12}} = 2^{52}$ páginas.
+Assumindo que o espaço de endereçamento virtual tem endereços de 64 bits e páginas de 4 Kbytes ($2^{12}$ bytes), temos que o espaço de endereçamento virtual consegue guardar $\frac{2^{64}}{2^{12}} = 2^{52}$ páginas.
 Se uma entrada na tabela de páginas ocupar 4 bytes, temos que a tabela de páginas terá então $2^2 \cdot 2^{52} = 2^{54}$ bytes, ou seja 16 Petabytes.
 
-Ora, isto é muita memória. É então necessária uma forma de endereçar as páginas sem consumir tanta memória. É então usada uma **tabela de páginas multi-nível**.
+Ora, isto é muita memória. Note-se que, sempre que um processo novo é iniciado, o SO precisa de aceder à tabela de páginas desse processo (nem que seja para ler na secção de código que instrução deve executar a seguir).
+Ora, carregar 16 Petabytes para a memória principal é impossível.  
+É então necessária uma forma de endereçar as páginas sem consumir tanta memória. 
+É usada uma **tabela de páginas multi-nível**.
 Existe uma tabela de páginas de nível 1, que endereça páginas que, elas próprias, consistem em tabelas de páginas.
-Isto permite, entre outros, que só estejam em memória tabelas de páginas correspondentes às páginas que estão de facto a ser utilizadas pelo processo correspondente.
+Esta solução resolve o problema apresentado, garantindo que só estão em memória tabelas de páginas correspondentes às páginas que estão de facto a ser utilizadas pelo processo.
 
 ![Tabela de Páginas Multi-Nível](./imgs/0010/multilevel_page_table.png#dark=1)
-
-// TODO acabar isto
 
 ## Partilha de memória entre processos
 
@@ -168,7 +184,33 @@ Quando ocorre um fork() o gestor de memória:
 - quando o pai ou o filho tentam escrever numa página partilhada por CoW, ocorre uma exceção (pois não há permissão de escrita). Então, o núcleo acorda e:
   - aloca uma nova página, para onde copia o conteúdo da página partilhada;
   - atualiza a entrada da tabela do processo onde ocorreu a exceção com a base (endereço físico) da nova página e novas permissões (escrita ativada, CoW desativado);
-  - caso a página original já só seja referenciada por um processo, atualiza a entrada na tabela de páginas que lhe corresponde, atualizando as permissões (escrita ativada, CoW desativado).
+  - caso a página original já só seja referenciada por um processo, atualiza a entrada na tabela de páginas que lhe corresponde, atualizando as permissões (escrita ativada, CoW desativado). Caso contrário, as permissões mantêm-se.
+
+
+## Mecanismos de Gestão de Memória em Unix/Linux
+
+### Unix
+
+As primeiras implementações de Unix (até versão 7) executavam-se com arquitetura segmentada de 16 bits, com espaços de endereçamento de 64 Kbytes, dividido em oito segmentos de 8 Kbytes cada.
+A gestão de memória era muito simples:
+- os processos eram carregados na sua totalidade em memória;
+- caso não houvesse espaço disponível em memória, o SO transferia para memória secundária os processos que estivessem bloqueados ou com menor prioridade;
+- a transferência de processos era feita por um processo denominado _swapper_.
+
+As versões atuais de Unix usam principalmente arquiteturas paginadas e dividem o espaço de endereçamento em três regiões: código, dados e pilha.
+Novas regiões podem ser criadas dinamicamente durante a execução dos programas.
+Cada região tem uma tabela de páginas própria.
+
+### Linux
+
+Linux usa tabelas de páginas multinível com três níveis:
+- **Page Global Directory** (**PGD**): tabela de mais alto nível;
+- **Page Middle Directory** (**PMD**): tabela de nível intermédio;
+- Tabela de páginas;
+
+Os endereços virtuais neste sistem são então constituídos por quatro secções: uma secção que determina a posição na tabela em cada um dos três níveis e uma secção que determina o deslocamento na página.
+
+![Gestão de Memória em Linux](./imgs/0010/linux_memory.png#dark=1)
 
 ## Algoritmos de Gestão de Memória
 
@@ -216,7 +258,7 @@ Há três abordagens para a transferência de segmentos:
 
 - a pedido (**on request**): o programa ou o sistema operativo determinam quando se deve carregar o bloco em memória principal (normalmente usado na memória segmentada);
 - por necessidade (**on demand**): o bloco é acedido e gera-se uma falta (de segmento ou de página), sendo necessário carregá-lo para a memória principal (normalmente usado na memória paginada);
-- por antecipação (**prefetching**): o bloco é carregado na memória principal pelo sistema operativo porque este considera fortemente provável que ele venha a ser acedido nos próximos instantes.
+- por antecipação (**prefetching**): o bloco é carregado na memória principal pelo sistema operativo porque este considera fortemente provável que ele venha a ser acedido nos próximos instantes. Isto é normalmente feito de acordo com o **princípio da localidade de referência**.
 
 **Transferência de Segmentos**
 
