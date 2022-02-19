@@ -259,7 +259,7 @@ A operação fork() reserva uma entrada na tabela `proc` (Unix), verifica se o u
 De seguida, copia o contexto do processo pai: como a região de código é partilhada, apenas é incrementado o contador do número de utilizadores que acedem a essa região, as restantes regiões são copiadas.
 Finalmente, é retornado o `pid` do novo processo ao processo pai, e zero ao filho (esses valores são colocados nas pilhas respetivas).
 
-// inserir imagem no slide 67
+![Criação de processos](./imgs/0009/process_creation.png)
 
 ### exit()
 
