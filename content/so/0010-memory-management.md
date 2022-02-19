@@ -28,6 +28,7 @@ Esta interface deve então impedir um processo de aceder a posições que não p
 O gestor de memória deve também ter em consideração que a memória é constituída por:
 
 - **Memória Principal (física ou primária)**:
+
   - tempo de acesso reduzido;
   - bom desempenho com acessos aleatórios;
   - custo elevado;
@@ -190,15 +191,18 @@ Na libertação de memória é necessário recompactar os segmentos.
 Para a reserva de segmentos, podemos usar vários critérios de escolha:
 
 - **_best-fit_** (o menor possível):
+
   - gera elevado número de fragmentos;
   - em média percorre-se metade da lista de blocos livres na procura (com lista ordenada por tamanho);
   - a lista tem de ser percorrida outra vez para introduzir o fragmento.
 
 - **_worst-fit_** (o maior possível):
+
   - pode facilmente impossibilitar a reserva de blocos de grandes dimensões;
   - a lista de blocos livres tem de ser percorrida para introduzir o fragmento.
 
 - **_first-fit_** (o primeiro possível):
+
   - minimiza tempo gasto a percorrer a lista de blocos livres;
   - gera muita fragmentação externa;
   - acumula muitos blocos pequenos no início da lista, ficando para o fim os blocos maiores.

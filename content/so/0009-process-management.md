@@ -118,6 +118,7 @@ A página encontra-se em construção, sendo que os conteúdos ainda não estão
 Damos o nome de [**escalonamento**](color:pink) (ou em inglês, [**_scheduling_**](color:pink)) ao conceito de definir que processo é que tem acesso a que CPU em cada momento.
 Para o nosso escalonamento ser o melhor possível, é necessário definir métricas para um bom escalonamento.
 Estas podem ser:
+
 - **Débito (throughput)**: maximizar número de _jobs_ por hora;
 - **Turn around time**: minimizar tempo entre a submissão do _job_ e a obtenção do resultado;
 - **Utilização de CPU**: maximizar percentagem de tempo de uso do processador;
@@ -128,31 +129,33 @@ Estas podem ser:
 Vamos então analisar várias políticas de escalonamento, e ver quais as suas vantagens e desvantagens.
 
 [**_Round-Robin_**](color:orange)  
-  Pretende que todos os processos executáveis tenham acesso ao CPU ciclicamente.
-  Faz-se isso dispondo os processos executáveis numa FIFO. Sempre que o CPU está disponível, o elemento na frente da FIFO recebe o CPU durante um **quantum** ou **_time-slice_**.  
-  Isto é, nenhum processo será executado (de seguida) mais do que um dado período de tempo consecutivo.
-  O processo perde o CPU quando:
-  - o seu quantum acaba - o processo é reinserido no fim da fila;
-  - chama uma _syscall_ que o bloqueia - o processo é reinserido no fim da fila quando é desbloqueado;
-  - termina.
+ Pretende que todos os processos executáveis tenham acesso ao CPU ciclicamente.
+Faz-se isso dispondo os processos executáveis numa FIFO. Sempre que o CPU está disponível, o elemento na frente da FIFO recebe o CPU durante um **quantum** ou **_time-slice_**.  
+ Isto é, nenhum processo será executado (de seguida) mais do que um dado período de tempo consecutivo.
+O processo perde o CPU quando:
 
-  Esta política tem a desvantagem de poder causar elevados tempos de resposta, principalmente em situações de congestionamento.
-  Nomeadamente, se houver processos que exijam muito CPU, e outros que sejam mais I/O intensivos, devemos dar mais prioridade aos do segundo tipo (pois são pouco exigentes do CPU e necessitam de resposta rápida).
+- o seu quantum acaba - o processo é reinserido no fim da fila;
+- chama uma _syscall_ que o bloqueia - o processo é reinserido no fim da fila quando é desbloqueado;
+- termina.
+
+Esta política tem a desvantagem de poder causar elevados tempos de resposta, principalmente em situações de congestionamento.
+Nomeadamente, se houver processos que exijam muito CPU, e outros que sejam mais I/O intensivos, devemos dar mais prioridade aos do segundo tipo (pois são pouco exigentes do CPU e necessitam de resposta rápida).
 
 [**Multi-lista**](color:yellow)  
-  É guardada uma multi-lista, em que cada lista tem processos com uma dada [**prioridade**](color:purple).
-  Processos mais prioritários recebem CPU primeiro. A prioridade de um processo pode ser fixa ou dinâmica.  
-  Note-se que um sistema que apenas prioridades fixas sujeita-se a que os processos menos prioritários nunca recebam CPU,
-  enquanto que prioridades dinâmicas permitem ir tornando os processos que não recebem CPU há mais tempo mais prioritárias.
-  Esta política permite ainda atribuir quantum diferentes a prioridades diferentes.
+ É guardada uma multi-lista, em que cada lista tem processos com uma dada [**prioridade**](color:purple).
+Processos mais prioritários recebem CPU primeiro. A prioridade de um processo pode ser fixa ou dinâmica.  
+ Note-se que um sistema que apenas prioridades fixas sujeita-se a que os processos menos prioritários nunca recebam CPU,
+enquanto que prioridades dinâmicas permitem ir tornando os processos que não recebem CPU há mais tempo mais prioritárias.
+Esta política permite ainda atribuir quantum diferentes a prioridades diferentes.
 
 [**Preempção**](color:green)  
 O conceito de preempção consiste em retirar o CPU ao processo em execução logo que haja um mais prioritário.
-  Isto permite melhorar o tempo de reação a processos mais prioritários. No entanto, se houver um influxo frequente de processos mais prioritários,
-  esta política pode dar lugar a mudanças frequentes de contexto, que "desperdiçam" tempo de CPU (que pode e deve ser usado a responder aos processos).  
-  É então aplicada **pseudo-preempção**: o processo perde o CPU para o mais prioritário, apenas se já tiver utilizado o CPU durante um tempo mínimo.
+Isto permite melhorar o tempo de reação a processos mais prioritários. No entanto, se houver um influxo frequente de processos mais prioritários,
+esta política pode dar lugar a mudanças frequentes de contexto, que "desperdiçam" tempo de CPU (que pode e deve ser usado a responder aos processos).  
+ É então aplicada **pseudo-preempção**: o processo perde o CPU para o mais prioritário, apenas se já tiver utilizado o CPU durante um tempo mínimo.
 
 Os [**escalonadores hoje em dia**](color:blue):
+
 - usam multi-filas com prioridades dinâmicas e fixas;
 - são pseudo-preemptivos com quantum variável;
 - atuam sobre tarefas e não processos (sendo um processo um conjunto de uma ou mais tarefas).
@@ -258,7 +261,7 @@ O Gestor de Processos em Unix recalcula a prioridade de todos os processos a cad
 ### Gestor de Processos no Linux
 
 O Gestor de Processos em Linux tenta resolver o problema encontrado no Gestor de Processos do Unix.  
-Para isso, divide o tempo em épocas. 
+Para isso, divide o tempo em épocas.
 Uma época acaba quando todos os processos usaram o seu quantum disponível ou estão bloqueados. No início de cada época, é atribuido a cada processo um quantum e uma prioridade da seguinte forma:
 
 $$
@@ -274,11 +277,11 @@ Ao contrário do Unix, as prioridades mais importantes são as com valor mais el
 
 ### Completely Fair Scheduler (CFS)
 
-O CFS é o _scheduler_ usado desde 2007 pelo Linux (o que vimos agora foi entretanto abandonado). 
+O CFS é o _scheduler_ usado desde 2007 pelo Linux (o que vimos agora foi entretanto abandonado).
 Cada processo tem um atributo **_vruntime_** que representa o tempo cumulado de execução em modo utilizador do processo.  
 Quando o processo perde CPU, o seu _vruntime_ é incrementado com o tempo executado nesse quantum.
 Temos que o processo mais prioritário é o com _vruntime_ mínimo. Um novo processo entra com _vruntime_ igual ao mínimo entre o _vruntime_ dos processos ativos.  
-Os processos são guardados numa _red-black tree_ ordenada por _vruntime_, que permite encontrar o processo mais prioritário em O(log n) em vez de O(n).  
+Os processos são guardados numa _red-black tree_ ordenada por _vruntime_, que permite encontrar o processo mais prioritário em O(log n) em vez de O(n).
 
 É ainda possível definir prioridades estáticas superiores às dinâmicas (modo utilizador) em contexto _real-time_ ("_soft_", no sentido que não é 100% _real-time_). Para isto, são necessários privilégios de núcleo.
 
@@ -302,12 +305,14 @@ Finalmente, envia signal death of child (SIGCHILD) ao processo pai (que por omis
 
 **wait()**  
 O operação `wait()` procura por filhos zombie:
+
 - se não há filho zombie, o pai fica bloqueado;
 - se não há filhos, a funçao retorna imediatamente.
-O pid do filho e estado do exit são returnados através do wait e a estrutura `proc` do filho é finalmente libertada.
+  O pid do filho e estado do exit são returnados através do wait e a estrutura `proc` do filho é finalmente libertada.
 
 **exec()**  
 A funçao `exec()` executa um novo programa no âmbito de um processo já existente:
+
 - primeiro, verifica se o ficheiro existe e é executável;
 - copia argumentos da chamada exec da pilha do utilizador para o núcleo (pois o contexto utilizador irá ser destruído);
 - liberta as regiões de dados e pilha ocupadas pelo processo;
@@ -323,4 +328,3 @@ Antes do processo receber de novo execução, o despacho salta para a rotina de 
 
 **pthread_mutex**  
 Fechar e abrir mutex's são chamadas de sistema. O núcleo mantém o estado de cada trinco, bem como uma lista de tarefas bloqueadas por esse trinco.
-
