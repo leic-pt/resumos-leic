@@ -1,0 +1,62 @@
+meta:
+  - content/meta/**/*
+  - content/index.md
+  - content/assets/**/*
+
+# Courses
+al:
+  - content/al/**/*
+ams:
+  - content/ams/**/*
+apre:
+  - content/apre/**/*
+asa:
+  - content/asa/**/*
+bd:
+  - content/bd/**/*
+cdi-i:
+  - content/cdi-i/**/*
+cdi-ii:
+  - content/cdi-ii/**/*
+cdi-iii:
+  - content/cdi-iii/**/*
+cg:
+  - content/cg/**/*
+comp:
+  - content/comp/**/*
+es:
+  - content/es/**/*
+fis-i:
+  - content/fis-i/**/*
+fis-ii:
+  - content/fis-ii/**/*
+fp:
+  - content/fp/**/*
+ges:
+  - content/ges/**/*
+iac:
+  - content/iac/**/*
+iaed:
+  - content/iaed/**/*
+iei:
+  - content/iei/**/*
+ipm:
+  - content/ipm/**/*
+lp:
+  - content/lp/**/*
+md:
+  - content/md/**/*
+oc:
+  - content/oc/**/*
+pe:
+  - content/pe/**/*
+po:
+  - content/po/**/*
+rc:
+  - content/rc/**/*
+sd:
+  - content/sd/**/*
+so:
+  - content/so/**/*
+tc:
+  - content/tc/**/*
