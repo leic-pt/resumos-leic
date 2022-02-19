@@ -85,8 +85,8 @@ $$
  &  & 0 & 1 & 2 & 3\\
  &  & k^{0} & k^{1} & k^{2} & k^{3}\\
 0 & k^{\underline{0}} & 1 & 0 & 0 & 0\\
-\textcolor{#C8553D}{\mathbf{c}} & k^{\underline{1}} & \textcolor{#C8553D}{\mathbf{a}} & \textcolor{#C8553D}{\mathbf{b}} & 0 & 0\\
-2 & k^{\underline{2}} & 0 & \textcolor{#C8553D}{\mathbf{d}} & 1 & 0\\
+\smartcolor{red}{\mathbf{c}} & k^{\underline{1}} & \smartcolor{red}{\mathbf{a}} & \smartcolor{red}{\mathbf{b}} & 0 & 0\\
+2 & k^{\underline{2}} & 0 & \smartcolor{red}{\mathbf{d}} & 1 & 0\\
 3 & k^{\underline{3}} & 0 & 2 & -3 & 1
 \end{array}
 $$
@@ -114,12 +114,12 @@ $$
 
 $$
 \begin{array}{ c c c c c c }
- &  & 0 & 1 & \textcolor{#C8553D}{\mathbf{b}} & 3\\
+ &  & 0 & 1 & \smartcolor{red}{\mathbf{b}} & 3\\
  &  & k^{\underline{0}} & k^{\underline{1}} & k^{\underline{2}} & k^{\underline{3}}\\
 0 & k^{0} & 1 & 0 & 0 & 0\\
 1 & k^{1} & 0 & 1 & 0 & 0\\
-2 & k^{2} & 0 & \textcolor{#C8553D}{\mathbf{c}} & \textcolor{#C8553D}{\mathbf{a}} & 0\\
-3 & k^{3} & 0 & 1 & \textcolor{#C8553D}{\mathbf{d}} & 1
+2 & k^{2} & 0 & \smartcolor{red}{\mathbf{c}} & \smartcolor{red}{\mathbf{a}} & 0\\
+3 & k^{3} & 0 & 1 & \smartcolor{red}{\mathbf{d}} & 1
 \end{array}
 $$
 
