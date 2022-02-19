@@ -1,6 +1,9 @@
 ---
 title: Lógica Proposicional aplicada a sistemas computacionais
-description: Lógica Proposicional aplicada a sistemas computacionais, resolução, princípio da resolução, estratégias em resolução.
+description: >-
+  Lógica Proposicional aplicada a sistemas computacionais.
+  Resolução e Princípio da Resolução.
+  Estratégias em resolução.
 path: /lp/logica-proposicional-sc
 type: content
 ---
@@ -12,11 +15,11 @@ type: content
 ```
 
 Voltamos a considerar a lógica proposicional, mas desta vez feita sob a perspetiva da sua utilização por sistemas computacionais, não por humanos.
-A geração automática de provas utilizando sistemas de dedução natural não é fácil, pelo que foram desenvolvidos métodos para a automatização da geração de provas. Um deles é a **resolução**.
+A geração automática de provas utilizando sistemas de dedução natural não é fácil, pelo que foram desenvolvidos métodos para a automatização da geração de provas. Um deles é a [**resolução**](color:orange), conceito que vai acompanhar-nos durante boa parte da cadeira.
 
 ## Resolução
 
-Abordagem ao sistema dedutivo baseada numa única regra de inferência (ao contrário das provas abordadas anteriormente) - o **princípio da resolução**. A utilização deste obriga à transformação das _fbfs_ numa forma especial, a _forma clausal_, que corresponde a uma **conjunção de cláusulas**.
+Abordagem ao sistema dedutivo baseada numa única regra de inferência (ao contrário das provas abordadas anteriormente) - o **princípio da resolução**. A utilização deste princípio obriga à transformação das _fbfs_ numa forma especial, a _forma clausal_, que corresponde a uma **conjunção de cláusulas**.
 
 ### Forma clausal
 
@@ -44,17 +47,17 @@ A mesma _fbf_ pode ser representada como um conjunto tal que $\{\{P, \neg Q, R\}
 
 ### Transformação de uma _fbf_ em forma clausal
 
-As _fbfs_ podem, contudo, não nos ser apresentadas inicialmente nesta forma de disjunção de literais. É, portanto, importante ter e usar algoritmos e estratégias que nos permitam transformar _fbfs_ em forma clausal.
+As _fbfs_ podem, contudo, não nos ser apresentadas inicialmente nesta forma de disjunção de literais. É, portanto, importante ter e usar algoritmos e estratégias que nos permitam passar _fbfs_ para o seu equivalente na forma clausal.
 
 - **Passos para a transformação de uma _fbf_ em forma clausal**
 
-  :::tip[Eliminar o símbolo →]
+  :::tip[Eliminar o símbolo $\to$]
 
   Passo baseado na equivalência ($\alpha\to\beta$) $\leftrightarrow$ ($\neg\alpha\vee\beta$).
 
   :::
 
-  :::details[Exemplo - Eliminar o símbolo →]
+  :::details[Exemplo - Eliminar o símbolo $\to$]
 
   Partindo de $P \to \neg(Q \vee ((R \wedge S) \to P))$:
 
@@ -64,9 +67,9 @@ As _fbfs_ podem, contudo, não nos ser apresentadas inicialmente nesta forma de 
 
   :::
 
-  :::tip[Reduzir o domínio do símbolo ¬]
+  :::tip[Reduzir o domínio do símbolo $\neg$]
 
-  Em forma clausal, nunca queremos que a forma final $\neg$ envolva a cláusula toda; por outro lado, não há qualquer problema em negar literais, pelo que aproveitamo-nos disso através de:
+  Em forma clausal, nunca queremos que a forma final $\neg$ envolva a cláusula toda; por outro lado, não há qualquer problema em negar literais, pelo que aproveitamo-nos disso através de algumas regras úteis.
 
   :::
 
@@ -79,7 +82,7 @@ As _fbfs_ podem, contudo, não nos ser apresentadas inicialmente nesta forma de 
   $\neg(\alpha\vee\beta) \leftrightarrow (\neg\alpha\wedge\neg\beta)$  
   $\neg(\alpha\wedge\beta) \leftrightarrow (\neg\alpha\vee\neg\beta)$
 
-  :::details[Exemplo - Reduzir o domínio de ¬]
+  :::details[Exemplo - Reduzir o domínio de $\neg$]
 
   Partindo de $\neg P \vee \neg(Q \wedge \neg(\neg(R \wedge S) \vee P))$:
 
@@ -109,13 +112,13 @@ As _fbfs_ podem, contudo, não nos ser apresentadas inicialmente nesta forma de 
 
   :::
 
-  :::tip[Eliminar o símbolo ∧]
+  :::tip[Eliminar o símbolo $\wedge$]
 
   Transformar a _fbf_ já na forma conjuntiva normal num conjunto de cláusulas.
 
   :::
 
-  :::details[Exemplo - Eliminar o símbolo ∧]
+  :::details[Exemplo - Eliminar o símbolo $\wedge$]
 
   Partindo de $(\neg P \vee \neg Q) \wedge (\neg P \vee R) \wedge (\neg P \vee S) \wedge (\neg P \vee \neg P)$:
 
@@ -123,13 +126,13 @@ As _fbfs_ podem, contudo, não nos ser apresentadas inicialmente nesta forma de 
 
   :::
 
-  :::tip[Eliminar o símbolo ∨]
+  :::tip[Eliminar o símbolo $\vee$]
 
   Transformar cada cláusula num conjunto de literais.
 
   :::
 
-  :::details[Exemplo - Eliminar o símbolo ∨]
+  :::details[Exemplo - Eliminar o símbolo $\vee$]
 
   Partindo de $\{\neg P \vee \neg Q, \neg P \vee R, \neg P \vee S, \neg P \vee \neg P\}$:
 
@@ -141,6 +144,8 @@ As _fbfs_ podem, contudo, não nos ser apresentadas inicialmente nesta forma de 
 
   - **Princípio da Resolução** - sejam Ψ e Φ duas cláusulas e $\alpha$ uma _fbf_ atómica, tal que $\alpha \in$ Ψ e $\neg\alpha \in$ Φ. Nesse caso, é possível inferir a cláusula (Ψ - {$\alpha$}) $\cup$ (Φ - {$\neg\alpha$}). A cláusula obtida é chamada o _resolvente_ das cláusulas Ψ e Φ, representado por **Res(Ψ, Φ)**, as quais são designadas **cláusulas-mãe**. Os literais $\alpha$ e $\neg\alpha$ designam-se **literais em conflito**.
 
+  Na teoria pode parecer bastante confuso - o exemplo abaixo pretende desmistificar qualquer dificuldade que possa aparecer associada à resolução.
+
   :::details[Exemplos - Princípio da resolução]
 
   Considerando as cláusulas $\{\neg P, Q, S\}$ e $\{P, \neg Q\}$:
@@ -148,7 +153,7 @@ As _fbfs_ podem, contudo, não nos ser apresentadas inicialmente nesta forma de 
   O seu _resolvente-P_ é $\{Q, S, \neg Q\}$; (removemos os literais $P$ e $\neg P$ em conflito)  
   O seu _resolvente-Q_ é $\{\neg P, S, P\}$; (removemos os literais $Q$ e $\neg Q$ em conflito)
 
-  Usando resolução, provar que $\{P, P \to Q\} \vdash Q$:
+  Usando resolução, e procurando provar que $\{P, P \to Q\} \vdash Q$:
 
   - Passar à forma clausal: $\{P\}$, $\{\neg P, Q\}$ e $\{Q\}$;
   - Aplicar a resolução:
@@ -188,7 +193,7 @@ As _fbfs_ podem, contudo, não nos ser apresentadas inicialmente nesta forma de 
 
 ### Estratégias em Resolução
 
-Numa prova por resolução, a decisão sobre quais as cláusulas a utilizar em cada passo da prova é tomada recorrendo a uma _estratégia de resolução_.
+Numa prova por resolução, a decisão sobre quais as cláusulas a utilizar em cada passo da prova deve ser tomada recorrendo a uma _estratégia de resolução_.
 
 - **Geração por saturação de níveis**
 
@@ -230,7 +235,11 @@ Para aumentar a eficiência da geração de provas por resolução, foram desenv
 
   :::details[Exemplo - Eliminar teoremas/cláusulas não mínimas]
 
-  Considerando as cláusulas $\{\{\neg P, \neg Q, R\}, \{\neg P, \neg Q, Q\}, \{\neg P, \neg Q\}\}$, podemos aplicar a eliminação de teoremas e ficar com $\{\{\neg P, \neg Q, R\}\}$. Posteriormente, podíamos ainda eliminar cláusulas não mínimas, ficando apenas com $\{\{\neg P, \neg Q\}\}$.
+  Considerando as cláusulas $\{\{\neg P, \neg Q, R\}, \{\neg P, \neg Q, Q\}, \{\neg P, \neg Q\}\}$, podemos aplicar a eliminação de teoremas e ficar com $\{\{\neg P, \neg Q, R\}, \{\neg P, \neg Q\}\}$: ter $Q$ e $\neg Q$ na mesma cláusula é inconclusivo, não ficamos a saber nada sobre a mesma porque esta será sempre verdadeira.
+
+  Posteriormente, podíamos ainda eliminar cláusulas não mínimas, ficando apenas com $\{\{\neg P, \neg Q\}\}$. Esta eliminação segue a lógica de: se temos $\neg P \vee \neg Q$, será irrelevante ter $\neg P \vee \neg Q \vee R$, porque temos "mais informação" sobre os valores lógicos associados a literais concretos em cláusulas mais pequenas.
+
+  Dizemos que é mais simples tentar descobrir qual dos literais em $A \vee B$ tem valor lógico verdadeiro do que tentar descobrir o mesmo numa cláusula com 20 literais.
 
   :::
 
@@ -254,7 +263,7 @@ Para aumentar a eficiência da geração de provas por resolução, foram desenv
 
   :::tip[Resolução unitária]
 
-  Baseia-se no facto de ao utilizarmos a resolução tentarmos por norma diminuir o número de literais existentes nas cláusulas produzidas (mais evidente em provas por refutação). Se uma das cláusulas envolvidas numa aplicação do princípio da resolução apenas contiver um literal, uma _cláusula unitária_, é então garantido que o resolvente tem menos literais do que a cláusula mãe com maior número de literais. Esta estratégia consiste, portanto, em aplicar o princípio da resolução utilizando sempre pelo menos uma cláusula unitária. **Nem todas as proposições válidas podem ser provadas desta maneira**, visto que nem sempre estamos na presença de cláusulas unitárias. Não é, portanto, um processo de inferência **completo**.
+  Baseia-se no facto de ao utilizarmos a resolução tentarmos por norma diminuir o número de literais existentes nas cláusulas produzidas (mais evidente em provas por refutação, onde tentamos chegar à cláusula vazia). Se uma das cláusulas envolvidas numa aplicação do princípio da resolução apenas contiver um literal, uma _cláusula unitária_, é então garantido que o resolvente tem menos literais do que a cláusula mãe com maior número de literais. Esta estratégia consiste, portanto, em aplicar o princípio da resolução utilizando sempre pelo menos uma cláusula unitária. **Nem todas as proposições válidas podem ser provadas desta maneira**, visto que nem sempre estamos na presença de cláusulas unitárias. Não é, portanto, um processo de inferência **completo**.
 
   :::
 
