@@ -25,7 +25,9 @@ Definimos [**espaço de endereçamento**](color:red) de um processo como o conju
 Mais uma vez, é a função do SO oferecer ao utilizador uma interface que lhe permita aceder indiretamente à memória, de forma segura.
 
 O gestor de memória deve também ter em consideração que a memória é constituída por:
+
 - **Memória Principal (física ou primária)**:
+
   - tempo de acesso reduzido;
   - bom desempenho com acessos aleatórios;
   - custo elevado;
@@ -79,7 +81,7 @@ Os endereços físicos são obtidos pela UGM como descrito na imagem a baixo:
 
 ![Tradução de Endereços Virtuais em Memória Segmentada](./imgs/0010/segments_translation.png#dark=1)
 
-Como dito atrás, um endereço virtual é um par ([segmento](color:orange), [deslocamento](color:yellow)). Informação sobre os segmentos pode ser encontrada numa **tabela de segmentos**. 
+Como dito atrás, um endereço virtual é um par ([segmento](color:orange), [deslocamento](color:yellow)). Informação sobre os segmentos pode ser encontrada numa **tabela de segmentos**.
 Através do [segmento](color:orange) no endereço virtual, encontramos a posição nesta tabela em que se encontra a informação relativa a este segmento.  
 Uma entrada da tabela de segmentos é constituída por:
 
@@ -121,7 +123,7 @@ Nesta solução, é relevante discutir qual a melhor dimensão para as páginas.
 - tempo de transferência de páginas;
 - a dimensão das tabelas de páginas e listas de páginas mantidas pelo sistema operativo.
 
-Hoje em dia, o valor típico para o tamanho de páginas é 4 KBytes.  
+Hoje em dia, o valor típico para o tamanho de páginas é 4 KBytes.
 
 :::details[Nota]
 
@@ -158,7 +160,7 @@ Se uma entrada na tabela de páginas ocupar 4 bytes, temos que a tabela de pági
 
 Ora, isto é muita memória. Note-se que, sempre que um processo novo é iniciado, o SO precisa de aceder à tabela de páginas desse processo (nem que seja para ler na secção de código que instrução deve executar a seguir).
 Ora, carregar 16 Petabytes para a memória principal é impossível.  
-É então necessária uma forma de endereçar as páginas sem consumir tanta memória. 
+É então necessária uma forma de endereçar as páginas sem consumir tanta memória.
 É usada uma **tabela de páginas multi-nível**.
 Existe uma tabela de páginas de nível 1, que endereça páginas que, elas próprias, consistem em tabelas de páginas.
 Esta solução resolve o problema apresentado, garantindo que só estão em memória tabelas de páginas correspondentes às páginas que estão de facto a ser utilizadas pelo processo.
@@ -186,32 +188,6 @@ Quando ocorre um fork() o gestor de memória:
   - atualiza a entrada da tabela do processo onde ocorreu a exceção com a base (endereço físico) da nova página e novas permissões (escrita ativada, CoW desativado);
   - caso a página original já só seja referenciada por um processo, atualiza a entrada na tabela de páginas que lhe corresponde, atualizando as permissões (escrita ativada, CoW desativado). Caso contrário, as permissões mantêm-se.
 
-
-## Mecanismos de Gestão de Memória em Unix/Linux
-
-### Unix
-
-As primeiras implementações de Unix (até versão 7) executavam-se com arquitetura segmentada de 16 bits, com espaços de endereçamento de 64 Kbytes, dividido em oito segmentos de 8 Kbytes cada.
-A gestão de memória era muito simples:
-- os processos eram carregados na sua totalidade em memória;
-- caso não houvesse espaço disponível em memória, o SO transferia para memória secundária os processos que estivessem bloqueados ou com menor prioridade;
-- a transferência de processos era feita por um processo denominado _swapper_.
-
-As versões atuais de Unix usam principalmente arquiteturas paginadas e dividem o espaço de endereçamento em três regiões: código, dados e pilha.
-Novas regiões podem ser criadas dinamicamente durante a execução dos programas.
-Cada região tem uma tabela de páginas própria.
-
-### Linux
-
-Linux usa tabelas de páginas multinível com três níveis:
-- **Page Global Directory** (**PGD**): tabela de mais alto nível;
-- **Page Middle Directory** (**PMD**): tabela de nível intermédio;
-- Tabela de páginas;
-
-Os endereços virtuais neste sistem são então constituídos por quatro secções: uma secção que determina a posição na tabela em cada um dos três níveis e uma secção que determina o deslocamento na página.
-
-![Gestão de Memória em Linux](./imgs/0010/linux_memory.png#dark=1)
-
 ## Algoritmos de Gestão de Memória
 
 Como já sabemos, a memória principal é escassa pelo que temos de a gerir eficazmente. Isto implica tomar decisões em relação aos conteúdos que lá são guardados, nomeadamente decisões de:
@@ -236,7 +212,7 @@ Para a reserva de segmentos, podemos usar vários critérios de escolha:
 
   - gera elevado número de fragmentos;
   - em média percorre-se metade da lista de blocos livres na procura (com lista ordenada por tamanho);
-  - a lista tem de ser percorrida outra vez para introduzir o fragmento.
+  - a lista tem de ser percorrida para introduzir o fragmento.
 
 - **_worst-fit_** (o maior possível):
 
@@ -256,29 +232,36 @@ Para a reserva de segmentos, podemos usar vários critérios de escolha:
 
 Há três abordagens para a transferência de segmentos:
 
-- a pedido (**on request**): o programa ou o sistema operativo determinam quando se deve carregar o bloco em memória principal (normalmente usado na memória segmentada);
-- por necessidade (**on demand**): o bloco é acedido e gera-se uma falta (de segmento ou de página), sendo necessário carregá-lo para a memória principal (normalmente usado na memória paginada);
-- por antecipação (**prefetching**): o bloco é carregado na memória principal pelo sistema operativo porque este considera fortemente provável que ele venha a ser acedido nos próximos instantes. Isto é normalmente feito de acordo com o **princípio da localidade de referência**.
+- [a pedido](color:pink) ([**on request**](color:pink)): o programa ou o sistema operativo determinam quando se deve carregar o bloco em memória principal;
+- [por necessidade](color:green) ([**on demand**](color:green)): o bloco é acedido e gera-se uma falta (de segmento ou de página), sendo necessário carregá-lo para a memória principal;
+- [por antecipação](color:purple) ([**prefetching**](color:purple)): o bloco é carregado na memória principal pelo sistema operativo porque este considera fortemente provável que ele venha a ser acedido nos próximos instantes. Isto é normalmente feito de acordo com o **princípio da localidade de referência**.
 
 **Transferência de Segmentos**
 
-A transferência de segmentos faz-se usalmente a pedido: em arquiteturas que suportem a falta de segmentos, certos segmentos de um programa podem ser transferidos para memória principal por necessidade.
+A transferência de segmentos faz-se usalmente [a pedido](color:pink).
 
 Normalmente, para executar um processo são necessários em memória pelo menos um segmento de código, de dados e de stack.
 Caso haja escassez de memória, os segmentos de outros processos que não estejam em execução são transferidos na íntegra para disco (**_swapping_**).
 Os segmentos são guardados numa zona separada do disco chamada área de transferência (**_swap area_**).
 Quando são transferidos todos os segmentos de um processo diz-se que o processo foi transferido para disco (**_swapped out_**).
 
+:::details[Nota]
+
+Em arquiteturas que suportem a falta de segmentos, certos segmentos de um programa podem ser transferidos para memória principal por necessidade.
+
+:::
+
 **Transferência de Páginas**
 
-O mecanismo normal de transferência de páginas é por necessidade.
+O mecanismo normal de transferência de páginas é [por necessidade](color:green).
 Desta forma, páginas de um programa que não sejam acedidas durante a execução de um processo não chegam a ser carregadas em memória principal.
-Usam-se ainda políticas de transferência por antecipação para diminuir o número de faltas de páginas e otimizar os acessos a disco.
+
+Usam-se ainda políticas de transferência [por antecipação](color:purple) para diminuir o número de faltas de páginas e otimizar os acessos a disco.
 As páginas retiradas de memória principal são guardadas numa zona separada do disco chamada área de paginação (apenas se ainda não existir uma cópia atualizada da página em disco).
 As páginas modificadas são transferidas em grupos para memória secundária de modo a otimizar os acessos disco.
 
-Quando é necessário libertar espaço na memória física, o SO copia páginas para disco, guardando-as na _swap area_.
-As páginas que vão para disco são aquelas que o SO prevê que não serão acedidas num futuro próximo.
+Quando é necessário libertar espaço na memória física, o SO copia páginas para disco, guardando-as na **_swap area_**.
+As páginas que vão para disco são aquelas que o SO prevê que não serão acedidas num futuro próximo.  
 Neste contexto, estabelecemos uma diferença entre **_swapping_** - guardar todas as páginas de um processo em disco - e **_paging_** - guardar páginas individuais em disco.
 Mais uma vez, para minimizar latência, o SO faz _pre-fetching_ quando faz _swapping_ das páginas de um processo.
 
@@ -295,11 +278,19 @@ Se o SO estimar essa dimensão, pode evitar colocar o processo em execução enq
 ### Substituição
 
 Analisaremos apenas soluções de substituição para sistemas com paginação.
+
 A heurística para o algoritmo de substituição ótimo é que devemos (mais uma vez) retirar a página cujo próximo pedido seja mais distante no tempo.
 Para estimar isto, vamos medir o uso recente das páginas.
-Para isto podemos usar um de dois sistemas:
+Para isto podemos usar vários sistemas:
 
-Sistema **NRU** (_Not Recently Used_):
+[FIFO](color:red):
+
+- associar a cada entrada da tabela de páginas um _timestamp_ de quando esta foi colocada em RAM;
+- tirar a entrada que está em RAM há mais tempo;
+
+Este sistema é muito eficiente mas não atende ao grau de utilização das páginas.
+
+[Sistema **NRU** (_Not Recently Used_)](color:orange):
 
 - em cada entrada da tabela de páginas são mantidos bits **R** e **M**;
 - a UGM coloca R=1 quando há leitura na página e M=1 quando há escrita;
@@ -311,21 +302,20 @@ Sistema **NRU** (_Not Recently Used_):
   - 3 (R = 1, M = 1): Referenciada, modificada;
 - libertam-se primeiro as páginas dos grupos de número mais baixo.
 
-Sistema **LRU** (_Least Recently Used_):
+[Sistema **LRU** (_Least Recently Used_)](color:yellow):
 
-- eficaz segundo o princípio de localidade de referência;
-- latência associada à sua implementação é rigorosa;
-- em cada entrada na tabela de páginas é mantido um bit **R**;
-- a UGM coloca R=1 quando a página é acedida (leitura ou escrita);
-- gestor de memória do núcleo mantém um contador por página que indica a que "grupo etário" ela pertence:
-  - atualizado regularmente pelo paginador;
-  - quando R=0, grupo etário incrementa;
-  - quando R=1, volta ao grupo etário inicial, recolocando R=0.
-- quando atingir um grupo etário máximo, a página passa para a lista das livres mas modificadas.
+É eficaz segundo o princípio de localidade de referência, tendo uma latência rigorosa associada à sua implementação.
 
-## Comparação entre paginação e segmentação
+O algoritmo é aproximadamente o seguinte:
 
-**Segmentação**
+- em cada entrada na tabela de páginas é mantido um bit **R** e um valor de **Idade**;
+- o paginador faz uma ronda regular pelas páginas, aumentando a idade daquelas com o bit R a 0;
+- sempre que uma página é acedida (leitura ou escrita), a UGM coloca R=1 e a sua idade é anulada;
+- quando uma página atinge uma idade determinada, esta passa para a lista de páginas que podem ser transferidas.
+
+## Comparação entre Paginação e Segmentação
+
+[**Segmentação**](color:blue)
 
 Vantagens:
 
@@ -340,7 +330,7 @@ Desvantagens:
 - o tempo de transferência de segmentos em memória principal e disco torna-se incomportável para segmentos muito grandes;
 - a dimensão máxima dos segmentos é limitada.
 
-**Paginação**
+[**Paginação**](color:green)
 
 Vantagens:
 
@@ -355,3 +345,40 @@ Desvantagens:
 - operações sobre segmentos lógicos são mais complexos e menos elegantes, pois têm de ser realizadas sobre um conjunto de páginas;
 - o tratamento das faltas de páginas representa uma sobrecarga adicional de processamento;
 - tamanho potencial das tabelas de páginas.
+
+## Gestão de Memória em Unix/Linux
+
+### Unix
+
+As primeiras implementações de Unix (até versão 7) executavam-se com arquitetura segmentada de 16 bits, com espaços de endereçamento de 64 Kbytes, dividido em oito segmentos de 8 Kbytes cada.
+A gestão de memória era muito simples:
+
+- os processos eram carregados na sua totalidade em memória;
+- caso não houvesse espaço disponível em memória, o SO transferia para memória secundária os processos que estivessem bloqueados ou com menor prioridade;
+- a transferência de processos era feita por um processo denominado _swapper_.
+
+As versões atuais de Unix usam principalmente arquiteturas paginadas e dividem o espaço de endereçamento em três regiões: código, dados e pilha.
+Novas regiões podem ser criadas dinamicamente durante a execução dos programas.
+Cada região tem uma tabela de páginas própria.
+
+A substituição de páginas usa uma aproximação ao algoritmo **LRU**.
+A idade da página é mantida na entrada da tabela de páginas correspondente.
+O _page-stealer_ é acordado quando o número de páginas livers desce abaixo de um dado limite, marcando para ser transferida as páginas que atingem uma certa idade.
+
+### Linux
+
+Linux usa tabelas de páginas multinível com três níveis:
+
+- **Page Global Directory** (**PGD**): tabela de mais alto nível;
+- **Page Middle Directory** (**PMD**): tabela de nível intermédio;
+- Tabela de páginas;
+
+Os endereços virtuais neste sistem são então constituídos por quatro secções: uma secção que determina a posição na tabela em cada um dos três níveis e uma secção que determina o deslocamento na página.
+
+![Gestão de Memória em Linux](./imgs/0010/linux_memory.png#dark=1)
+
+:::warning[Página em Construção]
+
+Esta secção dos resumos está por terminar.
+
+:::
