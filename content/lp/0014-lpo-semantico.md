@@ -1,6 +1,9 @@
 ---
 title: Lógica de Primeira Ordem - Sistema Semântico/Correção e Completude
-description: Lógica de Primeira Ordem - Sistema Semântico, Conceptualização, Atribuição, Satusfação, Conceitos relacionados a fórmulas, Correção e Completude
+description: >-
+  Lógica de Primeira Ordem - Sistema Semântico.
+  Conceptualização, Atribuição, Satisfação.
+  Conceitos relacionados a fórmulas, Correção e Completude.
 path: /lp/logica-primeira-ordem-semantico
 type: content
 ---

@@ -1,26 +1,28 @@
 ---
 title: Meta-Predicados, Arimética, IO, Estruturas
-description: Meta-predicados. Aritmética, Instruções de Escrita e Leitura, Estruturas.
+description: >-
+  Meta-predicados. 
+  Aritmética, Instruções de Escrita e Leitura.
+  Estruturas.
 path: /lp/prolog-mid
 type: content
 ---
 
 # Meta-Predicados, Arimética, IO, Estruturas
 
-Informação útil para perceberem o que está a acontecer na recursão: podem escrever `trace.` na prompt, e lá dentro escrever o objetivo pretendido. Ao carregar `Enter` repetidamente, podemos observar a recursão a acontecer (obrigado Gonçalo Mateus 😃).
-
 ```toc
 
 ```
 
+Informação útil para perceberem o que está a acontecer na recursão: podem escrever `trace.` na prompt, e lá dentro escrever o objetivo pretendido. Ao carregar `Enter` repetidamente, podemos observar a recursão a acontecer!
+
 ## Meta-Predicados sobre Listas
 
-Ponto importante - sempre que virem algo do género `<nome_func>/<numero>`, `<numero>` é o número de argumentos que a função recebe (a sua aridade).
+Ponto importante - sempre que virem algo do género `<nome_func>/<numero>`, `<numero>` é o número de argumentos que a função recebe (a sua aridade, portanto).
 
 ### length
 
-[Predicado built-in](https://github.com/dtonhofer/prolog_notes/tree/master/swipl_notes/about_length) que recebe dois argumentos, uma lista e uma variável, e\
- devolve `<variável> = <comprimento>`.
+[Predicado built-in](https://github.com/dtonhofer/prolog_notes/tree/master/swipl_notes/about_length) que recebe dois argumentos, uma lista e uma variável, e devolve `<variável> = <comprimento>`.
 
 ```prolog
 % Exemplo de interação
@@ -33,19 +35,24 @@ L = 5.
 Recebe dois ou três argumentos, uma ou duas listas e uma variável. Permite interações como as demonstradas abaixo:
 
 ```prolog
-% interações com append
+% interações com append/3
 ?- append([1,2,3], [4,5], X).
 X = [1,2,3,4,5].
-% podemos ainda dar append a mais que 2 listas:
-?- append([[1,2],[3,4], [5,6]], X).
-X = [1,2,3,4,5,6].
-?- append([[1,2], X, [a,b,c]], [1,2,3,4,5,a,b,c]).
-X = [3,4,5].
 ?- append(X, [Ultimo], [1,2,3]).
 X = [1,2],
 Ultimo = 3.
 ?- append([1,2,3], Resto, L).
 L = [1,2,3 | Resto].
+
+% append/2 aceita uma lista de listas e "alisa-as" 1 nível:
+?- append([[1,2], [3]], L).
+L = [1, 2, 3].
+?- append([[1,2],[3,4], [5,6]], X).
+X = [1,2,3,4,5,6].
+?- append([[1,2], X, [a,b,c]], [1,2,3,4,5,a,b,c]).
+X = [3,4,5].
+?- append([[1,2], [[3]]], L).
+L = [1, 2, [3]].
 ```
 
 ### maplist
@@ -95,6 +102,8 @@ L = [2,4,6,8,10].
 L = [11,12,13,14,15].
 ```
 
+Talvez seja um pouco difícil de perceber ao início as diferenças entre cada predicado, principalmente nestes com aridades diferentes: experimentem com listas e programas diferentes para tentar perceber o que é que está de facto a acontecer!
+
 ### include, exclude
 
 Os meta-predicados `include` e `exclude` funcionam, tal como o nome indica, de maneiras diretamente opostas. Ambos recebem 3 argumentos, sendo o primeiro o predicado "filtrador", o segundo a lista que queremos filtrar e a terceira a lista devolvida após o filtro estar concluído.
@@ -130,7 +139,7 @@ findall(<termo>, <objetivo>, <lista>).
 setof(<termo>, <objetivo>, <lista>).
 ```
 
-Ambos funcionam de modo semelhante, `<lista>` vai ter os termos que satisfaçam `<objetivo>`. Contudo, `<lista>` em `findall` pode conter elementos repetidos, enquanto que em `setof` isso não ocorre.
+Ambos funcionam de modo semelhante, `<lista>` vai ter os termos que satisfaçam `<objetivo>`. Contudo, `<lista>` em `findall` pode conter elementos repetidos, enquanto que em `setof` isso não ocorre. Além disso, o `setof` ordena (por ordem crescente) os elementos da lista.
 Aqui vale a pena também notar que `member/2` recebe um termo e uma lista e devolve um booleano que representa o termo estar presente na lista ou não.
 
 Interações possíveis seriam, por exemplo:
@@ -139,10 +148,10 @@ Interações possíveis seriam, por exemplo:
 ?- findall(X, (member(X, [6,2,4,5,4,7]), X mod 2 =:= 0), L).
 L = [6,2,4,4].
 ?- setof(X, (member(X, [6,2,4,5,4,7]), X mod 2 =:= 0), L).
-L = [6,2,4].
+L = [2,4,6].
 ```
 
-Interação mais complexa, **útil para o projeto** segundo a prof.:
+Interação mais complexa, **útil para o projeto (2020/2021)** segundo a prof.:
 
 ```prolog
 % sublist(SL, L, N) - SL é uma sublista de L de comprimento N
@@ -204,52 +213,50 @@ sublists(L, N, SLs) :- bagof(SL, sublista(SL, L, N), SLs), !.
 % de notar que a cláusula que vem primeiro é esta última, só depois é que vem a cláusula que adicionámos
 ```
 
-Aqui, a utilidade do operador de corte é: "se isto não der falso, não uses mais cláusula nenhuma; se der, continua e usa o que vem a seguir".
-
-"Estes slides são uma _receita_ para o vosso projeto, para quando quiserem fazer uma coisa semelhante" - prof.
+Aqui, a utilidade do operador de corte é: "se isto não der falso, continua e não uses mais cláusula nenhuma a seguir; se der, salta esta cláusula e usa o que vier a seguir".
 
 ## Aritmética
 
 De seguida estão apresentadas algumas operações aritméticas que podem ser úteis:
 
-| Operação                         | Significado                          |
-| -------------------------------- | ------------------------------------ |
-| A+B, +(A, B)                     | soma entre A e B                     |
-| A-B, -(A, B)                     | diferença entre A e B                |
-| A*B, *(A, B)                     | produto entre A e B                  |
-| A/B, /(A, B)                     | quociente real entre A e B           |
-| A//B, //(A,B)                    | quociente inteiro entre A e B        |
-| A^B, ^(A, B), A\*\*B, \*\*(A, B) | A elevado a B                        |
-| -A                               | simétrico de A                       |
-| sin(A), cos(A), tan(A)           | seno, cosseno, tangente de A         |
-| log(A)                           | logaritmo natural de A               |
-| abs(A)                           | módulo de A                          |
-| sqrt(A)                          | raiz quadrada de A                   |
-| max(A, B)                        | maior valor entre A e B              |
-| min(A, B)                        | menor valor entre A e B              |
-| rem(A, B), mod(A, B)             | resto da divisão entre A e B         |
-| gcd(A, B)                        | maior divisor comum entre A e B      |
-| lcm(A, B)                        | menor múltiplo comum entre A e B     |
-| sign(A)                          | -1 se A < 0, 0 se A == 0, 1 se A > 0 |
-| random(A)                        | valor tal que 0 <= valor < A         |
-| random_between(A, B)             | valor tal que A <= valor <= B        |
-| round(A)                         | arredonda (para o int + próximo) A   |
-| floor/ceiling/float/integer      | vocês sabem estes                    |
-| >>, <<, xor                      | shift left, right, xor               |
-| \\/                              | bitwise or (cursed)                  |
-| /\                               | bitwise and (cursed)                 |
+| Operação                           | Significado                               |
+| ---------------------------------- | ----------------------------------------- |
+| `A+B, +(A, B)`                     | soma entre A e B                          |
+| `A-B, -(A, B)`                     | diferença entre A e B                     |
+| `A*B, *(A, B)`                     | produto entre A e B                       |
+| `A/B, /(A, B)`                     | quociente real entre A e B                |
+| `A//B, //(A,B)`                    | quociente inteiro entre A e B             |
+| `A^B, ^(A, B), A\*\*B, \*\*(A, B)` | A elevado a B                             |
+| `-A`                               | simétrico de A                            |
+| `sin(A), cos(A), tan(A)`           | seno, cosseno, tangente de A              |
+| `log(A)`                           | logaritmo natural de A (base e, portanto) |
+| `abs(A)`                           | módulo/valor absoluto de A                |
+| `sqrt(A)`                          | raiz quadrada de A                        |
+| `max(A, B)`                        | maior valor entre A e B                   |
+| `min(A, B)`                        | menor valor entre A e B                   |
+| `rem(A, B), mod(A, B)`             | resto da divisão inteira entre A e B      |
+| `gcd(A, B)`                        | maior divisor comum entre A e B           |
+| `lcm(A, B)`                        | menor múltiplo comum entre A e B          |
+| `sign(A)`                          | -1 se A < 0, 0 se A == 0, 1 se A > 0      |
+| `random(A)`                        | valor tal que 0 <= valor < A              |
+| `random_between(A, B)`             | valor tal que A <= valor <= B             |
+| `round(A)`                         | arredonda (para o int + próximo) A        |
+| `floor, ceiling, float, integer`   | vocês sabem estes                         |
+| `>>, <<, xor`                      | shift left, right, xor                    |
+| `\/`                               | bitwise or (cursed)                       |
+| `/\`                               | bitwise and (cursed)                      |
 
 Temos também operações relacionais:
 
-| Operação       | Significado                                                  |
-| -------------- | ------------------------------------------------------------ |
-| >, <, >=, =<   | vocês conhecem estas (de realçar que aqui usa-se =<, não <=) |
-| A = B          | true caso A e B unifiquem                                    |
-| A \\= B        | true caso A e B não unifiquem                                |
-| A == B         | true caso A e B forem a mesma coisa                          |
-| A \\== B       | true caso A e B não sejam a mesma coisa                      |
-| Exp1 =:= Exp2  | true caso o valor de Exp1 seja o mesmo que o de Exp2         |
-| Exp1 =\\= Exp2 | true caso o valor de Exp1 não seja o mesmo que o de Exp2     |
+| Operação        | Significado                                                  |
+| --------------- | ------------------------------------------------------------ |
+| `>, <, >=, =<`  | vocês conhecem estas (de realçar que aqui usa-se =<, não <=) |
+| `A = B`         | true caso A e B unifiquem                                    |
+| `A \= B`        | true caso A e B não unifiquem                                |
+| `A == B`        | true caso A e B forem a mesma coisa                          |
+| `A \== B`       | true caso A e B não sejam a mesma coisa                      |
+| `Exp1 =:= Exp2` | true caso o valor de Exp1 seja o mesmo que o de Exp2         |
+| `Exp1 =\= Exp2` | true caso o valor de Exp1 não seja o mesmo que o de Exp2     |
 
 De realçar que ainda há uma variação de `>, <, >=, =<`, com `@` antes do operador, que funciona como uma espécie de `strcmp`, ou seja, compara dois termos alfabeticamente. Podemos observar uma interação possível no exemplo abaixo:
 
@@ -398,7 +405,7 @@ Y = 7.
 
 Já vimos anteriormente vários tipos elementares de dados - átomos, números, variáveis, etc.. Contudo, podemos ainda combinar tipos de dados elementares para construir tipos de dados mais complexos, estruturados. Em Prolog, representá-los-emos através de termos compostos, sendo estes considerados **estruturas**.
 
-De volta aos velhinhos TADs, sabemos que um tipo de dados tem, por norma, de ter definidos construtores, seletores, reconhecedores e testes.
+De volta aos velhinhos TADs de FP, sabemos que um tipo de dados tem, por norma, de ter definidos construtores, seletores, reconhecedores e testes.
 
 Tentemos criar uma estrutura chamada `data`. Essa estrutura poderá ter, por ex., um construtor, `faz_data` e seletores, `ano_de`, `mes_de` e `dia_de`. Em termos abstratos, podemos considerar a `data` como um termo de três argumentos, onde `data` é uma espécie de `functor`. Assim sendo, a estrutura poderá ser algo do género `data(A, M, D)`, cujos ano, mês e dia são, respetivamente, A, M e D. Com base nesta ideia, podemos construir alguns predicados:
 
@@ -439,7 +446,7 @@ Futuro = data(2015, 4, 2).
 
 Nos slides há um exemplo giro do problema do homem, do lobo, da cabra e da couve, e no livro há um semelhante mas sobre três casas coloridas se quiserem ver mais coisas deste género.
 
-:::tip
+:::tip[Apenas para Windows]
 Para correr código de dentro de um programa rapidamente sem criar um ficheiro, pode-se escrever `[user].` na prompt, seguido do código para pôr dentro do programa, seguido de Ctrl-D (EOF).
 :::
 

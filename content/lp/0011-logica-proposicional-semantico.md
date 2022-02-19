@@ -1,6 +1,8 @@
 ---
 title: Lógica Proposicional - Sistema Semântico
-description: Lógica Proposicional, Sistema Semântico, Funções de Valoração, Correção e Completude, Satisfação.
+description: >-
+  Lógica Proposicional - Sistema Semântico.
+  Funções de Valoração, Correção e Completude, Satisfação.
 path: /lp/logica-proposicional-semantico
 type: content
 ---
@@ -19,12 +21,16 @@ Se no sistema dedutivo abordámos as regras de inferência, que _falam sobre_ as
 
 Uma **função de valoração** é uma função $v$ que atribui valores lógicos (verdadeiro ou falso) a um conjunto de símbolos de proposição.
 
-$$v: P \mapsto \{V, F\}$$
+$$
+v: P \mapsto \{V, F\}
+$$
 
 Uma função de valoração pode ser tal que:
 
-$$v(P) = V.$$  
-$$v(Q) = F.$$
+$$
+v(P) = V,\\
+v(Q) = F.
+$$
 
 Isto é, a proposição P tem **valor verdadeiro**, enquanto que a proposição Q tem **valor falso** (segundo esta função).
 :::

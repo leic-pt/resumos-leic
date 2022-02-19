@@ -1,6 +1,8 @@
 ---
 title: O Prolog como Linguagem de Programação
-description: Prolog como Linguagem de Programação, Tipos, Mecanismos de Controlo, Predicados Dinâmicos
+description: >-
+  Prolog como Linguagem de Programação.
+  Tipos, Mecanismos de Controlo, Predicados Dinâmicos.
 path: /lp/prolog-linguagem-programacao
 type: content
 ---
@@ -37,6 +39,12 @@ condicional :- literal2.
 ```
 
 Esta mesma estrutura pode ainda ser sintetizada utilizando o operador `->`, equivalente a um `if-then-else` (funciona como algo do género `teste -> literais; fail.`, criando um nó falhado para proibir o retrocesso a partir daí).
+
+:::warning
+
+A professora não costuma gostar que se use este operador, por isso _proceed with caution_ - perguntem primeiro se o podem usar.
+
+:::
 
 A estrutura acima seria, então, algo deste género:
 
