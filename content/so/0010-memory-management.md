@@ -28,19 +28,19 @@ Esta interface deve então impedir um processo de aceder a posições que não p
 O gestor de memória deve também ter em consideração que a memória é constituída por:
 
 - **Memória Principal (física ou primária)**:
-  -- tempo de acesso reduzido;
-  -- bom desempenho com acessos aleatórios;
-  -- custo elevado;
-  -- reduzida dimensão;
-  -- informação volátil;
-  -- RAM + caches [ + registos ].
+  - tempo de acesso reduzido;
+  - bom desempenho com acessos aleatórios;
+  - custo elevado;
+  - reduzida dimensão;
+  - informação volátil;
+  - RAM + caches [ + registos ].
 
 - **Memórias secundárias (ou de disco)**
-  -- tempo de acesso elevado;
-  -- pior desempenho com acessos aleatórios (entre blocos diferentes);
-  -- custo reduzido;
-  -- mais abundante;
-  -- informação persistente.
+  - tempo de acesso elevado;
+  - pior desempenho com acessos aleatórios (entre blocos diferentes);
+  - custo reduzido;
+  - mais abundante;
+  - informação persistente.
 
 O gestor de memória tem então a responsabilidade de gerir o espaço de endereçamento dos processos de forma que:
 
@@ -82,7 +82,7 @@ O programador pode ter que se preocupar com a gestao de memória quando escreve 
 Nesta solução, o segmento torna-se a unidade de carregamento em memória e de proteção.
 A dimensão dos segmentos fica então limitada: nomeadamente não pode exceder a dimensão da memória principal.
 
-// insert image (slide 11)
+![Tradução de Endereços Virtuais em Memória Segmentada](./imgs/0010/segments_translation.png#dark=1)
 
 A memória virtual segmentada tem a seguinte proteção:
 
@@ -96,7 +96,7 @@ Este tipo de gestão é muito suscetível a fragmentação externa.
 
 A **paginação** consiste em constituir a memória por blocos de tamanho fixo, chamados **páginas**.
 
-// insert images (slide 14)
+![Tradução de Endereços Virtuais em Memória Segmentada](./imgs/0010/pages_translation.png#dark=1)
 
 Nesta solução, os segmentos lógicos do espaço de endereçamento passam a ser compostos por múltiplas páginas, sendo possível um segmento lógico estar parcialmente presente.
 Se uma instrução do processador aceder a endereços em mais que uma página, a instrução pode encontrar uma falta de página a meio da execução.
@@ -121,7 +121,7 @@ A memória paginada tem a seguinte proteçao:
 Para tornar o acesso a páginas o mais rápido possível, a UGM guarda uma **tabela de tradução de endereços** ou **TLB** (**translation lookaside buffer**).
 Esta tabela permite acesso bastante mais rápido às páginas pois está guardada em hardware, tal como a UGM.
 
-![Tabela de Tradução de Endereços](./imgs/0010/tlb.png)
+![Tabela de Tradução de Endereços](./imgs/0010/tlb.png#dark=1)
 
 A ideia é que as próximas páginas a que um programa aceda estejam nesta tabela.
 Como é impossível prever isso, mais uma vez, a UGM toma o comportamento recente do programa como uma boa previsão do seu futuro próximo.
@@ -133,7 +133,7 @@ A TLB é limpa em cada comutação de processos pelo que quanto maior for o quan
 
 O carregamento das páginas na TLB é feito de acordo com o seguinte diagrama:
 
-![Diagrama de Tabela de Tradução de Endereços](./imgs/0010/tlb_diagram.png)
+![Diagrama de Tabela de Tradução de Endereços](./imgs/0010/tlb_diagram.png#dark=1)
 
 ## Tabelas de páginas multi-nível
 
@@ -144,7 +144,7 @@ Ora, isto é muita memória. É então necessária uma forma de endereçar as p�
 Existe uma tabela de páginas de nível 1, que endereça páginas que, elas próprias, consistem em tabelas de páginas.
 Isto permite, entre outros, que só estejam em memória tabelas de páginas correspondentes às páginas que estão de facto a ser utilizadas pelo processo correspondente.
 
-![Tabela de Páginas Multi-Nível](./imgs/0010/multilevel_page_table.png)
+![Tabela de Páginas Multi-Nível](./imgs/0010/multilevel_page_table.png#dark=1)
 
 // TODO acabar isto
 
@@ -165,9 +165,9 @@ Quando ocorre um fork() o gestor de memória:
 - aloca uma nova tabela de páginas para o processo filho e copia o conteúdo da tabela do pai;
 - nas entradas da tabela (tanto da do filho como da do pai) com permissão de escrita (dados e pilha), retira permissão de escrita e ativa bit CoW;
 - quando o pai ou o filho tentam escrever numa página partilhada por CoW, ocorre uma exceção (pois não há permissão de escrita). Então, o núcleo acorda e:
-  -- aloca uma nova página, para onde copia o conteúdo da página partilhada;
-  -- atualiza a entrada da tabela do processo onde ocorreu a exceção com a base (endereço físico) da nova página e novas permissões (escrita ativada, CoW desativado);
-  -- caso a página original já só seja referenciada por um processo, atualiza a entrada na tabela de páginas que lhe corresponde, atualizando as permissões (escrita ativada, CoW desativado).
+  - aloca uma nova página, para onde copia o conteúdo da página partilhada;
+  - atualiza a entrada da tabela do processo onde ocorreu a exceção com a base (endereço físico) da nova página e novas permissões (escrita ativada, CoW desativado);
+  - caso a página original já só seja referenciada por um processo, atualiza a entrada na tabela de páginas que lhe corresponde, atualizando as permissões (escrita ativada, CoW desativado).
 
 ## Algoritmos de Gestão de Memória
 
@@ -190,21 +190,21 @@ Na libertação de memória é necessário recompactar os segmentos.
 Para a reserva de segmentos, podemos usar vários critérios de escolha:
 
 - **_best-fit_** (o menor possível):
-  -- gera elevado número de fragmentos;
-  -- em média percorre-se metade da lista de blocos livres na procura (com lista ordenada por tamanho);
-  -- a lista tem de ser percorrida outra vez para introduzir o fragmento.
+  - gera elevado número de fragmentos;
+  - em média percorre-se metade da lista de blocos livres na procura (com lista ordenada por tamanho);
+  - a lista tem de ser percorrida outra vez para introduzir o fragmento.
 
 - **_worst-fit_** (o maior possível):
-  -- pode facilmente impossibilitar a reserva de blocos de grandes dimensões;
-  -- a lista de blocos livres tem de ser percorrida para introduzir o fragmento.
+  - pode facilmente impossibilitar a reserva de blocos de grandes dimensões;
+  - a lista de blocos livres tem de ser percorrida para introduzir o fragmento.
 
 - **_first-fit_** (o primeiro possível):
-  -- minimiza tempo gasto a percorrer a lista de blocos livres;
-  -- gera muita fragmentação externa;
-  -- acumula muitos blocos pequenos no início da lista, ficando para o fim os blocos maiores.
+  - minimiza tempo gasto a percorrer a lista de blocos livres;
+  - gera muita fragmentação externa;
+  - acumula muitos blocos pequenos no início da lista, ficando para o fim os blocos maiores.
 
 - **_next-fit_** (o primeiro possível, a seguir à pesquisa anterior):
-  -- espalha os blocos pequenos por toda a memória.
+  - espalha os blocos pequenos por toda a memória.
 
 ### Transferência
 
@@ -259,10 +259,10 @@ Sistema **NRU** (_Not Recently Used_):
 - a UGM coloca R=1 quando há leitura na página e M=1 quando há escrita;
 - o paginador percorre regularmente as tabelas de páginas e coloca o bit R a 0;
 - obtemos assim 4 grupos de páginas:
-  -- 0 (R = 0, M = 0): Não referenciada, não modificada;
-  -- 1 (R = 0, M = 1): Não referenciada, modificada;
-  -- 2 (R = 1, M = 0): Referenciada, não modificada;
-  -- 3 (R = 1, M = 1): Referenciada, modificada;
+  - 0 (R = 0, M = 0): Não referenciada, não modificada;
+  - 1 (R = 0, M = 1): Não referenciada, modificada;
+  - 2 (R = 1, M = 0): Referenciada, não modificada;
+  - 3 (R = 1, M = 1): Referenciada, modificada;
 - libertam-se primeiro as páginas dos grupos de número mais baixo.
 
 Sistema **LRU** (_Least Recently Used_):
@@ -272,9 +272,9 @@ Sistema **LRU** (_Least Recently Used_):
 - em cada entrada na tabela de páginas é mantido um bit **R**;
 - a UGM coloca R=1 quando a página é acedida (leitura ou escrita);
 - gestor de memória do núcleo mantém um contador por página que indica a que "grupo etário" ela pertence:
-  -- atualizado regularmente pelo paginador;
-  -- quando R=0, grupo etário incrementa;
-  -- quando R=1, volta ao grupo etário inicial, recolocando R=0.
+  - atualizado regularmente pelo paginador;
+  - quando R=0, grupo etário incrementa;
+  - quando R=1, volta ao grupo etário inicial, recolocando R=0.
 - quando atingir um grupo etário máximo, a página passa para a lista das livres mas modificadas.
 
 ## Comparação entre paginação e segmentação
