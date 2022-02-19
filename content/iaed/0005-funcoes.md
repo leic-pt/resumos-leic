@@ -66,7 +66,3 @@ Assim convertemos o divisor para outro tipo de dados (`float`) para que a assim 
 Para copiar uma tabela, temos de copiar elemento a elemento.
 
 `embed:assets/0005-copia.c`
-
-Slides:
-
-- [Aula 5](https://drive.google.com/file/d/1p2wguxSNAtxRTz8PGN_V-FVC3lbcQ6Go/view?usp=sharing)

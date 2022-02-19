@@ -545,5 +545,4 @@ Por fim, olhamos para a [**Dualidade Forte**](color:green), que nos diz que:
 
 ---
 
-- [Slides](https://drive.google.com/file/d/1IGRwXhtKGG0P9SRQxB3RTf5bIxtpvG1Y/view?usp=sharing)
 - [Notas Prog. Linear - Prof. José Fragoso](https://drive.google.com/file/d/1mDyBymCHkOOU0IrikVmHZ0kcdku9X23A/view?usp=sharing)

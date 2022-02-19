@@ -284,7 +284,3 @@ O pacote 11 está dependente do pacote 5 e do pacote 7.
 - Todos os vértices pertencem a uma componente
   fortemente ligada, mesmo que esta só contenha o próprio
   elemento
-
-Slides:
-
-- [Aula 19](https://drive.google.com/file/d/1HaqUSaBLWH7xWUqyH6rAP0zieSCzswJQ/view?usp=sharing)

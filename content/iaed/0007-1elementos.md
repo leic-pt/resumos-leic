@@ -202,7 +202,3 @@ Ambos os shifts adicionam 0.
 - Se `<expr1>` for falso, valor da expressão é `<expr3>`
 
 `embed:assets/0007-cond.c`
-
-Slides:
-
-- [Aula 7](https://drive.google.com/file/d/1Qflt6mId0-75znhCgwscN2v7aLKrStTC/view?usp=sharing)

@@ -689,10 +689,6 @@ Chegámos, portanto, a um produto com duas partes - temos, claro, que $f(b) - f(
 
 ---
 
-- [Slides Aulas 4 e 5](https://drive.google.com/file/d/1cY9AGDpyjc0ogfU_SN5b_axYxNv9zHdZ/view?usp=sharing)
-
-- [Slides Aula 6](https://drive.google.com/file/d/1548Oouxdmfh0DbYhSh6q_eMUKTLYs1Vv/view?usp=sharing)
-
 - [Notas da Aula 4 - Prof. José Fragoso](https://drive.google.com/file/d/1raxKYC4ve-qrO8Xgc1qxcI9UxpYCryrK/view?usp=sharing)
 
 - [Notas da Aula 5 - Prof. José Fragoso](https://drive.google.com/file/d/1tEMUFKuYdfHq61KC5Q2G0atqNR9wbNUG/view?usp=sharing)

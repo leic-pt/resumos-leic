@@ -415,5 +415,3 @@ Chegamos, portanto, a que a única mulher conhecida é a mãe do Bart, apesar de
 De realçar que, tal como no exemplo anterior, não era necessário recorrer a esta _fbf_ extra - é só uma maneira diferente de se resolver.
 
 :::
-
-[Slides](https://drive.google.com/file/d/13T22fWhgHdQxErxsI105zGXH0_ytM-AY/view?usp=sharing)

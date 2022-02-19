@@ -184,5 +184,3 @@ $\leftarrow P(x, b).$
 :::
 
 - **Independência da função de seleção** - seja $\Delta$ um programa e $\alpha$ um objetivo. Independentemente da função de seleção, todas as árvores SLD de $\Delta$ e $\alpha$ têm o mesmo número (finito ou infinito) de ramos **bem sucedidos**.
-
-[Slides](https://drive.google.com/file/d/1HHsikJwQmq6BHM1l2JdgZLIyZf95iMPd/view?usp=sharing)

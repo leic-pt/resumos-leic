@@ -10,8 +10,12 @@ type: topLevelPage
 
 ## Recursos
 
+:::info[Slides]
+
+Os Slides que tipicamente acompanham a cadeira, bem como a coletânea de exercícios encontram-se disponíveis na página da cadeira no Fénix, não sendo possível disponibilizá-los nesta página.
+
+:::
+
 - [Página da Cadeira - Fénix](https://fenix.tecnico.ulisboa.pt/disciplinas/ASA/2021-2022/1-semestre)
 
 - [Notas Professor José Fragoso](https://web.tecnico.ulisboa.pt/jose.fragoso/#teaching)
-
-- [Coletânea de Exercícios](https://drive.google.com/file/d/1Mk2Eu5uDlwJY_f_eaknYsQk4dljz7IBa/view?usp=sharing)

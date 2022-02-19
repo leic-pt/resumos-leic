@@ -733,7 +733,7 @@ Como são todos positivos, há mínimo local de $f$ em $(0,0,0)$.
 
 Slides:
 
-- [Aula 13](https://drive.google.com/file/d/12vZLRp9qFxKanHFAt_GM7xedekEc1pyV/view?usp=sharing)
-- [Aula 14](https://drive.google.com/file/d/1j9nv1inN2UGH9NpyxokZkj5MtRloKh1W/view?usp=sharing)
-- [Aula 15](https://drive.google.com/file/d/1eOSZHAB0uZdHiWXkxyVGFFzvH36wf5ut/view?usp=sharing)
-- [Aula 16](https://drive.google.com/file/d/179-Btb4oJG6dI6ARnPlM6Aph0mKSB6--/view?usp=sharing)
+- [Aula 13](https://drive.google.com/file/d/1ZmmZ0khoA_Z5jKF3c2kEHdpyZLKMR-0L/view)
+- [Aula 14](https://drive.google.com/file/d/1qe5WoQ6LUt9tmrSRibs9hDAyGsWeT0-l/view)
+- [Aula 15](https://drive.google.com/file/d/1UQOC-tosztBWz7yzcrjLYGd5-6tsZ_CM/view)
+- [Aula 16](https://drive.google.com/file/d/1d_gVxqQ1RJO_S-EHghAbegYNrHvTNGx3/view)
