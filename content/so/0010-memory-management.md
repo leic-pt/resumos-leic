@@ -1,14 +1,14 @@
 ---
 title: Gestão de Memória
 description: >-
-	Gestor de Memória.
-	Endereçamento Virtual.
-	Segmentaçao e paginação.
-	Otimização de tradução de endereços.
-	Tabelas de Páginas Multi-nível.
-	Partilha de memória entre processos.
-	Algoritmos de gestão de memória.
-	Comparação entre paginação e segmentação
+  Gestor de Memória.
+  Endereçamento Virtual.
+  Segmentaçao e paginação.
+  Otimização de tradução de endereços.
+  Tabelas de Páginas Multi-nível.
+  Partilha de memória entre processos.
+  Algoritmos de gestão de memória.
+  Comparação entre paginação e segmentação
 path: /so/memory-management
 type: content
 ---
