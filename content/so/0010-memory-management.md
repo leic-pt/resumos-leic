@@ -116,7 +116,7 @@ A memória paginada tem a seguinte proteçao:
 Para tornar o acesso a páginas o mais rápido possível, a UGM guarda uma **tabela de tradução de endereços** ou **TLB** (__translation lookaside buffer__).
 Esta tabela permite acesso bastante mais rápido às páginas pois está guardada em hardware, tal como a UGM.
 
-// inserir imagem (slide 20)
+![Tabela de Tradução de Endereços](./imgs/0010/tlb.png)
 
 A ideia é que as próximas páginas a que um programa aceda estejam nesta tabela. 
 Como é impossível prever isso, mais uma vez, a UGM toma o comportamento recente do programa como uma boa previsão do seu futuro próximo.
@@ -128,7 +128,7 @@ A TLB é limpa em cada comutação de processos pelo que quanto maior for o quan
 
 O carregamento das páginas na TLB é feito de acordo com o seguinte diagrama:
 
-// inserir imagem (slide 21)
+![Diagrama de Tabela de Tradução de Endereços](./imgs/0010/tlb_diagram.png)
 
 ## Tabelas de páginas multi-nível
 
@@ -139,7 +139,7 @@ Ora, isto é muita memória. É então necessária uma forma de endereçar as p�
 Existe uma tabela de páginas de nível 1, que endereça páginas que, elas próprias, consistem em tabelas de páginas.
 Isto permite, entre outros, que só estejam em memória tabelas de páginas correspondentes às páginas que estão de facto a ser utilizadas pelo processo correspondente.
 
-// inserir imagem (slide 25)
+![Tabela de Páginas Multi-Nível](./imgs/0010/multilevel_page_table.png)
 
 // TODO acabar isto
 
