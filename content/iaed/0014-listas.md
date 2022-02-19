@@ -187,7 +187,3 @@ int length(link head) {
 `embed:assets/0014-lista.c`
 
 Encontram imagens de como isto funciona visualmente!
-
-Slides:
-
-- [Aula 15 e 16](https://drive.google.com/file/d/1KMreQsdbgRuJX7hYuXrWx5WpTfTUw6Ce/view?usp=sharing)

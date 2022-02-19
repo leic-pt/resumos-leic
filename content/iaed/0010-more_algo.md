@@ -124,7 +124,3 @@ Quando chegamos a vetores de um elemento:
 Recomendo vivamente a ver os slides da aula e investigar mais sobre estes algoritmos.
 
 - [Demonstração visual dos algoritmos](https://gonque.github.io/sorting-algos/)
-
-Slides:
-
-- [Aula 10](https://drive.google.com/file/d/15_1rxryl8zCLxsx8h-95sZ_LmzTpJRXk/view?usp=sharing)

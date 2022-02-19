@@ -112,7 +112,3 @@ Exemplos úteis:
 :::tip
 O Comando `man` permite ver o que as funções fazem.
 :::
-
-Slides:
-
-- [Aula 4](https://drive.google.com/file/d/1xeNWUgLtrYgSXs8Ed1GHg9Q7dAsU1X25/view?usp=sharing)

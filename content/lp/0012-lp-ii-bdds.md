@@ -166,5 +166,3 @@ Podemos notar que em ambos os OBDDs o símbolo de proposição com maior priorid
 ![Aplica pt.3](./assets/0012-lp-aplica-3.png#dark=1)
 
 Aplicar o algoritmo ao OBDD negativo é diferente, visto que os sub-OBDDs não têm a mesma raiz. Assim sendo, pegamos no símbolo de proposição com mais prioridade na relação de ordem total (neste caso Q ou vem antes de R ou não aparece, pelo que escolhemos Q) e fazemos dele a raiz. Temos, então, que o seu OBDD negativo resulta de aplicar _op_ ao OBDD que não contém Q e ao OBDD negativo de Q; o seu OBDD positivo resulta de aplicar _op_ ao OBDD que não contém Q e ao OBDD positivo de Q. Aqui podemos verificar que ambos os caminhos resultam em falso, pelo que o resultado final é também falso (todos os caminhos levam a falso) e a conjunção das 2 _fbfs_ é uma contradição.
-
-[Slides (até ao 24)](https://drive.google.com/file/d/1ZuegnTFgn5SmM4qh2zPu2wpbbNDi5KaP/view?usp=sharing)

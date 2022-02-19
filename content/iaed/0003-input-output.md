@@ -97,7 +97,3 @@ Sintaxe: `while((c = getchar()) != EOF)`
 :::
 
 `embed:assets/0003-conta-palavras.c`
-
-Slides:
-
-- [Aula 3](https://drive.google.com/file/d/19W484oULAbqiChTCqPhZlr83bUiPMu_r/view?usp=sharing)

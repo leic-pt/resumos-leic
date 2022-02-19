@@ -21,7 +21,7 @@ O exercício em questão é:
 
 ![Exercício Exame](./assets/0014-ex-exame.png)
 
-> E a explicação dada pelo prof é:
+> E a explicação dada pelo professor é:
 >
 > Uma conceptualização é algo necessário quando queremos avaliar
 > proposições em LPO em relação ao mundo real (ou qualquer outro
@@ -69,5 +69,3 @@ O exercício em questão é:
 > usando outras relações e operadores.
 
 :::
-
-[Slides](https://drive.google.com/file/d/1u6jYJBKLZ4lIjBxyLQP1g0nSSThib2eu/view?usp=sharing)
