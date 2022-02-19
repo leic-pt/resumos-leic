@@ -1,6 +1,7 @@
 ---
 title: Operador de Corte, Negação, Paragem/Execução Forçada
-description: Operador de Corte, Negação, Paragem/Execução Forçada.
+description: >-
+  Operador de Corte, Negação, Paragem/Execução Forçada.
 path: /lp/prolog-corte-neg
 type: content
 ---
@@ -13,7 +14,7 @@ type: content
 
 ## Operador de Corte
 
-O **operador de corte**, `!`, é utilizado para indicar que, num programa onde certos ramos não produzirão soluções, certos ramos não devem ser utilizados (algo do género "se já sabes que o que fizeste está bem, vais à procura de mais porquê?"). Tal como o `break` de outras linguagens, só deve ser utilizado quando estritamente necessário (e, quando utilizado, devidamente comentado), visto que pode alterar inadvertidamente a semântica declarativa do programa. Cria, portanto, uma "barreira" no ramo da árvore SLD durante o retrocesso. **Tem sempre sucesso**, quando chamado.
+O **operador de corte**, `!`, é utilizado para indicar que, num programa onde um dado ramo produz soluções, devemos seguir esse ramo (algo do género "se já sabes que o que fizeste está bem, segue em frente."). Tal como o `break` de outras linguagens, só deve ser utilizado quando estritamente necessário (e, quando utilizado, devidamente comentado), visto que pode alterar inadvertidamente a semântica declarativa do programa. Cria, portanto, uma "barreira" no ramo da árvore SLD durante o retrocesso. **Tem sempre sucesso**, quando chamado.
 
 Exemplo de um programa a utilizar o operador de corte:
 
@@ -122,7 +123,7 @@ junta_ord([P1|R1], [P2|R2], [P2|R]) :-
 
 :::
 
-Ora, dadas as suas semelhanças com o **break** de outras linguagens, devemos também ser relembrados dos **perigos inerentes ao operador de corte** (ou melhor, não ao operador em si, [tem direito à vida como os outros](https://math.tecnico.ulisboa.pt/photos/s_jpnunes.jpg), mas pelo uso indevido que lhe podemos dar).
+Ora, dadas as suas semelhanças com o **break** de outras linguagens, devemos também ser relembrados dos **perigos inerentes ao operador de corte**, pelo uso indevido que lhe podemos dar.
 
 Peguemos num programa, `menor`, que nos dá o menor de dois números. Podemos defini-lo, sem recorrer ao corte, através de:
 
@@ -246,8 +247,8 @@ Por exemplo, se utilizarem o SWI-Prolog, podem ir às definições e ao `user in
 % dark mode
 :- use_module(library(theme/dark)).
 
-% mensagem ao entrar
-:- writeln('JKJK!').
+% mensagem ao entrar - deverão ver isto ao abrir o SWI-Prolog
+:- writeln('This is a test!').
 
 % se estiverem na vossa diretoria default e quiserem abrir x ficheiros
 % pode ser útil no projeto para não andarem sempre a abrir o ficheiro

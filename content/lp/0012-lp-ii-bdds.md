@@ -1,6 +1,8 @@
 ---
 title: Lógica Proposicional II - Diagramas de Decisão Binários
-description: Lógica Proposicional II, Sistema Semântico, Diagramas de Decisão Binários (des)Ordenados, Algoritmos de Manipulação de OBDDs.
+description: >-
+  Lógica Proposicional II - Sistema Semântico.
+  Diagramas de Decisão Binários (des)Ordenados, Algoritmos de Manipulação de OBDDs.
 path: /lp/logica-proposicional-ii-bdds
 type: content
 ---
@@ -37,7 +39,7 @@ Abaixo podemos observar um exemplo para a árvore de decisão de $P \wedge ((Q \
 </p>
 :::
 
-As árvores de decisão e as tabelas de verdade são, contudo, bastante semelhantes em relação ao seu tamanho e quantidade de pontos de decisão. Podemos, contudo, **transformá-las** em grafos acíclicos dirigidos e rotulados para representar, de modo mais condensado, a mesma informação. Abordemos primeiro estas duas propriedades dos grafos.
+As árvores de decisão e as tabelas de verdade são, contudo, bastante semelhantes em relação ao seu tamanho e quantidade de pontos de decisão. Podemos, no entanto, **transformá-las** em grafos acíclicos dirigidos e rotulados para representar, de modo mais condensado, a mesma informação. Abordemos primeiro estas duas propriedades dos grafos.
 
 - **Grafo Dirigido** - estrutura $(N, A)$ em que $N$ é um conjunto finito e $A$ uma relação binária definida sobre $N$. Aqui, $N$ corresponderá aos **nós** do grafo e $A$ aos seus **arcos**. Dado um grafo dirigido, um nó para o qual não existe um arco que nele termina diz-se a **raiz**, enquanto que um nó que não tem um arco que dele parte diz-se uma **folha**. Um nó "intermédio" diz-se **não terminal**.
 
@@ -45,7 +47,7 @@ As árvores de decisão e as tabelas de verdade são, contudo, bastante semelhan
 
 - **Grafo Dirigido e Rotulado** - corresponde a uma estrutura $(N, A)$ em que cada relação em $A$ é um conjunto de arcos com um dado rótulo.
 
-Um **BDD** é, portanto, um grafo acílico, dirigido e rotulado em que os rótulos dos nós podem tanto ser proposições (em nós iniciais/não terminais) como valores lógicos (folhas). Continuamos a ter os arcos a "cheio" e tracejado.
+Um **BDD** é, portanto, um grafo acílico, dirigido e rotulado em que os rótulos dos nós podem tanto ser proposições (em nós iniciais/não terminais) como valores lógicos (folhas). Continuamos a ter os tais arcos a "cheio" e tracejado.
 
 <p align="center">
 
@@ -66,7 +68,7 @@ Um **diagrama de decisão binário ordenado**, OBDD, é um BDD que satisfaz algu
 
 :::details[Exemplos de OBDDs incompatíveis]
 
-Os exemplos abaixo não são compatíveis, visto que não há uma ordem clara - no primeiro, $R$ vem antes de $Q$; no segundo $R$ vem depois de $Q$, não havendo, portanto, uma ordem clara.
+Os exemplos abaixo não são compatíveis, visto que não há uma ordem clara - no primeiro, $R$ vem antes de $Q$; no segundo $R$ vem depois de $Q$. Não podendo estabelecer uma relação de ordem entre os símbolos de proposição, dizemos que são incompatíveis.
 
 <p align="center">
 
@@ -161,7 +163,7 @@ Vejamos então o que acontece com $aplica(\wedge, O_{\neg P \wedge \neg R}, O_{P
 
 ![Aplica pt.2](./assets/0012-lp-aplica-2.png#dark=1)
 
-Podemos notar que em ambos os OBDDs o símbolo de proposição com maior prioridade é P, raiz de ambos os OBDDs, pelo que o seu OBDD negativo resulta de aplicar o algoritmo aos respetivos OBDDs negativos e o positivo aos positivos (o "resultante" tem como linhas a cheio as linhas originalmente ligadas por P a cheio, a tracejado as originalmente ligadas a tracejado). Num dos caminhos temos a conjunção de verdadeiro e falso, que é falso, mas ainda temos de olhar para o outro caminho, visto que não sabemos se nos pode dar uma resposta diferente.
+Podemos notar que em ambos os OBDDs o símbolo de proposição com maior prioridade é $P$, raiz de ambos os OBDDs, pelo que o seu OBDD negativo resulta de aplicar o algoritmo aos respetivos OBDDs negativos e o positivo aos positivos (o "resultante" tem como linhas a cheio as linhas originalmente ligadas por $P$ a cheio, a tracejado as originalmente ligadas a tracejado). Num dos caminhos temos a conjunção de verdadeiro e falso, que é falso, mas ainda temos de olhar para o outro caminho, visto que não sabemos se nos pode dar uma resposta diferente.
 
 ![Aplica pt.3](./assets/0012-lp-aplica-3.png#dark=1)
 
