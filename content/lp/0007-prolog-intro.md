@@ -7,17 +7,16 @@ type: content
 
 # Introdução ao Prolog
 
-Prolog é uma linguagem de programação que utiliza o paradigma de programação em lógica - especifica **_o quê_** e **_o que lhe deve ser feito_**. Concebida com o objetivo inicial de resolver problemas associados à inteligência artificial/tradução de linguagem natural, hoje em dia as suas aplicações vão desde a LN/IA à lógica e à computação numérica e simbólica.
-
 ```toc
 
 ```
 
+Prolog é uma linguagem de programação que utiliza o paradigma de programação em lógica - especifica **_o quê_** e **_o que lhe deve ser feito_**. Concebida com o objetivo inicial de resolver problemas associados à inteligência artificial/tradução de linguagem natural, hoje em dia as suas aplicações vão desde a LN/IA à lógica e à computação numérica e simbólica.
+
 ## Conceitos Básicos
 
 Importante - todo o input escrito na _prompt_ (`?-`) tem de terminar com um ponto final.\
-Perguntamos _algo_ à prompt, e com a informação de que dispõe, o programa responde - se souber, dá-nos uma resposta;\
-caso contrário (errado/falta de informação), responde que não sabe.
+Perguntamos _algo_ à prompt, e com a informação de que dispõe, o programa responde - se souber, dá-nos uma resposta (e diz que conseguiu dá-la). Caso contrário, responde que não sabe.
 
 ### Termos
 
@@ -63,42 +62,30 @@ Um dos conceitos importantes em Prolog é _termo_ - tal como na LPO, consiste nu
 
 Constituídos por uma sequência de cláusulas determinadas (cláusulas com cabeça). As cláusulas aceitam literais, funcionando tal como na LPO. Aqui, a implicação $\leftarrow$ é representada por `:-`.
 
-:::details[Cláusulas Determinadas]
-
-**Afirmações** - informações "concretas" dadas aos programa:
+- **Afirmações** - informações "concretas" dadas aos programa:
 
 `pai(Homer, Bart)`,
 `comprarCigarros(pai, filhoRandom)`
 
-**Regras** - informações "formais"/_regras_ dadas ao programa:
-`ant(X,Y) :- ad(X, Y)`
-
-:::
-
-Podemos ainda ter cláusulas iterativas, cláusulas cujo corpo apenas contém um literal, sendo este igual ao utilizado na cabeça da cláusula.
-
-:::details[Cláusula Iterativa]
-
-`liga(X, Y) :- liga(Y, X)`
-
-:::
+- **Regras** - informações "formais"/_regras_ dadas ao programa:
+  `ant(X,Y) :- ad(X, Y)`
 
 - **Objetivos** - como na LPO, uma cláusula com corpo e sem cabeça.
 
 - **Domínio de uma variável** - regras/objetivos nos quais a variável aparece.
+
+Podemos ainda ter **cláusulas iterativas**, cláusulas cujo corpo apenas contém um literal, sendo este igual ao utilizado na cabeça da cláusula. Um exemplo seria `liga(X, Y) :- liga(Y, X)`.
 
 ## Unificação de termos
 
 Na prompt, escrever `<expressão> = <expressão>` para verificar se é unificável, \
 `<expressão> \= <expressão>` para verificar o contrário.
 
-Devolve `false.` caso não seja unificável (1).\
- Se for unificável, pode devolver tanto a unificação concreta que torna a expressão verdadeira (2).\
- Caso a unificação não tenha uma resposta concreta devolve `true.` (3).
+Devolve `false.` caso não seja unificável.  
+Se for unificável, pode devolver tanto a unificação concreta que torna a expressão verdadeira (2) como `true.` caso a unificação não tenha uma resposta concreta. Abaixo encontram-se exemplos (seguindo esta mesma ordem) de tentativas de unificação.
+[**\***](color:yellow)
 
-:::details[Unificação]
-
-(1)
+:::details[Exemplos]
 
 ```prolog
 ?- a = b.
@@ -107,14 +94,10 @@ false.
 false.
 ```
 
-(2)
-
 ```prolog
 ?- f(X, a) = f(b, Y).
 X = b, Y = a.
 ```
-
-(3)
 
 ```prolog
 ?- X = X.
@@ -123,15 +106,14 @@ true.
 true.
 ```
 
-(aqui não há uma resposta concreta). Além disso, como podemos observar neste segundo exemplo, as variáveis anónimas são consideradas variáveis distintas (se não fossem, retornaria `false.`).
+(neste último caso não há uma resposta concreta). Além disso, como podemos observar neste segundo exemplo, as variáveis anónimas são consideradas variáveis distintas (se não fossem, retornaria `false.`).
+
 :::
 
 ### Comparação de termos
 
 Na prompt, escrever `<expressão> == <expressão>` para verificar se são iguais,\
  `<expressão> \== <expressão>` para verificar o contrário.
-
-:::details[Comparação de Termos]
 
 ```prolog
 ?- b == a.
@@ -145,7 +127,6 @@ X = a.
 ```
 
 Neste último exemplo, o programa vai primeiro tentar unificar `X` com `a` e só depois é que ocorre a comparação, comparação que ocorre agora entre `a` e `a` (e que dá, portanto, `true.`).
-:::
 
 ### Semântica
 
@@ -185,7 +166,8 @@ ant(X, Z) :- ant(X, Y), ad(Y, Z).
 
 **Este programa tem erros, e à frente aprofundaremos quais são/o seu porquê**.
 
-Podem testar os exemplos seguintes no SWI-Prolog ao criar um ficheiro `.pl` com o código acima, e dentro do SWI-Prolog ir a `Consult` e escolher esse ficheiro. De seguida, na `prompt`, escrever os objetivos indicados e verificar a resposta.\
+Podem testar os exemplos seguintes no SWI-Prolog ao criar um ficheiro `.pl` com o código acima, e dentro do SWI-Prolog ir a `Consult` e escolher esse ficheiro. De seguida, na `prompt`, escrever os objetivos indicados e verificar a resposta (isto em Windows). Em Linux, instalar a _package_ `swi-prolog` e correr `swipl <nome do ficheiro>` abrirá uma _command line_ interativa, onde podemos interagir com o programa associado ao ficheiro.
+
 Outra maneira possível é, na `prompt`, escrever `working_directory(_, '<path>').` ou `working_directory(CWD, '<path>').`para poderem aceder a todos os ficheiros `.pl` dessa diretoria e carregá-los com `[nome].` para `nome.pl` (portanto, sem a extensão). Além disso, podem verificar a diretoria atual com `pwd.`.
 
 :::tip[Resolução com um ramo bem sucedido]
@@ -218,18 +200,13 @@ Devemos ainda ter em consideração 2 pontos:
 
 - Ao definir um predicado, devemos definir as afirmações (cláusulas só com cabeça) antes das regras; esta regra vem devido às afirmações não terem corpo, e a unificação leva ao desaparecimento do literal (queremos isto o mais "cedo" no programa possível).
 
-- Devemos evitar recursão à esquerda, ou seja, em vez de escrever:\
-  `pred1(A, C) :- pred1(A, B), pred2(B, C).`\
-  devemos trocar a ordem de `pred1(A, B)` e `pred2(B, C)`.\
-   Caso contrário, poderemos entrar em ciclos infinitos, visto que a função de seleção do Prolog é $\alpha_{1}$, e ao escolher o ramo mais à esquerda estaremos a entrar em recursões infinitas.
+- Devemos evitar recursão à esquerda, ou seja, em vez de escrever `pred1(A, C) :- pred1(A, B), pred2(B, C).` devemos trocar a ordem de `pred1(A, B)` e `pred2(B, C)`. Caso contrário, poderemos entrar em ciclos infinitos, visto que a função de seleção do Prolog é $\alpha_{1}$, e ao escolher o ramo mais à esquerda estaremos a entrar em recursões infinitas.
 
-Caso haja **mais que uma resposta** a um dado objetivo dado um programa, podemos continuar a premir `;` até o Prolog esgotar os ramos bem sucedidos.
+Caso haja **mais que uma resposta** a um dado objetivo dado um programa, podemos continuar a premir `;` até o Prolog esgotar os ramos bem sucedidos (nessa situação responderá `false.` e encerrará).
 
 ## Listas
 
 Em Prolog, listas são tipos estruturados de informação pré-definidos. Tal como em Python, os seus elementos são separados por vírgulas, estando delimitados por `[ ]`. Os elementos podem ser termos (variáveis, constantes ou termos compostos) ou outras listas, podendo, claro está, existir a lista vazia (`[]`).
-
-:::details[Exemplos de Listas]
 
 ```prolog
 []
@@ -237,8 +214,6 @@ Em Prolog, listas são tipos estruturados de informação pré-definidos. Tal co
 [[], [a, b], c, d]
 [X, r(a, b, c), 6]
 ```
-
-:::
 
 Uma lista **não vazia** pode ser vista como sendo constituída por 2 entidades, o primeiro elemento e o resto. Havendo pelo menos um elemento, existe sempre um primeiro elemento; nesta "representação", não tem necessariamente de haver resto. Se houver, o Prolog retorná-lo-á em forma de lista. Utilizamos o padrão `[P | R]`, com o operador `|`, para separar o Primeiro elemento do Resto. A unificação de `[P|R]` com uma lista resultará numa interação deste género:
 
@@ -261,7 +236,11 @@ false.
 
 ### Exemplos de programas envolvendo listas
 
-(recomendo que testem os trechos de código seguintes vocês próprios, incluindo inputs não testados aqui, para se irem habituando e aprendendo coisas sobre a linguagem).
+:::warning
+
+Recomendo que testem os trechos de código seguintes vocês próprios, incluindo inputs não testados aqui, para se irem habituando e aprendendo coisas sobre a linguagem.
+
+:::
 
 :::tip[Exemplo 1 - programa que testa se um dado elemento pertence a uma lista.]
 

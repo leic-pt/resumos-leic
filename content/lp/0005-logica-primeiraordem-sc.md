@@ -19,13 +19,13 @@ Tal como para a Lógica Proposicional, é possível automatizar alguns aspetos r
 
 ## Representação do Conhecimento
 
-Tem como objetivo principal fornecer a um computador declarações sobre um domínio, com vista a permitir que o próprio computador realize operações inteligentes sobre esse mesmo domínio. Ligada à área da Inteligência Artificial.
-
 :::warning
 
 Se estiverem apenas a estudar para a avaliação das práticas, as secções dos agentes cognitivos e das hipóteses subjacentes não são particularmente relevantes. A partir de _Representar Conhecimento em Lógica_ volta a ser relevante para esse propósito.
 
 :::
+
+Tem como objetivo principal fornecer a um computador declarações sobre um domínio, com vista a permitir que o próprio computador realize operações inteligentes sobre esse mesmo domínio. Ligada à área da Inteligência Artificial.
 
 :::tip[Agentes cognitivos]
 
@@ -162,27 +162,27 @@ Obtida de forma semelhante à da Lógica Proposicional, apesar de algumas difere
 
 - **Eliminação dos quantificadores existenciais**
 
-- Eliminar quantificadores **isolados** - substituir a _fbf_ $\exists x[\alpha (x)]$ por $\alpha (c)$, onde $c$ é uma nova constante - a _constante de Skolem_. **A constante de Skolem é considerada a entidade que verifica a propriedade $\alpha$**, apesar de nada sabermos em concreto sobre ela. Só pode ser aplicada a **quantificadores isolados**, fora do domínio de outros quantificadores.
+  - Eliminar quantificadores **isolados** - substituir a _fbf_ $\exists x[\alpha (x)]$ por $\alpha (c)$, onde $c$ é uma nova constante - a _constante de Skolem_. **A constante de Skolem é considerada a entidade que verifica a propriedade $\alpha$**, apesar de nada sabermos em concreto sobre ela. Só pode ser aplicada a **quantificadores isolados**, fora do domínio de outros quantificadores.
 
-- Dependências entre quantificadores existenciais e universais - se um quantificador existencial aparecer dentro do domínio de um quantificador universal, existe a possibilidade do valor da variável quantificada _existencialmente_ depender do valor da variável quantificada _universalmente_. Caso dependa, substituímos a variável por um novo símbolo de função - função de Skolem, $f_{sk}(x)$. Aqui, "a variável de dentro depende/é função da de fora/o $y$(interior) depende/é função de $x$(exterior)". A existência do $y$ está diretamente dependente de qual é o $x$ em questão, e é daí que vem a noção de função.
+  - Dependências entre quantificadores existenciais e universais - se um quantificador existencial aparecer dentro do domínio de um quantificador universal, existe a possibilidade do valor da variável quantificada _existencialmente_ depender do valor da variável quantificada _universalmente_. Caso dependa, substituímos a variável por um novo símbolo de função - função de Skolem, $f_{sk}(x)$. Aqui, "a variável de dentro depende/é função da de fora/o $y$(interior) depende/é função de $x$(exterior)". A existência do $y$ está diretamente dependente de qual é o $x$ em questão, e é daí que vem a noção de função.
 
-:::details[Exemplos]
+  :::details[Exemplos]
 
-Podemos passar
+  Podemos passar
 
-$\forall x[Num\_Nat(x) \to \exists y[Num\_Nat(y) \wedge y > x]]$
+  $\forall x[Num\_Nat(x) \to \exists y[Num\_Nat(y) \wedge y > x]]$
 
-para
+  para
 
-$\forall x[Num\_Nat(x) \to Num\_Nat(f_{sk}(x)) \wedge f_{sk}(x) > x]$
+  $\forall x[Num\_Nat(x) \to Num\_Nat(f_{sk}(x)) \wedge f_{sk}(x) > x]$
 
-_se repararem, a parte de baixo está diferente da dos slides; foi erro do professor, e ele próprio corrigiu em aula._
+  _se repararem, a parte de baixo está diferente da dos slides; foi erro do professor, e ele próprio corrigiu em aula._
 
-Aqui, o valor de $y$ depende do de $x$, pelo que para eliminar o quantificador existencial é necessário substituir a variável associada por um termo formado por um novo símbolo de função. $f$ é uma função de Skolem. Ao tentar substituir por uma constante de Skolem, obteríamos uma afirmação falsa (algo do género "Há um natural maior que todos os outros").
+  Aqui, o valor de $y$ depende do de $x$, pelo que para eliminar o quantificador existencial é necessário substituir a variável associada por um termo formado por um novo símbolo de função. $f$ é uma função de Skolem. Ao tentar substituir por uma constante de Skolem, obteríamos uma afirmação falsa (algo do género "Há um natural maior que todos os outros").
 
-:::
+  :::
 
-Temos então, portanto, que se nenhum quantificador universal aparecer "por fora" de um dado quantificador existencial, substituímos todas as ocorrências da variável a ele ligada pela constante de Skolem e removemos o quantificador; caso contrário, removemos também o quantificador, mas em vez de substituir a variável pela constante, substituímos pela função de Skolem.
+  Temos então, portanto, que se nenhum quantificador universal aparecer "por fora" de um dado quantificador existencial, substituímos todas as ocorrências da variável a ele ligada pela constante de Skolem e removemos o quantificador; caso contrário, removemos também o quantificador, mas em vez de substituir a variável pela constante, substituímos pela função de Skolem.
 
 - **Conversão para a forma Prenex normal** - todas as ocorrências de quantificadores universais são passadas para a esquerda.
 
@@ -212,9 +212,7 @@ $\neg P(x) \vee ((\neg P(y) \vee P(f(x, y))) \wedge (Q(x, g_{sk}(x)) \wedge \neg
 
 ## Unificação
 
-**Processo ligado à [substituição](/lp/logica-primeira-ordem-int#substituição).**
-
-Processo que permite determinar se duas _fbfs_ atómicas podem ser tornadas iguais através de substituições apropriadas para as suas variáveis livres. Antes de considerar o problema da unificação temos de introduzir a _composição de substituições_.
+**Processo ligado à [substituição](/lp/logica-primeira-ordem-int#substituição).** Permite determinar se duas _fbfs_ atómicas podem ser tornadas iguais através de substituições apropriadas para as suas variáveis livres. Antes de considerar o problema da unificação temos de introduzir a _composição de substituições_.
 
 - **Composição de substituições** - sendo $s_{1}$ e $s_{2}$ duas substituições, a composição destas, $s_{1} \circ s_{2}$, é igual a $s$ tal que:
 
@@ -224,17 +222,44 @@ Gozam da propriedade associativa, **mas não da comutativa**.
 
 Temos ainda que, e recuperando a noção de substituição vazia ($\epsilon$), a composição com a substituição vazia é tal que $s \leftrightarrow s \circ \epsilon  \leftrightarrow \epsilon \circ s$.
 
-Em termos práticos, a composição realiza-se aplicando $s_{2} = \{u_{1}/y_{1}, \dots, u_{n}/y_{n}\}$ aos termos de $s_{1} = \{t_{1}/x_{1}, \dots, t_{n}/x_{n}\}$, adicionado a este resultado todos os elementos $u_{j}/y_{j}$ tais que $y_{j} \notin \{x_{1}, \dots, x_{n}\}$ e removendo todos os elementos $(t_{i} \cdot s_{2}/x_{i})$ tais que $t_{i} \cdot s_{2} = x_{i}$. Ou seja:
+:::tip[Composição de Substituições]
 
-:::tip[Composição]
+$$
+s_{1} \circ s_{2} = \\
+(\{(t_{1} \cdot s_{2})/x_{1}, \dots, (t_{n} \cdot s_{2})/x_{n}\}\\
+\cup \quad \{u_{j}/y_{j} \in s_{2}: y_{j} \notin {x_{1}, \dots, x_{n}}\})\\
+- \quad\{(t_{i} \cdot s_{2})/x_{i}: (t_{i} \cdot s_{2}) = x_{i}\}.
+$$
 
-$s_{1} \circ s_{2} = (\{(t_{1} \cdot s_{2})/x_{1}, \dots, (t_{n} \cdot s_{2})/x_{n}\} \cup \{u_{j}/y_{j} \in s_{2}: y_{j} \notin {x_{1}, \dots, x_{n}}\}) - \{(t_{i} \cdot s_{2})/x_{i}: (t_{i} \cdot s_{2}) = x_{i}\}.$
+À primeira vista esta operação parece um "monstro", mas na verdade não tem nada que saber! A título de exemplo (e com ajuda de algumas cores), temos:
 
-_Exemplo_
+$$
+s_{1} = \{\smartcolor{orange}{f(y)}/\smartcolor{blue}{x}, \smartcolor{orange}{z}/\smartcolor{blue}{y}, \smartcolor{orange}{a}/\smartcolor{blue}{w}\},\\
+s_{2} = \{\smartcolor{green}a/\smartcolor{pink}x, \smartcolor{green}b/\smartcolor{pink}y, \smartcolor{green}y/\smartcolor{pink}z, \smartcolor{green}a/\smartcolor{pink}w\}.
+$$
 
-Seja $s_{1} = \{f(y)/x, z/y, a/w\}$ e $s_{2} = \{a/x, b/y, y/z, a/w\}.$
+$$
+s_{1} \circ s_{2} = \\
+(\{(\smartcolor{orange}{f(y)} \cdot \{\smartcolor{green}a/\smartcolor{pink}x, \smartcolor{green}b/\smartcolor{pink}y, \smartcolor{green}y/\smartcolor{pink}z, \smartcolor{green}a/\smartcolor{pink}w\})/\smartcolor{blue}x,\\
+(\smartcolor{orange}z \cdot \{\smartcolor{green}a/\smartcolor{pink}x, \smartcolor{green}b/\smartcolor{pink}y, \smartcolor{green}y/\smartcolor{pink}z, \smartcolor{green}a/\smartcolor{pink}w\})/\smartcolor{blue}y,\\
+(\smartcolor{orange}a \cdot \{\smartcolor{green}a/\smartcolor{pink}x, \smartcolor{green}b/\smartcolor{pink}y, \smartcolor{green}y/\smartcolor{pink}z, \smartcolor{green}a/\smartcolor{pink}w\})/\smartcolor{blue}w\}\\
+\cup \quad \{\smartcolor{green}y/\smartcolor{pink}z\}) \\
+- \quad\{(\smartcolor{orange}z \cdot \{\smartcolor{green}a/\smartcolor{pink}x, \smartcolor{green}b/\smartcolor{pink}y, \smartcolor{green}y/\smartcolor{pink}z, \smartcolor{green}a/\smartcolor{pink}w\})/\smartcolor{blue}y\}
+$$
 
-$s_{1} \circ s_{2} = (\{(f(y) \cdot \{a/x, b/y, y/z, a/w\})/x, (z \cdot \{a/x, b/y, y/z, a/w\})/y, (a \cdot \{a/x, b/y, y/z, a/w\})/w\} \cup \{y/z\}) - \{(z \cdot \{a/x, b/y, y/z, a/w\})/y\} = \{f(b)/x, y/y, a/w, y/z\} - \{y/y\} = \{f(b)/x, a/w, y/z\}$.
+No fundo (e em linguagem corrente), devemos:
+
+- pegar em todos os termos de $s_1$ (à esquerda, portanto), e aplicar a substituição associada ao termo de $s_2$ (por exemplo, $f(y)$ fica $f(b)$, visto que em $s_2$ existe a substituição $b/y$) - consideremos o termo resultante $t_j$; consideremos ainda que a variável original associada a cada substituição de $s_1$, a azul, é dada por $v$. A _substituição resultante_ corresponde então a $t_j/v$. Devemos, de seguida, aplicar esta lógica a todos os pares termo-variável de $s_1$.
+
+- unir o conjunto acima obtido ao conjunto de pares termo-variável de $s_2$ em que a variável não está presente em $s_1$: neste caso $y/z$, já que $z$ apenas aparece em $s_1$ como termo (à esquerda), não como variável "substituível".
+
+- retirar todas as novas substituições que iam levar a termos iguais a variáveis - irrelevantes, portanto. Aqui, isso iria acontecer com a substituição $(\smartcolor{orange}z \cdot \{\smartcolor{green}a/\smartcolor{pink}x, \smartcolor{green}b/\smartcolor{pink}y, \smartcolor{green}y/\smartcolor{pink}z, \smartcolor{green}a/\smartcolor{pink}w\})/\smartcolor{blue}y$, que como se pode observar abaixo leva a $y/y$ - uma substituição claramente irrelevante, e que pode portanto ser retirada.
+
+O resultado final seria dado por:
+
+$$
+\{f(b)/x, y/y, a/w, y/z\} - \{y/y\} = \{f(b)/x, a/w, y/z\}.
+$$
 
 :::
 
@@ -319,6 +344,8 @@ Consideremos a seguinte afirmação: $\{\forall x, y[P(x, y) \to R(y, x)], \fora
 Na forma clausal, será $\{\{\neg P(x, y), R(y, x)\}, \{\neg R(x, y), Q(y, x)\}\} \vdash \{\neg P(x, y), Q(x, y)\}.$
 
 Se não renomearmos as variáveis, o _mgu_ de $R(y, x)$ e $R(x, y)$ será $\{x/y\}$, e a partir daí só podemos obter a cláusula $\{P(x, x), Q(x,x)\}$. Por outro lado, se renomearmos as variáveis obtemos um _mgu_ diferente e é possível chegar à expressão pretendida.
+
+Este pormenor pode muitas vezes despercebido, mas é bastante importante (e é definitivamente abordado em contexto de avaliação).
 
 :::
 
