@@ -328,3 +328,7 @@ Antes do processo receber de novo execução, o despacho salta para a rotina de 
 
 **pthread_mutex**  
 Fechar e abrir mutex's são chamadas de sistema. O núcleo mantém o estado de cada trinco, bem como uma lista de tarefas bloqueadas por esse trinco.
+
+:::warning
+A página encontra-se em construção, sendo que os conteúdos ainda não estão disponíveis.
+:::
