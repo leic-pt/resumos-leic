@@ -327,5 +327,3 @@ $$
 $$
 
 :::
-
-[Slides](https://drive.google.com/file/d/1izIvt-bDsqUgIca3irewRyCUNpeEbYDA/view?usp=sharing)

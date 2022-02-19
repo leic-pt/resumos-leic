@@ -477,8 +477,6 @@ Resta, então, notar que a complexidade temporal do algoritmo é $O(V (V + E) \l
 
 ---
 
-- [Slides Dijkstra/DAG SP/Bellman-Ford](https://drive.google.com/file/d/10QzxNY5Z2dHZLaYdyhG2S3-jTQwFjjgv/view?usp=sharing)
-- [Slides Johnson](https://drive.google.com/file/d/1dIMIW3ThdJv2bFsRL7fyKJDkl9SKmB-Z/view?usp=sharing)
 - [Notas Dijkstra - Prof. José Fragoso](https://drive.google.com/file/d/17ZHiH-78uT031iApOqSUN5XIH38WXXwD/view?usp=sharing)
 - [Notas DAG Shortest Paths/Bellman-Ford - Prof. José Fragoso](https://drive.google.com/file/d/1tw3RwjiLK8Y0EOw-IRQKZ9vXqfI9h8A1/view?usp=sharing)
 - [Notas Johnson - Prof. José Fragoso](https://drive.google.com/file/d/1ljYGTXrxBskLaY3WKEsr6fPY4kDpTRgo/view?usp=sharing)

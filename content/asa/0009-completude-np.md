@@ -304,6 +304,5 @@ Por fim, no vídeo abaixo encontram-se mais alguns exemplos de reduções que po
 
 ---
 
-- [Slides](https://drive.google.com/file/d/1BZ5JGFCOM9CNRxV0fUGUM3mo-InpG_kX/view?usp=sharing)
 - [Notas Prof. José Fragoso - Completude NP](https://drive.google.com/file/d/1tIOEeyIF2SpV08aihCva-fkUqjtX8dFp/view?usp=sharing)
 - [Notas Prof. José Fragoso - Redutibilidade](https://drive.google.com/file/d/1weBRRJPjoqDzfmUZt8rH1Mmk4KdosG0i/view?usp=sharing)

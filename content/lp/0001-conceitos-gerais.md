@@ -100,5 +100,3 @@ Por outro lado, caso encontremos um contra-argumento, é **sabido inválido**.
 Existe, ainda, uma terceira possibilidade - a de não encontrar nem um nem outro.
 Aqui, procuramos mudar o nosso palpite para o inverso, e tentar provar esse novo palpite.
 Caso esta tentativa também não tenha sucesso, a validade do argumento diz-se **desconhecida**.
-
-[Slides (até ao slide 23)](https://drive.google.com/file/d/10a-hns-uHSTWy8isSQwJfEOKxq955DM_/view?usp=sharing)

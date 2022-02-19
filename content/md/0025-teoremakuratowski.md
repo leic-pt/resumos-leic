@@ -76,12 +76,12 @@ Um grafo é planar se e só se não contém um subgrafo [homeomórfico](#grafo-h
 
 :::details[Exemplos]
 
-[Exemplo 1](https://drive.google.com/file/d/1poSHXrqoDA-_0-gyeMu-cokdHeIwTeBk/view?usp=sharing)  
-[Exemplo 2](https://drive.google.com/file/d/1UfYr6tq04urwCTC1xkfjSzv6uVvaCYVu/view?usp=sharing)  
-[Exemplo 3](https://drive.google.com/file/d/1DSOihYfY7MPpT8DB7sBZs_akzepYbG9b/view?usp=sharing)
+[Exemplo 1](https://drive.google.com/file/d/1N00Xc6ZTKlHMUEKwYnozJfqfFFEKPquR/view?usp=sharing)  
+[Exemplo 2](https://drive.google.com/file/d/101Liu2OFZ6Zm9SFTWpOiDcP3H819gHSd/view?usp=sharing)  
+[Exemplo 3](https://drive.google.com/file/d/1Ds7Xlangw52GGa9yEFq43xskowHwCWv6/view?usp=sharing)
 
 Às vezes até pode ser planar  
-[Exemplo 4](https://drive.google.com/file/d/15Xdd3BSg0KFU009kRTANIrF0W32JKtyi/view?usp=sharing)
+[Exemplo 4](https://drive.google.com/file/d/1QV1qUBEihX2TbSr8s_Xte3N7TsqJ1G2k/view?usp=sharing)
 
 :::tip[Dica]
 

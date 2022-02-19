@@ -22,4 +22,8 @@ Grafos: representação, pesquisa em largura e profundidade, árvores abrangente
 
 ## Recursos
 
-- [Combinação PDFs das Teóricas](https://s.rafael.ovh/iaedteoricas)
+:::info[Slides]
+
+Os Slides que tipicamente acompanham a cadeira, bem como o conjunto de exercícios encontram-se disponíveis na página da cadeira no Fénix, não sendo possível disponibilizá-los nesta página.
+
+:::

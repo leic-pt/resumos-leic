@@ -157,6 +157,3 @@ mas o professor desencoraja a usar pois é algo um pouco complexo.
 Se quiserem ver como funciona vejam os slides.
 
 :::
-Slides:
-
-- [Aula 13 e 14](https://drive.google.com/file/d/1m0cEgM5rSKWW0A0KhZ_TczvZpp-0wbzy/view?usp=sharing)
