@@ -205,13 +205,13 @@ $$
 
 ## Fórmula de Primitivação por Partes
 
-Sejam $u$ e $v$ diferenciáveis num conjunto aberto $C$ tais que a função $u\cdot v'$ é primitivável. Então, ${u'\cdot v}$ é uma função primitivável e $\def\P{\text P} \P(\textcolor{#ffa344}{u'}\cdot \textcolor{#ffdc49}v)=u\cdot v-\P(\textcolor{#4dab9a}{u\cdot v'})$.
+Sejam $u$ e $v$ diferenciáveis num conjunto aberto $C$ tais que a função $u\cdot v'$ é primitivável. Então, ${u'\cdot v}$ é uma função primitivável e $\def\P{\text P} \P(\smartcolor{orange}{u'}\cdot \smartcolor{blue}v)=u\cdot v-\P(\smartcolor{green}{u\cdot v'})$.
 
 A escolha das funções $u'$ e $v$ deve ser, se possível, respeitando as condições:
 
-- A função $\textcolor{#ffa344}{u'}$ deve ser facilmente primitivável
-- A função $\textcolor{#ffdc49}{v}$ tem que ser diferenciável e é conveniente que a sua derivada conduza a uma expressão mais simples
-- A função $\textcolor{#4dab9a}{u\cdot v'}$ deve ser facilmente primitivável
+- A função $\smartcolor{orange}{u'}$ deve ser facilmente primitivável
+- A função $\smartcolor{blue}{v}$ tem que ser diferenciável e é conveniente que a sua derivada conduza a uma expressão mais simples
+- A função $\smartcolor{green}{u\cdot v'}$ deve ser facilmente primitivável
 
 :::details[Exemplos]
 

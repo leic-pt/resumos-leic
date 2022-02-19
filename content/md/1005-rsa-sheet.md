@@ -57,16 +57,16 @@ $$
 \begin{array}{c|c|c|c|}
 i & a_i & q_i & d_i & m_i\\
 \hline
-0 & \textcolor{red}{48} &  & 1 & 0\\
+0 & \smartcolor{red}{48} &  & 1 & 0\\
 1 & 11 & 4 & 0 & 1\\
 2 & 4 & 2 & 1 & -4\\
 3 & 3 & 1 & -2 & 9\\
-3 & 1 & 3 & 3 & \textcolor{orange}{-13}\\
+3 & 1 & 3 & 3 & \smartcolor{orange}{-13}\\
 4 & 0
 \end{array}\\
 $$
 
-Como $\textcolor{orange}{-13} < 0$ temos de somar $\textcolor{orange}{-13} +\textcolor{red}{48}$
+Como $\smartcolor{orange}{-13} < 0$ temos de somar $\smartcolor{orange}{-13} +\smartcolor{red}{48}$
 
 Logo $d = 35$
 
