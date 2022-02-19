@@ -1,7 +1,14 @@
 ---
 title: Gestão de Memória
 description: >-
-	// TODO
+	Gestor de Memória.
+	Endereçamento Virtual.
+	Segmentaçao e paginação.
+	Otimização de tradução de endereços.
+	Tabelas de Páginas Multi-nível.
+	Partilha de memória entre processos.
+	Algoritmos de gestão de memória.
+	Comparação entre paginação e segmentação
 path: /so/memory-management
 type: content
 ---
@@ -155,3 +162,134 @@ Quando ocorre um fork() o gestor de memória:
 -- aloca uma nova página, para onde copia o conteúdo da página partilhada;
 -- atualiza a entrada da tabela do processo onde ocorreu a exceção com a base (endereço físico) da nova página e novas permissões (escrita ativada, CoW desativado);
 -- caso a página original já só seja referenciada por um processo, atualiza a entrada na tabela de páginas que lhe corresponde, atualizando as permissões (escrita ativada, CoW desativado).
+
+## Algoritmos de Gestão de Memória
+
+Como já sabemos, a memória principal é escassa pelo que temos de a gerir eficazmente. Isto implica tomar decisões em relação aos conteúdos que lá são guardados, nomeadamente decisões de:
+- alocação: onde colocar um bloco na memória primária;
+- transferência: quando transferir um bloco de memória secundária para memória primária e vice-versa;
+- substituição: qual o bloco a retirar da memória.
+
+Vamos estudar algoritmos que tratam estas três situações.
+
+### Alocação
+
+Alocar memória em sistemas com paginação é muito simples: 
+basta encontrar uma págia livre, o que normalmente pode ser feito consultando uma lista de páginas livres guardada pelo SO.
+
+Para segmentaçao, o tamanho variável dos segmentos torna mais complexa a reserva de espaço para um segmento.
+Na libertação de memória é necessário recompactar os segmentos.
+
+Para a reserva de segmentos, podemos usar vários critérios de escolha:
+- **_best-fit_** (o menor possível):
+-- gera elevado número de fragmentos;
+-- em média percorre-se metade da lista de blocos livres na procura (com lista ordenada por tamanho);
+-- a lista tem de ser percorrida outra vez para introduzir o fragmento.
+
+- **_worst-fit_** (o maior possível):
+-- pode facilmente impossibilitar a reserva de blocos de grandes dimensões;
+-- a lista de blocos livres tem de ser percorrida para introduzir o fragmento.
+
+- **_first-fit_** (o primeiro possível):
+-- minimiza tempo gasto a percorrer a lista de blocos livres;
+-- gera muita fragmentação externa;
+-- acumula muitos blocos pequenos no início da lista, ficando para o fim os blocos maiores.
+
+- **_next-fit_** (o primeiro possível, a seguir à pesquisa anterior):
+-- espalha os blocos pequenos por toda a memória.
+
+### Transferência
+
+Há três abordagens para a transferência de segmentos:
+- a pedido (**on request**): o programa ou o sistema operativo determinam quando se deve carregar o bloco em memória principal (normalmente usado na memória segmentada);
+- por necessidade (**on demand**): o bloco é acedido e gera-se uma falta (de segmento ou de página), sendo necessário carregá-lo para a memória principal (normalmente usado na memória paginada);
+- por antecipação (**prefetching**): o bloco é carregado na memória principal pelo sistema operativo porque este considera fortemente provável que ele venha a ser acedido nos próximos instantes.
+
+**Transferência de Segmentos**
+
+A transferência de segmentos faz-se usalmente a pedido: em arquiteturas que suportem a falta de segmentos, certos segmentos de um programa podem ser transferidos para memória principal por necessidade.
+
+Normalmente, para executar um processo são necessários em memória pelo menos um segmento de código, de dados e de stack.
+Caso haja escassez de memória, os segmentos de outros processos que não estejam em execução são transferidos na íntegra para disco (**_swapping_**).
+Os segmentos são guardados numa zona separada do disco chamada área de transferência (**_swap area_**).
+Quando são transferidos todos os segmentos de um processo diz-se que o processo foi transferido para disco (**_swapped out_**).
+
+**Transferência de Páginas**
+
+O mecanismo normal de transferência de páginas é por necessidade.
+Desta forma, páginas de um programa que não sejam acedidas durante a execução de um processo não chegam a ser carregadas em memória principal.
+Usam-se ainda políticas de transferência por antecipação para diminuir o número de faltas de páginas e otimizar os acessos a disco.
+As páginas retiradas de memória principal são guardadas numa zona separada do disco chamada área de paginação (apenas se ainda não existir uma cópia atualizada da página em disco).
+As páginas modificadas são transferidas em grupos para memória secundária de modo a otimizar os acessos disco.
+
+Quando é necessário libertar espaço na memória física, o SO copia páginas para disco, guardando-as na _swap area_.
+As páginas que vão para disco são aquelas que o SO prevê que não serão acedidas num futuro próximo.
+Neste contexto, estabelecemos uma diferença entre **_swapping_** - guardar todas as páginas de um processo em disco - e **_paging_** - guardar páginas individuais em disco.
+Mais uma vez, para minimizar latência, o SO faz _pre-fetching_ quando faz _swapping_ das páginas de um processo.
+
+Possíveis critérios para decidir qual o processo a transferir para disco:
+- estado e prioridade do processo: processos bloqueados e pouco prioritários são candidatos preferenciais;
+- tempo de permanência na memória principal: um processo tem que permanecer um determinado tempo a executar-se antes de ser novamente enviado para disco;
+- dimensão do processo.
+
+Definimos o **espaço de trabalho** de um processo como o conjunto de páginas acedidas pelo mesmo num intervalo de tempo. 
+O espaço de trabalho de um processo tende a ter dimensão constante e muito menor que o seu espaço de endereçamento.
+Se o SO estimar essa dimensão, pode evitar colocar o processo em execução enquanto não existirem suficientes páginas disponíveis em RAM.
+
+### Substituição
+
+Analisaremos apenas soluções de substituição para sistemas com paginação.
+A heurística para o algoritmo de substituição ótimo é que devemos (mais uma vez) retirar a página cujo próximo pedido seja mais distante no tempo.
+Para estimar isto, vamos medir o uso recente das páginas.
+Para isto podemos usar um de dois sistemas:
+
+Sistema **NRU** (_Not Recently Used_):
+- em cada entrada da tabela de páginas são mantidos bits **R** e **M**;
+- a UGM coloca R=1 quando há leitura na página e M=1 quando há escrita;
+- o paginador percorre regularmente as tabelas de páginas e coloca o bit R a 0;
+- obtemos assim 4 grupos de páginas:
+-- 0 (R = 0, M = 0): Não referenciada, não modificada;
+-- 1 (R = 0, M = 1): Não referenciada, modificada;
+-- 2 (R = 1, M = 0): Referenciada, não modificada;
+-- 3 (R = 1, M = 1): Referenciada, modificada;
+- libertam-se primeiro as páginas dos grupos de número mais baixo.
+
+Sistema **LRU** (_Least Recently Used_):
+- eficaz segundo o princípio de localidade de referência;
+- latência associada à sua implementação é rigorosa;
+- em cada entrada na tabela de páginas é mantido um bit **R**;
+- a UGM coloca R=1 quando a página é acedida (leitura ou escrita);
+- gestor de memória do núcleo mantém um contador por página que indica a que "grupo etário" ela pertence:
+-- atualizado regularmente pelo paginador;
+-- quando R=0, grupo etário incrementa;
+-- quando R=1, volta ao grupo etário inicial, recolocando R=0.
+- quando atingir um grupo etário máximo, a página passa para a lista das livres mas modificadas.
+
+## Comparação entre paginação e segmentação
+
+**Segmentação**
+
+Vantagens:
+- adapta-se à estrutura lógica dos programas;
+- permite a realização de sistemas simples sobre hardware simples;
+- permite realizar eficientemente as operações que agem sobre segmentos inteiros.
+
+Desvantagens:
+- o programador tem de ter sempre algum conhecimento dos segmentos subjacentes;
+- os algoritmos tornam-se bastante complicados em sistemas mais sofisticados;
+- o tempo de transferência de segmentos em memória principal e disco torna-se incomportável para segmentos muito grandes;
+- a dimensão máxima dos segmentos é limitada.
+
+**Paginação**
+
+Vantagens:
+- o programador não tem que se preocupar com a gestão de memória;
+- os algoritmos de reserva, substituição e transferência são mais simples e eficientes;
+- o tempo de leitura de uma página de disco é razoavelmente pequeno;
+- a dimensão dos programas é virtualmente ilimitada.
+
+Desvantagens:
+- o hardware é mais complexo que o de memória segmentada (por exemplo, instruções precisam de ser recomeçáveis);
+- operações sobre segmentos lógicos são mais complexos e menos elegantes, pois têm de ser realizadas sobre um conjunto de páginas;
+- o tratamento das faltas de páginas representa uma sobrecarga adicional de processamento;
+- tamanho potencial das tabelas de páginas.
