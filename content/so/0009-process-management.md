@@ -2,8 +2,11 @@
 title: Gestão de Processos
 description: >-
   Gestão de Processos.
+  Booting.
+  Contexto de um Processo.
   Interrupções.
   Escalonamento (scheduling).
+  Operações asseguradas pelo Gestor de Processos.
 path: /so/process-management
 type: content
 ---
@@ -81,7 +84,7 @@ stateDiagram-v2
     executable --> exec : Gestor de Processos escolhe este processo\n para execução
 ```
 
-## Tratamento de Interrupções
+## Kernel como Gestor de Interrupções
 
 Quando estamos a executar um programa no nosso computador, este normalmente corre
 no chamado [modo user (_userland_)](color:green), que não tem privilégios acrescidos.
@@ -145,13 +148,15 @@ Este sistema garante:
 Quando o CPU comuta de um processo em modo utilizador tem de:
 
 - mudar o espaço de endereçamento do processo utilizador para o espaço de enderecamento do núcleo;
-- mudar da pilha do utilizador para a pilha núcleo do processo. Esta pilha está sempre vazia enquanto o processo utilizador está a ser usado.
+- mudar da pilha do utilizador para a pilha núcleo do processo. Esta pilha é utilizada a partir do momento em que o processo muda de modo utilizador para modo núcleo e está sempre vazia antes disso.
 
-:::warning[Informação Incompleta]
-
-Esta secção está incompleta.
-
-:::
+O uso de pilhas distintas para execução em modo núcleo e em modo utilizador é uma medida de segurança que impede que processos tenham acesso a informação priveligiada do núcleo.  
+Considere-se a seguinte situação (assumindo que há uma pilha por processo):  
+Num processo multi-tarefa, uma tarefa faz uma chamada sistema.
+Quando a rotina núcleo se executa, coloca variáveis locais das funções núcleo na pilha do processo.
+Enquanto isto acontece, outras tarefas deste processo podem estar a correr noutros processadores.
+Então, pode acontecer que outras tarefas acedam e corrompam a pilha da tarefa que fez chamada sistema, corrompendo variáveis locais usadas pelas rotinas do núcleo.  
+Usar uma pilha quando o processo está em modo utilizador e outra pilha quando está em modo núcleo protege os recursos essenciais deste tipo de situações.
 
 ## Scheduling (Escalonamento)
 
@@ -253,11 +258,11 @@ stateDiagram-v2
   creation --> executable
   executable --> exec_kernel
   exec_kernel --> executable
-  exec_kernel --> exec_kernel
+  exec_kernel --> exec_kernel: interrupção \n de syscall
   exec_kernel --> blocked
   exec_kernel --> exec_user
   exec_user --> exec_kernel
-  exec_kernel --> zombie
+  exec_kernel --> zombie: exit
 ```
 
 **Escalonamento em Unix**
@@ -325,9 +330,11 @@ Os processos são guardados numa _red-black tree_ ordenada por _vruntime_, que p
 
 É ainda possível definir prioridades estáticas superiores às dinâmicas (modo utilizador) em contexto _real-time_ ("_soft_", no sentido que não é 100% _real-time_). Para isto, são necessários privilégios de núcleo.
 
-<!--
-come back to this
--->
+:::warning[Informação por Rever]
+
+A informação desta secção ainda não foi revista e pode estar incorreta ou mal apresentada.
+
+:::
 
 ## Operações asseguradas pelo Gestor de Processos
 
@@ -369,6 +376,8 @@ Antes do processo receber de novo execução, o despacho salta para a rotina de 
 **pthread_mutex**  
 Fechar e abrir mutex's são chamadas de sistema. O núcleo mantém o estado de cada trinco, bem como uma lista de tarefas bloqueadas por esse trinco.
 
-:::warning
-A página encontra-se em construção, sendo que os conteúdos ainda não estão disponíveis.
+:::warning[Informação Incompleta]
+
+Esta secção está incompleta.
+
 :::
