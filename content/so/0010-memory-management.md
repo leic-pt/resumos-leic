@@ -240,7 +240,7 @@ Há três abordagens para a transferência de segmentos:
 
 A transferência de segmentos faz-se usalmente [a pedido](color:pink).
 
-Normalmente, para executar um processo são necessários em memória pelo menos um segmento de código, de dados e de stack.
+Normalmente, para executar um processo são necessários em memória pelo menos um segmento de código, de dados e de stack.  
 Caso haja escassez de memória, os segmentos de outros processos que não estejam em execução são transferidos na íntegra para disco (**_swapping_**).
 Os segmentos são guardados numa zona separada do disco chamada área de transferência (**_swap area_**).
 Quando são transferidos todos os segmentos de um processo diz-se que o processo foi transferido para disco (**_swapped out_**).
@@ -264,6 +264,14 @@ Quando é necessário libertar espaço na memória física, o SO copia páginas 
 As páginas que vão para disco são aquelas que o SO prevê que não serão acedidas num futuro próximo.  
 Neste contexto, estabelecemos uma diferença entre **_swapping_** - guardar todas as páginas de um processo em disco - e **_paging_** - guardar páginas individuais em disco.
 Mais uma vez, para minimizar latência, o SO faz _pre-fetching_ quando faz _swapping_ das páginas de um processo.
+
+:::warning[Informação por Rever]
+
+A informação nestes últimos parágrafos pode estar algo confusa.
+No entanto, está em conformidade com os slides pelo que não deve ter nenhuma incorreção.  
+Esta secção ainda será revista para ser mais fácil de entender.
+
+:::
 
 Possíveis critérios para decidir qual o processo a transferir para disco:
 
@@ -377,8 +385,8 @@ Os endereços virtuais neste sistem são então constituídos por quatro secçõ
 
 ![Gestão de Memória em Linux](./imgs/0010/linux_memory.png#dark=1)
 
-:::warning[Página em Construção]
+:::warning[Informação Incompleta]
 
-Esta secção dos resumos está por terminar.
+Nesta secção falta informação sobre a tabela de páginas em Linux - a tabela pfdata
 
 :::
