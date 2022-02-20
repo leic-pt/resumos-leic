@@ -24,6 +24,8 @@ type: content
 Definimos [**espaço de endereçamento**](color:red) de um processo como o conjunto de posições de memória que este pode referenciar.  
 Mais uma vez, é a função do SO oferecer ao utilizador uma interface que lhe permita aceder indiretamente à memória, de forma segura.
 
+![Espaço de Endereçamento de um Processo](./imgs/0010/adress_space.png#dark=1)
+
 O gestor de memória deve também ter em consideração que a memória é constituída por:
 
 - **Memória Principal (física ou primária)**:
