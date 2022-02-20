@@ -3,8 +3,6 @@ title: Gestão de Processos
 description: >-
   Gestão de Processos.
   Interrupções.
-  Chamadas de Sistema (syscalls).
-  Despacho.
   Escalonamento (scheduling).
 path: /so/process-management
 type: content
@@ -30,6 +28,25 @@ pelo **tratamento de interrupções**, **otimização da gestão de recursos dos
 da implementação das chamadas de sistemas relacionadas com processos e sincronização entre os mesmos
 (como por exemplo a alteração da prioridade de um processos; veremos mais à frente o que isto significa).
 
+## Boot de um SO
+
+Quando o nosso computador está desligado, não passa de um objeto inanimado.
+Contudo, quando carregamos num botãozinho, esse objeto inanimado converte-se numa caixa mágica capaz de fazer as mais diversas operações.
+Vamos agora ver como é que isso é possível.
+
+Quando uma máquina recebe energia, o PC (_Program Counter_) aponta para um programa na _Boot ROM_.
+Nos computadores pessoais este programa pode ser o **BIOS** (_Basic Input/Output System_) ou a **UEFI** (_Unified Extensible Firmware Interface_).
+Este programa faz algumas verificações sobre o computador (nomeadamente seestá em condições de ser iniciado) e, de seguida,
+copia o bloco de código do disco para a RAM e salta para a primeira instrução desse programa, chamado _bootloader_.
+
+O _bootloader_, por sua vez, carrega o programa do núcleo em RAM e salta para a rotina de inicialização do núcleo.
+A inicialização do núcleo passa por:
+
+- incializar as suas estruturas de dados;
+- copiar rotinas de tratamento de cada interrupção para RAM;
+- preencher a tabela de interrupções em RAM;
+- lançar os processos inicias do sistema, incluindo o processo de login;
+
 ## Processos e Tarefas
 
 Para percebermos como é que o sistema operativo vai transitar entre vários processos,
@@ -50,8 +67,6 @@ Informações como a **identificação do processo** (PID, utilizador, grupo, et
 o seu **estado**, e muitas outras informações, como periféricos em uso, ficheiros abertos,
 diretório por omissão, programa em execução, contabilização de recursos, _signals_ pendentes, etc).
 
-### Ciclo de Vida Simplificado
-
 Abaixo encontra-se um diagrama que mostra uma simplificação do ciclo de vida de um processo.
 
 ```mermaid
@@ -59,13 +74,14 @@ stateDiagram-v2
     exec: Em Execução
     blocked: Bloqueado
     executable: Executável
+
     exec --> executable : Gestor de Processos decide alterar o\n processo em execução
     exec --> blocked : O processo sai de execução\nenquanto espera por I/O
     blocked --> executable : A operação de I/O retorna
     executable --> exec : Gestor de Processos escolhe este processo\n para execução
 ```
 
-## Userland vs Kernelland
+## Tratamento de Interrupções
 
 Quando estamos a executar um programa no nosso computador, este normalmente corre
 no chamado [modo user (_userland_)](color:green), que não tem privilégios acrescidos.
@@ -73,27 +89,24 @@ Este não consegue aceder diretamente a periféricos, ficheiros, etc (depende da
 
 No entanto, processos também podem ser executados no [modo núcleo (_kernelland_)](color:red), onde
 têm todas as permissões. Apenas o código do sistema operativo pode ser executado neste modo.
-Todas as atividades do modo núcleo são desencadeadas por interrupções.
+Todas as atividades do modo núcleo são desencadeadas por [interrupções](color:orange).
+Estas podem ser de três tipos:
 
-Como vamos ver a baixo, a única forma que um utilizador pedir algo ao modo núcleo é com uma chamada de sistema (ou _syscall_), pois é a única interrupção que um utilizador pode causar.
+- Hardware: relógio e periféricos (teclado, rato, etc);
+- Software (_traps_): utilizadas pelos programas na _userland_ para pedir a algo cujo acesso requira privilégios (chamadas de sistema). Esta é a única forma de um utilizador pedir acesso a um recurso protegido;
+- Exceções: por exemplo exceções de aritmética (divisão por zero), acesso a memória indevido, etc.
 
-## Interrupções
-
-O núcleo _kernel_ é responsável por tratar de interrupções, que podem ocorrer por várias razões, tais como
-
-- Hardware: relógio e periféricos (teclado, rato, etc)
-- Software (_traps_): utilizadas pelos programas na _userland_ para pedir a algo cujo acesso requira privilégios (chamadas de sistema)
-- Exceções: por exemplo exceções de aritmética (divisão por zero), acesso a memória indevido, etc
-
-Mas como é que são tratadas as interrupções?
+Mas como é que são tratadas as [interrupções](color:orange)?
 
 ```mermaid
 stateDiagram-v2
+	direction LR
+
     int: Interrupção
-    manager: Gestor de Interrupções
-    rsi: Rotina de Serviço da Interrupção
+    manager: Gestor de \n Interrupções
+    rsi: Rotina de \n Serviço da \n Interrupção
     dispatch: Despacho
-    rti: Retorno da Interrupção (RTI)
+    rti: Retorno da \n Interrupção \n (RTI)
 
     int --> manager
     manager --> rsi
@@ -101,16 +114,43 @@ stateDiagram-v2
     dispatch --> rti
 ```
 
-- **Interrupção**: É desencadeada uma interrupção. O contexto do processo em execução é guardado.
+- **Interrupção**: É desencadeada uma interrupção. O contexto do processo em execução é guardado na pilha.
 - **Gestor de Interrupções**: Identifica a interrupção (agulhagem).
 - **Rotina de Serviço da Interrupção**: É feito o tratamento da interrupção.
-- **Despacho**: Volta-se a colocar um processo em execução, e o seu contexto é carregado.
-- **Retorno da Interrupção (RTI)**: Saída do modo núcleo (_kernelland_).
+  - copia registos da pilha atual para o contexto do processo (na tabela de processos);
+  - corre o código específico à interrupção, possivelmente alterando o estado dos processos;
+  - invoca o despacho para que este escolha outro processo para executar.
+- **Despacho**: Volta-se a colocar um processo em execução, e o seu contexto é carregado:
+  - copia o contexto hardware do processo que estava em execução quando a interrupção foi registada para o respetivo descritor (entrada na tabela de processos);
+  - ecsolhe um processo para executar (vamos ver como a seguir);
+  - carrega o contexto hardware do processo escolhido no processador;
+  - transfere o controlo para o novo processo, colocando o seu PC na pilha. Desta forma, o RTI é enganado a "voltar" (_return_) para o processo "errado".
+- **Retorno da Interrupção (RTI)**: Saída do modo núcleo, para o processo determinado pelo despacho.
 
-## Despacho
+### Chamadas de Sistema
 
-:::warning[Página em Construção]
-A página encontra-se em construção, sendo que os conteúdos ainda não estão disponíveis.
+As chamadas a sistema estão estruturadas em duas entidades funcionais:
+
+- **rotina de interface**: faz parte do código do utilizador e é executada por este. Usa _trap_ para invocar a função do núcleo;
+- **função do núcleo**: faz parte do código do núcleo e é esta que executa a operação solicitada pelo utilizador.
+
+Este sistema garante:
+
+- **Proteção**: o código das funções sistema está residente no núcleo e nao pode ser acedido pelos processo em modo utilizador.
+- **Uniformidade**: as funções sistema são partilhadas por todos os processos;
+- **Flexibilidade**: o SO pode ser modificado transparentemente desde que não altere a interface.
+
+### Duas Pilhas para Utilizador e Núcleo
+
+Quando o CPU comuta de um processo em modo utilizador tem de:
+
+- mudar o espaço de endereçamento do processo utilizador para o espaço de enderecamento do núcleo;
+- mudar da pilha do utilizador para a pilha núcleo do processo. Esta pilha está sempre vazia enquanto o processo utilizador está a ser usado.
+
+:::warning[Informação Incompleta]
+
+Esta secção está incompleta.
+
 :::
 
 ## Scheduling (Escalonamento)
