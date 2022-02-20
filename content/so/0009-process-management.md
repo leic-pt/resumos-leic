@@ -233,7 +233,7 @@ Em Unix há dois tipos de prioridades:
   - são fixas, consoante o acontecimento que o processo está a tratar;
   - são sempre mais prioritárias que os processos em modo utilizador.
 
-![Prioridades em Unix](./imgs/0009/priorities_unix.png)
+![Prioridades em Unix](./imgs/0009/priorities_unix.png#dark=3)
 
 As prioridades do utilizador seguem o seguinte algoritmo:
 
@@ -296,7 +296,7 @@ A operação fork() reserva uma entrada na tabela `proc` (Unix), verifica se o u
 De seguida, copia o contexto do processo pai: como a região de código é partilhada, apenas é incrementado o contador do número de utilizadores que acedem a essa região, as restantes regiões são copiadas.  
 Finalmente, é retornado o `pid` do novo processo ao processo pai, e zero ao filho (esses valores são colocados nas pilhas respetivas).
 
-![Criação de processos](./imgs/0009/process_creation.png#dark=1)
+![Criação de processos](./imgs/0009/process_creation.svg#dark=1)
 
 **exit()**  
 A operação `exit()` termina um processo, executando as funções registadas pelo `atexit`, libertando todos os recursos (ficheiro, diretoria corrente, regiões de memória).  
