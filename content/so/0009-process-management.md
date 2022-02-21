@@ -39,7 +39,7 @@ Vamos agora ver como é que isso é possível.
 
 Quando uma máquina recebe energia, o PC (_Program Counter_) aponta para um programa na _Boot ROM_.
 Nos computadores pessoais este programa pode ser o **BIOS** (_Basic Input/Output System_) ou a **UEFI** (_Unified Extensible Firmware Interface_).
-Este programa faz algumas verificações sobre o computador (nomeadamente seestá em condições de ser iniciado) e, de seguida,
+Este programa faz algumas verificações sobre o computador (nomeadamente se está em condições de ser iniciado) e, de seguida,
 copia o bloco de código do disco para a RAM e salta para a primeira instrução desse programa, chamado _bootloader_.
 
 O _bootloader_, por sua vez, carrega o programa do núcleo em RAM e salta para a rotina de inicialização do núcleo.
@@ -63,7 +63,7 @@ No [_hardware_](color:yellow), tal como já vimos em IAC, existem **registos do 
 Os valores desses registos (acumulador, genéricos, _program counter_, _stack pointer_, _flags_ de estado, etc)
 fazem parte do contexto do processo,
 e têm de ser guardados/restaurados quando se troca o processo em execução.
-Além disso, é preciso também guardar/restaurar os **registos da unidade de gestão de memória**.
+Além disso, é preciso também guardar/restaurar os **registos da unidade de gestão de memória** (UGM).
 
 Por outro lado, no [_software_](color:pink), é guardado _metadata_ sobre o processo em execução.
 Informações como a **identificação do processo** (PID, utilizador, grupo, etc), a sua **prioridade**,
@@ -79,8 +79,8 @@ stateDiagram-v2
     executable: Executável
 
     exec --> executable : Gestor de Processos decide alterar o\n processo em execução
-    exec --> blocked : O processo sai de execução\nenquanto espera por I/O
-    blocked --> executable : A operação de I/O retorna
+    exec --> blocked : O processo sai de execução\nficando à espera de um acontecimento
+    blocked --> executable : O processo desbloqueia-se\nficando pronto a ser executado
     executable --> exec : Gestor de Processos escolhe este processo\n para execução
 ```
 
@@ -134,8 +134,8 @@ stateDiagram-v2
 
 As chamadas a sistema estão estruturadas em duas entidades funcionais:
 
-- **rotina de interface**: faz parte do código do utilizador e é executada por este. Usa _trap_ para invocar a função do núcleo;
-- **função do núcleo**: faz parte do código do núcleo e é esta que executa a operação solicitada pelo utilizador.
+- **Rotina de Interface**: faz parte do código do utilizador e é executada por este. Usa _trap_ para invocar a função do núcleo;
+- **Função do Núcleo**: faz parte do código do núcleo e é esta que executa a operação solicitada pelo utilizador.
 
 Este sistema garante:
 
@@ -330,13 +330,7 @@ Os processos são guardados numa _red-black tree_ ordenada por _vruntime_, que p
 
 É ainda possível definir prioridades estáticas superiores às dinâmicas (modo utilizador) em contexto _real-time_ ("_soft_", no sentido que não é 100% _real-time_). Para isto, são necessários privilégios de núcleo.
 
-:::warning[Informação por Rever]
-
-A informação desta secção ainda não foi revista e pode estar incorreta ou mal apresentada.
-
-:::
-
-## Operações asseguradas pelo Gestor de Processos
+## Operações Asseguradas pelo Gestor de Processos
 
 **fork()**  
 A operação fork() reserva uma entrada na tabela `proc` (Unix), verifica se o utilizador não excedeu o número máximo de subprocessos e atribui um valor ao `pid` (normalmente um incremento de um inteiro mantido pelo núcleo).  
@@ -374,10 +368,4 @@ Se o processo tem rotina de tratamento associada ao signal, o núcleo regista no
 Antes do processo receber de novo execução, o despacho salta para a rotina de tratamento do signal.
 
 **pthread_mutex**  
-Fechar e abrir mutex's são chamadas de sistema. O núcleo mantém o estado de cada trinco, bem como uma lista de tarefas bloqueadas por esse trinco.
-
-:::warning[Informação Incompleta]
-
-Esta secção está incompleta.
-
-:::
+Fechar e abrir mutex's são chamadas de sistema. O núcleo mantém o estado de cada trinco, bem como uma lista de tarefas bloqueadas por esse trinco. Isto já foi abordado nos [resumos de Implementação de um Mutex](./implementation#trincos-como-objetos-geridos-pelo-núcleo-do-sistema-operativo)

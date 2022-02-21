@@ -134,7 +134,7 @@ Desta forma, a nível de arquitetura, a operação de obtenção do endereço re
 
 :::
 
-## Otimização de tradução de endereços
+## Otimização de Tradução de Endereços
 
 Para tornar o acesso a páginas o mais rápido possível, a UGM guarda uma **tabela de tradução de endereços** ou **TLB** (**translation lookaside buffer**).
 Esta tabela permite acesso bastante mais rápido às páginas pois está guardada em hardware, tal como a UGM.
@@ -155,7 +155,7 @@ O carregamento das páginas na TLB é feito de acordo com o seguinte diagrama:
 
 ![Diagrama de Tabela de Tradução de Endereços](./imgs/0010/tlb_diagram.png#dark=1)
 
-## Tabelas de páginas multi-nível
+## Tabelas de Páginas Multi-Nível
 
 Assumindo que o espaço de endereçamento virtual tem endereços de 64 bits e páginas de 4 Kbytes ($2^{12}$ bytes), temos que o espaço de endereçamento virtual consegue guardar $\frac{2^{64}}{2^{12}} = 2^{52}$ páginas.
 Se uma entrada na tabela de páginas ocupar 4 bytes, temos que a tabela de páginas terá então $2^2 \cdot 2^{52} = 2^{54}$ bytes, ou seja 16 Petabytes.
@@ -169,7 +169,7 @@ Esta solução resolve o problema apresentado, garantindo que só estão em mem�
 
 ![Tabela de Páginas Multi-Nível](./imgs/0010/multilevel_page_table.png#dark=1)
 
-## Partilha de memória entre processos
+## Partilha de Memória entre Processos
 
 Para partilhar memória entre processos, basta ter, nas tabelas de páginas dos processos em causa, entradas com a mesma base.
 Os blocos (virtuais) partilhados não precisam de ser mapeados nos mesmos endereços virtuais em ambos os processos.
@@ -180,7 +180,7 @@ No entanto, não é feita nenhuma cópia física de memória no momento do fork.
 As páginas só são copiadas se e quando for necessário.
 Isto acontece se e só se algum dos segmentos de memória (do pai ou do filho) for alterado.
 Nesse caso, então, a memória é copiada e o bloco relevante é alterado para registar a alteração.
-A esta noção dá-se o nome de **_copy on write_**.
+A esta noção dá-se o nome de **_copy on write_** (CoW).
 Quando ocorre um fork() o gestor de memória:
 
 - aloca uma nova tabela de páginas para o processo filho e copia o conteúdo da tabela do pai;
@@ -194,18 +194,18 @@ Quando ocorre um fork() o gestor de memória:
 
 Como já sabemos, a memória principal é escassa pelo que temos de a gerir eficazmente. Isto implica tomar decisões em relação aos conteúdos que lá são guardados, nomeadamente decisões de:
 
-- alocação: onde colocar um bloco na memória primária;
-- transferência: quando transferir um bloco de memória secundária para memória primária e vice-versa;
-- substituição: qual o bloco a retirar da memória.
+- [Alocação](color:red): onde colocar um bloco na memória primária;
+- [Transferência](color:yellow): quando transferir um bloco de memória secundária para memória primária e vice-versa;
+- [Substituição](color:green): qual o bloco a retirar da memória.
 
 Vamos estudar algoritmos que tratam estas três situações.
 
-### Alocação
+### [Alocação](color:red)
 
 Alocar memória em sistemas com paginação é muito simples:
-basta encontrar uma págia livre, o que normalmente pode ser feito consultando uma lista de páginas livres guardada pelo SO.
+basta encontrar uma página livre, o que normalmente pode ser feito consultando uma lista de páginas livres guardada pelo SO.
 
-Para segmentaçao, o tamanho variável dos segmentos torna mais complexa a reserva de espaço para um segmento.
+Para segmentação, o tamanho variável dos segmentos torna mais complexa a reserva de espaço para um segmento.
 Na libertação de memória é necessário recompactar os segmentos.
 
 Para a reserva de segmentos, podemos usar vários critérios de escolha:
@@ -230,7 +230,7 @@ Para a reserva de segmentos, podemos usar vários critérios de escolha:
 - **_next-fit_** (o primeiro possível, a seguir à pesquisa anterior):
   - espalha os blocos pequenos por toda a memória.
 
-### Transferência
+### [Transferência](color:yellow)
 
 Há três abordagens para a transferência de segmentos:
 
@@ -267,14 +267,6 @@ As páginas que vão para disco são aquelas que o SO prevê que não serão ace
 Neste contexto, estabelecemos uma diferença entre **_swapping_** - guardar todas as páginas de um processo em disco - e **_paging_** - guardar páginas individuais em disco.
 Mais uma vez, para minimizar latência, o SO faz _pre-fetching_ quando faz _swapping_ das páginas de um processo.
 
-:::warning[Informação por Rever]
-
-A informação nestes últimos parágrafos pode estar algo confusa.
-No entanto, está em conformidade com os slides pelo que não deve ter nenhuma incorreção.  
-Esta secção ainda será revista para ser mais fácil de entender.
-
-:::
-
 Possíveis critérios para decidir qual o processo a transferir para disco:
 
 - estado e prioridade do processo: processos bloqueados e pouco prioritários são candidatos preferenciais;
@@ -285,7 +277,7 @@ Definimos o **espaço de trabalho** de um processo como o conjunto de páginas a
 O espaço de trabalho de um processo tende a ter dimensão constante e muito menor que o seu espaço de endereçamento.
 Se o SO estimar essa dimensão, pode evitar colocar o processo em execução enquanto não existirem suficientes páginas disponíveis em RAM.
 
-### Substituição
+### [Substituição](color:green)
 
 Analisaremos apenas soluções de substituição para sistemas com paginação.
 
@@ -327,29 +319,29 @@ O algoritmo é aproximadamente o seguinte:
 
 [**Segmentação**](color:blue)
 
-Vantagens:
+[Vantagens:](color:green)
 
 - adapta-se à estrutura lógica dos programas;
 - permite a realização de sistemas simples sobre hardware simples;
 - permite realizar eficientemente as operações que agem sobre segmentos inteiros.
 
-Desvantagens:
+[Desvantagens:](color:red)
 
 - o programador tem de ter sempre algum conhecimento dos segmentos subjacentes;
 - os algoritmos tornam-se bastante complicados em sistemas mais sofisticados;
 - o tempo de transferência de segmentos em memória principal e disco torna-se incomportável para segmentos muito grandes;
 - a dimensão máxima dos segmentos é limitada.
 
-[**Paginação**](color:green)
+[**Paginação**](color:purple)
 
-Vantagens:
+[Vantagens:](color:green)
 
 - o programador não tem que se preocupar com a gestão de memória;
 - os algoritmos de reserva, substituição e transferência são mais simples e eficientes;
 - o tempo de leitura de uma página de disco é razoavelmente pequeno;
 - a dimensão dos programas é virtualmente ilimitada.
 
-Desvantagens:
+[Desvantagens:](color:red)
 
 - o hardware é mais complexo que o de memória segmentada (por exemplo, instruções precisam de ser recomeçáveis);
 - operações sobre segmentos lógicos são mais complexos e menos elegantes, pois têm de ser realizadas sobre um conjunto de páginas;
