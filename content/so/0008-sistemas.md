@@ -147,13 +147,13 @@ Abaixo vamos estudar organizações comuns em sistemas operativos que garantem e
 
 - Propostas de investigação à separação entre:
 
-Um micro-núcleo de reduzidas dimensões e que só continha o
-essencial do sistema operativo:
+- Um micro-núcleo de reduzidas dimensões e que só continha o essencial do sistema operativo:
 
-- Gestão de fluxos de execução - threads
-- Gestão dos espaços de endereçamento
-- Comunicação entre processos
-- Gestão das interrupções
+  - Gestão de fluxos de execução - threads
+  - Gestão dos espaços de endereçamento
+  - Comunicação entre processos
+  - Gestão das interrupções
+
 - Servidores sistema que executavam em processos independentes a
   restante funcionalidade:
   - Gestão de processos
