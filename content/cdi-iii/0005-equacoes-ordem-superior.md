@@ -25,7 +25,7 @@ $$
 
 em que:
 
-- $a_0, a_1, a_{n-1}$ são constantes reais;
+- $a_0, a_1, \dots, a_{n-1}$ são constantes reais;
 - $h: I \subseteq \R \to \R$, uma função contínua em $I$.
 
 ## Polinómio Característico (Diferencial)
@@ -46,7 +46,7 @@ O [**polinómio característico**](color:orange) desta equação é $P(D)$.
 
 É preciso notar que $P(D)$ é um operador, isto é, uma função cujo domínio é um conjunto de
 funções de classe $C^n$, sendo $n$ o grau de $P$.
-O termo $P(D)$ designa um **polinómio diferencial** que pode ser factorizado da mesma forma que um polinómio numérico.
+O termo $P(D)$ designa um **polinómio diferencial** que pode ser fatorizado da mesma forma que um polinómio numérico.
 
 Por exemplo, se $y$ é uma função de classe $C^2$:
 
@@ -108,18 +108,18 @@ em que:
 - $\alpha_1, \dots , \alpha_n$ são constantes reais;
 - $y_1, \dots, y_n$ são $n$ soluções linearmente independentes da equação.
 
-As soluções $y_1, \dots, y_n$ podem ser calculadas da seguinte forma.
+As soluções $y_1, \dots, y_n$ podem ser calculadas da seguinte forma:
 
 1. Obter o polinómio caracteristico $P(D)$ da equação.
 2. Fatorizar o polinómio obtido, na forma
 
    $$
-   P(D) = (D - \lambda_1)^{m_1} \dots (D - \lambda_k)^{m_k}
+   P(D) = (D - \lambda_1)^{m_1} \cdots (D - \lambda_k)^{m_k}
    $$
 
    em que $\lambda_j$ com $j = 1, 2, \dots, k$ são raízes distintas de $P(D)$
 
-3. Cada uma das soluções de $P(R) y = 0$ admitirá $m_j$ ($j = 1, \dots, k$) soluções linearmente independentes, obtidas do seguinte modo:
+3. Cada uma das soluções de $P(D) y = 0$ admitirá $m_j$ ($j = 1, \dots, k$) soluções linearmente independentes, obtidas do seguinte modo:
 
    - se $\lambda_j$ é uma [**raíz real**](color:green) de multiplicidade $m_j$ de $P(D)$, então a equação
 
@@ -582,7 +582,7 @@ $$
 onde $v(t)$ é uma função de $t$, atualmente desconhecida. Para determinar $y_2$, teremos de colocar $v(t) \cdot y_1$ na equação original, obtendo assim uma nova equação. O objetivo passará, então, por resolver a equação resultante para $v(t)$. Ao descobrir $v(t)$, podemos chegar a $y_2$, e a solução geral será dada por:
 
 $$
-y_G(t) = c_1 \cdot y_1 + c_2 \cdot y_2, c_1, c_2 \in \R
+y_G(t) = c_1 \cdot y_1 + c_2 \cdot y_2,\quad c_1, c_2 \in \R
 $$
 
 O método (ou uma variação dele) resulta também para casos onde não é dada nenhuma solução _e_ onde não temos termos $y$ - algo do género $at^\alpha y'' + bt^\beta y' = c$. Aqui, podemos saltar a parte do $v(t)$ e ir diretamente para a parte, no exemplo, que refere $v'(t) = w(t)$, e resolver a partir daí.
@@ -648,7 +648,7 @@ O primeiro passo será determinar as soluções da equação homogénea do tipo 
 Tenhamos a equação:
 
 $$
-x^2 y'' + 2xy' - 6y = x \leftrightarrow y'' + \frac{2}{x} y' - \frac{6}{x^2}y = \frac{1}{x}.
+x^2 y'' + 2xy' - 6y = x \Leftrightarrow y'' + \frac{2}{x} y' - \frac{6}{x^2}y = \frac{1}{x}.
 $$
 
 Para descobrir a solução geral, devemos começar por descobrir as soluções do tipo $x^\lambda$ da equação **homogénea**:
