@@ -22,31 +22,20 @@ export default function Template({ data }) {
     .filter((comp) => comp);
 
   return (
-    <Box
-      sx={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(4, 1fr)',
-        gap: 1,
-        gridTemplateRows: 'auto',
-        gridTemplateAreas: `"site-title . search search"
-      "sidebar main main main"
-      "footer footer footer footer"`,
-      }}
-    >
+    <Box sx={{ display: 'flex' }}>
       <PageMetadata title={page.frontmatter.title} description={page.frontmatter.description} />
-      <Box sx={{ gridArea: 'site-title' }}>
-        <SiteTitle />
-      </Box>
-      <Box sx={{ gridArea: 'sidebar' }}>
+      <Box>
         <Sidebar paths={sidebarPaths} sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
       </Box>
-      <Box sx={{ gridArea: 'main' }}>
-        <div className='content' dangerouslySetInnerHTML={{ __html: page.html }} />
-        {components?.map((Component, i) => (
-          <Component key={i} />
-        ))}
+      <Box>
+        <Box sx={{ mx: 5 }}>
+          <div className='content' dangerouslySetInnerHTML={{ __html: page.html }} />
+          {components?.map((Component, i) => (
+            <Component key={i} />
+          ))}
+        </Box>
+        <Box sx={{ backgroundColor: 'red' }}>Footer</Box>
       </Box>
-      <Box sx={{ gridArea: 'footer' }}>Footer</Box>
     </Box>
   );
 }

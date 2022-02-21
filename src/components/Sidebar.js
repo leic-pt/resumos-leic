@@ -1,6 +1,18 @@
-import { List, ListItemButton, ListItemText, ListSubheader, Paper } from '@mui/material';
+import {
+  Divider,
+  Drawer,
+  List,
+  ListItemButton,
+  ListItemText,
+  ListSubheader,
+  Paper,
+  Toolbar,
+} from '@mui/material';
 import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
 import React from 'react';
+import SiteTitle from './SiteTitle';
+
+const drawerWidth = '20rem';
 
 export default function Sidebar({ paths, sidebarOpen, toggleSidebar }) {
   const data = useStaticQuery(graphql`
@@ -34,7 +46,22 @@ export default function Sidebar({ paths, sidebarOpen, toggleSidebar }) {
   });
 
   return (
-    <Paper sx={{ mx: 2 }}>
+    <Drawer
+      sx={{
+        width: drawerWidth,
+        flexShrink: 0,
+        '& .MuiDrawer-paper': {
+          width: drawerWidth,
+          boxSizing: 'border-box',
+        },
+      }}
+      variant='permanent'
+      anchor='left'
+    >
+      <Toolbar>
+        <SiteTitle />
+      </Toolbar>
+      <Divider />
       <List dense>
         {sidebarSections.map(
           (section) =>
@@ -63,6 +90,6 @@ export default function Sidebar({ paths, sidebarOpen, toggleSidebar }) {
         </ul>
           </div>*/}
       </List>
-    </Paper>
+    </Drawer>
   );
 }
