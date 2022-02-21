@@ -77,7 +77,7 @@ $$
    $$
 
    $$
-   \frac{\partial }{\partial x} (-zy + z^2 + C_2) - \frac{\partial }{\partial z} (z-yz +C_1) = -1\\
+   \frac{\partial }{\partial x} (-zx + z^2 + C_2) - \frac{\partial }{\partial y} (z-yz +C_1) = -1\\
    -z + \frac{\partial C_2}{\partial x} + z - \frac{\partial C_1}{\partial y} = -1\\
    \frac{\partial C_2}{\partial x} - \frac{\partial C_1}{\partial y} = -1
    $$

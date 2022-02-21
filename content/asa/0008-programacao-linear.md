@@ -449,9 +449,9 @@ A partir daqui, resolveríamos este programa linear com a ajuda do algoritmo Sim
 
 :::info[Teorema Fundamental da Programação Linear]
 
-Qualquer programa linear na forma standard:
+Pegando num qualquer programa linear na forma standard, este tem três possibilidades (só podendo pertencer a uma delas):
 
-- Tem uma [**solução ótima**](color:pink) com valor objetivo finito;
+- Tem uma [**solução ótima**](color:pink) com valor objetivo finito, valor esse que pode ser obtido num dos **vértices** da respetiva região exequível;
 
 - É [**não exequível**](color:purple);
 
@@ -489,7 +489,7 @@ s.a: \quad&x \leq 200\\
 \end{aligned}
 $$
 
-Chamemos a este programa o programa [**Primal**](color:pink). A aplicação do algoritmo Simplex neste programa levaria a uma solução ótima com $x = 100 \wedge y = 300 \implies z = 1900$. Podemos, contudo, tentar perceber de maneira diferente no problema: e se o nosso objetivo for _minimizar_ as horas de produção dispendidas, tendo em conta certas margens de lucro que queremos ter? A dualidade entra precisamente aqui: vamos procurar construir um outro program, o respetivo programa [**Dual**](color:orange), que procurará representar esse mesmo espelho de restrições:
+Chamemos a este programa o programa [**Primal**](color:pink). A aplicação do algoritmo Simplex neste programa levaria a uma solução ótima com $x = 100 \wedge y = 300 \implies z = 1900$. Podemos, contudo, tentar perceber de maneira diferente no problema: e se o nosso objetivo for _minimizar_ as horas de produção dispendidas, tendo em conta certas margens de lucro que queremos ter? A dualidade entra precisamente aqui: vamos procurar construir um outro programa, o respetivo programa [**Dual**](color:orange), que procurará representar esse mesmo espelho de restrições:
 
 $$
 \begin{aligned}
@@ -545,5 +545,4 @@ Por fim, olhamos para a [**Dualidade Forte**](color:green), que nos diz que:
 
 ---
 
-- [Slides](https://drive.google.com/file/d/1IGRwXhtKGG0P9SRQxB3RTf5bIxtpvG1Y/view?usp=sharing)
 - [Notas Prog. Linear - Prof. José Fragoso](https://drive.google.com/file/d/1mDyBymCHkOOU0IrikVmHZ0kcdku9X23A/view?usp=sharing)

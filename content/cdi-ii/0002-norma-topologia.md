@@ -214,4 +214,4 @@ Ao contrário do que tínhamos em $\R$, aqui **não existe "interior"** desta "r
 
 Slides:
 
-- [Aula 2](https://drive.google.com/file/d/16ZL5NTotDOa6HMgQ0-TttWqjIp_J4nJv/view?usp=sharing)
+- [Aula 2](https://drive.google.com/file/d/1l3ib-V9OuNJPEhstBvMK_pPRRRHIkxob/view)

@@ -221,5 +221,5 @@ $$
 
 Slides:
 
-- [Aula 9](https://drive.google.com/file/d/1hD4cmbOMvQePGDpdGdBiW7dDN5211U-_/view?usp=sharing)
-- [Aula 10](https://drive.google.com/file/d/16jeZ0qLZeC0opCixeGwUH25yVjLjDSBn/view?usp=sharing)
+- [Aula 9](https://drive.google.com/file/d/1mQAgGw5SgQsRzZuJ6XD4bE6elGnMMOda/view)
+- [Aula 10](https://drive.google.com/file/d/1h8UuG53Q531Je_rDoZlGCxuMNnUfrtjn/view)

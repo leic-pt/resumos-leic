@@ -1,5 +1,5 @@
 ---
-title: Exercícios Resolvidos Prof. Pavão
+title: Exercícios Resolvidos (2020-2021)
 description: Exercícios do Prof. João Pavão Martins resolvidos (2020-2021)
 path: /fp/exercises/exercicios-pavao
 type: exercises
@@ -13,7 +13,7 @@ Caso encontres incorreções nas resoluções abaixo, por favor
 para serem corrigidas.
 :::
 
-- [Enunciado](https://drive.google.com/file/d/1objOD3KNb_uGYHAXg8q0byaz_HX_O6cA/view?usp=sharing)
+Por razões de direitos de autor, não é possível disponibilizar o enunciado publicamente.
 
 # Resolução
 

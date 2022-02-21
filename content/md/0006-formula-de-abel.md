@@ -30,18 +30,18 @@ $$
 \ -3 &  & -3 & 18  \\
 
 \hline &\\
-& 1 & -6 & \textcolor{#C8553D}{20} \\
+& 1 & -6 & \smartcolor{orange}{20} \\
 &\\
 -2 &  & -2 & \\
 
 \hline &\\
-& 1 & \textcolor{#C8553D}{-8}  \\
+& 1 & \smartcolor{orange}{-8}  \\
 \end{array}
 $$
 
 O Vermelho é o Resto da Divisão.
 
-$$\longrightarrow 1\cdot(k+3)(k+2)\textcolor{#C8553D}{-8}(k+3)\textcolor{#C8553D}{+20}$$
+$$\longrightarrow 1\cdot(k+3)(k+2)\smartcolor{orange}{-8}(k+3)\smartcolor{orange}{+20}$$
 
 e o somatório original vem como:
 
