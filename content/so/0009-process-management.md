@@ -2,7 +2,6 @@
 title: Gestão de Processos
 description: >-
   Gestão de Processos.
-  Booting.
   Contexto de um Processo.
   Interrupções.
   Escalonamento (scheduling).
@@ -30,25 +29,6 @@ de efetuar a transição entre vários processos e tarefas (_threads_), é tamb�
 pelo **tratamento de interrupções**, **otimização da gestão de recursos dos processos** (escalonamento, _scheduling_) e
 da implementação das chamadas de sistemas relacionadas com processos e sincronização entre os mesmos
 (como por exemplo a alteração da prioridade de um processos; veremos mais à frente o que isto significa).
-
-## Boot de um SO
-
-Quando o nosso computador está desligado, não passa de um objeto inanimado.
-Contudo, quando carregamos num botãozinho, esse objeto inanimado converte-se numa caixa mágica capaz de fazer as mais diversas operações.
-Vamos agora ver como é que isso é possível.
-
-Quando uma máquina recebe energia, o PC (_Program Counter_) aponta para um programa na _Boot ROM_.
-Nos computadores pessoais este programa pode ser o **BIOS** (_Basic Input/Output System_) ou a **UEFI** (_Unified Extensible Firmware Interface_).
-Este programa faz algumas verificações sobre o computador (nomeadamente seestá em condições de ser iniciado) e, de seguida,
-copia o bloco de código do disco para a RAM e salta para a primeira instrução desse programa, chamado _bootloader_.
-
-O _bootloader_, por sua vez, carrega o programa do núcleo em RAM e salta para a rotina de inicialização do núcleo.
-A inicialização do núcleo passa por:
-
-- incializar as suas estruturas de dados;
-- copiar rotinas de tratamento de cada interrupção para RAM;
-- preencher a tabela de interrupções em RAM;
-- lançar os processos inicias do sistema, incluindo o processo de login;
 
 ## Processos e Tarefas
 
@@ -84,22 +64,10 @@ stateDiagram-v2
     executable --> exec : Gestor de Processos escolhe este processo\n para execução
 ```
 
-## Kernel como Gestor de Interrupções
+## Gestão de Interrupções
 
-Quando estamos a executar um programa no nosso computador, este normalmente corre
-no chamado [modo user (_userland_)](color:green), que não tem privilégios acrescidos.
-Este não consegue aceder diretamente a periféricos, ficheiros, etc (depende da estrutura do sistema operativo).
-
-No entanto, processos também podem ser executados no [modo núcleo (_kernelland_)](color:red), onde
-têm todas as permissões. Apenas o código do sistema operativo pode ser executado neste modo.
-Todas as atividades do modo núcleo são desencadeadas por [interrupções](color:orange).
-Estas podem ser de três tipos:
-
-- Hardware: relógio e periféricos (teclado, rato, etc);
-- Software (_traps_): utilizadas pelos programas na _userland_ para pedir a algo cujo acesso requira privilégios (chamadas de sistema). Esta é a única forma de um utilizador pedir acesso a um recurso protegido;
-- Exceções: por exemplo exceções de aritmética (divisão por zero), acesso a memória indevido, etc.
-
-Mas como é que são tratadas as [interrupções](color:orange)?
+No capítulo anterior vimos que os processos em modo núcleo são sempre desencadeados por uma [interrupção](color:orange).
+Ora, então, como é que estas são tratadas?
 
 ```mermaid
 stateDiagram-v2
