@@ -15,7 +15,7 @@ type: cheatsheets
 
 $a \frown b = c$, significa que c é o m.d.c. de a e b
 
-$108x + 75y =\textcolor{pink} 6$
+$108x + 75y =\smartcolor{pink} 6$
 
 $$
 \begin{array}{c|c|c|c}
@@ -25,19 +25,19 @@ a_i & q_i & x_i & y_i \\
 33 & 2 & 1 & -1 \\
 9 & 3 & -2 & 3 \\
 6 & 1 & 7 & -10 \\
-\textcolor{red}3 & 2 & \textcolor{orange}{-9} & \textcolor{yellow}{13} \\
+\smartcolor{red}3 & 2 & \smartcolor{orange}{-9} & \smartcolor{yellow}{13} \\
 0 & - & - & - \\
 
 \end{array}
 $$
 
-$108 \frown 75 = \textcolor{red}3 = 108 * \textcolor{orange}{-9} + 75 * \textcolor{yellow}{13}$
+$108 \frown 75 = \smartcolor{red}3 = 108 * \smartcolor{orange}{-9} + 75 * \smartcolor{yellow}{13}$
 
 Multiplicar os valores por 2
 
-$108 \frown 75 = \textcolor{pink}6 = 108 * \textcolor{orange}{-18} + 75 * \textcolor{yellow}{26}$
+$108 \frown 75 = \smartcolor{pink}6 = 108 * \smartcolor{orange}{-18} + 75 * \smartcolor{yellow}{26}$
 
-Coeficientes de Bézout: $x_0 = \textcolor{orange}{-18}, y_0 = \textcolor{yellow}{26}$
+Coeficientes de Bézout: $x_0 = \smartcolor{orange}{-18}, y_0 = \smartcolor{yellow}{26}$
 
 $$
 \left\{ \begin{aligned}
@@ -93,9 +93,9 @@ Logo há solução (única).
 
 $$
 \left\{ \begin{aligned}
- x \textcolor{orange}{\equiv_5} \textcolor{red}1\\
- x \textcolor{orange}{\equiv_7}\textcolor{red}3\\
- x \textcolor{orange}{\equiv_9} \textcolor{red}5\\
+ x \smartcolor{orange}{\equiv_5} \smartcolor{red}1\\
+ x \smartcolor{orange}{\equiv_7}\smartcolor{red}3\\
+ x \smartcolor{orange}{\equiv_9} \smartcolor{red}5\\
 \end{aligned} \right.
 $$
 
@@ -103,9 +103,9 @@ $$
 \begin{array}{ c|c|c|c|c|c|c }
 r_{i} & módulos & c_{i} & n_{i} & ñ_{i} & rn_{i} ñ_{i} & Resultados\\
 \hline
-\textcolor{red}1 & \textcolor{orange}5 & 5 & 63 & 7 & 441 & M\ =\ 315\\
-\textcolor{red}3 & \textcolor{orange}7 & 7 & 45 & 5 & 675 & \\
-\textcolor{red}5 & \textcolor{orange}9 & 9 & 35 & 8 & 1400 & x_{0} \ =\ 311
+\smartcolor{red}1 & \smartcolor{orange}5 & 5 & 63 & 7 & 441 & M\ =\ 315\\
+\smartcolor{red}3 & \smartcolor{orange}7 & 7 & 45 & 5 & 675 & \\
+\smartcolor{red}5 & \smartcolor{orange}9 & 9 & 35 & 8 & 1400 & x_{0} \ =\ 311
 \end{array}
 $$
 

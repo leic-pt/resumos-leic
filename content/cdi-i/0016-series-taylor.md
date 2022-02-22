@@ -82,13 +82,13 @@ $$
 Sabendo que,
 
 $$
-f^{( n)}( x) =\sin\left(\frac{n\pi }{2} +\textcolor{#F4A523}{x}\right)\\f^{( n)}\left(\frac{\pi }{4}\right) =\sin\left(\frac{2n\pi }{4} +\textcolor{#F4A523}{\frac{\pi }{4}}\right) =\sin\left(\frac{\pi +2n\pi }{4}\right)
+f^{( n)}( x) =\sin\left(\frac{n\pi }{2} +\smartcolor{orange}{x}\right)\\f^{( n)}\left(\frac{\pi }{4}\right) =\sin\left(\frac{2n\pi }{4} +\smartcolor{orange}{\frac{\pi }{4}}\right) =\sin\left(\frac{\pi +2n\pi }{4}\right)
 $$
 
 Podemos facilmente obter a série de Taylor.
 
 $$
-f( x) =\sum ^{\infty }_{n=0}\frac{\textcolor{#498EE2}{\sin\left(\frac{\pi +2n\pi }{4}\right)}}{n!}\left( x-\frac{\pi }{4}\right)^{n}
+f( x) =\sum ^{\infty }_{n=0}\frac{\smartcolor{blue}{\sin\left(\frac{\pi +2n\pi }{4}\right)}}{n!}\left( x-\frac{\pi }{4}\right)^{n}
 $$
 
 No entanto, isto não torna muito óbvio quais são os coeficientes numéricos da série de potências. Pode-se reescrever $f^{(n)}\left(\frac{\pi}{4}\right)$ da seguinte forma (não é imediato como):
@@ -105,16 +105,16 @@ Outra forma de resolver o exemplo anterior é através das propriedades das sér
 
 $$
 \begin{aligned}
-\sin x & =\sin\left[\textcolor{#F4A523}{\frac{\pi }{4}} +\textcolor{#498EE2}{\left( x-\frac{\pi }{4}\right)}\right]\\
- & =\textcolor{#F4A523}{\sin\left(\frac{\pi }{4}\right)}\textcolor{#498EE2}{\cos\left( x-\frac{\pi }{4}\right)} +\textcolor{#F4A523}{\cos\left(\frac{\pi }{4}\right)}\textcolor{#498EE2}{\sin\left( x-\frac{\pi }{4}\right)}\\
- & =\textcolor{#F4A523}{\frac{\sqrt{2}}{2}}\textcolor{#498EE2}{\cos\left( x-\frac{\pi }{4}\right)} +\textcolor{#F4A523}{\frac{\sqrt{2}}{2}}\textcolor{#498EE2}{\sin\left( x-\frac{\pi }{4}\right)}
+\sin x & =\sin\left[\smartcolor{orange}{\frac{\pi }{4}} +\smartcolor{blue}{\left( x-\frac{\pi }{4}\right)}\right]\\
+ & =\smartcolor{orange}{\sin\left(\frac{\pi }{4}\right)}\smartcolor{blue}{\cos\left( x-\frac{\pi }{4}\right)} +\smartcolor{orange}{\cos\left(\frac{\pi }{4}\right)}\smartcolor{blue}{\sin\left( x-\frac{\pi }{4}\right)}\\
+ & =\smartcolor{orange}{\frac{\sqrt{2}}{2}}\smartcolor{blue}{\cos\left( x-\frac{\pi }{4}\right)} +\smartcolor{orange}{\frac{\sqrt{2}}{2}}\smartcolor{blue}{\sin\left( x-\frac{\pi }{4}\right)}
 \end{aligned}
 $$
 
 Pelos [desenvolvimentos conhecidos do seno e do cosseno](/cdi-i/series-funcionais#funções-inteiras):
 
 $$
-\sin x=\frac{\sqrt{2}}{2}\textcolor{#F4A523}{\sum ^{\infty }_{n=0}\frac{( -1)^{n}}{( 2n) !}\left( x-\frac{\pi }{4}\right)^{2n}} +\frac{\sqrt{2}}{2}\textcolor{#F4A523}{\sum ^{\infty }_{n=0}\frac{( -1)^{n}}{( 2n+1) !}\left( x-\frac{\pi }{4}\right)^{2n+1}}
+\sin x=\frac{\sqrt{2}}{2}\smartcolor{orange}{\sum ^{\infty }_{n=0}\frac{( -1)^{n}}{( 2n) !}\left( x-\frac{\pi }{4}\right)^{2n}} +\frac{\sqrt{2}}{2}\smartcolor{orange}{\sum ^{\infty }_{n=0}\frac{( -1)^{n}}{( 2n+1) !}\left( x-\frac{\pi }{4}\right)^{2n+1}}
 $$
 
 Como a soma de duas funções inteiras é uma função inteira:
@@ -148,7 +148,7 @@ $$
 Se quisermos obter $f^{(n)}(0)$, basta reescrever a série de MacLaurin para ficar mais evidente este termo:
 
 $$
-\sum ^{\infty }_{n=0} x^{n} =\sum ^{\infty }_{n=0}\frac{\textcolor{#F4A523}{n!}}{n!} x^{n}\\
+\sum ^{\infty }_{n=0} x^{n} =\sum ^{\infty }_{n=0}\frac{\smartcolor{orange}{n!}}{n!} x^{n}\\
 \\
 f^{( n)}( 0) =n!
 $$
@@ -156,24 +156,24 @@ $$
 Para obter a série de Taylor de $f$ relativa ao ponto 2, fazemos o seguinte:
 
 $$
-f( x) =\frac{1}{1-x} =\frac{1}{1-2-( x-2)} =\frac{1}{-1-( x-2)} =\frac{-1}{1-\textcolor{#F4A523}{[ -( x-2)]}}
+f( x) =\frac{1}{1-x} =\frac{1}{1-2-( x-2)} =\frac{1}{-1-( x-2)} =\frac{-1}{1-\smartcolor{orange}{[ -( x-2)]}}
 $$
 
 Usando, novamente, a fórmula da soma de uma série geométrica, desta vez com ${r=-(x-2)}$, obtermos:
 
 $$
-f( x) =\frac{\textcolor{#F7E81C}{-1}}{1-\textcolor{#F4A523}{[}\textcolor{#F4A523}{-}\textcolor{#F4A523}{(}\textcolor{#F4A523}{x-2}\textcolor{#F4A523}{)}\textcolor{#F4A523}{]}} =\textcolor{#F7E81C}{-}\sum ^{\infty }_{n=0}[\textcolor{#F4A523}{-( x-2)}]^{n} \quad ,\quad |x-2|< 1
+f( x) =\frac{\smartcolor{pink}{-1}}{1-\smartcolor{orange}{[}\smartcolor{orange}{-}\smartcolor{orange}{(}\smartcolor{orange}{x-2}\smartcolor{orange}{)}\smartcolor{orange}{]}} =\smartcolor{pink}{-}\sum ^{\infty }_{n=0}[\smartcolor{orange}{-( x-2)}]^{n} \quad ,\quad |x-2|< 1
 $$
 
 Pode-se reescrever a série da seguinte forma, para obter $f^{(n)}(2)$:
 
 $$
-f( x) =\sum ^{\infty }_{n=0}\left[\textcolor{#F7E81C}{( -1)}( -1)^{n}( x-2)^{n}\right] =\sum ^{\infty }_{n=0}\left[( -1)^{n\textcolor{#F7E81C}{+1}}( x-2)^{n}\right] =\\
-=\sum ^{\infty }_{n=0}\left[\frac{\textcolor{#498EE2}{( -1)^{n+1} n!}}{n!}( x-2)^{n}\right]\quad,\quad x\in V_1(2)
+f( x) =\sum ^{\infty }_{n=0}\left[\smartcolor{pink}{( -1)}( -1)^{n}( x-2)^{n}\right] =\sum ^{\infty }_{n=0}\left[( -1)^{n\smartcolor{pink}{+1}}( x-2)^{n}\right] =\\
+=\sum ^{\infty }_{n=0}\left[\frac{\smartcolor{blue}{( -1)^{n+1} n!}}{n!}( x-2)^{n}\right]\quad,\quad x\in V_1(2)
 $$
 
 $$
-f^{( n)}( 2) =\textcolor{#498EE2}{(}\textcolor{#498EE2}{-1}\textcolor{#498EE2}{)}\textcolor{#498EE2}{^{n+1}}\textcolor{#498EE2}{n!}
+f^{( n)}( 2) =\smartcolor{blue}{(}\smartcolor{blue}{-1}\smartcolor{blue}{)}\smartcolor{blue}{^{n+1}}\smartcolor{blue}{n!}
 $$
 
 ---
@@ -187,19 +187,19 @@ $$
 Pode-se usar uma técnica muito semelhante para determinar a série de MacLaurin de $f$. Novamente, pela fórmula da soma de uma série geométrica:
 
 $$
-f( x) =\frac{x}{1+x} =\textcolor{#F7E81C}{x} \cdot \frac{1}{1-(\textcolor{#F4A523}{-x})} =\textcolor{#F7E81C}{x}\sum ^{\infty }_{n=0}(\textcolor{#F4A523}{-x})^{n} \quad ,\quad |-x|< 1
+f( x) =\frac{x}{1+x} =\smartcolor{pink}{x} \cdot \frac{1}{1-(\smartcolor{orange}{-x})} =\smartcolor{pink}{x}\sum ^{\infty }_{n=0}(\smartcolor{orange}{-x})^{n} \quad ,\quad |-x|< 1
 $$
 
 $$
-\begin{aligned}f( x) & =\textcolor{#F7E81C}{x}\sum ^{\infty }_{n=0}(\textcolor{#F4A523}{-x})^{n}\\ & =\sum ^{\infty }_{n=0}\left[( -1)^{n} x^{n} \cdot \textcolor{#F7E81C}{x}\right]\\ & =\sum ^{\infty }_{n=0}\left[( -1)^{n} x^{n\textcolor{#F7E81C}{+1}}\right]\\ & =\sum ^{\infty }_{n=1}\left[( -1)^{n-1} x^{n}\right] \quad ,\quad x\in V_{1}( 0)\end{aligned}
+\begin{aligned}f( x) & =\smartcolor{pink}{x}\sum ^{\infty }_{n=0}(\smartcolor{orange}{-x})^{n}\\ & =\sum ^{\infty }_{n=0}\left[( -1)^{n} x^{n} \cdot \smartcolor{pink}{x}\right]\\ & =\sum ^{\infty }_{n=0}\left[( -1)^{n} x^{n\smartcolor{pink}{+1}}\right]\\ & =\sum ^{\infty }_{n=1}\left[( -1)^{n-1} x^{n}\right] \quad ,\quad x\in V_{1}( 0)\end{aligned}
 $$
 
 Pode-se assim determinar $f^{(n)}(0)$:
 
 $$
-f( x) =\sum ^{\infty }_{n=1}\left[\frac{\textcolor{#498EE2}{( -1)^{n-1} n!}}{n!} x^{n}\right] \quad ,\quad x\in V_{1}( 0)\\
+f( x) =\sum ^{\infty }_{n=1}\left[\frac{\smartcolor{blue}{( -1)^{n-1} n!}}{n!} x^{n}\right] \quad ,\quad x\in V_{1}( 0)\\
 f^{( n)}( 0) =\begin{cases}
-\textcolor{#498EE2}{(}\textcolor{#498EE2}{-1}\textcolor{#498EE2}{)}\textcolor{#498EE2}{^{n-1}}\textcolor{#498EE2}{n!} & \text{se } n\geqslant 1\\
+\smartcolor{blue}{(}\smartcolor{blue}{-1}\smartcolor{blue}{)}\smartcolor{blue}{^{n-1}}\smartcolor{blue}{n!} & \text{se } n\geqslant 1\\
 0 & \text{se } n=0
 \end{cases}
 $$
@@ -216,22 +216,22 @@ Novamente, pelo mesmo raciocínio, para determinar a série de MacLaurin:
 
 $$
 \begin{aligned}
-f( x) & =\frac{\textcolor{#7CD321}{x+1}}{1-\textcolor{#F4A523}{x}}\\
- & =\textcolor{#7CD321}{( x+1)}\sum ^{\infty }_{n=0}\textcolor{#F4A523}{x}^{n}\\
- & =\sum ^{\infty }_{n=0}\left[ x^{n}\textcolor{#7CD321}{( x+1)}\right]\\
+f( x) & =\frac{\smartcolor{green}{x+1}}{1-\smartcolor{orange}{x}}\\
+ & =\smartcolor{green}{( x+1)}\sum ^{\infty }_{n=0}\smartcolor{orange}{x}^{n}\\
+ & =\sum ^{\infty }_{n=0}\left[ x^{n}\smartcolor{green}{( x+1)}\right]\\
  & =\sum ^{\infty }_{n=0} x^{n+1} +x^{n}\\
- & =\sum ^{\infty }_{n=0} x^{n\textcolor{#498EE2}{+1}} +\sum ^{\infty }_{n=0} x^{n}\\
- & =\sum ^{\infty }_{n=\textcolor{#498EE2}{1}} x^{n} +\sum ^{\infty }_{n=\textcolor{#8C5628}{0}} x^{n}\\
- & =\sum ^{\infty }_{n=1} x^{n} +x^{\textcolor{#8C5628}{0}} +\sum ^{\infty }_{n=\textcolor{#8C5628}{1}} x^{n}\\
- & =1+\textcolor{#F4A523}{2}\sum ^{\infty }_{n=0} x^{n}\\
- & =1+\sum ^{\infty }_{n=0}\textcolor{#F4A523}{2} x^{n} \quad ,\quad |x|< 1
+ & =\sum ^{\infty }_{n=0} x^{n\smartcolor{blue}{+1}} +\sum ^{\infty }_{n=0} x^{n}\\
+ & =\sum ^{\infty }_{n=\smartcolor{blue}{1}} x^{n} +\sum ^{\infty }_{n=\smartcolor{orange}{0}} x^{n}\\
+ & =\sum ^{\infty }_{n=1} x^{n} +x^{\smartcolor{orange}{0}} +\sum ^{\infty }_{n=\smartcolor{orange}{1}} x^{n}\\
+ & =1+\smartcolor{orange}{2}\sum ^{\infty }_{n=0} x^{n}\\
+ & =1+\sum ^{\infty }_{n=0}\smartcolor{orange}{2} x^{n} \quad ,\quad |x|< 1
 \end{aligned}
 $$
 
 Pode-se assim determinar $f^{(n)}(0)$:
 
 $$
-f( x) =1+\sum ^{\infty }_{n=1}\frac{\textcolor{#498EE2}{2n!}}{n!} x^{n} \quad ,\quad |x|< 1\\f^{( n)}( 0) =\begin{cases}\textcolor{#498EE2}{2n!} & \text{se } n\geqslant 1\\1 & \text{se } n=0\end{cases}
+f( x) =1+\sum ^{\infty }_{n=1}\frac{\smartcolor{blue}{2n!}}{n!} x^{n} \quad ,\quad |x|< 1\\f^{( n)}( 0) =\begin{cases}\smartcolor{blue}{2n!} & \text{se } n\geqslant 1\\1 & \text{se } n=0\end{cases}
 $$
 
 ---
@@ -249,7 +249,7 @@ $$
 Determinando a série de MacLaurin da derivada:
 
 $$
-f'( x) =\frac{1}{1+x^{2}} =\frac{1}{1-\left(\textcolor{#F4A523}{-x^{2}}\right)} =\sum ^{\infty }_{n=0}\left(\textcolor{#F4A523}{-x^{2}}\right)^{n} \quad ,\quad |-x^{2} |< 1
+f'( x) =\frac{1}{1+x^{2}} =\frac{1}{1-\left(\smartcolor{orange}{-x^{2}}\right)} =\sum ^{\infty }_{n=0}\left(\smartcolor{orange}{-x^{2}}\right)^{n} \quad ,\quad |-x^{2} |< 1
 $$
 
 $$
@@ -259,7 +259,7 @@ $$
 Primitivando termo a termo:
 
 $$
-f( x) =\sum ^{\infty }_{n=0}\left[\frac{( -1)^{n}}{\textcolor{#F4A523}{2n+1}} x^{\textcolor{#F4A523}{2n+1}}\right] +K
+f( x) =\sum ^{\infty }_{n=0}\left[\frac{( -1)^{n}}{\smartcolor{orange}{2n+1}} x^{\smartcolor{orange}{2n+1}}\right] +K
 $$
 
 pois
@@ -269,13 +269,13 @@ $$\int x^{2n} \ \mathrm{d} x=\frac{x^{2n+1}}{2n+1}$$
 Podemos determinar $K$ e $f^{(n)}(0)$:
 
 $$
-f( 0) =\arctan 0=0\Leftrightarrow K=0\\f( x) =\sum ^{\infty }_{n=0}\left[\frac{( -1)^{n}}{2n+1} x^{2n+1}\right] =\sum ^{\infty }_{n=0}\left[\frac{\textcolor{#498EE2}{( -1)^{n} (2n)!}}{(2n+1)!} x^{2n+1}\right] \quad ,\quad x\in V_{1}( 0)
+f( 0) =\arctan 0=0\Leftrightarrow K=0\\f( x) =\sum ^{\infty }_{n=0}\left[\frac{( -1)^{n}}{2n+1} x^{2n+1}\right] =\sum ^{\infty }_{n=0}\left[\frac{\smartcolor{blue}{( -1)^{n} (2n)!}}{(2n+1)!} x^{2n+1}\right] \quad ,\quad x\in V_{1}( 0)
 $$
 
 Aqui, como $x$ está elevado a $2n+1$, o fatorial no denominador dos coeficientes tem de ser $(2n+1)!$. Por isso, multiplica-se por $(2n)!$ no numerador e no denominador.
 
 $$
-( -1)^{\textcolor{#F4A523}{n}}( 2\textcolor{#F4A523}{n}) !\ \underset{n=k}{\Longleftrightarrow } \ ( -1)^{\textcolor{#F4A523}{k}}( 2\textcolor{#F4A523}{k}) !\Leftrightarrow ( -1)^{k}(\textcolor{#498EE2}{2k+1} -1) !\ \underset{n=2k+1}{\Longleftrightarrow }( -1)^{k}(\textcolor{#498EE2}{n} -1) !
+( -1)^{\smartcolor{orange}{n}}( 2\smartcolor{orange}{n}) !\ \underset{n=k}{\Longleftrightarrow } \ ( -1)^{\smartcolor{orange}{k}}( 2\smartcolor{orange}{k}) !\Leftrightarrow ( -1)^{k}(\smartcolor{blue}{2k+1} -1) !\ \underset{n=2k+1}{\Longleftrightarrow }( -1)^{k}(\smartcolor{blue}{n} -1) !
 $$
 
 $$
@@ -299,26 +299,26 @@ $$
 Novamente, pela fórmula da soma de uma série geométrica:
 
 $$
-F( x) =\textcolor{#498EE2}{-1} \cdot \frac{1}{1-(\textcolor{#F4A523}{-x})} =\textcolor{#498EE2}{-}\sum ^{\infty }_{n=0}(\textcolor{#F4A523}{-x})^{n} =\sum ^{\infty }_{n=0}\left[(\textcolor{#498EE2}{-1})( -1)^{n} x^{n}\right] =\\=\sum ^{\infty }_{n=0}\left[( -1)^{n\textcolor{#498EE2}{+1}} x^{n}\right]\quad,\quad|-x|< 1
+F( x) =\smartcolor{blue}{-1} \cdot \frac{1}{1-(\smartcolor{orange}{-x})} =\smartcolor{blue}{-}\sum ^{\infty }_{n=0}(\smartcolor{orange}{-x})^{n} =\sum ^{\infty }_{n=0}\left[(\smartcolor{blue}{-1})( -1)^{n} x^{n}\right] =\\=\sum ^{\infty }_{n=0}\left[( -1)^{n\smartcolor{blue}{+1}} x^{n}\right]\quad,\quad|-x|< 1
 $$
 
 Derivando agora termo a termo, para obter a série da função dada:
 
 $$
-\left[\textcolor{#F4A523}{( -1)^{n+1}} x^{\textcolor{#498EE2}{n}}\right] '=\textcolor{#F4A523}{( -1)^{n+1}}\textcolor{#498EE2}{n} x^{\textcolor{#498EE2}{n-1}}
+\left[\smartcolor{orange}{( -1)^{n+1}} x^{\smartcolor{blue}{n}}\right] '=\smartcolor{orange}{( -1)^{n+1}}\smartcolor{blue}{n} x^{\smartcolor{blue}{n-1}}
 $$
 
 Note-se que a derivada do primeiro termo é nula, pois é uma constante $((-1)^{0+1}x^0=-1)$
 
 $$
-f( x) =\sum ^{\infty }_{n=\textcolor{#F4A523}{1}}\left[( -1)^{n+1} nx^{n-1}\right] =\sum ^{\infty }_{n=\textcolor{#F4A523}{0}}\left[( -1)^{n}( n+1) x^{n}\right]
+f( x) =\sum ^{\infty }_{n=\smartcolor{orange}{1}}\left[( -1)^{n+1} nx^{n-1}\right] =\sum ^{\infty }_{n=\smartcolor{orange}{0}}\left[( -1)^{n}( n+1) x^{n}\right]
 $$
 
 Podemos, assim, determinar $f^{(n)}(0)$:
 
 $$
-f( x) =\sum ^{\infty }_{n=0}\left[\frac{( -1)^{n}( n+1) \cdot n!}{n!} x^{n}\right] =\sum ^{\infty }_{n=0}\left[\frac{\textcolor{#498EE2}{( -1)^{n}( n+1) !}}{n!} x^{n}\right]\\
-f^{( n)}( 0) =\textcolor{#498EE2}{(}\textcolor{#498EE2}{-1}\textcolor{#498EE2}{)}\textcolor{#498EE2}{^{n}}\textcolor{#498EE2}{(}\textcolor{#498EE2}{n+1}\textcolor{#498EE2}{)}\textcolor{#498EE2}{!}
+f( x) =\sum ^{\infty }_{n=0}\left[\frac{( -1)^{n}( n+1) \cdot n!}{n!} x^{n}\right] =\sum ^{\infty }_{n=0}\left[\frac{\smartcolor{blue}{( -1)^{n}( n+1) !}}{n!} x^{n}\right]\\
+f^{( n)}( 0) =\smartcolor{blue}{(}\smartcolor{blue}{-1}\smartcolor{blue}{)}\smartcolor{blue}{^{n}}\smartcolor{blue}{(}\smartcolor{blue}{n+1}\smartcolor{blue}{)}\smartcolor{blue}{!}
 $$
 
 :::
@@ -334,13 +334,13 @@ $$
 Usando a propriedade em que se pode derivar e primitivar termo a termo as séries de potências:
 
 $$
-\begin{aligned}f'( x) & =\frac{1}{\textcolor{#498EE2}{2} +x}\\ & =\textcolor{#498EE2}{\frac{1}{2}} \cdot \frac{1}{1-\left(\textcolor{#F4A523}{-\frac{x}{2}}\right)}\\ & =\textcolor{#498EE2}{\frac{1}{2}}\sum ^{\infty }_{n=0}\left(\textcolor{#F4A523}{-\frac{x}{2}}\right)^{n}\\ & =\ \textcolor{#498EE2}{\frac{1}{2}}\sum ^{\infty }_{n=0}\frac{( -1)^{n}}{2^{n}} x^{n}\\ & =\sum ^{\infty }_{n=0}\left[\frac{( -1)^{n}}{\textcolor{#498EE2}{2} \times 2^{n}} x^{n}\right]\\ & =\sum ^{\infty }_{n=0}\left[\frac{( -1)^{n}}{2^{n\textcolor{#498EE2}{+1}}} x^{n}\right] \quad ,\quad \left| -\frac{x}{2}\right| < 1\end{aligned}
+\begin{aligned}f'( x) & =\frac{1}{\smartcolor{blue}{2} +x}\\ & =\smartcolor{blue}{\frac{1}{2}} \cdot \frac{1}{1-\left(\smartcolor{orange}{-\frac{x}{2}}\right)}\\ & =\smartcolor{blue}{\frac{1}{2}}\sum ^{\infty }_{n=0}\left(\smartcolor{orange}{-\frac{x}{2}}\right)^{n}\\ & =\ \smartcolor{blue}{\frac{1}{2}}\sum ^{\infty }_{n=0}\frac{( -1)^{n}}{2^{n}} x^{n}\\ & =\sum ^{\infty }_{n=0}\left[\frac{( -1)^{n}}{\smartcolor{blue}{2} \times 2^{n}} x^{n}\right]\\ & =\sum ^{\infty }_{n=0}\left[\frac{( -1)^{n}}{2^{n\smartcolor{blue}{+1}}} x^{n}\right] \quad ,\quad \left| -\frac{x}{2}\right| < 1\end{aligned}
 $$
 
 Primitivando termo a termo, tem-se:
 
 $$
-\begin{aligned}f( x) & =\sum ^{\infty }_{n=\textcolor{#498EE2}{0}}\left[\frac{( -1)^{n}}{\textcolor{#F4A523}{( n+1)} 2^{n+1}}\textcolor{#F4A523}{x^{n+1}}\right] +K\\ & =\sum ^{\infty }_{n=\textcolor{#498EE2}{1}}\left[\frac{( -1)^{n-1}}{n2^{n}} x^{n}\right] +K\quad ,\quad x\in V_{2}( 0)\end{aligned}
+\begin{aligned}f( x) & =\sum ^{\infty }_{n=\smartcolor{blue}{0}}\left[\frac{( -1)^{n}}{\smartcolor{orange}{( n+1)} 2^{n+1}}\smartcolor{orange}{x^{n+1}}\right] +K\\ & =\sum ^{\infty }_{n=\smartcolor{blue}{1}}\left[\frac{( -1)^{n-1}}{n2^{n}} x^{n}\right] +K\quad ,\quad x\in V_{2}( 0)\end{aligned}
 $$
 
 Como $f(0)=\log2$:
@@ -360,43 +360,43 @@ $$
 Separando o logaritmo:
 
 $$
-f( x) =\textcolor{#F4A523}{\log( 1-x)} -\textcolor{#498EE2}{\log( 1+x)}
+f( x) =\smartcolor{orange}{\log( 1-x)} -\smartcolor{blue}{\log( 1+x)}
 $$
 
 Determinando à parte o desenvolvimento do primeiro logaritmo:
 
 $$
-[\textcolor{#F4A523}{\log( 1-x)}] '=\frac{-1}{1-x} =\textcolor{#7CD321}{-}\sum ^{\infty }_{n=0}\textcolor{#4FE2C1}{x^{n}} \quad ,\quad |x|< 1
+[\smartcolor{orange}{\log( 1-x)}] '=\frac{-1}{1-x} =\smartcolor{green}{-}\sum ^{\infty }_{n=0}\smartcolor{green}{x^{n}} \quad ,\quad |x|< 1
 $$
 
 Primitivando termo a termo a série:
 
 $$
-\textcolor{#F4A523}{\log( 1-x)} =\sum ^{\infty }_{n=\textcolor{#8C5628}{0}}\left[\frac{\textcolor{#7CD321}{-1}}{\textcolor{#4FE2C1}{n+1}}\textcolor{#4FE2C1}{x^{n+1}}\right] +K\quad ,\quad |x|< 1
+\smartcolor{orange}{\log( 1-x)} =\sum ^{\infty }_{n=\smartcolor{orange}{0}}\left[\frac{\smartcolor{green}{-1}}{\smartcolor{green}{n+1}}\smartcolor{green}{x^{n+1}}\right] +K\quad ,\quad |x|< 1
 $$
 
 Mudando os índices da série e calculando $K=0$:
 
 $$
-\textcolor{#F4A523}{\log}\textcolor{#F4A523}{(}\textcolor{#F4A523}{1-x}\textcolor{#F4A523}{)} =\sum ^{\infty }_{n=\textcolor{#8C5628}{1}}\left[\frac{\textcolor{#7CD321}{-1}}{\textcolor{#4FE2C1}{n}}\textcolor{#4FE2C1}{x}\textcolor{#4FE2C1}{^{n}}\right] \quad ,\quad |x|< 1
+\smartcolor{orange}{\log}\smartcolor{orange}{(}\smartcolor{orange}{1-x}\smartcolor{orange}{)} =\sum ^{\infty }_{n=\smartcolor{orange}{1}}\left[\frac{\smartcolor{green}{-1}}{\smartcolor{green}{n}}\smartcolor{green}{x}\smartcolor{green}{^{n}}\right] \quad ,\quad |x|< 1
 $$
 
 Para determinar o desenvolvimento do segundo logaritmo, podemos substituir $x$ por $-x$:
 
 $$
-\textcolor{#498EE2}{\log( 1+x)} =\sum ^{\infty }_{n=1}\left[\frac{-1}{n}( -x)^{n}\right] =\sum ^{\infty }_{n=1}\left[\frac{( -1)^{n+1}}{n} x^{n}\right] \quad ,\quad |x|< 1
+\smartcolor{blue}{\log( 1+x)} =\sum ^{\infty }_{n=1}\left[\frac{-1}{n}( -x)^{n}\right] =\sum ^{\infty }_{n=1}\left[\frac{( -1)^{n+1}}{n} x^{n}\right] \quad ,\quad |x|< 1
 $$
 
 Juntando ambos:
 
 $$
-f( x) =\sum ^{\infty }_{n=0}\left[\textcolor{#F4A523}{\frac{-1}{n}} -\textcolor{#498EE2}{\frac{( -1)^{n+1}}{n}}\right] x^{n} \quad ,\quad |x|< 1
+f( x) =\sum ^{\infty }_{n=0}\left[\smartcolor{orange}{\frac{-1}{n}} -\smartcolor{blue}{\frac{( -1)^{n+1}}{n}}\right] x^{n} \quad ,\quad |x|< 1
 $$
 
 Como para qualquer $n$ par os coeficientes se anulam:
 
 $$
-f( x) =\sum ^{\infty }_{n=0}\frac{-2}{\textcolor{#F4A523}{2n+1}} x^{\textcolor{#F4A523}{2n+1}} \quad ,\quad |x|< 1
+f( x) =\sum ^{\infty }_{n=0}\frac{-2}{\smartcolor{orange}{2n+1}} x^{\smartcolor{orange}{2n+1}} \quad ,\quad |x|< 1
 $$
 
 :::
@@ -408,7 +408,7 @@ Podemos usar as séries de Taylor para transformarmos uma série numa função c
 ---
 
 $$
-\sum ^{\infty }_{n=0}\frac{\textcolor{#F4A523}{1}}{n!} =\left[\sum ^{\infty }_{n=0}\frac{\textcolor{#498EE2}{x^{n}}}{n!}\right]_{\textcolor{#F4A523}{x=1}} =\left[ e^{x}\right]_{x=1} =e
+\sum ^{\infty }_{n=0}\frac{\smartcolor{orange}{1}}{n!} =\left[\sum ^{\infty }_{n=0}\frac{\smartcolor{blue}{x^{n}}}{n!}\right]_{\smartcolor{orange}{x=1}} =\left[ e^{x}\right]_{x=1} =e
 $$
 
 ---
@@ -416,7 +416,7 @@ $$
 Pode ser preciso somar ou subtrair termos para chegarmos a algo conhecido:
 
 $$
-\sum ^{\infty }_{n=2}\frac{\textcolor{#F4A523}{1}}{( 2n) !} =\left[\sum ^{\infty }_{n=\textcolor{#4FE2C1}{2}}\frac{\textcolor{#498EE2}{x^{2n}}}{( 2n) !}\right]_{\textcolor{#F4A523}{x=1}} =\left[\cosh x\textcolor{#4FE2C1}{-1-\frac{x^{2}}{2}}\right]_{x=1} =\cosh 1-\frac{3}{2}
+\sum ^{\infty }_{n=2}\frac{\smartcolor{orange}{1}}{( 2n) !} =\left[\sum ^{\infty }_{n=\smartcolor{green}{2}}\frac{\smartcolor{blue}{x^{2n}}}{( 2n) !}\right]_{\smartcolor{orange}{x=1}} =\left[\cosh x\smartcolor{green}{-1-\frac{x^{2}}{2}}\right]_{x=1} =\cosh 1-\frac{3}{2}
 $$
 
 ---
@@ -424,19 +424,19 @@ $$
 Pode ser preciso derivar ou primitivar termo a termo:
 
 $$
-\sum ^{\infty }_{n=0} n\textcolor{#F4A523}{2^{-n}} =\left[\sum ^{\infty }_{n=0} n\textcolor{#498EE2}{x^{n}}\right]_{\textcolor{#F4A523}{x=\frac{1}{2}}} =\left[\textcolor{#4FE2C1}{x}\sum ^{\infty }_{n=1} nx^{n\textcolor{#4FE2C1}{-1}}\right]_{x=\frac{1}{2}}
+\sum ^{\infty }_{n=0} n\smartcolor{orange}{2^{-n}} =\left[\sum ^{\infty }_{n=0} n\smartcolor{blue}{x^{n}}\right]_{\smartcolor{orange}{x=\frac{1}{2}}} =\left[\smartcolor{green}{x}\sum ^{\infty }_{n=1} nx^{n\smartcolor{green}{-1}}\right]_{x=\frac{1}{2}}
 $$
 
 Primitivando termo a termo:
 
 $$
-\sum ^{\infty }_{n=\textcolor{#F4A523}{1}}\textcolor{#F4A523}{nx^{n-1}} =\left[\sum ^{\infty }_{n=\textcolor{#F4A523}{0}}\textcolor{#F4A523}{x^{n}}\right]^{'} =\left(\frac{1}{1-x}\right)^{'} =\frac{1}{( 1-x)^{2}} \quad ,\quad |x|< 1
+\sum ^{\infty }_{n=\smartcolor{orange}{1}}\smartcolor{orange}{nx^{n-1}} =\left[\sum ^{\infty }_{n=\smartcolor{orange}{0}}\smartcolor{orange}{x^{n}}\right]^{'} =\left(\frac{1}{1-x}\right)^{'} =\frac{1}{( 1-x)^{2}} \quad ,\quad |x|< 1
 $$
 
 Então,
 
 $$
-\sum ^{\infty }_{n=0} n2^{-n} =\left[\textcolor{#4FE2C1}{x}\left(\textcolor{#498EE2}{\frac{1}{( 1-x)^{2}}}\right)\right]_{x=\frac{1}{2}} =2
+\sum ^{\infty }_{n=0} n2^{-n} =\left[\smartcolor{green}{x}\left(\smartcolor{blue}{\frac{1}{( 1-x)^{2}}}\right)\right]_{x=\frac{1}{2}} =2
 $$
 
 ---
@@ -444,19 +444,19 @@ $$
 Também pode ser necessário aplicar as operações de primitivação e de derivação pela ordem inversa.
 
 $$
-\sum ^{\infty }_{n=1}\frac{1}{n\textcolor{#F4A523}{( -3)^{n}}} =\left[\sum ^{\infty }_{n=1}\frac{\textcolor{#498EE2}{x^{n}}}{n}\right]_{\textcolor{#F4A523}{x=-\frac{1}{3}}}
+\sum ^{\infty }_{n=1}\frac{1}{n\smartcolor{orange}{( -3)^{n}}} =\left[\sum ^{\infty }_{n=1}\frac{\smartcolor{blue}{x^{n}}}{n}\right]_{\smartcolor{orange}{x=-\frac{1}{3}}}
 $$
 
 Por outro lado:
 
 $$
-\left[\sum ^{\infty }_{n=1}\frac{x^{n}}{n}\right]^{'} =\sum ^{\infty }_{n=\textcolor{#F4A523}{1}} x^{n\textcolor{#F4A523}{-1}} =\sum ^{\infty }_{n=\textcolor{#F4A523}{0}} x^{n} =\frac{1}{1-x} \quad ,\quad |x|< 1
+\left[\sum ^{\infty }_{n=1}\frac{x^{n}}{n}\right]^{'} =\sum ^{\infty }_{n=\smartcolor{orange}{1}} x^{n\smartcolor{orange}{-1}} =\sum ^{\infty }_{n=\smartcolor{orange}{0}} x^{n} =\frac{1}{1-x} \quad ,\quad |x|< 1
 $$
 
 Primitivando ambos os extremos da cadeira de identidades acima, obtemos:
 
 $$
-\sum ^{\infty }_{n=1}\frac{x^{n}}{n} =\textcolor{#498EE2}{-\log( 1-x) +K} \quad ,\quad |x|< 1
+\sum ^{\infty }_{n=1}\frac{x^{n}}{n} =\smartcolor{blue}{-\log( 1-x) +K} \quad ,\quad |x|< 1
 $$
 
 Para determinar $K$, nota-se que $\sum ^{\infty }_{n=1}\frac{x^{n}}{n}$ vale $0$ quando $x=0$. Logo,
@@ -468,7 +468,7 @@ $$
 Substituindo na expressão inicial
 
 $$
-\sum ^{\infty }_{n=1}\frac{1}{n( -3)^{n}} =[\textcolor{#498EE2}{-\log( 1-x)}]_{x=-\frac{1}{3}} =\log\frac{3}{4}
+\sum ^{\infty }_{n=1}\frac{1}{n( -3)^{n}} =[\smartcolor{blue}{-\log( 1-x)}]_{x=-\frac{1}{3}} =\log\frac{3}{4}
 $$
 
 ---
@@ -476,13 +476,13 @@ $$
 Também de pode ter de aplicar este método mais do que uma vez:
 
 $$
-\sum ^{\infty }_{n=2}\frac{1}{\left( n^{2} -n\right)\textcolor{#F4A523}{2^{n}}} =\left[\sum ^{\infty }_{n=2}\frac{\textcolor{#498EE2}{x^{n}}}{n^{2} -n}\right]_{\textcolor{#F4A523}{x=\frac{1}{2}}}
+\sum ^{\infty }_{n=2}\frac{1}{\left( n^{2} -n\right)\smartcolor{orange}{2^{n}}} =\left[\sum ^{\infty }_{n=2}\frac{\smartcolor{blue}{x^{n}}}{n^{2} -n}\right]_{\smartcolor{orange}{x=\frac{1}{2}}}
 $$
 
 Derivando a série de potências:
 
 $$
-\left[\sum ^{\infty }_{n=2}\frac{x^{n}}{n^{2} -n}\right]^{'} =\sum ^{\infty }_{n=2}\frac{\textcolor{#ED722D}{n\cdot } x^{n-1}}{\textcolor{#ED722D}{n\cdot }( n-1)} =\sum ^{\infty }_{n=2}\frac{x^{n-1}}{n-1}
+\left[\sum ^{\infty }_{n=2}\frac{x^{n}}{n^{2} -n}\right]^{'} =\sum ^{\infty }_{n=2}\frac{\smartcolor{yellow}{n\cdot } x^{n-1}}{\smartcolor{yellow}{n\cdot }( n-1)} =\sum ^{\infty }_{n=2}\frac{x^{n-1}}{n-1}
 $$
 
 que ainda não é um desenvolvimento conhecido.
@@ -490,19 +490,19 @@ que ainda não é um desenvolvimento conhecido.
 Derivando novamente:
 
 $$
-\left[\sum ^{\infty }_{n=2}\frac{x^{n-1}}{n-1}\right]^{'} =\sum ^{\infty }_{n=2}\frac{\textcolor{#ED722D}{( n-1)} \cdot x^{n-2}}{\textcolor{#ED722D}{n-1}} =\sum ^{\infty }_{n=\textcolor{#F4A523}{2}} x^{n\textcolor{#F4A523}{-2}} =\sum ^{\infty }_{n=\textcolor{#F4A523}{0}} x^{n} =\frac{1}{1-x} \quad ,\quad |x|< 1
+\left[\sum ^{\infty }_{n=2}\frac{x^{n-1}}{n-1}\right]^{'} =\sum ^{\infty }_{n=2}\frac{\smartcolor{yellow}{( n-1)} \cdot x^{n-2}}{\smartcolor{yellow}{n-1}} =\sum ^{\infty }_{n=\smartcolor{orange}{2}} x^{n\smartcolor{orange}{-2}} =\sum ^{\infty }_{n=\smartcolor{orange}{0}} x^{n} =\frac{1}{1-x} \quad ,\quad |x|< 1
 $$
 
 De forma semelhante ao exemplo anterior, temos de primitivar duas vezes o resultado, determinando a constante $K$ em cada uma das primitivivações. Obtemos assim:
 
 $$
-\sum ^{\infty }_{n=2}\frac{x^{n}}{n^{2} -n} =\textcolor{#498EE2}{( 1-x)\log( 1-x) +x} \quad ,\quad |x|< 1
+\sum ^{\infty }_{n=2}\frac{x^{n}}{n^{2} -n} =\smartcolor{blue}{( 1-x)\log( 1-x) +x} \quad ,\quad |x|< 1
 $$
 
 Substituindo na expressão anterior:
 
 $$
-\sum ^{\infty }_{n=2}\frac{1}{\left( n^{2} -n\right) 2^{n}} =[\textcolor{#498EE2}{(}\textcolor{#498EE2}{1-x}\textcolor{#498EE2}{)}\textcolor{#498EE2}{\log}\textcolor{#498EE2}{(}\textcolor{#498EE2}{1-x}\textcolor{#498EE2}{)}\textcolor{#498EE2}{+x}]_{x=\frac{1}{2}} =\frac{1}{2}\log\left(\frac{e}{2}\right)
+\sum ^{\infty }_{n=2}\frac{1}{\left( n^{2} -n\right) 2^{n}} =[\smartcolor{blue}{(}\smartcolor{blue}{1-x}\smartcolor{blue}{)}\smartcolor{blue}{\log}\smartcolor{blue}{(}\smartcolor{blue}{1-x}\smartcolor{blue}{)}\smartcolor{blue}{+x}]_{x=\frac{1}{2}} =\frac{1}{2}\log\left(\frac{e}{2}\right)
 $$
 
 ---
@@ -510,7 +510,7 @@ $$
 Também pode ocorrer o caso em que o método utilizado anteriormente não consegue eliminar o denominador porque o expoente da potência está "errado". Pode-se, assim, escolher a potência de forma diferente:
 
 $$
-\sum ^{\infty }_{n=0}\frac{( -1)^{n}}{\textcolor{#F4A523}{3^{n}}( 2n+1)} =\left[\textcolor{#498EE2}{\sqrt{3}}\sum ^{\infty }_{n=0}\frac{( -1)^{n}}{2n+1}\textcolor{#498EE2}{x^{2n+1}}\right]\textcolor{#F4A523}{_{x=\frac{1}{\sqrt{3}}}}
+\sum ^{\infty }_{n=0}\frac{( -1)^{n}}{\smartcolor{orange}{3^{n}}( 2n+1)} =\left[\smartcolor{blue}{\sqrt{3}}\sum ^{\infty }_{n=0}\frac{( -1)^{n}}{2n+1}\smartcolor{blue}{x^{2n+1}}\right]\smartcolor{orange}{_{x=\frac{1}{\sqrt{3}}}}
 $$
 
 Derivando a série de potências:
@@ -522,13 +522,13 @@ $$
 Primitivando, como anteriormente, ambos os extremos da cadeia de identidades:
 
 $$
-\sum ^{\infty }_{n=0}\frac{( -1)^{n}}{2n+1} x^{2n+1} =\textcolor{#498EE2}{\arctan x+K} \quad ,\quad |x|< 1
+\sum ^{\infty }_{n=0}\frac{( -1)^{n}}{2n+1} x^{2n+1} =\smartcolor{blue}{\arctan x+K} \quad ,\quad |x|< 1
 $$
 
 Como a série do membro esquerdo se anula na origem, $K=0$, e então:
 
 $$
-\sum ^{\infty }_{n=0}\frac{( -1)^{n}}{3^{n}( 2n+1)} =\left[\sqrt{3}\textcolor{#498EE2}{\arctan x}\right]_{x=\frac{1}{\sqrt{3}}} =\frac{\sqrt{3} \pi }{6}
+\sum ^{\infty }_{n=0}\frac{( -1)^{n}}{3^{n}( 2n+1)} =\left[\sqrt{3}\smartcolor{blue}{\arctan x}\right]_{x=\frac{1}{\sqrt{3}}} =\frac{\sqrt{3} \pi }{6}
 $$
 
 # Cálculo de Integrais de Funções utilizando Séries

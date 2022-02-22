@@ -260,5 +260,5 @@ Pode acontecer que uma aresta já tenha fluxo **=** capacidade, mas o vértice a
 :::
 
 :::details[Exemplo do Ford-Fulkerson + Corte ]
-[Link](https://drive.google.com/file/d/1BXenki2yM_m5ESCLFu-k7GTXzVjaorj5/view?usp=sharing)
+[Link](https://drive.google.com/file/d/1WLyfkmldGriq6_eygv4AIU230pY409GS/view?usp=sharing)
 :::

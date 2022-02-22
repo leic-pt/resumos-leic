@@ -144,7 +144,3 @@ Para lermos todas as entradas de um vetor, o melhor caso e o pior caso são os m
   Verdadeiro
 
 Existem exemplos de exercícos de exame que se encontram no final do slide desta aula!
-
-Slides:
-
-- [Aula 8](https://drive.google.com/file/d/1ETqWl7mll9ljHI_8ix1Il30VKcIXGsmX/view?usp=sharing)

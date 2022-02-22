@@ -11,6 +11,12 @@ type: topLevelPage
 
 ## Recursos Adicionais
 
+:::info[Resumos de PO]
+
+A cadeira de Programação com Objectos está resumida de forma excelente pelo professor David Matos na wiki de PO, mantida pelo mesmo. Não achamos que faça sentido criar resumos nossos, visto que a UC já tem um material de apoio extremamente completo, pelo que nesta secção serão apenas mantidos links e recursos úteis para a cadeira, e não resumos da matéria em si.
+
+:::
+
 - [Wiki do Prof. David Matos](https://web.tecnico.ulisboa.pt/~david.matos/w/pt/index.php/Programa%C3%A7%C3%A3o_com_Objectos)
 - [MermaidJS Live Editor](https://mermaid.live/) - Editor de gráficos UML
 - [Umbrello UML Modeller](https://umbrello.kde.org/) - Editor de gráficos UML

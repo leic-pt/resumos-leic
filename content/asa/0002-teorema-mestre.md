@@ -524,7 +524,5 @@ São normalmente implementados desta maneira por ser uma maneira particularmente
 
 ---
 
-- [Slides Aula 2](https://drive.google.com/file/d/16UfEv6UZhIx3DS1dNa-aqZO2v1dxbOcW/view?usp=sharing)
-- [Slides Aula 3](https://drive.google.com/file/d/19ab4rx8FV2w9UOGv3xfUv7SdeYnSoa-y/view?usp=sharing)
 - [Notas da Aula 2 - Prof. José Fragoso](https://drive.google.com/file/d/1qEKC5v_2ESeRO97b8uRERu_-lJkYDwI1/view?usp=sharing)
 - [Notas da Aula 3 - Prof. José Fragoso](https://drive.google.com/file/d/1srY9m9W1ZjnvY3oZcpgl0fjhIQGsDen3/view?usp=sharing)

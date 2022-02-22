@@ -334,7 +334,7 @@ z=x^2+y^2
 \lambda_1 = 0\\
 z=-\frac{1}{2}\\
 x+z=1\\
-\textcolor{#C8553D}{x^2+y^2=-\frac{1}{2}}
+\smartcolor{orange}{x^2+y^2=-\frac{1}{2}}
 \end{cases}
 $$
 

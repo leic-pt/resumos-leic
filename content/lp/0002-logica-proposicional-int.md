@@ -1,6 +1,11 @@
 ---
 title: Lógica Proposicional - Introdução
-description: Lógica Proposicional, símbolos lógicos, componentes de uma lógica, sistema dedutivo, prova, regras de inferência, como construir uma prova.
+description: >-
+  Lógica Proposicional.
+  Símbolos lógicos e Componentes de uma Lógica.
+  Sistema dedutivo.
+  Prova, Regras de inferência.
+  Como construir uma Prova.
 path: /lp/logica-proposicional-int
 type: content
 ---
@@ -11,9 +16,11 @@ type: content
 
 ```
 
-Apresenta uma linguagem muito simples, sendo que o nível mais elementar é o **símbolo de proposição** - uma proposição pode ser representada por uma letra do alfabeto latino.
+Apresenta uma linguagem muito simples. O nível mais elementar é o [**símbolo de proposição**](color:yellow) - uma proposição pode ser representada por uma letra do alfabeto latino.
 
-## Símbolos Lógicos
+Associados à lógica proposicional está também um conjunto de símbolos lógicos, que nos permitem escrever um vasto leque de expressões proposicionais:
+
+:::info[Símbolos Lógicos]
 
 - Símbolos de pontuação: ( )
 
@@ -27,16 +34,19 @@ Apresenta uma linguagem muito simples, sendo que o nível mais elementar é o **
 - Símbolos de proposição: $P_{i}$, $i \geq 1$.  
   O conjunto de todas as proposições da lógica proposicional é dado por $\mathcal{P}$.
 
+:::
+
 ## Componentes de uma Lógica
 
 - **Fórmula bem formada (_fbf_)** - qualquer lógica tem uma linguagem, linguagem esta composta por um conjunto de frases válidas. A essas frases dá-se o nome de _fórmulas bem formadas_, ou _fbfs_. Em relação a estas, temos que: os símbolos de proposição são chamados _fbfs atómicas_, que se $\alpha$ é uma _fbf_ então $\neg\alpha$ é uma _fbf_ e que qualquer combinação de _fbfs_ atómicas utilizando os símbolos lógicos acima mencionados também é uma _fbf_.
 
-:::details[Exemplo - Fórmula bem formada]
-$\neg$P  
-P $\wedge$ Q  
-(P $\wedge$ Q) $\to$ R
+Abaixo encontram-se vários exemplos de fórmulas bem formadas:
 
-:::
+$$
+\neg P\\
+P \wedge Q\\
+(P \wedge Q) \to R
+$$
 
 A linguagem da lógica proposicional, $\mathcal{L}_{LP}$, é composta por todas as _fbfs_ construídas a partir do conjunto dos símbolos lógicos acima referidos.
 
@@ -62,7 +72,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
 - **Regra da premissa:**
 
-  Podemos, no decorrer da prova (e em qualquer altura desta) introduzir _fbfs_ correspondentes a premissas. Identificada por _prem_.
+  Podemos, no decorrer da prova (e em qualquer altura desta) introduzir _fbfs_ correspondentes a premissas. Aparece identificada por _Prem_.
   :::tip[REGRA DA PREMISSA]
 
   A introdução de uma premissa tem sempre um aspeto deste género:
@@ -78,7 +88,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   :::details[Exemplo - Regra da premissa]
 
-  Ao tentar provar que $\{P, Q\} \vdash P \wedge Q$, começamos a prova escrevendo as premissas, tal que:
+  Ao tentar provar que $\{P, Q\} \vdash P \wedge Q$, começamos a prova a escrever as premissas, tal que:
 
   $$
   \def\arraystretch{1.5}
@@ -92,7 +102,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
 - **Regra da repetição:**
 
-  Regra que afirma que qualquer _fbf_ pode ser repetida dentro de uma prova - ou seja, se já existe uma _fbf_ numa linha anterior, podemos reescrevê-la na linha atual, justificando com a regra da repetição. Identificada por $Rep, n$, onde $n$ representa a linha onde a _fbf_ foi introduzida.
+  Regra que afirma que qualquer _fbf_ pode ser repetida dentro de uma prova - ou seja, se já existe uma _fbf_ numa linha anterior, podemos reescrevê-la na linha atual, justificando com a regra da repetição. Identificada por $Rep, n$, onde $n$ representa a linha onde a _fbf_ em questão foi inicialmente introduzida.
 
   :::tip[REGRA DA REPETIÇÃO]
 
@@ -127,7 +137,8 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   - **Introdução da Conjunção:**
     Diz-nos como introduzir (ou como construir) uma _fbf_ cujo símbolo lógico principal é uma conjunção - uma conjunção de _fbfs_. Abreviada por $I\wedge, (n, m)$, onde $n$ e $m$ representam, respetivamente, as linhas onde as primeira e segunda _fbfs_ foram introduzidas.
-    Um ponto importante a reter é que as _fbfs_ têm de ter sido introduzidas **por ordem**, caso contrário não podemos aplicar diretamente a regra, tendo de usar a regra da repetição.
+
+    É importante reter é que as _fbfs_ têm de ter sido introduzidas **por ordem**, caso contrário não podemos aplicar diretamente a regra, tendo de usar a regra da repetição. Há professores que são particularmente rígidos com esta formalidade (apesar de não haver qualquer "impacto" na correção da prova), pelo que em contexto de avaliação será importante ter este aspeto em conta.
 
     :::tip[INTRODUÇÃO DA CONJUNÇÃO]
 
@@ -159,10 +170,22 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
     \end{array}
     $$
 
+    Caso quiséssemos provar $Q \wedge P$, das duas uma: ou introduzíamos $Q$ e $P$ pela ordem contrária (primeiro $Q$) na prova, ou aplicávamos a regra da repetição:
+
+    $$
+    \def\arraystretch{1.5}
+    \begin{array}{lll}
+      1 & P && Prem\\
+      2 & Q && Prem\\
+      3 & P && Rep, 1\\
+      3 & Q \wedge P && I\wedge, (2,3)
+    \end{array}
+    $$
+
     :::
 
   - **Eliminação da Conjunção:**
-    Diz-nos que, de uma _fbf_ cujo símbolo principal é uma conjunção, podemos derivar tanto a _fbf_ da "esquerda" como a da "direita". Abreviada por $E\wedge, n$, onde $n$ representa a linha onde a _fbf_ em causa foi introduzida.
+    Diz-nos que, de uma _fbf_ cujo símbolo principal é uma conjunção, podemos derivar tanto a _fbf_ da "esquerda" como a da "direita" - se temos uma conjunção com valor lógico verdadeiro, então todos os seus membros terão de o partilhar também. Abreviada por $E\wedge, n$, onde $n$ representa a linha onde a _fbf_ em causa foi introduzida.
 
     :::tip[ELIMINAÇÃO DA CONJUNÇÃO]
 
@@ -211,8 +234,9 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
 - **Regras para provas hipotéticas:**
 
-  Os sistemas de dedução natural usam o conceito de _prova hipotética_ - uma prova iniciada com a introdução de uma hipótese. Essa prova hipotética consiste num "ambiente local" em que, para além das outras _fbfs_ da prova, consideramos a hipótese que iniciou a prova, iniciada pela **regra da hipótese**, regra que afirma que em qualquer ponto de uma prova podemos introduzir qualquer _fbf_ como uma hipótese, começando uma nova prova hipotética. Abreviada por Hip.
-  Uma vez iniciada uma prova hipotética, todas as linhas adicionadas pertencem à mesma até que a prova seja terminada.
+  Os sistemas de dedução natural usam o conceito de _prova hipotética_ - uma prova iniciada com a introdução de uma hipótese. Essa prova hipotética consiste num "ambiente local", um contexto diferente em que, para além das outras _fbfs_ da prova, consideramos a hipótese que iniciou a prova, iniciada pela **regra da hipótese**. A regra que afirma que em qualquer ponto de uma prova podemos introduzir qualquer _fbf_ como uma hipótese, começando uma nova prova hipotética.
+
+  É introduzida com _Hip_. Uma vez iniciada uma prova hipotética, todas as linhas adicionadas pertencem à mesma até que a prova seja terminada.
 
   :::tip[REGRA DA HIPÓTESE]
 
@@ -290,6 +314,8 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
   - **Introdução da Implicação:**
     Afirma que se numa prova iniciada por uma hipótese $\alpha$ formos capazes de derivar $\beta$, então podemos terminar a prova hipotética, podendo derivar $\alpha\to\beta$ na prova que contém a prova hipotética. Abreviada por $I\to, (n, m)$, onde $n$ e $m$ são, respetivamente, a linha onde a hipótese foi introduzida e a _fbf_ associada derivada.
 
+    Voltando atrás e pensando no que é uma implicação, temos que, com premissas verdadeiras e conclusão verdadeira, a implicação é válida. Ora, se a partir de $a$ é possível provar $b$, então a implicação $a\to b$ é válida!
+
   :::tip[INTRODUÇÃO DA IMPLICAÇÃO]
 
   A introdução da implicação tem sempre um aspeto deste género:
@@ -325,9 +351,11 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
   - **Eliminação da Implicação:**
     Regra que nos diz que de uma prova que contém tanto uma _fbf_ $\alpha$ como uma outra $\alpha\to\beta$ podemos derivar $\beta$. Abreviada por $E\to, (n, m)$, onde $n$ e $m$ são, respetivamente, as linhas onde $\alpha$ e $\alpha\to\beta$ foram introduzidas.
 
+    Esta regra poderá fazer mais sentido se pensarmos mais uma vez no significado da implicação: só podemos ter uma implicação válida caso, tendo as premissas verdadeiras, a conclusão não possa ser falsa. Ora, se temos $a \to b$ e $a$ na prova, teremos necessariamente que $a$ é verdadeiro, e seguindo este fio lógico, $b$ também terá de o ser.
+
   :::tip[ELIMINAÇÃO DA IMPLICAÇÃO]
 
-  A eliminação da implicação tem um aspeto deste género, sendo que a ordem de $\alpha$ e $\alpha\to\beta$ não é relevante:
+  A eliminação da implicação tem um aspeto deste género:
 
   $$
   \def\arraystretch{1.5}
@@ -543,7 +571,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   :::warning
 
-  Não foi abordado pelo prof. Pavão, não sei se é relevante/se pode sair em avaliação, mas achei por bem colocar.
+  Não tem sido abordado em aula nos últimos anos, não sei se é relevante/se pode sair em avaliação, fica por uma questão de completude dos resumos.
 
   :::
 
@@ -592,7 +620,7 @@ Durante a realização da prova, utilizamos uma série de regras de inferência.
 
   :::
 
-Não obstante não haver uma relação direta entre a sua definição e as regras de inferência em si, definimos agora _teorema_.
+Ora, estudámos agora as regras de inferência, e o modo como podemos provar (a partir de um conjunto de premissas) uma dada _fbf_. Mas e se não houver premissas? Nem todas as provas têm de se iniciar com um conjunto de premissas: as _fbfs_ que se podem provar sem estes "pré-requisitos" dizem-se **teoremas**.
 
 - **Teorema** - _fbf_ que pode ser obtida a partir de uma prova que não contém qualquer premissa, pode ser obtida "do nada". Seja $\alpha$ um teorema, podemos escrever $\varnothing\vdash\alpha$ ou, até, de um modo mais simples, $\vdash\alpha$
 
@@ -620,5 +648,3 @@ $$
 - Ao tentar provar uma _fbf_ da forma $\alpha\wedge\beta$, devemos tentar provar separadamente tanto $\alpha$ como $\beta$;
 
 Caso não resulte, podemos procurar **aplicações de regras de inferência** que levem à introdução da _fbf_ em questão, procurar uma **contradição de uma prova hipotética** por absurdo que nos leve à _fbf_, ou até mesmo tentar o **raciocínio por casos**, caso se trate de disjunções.
-
-[Slides (do 24 para a frente)](https://drive.google.com/file/d/10a-hns-uHSTWy8isSQwJfEOKxq955DM_/view?usp=sharing)

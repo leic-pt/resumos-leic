@@ -343,6 +343,12 @@ O caminho mais longo pode ser particularmente útil para, entre outros, calcular
 
 ## Caminhos mais Curtos entre Todos os Pares
 
+:::tip[Nota]
+
+Esta secção tem a co-autoria do [João Rocha](https://github.com/calhau18).
+
+:::
+
 Os algoritmos de Dijkstra e Bellman-Ford, abordados acima, permitem-nos encontrar caminhos mais curtos **de fonte única**. Conhecendo-os, a nossa primeira intuição para descobrir os caminhos mais curtos entre **todos os pares** de vértices de um grafo poderá apenas passar por aplicar o algoritmo de Dijkstra $|V|$ vezes, com vértice-fonte a alterar para cada aplicação. [**A ideia não está errada**](color:yellow), claro: funciona! Temos, contudo, um problema em mãos - continuamos a ter a limitação estudada acima (Dijkstra requer a ausência de arcos negativos). Será, então, interessante procurar uma solução alternativa que a remova, e é aqui que entra o algoritmo de Johnson, que curiosamente combina os algoritmos de Dijkstra e Bellman-Ford para chegar a este fim.
 
 ### Algoritmo de Jonhson
@@ -421,56 +427,30 @@ Por fim, aplicamos Dijkstra a cada um dos vértices do grafo (não mostrado aqui
 
 :::
 
-A repesagem de Johnson assenta em três pilares:
+A repesagem de Johnson assenta em dois pilares:
 
-- Se $G$ não contém ciclos negativos, $\overset{\wedge}{G}$ não contém ciclos negativos;
-
-- Se $G$ contém um ciclo negativo, $\overset{\wedge}{G}$ contém um ciclo negativo;
+- $G$ contém um ciclo negativo se e só se $G^\wedge$ contém um ciclo negativo;
 
 - Se $p$ é um caminho mais curto de $u$ a $v$ em $G$, então também o é em $\overset{\wedge}{G}$.
 
-:::details[Prova dos dois primeiros pontos]
+:::details[Prova do primeiro ponto]
 
-Para provar o [**primeiro ponto**](color:yellow), podemos recorrer à **desigualdade triangular**. Temos como base que:
-
-$$
-\overset{\wedge}{w} (i, j) = w(i, j) + h(i) - h(j)
-$$
-
-Como referido acima, as alturas de Johnson correspondem ao peso do caminho mais curto de $s$ ao vértice no grafo onde tínhamos $s$ como fonte:
+Admita-se que $G$ tem um ciclo $v_0, v_1, v_2, \cdots , v_{k-1}, v_k$ (em que $v_k = v_0$). Temos que:
 
 $$
-\overset{\wedge}{w} (i, j) = w(i, j) + \delta(s, i) - \delta(s, j)
+\sum_{i=0}^{k-1} w(v_i, v_{i+1}) =
+\sum_{i=0}^{k-1} w^\wedge(v_i, v_{i+1}) + h(i+1) - h(i) =
+\sum_{i=0}^{k-1} w^\wedge(v_i, v_{i+1}) + \sum_{i=0}^{k-1} h(i+1) - \sum_{i=0}^{k-1} h(i) =
+\sum_{i=0}^{k-1} w^\wedge(v_i, v_{i+1})
 $$
 
-Temos, pela desigualdade triangular, que $\delta(s, j) \leq \delta(s, i) + w(i, j)$. Assim sendo:
-
-$$
-\overset{\wedge}{w} (i, j) \geq \delta(s, j) - \delta(s, j) \\
-\overset{\wedge}{w} (i, j) \geq 0
-$$
-
-Ora, podemos assim admitir que o peso de todo o arco de $\overset{\wedge}{G}$ é não negativo, pelo que será impossível que ocorra ciclos negativos no mesmo (considerando que estes não existiam em $G$, claro, caso contrário a desigualdade triangular não se verificaria).
-
-Consideremos, agora, o [**segundo ponto**](color:green): existe (pelo menos um) ciclo negativo em $G$. Tenhamos ainda que $p = (v_0, ..., v_n)$ é o caminho correspondente, com $v_0 = v_n$. Para provar que o ciclo continua a ocorrer em $\overset{\wedge}{G}$, basta notar que:
-
-$$
-\overset{\wedge}{w} (v_0, v_n) = w(v_0, v_n) + h(v_0) - h(v_n)
-$$
-
-Como $v_0 = v_n$ (é um ciclo), temos que $h(v_0) = h(v_n)$, pelo que:
-
-$$
-\overset{\wedge}{w} (v_0, v_n) = w(v_0, v_n)
-$$
-
-Podemos, então, confirmar que o peso do ciclo continua negativo, e que se em $G$ existe um ciclo negativo, o mesmo existirá também em $\overset{\wedge}{G}$.
+Ou seja, o peso de qualquer ciclo em $G$ é igual ao peso de qualquer ciclo em $G^\wedge$. Desta forma, a existência de um ciclo negativo em qualquer um dos grafos equivale à existência de um ciclo negativo no outro grafo.
 
 :::
 
-:::details[Prova do terceiro ponto]
+:::details[Prova do segundo ponto]
 
-Resta agora provar o terceiro ponto acima proposto. Começemos por notar que, com $p = (v_0, ..., v_n)$, um caminho mais curto em $G$, temos que:
+Resta agora provar o segundo ponto acima proposto. Começemos por notar que, com $p = (v_0, ..., v_n)$, um caminho mais curto em $G$, temos que:
 
 $$
 \overset{\wedge}{w} (p) = \sum_{i = 0}^{n-1} \overset{\wedge}{w}(v_i, v_{i+1})\\
@@ -489,7 +469,7 @@ w(p') + h(v_0) - h(v_n) < w(p) + h(v_0) - h(v_n)\\
 w(p') < w(p)
 $$
 
-Ora, chegámos então a $w(p') < w(p)$. Tínhamos, contudo, começado por afirmar que $p$ é um caminho mais curto de $v_0$ a $v_n$ em $G$. Partindo dessa premissa, não pode haver nenhum caminho que ligue $v_0$ a $v_n$ em $G$, pelo que estamos perante uma contradição, e o terceiro ponto fica então provado.
+Ora, chegámos então a $w(p') < w(p)$. Tínhamos, contudo, começado por afirmar que $p$ é um caminho mais curto de $v_0$ a $v_n$ em $G$. Partindo dessa premissa, não pode haver nenhum caminho que ligue $v_0$ a $v_n$ em $G$, pelo que estamos perante uma contradição, e o segundo ponto fica então provado.
 
 :::
 
@@ -497,8 +477,6 @@ Resta, então, notar que a complexidade temporal do algoritmo é $O(V (V + E) \l
 
 ---
 
-- [Slides Dijkstra/DAG SP/Bellman-Ford](https://drive.google.com/file/d/10QzxNY5Z2dHZLaYdyhG2S3-jTQwFjjgv/view?usp=sharing)
-- [Slides Johnson](https://drive.google.com/file/d/1dIMIW3ThdJv2bFsRL7fyKJDkl9SKmB-Z/view?usp=sharing)
 - [Notas Dijkstra - Prof. José Fragoso](https://drive.google.com/file/d/17ZHiH-78uT031iApOqSUN5XIH38WXXwD/view?usp=sharing)
 - [Notas DAG Shortest Paths/Bellman-Ford - Prof. José Fragoso](https://drive.google.com/file/d/1tw3RwjiLK8Y0EOw-IRQKZ9vXqfI9h8A1/view?usp=sharing)
 - [Notas Johnson - Prof. José Fragoso](https://drive.google.com/file/d/1ljYGTXrxBskLaY3WKEsr6fPY4kDpTRgo/view?usp=sharing)

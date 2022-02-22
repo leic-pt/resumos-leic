@@ -92,7 +92,3 @@ Ciclo termina quando valor de `<expressao>` for zero
 Exemplo com algumas das funções dadas:
 
 `embed:assets/0007-ex.c`
-
-Slides:
-
-- [Aula 7](https://drive.google.com/file/d/1Qflt6mId0-75znhCgwscN2v7aLKrStTC/view?usp=sharing)
