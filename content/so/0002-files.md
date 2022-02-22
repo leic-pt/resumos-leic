@@ -13,33 +13,43 @@ type: content
 
 ## Ficheiro
 
-O que é um ficheiro?
+Toda a gente sabe o que é um [ficheiro](color:yellow), mas definir um exatamente pode ser algo mais difícil.  
+Definimos um [ficheiro](color:yellow) como uma colecção de dados persientes, geralmente relacionados, identificados por um nome.
+Os vários [ficheiros](color:yellow) de um certo sistema estão normalmente organizados num [sistema de ficheiros](color:orange).
 
-- Colecção de dados persientes, geralmente relacionados, identificados por um nome
-- Normalmente está organizado em hierarquia de pastas
+Um [sistema de ficheiros](color:orange) deve ser composto por um conjunto de entidades fundamentais:
 
-Vamos começar por aprender a usar os sistemas de ficheiros (abstrações, APIs).
-
-### Sistema de Ficheiros
-
-- Composto por um conjunto de entidades fundamentais:
-  - um sistema de organização de nomes para identificação dos ficheiros
-  - uma interface programática para comunicação entre os processos
-  - sistema de ficheiros
-
-### Árvore de Diretórios
+- um sistema de organização de nomes para identificação (humana) dos ficheiros (normalmente hierárquico);
+- meta-informação sobre cada ficheiro que deve:
+  - estar no mesmo sistema de memória secundária que a informação que descreve;
+  - entre outros, estabelecer a associação entre o nome (identificador para os humanos) e um identiﬁcador numérico (para o computador);
+- uma interface programática para comunicação entre os processos.
 
 ![Directory tree](./imgs/0002/0002-tree.png#dark=1)
 
-- Mantém a meta-informação sobre ﬁcheiros
-  - no mesmo sistema de memória secundária que a informação que descreve
-  - entre outros, estabelece a associação entre o nome e um identiﬁcador numérico do ﬁcheiro
+Ao executar o comando `ls` numa consola Linux podemos ver os ficheiros que se encontram numa diretoria.
+Se usarmos a _flag_ `-l`, associada a cada ficheiro vem a sua meta-informação:
 
-### O que é um ficheiro?
+` -rwxr-xr-x 1 luis staff 8680 Nov 14 19:46 do_exec`
 
-Ao executar o comando `ls` na consola podemos ver os ficheiros que se encontram numa diretoria
+Eis a informação que está apresentada na linha a cima (por ordem):
 
-` -rwxr -xr -x 1 luis staff 8680 Nov 14 19:46 do_exec`
+- permissões do ficheiro: `-rwxr-xr-x`
+  - podem ser de leitura (`r`), escrita (`w`) e execução (`x`);
+  - o que o primeiro dos dez caracteres significa não é do compto desta cadeira;
+  - os seguintes 9 caracteres dividem-se em 3 conjuntos - cada um representa as permissões de uma certa entidade. Nomeadamente, por esta ordem: **user**, **group** e **others**;
+  - nomeadamente, a mensagem apresentada diz-nos que:
+    - o utilizador do ficheiro tem todas as permissões sobre aquele ficheiro;
+  - os restantes utilizadores do grupo têm permissões de escrita e execução, mas não de escrita;
+  - qualquer outro utilizador também só pode ler ou executar;
+- o número de _links_ que existem para este ficheiro (vamos ver melhor o que isto significa mais à frente): `1`;
+- o nome do `utilizador` do ficheiro: `luis`;
+- o nome do `grupo` do ficheiro: `staff`;
+- o tamanho do ficheiro: `8680` (bytes);
+- a data e hora da última modificação do ficheiro: `Nov 14 19:46`;
+- o nome do ficheiro: `do_exec`.
+
+Vamos começar por aprender a usar os sistemas de ficheiros (abstrações, APIs).
 
 ## Everything is a File
 
