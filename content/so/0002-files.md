@@ -1,6 +1,10 @@
 ---
 title: Everything is a File
-description: 'Ficheiro; Programar com Ficheiros; Revisões IAED'
+description: >-
+  Ficheiros.
+  Programar com Ficheiros.
+  API do Sistema de Ficheiros.
+  API de Ficheiros do Unix.
 path: /so/files
 type: content
 ---
@@ -103,22 +107,21 @@ Na figura acima, liga `/dev/hd1` ao diretório `/b`.
 
 ## Programar com Ficheiros
 
-### Como manipular ficheiros?
+As operações mais frequentes sobre ficheiros são a leitura e escrita.
+No entanto, para que seja possível fazermos estas operações precisamos de ser capazes também de abrir e fechar um ficheiro, por exemplo.
 
-- As operações mais frequentes sobre ficheiros são a leitura e escrita da sua informação
-
-#### Abrir e fechar ficheiros
+### Operações básicas sobre ficheiros
 
 **Processo:** é a instância de um programa em execução.
 
 - É mantida uma **Tabela de Ficheiros Abertos** por processo
-- Abrir um ﬁcheiro:
-  - Pesquisar o diretório
-  - Veriﬁcar se o processo tem permissões para o modo de acesso que pede
-  - Copia a meta-informação para memória (incluindo o modo de acesso solicitado)
-  - Devolve ao utilizador um identiﬁcador que é usado como referência para essa posição de memória
+- Para abrir um ﬁcheiro é necessário:
+  - Pesquisar o diretório e verificar que o ficheiro existe;
+  - Veriﬁcar se o processo tem permissões para o modo de acesso que está a ser pedido;
+  - Copiar a meta-informação para memória (incluindo o modo de acesso solicitado)
+  - Devolver ao utilizador um identiﬁcador que é usado como referência para essa posição de memória
 - Ler e escrever sobre ﬁcheiros abertos:
-  - Dado o identiﬁcador de ﬁcheiro aberto, permite obter rapidamente o descritor do ﬁcheiro em memória
+  - Dado o identiﬁcador de ﬁcheiro aberto, conseguimos obter rapidamente o descritor do ﬁcheiro em memória;
 - Fechar do ﬁcheiro:
   - Liberta a memória que continha a meta-informação do ﬁcheiro
   - Caso necessário, atualiza essa informação no sistema de memória secundária
@@ -194,9 +197,7 @@ foo >& erros.txt   # redireciona o stderr para o mesmo local que o stdout
 
 ## API do Sistema de Ficheiros
 
-### Trabalhar com Ficheiros usando as Funções da `stdio`
-
-#### Abrir Ficheiro
+### Abrir Ficheiro
 
 Até este momento fizemos sempre leituras do stdin e escrevemos sempre para o stdout.
 Vamos ver agora como realizar estas operações sobre ficheiros.
@@ -363,7 +364,7 @@ int main()
   - O argumento `whence` recebe uma das constantes `SEEK_SET`, `SEEK_CUR` ou `SEEK_END`, que indica
     se o `offset` é relativo ao início da `stream`, à posição atual ou ao final da `stream`, respetivamente.
 
-#### Escritas são imediatamente persistentes?
+### Persistência de escritas
 
 Após escrita em ficheiro, essa escrita está garantidamente persistente no disco? [**Nem sempre!**](color:red)
 
@@ -378,7 +379,7 @@ A função `fflush` permite ao programa forçar que escritas feitas até agora s
   int fflush(FILE *stream);
   ```
 
-## Trabalhar com ficheiros usando as Funções da API do SF do Unix
+## API do Unix
 
 Em vez de usarmos a biblioteca `stdio`, poderíamos utilizar diretamente
 as funções da API do sistema de ficheiros do Unix.
