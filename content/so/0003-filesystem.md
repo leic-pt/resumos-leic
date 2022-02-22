@@ -77,21 +77,16 @@ Mapa de blocos de dados contém os números dos blocos de dados do ficheiro (Dis
 
 Para aumentar a dimensão máxima dos ficheiros, temos duas opções:
 
-- Aumentar o mapa de blocos (ineficiente para ficheiros pequenos)
-- Aumentar o tamanho dos blocos (maior fragmentação)
+- Aumentar o mapa de blocos (ineficiente para ficheiros pequenos);
+- Aumentar o tamanho dos blocos (maior fragmentação interna).
 
 ## Sistema de Ficheiros do MS-DOS
 
 - Evoluiu a partir do sistema CP/M
-- Possui uma estrutura de sistema de
-  ficheiros semelhante
-- Em vez de um mapa de blocos por
-  ficheiro, no MS-DOS existe:
+- Possui uma estrutura de sistema de ficheiros semelhante
+- Em vez de um mapa de blocos por ficheiro, no MS-DOS existe:
   - uma tabela de blocos global partilhada por todos os ficheiros
-  - esta tabela única é tão representativa da estrutura do sistema
-    de ficheiros que deu origem ao nome do sistema de ficheiros
-    mais popular que a usa: o sistema de ficheiros FAT (Tabela de
-    Alocação de Ficheiros — File Allocation Table).
+  - esta tabela única é tão representativa da estrutura do sistema de ficheiros que deu origem ao nome do sistema de ficheiros mais popular que a usa: o sistema de ficheiros FAT (Tabela de Alocação de Ficheiros — File Allocation Table).
 
 ## File Allocation Table (FAT)
 
@@ -99,29 +94,44 @@ Para aumentar a dimensão máxima dos ficheiros, temos duas opções:
 
 Num sistema de ficheiros FAT, a partição contém três secções distintas:
 
-- a tabela de alocação (File Allocation Table, FAT);
+- A tabela de alocação (File Allocation Table, FAT): um vetor com $2^n$ interidos de $n$ bits (designado FAT-16 para n=16, FAT-32 para n=32, etc);
 - uma diretoria com os nomes dos ficheiros presentes no sistema de ficheiros;
 - uma secção com o espaço restante dividido em blocos, de igual
   dimensão, para conter os dados dos ficheiros.
 
-Muito resumidamente, o Diretório contém o nome do ficheiro e um ponteiro para um indíce da tabela de alocação.  
-Já na tabela de alocação, em cada indíce que estamos, o bloco na área de dados com o mesmo indíce contém dados desse ficheiro.  
-Ainda na tabela de alocação podemos ter um ponteiro para outro indíce nessa tabela (ainda não lemos o ficheiro todo), ou estamos no max (lemos o ficheiro todo).
+A identificação dos blocos de um certo ficheiro é feita da seguinte forma:  
+O Diretório contém o nome do ficheiro e um inteiro que corresponde a um indíce da tabela de alocação.  
+As entradas da FAT:
 
-- FAT é vetor composto por $2^n$ inteiros de $n$ bits
-  - Designado de FAT-16 ($n=16$) ou FAT-32 ($n=32$), etc.
-- Dimensionado para:
-  - Caber em memória RAM (FAT carregada do disco para RAM quando o FS é montado)
-  - Ter tantas entradas quanto o número de blocos de dados na partição em disco
-- As entradas da FAT:
-  - com o valor zero indicam que o respectivo bloco está livre
-  - com valores diferentes de zero indicam que o respectivo bloco faz parte de um ficheiro
+- com o valor zero indicam que o bloco com o mesmo índice está livre;
+- com valores diferentes de zero indicam que o respectivo bloco faz parte de um ficheiro:
+  - se o valor for $max$, significa que este é o último bloco relativo ao ficheiro;
+  - se o valor não for $x \neq max$, significa que o bloco $x$ é o próximo bloco com dados relativos a este ficheiro.
 
-![FAT filesystem](./imgs/0003/0003-fat.png#dark=1)
+:::tip[Exemplo]
 
-- Os blocos de um ficheiro são determinados assim:
-  - 1º bloco: indicado por um número na respectiva entrada no directório.
-  - restantes blocos: referenciados em lista ligada pelas entradas da FAT
+Por exemplo, na imagem a cima:
+
+O FichA tem dados nos blocos:
+
+- 0 (indice no diretorio);
+- 2 (indice para que o indice 0 na FAT aponta);
+- como a entrada 2 na FAT é max, o Bloco 2 é o último com dados do FichA.
+
+O FichB tem dados nos blocos:
+
+- 1 (indice no diretorio);
+- 5 (indice apontado pela entrada 1 da FAT);
+- mais nenhum bloco, pois a entrada 5 da FAT contém max.
+
+O FichC só tem dados no bloco 3, pois o indice na diretoria é 3, e a posição 3 da FAT contém max.
+
+:::
+
+A FAT é dimensionado para:
+
+- Caber em memória RAM (FAT carregada do disco para RAM quando o FS é montado)
+- Ter tantas entradas quanto o número de blocos de dados na partição em disco
 
 ### Desvantagens do FAT
 
@@ -175,42 +185,43 @@ Ainda na tabela de alocação podemos ter um ponteiro para outro indíce nessa t
 
 ### Descritor do Volume
 
+Possui a informação geral de descrição do sistema de ficheiros, como por exemplo, a localização da tabela de descritores e a estrutura da tabela de blocos livres.  
+Uma vez que a informação aqui guardada é de importância fundamental, o descritor de volume é geralmente replicado noutros blocos.
+Se este se corromper pode ser impossível recuperar a informação do sistema de ficheiros.
+
+Implementação do descritor de volume:
+
+- Unix - bloco especial denominado superbloco
+- NTFS - ficheiro especial
+- FAT - a informação em causa é descrita directamente no setor de boot
+
 ![inodes](./imgs/0003/0003-inodes.png#dark=1)
-
-- Possui a informação geral de descrição do sistema de ficheiros
-- Por exemplo, a localização da tabela de descritores e a estrutura da tabela de blocos livres
-- É geralmente replicado noutros blocos (a informação nele guardada é de importância fundamental)
-- Se se corromper pode ser impossível recuperar a informação do sistema de ficheiros
-
-- Implementação do descritor de volume:
-  - Unix - bloco especial denominado superbloco
-  - NTFS - ficheiro especial
-  - FAT - a informação em causa é descrita directamente no setor de boot
 
 ### Tabela de Blocos Livres (ou Tabela de Alocação)
 
-![inodes](./imgs/0003/0003-inodes.png#dark=1)
+Mantém um conjunto de estruturas necessárias à localização de blocos livres.
+Pode ser um simples bitmap (cada bit indica se o respetivo bloco está livre ou ocupado).
+O uso de uma tabela de blocos livres desacoplada dos i-nodes tem vantagens:
 
-- Mantém um conjunto de estruturas necessárias à
-  localização de blocos livres:
-  - i.e. blocos da partição que não estão ocupados por nenhum
-    bloco de nenhum ficheiro.
-- Pode ser um simples bitmap:
-  - um bit por cada bloco na partição
-  - indica se o respetivo bloco está livre ou ocupado
-- Tabela de blocos livres desacoplada dos i-nodes tem
-  vantagens:
-  - é possível ter estruturas muito mais densas (a tabela de blocos
-    livres possui, usualmente, apenas um bit por cada bloco)
-  - pode-se organizar a tabela de blocos livres em várias tabelas
-    de menor dimensão para blocos adjacentes
+- é possível ter estruturas muito mais densas;
+- pode-se organizar a tabela de blocos livres em várias tabelas de menor dimensão para blocos adjacentes.
 
 ## Sistema de Ficheiros EXT
 
-- Principal Sistema de ficheiros do Linux
-- Sistema referência para outros sistemas de ficheiros atuais
+O EXT é não só o principal sistema de ficheiros do Linux como um sistema de referência para outros sistemas de ficheiros atuais.
 
-### i-node (index node)
+O sistema EXT mantém a tabela de i-nodes no Descritor de Ficheiros, atribuindo a cada i-node um i-number que corresponde à sua posição na tabela.
+Este i-number identifica então o respetivo i-node univocamente.  
+O número de i-nodes (e portanto o número de ficheiros) está então limitado pelo tamanho desta tabela.  
+Para além da tabela de inodes existem em cada partição ainda duas outras tabelas:
+
+- o bitmap de _i-nodes_ - posições dos _i-nodes_ livres
+- o bitmap de blocos - posições dos blocos livres
+
+Cada i-node contém:
+
+- Meta-dados do ficheiro;
+- Localização dos dados do ficheiro (índices do 1º bloco, do 2º bloco, etc).
 
 | Campo           | Descrição                                 |
 | --------------- | ----------------------------------------- |
@@ -228,51 +239,22 @@ Ainda na tabela de alocação podemos ter um ponteiro para outro indíce nessa t
 | `i_block[15]`   | Vetor de 15 unidades para blocos de dados |
 |                 | Outros campos ainda não utilizados        |
 
-O _i-node_ contém:
+### Referência Indireta
 
-- Meta-dados do ficheiro
-- Localização dos dados do ficheiro
-  - Índices do 1º bloco, do 2º bloco, etc.
-
-#### Exemplo de FS que usa i-nodes: ext3
+A referência indireta é usada em sistemas como o ext3. Esse sistema de ficheiros referencia os blocos da seguinte forma:
 
 - Índice dos blocos do ficheiro é mantido num vetor `i_block` do _i-node_, com 15 posições
-  - 12 entradas diretas
-  - Caso dimensão > 12 blocos, 3 últimas posições do vector
-    contêm referências para blocos com índices para outros
-    blocos
-- Primeira entrada é indireção de 1 nível
-- Segunda é indireção de 2 níveis
-- Terceira é indireção de 3 níveis
-- Só se usam as entradas (e blocos de índices)
-  necessários
+  - As primeiras 12 entradas são diretas (i.e, correspondem diretamente a um bloco com dados do ficheiro);
+  - As restantes entradas contêm referências indiretas para outros blocos, com nível de inderação um (para a entrada 13), dois (para a 14) e três (para a 15).
+- Só se usam as entradas (e blocos de índices) necessários
 
 ![ext3](./imgs/0003/0003-ext3.png#dark=1)
 
-dimensão máxima de um ficheiro $= B \times (12 + \frac{B}R + (\frac{B}R)^2 + (\frac{B}R)^3)$
+A dimensão máxima de um ficheiro é então $B \times \left(12 + \frac{B}R + (\frac{B}R)^2 + (\frac{B}R)^3\right)$
 
-$B$ é a dimensão em bytes de um bloco de dados\
-$R$ é a dimensão em bytes de uma referência para um bloco\
-Com blocos de 1 Kbyte e referências de 4 byte, a dimensão máxima de um ficheiro é $\approx$16 Gbytes
-
-### Tabela de _i-nodes_ no Volume
-
-![inodes](./imgs/0003/0003-inodes.png#dark=1)
-
-- A tabela de i-nodes encontra-se no Descritor de Ficheiros
-- Mantidos em tabela em zona própria no volume.
-- Dentro de um volume, cada _i-node_ é identificado por um _i-number_ que corresponde ao índice do _i-node_ na tabela de _i-nodes_ no volume.
-
-### Tabelas de Inodes e Bitmaps
-
-- Cada partição tem um número máximo de _i-nodes_:
-  - que servem para armazenar os _i-nodes_ de todos os ficheiros da partição.
-  - logo, existe um número máximo de ficheiros, correspondente à dimensão máxima da tabela de _i-nodes_
-- Dentro de uma partição:
-  - um _i-node_ é univocamente identificado pelo índice dentro da tabela de _i-nodes_.
-- Para além da tabela de inodes existem em cada partição ainda duas outras tabelas:
-  - o bitmap de _i-nodes_ - posições dos _i-nodes_ livres
-  - o bitmap de blocos - posições dos blocos livres
+- $B$ é a dimensão em bytes de um bloco de dados;
+- $R$ é a dimensão em bytes de uma referência para um bloco;
+  Com blocos de 1 Kbyte e referências de 4 byte, a dimensão máxima de um ficheiro é $\approx$16 Gbytes
 
 ## Visão Global
 
@@ -282,21 +264,18 @@ Com blocos de 1 Kbyte e referências de 4 byte, a dimensão máxima de um fichei
 
 ### Estruturas de Suporte à Utilização dos Ficheiros
 
-- Todos os sistemas de ficheiros definem um conjunto de
-  estruturas em memória volátil para os ajudar a gerir a
-  informação persistente mantida em disco.
-- Objetivos:
-  - Criar e gerir os canais virtuais entre as aplicações e a informação em disco
-  - Aumentar o desempenho do sistema mantendo a informação em caches
-  - Tolerar eventuais faltas
-  - Isolar as aplicações da organização do sistema de ficheiros
-  - Possibilitar a gestão de várias organizações de estruturas de ficheiros em simultâneo
+Todos os sistemas de ficheiros definem um conjunto de estruturas em memória volátil para os ajudar a gerir a informação persistente mantida em disco.
+Objetivos:
+
+- Criar e gerir os canais virtuais entre as aplicações e a informação em disco;
+- Aumentar o desempenho do sistema mantendo a informação em caches;
+- Tolerar eventuais faltas;
+- Isolar as aplicações da organização do sistema de ficheiros;
+- Possibilitar a gestão de várias organizações de estruturas de ficheiros em simultâneo.
 
 ![Estruturas de Suporte à Utilização dos Ficheiros](./imgs/0003/0003-aux.png)
 
-- Quando existe uma operação sobre um ficheiro já aberto, o identificador do ficheiro permite
-  identificar na estrutura de descritores de ficheiros abertos do processo o ponteiro para o objecto
-  que descreve o ficheiro na estrutura de ficheiros abertos global [(passo 1)](color:yellow).
+- Quando existe uma operação sobre um ficheiro já aberto, o identificador do ficheiro permite identificar na estrutura de descritores de ficheiros abertos do processo o ponteiro para o objecto que descreve o ficheiro na estrutura de ficheiros abertos global [(passo 1)](color:yellow).
 - De seguida é perguntado ao gestor de cache se o pedido pode ser satisfeito pela cache [(passo 2)](color:yellow).
 - Se não puder então é invocada a função correspondente à operação desejada do sistema de
   ficheiros, dando-lhe como parâmetro o descritor de ficheiro correspondente [(passo 3)](color:yellow).
@@ -307,24 +286,24 @@ Com blocos de 1 Kbyte e referências de 4 byte, a dimensão máxima de um fichei
 
 ![File table](./imgs/0003/0003-ram.png#dark=1)
 
-- A _file table_ contém:
+A _file table_ contém:
 
-  - Cursor que indica a posição actual de leitura/escrita
-  - Modo como o ficheiro foi aberto
+- Cursor que indica a posição actual de leitura/escrita
+- Modo como o ficheiro foi aberto
 
-- Tabela de ficheiros abertos - por processo:
-  - contém um descritor para cada um dos ficheiros abertos
-  - mantida no espaço de memória protegida que só pode ser acedida pelo núcleo
-- Tabela de ficheiros abertos - global:
-  - contém informação relativa a um ficheiro aberto
-  - mantida no espaço de memória protegida que só pode ser acedida pelo núcleo
-- A existência de duas tabelas é fundamental para:
-  - garantir o isolamento entre processos
-  - permitindo a partilha de ficheiros sempre que necessário (e.g. os
-    cursores de escrita e leitura de um ficheiro entre dois ou mais processos)
-- Note-se que:
-  - os identificadores para a tabela global estão na tabela privada que está
-    em memória protegida, pelo que não podem ser alterados
+Tabela de ficheiros abertos - por processo:
+
+- contém um descritor para cada um dos ficheiros abertos
+- mantida no espaço de memória protegida que só pode ser acedida pelo núcleo
+
+Tabela de ficheiros abertos - global:
+
+- contém informação relativa a um ficheiro aberto
+- mantida no espaço de memória protegida que só pode ser acedida pelo núcleo
+
+A existência de duas tabelas é fundamental para garantir o isolamento entre processos, permitindo a partilha de ficheiros sempre que necessário (e.g. os cursores de escrita e leitura de um ficheiro entre dois ou mais processos).
+
+Note-se que os identificadores para a tabela global estão na tabela privada que está em memória protegida, pelo que não podem ser alterados
 
 ---
 
