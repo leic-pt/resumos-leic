@@ -51,24 +51,18 @@ Eis a informação que está apresentada na linha a cima (por ordem):
 
 Vamos começar por aprender a usar os sistemas de ficheiros (abstrações, APIs).
 
-## Everything is a File
+### Everything is a File
 
-Iremos estudar uma filosofia de organização de dados onde tanto pastas como ficheiros serão tratados da mesma forma,
-que é a base dos sistemas operativos Unix.
+O Unix usa uma filosofia de organização de dados onde tanto pastas como ficheiros serão tratados da mesma forma.
+Esta é chamada a filosofia "_Everything is a file_".
+Segundo esta filosofia:
 
-- Objetos que o SO gere são acessíveis aos processos através de descritores de ficheiro
-  - Ficheiros, diretorias, dispositivos lógicos, canais de comunicação, etc.
-- Vantagens para os utilizadores/programadores
-  - Modelo de programação comum
-  - Modelo de segurança comum
-- Um dos princípios chave do Unix
-  - Seguido por muitos SOs modernos
-  - Algumas excepções (até no Unix)
+- Os objetos que o SO gere são acessíveis aos processos através de descritores de ficheiro, como por exemplo ficheiros, diretorias, dispositivos lógicos, canais de comunicação, etc;
+- Isto permite que os utilizadores e programadores tenham um modelo de programação e de segurança comum para todos os objetos do SO;
 
 ### Nomes Absolutos e Nomes Relativos
 
-Para aceder a um ficheiro temos de saber como referir ao SO a qual ficheiro estamos a querer aceder.
-
+Para aceder a um ficheiro temos de saber como referir ao SO a qual ficheiro estamos a querer aceder.  
 Temos assim 2 maneiras de o fazer:
 
 - Nomes Absolutos:
@@ -81,18 +75,23 @@ Temos assim 2 maneiras de o fazer:
     - `./SO/project.zip` (supondo que o diretório corrente é `/home/joao`)
     - `../SO/project.zip` (supondo que o diretório corrente seja `/home/joao/teo`)
 
-### Nomes vs. Ficheiros
+### Links
 
-Um ficheiro pode ser conhecido por vários nomes, ou seja, é possível designar o mesmo ficheiro com o nome `/a/b/c` e com o nome `/x/y`.  
+Um ficheiro pode ser conhecido por vários nomes, ou seja, é possível querermos associar um dado conjunto de dados a mais que um nome (eventualmente em diretorias diferentes).
+Por exemplo, é possível designar o mesmo ficheiro com o nome /a/b/c
+e com o nome /x/y.
 É comum chamar a cada um destes nomes links (em Unix, chama-se _hard links_).
 
 No entanto, isto levanta um problema: o que acontece quando se pretende apagar o ficheiro com o nome `/a/b/c`?  
 A semântica utilizada na maioria dos sistemas de ficheiros é apagar apenas o nome `/a/b/c`
 e deixar o ficheiro se ainda tiver mais nomes associados.
 
-### Como organizar múltiplos sistemas de ﬁcheiros?
+### Mounting
 
 ![Mount: directory tree](./imgs/0002/0002-mount.png#dark=1)
+
+Por vezes podemos querer organizar múltiplos sistemas de ficheiros.
+Em Unix isto pode ser feito através do comando:
 
 ```bash
 mount -t <filesystem> /dev/hd1 /b
@@ -101,14 +100,6 @@ mount -t <filesystem> /dev/hd1 /b
 O comando `mount` liga a raiz do novo sistema de ﬁcheiros a um diretório do sistema de ﬁcheiros base.
 
 Na figura acima, liga `/dev/hd1` ao diretório `/b`.
-
-### Atributos de um Ficheiro
-
-- Para além do tipo, a meta-informação do ficheiro possui usualmente os seguintes atributos:
-  - **Protecção:** quem pode aceder ao ficheiro e quais as operações que pode realizar.
-  - **Identificação do dono do ficheiro:** geralmente quem o criou.
-  - Dimensão do ficheiro
-  - Data de criação, última leitura e última escrita
 
 ## Programar com Ficheiros
 
