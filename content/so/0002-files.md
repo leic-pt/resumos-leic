@@ -137,7 +137,7 @@ Podemos dividir as funções relacionadas com o sistema de ficheiros em seis gru
 - Acesso a ficheiros mapeados em memória (Não vai ser dado a SO)
 - Operações de gestão dos sistemas de ficheiros.
 
-#### Abertura, Criação e Fecho de Ficheiros
+**Abertura, Criação e Fecho de Ficheiros**
 
 | Retorno |  Nome  |    Parâmetros    |       Descrição       |
 | :-----: | :----: | :--------------: | :-------------------: |
@@ -147,7 +147,7 @@ Podemos dividir as funções relacionadas com o sistema de ficheiros em seis gru
 
 Na tabela acima, `fd` simboliza o [_file descriptor_](https://en.wikipedia.org/wiki/File_descriptor).
 
-#### Operações sobre Ficheiros Abertos
+**Operações sobre Ficheiros Abertos**
 
 |    Nome    |     Parâmetros      |                  Descrição                  |
 | :--------: | :-----------------: | :-----------------------------------------: |
@@ -155,7 +155,7 @@ Na tabela acima, `fd` simboliza o [_file descriptor_](https://en.wikipedia.org/w
 |  Escrever  | (fd, buffer, bytes) |     Escreve um buffer para um ficheiro      |
 | Posicionar |    (fd, posição)    |  Posiciona o cursor de leitura ou escrita   |
 
-#### Operações complexas sobre ficheiros
+**Operações complexas sobre ficheiros**
 
 Algumas operações sobre ficheiros permitem realizar operações sobre a totalidade do ficheiro, como copiá-lo, apagá-lo ou movê-lo.
 
@@ -169,7 +169,7 @@ Algumas operações sobre ficheiros permitem realizar operações sobre a totali
 
 Na tabela acima, memória tampão significa _buffer_.
 
-#### Operações sobre diretórios
+**Operações sobre diretórios**
 
 |   Nome   |    Parâmetros    |                   Descrição                    |
 | :------: | :--------------: | :--------------------------------------------: |
@@ -177,7 +177,7 @@ Na tabela acima, memória tampão significa _buffer_.
 | MudaDir  |      (Nome)      | Muda o diretório por omissão (diretório atual) |
 | CriaDir  | (Nome, Proteção) |             Cria um novo diretório             |
 
-#### Canais Standard
+**Canais Standard**
 
 Inicialmente, quando um processo é iniciado, a sua tabela de ficheiros é preenchida com 3 ficheiros abertos:
 
