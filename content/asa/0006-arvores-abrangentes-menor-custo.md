@@ -318,7 +318,5 @@ Finalizamos ao unir as duas árvores finais, e a observar o achatamento (não co
 
 ---
 
-- [Slides - Kruskal, Prim](https://drive.google.com/file/d/1TucBPnDwq49gX3yRaLscM2QDJV6Ijcep/view?usp=sharing)
-- [Slides - Conjuntos Disjuntos](https://drive.google.com/file/d/1MUA_k7duC-TyzlMlm1gAoOZHRxHEuf4v/view?usp=sharing)
 - [Notas Kruskal, Prim - Prof. José Fragoso](https://drive.google.com/file/d/1Wr_pz90HdpozQkmqrjHrpISow5oJnjrc/view?usp=sharing)
 - [Notas Kruskal, Union-Find - Prof. José Fragoso](https://drive.google.com/file/d/1XhlrKXV241FoD4qjXO3Ql7r-0jDhJ4ok/view?usp=sharing)

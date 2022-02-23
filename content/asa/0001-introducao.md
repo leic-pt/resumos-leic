@@ -14,11 +14,11 @@ type: content
 
 ```
 
-A cadeira é perfeitamente acompanhável recorrendo apenas aos slides, notas do professor, coletânea de exercícios e a estes resumos. Contudo, e segundo o professor regente da UC, alunos que queiram aprofundar conhecimento podem (e devem) fazê-lo recorrendo a alguns livros indicados na bibliografia:
+A cadeira é perfeitamente acompanhável recorrendo apenas aos slides (que podem ser encontrados na página da UC), [notas do professor](https://web.ist.utl.pt/jose.fragoso/#teaching), coletânea de exercícios e a estes resumos. Contudo, e segundo o professor regente da UC, alunos que queiram aprofundar conhecimento podem (e devem) fazê-lo recorrendo a alguns livros indicados na bibliografia:
 
-- [Introduction to Algorithms](https://edutechlearners.com/download/Introduction_to_algorithms-3rd%20Edition.pdf), de Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest e Clifford Stein (MIT Press)
+- [Introduction to Algorithms](https://mitpress.mit.edu/books/introduction-algorithms-third-edition), de Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest e Clifford Stein (MIT Press)
 
-- [Algorithms](http://algorithmics.lsi.upc.edu/docs/Dasgupta-Papadimitriou-Vazirani.pdf), de S. Dasgupta, C. Papadimitriou e U. Vazirani, McGraw-Hill
+- [Algorithms](https://www.mheducation.com/highered/product/algorithms-dasgupta-papadimitriou/M9780073523408.html), de S. Dasgupta, C. Papadimitriou e U. Vazirani, McGraw-Hill
 
 ## Cálculo dos Números de Fibonacci
 
@@ -225,7 +225,5 @@ $$
 onde `i` é a variável do ciclo que vai sendo incrementada. Podemos verificar, a qualquer momento do loop, que `sum` corresponde, de facto, ao valor daquele somatório.
 
 ---
-
-- [Slides](https://drive.google.com/file/d/1iyuzEQdYwsUpZR6HAjMK0jfS2JDtTBON/view?usp=sharing)
 
 - [Notas da Aula - Prof. José Fragoso](https://drive.google.com/file/d/1E1Ch3yhfTJKf9Df7jj2_3O8kx1efN1xD/view?usp=sharing)

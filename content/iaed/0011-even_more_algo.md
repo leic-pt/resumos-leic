@@ -70,7 +70,3 @@ começando pelos dígitos mais significativos
 Tal como na última aula aconselho vivamente a ver os exemplos da aula.
 
 - [Demonstração visual dos algoritmos](https://gonque.github.io/sorting-algos/)
-
-Slides:
-
-- [Aula 11](https://drive.google.com/file/d/1hyn_bZjbht2hgVXXRFCXpJfPMbsNAlsb/view?usp=sharing)

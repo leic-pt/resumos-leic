@@ -24,7 +24,7 @@ $$h_k\quad= 2\qquad h_{k-1}\quad+1\rightarrow \color{red}{\sum_{k=1}^{+\infty}\c
 
 Note-se que o índice dos somatórios deve ser o menor inteiro para o qual a expressão faz sentido (1, neste caso). Também se deve ter a potência de $z$ coincidente com a ordem da sucessão (valor para $n$). Note-se que para o último somatório:
 
-$$\sum_{k=1}^{+\infty}z^k=\frac{1}{1-z}\textcolor{red}{-1}=\frac z {1-z}$$
+$$\sum_{k=1}^{+\infty}z^k=\frac{1}{1-z}\smartcolor{red}{-1}=\frac z {1-z}$$
 
 onde o assinalado a vermelho vem devido ao índice do nosso somatório ($z^0=1$).
 

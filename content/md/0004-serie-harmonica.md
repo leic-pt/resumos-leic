@@ -49,8 +49,8 @@ $$
 1 &  &  &  &  &  & \\
 1 & 1 &  &  &  &  & \\
 1 & 2 & 1 &  &  &  & \\
-1 & \textcolor{#C8553D} 3 & \textcolor{#C8553D}3 & 1 &  &  & \\
-1 & 4 & \textcolor{#C8553D}6 & 4 & 1 &  & \\
+1 & \smartcolor{orange} 3 & \smartcolor{orange}3 & 1 &  &  & \\
+1 & 4 & \smartcolor{orange}6 & 4 & 1 &  & \\
 1 & 5 & 10 & 10 & 5 & 1 & \\
 1 & 6 & 15 & 20 & 15 & 6 & 1
 \end{array}\\
@@ -76,8 +76,8 @@ $$
 1 & k^{\underline{1}} & 0 & 1 & 0 & 0 & 0 & 0\\
 2 & k^{\underline{2}} & 0 & -1 & 1 & 0 & 0 & 0\\
 3 & k^{\underline{3}} & 0 & 2 & -3 & 1 & 0 & 0\\
-\textcolor{#C8553D} 4 & k^{\underline{4}} & 0 & -6 & \textcolor{#C8553D} {11} & \textcolor{#C8553D} {-6} & 1 & 0\\
-5 & k^{\underline{5}} & 0 & 24 & -50 & \textcolor{#C8553D} {35} & -10 & 1
+\smartcolor{orange} 4 & k^{\underline{4}} & 0 & -6 & \smartcolor{orange} {11} & \smartcolor{orange} {-6} & 1 & 0\\
+5 & k^{\underline{5}} & 0 & 24 & -50 & \smartcolor{orange} {35} & -10 & 1
 \end{array}
 $$
 
@@ -93,15 +93,15 @@ $$\forall_{n \in \mathbb N} \forall_{i \in \mathbb N} \left( ( 0 < i \leq n) \im
 
 $$
 \begin{array}{ c c c c c c c c }
- &  & 0 & 1 & 2 & \textcolor{#C8553D} 3 & 4 & 5 & 6\\
+ &  & 0 & 1 & 2 & \smartcolor{orange} 3 & 4 & 5 & 6\\
  &  & k^{\underline{0}} & k^{\underline{1}} & k^{\underline{2}} & k^{\underline{3}} & k^{\underline{4}} & k^{\underline{5}} & k^{\underline{6}}\\
 0 & k^{0} & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
 1 & k^{1} & 0 & 1 & 0 & 0 & 0 & 0 & 0\\
 2 & k^{2} & 0 & 1 & 1 & 0 & 0 & 0 & 0\\
 3 & k^{3} & 0 & 1 & 3 & 1 & 0 & 0 & 0\\
 4 & k^{4} & 0 & 1 & 7 & 6 & 1 & 0 & 0\\
-5 & k^{5} & 0 & 1 & \textcolor{#C8553D} {15} & \textcolor{#C8553D}{25} & 10 & 1 & 0\\
-6 & k^{6} & 0 & 1 & 31 & \textcolor{#C8553D}{90} & 65 & 15 & 1
+5 & k^{5} & 0 & 1 & \smartcolor{orange} {15} & \smartcolor{orange}{25} & 10 & 1 & 0\\
+6 & k^{6} & 0 & 1 & 31 & \smartcolor{orange}{90} & 65 & 15 & 1
 
 \end{array}
 $$

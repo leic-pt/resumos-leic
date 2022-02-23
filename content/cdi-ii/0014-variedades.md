@@ -332,20 +332,20 @@ $$
 
   $$
   Dg(\theta, \varphi) = \begin{bmatrix}
-  \textcolor{#F4AC45}{-\sin \theta \sin \varphi} & \cos \theta \cos \varphi\\
-  \textcolor{#F4AC45}{\cos \theta \sin \varphi} & \sin \theta \cos \varphi\\
-  0 & \textcolor{#C8553D}{-\sin \varphi}
+  \smartcolor{blue}{-\sin \theta \sin \varphi} & \cos \theta \cos \varphi\\
+  \smartcolor{blue}{\cos \theta \sin \varphi} & \sin \theta \cos \varphi\\
+  0 & \smartcolor{orange}{-\sin \varphi}
   \end{bmatrix}
   $$
 
-  Em $\varphi \in \left]0, \frac{\pi}{2}\right[$, temos que $\textcolor{#C8553D}{-\sin \varphi} < 0$
+  Em $\varphi \in \left]0, \frac{\pi}{2}\right[$, temos que $\smartcolor{orange}{-\sin \varphi} < 0$
 
   Também temos que
 
   $$
   \begin{cases}
-  \textcolor{#F4AC45}{-\sin \theta \sin \varphi} = 0\\
-  \textcolor{#F4AC45}{\cos \theta \sin \varphi} = 0
+  \smartcolor{blue}{-\sin \theta \sin \varphi} = 0\\
+  \smartcolor{blue}{\cos \theta \sin \varphi} = 0
   \end{cases}
   \Rightarrow
   \sin\theta, \cos\theta = 0
