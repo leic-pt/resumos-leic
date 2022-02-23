@@ -22,13 +22,13 @@ export default function Template({ data }) {
     .filter((comp) => comp);
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', height: '100vh' }}>
       <PageMetadata title={page.frontmatter.title} description={page.frontmatter.description} />
       <Box>
         <Sidebar paths={sidebarPaths} sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
       </Box>
-      <Box>
-        <Box sx={{ mx: 5 }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+        <Box sx={{ mx: 5, flexGrow: 1 }}>
           <div className='content' dangerouslySetInnerHTML={{ __html: page.html }} />
           {components?.map((Component, i) => (
             <Component key={i} />
