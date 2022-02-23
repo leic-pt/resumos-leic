@@ -259,13 +259,19 @@ O mecanismo normal de transferência de páginas é [por necessidade](color:gree
 Desta forma, páginas de um programa que não sejam acedidas durante a execução de um processo não chegam a ser carregadas em memória principal.
 
 Usam-se ainda políticas de transferência [por antecipação](color:purple) para diminuir o número de faltas de páginas e otimizar os acessos a disco.
-As páginas retiradas de memória principal são guardadas numa zona separada do disco chamada área de paginação (apenas se ainda não existir uma cópia atualizada da página em disco).
-As páginas modificadas são transferidas em grupos para memória secundária de modo a otimizar os acessos disco.
 
-Quando é necessário libertar espaço na memória física, o SO copia páginas para disco, guardando-as na **_swap area_**.
-As páginas que vão para disco são aquelas que o SO prevê que não serão acedidas num futuro próximo.  
+Quando é necessário libertar espaço na memória física, o SO copia páginas para disco, guardando-as na **área de paginação** ou **_swap area_**.
+As páginas que vão para disco são aquelas que o SO prevê que não serão acedidas num futuro próximo.
+Estas são transferidas em grupos para memória secundária de modo a otimizar os acessos a disco.  
 Neste contexto, estabelecemos uma diferença entre **_swapping_** - guardar todas as páginas de um processo em disco - e **_paging_** - guardar páginas individuais em disco.
-Mais uma vez, para minimizar latência, o SO faz _pre-fetching_ quando faz _swapping_ das páginas de um processo.
+
+:::details[Área de Paginação vs _Swap Area_]
+
+Historicamente, a expressão "swap area" está mais frequentemente associada a sistemas com segmentos.
+Por seu lado, "paging area" diz respeito a sistemas baseados em paginação.  
+No entanto, a expressão "swap area" é tão comum que também é muito usada em sistemas paginados.
+
+:::
 
 Possíveis critérios para decidir qual o processo a transferir para disco:
 
