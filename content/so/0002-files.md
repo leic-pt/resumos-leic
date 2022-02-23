@@ -1,7 +1,6 @@
 ---
 title: Everything is a File
-description: >-
-  Ficheiros.
+description: Ficheiros.
   Programar com Ficheiros.
   API do Sistema de Ficheiros.
   API de Ficheiros do Unix.
@@ -110,7 +109,7 @@ Na figura acima, liga `/dev/hd1` ao diretório `/b`.
 As operações mais frequentes sobre ficheiros são a leitura e escrita.
 No entanto, para que seja possível fazermos estas operações precisamos de ser capazes também de abrir e fechar um ficheiro, por exemplo.
 
-### Operações básicas sobre ficheiros
+### Operações Básicas sobre Ficheiros
 
 **Processo:** é a instância de um programa em execução.
 
@@ -155,7 +154,7 @@ Na tabela acima, `fd` simboliza o [_file descriptor_](https://en.wikipedia.org/w
 |  Escrever  | (fd, buffer, bytes) |     Escreve um buffer para um ficheiro      |
 | Posicionar |    (fd, posição)    |  Posiciona o cursor de leitura ou escrita   |
 
-**Operações complexas sobre ficheiros**
+**Operações Complexas sobre Ficheiros**
 
 Algumas operações sobre ficheiros permitem realizar operações sobre a totalidade do ficheiro, como copiá-lo, apagá-lo ou movê-lo.
 
@@ -169,7 +168,7 @@ Algumas operações sobre ficheiros permitem realizar operações sobre a totali
 
 Na tabela acima, memória tampão significa _buffer_.
 
-**Operações sobre diretórios**
+**Operações sobre Diretórios**
 
 |   Nome   |    Parâmetros    |                   Descrição                    |
 | :------: | :--------------: | :--------------------------------------------: |
