@@ -25,7 +25,7 @@ Cada empresa/organização é influenciada por:
 - **Elementos Internos**: Capacidade de se adptar às alterações decorrentes da influência externa.
   Envolvem nomeadamente a cultura da organização, a sua estrutura organizativa, os trabalhadores e a gestão.
 
-## Cultura Organizacional, Ètica e Responsabilidade Social
+## Cultura Organizacional, Ética e Responsabilidade Social
 
 - **Cultura da Organização**: Conjunto de valores, crenças e regras que os membros de uma organização partilham
   que podem ser expressos através de elementos Visíveis (Símbolos, Histórias, Cerimónias) e Invisíveis (Convicções).
@@ -40,7 +40,7 @@ Cada empresa/organização é influenciada por:
 
 :::info[Exemplo]
 O IST preza-se pela sua excelência, pela formação teórica e prática de elevado nível dos seus alunos (**Elemento Invisível da Cultura**),
-tem como sua marca o logótipo que desde o início inclui o símbolo da integral e as cores azul e branco (**Elemento Visível de Cultura**).
+tem como sua marca o logótipo que desde o início inclui o símbolo do integral e as cores azul e branco (**Elemento Visível de Cultura**).
 Esta instituição é considerada bastante séria e assume uma posição antipraxe (**Código Moral - Ética**).
 O facto de garantir que todos os alunos tenham acesso aos seus professores num horário de dúvidas que deve ser estipulado,
 distingue-o das demais faculdades (**Responsabilidade Social**).
@@ -70,7 +70,7 @@ Presidente da República > Primeiro Ministro > Ministros > Secretários > Tu.
 
   - **Estrutura Baixa/Plana/Horizontal**: Empresa de 157 pessoas divididas em 3 níveis organizacionais em que cada pessoa delega 12 outras pessoas. Com este método a empresa tem uma estratégia orientada para a diferenciação e inovação.
 
-  ![Amplitude de controlo](./assets/0002-amplitude-controlo.png#dark=1)
+  ![Amplitude de controlo](./assets/0002-amplitude-controlo.png#dark=2)
 
   A amplitude de controlo diz-se mais reduzida quando os elementos da mesma equipa desempenham tarefas complexas e independentes.
 
@@ -96,9 +96,9 @@ Presidente da República > Primeiro Ministro > Ministros > Secretários > Tu.
 
    - **Vantagens**: Especialização dos empregados. Economias de Escala.
    - **Desvantagens**: Fraca comunicação dos departamentos.
-   - **Características**: Estabilidade, Eficiência , normalmtente usado em Empresas de grande Dimensão.
+   - **Características**: Estabilidade, eficiência, normalmente usado em empresas de grande dimensão.
 
-   ![Vertical Funcional](./assets/0002-vertical-funcional.png#dark=1)
+   ![Vertical Funcional](./assets/0002-vertical-funcional.png#dark=2)
 
 2. Divisional
 
@@ -106,21 +106,21 @@ Presidente da República > Primeiro Ministro > Ministros > Secretários > Tu.
    - **Desvantagens**: Duplicação de Recursos, Fraca coordenação entre divisões.
    - Este tipo de empresas tem várias unidades de negócio autossuficientes distribuídas pelo país.
 
-   ![Divisional](./assets/0002-divisional.png#dark=1)
+   ![Divisional](./assets/0002-divisional.png#dark=2)
 
 3. Matricial
 
    - **Vantagens**: Interdisciplinaridade.
    - **Desvantagens**: Conflitos na cadeia de comando.
 
-   ![Matricial](./assets/0002-matricial.png#dark=1)
+   ![Matricial](./assets/0002-matricial.png#dark=2)
 
 4. Trabalho em Equipa
 
    - **Vantagens**: Rapidez de resposta, entusiasmo dos membros.
    - **Desvantagens**: Tempo em reuniões, conflitos eventuais.
 
-   ![Trabalho em Equipa](./assets/0002-trabalho-equipa.png#dark=1)
+   ![Trabalho em Equipa](./assets/0002-trabalho-equipa.png#dark=2)
 
 5. Rede Virtual
 
@@ -129,7 +129,7 @@ Presidente da República > Primeiro Ministro > Ministros > Secretários > Tu.
    - Empresas com esta estrutura costumam recorrer ao **outsourcing** que consiste na contratação de um conjunto de atividades
      como especialistas em formação e engenheiros, para se focar na sua atividade principal.
 
-   ![Rede Virtual](./assets/0002-rede-virtual.png#dark=1)
+   ![Rede Virtual](./assets/0002-rede-virtual.png#dark=2)
 
 ## Gestão de Recursos Humanos
 
@@ -137,11 +137,11 @@ A gestão de recursos humanos inclui a concepção e implementação de sistemas
 a utilização do talento e capacidades das pessoas, de forma eficiente e eficaz, para atingir as metas da organização.  
 A estratégia da gestão de recursos humanos passa pelas seguintes etapas:
 
-![Etapas da Estratégia de Gestão de Recursos Humanos](./assets/0002-etapas-gestao-rh.png#dark=1)
+![Etapas da Estratégia de Gestão de Recursos Humanos](./assets/0002-etapas-gestao-rh.png#dark=3)
 
 Na etapa de atração de pessoal competente podemos distinguir vários processos, entre os quais:
 
-1. **Planemamento**: Inclui as previsões das necessidades da organização, a curto, médio e a longo prazo, por:
+1. **Planeamento**: Inclui as previsões das necessidades da organização, a curto, médio e a longo prazo, por:
 
    - Tipo de Competências
    - Número de pessoas necessárias

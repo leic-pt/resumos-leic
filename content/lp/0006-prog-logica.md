@@ -1,6 +1,9 @@
 ---
 title: Fundamentos da Programação em Lógica
-description: Fundamentos da Programação em Lógica, Cláusulas de Horn, Predicados, Bases de Dados, Procura, Resolução e Árvores SLD.
+description: >-
+  Fundamentos da Programação em Lógica.
+  Cláusulas de Horn, Predicados, Bases de Dados, Procura.
+  Resolução e Árvores SLD.
 path: /lp/fundamentos-programacao-logica
 type: content
 ---
@@ -19,19 +22,26 @@ Por uma questão meramente ligada à eficiência, utilizamos variações especia
 
 Cláusulas que contêm, no máximo, um literal positivo (isto é, não negado). Se existir, esse literal positivo será a **cabeça da cláusula**. Quaisquer literais negativos que possam existir farão parte do **corpo da cláusula**. São exemplos $\{C, \neg P_{1}, \neg P_{2}\}, \{C\}, \{\neg P_{1}, \neg P_{2}\}, \{\}.$
 
-Dada a equivalência entre $\alpha \to \beta$ e a cláusula de Horn $\{\neg \alpha, \beta\}$, é vulgar escrever cláusulas de Horn sem ser na forma usual de cláusula (com as chavetas). Podemos representar cláusulas com o símbolo $\leftarrow$, com o corpo da cláusula à direita e a cabeça à esquerda. **A cláusula vazia é representada por $\square$**(sim é um quadrado $\text{Rafa}^2$ 😎).  
-Desta feita, os exemplos apresentados anteriormente podem ser apresentados tais que $C \leftarrow P_{1}, P_{2}; C \leftarrow; \leftarrow P_{1}, P_{2}; \square.$
+Dada a equivalência entre $\alpha \to \beta$ e a cláusula de Horn $\{\neg \alpha, \beta\}$, é vulgar escrever cláusulas de Horn sem ser na forma usual de cláusula (com as chavetas). Podemos representar cláusulas com o símbolo $\leftarrow$, com o corpo da cláusula à direita e a cabeça à esquerda. **A cláusula vazia é representada por $\square$** (sim, é um quadrado).  
+Desta feita, os exemplos apresentados anteriormente podem ser apresentados tais que:
+
+$$
+C \leftarrow P_{1}, P_{2}\\
+C \leftarrow\\
+\leftarrow P_{1}, P_{2}\\
+\square.
+$$
 
 As cláusulas de Horn são divididas em quatro tipos:
 
-- Regras/implicações, onde tanto a cabeça como o corpo contêm literais;
-- Afirmações/factos, cláusulas onde o corpo não tem literais mas a cabeça sim (pode pensar-se da mesma maneira que olhamos para um teorema);
-- Objetivos, cláusulas cuja cabeça é vazia mas o corpo contém pelo menos um literal;
-- Cláusula vazia.
+- [**Regras/implicações**](color:orange), onde tanto a cabeça como o corpo contêm literais;
+- [**Afirmações/factos**](color:yellow), cláusulas onde o corpo não tem literais mas a cabeça sim (pode pensar-se, de modo **extremamente informal**, da mesma maneira que olhamos para um teorema);
+- [**Objetivos**](color:blue), cláusulas cuja cabeça é vazia mas o corpo contém pelo menos um literal;
+- [**Cláusula vazia**](color:pink).
 
 Se repararmos, os exemplos dados anteriormente são, respetivamente, exemplos de cada um destes tipos.
 
-Tanto as regras como as afirmações chamam-se também **cláusulas determinadas** (do inglês _definite clauses_, referindo-se à sua natureza por serem as únicas onde a cabeça contém literais).
+Tanto as regras como as afirmações chamam-se também **cláusulas determinadas** (do inglês _definite clauses_, referindo-se à sua natureza por serem as únicas onde a cabeça contém um literal). **São elas que vão constituir os nossos programas em Prolog**!
 
 Em resolução com cláusulas de Horn, pelo menos um dos resolventes tem de ser uma cláusula determinada, visto que só estas contêm literais positivos (caso contrário nem sequer seria possível aplicar a resolução).
 
@@ -184,5 +194,3 @@ $\leftarrow P(x, b).$
 :::
 
 - **Independência da função de seleção** - seja $\Delta$ um programa e $\alpha$ um objetivo. Independentemente da função de seleção, todas as árvores SLD de $\Delta$ e $\alpha$ têm o mesmo número (finito ou infinito) de ramos **bem sucedidos**.
-
-[Slides](https://drive.google.com/file/d/1HHsikJwQmq6BHM1l2JdgZLIyZf95iMPd/view?usp=sharing)

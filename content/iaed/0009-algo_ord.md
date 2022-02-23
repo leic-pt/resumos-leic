@@ -164,7 +164,3 @@ Tempo de Execução:
 Nesta aula e na aula anterior encontram - se alguns exercicios que podem ajudar para perceber melhor este algoritmos.
 
 - [Demonstração visual dos algoritmos](https://gonque.github.io/sorting-algos/)
-
-Slides:
-
-- [Aula 9](https://drive.google.com/file/d/1aPyWzECPVzi0p_BKgIsZJhZkni0EdCDv/view?usp=sharing)

@@ -109,7 +109,7 @@ DFS_Visit(G, v)
   v.color = Black
 ```
 
-As complexidades temporais([**agregadas**](color:orange) - durante todo o decorrer do algoritmo) de cada loop acima são:
+As complexidades temporais ([**agregadas**](color:orange) - durante todo o decorrer do algoritmo) de cada loop acima são:
 
 - Loop 1 - $\Theta(V)$
 - Loop 2 - $\Theta(V)$
@@ -117,7 +117,7 @@ As complexidades temporais([**agregadas**](color:orange) - durante todo o decorr
 
 Onde $V$ é o número de vértices do grafo e $E$ o número de arcos/arestas.
 
-A complexidade do primeiro loop é trivial, o loop é claramente executado apenas uma vez para cada vértice. A do segundo também segue a mesma lógica, sendo executado uma vez para cada vértice. A do terceiro não é óbvia. Temos cada, para cada vértice, `DFS_Visit` é chamada apenas uma vez (porque assim que deixa o estado `White`, não vola a poder ter esse estado). Além disso, para cada vértice, o loop é executado $E$ vezes, uma vez para cada arco/aresta que liga aquele vértice a outro. Isto, claro, considerando todo o decorrer do algoritmo - foi assim que a complexidade do algoritmo foi abordada em aula.
+A complexidade do primeiro loop é trivial, o loop é claramente executado apenas uma vez para cada vértice. A do segundo também segue a mesma lógica, sendo executado uma vez para cada vértice. A do terceiro não é óbvia. Temos cada, para cada vértice, `DFS_Visit` é chamada apenas uma vez (porque assim que deixa o estado `White`, não volta a poder ter esse estado). Além disso, para cada vértice, o loop é executado $E$ vezes, uma vez para cada arco/aresta que liga aquele vértice a outro. Isto, claro, considerando todo o decorrer do algoritmo - foi assim que a complexidade do algoritmo foi abordada em aula.
 
 Resta ainda realçar que foi utilizado $\Theta$ e não $O$ - os loops, aqui, são executados _exatamente_ com aquela complexidade, sempre, qualquer que seja o grafo-argumento do algoritmo.
 
@@ -430,9 +430,6 @@ As "distâncias" (os tempos indicados na BFS) correspondem a **níveis** da árv
 
 ---
 
-- [Slides DFS (geral)](https://drive.google.com/file/d/13GOYSkvAidqUVJozY1Fwu6cg96Xuma-S/view?usp=sharing)
-- [Slides DFS (Ordenação Topológica + SCCs)](https://drive.google.com/file/d/1HTYOS2p7ysnRLuX4gvaqRw9L9ijioFE9/view?usp=sharing)
-- [Slides BFS](https://drive.google.com/file/d/1HTYOS2p7ysnRLuX4gvaqRw9L9ijioFE9/view?usp=sharing)
 - [Notas DFS - Prof. José Fragoso](https://drive.google.com/file/d/1oqrsRIFE72_zZ7-1URzRsPrz8gXY_NWR/view?usp=sharing)
 - [Notas SCCs e BFS - Prof. José Fragoso](https://drive.google.com/file/d/1Fa14Veb5Q9sKgouVtpSClVmMxoGRgRGW/view?usp=sharing)
 - [Notas sobre DFS - Universidade de Edimburgo](https://www.inf.ed.ac.uk/teaching/courses/inf2b/algnotes/note10.pdf)

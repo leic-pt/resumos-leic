@@ -105,7 +105,7 @@ Significa, então, que podemos aumentar o fluxo em todo o arco de $p$ por uma qu
 
 ![Caminhos de Aumento](./assets/0007-augmentation-path.png#dark=1)
 
-O caminho destacado em $(b)$ corresponde a um caminho de aumento $p$ para a rede em $(a)$. Temos que $c_f(p) = \min\{5, 5, 5\} = 5$, pelo que podemos aumentar o fluxo em todo o caminho de aumento $p$ por $5$.
+O caminho destacado em $(b)$ corresponde a um caminho de aumento $p$ para a rede em $(a)$. Temos que $c_f(p) = \min\{5, 4, 5\} = 4$, pelo que podemos aumentar o fluxo em todo o caminho de aumento $p$ por $4$.
 
 De realçar que podemos aqui observar a rede residual, e as noções de caminhos residuais devem então ficar mais claras: existem arcos nos dois sentidos do arco de $G$, respeitando a definição proposta acima para $c_f(u, v)$. Os arcos que já transportam capacidade máxima de fluxo apenas apresentam arco numa direção.
 
@@ -118,11 +118,11 @@ f' = f + f_p \wedge |f'| = |f| + |f_p| > |f|
 
 $$
 
-Ou seja, que o fluxo da rede após a aplicação do aumento à rede, $f'$ é estritamente maior que o fluxo da rede original, $f$. Consideramos para este efeito que $f_p = c_f(p) > 0$.
+Ou seja, que o fluxo da rede após a aplicação do aumento à rede, $f'$, é estritamente maior que o fluxo da rede original, $f$. Consideramos para este efeito que $f_p = c_f(p) > 0$.
 
 ### Cortes em Redes de Fluxo
 
-Os cortes em redes de fluxo correspondem a uma partição de $V$ tal que $(S, T)$, com $T = V-S$, tal que $s \in S \wedge t \in T$.
+Os cortes em redes de fluxo correspondem a uma partição $(S, T)$ de $V$, com $T = V-S$, tal que $s \in S \wedge t \in T$.
 Seja $f$ um fluxo, o **fluxo líquido de um corte** corresponde a:
 
 $$
@@ -366,17 +366,49 @@ Visto que cada caminho de aumento pode ser encontrado em $O(|V| + |E|) = O(|E|)$
 
 :::danger[A complexidade pode enganar]
 
-Não nos podemos esquecer que o algoritmo de Edmonds-Karp não é mais que uma implementação do método de Ford-Fulkerson, partilhando assim a sua majoração temporal ($O(|f^*| |E|)$). Assim sendo, dependendo da topologia do grafo, a realização do algoritmo pode até levar tempo inferior a $V E^2$ a terminar! Este tipo de perguntas pode sair em exame, e é bastante útil ter em mente: o algoritmo tem ambas as majorações temporais, consideramos a que for menor perante a topologia da rede apresentada.
+Não nos podemos esquecer que o algoritmo de Edmonds-Karp não é mais que uma implementação do método de Ford-Fulkerson, partilhando assim a sua majoração temporal ($O(|f^*| |E|)$). Assim sendo, dependendo da topologia do grafo, a realização do algoritmo pode até levar tempo inferior a $V E^2$ a terminar!
+
+Este tipo de perguntas pode sair em exame, e é bastante útil ter em mente: o algoritmo tem ambas as majorações temporais, consideramos a que for menor perante a topologia da rede apresentada. O algoritmo apresentado abaixo (para encontrar emparelhamentos bipartidos máximos) é um dos casos onde isto acontece.
 
 :::
 
 ## Emparelhamento Bipartido Máximo
 
-:::warning[Página em Construção]
+:::info[Motivação]
 
-O conteúdo será adicionado assim que possível.
+Imaginemos que temos um conjunto de $m$ máquinas e outro de $n$ tarefas. Cada máquina pode ser atribuída a apenas uma tarefa, mas nem todas as máquinas podem realizar todas as tarefas. Na melhor das hipóteses, qual será o maior número de tarefas que o conjunto de máquinas pode realizar simultaneamente? Mais ainda, nesse mesmo melhor caso, que máquina realiza que tarefa?
 
 :::
+
+Podemos formalizar o problema acima através de um conjunto $J$, um conjunto que mapeia todas as máquinas a todas as tarefas que podem executar, tal que:
+
+$$
+J = \{(m_i, t_j), m_i \longmapsto t_j\}.
+$$
+
+O nosso objetivo passará então por procurar o melhor emparelhamento possível tal que há um valor ótimo de "arestas ativas" - máquinas a realizar tarefas, portanto. $J$ pode ser representado por um grafo, claro:
+
+![Exemplo - EBM](./assets/0007-max-bip-example.png#dark=1)
+
+Como podemos notar, o grafo que corresponde a $J$ diz-se um **grafo bipartido** - um grafo onde $V$ pode ser separado em $V_1$ e $V_2$, em que não existem arestas entre os vértices de $V_1$ nem entre os de $V_2$, apenas de $V_1$ para $V_2$ (e possivelmente vice-versa). O problema do [**emparelhamento bipartido máximo**](color:orange) passará, então, por encontrar o emparelhamento com cardinalidade máxima num grafo bipartido: em relação a este exemplo, encontrar o número máximo de tarefas que podem ser executadas simultaneamente, considerando que cada máquina pode estar ligada a apenas uma tarefa ao mesmo tempo.
+
+Em relação ao grafo acima, podíamos dizer que um possível emparelhamento bipartido seria $(m_2, t_1)$, $(m_4, t_2)$ e $(m_3, t_3)$. Este emparelhamento não é máximo - existem outros emparelhamentos com cardinalidade superior a este. Um **emparelhamento bipartido máximo** correspondente a este conjunto seria, por exemplo, $(m_1, t_1)$, $(m_2, t_2)$ e $(m_3, t_4)$ e $(m_4, t_3)$. Aqui, verificamos que a cardinalidade do emparelhamento é $4$, não podendo sequer aumentá-la mais. Pode ser importante realçar ainda que um emparelhamento bipartido ser **máximo** não significa que este cobre necessariamente todas as "máquinas" do mesmo - significa apenas que não é possível encontrar um outro emparelhamento bipartido com cardinalidade superior.
+
+### Como encontrar o emparelhamento bipartido máximo?
+
+Será interessante ter um algoritmo que nos permita encontrar o emparelhamento bipartido máximo de um grafo. A lógica utilizada para o mesmo é bastante simples: adicionamos uma fonte e um sumidouro ao grafo, com a fonte ligada à partição das "máquinas" e o sumidouro ligado à partição das "tarefas". Atribuímos então fluxo unitário a cada arco, de modo a que uma máquina possa apenas realizar uma tarefa ao mesmo tempo. Pegando no grafo acima, podemos verificar como ficaria depois destas alterações:
+
+![Exemplo - EBM Fluxo Unitário](./assets/0007-max-bip-fluxo-unitario.png#dark=1)
+
+O fluxo máximo nunca poderá, claro, exceder $\min{\{f_s, f_t\}}$, ou seja nunca poderá haver uma máquina a realizar múltiplas tarefas, nem poderá haver tarefas a ser realizadas por mais que uma máquina. Podemos ainda notar que, formalmente, $f(u, v) = 1$ apenas se a máquina $u$ estiver a realizar a tarefa $j$.
+
+Este algoritmo corresponde a uma situação em que a complexidade temporal do método de Ford-Fulkerson prevalece sobre a de Edmonds-Karp. Temos necessariamente que:
+
+$$
+|f^*| \leq m \leq |V|, \quad \text{ onde m corresponde ao número de máquinas}
+$$
+
+já que no pior caso todas as máquinas podem realizar uma tarefa. Nesse caso, podemos afirmar que por Ford-Fulkerson a complexidade temporal do algoritmo é dada poe $O(f^* E) = O(VE)$, que é melhor que a de Edmonds-Karp, dada por $O(VE^2)$.
 
 ## Algoritmos baseados em Pré-Fluxo
 
@@ -522,7 +554,7 @@ Tal como o método de Ford-Fulkerson, _push-relabel_ não é considerado um algo
 
 ### [Algoritmo Relabel-To-Front](color:yellow)
 
-O método _push-relabel_, como referido acima, tem complexidade $O(|V|^2) \cdot E)$ - uma melhoria em relação a Edmonds-Karp. Contudo, estudaremos de seguida um algoritmo (que implementa as operações básicas _push_ e _relabel_), com uma terceira operação-base adicional que permite a alteração da complexidade temporal para $O(|V|^3)$, bastante melhor para redes muito densas, com muito mais arcos que vértices.
+O método _push-relabel_, como referido acima, tem complexidade $O(|V|^2 \cdot E)$ - uma melhoria em relação a Edmonds-Karp. Contudo, estudaremos de seguida um algoritmo (que implementa as operações básicas _push_ e _relabel_), com uma terceira operação-base adicional que permite a alteração da complexidade temporal para $O(|V|^3)$, bastante melhor para redes muito densas, com muito mais arcos que vértices.
 
 Um dos pilares do algoritmo é uma lista $L$, que mantém todos os vértices $V \backslash \{s, t\}$, inicialmente ordenados arbitrariamente. O algoritmo atravessa $L$ do início ao fim, aplicando [**_Discharge_**](color:yellow) a cada um dos vértices: sucessivos _pushes_ e _relabels_ até que o vértice já não possua excesso. Caso o vértice tenha sido _relabeled_, passa para o início de $L$ (daí o nome do algoritmo, _relabel-to-front_), e a passagem pela lista é recomeçada. O algoritmo termina caso consiga passar por todos os elementos da lista sem realizar qualquer descarga - estamos, então, na presença do fluxo máximo da rede.
 
@@ -596,7 +628,7 @@ Ora, levanta-se uma questão - parece que ficamos infinitamente a atirar fluxo $
 
 De facto parece, mas eventualmente as operações levam a que $v_1$ atinja altura $7$, superior ao número de vértices da rede (e portanto à altura de $s$). $v_1$ poderá agora, via refluxo, enviar fluxo de volta para $s$ (os tais $3$ que precisava), eliminando assim este ciclo que parecia quasi-infinito!
 
-(De notar que foram omitidos alguns passos intermédios, visto que seriam algo repetitivos e desinteressantes - para retirar quaisquer dúvidas que possam surgir devido à ausência dos mesmos, aconselha-se a consulta dos [slides](https://drive.google.com/file/d/1OqY6-EqfHIU5W1ho5pigFTjKl7IbZDcA/view?usp=sharing), por volta do slide 45).
+(De notar que foram omitidos alguns passos intermédios, visto que seriam algo repetitivos e desinteressantes - para retirar quaisquer dúvidas que possam surgir devido à ausência dos mesmos, aconselha-se a consulta dos slides, por volta do slide 45).
 
 ![Passo 6 - R2F](./assets/0007-r2f-passo-6.png#dark=1)
 
@@ -621,18 +653,12 @@ O fluxo máximo é, então igual a $23$! Podemos verificar, como esperado, que o
 
 A complexidade temporal do algoritmo é, então, $O(V^3)$. Podemos trivialmente provar que, por vértice, podemos realizar no máximo $V$ operações de _relabel_ (começando da altura base, podemos encontrar todos os vértices em escada, subindo a altura de $1$ em $1$ até V). Havendo $V$ vértices, podemos afirmar que no máximo ocorrerão $V^2$ operações de _relabel_ durante _relabel-to-front_. Por fim, temos que cada iteração pode ter até $V$ descargas (atirando fluxo para todos os vértices), e havendo no máximo $V^2$ _relabels_, podemos claramente majorar a complexidade temporal da execução do algoritmo em $O(V^3)$.
 
-<!-- TODO REFERIR QUE NO FIM O EXCESSO DE S DEVE SER SIMÉTRICO AO DE T -->
-
-<!-- TODO REFERIR QUE NEM SEMPRE ESTES ALGORITMOS SÃO MAIS EFICIENTES - TEMOS DE COMPARAR COMPLEXIDADES, VER QUAL O MELHOR -> EXEMPLO DO CARROTT, P EX -->
-
 <!-- TODO ADICIONAR PROVAS E NOTAS SOBRE COMPLEXIDADES (WHENEVER TIVER TEMPO) -->
 
 <!-- TODO MENCIONAR ARCOS ADMISSÍVEIS E CENAS -->
 
 ---
 
-- [Slides - Algoritmos Baseados em Caminhos de Aumento](https://drive.google.com/file/d/1swL85O4Fu1XuMBdWEJksVsrcFxF6iYeT/view?usp=sharing)
-- [Slides - Algoritmos de Pré-Fluxo](https://drive.google.com/file/d/1OqY6-EqfHIU5W1ho5pigFTjKl7IbZDcA/view?usp=sharing)
 - [Notas Ford-Fulkerson - Prof. José Fragoso](https://drive.google.com/file/d/13Ua5JJ6mJZUhEImbcAMGrCBG5iPiUxN3/view?usp=sharing)
 - [Notas Edmonds-Karp/CBM - Prof. José Fragoso](https://drive.google.com/file/d/1YRzHWWA4glyzkYj2eshiLtD2XNWw8fmw/view?usp=sharing)
 - [Notas Pré-Fluxos - Prof. José Fragoso](https://drive.google.com/file/d/13_3-tNuxZuiHZNPZXiXUL8hVudvSO4uC/view?usp=sharing)

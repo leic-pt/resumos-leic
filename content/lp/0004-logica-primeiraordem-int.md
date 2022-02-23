@@ -1,6 +1,7 @@
 ---
 title: Lógica de Primeira Ordem - Introdução
-description: Lógica de primeira ordem, quantificadores, regras de inferência.
+description: >-
+  Lógica de primeira ordem quantificadores, regras de inferência.
 path: /lp/logica-primeira-ordem-int
 type: content
 ---
@@ -42,7 +43,7 @@ $$
 Sendo que os conjuntos de pares ordenados têm, por norma, este aspeto:
 
 $$
-\{(Portugal, Lisboa), (França, Paris), (Espanha, Madrid),\dots\}\\
+\{(Portugal, Lisboa), (Franca, Paris), (Espanha, Madrid),\dots\}\\
 \{(Augustus\_De\_Morgan, 1806), (Alonzo\_Church, 1903),\dots\}\\
 \{(1,2),(2,3),(3,4),\dots\}
 $$
@@ -59,10 +60,10 @@ Relações com apenas um argumento também se chamam **classes** ou **propriedad
 Relação correspondendo ao conjunto dos países que partilham fronteira terrestre:
 
 $$
-\{(Portugal, Espanha), (Espanha, Portugal), (Espanha, França),\dots\}
+\{(Portugal, Espanha), (Espanha, Portugal), (Espanha, Franca),\dots\}
 $$
 
-_Como podemos observar, Espanha é primeiro elemento duas vezes, pelo que não pode ser uma função._
+Como podemos observar, Espanha é primeiro elemento duas vezes, pelo que não pode ser uma função!
 
 A relação pode ser definida tal que:
 
@@ -105,7 +106,7 @@ Correspondem às entidades sobre as quais queremos falar, o menor conjunto defin
 
 Um **termo fechado/chão** é um termo que não contém variáveis.
 
-:::details[Exemplo - Termos]
+De seguida apresenta-se um conjunto de termos (os cinco primeiros são **fechados**):
 
 $$
 \begin{array}{c}
@@ -119,10 +120,6 @@ capital(x)\\
 pai(x)
 \end{array}
 $$
-
-_Os cinco primeiros termos são fechados. Os seguintes não são._
-
-:::
 
 ### Fórmulas bem formadas
 
@@ -163,12 +160,7 @@ $$
 Nas _fbfs_ $\forall x[\alpha]$ e $\exists x[\alpha]$, $\alpha$ é o **domínio do quantificador**. Diz-se que o quantificador **liga** a variável $x$.  
 Uma ocorrência da variável $x$ diz-se _ligada_ numa _fbf_ caso esta ocorrência apareça dentro do domínio do quantificador que a introduz. Caso contrário, a variável diz-se _livre_. Uma _fbf_ sem variáveis livres diz-se _fechada_ - basta uma livre para não o ser. Caso não ocorram quantificadores no âmbito da variável em questão (caso falemos de uma relação, por exemplo), a variável é livre.
 
-:::details[Exemplo - Variáveis livres/fechadas]
-
-A $fbf$ $P(x) \rightarrow \exists x [Q(x)]$ contém uma ocorrência livre
-de $x$, em $P(x)$, e uma ocorrência ligada de $x$ em $Q(x)$.
-
-:::
+A título de exemplo, podemos dizer que a $fbf$ $P(x) \rightarrow \exists x [Q(x)]$ contém uma ocorrência livre de $x$ em $P(x)$, e uma ocorrência ligada de $x$ em $Q(x)$.
 
 ### Substituição
 
@@ -329,11 +321,9 @@ $$
   4 & \bigg\vert\enspace\enspace\enspace\bigg\vert\enspace\bigg\vert\enspace P(x_0) && Rei, 2\\
   5 & \bigg\vert\enspace\enspace\enspace\bigg\vert\enspace\bigg\vert\enspace \neg P(x_0) && E\forall, 3\\
   6 & \bigg\vert\enspace\enspace\enspace\bigg\vert\enspace \neg\forall x[\neg P(x)] && I\neg, (3, (4, 5))\\
-  7 & \bigg\vert\enspace \forall x[\neg P(x)] && E\exists, (1, (2, 6))\\
+  7 & \bigg\vert\enspace \neg \forall x[\neg P(x)] && E\exists, (1, (2, 6))\\
   8 & \exists x[P(x)] \to \neg\forall x[\neg P(x)] && I\to, (1, 7)
 \end{array}
 $$
 
 :::
-
-[Slides](https://drive.google.com/file/d/1izIvt-bDsqUgIca3irewRyCUNpeEbYDA/view?usp=sharing)

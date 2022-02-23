@@ -333,7 +333,7 @@ da sua extensão par a $[-L,L]$, $g(x)$:
 $$
 g(x) = \begin{cases}
 f(x) & \text{se } x \in ]0, L]\\
-0 & \text{se } x = 0\\
+f(0) & \text{se } x = 0\\
 f(-x) & \text{se } x \in [-L, 0[
 \end{cases}
 $$
@@ -385,6 +385,16 @@ S_{\cos} f(x) = \begin{cases}
 1 & \text{se } x \in \left[-\pi, -\frac{\pi}{4}\right[ \cup \left]\frac{\pi}{4},\pi\right]\\
 \frac{1}{2} & \text{se } x = \pm \frac{\pi}{4}
 \end{cases}
+$$
+
+:::
+
+## Identidade de Parseval
+
+:::tip[Definição]
+
+$$
+\frac{1}{L} \int_{-L}^{L} \left[f(x)\right]^2 \d x = \frac{a_0^2}{2} + \sum_{n=1}^{+\infty} \left(a_n^2 + b_n^2\right)
 $$
 
 :::

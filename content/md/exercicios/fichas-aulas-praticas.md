@@ -13,7 +13,7 @@ Caso encontres incorreções nas resoluções abaixo, por favor
 para serem corrigidas.
 :::
 
-- [Séries 1: Somatórios e Funções Geradoras](https://drive.google.com/file/d/1hUtsar3iMyzrPruihxWKprECdyN2A8mq/view?usp=sharing)
+- [Séries 1: Somatórios e Funções Geradoras](https://drive.google.com/file/d/1vwgv8uHCVMugL3cHHhpG0jJAQb2aqoX4/view)
 
   - [Resolução (1.1)](https://drive.google.com/file/d/1FKySSlds5jFUWRGt_Z_nhzAR7WKgfT4h/view?usp=sharing)
   - [Resolução (1.2.1)](https://drive.google.com/file/d/1_mzIVws7KqJE8s8RzmQMYmQXEN8Th-T7/view?usp=sharing)
@@ -30,13 +30,13 @@ para serem corrigidas.
   - [Resolução (2.3.2)](https://drive.google.com/file/d/1ZROt5u13CqO-SGtLT7ANL_IhQMHE0Y9V/view?usp=sharing)
   - [Resolução (2.4)](https://drive.google.com/file/d/1LeM7FmSNHbTOhalMi056k-XvDC_mngej/view?usp=sharing)
 
-- [Séries 2: FFT](https://drive.google.com/file/d/1IkkxoFZdPwvdEowCZSbzIj2wFWzJJZz8/view?usp=sharing)
+- [Séries 2: FFT](https://drive.google.com/file/d/1S2RNVrj3SdfYFGyGafMynenFdAWpW5JC/view)
 
   - [Resolução (1.2)](https://drive.google.com/file/d/1BNS7BbemF16a4MdbzytJMj0uG3_guOK5/view?usp=sharing)
   - [Resolução (1.4)](https://drive.google.com/file/d/1grZ_eBw5ClWjNkgd3jL6GBaQre2KGZ5M/view?usp=sharing)
   - [Resoulção Parcial (José Félix)](https://drive.google.com/file/d/1iCUU3hSladkJRM8hOPUcuFidu4xtI0fi/view?usp=sharing)
 
-- [Séries 3: Teoria de Números e Criptografia](https://drive.google.com/file/d/19bR5nVopMuiwt7BJ4fH3CRx3jZCodcZw/view?usp=sharing)
+- [Séries 3: Teoria de Números e Criptografia](https://drive.google.com/file/d/17tZMHbasqvlOempt5Lq6rVIQQazo-79b/view)
 
   - [Resolução (2)](https://drive.google.com/file/d/1rF4B4iBhE6DntWonrOJ4FmJpL6pcIqJ6/view?usp=sharing)
   - [Resolução (5)](https://drive.google.com/file/d/1f7V-kLTVaKHZ3oPrc4eE5TVXjJb51zlE/view?usp=sharing)
@@ -44,7 +44,7 @@ para serem corrigidas.
   - [Resolução (9.1)](https://drive.google.com/file/d/13heb8HUUaV32BFJHFHSV5QEXS28KMS38/view?usp=sharing)
   - [Resolução (10)](https://drive.google.com/file/d/1rS95y0LgIDJayM1zNwDnla94TEB1H4IF/view?usp=sharing)
 
-- [Séries 4: Grafos](https://drive.google.com/file/d/1yEKjJEnabBbBl3bTGSwT5D9IlD0raUzK/view?usp=sharing)
+- [Séries 4: Grafos](https://drive.google.com/file/d/1o92PaHN4b-D5KmwC1Td11F00j5rE6EyZ/view)
 
   - [Resolução (1)](https://drive.google.com/file/d/17mcBowfpwvrKfqhXnpf3M9kcNbnDwE6U/view?usp=sharing)
   - [Resolução (2)](https://drive.google.com/file/d/1fl9-u01iTlYrDEv3ge1P2A_JOIfGDT1i/view?usp=sharing)
@@ -54,6 +54,6 @@ para serem corrigidas.
   - [Resolução (8)](https://drive.google.com/file/d/1dZpleo0TdoUccRk9HYE_YegPE0ZA-mkl/view?usp=sharing)
   - [Resolução (9)](https://drive.google.com/file/d/15zgqotRCgUsOWSva1u7wybkU9xnuraBU/view?usp=sharing)
 
-- [Séries 5: Autómatos Finitos e Gramáticas](https://drive.google.com/file/d/1nLFKZTPj38gi05mwFDUOhz0SMSm0uvlh/view?usp=sharing)
+- [Séries 5: Autómatos Finitos e Gramáticas](https://drive.google.com/file/d/1GY6ets1RiSZ0I7I_0T3iSq4sSdhEcAZP/view)
 
   - [Resolução (1 e 2)](https://drive.google.com/file/d/1SW9gcN9PtBHt482RmYvcnMp4A5cyrYdR/view?usp=sharing)

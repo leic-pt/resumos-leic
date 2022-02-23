@@ -60,6 +60,18 @@ a {
   body.dark-mode img[data-dark='1'] {
     filter: invert(1) hue-rotate(180deg) saturate(5);
   }
+  body.dark-mode .gatsby-resp-image-wrapper[data-dark='2'],
+  body.dark-mode img[data-dark='2'] {
+    filter: invert(1) hue-rotate(180deg) saturate(3);
+  }
+  body.dark-mode .gatsby-resp-image-wrapper[data-dark='3'],
+  body.dark-mode img[data-dark='3'] {
+    filter: invert(1) hue-rotate(180deg);
+  }
+  body.dark-mode .gatsby-resp-image-wrapper[data-dark='4'],
+  body.dark-mode img[data-dark='4'] {
+    filter: invert(1);
+  }
   body.dark-mode div.mermaid {
     filter: invert(1) hue-rotate(135deg);
   }
