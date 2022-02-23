@@ -55,7 +55,7 @@ Note-se que na expressão acima passámos o termo $n=0$ para fora da série e tr
 :::
 
 A expressão resultante, $SF_f(x)$ vai corresponder exatamente a $f$ nos pontos em $]-L, L[$ em que $f$ é contínua.
-Aliás, uma das grandes vantagens da Série de Fourier é que a função não precisar de ser contínua, apenas seccionalmente contínua (e ter derivada seccionalmente contínua).
+Aliás, uma das grandes vantagens da Série de Fourier é a função não precisar de ser contínua, apenas seccionalmente contínua (e ter derivada seccionalmente contínua).
 
 Nos pontos de descontinuidade, a expressão da Série de Fourier equivale ao ponto médio entre os valores da função a vir de ambas as direções. Traduzindo isto para um sistema, obtemos o [**Teorema da Convergência Pontual da Série de Fourier**](color:green):
 
@@ -183,7 +183,7 @@ $$
 a_n = \frac{1}{\pi} \int_{-\pi}^{\pi} x \cos(nx) \d x = 0
 $$
 
-Mais ainda, visto que $x$ é ímpar, tal como visto mais acima, $\int_{-\pi}^{\pi} x  \d x = 0$.
+Mais ainda, visto que $x$ é ímpar, tal como visto mais acima, $\int_{-\pi}^{\pi} x \d x = 0$.
 
 Para determinarmos $b_n$, já necessitamos mais cálculos:
 
