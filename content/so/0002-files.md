@@ -363,7 +363,7 @@ int main()
   - O argumento `whence` recebe uma das constantes `SEEK_SET`, `SEEK_CUR` ou `SEEK_END`, que indica
     se o `offset` é relativo ao início da `stream`, à posição atual ou ao final da `stream`, respetivamente.
 
-### Persistência de escritas
+### Persistência de Escritas
 
 Após escrita em ficheiro, essa escrita está garantidamente persistente no disco? [**Nem sempre!**](color:red)
 
