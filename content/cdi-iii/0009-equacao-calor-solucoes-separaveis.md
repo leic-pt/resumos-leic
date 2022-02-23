@@ -291,7 +291,7 @@ $$
 u\left(t,x\right) = \sum_{n=0}^{\infty} u_n\left(t,x\right) = \sum_{n = 0}^{\infty} e^{-\frac{4\pi^2 n^2}{L^2}kt} \left(a_n \cos \frac{2\pi n}{L}x + b_n \sin \frac{2\pi n}{L}x\right)
 $$
 
-Então, resolver o problema da equação do calor passa a ser equivalente a perceber como expresar a condição inicial
+Então, resolver o problema da equação do calor passa a ser equivalente a perceber como expressar a condição inicial
 
 $$
 u\left(0, x\right) = f\left(x\right)
