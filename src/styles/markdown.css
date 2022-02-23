@@ -20,6 +20,9 @@ body {
 
 .content img {
   max-width: 100%;
+  /* center images */
+  display: block;
+  margin: 0 auto;
 }
 
 .custom-container {
