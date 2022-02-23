@@ -8,7 +8,7 @@ import Navbar from './Navbar';
 import PageMetadata from './PageMetadata';
 import Sidebar from './Sidebar';
 import Box from '@mui/material/Box';
-import SiteTitle from './SiteTitle';
+import MarkdownContent from './MarkdownContent';
 
 export default function Template({ data }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -29,7 +29,7 @@ export default function Template({ data }) {
       </Box>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <Box sx={{ mx: 5, flexGrow: 1 }}>
-          <div className='content' dangerouslySetInnerHTML={{ __html: page.html }} />
+          <MarkdownContent htmlAst={page.htmlAst} />
           {components?.map((Component, i) => (
             <Component key={i} />
           ))}
@@ -43,7 +43,7 @@ export default function Template({ data }) {
 export const pageQuery = graphql`
   query PageByPath($path: String!, $pathRegex: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
+      htmlAst
       frontmatter {
         title
         description
