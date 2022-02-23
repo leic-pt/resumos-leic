@@ -264,20 +264,20 @@ $$
 $$
 \begin{darray}{c}
 T(t) = c e^{\lambda k t}\\
-T(t) = c e^{-\frac{4\pi^2 n^2}{L^2}t}
+T(t) = c e^{-\frac{4\pi^2 n^2}{L^2}kt}
 \end{darray}
 $$
 
 Finalmente, fazemos os produtos entre as duas expressões.
 
 $$
-u\left(t,x\right) = T\left(t\right)X\left(x\right) = e^{-\frac{4\pi^2 n^2}{L^2}t} \left(a_n \cos \frac{2\pi n}{L} + b_n \sin \frac{2\pi n}{L}\right)
+u\left(t,x\right) = T\left(t\right)X\left(x\right) = e^{-\frac{4\pi^2 n^2}{L^2}kt} \left(a_n \cos \frac{2\pi n}{L}x + b_n \sin \frac{2\pi n}{L}x\right)
 $$
 
 Segundo o [Princípio da Sobreposição](#princípio-da-sobreposição), podemos escrever a nossa solução como a soma de várias soluções.
 
 $$
-u\left(t,x\right) = B + \sum_{n = 1}^{\infty} e^{-\frac{4\pi^2 n^2}{L^2}t} \left(a_n \cos \frac{2\pi n}{L} + b_n \sin \frac{2\pi n}{L}\right)
+u\left(t,x\right) = B + \sum_{n = 1}^{\infty} e^{-\frac{4\pi^2 n^2}{L^2}kt} \left(a_n \cos \frac{2\pi n}{L}x + b_n \sin \frac{2\pi n}{L}x\right)
 $$
 
 Podemos dar uma função à temperatura inicial, que funciona como condição inicial.

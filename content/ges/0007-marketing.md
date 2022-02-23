@@ -55,15 +55,13 @@ Durante um passeio em Lisboa:
   $\to$ Proatividade, Força de Vendas, Promoção.
 
 - **Conceito de Marketing**: O centro da ação devem ser os consumidores e a satisfação da sua necessidade e não o produto.\
-  $\to$ Encontrar o produto adptado a essas necessidades.
+  $\to$ Encontrar o produto adaptado a essas necessidades.
 
 - **Conceito de Marketing Social**: Marketing em que existe ainda a preocupação com o bem estar dos consumidores e da sociedade em geral.
 
 ## Comportamento do Consumidor
 
-O processo de decisão do comprador (consumidores individuais) passa essencialmente por 5 etapas:
-
-![5 Etapas do Comportamento do Consumidor](./assets/0007-comportamento-consumidor.png#dark=1)
+![5 Etapas do Comportamento do Consumidor](./assets/0007-comportamento-consumidor.png#dark=2)
 
 ### Características e Psicologia do Consumidor
 
@@ -74,7 +72,9 @@ O processo de decisão do comprador (consumidores individuais) passa essencialme
 
 ### Processo de Decisão do Comprador
 
-1. **Reconhecimento do Problema ou Necessidade**: Motivação desencadeada por Estímulos internos (por exemplo, fome) e/ou Estímulos externos (por
+O processo de decisão do comprador (consumidores individuais) passa essencialmente por 5 etapas:
+
+1. **Reconhecimento do Problema ou Necessidade**: Motivação desencadeada por Estímulos Internos (por exemplo, fome) e/ou Estímulos Externos (por
    exemplo, o anúncio de um novo hambúrguer Atlanta)
 
 2. **Pesquisa de Informação**: Fontes: Pessoais, Comerciais, Públicas, Experienciais
@@ -115,7 +115,7 @@ e frequentemente concentrados geograficamente. A sua procura pode ser derivada:
 
 A estratégia de Marketing passa por 3 grandes etapas:
 
-![3 Etapas da Estratégia de Marketing](./assets/0007-estrategia-marketing.png#dark=1)
+![3 Etapas da Estratégia de Marketing](./assets/0007-estrategia-marketing.png#dark=2)
 
 ### Segmentação
 
@@ -178,7 +178,7 @@ Produto constitui tudo o que pode ser oferecido a um mercado para aquisição, a
 
 Na mente do consumidor o produto possui imensos níveis de interesse:
 
-![Nível de interesse de um produto](./assets/0007-mix-produto.png#dark=1)
+![Nível de interesse de um produto](./assets/0007-mix-produto.png#dark=3)
 
 O benefício nuclear corresponde à satisfação da necessidade original do consumidor.
 A partir daí o produto vai ganhando espaço no desejo do consumidor consoante aquilo que o produto oferece,
@@ -211,7 +211,7 @@ Os bens de consumo podem ser classificados, consoante aos hábitos de compra dos
 
 Os produtos industriais podem ser classificados em:
 
-- **Bens de Capital**: Não integram o produto final (Ex: instalações e equipamentos)
+- **Bens de Capital**: Não integram o produto final (ex: instalações e equipamentos)
 - **Partes e Materiais**: Que integram o produto final (ex: Matérias primas, componentes, etc)
 - **Fornecimentos e Serviços**: Bens que facilitam a produção
 
@@ -237,7 +237,7 @@ Se a Joana faltar à aula, ela perde-a completamente (Inseparabilidade) pois est
 
 A história de venda de um produto apresenta diferentes estágios, com potenciais de lucro, oportunidades e problemas de estratégia, e políticas de Marketing Mix.
 
-![Ciclo de Vida de um Produto](./assets/0007-ciclo-vida-produto.png#dark=1)
+![Ciclo de Vida de um Produto](./assets/0007-ciclo-vida-produto.png#dark=2)
 
 ### [Preço](color:yellow)
 
@@ -265,7 +265,7 @@ de um preço elevado (particularmente tendo em conta os custos de produção) du
 A penetração consiste, basicamente, na fixação de um preço reduzido, inicial no sentido de
 tornar possível uma rápida e profunda aceitação do produto em causa no mercado correspondente.
 
-![Preço de Penetração](./assets/0007-preco-penetracao.png#dark=1)
+![Preço de Penetração](./assets/0007-preco-penetracao.png#dark=3)
 
 Para a redefinição do preço de um produto já existente devemos considerar a perecibilidade,
 o grau de diferenciação e estado do ciclo de vida que o produto se encontra.
@@ -273,13 +273,13 @@ o grau de diferenciação e estado do ciclo de vida que o produto se encontra.
 A adaptação momentânea do preço de um produto pode ser consoante quatro fatores:
 
 - Preços promocionais (ex. acontecimentos especiais)
-- Preços discriminatórios (ex. Por segmento de clientes ou por data/hora)
-- Preços de gama (ex. Por linhas de produtos)
-- Preço base e descontos (ex. Descontos financeiros, sazonais, etc.)
+- Preços discriminatórios (ex. por segmento de clientes ou por data/hora)
+- Preços de gama (ex. por linhas de produtos)
+- Preço base e descontos (ex. descontos financeiros, sazonais, etc.)
 
 ### [Distribuição](color:yellow)
 
-A distribuição debruça-se sobre levar o produto/serviço a pessoa certa, no momento certo tendo em contra o lucro e a eficácia.
+A distribuição debruça-se sobre levar o produto/serviço à pessoa certa, no momento certo tendo em contra o lucro e a eficácia.
 
 Os canais de distribuição correspondem a qualquer intermediário entre a empresa
 e o destinatário final do bem/serviço, este intermediário podem ser indivíduos e firmas,
@@ -305,7 +305,7 @@ Em cada nível do canal, os intermediários podem ser vários tipos:
 A comunicação/promoção é o conjunto de atividades desenvolvidas pela empresa para comunicar com os seus clientes – atuais e potenciais.
 
 Por vezes associa-se o termo promoção e Marketing como sendo sinónimos, mas, pelo que já vimos,
-o Marketing é bem mais amplo, sendo a promoção uma das partes.A comunicação/promoção tem os seguintes componentes relevantes:
+o Marketing é bem mais amplo, sendo a promoção uma das partes. A comunicação/promoção tem os seguintes componentes relevantes:
 
 - **Publicidade**: Forma paga de apresentação e de comunicação não pessoal de organizações, ideias,
   bens ou serviços, efetuada por um patrocinador identificado, para uma audiência alvo,
@@ -321,7 +321,7 @@ o Marketing é bem mais amplo, sendo a promoção uma das partes.A comunicação
 
 A resposta comportamental pretendida pela ação de comunicação é condicionada pelo estado do comprador:
 
-![Comunicação (lado do marketer)](./assets/0007-comunicacao-marketer.png#dark=1)
+![Comunicação (lado do marketer)](./assets/0007-comunicacao-marketer.png#dark=3)
 
 Podemos definir duas estratégias de marketing possíveis: Push e Pull.
 
@@ -329,9 +329,9 @@ Podemos definir duas estratégias de marketing possíveis: Push e Pull.
   tem que se promover junto dos distribuidores e dos retalhistas até chegar ao consumidor final;
 - **Marketing pull**: É promover diretamente junto do consumidor final que vai pedir os produtos às lojas e estas aos distribuidores.
 
-![Estratégias push e pull](./assets/0007-push-pull.png#dark=1)
+![Estratégias push e pull](./assets/0007-push-pull.png#dark=2)
 
 Resumindo o que foi abordado neste capítulo, embora esteja longe de universalmente aplicável,
 o quadro seguinte ajuda a entender a ênfase do Marketing em cada fase do ciclo de vida do produto
 
-![Ênfase do Marketing em cada fase do ciclo de vida do produto](./assets/0007-marketing-ciclo-vida-produto.png#dark=1)
+![Ênfase do Marketing em cada fase do ciclo de vida do produto](./assets/0007-marketing-ciclo-vida-produto.png#dark=3)

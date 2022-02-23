@@ -165,7 +165,7 @@ Com este Algoritmo consegue-se percorrer um `atalho euleriano fechado` num `mult
 
 :::details[Exemplo]
 
-O exemplo encontra-se neste [link](https://drive.google.com/file/d/1mWPgKAqZsVNwdzvJg4vBNAOzEbcAHRfp/view?usp=sharing)
+O exemplo encontra-se neste [link](https://drive.google.com/file/d/1XBts9Zbo54SCU7i_vXwlg4TbsxFp4IJJ/view?usp=sharing)
 
 :::
 
@@ -195,7 +195,7 @@ Passamos agora à descrição do Algoritmo:
 
 :::details[Exemplo]
 
-O exemplo encontra-se neste [link](https://drive.google.com/file/d/1ZVw96HG3QqPzsiD47qvrGwhbJTVMM6Dq/view?usp=sharing)
+O exemplo encontra-se neste [link](https://drive.google.com/file/d/1oFosH-glbdQfcqJTKvz8mu6MIzrNi64O/view?usp=sharing)
 
 :::
 
@@ -208,7 +208,7 @@ Só percorremos essa aresta em último caso, ou seja, se for um beco sem saída,
 
 :::details[Exemplo]
 
-O exemplo encontra-se neste [link](https://drive.google.com/file/d/17nTEKOgFZcweQ9cpuy6ODecCnr8QBnWm/view?usp=sharing).
+O exemplo encontra-se neste [link](https://drive.google.com/file/d/1mOAIvxcxbiRhYMEPEn_RCWLzCMYIRYqz/view?usp=sharing).
 
 :::
 

@@ -38,9 +38,9 @@ Aqui, cada coluna corresponde a um círculo eleitoral, enquanto que cada linha c
 
 Como podemos observar, diferentes círculos eleitorais reagem de forma diferente à mesma medida: subsídios agrícolas, por exemplo, são recebidos com enorme satisfação pela população rural, diretamente beneficiada pelos mesmos, enquanto que os setores urbano e suburbano reagem com indiferença, visto que a medida não os afeta diretamente.
 
-O objetivo passará, então, por tentar obter a maioria absoluta (pelo menos $50%$ dos votos) minimizando os custos. A resposta, claro, será obtida através da programação linear. Antes de introduzir o conceito em si, tentemos formalizar o problema:
+O objetivo passará, então, por tentar obter a maioria absoluta (pelo menos $50\%$ dos votos) minimizando os custos. A resposta, claro, será obtida através da programação linear. Antes de introduzir o conceito em si, tentemos formalizar o problema:
 
-Temos que as quantias a gastar por medida em publicidade são dados, respetivamente, por $x_1, x_2, x_3$ e $x_4$. O nosso objetivo passa, então, por minimizar $\sum_{i=1}^4 x_i$. Visto que queremos procurar satisfazer ao máximo o eleitorado, procuramos também que cada círculo eleitoral tenha, no mínimo, $50%$ dos votos. Assim sendo, iríamos procurar a solução que minimize os custos sujeita às restrições:
+Temos que as quantias a gastar por medida em publicidade são dados, respetivamente, por $x_1, x_2, x_3$ e $x_4$. O nosso objetivo passa, então, por minimizar $\sum_{i=1}^4 x_i$. Visto que queremos procurar satisfazer ao máximo o eleitorado, procuramos também que cada círculo eleitoral tenha, no mínimo, $50\%$ dos votos. Assim sendo, iríamos procurar a solução que minimize os custos sujeita às restrições:
 
 $$
 -2x_1 + 8x_2 + 0x_3 + 10x_4 \geq 50\\
@@ -120,7 +120,7 @@ Ax \leq b \\
 x \geq 0
 $$
 
-Podemos reparar que as reprsentações coincidem com as apresentadas anteriormente.
+Podemos reparar que as representações coincidem com as apresentadas anteriormente.
 
 A conversão de um programa linear para a forma standard pode não ser trivial: podemos enfrentar problemas com resolução não óbvia.
 
@@ -277,8 +277,8 @@ $$
 
 Podemos então notar que, de forma sucinta:
 
-- As colunas de $a$ correspondem às variáveis não-básicas, $N$;
-- As linhas de $a$ correspondem às variáveis básicas, $B$;
+- As colunas de $A$ correspondem às variáveis não-básicas, $N$;
+- As linhas de $A$ correspondem às variáveis básicas, $B$;
 - As entradas de $A$ correspondem aos coeficientes de cada variável não básica na equação associada a cada variável básica do conjunto de restrições;
 
 Mais ainda, as linhas da matriz vertical $b$ correspodem à variável de slack de cada igualdade do conjunto de restrições associada a cada variável básica. Para além disso, $c_3, c_5, c_6$ em $c$ correspondem aos coeficientes de cada variável não básica na função objetivo.
@@ -300,11 +300,11 @@ x_6 &= 36 - 4x_1 - x_2 - 2x_3
 \end{aligned}
 $$
 
-Inicialmente, olhamos para a **solução básica** para o problema: colocamos todas as variáveis não-básicas a zero, ficando com a solução igual a $(0, 0, 0, 30, 24, 36)$, $z = 3 \cdot 0 + 1 \cdot 0 + 2 \cdot 0 = 0$. Se for exequível, dizemos que se trata de uma **solução básica exequível**.
+Inicialmente, olhamos para a **solução básica** para o problema: colocamos todas as variáveis não-básicas a zero, ficando com a solução igual a $(0, 0, 0, 30, 24, 36)$, $z = 3 \cdot 0 + 1 \cdot 0 + 2 \cdot 0 = 0$. Se for exequível, dizemos que o programa tem uma uma **solução básica exequível**.
 
 O algoritmo procura, a cada iteração, reescrever as equações do programa, de forma a encontrar diferentes soluções para o mesmo. Além disso, temos que as alterações que faremos serão sempre com vista a **não decrescer** $z$ - não tem necessariamente de aumentar, mas nunca irá diminuir entre iterações.
 
-Para reescrever as igualdades, pegamos numa das variáveis não-básicas do programa e olhamos para as variáveis básicas, procurando pensar "qual é o máximo que posso aumentar a variável não-básica sem que as variáveis básicas se tornem negativas". Para isso, temos de olhar para cada uma das restrições e procurar percebê-lo - pensemos, em relação ao programa acima, qual é o máximo que podemos aumentar $x_1$:
+Para reescrever as igualdades, pegamos na variável não-básica do programa cujo **coeficiente no objetivo é mais positivo** e olhamos para as variáveis básicas, procurando pensar "qual é o máximo que posso aumentar a variável não-básica sem que as variáveis básicas se tornem negativas". Mais ainda, temos que o algoritmo termina quando todas as variáveis não-básicas do objetivo tiverem coeficientes negativos. Temos então de olhar para cada uma das restrições e procurar qual a variável a alterar (e como) em relação ao programa acima, qual é o máximo que podemos aumentar $x_1$ (já que tem o coeficiente mais positivo)?
 
 - $x_4 = 30 - x_1 - x_2 - 3x_3$. Igualando todas as variáveis exceto $x_1$ a zero, obtemos uma maximização de $x_1$ para esta restrição: $x_1 = 30$;
 
@@ -325,17 +325,17 @@ x_5 &= 6 - \frac{3x_2}{2} - 4x_3 + \frac{x_6}{2}
 \end{aligned}
 $$
 
-De realçar que as duas últimas restrições foram obtidas substituíndo $x_1$ pelo lado direito da nova igualdade que envolve $x_1$ como variável básica: $9 - \frac{x_2}{4} - \frac{x_3}{2} - \frac{x_6}{4}$.
+De realçar que as duas últimas restrições e o objetivo foram obtidos substituíndo $x_1$ pelo lado direito da nova igualdade que envolve $x_1$ como variável básica: $9 - \frac{x_2}{4} - \frac{x_3}{2} - \frac{x_6}{4}$.
 
-A operação que foi agora realizada, esta troca entre uma variável básica e uma não-básica, é a [**Operação Pivot**](color:yellow). Nesta operação, consideramos a variável não-básica $x_1$ a **variável de entrada** (vai entrar no conjunto das variáveis básicas), e a variável básica $x_6$ a **variável de saída** (vai sair do conjunto de variáveis básicas). O algoritmo Simplex procura, então, realizar sucessivos Pivots até não haver mais soluções básicas exequíveis - [**até todos os coeficientes das variáveis não-básicas na função objetivo serem negativos**](color:pink).
+A operação que foi agora realizada, esta troca entre uma variável básica e uma não-básica, é a [**Operação Pivot**](color:yellow). Numa pivotagem, consideramos a variável não-básica $x_1$ a **variável de entrada** (vai entrar no conjunto das variáveis básicas), e a variável básica $x_6$ a **variável de saída** (vai sair do conjunto de variáveis básicas). O algoritmo Simplex procura, então, realizar pivotagens sucessivas até não haver mais soluções básicas exequíveis - [**até todos os coeficientes das variáveis não-básicas na função objetivo serem negativos**](color:pink).
 
 Voltamos então a igualar todas as variáveis não-básicas a zero, ficando com solução igual a $(9, 0, 0, 21, 6, 0)$ e $z = 27$.
 
-De seguida, procuramos reescrever novamente o problema: desta vez, foquemo-nos na variável $x_3$. Aqui, a terceira restrição (a que tem $x_5$ como variável básica) é a mais apertada, restringindo $x_3$ a $6$. Assim sendo, o programa reescrito será (e tendo em conta agora $x_3 = \frac{3}{2} - \frac{3x_2}{8} - \frac{x_5}{4} + \frac{x_6}{8}$):
+De seguida, procuramos reescrever novamente o problema: desta vez, foquemo-nos na variável $x_3$, a variável não-básica com coeficiente mais positivo no objetivo. Aqui, a terceira restrição (a que tem $x_5$ como variável básica) é a mais apertada, restringindo $x_3$ a $6$. Assim sendo, o programa reescrito será (e tendo em conta agora $x_3 = \frac{3}{2} - \frac{3x_2}{8} - \frac{x_5}{4} + \frac{x_6}{8}$):
 
 $$
 \begin{aligned}
-z &= \frac{111}{4} + \frac{x_2}{16} - \frac{x_5}{8} + \frac{11x_6}{16}\\
+z &= \frac{111}{4} + \frac{x_2}{16} - \frac{x_5}{8} - \frac{11x_6}{16}\\
 x_1 &= \frac{33}{4} - \frac{x_2}{16} + \frac{x_5}{8} - \frac{5x_6}{16}\\
 x_3 &= \frac{3}{2} - \frac{3x_2}{8} - \frac{x_5}{4} + \frac{x_6}{8}\\
 x_4 &= \frac{69}{4} + \frac{3x_2}{16} + \frac{5x_5}{8} - \frac{x_6}{16}
@@ -344,7 +344,7 @@ $$
 
 O objetivo $z$ é, então, aumentado para $\frac{111}{4}$.
 
-Por fim, reescrevemos o programa olhando para $x_2$, ficando com:
+Por fim, reescrevemos o programa tendo em conta $x_2$ (a única variável não-básica com coeficiente positivo restante), ficando com:
 
 $$
 \begin{aligned}
@@ -369,11 +369,11 @@ A conversão de um programa linear para a forma slack nem sempre é simples. Vej
   x_1, x_2 \geq 0.
   $$
 
-A conversão deste programa para a forma slack resulta nas restrições $x_1 = 0 \wedge x_2 = 0$, o que vai diretamente contra a segunda restrição acima apresentada - **não há uma solução exequível inicial**. Podemos, contudo, verificar se o programa tem alguma solução exequível, recorrendo a um programa auxiliar.
+Ao igualar $x_1$ e $x_2$ a $0$, a segunda restrição é desrespeitada (ficamos com $0 \leq -4$) - **não há uma solução exequível inicial**. Podemos, contudo, verificar se o programa tem alguma solução exequível, recorrendo a um programa auxiliar.
 
 Seja $L$ um programa linear na forma standard, $L_{aux}$ é definido tal que:
 
-- Objetivo: Maximizar $x_0$;
+- Objetivo: Maximizar $-x_0$;
 - Restrições:
   $$
     \sum_{i=1}^{n} a_{ij}x_j - x_0 \leq b_i, \quad i = 1, 2, ..., m\\
@@ -394,12 +394,12 @@ Começemos com o programa linear inicial abaixo:
   x_1, x_2 \geq 0.
   $$
 
-Temos que a solução básica não é exequível. Assim sendo, construímos um programa linear auxiliar tal que:
+Temos que a solução básica não é exequível (ficaríamos com $0 \leq -4$). Assim sendo, construímos um programa linear auxiliar tal que:
 
 - Objetivo: Maximizar $-x_0$;
 - Restrições:
   $$
-  2x_1 - x_2 - x_0 \leq -2\\
+  2x_1 - x_2 - x_0 \leq 2\\
   x_1 - 5x_2 - x_0 \leq -4\\
   x_1, x_2, x_0 \geq 0.
   $$
@@ -407,27 +407,23 @@ Temos que a solução básica não é exequível. Assim sendo, construímos um p
 O programa encontra-se atualmente na forma standard. A sua conversão para a forma slack é trivial:
 
 $$
-\begin{aligned}
-&z = -x_0\\
-&x_3 = 2 - 2x_1 + x_2 + x_0\\
-&x_4 = -4 - x_1 + 5x_2 + x_0\\
-\end{aligned}
+z = -x_0\\
+x_3 = 2 - 2x_1 + x_2 + x_0\\
+x_4 = -4 - x_1 + 5x_2 + x_0\\
+x_1, x_2, x_0, x_3, x_4 \geq 0.
 $$
 
-A solução básica deste programa continua sem ser exequível: igualar todas as variáveis não-básicas a $0$ levaria a $x_4 = -4$, que vai diretamente contra a restrição de todas as variáveis terem de ser não negativas. Assim sendo, executamos uma operação pivot entre $x_0$ e $x_4$, com vista a eliminar o problema em questão - se após todos os Pivots possíveis continuar sem haver solução exequível, o próprio programa diz-se **não exequível**.
-
-A operação pivot leva então a:
+O primeiro passo ao resolver os programas auxiliares passa **sempre** por pivotar $x_0$ - o algoritmo estaria concluído caso contrário, já temos o $z = -x_0$ pretendido. Optamos, aqui, por pivotar $x_0$ com a restrição que contiver a constante mais negativa - neste caso, pivotando $x_0$ com a restrição que contém $x_4$ como variável básica, tal que:
 
 $$
 \begin{aligned}
 z &= -4 - x_1 + 5x_2 - x_4\\
 x_0 &= 4 + x_1 - 5x_2 + x_4\\
 x_3 &= 6 - x_1 - 4x_2 + x_4\\
-x_1 &= -4 + x_1 - 5x_2 + x_4\\
 \end{aligned}
 $$
 
-Este programa apresenta solução básica exequível! Aplicaríamos agora o algoritmo Simplex até obter uma solução para este programa auxiliar tal que $z = 0$: caso tal solução exista, o programa original é exequível. A solução para o programa auxiliar seria:
+Este programa apresenta solução básica exequível! Aplicaríamos agora o algoritmo Simplex normalmente até obter uma solução para este programa auxiliar tal que $z = -x_0$: caso tal solução exista, o programa original é exequível, e partiremos da solução aqui encontrada quando voltarmos ao programa original. A solução para o programa auxiliar seria (depois de alguns passos):
 
 $$
 \begin{aligned}
@@ -437,13 +433,15 @@ $$
 \end{aligned}
 $$
 
-Para resolver o problema inicial, teríamos que ter em conta $2x_1 - x_2 = 2x_1 - \frac{4}{5} - \frac{x_0}{5} + \frac{x_1}{5} + \frac{x_4}{5}$, ficando então escrito na forma slack tal que:
+Teríamos, então, uma solução tal que $(0, \frac{4}{5}, \frac{14}{5}, 0)$.
+
+Para resolver o problema inicial, substituíriamos o objetivo $z = x_0$ pelo original (substituíndo $x_2$ no objetivo pela restrição $x_2$ acima), e mantendo o conjunto de restrições praticamente intacto, com exceção da remoção de qualquer referência a $x_0$ nas mesmas. Procuraríamos, então, resolver:
 
 $$
 \begin{aligned}
-&z = - \frac{4}{5} + \frac{9x_0}{5} - \frac{x_4}{5}\\
-&x_2 = \frac{4}{5} - \frac{x_0}{5} + \frac{x_1}{5} + \frac{x_4}{5}\\
-&x_3 = \frac{14}{5} + \frac{4x_0}{5} - \frac{9x_1}{5} + \frac{x_4}{5}
+&z = 2x_1 - x_2 = 2x_1 - (\frac{4}{5} + \frac{x_1}{5} + \frac{x_4}{5}) = - \frac{4}{5} + \frac{9x_1}{5} - \frac{x_4}{5}\\
+&x_2 = \frac{4}{5} + \frac{x_1}{5} + \frac{x_4}{5}\\
+&x_3 = \frac{14}{5} - \frac{9x_1}{5} + \frac{x_4}{5}
 \end{aligned}
 $$
 
@@ -451,9 +449,9 @@ A partir daqui, resolveríamos este programa linear com a ajuda do algoritmo Sim
 
 :::info[Teorema Fundamental da Programação Linear]
 
-Qualquer programa linear na forma standard:
+Pegando num qualquer programa linear na forma standard, este tem três possibilidades (só podendo pertencer a uma delas):
 
-- Tem uma [**solução ótima**](color:pink) com valor objetivo finito;
+- Tem uma [**solução ótima**](color:pink) com valor objetivo finito, valor esse que pode ser obtido num dos **vértices** da respetiva região exequível;
 
 - É [**não exequível**](color:purple);
 
@@ -465,17 +463,86 @@ Abaixo encontra-se o gráfico correspondente a um programa linear _unbounded_. P
 
 ![Região Exequível - Unbounded](./assets/0008-regiao-exequivel-unbounded.png#dark=1)
 
-Como nota final, resta afirmar que caso após $\binom{n + m}{n}$ iterações o algoritmo ainda não tenha terminado, podemos admitir que este está [**em ciclo**](color:orange). Há, ao todo, $n + m$ variáveis e $m$ formas de escolher $B$, pelo que há $\binom{n + m}{n}$ formas de slack únicas - mais que isso e o algoritmo está em ciclo. São raros, mas existem, e para os eliminar recorre-se à [**Regra de Bland**]: em caso de empate na escolha de variáveis, escolhe-se sempre a variável com menor índice.
+Como nota final, resta afirmar que caso após $\binom{n + m}{n}$ iterações o algoritmo ainda não tenha terminado, podemos admitir que este está [**em ciclo**](color:orange). Há, ao todo, $n + m$ variáveis e $m$ formas de escolher $B$, pelo que há $\binom{n + m}{n}$ formas de slack únicas - mais que isso e o algoritmo está em ciclo. São raros, mas existem, e para os eliminar recorre-se à [**Regra de Bland**](color:yellow): em caso de empate na escolha de variáveis, escolhe-se sempre a variável com menor índice.
 
 ## Dualidade
 
-:::warning[Página em Construção]
+Em programação linear, a dualidade é uma propriedade associada à própria análise de um problema: podemos exprimir um programa de duas maneiras diferentes, com soluções equivalentes, com a diferença principal entre elas a ser o **objetivo** pretendido: maximizar ou minimizar um dado objetivo. Vamos, nesta secção, finalmente aproveitar a representação matricial de um programa linear introduzida mais acima.
 
-O conteúdo será adicionado brevemente.
+Pensemos então num exemplo concreto. Uma empresa procura maximizar o lucro obtido ao vender dois produtos, $x$ e $y$, sendo que:
 
-:::
+- vende uma unidade do produto $x$ por $1$ euro e uma unidade do produto $y$ por $6$ euros (consideremos que _produzir_ o produto não tem qualquer custo monetário);
+- gasta uma hora a produzir $1$ produto (seja ele $x$ ou $y$);
+- pode gastar no máximo $200$ horas a produzir $x$;
+- pode gastar no máximo $300$ horas a produzir $y$;
+- ao todo, a combinação das horas gastas para produzir $x$ e $y$ não pode ultrapassar $400$ horas.
+
+Podemos procurar escrever o problema apresentado como um programa linear, tal que:
+
+$$
+\begin{aligned}
+max \quad&x + 6y\\
+s.a: \quad&x \leq 200\\
+&y \leq 300\\
+&x + y \leq 400\\
+&x, y \geq 0
+\end{aligned}
+$$
+
+Chamemos a este programa o programa [**Primal**](color:pink). A aplicação do algoritmo Simplex neste programa levaria a uma solução ótima com $x = 100 \wedge y = 300 \implies z = 1900$. Podemos, contudo, tentar perceber de maneira diferente no problema: e se o nosso objetivo for _minimizar_ as horas de produção dispendidas, tendo em conta certas margens de lucro que queremos ter? A dualidade entra precisamente aqui: vamos procurar construir um outro programa, o respetivo programa [**Dual**](color:orange), que procurará representar esse mesmo espelho de restrições:
+
+$$
+\begin{aligned}
+min \quad &200\lambda_1 + 300\lambda_2 + 400\lambda_3\\
+s.a: \quad&\lambda_1 + \lambda_3 \geq 1\\
+&\lambda_2 + \lambda_3 \geq 6\\
+&\lambda_1, \lambda_2, \lambda_3 \geq 0
+\end{aligned}
+$$
+
+A solução ótima também seria aqui $1900$: $(\lambda_1, \lambda_2, \lambda_3) = (0, 5, 1)$ leva ao objetivo $0 + 300 * 5 + 400 * 1 = 1900$, que bate certo com a solução ótima do programa Primal.
+
+Há uma mnemónica relativamente simples a ter em conta para esta transformação:
+
+| Primal     | Dual       |
+| ---------- | ---------- |
+| Variáveis  | Restrições |
+| Restrições | Variáveis  |
+| Max        | Min        |
+
+A regra, pegando então na representação matricial do programa, é a seguinte:
+
+$$
+\begin{aligned}
+max \quad& c^T x\\
+s.a: \quad&A x \leq b\\
+&x \geq 0
+\end{aligned} \xRightarrow{\text{Dual}}
+\begin{aligned}
+min \quad& y^T b\\
+s.a: \quad&y^T A \geq c^T\\
+&y \geq 0
+\end{aligned}
+$$
+
+Pela [**Dualidade Fraca**](color:yellow), sendo $x^*$ uma solução do programa Primal e $y^*$ uma solução do respetivo Dual, então
+
+$$
+c^T x^* \leq (y^*)^T b.
+$$
+
+Podemos olhar para o que está a acontecer através de um esboço das hipotéticas regiões exequíveis de um programa Primal e respetivo Dual:
+
+![Primal vs Dual (Gráfico)](./assets/0008-primal-dual-graph.png#dark=1)
+
+Fica então aparente que os programas são em tudo semelhantes (em espelho): um deles procura minimizar um dado objetivo, o Dual, e vai minimizá-lo tanto quanto possível, até um ponto em que coincide com a solução ótima do programa Primal.
+
+Por fim, olhamos para a [**Dualidade Forte**](color:green), que nos diz que:
+
+- a solução ótima do programa Primal coincide com a solução ótima do programa Dual, caso ela exista;
+
+- o programa Primal tem solução se e apenas se o respetivo Dual tem solução.
 
 ---
 
-- [Slides](https://drive.google.com/file/d/1IGRwXhtKGG0P9SRQxB3RTf5bIxtpvG1Y/view?usp=sharing)
 - [Notas Prog. Linear - Prof. José Fragoso](https://drive.google.com/file/d/1mDyBymCHkOOU0IrikVmHZ0kcdku9X23A/view?usp=sharing)

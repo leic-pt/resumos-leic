@@ -110,8 +110,8 @@ $$
  &  & 0 & 1 & 2 & 3\\
  &  & k^{0} & k^{1} & k^{2} & k^{3}\\
 0 & k^{\underline{0}} & 1 & 0 & 0 & 0\\
-\textcolor{#C8553D}{\mathbf{c}} & k^{\underline{1}} & \textcolor{#C8553D}{\mathbf{a}} & \textcolor{#C8553D}{\mathbf{b}} & 0 & 0\\
-2 & k^{\underline{2}} & 0 & \textcolor{#C8553D}{\mathbf{d}} & 1 & 0\\
+\smartcolor{orange}{\mathbf{c}} & k^{\underline{1}} & \smartcolor{orange}{\mathbf{a}} & \smartcolor{orange}{\mathbf{b}} & 0 & 0\\
+2 & k^{\underline{2}} & 0 & \smartcolor{orange}{\mathbf{d}} & 1 & 0\\
 3 & k^{\underline{3}} & 0 & 2 & -3 & 1
 \end{array}
 $$
@@ -175,12 +175,12 @@ Visualmente, e querendo calcular $d$, isto fica:
 
 $$
 \begin{array}{ c c c c c c }
- &  & 0 & 1 & \textcolor{#C8553D}{\mathbf{b}} & 3\\
+ &  & 0 & 1 & \smartcolor{orange}{\mathbf{b}} & 3\\
  &  & k^{\underline{0}} & k^{\underline{1}} & k^{\underline{2}} & k^{\underline{3}}\\
 0 & k^{0} & 1 & 0 & 0 & 0\\
 1 & k^{1} & 0 & 1 & 0 & 0\\
-2 & k^{2} & 0 & \textcolor{#C8553D}{\mathbf{c}} & \textcolor{#C8553D}{\mathbf{a}} & 0\\
-3 & k^{3} & 0 & 1 & \textcolor{#C8553D}{\mathbf{d}} & 1
+2 & k^{2} & 0 & \smartcolor{orange}{\mathbf{c}} & \smartcolor{orange}{\mathbf{a}} & 0\\
+3 & k^{3} & 0 & 1 & \smartcolor{orange}{\mathbf{d}} & 1
 \end{array}
 $$
 
@@ -194,25 +194,25 @@ $$
  & 1 & 0 & 0 & 0\\
 0 & \downarrow  & 0 & 0 & 0\\
 \hline
- & 1 & 0 & 0 & \textcolor{#6488A6}{0}
+ & 1 & 0 & 0 & \smartcolor{blue}{0}
 \end{array}\\
 \\
 \begin{array}{ c|c c c }
  & 1 & 0 & 0\\
 1 & \downarrow  & 1 & 1\\
 \hline
- & 1 & 1 & \textcolor{#C8553D}{1}
+ & 1 & 1 & \smartcolor{orange}{1}
 \end{array}\\
 \\
 \begin{array}{ c|c c }
  & 1 & 1\\
 2 & \downarrow  & 2\\
 \hline
- & 1 & \textcolor{#F4AC45}{3}
+ & 1 & \smartcolor{green}{3}
 \end{array}\\
 \\
-n^{3} =n( n-1(( n-2) +3) +\textcolor{#C8553D}{1}) +\textcolor{#6488A6}{0}\\
-n^{3} =1n^{\underline{3}} +\textcolor{#F4AC45}{3}n^{\underline{2}} +\textcolor{#C8553D}{1}n^{\underline{1}} +\textcolor{#6488A6}{0}n^{\underline{0}}
+n^{3} =n( n-1(( n-2) +3) +\smartcolor{orange}{1}) +\smartcolor{blue}{0}\\
+n^{3} =1n^{\underline{3}} +\smartcolor{green}{3}n^{\underline{2}} +\smartcolor{orange}{1}n^{\underline{1}} +\smartcolor{blue}{0}n^{\underline{0}}
 $$
 
 Assim, é fácil encontrar a expressão para a soma de qualquer polinomial.

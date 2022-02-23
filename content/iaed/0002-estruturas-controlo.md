@@ -85,7 +85,3 @@ o número de inteiros introduzidos, imprimindo-o no final.
 Como se pode ver no exemplo do contador, a forma de incrementar o valor de uma variável
 é algo que não existe em Python. `contador++` em C equivale a `contador += 1` em Python.
 Nota-se que este último também existe em C, no entanto.
-
-Slides:
-
-- [Aula 2](https://drive.google.com/file/d/1HimPiQgh6s4df56d1lg2z-nXsQ4IjwOM/view?usp=sharing)

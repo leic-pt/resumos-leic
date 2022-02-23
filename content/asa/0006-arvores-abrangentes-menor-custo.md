@@ -137,7 +137,7 @@ Começamos com o grafo abaixo (note-se que já estamos no primeiro passo, em que
 
 ![Exemplo da aplicação do algoritmo - 1](./assets/0006-kruskal-exemplo-1.png#dark=1)
 
-De seguida, temos 2 arcos com peso 2 - podemos escolher qualquer um, o algoritmo escolhe $(c, i)$. Os vértices não pertencem à mesma árvore, pelo que as respetivas árvoras são unidas, e $(c, i)$ é adicionado à MST.
+De seguida, temos 2 arcos com peso 2 - podemos escolher qualquer um, o algoritmo escolhe $(c, i)$. Os vértices não pertencem à mesma árvore, pelo que as respetivas árvores são unidas, e $(c, i)$ é adicionado à MST.
 
 ![Exemplo da aplicação do algoritmo - 2](./assets/0006-kruskal-exemplo-2.png#dark=1)
 
@@ -312,13 +312,11 @@ De seguida, é chamado `union(D, F)`. Para achatar a árvore, temos de chamar de
 
 Finalizamos ao unir as duas árvores finais, e a observar o achatamento (não completo) da árvore resultante com uma chamada `findSet`:
 
-![Conjuntos Disjuntos - Exemplo Final](./assets/0007-union-final.png#dark=1)
+![Conjuntos Disjuntos - Exemplo Final](./assets/0007-union-end.png#dark=1)
 
 :::
 
 ---
 
-- [Slides - Kruskal, Prim](https://drive.google.com/file/d/1TucBPnDwq49gX3yRaLscM2QDJV6Ijcep/view?usp=sharing)
-- [Slides - Conjuntos Disjuntos](https://drive.google.com/file/d/1MUA_k7duC-TyzlMlm1gAoOZHRxHEuf4v/view?usp=sharing)
 - [Notas Kruskal, Prim - Prof. José Fragoso](https://drive.google.com/file/d/1Wr_pz90HdpozQkmqrjHrpISow5oJnjrc/view?usp=sharing)
 - [Notas Kruskal, Union-Find - Prof. José Fragoso](https://drive.google.com/file/d/1XhlrKXV241FoD4qjXO3Ql7r-0jDhJ4ok/view?usp=sharing)

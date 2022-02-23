@@ -30,7 +30,7 @@ Uma das responsabilidades primárias dos gestores é definir **objetivos** que a
 
 ## Processo de Formação e Execução de Estratégia
 
-![Processo de formação e execução de estratégia](./assets/0006-processo-estrategia.png#dark=1)
+![Processo de formação e execução de estratégia](./assets/0006-processo-estrategia.png#dark=3)
 
 - [**Visão**](color:pink): Preocupa-se com o futuro e responde à pergunta _“Where are we going?”_:
   que mercados perseguir, quais os produtos, tecnologias e clientes em que nos vamos focar
@@ -75,7 +75,7 @@ A análise interna e externa tem como objetivo obter informação que permita aj
 Foca-se em todos os elementos externos à organização e que afetam (ou podem afetar)
 a sua atividade direta e indiretamente, ao nível local, nacional, internacional e global.
 
-![Análise Externa](./assets/0006-analise-externa.png#dark=1)
+![Análise Externa](./assets/0006-analise-externa.png#dark=2)
 
 A **envolvente geral** interage com todas as organizações da mesma área de atividade de forma
 exógena, i.e., as empresas não conseguem influenciar este envolvente. Este é composto pelos fatores PESTL, da envolvente nacional e internacional:
@@ -104,7 +104,7 @@ A **Envolvente Transacional** trata-se das entidades que interagem diretamente c
 O **Modelo das Cinco Forças de Porter** faz uma análise a uma indústria/setor de atividade.
 Segundo este modelo, a intensidade da competição numa indústria, assim como o potencial lucro dessa indústria é função de cinco forças competitivas.
 
-![Modelo das Cinco Forças de Porter](./assets/0006-cinco-forcas-porter.png#dark=1)
+![Modelo das Cinco Forças de Porter](./assets/0006-cinco-forcas-porter.png#dark=2)
 
 **Como medir a atratividade de um setor de atividade?**
 
@@ -123,8 +123,8 @@ Segundo este modelo, a intensidade da competição numa indústria, assim como o
    - Muito Forte (5)
 
 3. O somatário das 5 forças (S) indica se o setor é atrativo ou não:
-   - S $\approx$ 25 $\to$ Setor Não atrativo
-   - S $\approx$ 5 $\to$ Setor atrativo
+   - S $\approx$ 25 $\to$ Setor Não Atrativo
+   - S $\approx$ 5 $\to$ Setor Atrativo
 
 ### [Análise Interna](color:orange)
 
@@ -145,7 +145,7 @@ As atividades desenvolvidas podem ser:
 
 - **Suporte**: Atividades que apoiam as primárias a serem bem executadas
 
-![Atividades numa Análise Interna](./assets/0006-atividades-analise-interna.png#dark=1)
+![Atividades numa Análise Interna](./assets/0006-atividades-analise-interna.png#dark=3)
 
 ### Matriz SWOT
 
@@ -153,7 +153,7 @@ Uma vez feita a análise externa e interna e recolhidas as principais forças (_
 fraquezas (_weaknesses_, W), oportunidades (_opportunities_, O) e ameaças (_threats_, T)
 podemos reuní-las numa matriz SWOT que serve de base à formulação de estratégias:
 
-![Matriz SWOT](./assets/0006-matriz-swot.png#dark=1)
+![Matriz SWOT](./assets/0006-matriz-swot.png#dark=3)
 
 Uma vez feita esta matriz, uma empresa pode, por exemplo, perseguir as oportunidades
 que melhor se ajustem aos pontos fortes da empresa, ou usar os seus pontos fortes para tentar minimizar uma ameaça, enfim, várias decisões possíveis.
@@ -177,7 +177,7 @@ Principais estratégias possíveis:
 
 A matriz **BCG** pode ajudar a decidir uma estratégia possível. Esta matriz ajuda a perceber em que ponto se encontra uma empresa e a estratégia a tomar.
 
-![Matriz BCG](./assets/0006-matriz-bcg.png#dark=1)
+![Matriz BCG](./assets/0006-matriz-bcg.png#dark=2)
 
 :::tip[Matriz BCG]
 
@@ -254,4 +254,4 @@ As estratégias possíveis são, então:
 5. [**“Best-Cost Provider”**](color:blue): Tentar seguir simultaneamente uma estratégia de Liderança de baixo-custo e de Diferenciação.
    Os clientes-alvo serão aqueles que atribuem valor à diferenciação mas têm em atenção se pagam um preço baixo – _"value for money"_.
 
-![Estratégia ao Nível do Negócio](./assets/0006-estrategia-nivel-negocio.png#dark=1)
+![Estratégia ao Nível do Negócio](./assets/0006-estrategia-nivel-negocio.png#dark=2)
