@@ -99,7 +99,7 @@ Exemplos de problemas que têm soluções deste tipo são
 - Travessia de uma árvore binária
 - Ordenação de uma array com [Merge Sort](../iaed/algoritmos-eficientes-ordenacao#merge-sort) (pode ser útil rever, foi abordado em aula). As notas do professor abordam também a complexidade temporal de cada método do Merge Sort (e a sua complexidade total)
 
-O Teorema Mestre oferece um método para calcular o crescimento Assimptótico deste tipo de problemas.
+O Teorema Mestre oferece um método para calcular o crescimento assimptótico deste tipo de problemas.
 
 ## Teorema Mestre
 
@@ -390,14 +390,14 @@ T(n) = \begin{cases}
 \end{cases}
 $$
 
-Primeiro caso precisa de uma _condição de regularidade_ - pode ser encontrada nos slides e nas notas do professor, mas em ASA não é necessária.
+O primeiro caso precisa de uma _condição de regularidade_ - pode ser encontrada nos slides e nas notas do professor, mas em ASA não é necessária.
 
 Tal como no caso simples, devemos pensar nestas fórmulas da seguinte forma:
 
 - Nesta solução de D&C, cada problema de tamanho $n$ divide-se em $\mathbb{a}$ problemas de tamanho $\mathbb{\frac{n}{b}}$;
 - $\mathbf{f(n)}$ corresponde ao custo nesta solução para gerar os subproblemas, e, no fim, juntar os seus resultados (em relação a um problema de tamanho $n$).
 
-O segundo caso tem ainda mais uma generalização, que não vamos indicar aqui mas pode ser encontrada na [wikipedia](<https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)#Generic_form>).
+O segundo caso tem ainda mais uma generalização, que não vamos indicar aqui mas pode ser encontrada na [Wikipedia](<https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)#Generic_form>).
 
 :::tip[Prova]
 
