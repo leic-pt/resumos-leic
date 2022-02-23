@@ -164,7 +164,7 @@ A terminação do processo é assinalada ao processo pai.
 `status` é um parâmetro que permite passar ao processo pai o estado em que o processo terminou.
 Normalmente um valor negativo indica um erro.
 
-:::tip[E se a `main` terminar com `return` em vez de `exit`?]
+:::tip[E se a main terminar com return em vez de exit?]
 
 Até agora, nunca chamámos `exit` para terminar programas.
 Nem é preciso, o compilador trata disso automaticamente, chamando ele a função `exit` depois da execução da `main`.
@@ -189,7 +189,7 @@ Esta função para o processo pai até este se sincronizar com a terminação de
 Usando `man wait` poderão encotrar Macros (`WIFEXITED`, `WEXITSTATUS`) que ajudam a saber como e se um processo terminou (com exit).
 :::
 
-:::tip[Exemplo de `exit` e `wait`]
+:::tip[Exemplo de exit e wait]
 
 ```c
 main () {
@@ -287,7 +287,7 @@ Os argumentos podem ser passados de duas maneiras:
 Estes parâmetros são passados para a função `main` do novo programa e acessíveis através do `argv`.
 Ambas as funções `execl()` e `execv()` são **front-ends** mais simples para `execve()` que é a função principal com mais parâmetros.
 
-:::tip[Exemplo de `execl`]
+:::tip[Exemplo de execl]
 
 ```c
 main() {
