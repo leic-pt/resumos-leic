@@ -2,7 +2,6 @@
 title: Gestão de Processos
 description: >-
   Gestão de Processos.
-  Booting.
   Contexto de um Processo.
   Interrupções.
   Escalonamento (scheduling).
@@ -84,22 +83,10 @@ stateDiagram-v2
     executable --> exec : Gestor de Processos escolhe este processo\n para execução
 ```
 
-## Kernel como Gestor de Interrupções
+## Gestão de Interrupções
 
-Quando estamos a executar um programa no nosso computador, este normalmente corre
-no chamado [modo user (_userland_)](color:green), que não tem privilégios acrescidos.
-Este não consegue aceder diretamente a periféricos, ficheiros, etc (depende da estrutura do sistema operativo).
-
-No entanto, processos também podem ser executados no [modo núcleo (_kernelland_)](color:red), onde
-têm todas as permissões. Apenas o código do sistema operativo pode ser executado neste modo.
-Todas as atividades do modo núcleo são desencadeadas por [interrupções](color:orange).
-Estas podem ser de três tipos:
-
-- Hardware: relógio e periféricos (teclado, rato, etc);
-- Software (_traps_): utilizadas pelos programas na _userland_ para pedir a algo cujo acesso requira privilégios (chamadas de sistema). Esta é a única forma de um utilizador pedir acesso a um recurso protegido;
-- Exceções: por exemplo exceções de aritmética (divisão por zero), acesso a memória indevido, etc.
-
-Mas como é que são tratadas as [interrupções](color:orange)?
+No capítulo anterior vimos que os processos em modo núcleo são sempre desencadeados por uma [interrupção](color:orange).
+Ora, então, como é que estas são tratadas?
 
 ```mermaid
 stateDiagram-v2
