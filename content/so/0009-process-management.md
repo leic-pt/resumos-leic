@@ -47,7 +47,7 @@ A inicialização do núcleo passa por:
 - incializar as suas estruturas de dados;
 - copiar rotinas de tratamento de cada interrupção para RAM;
 - preencher a tabela de interrupções em RAM;
-- lançar os processos inicias do sistema, incluindo o processo de login;
+- lançar os processos inicias do sistema, incluindo o processo de login.
 
 ## Processos e Tarefas
 
@@ -110,9 +110,9 @@ stateDiagram-v2
   - copia registos da pilha atual para o contexto do processo (na tabela de processos);
   - corre o código específico à interrupção, possivelmente alterando o estado dos processos;
   - invoca o despacho para que este escolha outro processo para executar.
-- **Despacho**: Volta-se a colocar um processo em execução, e o seu contexto é carregado:
+- **Despacho**: Volta-se a colocar um processo em execução, e o seu contexto é carregado.
   - copia o contexto hardware do processo que estava em execução quando a interrupção foi registada para o respetivo descritor (entrada na tabela de processos);
-  - ecsolhe um processo para executar (vamos ver como a seguir);
+  - escolhe um processo para executar (vamos ver como a seguir);
   - carrega o contexto hardware do processo escolhido no processador;
   - transfere o controlo para o novo processo, colocando o seu PC na pilha. Desta forma, o RTI é enganado a "voltar" (_return_) para o processo "errado".
 - **Retorno da Interrupção (RTI)**: Saída do modo núcleo, para o processo determinado pelo despacho.
@@ -126,7 +126,7 @@ As chamadas a sistema estão estruturadas em duas entidades funcionais:
 
 Este sistema garante:
 
-- **Proteção**: o código das funções sistema está residente no núcleo e nao pode ser acedido pelos processo em modo utilizador.
+- **Proteção**: o código das funções sistema está residente no núcleo e não pode ser acedido pelos processo em modo utilizador;
 - **Uniformidade**: as funções sistema são partilhadas por todos os processos;
 - **Flexibilidade**: o SO pode ser modificado transparentemente desde que não altere a interface.
 
@@ -134,7 +134,7 @@ Este sistema garante:
 
 Quando o CPU comuta de um processo em modo utilizador tem de:
 
-- mudar o espaço de endereçamento do processo utilizador para o espaço de enderecamento do núcleo;
+- mudar o espaço de endereçamento do processo utilizador para o espaço de endereçamento do núcleo;
 - mudar da pilha do utilizador para a pilha núcleo do processo. Esta pilha é utilizada a partir do momento em que o processo muda de modo utilizador para modo núcleo e está sempre vazia antes disso.
 
 O uso de pilhas distintas para execução em modo núcleo e em modo utilizador é uma medida de segurança que impede que processos tenham acesso a informação priveligiada do núcleo.  
@@ -151,7 +151,7 @@ Damos o nome de [**escalonamento**](color:pink) (ou em inglês, [**_scheduling_*
 Para o nosso escalonamento ser o melhor possível, é necessário definir métricas para um bom escalonamento.
 Estas podem ser:
 
-- **Débito (throughput)**: maximizar número de _jobs_ por hora;
+- **Débito (_throughput_)**: maximizar número de _jobs_ por hora;
 - **Turn around time**: minimizar tempo entre a submissão do _job_ e a obtenção do resultado;
 - **Utilização de CPU**: maximizar percentagem de tempo de uso do processador;
 - **Responsividade**: responder o mais rapidamente possível aos eventos desencadeados por utilizadores;
@@ -162,11 +162,11 @@ Vamos então analisar várias políticas de escalonamento, e ver quais as suas v
 
 [**_Round-Robin_**](color:orange)  
  Pretende que todos os processos executáveis tenham acesso ao CPU ciclicamente.
-Faz-se isso dispondo os processos executáveis numa FIFO. Sempre que o CPU está disponível, o elemento na frente da FIFO recebe o CPU durante um **quantum** ou **_time-slice_**.  
+Faz-se isso dispondo os processos executáveis numa FIFO. Sempre que o CPU está disponível, o elemento na frente da FIFO recebe o CPU durante um **_quantum_** ou **_time-slice_**.  
  Isto é, nenhum processo será executado (de seguida) mais do que um dado período de tempo consecutivo.
 O processo perde o CPU quando:
 
-- o seu quantum acaba - o processo é reinserido no fim da fila;
+- o seu _quantum_ acaba - o processo é reinserido no fim da fila;
 - chama uma _syscall_ que o bloqueia - o processo é reinserido no fim da fila quando é desbloqueado;
 - termina.
 
@@ -176,9 +176,9 @@ Nomeadamente, se houver processos que exijam muito CPU, e outros que sejam mais 
 [**Multi-lista**](color:yellow)  
  É guardada uma multi-lista, em que cada lista tem processos com uma dada [**prioridade**](color:purple).
 Processos mais prioritários recebem CPU primeiro. A prioridade de um processo pode ser fixa ou dinâmica.  
- Note-se que um sistema que apenas prioridades fixas sujeita-se a que os processos menos prioritários nunca recebam CPU,
+ Note-se que um sistema que tenha apenas prioridades fixas sujeita-se a que os processos menos prioritários nunca recebam CPU,
 enquanto que prioridades dinâmicas permitem ir tornando os processos que não recebem CPU há mais tempo mais prioritárias.
-Esta política permite ainda atribuir quantum diferentes a prioridades diferentes.
+Esta política permite ainda atribuir _quantum_ diferentes a prioridades diferentes.
 
 [**Preempção**](color:green)  
 O conceito de preempção consiste em retirar o CPU ao processo em execução logo que haja um mais prioritário.
@@ -189,7 +189,7 @@ esta política pode dar lugar a mudanças frequentes de contexto, que "desperdi�
 Os [**escalonadores hoje em dia**](color:blue):
 
 - usam multi-filas com prioridades dinâmicas e fixas;
-- são pseudo-preemptivos com quantum variável;
+- são pseudo-preemptivos com _quantum_ variável;
 - atuam sobre tarefas e não processos (sendo um processo um conjunto de uma ou mais tarefas).
 
 :::details[Escalonamento Multicore]
@@ -207,8 +207,8 @@ Políticas respetivas a esta gestão não são abordadas nesta cadeira.
 
 Em Unix, o contexto dos processos é dividido em duas estruturas:
 
-- A estrutura [proc](color:orange), que contêm a informação do processo que tem de estar disponível (em RAM),
-  mesmo quando o processo não está em execução, nomeadamente, informação necessária para o escalonamente e funcionamento de signals.
+- A estrutura [proc](color:orange), que contém a informação do processo que tem de estar disponível (em RAM),
+  mesmo quando o processo não está em execução, nomeadamente, informação necessária para o escalonamento e funcionamento de signals.
 
   - `p_stat` - estado do processo;
   - `p_pri` - prioridade do processo;
@@ -218,13 +218,13 @@ Em Unix, o contexto dos processos é dividido em duas estruturas:
   - `p_pid` - identificador do processo;
   - `p_ppid` - identificador do pai do processo.
 
-- A estrutura [u (user)](color:yellow), que contêm a restante informação que só é necessária quando o processo está em execução,
+- A estrutura [u (user)](color:yellow), que contém a restante informação que só é necessária quando o processo está em execução,
   podendo estar em disco quando o processo não está em execução.
 
   - registos do processador;
   - pilha do núcleo;
   - códigos de proteção (`uid`, `gid`);
-  - referência ao directório corrente e por omissão;
+  - referência ao diretório corrente e por omissão;
   - tabela de ficheiros abertos;
   - apontador para a estrutura proc;
   - parâmetros da função sistema em execução.
@@ -256,11 +256,11 @@ stateDiagram-v2
 
 Em Unix há dois tipos de prioridades:
 
-- Prioridades para processos em modo utilizador:
+- Prioridades para processos em **modo utilizador**:
   - vão de 0 (mais prioritário) a N (menos prioritário);
-  - calculadas dinamicamente em função do tempo de processador utilizado;
+  - são calculadas dinamicamente em função do tempo de processador utilizado;
   - escalonamento (quase) preemptivo.
-- Prioridades para processos em modo núcleo:
+- Prioridades para processos em **modo núcleo**:
   - têm valores negativos (quanto mais negativo, mais prioritário);
   - são fixas, consoante o acontecimento que o processo está a tratar;
   - são sempre mais prioritárias que os processos em modo utilizador.
@@ -269,7 +269,7 @@ Em Unix há dois tipos de prioridades:
 
 As prioridades do utilizador seguem o seguinte algoritmo:
 
-- o CPU é sempre atribuido ao processo mais prioritário durante um quantum de 100ms (5 "ticks" do relógio);
+- o CPU é sempre atribuido ao processo mais prioritário durante um _quantum_ de 100ms (5 "ticks" do relógio);
 - _Round-Robin_ entre os processos mais prioritários;
 - A cada segundo (50 "ticks") as prioridades são recalculadas de acordo com a seguinte fórmula:
 
@@ -296,7 +296,7 @@ O Gestor de Processos em Unix recalcula a prioridade de todos os processos a cad
 
 O Gestor de Processos em Linux tenta resolver o problema encontrado no Gestor de Processos do Unix.  
 Para isso, divide o tempo em épocas.
-Uma época acaba quando todos os processos usaram o seu quantum disponível ou estão bloqueados. No início de cada época, é atribuido a cada processo um quantum e uma prioridade da seguinte forma:
+Uma época acaba quando todos os processos usaram o seu _quantum_ disponível ou estão bloqueados. No início de cada época, é atribuido a cada processo um _quantum_ e uma prioridade da seguinte forma:
 
 $$
 \begin{darray}{l}
@@ -305,15 +305,15 @@ $$
 \end{darray}
 $$
 
-Sendo que o valor do quantum pode ser mudado com chamadas de sistema.
+Sendo que o valor do _quantum_ pode ser mudado com chamadas de sistema.
 
 Ao contrário do Unix, as prioridades mais importantes são as com valor mais elevado. No entanto, tal como no Unix, o processo mais prioritário é sempre escolhido primeiro.
 
 ### Completely Fair Scheduler (CFS)
 
 O CFS é o _scheduler_ usado desde 2007 pelo Linux (o que vimos agora foi entretanto abandonado).
-Cada processo tem um atributo **_vruntime_** que representa o tempo cumulado de execução em modo utilizador do processo.  
-Quando o processo perde CPU, o seu _vruntime_ é incrementado com o tempo executado nesse quantum.
+Cada processo tem um atributo **_vruntime_** que representa o tempo acumulado de execução em modo utilizador do processo.  
+Quando o processo perde CPU, o seu _vruntime_ é incrementado com o tempo executado nesse _quantum_.
 Temos que o processo mais prioritário é o com _vruntime_ mínimo. Um novo processo entra com _vruntime_ igual ao mínimo entre o _vruntime_ dos processos ativos.  
 Os processos são guardados numa _red-black tree_ ordenada por _vruntime_, que permite encontrar o processo mais prioritário em O(log n) em vez de O(n).
 
@@ -330,21 +330,21 @@ Finalmente, é retornado o `pid` do novo processo ao processo pai, e zero ao fil
 
 **exit()**  
 A operação `exit()` termina um processo, executando as funções registadas pelo `atexit`, libertando todos os recursos (ficheiro, diretoria corrente, regiões de memória).  
-De seguida actualiza o ficheiro que regista a utilização do processador, memória e I/O.  
-Finalmente, envia signal death of child (SIGCHILD) ao processo pai (que por omissão é ignorado) e mantem o filho no estado zombie, até que o pai o encontre (obtendo informação sobre a terminação do filho).
+De seguida, atualiza o ficheiro que regista a utilização do processador, memória e I/O.  
+Finalmente, envia signal death of child (SIGCHILD) ao processo pai (que, por omissão, é ignorado) e mantém o filho no estado _zombie_, até que o pai o encontre (obtendo informação sobre a terminação do filho).
 
 **wait()**  
-O operação `wait()` procura por filhos zombie:
+O operação `wait()` procura por filhos _zombie_:
 
-- se não há filho zombie, o pai fica bloqueado;
-- se não há filhos, a funçao retorna imediatamente.
-  O pid do filho e estado do exit são returnados através do wait e a estrutura `proc` do filho é finalmente libertada.
+- se não há filho _zombie_, o pai fica bloqueado;
+- se não há filhos, a função retorna imediatamente.
+  O pid do filho e estado do _exit_ são retornados através do _wait_ e a estrutura `proc` do filho é finalmente libertada.
 
 **exec()**  
 A funçao `exec()` executa um novo programa no âmbito de um processo já existente:
 
 - primeiro, verifica se o ficheiro existe e é executável;
-- copia argumentos da chamada exec da pilha do utilizador para o núcleo (pois o contexto utilizador irá ser destruído);
+- copia os argumentos da chamada _exec_ da pilha do utilizador para o núcleo (pois o contexto utilizador irá ser destruído);
 - liberta as regiões de dados e pilha ocupadas pelo processo;
 - reserva novas regiões de memória;
 - carrega o ficheiro de código executável;
