@@ -41,13 +41,13 @@ pthread_mutex_t mutex;
 
 int levantar_dinheiro (conta_t* conta, int valor) {
   mutex_lock(&mutex); // Bloqueia o acesso a este endereço
-                            // de memória a outras threads
+                      // de memória a outras threads
   if (conta->saldo >= valor)
     conta->saldo = conta->saldo - valor;
   else
     valor = -1; /* -1 indica erro ocorrido */
   mutex_unlock(&mutex); // Desbloqueia o acesso a este
-                              // endereço de memória
+                        // endereço de memória
   return valor;
 }
 ```
@@ -309,7 +309,7 @@ associado à variável de condição
 ```c
 lock(trinco);
 /* ... acesso a variáveis partilhadas ... */
-while (!condiçãoSobreEstadoPartilhado)
+while (!condiçãoSobreEstadoPartilhado) // USAR SEMPRE CONDIÇÃO WHILE
   wait(varCondicao, trinco);
 /* ... acesso a variáveis partilhadas ... */
 unlock(trinco);
@@ -331,12 +331,12 @@ unlock(trinco);
 
 - `pthread_cond_t`
 - Criação/destruição de variáveis de condição ([man page](https://man.archlinux.org/man/core/man-pages/pthread_cond_destroy.3p.en));
-  - `pthread_cond_init (condition, attr)`
-  - `pthread_cond_destroy (condition)`
+  - `int pthread_cond_init (condition, attr)`
+  - `int pthread_cond_destroy (condition)`
 - Assinalar e esperar nas variáveis de condição:
-  - `pthread_cond_wait (condition, mutex)` ([man page](https://man.archlinux.org/man/core/man-pages/pthread_cond_timedwait.3p.en))
-  - `pthread_cond_signal (condition)` ([man page](https://man.archlinux.org/man/core/man-pages/pthread_cond_broadcast.3p.en))
-  - `pthread_cond_broadcast (condition)` ([man page](https://man.archlinux.org/man/core/man-pages/pthread_cond_broadcast.3p.en))
+  - `int pthread_cond_wait (condition, mutex)` ([man page](https://man.archlinux.org/man/core/man-pages/pthread_cond_timedwait.3p.en))
+  - `int pthread_cond_signal (condition)` ([man page](https://man.archlinux.org/man/core/man-pages/pthread_cond_broadcast.3p.en))
+  - `int pthread_cond_broadcast (condition)` ([man page](https://man.archlinux.org/man/core/man-pages/pthread_cond_broadcast.3p.en))
 
 Voltando ao exemplo do acesso ao parque de estacionamento:
 
@@ -346,8 +346,8 @@ mutex m;
 cond c;
 void entrar() {
   lock(m);
-  while (vagas == 0)
-    wait(c, m);
+  while (vagas == 0) // Use while condition because
+    wait(c, m);      // wait can wake up without a signal
   vagas--;
   unlock(m);
 }
