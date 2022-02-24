@@ -367,4 +367,4 @@ Se o processo tem rotina de tratamento associada ao signal, o núcleo regista no
 Antes do processo receber de novo execução, o despacho salta para a rotina de tratamento do signal.
 
 **pthread_mutex**  
-Fechar e abrir mutex's são chamadas de sistema. O núcleo mantém o estado de cada trinco, bem como uma lista de tarefas bloqueadas por esse trinco. A espera bloqueante é conseguida com ajuda do núcleo. Isto já foi abordado nos [resumos de Implementação de um Mutex](./implementation#trincos-como-objetos-geridos-pelo-núcleo-do-sistema-operativo)
+Fechar e abrir mutex's são chamadas de sistema. A espera bloqueante é conseguida com ajuda do núcleo. Isto já foi abordado nos [resumos de Implementação de um Mutex](./implementation#trincos-como-objetos-geridos-pelo-núcleo-do-sistema-operativo)
