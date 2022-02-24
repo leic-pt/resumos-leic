@@ -15,21 +15,18 @@ type: content
 
 Para saber como programar com vários processos que partilham memória temos de:
 
-- Identificar secções críticas
-- Sincronizar cada secção crítica com trinco (mutex)
+- Identificar secções críticas;
+- Sincronizar cada secção crítica com trincos.
 
-Um trinco (mutex), muito resumidamente é uma flag que só permite que uma parte de memória seja acedida **apenas** por uma `thread`,
-se outra `thread` quiser aceder a essa parte de memória não o poderá fazer, assim vai ficar à espera até que essa parte de memória não esteja a ser acedida por nenhuma outra `thread`.
+Um trinco (mutex), muito resumidamente é uma flag que garante que uma parte de memória é acedida **apenas** por uma `thread`.
+Se outra `thread` quiser aceder a essa parte de memória não o poderá fazer, ficando à espera que essa parte de memória não esteja a ser acedida por nenhuma outra `thread`.
 
 ### Trinco Global
 
-- Normalmente é a solução mais simples
-- Mas limita o paralelismo
-  - Quanto mais paralelo for o programa, maior é a limitação
-- Exemplo: [big kernel lock do Linux](https://en.wikipedia.org/wiki/Giant_lock)
-  - Criado nas primeiras versões do Linux (versão 2.0)
-  - Grande barreira de escalabilidade
-  - Finalmente removido na versão 2.6
+A solução mais simples para garantir que não há duas threads a aceder à mesma zona de memória é garantir que não há duas threads a correr ao mesmo tempo.
+No entanto, esta solução limita o paralelismo.
+Um exemplo de uma solução deste tipo é o chamado [big kernel lock do Linux](https://en.wikipedia.org/wiki/Giant_lock), criado nas primeiras versões do Linux (versão 2.0) que criava uma grande barreira de escalabilidade.
+Esta implementação foi finalmente removida na versão 2.6.
 
 ```c
 struct {
@@ -52,22 +49,22 @@ int levantar_dinheiro (conta_t* conta, int valor) {
 }
 ```
 
-### Trincos Finos: Programação com Objetos Partilhados
+### Trincos Finos
 
-- Objeto cujos métodos podem ser chamados em
-  concorrência por diferentes tarefas
-- Devem ter:
-  - Interface dos métodos públicos
-  - Código de cada método
-  - Variáveis de estado
-  - Variáveis de sincronização
-    - Um trinco para garantir que métodos críticos se executam em
-      exclusão mútua
-    - Opcionalmente: semáforos, variáveis de condição
-- Em geral, maior paralelismo
-- Mas pode trazer bugs difíceis de resolver...
+Tendencialmente, se possível, queremos que as nossas funções possam ser chamadas concorrentemente por várias tarefas.
+Pode, no entanto, ser também necessário que estas funções (e consequentemente as tarefas que as chamam) acedam concorrentemente a dados partilhados.
+Para garantir que esta concorrência não causa bugs, devemos:
 
-#### Exemplo com Trincos Finos
+- Identificar zonas críticas;
+- "Trancar" as zonas críticas.
+
+Enquanto que funções com trincos finos têm bastante vantagem na eficiência, também existem algumas contrapartidas:
+
+- Trincos ocupam espaço em memória - demasiados trincos são de evitar;
+- As operações de abrir e fechar trincos são algo demoradas, pelo que não se deve exagerar nestas operações;
+- Programação com trincos finos é muito suscetível a bugs difíceis de resolver.
+
+:::tip[Exemplo com Trincos Finos]
 
 ```c
 transferir(conta a, conta b, int montante) {
@@ -85,22 +82,16 @@ O que pode correr mal?
 Uma das execuções do processo pode bloquear a e outra bloqueia b, e depois ficam uma à espera da outra (e.g. `transferir(a, b, 10)` e `transferir(b, a, 20)`).  
 Isto leva-nos a um exemplo conhecido: o Jantar dos Filósofos.
 
+:::
+
 ## Jantar dos Filósofos
 
-- Cinco Filósofos estão reunidos para filosofar e
-  jantar [spaghetti](https://drive.google.com/file/d/1yDuhf1gaubgpYjaWBWUBIqKw0oGrbGuO/view?usp=sharing):
+Cinco Filósofos estão reunidos para filosofar e jantar [spaghetti](https://drive.google.com/file/d/1yDuhf1gaubgpYjaWBWUBIqKw0oGrbGuO/view?usp=sharing).
+Para comer precisam de dois garfos, mas a mesa apenas tem um garfo por pessoa.
+Os filósofos podem estar em um de três estados: Pensar, Decidir comer e Comer.
+Cada filósofo está num lugar fixo e apenas pode utilizar os garfos imediatamente à sua esquerda e direita.
 
-  - Para comer precisam de dois garfos, mas a mesa
-    apenas tem um garfo por pessoa.
-
-- Condições:
-  - Os filósofos podem estar em um de três estados:
-    Pensar, Decidir comer, Comer.
-  - O lugar de cada filósofo é fixo.
-  - Um filósofo apenas pode utilizar os garfos
-    imediatamente à sua esquerda e direita.
-
-### Implementação Naive
+**Implementação Naive**
 
 ```c
 filosofo(int id) {
@@ -117,7 +108,7 @@ O problema desta implementação é que pode parar o programa para sempre.
 Por exemplo, se cada filósofo fizer _lock_ do garfo à sua direita, nenhum vai conseguir efetuar o segundo _lock_ do garfo à sua esquerda,
 ficando o programa parado infinitamente.
 
-### Jantar dos Filósofos com Semáforos
+**Jantar dos Filósofos com Semáforos**
 
 ```c
 mutex_t garfo[5] = {...};
@@ -167,7 +158,7 @@ filosofo(int id){
 Nesta implementação, apenas o filósofo 4 se comporta de maneira diferente.\
 Assim todos cumprem a ordem definida.
 
-### Evitar Míngua: Recuo Aleatório!
+**Recuo Aleatório**
 
 Outra solução possível seria:
 
@@ -208,26 +199,14 @@ Uma implementação simples é escolher valores aleatórios de espera
   - Quanto maior o valor de MAX:
     - [menor desempenho](color:red)
     - [maior probabilidade de evitar contenção](color:green)
-  - Adaptar o valor de MAX consoante o número de
-    tentativas
+  - Adaptar o valor de MAX consoante o número de tentativas
     - Por exemplo, MAX $=$ constante $\times$ num_tentativas
 
-:::tip[Prevenir Inteblocagem]
+## Trincos - Limitações
 
-- Garantir que os recursos são todos adquiridos
-  segundo uma ordem total pré-definida
-- Quando a aquisição de um recurso não é
-  possível, liberta-se todos os recursos detidos
-  e anulam-se as operações realizadas até esse
-  momento
-  :::
+Os trincos têm a desvantagem que só servem para proteger secções críticas e não são suficientemente expressivos para resolver outros problemas de sincronização.
 
-### Trincos - Limitações
-
-- Só servem para proteger secções críticas
-  - Não são suficientemente expressivos para resolver outros problemas de sincronização
-
-#### Exemplo: Acesso a Parque de Estacionamento
+:::tip[Exemplo: Acesso a Parque de Estacionamento]
 
 Num dado ponto do código, tarefa só quer avançar quando uma condição se verificar.
 
@@ -269,35 +248,41 @@ void sair() {
 }
 ```
 
+Esta solução, enquanto que correta, é extremamente pouco eficiente uma vez que depende de **espera ativa**, isto é, o processo fica preso num ciclo repetidamente à espera de uma condição.  
+Para otimizar a eficiência de situações deste tipo usamos variáveis de condição.
+
+:::
+
 ## Variáveis de Condição
 
-- Permite a uma tarefa esperar por uma condição que depende da ação de outra tarefa
-
-  - Condição é boleano determinado em função do estado de variáveis partilhadas
-
-- Variável de condição sempre associada a um trinco
-  - O trinco que protege as secções críticas com acessos às variáveis partilhadas que definem a condição da espera
-  - Pode haver mais que uma variável de condição associada ao mesmo trinco
-- O conjunto trinco + variáveis de condição é normalmente chamado um monitor
+As **variáveis de condição** permitem a uma tarefa esperar por uma condição que depende da ação de outra tarefa.
+A condição é um boleano determinado em função do estado de variáveis partilhadas.
+Uma variável de condição está sempre associada a um trinco, que protege as secções críticas com acessos às variáveis partilhadas que definem a condição da espera.
+Pode haver mais que uma variável de condição associada ao mesmo trinco.  
+O conjunto trinco + variáveis de condição é normalmente chamado um **monitor**.
 
 ### Primitivas (Semântica Mesa)
 
-- `wait(conditionVar, mutex)`
-  - Atomicamente, liberta o trinco associado e bloqueia a tarefa
-    - Tarefa é colocada na fila de espera associada à variável de condição
-  - Quando for desbloqueada, a tarefa re-adquire o trinco e só depois é que a função esperar retorna
+```c
+wait(conditionVar, mutex)
+```
 
-Uma tarefa só pode chamar `wait` quando detenha o trinco associado à variável de condição
+Atomicamente, liberta o trinco associado e bloqueia a tarefa e coloca-a na fila de espera associada à variável de condição.
+Quando for desbloqueada, a tarefa re-adquire o trinco e só depois é que a função esperar retorna.  
+Uma tarefa só pode chamar `wait` quando detenha o trinco associado à variável de condição.
 
-- `signal(conditionVar)`
+```c
+signal(conditionVar)
+```
 
-  - Se houver tarefas na fila da variável de condição, desbloqueia uma
-    - Tarefa que estava bloqueada passa a executável
-  - Se não houver tarefas na fila da variável de condição, não tem efeito
+Se houver tarefas na fila de espera da variável de condição, desbloqueia uma, passando o seu estado para executável.
+Se não houver tarefas na fila da variável de condição, esta operação não tem efeito.
 
-- `broadcast(conditionVar)`
-  - Análogo ao `signal` mas desbloqueia todas as tarefas na fila
-    da variável de condição
+```c
+broadcast(conditionVar)
+```
+
+Análogo ao `signal` mas desbloqueia todas as tarefas na fila de espera da variável de condição.
 
 Normalmente estas primitivas são chamadas quando a tarefa ainda não libertou o trinco
 associado à variável de condição
@@ -327,7 +312,7 @@ signal/broadcast(varCondicao);
 unlock(trinco);
 ```
 
-#### Variáveis de Condição - POSIX
+### Variáveis de Condição - POSIX
 
 - `pthread_cond_t`
 - Criação/destruição de variáveis de condição ([man page](https://man.archlinux.org/man/core/man-pages/pthread_cond_destroy.3p.en));
@@ -364,39 +349,24 @@ void sair() {
 Mais exemplos nos slides em baixo
 :::
 
-### Problemas
+### Cuidados a ter
 
-- Tarefa que chama `wait` liberta o trinco e entra
-  na fila de espera **atomicamente**
-
-  - Consequência: caso a condição mude e haja
-    `signal`, pelo menos uma tarefa na fila será
-    desbloqueada
-
-- Tarefa em espera que seja desbloqueada por
-  `signal/broadcast` não corre imediatamente
-  - Simplesmente é tornada executável
-  - Para que `wait` retorne, tem de re-adquirir o trinco
-
-Como a tarefa pode não correr imediatamente a seguir a se tornar executável o valor da condição pode ser alterada, podendo gerar problemas graves.
+Quando uma tarefa chama `wait`, esta liberta o trinco e entra na fila de espera **atomicamente**.
+Consequencemente, caso a condição mude e haja `signal`, pelo menos uma tarefa na fila será desbloqueada.
+A tarefa que é desbloqueada por `signal/broadcast` não corre imediatamente - simplesmente é tornada executável - uma vez tem de re-adquirir o trinco para que o `wait` retorne.
+Como a tarefa pode não correr imediatamente a seguir a se tornar executável o valor da condição pode ser alterado de volta, podendo gerar problemas graves.
 
 ![Problem with conditions](./imgs/0005/cond-problems.png#dark=1)
 
 Podemos observar pela imagem que durante o tempo entre o `signal` (feito por T3) e uma tarefa ser "acordada" (T1) onde adquire o trinco, a variável de condição foi alterada pela tarefa (T2), isto irá resultar em problemas.
 
-- Retorno do `wait` não garante que condição
-  que lhe deu origem se verifique
-  - Tarefa pode não ter sido a primeira tarefa a entrar
-    na secção crítica depois da tarefa que assinalou a
-    ter libertado
-- Logo, após retorno do `wait`, re-verificar a
-  condição:
-  - [Não fazer](color:red): `if` (testa variável partilhada)
-  - [Fazer](color:green): `while` (testa variável partilhada)
+O que estamos a verificar é que o retorno do `wait` não garante que condição que lhe deu origem se verifique: a tarefa pode não ter sido a primeira tarefa a entrar na secção crítica depois da tarefa que assinalou a ter libertado.
+Desta forma, após retorno do `wait`, **devemos re-verificar a condição**:
 
-Algumas implementações de variáveis de
-condição permitem que tarefa retorne do
-`wait` sem ter ocorrido `signal/broadcast` - [Spurious Wakeup](https://en.wikipedia.org/wiki/Spurious_wakeup)
+- [Não fazer](color:red): `if(condição)`
+- [Fazer](color:green): `while(condição)`
+
+Algumas implementações de variáveis de condição permitem que tarefa retorne do `wait` sem ter ocorrido `signal/broadcast` - [Spurious Wakeup](https://en.wikipedia.org/wiki/Spurious_wakeup). Isto é ainda outra razão para verificarmos a condição ciclicamente e não apenas uma vez.
 
 ---
 
