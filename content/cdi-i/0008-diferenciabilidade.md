@@ -688,7 +688,7 @@ Deste teorema, pode concluir-se que:
 
 Seja $f$ uma função regular num intervalo $[a,b]$. Então, existe um $c\in]a,b[$ tal que $\displaystyle f'(c)=\frac{f(b)-f(a)}{b-a}$.
 
-![Teorema de Lagrange](./assets/0008-teorema-lagrange.png)
+![Teorema de Lagrange](./assets/0008-teorema-lagrange.png#dark=4)
 
 :::
 

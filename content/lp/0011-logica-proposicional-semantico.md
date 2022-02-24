@@ -91,7 +91,7 @@ A tabela de verdade abaixo mostra que a _fbf_ $(P \wedge (P \to Q)) \to Q$ é ta
 | F   | V   | V         | F                    | V                            |
 | F   | F   | V         | F                    | V                            |
 
-![Diagrama Tautologias](./assets/0011-venn.png#dark=1)
+![Diagrama Tautologias](./assets/0011-venn.svg#dark=1)
 
 Podemos ainda aplicar estas lógicas a **conjuntos de _fbfs_**.
 
@@ -152,4 +152,4 @@ A lógica proposicional é **correta e completa**.
 
 Podemos, então, voltar a olhar para a relação entre os sistemas dedutivo e semântico:
 
-![Dedutivo vs Semântico](./assets/0011-dedsem.png#dark=1)
+![Dedutivo vs Semântico](./assets/0011-dedsem.svg#dark=1)
