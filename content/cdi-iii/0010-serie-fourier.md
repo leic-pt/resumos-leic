@@ -57,12 +57,13 @@ Note-se que na expressão acima passámos o termo $n=0$ para fora da série e tr
 A expressão resultante, $SF_f(x)$ vai corresponder exatamente a $f$ nos pontos em $]-L, L[$ em que $f$ é contínua.
 Aliás, uma das grandes vantagens da Série de Fourier é a função não precisar de ser contínua, apenas seccionalmente contínua (e ter derivada seccionalmente contínua).
 
-Nos pontos de descontinuidade, a expressão da Série de Fourier equivale ao ponto médio entre os valores da função a vir de ambas as direções. Traduzindo isto para um sistema, obtemos o [**Teorema da Convergência Pontual da Série de Fourier**](color:green):
+Nos pontos de descontinuidade (e nas "pontas" do intervalo, $-L$ e $L$), a expressão da Série de Fourier equivale ao ponto médio entre os valores da função a vir de ambas as direções. Traduzindo isto para um sistema, obtemos o [**Teorema da Convergência Pontual da Série de Fourier**](color:green):
 
 $$
 SF_f(x) = \begin{cases}
 f(x) & \text{sendo } x \text{ um ponto de continuidade de } f\\
 \frac{f(x^+)+ f(x^-)}{2} & \text{sendo } x \text{ um ponto de descontinuidade de } f\\
+\frac{f(L^-)+ f(-L^+)}{2} & \text{sendo } x = -L \lor x = L
 \end{cases}
 $$
 
@@ -96,9 +97,12 @@ $$
 SF_f(x) = \frac{a_0}{2} + \sum_{n=1}^{+\infty} \left( a_n \cos\left(n \pi x\right) + b_n \sin\left(n\pi x\right) \right)
 $$
 
-O próximo passo é determinar $a_n$ e $b_n$. $a_n$ é simples de determinar,
+O próximo passo é determinar $a_n$ e $b_n$. O valor de $a_n$ é simples de determinar,
 visto que $f$ é uma [função ímpar](https://en.wikipedia.org/wiki/Even_and_odd_functions#Odd_functions).
-Isto significa que $f(x) \cdot cos(n \pi x)$ também é ímpar (já que o cosseno é par), e portanto
+
+Como o produto de uma [função par](https://en.wikipedia.org/wiki/Even_and_odd_functions#Even_functions) (o cosseno)
+com uma função ímpar ($f$) é também uma função ímpar, temos um integral de uma função ímpar num intervalo do tipo $[-L, L]$,
+que é nulo:
 
 $$
 a_n = \int_{-1}^{1} f(x)\cos(n\pi x) \d x = 0, \forall n \in \N
@@ -183,7 +187,7 @@ $$
 a_n = \frac{1}{\pi} \int_{-\pi}^{\pi} x \cos(nx) \d x = 0
 $$
 
-Mais ainda, visto que $x$ é ímpar, tal como visto mais acima, $\int_{-\pi}^{\pi} x \d x = 0$.
+Mais ainda, visto que $x$ é ímpar, tal como visto mais acima, $a_0 = \int_{-\pi}^{\pi} x \d x = 0$.
 
 Para determinarmos $b_n$, já necessitamos mais cálculos:
 
