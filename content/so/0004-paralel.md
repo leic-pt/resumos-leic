@@ -16,7 +16,7 @@ type: content
 ![moore's-law](./imgs/0004/0004-moore.png#dark=1)
 
 Como podemos ver pelo gráfico mostrado em cima,
-o número de transistores aumenta de acordo com a [Lei de Moore](https://en.wikipedia.org/wiki/Moore%27s_law).  
+o número de transístores aumenta de acordo com a [Lei de Moore](https://en.wikipedia.org/wiki/Moore%27s_law).  
 No entanto, a performance de uma thread do processador quase que estagnou no final da década de 2000.
 
 Isso mostra que atualmente colocar mais transístores num processador, não o torna mais rápido.
@@ -146,7 +146,7 @@ main() {
   } else {
     // Código do pai
   }
-  // ...
+  return 0;
 }
 ```
 
@@ -164,7 +164,7 @@ A terminação do processo é assinalada ao processo pai.
 `status` é um parâmetro que permite passar ao processo pai o estado em que o processo terminou.
 Normalmente um valor negativo indica um erro.
 
-:::tip[E se a `main` terminar com `return` em vez de `exit`?]
+:::tip[E se a main terminar com return em vez de exit?]
 
 Até agora, nunca chamámos `exit` para terminar programas.
 Nem é preciso, o compilador trata disso automaticamente, chamando ele a função `exit` depois da execução da `main`.
@@ -186,10 +186,10 @@ Esta função para o processo pai até este se sincronizar com a terminação de
 - O estado de terminação do processo filho que foi atribuído no parâmetro da função `exit` é guardado na variável apontada por `status`.
 
 :::tip[Macros Importantes]
-Usando `man wait` poderão encotrar Macros (`WIFEXITED`, `WEXITSTATUS`) que ajudam a saber como e se um processo terminou (com exit).
+Usando `man wait` poderão encotrar Macros (`WIFEXITED`, `WEXITSTATUS`) que ajudam a saber como e se um processo terminou (com `exit`).
 :::
 
-:::tip[Exemplo de `exit` e `wait`]
+:::tip[Exemplo de exit e wait]
 
 ```c
 main () {
@@ -287,7 +287,7 @@ Os argumentos podem ser passados de duas maneiras:
 Estes parâmetros são passados para a função `main` do novo programa e acessíveis através do `argv`.
 Ambas as funções `execl()` e `execv()` são **front-ends** mais simples para `execve()` que é a função principal com mais parâmetros.
 
-:::tip[Exemplo de `execl`]
+:::tip[Exemplo de execl]
 
 ```c
 main() {
@@ -338,7 +338,7 @@ while(TRUE) {
 }
 ```
 
-## Introdução à Programação com Tarefas (Threads)
+## Introdução à Programação com Tarefas (_Threads_)
 
 ### Tarefas
 
@@ -353,18 +353,18 @@ Num mesmo processo, as tarefas partilham entre si:
 - Amontoado (heap)
   - Variáveis globais
   - Variáveis dinamicamente alocadas (malloc)
-- Atributos do processo (visto mais tarde na cadeira)
+- Atributos do processo
 
 Mas não partilham:
 
 - Pilha (stack)
-  - (atenção) não há isolamento entre pilhas!
+  - [(atenção)](color:yellow) não há isolamento entre pilhas!
   - Bugs podem fazer com que uma tarefa aceda à pilha de outra tarefa
 - Estado dos registos do processador
   - Incluindo instruction pointer
 - Atributos específicos da tarefa
   - Thread id (tid)
-  - etc (visto mais tarde na cadeira)
+  - etc
 
 ## Programação com Tarefas em Unix (Interface POSIX)
 
@@ -516,7 +516,7 @@ int levantar_dinheiro(conta_t *conta, int valor) {
 }
 ```
 
-Se a função for chamada por várias threads, pode acontecer que `conta->saldo` mude o seu valor incorretamente!
+Se a função for chamada por várias _threads_, pode acontecer que `conta->saldo` mude o seu valor incorretamente!
 
 ```c
 struct {
@@ -547,8 +547,31 @@ mov SALDO, AX ; escreve resultado da subtracção na
 
 Ao vermos o código assembly desta função, podemos reparar que entre a chamada das variáveis
 para os registos e a voltar a guardar o valor nas variáveis, o seu valor pode sofrer alteração
-por outras threads que possam estar a escrever sobre elas.  
-Temos assim que evitar que threads acedam ao mesmo endereço de memória ao mesmo tempo.
+por outras _threads_ que possam estar a escrever sobre elas.  
+Temos assim que evitar que _threads_ acedam ao mesmo endereço de memória ao mesmo tempo.
+
+[**IMPORTANTE**](color:yellow): É sempre má ideia assumir que uma operação em C é indivisível!!!
+
+## Processos vs Tarefas
+
+Vantagens de multi-tarefa:
+
+- Criação e comutação entre tarefas do mesmo processo mais leves (vs. entre processos);
+- Tarefas podem comunicar através de memória partilhada - comunicação entre processos é mais limitada (visto mais tarde na cadeira);
+  Vantagens de processos:
+- Podemos executar diferentes binários em paralelo;
+- Isolamento: confinamento de bugs;
+- Outras (visto mais tarde na cadeira).
+
+:::tip[Exemplo de Uso de Processos]
+
+**Chromium**:
+
+- No browser [Chromium](https://brave.com/), criar um novo separador causa a chamada do `fork`;
+- Processo filho usado para carregar e executar scripts dos sites abertos nesse separador;
+- Permite que separadores não obtenham informação sobre os outros separadores (isolamento).
+
+:::
 
 [**IMPORTANTE**](color:yellow): É sempre má ideia assumir que uma operação em C é indivisível!!!
 
