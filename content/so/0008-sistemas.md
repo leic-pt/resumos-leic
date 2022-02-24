@@ -117,7 +117,7 @@ Contudo, quando carregamos num botãozinho, esse objeto inanimado converte-se nu
 Vamos agora ver como é que isso é possível.
 
 Quando uma máquina recebe energia, o PC (_Program Counter_) aponta para um programa (_firmware_) na _Boot ROM_.
-Nos computadores pessoais é habitual este programa ser uma implementação do **BIOS** (_Basic Input/Output System_) ou da **UEFI** (_Unified Extensible Firmware Interface_).
+Nos computadores pessoais é habitual este programa ser uma implementação de **BIOS** (_Basic Input/Output System_) ou **UEFI** (_Unified Extensible Firmware Interface_).
 Este programa faz algumas verificações sobre o computador (nomeadamente se está em condições de ser iniciado) e, de seguida,
 determina a localização do _bootloader_ (no limite definido estaticamente no firmware, mas tanto em BIOS como UEFI há uma "ordem de arranque" que diz em que sítios procurar e com que ordem), copia-o para RAM, e passa-lhe o controlo (salta)
 
