@@ -1,6 +1,7 @@
 ---
 title: Everything is a File
-description: Ficheiros.
+description: >-
+  Ficheiros.
   Programar com Ficheiros.
   API do Sistema de Ficheiros.
   API de Ficheiros do Unix.
