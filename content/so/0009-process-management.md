@@ -284,7 +284,7 @@ Isto permite ir "esquecendo" progressivamente os usos mais antigos do CPU.
 
 O Unix suporta ainda as seguintes chamadas de sistema:
 
-- `nice(int val)`: incrementa a prioridade val unidades. Apenas superutilizador pode invocar com val negativo (isto é, tornar o processo mais prioritário);
+- `nice(int val)`: decrementa a prioridade val unidades. Apenas superutilizador pode invocar com val negativo (isto é, tornar o processo mais prioritário);
 - `getpriority(int which, int id)`: retorna a prioridade de um processo ou grupo de processos;
 - `setpriority(int which, int id, int prio)`: altera prioridade do processo ou grupo de processos.
 
