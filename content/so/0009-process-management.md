@@ -64,7 +64,7 @@ fazem parte do contexto do processo,
 e têm de ser guardados/restaurados quando se troca o processo em execução.
 Além disso, é preciso também guardar/restaurar os **registos da unidade de gestão de memória** (UGM).
 
-Por outro lado, no [_software_](color:pink), é guardado _metadata_ sobre o processo em execução.
+Por outro lado, no [_software_](color:pink), são guardados _metadados_ sobre o processo em execução.
 Informações como a **identificação do processo** (PID, utilizador, grupo, etc), a sua **prioridade**,
 o seu **estado**, e muitas outras informações, como periféricos em uso, ficheiros abertos,
 diretório por omissão, programa em execução, contabilização de recursos, _signals_ pendentes, etc).
@@ -319,7 +319,9 @@ Os processos são guardados numa _red-black tree_ ordenada por _vruntime_, que p
 
 É ainda possível definir prioridades estáticas superiores às dinâmicas (modo utilizador) em contexto _real-time_ ("_soft_", no sentido que não é 100% _real-time_). Para isto, são necessários privilégios de núcleo.
 
-## Operações Asseguradas pelo Gestor de Processos
+## Operações Asseguradas pelo Gestor de Processos em POSIX
+
+A cadeira acha mais importante falar destas operações, para os mais [curiosos, podem consultar a spec do POSIX.](https://pubs.opengroup.org/onlinepubs/9699919799.2018edition/nframe.html)
 
 **fork()**  
 A operação fork() reserva uma entrada na tabela `proc` (Unix), verifica se o utilizador não excedeu o número máximo de subprocessos e atribui um valor ao `pid` (normalmente um incremento de um inteiro mantido pelo núcleo).  
@@ -328,10 +330,20 @@ Finalmente, é retornado o `pid` do novo processo ao processo pai, e zero ao fil
 
 ![Criação de processos](./imgs/0009/process_creation.svg#dark=1)
 
+:::details[Curiosidades]
+Matéria não avaliada.
+
+Porque o `fork` não é uma boa ideia e porque deve ser evitado usar. [(link)](https://www.microsoft.com/en-us/research/publication/a-fork-in-the-road/)
+
+Em Linux, há um processo que junta páginas iguais de processos diferentes para poupar memória a posteriori chamado [KSM - Kernel Samepage Merging](https://www.kernel.org/doc/html/latest/admin-guide/mm/ksm.html)
+
+Basicamente o núcleo varre ocasionalmente as páginas no sistema, se vir que existem 2 páginas iguais, ativa o bit CoW e mete o outro processso a usar esta página, apagando a outra, ganhando espaço em memória.
+:::
+
 **exit()**  
-A operação `exit()` termina um processo, executando as funções registadas pelo `atexit`, libertando todos os recursos (ficheiro, diretoria corrente, regiões de memória).  
-De seguida, atualiza o ficheiro que regista a utilização do processador, memória e I/O.  
-Finalmente, envia signal death of child (SIGCHILD) ao processo pai (que, por omissão, é ignorado) e mantém o filho no estado _zombie_, até que o pai o encontre (obtendo informação sobre a terminação do filho).
+A operação `exit()` termina um processo, executando as funções registadas pelo `atexit` (esta não precisa de ajuda do núcleo para ser executada), libertando todos os recursos (ficheiro, diretoria corrente, regiões de memória).  
+De seguida actualiza o ficheiro que regista a utilização do processador, memória e I/O.  
+Finalmente, envia signal death of child (SIGCHILD) ao processo pai (que por omissão é ignorado) e mantem o filho no estado zombie, até que o pai o encontre (obtendo informação sobre a terminação do filho).
 
 **wait()**  
 O operação `wait()` procura por filhos _zombie_:
@@ -357,4 +369,4 @@ Se o processo tem rotina de tratamento associada ao signal, o núcleo regista no
 Antes do processo receber de novo execução, o despacho salta para a rotina de tratamento do signal.
 
 **pthread_mutex**  
-Fechar e abrir mutex's são chamadas de sistema. O núcleo mantém o estado de cada trinco, bem como uma lista de tarefas bloqueadas por esse trinco. Isto já foi abordado nos [resumos de Implementação de um Mutex](./implementation#trincos-como-objetos-geridos-pelo-núcleo-do-sistema-operativo)
+Fechar e abrir mutex's são chamadas de sistema. A espera bloqueante é conseguida com ajuda do núcleo. Isto já foi abordado nos [resumos de Implementação de um Mutex](./implementation#trincos-como-objetos-geridos-pelo-núcleo-do-sistema-operativo)
