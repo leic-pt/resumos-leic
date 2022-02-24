@@ -99,10 +99,10 @@ Para aumentar a dimensão máxima dos ficheiros, temos duas opções:
 
 Num sistema de ficheiros FAT, a partição contém três secções distintas:
 
-- a tabela de alocação (File Allocation Table, FAT);
-- uma diretoria com os nomes dos ficheiros presentes no sistema de ficheiros;
+- [a tabela de alocação](color:blue) (File Allocation Table, FAT)
+- uma diretoria com os nomes dos ficheiros presentes no sistema de ficheiros
 - uma secção com o espaço restante dividido em blocos, de igual
-  dimensão, para conter os dados dos ficheiros.
+  dimensão, para conter os dados dos ficheiros
 
 Muito resumidamente, o Diretório contém o nome do ficheiro e um ponteiro para um indíce da tabela de alocação.  
 Já na tabela de alocação, em cada indíce que estamos, o bloco na área de dados com o mesmo indíce contém dados desse ficheiro.  
@@ -123,12 +123,12 @@ Ainda na tabela de alocação podemos ter um ponteiro para outro indíce nessa t
   - 1º bloco: indicado por um número na respectiva entrada no directório.
   - restantes blocos: referenciados em lista ligada pelas entradas da FAT
 
-### Desvantagens do FAT
+### [Desvantagens do FAT](color:red)
 
 - Elevada dimensão da FAT quando os discos têm dimensões muito grandes:
   - Por exemplo, numa partição 1 Tbyte: usando FAT-32 e blocos de 4 KBytes, a FAT pode ocupar 1 GByte (1TBytes/4KBytes × 4 bytes)
 - Tabelas desta dimensão não são possíveis de manter em RAM permanentemente:
-  - Ler à FAT do disco, prejudica muito o acesso à cadeia de
+  - Ler a FAT do disco, prejudica muito o acesso à cadeia de
     blocos de um ficheiro
 
 ## Organização com Descritores Individuais de Ficheiros (i-nodes)
@@ -165,7 +165,7 @@ Ainda na tabela de alocação podemos ter um ponteiro para outro indíce nessa t
 ### Percorrer a árvore de diretórios
 
 1. Começar pelo diretório raíz
-   - _i-number_ tem valor pré-conhecido (e.g., i-num=2)
+   - _i-number_ tem valor pré-conhecido (e.g., _i-num_ = 2)
 2. Dado o _i-number_, obter o _i-node_ do diretório
    - Na cache de _i-nodes_ (em RAM) ou na tabela de _i-nodes_ (em disco)
 3. A partir do _i-node_, descobrir os índices dos blocos de dados com o conteúdo do diretório
@@ -198,7 +198,7 @@ Ainda na tabela de alocação podemos ter um ponteiro para outro indíce nessa t
 - Pode ser um simples bitmap:
   - um bit por cada bloco na partição
   - indica se o respetivo bloco está livre ou ocupado
-- Tabela de blocos livres desacoplada dos i-nodes tem
+- Tabela de blocos livres desacoplada dos _i-nodes_ tem
   vantagens:
   - é possível ter estruturas muito mais densas (a tabela de blocos
     livres possui, usualmente, apenas um bit por cada bloco)
@@ -234,7 +234,7 @@ O _i-node_ contém:
 - Localização dos dados do ficheiro
   - Índices do 1º bloco, do 2º bloco, etc.
 
-#### Exemplo de FS que usa i-nodes: ext3
+#### Exemplo de FS que usa _i-nodes_: ext3
 
 - Índice dos blocos do ficheiro é mantido num vetor `i_block` do _i-node_, com 15 posições
   - 12 entradas diretas
@@ -249,17 +249,17 @@ O _i-node_ contém:
 
 ![ext3](./imgs/0003/0003-ext3.png#dark=1)
 
-dimensão máxima de um ficheiro $= B \times (12 + \frac{B}R + (\frac{B}R)^2 + (\frac{B}R)^3)$
+Dimensão máxima de um ficheiro $= B \times (12 + \frac{B}R + (\frac{B}R)^2 + (\frac{B}R)^3)$
 
-$B$ é a dimensão em bytes de um bloco de dados\
-$R$ é a dimensão em bytes de uma referência para um bloco\
-Com blocos de 1 Kbyte e referências de 4 byte, a dimensão máxima de um ficheiro é $\approx$16 Gbytes
+$B$ é a dimensão em bytes de um bloco de dados.\
+$R$ é a dimensão em bytes de uma referência para um bloco.\
+Com blocos de 1 Kbyte e referências de 4 bytes, a dimensão máxima de um ficheiro é $\approx 16$ Gbytes.
 
 ### Tabela de _i-nodes_ no Volume
 
 ![inodes](./imgs/0003/0003-inodes.png#dark=1)
 
-- A tabela de i-nodes encontra-se no Descritor de Ficheiros
+- A tabela de _i-nodes_ encontra-se no Descritor de Ficheiros
 - Mantidos em tabela em zona própria no volume.
 - Dentro de um volume, cada _i-node_ é identificado por um _i-number_ que corresponde ao índice do _i-node_ na tabela de _i-nodes_ no volume.
 
