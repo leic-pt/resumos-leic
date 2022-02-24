@@ -139,7 +139,7 @@ t1_abrir() {trinco_vez = 2;}    t2_abrir() {trinco_vez = 1;}
     - Senha do outro tem número inferior à minha
     - Em caso de empate, caso o id do outro cliente seja inferior ao meu
   - Fase 3 (posso ser atendido em exclusão mútua!)
-  - Fase 4: coloca senha a 0 (já fui atendido)
+  - Fase 4: coloca senha a 0 (já foi atendido)
 
 **Código**
 
@@ -171,7 +171,7 @@ Abrir (int i) {senha [i] = 0;}
 
 ```
 
-**Se não usássemos escolha** 2 tarefas podiam entrar na mesma secção critíca ao mesmo tempo
+**Se não usássemos escolha** 2 tarefas podiam entrar na mesma secção crítica ao mesmo tempo
 
 **Conclusão**
 

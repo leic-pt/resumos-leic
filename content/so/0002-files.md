@@ -143,17 +143,17 @@ Podemos dividir as funções relacionadas com o sistema de ficheiros em seis gru
 | :-----: | :----: | :--------------: | :-------------------: |
 | `fd :=` | Abrir  |   (Nome, Modo)   |   Abre um ficheiro    |
 | `fd :=` | Criar  | (Nome, Proteção) | Cria um novo ficheiro |
-|         | Fechar |       (fd)       |   Fecha um ficheiro   |
+|         | Fechar |      (`fd`)      |   Fecha um ficheiro   |
 
 Na tabela acima, `fd` simboliza o [_file descriptor_](https://en.wikipedia.org/wiki/File_descriptor).
 
 **Operações sobre Ficheiros Abertos**
 
-|    Nome    |     Parâmetros      |                  Descrição                  |
-| :--------: | :-----------------: | :-----------------------------------------: |
-|    Ler     | (fd, buffer, bytes) | Lê de um ficheiro para um buffer de memória |
-|  Escrever  | (fd, buffer, bytes) |     Escreve um buffer para um ficheiro      |
-| Posicionar |    (fd, posição)    |  Posiciona o cursor de leitura ou escrita   |
+|    Nome    |      Parâmetros       |                  Descrição                  |
+| :--------: | :-------------------: | :-----------------------------------------: |
+|    Ler     | (`fd`, buffer, bytes) | Lê de um ficheiro para um buffer de memória |
+|  Escrever  | (`fd`, buffer, bytes) |     Escreve um buffer para um ficheiro      |
+| Posicionar |    (`fd`, posição)    |  Posiciona o cursor de leitura ou escrita   |
 
 **Operações Complexas sobre Ficheiros**
 
@@ -204,9 +204,9 @@ Vamos ver agora como realizar estas operações sobre ficheiros.
 
 ```cpp
 FILE *fp; // Ponteiro para estrutura que representa o ficheiro aberto
-fp=fopen("tests.txt", "r"); // Modo de abertura do ficheiro.
-                            // Neste caso estamos a abrir o ficheiro
-                            // em modo de leitura.
+fp = fopen("tests.txt", "r"); // Modo de abertura do ficheiro.
+                              // Neste caso estamos a abrir o ficheiro
+                              // em modo de leitura.
 ```
 
 - `r` - abre para leitura (read)
@@ -393,7 +393,7 @@ Temos os seguintes prós e contras:
 
 [**Contras:**](color:red)
 
-- Normalmente, programa que usa `stdio` é mais simples e optimizado (será falado no futuro)
+- Normalmente, programa que usa `stdio` é mais simples e optimizado
 
 ![Filesystem Unix API](./imgs/0002/0002-unix.png)
 

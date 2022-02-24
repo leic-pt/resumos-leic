@@ -97,7 +97,7 @@ Num sistema de ficheiros FAT, a partição contém três secções distintas:
 - A tabela de alocação (File Allocation Table, FAT): um vetor com $2^n$ interidos de $n$ bits (designado FAT-16 para n=16, FAT-32 para n=32, etc);
 - uma diretoria com os nomes dos ficheiros presentes no sistema de ficheiros;
 - uma secção com o espaço restante dividido em blocos, de igual
-  dimensão, para conter os dados dos ficheiros.
+  dimensão, para conter os dados dos ficheiros
 
 A identificação dos blocos de um certo ficheiro é feita da seguinte forma:  
 O Diretório contém o nome do ficheiro e um inteiro que corresponde a um indíce da tabela de alocação.  
@@ -133,12 +133,12 @@ A FAT é dimensionado para:
 - Caber em memória RAM (FAT carregada do disco para RAM quando o FS é montado)
 - Ter tantas entradas quanto o número de blocos de dados na partição em disco
 
-### Desvantagens do FAT
+### [Desvantagens do FAT](color:red)
 
 - Elevada dimensão da FAT quando os discos têm dimensões muito grandes:
   - Por exemplo, numa partição 1 Tbyte: usando FAT-32 e blocos de 4 KBytes, a FAT pode ocupar 1 GByte (1TBytes/4KBytes × 4 bytes)
 - Tabelas desta dimensão não são possíveis de manter em RAM permanentemente:
-  - Ler à FAT do disco, prejudica muito o acesso à cadeia de
+  - Ler a FAT do disco, prejudica muito o acesso à cadeia de
     blocos de um ficheiro
 
 ## Organização com Descritores Individuais de Ficheiros (i-nodes)
@@ -175,7 +175,7 @@ A FAT é dimensionado para:
 ### Percorrer a árvore de diretórios
 
 1. Começar pelo diretório raíz
-   - _i-number_ tem valor pré-conhecido (e.g., i-num=2)
+   - _i-number_ tem valor pré-conhecido (e.g., _i-num_ = 2)
 2. Dado o _i-number_, obter o _i-node_ do diretório
    - Na cache de _i-nodes_ (em RAM) ou na tabela de _i-nodes_ (em disco)
 3. A partir do _i-node_, descobrir os índices dos blocos de dados com o conteúdo do diretório

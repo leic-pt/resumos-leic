@@ -57,7 +57,7 @@ uma interface de texto (i.e. terminal).
 ### Interface Programática
 
 Bibliotecas de funções do sistema.  
-A sua documentação pode ser consultada com o comando `man <nome da função/biblioteca>`.
+A sua documentação pode ser consultada com o comando `man <nome da função/biblioteca>`
 
 ![APIs de sistema - man read](./imgs/0001/0001-man.png)
 

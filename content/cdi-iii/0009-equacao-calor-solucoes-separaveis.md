@@ -14,26 +14,31 @@ type: content
 
 ```
 
-Começamos o estudo das **Equações Diferenciais Parciais** através de uma pequena introdução
-à equação do calor e a soluções separáveis.
-Alguns destes conceitos podem ser úteis para o estudo da Série de Fourier.
+Enquanto que, como vimos nos capítulos anteriores, as equações parciais ordinárias podem frequentemente ser resolvidas,
+o mesmo não se pode dizer sobre as **Equações Diferenciais Parciais**.  
+O estudo deste tipo de equações é uma das áreas em que a investigação matemática se mantém mais ativa ainda nos dias de hoje,
+e muito pouco se sabe sobre estas equações.
+Desta forma, apenas situações muito específicas e simples podem ser estudadas neste ramo.  
+As equações estudadas no fim desta cadeira coincidem assim com as EDP mais simples e clássicas.
+Estas são a equação do **calor**, das **ondas** e **de Laplace**.
+
+Nesta secção começamos com a equação do calor, que serve principalmente como introdução às **séries de Fourier**
+(o próprio Fourier usou as séries que hoje têm o seu nome para dar solução à equação do calor).
 
 ## Equação do Calor
-
-Vamos estudar a equação do calor para perceber como surgiram as Séries de Fourier.
 
 Recomendo vivamente a visualização do seguinte vídeo, e se possível, de [todos os episódios sobre este tema](https://www.youtube.com/playlist?list=PLZHQObOWTQDNPOjrT6KVlfJuKtYTftqH6).
 
 ::youtube{#ly4S0oi3Yz8}
 
-Imaginemos que queremos modelar a evolução da temperatura num certo volume $\omega$.
+Imaginemos que queremos modelar a evolução da temperatura numa barra 1-dimensional $\omega$.
 Não é fácil definir uma função $u(t, x)$ que descreve esta evolução de temperatura (balanço de energia térmica) ao longo do tempo $t$.
 No entanto, é possível definirmos a variação da temperatura em função da variação da posição.
 
 :::tip[Equação do Calor]
 
-Considerando então uma função $u(t, x)$, que representa a temperatura num certo ponto $x~\in~\R$ num instante $t$.
-A evolução da temperatura é então descrita pela seguinte [**equação diferencial parcial**](color:orange):
+Considerando uma função $u(t, x)$, que representa a temperatura num certo ponto $x~\in~\R$ num instante $t$.
+A evolução da temperatura é descrita pela seguinte [**equação diferencial parcial**](color:orange):
 
 $$
 \frac{\partial u}{\partial t} = k \frac{\partial^2 u}{\partial x^2}
@@ -55,7 +60,7 @@ Assim, a equação do calor pode ser definida para dimensões superiores a 1 com
 
 $$
 \begin{aligned}
-\frac{\partial u}{\partial t} &= k \times \nabla^2 u\\
+\frac{\partial u}{\partial t} &= k \times \Delta u\\
 &=k \times \left(\frac{\partial^2 u}{\partial x_1^2} + \frac{\partial^2 u}{\partial x_2^2} + \frac{\partial^2 u}{\partial x_3^2} + \dots + \frac{\partial^2 u}{\partial x_n^2}\right)
 \end{aligned}
 $$
@@ -64,6 +69,22 @@ $$
 
 A Equação do Calor tem uma propriedade muito importante e que nos irá permitir chegar à Série de Fourier: a [**linearidade**](color:green).
 Ou seja, se $u_1$ e $u_2$ são soluções da equação do calor, então $\alpha u_1 + \beta u_2$ também é uma solução.
+
+:::details[Equação do calor como transformação linear]
+Note-se que podemos definir a transformação linear
+
+$$
+Du = \frac{\partial u}{\partial t} - k \frac{\partial^2 u}{\partial x^2}
+$$
+
+que permite reescrever a equação do calor como o espaço nulo da transformação linear $D$,
+implicando que as soluções da equação formam um espaço linear.
+
+Sendo assim, encontrar uma base deste espaço é suficiente para descrever todas as soluções!
+Sim, mas calma... Aqui estamos a trabalhar com espaços lineares de dimensão infinita,
+pelo que as coisas não são assim tão simples. No entanto, como vamos ver, é possível oferecer uma base com uma quantidade contável de elementos para soluções da equação do calor.
+
+:::
 
 ### Soluções de Equilíbrio
 
@@ -85,7 +106,13 @@ Para conseguirmos determinar soluções para a **Equação do Calor**, vamos apr
 Mais tarde iremos ver que este método também nos irá ser útil para outras equações, como a **Equação das Ondas** e a **Equação de Laplace**.
 Abaixo vamos apenas trabalhar com Equações do Calor.
 
-O método consiste em tentar descobrir várias soluções, depois tentar fazer várias combinações lineares, e, por fim, chegar à nossa solução.
+O método consiste em considerar a seguinte simplificação do problema inicial:
+a variação da função em relação ao tempo é independente da variação em relação à posição.  
+Assim, podemos expressar a nossa função como produto de duas funções (em que cada uma só depende de uma das variáveis):
+
+$$
+u(t,x) = T(t) X(x)
+$$
 
 Pegando então na equação do calor, vamos aplicar o método das soluções separáveis:
 
@@ -93,13 +120,7 @@ $$
 \frac{\partial u}{\partial t} = k \frac{\partial^2 u}{\partial x^2}
 $$
 
-Começamos por supor que a nossa função é o produto de duas funções (cada uma só depende de uma das variáveis):
-
-$$
-u(t,x) = T(t) X(x)
-$$
-
-Se substituirmos a expressão acima na **Equação do Calor**, obtemos:
+pode então ser escrito como
 
 $$
 T'(t) X (x) = k T(t) X''(x)
@@ -156,6 +177,19 @@ $$
 
 :::
 
+:::details[Nota]
+
+Este facto é tudo menos trivial. Na verdade, estamos a fazer um salto gigantesco de raciocínio.
+Ao fazer este salto estamos a assumir sem provar, por exemplo, que:
+
+- a quantidade de soluções da equação linear homogénea é contável, e portanto podemos expressar a sua soma com uma série;
+- mesmo assumindo o ponto anterior, não estamos a fazer qualquer verificação da correção da série apresentada, nomeadamente se converge ou não.
+  No entanto, estas verificações são de um nível bastante superior ao que seria razoável neste resumo pelo que são omitidos.
+
+Note-se que o próprio Fourier, quando descobriu as séries de Fourier não se preocupou em fazer estas verificações, que só viriam a ser feitas por outros matemáticos que lhe sucederam.
+
+:::
+
 ### Condições Fronteira Periódicas
 
 Imaginando agora um caso em que temos um fio circular de perímetro L.
@@ -184,17 +218,11 @@ Tomando então os resultados obtidos para $X$ na secção anterior, vamos determ
   $$
 
   $$
-  \begin{darray}{c}
-  X(0) = B & X(L) = AL + B\\
-  \end{darray}
-  $$
-
-  $$
   X(0) = X(L) \Leftrightarrow B = AL + B \implies A = 0
   $$
 
   $$
-  X'(x) = A = 0 = X'(0) = X'(L)
+  X'(x) = A = 0, \forall x \Leftrightarrow X'(0) = X'(L)
   $$
 
   Descobrimos assim uma solução constante, $X(x) = B$.
@@ -205,12 +233,6 @@ Tomando então os resultados obtidos para $X$ na secção anterior, vamos determ
 
   $$
   X(x) = A e^{\sqrt{\lambda} x} + B e^{-\sqrt{\lambda} x}
-  $$
-
-  $$
-  \begin{darray}{c}
-  X(0) = A + B & X(L) = A e^{\sqrt{\lambda} L} + B e^{-\sqrt{\lambda} L}
-  \end{darray}
   $$
 
   $$
@@ -227,12 +249,6 @@ Tomando então os resultados obtidos para $X$ na secção anterior, vamos determ
 
   $$
   X(x) = A \cos\left(\sqrt{-\lambda} x\right) + B \sin\left(\sqrt{-\lambda} x\right)
-  $$
-
-  $$
-  \begin{darray}{c}
-  X(0) = A & X(L) = A \cos\left(\sqrt{-\lambda} L\right) + B \sin\left(\sqrt{-\lambda} L\right)
-  \end{darray}
   $$
 
   $$
@@ -255,46 +271,39 @@ Pegando na expressão não nula de $X(x)$, substituímos o valor de $\lambda$ co
 Fazemos o mesmo para $T(t)$.
 
 $$
-\begin{darray}{c}
-X(x) = A \cos\left(\sqrt{-\lambda} x\right) + B \sin\left(\sqrt{-\lambda} x\right)\\
-X(x) = A \cos \frac{2\pi n}{L}x + B \sin \frac{2\pi n}{L}x
-\end{darray}
-$$
-
-$$
-\begin{darray}{c}
-T(t) = c e^{\lambda k t}\\
-T(t) = c e^{-\frac{4\pi^2 n^2}{L^2}kt}
-\end{darray}
+\begin{aligned}
+X(x) &= A \cos\left(\sqrt{-\lambda} x\right) + B \sin\left(\sqrt{-\lambda} x\right)\\
+&= A \cos \frac{2\pi n}{L}x + B \sin \frac{2\pi n}{L}x\\
+\\
+T(t) &= c e^{\lambda k t} = c e^{-\frac{4\pi^2 n^2}{L^2}kt}
+\end{aligned}
 $$
 
 Finalmente, fazemos os produtos entre as duas expressões.
 
 $$
-u\left(t,x\right) = T\left(t\right)X\left(x\right) = e^{-\frac{4\pi^2 n^2}{L^2}kt} \left(a_n \cos \frac{2\pi n}{L}x + b_n \sin \frac{2\pi n}{L}x\right)
+u_n\left(t,x\right) = T\left(t\right)X\left(x\right) = e^{-\frac{4\pi^2 n^2}{L^2}kt} \left(a_n \cos \frac{2\pi n}{L}x + b_n \sin \frac{2\pi n}{L}x\right)
 $$
 
 Segundo o [Princípio da Sobreposição](#princípio-da-sobreposição), podemos escrever a nossa solução como a soma de várias soluções.
 
 $$
-u\left(t,x\right) = B + \sum_{n = 1}^{\infty} e^{-\frac{4\pi^2 n^2}{L^2}kt} \left(a_n \cos \frac{2\pi n}{L}x + b_n \sin \frac{2\pi n}{L}x\right)
+u\left(t,x\right) = \sum_{n=0}^{\infty} u_n\left(t,x\right) = \sum_{n = 0}^{\infty} e^{-\frac{4\pi^2 n^2}{L^2}kt} \left(a_n \cos \frac{2\pi n}{L}x + b_n \sin \frac{2\pi n}{L}x\right)
 $$
 
-Podemos dar uma função à temperatura inicial, que funciona como condição inicial.
+Então, resolver o problema da equação do calor passa a ser equivalente a perceber como expressar a condição inicial
 
 $$
 u\left(0, x\right) = f\left(x\right)
 $$
 
+como uma série de senos e cosenos:
+
 $$
-f\left(x\right) = B + \sum_{n = 1}^{\infty} \left(a_n \cos \frac{2\pi n x}{L} + b_n \sin \frac{2\pi n x}{L}\right)
+f\left(x\right) = \sum_{n = 0}^{\infty} \left(a_n \cos \frac{2\pi n x}{L} + b_n \sin \frac{2\pi n x}{L}\right)
 $$
 
-Como vamos ver mais à frente, esta expressão é muito semelhante à [Série de Fourier](/cdi-iii/serie-fourier).
-Isto permite-nos facilmente descobrir os valores de $a_n$ e $b_n$ de forma a chegar a uma solução particular da equação.
-
-Caso a função $f$ já esteja em forma de Série de Fourier, é trivial descobrir estes valores.
-Caso contrário, é necessário primeiro calcular a sua Série de Fourier.
+Vamos ver como fazer isto mais à frente, na secção sobre a [Série de Fourier](/cdi-iii/serie-fourier).
 
 Vejamos abaixo um exemplo que mostra como utilizar este método, passo a passo.
 Vamos utilizar uma equação de calor, embora seja possível aplicar este método a outras equações diferenciais parciais.
@@ -483,7 +492,7 @@ $$
 Finalmente, vamos determinar a solução particular definida pela [**condição inicial**](color:orange).  
 Relembra-se que a condição inicial é $u(x,0) = \sin\left(\frac{\pi x}{2}\right) + 3\sin \left(\frac{5\pi x}{2} \right)$, que
 já se encontra na forma de [Série de Fourier](/cdi-iii/serie-fourier).
-Caso não se encontrasse nesta forma, teríamos de a ir determinar.
+Caso não se encontrasse nesta forma, teríamos de a determinar.
 
 Sendo assim, temos apenas de descobrir os valores de $c_n$ que resultam na condição inicial, que podemos fazer facilmente por intuição.
 
