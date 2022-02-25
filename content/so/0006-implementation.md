@@ -19,18 +19,14 @@ No entanto, o que aconteceria se tentássemos implementar o nosso próprio `mute
 Ao desenhar um trinco, existem várias propriedades que são essenciais para o seu bom-funcionamento:
 
 - Propriedade de Correção (Safety)
-  - Exclusão mútua
-    - no máximo uma tarefa detém o trinco
+  - Exclusão mútua: no máximo uma tarefa detém o trinco
 - Propriedades de Progresso (Liveness)
-  - Ausência de Interblocagem (Deadlock)
-    - Se pelo menos uma tarefa tenta obter o trinco, então alguma o
-      obterá (dentro de um tempo finito)
+  - Ausência de Interblocagem (Deadlock): se pelo menos uma tarefa tenta obter o trinco, então alguma o
+    obterá (dentro de um tempo finito)
 - Ausência de Míngua (Starvation)
   - Se uma dada tarefa tenta obter o trinco, essa tarefa conseguirá obtê-
     lo (dentro de um tempo finito)
   - Eficiência
-
-## Implementações
 
 Podemos abordar a implementação do trinco de várias formas.
 Rapidamente nos apercebemos que não conseguimos implementar um trinco apenas com software, e que iremos necessitar de ajuda do hardware.
@@ -143,7 +139,7 @@ t1_abrir() {trinco_vez = 2;}    t2_abrir() {trinco_vez = 1;}
     - Senha do outro tem número inferior à minha
     - Em caso de empate, caso o id do outro cliente seja inferior ao meu
   - Fase 3 (posso ser atendido em exclusão mútua!)
-  - Fase 4: coloca senha a 0 (já fui atendido)
+  - Fase 4: coloca senha a 0 (já foi atendido)
 
 **Código**
 
@@ -175,9 +171,11 @@ Abrir (int i) {senha [i] = 0;}
 
 ```
 
-**Se não usássemos escolha** 2 tarefas podiam entrar na mesma secção critíca ao mesmo tempo
+**Se não usássemos escolha** 2 tarefas podiam entrar na mesma secção crítica ao mesmo tempo
 
-#### Conclusão
+**Conclusão**
+
+As soluções algorítmicas são:
 
 - Complexas $\implies$ Latência
 - Só são corretas se não houver reordenação de acessos a memória
@@ -187,24 +185,26 @@ Abrir (int i) {senha [i] = 0;}
 
 ## Soluções com Suporte do Hardware
 
-- `Abrir()`e `Fechar()` usam instruções especiais
-  oferecidas pelos processadores:
-  - Inibição de interrupções:
-    - Estudadas mais à frente nos resumos
-  - Exchange (`xchg`no Intel)
-  - Test-and-set (`cmpxchg`no Intel)
+Idealmente, a forma mais fácil de fechar um trinco seria através de uma operação atómica.
+Isto é, seria útil a existência de uma operação que, indivisivelmente:
+
+- metesse um bit a 1 se ele estiver a 0;
+- bloqueasse se o bit estiver a 1.
+
+De facto, hoje em dia, os processadores oferecem instruções específicas `Abrir()`e `Fechar()` que fazem algo deste género.
+
+- Inibição de interrupções:
+  - Estudadas mais à frente nos resumos
+- Exchange (`xchg`no Intel)
+- Test-and-set (`cmpxchg`no Intel)
 
 ![bus](./imgs/0006/bus.png#dark=1)
 
-### Intruções de Hardware Atómicas
+A operação `BTS varX` [executa as seguintes operações](https://youtu.be/9GJuoAQ-eVg?t=56) de forma indivisível:
 
-[BTS varX](https://youtu.be/9GJuoAQ-eVg?t=56)
-
-- De forma indivisível :
-
-  - Lê o bit menos significativo de varX
-  - Escreve o valor do bit na carry flag
-  - Coloca esse bit de varX com valor 1
+- Lê o bit menos significativo de varX
+- Escreve o valor do bit na carry flag
+- Coloca esse bit de varX com valor 1
 
 Capaz de trancar o bus de memória, logo também funciona em
 multi-processador
@@ -228,7 +228,7 @@ Abrir_hard:
 
 [Outras tarefas também podem ver o trinco a zero](color:red)
 
-### Conclusão
+**Conclusão**
 
 - Oferecem os mecanismos básicos para a
   implementação da exclusão mútua
@@ -291,8 +291,6 @@ Em que categoria está o
   quando o trinco está livre, se evite chamada
   sistema
 - Assim minimiza-se os custos de chamadas sistema
-
-![State of processes](./imgs/0006/cycle.png#dark=1)
 
 ---
 

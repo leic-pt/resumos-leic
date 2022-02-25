@@ -508,6 +508,6 @@ Deste teorema, podemos retirar:
 
 Slides:
 
-- [Aula 3](https://drive.google.com/file/d/1HvXWYyDzDM-2AjaXc879YdIEZf2qMCl8/view?usp=sharing)
-- [Aula 4](https://drive.google.com/file/d/1bzEqLW97nD_SDGK-SBO2uQaD2Gv7GxSN/view?usp=sharing)
-- [Aula 5](https://drive.google.com/file/d/1jx3tDKvyx2_y126sT2BB38B_pGg1pB-f/view?usp=sharing)
+- [Aula 3](https://drive.google.com/file/d/1iZm-L2NiRjYbzI1fj74Jg-ZlOUi3UtDu/view)
+- [Aula 4](https://drive.google.com/file/d/15j5ZHYj00sgo5BKPf4EprE237oRtq4Pg/view)
+- [Aula 5](https://drive.google.com/file/d/1S37PNeDEprb713DzWEknZ1UiahB-YFpw/view)

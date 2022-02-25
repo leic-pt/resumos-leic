@@ -21,11 +21,12 @@ de [todos os episódios sobre este tema](https://www.youtube.com/playlist?list=P
 
 ::youtube{#r6sGWTCMz2k}
 
-A Série de Fourier é uma ferramenta muito útil que nos irá permitir reescrever qualquer função como
+A Série de Fourier é uma ferramenta muito útil que nos irá permitir reescrever funções como
 uma soma (infinita) de senos e cossenos.
 
-A Série de Fourier é periódica, ou seja, apenas podemos obter a expressão para um determinado intervalo da
-função. Geralmente, as funções com que trabalhamos são do tipo $f: [-L, L] \to \R$, em que $L$ corresponde a metade do período da função.
+A Série de Fourier é periódica, ou seja, podemos limitar-nos a definir a função num intervalo (extendendo essa definição por periodicidade ao resto do domínio).
+Note-se que isto significa que funções não periódicas não podem ser representadas por uma série de Fourier, mas qualquer restrição de uma função a um intervalo pode.
+Geralmente, as funções com que trabalharemos são então do tipo $f: [-L, L] \to \R$, em que $L$ corresponde a metade do período da função.
 
 :::tip[Definição]
 
@@ -49,12 +50,14 @@ $$
 b_n = \frac{1}{L} \int_{-L}^{L} f(x) \sin\left(\frac{n\pi x}{L}\right) \d x
 $$
 
+Note-se que na expressão acima passámos o termo $n=0$ para fora da série e trocamos $a_0$ por $\frac{a_0}{2}$. Isto é feito para que a fórmula do $a_n$ se aplique também ao $a_0$.
+
 :::
 
-A expressão resultante, $SF_f(x)$ vai corresponder exatamente a $f$ no intervalo $]-L, L[$, exceto onde a função tem pontos de descontinuidade.  
-Aliás, uma das grandes vantagens da Série de Fourier é que a função não precisa de ser contínua, apenas seccionalmente contínua (e ter derivada seccionalmente contínua).
+A expressão resultante, $SF_f(x)$ vai corresponder exatamente a $f$ nos pontos em $]-L, L[$ em que $f$ é contínua.
+Aliás, uma das grandes vantagens da Série de Fourier é a função não precisar de ser contínua, apenas seccionalmente contínua (e ter derivada seccionalmente contínua).
 
-Nos pontos de descontinuidade e nas "pontas" do intervalo ($-L$ e $L$), a expressão da Série de Fourier equivale ao ponto médio entre os dois pontos adjacentes. Traduzindo isto para um sistema, obtemos o [**Teorema da Convergência Pontual da Série de Fourier**](color:green):
+Nos pontos de descontinuidade (e nas "pontas" do intervalo, $-L$ e $L$), a expressão da Série de Fourier equivale ao ponto médio entre os valores da função a vir de ambas as direções. Traduzindo isto para um sistema, obtemos o [**Teorema da Convergência Pontual da Série de Fourier**](color:green):
 
 $$
 SF_f(x) = \begin{cases}
@@ -65,13 +68,14 @@ f(x) & \text{sendo } x \text{ um ponto de continuidade de } f\\
 $$
 
 Como já foi referido, a Série de Fourier, $SF_f(x)$ é periódica em $\R$ com período $2L$, ao contrário de $f$ que pode não o ser.
-Por outro lado, se considerarmos a extensão periódica, $\overline{f}$, de $f$, isto é, pegarmos no intervalo $]-L, L[$ e "repetirmos" a função com período $2L$,
+Por outro lado, se considerarmos a extensão periódica, $\overline{f}$, de $f|_{]-L, L]}$, isto é, pegarmos no intervalo $]-L, L]$ e "repetirmos" a função com período $2L$,
 ficamos com a seguinte equivalência:
 
 $$
 SF_f(x) = \begin{cases}
 \overline{f} (x) & \text{sendo } x \text{ um ponto de continuidade de } \overline{f}\\
-\frac{\overline{f} (x^+) + \overline{f} (x^-)}{2} & \text{sendo } x \text{ um ponto de descontinuidade de } \overline{f}
+\frac{\overline{f} (x^+) + \overline{f} (x^-)}{2} & \text{sendo } x \text{ um ponto de descontinuidade de } \overline{f}\\
+\frac{\overline{f} (L^-) + \overline{f} (-L^+)}{2} & \text{sendo } x = -L \vee x = L
 \end{cases}
 $$
 
@@ -93,22 +97,18 @@ $$
 SF_f(x) = \frac{a_0}{2} + \sum_{n=1}^{+\infty} \left( a_n \cos\left(n \pi x\right) + b_n \sin\left(n\pi x\right) \right)
 $$
 
-O próximo passo é determinar $a_0$, $a_n$ e $b_n$. Tanto $a_0$ como $a_n$ são simples de determinar,
+O próximo passo é determinar $a_n$ e $b_n$. O valor de $a_n$ é simples de determinar,
 visto que $f$ é uma [função ímpar](https://en.wikipedia.org/wiki/Even_and_odd_functions#Odd_functions).
 
-Para $a_0$, como o integral num intervalo simétrico de uma função ímpar é nulo, temos que:
-
-$$
-a_0 = \int_{-1}^{1} f(x) \d x = 0
-$$
-
-Para $a_n$, como o produto de uma [função par](https://en.wikipedia.org/wiki/Even_and_odd_functions#Even_functions) (o cosseno)
-com uma função ímpar ($f$) é também uma função ímpar, temos novamente um integral num intervalo simétrico de uma função ímpar,
+Como o produto de uma [função par](https://en.wikipedia.org/wiki/Even_and_odd_functions#Even_functions) (o cosseno)
+com uma função ímpar ($f$) é também uma função ímpar, temos um integral de uma função ímpar num intervalo do tipo $[-L, L]$,
 que é nulo:
 
 $$
 a_n = \int_{-1}^{1} f(x)\cos(n\pi x) \d x = 0, \forall n \in \N
 $$
+
+Mais ainda, $a_0$ também será 0, já que teríamos $\int_{-1}^{1} f(x) \d x$: o integral de uma função ímpar num intervalo do tipo $[-L, L]$ é 0.
 
 Por outro lado, para $b_n$, já temos de fazer mais cálculos, embora seja possível simplificá-los
 se repararmos que o produto de duas funções ímpares (o seno e $f$) é uma função par, sabemos que o seu
@@ -181,17 +181,13 @@ $$
 SF_f(x) = \frac{a_0}{2} + \sum_{n=1}^{+\infty} \left( a_n \cos\left(n x\right) + b_n \sin\left(n x\right) \right)
 $$
 
-Como $x$ é função ímpar, que está a ser integrada num intervalo simétrico:
-
-$$
-a_0 = \frac{1}{\pi} \int_{-\pi}^{\pi} x \d x = 0
-$$
-
 Como $x$ é função ímpar e $\cos(nx)$ é função par, o produto de ambas vai resultar numa função ímpar, que está a ser integrada num intervalo simétrico, pelo que:
 
 $$
 a_n = \frac{1}{\pi} \int_{-\pi}^{\pi} x \cos(nx) \d x = 0
 $$
+
+Mais ainda, visto que $x$ é ímpar, tal como visto mais acima, $a_0 = \int_{-\pi}^{\pi} x \d x = 0$.
 
 Para determinarmos $b_n$, já necessitamos mais cálculos:
 
@@ -321,6 +317,8 @@ $$
 a_0 = \frac{2}{L} \int_{0}^{L} f(x) \d x
 $$
 
+e
+
 $$
 a_n = \frac{2}{L} \int_{0}^{L} f(x)\cos\left(\frac{n\pi x }{L}\right) \d x
 $$
@@ -356,11 +354,7 @@ $$
 S_{\cos}f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} a_n \cos (nx)
 $$
 
-Podemos agora calcular $a_0$ e $a_n$:
-
-$$
-a_0 = \frac{2}{\pi} \int_{0}^{\pi} f(x) \d x = \frac{2}{\pi} \int_{\frac{\pi}{4}}^{\pi} 1 \d x = \frac{2}{\pi} \left(\pi - \frac{\pi}{4}\right) = \frac{3}{2}
-$$
+Podemos agora calcular $a_n$:
 
 $$
 \begin{aligned}
@@ -369,6 +363,12 @@ a_n &= \frac{2}{\pi} \int_{0}^{\pi} f(x) \cos (nx) \d x\\
 &= \frac{2}{n \pi} \left[\sin(nx)\right]_{\frac{\pi}{4}}^{\pi}\\
 &= -\frac{2}{n\pi} \sin \left(\frac{n\pi}{4}\right)
 \end{aligned}
+$$
+
+sendo que para $n=0$ temos de ter mais cuidado. Nesse caso obtemos
+
+$$
+a_0 = \frac{2}{\pi} \int_{0}^{\pi} f(x) \d x = \frac{2}{\pi} \int_{\frac{\pi}{4}}^{\pi} 1 \d x = \frac{2}{\pi} \left(\pi - \frac{\pi}{4}\right) = \frac{3}{2}
 $$
 
 Concluímos então que a [**Série de Cossenos**](color:green) de $f$ é:

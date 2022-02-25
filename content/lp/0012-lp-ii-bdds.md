@@ -1,6 +1,8 @@
 ---
 title: Lógica Proposicional II - Diagramas de Decisão Binários
-description: Lógica Proposicional II, Sistema Semântico, Diagramas de Decisão Binários (des)Ordenados, Algoritmos de Manipulação de OBDDs.
+description: >-
+  Lógica Proposicional II - Sistema Semântico.
+  Diagramas de Decisão Binários (des)Ordenados, Algoritmos de Manipulação de OBDDs.
 path: /lp/logica-proposicional-ii-bdds
 type: content
 ---
@@ -32,12 +34,12 @@ Abaixo podemos observar um exemplo para a árvore de decisão de $P \wedge ((Q \
 
 <p align="center">
 
-![Árvore de Decisão](./assets/0012-arvore-decisao.png#dark=1)
+![Árvore de Decisão](./assets/0012-arvore-decisao.svg#dark=4)
 
 </p>
 :::
 
-As árvores de decisão e as tabelas de verdade são, contudo, bastante semelhantes em relação ao seu tamanho e quantidade de pontos de decisão. Podemos, contudo, **transformá-las** em grafos acíclicos dirigidos e rotulados para representar, de modo mais condensado, a mesma informação. Abordemos primeiro estas duas propriedades dos grafos.
+As árvores de decisão e as tabelas de verdade são, contudo, bastante semelhantes em relação ao seu tamanho e quantidade de pontos de decisão. Podemos, no entanto, **transformá-las** em grafos acíclicos dirigidos e rotulados para representar, de modo mais condensado, a mesma informação. Abordemos primeiro estas duas propriedades dos grafos.
 
 - **Grafo Dirigido** - estrutura $(N, A)$ em que $N$ é um conjunto finito e $A$ uma relação binária definida sobre $N$. Aqui, $N$ corresponderá aos **nós** do grafo e $A$ aos seus **arcos**. Dado um grafo dirigido, um nó para o qual não existe um arco que nele termina diz-se a **raiz**, enquanto que um nó que não tem um arco que dele parte diz-se uma **folha**. Um nó "intermédio" diz-se **não terminal**.
 
@@ -45,11 +47,11 @@ As árvores de decisão e as tabelas de verdade são, contudo, bastante semelhan
 
 - **Grafo Dirigido e Rotulado** - corresponde a uma estrutura $(N, A)$ em que cada relação em $A$ é um conjunto de arcos com um dado rótulo.
 
-Um **BDD** é, portanto, um grafo acílico, dirigido e rotulado em que os rótulos dos nós podem tanto ser proposições (em nós iniciais/não terminais) como valores lógicos (folhas). Continuamos a ter os arcos a "cheio" e tracejado.
+Um **BDD** é, portanto, um grafo acílico, dirigido e rotulado em que os rótulos dos nós podem tanto ser proposições (em nós iniciais/não terminais) como valores lógicos (folhas). Continuamos a ter os tais arcos a "cheio" e tracejado.
 
 <p align="center">
 
-![BDD](./assets/0012-bdd.png#dark=1)
+![BDD](./assets/0012-bdd.svg#dark=4)
 
 </p>
 
@@ -66,11 +68,11 @@ Um **diagrama de decisão binário ordenado**, OBDD, é um BDD que satisfaz algu
 
 :::details[Exemplos de OBDDs incompatíveis]
 
-Os exemplos abaixo não são compatíveis, visto que não há uma ordem clara - no primeiro, $R$ vem antes de $Q$; no segundo $R$ vem depois de $Q$, não havendo, portanto, uma ordem clara.
+Os exemplos abaixo não são compatíveis, visto que não há uma ordem clara - no primeiro, $R$ vem antes de $Q$; no segundo $R$ vem depois de $Q$. Não podendo estabelecer uma relação de ordem entre os símbolos de proposição, dizemos que são incompatíveis.
 
 <p align="center">
 
-![OBDDs Compativeis](./assets/0012-compativeis.png#dark=1)
+![OBDDs: Compativeis](./assets/0012-compativeis.svg#dark=4)
 
 </p>
 :::
@@ -111,9 +113,7 @@ Ora, vamos por partes:
 
 Temos, então, o nosso OBDD todo identificado, pronto para aplicação do algoritmo seguinte, o _compacta_!
 
-![Reduz parte 1](./assets/0012-reduz-pt1.png#dark=1)
-
-![Reduz parte 2](./assets/0012-reduz-pt2.png#dark=1)
+![Algoritmo Reduz](./assets/0012-reduz.svg#dark=4)
 
 :::
 
@@ -123,7 +123,7 @@ Com o nosso OBDD identificado, fruto do trabalho realizado com o _reduz_, passam
 
 O algoritmo recebe um OBDD já identificado e a sua lista associativa, substituindo cada sub-OBDD cujo identificador é $i$ pela correspondente chave na lista associativa. Por exemplo, a lista associativa do exemplo acima tem chaves de 1 a 4 e os valores associados tal como demonstrados abaixo (o OBDD à esquerda é o resultado final):
 
-![Lista associativa](./assets/0012-compacta-lista.png#dark=1)
+![Lista associativa - Compacta](./assets/0012-compacta-lista.svg#dark=4)
 
 Note-se que, começando pela raiz, P tem sub-OBDDs 3 e 2, com raizes Q e R, respetivamente; Q está ligado a R e a falso, R ligado a falso e a verdadeiro, originando o OBDD compactado tal como o temos à direita.
 
@@ -155,16 +155,14 @@ A intuição utilizada durante o algoritmo é:
 
 Vejamos então o que acontece com $aplica(\wedge, O_{\neg P \wedge \neg R}, O_{P \vee (Q \wedge R)})$.
 
-![Aplica pt.1](./assets/0012-lp-aplica-1.png#dark=1)
+![Aplica pt.1](./assets/0012-lp-aplica-1.svg#dark=4)
 
 (OBDDs reduzidos de cada _fbf_)
 
-![Aplica pt.2](./assets/0012-lp-aplica-2.png#dark=1)
+![Aplica pt.2](./assets/0012-lp-aplica-2.svg#dark=4)
 
-Podemos notar que em ambos os OBDDs o símbolo de proposição com maior prioridade é P, raiz de ambos os OBDDs, pelo que o seu OBDD negativo resulta de aplicar o algoritmo aos respetivos OBDDs negativos e o positivo aos positivos (o "resultante" tem como linhas a cheio as linhas originalmente ligadas por P a cheio, a tracejado as originalmente ligadas a tracejado). Num dos caminhos temos a conjunção de verdadeiro e falso, que é falso, mas ainda temos de olhar para o outro caminho, visto que não sabemos se nos pode dar uma resposta diferente.
+Podemos notar que em ambos os OBDDs o símbolo de proposição com maior prioridade é $P$, raiz de ambos os OBDDs, pelo que o seu OBDD negativo resulta de aplicar o algoritmo aos respetivos OBDDs negativos e o positivo aos positivos (o "resultante" tem como linhas a cheio as linhas originalmente ligadas por $P$ a cheio, a tracejado as originalmente ligadas a tracejado). Num dos caminhos temos a conjunção de verdadeiro e falso, que é falso, mas ainda temos de olhar para o outro caminho, visto que não sabemos se nos pode dar uma resposta diferente.
 
-![Aplica pt.3](./assets/0012-lp-aplica-3.png#dark=1)
+![Aplica pt.3](./assets/0012-lp-aplica-3.svg#dark=4)
 
 Aplicar o algoritmo ao OBDD negativo é diferente, visto que os sub-OBDDs não têm a mesma raiz. Assim sendo, pegamos no símbolo de proposição com mais prioridade na relação de ordem total (neste caso Q ou vem antes de R ou não aparece, pelo que escolhemos Q) e fazemos dele a raiz. Temos, então, que o seu OBDD negativo resulta de aplicar _op_ ao OBDD que não contém Q e ao OBDD negativo de Q; o seu OBDD positivo resulta de aplicar _op_ ao OBDD que não contém Q e ao OBDD positivo de Q. Aqui podemos verificar que ambos os caminhos resultam em falso, pelo que o resultado final é também falso (todos os caminhos levam a falso) e a conjunção das 2 _fbfs_ é uma contradição.
-
-[Slides (até ao 24)](https://drive.google.com/file/d/1ZuegnTFgn5SmM4qh2zPu2wpbbNDi5KaP/view?usp=sharing)

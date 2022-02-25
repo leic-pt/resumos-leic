@@ -350,7 +350,7 @@ $$
 \begin{aligned}
 u(x,0) = 0 & \implies X(x)Y(0) = 0 \implies X(x) = 0 \lor Y(0) = 0 \implies Y(0) = 0\\
 u(x,1) = 0 & \implies X(x)Y(1) = 0 \implies X(x) = 0 \lor Y(1) = 0 \implies Y(1) = 0\\
-u(0,y) = 0 & \implies X(0)Y(u) = 0 \implies X(0) = 0 \lor Y(0) = 0 \implies X(0) = 0
+u(0,y) = 0 & \implies X(0)Y(y) = 0 \implies X(0) = 0 \lor Y(y) = 0 \implies X(0) = 0
 \end{aligned}
 $$
 

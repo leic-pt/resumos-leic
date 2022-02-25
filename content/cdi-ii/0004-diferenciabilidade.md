@@ -644,6 +644,6 @@ Como não existe $\frac{\partial f}{\partial x}(0,0)$, então $f$ não é difere
 
 Slides:
 
-- [Aula 6](https://drive.google.com/file/d/1uCR_XH7dnV2ULSq4weQniyFr0Go-5hs2/view?usp=sharing)
-- [Aula 7](https://drive.google.com/file/d/1f3i-FP2ssWCZitagmDlN2PRbJ5uYDae5/view?usp=sharing)
-- [Aula 8](https://drive.google.com/file/d/1aL-gttKhP6wsMDy_ECIm7k6ecgPIirs8/view?usp=sharing)
+- [Aula 6](https://drive.google.com/file/d/1wQJ7RUwADAvpc1W_DWhOCAXxgRZqiSme/view)
+- [Aula 7](https://drive.google.com/file/d/1FE5ni0SEoLTI-qxB6qQ0wkO9OTKyYwQ_/view)
+- [Aula 8](https://drive.google.com/file/d/1pfCHr7xdP4PH0VGYYZqWEX1sgJ9zT5dy/view)

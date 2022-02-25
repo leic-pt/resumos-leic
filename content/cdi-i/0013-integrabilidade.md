@@ -192,14 +192,14 @@ em que $x_0=1$, $x_p=2$ e $x_n=3$.
 Então, a soma superior associada a $d$ é
 
 $$
-S_{d}(f)=\textcolor{e76f51}{\sum_{k=1}^{p-1} \sup _{\left[x_{k-1}, x_{k}\right]} f(x)\left(x_{k}-x_{k-1}\right)}+\textcolor{F29040}{\sup _{\left[x_{p-1}, x_{p}\right]} f(x)\left(x_{p}-x_{p-1}\right) \\\quad}+\textcolor{e2b33c}{\sup _{\left[x_{p}, x_{p+1}\right]} f(x)\left(x_{p+1}-x_{p}\right)}+\textcolor{4dab9a}{\sum_{k=p+2}^{n} \sup _{\left[x_{k-1}, x_{k}\right]} f(x)\left(x_{k}-x_{k-1}\right)}
+S_{d}(f)=\smartcolor{orange}{\sum_{k=1}^{p-1} \sup _{\left[x_{k-1}, x_{k}\right]} f(x)\left(x_{k}-x_{k-1}\right)}+\smartcolor{blue}{\sup _{\left[x_{p-1}, x_{p}\right]} f(x)\left(x_{p}-x_{p-1}\right) \\\quad}+\smartcolor{green}{\sup _{\left[x_{p}, x_{p+1}\right]} f(x)\left(x_{p+1}-x_{p}\right)}+\smartcolor{pink}{\sum_{k=p+2}^{n} \sup _{\left[x_{k-1}, x_{k}\right]} f(x)\left(x_{k}-x_{k-1}\right)}
 $$
 
 Como em $[1,2[$, o supremo é 1, em $[x_{p-1}, 2]$ é 2, em $[2, x_{p+1}]$ é 3 e em $]2,3]$ é 3, tem-se que:
 
 $$
 \begin{aligned}
-S_d(f)&=\textcolor{e76f51}{1\cdot(x_{p-1}-x_0)}+\textcolor{F29040}{2(2-x_{p-1})}+\textcolor{e2b33c}{3(x_{p+1}-2)}+\textcolor{4dab9a}{3(x_n-x_{p+1})}\\
+S_d(f)&=\smartcolor{orange}{1\cdot(x_{p-1}-x_0)}+\smartcolor{blue}{2(2-x_{p-1})}+\smartcolor{green}{3(x_{p+1}-2)}+\smartcolor{pink}{3(x_n-x_{p+1})}\\
 &=(x_{p-1}-x_0)+2(2-x_{p-1})+3(x_n-2)\\
 &=(x_{p-1}-1)+2(2-x_{p-1})+3(3-2)\\
 &=6-x_{p-1}
@@ -216,14 +216,14 @@ $$
 Para as somas inferiores associadas a $d$:
 
 $$
-s_{d}(f)=\textcolor{e76f51}{\sum_{k=1}^{p-1} \inf _{\left[x_{k-1}, x_{k}\right]} f(x)\left(x_{k}-x_{k-1}\right)}+\textcolor{F29040}{\inf_{\left[x_{p-1}, x_{p}\right]} f(x)\left(x_{p}-x_{p-1}\right) \\\quad}+\textcolor{e2b33c}{\inf_{\left[x_{p}, x_{p+1}\right]} f(x)\left(x_{p+1}-x_{p}\right)}+\textcolor{4dab9a}{\sum_{k=p+2}^{n} \inf_{\left[x_{k-1}, x_{k}\right]} f(x)\left(x_{k}-x_{k-1}\right)}
+s_{d}(f)=\smartcolor{orange}{\sum_{k=1}^{p-1} \inf _{\left[x_{k-1}, x_{k}\right]} f(x)\left(x_{k}-x_{k-1}\right)}+\smartcolor{blue}{\inf_{\left[x_{p-1}, x_{p}\right]} f(x)\left(x_{p}-x_{p-1}\right) \\\quad}+\smartcolor{green}{\inf_{\left[x_{p}, x_{p+1}\right]} f(x)\left(x_{p+1}-x_{p}\right)}+\smartcolor{pink}{\sum_{k=p+2}^{n} \inf_{\left[x_{k-1}, x_{k}\right]} f(x)\left(x_{k}-x_{k-1}\right)}
 $$
 
 Como em $[1,2[$, o ínfimo é 1, em $[x_{p-1}, 2]$ é 1, em $[2, x_{p+1}]$ é 2 e em $]2,3]$ é 3, tem-se que:
 
 $$
 \begin{aligned}
-s_d(f)&=\textcolor{e76f51}{1\cdot(x_{p-1}-x_0)}+\textcolor{F29040}{1\cdot(2-x_{p-1})}+\textcolor{e2b33c}{2(x_{p+1}-2)}+\textcolor{4dab9a}{3(x_n-x_{p+1})}\\
+s_d(f)&=\smartcolor{orange}{1\cdot(x_{p-1}-x_0)}+\smartcolor{blue}{1\cdot(2-x_{p-1})}+\smartcolor{green}{2(x_{p+1}-2)}+\smartcolor{pink}{3(x_n-x_{p+1})}\\
 &=(2-x_0)+2(x_{p+1}-2)+3(x_n-x_{p+1})\\
 &=(2-1)+2(x_{p+1}-2)+3(3-x_{p+1})\\
 &=6-x_{p+1}

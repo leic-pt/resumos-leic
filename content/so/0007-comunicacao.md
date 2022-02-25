@@ -425,6 +425,9 @@ void apanhaCTRLC (int s) {
   else {
     printf ("Entao vamos continuar\n");
     signal (SIGINT, apanhaCTRLC);
+    // Em alguns OS, o tratamento do signal
+    // volta para o default depois de ser tratado,
+    // sendo assim é preciso chamar signal outra vez
   }
 }
 
@@ -473,7 +476,7 @@ Unix System V e Unix BSD
   - A associação de uma rotina a um signal é apenas efetiva para uma ativação
     - Depois de receber o signal, o tratamento passa a ser novamente o por omissão
       (necessário associar de novo)
-    - Entre o lançamento de rotina de tratamento e a nova associação à tratamento
+    - Entre o lançamento de rotina de tratamento e a nova associação -> tratamento
       por omissão
     - Preciso restabelecer a associação na primeira linha da rotina de tratamento
       - Problema se houver receção sucessiva de signals
@@ -499,7 +502,7 @@ Unix System V e Unix BSD
 
 - A lista das funções que podem ser chamadas a partir
   dum signal pode ser obtida na página de manual do
-  signal(7)
+  [signal](https://man7.org/linux/man-pages/man7/signal.7.html)
 - Estas funções são também chamadas `async-signal-safe` e incluem:
   - funções reentrantes
   - funções cuja execução não pode ser interrompidas por

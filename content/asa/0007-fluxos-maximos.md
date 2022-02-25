@@ -118,11 +118,11 @@ f' = f + f_p \wedge |f'| = |f| + |f_p| > |f|
 
 $$
 
-Ou seja, que o fluxo da rede após a aplicação do aumento à rede, $f'$ é estritamente maior que o fluxo da rede original, $f$. Consideramos para este efeito que $f_p = c_f(p) > 0$.
+Ou seja, que o fluxo da rede após a aplicação do aumento à rede, $f'$, é estritamente maior que o fluxo da rede original, $f$. Consideramos para este efeito que $f_p = c_f(p) > 0$.
 
 ### Cortes em Redes de Fluxo
 
-Os cortes em redes de fluxo correspondem a uma partição de $V$ tal que $(S, T)$, com $T = V-S$, tal que $s \in S \wedge t \in T$.
+Os cortes em redes de fluxo correspondem a uma partição $(S, T)$ de $V$, com $T = V-S$, tal que $s \in S \wedge t \in T$.
 Seja $f$ um fluxo, o **fluxo líquido de um corte** corresponde a:
 
 $$
@@ -628,7 +628,7 @@ Ora, levanta-se uma questão - parece que ficamos infinitamente a atirar fluxo $
 
 De facto parece, mas eventualmente as operações levam a que $v_1$ atinja altura $7$, superior ao número de vértices da rede (e portanto à altura de $s$). $v_1$ poderá agora, via refluxo, enviar fluxo de volta para $s$ (os tais $3$ que precisava), eliminando assim este ciclo que parecia quasi-infinito!
 
-(De notar que foram omitidos alguns passos intermédios, visto que seriam algo repetitivos e desinteressantes - para retirar quaisquer dúvidas que possam surgir devido à ausência dos mesmos, aconselha-se a consulta dos [slides](https://drive.google.com/file/d/1OqY6-EqfHIU5W1ho5pigFTjKl7IbZDcA/view?usp=sharing), por volta do slide 45).
+(De notar que foram omitidos alguns passos intermédios, visto que seriam algo repetitivos e desinteressantes - para retirar quaisquer dúvidas que possam surgir devido à ausência dos mesmos, aconselha-se a consulta dos slides, por volta do slide 45).
 
 ![Passo 6 - R2F](./assets/0007-r2f-passo-6.png#dark=1)
 
@@ -653,18 +653,12 @@ O fluxo máximo é, então igual a $23$! Podemos verificar, como esperado, que o
 
 A complexidade temporal do algoritmo é, então, $O(V^3)$. Podemos trivialmente provar que, por vértice, podemos realizar no máximo $V$ operações de _relabel_ (começando da altura base, podemos encontrar todos os vértices em escada, subindo a altura de $1$ em $1$ até V). Havendo $V$ vértices, podemos afirmar que no máximo ocorrerão $V^2$ operações de _relabel_ durante _relabel-to-front_. Por fim, temos que cada iteração pode ter até $V$ descargas (atirando fluxo para todos os vértices), e havendo no máximo $V^2$ _relabels_, podemos claramente majorar a complexidade temporal da execução do algoritmo em $O(V^3)$.
 
-<!-- TODO REFERIR QUE NO FIM O EXCESSO DE S DEVE SER SIMÉTRICO AO DE T -->
-
-<!-- TODO REFERIR QUE NEM SEMPRE ESTES ALGORITMOS SÃO MAIS EFICIENTES - TEMOS DE COMPARAR COMPLEXIDADES, VER QUAL O MELHOR -> EXEMPLO DO CARROTT, P EX -->
-
 <!-- TODO ADICIONAR PROVAS E NOTAS SOBRE COMPLEXIDADES (WHENEVER TIVER TEMPO) -->
 
 <!-- TODO MENCIONAR ARCOS ADMISSÍVEIS E CENAS -->
 
 ---
 
-- [Slides - Algoritmos Baseados em Caminhos de Aumento](https://drive.google.com/file/d/1swL85O4Fu1XuMBdWEJksVsrcFxF6iYeT/view?usp=sharing)
-- [Slides - Algoritmos de Pré-Fluxo](https://drive.google.com/file/d/1OqY6-EqfHIU5W1ho5pigFTjKl7IbZDcA/view?usp=sharing)
 - [Notas Ford-Fulkerson - Prof. José Fragoso](https://drive.google.com/file/d/13Ua5JJ6mJZUhEImbcAMGrCBG5iPiUxN3/view?usp=sharing)
 - [Notas Edmonds-Karp/CBM - Prof. José Fragoso](https://drive.google.com/file/d/1YRzHWWA4glyzkYj2eshiLtD2XNWw8fmw/view?usp=sharing)
 - [Notas Pré-Fluxos - Prof. José Fragoso](https://drive.google.com/file/d/13_3-tNuxZuiHZNPZXiXUL8hVudvSO4uC/view?usp=sharing)
