@@ -314,12 +314,12 @@ Uma shell pode ser descrita muito facilmente por:
 
 - Ciclo infinito, em que cada iteração:
 
-  - Imprime mensagem;
-  - Lê comando;
-  - Cria novo processo filho;
-  - Processo filho deve executar outro programa (indicado no comando lido);
-  - Entretanto, o processo da shell bloqueia-se até filho terminar;
-  - Volta à próxima iteração.
+  1. Imprime mensagem;
+  2. Lê comando;
+  3. Cria novo processo filho;
+  4. Processo filho deve executar outro programa (indicado no comando lido);
+  5. Entretanto, o processo da shell bloqueia-se até filho terminar;
+  6. Volta à próxima iteração.
 
 ```c
 while (TRUE) {
