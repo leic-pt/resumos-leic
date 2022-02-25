@@ -366,18 +366,6 @@ Mas não partilham:
   - Thread id (tid)
   - etc
 
-## Paralelismo com Múltiplos Processos vs. Múltiplas Tarefas (no mesmo processo)
-
-- [Vantagens](color:green) de multi-tarefa:
-  - Criação e comutação entre tarefas do mesmo processo
-    mais leves (vs. entre processos)
-  - Tarefas podem comunicar através de memória partilhada
-    - Comunicação entre processos mais limitada
-- [Vantagens](color:green) de processos:
-  - Podemos executar diferentes binários em paralelo
-  - Isolamento: confinamento de bugs
-  - Outras
-
 ## Programação com Tarefas em Unix (Interface POSIX)
 
 ### Operações sobre Tarefas
@@ -561,6 +549,29 @@ Ao vermos o código assembly desta função, podemos reparar que entre a chamada
 para os registos e a voltar a guardar o valor nas variáveis, o seu valor pode sofrer alteração
 por outras _threads_ que possam estar a escrever sobre elas.  
 Temos assim que evitar que _threads_ acedam ao mesmo endereço de memória ao mesmo tempo.
+
+[**IMPORTANTE**](color:yellow): É sempre má ideia assumir que uma operação em C é indivisível!!!
+
+## Processos vs Tarefas
+
+Vantagens de multi-tarefa:
+
+- Criação e comutação entre tarefas do mesmo processo mais leves (vs. entre processos);
+- Tarefas podem comunicar através de memória partilhada - comunicação entre processos é mais limitada (visto mais tarde na cadeira);
+  Vantagens de processos:
+- Podemos executar diferentes binários em paralelo;
+- Isolamento: confinamento de bugs;
+- Outras (visto mais tarde na cadeira).
+
+:::tip[Exemplo de Uso de Processos]
+
+**Chromium**:
+
+- No browser [Chromium](https://brave.com/), criar um novo separador causa a chamada do `fork`;
+- Processo filho usado para carregar e executar scripts dos sites abertos nesse separador;
+- Permite que separadores não obtenham informação sobre os outros separadores (isolamento).
+
+:::
 
 [**IMPORTANTE**](color:yellow): É sempre má ideia assumir que uma operação em C é indivisível!!!
 
