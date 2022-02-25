@@ -46,7 +46,7 @@ yarn               # or yarn install
 
 ### Alterar conteúdos
 
-Os ficheiros `.md` (markdown) estão na pasta da respetica UC dentro de `content`.
+Os ficheiros `.md` (markdown) estão na pasta da respetiva UC dentro de `content`.
 Assim que um ficheiro `.md` é adicionado à respetiva pasta da UC, é acessível a partir da sidebar.  
 Os ficheiros podem ainda ter diferentes categorias, aparecendo em diferentes sub-secções da sidebar consoante a mesma. Em princípio, ser-vos-á útil apenas a categoria `content`, que deve ser adicionada ao _header_ de cada ficheiro.
 
