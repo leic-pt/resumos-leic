@@ -40,7 +40,11 @@ Associada ao conceito de função de valoração temos a _interpretação_:
 :::tip[DEFINIÇÃO]
 
 Dada uma função de valoração $v$, uma **interpretação** é uma função $I_{v}$ que atribui valores lógicos a um conjunto de _fbfs_.
-$$I_{v}:\mathcal{L}_{LP} \mapsto \{V, F\}$$
+
+$$
+I_{v}:\mathcal{L}_{LP} \mapsto \{V, F\}
+$$
+
 A interpretação é tal que:
 
 - Caso $\alpha$ seja uma _fbf_ atómica, $I_{v}(\alpha) = v(\alpha)$;
