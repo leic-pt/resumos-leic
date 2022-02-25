@@ -575,27 +575,6 @@ Vantagens de multi-tarefa:
 
 [**IMPORTANTE**](color:yellow): É sempre má ideia assumir que uma operação em C é indivisível!!!
 
-## Processos vs Tarefas
-
-Vantagens de multi-tarefa:
-
-- Criação e comutação entre tarefas do mesmo processo mais leves (vs. entre processos);
-- Tarefas podem comunicar através de memória partilhada - comunicação entre processos é mais limitada (visto mais tarde na cadeira);
-  Vantagens de processos:
-- Podemos executar diferentes binários em paralelo;
-- Isolamento: confinamento de bugs;
-- Outras (visto mais tarde na cadeira).
-
-:::tip[Exemplo de Uso de Processos]
-
-**Chromium**:
-
-- No browser [Chromium](https://brave.com/), criar um novo separador causa a chamada do `fork`;
-- Processo filho usado para carregar e executar scripts dos sites abertos nesse separador;
-- Permite que separadores não obtenham informação sobre os outros separadores (isolamento).
-
-:::
-
 ---
 
 Slides:
