@@ -48,7 +48,7 @@ Cada instância de um programa em execução denomina-se um **processo**
 ![Análise temporal de um processo](./imgs/0004/0004-graph.png#dark=1)
 
 Na realidade só pode estar a correr um processo de cada vez (por unidade de processamento).
-Contudo, uma vez que um CPU é capaz de executar muitos milhares de operações por segundo, é possível executar a troca de processos em execução no CPU, de forma que, para um humano, os processsos parecem correr em paralelo.
+Contudo, uma vez que um CPU é capaz de executar muitos milhares de operações por segundo, é possível executar a troca de processos em execução no CPU de forma que, para um humano, os processsos parecem correr em paralelo.
 A isto dá-se o nome de [pseudo-concorrência](color:green).
 
 Uma vez que vamos falar muito de processos, é relevante estabelecer a diferença entre um programa e um processo:
@@ -186,13 +186,13 @@ Esta função para o processo pai até este se sincronizar com a terminação de
 - O estado de terminação do processo filho que foi atribuído no parâmetro da função `exit` é guardado na variável apontada por `status`.
 
 :::tip[Macros Importantes]
-Usando `man wait` poderão encotrar Macros (`WIFEXITED`, `WEXITSTATUS`) que ajudam a saber como e se um processo terminou (com `exit`).
+Usando `man wait` poderão encontrar Macros (`WIFEXITED`, `WEXITSTATUS`) que ajudam a saber como e se um processo terminou (com `exit`).
 :::
 
 :::tip[Exemplo de exit e wait]
 
 ```c
-main () {
+main() {
   int pid, estado;
 
   pid = fork();
@@ -270,7 +270,7 @@ Até agora só vimos como criar uma cópia de um processo que execute o mesmo pr
 Vamos agora ver como ter o processo filho a executar um programa diferente.
 
 ```c
-int execl(char* ficheiro, char* arg0, char* argl, ..., argn, 0)
+int execl(char* ficheiro, char* arg0, char* argl, ..., argn, NULL)
 ```
 
 ```c
@@ -281,11 +281,11 @@ int execv(char* ficheiro, char* argv[])
 
 Os argumentos podem ser passados de duas maneiras:
 
-- Para `execl`, passa-se os ponteiros 1 a 1, acabando em 0
+- Para `execl`, passa-se os ponteiros 1 a 1, acabando em `NULL` (ou `0`, visto que `NULL` é só uma constante igual a `(void *)0`)
 - Para `execv`, passa-se um array de ponteiros
 
 Estes parâmetros são passados para a função `main` do novo programa e acessíveis através do `argv`.
-Ambas as funções `execl()` e `execv()` são **front-ends** mais simples para `execve()` que é a função principal com mais parâmetros.
+Ambas as funções `execl()` e `execv()` são **front-ends** mais simples para `execve()`, que é a função genérica principal com mais parâmetros.
 
 :::tip[Exemplo de execl]
 
@@ -306,7 +306,7 @@ main() {
 
 :::
 
-Por convenção o `arg0` é o nome do programa.
+Por convenção, **o `arg0` é o nome do programa**.
 
 ### Implementação de uma shell
 
@@ -322,7 +322,7 @@ Uma shell pode ser descrita muito facilmente por:
   - Volta à próxima iteração.
 
 ```c
-while(TRUE) {
+while (TRUE) {
   prompt();
   read_command(command, params);
   pid = fork();
@@ -558,7 +558,8 @@ Vantagens de multi-tarefa:
 
 - Criação e comutação entre tarefas do mesmo processo mais leves (vs. entre processos);
 - Tarefas podem comunicar através de memória partilhada - comunicação entre processos é mais limitada (visto mais tarde na cadeira);
-  Vantagens de processos:
+
+Vantagens de processos:
 - Podemos executar diferentes binários em paralelo;
 - Isolamento: confinamento de bugs;
 - Outras (visto mais tarde na cadeira).
