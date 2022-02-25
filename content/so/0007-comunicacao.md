@@ -490,6 +490,7 @@ Em plataformas Linux, para ter a certeza de obter semântica BSD, deve-se usar `
   dum signal pode ser obtida na página de manual do
   [signal](https://man7.org/linux/man-pages/man7/signal.7.html)
 - Estas funções são também chamadas `async-signal-safe` e incluem:
+
   - funções reentrantes
   - funções cuja execução não pode ser interrompidas por
     signals (pois os bloqueiam durante a própria execução)
