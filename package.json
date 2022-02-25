@@ -26,6 +26,7 @@
     "@emotion/react": "^11.7.1",
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.6.0",
+    "@mui/icons-material": "^5.4.2",
     "@mui/material": "^5.4.0",
     "docs-searchbar.js": "^2.0.1",
     "gatsby": "^4.4.0",

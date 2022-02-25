@@ -1,4 +1,8 @@
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
   Box,
   Link as MuiLink,
   Table,
@@ -31,6 +35,13 @@ const renderAst = new Rehype2react({
     tr: (props) => <TableRow {...props} />,
     td: (props) => <TableCell {...props} />,
     th: (props) => <TableCell component='th' {...props} />,
+    details: Accordion,
+    'details-summary': (props) => (
+      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+        <Typography variant='h6' component='p' {...props} />
+      </AccordionSummary>
+    ),
+    'details-content': AccordionDetails,
   },
 }).Compiler;
 

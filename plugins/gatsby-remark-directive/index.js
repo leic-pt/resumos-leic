@@ -28,7 +28,20 @@ const onCustomComponentVisit = (node) => {
 
   if (node.name === 'details') {
     data.hName = 'details';
-    node.children[0].data.hName = 'summary';
+    const containerLabel = node.children.shift();
+    containerLabel.data.hName = 'details-summary';
+
+    // Move node children into wrapped container
+    node.children = [
+      containerLabel,
+      {
+        type: 'paragraph',
+        data: {
+          hName: 'details-content',
+        },
+        children: node.children,
+      },
+    ];
   }
 };
 
