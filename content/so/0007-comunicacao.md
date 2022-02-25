@@ -138,19 +138,19 @@ main() {
   // fds[0] - descritor aberto para leitura
   // fds[1] - descritor aberto para escrita
 
-  if (pipe (fds) < 0) exit(-1); // Criação de um pipe
-  if (fork () == 0) {
+  if (pipe(fds) < 0) exit(-1); // Criação de um pipe
+  if (fork() == 0) {
     /* processo filho*/
     close(fds[1]);
     /* lê do pipe */
-    read (fds[0], tmp, sizeof (msg));
-    printf ("%s\n", tmp);
-    exit (0);
+    read(fds[0], tmp, sizeof (msg));
+    printf("%s\n", tmp);
+    exit(0);
   } else {
     /* processo pai */
     close(fds[0]);
     /* escreve no pipe */
-    write (fds[1], msg, sizeof (msg));
+    write(fds[1], msg, sizeof (msg));
     pid_filho = wait();
   }
 }
@@ -166,7 +166,7 @@ A _system call_ [dup](https://man7.org/linux/man-pages/man2/dup.2.html) duplica 
 
 ![Redirecionamento de Entradas/Saídas](./imgs/0007/redirecting.png#dark=3)
 
-:::tip[Exemplo: Redireccionamento de Entradas/Saídas]
+:::tip[Exemplo: Redirecionamento de Entradas/Saídas]
 
 ```c
 #include <stdio.h>
@@ -179,29 +179,29 @@ char tmp[TAMSG];
 
 main() {
   int fds[2], pid_filho;
-  if (pipe (fds) < 0) exit(-1);
-  if (fork () == 0) {
+  if (pipe(fds) < 0) exit(-1);
+  if (fork() == 0) {
     /* processo filho */
     /* liberta o stdin (posição zero) */
-    close (0);
+    close(0);
 
-    /* redirecciona o stdin para o pipe de
+    /* redireciona o stdin para o pipe de
     leitura */
-    dup (fds[0]);
+    dup(fds[0]);
 
     /* fecha os descritores não usados pelo
     filho */
-    close (fds[0]);
-    close (fds[1]);
+    close(fds[0]);
+    close(fds[1]);
     /* lê do pipe */
-    read (0, tmp, sizeof (msg));
-    printf ("%s\n", tmp);
-    exit (0);
+    read(0, tmp, sizeof (msg));
+    printf("%s\n", tmp);
+    exit(0);
   }
   else {
     /* processo pai */
     /* escreve no pipe */
-    write (fds[1], msg, sizeof (msg));
+    write(fds[1], msg, sizeof (msg));
     pid_filho = wait();
   }
 }
@@ -214,7 +214,7 @@ Por exemplo, um comando como `ls -la | grep xpto | ...etc...` redireciona o outp
 
 ![ls](./imgs/0007/ls.png#dark=1)
 
-:::tip[Exemplo: Redireccionamento de Entradas/Saídas]
+:::tip[Exemplo: Redirecionamento de Entradas/Saídas]
 
 O comando indicado a cima na shell podia ser implementado de forma semelhante à apresentada de seguida:
 
