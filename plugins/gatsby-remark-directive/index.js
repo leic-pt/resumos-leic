@@ -25,9 +25,10 @@ const onCustomComponentVisit = (node) => {
       children: [{ type: 'text', value: node.name }],
     });
   }
+  data.hName = node.name;
+  node.children[0].data.hName = 'alert-title';
 
   if (node.name === 'details') {
-    data.hName = 'details';
     const containerLabel = node.children.shift();
     containerLabel.data.hName = 'details-summary';
 

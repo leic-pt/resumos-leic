@@ -5,7 +5,6 @@ import {
   ListItemButton,
   ListItemText,
   ListSubheader,
-  Paper,
   Toolbar,
 } from '@mui/material';
 import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';

@@ -1,4 +1,4 @@
-import { Paper, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 

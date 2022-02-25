@@ -1,8 +1,11 @@
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  Alert,
+  AlertTitle,
   Box,
   Link as MuiLink,
   Table,
@@ -35,6 +38,18 @@ const renderAst = new Rehype2react({
     tr: (props) => <TableRow {...props} />,
     td: (props) => <TableCell {...props} />,
     th: (props) => <TableCell component='th' {...props} />,
+    info: (props) => <Alert variant='outlined' severity='info' {...props} />,
+    tip: (props) => (
+      <Alert
+        icon={<TipsAndUpdatesIcon fontSize='inherit' />}
+        variant='outlined'
+        severity='success'
+        {...props}
+      />
+    ),
+    warning: (props) => <Alert variant='outlined' severity='warning' {...props} />,
+    error: (props) => <Alert variant='outlined' severity='error' {...props} />,
+    'alert-title': (props) => <AlertTitle sx={{ textTransform: 'uppercase' }} {...props} />,
     details: Accordion,
     'details-summary': (props) => (
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>

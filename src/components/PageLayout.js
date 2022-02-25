@@ -1,14 +1,13 @@
+import Box from '@mui/material/Box';
 import { graphql } from 'gatsby';
 import 'katex/dist/katex.min.css';
 import React, { useCallback, useState } from 'react';
 //import '../styles/main.css';
 //import '../styles/markdown.css';
 import { customComponents } from '../utils/customComponents';
-import Navbar from './Navbar';
+import MarkdownContent from './MarkdownContent';
 import PageMetadata from './PageMetadata';
 import Sidebar from './Sidebar';
-import Box from '@mui/material/Box';
-import MarkdownContent from './MarkdownContent';
 
 export default function Template({ data }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);

@@ -1,5 +1,5 @@
 import { red } from '@mui/material/colors';
-import { createTheme, responsiveFontSizes } from '@mui/material/styles';
+import { createTheme, responsiveFontSizes, experimental_sx as sx } from '@mui/material/styles';
 
 // A custom theme for this app
 const nordTheme = responsiveFontSizes(
@@ -25,6 +25,15 @@ const nordTheme = responsiveFontSizes(
     },
     typography: {
       fontFamily: ['Open Sans', 'sans-serif'].join(','),
+    },
+    components: {
+      MuiAlert: {
+        styleOverrides: {
+          root: sx({
+            my: 2,
+          }),
+        },
+      },
     },
   })
 );
