@@ -19,9 +19,9 @@ jobs:
           fetch-depth: 0
 
       - name: Prettify code
-        uses: creyD/prettier_action@v3.1
+        uses: creyD/prettier_action@v4.2
         with:
-          prettier_options: --write **/*.{js,md,vue}
+          prettier_options: --write **/*.{js,md}
           only_changed: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
