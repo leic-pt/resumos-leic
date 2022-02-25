@@ -18,7 +18,7 @@ type: content
 ## Ficheiro
 
 Toda a gente sabe o que é um [ficheiro](color:yellow), mas definir um exatamente pode ser algo mais difícil.  
-Definimos um [ficheiro](color:yellow) como uma coleção de dados persientes, geralmente relacionados, identificados por um nome.
+Definimos um [ficheiro](color:yellow) como uma coleção de dados persistentes, geralmente relacionados, identificados por um nome.
 Os vários [ficheiros](color:yellow) de um certo sistema estão normalmente organizados num [sistema de ficheiros](color:orange).
 
 Um [sistema de ficheiros](color:orange) deve ser composto por um conjunto de entidades fundamentais:
