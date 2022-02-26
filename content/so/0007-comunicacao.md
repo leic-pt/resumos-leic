@@ -492,11 +492,7 @@ Em plataformas Linux, para ter a certeza de obter semântica BSD, deve-se usar `
 - Estas funções são também chamadas `async-signal-safe` e incluem:
 
   - funções reentrantes
-  - funções cuja execução não pode ser interrompidas por
-    signals (pois os bloqueiam durante a própria execução)
-
-- funções reentrantes
-- funções cuja execução não pode ser interrompidas por signals (pois os bloqueiam durante a própria execução)
+  - funções cuja execução não pode ser interrompida por signals (pois os bloqueiam durante a própria execução)
 
 Quando um processo com múltiplas tarefas recebe um signal associado a uma função de tratamento, o OS escolhe por omissão uma tarefa do processo para ser interrompida e lidar com o signal.  
 É possível usar a função `pthread_sigmask` para impor que determinadas tarefas não tratem aquele signal. Se quisermos bloquear o signal basta cada tarefa chamar `pthread_sigmask`.
