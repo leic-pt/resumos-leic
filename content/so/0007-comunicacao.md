@@ -138,19 +138,19 @@ main() {
   // fds[0] - descritor aberto para leitura
   // fds[1] - descritor aberto para escrita
 
-  if (pipe (fds) < 0) exit(-1); // Criação de um pipe
-  if (fork () == 0) {
+  if (pipe(fds) < 0) exit(-1); // Criação de um pipe
+  if (fork() == 0) {
     /* processo filho*/
     close(fds[1]);
     /* lê do pipe */
-    read (fds[0], tmp, sizeof (msg));
-    printf ("%s\n", tmp);
-    exit (0);
+    read(fds[0], tmp, sizeof (msg));
+    printf("%s\n", tmp);
+    exit(0);
   } else {
     /* processo pai */
     close(fds[0]);
     /* escreve no pipe */
-    write (fds[1], msg, sizeof (msg));
+    write(fds[1], msg, sizeof (msg));
     pid_filho = wait();
   }
 }
@@ -166,7 +166,7 @@ A _system call_ [dup](https://man7.org/linux/man-pages/man2/dup.2.html) duplica 
 
 ![Redirecionamento de Entradas/Saídas](./imgs/0007/redirecting.png#dark=3)
 
-:::tip[Exemplo: Redireccionamento de Entradas/Saídas]
+:::tip[Exemplo: Redirecionamento de Entradas/Saídas]
 
 ```c
 #include <stdio.h>
@@ -179,29 +179,29 @@ char tmp[TAMSG];
 
 main() {
   int fds[2], pid_filho;
-  if (pipe (fds) < 0) exit(-1);
-  if (fork () == 0) {
+  if (pipe(fds) < 0) exit(-1);
+  if (fork() == 0) {
     /* processo filho */
     /* liberta o stdin (posição zero) */
-    close (0);
+    close(0);
 
-    /* redirecciona o stdin para o pipe de
+    /* redireciona o stdin para o pipe de
     leitura */
-    dup (fds[0]);
+    dup(fds[0]);
 
     /* fecha os descritores não usados pelo
     filho */
-    close (fds[0]);
-    close (fds[1]);
+    close(fds[0]);
+    close(fds[1]);
     /* lê do pipe */
-    read (0, tmp, sizeof (msg));
-    printf ("%s\n", tmp);
-    exit (0);
+    read(0, tmp, sizeof (msg));
+    printf("%s\n", tmp);
+    exit(0);
   }
   else {
     /* processo pai */
     /* escreve no pipe */
-    write (fds[1], msg, sizeof (msg));
+    write(fds[1], msg, sizeof (msg));
     pid_filho = wait();
   }
 }
@@ -214,7 +214,7 @@ Por exemplo, um comando como `ls -la | grep xpto | ...etc...` redireciona o outp
 
 ![ls](./imgs/0007/ls.png#dark=1)
 
-:::tip[Exemplo: Redireccionamento de Entradas/Saídas]
+:::tip[Exemplo: Redirecionamento de Entradas/Saídas]
 
 O comando indicado a cima na shell podia ser implementado de forma semelhante à apresentada de seguida:
 
@@ -268,7 +268,7 @@ O [named pipe](color:yellow) existe entre os restantes ficheiros do sistema de f
 
 #define TAMMSG 1000
 
-main () {
+int main() {
   int fcli, fserv, n;
   char buf[TAMMSG];
 
@@ -277,27 +277,27 @@ main () {
   unlink("/tmp/cliente");
 
   /* Criação dos pipes */
-  if (mkfifo ("/tmp/servidor", 0777) < 0)
+  if (mkfifo("/tmp/servidor", 0777) < 0)
     exit (1);
-  if (mkfifo ("/tmp/cliente", 0777) < 0)
+  if (mkfifo("/tmp/cliente", 0777) < 0)
     exit (1);
 
   /* Abertura dos pipes */
-  if ((fserv = open ("/tmp/servidor", O_RDONLY)) < 0)
+  if ((fserv = open("/tmp/servidor", O_RDONLY)) < 0)
 	exit(1);
-  if ((fcli = open ("/tmp/cliente", O_WRONLY)) < 0)
+  if ((fcli = open("/tmp/cliente", O_WRONLY)) < 0)
 	exit(1);
 
   for (;;) {
-    n = read (fserv, buf, TAMMSG);
+    n = read(fserv, buf, TAMMSG);
     if (n <= 0) break;
-    trataPedido (buf);
-    n = write (fcli, buf, TAMMSG);
+    trataPedido(buf);
+    n = write(fcli, buf, TAMMSG);
   }
 
   /* Fechar e desassociar pipes */
-  close (fserv);
-  close (fcli);
+  close(fserv);
+  close(fcli);
   unlink("/tmp/servidor");
   unlink("/tmp/cliente");
 
@@ -313,15 +313,15 @@ main () {
 
 #define TAMMSG 1000
 
-void produzMsg (char *buf) {
-strcpy (buf, "Mensagem de teste");
+void produzMsg(char *buf) {
+strcpy(buf, "Mensagem de teste");
 }
 
-void trataMsg (buf) {
-printf ("Recebeu: %s\n", buf);
+void trataMsg(buf) {
+printf("Recebeu: %s\n", buf);
 }
 
-main() {
+int main() {
   int fcli, fserv;
   char buf[TAMMSG];
 
@@ -332,14 +332,14 @@ main() {
   if ((fcli = open ("/tmp/cliente", O_RDONLY)) < 0)
 	exit(1);
 
-  produzMsg (buf);
-  write (fserv, buf, TAMMSG);
-  read (fcli, buf, TAMMSG);
-  trataMsg (buf);
+  produzMsg(buf);
+  write(fserv, buf, TAMMSG);
+  read(fcli, buf, TAMMSG);
+  trataMsg(buf);
 
   /* Fechar os pipes */
-  close (fserv);
-  close (fcli);
+  close(fserv);
+  close(fcli);
 }
 ```
 
@@ -388,7 +388,7 @@ A função `signal` permite mudar o tratamento de um signal, tanto para outro tr
 O signal cujo tratamento é redefenido é passado no parâmetro `int sig`.  
 A nova rotina de tratamento do signal passada por `void (*func)(int)`.
 
-- `SIG_DFL` - acção por omissão;
+- `SIG_DFL` - ação por omissão;
 - `SIG_IGN` - ignorar o signal.
   A função retorna um ponteiro para função anteriormente associada ao `signal`.
 
@@ -401,25 +401,25 @@ O signal `SIGKILL` não pode ser redefinido (deve haver uma forma garantida de t
 #include <signal.h>
 #include <stdlib.h>
 
-void apanhaCTRLC (int s) {
+void apanhaCTRLC(int s) {
   char ch;
   printf("Quer de facto terminar a execucao?\n");
   ch = getchar();
   if (ch == 's') exit(0);
   else {
-    printf ("Entao vamos continuar\n");
-    signal (SIGINT, apanhaCTRLC);
+    printf("Entao vamos continuar\n");
+    signal(SIGINT, apanhaCTRLC);
     // Em alguns OS, o tratamento do signal
     // volta para o default depois de ser tratado,
     // sendo assim é preciso chamar signal outra vez
   }
 }
 
-int main () {
-  signal (SIGINT, apanhaCTRLC);
+int main() {
+  signal(SIGINT, apanhaCTRLC);
   printf("Associou uma rotina ao signal SIGINT\n");
   for (;;)
-    sleep (10);
+    sleep(10);
 }
 ```
 
@@ -492,11 +492,7 @@ Em plataformas Linux, para ter a certeza de obter semântica BSD, deve-se usar `
 - Estas funções são também chamadas `async-signal-safe` e incluem:
 
   - funções reentrantes
-  - funções cuja execução não pode ser interrompidas por
-    signals (pois os bloqueiam durante a própria execução)
-
-- funções reentrantes
-- funções cuja execução não pode ser interrompidas por signals (pois os bloqueiam durante a própria execução)
+  - funções cuja execução não pode ser interrompida por signals (pois os bloqueiam durante a própria execução)
 
 Quando um processo com múltiplas tarefas recebe um signal associado a uma função de tratamento, o OS escolhe por omissão uma tarefa do processo para ser interrompida e lidar com o signal.  
 É possível usar a função `pthread_sigmask` para impor que determinadas tarefas não tratem aquele signal. Se quisermos bloquear o signal basta cada tarefa chamar `pthread_sigmask`.
