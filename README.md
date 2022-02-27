@@ -26,15 +26,8 @@ Abaixo encontram-se guias para instalação em Windows e Linux.
 
 1. Fazer clone do repo:
 
-- Por `https`:
-
   ```bash
   git clone https://github.com/diogotcorreia/resumos-leic.git
-  ```
-
-- Por `ssh`:
-  ```bash
-  git clone git@github.com:diogotcorreia/resumos-leic.git
   ```
 
 2. Instalar dependências:
@@ -47,7 +40,7 @@ yarn               # or yarn install
 ### Alterar conteúdos
 
 Os ficheiros `.md` (markdown) estão na pasta da respetiva UC dentro de `content`.
-Assim que um ficheiro `.md` é adicionado à respetiva pasta da UC, é acessível a partir da sidebar.  
+Assim que um ficheiro `.md` é adicionado à respetiva pasta da UC (e esteja associado a um `type`), é acessível a partir da sidebar. Tem ainda de ser definido o respetivo `path` (`/asa/introducao`, por exemplo).  
 Os ficheiros podem ainda ter diferentes categorias, aparecendo em diferentes sub-secções da sidebar consoante a mesma. Em princípio, ser-vos-á útil apenas a categoria `content`, que deve ser adicionada ao _header_ de cada ficheiro.
 
 Cada ficheiro deve conter um _header_ com a meta-informação útil correspondente a cada ficheiro, principalmente:
@@ -71,5 +64,9 @@ yarn dev
 Antes de fazer um commit, é recomendado executar o `prettier` (se usarem um editor de texto - e.g. vscode - que já executa automaticamente, não é preciso). Devem correr o comando na raiz do _repo_ (`/home/.../resumos-leic`, portanto).
 
 ```bash
-yarn format:content
+yarn format
 ```
+
+## Wiki
+
+Se tiverem mais dúvidas, podem recorrer à [Wiki](https://github.com/diogotcorreia/resumos-leic/wiki) e/ou entrar em contacto connosco!
