@@ -26,9 +26,9 @@ Abaixo encontram-se guias para instalação em Windows e Linux.
 
 1. Fazer clone do repo:
 
-  ```bash
-  git clone https://github.com/diogotcorreia/resumos-leic.git
-  ```
+```bash
+git clone https://github.com/diogotcorreia/resumos-leic.git
+```
 
 2. Instalar dependências:
 
