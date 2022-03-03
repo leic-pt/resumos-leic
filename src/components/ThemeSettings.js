@@ -1,3 +1,4 @@
+import { IconButton } from '@mui/material';
 import React from 'react';
 import useDarkMode from 'use-dark-mode';
 import { useFontSettings } from '../hooks/theme-hooks';
@@ -9,9 +10,9 @@ const ThemeSettings = () => {
   useFontSettings();
 
   return (
-    <button className='dark-mode-toggle' onClick={toggleDarkMode}>
+    <IconButton onClick={toggleDarkMode}>
       {isDarkMode ? <DarkModeOn /> : <DarkModeOff />}
-    </button>
+    </IconButton>
   );
 };
 

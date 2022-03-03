@@ -6,12 +6,13 @@ import {
   ListItemText,
   ListSubheader,
   Toolbar,
+  Link as MuiLink,
 } from '@mui/material';
-import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
+import { graphql, Link as GatsbyLink, Link, useStaticQuery } from 'gatsby';
 import React from 'react';
 import SiteTitle from './SiteTitle';
 
-const drawerWidth = '20rem';
+export const drawerWidth = '20rem';
 
 export default function Sidebar({ paths, sidebarOpen, toggleSidebar }) {
   const data = useStaticQuery(graphql`
@@ -58,7 +59,9 @@ export default function Sidebar({ paths, sidebarOpen, toggleSidebar }) {
       anchor='left'
     >
       <Toolbar>
-        <SiteTitle />
+        <MuiLink to='/' component={Link} color='secondary' underline='none'>
+          <SiteTitle />
+        </MuiLink>
       </Toolbar>
       <Divider />
       <List dense>

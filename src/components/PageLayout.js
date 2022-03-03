@@ -6,6 +6,7 @@ import React, { useCallback, useState } from 'react';
 //import '../styles/markdown.css';
 import { customComponents } from '../utils/customComponents';
 import MarkdownContent from './MarkdownContent';
+import Navbar from './Navbar';
 import PageMetadata from './PageMetadata';
 import Sidebar from './Sidebar';
 
@@ -27,6 +28,7 @@ export default function Template({ data }) {
         <Sidebar paths={sidebarPaths} sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
       </Box>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+        <Navbar title={page.frontmatter.title} />
         <Box sx={{ mx: 5, flexGrow: 1 }}>
           <MarkdownContent htmlAst={page.htmlAst} />
           {components?.map((Component, i) => (
