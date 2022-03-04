@@ -104,12 +104,22 @@ const renderAst = new Rehype2react({
         {...props}
       />
     ),
+    code: (props) =>
+      props.className?.includes('language-') ? <code {...props} /> : <CodeInline {...props} />,
   },
 }).Compiler;
 
 const Link = React.forwardRef((props, ref) => (
   <MuiLink component={GatsbyLink} innerRef={ref} {...props} />
 ));
+
+const CodeInline = styled('code')(({ theme }) => ({
+  backgroundColor: theme.palette.action.focus,
+  padding: '0.25rem 0.5rem',
+  margin: 0,
+  fontSize: '0.85em',
+  borderRadius: 3,
+}));
 
 const MarkdownStylesContainer = styled(Box)(({ theme }) => ({
   ...Object.keys(theme.palette?.markdownColors || {}).reduce((acc, color) => {
@@ -118,6 +128,23 @@ const MarkdownStylesContainer = styled(Box)(({ theme }) => ({
     };
     return acc;
   }, {}),
+  ...(theme.palette.mode === 'dark' && {
+    "& .gatsby-resp-image-wrapper[data-dark='1'], img[data-dark='1']": {
+      filter: 'invert(1) hue-rotate(180deg) saturate(5)',
+    },
+    "& .gatsby-resp-image-wrapper[data-dark='2'], img[data-dark='2']": {
+      filter: 'invert(1) hue-rotate(180deg) saturate(3)',
+    },
+    "& .gatsby-resp-image-wrapper[data-dark='3'], img[data-dark='3']": {
+      filter: 'invert(1) hue-rotate(180deg)',
+    },
+    "& .gatsby-resp-image-wrapper[data-dark='4'], img[data-dark='4']": {
+      filter: 'invert(1)',
+    },
+    '& div.mermaid': {
+      filter: 'invert(1) hue-rotate(135deg)',
+    },
+  }),
 }));
 
 const MarkdownContent = ({ htmlAst }) => {
