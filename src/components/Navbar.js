@@ -16,7 +16,7 @@ const Navbar = ({ title, toggleSidebar }) => {
       <AppBar
         sx={{
           display: { xs: 'none', lg: 'block' },
-          pl: drawerWidth,
+          pl: toggleSidebar && drawerWidth,
           backgroundImage: 'none',
           transition: (theme) => theme.transitions.create(['background-color', 'box-shadow']),
         }}
@@ -52,14 +52,16 @@ const Navbar = ({ title, toggleSidebar }) => {
         elevation={4}
       >
         <Toolbar>
-          <IconButton
-            onClick={toggleSidebar}
-            color='inherit'
-            aria-label='open drawer'
-            sx={{ mr: 1 }}
-          >
-            <MenuIcon />
-          </IconButton>
+          {toggleSidebar && (
+            <IconButton
+              onClick={toggleSidebar}
+              color='inherit'
+              aria-label='open drawer'
+              sx={{ mr: 1 }}
+            >
+              <MenuIcon />
+            </IconButton>
+          )}
           <Typography variant='h6' component='div' noWrap sx={{ flexGrow: 1 }}>
             {title}
           </Typography>

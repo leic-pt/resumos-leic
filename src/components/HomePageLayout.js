@@ -1,6 +1,8 @@
+import { Box, Divider, Link, Typography } from '@mui/material';
 import { graphql } from 'gatsby';
 import React from 'react';
 import IstLogo from '../images/ist-logo.svg';
+import MarkdownContent from './MarkdownContent';
 //import '../styles/homepage.css';
 //import '../styles/main.css';
 //import '../styles/markdown.css';
@@ -9,25 +11,33 @@ import PageMetadata from './PageMetadata';
 import SectionButton, { SectionButtonLayout } from './SectionButton';
 
 const HomePageLayout = ({ data }) => {
-  const { markdownRemark: page } = data;
+  const { markdownRemark: page, site } = data;
   return (
-    <div className='home-page-container'>
+    <Box sx={{ width: 'clamp(100px, 90%, 900px)', mt: 8, mx: 'auto' }}>
       <PageMetadata title={page.frontmatter.title} description={page.frontmatter.description} />
-      <Navbar />
-      <div className='hero'>
+      <Navbar title={site.siteMetadata.title} />
+      <Box sx={{ textAlign: 'center' }}>
         <img src={IstLogo} alt='Instituto Superior Técnico' width={150} />
-        <h1>Resumos LEIC-A</h1>
-        <p>Bem vindo ao site comunitário de resumos de LEIC-A.</p>
-        <p>Aqui irás encontrar tudo o que precisas ao longo do semestre.</p>
-      </div>
-      <div style={{ marginTop: 50 }}>
+        <Typography variant='h3' component='h1' gutterBottom sx={{ fontWeight: 'bold' }}>
+          Resumos LEIC-A
+        </Typography>
+        <Typography variant='body1'>Bem vindo ao site comunitário de resumos de LEIC-A.</Typography>
+        <Typography variant='body1'>
+          Aqui irás encontrar tudo o que precisas ao longo do semestre.
+        </Typography>
+      </Box>
+      <Box sx={{ mt: 6 }}>
         {page.frontmatter.years.map(({ name, semesters }) => (
-          <div className='year-section' key={name}>
-            <h2>{name}</h2>
-            <div>
+          <Box key={name}>
+            <Typography variant='h4' component='h2' gutterBottom sx={{ mt: 2 }}>
+              {name}
+            </Typography>
+            <Box sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
               {semesters.map(({ name, courses }) => (
-                <div className='semester-section' key={name}>
-                  <h3>{name}</h3>
+                <Box sx={{ mx: '0.7rem', flexGrow: 1 }} key={name}>
+                  <Typography variant='h5' component='h3' gutterBottom>
+                    {name}
+                  </Typography>
                   <SectionButtonLayout>
                     {courses.map(({ name, description, link, image, color, long }) => (
                       <SectionButton
@@ -41,14 +51,18 @@ const HomePageLayout = ({ data }) => {
                       />
                     ))}
                   </SectionButtonLayout>
-                </div>
+                </Box>
               ))}
-            </div>
-          </div>
+            </Box>
+          </Box>
         ))}
-      </div>
-      <div className='content' dangerouslySetInnerHTML={{ __html: page.html }} />
-    </div>
+      </Box>
+      <MarkdownContent htmlAst={page.htmlAst} />
+      <Divider />
+      <Typography textAlign='center' sx={{ my: 2 }}>
+        Made by <Link href='https://diogotc.com'>Diogo Correia</Link> with ❤️
+      </Typography>
+    </Box>
   );
 };
 
@@ -56,8 +70,13 @@ export default HomePageLayout;
 
 export const pageQuery = graphql`
   query HomePageByPath($path: String!) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
+      htmlAst
       frontmatter {
         title
         description
