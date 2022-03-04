@@ -43,6 +43,16 @@ const nordLightTheme = deepmerge(baseTheme, {
     error: {
       main: '#BF616A',
     },
+    markdownColors: {
+      red: '#b54a55',
+      green: '#5a7642',
+      blue: '#527196',
+      pink: '#84657c',
+      purple: '#8e5784',
+      yellow: '#7e6c4a',
+      orange: '#966251',
+      brown: '#90663a',
+    },
     background: {
       default: '#f2f4f8',
       paper: '#ffffff',
@@ -53,17 +63,15 @@ const nordLightTheme = deepmerge(baseTheme, {
 const nordDarkTheme = deepmerge(nordLightTheme, {
   palette: {
     mode: 'dark',
-    info: {
-      main: '#5E81AC',
-    },
-    success: {
-      main: '#A3BE8C',
-    },
-    warning: {
-      main: '#EBCB8B',
-    },
-    error: {
-      main: '#BF616A',
+    markdownColors: {
+      red: '#c87981',
+      green: '#A3BE8C',
+      blue: '#5E81AC',
+      pink: '#FEC3EE',
+      purple: '#B48EAD',
+      yellow: '#EBCB8B',
+      orange: '#D08770',
+      brown: '#bc854b',
     },
     background: {
       default: '#242933',
@@ -93,6 +101,16 @@ const solarizedLightTheme = deepmerge(baseTheme, {
     error: {
       main: '#dc322f',
     },
+    markdownColors: {
+      red: '#dc322f',
+      green: '#859900',
+      blue: '#2aa198',
+      pink: '#d33682',
+      purple: '#6c71c4',
+      yellow: '#b58900',
+      orange: '#cb4b16',
+      brown: '#9e571a',
+    },
     background: {
       default: '#eee8d5',
       paper: '#fdf6e3',
@@ -100,21 +118,9 @@ const solarizedLightTheme = deepmerge(baseTheme, {
   },
 });
 
-const solarizedDarkTheme = deepmerge(nordLightTheme, {
+const solarizedDarkTheme = deepmerge(solarizedLightTheme, {
   palette: {
     mode: 'dark',
-    info: {
-      main: '#268bd2',
-    },
-    success: {
-      main: '#859900',
-    },
-    warning: {
-      main: '#b58900',
-    },
-    error: {
-      main: '#dc322f',
-    },
     background: {
       default: '#002b36',
       paper: '#073642',

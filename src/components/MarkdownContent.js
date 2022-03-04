@@ -16,8 +16,9 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
+import { styled } from '@mui/system';
 import { Link as GatsbyLink } from 'gatsby';
-import React from 'react';
+import React, { useMemo } from 'react';
 import Rehype2react from 'rehype-react';
 import useThemeSettings from '../hooks/useThemeSettings';
 import IframeEmbed from './IframeEmbed';
@@ -96,6 +97,13 @@ const renderAst = new Rehype2react({
     'details-group': (props) => <Box sx={{ my: 1 }} {...props} />,
     hr: (props) => <Divider sx={{ my: 1 }} {...props} />,
     'iframe-embed': IframeEmbed,
+    blockquote: (props) => (
+      <Box
+        component='blockquote'
+        sx={{ borderLeft: 4, borderLeftColor: 'secondary.main', pl: 2 }}
+        {...props}
+      />
+    ),
   },
 }).Compiler;
 
@@ -103,12 +111,27 @@ const Link = React.forwardRef((props, ref) => (
   <MuiLink component={GatsbyLink} innerRef={ref} {...props} />
 ));
 
+const MarkdownStylesContainer = styled(Box)(({ theme }) => ({
+  ...Object.keys(theme.palette?.markdownColors || {}).reduce((acc, color) => {
+    acc[`& .md-color--${color}`] = {
+      color: theme.palette?.markdownColors[color],
+    };
+    return acc;
+  }, {}),
+}));
+
 const MarkdownContent = ({ htmlAst }) => {
   const { contentWidth } = useThemeSettings();
 
   const width = contentWidth === 'fullwidth' ? 'auto' : '740px';
 
-  return <Box sx={{ maxWidth: width, margin: 'auto' }}>{renderAst(htmlAst)}</Box>;
+  const renderedAst = useMemo(() => renderAst(htmlAst), [htmlAst]);
+
+  return (
+    <MarkdownStylesContainer sx={{ maxWidth: width, margin: 'auto' }}>
+      {renderedAst}
+    </MarkdownStylesContainer>
+  );
 };
 
 export default MarkdownContent;
