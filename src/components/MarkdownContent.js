@@ -16,7 +16,7 @@ import {
   Typography,
 } from '@mui/material';
 import { Link as GatsbyLink } from 'gatsby';
-import React, { useMemo } from 'react';
+import React from 'react';
 import Rehype2react from 'rehype-react';
 import useThemeSettings from '../hooks/useThemeSettings';
 
@@ -51,13 +51,23 @@ const renderAst = new Rehype2react({
     warning: (props) => <Alert variant='outlined' severity='warning' {...props} />,
     error: (props) => <Alert variant='outlined' severity='error' {...props} />,
     'alert-title': (props) => <AlertTitle sx={{ textTransform: 'uppercase' }} {...props} />,
-    details: Accordion,
+    details: (props) => {
+      console.log(props);
+      return props.withoutWrapper ? (
+        <Accordion {...props} />
+      ) : (
+        <Box sx={{ my: 1 }}>
+          <Accordion {...props} />
+        </Box>
+      );
+    },
     'details-summary': (props) => (
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
         <Typography variant='h6' component='p' {...props} />
       </AccordionSummary>
     ),
     'details-content': AccordionDetails,
+    'details-group': (props) => <Box sx={{ my: 1 }} {...props} />,
   },
 }).Compiler;
 

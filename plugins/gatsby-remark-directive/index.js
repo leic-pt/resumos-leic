@@ -4,6 +4,7 @@ const toString = require('mdast-util-to-string');
 
 const options = {
   customComponentsTags: ['info', 'tip', 'warning', 'danger', 'details'],
+  detailsGroupTag: 'details-group',
   tabGroupTag: 'tab-group',
   tabTag: 'tab',
   youtubeTag: 'youtube',
@@ -44,6 +45,19 @@ const onCustomComponentVisit = (node) => {
       },
     ];
   }
+};
+
+const onDetailsGroupVisit = (node) => {
+  const data = node.data || (node.data = {});
+  data.hName = 'details-group';
+
+  node.children?.forEach((child) => {
+    if (child.name === 'details' && child.type === 'containerDirective') {
+      const childData = child.data || (child.data = {});
+      const hProperties = childData.hProperties || (childData.hProperties = {});
+      hProperties.withoutWrapper = '1';
+    }
+  });
 };
 
 const onTabGroupVisit = (node) => {
@@ -126,6 +140,7 @@ const onYoutubeVisit = (node) => {
 
 const onContainerDirectiveVisit = (node) => {
   if (options.customComponentsTags.indexOf(node.name) !== -1) onCustomComponentVisit(node);
+  else if (node.name === options.detailsGroupTag) onDetailsGroupVisit(node);
   else if (node.name === options.tabGroupTag) onTabGroupVisit(node);
   else if (node.name === options.youtubeTag) onYoutubeVisit(node);
 };
