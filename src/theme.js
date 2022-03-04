@@ -16,6 +16,7 @@ const baseTheme = {
         }),
         message: {
           flexGrow: 1,
+          minWidth: 0,
         },
       },
     },
