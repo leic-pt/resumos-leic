@@ -1,18 +1,64 @@
+import CloseIcon from '@mui/icons-material/CloseRounded';
 import {
   Divider,
   Drawer,
+  IconButton,
+  Link as MuiLink,
   List,
   ListItemButton,
   ListItemText,
   ListSubheader,
   Toolbar,
-  Link as MuiLink,
 } from '@mui/material';
+import { Box } from '@mui/system';
 import { graphql, Link as GatsbyLink, Link, useStaticQuery } from 'gatsby';
 import React from 'react';
 import SiteTitle from './SiteTitle';
 
 export const drawerWidth = '20rem';
+
+const DrawerList = ({ sidebarSections, toggleSidebar }) => {
+  return (
+    <>
+      <Toolbar>
+        <MuiLink to='/' component={Link} color='secondary' underline='none' sx={{ flexGrow: 1 }}>
+          <SiteTitle />
+        </MuiLink>
+        {toggleSidebar && (
+          <IconButton
+            onClick={toggleSidebar}
+            color='inherit'
+            aria-label='close drawer'
+            sx={{ mr: 1 }}
+          >
+            <CloseIcon />
+          </IconButton>
+        )}
+      </Toolbar>
+      <Divider />
+      <Box sx={{ overflowY: 'auto' }}>
+        <List dense>
+          {sidebarSections.map(
+            (section) =>
+              section.links && (
+                <>
+                  {section.name && <ListSubheader>{section.name}</ListSubheader>}
+                  {section.links.map((v) => {
+                    const { path, title } = v;
+                    return (
+                      <ListItemButton key={path} to={path} component={GatsbyLink}>
+                        <ListItemText primary={title || path} />
+                      </ListItemButton>
+                    );
+                  })}
+                </>
+              )
+          )}
+        </List>
+      </Box>
+    </>
+  );
+};
 
 export default function Sidebar({ paths, sidebarOpen, toggleSidebar }) {
   const data = useStaticQuery(graphql`
@@ -46,52 +92,42 @@ export default function Sidebar({ paths, sidebarOpen, toggleSidebar }) {
   });
 
   return (
-    <Drawer
-      sx={{
-        width: drawerWidth,
-        flexShrink: 0,
-        '& .MuiDrawer-paper': {
+    <>
+      <Drawer
+        variant='temporary'
+        open={sidebarOpen}
+        onClose={toggleSidebar}
+        anchor='bottom'
+        ModalProps={{
+          keepMounted: true, // Better open performance on mobile.
+        }}
+        sx={{
+          display: { xs: 'block', lg: 'none' },
+          '& .MuiDrawer-paper': {
+            backgroundImage: 'none',
+            borderTopLeftRadius: '1rem',
+            borderTopRightRadius: '1rem',
+            maxHeight: '70vh',
+          },
+        }}
+      >
+        <DrawerList sidebarSections={sidebarSections} toggleSidebar={toggleSidebar} />
+      </Drawer>
+      <Drawer
+        sx={{
+          display: { xs: 'none', lg: 'block' },
           width: drawerWidth,
-          boxSizing: 'border-box',
-        },
-      }}
-      variant='permanent'
-      anchor='left'
-    >
-      <Toolbar>
-        <MuiLink to='/' component={Link} color='secondary' underline='none'>
-          <SiteTitle />
-        </MuiLink>
-      </Toolbar>
-      <Divider />
-      <List dense>
-        {sidebarSections.map(
-          (section) =>
-            section.links && (
-              <>
-                {section.name && <ListSubheader>{section.name}</ListSubheader>}
-                {section.links.map((v) => {
-                  const { path, title } = v;
-                  return (
-                    <ListItemButton key={path} to={path} component={GatsbyLink}>
-                      <ListItemText primary={title || path} />
-                    </ListItemButton>
-                  );
-                })}
-              </>
-            )
-        )}
-        {/*<div className='sidebar-nav-links'>
-        <hr />
-        <ul>
-          {data.site.siteMetadata.navbar.links.map(({ href, title }) => (
-            <li key={href}>
-              <ExternalLink href={href}>{title}</ExternalLink>
-            </li>
-          ))}
-        </ul>
-          </div>*/}
-      </List>
-    </Drawer>
+          flexShrink: 0,
+          '& .MuiDrawer-paper': {
+            width: drawerWidth,
+            boxSizing: 'border-box',
+          },
+        }}
+        variant='permanent'
+        anchor='left'
+      >
+        <DrawerList sidebarSections={sidebarSections} />
+      </Drawer>
+    </>
   );
 }

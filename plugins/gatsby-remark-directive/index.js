@@ -114,28 +114,14 @@ const onYoutubeVisit = (node) => {
   const id = attributes.id;
   const children = node.children || (node.children = []);
   const hProperties = data.hProperties || (data.hProperties = {});
-  const classes = hProperties.class || (hProperties.class = []);
 
-  data.hName = 'div';
-  classes.push('video-wrapper-16-9');
-
-  children.push({
-    type: 'youtubeEmbed',
-    attributes: {
-      videoId: id,
-    },
-    data: {
-      hName: 'iframe',
-      hProperties: {
-        src: 'https://www.youtube.com/embed/' + id,
-        width: 560,
-        height: 315,
-        frameBorder: 0,
-        allow: 'picture-in-picture',
-        allowFullScreen: true,
-      },
-    },
-  });
+  data.hName = 'iframe-embed';
+  hProperties.src = 'https://www.youtube.com/embed/' + id;
+  hProperties.width = 560;
+  hProperties.height = 315;
+  hProperties.frameBorder = 0;
+  hProperties.allow = 'picture-in-picture';
+  hProperties.allowFullScreen = true;
 };
 
 const onContainerDirectiveVisit = (node) => {

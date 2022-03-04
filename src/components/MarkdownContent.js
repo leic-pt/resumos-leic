@@ -20,6 +20,7 @@ import { Link as GatsbyLink } from 'gatsby';
 import React from 'react';
 import Rehype2react from 'rehype-react';
 import useThemeSettings from '../hooks/useThemeSettings';
+import IframeEmbed from './IframeEmbed';
 
 const renderAst = new Rehype2react({
   createElement: React.createElement,
@@ -78,16 +79,14 @@ const renderAst = new Rehype2react({
     warning: (props) => <Alert variant='outlined' severity='warning' {...props} />,
     error: (props) => <Alert variant='outlined' severity='error' {...props} />,
     'alert-title': (props) => <AlertTitle sx={{ textTransform: 'uppercase' }} {...props} />,
-    details: (props) => {
-      console.log(props);
-      return props.withoutWrapper ? (
+    details: (props) =>
+      props.withoutWrapper ? (
         <Accordion {...props} />
       ) : (
         <Box sx={{ my: 2 }}>
           <Accordion {...props} />
         </Box>
-      );
-    },
+      ),
     'details-summary': (props) => (
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
         <Typography variant='h6' component='p' {...props} />
@@ -96,6 +95,7 @@ const renderAst = new Rehype2react({
     'details-content': AccordionDetails,
     'details-group': (props) => <Box sx={{ my: 1 }} {...props} />,
     hr: (props) => <Divider sx={{ my: 1 }} {...props} />,
+    'iframe-embed': IframeEmbed,
   },
 }).Compiler;
 
