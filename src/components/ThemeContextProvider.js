@@ -15,10 +15,10 @@ const ThemeContextProvider = ({ children }) => {
   const calculatedTheme =
     themeStyle === 'system' ? (prefersDarkMode ? 'dark' : 'light') : themeStyle;
 
-  console.log(themeStyle, themeName);
-
   const theme = useMemo(() => {
-    return responsiveFontSizes(createTheme(availableThemes[calculatedTheme][themeName]));
+    return responsiveFontSizes(
+      createTheme(availableThemes?.[calculatedTheme]?.[themeName] || availableThemes.dark.nord)
+    );
   }, [calculatedTheme, themeName]);
 
   return (

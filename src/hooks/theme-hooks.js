@@ -15,7 +15,7 @@ export function useFontSettings() {
 // Source: https://usehooks.com/useLocalStorage/
 export function useLocalStorage(key, initialValue) {
   const [storedValue, setStoredValue] = useState(() => {
-    if (typeof window === 'undefined') return null;
+    if (typeof window === 'undefined') return initialValue;
 
     try {
       const item = window.localStorage.getItem(key);
