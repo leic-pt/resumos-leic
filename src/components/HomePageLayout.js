@@ -14,7 +14,7 @@ const HomePageLayout = ({ data }) => {
   const { markdownRemark: page, site } = data;
   return (
     <Box sx={{ width: 'clamp(100px, 90%, 900px)', mt: 8, mx: 'auto' }}>
-      <PageMetadata title={page.frontmatter.title} description={page.frontmatter.description} />
+      <PageMetadata />
       <Navbar title={site.siteMetadata.title} />
       <Box sx={{ textAlign: 'center' }}>
         <img src={IstLogo} alt='Instituto Superior Técnico' width={150} />
@@ -78,8 +78,6 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       htmlAst
       frontmatter {
-        title
-        description
         years {
           name
           semesters {
