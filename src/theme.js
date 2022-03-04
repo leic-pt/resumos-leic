@@ -22,6 +22,88 @@ const baseTheme = {
   },
 };
 
+const baseLightTheme = deepmerge(baseTheme, {
+  palette: {
+    mode: 'light',
+    primary: {
+      main: '#0576a7',
+    },
+    secondary: {
+      main: '#0576a7',
+    },
+    info: {
+      main: '#4283b9',
+    },
+    success: {
+      main: '#42b983',
+    },
+    warning: {
+      main: '#e7c000',
+    },
+    error: {
+      main: '#da5961',
+    },
+    text: {
+      primary: '#2c3e50',
+    },
+    markdownColors: {
+      red: '#e03e3e',
+      green: '#0f7b6c',
+      blue: '#0b6e99',
+      pink: '#ad1a72',
+      purple: '#6940a5',
+      yellow: '#dfab01',
+      orange: '#d9730d',
+      brown: '#64473a',
+    },
+    background: {
+      default: '#fff',
+      paper: '#f3f5f7',
+    },
+  },
+});
+
+const baseDarkTheme = deepmerge(baseLightTheme, {
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: '#00a0e4',
+    },
+    secondary: {
+      main: '#00a0e4',
+    },
+    info: {
+      main: '#4283b9',
+    },
+    success: {
+      main: '#42b983',
+    },
+    warning: {
+      main: '#e7c000',
+    },
+    error: {
+      main: '#fb7981',
+    },
+    text: {
+      primary: '#e2e2e2',
+    },
+    markdownColors: {
+      red: '#ff7369',
+      green: '#4dab9a',
+      blue: '#529cca',
+      pink: '#e255a1',
+      purple: '#946dd7',
+      yellow: '#ffdc49',
+      orange: '#ffa334',
+      brown: '#937264',
+    },
+    background: {
+      default: '#25272a',
+      paper: '#3e3b3b',
+    },
+  },
+});
+
 const nordLightTheme = deepmerge(baseTheme, {
   palette: {
     mode: 'light',
@@ -130,10 +212,12 @@ const solarizedDarkTheme = deepmerge(solarizedLightTheme, {
 
 const availableThemes = {
   light: {
+    default: baseLightTheme,
     nord: nordLightTheme,
     solarized: solarizedLightTheme,
   },
   dark: {
+    default: baseDarkTheme,
     nord: nordDarkTheme,
     solarized: solarizedDarkTheme,
   },

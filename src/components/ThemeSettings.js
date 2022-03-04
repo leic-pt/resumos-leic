@@ -98,6 +98,7 @@ const ThemeSettings = () => {
             Theme
           </Heading>
           <Select fullWidth value={themeName} onChange={onSelectChange(setThemeName)}>
+            <MenuItem value='default'>Resumos LEIC</MenuItem>
             <MenuItem value='nord'>Nord</MenuItem>
             <MenuItem value='solarized'>Solarized</MenuItem>
           </Select>

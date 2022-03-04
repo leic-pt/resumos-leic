@@ -8,7 +8,7 @@ export const ThemeContext = React.createContext();
 
 const ThemeContextProvider = ({ children }) => {
   const [themeStyle, setThemeStyle] = useLocalStorage('theme-style', 'system');
-  const [themeName, setThemeName] = useLocalStorage('theme-name', 'nord');
+  const [themeName, setThemeName] = useLocalStorage('theme-name', 'default');
   const [contentWidth, setContentWidth] = useLocalStorage('content-width', 'compact');
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
