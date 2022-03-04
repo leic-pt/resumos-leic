@@ -27,7 +27,7 @@ export default function Template({ data }) {
       <Box>
         <Sidebar paths={sidebarPaths} sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
       </Box>
-      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
         <Navbar title={page.frontmatter.title} />
         <Box sx={{ mx: 5, flexGrow: 1 }}>
           <MarkdownContent htmlAst={page.htmlAst} />

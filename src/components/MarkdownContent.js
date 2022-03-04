@@ -16,8 +16,9 @@ import {
   Typography,
 } from '@mui/material';
 import { Link as GatsbyLink } from 'gatsby';
-import React from 'react';
+import React, { useMemo } from 'react';
 import Rehype2react from 'rehype-react';
+import useThemeSettings from '../hooks/useThemeSettings';
 
 const renderAst = new Rehype2react({
   createElement: React.createElement,
@@ -65,7 +66,11 @@ const Link = React.forwardRef((props, ref) => (
 ));
 
 const MarkdownContent = ({ htmlAst }) => {
-  return <Box>{renderAst(htmlAst)}</Box>;
+  const { contentWidth } = useThemeSettings();
+
+  const width = contentWidth === 'fullwidth' ? 'auto' : '740px';
+
+  return <Box sx={{ maxWidth: width, margin: 'auto' }}>{renderAst(htmlAst)}</Box>;
 };
 
 export default MarkdownContent;
