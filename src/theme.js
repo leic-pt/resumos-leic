@@ -14,6 +14,9 @@ const baseTheme = {
         root: sx({
           my: 2,
         }),
+        message: {
+          flexGrow: 1,
+        },
       },
     },
   },

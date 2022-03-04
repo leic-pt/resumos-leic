@@ -32,6 +32,7 @@ const Navbar = ({ title }) => {
             <Typography
               variant='h6'
               component='div'
+              noWrap
               sx={{
                 flexGrow: 1,
                 opacity: trigger ? 1 : 0,

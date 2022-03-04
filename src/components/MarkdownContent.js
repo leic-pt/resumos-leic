@@ -7,6 +7,7 @@ import {
   Alert,
   AlertTitle,
   Box,
+  Divider,
   Link as MuiLink,
   Table,
   TableBody,
@@ -25,13 +26,39 @@ const renderAst = new Rehype2react({
   Fragment: React.Fragment,
   components: {
     h1: (props) => <Typography variant='h3' component='h1' gutterBottom {...props} />,
-    h2: (props) => <Typography variant='h4' component='h2' gutterBottom {...props} />,
-    h3: (props) => <Typography variant='h5' component='h3' gutterBottom {...props} />,
-    h4: (props) => <Typography variant='h6' component='h4' gutterBottom {...props} />,
-    h5: (props) => <Typography variant='subtitle1' component='h5' gutterBottom {...props} />,
-    h6: (props) => <Typography variant='subtitle2' component='h6' gutterBottom {...props} />,
-    p: (props) => <Typography variant='body1' {...props} />,
-    li: (props) => <Typography variant='body1' component='li' {...props} />,
+    h2: (props) => (
+      <Typography variant='h4' component='h2' sx={{ mt: 3 }} gutterBottom {...props} />
+    ),
+    h3: (props) => (
+      <Typography variant='h5' component='h3' sx={{ mt: 3 }} gutterBottom {...props} />
+    ),
+    h4: (props) => (
+      <Typography variant='h6' component='h4' sx={{ mt: 3 }} gutterBottom {...props} />
+    ),
+    h5: (props) => (
+      <Typography variant='subtitle1' component='h5' sx={{ mt: 3 }} gutterBottom {...props} />
+    ),
+    h6: (props) => (
+      <Typography variant='subtitle2' component='h6' sx={{ mt: 3 }} gutterBottom {...props} />
+    ),
+    p: (props) => (
+      <Typography
+        variant='body1'
+        align='justify'
+        sx={{ lineHeight: '1.7' }}
+        gutterBottom
+        {...props}
+      />
+    ),
+    li: (props) => (
+      <Typography
+        variant='body1'
+        component='li'
+        sx={{ lineHeight: '1.7' }}
+        gutterBottom
+        {...props}
+      />
+    ),
     a: (props) => <Link {...props} />,
     table: (props) => <Table {...props} />,
     thead: (props) => <TableHead {...props} />,
@@ -56,7 +83,7 @@ const renderAst = new Rehype2react({
       return props.withoutWrapper ? (
         <Accordion {...props} />
       ) : (
-        <Box sx={{ my: 1 }}>
+        <Box sx={{ my: 2 }}>
           <Accordion {...props} />
         </Box>
       );
@@ -68,6 +95,7 @@ const renderAst = new Rehype2react({
     ),
     'details-content': AccordionDetails,
     'details-group': (props) => <Box sx={{ my: 1 }} {...props} />,
+    hr: (props) => <Divider sx={{ my: 1 }} {...props} />,
   },
 }).Compiler;
 
