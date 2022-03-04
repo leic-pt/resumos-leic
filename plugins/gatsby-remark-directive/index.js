@@ -5,8 +5,6 @@ const toString = require('mdast-util-to-string');
 const options = {
   customComponentsTags: ['info', 'tip', 'warning', 'danger', 'details'],
   detailsGroupTag: 'details-group',
-  tabGroupTag: 'tab-group',
-  tabTag: 'tab',
   youtubeTag: 'youtube',
 };
 
@@ -60,54 +58,6 @@ const onDetailsGroupVisit = (node) => {
   });
 };
 
-const onTabGroupVisit = (node) => {
-  const tabTitles = [];
-  const nodeData = node.data || (node.data = {});
-  const nodeHProperties = nodeData.hProperties || (nodeData.hProperties = {});
-  const nodeClasses = nodeHProperties.class || (nodeHProperties.class = []);
-
-  nodeClasses.push('tab-group');
-
-  node.children
-    ?.filter((child) => child.type === 'containerDirective' && child.name === options.tabTag)
-    .forEach((tab) => {
-      const data = tab.data || (tab.data = {});
-      const hProperties = data.hProperties || (data.hProperties = {});
-      const classes = hProperties.class || (hProperties.class = []);
-
-      classes.push('tab-group--tab');
-      if (tabTitles.length === 0) classes.push('tab-group--tab__active');
-
-      if (tab.children?.[0]?.data?.directiveLabel) {
-        tabTitles.push(toString(tab.children[0]));
-        tab.children.shift();
-      } else {
-        tabTitles.push(`Tab ${tabTitles.length + 1}`);
-      }
-    });
-
-  node.children?.unshift({
-    type: 'html',
-    value: `
-    <div class="tab-group--nav">
-      <ul class="tab-group--ul">
-        ${tabTitles
-          .map(
-            (title, i) => `
-        <li class="tab-group--li">
-          <button class="tab-group--btn${i === 0 ? ' tab-group--btn__active' : ''}">
-            ${title}
-          </button>
-        </li>
-        `
-          )
-          .join('')}
-      </ul>
-    </div>
-    `,
-  });
-};
-
 const onYoutubeVisit = (node) => {
   const data = node.data || (node.data = {});
   const attributes = node.attributes || {};
@@ -127,7 +77,6 @@ const onYoutubeVisit = (node) => {
 const onContainerDirectiveVisit = (node) => {
   if (options.customComponentsTags.indexOf(node.name) !== -1) onCustomComponentVisit(node);
   else if (node.name === options.detailsGroupTag) onDetailsGroupVisit(node);
-  else if (node.name === options.tabGroupTag) onTabGroupVisit(node);
   else if (node.name === options.youtubeTag) onYoutubeVisit(node);
 };
 

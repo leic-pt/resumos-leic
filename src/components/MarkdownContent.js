@@ -145,6 +145,9 @@ const MarkdownStylesContainer = styled(Box)(({ theme }) => ({
       filter: 'invert(1) hue-rotate(135deg)',
     },
   }),
+  '& .math.math-display': {
+    overflowX: 'auto',
+  },
 }));
 
 const MarkdownContent = ({ htmlAst }) => {
