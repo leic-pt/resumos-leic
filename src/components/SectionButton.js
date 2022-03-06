@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link as GatsbyLink } from 'gatsby';
-import { Box, Link as MuiLink } from '@mui/material';
+import { Link as MuiLink } from '@mui/material';
 import { styled } from '@mui/system';
+import { Link as GatsbyLink } from 'gatsby';
+import React from 'react';
 
 const SectionButtonLink = styled(MuiLink)({
   background: '#000',

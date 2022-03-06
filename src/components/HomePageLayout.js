@@ -18,7 +18,7 @@ const HomePageLayout = ({ data }) => {
       <Navbar title={site.siteMetadata.title} />
       <Box sx={{ textAlign: 'center' }}>
         <img src={IstLogo} alt='Instituto Superior Técnico' width={150} />
-        <Typography variant='h3' component='h1' gutterBottom sx={{ fontWeight: 'bold' }}>
+        <Typography variant='h1' gutterBottom sx={{ fontWeight: 'bold' }}>
           Resumos LEIC-A
         </Typography>
         <Typography variant='body1'>Bem vindo ao site comunitário de resumos de LEIC-A.</Typography>
@@ -29,13 +29,13 @@ const HomePageLayout = ({ data }) => {
       <Box sx={{ mt: 6 }}>
         {page.frontmatter.years.map(({ name, semesters }) => (
           <Box key={name}>
-            <Typography variant='h4' component='h2' gutterBottom sx={{ mt: 2 }}>
+            <Typography variant='h2' gutterBottom sx={{ mt: 2 }}>
               {name}
             </Typography>
             <Box sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
               {semesters.map(({ name, courses }) => (
                 <Box sx={{ mx: '0.7rem', flexGrow: 1 }} key={name}>
-                  <Typography variant='h5' component='h3' gutterBottom>
+                  <Typography variant='h3' gutterBottom>
                     {name}
                   </Typography>
                   <SectionButtonLayout>

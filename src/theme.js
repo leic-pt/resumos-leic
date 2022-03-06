@@ -7,6 +7,30 @@ const baseTheme = {
   },
   typography: {
     fontFamily: ['Open Sans', 'sans-serif'].join(','),
+    h1: {
+      fontSize: '2.5rem',
+      fontWeight: 700,
+    },
+    h2: {
+      fontSize: '2rem',
+      fontWeight: 700,
+    },
+    h3: {
+      fontSize: '1.5rem',
+      fontWeight: 700,
+    },
+    h4: {
+      fontSize: '1rem',
+      fontWeight: 500,
+    },
+    h5: {
+      fontSize: '0.84rem',
+      fontWeight: 500,
+    },
+    h6: {
+      fontSize: '0.67rem',
+      fontWeight: 500,
+    },
   },
   components: {
     MuiAlert: {
@@ -17,6 +41,13 @@ const baseTheme = {
         message: {
           flexGrow: 1,
           minWidth: 0,
+        },
+      },
+    },
+    MuiTypography: {
+      styleOverrides: {
+        gutterBottom: {
+          marginBottom: '0.5em',
         },
       },
     },
@@ -71,7 +102,7 @@ const baseDarkTheme = deepmerge(baseLightTheme, {
       main: '#00a0e4',
     },
     secondary: {
-      main: '#00a0e4',
+      main: '#62a3bf',
     },
     info: {
       main: '#4283b9',

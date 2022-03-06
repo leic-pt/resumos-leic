@@ -21,11 +21,11 @@ const Navbar = ({ title, toggleSidebar }) => {
           transition: (theme) => theme.transitions.create(['background-color', 'box-shadow']),
         }}
         elevation={trigger ? 4 : 0}
-        color={trigger ? 'default' : 'transparent'}
+        color={trigger ? 'primary' : 'transparent'}
       >
         <Toolbar>
           <Typography
-            variant='h6'
+            variant='h3'
             component='div'
             noWrap
             sx={{
@@ -62,7 +62,7 @@ const Navbar = ({ title, toggleSidebar }) => {
               <MenuIcon />
             </IconButton>
           )}
-          <Typography variant='h6' component='div' noWrap sx={{ flexGrow: 1 }}>
+          <Typography variant='h3' component='div' noWrap sx={{ flexGrow: 1 }}>
             {title}
           </Typography>
           {/*<SearchBar />*/}

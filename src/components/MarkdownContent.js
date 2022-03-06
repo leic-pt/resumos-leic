@@ -27,22 +27,12 @@ const renderAst = new Rehype2react({
   createElement: React.createElement,
   Fragment: React.Fragment,
   components: {
-    h1: (props) => <Typography variant='h3' component='h1' gutterBottom {...props} />,
-    h2: (props) => (
-      <Typography variant='h4' component='h2' sx={{ mt: 3 }} gutterBottom {...props} />
-    ),
-    h3: (props) => (
-      <Typography variant='h5' component='h3' sx={{ mt: 3 }} gutterBottom {...props} />
-    ),
-    h4: (props) => (
-      <Typography variant='h6' component='h4' sx={{ mt: 3 }} gutterBottom {...props} />
-    ),
-    h5: (props) => (
-      <Typography variant='subtitle1' component='h5' sx={{ mt: 3 }} gutterBottom {...props} />
-    ),
-    h6: (props) => (
-      <Typography variant='subtitle2' component='h6' sx={{ mt: 3 }} gutterBottom {...props} />
-    ),
+    h1: (props) => <Typography variant='h1' gutterBottom {...props} />,
+    h2: (props) => <Typography variant='h2' sx={{ mt: 3 }} gutterBottom {...props} />,
+    h3: (props) => <Typography variant='h3' sx={{ mt: 3 }} gutterBottom {...props} />,
+    h4: (props) => <Typography variant='h4' sx={{ mt: 3 }} gutterBottom {...props} />,
+    h5: (props) => <Typography variant='h5' sx={{ mt: 3 }} gutterBottom {...props} />,
+    h6: (props) => <Typography variant='h6' sx={{ mt: 3 }} gutterBottom {...props} />,
     p: (props) => (
       <Typography
         variant='body1'
@@ -147,6 +137,9 @@ const MarkdownStylesContainer = styled(Box)(({ theme }) => ({
   }),
   '& .math.math-display': {
     overflowX: 'auto',
+  },
+  '& img': {
+    maxWidth: '100%',
   },
 }));
 

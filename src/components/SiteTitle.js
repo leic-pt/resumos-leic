@@ -14,7 +14,7 @@ const SiteTitle = () => {
   `);
 
   return (
-    <Typography variant='h6' component='h1'>
+    <Typography variant='h3' component='h1'>
       {site.siteMetadata.title}
     </Typography>
   );
