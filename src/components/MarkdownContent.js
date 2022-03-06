@@ -80,7 +80,7 @@ const renderAst = new Rehype2react({
       ),
     'details-summary': (props) => (
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-        <Typography variant='h6' component='p' {...props} />
+        <Typography variant='h4' component='p' {...props} />
       </AccordionSummary>
     ),
     'details-content': AccordionDetails,
