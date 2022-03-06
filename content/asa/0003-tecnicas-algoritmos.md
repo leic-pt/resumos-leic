@@ -560,7 +560,7 @@ $$
 \Sigma = \{a, b, c\}.
 $$
 
-O nosso objetivo passará por tentar transformar cada um dos elementos do alfabeto num código binário. [**Cada código não pode ser prefixo de nenhum dos outros códigos**](color:yellow). Podemos criar códigos binários de duas maneiras - códigos de tamanho **fixo** ou **variável**. Optaremos, aqui, por criar códigos de tamanho [**variável**](color:orange), visto que podem ser otimizados bastante facilmente - os caracteres que aparecem mais frequentemente ocupam menos bits.
+O nosso objetivo passará por tentar transformar cada um dos elementos do alfabeto num código binário. [**Cada código não pode ser prefixo de nenhum dos outros códigos**](color:yellow), isto é, devem ser **livres de prefixo**. Podemos criar códigos binários de duas maneiras - códigos de tamanho **fixo** ou **variável**. Optaremos, aqui, por criar códigos de tamanho [**variável**](color:orange), visto que podem ser otimizados bastante facilmente - os caracteres que aparecem mais frequentemente ocupam menos bits.
 
 :::
 

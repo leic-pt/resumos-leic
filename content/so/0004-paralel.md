@@ -48,7 +48,7 @@ Cada instância de um programa em execução denomina-se um **processo**
 ![Análise temporal de um processo](./imgs/0004/0004-graph.png#dark=1)
 
 Na realidade só pode estar a correr um processo de cada vez (por unidade de processamento).
-Contudo, uma vez que um CPU é capaz de executar muitos milhares de operações por segundo, é possível executar a troca de processos em execução no CPU, de forma que, para um humano, os processsos parecem correr em paralelo.
+Contudo, uma vez que um CPU é capaz de executar muitos milhares de operações por segundo, é possível executar a troca de processos em execução no CPU de forma que, para um humano, os processsos parecem correr em paralelo.
 A isto dá-se o nome de [pseudo-concorrência](color:green).
 
 Uma vez que vamos falar muito de processos, é relevante estabelecer a diferença entre um programa e um processo:
@@ -186,13 +186,13 @@ Esta função para o processo pai até este se sincronizar com a terminação de
 - O estado de terminação do processo filho que foi atribuído no parâmetro da função `exit` é guardado na variável apontada por `status`.
 
 :::tip[Macros Importantes]
-Usando `man wait` poderão encotrar Macros (`WIFEXITED`, `WEXITSTATUS`) que ajudam a saber como e se um processo terminou (com `exit`).
+Usando `man wait` poderão encontrar Macros (`WIFEXITED`, `WEXITSTATUS`) que ajudam a saber como e se um processo terminou (com `exit`).
 :::
 
 :::tip[Exemplo de exit e wait]
 
 ```c
-main () {
+main() {
   int pid, estado;
 
   pid = fork();
@@ -270,7 +270,7 @@ Até agora só vimos como criar uma cópia de um processo que execute o mesmo pr
 Vamos agora ver como ter o processo filho a executar um programa diferente.
 
 ```c
-int execl(char* ficheiro, char* arg0, char* argl, ..., argn, 0)
+int execl(char* ficheiro, char* arg0, char* argl, ..., argn, NULL)
 ```
 
 ```c
@@ -281,11 +281,11 @@ int execv(char* ficheiro, char* argv[])
 
 Os argumentos podem ser passados de duas maneiras:
 
-- Para `execl`, passa-se os ponteiros 1 a 1, acabando em 0
+- Para `execl`, passa-se os ponteiros 1 a 1, acabando em `NULL` (ou `0`, visto que `NULL` é só uma constante igual a `(void *)0`)
 - Para `execv`, passa-se um array de ponteiros
 
 Estes parâmetros são passados para a função `main` do novo programa e acessíveis através do `argv`.
-Ambas as funções `execl()` e `execv()` são **front-ends** mais simples para `execve()` que é a função principal com mais parâmetros.
+Ambas as funções `execl()` e `execv()` são **front-ends** mais simples para `execve()`, que é a função genérica principal com mais parâmetros.
 
 :::tip[Exemplo de execl]
 
@@ -306,7 +306,7 @@ main() {
 
 :::
 
-Por convenção o `arg0` é o nome do programa.
+Por convenção, **o `arg0` é o nome do programa**.
 
 ### Implementação de uma shell
 
@@ -314,15 +314,15 @@ Uma shell pode ser descrita muito facilmente por:
 
 - Ciclo infinito, em que cada iteração:
 
-  - Imprime mensagem;
-  - Lê comando;
-  - Cria novo processo filho;
-  - Processo filho deve executar outro programa (indicado no comando lido);
-  - Entretanto, o processo da shell bloqueia-se até filho terminar;
-  - Volta à próxima iteração.
+  1. Imprime mensagem;
+  2. Lê comando;
+  3. Cria novo processo filho;
+  4. Processo filho deve executar outro programa (indicado no comando lido);
+  5. Entretanto, o processo da shell bloqueia-se até filho terminar;
+  6. Volta à próxima iteração.
 
 ```c
-while(TRUE) {
+while (TRUE) {
   prompt();
   read_command(command, params);
   pid = fork();
@@ -365,18 +365,6 @@ Mas não partilham:
 - Atributos específicos da tarefa
   - Thread id (tid)
   - etc
-
-## Paralelismo com Múltiplos Processos vs. Múltiplas Tarefas (no mesmo processo)
-
-- [Vantagens](color:green) de multi-tarefa:
-  - Criação e comutação entre tarefas do mesmo processo
-    mais leves (vs. entre processos)
-  - Tarefas podem comunicar através de memória partilhada
-    - Comunicação entre processos mais limitada
-- [Vantagens](color:green) de processos:
-  - Podemos executar diferentes binários em paralelo
-  - Isolamento: confinamento de bugs
-  - Outras
 
 ## Programação com Tarefas em Unix (Interface POSIX)
 
@@ -564,17 +552,6 @@ Temos assim que evitar que _threads_ acedam ao mesmo endereço de memória ao me
 
 [**IMPORTANTE**](color:yellow): É sempre má ideia assumir que uma operação em C é indivisível!!!
 
-## Processos vs Tarefas
-
-Vantagens de multi-tarefa:
-
-- Criação e comutação entre tarefas do mesmo processo mais leves (vs. entre processos);
-- Tarefas podem comunicar através de memória partilhada - comunicação entre processos é mais limitada (visto mais tarde na cadeira);
-  Vantagens de processos:
-- Podemos executar diferentes binários em paralelo;
-- Isolamento: confinamento de bugs;
-- Outras (visto mais tarde na cadeira).
-
 :::tip[Exemplo de Uso de Processos]
 
 **Chromium**:
@@ -584,6 +561,8 @@ Vantagens de multi-tarefa:
 - Permite que separadores não obtenham informação sobre os outros separadores (isolamento).
 
 :::
+
+[**IMPORTANTE**](color:yellow): É sempre má ideia assumir que uma operação em C é indivisível!!!
 
 ---
 

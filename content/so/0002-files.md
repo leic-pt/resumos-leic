@@ -18,7 +18,7 @@ type: content
 ## Ficheiro
 
 Toda a gente sabe o que é um [ficheiro](color:yellow), mas definir um exatamente pode ser algo mais difícil.  
-Definimos um [ficheiro](color:yellow) como uma colecção de dados persientes, geralmente relacionados, identificados por um nome.
+Definimos um [ficheiro](color:yellow) como uma coleção de dados persistentes, geralmente relacionados, identificados por um nome.
 Os vários [ficheiros](color:yellow) de um certo sistema estão normalmente organizados num [sistema de ficheiros](color:orange).
 
 Um [sistema de ficheiros](color:orange) deve ser composto por um conjunto de entidades fundamentais:
@@ -40,15 +40,15 @@ Eis a informação que está apresentada na linha a cima (por ordem):
 
 - permissões do ficheiro: `-rwxr-xr-x`
   - podem ser de leitura (`r`), escrita (`w`) e execução (`x`);
-  - o que o primeiro dos dez caracteres significa não é do compto desta cadeira;
+  - o que o primeiro dos dez caracteres significa não é do âmbito desta cadeira;
   - os seguintes 9 caracteres dividem-se em 3 conjuntos - cada um representa as permissões de uma certa entidade. Nomeadamente, por esta ordem: **user**, **group** e **others**;
-  - nomeadamente, a mensagem apresentada diz-nos que:
+  - neste caso, a mensagem apresentada diz-nos que:
     - o utilizador do ficheiro tem todas as permissões sobre aquele ficheiro;
-  - os restantes utilizadores do grupo têm permissões de escrita e execução, mas não de escrita;
-  - qualquer outro utilizador também só pode ler ou executar;
-- o número de _links_ que existem para este ficheiro (vamos ver melhor o que isto significa mais à frente): `1`;
-- o nome do `utilizador` do ficheiro: `luis`;
-- o nome do `grupo` do ficheiro: `staff`;
+    - os restantes utilizadores do grupo têm permissões de escrita e execução, mas não de escrita;
+    - qualquer outro utilizador também só pode ler ou executar;
+- o número de _hard links_ que existem para este ficheiro (vamos ver melhor o que isto significa mais à frente): `1`;
+- o nome do `utilizador` que é dono do ficheiro: `luis`;
+- o nome do `grupo` que é dono do ficheiro: `staff`;
 - o tamanho do ficheiro: `8680` (bytes);
 - a data e hora da última modificação do ficheiro: `Nov 14 19:46`;
 - o nome do ficheiro: `do_exec`.
