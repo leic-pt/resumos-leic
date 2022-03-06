@@ -49,7 +49,7 @@ const ThemeSettings = () => {
 
   return (
     <>
-      <IconButton onClick={toggleOpen}>
+      <IconButton color='inherit' onClick={toggleOpen}>
         <PaletteIcon />
       </IconButton>
       <Drawer

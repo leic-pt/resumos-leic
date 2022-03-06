@@ -10,12 +10,18 @@ import {
   ListSubheader,
   Toolbar,
 } from '@mui/material';
-import { Box } from '@mui/system';
+import { Box, styled } from '@mui/system';
 import { graphql, Link as GatsbyLink, Link, useStaticQuery } from 'gatsby';
 import React from 'react';
 import SiteTitle from './SiteTitle';
 
 export const drawerWidth = '20rem';
+
+const StyledListItemButton = styled(ListItemButton)({
+  borderRadius: '0.5em',
+  margin: '0.2em 0.4em',
+  padding: '0.15rem 0.7em',
+});
 
 const DrawerList = ({ sidebarSections, toggleSidebar }) => {
   return (
@@ -46,9 +52,14 @@ const DrawerList = ({ sidebarSections, toggleSidebar }) => {
                   {section.links.map((v) => {
                     const { path, title } = v;
                     return (
-                      <ListItemButton key={path} to={path} component={GatsbyLink}>
+                      <StyledListItemButton
+                        key={path}
+                        to={path}
+                        activeClassName='Mui-selected'
+                        component={GatsbyLink}
+                      >
                         <ListItemText primary={title || path} />
-                      </ListItemButton>
+                      </StyledListItemButton>
                     );
                   })}
                 </>
