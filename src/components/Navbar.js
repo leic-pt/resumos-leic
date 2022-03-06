@@ -62,7 +62,13 @@ const Navbar = ({ title, toggleSidebar }) => {
               <MenuIcon />
             </IconButton>
           )}
-          <Typography variant='h3' component='div' noWrap sx={{ flexGrow: 1 }}>
+          <Typography
+            onClick={toggleSidebar}
+            variant='h3'
+            component='div'
+            noWrap
+            sx={{ flexGrow: 1 }}
+          >
             {title}
           </Typography>
           {/*<SearchBar />*/}
