@@ -1,4 +1,5 @@
 import CloseIcon from '@mui/icons-material/CloseRounded';
+import SystemDarkModeIcon from '@mui/icons-material/ComputerRounded';
 import DarkModeIcon from '@mui/icons-material/DarkModeRounded';
 import ContentFullWidthIcon from '@mui/icons-material/FitScreenRounded';
 import ContentCompactIcon from '@mui/icons-material/FullscreenExitRounded';
@@ -85,7 +86,7 @@ const ThemeSettings = () => {
               Light
             </IconToggleButton>
             <IconToggleButton value='system'>
-              <DarkModeIcon />
+              <SystemDarkModeIcon />
               System
             </IconToggleButton>
             <IconToggleButton value='dark'>
