@@ -47,7 +47,7 @@ const DrawerList = ({ sidebarSections, toggleSidebar }) => {
           {sidebarSections.map(
             (section) =>
               section.links && (
-                <>
+                <React.Fragment key={section.name}>
                   {section.name && <ListSubheader>{section.name}</ListSubheader>}
                   {section.links.map((v) => {
                     const { path, title } = v;
@@ -62,7 +62,7 @@ const DrawerList = ({ sidebarSections, toggleSidebar }) => {
                       </StyledListItemButton>
                     );
                   })}
-                </>
+                </React.Fragment>
               )
           )}
         </List>

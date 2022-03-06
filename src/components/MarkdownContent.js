@@ -8,7 +8,6 @@ import {
   AlertTitle,
   Box,
   Divider,
-  Link as MuiLink,
   Table,
   TableBody,
   TableCell,
@@ -17,11 +16,11 @@ import {
   Typography,
 } from '@mui/material';
 import { styled } from '@mui/system';
-import { Link as GatsbyLink } from 'gatsby';
 import React, { useMemo } from 'react';
 import Rehype2react from 'rehype-react';
 import useThemeSettings from '../hooks/useThemeSettings';
 import IframeEmbed from './IframeEmbed';
+import SmartLink from './SmartLink';
 
 const renderAst = new Rehype2react({
   createElement: React.createElement,
@@ -51,7 +50,7 @@ const renderAst = new Rehype2react({
         {...props}
       />
     ),
-    a: (props) => <Link {...props} />,
+    a: SmartLink,
     table: (props) => <Table {...props} />,
     thead: (props) => <TableHead {...props} />,
     tbody: (props) => <TableBody {...props} />,
@@ -98,10 +97,6 @@ const renderAst = new Rehype2react({
       props.className?.includes('language-') ? <code {...props} /> : <CodeInline {...props} />,
   },
 }).Compiler;
-
-const Link = React.forwardRef((props, ref) => (
-  <MuiLink component={GatsbyLink} innerRef={ref} {...props} />
-));
 
 const CodeInline = styled('code')(({ theme }) => ({
   backgroundColor: theme.palette.action.focus,
