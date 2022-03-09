@@ -99,3 +99,104 @@ $$
 ### Terceira Lei
 
 A terceira lei diz-nos que todas as forças entre dois objetos existem em pares, com a mesma intensidade e sentidos opostos.
+
+## Movimento de um Corpo
+
+Um corpo que se encontra em movimento pode ser descrito, entre outras, pelas seguintes propriedades:
+
+- Posição
+- Velocidade (derivada da posição)
+- Aceleração (derivada da velocidade; segunda derivada da posição)
+
+No geral trabalhamos com estas propriedades a variar ao longo do tempo, $t$.
+
+:::info[Exemplo]
+
+Abaixo encontram-se 3 gráficos, que representam a posição, velocidade e aceleração de um corpo.
+
+![Gráficos da posição, velocidade e aceleração de um corpo](./assets/0001-movement-graphs.svg#dark=1)
+
+Como podemos ver, o corpo abaixo descreve um **movimento uniformemente acelerado**, visto que tem aceleração constante (neste caso, negativa).
+
+A velocidade diminui ao longo do tempo, visto que a aceleração é negativa.
+Deste modo, a posição do corpo vai sofrer uma alteração cada vez menor ao longo do tempo.
+
+:::
+
+### Movimento Uniforme
+
+Um [**movimento uniforme**](color:orange) é aquele que tem velocidade constante, isto é, aceleração nula.  
+Podemos pensar, como exemplo, num carro a viajar na autoestrada sempre à mesma velocidade.
+
+Este movimento pode ser descrito por uma equação do tipo:
+
+$$
+x(t) = x_0 + vt
+$$
+
+em que $x_0$ é a posição inicial e $v$ a velocidade (constante) do corpo.
+
+### Movimento Uniformemente Acelerado
+
+Por outro lado, um [**movimento uniformemente acelerado**](color:yellow) é aquele que tem aceleração constante, e consequentemente aceleração linear.  
+Como exemplo, podemos pensar num corpo em queda livre (ignorando a resistência do ar). A única força a atuar no mesmo é a força gravítica, na direção do movimento. A sua velocidade aumenta linearmente ao longo da queda.
+
+Este movimento pode ser descrito por uma equação do tipo:
+
+$$
+x(t) = x_0 + v_0 t + \frac{a}{2} t^2
+$$
+
+em que $x_0$ é a posição inicial, $v_0$ é a velocidade inicial e $a$ a aceleração do corpo.
+
+### Equações do Movimento
+
+Para trabalhar com movimentos com aceleração constante, podemos usar as equações do movimento.
+Estas são a base para se poder resolver vários problemas relacionados com mecânica.
+
+$$
+\begin{aligned}
+x(t) &= x_0 + v_0 t + \frac{a}{2} t^2\\
+v(t) &= v_0 + at\\
+\end{aligned}
+$$
+
+Se repararmos, a equação $v(t)$ é a derivada da $x(t)$.
+
+Com estas equações, podemos definir uma expressão para qualquer [**movimento uniformemente acelerado**](color:yellow).
+
+:::info[Exemplo]
+
+**Consideramos que um corpo é lançado na vertical, para cima, a partir de uma altura de $3 \operatorname{m}$ com uma velocidade de $1.5 \operatorname{ms}^{-1}$.
+No corpo atua a força gravítica, $g = 9.8 \operatorname{ms}^{-2}$.**
+
+a) **Escreva a equação das posições e a equação das velocidades que descrevem o movimento.**
+
+$$
+\begin{aligned}
+y(t) &= 3 + 1.5t - \frac{9.8}{2} t^2\\
+v(t) &= 1.5 - 9.8 t
+\end{aligned}
+$$
+
+b) **Qual é a altura máxima que a bola atinge?**
+
+Sabemos que a bola inverte o sentido do movimento quando a sua velocidade é nula.
+Então:
+
+$$
+v(t) = 0 \implies 1.5 - 9.8 t = 0 \implies t = 0.153 \operatorname{s}
+$$
+
+Ficamos assim a saber que a bola atinge a altura máxima no instante $t = 0.153 \operatorname{s}$.
+
+Podemos agora simplesmente substituir na equação das posições, para descobrirmos qual a posição da bola nesse instante,
+e consequentemente a altura máxima.
+
+$$
+y(0.153) = 3 + 1.5 \times 0.153 - \frac{9.8}{2} (0.153)^2 = 3.1 \operatorname{m}
+$$
+
+Então, a altura máxima atingida pela bola é $3.1 \operatorname{m}$ acima do solo.
+
+:::
