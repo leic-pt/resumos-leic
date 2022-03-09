@@ -2,7 +2,7 @@
 title: Recordar do Secundário
 description: >-
   Pequeno resumos de toda a matéria de secundário necessária para esta UC.
-path: /fis-i/guides/recap-secondary
+path: /fis-i/guides/recap-highschool
 type: guides
 ---
 
