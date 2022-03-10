@@ -20,14 +20,14 @@ O que é a cinemática?
 
 A **cinemática** é o ramo da Física que se ocupa da descrição dos movimentos de
 pontos, corpos ou sistemas de corpos (grupos de objetos), sem se preocupar
-com a análise de suas causas.
+com a análise das suas causas.
 
 ## Redução de um Corpo a um Ponto
 
 Quando estivermos a analizar o movimento de um corpo, podemos, no geral, reduzi-lo a apenas um ponto, simplificando o problema.
 
 Isto deve-se ao facto de que todas as partes do corpo descrevem o mesmo movimento:
-se tivermos um carro em movimento, tanto as portas, o bancos, o volante e mesmo o condutor movimentam-se à mesma
+se tivermos um carro em movimento, tanto as portas, os bancos, o volante e mesmo o condutor movimentam-se à mesma
 velocidade e têm uma posição sempre igual entre si. Podemos assim, neste caso, considerar o carro
 como apenas um ponto e estudar o movimento desse ponto.
 
@@ -49,7 +49,7 @@ $$
 
 ## Deslocamento e Trajetória
 
-Quando um corpo de move do ponto A a um ponto B, temos:
+Quando um corpo se move do ponto A a um ponto B, temos:
 
 - **Deslocamento**: é o vetor que une o ponto A ao ponto B. É uma linha reta e independente do caminho.
 - **Trajetória/Caminho**: é o percurso que o corpo faz do ponto A ao ponto B.
@@ -64,7 +64,7 @@ $$
 
 ## Velocidade Média
 
-A velocidade média define-se como o quociente entre o delocamento e o intervalo de tempo desse deslocamento.
+A velocidade média define-se como o quociente entre o deslocamento e o intervalo de tempo desse deslocamento.
 
 $$
 \begin{aligned}
@@ -97,7 +97,7 @@ Assim, temos que a **aceleração média** é:
 $$
 \begin{aligned}
 \vec a_m &= \frac{\Delta \vec v}{\Delta t}\\
-&= \frac{\vec v_2 - v_1}{t_2 - t_1}\\
+&= \frac{\vec v_2 - \vec v_1}{t_2 - t_1}\\
 &= \frac{\Delta v_x}{\Delta t}\vec e_x + \frac{\Delta v_y}{\Delta t}\vec e_y + \frac{\Delta v_z}{\Delta t}\vec e_z\\
 &= a_{mx} \vec e_x + a_{my} \vec e_y + a_{mz} \vec e_z
 \end{aligned}
