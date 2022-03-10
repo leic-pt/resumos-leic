@@ -138,7 +138,7 @@ Temos assim de arranjar uma solução para esse caso.
 
 ```c
 mutex_t garfo[5] = {...};
-filosofo(int id){
+filosofo(int id) {
   while (TRUE) {
     pensar();
     if (id < 4) {
@@ -176,7 +176,7 @@ filosofo(int id) {
           garfos = TRUE;
         } else { // adquisição 2º trinco falhou
           unlock(garfo[id]); // abre 1º trinco e tenta outra vez
-          sleep(random([0, MAX]);
+          sleep(random([0, MAX]));
         }
       }
     }
@@ -237,7 +237,7 @@ void entrar() {
     if (vagas > 0) break;
     else unlock(m);
   } while (1); // Existe problema
-  vagas --;
+  vagas--;
   unlock(m);
 }
 
@@ -299,6 +299,8 @@ while (!condiçãoSobreEstadoPartilhado) // USAR SEMPRE CONDIÇÃO WHILE
 /* ... acesso a variáveis partilhadas ... */
 unlock(trinco);
 ```
+
+[**É extremamente importante que se use `while` em vez de `if` neste padrão de código**, visto que, por razões de otimização, às vezes o SO pode desbloquear o processo quando este está preso no `wait` num momento que não o esperado - ver explicação no final da página.](color:orange)
 
 - Código que muda ativa condição
 

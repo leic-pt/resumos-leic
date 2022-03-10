@@ -94,7 +94,7 @@ Para aumentar a dimensão máxima dos ficheiros, temos duas opções:
 
 Num sistema de ficheiros FAT, a partição contém três secções distintas:
 
-- A tabela de alocação (File Allocation Table, FAT): um vetor com $2^n$ interidos de $n$ bits (designado FAT-16 para n=16, FAT-32 para n=32, etc);
+- A tabela de alocação (File Allocation Table, FAT): um vetor com, no máximo, $2^n$ inteiros de $n$ bits (designado FAT-16 para n=16, FAT-32 para n=32, etc);
 - uma diretoria com os nomes dos ficheiros presentes no sistema de ficheiros;
 - uma secção com o espaço restante dividido em blocos, de igual
   dimensão, para conter os dados dos ficheiros
@@ -114,72 +114,64 @@ Por exemplo, na imagem a cima:
 
 O FichA tem dados nos blocos:
 
-- 0 (indice no diretorio);
-- 2 (indice para que o indice 0 na FAT aponta);
+- 0 (índice no diretorio);
+- 2 (índice para que o índice 0 na FAT aponta);
 - como a entrada 2 na FAT é max, o Bloco 2 é o último com dados do FichA.
 
 O FichB tem dados nos blocos:
 
-- 1 (indice no diretorio);
-- 5 (indice apontado pela entrada 1 da FAT);
+- 1 (índice no diretorio);
+- 5 (índice apontado pela entrada 1 da FAT);
 - mais nenhum bloco, pois a entrada 5 da FAT contém max.
 
-O FichC só tem dados no bloco 3, pois o indice na diretoria é 3, e a posição 3 da FAT contém max.
+O FichC só tem dados no bloco 3, pois o índice na diretoria é 3, e a posição 3 da FAT contém max.
 
 :::
 
-A FAT é dimensionado para:
+A FAT é dimensionada para:
 
-- Caber em memória RAM (FAT carregada do disco para RAM quando o FS é montado)
+- Caber em memória RAM (a FAT é carregada do disco para RAM quando o FS é montado)
 - Ter tantas entradas quanto o número de blocos de dados na partição em disco
 
 ### [Desvantagens do FAT](color:red)
 
 - Elevada dimensão da FAT quando os discos têm dimensões muito grandes:
-  - Por exemplo, numa partição 1 Tbyte: usando FAT-32 e blocos de 4 KBytes, a FAT pode ocupar 1 GByte (1TBytes/4KBytes × 4 bytes)
+  - Por exemplo, numa partição 1 Tbyte: usando FAT-32 e blocos de 4 KBytes, a FAT pode ocupar 1 GByte (1TBytes/4KBytes × 4 bytes [sendo que este 4 advém de serem endereços de 32 bits, logo são precisos 32 / 8 bits = 4 bytes para os representar])
 - Tabelas desta dimensão não são possíveis de manter em RAM permanentemente:
-  - Ler a FAT do disco, prejudica muito o acesso à cadeia de
-    blocos de um ficheiro
+  - É preciso ler a FAT do disco, o que prejudica muito o acesso à cadeia de blocos de um ficheiro
 
 ## Organização com Descritores Individuais de Ficheiros (i-nodes)
 
 - Manter a descrição do ficheiro num descritor próprio de cada ficheiro, chamado _i-node_
-  - Exemplos de atributos incluídos no _i-node_: tipo de
-    ficheiro, dono, datas de últimos acessos, permissões,
-    dimensão, localizações dos blocos de dados
+  - Exemplos de atributos incluídos no _i-node_: tipo de ficheiro, dono, datas de últimos acessos, permissões, dimensão, localizações dos blocos de dados
   - É a estrutura que está entre as entradas dos diretórios que referenciam o ficheiro e os seus blocos de dados
-- Vantagem: podem existir várias entradas de
-  diretório a apontar para o mesmo ficheiro
+- Vantagem: podem existir várias entradas de diretório a apontar para o mesmo ficheiro
   - Noção de hard link: podem existir vários nomes (ou caminhos/_paths_) para o mesmo ficheiro.
-- Os _i-nodes_ são guardados numa estrutura especial de
-  tamanho fixo antes dos blocos de dados
+- Os _i-nodes_ são guardados numa estrutura especial de tamanho fixo antes dos blocos de dados
 
 ![inodes](./imgs/0003/0003-inodes.png#dark=1)
 
-- No Linux tem o nome de tabela de `inodes`
-- No Windows tem o nome:
-  - MFT (Master File Table).
+- No Linux tem o nome de **tabela de `inodes`**
+- No Windows tem o nome de **MFT (Master File Table)**
 - O número máximo de ficheiros numa partição é dado pelo número máximo de _i-nodes_ nessa tabela
 
 ### A Sequência de Passos para Aceder ao Conteúdo de um Ficheiro
 
 ![ins](./imgs/0003/0003-ins.png#dark=1)
 
-- Um ficheiro é univocamente identificado, dentro de
-  cada partição, pelo número de i-node (muitas vezes
+- Um ficheiro é univocamente identificado, dentro de cada partição, pelo número de i-node (muitas vezes
   chamado i-number)
-- Os directórios só têm que efetuar a ligação entre
-  um nome do ficheiro e o número do seu descritor
+- Os directórios só têm que efetuar a ligação entre um nome do ficheiro e o número do seu descritor
   ![tab5](./imgs/0003/0003-tab5.png#dark=1)
 
 ### Percorrer a árvore de diretórios
 
 1. Começar pelo diretório raíz
-   - _i-number_ tem valor pré-conhecido (e.g., _i-num_ = 2)
+   - _i-number_ da raiz tem valor pré-conhecido (e.g., _i-num_ = 2)
 2. Dado o _i-number_, obter o _i-node_ do diretório
    - Na cache de _i-nodes_ (em RAM) ou na tabela de _i-nodes_ (em disco)
 3. A partir do _i-node_, descobrir os índices dos blocos de dados com o conteúdo do diretório
-4. Ler cada bloco do diretório e pesquisar nele uma entrada com o próximo nome do pathname
+4. Ler cada bloco do diretório e pesquisar nele uma entrada com o próximo nome do _pathname_
 5. Assim que seja encontrada, a entrada indica o _i-num_ do próximo nome
 6. Repetir a partir do passo 2 para este novo nome
 
@@ -193,7 +185,7 @@ Implementação do descritor de volume:
 
 - Unix - bloco especial denominado superbloco
 - NTFS - ficheiro especial
-- FAT - a informação em causa é descrita directamente no setor de boot
+- FAT - a informação em causa é descrita diretamente no setor de boot
 
 ![inodes](./imgs/0003/0003-inodes.png#dark=1)
 
@@ -254,7 +246,8 @@ A dimensão máxima de um ficheiro é então $B \times \left(12 + \frac{B}R + (\
 
 - $B$ é a dimensão em bytes de um bloco de dados;
 - $R$ é a dimensão em bytes de uma referência para um bloco;
-  Com blocos de 1 Kbyte e referências de 4 byte, a dimensão máxima de um ficheiro é $\approx$16 Gbytes
+
+Com blocos de 1 Kbyte e referências de 4 byte, a dimensão máxima de um ficheiro é $\approx$16 Gbytes
 
 ## Visão Global
 
@@ -265,6 +258,7 @@ A dimensão máxima de um ficheiro é então $B \times \left(12 + \frac{B}R + (\
 ### Estruturas de Suporte à Utilização dos Ficheiros
 
 Todos os sistemas de ficheiros definem um conjunto de estruturas em memória volátil para os ajudar a gerir a informação persistente mantida em disco.
+
 Objetivos:
 
 - Criar e gerir os canais virtuais entre as aplicações e a informação em disco;
@@ -303,7 +297,7 @@ Tabela de ficheiros abertos - global:
 
 A existência de duas tabelas é fundamental para garantir o isolamento entre processos, permitindo a partilha de ficheiros sempre que necessário (e.g. os cursores de escrita e leitura de um ficheiro entre dois ou mais processos).
 
-Note-se que os identificadores para a tabela global estão na tabela privada que está em memória protegida, pelo que não podem ser alterados
+Note-se que os identificadores para a tabela global estão na tabela privada que está em memória protegida, pelo que não podem ser alterados.
 
 ---
 

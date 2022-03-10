@@ -30,25 +30,6 @@ pelo **tratamento de interrupções**, **otimização da gestão de recursos dos
 da implementação das chamadas de sistemas relacionadas com processos e sincronização entre os mesmos
 (como por exemplo a alteração da prioridade de um processos; veremos mais à frente o que isto significa).
 
-## Boot de um SO
-
-Quando o nosso computador está desligado, não passa de um objeto inanimado.
-Contudo, quando carregamos num botãozinho, esse objeto inanimado converte-se numa caixa mágica capaz de fazer as mais diversas operações.
-Vamos agora ver como é que isso é possível.
-
-Quando uma máquina recebe energia, o PC (_Program Counter_) aponta para um programa na _Boot ROM_.
-Nos computadores pessoais este programa pode ser o **BIOS** (_Basic Input/Output System_) ou a **UEFI** (_Unified Extensible Firmware Interface_).
-Este programa faz algumas verificações sobre o computador (nomeadamente se está em condições de ser iniciado) e, de seguida,
-copia o bloco de código do disco para a RAM e salta para a primeira instrução desse programa, chamado _bootloader_.
-
-O _bootloader_, por sua vez, carrega o programa do núcleo em RAM e salta para a rotina de inicialização do núcleo.
-A inicialização do núcleo passa por:
-
-- incializar as suas estruturas de dados;
-- copiar rotinas de tratamento de cada interrupção para RAM;
-- preencher a tabela de interrupções em RAM;
-- lançar os processos inicias do sistema, incluindo o processo de login.
-
 ## Processos e Tarefas
 
 Para percebermos como é que o sistema operativo vai transitar entre vários processos,

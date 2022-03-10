@@ -24,8 +24,7 @@ Ao desenhar um trinco, existem várias propriedades que são essenciais para o s
   - Ausência de Interblocagem (Deadlock): se pelo menos uma tarefa tenta obter o trinco, então alguma o
     obterá (dentro de um tempo finito)
 - Ausência de Míngua (Starvation)
-  - Se uma dada tarefa tenta obter o trinco, essa tarefa conseguirá obtê-
-    lo (dentro de um tempo finito)
+  - Se uma dada tarefa tenta obter o trinco, essa tarefa conseguirá obtê-lo (dentro de um tempo finito)
   - Eficiência
 
 Podemos abordar a implementação do trinco de várias formas.
@@ -43,11 +42,11 @@ Rapidamente nos apercebemos que não conseguimos implementar um trinco apenas co
 ```c
 int trinco = ABERTO;
 
-Fechar () {
+Fechar() {
   while (trinco == FECHADO) {/* instrução vazia */};
   trinco = FECHADO;
 }
-Abrir () {
+Abrir() {
   trinco = ABERTO;
 }
 ```
@@ -61,7 +60,7 @@ int trinco_t1 = ABERTO;
 int trinco_t2 = ABERTO;
 
 Tarefa T1                           Tarefa T2
-t1_fechar () {                      t2_fechar () {
+t1_fechar() {                      t2_fechar () {
   while (trinco_t2 == FECHADO);       while (trinco_t1 == FECHADO);
   trinco_t1 = FECHADO;                trinco_t2 = FECHADO;
 }                                   }
@@ -150,7 +149,7 @@ t1_abrir() {trinco_vez = 2;}    t2_abrir() {trinco_vez = 1;}
 int senha[N]; // Inicializado a 0
 int escolha[N]; // Inicializado a FALSE
 
-Fechar (int i) {
+Fechar(int i) {
   int j;
   escolha[i] = TRUE;
   senha [i] = 1 + maxn(senha); // Pi indica que está a escolher a senha
@@ -167,8 +166,8 @@ Fechar (int i) {
                                            // entra o que tiver o menor identificador
   }
 }
-Abrir (int i) {senha [i] = 0;}
 
+Abrir(int i) {senha [i] = 0;}
 ```
 
 **Se não usássemos escolha** 2 tarefas podiam entrar na mesma secção crítica ao mesmo tempo
@@ -252,7 +251,7 @@ t.var = ABERTO;
 t.tarefasBloqueadas = {};
 t.t_interior;
 
-Fechar (trinco_t t) {
+Fechar(trinco_t t) {
   fechar_hw(t.t_interior);
   if (t.var == FECHADO) {
     t.tarefasBloqueadas += estaTarefa;
@@ -264,7 +263,7 @@ Fechar (trinco_t t) {
   }
 }
 
-Abrir (trinco_t t) {
+Abrir(trinco_t t) {
   fechar_hw(t.t_interior);
   if (t.tarefasBloqueadas.count > 0) {
     outraTarefa = t.tarefasBloqueadas.dequeue();
@@ -279,17 +278,13 @@ Abrir (trinco_t t) {
 
 - Núcleo não dá tempo de execução a tarefas na fila de espera
 - Elimina-se espera ativa
-  - Exceptuando durante curtos períodos,
-    caso haja chamadas concorrentes a
-    fechar()
+  - Exceptuando durante curtos períodos, caso haja chamadas concorrentes a `fechar()`
 
 Em que categoria está o
 `pthread_mutex`?
 
 - É trinco com suporte do núcleo
-- No entanto, tem otimizações para que,
-  quando o trinco está livre, se evite chamada
-  sistema
+- No entanto, tem otimizações para que, quando o trinco está livre, se evite chamada sistema
 - Assim minimiza-se os custos de chamadas sistema
 
 ---
