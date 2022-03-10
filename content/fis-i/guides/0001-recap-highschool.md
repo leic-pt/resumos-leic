@@ -33,15 +33,16 @@ Descritas por um **valor numérico**, uma **direção**, um **sentido** e uma **
 
 ## Decomposição de vetores
 
-- Figura com corpo num plano inclinado, ligado por um fio a um corpo que está pendurado no final do plano, com roldana
-  para demonstrar decomposição de forças
-
 Quando estamos a trabalhar com dimensões superiores a 1, podemos depararmo-nos com vetores que não são paralelos ao eixos.
 Nestes casos, é útil efetuar a decomposição do vetor em duas ou mais componentes, de forma a obtermos vetores paralelos aos eixos da base
 (geralmente, aos vetores unitários $\vec{e_x}$ e $\vec{e_y}$).  
 Também nos pode ser útil decompor vetores para estes ficarem paralelos/perpendiculares ao movimento (e.g. num plano inclinado).
 
-Abaixo segue um exemplo com um vetor $\vec F$. Podemos reparar que, pela soma de vetores, $\vec F = \vec F_x + \vec F_y$.
+Abaixo segue um exemplo com um vetor $\vec F$. Podemos reparar que, pela soma de vetores,
+
+$$
+\vec F = \vec F_x + \vec F_y
+$$
 
 ![Decomposição de uma Força, F, em Fx e Fy](./assets/0001-force-decomposition.svg#dark=1)
 
@@ -54,7 +55,7 @@ como demonstra a figura abaixo.
 
 ![Plano inclinado](./assets/0001-inclined-plane.svg#dark=2)
 
-Na figura está representado o Peso ($\vec P_A \ e \ \vec P_B$) , uma grandeza vetorial, de ambos os corpos.
+Na figura está representado o Peso ($\vec P_A$ e $\vec P_B$) , uma grandeza vetorial, de ambos os corpos.
 Foram omitidas outras forças presentes.
 
 Como podemos reparar, um vetor que é oblíquo ao movimento não nos permite efetuar cálculos com tanta facilidade.
@@ -182,7 +183,8 @@ v(t) &= 1.5 - 9.8 t
 \end{aligned}
 $$
 
-Podemos notar que a acelaração encontra-se negativa, isto deve à acelaração gravítica ter sentido contrário ao nosso referencial.
+Podemos notar que a acelaração se encontra negativa.
+Isto deve-se à acelaração gravítica ter sentido contrário ao nosso referencial.
 
 b) **Qual é a altura máxima que a bola atinge?**
 
