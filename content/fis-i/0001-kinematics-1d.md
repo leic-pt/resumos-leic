@@ -87,3 +87,27 @@ $$
 &= v_x \vec e_x + v_y \vec e_y + v_z \vec e_z
 \end{aligned}
 $$
+
+## Aceleração Média e Instantânea
+
+A aceleração é para a velocidade o que a velocidade é para a posição.
+
+Assim, temos que a **aceleração média** é:
+
+$$
+\begin{aligned}
+\vec a_m &= \frac{\Delta \vec v}{\Delta t}\\
+&= \frac{\vec v_2 - v_1}{t_2 - t_1}\\
+&= \frac{\Delta v_x}{\Delta t}\vec e_x + \frac{\Delta v_y}{\Delta t}\vec e_y + \frac{\Delta v_z}{\Delta t}\vec e_z\\
+&= a_{mx} \vec e_x + a_{my} \vec e_y + a_{mz} \vec e_z
+\end{aligned}
+$$
+
+E que a **aceleração instantânea** é:
+
+$$
+\begin{aligned}
+\vec a(t) &= \left(\frac{\d v_x}{\d t}\right) \vec e_x + \left(\frac{\d v_y}{\d t}\right) \vec e_y + \left(\frac{\d v_z}{\d t}\right) \vec e_z\\
+&= a_x \vec e_x + a_y \vec e_y + a_z \vec e_z
+\end{aligned}
+$$
