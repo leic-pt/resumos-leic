@@ -1,7 +1,7 @@
 # Resumos LEIC
 
 Este repo foi criado com o objetivo de partilhar resumos das várias UCs
-do curso de LEIC-A no Instituto Superior Técnico.
+do curso de LEIC-A no Instituto Superior Técnico. Qualquer contribuição é bem-vinda (exceto material de professores, como _slides_ e livros, falem primeiro connosco).
 
 ## Como contribuir?
 
@@ -39,8 +39,19 @@ yarn               # or yarn install
 
 ### Alterar conteúdos
 
-Os ficheiros `.md` (markdown) estão na pasta `src`.
-Para alterar os links na sidebar, é necessário alterar o ficheiro `src/.vuepress/config.js`.
+Os ficheiros `.md` (markdown) estão na pasta da respetiva UC dentro de `content`.
+Assim que um ficheiro `.md` é adicionado à respetiva pasta da UC (e esteja associado a um `type`), é acessível a partir da sidebar. Tem ainda de ser definido o respetivo `path` (`/asa/introducao`, por exemplo).  
+Os ficheiros podem ainda ter diferentes categorias, aparecendo em diferentes sub-secções da sidebar consoante a mesma. Em princípio, ser-vos-á útil apenas a categoria `content`, que deve ser adicionada ao _header_ de cada ficheiro.
+
+Cada ficheiro deve conter um _header_ com a meta-informação útil correspondente a cada ficheiro, principalmente:
+
+- `title: <título>`, onde `<título>` será o título que aparece associado à página correspondente ao ficheiro nos resumos;
+
+- `description: <bullet points>`, secção que deverá indicar sucintamente os pontos importantes abordados neste capítulo dos resumos (e que aparece no _embed_ do URL ao partilhar o link da página);
+
+- `path: /<UC>/<nome-da-pagina>`, _self-explanatory_;
+
+- `type: <categoria>`, tal como mencionado acima provavelmente apenas vos interessará a categoria `content`.
 
 Para iniciar o servidor local, correr o comando:
 
@@ -50,8 +61,12 @@ yarn dev
 
 ### Formatar o código
 
-Antes de dar commit, é recomendado executar o `prettier` (se usarem um editor de texto - e.g. vscode - que já executa automaticamente, não é preciso).
+Antes de fazer um commit, é recomendado executar o `prettier` (se usarem um editor de texto - e.g. vscode - que já executa automaticamente, não é preciso). Devem correr o comando na raiz do _repo_ (`/home/.../resumos-leic`, portanto).
 
 ```bash
 yarn format
 ```
+
+## Wiki
+
+Se tiverem mais dúvidas, podem recorrer à [Wiki](https://github.com/diogotcorreia/resumos-leic/wiki) e/ou entrar em contacto connosco!
