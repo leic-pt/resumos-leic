@@ -188,7 +188,7 @@ Quero agradecer a [todos os que contribuíram](https://github.com/diogotcorreia/
 - [Diogo Correia](https://github.com/diogotcorreia/resumos-leic/commits?author=diogotcorreia) (**Website**, **CDI-I**, **CDI-II**, **CDI-III**, **Fis-I**, MD, IAED)
 - [Diogo Gaspar](https://github.com/diogotcorreia/resumos-leic/commits?author=randomicecube) (**LP**, **ASA**, CDI-I)
 - [Tomás Esteves](https://github.com/diogotcorreia/resumos-leic/commits?author=Pesteves2002) (**IAED**, **Fis-II**, **SO**, Fis-I, MD, CDI-II, LP)
-- [João Rocha](https://github.com/diogotcorreia/resumos-leic/commits?author=Calhau18) (CDI-I, CDI-II, MD, CDI-III, Fis-II, ASA)
+- [João Rocha](https://github.com/diogotcorreia/resumos-leic/commits?author=Calhau18) (**SO**, **TC**, **PE**, CDI-I, CDI-II, MD, CDI-III, Fis-II, ASA)
 - [Rúben Nobre](https://github.com/diogotcorreia/resumos-leic/commits?author=RubenNobre123) (**MD**)
 - [João Fonseca](https://github.com/diogotcorreia/resumos-leic/commits?author=jmseca) (**MD**)
 - [Rafael Oliveira](https://github.com/diogotcorreia/resumos-leic/commits?author=RafDevX) (MD, CDI-II, LP, IAED)
