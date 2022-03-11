@@ -88,6 +88,8 @@ $$
 \end{aligned}
 $$
 
+As unidades SI da velocidade são $\operatorname{ms}^{-1}$.
+
 ## Aceleração Média e Instantânea
 
 A aceleração é para a velocidade o que a velocidade é para a posição.
@@ -111,3 +113,109 @@ $$
 &= a_x \vec e_x + a_y \vec e_y + a_z \vec e_z
 \end{aligned}
 $$
+
+As unidades SI da aceleração são $\operatorname{ms}^{-2}$.
+
+## Aplicações em Situações Reais
+
+### Travagem de um Veículo
+
+Normalmente quando falamos de uma travagem de um veículo, existem dois momentos distintos onde podemos estudar o seu movimento:
+
+- Momento de reação: o condutor do veículo avistou o obstáculo e reage ao mesmo, iniciando a travagem.
+  Ao tempo entre o avistamento do obstáculo e o início da travagem chamamos [**tempo de reação**](color:orange).
+- Momento de travagem: a travagem é iniciada e o veículo reduz a sua velocidade com aceleração constante, até ser imobilizado.
+  A este intervalo de tempo, desde o início da travagem até à imobilização do veículo, chamamos de [**tempo de travagem**](color:yellow).
+
+Podemos observar como variam a posição, velocidade e aceleração do veículo durante estes dois momentos:
+
+**TODO** inserir gráficos de posição/velocidade/aceleração a demonstrar como variam os seus valores durante os dois intervalos distintos.
+
+:::info[Exemplo]
+
+**Um carro viaja a 45 km/h numa estrada quando avista um semáforo vermelho.**  
+**O condutor do carro, após avistar o semáforo, demora 1.5 segundos a iniciar a travagem.**
+**Ao travar, o carro é sujeito a uma aceleração de $5 \operatorname{ms}^{-2}$, terminando a travagem mesmo junto ao semáforo.**
+**Qual a distância do carro ao semáforo, quando o avistou?**
+
+O primeiro passo neste tipo de problemas é converter as unidades para o mais adequado.
+Neste caso, dá-nos mais jeito utilizar metros e segundos, pelo que temos de passar a velocidade inicial para m/s.
+
+$$
+v_i = 45 \operatorname{km/h} = 12.5 \operatorname{m/s}
+$$
+
+Precisamos então, para chegar à resposta do problema, de determinar a distância percorrida pelo veículo
+desde o momento do avistamento do obstáculo até à sua imobilização.  
+Dividimos assim nos dois momentos que foram referidos acima, calculando a distância percorria em cada um deles.
+
+- [**Momento de reação**](color:orange)
+
+  O tempo de reação do condutor foi de $t_r = 1.5 \operatorname{s}$,
+  pelo que temos de calcular a distância percorrida pelo carro durante
+  esse intervalo de tempo a $45 \operatorname{km/h}$, isto é, a $12.5 \operatorname{m/s}$.
+
+  A equação que descreve este movimento é:
+
+  $$
+  \vec r(t) = 12.5t~\vec e_x\quad (\operatorname{m})
+  $$
+
+  ou mais simplesmente, a uma dimensão,
+
+  $$
+  x(t) = 12.5t\quad (\operatorname{m})
+  $$
+
+  Assim, a distância percorrida durante o tempo de reação foi
+
+  $$
+  x(1.5) = 12.5 \times 1.5 = 18.75 \operatorname{m}
+  $$
+
+- [**Momento de travagem**](color:yellow)
+
+  Neste momento já não sabemos qual foi a duração da travagem, pelo que antes de conseguirmos calcular a distância
+  percorrida durante a travagem, temos de calcular o tempo de travagem.  
+  Estamos perante um **movimento uniformemente retardado**.
+
+  A equação que descreve este movimento é:
+
+  $$
+  \vec r(t) = \left(18.75 + 12.5 t - \frac{5}{2} t^2\right) \vec e_x\quad (\operatorname{m})
+  $$
+
+  ou mais simplesmente, a uma dimensão,
+
+  $$
+  x(t) = 18.75 + 12.5 t - \frac{5}{2} t^2\quad (\operatorname{m})
+  $$
+
+  É de realçar que a aceleração tem sinal negativo visto que tem sentido contrário ao movimento.
+
+  Assim, o tempo de travagem do veículo é o tempo decorrido até à velocidade do veículo ser nula.
+  Para isso, necessitamos da equação da velocidade deste movimento.
+
+  $$
+  v_x(t) = 12.5 - 5t
+  $$
+
+  E podemos então descobrir qual o instante em que o veículo é imobilizado.
+
+  $$
+  v_x(t) = 0 \Leftrightarrow 12.5 - 5t = 0 \Leftrightarrow t = 2.5 \operatorname{s}
+  $$
+
+  Assim, o tempo de travagem é $t_t = 2.5 \operatorname{s}$, pelo que podemos finalmente calcular a distância percorrida durante a travagem:
+
+  $$
+  x(2.5) = 18.75 + 12.5 \times 2.5 - \frac{5}{2} \times (2.5)^2 = 34.38 \operatorname{m}
+  $$
+
+Juntando a distância percorrida nos dois momentos, chegamos à distância entre o ponto de avistamento do semáforo e o semáforo:
+
+$$
+d = 18.75 + 34.38 = 53.13 \operatorname{m}
+$$
+
+:::
