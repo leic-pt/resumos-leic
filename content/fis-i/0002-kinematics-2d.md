@@ -166,3 +166,118 @@ $$
 $$
 
 :::
+
+## Cordenadas Polares
+
+Por vezes, especialmente quando estamos a estudar movimentos circulares, pode dar mais jeito usar outro
+tipo de coordenadas, as [**coordenadas polares**](color:green).
+
+Em vez de representarmos a posição (entre outros) de um corpo através da sua posição $x$ e $y$, isto é, por coordenadas cartesianas,
+utilizamos a sua distância à origem, assim como o ângulo com a mesma.
+
+Ao contrário de nas coordenadas cartesianas, os vetores unitários das coordenadas polares ($\vec e_r$ e $\vec e_\theta$) variam
+de direção ao longo do tempo e do ponto:
+
+- o vetor $\vec e_r$ aponta da origem para o ponto
+- o vetor $\vec e_\theta$ é perpendicular a $\vec e_r$ e aponta no sentido contrário aos ponteiros do relógio (sentido positivo)
+
+Tal como nas coordenadas cartesianas, os vetores unitários têm módulo $1$.
+
+TODO figura que mostra coordenadas cartesianas vs coordenadas polares
+
+### Conversão entre Coordenadas Cartesianas e Polares
+
+Podemos exprimir os vetores unitários das coordenadas polares da seguinte forma:
+
+$$
+\begin{aligned}
+\vec e_r &= &\cos \theta \vec e_x &+ \sin \theta \vec e_y\\
+\vec e_\theta &= &- \sin \theta \vec e_x &+ \cos \theta \vec e_y
+\end{aligned}
+$$
+
+Irá ser-nos útil saber as derivadas destes vetores unitários, para determinarmos a velocidade e aceleração de um corpo.
+
+Visto que $\theta$ é uma função $\theta \equiv \theta(t)$, demos de ter atenção quando efetuamos a derivada de $\vec e_r$ e $\vec e_\theta$.
+Para isto, temos de utilizar a [derivada da composta](/cdi-i/diferenciabilidade#função-derivada).
+
+Assim:
+
+$$
+\begin{aligned}
+\frac{\d \vec e_r}{\d t} &= \frac{\d \theta}{\d t} \frac{\d \left(\cos \theta \vec e_x + \sin \theta \vec e_y\right)}{\d t}\\
+&= \dot \theta \left(- \sin \theta \vec e_x + \cos \theta \vec e_y\right)\\
+&= \dot \theta \vec e_\theta\\
+\\
+\frac{\d \vec e_\theta}{\d t} &= \frac{\d \theta}{\d t} \frac{\d - \sin \theta \vec e_x + \cos \theta \vec e_y}{\d t}\\
+&= \dot \theta \left(- \cos \theta \vec e_x - \sin \theta \vec e_y\right)\\
+&= - \dot \theta \vec e_r
+\end{aligned}
+$$
+
+Utiliza-se a notação $\frac{\d \theta}{\d t} = \dot \theta$ para simplificar a notação.
+
+### Posição, Velocidade e Aceleração em Coordenadas Polares
+
+Agora que sabemos derivar os vetores unitários $e_r$ e $e_\theta$, podemos escrever as expressões da posição, velocidade e aceleração
+neste sistema de coordenadas.
+
+[**Posição:**](color:green)
+
+O corpo está a uma distância $r \equiv r(t)$ da origem.
+Visto que o vetor unitário $\vec e_r$ tem direção da origem para a posição do corpo, podemos escrever a posição do corpo na forma:
+
+$$
+\vec r(t) = \smartcolor{green}{r \vec e_r}
+$$
+
+[**Velocidade:**](color:pink)
+
+Como já sabemos, a [velocidade é a derivada da posição](/fis-i/kinematics-1d#velocidade-instantânea).
+Então, pela derivada do produto e considerando $r \equiv r(t)$,
+
+$$
+\begin{aligned}
+\vec v(t) &= \frac{\d \vec r}{\d t}\\
+&= \frac{\d r \vec e_r}{\d t}\\
+&= \frac{\d r}{\d t} \vec e_r + r \frac{\d \vec e_r}{\d t}\\
+&= \smartcolor{pink}{\dot r \vec e_r + r \dot \theta \vec e_\theta}
+\end{aligned}
+$$
+
+É importante então realçar que cada componente da velocidade tem um significado:
+
+- [velocidade normal](color:orange): é normal à trajetória
+- [velocidade tangencial](color:yellow): é tangencial à trajetória
+
+Assim,
+
+$$
+\vec v = \smartcolor{orange}{\underbrace{\dot r \vec e_r}_{\text{velocidade normal}}} + \smartcolor{yellow}{\underbrace{r \dot \theta \vec e_\theta}_{\text{velocidade tangencial}}}
+$$
+
+[**Aceleração:**](color:purple)
+
+Finalmente, sabemos também que a [aceleração é a derivada da velocidade](/fis-i/kinematics-1d#aceleração-média-e-instantânea).
+Então, novamente pela derivada do produto e considerando $r \equiv r(t)$,
+
+$$
+\begin{aligned}
+\vec a(t) &= \frac{\d \vec v}{\d t}\\
+&= \left(\ddot r \vec e_r + \dot r \dot{\vec e_r}\right) + \left(\dot r \dot \theta \vec e_\theta + r \ddot \theta \vec e_\theta + r \theta \dot{\vec e_\theta}\right)\\
+&= \smartcolor{purple}{\left(\ddot r - r \dot \theta^2 \right) \vec e_r + \left(r \ddot \theta + 2 \dot r \dot \theta\right) \vec e_\theta}
+\end{aligned}
+$$
+
+Tal como na velocidade, vamos ter também duas componentes para a aceleração:
+
+- [aceleração normal](color:orange): é normal à trajetória
+  - influencia a direção do vetor velocidade
+- [aceleração tangencial](color:yellow): é tangencial à trajetória
+  - influencia a norma (magnitude) do vetor velocidade
+
+Assim,
+
+$$
+\vec a = \smartcolor{orange}{\underbrace{\left(\ddot r - r \dot \theta^2 \right) \vec e_r}_{\text{aceleração normal}}} + \smartcolor{yellow}{\underbrace{\left(r \ddot \theta + 2 \dot r \dot \theta\right) \vec e_\theta}_{\text{aceleração tangencial}}}
+$$
