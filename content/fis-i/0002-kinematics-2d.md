@@ -102,7 +102,7 @@ x(t) &= 2.50 t\\
 y(t) &= 1.5 + 4.33 t - \frac{9.8}{2} t^2
 \end{cases}\\\\
 \begin{cases}
-v_x(t) &= 2.5\\
+v_x(t) &= 2.50\\
 v_y(t) &= 4.33 - 9.5 t
 \end{cases}
 \end{darray}
@@ -127,10 +127,42 @@ Assim, a altura máxima atingida pela bala é $2.46 \op{m}$.
 
 **b) o alcance da bala**
 
-TODO
+A bala embate no chão quando a sua altura é zero.
+Começamos por determinar o instante em que isto acontece.
+
+$$
+y(t) = 0 \Leftrightarrow 1.5 + 4.33 t - \frac{9.8}{2} t^2 = 0 \Leftrightarrow t = -0.266 \op{s}~\lor~t = 1.15 \op{s}
+$$
+
+O valor negativo para o tempo não faz sentido no contexto do problema, pelo que o descartamos:
+
+$$
+\xcancel{t = -0.266 \op{s}}~\lor~t = 1.15 \op{s} \implies t = 1.15 \op{s}
+$$
+
+Agora que já sabemos o instante em que a bala embate no chão, podemos obter a posição horizontal da bala neste instante (alcance).
+
+$$
+x(1.15) = 2.50 \times 1.15 = 2.88 \op{m}
+$$
+
+Assim, o alcance da bala é $2.88 \op{m}$.
 
 **c) a velocidade com que a bala embate no chão pela 1ª vez**
 
-TODO
+Sabendo o instante em que a bala embate no chão, podemos obter ambas as componentes da velocidade quando a bala embate no chão.
+
+$$
+\begin{cases}
+v_x(1.15) &= 2.50 \op{m/s}\\
+v_y(1.15) &= 4.33 - 9.5 \times 1.15 = -6.60 \op{m/s}
+\end{cases}
+$$
+
+Assim, a velocidade com que a bala embate no chão é:
+
+$$
+\vec v = 2.50 \vec e_x - 6.60 \vec e_y\quad (\op{m/s})
+$$
 
 :::
