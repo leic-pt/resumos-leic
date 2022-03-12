@@ -281,3 +281,76 @@ Assim,
 $$
 \vec a = \smartcolor{orange}{\underbrace{\left(\ddot r - r \dot \theta^2 \right) \vec e_r}_{\text{aceleração normal}}} + \smartcolor{yellow}{\underbrace{\left(r \ddot \theta + 2 \dot r \dot \theta\right) \vec e_\theta}_{\text{aceleração tangencial}}}
 $$
+
+## Movimento Circular de Raio Constante
+
+Num movimento circular com raio constante, temos uma simplificação das equações acima, visto que $\dot r = \ddot r = 0$.
+
+Deste modo, ficamos com
+
+$$
+\begin{aligned}
+\vec v &= \smartcolor{orange}{\underbrace{\xcancel{\dot r \vec e_r}}_{\text{velocidade normal}}} + \smartcolor{yellow}{\underbrace{r \dot \theta \vec e_\theta}_{\text{velocidade tangencial}}} &&= r \dot \theta \vec e_\theta\\
+\\
+\vec a &= \smartcolor{orange}{\underbrace{\left(\xcancel{\ddot r} - r \dot \theta^2 \right) \vec e_r}_{\text{aceleração normal}}} + \smartcolor{yellow}{\underbrace{\left(r \ddot \theta + \xcancel{2 \dot r \dot \theta} \right) \vec e_\theta}_{\text{aceleração tangencial}}} &&= - r \dot \theta^2 \vec e_r + r \ddot \theta \vec e_\theta
+\end{aligned}
+$$
+
+Podemos reparar que num movimento circular, a velocidade é **sempre** tangencial à trajetória.
+
+:::tip[Velocidade Angular]
+
+A velocidade angular é a variação do ângulo $\theta$ por segundo.
+A sua unidade SI é $\op{s}^{-1}$ e é dada por
+
+$$
+\omega = \frac{\d \theta}{\d t}
+$$
+
+:::
+
+Comparando a representação de um movimento circular em coordenadas cartesianas e coordenadas polares, considerando $r(t) \equiv R$, temos:
+
+|            |                              Coordenadas Cartesianas                               |                       Coordenadas Polares                       |
+| ---------: | :--------------------------------------------------------------------------------: | :-------------------------------------------------------------: |
+|    Posição |             $\vec r = R \cos \theta \vec e_x + R \sin \theta \vec e_y$             |                      $\vec r = R \vec e_r$                      |
+| Velocidade | $\vec v = R \dot \theta \left(-\sin \theta \vec e_x + \cos \theta \vec e_y\right)$ | $\vec v = R \dot \theta \vec e_\theta = R \omega \vec e_\theta$ |
+
+Podemos concluir que utilizar coordenadas polares em movimentos circulares simplifica bastante o seu estudo.
+
+:::tip[Aceleração Angular]
+
+A velocidade angular é a variação da velocidade angular $\theta$ por segundo.
+A sua unidade SI é $\op{s}^{-2}$ e é dada por
+
+$$
+\gamma = \frac{\d \omega}{\d t}
+$$
+
+:::
+
+Estudando mais atentamente o comportamento da aceleração neste movimento, podemos obter o seguinte:
+
+$$
+\begin{darray}{ll}
+a_T = R \ddot \theta = R \dot \omega = R \gamma & \text{Variação do módulo da velocidade}\\
+a_N = -R \dot \theta^2 = -R \omega^2 = -\frac{v^2}{R} & \text{Variação da direção da velocidade}
+\end{darray}
+$$
+
+### Casos Particulares
+
+- Caso $R \to \infty$, estamos perante um **movimento retilíneo**, visto que
+
+  $$
+  a_N = -\frac{v^2}{R} \to 0
+  $$
+
+  pelo que a direção da velocidade nunca se altera.
+
+- Caso $\omega = \text{constante}$, temos que $\dot \omega = \gamma = 0 \implies a_T = 0$,
+  pelo que estamos perante um **movimento circular uniforme**.
+
+  Neste caso, $a_N$ é constante, normal e centrípeta (aponta para o "centro" da trajetória).
+
+  O período da trajetória é $T = \frac{2\pi}{\omega} \quad (\op{s})$.
