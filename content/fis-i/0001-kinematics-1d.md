@@ -88,7 +88,7 @@ $$
 \end{aligned}
 $$
 
-As unidades SI da velocidade são $\operatorname{ms}^{-1}$.
+As unidades SI da velocidade são $\op{ms}^{-1}$.
 
 ## Aceleração Média e Instantânea
 
@@ -114,17 +114,17 @@ $$
 \end{aligned}
 $$
 
-As unidades SI da aceleração são $\operatorname{ms}^{-2}$.
+As unidades SI da aceleração são $\op{ms}^{-2}$.
 
 ## Aplicações em Situações Reais
 
 ### Travagem de um Veículo
 
-Normalmente quando falamos de uma travagem de um veículo, existem dois momentos distintos onde podemos estudar o seu movimento:
+Normalmente, quando falamos de uma travagem de um veículo, existem dois momentos distintos onde podemos estudar o seu movimento:
 
-- Momento de reação: o condutor do veículo avistou o obstáculo e reage ao mesmo, iniciando a travagem.
+- [**Momento de reação**](color:orange): o condutor do veículo avistou o obstáculo e reage ao mesmo, iniciando a travagem.
   Ao tempo entre o avistamento do obstáculo e o início da travagem chamamos [**tempo de reação**](color:orange).
-- Momento de travagem: a travagem é iniciada e o veículo reduz a sua velocidade com aceleração constante, até ser imobilizado.
+- [**Momento de travagem**](color:yellow): a travagem é iniciada e o veículo reduz a sua velocidade com aceleração constante, até ser imobilizado.
   A este intervalo de tempo, desde o início da travagem até à imobilização do veículo, chamamos de [**tempo de travagem**](color:yellow).
 
 Podemos observar como variam a posição, velocidade e aceleração do veículo durante estes dois momentos:
@@ -133,16 +133,16 @@ Podemos observar como variam a posição, velocidade e aceleração do veículo 
 
 :::info[Exemplo]
 
-**Um carro viaja a 45 km/h numa estrada quando avista um semáforo vermelho.**  
-**O condutor do carro, após avistar o semáforo, demora 1.5 segundos a iniciar a travagem.**
-**Ao travar, o carro é sujeito a uma aceleração de $5 \operatorname{ms}^{-2}$, terminando a travagem mesmo junto ao semáforo.**
+**Um carro viaja a $45 \op{km/h}$ numa estrada quando avista um semáforo vermelho.**  
+**O condutor do carro, após avistar o semáforo, demora $1.5 \op{s}$ a iniciar a travagem.**
+**Ao travar, o carro é sujeito a uma aceleração de módulo $5 \op{ms}^{-2}$, terminando a travagem mesmo junto ao semáforo.**
 **Qual a distância do carro ao semáforo, quando o avistou?**
 
 O primeiro passo neste tipo de problemas é converter as unidades para o mais adequado.
-Neste caso, dá-nos mais jeito utilizar metros e segundos, pelo que temos de passar a velocidade inicial para m/s.
+Neste caso, dá-nos mais jeito utilizar metros e segundos, pelo que temos de passar a velocidade inicial para $\op{m/s}$.
 
 $$
-v_i = 45 \operatorname{km/h} = 12.5 \operatorname{m/s}
+v_i = 45 \op{km/h} = 12.5 \op{m/s}
 $$
 
 Precisamos então, para chegar à resposta do problema, de determinar a distância percorrida pelo veículo
@@ -151,26 +151,26 @@ Dividimos assim nos dois momentos que foram referidos acima, calculando a distâ
 
 - [**Momento de reação**](color:orange)
 
-  O tempo de reação do condutor foi de $t_r = 1.5 \operatorname{s}$,
+  O tempo de reação do condutor foi de $t_r = 1.5 \op{s}$,
   pelo que temos de calcular a distância percorrida pelo carro durante
-  esse intervalo de tempo a $45 \operatorname{km/h}$, isto é, a $12.5 \operatorname{m/s}$.
+  esse intervalo de tempo a $45 \op{km/h}$, isto é, a $12.5 \op{m/s}$.
 
-  A equação que descreve este movimento é:
+  A [equação das posições](/fis-i/guides/recap-highschool#equações-do-movimento) que descreve este movimento é:
 
   $$
-  \vec r(t) = 12.5t~\vec e_x\quad (\operatorname{m})
+  \vec r(t) = 12.5t~\vec e_x\quad (\op{m})
   $$
 
   ou mais simplesmente, a uma dimensão,
 
   $$
-  x(t) = 12.5t\quad (\operatorname{m})
+  x(t) = 12.5t\quad (\op{m})
   $$
 
   Assim, a distância percorrida durante o tempo de reação foi
 
   $$
-  x(1.5) = 12.5 \times 1.5 = 18.75 \operatorname{m}
+  x(1.5) = 12.5 \times 1.5 = 18.75 \op{m}
   $$
 
 - [**Momento de travagem**](color:yellow)
@@ -179,22 +179,22 @@ Dividimos assim nos dois momentos que foram referidos acima, calculando a distâ
   percorrida durante a travagem, temos de calcular o tempo de travagem.  
   Estamos perante um **movimento uniformemente retardado**.
 
-  A equação que descreve este movimento é:
+  A [equação das posições](/fis-i/guides/recap-highschool#equações-do-movimento) que descreve este movimento é:
 
   $$
-  \vec r(t) = \left(18.75 + 12.5 t - \frac{5}{2} t^2\right) \vec e_x\quad (\operatorname{m})
+  \vec r(t) = \left(18.75 + 12.5 t - \frac{5}{2} t^2\right) \vec e_x\quad (\op{m})
   $$
 
   ou mais simplesmente, a uma dimensão,
 
   $$
-  x(t) = 18.75 + 12.5 t - \frac{5}{2} t^2\quad (\operatorname{m})
+  x(t) = 18.75 + 12.5 t - \frac{5}{2} t^2\quad (\op{m})
   $$
 
   É de realçar que a aceleração tem sinal negativo visto que tem sentido contrário ao movimento.
 
   Assim, o tempo de travagem do veículo é o tempo decorrido até à velocidade do veículo ser nula.
-  Para isso, necessitamos da equação da velocidade deste movimento.
+  Para isso, necessitamos da [equação da velocidade](/fis-i/guides/recap-highschool#equações-do-movimento) deste movimento.
 
   $$
   v_x(t) = 12.5 - 5t
@@ -203,19 +203,19 @@ Dividimos assim nos dois momentos que foram referidos acima, calculando a distâ
   E podemos então descobrir qual o instante em que o veículo é imobilizado.
 
   $$
-  v_x(t) = 0 \Leftrightarrow 12.5 - 5t = 0 \Leftrightarrow t = 2.5 \operatorname{s}
+  v_x(t) = 0 \Leftrightarrow 12.5 - 5t = 0 \Leftrightarrow t = 2.5 \op{s}
   $$
 
-  Assim, o tempo de travagem é $t_t = 2.5 \operatorname{s}$, pelo que podemos finalmente calcular a distância percorrida durante a travagem:
+  Assim, o tempo de travagem é $t_t = 2.5 \op{s}$, pelo que podemos finalmente calcular a distância percorrida durante a travagem:
 
   $$
-  x(2.5) = 18.75 + 12.5 \times 2.5 - \frac{5}{2} \times (2.5)^2 = 34.38 \operatorname{m}
+  x(2.5) = 18.75 + 12.5 \times 2.5 - \frac{5}{2} \times (2.5)^2 = 34.38 \op{m}
   $$
 
 Juntando a distância percorrida nos dois momentos, chegamos à distância entre o ponto de avistamento do semáforo e o semáforo:
 
 $$
-d = 18.75 + 34.38 = 53.13 \operatorname{m}
+d = 18.75 + 34.38 = 53.13 \op{m}
 $$
 
 :::
