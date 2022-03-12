@@ -129,7 +129,7 @@ Normalmente, quando falamos de uma travagem de um veículo, existem dois momento
 
 Podemos observar como variam a posição, velocidade e aceleração do veículo durante estes dois momentos:
 
-**TODO** inserir gráficos de posição/velocidade/aceleração a demonstrar como variam os seus valores durante os dois intervalos distintos.
+![Gráficos posição, velocidade e aceleração em função do tempo](./assets/0001-vehicle-breaking-graphs.svg#dark=2)
 
 :::info[Exemplo]
 
@@ -218,6 +218,10 @@ $$
 d = 18.75 + 34.38 = 53.13 \op{m}
 $$
 
+Os gráficos que representam este movimento são:
+
+![Gráficos posição, velocidade e aceleração em função do tempo do exemplo](./assets/0001-vehicle-breaking-graphs-example.svg#dark=2)
+
 :::
 
 ### Lançamento Vertical
@@ -244,13 +248,13 @@ Por simplificação, a maioria dos casos estudados enquadram-se na primeira opç
 
 Podemos observar como variam a posição, velocidade e aceleração do corpo durante estes dois movimentos:
 
-**TODO** inserir gráficos de posição/velocidade/aceleração a demonstrar como variam os seus valores durante os dois movimentos.
+![Gráficos posição, velocidade e aceleração em função do tempo](./assets/0001-vertical-throw-graphs.svg#dark=2)
 
 :::info[Exemplo]
 
 **Uma bola é lançada para cima do 2º andar de um prédio, situado a $15 \op{m}$ do chão,**
 **com uma velocidade inicial de $6 \op{m/s}$.**  
-**Considerado a aceleração gravítica $g = 9.8 \op{m/s}^2$, determine o seguinte:**
+**Considerado a aceleração gravítica $g = 9.8 \op{m/s}^2$ e desprezando a ação te todas as outras forças, determine o seguinte:**
 
 **a) A altura máxima atingida pela bola.**
 
@@ -269,7 +273,7 @@ A bola atinge a altura máxima quando inverte o sentido do movimento, isto é, q
 Como tal, o instante em que a bola está na altura máxima é dado por
 
 $$
-v_y(t) = 0 \Leftrightarrow 6-9.8 t = 0 \Leftrightarrow x = 0.612 \op{s}
+v_y(t) = 0 \Leftrightarrow 6-9.8 t = 0 \Leftrightarrow t = 0.612 \op{s}
 $$
 
 Podemos fazer corresponder uma posição a este instante, substituindo em $y(t)$:
@@ -296,5 +300,21 @@ $$
 $$
 
 Assim, a bola demora $2.47 \op{s}$ desde o lançamento até embater no chão.
+
+**c) A velocidade com que a bola embate no chão.**
+
+Já sabemos o instante em que a bola embate no chão, pelo que temos apenas de substiuir na equação da velocidade.
+
+$$
+v_y(2.47) = 6 - 9.8 \times 2.47 = -18.21 \op{m/s}
+$$
+
+Assim, a bola embate no chão a $-18.21 \op{m/s}$.
+
+---
+
+Os gráficos que representam este movimento são:
+
+![Gráficos posição, velocidade e aceleração em função do tempo do exemplo](./assets/0001-vertical-throw-graphs-example.svg#dark=2)
 
 :::
