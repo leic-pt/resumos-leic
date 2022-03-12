@@ -219,3 +219,82 @@ d = 18.75 + 34.38 = 53.13 \op{m}
 $$
 
 :::
+
+### Lançamento Vertical
+
+Quando lançamos um corpo na vertical, este descreve um movimento para cima, seguido de uma queda até ao chão.  
+No movimento que vamos estudar, apenas uma única força atua no corpo, a **força gravítica**:
+por simplificação, desprezamos a ação de todas as outras forças (resistência do ar, vento, etc).
+
+Durante o [**movimento ascendente**](color:orange), a força gravítica (e consequentemente a aceleração,
+visto que a força resultante e a aceleração têm sempre a mesma direção/sentido, pela [Segunda Lei de Newton](/fis-i/guides/recap-highschool#segunda-lei))
+atua no sentido contrário ao movimento, diminuindo a velocidade do corpo.  
+Isto claramente corresponde à realidade, pois se atirarmos um objeto para cima ele só consegue atingir uma certa altura.
+
+Após chegar ao ponto mais alto (altura máxima), o corpo inverte o sentido do movimento e inicia o seu [**movimento descendente**](color:yellow).
+
+No [**movimento descendente**](color:yellow), o corpo aumenta a sua velocidade, visto que a aceleração tem agora o sentido do movimento.
+Após embater no chão, podemos ter dois casos:
+
+- o corpo fica no chão (por exemplo, uma bola de golfe na relva)
+- o corpo ressalta, repetindo uma ou mais vezes o movimento ascendente e descendente (por exemplo, uma bola saltitona num chão liso)
+
+Por simplificação, a maioria dos casos estudados enquadram-se na primeira opção, podendo desprezar qualquer ressalto
+(geralmente temos apenas de descobrir o tempo até ao primeiro embate no chão, a altura máxima atingida, etc).
+
+Podemos observar como variam a posição, velocidade e aceleração do corpo durante estes dois movimentos:
+
+**TODO** inserir gráficos de posição/velocidade/aceleração a demonstrar como variam os seus valores durante os dois movimentos.
+
+:::info[Exemplo]
+
+**Uma bola é lançada para cima do 2º andar de um prédio, situado a $15 \op{m}$ do chão,**
+**com uma velocidade inicial de $6 \op{m/s}$.**  
+**Considerado a aceleração gravítica $g = 9.8 \op{m/s}^2$, determine o seguinte:**
+
+**a) A altura máxima atingida pela bola.**
+
+A prioridade neste tipo de exercícios é definir o movimento do corpo através das [equações do movimento](/fis-i/guides/recap-highschool#equações-do-movimento).  
+Podemos considerar o sentido do eixo dos $yy$ como preferirmos, mas neste caso iremos considerar o sentido positivo de baixo para cima.
+É indiferente, desde que seja consistente ao longo da resolução do exercício.
+
+$$
+\begin{aligned}
+y(t) &= 15 + 6t - \frac{9.8}{2} t^2\\
+v_y(t) &= 6 - 9.8 t
+\end{aligned}
+$$
+
+A bola atinge a altura máxima quando inverte o sentido do movimento, isto é, quando a sua velocidade é nula.  
+Como tal, o instante em que a bola está na altura máxima é dado por
+
+$$
+v_y(t) = 0 \Leftrightarrow 6-9.8 t = 0 \Leftrightarrow x = 0.612 \op{s}
+$$
+
+Podemos fazer corresponder uma posição a este instante, substituindo em $y(t)$:
+
+$$
+y(0.612) = 15 + 6 \times 0.612 - \frac{9.8}{2} \times (0.612)^2 = 16.84 \op{m}
+$$
+
+Assim, a altura máxima atingida pela bola é $16.84 \op{m}$, relativamente ao chão.
+
+**b) O tempo desde o lançamento até a bola embater no chão.**
+
+Para determinarmos quando tempo demora a bola a embater no chão, apenas necessitamos de
+determinar o instante em que a sua altura é zero.
+
+$$
+y(t) = 0 \Leftrightarrow 15 + 6t - \frac{9.8}{2} t^2 = 0 \Leftrightarrow t = -1.24 \op{s} \lor t = 2.47 \op{s}
+$$
+
+O valor negativo para o tempo não faz sentido no contexto do problema, pelo que o descartamos:
+
+$$
+\xcancel{t = -1.24 \op{s}} \lor t = 2.47 \op{s} \implies t = 2.47 \op{s}
+$$
+
+Assim, a bola demora $2.47 \op{s}$ desde o lançamento até embater no chão.
+
+:::
