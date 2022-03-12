@@ -147,7 +147,7 @@ $$
 
 Precisamos então, para chegar à resposta do problema, de determinar a distância percorrida pelo veículo
 desde o momento do avistamento do obstáculo até à sua imobilização.  
-Dividimos assim nos dois momentos que foram referidos acima, calculando a distância percorria em cada um deles.
+Dividimos assim nos dois momentos que foram referidos acima, calculando a distância percorrida em cada um deles.
 
 - [**Momento de reação**](color:orange)
 
@@ -290,20 +290,20 @@ Para determinarmos quando tempo demora a bola a embater no chão, apenas necessi
 determinar o instante em que a sua altura é zero.
 
 $$
-y(t) = 0 \Leftrightarrow 15 + 6t - \frac{9.8}{2} t^2 = 0 \Leftrightarrow t = -1.24 \op{s} \lor t = 2.47 \op{s}
+y(t) = 0 \Leftrightarrow 15 + 6t - \frac{9.8}{2} t^2 = 0 \Leftrightarrow t = -1.24 \op{s}~\lor~t = 2.47 \op{s}
 $$
 
 O valor negativo para o tempo não faz sentido no contexto do problema, pelo que o descartamos:
 
 $$
-\xcancel{t = -1.24 \op{s}} \lor t = 2.47 \op{s} \implies t = 2.47 \op{s}
+\xcancel{t = -1.24 \op{s}}~\lor~t = 2.47 \op{s} \implies t = 2.47 \op{s}
 $$
 
 Assim, a bola demora $2.47 \op{s}$ desde o lançamento até embater no chão.
 
 **c) A velocidade com que a bola embate no chão.**
 
-Já sabemos o instante em que a bola embate no chão, pelo que temos apenas de substiuir na equação da velocidade.
+Já sabemos o instante em que a bola embate no chão, pelo que temos apenas de substituir na equação da velocidade.
 
 $$
 v_y(2.47) = 6 - 9.8 \times 2.47 = -18.21 \op{m/s}
