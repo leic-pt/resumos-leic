@@ -15,7 +15,7 @@ type: content
 
 Definimos um [**alfabeto**](color:orange) como um conjunto finito não-vazio (de símbolos). Um alfabeto costuma ser representado pela gregra letra $\Sigma$.
 
-:::details[Exemplo]
+:::details[Exemplo de Alfabeto]
 
 Um exemplo de um alfabeto é o conjunto $\{a,b,c\}$
 
@@ -24,7 +24,7 @@ Um exemplo de um alfabeto é o conjunto $\{a,b,c\}$
 Definimos uma [**palavra**](color:yellow) sobre um alfabeto $\Sigma$ como uma sequência finita de elementos de $\Sigma$. O conjunto de todas as palavras constituídas pelos símbolos do alfabeto $\Sigma$ é representado por $\Sigma^*$.  
 Todos os alfabetos contêm uma palavra, a que se dá o nome de palavra vazia. Esta costuma ser representada pela letra grega $\epsilon$.
 
-:::details[Exemplo]
+:::details[Exemplo de Palavra]
 
 O conjunto de palavras sobre o alfabeto $\{a,b,c\}$ contém, por exemplo, as palavras $a, ab, cccc, cbabca$. Contudo, não contém as palavras $d$, $abababae$, $ffffff$.
 
@@ -74,6 +74,15 @@ Dadas duas linguagens $L_1, L_2 \in \mathcal{L}^\Sigma$, definimos a **concatena
 
 Definimos ainda o **fecho de Kleene** de uma linguagem $L$ à linguagem
 $ L^\* = \{u_1 . u_2 . \cdots . u_n : n \in \mathbb{N}\_0, u_1, u_2, \cdots, u_n \in L \} $
+
+:::
+
+:::details[Exemplo de Linguagem]
+
+Um exemplo de uma linguagem sobre o alfabeto $\{0, 1\}$ é as palavras que acabam com exatamente 3 $1$'s.
+
+As linguagens no sentido mais corrente da palavra (Português, Inglês, Mandarim) ou mesmo as linguagens de programação são linguagens de acordo com esta definição.
+Têm um alfabeto (no caso do português, corresponde às letras - minúsculas, maiúsculas, acentuadas e não acentuadas -, bem como outros símbolos - !, ?, ., por exemplo) que, quando de acordo com uma regra (muito complexa, claro) formam palavras "aceites", isto é, palavras que estão de acordo com as regras da linguagem.
 
 :::
 
@@ -167,30 +176,43 @@ Introduzimos a baixo o **algoritmo de procura de estados notáveis (APEN)**:
 Apresentamos agora um algoritmo para a procura de **estados notáveis**.  
 O algoritmo recebe como input um AFD $D = (\Sigma, Q, q_{in}, F, \delta)$ e dá como output um tuplo $(Ac, Prod, Ut, In)$ com os estados acessíveis, produtivos, úteis e inúteis de $D$.
 
-1. $A := \{q_{in}\}$;
+1. $Ac := \{q_{in}\}$;
 2. $Aux := \bigcup_{a \in \Sigma} \{ \delta(q_{in}, a) \}$;
-3. enquanto $Aux \nsubseteq A$
-   1. $A := A \cup Aux$;
+3. enquanto $Aux \nsubseteq Ac$
+   1. $Ac := Ac \cup Aux$;
    2. $Aux := \bigcup_{a \in \Sigma} \{ \delta(p, a) : p \in Aux \}$;
-4. $Ac := A$;
-5. $A := F$;
-6. $Aux := \bigcup_{a \in \Sigma} \{ p : \delta(p, a) \in F \}$;
-7. enquanto $Aux \nsubseteq A$
-   1. $A := A \cup Aux$;
+      [Estados acessíveis determinados](color:yellow)
+4. $Prd := F$;
+5. $Aux := \bigcup_{a \in \Sigma} \{ p : \delta(p, a) \in F \}$;
+6. enquanto $Aux \nsubseteq Prd$
+   1. $Prd := Prd \cup Aux$;
    2. $Aux := \bigcup_{a \in \Sigma} \{ \delta(p, a) : p \in Aux \}$;
-8. $Prd := A$;
-9. $Ut := Ac \cap Prd$;
-10. $In := Q \backslash Ut$.
+      [Estados produtivos determinados](color:orange)
+7. $Ut := Ac \cap Prd$;
+8. $In := Q \backslash Ut$.
+   [Estados úteis e inúteis determinados](color:red)
 
 Temos que a execução deste algoritmo termina sempre e identifica corretamente os estados acessíveis ($Ac$), produtivos ($Prd$), úteis ($Ut$) e inúteis ($In$).
 
-// TODO
+Vamos então tentar compreender o que o algoritmo a cima está a fazer:
+
+- Numa primeira fase (passos 1 a 3), vamos descobrir quais são os estados [acessíveis](color:yellow). Intuitivamente, podemos fazer isto começando em $q_{in}$ e fazendo uma procura (BFS) no grafo do AFD. À medida que o fazemos, colocamos esses estados no conjunto de estados [acessíveis](color:yellow);
+- Numa segunda fase (passos 4 a 6), vamos determinar os estados [produtivos](color:orange). Estes são aqueles que vão levar a estados finais. Então, começamos exatamente nos estados finais e fazemos também uma procura (BFS), mas desta vez no sentido contrário das setas do grafo do AFD. À medida que descobrimos os estados [produtivos](color:orange), colocamo-los no conjunto apropriado.
+- Finalmente, determinamos os estados [úteis](color:red) e [inúteis](color:red) de acordo com a sua definição.
+
+Para facilitar a compreensão do algoritmo, pode ser útil vê-lo em prática no exemplo seguinte.
 
 :::
 
 :::details[Exemplo de aplicação do APEN]
 
 // TODO
+
+:::
+
+:::details[Prova da correção do algoritmo APEN]
+
+Resume-se essencialmente a: BFS funciona.
 
 :::
 
@@ -300,12 +322,12 @@ Dado um AFD $D = (\Sigma, Q, q_{in}, F, \delta)$ a minimização de $D$ é o AFD
 - se $F = \emptyset$, então $m_D$ tem apenas um estado inicial não final, e a sua função de transição não está definida para qualquer letra;
 - caso contrário, $m_D = (\Sigma, Q_m, q_{in}^m, F_m, \delta_m)$ em que: - $Q_m = \{ C_0, C_1, \cdots, C_n \}$ é a partição do conjunto dos estados úteis de $D$ induzida pelos estados equivalentes, com $q_{in} \in C_0$; - $q_{in}^m = C_0$; - $F_m = \{ C_i \in Q_m : C_i \cap F \neq \emptyset \}$; - $\delta_m : Q_m \times \Sigma \to Q_m$ é tal que:
   $$
-	\delta_m(C_i, a) =
-	\begin{cases}
-	C_j & \text{se } \delta(q, a) \in C_j \text{ para algum } q \in C_i \\
-	\text{indefinido} & \text{se } \delta(q,a) \text{ não estiver definido para algum } q \in C_i
-	\end{cases}
-	$$
+  \delta_m(C_i, a) =
+  \begin{cases}
+  C_j & \text{se } \delta(q, a) \in C_j \text{ para algum } q \in C_i \\
+  \text{indefinido} & \text{se } \delta(q,a) \text{ não estiver definido para algum } q \in C_i
+  \end{cases}
+  $$
   :::
 
 :::details[Exemplo da Minimização de um AFD]
