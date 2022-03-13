@@ -221,24 +221,8 @@ Definimos agora dois estados $p,q \in Q$ de um AFD $D = (\Sigma, Q, q_{in}, F, \
 - [**equivalentes**](color:green) se, para cada $\omega \in \Sigma^*$, temos que $\delta^*(p, \omega) \in F \Leftrightarrow \delta^*(q, \omega) \in F$;
 - [**distinguíveis**](color:green) se não forem equivalentes. Neste caso existe pelo menos uma palavra $\omega \in \Sigma^*$ tal que $\delta^*(p, \omega) \in F \wedge \delta^*(q, \omega) \notin F$ (ou vice-versa). Dizemos que $\omega$ distingue $p$ e $q$;
 
-Quando, num AFD, dois estados distintos são equivalentes, o AFD pode ser simplificado, no sentido em que é possível definir um AFD com menos estados que reconheça a mesma linguagem:  
-Seja $D = (\Sigma, Q, q_{in}, F, \delta)$ um AFD e $p, q \in Q$ estados distintos e equivalentes tal que $p \neq q_{in}$.  
-É equivalente a $D$ o AFD $D' = (\Sigma, Q', q_{in}, F', \delta')$ em que
+Vamos agora identificar critérios para distinguir estados. A partir disto, poderemos descrever um algoritmo para encontrar estados equivalentes e, consequentemente, determinar um algoritmo que minimize um AFD.
 
-- $Q' = Q \backslash \{ p \}$;
-- $F' = F \backslash \{ p \}$;
-- $\delta' : Q' \times \Sigma \to Q'$ é tal que, para cada $q' \in Q'$ e $a \in \Sigma$:
-  $$
-  \delta'(q', a) = \begin{cases}
-  \delta(q', a), & \text{se } \delta(q', a) \in Q' \\
-  q, & \text{se } \delta(q', a) = p \\
-  indefinido, & \text{se } \delta(q', a) \text{ não estiver definido}
-  \end{cases}
-  $$
-
-Note-se que o requisito $p \neq q_{in}$ no enunciado da proposição anterior não implica perda de generalidade pois, como existe um único estado inicial, dados dois estados distintos um deles será necessariamente não inicial.
-
-Vamos agora identificar critérios para distinguir estados.  
 Seja $D = (\Sigma, Q, q_{in}, F, \delta)$ um AFD e sejam $p,q \in Q$ e $a \in \Sigma$. Temos que:
 
 1. Se $p \in F$, e $q \notin F$ então $p$ e $q$ são distinguíveis;
@@ -324,7 +308,7 @@ Este algoritmo termina sempre, identificando como equivalentes dois AFD's se e s
 
 :::
 
-:::details[Prova da correção do APEQ]
+:::details[Prova da correção do ATEQ]
 
 Verifica-se que, se $q \in Q_1$, então $\delta(q, a) \in Q_1$, para qualquer $a \in \Sigma$.  
 Indutivamente, temos então que para qualquer $\omega \in \Sigma^*$, se $q \in Q_1$, então $\delta^*(q, \omega) \in Q_1$.  
@@ -335,10 +319,13 @@ Podemos inferir então que $\{ q_{in}^1, q_{in}^2 \} \in Dst$ equivale a dizer q
 
 - $\delta(q_{in}^1, \omega) \in F$;
 - $\delta(q_{in}^2, \omega) \in F$.
-  consequentemente, já que $q_{in}^1 \in Q_1$ e $q_{in}^2 \in Q_2$, apenas um dos dois se verifica:
+
+consequentemente, já que $q_{in}^1 \in Q_1$ e $q_{in}^2 \in Q_2$, apenas um dos dois se verifica:
+
 - $\delta(q_{in}^1, \omega) \in F_1$;
 - $\delta(q_{in}^2, \omega) \in F_2$.
-  ou seja, a palavra $\omega$ é reconhecida exatamente num dos autómatos $D_1$ e $D_2$.
+
+ou seja, a palavra $\omega$ é reconhecida exatamente num dos autómatos $D_1$ e $D_2$.
 
 :::
 
@@ -349,15 +336,6 @@ Para determinar o AFD mínimo a um AFD $D$ definimos a **partição induzida pel
 Note-se como $C[q] \cap C[p] = \emptyset$ para $p$ e $q$ distinguíveis e
 $\bigcup_{q \in Q} C[q] = Q$, pelo que o conjunto definido é de facto uma partição.
 
-Para um elemento $C$ da partição de $Q$ induzida pelos estados equivalentes, temos que
-
-- Se existe $q \in C$ final, então todos os $q \in C$ são final;
-- Se existe $q \in C$ produtivo, então todos os $q \in C$ são produtivos;
-- Se $\delta(q, a)$ não está definido para algum $(q, a) \in Q \times \Sigma$, então, para cada $q' \in C$, o valor $\delta(q', a)$ não está definido ou não é produtivo;
-- Se $\delta(q,a) = p$ para $(q,p,a) \in C \times C \times \Sigma$, então, para cada $q' \in C$ alguma das seguintes condições é verdadeira:
-  - $\delta(q', a) = p'$ e $p$ é equivalente a $p'$;
-  - $\delta(q', a)$ não está definido e $p'$ não é produtivo.
-
 Estamos agora em posição de introduzir o algoritmo de minimização de um AFD:
 
 :::tip[Minimização de AFD]
@@ -365,15 +343,50 @@ Estamos agora em posição de introduzir o algoritmo de minimização de um AFD:
 Dado um AFD $D = (\Sigma, Q, q_{in}, F, \delta)$ a minimização de $D$ é o AFD $m_D$ construído da seguinte forma:
 
 - se $F = \emptyset$, então $m_D$ tem apenas um estado inicial não final, e a sua função de transição não está definida para qualquer letra;
-- caso contrário, $m_D = (\Sigma, Q_m, q_{in}^m, F_m, \delta_m)$ em que: - $Q_m = \{ C_0, C_1, \cdots, C_n \}$ é a partição do conjunto dos estados úteis de $D$ induzida pelos estados equivalentes, com $q_{in} \in C_0$; - $q_{in}^m = C_0$; - $F_m = \{ C_i \in Q_m : C_i \cap F \neq \emptyset \}$; - $\delta_m : Q_m \times \Sigma \to Q_m$ é tal que:
-  $$
-  \delta_m(C_i, a) =
-  \begin{cases}
-  C_j & \text{se } \delta(q, a) \in C_j \text{ para algum } q \in C_i \\
-  \text{indefinido} & \text{se } \delta(q,a) \text{ não estiver definido para algum } q \in C_i
-  \end{cases}
-  $$
-  :::
+- caso contrário, $m_D = (\Sigma, Q_m, q_{in}^m, F_m, \delta_m)$ em que:
+  - $Q_m = \{ C_0, C_1, \cdots, C_n \}$ é a partição do conjunto dos estados úteis de $D$ induzida pelos estados equivalentes, com $q_{in} \in C_0$;
+  - $q_{in}^m = C_0$;
+  - $F_m = \{ C_i \in Q_m : C_i \cap F \neq \emptyset \}$;
+  - $\delta_m : Q_m \times \Sigma \to Q_m$ é tal que:
+    $$
+    \delta_m(C_i, a) =
+    \begin{cases}
+    C_j & \text{se } \delta(q, a) \in C_j \text{ para algum } q \in C_i \\
+    \text{indefinido} & \text{caso contrário}
+    \end{cases}
+    $$
+
+:::
+
+:::tip[Observações]
+
+É relevante para o algoritmo a cima notar que, para um conjunto $C$ de estados equivalentes:
+
+- Se existe um estado produtivo em $C$, então $C$ só tem estados produtivos. Assim sendo, ao ignorarmos estados inúteis não podemos ignorar estados inúteis por equivalência;
+- Se $F \cap C \neq \emptyset$, então $C \subset F$. Isto é, se há um estado final em $C$, todos os estados de $C$ são finais. Isto é uma consequência direta do primeiro critério de distinção de estados e faz com que a definição de estados finais de $m_D$ seja não ambígua;
+- Se $\delta(q,a) = p$ para $q, p \in Q$ e $a \in \Sigma$, então, para cada $q' \in C[q]$ temos que um dos dois se verifica:
+
+  - $\delta(q', a)$ não está definido e $p$ não é produtivo;
+  - $\delta(q', a) \in C[p]$.
+
+  Isto faz com que a função $\delta_m$ esteja bem definida. Note-se que desta propriedade resulta que $\delta_m(C, a)$ não pode oferecer dois valores diferentes, nem pode ser indefinida para alguns valores e definida para outros (uma vez que em $m_D$ consideramos apenas estados úteis).
+
+:::
+
+:::details[Prova de equivalência de $m_D$ a $D$]
+
+Seja $\omega \in \Sigma^*$ tal que $\delta^*(q, \omega) \in F$.  
+Se $\omega = \epsilon$, então $\delta_m^*(C[q], \omega) \in F_m$.  
+Caso contrário, $\omega = a.\omega'$ para $a \in \Sigma$ e $\omega' \in \Sigma^*$.  
+Segundo o quarto critério de distinção de estados, temos que se $q' \in C[q]$ então $\delta(q', a) \in C[\delta(q, a)]$.  
+Assim sendo, por indução, temos que se $\delta^*(q, \omega) \in F$, então $\delta_m^*(C[q], \omega) \in F_m$.  
+Nomeadamente, uma palavra que seja aceite em $D$, será também aceite em $m_D$.
+
+Explicado de uma forma menos rigorosa, o que estamos a constatar é que à medida que vai "lendo símbolos do alfabeto", o AFD $m_D$ está sempre num estado que corresponde à "classe de equivalência" do estado em que $D$ está depois de ler esses mesmos símbolos.  
+Ora, se ao fim dessa leitura, $D$ está num estado final, e as classes de equivalência de estados finais em $D$ são estados finais em $m_D$, temos que ao fim dessa mesma leitura, $m_D$ também está num estado final.  
+Quer isto dizer que qualquer palavra aceite por $D$ é também aceite por $m_D$.
+
+:::
 
 :::details[Exemplo da Minimização de um AFD]
 
@@ -385,7 +398,7 @@ Dado um AFD $D = (\Sigma, Q, q_{in}, F, \delta)$ a minimização de $D$ é o AFD
 
 Introduzimos a notação $\wp(S)$ como o conjunto dos subconjuntos do conjunto $S$. Também se diz que este é o **conjunto das partes** de $S$.
 
-:::details[Subconjuntos]
+:::details[Exemplo de um Conjunto de Partes]
 
 Temos, por exemplo, que $\wp(\{0,1\}) = \{\emptyset, \{0\}, \{1\}, \{0,1\}\}$.
 
@@ -404,7 +417,8 @@ Um [**autómato finito não determinístico (AFND)**](color:pink) é definido co
 - $q_{in} \in Q$ é o **estado inicial**;
 - $F \subset Q$ é um conjunto de **estados finais**;
 - $\delta: Q \times \Sigma \to \wp(Q)$ é uma **função de transição**.
-  Note-se que a diferença entre um AFND e um AFD é que a função de transição num AFD **não é determinística**, na medida em que não define um e um só estado. Para cada par $(q, a) \in Q \times \Sigma$ temos que $\delta(q, a)$ define o subconjunto de $Q$ dos estados que podem resultar da transição por $a$ a partir de $q$.
+
+Note-se que a diferença entre um AFND e um AFD é que a função de transição num AFD **não é determinística**, na medida em que não define um e um só estado. Para cada par $(q, a) \in Q \times \Sigma$ temos que $\delta(q, a)$ define o subconjunto de $Q$ dos estados que podem resultar da transição por $a$ a partir de $q$.
 
 Podemos ainda assinalar o autómato finito não determinístico como [**AFND$^\epsilon$**](color:pink) se a função de transição tiver como domínio $Q \times (\Sigma \times \{ \epsilon \})$. Ou seja, um AFND$^\epsilon$ é tal que pode haver transições que não são "causadas" por letra nenhuma. Nesta situação diz-se que o AFND tem **movimentos-$\epsilon$**.  
 A distinção entre AFND e AFND$^\epsilon$ é negligenciada em contextos que não seja relevante. Para simplificar, pode-se assumir que um AFND está sempre dotado de movimentos-$\epsilon$.
@@ -440,9 +454,9 @@ Seja $A = (\Sigma, Q, q_{in}, F, \delta)$ um AFND. O fecho-$\epsilon$ de um esta
 
 - $q \in q^\epsilon$;
 - $q' \in q^\epsilon \Rightarrow \delta(q', \epsilon) \subset q^\epsilon$.
-  Dado um subconjunto $C$ de $Q$, o seu fecho-$\epsilon$ é o conjunto
-  $C^\epsilon = \bigcup_{q \in C} q^\epsilon$.  
-  Dito de forma corrento, o fecho-$\epsilon$ de um estado $q \in Q$ é o conjunto de estados que se conseguem obter a partir de $q$ apenas com movimentos-$\epsilon$.
+
+Dado um subconjunto $C$ de $Q$, o seu fecho-$\epsilon$ é o conjunto $C^\epsilon = \bigcup_{q \in C} q^\epsilon$.  
+Dito de forma corrente, o fecho-$\epsilon$ de um estado $q \in Q$ é o conjunto de estados que se conseguem obter a partir de $q$ apenas com movimentos-$\epsilon$.
 
 Podemos então definir a **função de transição estendida** de um AFND $A = (\Sigma, Q, q_{in}, F, \delta)$ como a função $\delta^* : Q \times \Sigma^* \to \wp(Q)$ tal que, para cada $q \in Q$, $a \in \Sigma$ e $\omega \in \Sigma^*$:
 
@@ -486,9 +500,10 @@ Dado um AFND $A = (\Sigma, Q, q_{in}, F, \delta)$, temos que o AFND $A' = (\Sigm
 - $F' = \{q \in Q : q^\epsilon \cap F \neq \emptyset \}$;
 - $\delta' : Q \times \Sigma \to \wp(Q)$ é tal que $\delta'(q,a) = \bigcup_{q' \in q^\epsilon} \left( \bigcup_{q'' \in \delta(q', a)} q''^\epsilon \right)$ para cada $q \in Q$ e $a \in \Sigma$.
 
-Observa-se que $\delta'^*(q, \omega) = \delta^*(q, \omega)$ pelo que os autómatos $A$ e $A'$ reconhecem a mesma linguagem.
+Pode-se entender a função $\delta'$ como sendo $\delta^*$ aplicada a palavras com apenas uma letra.  
+Desta forma, é claro que $\delta'^*(q, \omega) = \delta^*(q, \omega)$ (em $A'$, considerar os fechos-$\epsilon$ não tem efeito) pelo que os autómatos $A$ e $A'$ reconhecem a mesma linguagem.
 
-:::details[Remoção de movimentos-$\epsilon$]
+:::tip[Remoção de movimentos-$\epsilon$]
 
 Vamos compreender as alterações a cima:
 
@@ -497,7 +512,13 @@ Vamos compreender as alterações a cima:
 
 :::
 
-:::details[Exemplo da remoçãe de movimentos-$\epsilon$]
+:::details[Prova da equivalência entre $A$ e $A'$]
+
+// TODO
+
+:::
+
+:::details[Exemplo da remoção de movimentos-$\epsilon$]
 
 // TODO
 
@@ -512,6 +533,12 @@ Dado um AFND $A = (\Sigma, Q, q_{in}, F, \delta)$, temos que o AFD $D = (\Sigma,
   \delta'(C, a) = \bigcup_{q \in C} \delta(q,a)
   $$
   reconhece a mesma linguagem que $A$
+
+:::details[Prova da equivalência entre $A$ e $D$]
+
+// TODO
+
+:::
 
 :::details[Exemplo da passagem de AFND para AFD]
 
