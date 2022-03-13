@@ -215,7 +215,7 @@ $$
 \end{aligned}
 $$
 
-Define-se $\dot \theta = \frac{\d \theta}{\d t} = \dot \theta$ para simplificar a notação.
+Define-se $\dot \theta = \frac{\d \theta}{\d t}$ para simplificar a notação.
 
 ### Posição, Velocidade e Aceleração em Coordenadas Polares
 
