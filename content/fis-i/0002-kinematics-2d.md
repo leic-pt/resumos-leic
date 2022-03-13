@@ -198,7 +198,7 @@ $$
 
 Irá ser-nos útil saber as derivadas destes vetores unitários, para determinarmos a velocidade e aceleração de um corpo.
 
-Visto que $\theta$ é uma função $\theta \equiv \theta(t)$, demos de ter atenção quando efetuamos a derivada de $\vec e_r$ e $\vec e_\theta$.
+Visto que $\theta$ é uma função $\theta \equiv \theta(t)$, temos de ter atenção quando efetuamos a derivada de $\vec e_r$ e $\vec e_\theta$.
 Para isto, temos de utilizar a [derivada da composta](/cdi-i/diferenciabilidade#função-derivada).
 
 Assim:
@@ -215,7 +215,7 @@ $$
 \end{aligned}
 $$
 
-Utiliza-se a notação $\frac{\d \theta}{\d t} = \dot \theta$ para simplificar a notação.
+Define-se $\dot \theta = \frac{\d \theta}{\d t} = \dot \theta$ para simplificar a notação.
 
 ### Posição, Velocidade e Aceleração em Coordenadas Polares
 
