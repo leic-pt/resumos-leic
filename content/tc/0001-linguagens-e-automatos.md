@@ -180,16 +180,16 @@ O algoritmo recebe como input um AFD $D = (\Sigma, Q, q_{in}, F, \delta)$ e dá 
 2. $Aux := \bigcup_{a \in \Sigma} \{ \delta(q_{in}, a) \}$;
 3. enquanto $Aux \nsubseteq Ac$
    1. $Ac := Ac \cup Aux$;
-   2. $Aux := \bigcup_{a \in \Sigma} \{ \delta(p, a) : p \in Aux \}$;
+   2. $Aux := \bigcup_{a \in \Sigma} \{ \delta(p, a) : p \in Aux \}$;  
       [Estados acessíveis determinados](color:yellow)
 4. $Prd := F$;
 5. $Aux := \bigcup_{a \in \Sigma} \{ p : \delta(p, a) \in F \}$;
 6. enquanto $Aux \nsubseteq Prd$
    1. $Prd := Prd \cup Aux$;
-   2. $Aux := \bigcup_{a \in \Sigma} \{ \delta(p, a) : p \in Aux \}$;
+   2. $Aux := \bigcup_{a \in \Sigma} \{ \delta(p, a) : p \in Aux \}$;  
       [Estados produtivos determinados](color:orange)
 7. $Ut := Ac \cap Prd$;
-8. $In := Q \backslash Ut$.
+8. $In := Q \backslash Ut$.  
    [Estados úteis e inúteis determinados](color:red)
 
 Temos que a execução deste algoritmo termina sempre e identifica corretamente os estados acessíveis ($Ac$), produtivos ($Prd$), úteis ($Ut$) e inúteis ($In$).
@@ -219,10 +219,12 @@ Resume-se essencialmente a: BFS funciona.
 Definimos agora dois estados $p,q \in Q$ de um AFD $D = (\Sigma, Q, q_{in}, F, \delta)$ como
 
 - [**equivalentes**](color:green) se, para cada $\omega \in \Sigma^*$, temos que $\delta^*(p, \omega) \in F \Leftrightarrow \delta^*(q, \omega) \in F$;
-- [**distinguíveis**](color:green) se não forem equivalentes.
-  Quando, num AFD, dois estados distintos são equivalentes, o AFD pode ser simplificado, no sentido em que é possível definir um AFD com menos estados que reconheça a mesma linguagem:
-  Seja $D = (\Sigma, Q, q_{in}, F, \delta)$ um AFD e $p, q \in Q$ estados distintos e equivalentes tal que $p \neq q_{in}$.  
-  É equivalente a $D$ o AFD $D' = (\Sigma, Q', q_{in}, F', \delta')$ em que
+- [**distinguíveis**](color:green) se não forem equivalentes. Neste caso existe pelo menos uma palavra $\omega \in \Sigma^*$ tal que $\delta^*(p, \omega) \in F \wedge \delta^*(q, \omega) \notin F$ (ou vice-versa). Dizemos que $\omega$ distingue $p$ e $q$;
+
+Quando, num AFD, dois estados distintos são equivalentes, o AFD pode ser simplificado, no sentido em que é possível definir um AFD com menos estados que reconheça a mesma linguagem:  
+Seja $D = (\Sigma, Q, q_{in}, F, \delta)$ um AFD e $p, q \in Q$ estados distintos e equivalentes tal que $p \neq q_{in}$.  
+É equivalente a $D$ o AFD $D' = (\Sigma, Q', q_{in}, F', \delta')$ em que
+
 - $Q' = Q \backslash \{ p \}$;
 - $F' = F \backslash \{ p \}$;
 - $\delta' : Q' \times \Sigma \to Q'$ é tal que, para cada $q' \in Q'$ e $a \in \Sigma$:
@@ -233,15 +235,27 @@ Definimos agora dois estados $p,q \in Q$ de um AFD $D = (\Sigma, Q, q_{in}, F, \
   indefinido, & \text{se } \delta(q', a) \text{ não estiver definido}
   \end{cases}
   $$
-  Note-se que o requisito $p \neq q_{in}$ no enunciado da proposição anterior não implica perda de generalidade pois, como existe um único estado inicial, dados dois estados distintos um deles será necessariamente não inicial.
+
+Note-se que o requisito $p \neq q_{in}$ no enunciado da proposição anterior não implica perda de generalidade pois, como existe um único estado inicial, dados dois estados distintos um deles será necessariamente não inicial.
 
 Vamos agora identificar critérios para distinguir estados.  
 Seja $D = (\Sigma, Q, q_{in}, F, \delta)$ um AFD e sejam $p,q \in Q$ e $a \in \Sigma$. Temos que:
 
-- Se $p \in F$, e $q \notin F$ então $p$ e $q$ são distinguíveis;
-- Se $p$ é produtivo e $q$ não, então $p$ e $q$ são distinguíveis;
-- Se $\delta(p,a)$ é produtivo e $\delta(q, a)$ não está definido, então $p$ e $q$ são distinguíveis;
-- Se $p'$ e $q'$ são estados distinguíveis, $\delta(p,a) = p'$ e $\delta(q,a) = q'$, então $p$ e $q$ são distinguíveis;
+1. Se $p \in F$, e $q \notin F$ então $p$ e $q$ são distinguíveis;
+2. Se $p$ é produtivo e $q$ não, então $p$ e $q$ são distinguíveis;
+3. Se $\delta(p,a)$ é produtivo e $\delta(q, a)$ não está definido, então $p$ e $q$ são distinguíveis;
+4. Se $p'$ e $q'$ são estados distinguíveis, $\delta(p,a) = p'$ e $\delta(q,a) = q'$, então $p$ e $q$ são distinguíveis. Equivalentemente, se $p$ e $q$ são equivalentes, então $\delta(p,a)$ e $\delta(q,a)$ também o são para qualquer $a \in \Sigma$;
+
+Ver a prova destas propriedades pode ajudar a compreendê-las.
+
+:::details[Prova]
+
+1. A palavra $\epsilon$ distingue os estados;
+2. Se $p$ é produtivo, existe $\omega \in \Sigma^*$ tal que $\delta^*(p, \omega) \in F$. Contudo, como $q$ não é produtivo, $\delta^*(q, \omega) \notin F$, pelo que a palavra $\omega$ distingue os estados;
+3. Sabemos que podemos adicionar um estado lixo ao AFD de forma que ficamos com um AFD equivalente. Se $\delta(q,a)$ não está definido, no autómato com estado lixo vamos ver que $\delta(q,a) = q_{lixo}$, que é um estado não produtivo. Podemos então aplicar a condição dois a $\delta(p, a)$ e $q_{lixo}$;
+4. Seja $\omega$ uma palavra que distingue $p'$ e $q'$. Então, a palavra $a.\omega$ distingue $p$ e $q$.
+
+:::
 
 Definimos ainda $P_D$ como sendo o conjunto de todos os pares $\{p,q\} \subset Q$.
 
@@ -249,7 +263,7 @@ Tendo em conta estes critérios e este conjunto, introduzimos agora um **algorit
 
 :::tip[APED]
 
-O algoritmo recebe como input o AFD $D = (\Sigma, Q, q_{in}, F, \delta)$ e o seu output é um conjunto $Dst$ de pares de estados distinguíveis.
+O algoritmo recebe como input o AFD $D = (\Sigma, Q, q_{in}, F, \delta)$ e o seu output é um conjunto $Dst \subset P_D$ de pares de estados distinguíveis.
 
 1. $$
    \begin{matrix*}[l]
@@ -264,11 +278,24 @@ O algoritmo recebe como input o AFD $D = (\Sigma, Q, q_{in}, F, \delta)$ e o seu
    2. $Aux := \{ \{p,q\} \notin \Delta: \exists a \in \Sigma: \{ \delta(p,a), \delta(q,a) \} \in Aux \}$;
 4. $Dst := \Delta \cup Aux$.
 
+O que o algoritmo a cima faz é o seguinte:  
+Para começar, determinar os estados distinguíveis de acordo com os 3 primeiros critérios.
+Então, enquanto os houver, determinar mais estados distinguíveis de acordo com o 4º critério.
+À medida que estes estados vão sendo encontrados, vão sendo agrupados no conjunto $Dst$.
+
 A execução deste algoritmo termina sempre retornando exatamente o conjunto de pares de estados distinguíveis do AFD.
+
+Para ajudar a compreender este algoritmo pode ser útil vê-lo em prática a baixo.
 
 :::
 
 :::details[Exemplo de aplicação do APED]
+
+// TODO
+
+:::
+
+:::details[Prova da correção do APED]
 
 // TODO
 
@@ -293,7 +320,25 @@ O algoritmo recebe como input dois AFD's $D_1 = (\Sigma, Q_1, q_{in}^1, F_1, \de
 3. se $\{ q_{in}^1, q_{in}^2 \} \in Dst$ `return false`  
    caso contrário `return true`.
 
-Este algoritmo termina sempre, identificando como equivalentes dois AFD's se e só se eles são equivalentes, já que nenhuma palavra distingue os estados iniciais.
+Este algoritmo termina sempre, identificando como equivalentes dois AFD's se e só se eles são equivalentes.
+
+:::
+
+:::details[Prova da correção do APEQ]
+
+Verifica-se que, se $q \in Q_1$, então $\delta(q, a) \in Q_1$, para qualquer $a \in \Sigma$.  
+Indutivamente, temos então que para qualquer $\omega \in \Sigma^*$, se $q \in Q_1$, então $\delta^*(q, \omega) \in Q_1$.  
+Consequentemente, se $\delta(q, \omega) \in F$ para $q \in Q_1$, então $\delta(q, \omega) \in F_1$.  
+Estas propriedades verificam-se analogamente para $q \in Q_2$.
+
+Podemos inferir então que $\{ q_{in}^1, q_{in}^2 \} \in Dst$ equivale a dizer que existe uma palavra $\omega \in \Sigma^*$ tal que apenas um dos dois se verifica:
+
+- $\delta(q_{in}^1, \omega) \in F$;
+- $\delta(q_{in}^2, \omega) \in F$.
+  consequentemente, já que $q_{in}^1 \in Q_1$ e $q_{in}^2 \in Q_2$, apenas um dos dois se verifica:
+- $\delta(q_{in}^1, \omega) \in F_1$;
+- $\delta(q_{in}^2, \omega) \in F_2$.
+  ou seja, a palavra $\omega$ é reconhecida exatamente num dos autómatos $D_1$ e $D_2$.
 
 :::
 
