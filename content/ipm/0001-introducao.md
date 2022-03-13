@@ -21,7 +21,7 @@ A [Interaction Design Foundation](https://www.interaction-design.org/) define IP
 
 > Human-computer interaction (HCI) is a multidisciplinary field of study focusing on the **design of computer technology** and, in particular, the **interaction between humans (the users) and computers**.
 
-Neste momento, os fatores diferenciadores no campo da tecnologia são a **conveniência**, a **usabilidade** e a **fiabilidade** -- nem tanto a rapidez, capacidade de armazenamento, etc. como antigamente, pelo que é essencial que haja um foco consciente nessa área.
+Neste momento, os fatores diferenciadores no campo da tecnologia são a **conveniência**, a **usabilidade** e a **fiabilidade** — nem tanto a rapidez, capacidade de armazenamento, etc. como antigamente, pelo que é essencial que haja um foco consciente nessa área.
 
 IPM envolve várias disciplinas, das quais se destacam:
 
