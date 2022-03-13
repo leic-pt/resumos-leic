@@ -10,7 +10,12 @@ type: topLevelPage
 > Os alunos deverão compreender o processo incremental de design de sistemas interativos, bem como saber avaliar as interfaces nas diferentes fases do seu desenvolvimento.  
 > Deverão compreender e adotar compromissos entre as várias restrições a que o processo de desenvolvimento destes sistemas está sujeito.
 
-:::warning[PÁGINA EM CONSTRUÇÃO]
-De momento não existem resumos de IPM.  
-Procuram-se contribuidores.
+## Recursos
+
+:::info[Slides]
+
+Os Slides que tipicamente acompanham a cadeira encontram-se disponíveis na página da cadeira no Fénix, não sendo possível disponibilizá-los nesta página.
+
 :::
+
+- [Página da Cadeira - Fénix](https://fenix.tecnico.ulisboa.pt/disciplinas/IPM/2021-2022/2-semestre)
