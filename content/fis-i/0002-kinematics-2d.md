@@ -215,7 +215,7 @@ $$
 \end{aligned}
 $$
 
-Define-se $\dot \theta = \frac{\d \theta}{\d t}$ para simplificar a notação.
+Define-se $\dot \theta = \frac{\d \theta}{\d t}$ e $\ddot \theta = \frac{\d^2 \theta}{\d t^2}$ para simplificar a notação.
 
 ### Posição, Velocidade e Aceleração em Coordenadas Polares
 
@@ -307,6 +307,8 @@ $$
 \omega = \frac{\d \theta}{\d t}
 $$
 
+Sabemos também que $v = r\omega$.
+
 :::
 
 Comparando a representação de um movimento circular em coordenadas cartesianas e coordenadas polares, considerando $r(t) \equiv R$, temos:
@@ -340,6 +342,13 @@ $$
 
 ### Casos Particulares
 
+- Caso $\omega = \text{constante}$, temos que $\dot \omega = \gamma = 0 \implies a_T = 0$,
+  pelo que estamos perante um **movimento circular uniforme**.
+
+  Neste caso, $a_N$ é constante, normal e centrípeta (aponta para o "centro" da trajetória).
+
+  O período da trajetória é $T = \frac{2\pi}{\omega} \quad (\op{s})$.
+
 - Caso $R \to \infty$, estamos perante um **movimento retilíneo**, visto que
 
   $$
@@ -347,10 +356,3 @@ $$
   $$
 
   pelo que a direção da velocidade nunca se altera.
-
-- Caso $\omega = \text{constante}$, temos que $\dot \omega = \gamma = 0 \implies a_T = 0$,
-  pelo que estamos perante um **movimento circular uniforme**.
-
-  Neste caso, $a_N$ é constante, normal e centrípeta (aponta para o "centro" da trajetória).
-
-  O período da trajetória é $T = \frac{2\pi}{\omega} \quad (\op{s})$.
