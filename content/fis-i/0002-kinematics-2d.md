@@ -72,14 +72,14 @@ Vejamos um exemplo, que ilustra melhor este conceito.
 **A bala sai da arma a uma altura de $1.5 \op{m}$ em relação ao chão e com uma velocidade de $5 \op{m/s}$, que faz $\theta = 60\degree$ com o chão.**
 **Considerando que a única força que atua no corpo é a força gravítica, $g = 9.8 m/s^2$, determine o seguinte:**
 
-TODO figura do problema
+![Trajetória que descreve o problema](./assets/0002-projectile-launch-example-trajectory.svg#dark=2)
 
 **a) a altura máxima atingida**
 
 O primeiro passo é [decompor a velocidade inicial](/fis-i/guides/recap-highschool#decomposição-de-vetores) na componente horizontal e vertical.
 Através de trignometria, obtemos o seguinte:
 
-TODO inserir figura a demonstrar decomposição do vetor
+![Decomposição do vetor velocidade](./assets/0002-projectile-launch-velocity-vector-decomposition.svg#dark=2)
 
 $$
 \begin{cases}
@@ -183,7 +183,7 @@ de direção ao longo do tempo e do ponto:
 
 Tal como nas coordenadas cartesianas, os vetores unitários têm módulo $1$.
 
-TODO figura que mostra coordenadas cartesianas vs coordenadas polares
+![Coordenadas polares versus coordenadas cartesianas](./assets/0002-polar-coordinates.svg#dark=2)
 
 ### Conversão entre Coordenadas Cartesianas e Polares
 
