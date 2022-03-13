@@ -10,7 +10,7 @@ type: content
 # Cinemática a 2 Dimensões
 
 Anteriormente estudámos o movimento de corpos apenas a uma dimensão.
-No entanto, vários movimentos necessitam mais que uma dimensão para serem representados,
+No entanto, vários movimentos precisam mais do que uma dimensão para serem representados,
 como o lançamento de projéteis, movimentos circulares, etc.
 
 ```toc
@@ -70,7 +70,7 @@ Vejamos um exemplo, que ilustra melhor este conceito.
 
 **Um estudante de engenharia informática está a brincar com uma Nerf, e acidentalmente dispara uma bala.**
 **A bala sai da arma a uma altura de $1.5 \op{m}$ em relação ao chão e com uma velocidade de $5 \op{m/s}$, que faz $\theta = 60\degree$ com o chão.**
-**Considerando que a única força que atua no corpo é a força gravítica, $g = 9.8 m/s^2$, determine o seguinte:**
+**Considerando que a única força que atua no corpo é a força gravítica, $g = 9.8 \op{m/s}^2$, determine o seguinte:**
 
 ![Trajetória que descreve o problema](./assets/0002-projectile-launch-example-trajectory.svg#dark=2)
 
@@ -88,8 +88,8 @@ v_{y,0} &= v_0 \sin \theta
 \end{cases}
 \implies
 \begin{cases}
-v_{x,0} &= 5 \times \cos 60\degree = 2.50 \op{m/s}\\
-v_{y,0} &= 5 \times \sin 60\degree = 4.33 \op{m/s}
+v_{x,0} &= 5 \times \cos 60\degree &= 2.50 \op{m/s}\\
+v_{y,0} &= 5 \times \sin 60\degree &= 4.33 \op{m/s}
 \end{cases}
 $$
 
@@ -103,7 +103,7 @@ y(t) &= 1.5 + 4.33 t - \frac{9.8}{2} t^2
 \end{cases}\\\\
 \begin{cases}
 v_x(t) &= 2.50\\
-v_y(t) &= 4.33 - 9.5 t
+v_y(t) &= 4.33 - 9.8 t
 \end{cases}
 \end{darray}
 $$
@@ -113,17 +113,17 @@ o corpo atinge a altura máxima quando a sua velocidade (vertical) é nula, inve
 Então, vamos determinar o instante em que isto acontece.
 
 $$
-v_y(t) = 0 \Leftrightarrow 4.33 - 9.5 t = 0 \Leftrightarrow t = 0.456 \op{s}
+v_y(t) = 0 \Leftrightarrow 4.33 - 9.8 t = 0 \Leftrightarrow t = 0.442 \op{s}
 $$
 
 Agora que sabemos em que instante a velocidade vertical é nula, isto é, em que a altura é máxima, basta
 substitui-lo na equação das posições para sabermos a altura máxima.
 
 $$
-y(0.456) = 1.5 + 4.33 \times 0.456 - \frac{9.8}{2} \times 0.456^2 = 2.46 \op{m}
+y(0.442) = 1.5 + 4.33 \times 0.442 - \frac{9.8}{2} \times 0.442^2 = 3.39 \op{m}
 $$
 
-Assim, a altura máxima atingida pela bala é $2.46 \op{m}$.
+Assim, a altura máxima atingida pela bala é $3.39 \op{m}$.
 
 **b) o alcance da bala**
 
@@ -155,14 +155,14 @@ Sabendo o instante em que a bala embate no chão, podemos obter ambas as compone
 $$
 \begin{cases}
 v_x(1.15) &= 2.50 \op{m/s}\\
-v_y(1.15) &= 4.33 - 9.5 \times 1.15 = -6.60 \op{m/s}
+v_y(1.15) &= 4.33 - 9.8 \times 1.15 = -6.94 \op{m/s}
 \end{cases}
 $$
 
 Assim, a velocidade com que a bala embate no chão é:
 
 $$
-\vec v = 2.50 \vec e_x - 6.60 \vec e_y\quad (\op{m/s})
+\vec v = 2.50 \vec e_x - 6.94 \vec e_y\quad (\op{m/s})
 $$
 
 :::
@@ -176,7 +176,7 @@ Em vez de representarmos a posição (entre outros) de um corpo através da sua 
 utilizamos a sua distância à origem, assim como o ângulo com a mesma.
 
 Ao contrário de nas coordenadas cartesianas, os vetores unitários das coordenadas polares ($\vec e_r$ e $\vec e_\theta$) variam
-de direção ao longo do tempo e do ponto:
+de direção ao longo do tempo e da trajetória do ponto:
 
 - o vetor $\vec e_r$ aponta da origem para o ponto
 - o vetor $\vec e_\theta$ é perpendicular a $\vec e_r$ e aponta no sentido contrário aos ponteiros do relógio (sentido positivo)
