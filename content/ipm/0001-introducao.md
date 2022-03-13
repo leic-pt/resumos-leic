@@ -1,5 +1,5 @@
 ---
-title: Introdução e Prototipagem em Papel
+title: Introdução
 description: Interação Pessoa-Máquina.
   Mitos de bom design.
   Modelos de desenho.
@@ -7,7 +7,7 @@ path: /ipm/introducao
 type: content
 ---
 
-# Introdução e Prototipagem em Papel
+# Introdução
 
 ```toc
 
