@@ -510,11 +510,45 @@ Vamos compreender as alterações a cima:
 - Se podermos alcançar um estado final através de um movimento-$\epsilon$, então se considerarmos esse estado como sendo também final, as palavras reconhecidas pelo nosso AFND não mudam;
 - Para cada estado $q \in Q$ vamos ver que estados conseguimos alcançar usando apenas a letra $a \in \Sigma$. O conjunto de estados que conseguimos alcançar só com $a$ corresponde ao resultado de aplicar $a$ a todos os estados em $q^\epsilon$ e depois tirar o fecho-$\epsilon$ do resultado. Isto é, pego em todos os estados a que consigo chegar com $\epsilon$, vejo onde consigo chegar com $a$, e finalmente aplico $\epsilon$ outra vez.
 
+// TODO: meter foto
+
 :::
 
 :::details[Prova da equivalência entre $A$ e $A'$]
 
-// TODO
+A definição de função de transição estendida para o AFND $A'$ será
+
+$$
+\delta'^*(q, \omega) =
+\begin{cases}
+q & \text{se } \omega = \epsilon \\
+\bigcup_{q' \in q^\epsilon} \left( \bigcup_{q'' \in \delta'(q', a)} \delta'^*(q'', \omega') \right) & \text{se } \omega = a.\omega'
+\end{cases}
+\\ =
+\begin{cases}
+q & \text{se } \omega = \epsilon \\
+\bigcup_{q' \in \delta'(q,a)} \delta'^*(q', \omega') & \text{se } \omega = a. \omega'
+\end{cases}
+\\ =
+\begin{cases}
+q & \text{se } \omega = \epsilon \\
+\bigcup_{q' \in q^\epsilon} \left(
+\bigcup_{q'' \in \delta(q',a)} \left(
+\bigcup_{q''' \in q''^\epsilon}
+\delta'^*(q''', \omega') \right) \right) & \text{se } \omega = a. \omega'
+\end{cases}
+$$
+
+em que em cima consideramos o fecho-$\epsilon$ de $q$ em $A'$, mas em baixo consideramos o fecho-$\epsilon$ de $q$ em $A$.
+
+Ou seja, a função de transição estendida de $A'$ é tal que, dada uma letra $a \in \Sigma$ e um estado $q \in Q$, podemos alcançar todos os estados que podiamos em $A$ com essa letra (e possivelmente com movimentos-$\epsilon$).  
+Indutivamente, se dermos uma palavra $\omega \in \Sigma^*$ a $A'$, obtemos o mesmo conjunto de estados que obtiamos em $A$.
+Consequentemente, uma palavra é aceite em $A'$ se e só se for aceite em $A$.
+
+Cuidado! Esta prova é indutiva com caso base $|\omega|=1$, pelo que só funciona para palavras com pelo menos uma letra.
+Isto é, falta provar a equivalência para $\epsilon$.  
+Ora, $\delta(q, \epsilon)$ é aceite em $A$ se e só se $q^\epsilon \cap F \neq \emptyset$.
+Ora, isto equivale a $q$ ser um estado final em $A'$, pelo que $\epsilon$ também é aceite em $A'$ se e só se for aceite em $A$.
 
 :::
 
@@ -536,7 +570,24 @@ Dado um AFND $A = (\Sigma, Q, q_{in}, F, \delta)$, temos que o AFD $D = (\Sigma,
 
 :::details[Prova da equivalência entre $A$ e $D$]
 
-// TODO
+Vamos definir a função de transição estendida de $D$
+
+$$
+\delta'^*(C, \omega) =
+\begin{cases}
+\delta'^*(C, \omega) = C & \text{se } \omega = \epsilon \\
+\delta'^*(C, \omega) = \delta'^*(\delta'(C,a), \omega') & \text{se } \omega = a. \omega'
+\end{cases}
+\\ =
+\begin{cases}
+\delta'^*(C, \omega) = C & \text{se } \omega = \epsilon \\
+\delta'^*(C, \omega) = \delta'^*(\bigcup_{q \in C} \delta(q,a), \omega') & \text{se } \omega = a. \omega'
+\end{cases}
+$$
+
+Consequentemente, se houver $q, p \in Q$ tal que $\delta^*(q, \omega) = p$, temos que $p \in \delta'^*(C, \omega)$ para qualquer $C$ tal que $q \in C$.  
+Verificamos então que se a função $\delta^*$ nos leva a um estado $q$, a função $\delta'^*$ leva-nos a um estado $C$ tal que $q \in C$.
+Então, se $q$ for final em $A$, temos que $C \cap F \neq \emptyset$ e $C$ é final em $D$.
 
 :::
 
@@ -545,6 +596,11 @@ Dado um AFND $A = (\Sigma, Q, q_{in}, F, \delta)$, temos que o AFD $D = (\Sigma,
 // TODO
 
 :::
+
+Acabamos só por reparar que enquanto os AFD's têma vantagem de terem todas as transições bem determinadas, podem necessitar de bastante mais estados que um AFND equivalente.
+Nomeadamente, se $A$ for um AFND com conjunto de estados $Q$ com $n$ elementos, o AFD mínimo $D$ que lhe corresponde pode ter até $2^n$ estados (o conjunto de estados de $D$ está contido em $\wp(Q)$).  
+Desta forma, os AFND's podem ser frequentemente uma forma mais eficiente de representar a mesma linguagem.
+No entanto, como temos algoritmos para converter AFND's em AFD's, podemos dizer ao computador para fazer esse trabalho chato.
 
 ## Propriedades das Linguagens Regulares
 
@@ -557,4 +613,104 @@ Para um alfabeto $\Sigma$ e $L, L_1, L_2 \subset \Sigma^*$ linguagens regulares,
 
 :::
 
-// TODO
+:::details[Prova]
+
+Seja $D = (\Sigma, Q, q_{in}, F, \delta)$ um AFD que reconhece $L$.
+Temos então que o AFD $\overline{D} = (\Sigma, Q, q_{in}, Q \backslash F, \delta)$ reconhece a linguagem $\overline{L}$, pelo que esta é também regular.
+Ao AFD $\overline{D}$ damos o nome de **AFD dual** de $D$.
+
+Sejam $D_1 = (\Sigma, Q_1, q_{in}^1, F_1, \delta_1)$ e $D_2 = (\Sigma, Q_2, q_{in}^2, F_2, \delta_2)$ AFD's tais que $L(D_1) = L_1$ e $L(D_2) = L_2$.  
+Definimos o **AFD produto** $D_1 \times D_2 = (\Sigma, Q_1 \times Q_2, (q_{in}^1, q_{in}^2), F_1 \times F_2, \delta)$ como o AFD cuja função $\delta: Q_1 \times Q_2 \times \Sigma \to Q_1 \times Q_2$ tal que, para cada $(q_1, q_2) \in Q_1 \times Q_2$ e $a \in \Sigma$:
+
+$$
+\delta((q_1, q_2), a) =
+\begin{cases}
+(\delta_1(q_1, a), \delta_2(q_2, a)) & \text{se } \delta_1(q_1, a) \text{ e } \delta_2(q_2, a) \text{ estiverem definidos} \\
+\text{indefinido} & \text{caso contrário}
+\end{cases}
+$$
+
+É fácil de observar que $L(D_1 \times D_2) = L(D_1) \cap L(D_2)$.
+
+:::
+
+:::tip[Corolário]
+
+É imediato a partir da proposição a cima que se $L_1$ e $L_2$ são regulares, então, por exemplo, $L_1 \cup L_2$ e $L_1 \backslash L_2$ também o são.
+
+:::
+
+:::details[Prova]
+
+$L_1 \cup L_2 = \overline{\overline{L_1} \cap \overline{L_2}}$.  
+$L_1 \backslash L_2 = L_1 \cap \overline{L_2}$
+
+:::
+
+:::tip[Proposição]
+
+Para um alfabeto $\Sigma$ e $L, L_1, L_2 \subset \mathcal{REG}^\Sigma$, temos que $L_1 . L_2$ e $L^*$ são também linguagens regulares.
+
+:::
+
+:::details[Prova para $L_1 . L_2$]
+
+Sejam $D_1 = (\Sigma, Q_1, q_{in}^1, F_1, \delta_1)$ e $D_2 = (\Sigma, Q_2, q_{in}^2, F_2, \delta_2)$ AFD's tais que $L(D_1) = L_1$ e $L(D_2) = L_2$.  
+Considere-se o AFND $A = (\Sigma, Q, q_{in}, F, \delta)$ com função de transição $\delta: Q \times (\Sigma \cup \{ \epsilon \}) \to \wp(Q)$ tal que,
+
+$$
+Q = Q_1 \cup Q_2 \cup \{ q_{in} \} \\
+F = F_1 \cup F_2 \cup \{ q_{in} \}
+$$
+
+$$
+\delta(q, a) =
+\begin{cases}
+\{ \delta_1(q,a) \} & \text{se } q \in Q_1, a \neq \epsilon \text{ e } \delta_1(q,a) \text{ estiver definido} \\
+\{ \delta_2(q,a) \} & \text{se } q \in Q_2, a \neq \epsilon \text{ e } \delta_1(q,a) \text{ estiver definido} \\
+\{ q_{in}^1, q_{in}^2 \} & \text{se } q \in \{ q_{in} \} \cup F_1 \text{ e } a = \epsilon \\
+\{ q_{in}^2 \} & \text{se } q \in F_2 \text{ e } a = \epsilon \\
+\emptyset & \text{caso contrário}
+\end{cases}
+$$
+
+Podemos observar que $A$ reconhece $L_1. L_2$.
+
+Entenda-se $A$ da seguinte forma:
+
+- inicialmente estamos em $\{ q_{in} \}$. Podemos escolher começar por ler palavras em $L_1$, e vamos para $\{ q_{in}^1 \}$, ou em $L_2$, e vamos para $\{ q_{in}^2 \}$.
+- Quando acabamos de ler uma palavra em $L_1$ podemos:
+  - ir para $\{ q_{in}^1 \}$ se quisermos ler mais palavras em $L_1$;
+  - ir para $\{ q_{in}^2 \}$ se quisermos começar a ler palavras em $L_2$.
+- Sempre que acabamos de ler uma palavra em $L_2$:
+  - ou acabamos e aceitamos a palavra lida;
+  - ou voltamos para $\{ q_{in}^2 \}$ para ler mais uma palavra de $L_2.
+
+:::
+
+:::details[Prova para $L^*$]
+
+Considere-se um AFD $D = (\Sigma, Q, q_{in}, F, \delta)$ que reconheça a linguagem $L$. Seja o AFND $A = (\Sigma, Q', s, F', \delta')$ para um estado $s \notin Q$ tal que
+
+$$
+Q' = Q \cup \{ s \} \\
+F' = F \cup \{ s \}
+$$
+
+e $\delta'(q, a) : Q \times (\Sigma \cup \{ \epsilon \}) \to \wp(Q')$ é tal que, para cada $q \in Q'$ e $a \in \Sigma \cup \{ \epsilon \}$:
+
+$$
+\delta'(q,a) =
+\begin{cases}
+\{ \delta(q,a) \} & \text{se } q \in Q \wedge a \neq \epsilon \text{ e } \delta(q,a) \text{ estiver definida} \\
+\{ q_{in} \} & \text{se } q \in F' \wedge a = \epsilon \\
+\emptyset & \text{caso contrário}
+\end{cases}
+$$
+
+É fácil de perceber que $A$ reconhece $L^*$, pelo que $L^*$ é regular.
+
+Observe-se que o que o AFND $A$ oferece é um autómato que a $D$ acrescenta a possibilidade de começarmos a ler uma nova palavra reconhecida por $D$, sempre que estivermos num estado de aceitação (mudando para o estado $\{ q_{in} \}$).  
+O estado $\{ s \}$ é de aceitação pois a palavra vazia também está em $L^*$.
+
+:::
