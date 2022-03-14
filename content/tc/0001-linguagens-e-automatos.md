@@ -279,11 +279,13 @@ Para ajudar a compreender este algoritmo pode ser útil vê-lo em prática a bai
 
 :::
 
+<!--
 :::details[Prova da correção do APED]
 
 // TODO
 
 :::
+-->
 
 Além de permitir calcular o conjunto dos pares de estados distinguíveis de um AFD e, consequentemente, o conjunto dos seus pares de estados equivalentes, o APED pode também ser usado para determinar se dois AFD's $D1$ e $D2$ são ou não equivalentes.  
 Isto é feito através do **algoritmo de teste à equivalência de AFD's (ATEQ)**:
