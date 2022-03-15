@@ -397,7 +397,7 @@ Ora, procuremos então percorrer$\Delta$:
 | $p$ | $\backslash$         | $\backslash$         | $\backslash$ | $\backslash$ |
 |     | $p$                  | $q$                  | $r$          | $s$          |
 
-Todas as entradas com cruzes na tabela foram oficialmente exploradas. Os estados distinguíveis correspondem, então, às **entradas vazias** da tabela: podemos afirmar que $r$ e $s$ são estados distinguíveis.
+Todas as entradas com cruzes na tabela foram oficialmente exploradas. Os estados distinguíveis correspondem, então, às **entradas com cruzes** da tabela: podemos afirmar que todos os pares de estados do autómato, exceto $[r, s]$, são distinguíveis entre si.
 
 :::
 
@@ -514,7 +514,30 @@ Quer isto dizer que qualquer palavra aceite por $D$ é também aceite por $m_D$.
 
 :::details[Exemplo da Minimização de um AFD]
 
-// TODO
+Consideremos o seguinte autómato:
+
+![AFD - Minimização](./imgs/0001/MINIMIZACAO-AFD.png#dark=1)
+
+Apesar do decorrer do algoritmo de procura de estados distinguíveis não constar deste exemplo, consideremos que, aquando do concluir do mesmo, a tabela é tal que:
+
+| $q_5$ | $\textcircled\times$ | $\textcircled\times$ | $\textcircled\times$ | $\textcircled\times$ |              | $\backslash$ |
+|-------|----------------------|----------------------|----------------------|----------------------|--------------|--------------|
+| $q_4$ | $\textcircled\times$ | $\textcircled\times$ | $\textcircled\times$ | $\textcircled\times$ | $\backslash$ | $\backslash$ |
+| $q_3$ | $\textcircled\times$ | $\textcircled\times$ | $\textcircled\times$ | $\backslash$         | $\backslash$ | $\backslash$ |
+| $q_2$ | $\textcircled\times$ |                      | $\backslash$         | $\backslash$         | $\backslash$ | $\backslash$ |
+| $q_1$ | $\textcircled\times$ | $\backslash$         | $\backslash$         | $\backslash$         | $\backslash$ | $\backslash$ |
+| $q_0$ | $\backslash$         | $\backslash$         | $\backslash$         | $\backslash$         | $\backslash$ | $\backslash$ |
+|       | $q_0$                | $q_1$                | $q_2$                | $q_3$                | $q_4$        | $q_5$        |
+
+A tabela final tem, portanto, **dois pares de estados equivalentes**: $[q_1, q_2]$ e $[q_4, q_5]$. Ao desenhar o autómato minimizado, **os estados presentes em cada par terão de estar juntos**.
+
+![AFD - Minimização](./imgs/0001/AFD_MINIMIZADO.png#dark=1)
+
+Pode agora ser mais claro o porquê de considerarmos dois estados equivalentes/distinguíveis: os estados equivalentes têm, no autómato original, transições equivalentes (segundo o mesmo símbolo vão sempre para um estado num "grupo de estados equivalentes"). No caso de $q_1, q_2$, por exemplo, temos que:
+
+- através de $a$ transicionam para o próprio estado em ambas as situações;
+- através de $b$ transicionam, em ambos os casos, para $q_0$;
+- através de $c$ transicionam, em ambos os casos, para um estado dentro do "par equivalente" $[q_4, q_5]$ - $q_1$ para $q_4$ e $q_2$ para $q_5$.
 
 :::
 
