@@ -214,7 +214,19 @@ Ora, procurando seguir os passos descritos na descrição acima:
 
 - Descobrir os estados [acessíveis](color:yellow) passa por realizar uma BFS a partir do estado inicial, $q_in$ - todos os estados encontrados dizem-se [acessíveis](color:yellow):
 
-	![BFS - Estados acessíveis](./imgs/0001/BFS_ACESSIVEIS.png#dark=1)
+  Começamos com o conjunto de estados acessíveis a conter apenas $q_{in}$:
+
+	![BFS - Estados acessíveis (1)](./imgs/0001/BFS_ACESSIVEIS_1.png#dark=1)
+
+  Logo de seguida, começamos a **BFS** partindo desse mesmo estado:
+
+  ![BFS - Estados acessíveis (2)](./imgs/0001/BFS_ACESSIVEIS_2.png#dark=1)
+
+  Encontrámos, a distância $1$ do estado inicial, os estados $q_1, q_2, q_5$. A BFS continua então, partindo desses mesmos estados, tal que:
+
+  ![BFS - Estados acessíveis (3)](./imgs/0001/BFS_ACESSIVEIS_3.png#dark=1)
+
+  Podemos observar que a procura encontrou aqui $q_4$. Mais ainda, temos que **não há mais caminhos** por onde prosseguir. A procura termina, portanto, e o conjunto de estados acessíveis foi obtido.
 
 - De seguida, determinar os estados [produtivos](color:orange): fazer BFS's, partindo de cada estado final, pelo "autómato transposto":
 
