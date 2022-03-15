@@ -206,7 +206,41 @@ Para facilitar a compreensão do algoritmo, pode ser útil vê-lo em prática no
 
 :::details[Exemplo de aplicação do APEN]
 
-// TODO
+Tenhamos um AFD tal que:
+
+![Autómato Inicial - APEN](./imgs/0001/APEN_AUTOM_INI.png#dark=1)
+
+Ora, procurando seguir os passos descritos na descrição acima:
+
+- Descobrir os estados [acessíveis](color:yellow) passa por realizar uma BFS a partir do estado inicial, $q_in$ - todos os estados encontrados dizem-se [acessíveis](color:yellow):
+
+	![BFS - Estados acessíveis](./imgs/0001/BFS_ACESSIVEIS.png#dark=1)
+
+- De seguida, determinar os estados [produtivos](color:orange): fazer BFS's, partindo de cada estado final, pelo "autómato transposto":
+
+	Inicialmente, o grafo transposto encontra-se assim (os estados finais estão, claro, no conjunto dos estados produtivos):
+	![BFS's - Estados produtivos (1)](./imgs/0001/BFS_PRODUTIVOS_1.png#dark=1)
+
+	Realizamos aqui o **primeiro passo** da BFS - partindo dos estados finais, $q_1$ e $q_4$, realizamos uma procura pelos estados a que podemos chegar a partir deles:
+	![BFS's - Estados produtivos (2)](./imgs/0001/BFS_PRODUTIVOS_2.png#dark=1)
+
+	Repetimos o passo anterior, desta vez partindo dos estados que obtivemos acima: $q_{in}$ e $q_2$:
+	![BFS's - Estados produtivos (3)](./imgs/0001/BFS_PRODUTIVOS_3.png#dark=1)
+
+	A partir dos estados acima obtidos, não podemos atingir qualquer outro estado, pelo que o algoritmo pára e temos determinado o conjunto de estados produtivos do autómato.
+Ora, temos então dois conjuntos em mãos:
+
+$$
+\text{Estados Acessiveis} = \{q_{in}, q_1, q_2, q_4, q_5\}\\
+\text{Estados Produtivos} = \{q_{in}, q_1, q_2, q_3, q_4, q_5, q_6\}
+$$
+
+Pela definição da utilidade de um estado (um estado diz-se [útil](color:red) caso seja acessível e produtivo), podemos dizer que a interseção dos conjuntos acima corresponde ao conjunto dos estados úteis do autómato, e que portanto:
+
+$$
+\text{Estados Úteis} = Ac \cap Prd = \{q_in, q_1, q_2, q_4, q_5\}\\
+\text{Estados Inúteis} = Q \backslash Ut = \{q_3, q_6, q_7\}
+$$
 
 :::
 
