@@ -322,7 +322,82 @@ Para ajudar a compreender este algoritmo pode ser útil vê-lo em prática a bai
 
 :::details[Exemplo de aplicação do APED]
 
-// TODO
+Consideremos um AFD tal que:
+
+![AFD - APED](./imgs/0001/DISTINGUIVEIS-AFD.png#dark=1)
+
+A nossa primeira tarefa será **preencher $\Delta$ segundo os três critérios iniciais**:
+
+- Num primeiro momento, organizar pares onde um elemento é um estado final e o outro é um estado não final (a ordem é irrelevante) - temos, neste momento:
+
+$$
+\Delta = \{[p, q], [q, s], [q, r]\}
+$$
+
+- De seguida, criar pares onde um elemento é um estado produtivo e o outro não - fazendo a BFS mencionada [acima](./linguagens-e-automatos#equivalência-e-minimzação-de-AFDs), verificamos que todos os estados são produtivos, pelo que $\Delta$ permanece igual.
+
+- Por fim, encontrar todos os pares tais que um dos vértices **transita, segundo um dado símbolo, para um estado produtivo**, e o outro não tem qualquer transição associada a esse símbolo. Verificar esta condição pode ser mais fácil seguindo algumas heurísticas:
+
+  - Num primeiro momento, verificar **todos os estados** para os quais nem todos os símbolos têm uma transição definida - aqui, $p$ não tem transição definida para $b$ e $c$, e é o único nessa situação. Podemos a partir daqui depreender que qualquer par obtido através desta "procura" terá de envolver $p$.
+
+  - Obtidos símbolos sem transição definida para $p$, aqui $b$ e $c$, procuramos os estados que têm transição definida para os mesmos **e onde essa transição leve a um estado produtivo**. Neste caso, $q$ tem transições segundo $b$ e $c$ para estados produtivos, tais como $r$ e $s$, pelo que podemos admitir que os pares criados por esta procura são $\{[p, q], [p, r], [p, s]\}$.
+
+  No final destes três passos, ficamos com:
+
+  $$
+  \Delta = \{[p, q], [q, s], [q, r], [p, r], [p, s]\}.
+  $$
+
+O resto do algoritmo normalmente faz-se recorrendo a uma tabela, onde cada linha e coluna correspondem a um dos estados do autómato (só se utiliza **metade** da tabela, já que é simétrica). A tabela corresponde ao autómato em questão seria:
+
+| $s$ |              |              |              | $\backslash$ |
+| --- | ------------ | ------------ | ------------ | ------------ |
+| $r$ |              |              | $\backslash$ | $\backslash$ |
+| $q$ |              | $\backslash$ | $\backslash$ | $\backslash$ |
+| $p$ | $\backslash$ | $\backslash$ | $\backslash$ | $\backslash$ |
+|     | $p$          | $q$          | $r$          | $s$          |
+
+Cada entrada na tabela corresponde a um dos **pares** de estados possíveis. Começamos por preencher a tabela com uma **cruz** em cada entrada que corresponde a um par em $\Delta$. Seria, portanto:
+
+| $s$ | $\times$     | $\times$     |              | $\backslash$ |
+| --- | ------------ | ------------ | ------------ | ------------ |
+| $r$ | $\times$     | $\times$     | $\backslash$ | $\backslash$ |
+| $q$ | $\times$     | $\backslash$ | $\backslash$ | $\backslash$ |
+| $p$ | $\backslash$ | $\backslash$ | $\backslash$ | $\backslash$ |
+|     | $p$          | $q$          | $r$          | $s$          |
+
+Entramos aqui na secção porventura mais desagradável: percorrer **todos os pares de $\Delta$** (que tenham uma cruz na tabela, portanto), e para cada um deles, verificar se existe um par que não esteja em $\Delta$ tal que, segundo transições por um mesmo símbolo, chegam ao par de estados original (e adicionar qualquer estado encontrado à tabela). Assim que um par é encontrado, a cruz na tabela é rodeada por um círculo (para anotar que já foi explorado).
+
+Ora, procuremos então percorrer$\Delta$:
+
+- todos os estados que incluem $p$ não adicionam pares a $\Delta$, já que não há qualquer estado a **transicionar** para $p$ sequer. A tabela fica, então:
+
+| $s$ | $\textcircled\times$ | $\times$     |              | $\backslash$ |
+| --- | -------------------- | ------------ | ------------ | ------------ |
+| $r$ | $\textcircled\times$ | $\times$     | $\backslash$ | $\backslash$ |
+| $q$ | $\textcircled\times$ | $\backslash$ | $\backslash$ | $\backslash$ |
+| $p$ | $\backslash$         | $\backslash$ | $\backslash$ | $\backslash$ |
+|     | $p$                  | $q$          | $r$          | $s$          |
+
+- olhando para o estado $[q, r]$, podemos notar que não há qualquer par de estados que não esteja em $\Delta$ e em que, segundo o mesmo símbolo, leve ao estado $[q, r]$. Não existe qualquer estado segundo $a$ a transicionar para $r$, nem nenhum estado que segundo $b$ ou $c$ transicione para $q$, pelo que o estado dá-se por explorado sem adicionar nada de novo à tabela (sem ser circular a cruz respetiva a $[q, r]$).
+
+| $s$ | $\textcircled\times$ | $\times$             |              | $\backslash$ |
+| --- | -------------------- | -------------------- | ------------ | ------------ |
+| $r$ | $\textcircled\times$ | $\textcircled\times$ | $\backslash$ | $\backslash$ |
+| $q$ | $\textcircled\times$ | $\backslash$         | $\backslash$ | $\backslash$ |
+| $p$ | $\backslash$         | $\backslash$         | $\backslash$ | $\backslash$ |
+|     | $p$                  | $q$                  | $r$          | $s$          |
+
+- por fim, resta explorar $[q, s]$. Não existe qualquer estado segundo $a$ a transicionar para $s$, nem nenhum estado que segundo $b$ ou $c$ transicione para $q$, pelo que o estado dá-se por explorado sem adicionar nada de novo à tabela (sem ser circular a cruz respetiva a $[q, s]$).
+
+| $s$ | $\textcircled\times$ | $\textcircled\times$ |              | $\backslash$ |
+| --- | -------------------- | -------------------- | ------------ | ------------ |
+| $r$ | $\textcircled\times$ | $\textcircled\times$ | $\backslash$ | $\backslash$ |
+| $q$ | $\textcircled\times$ | $\backslash$         | $\backslash$ | $\backslash$ |
+| $p$ | $\backslash$         | $\backslash$         | $\backslash$ | $\backslash$ |
+|     | $p$                  | $q$                  | $r$          | $s$          |
+
+Todas as entradas com cruzes na tabela foram oficialmente exploradas. Os estados distinguíveis correspondem, então, às **entradas vazias** da tabela: podemos afirmar que $r$ e $s$ são estados distinguíveis.
 
 :::
 
