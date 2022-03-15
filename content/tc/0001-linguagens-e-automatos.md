@@ -216,7 +216,7 @@ Ora, procurando seguir os passos descritos na descrição acima:
 
   Começamos com o conjunto de estados acessíveis a conter apenas $q_{in}$:
 
-	![BFS - Estados acessíveis (1)](./imgs/0001/BFS_ACESSIVEIS_1.png#dark=1)
+  ![BFS - Estados acessíveis (1)](./imgs/0001/BFS_ACESSIVEIS_1.png#dark=1)
 
   Logo de seguida, começamos a **BFS** partindo desse mesmo estado:
 
@@ -230,17 +230,18 @@ Ora, procurando seguir os passos descritos na descrição acima:
 
 - De seguida, determinar os estados [produtivos](color:orange): fazer BFS's, partindo de cada estado final, pelo "autómato transposto":
 
-	Inicialmente, o grafo transposto encontra-se assim (os estados finais estão, claro, no conjunto dos estados produtivos):
-	![BFS's - Estados produtivos (1)](./imgs/0001/BFS_PRODUTIVOS_1.png#dark=1)
+      Inicialmente, o grafo transposto encontra-se assim (os estados finais estão, claro, no conjunto dos estados produtivos):
+      ![BFS's - Estados produtivos (1)](./imgs/0001/BFS_PRODUTIVOS_1.png#dark=1)
 
-	Realizamos aqui o **primeiro passo** da BFS - partindo dos estados finais, $q_1$ e $q_4$, realizamos uma procura pelos estados a que podemos chegar a partir deles:
-	![BFS's - Estados produtivos (2)](./imgs/0001/BFS_PRODUTIVOS_2.png#dark=1)
+      Realizamos aqui o **primeiro passo** da BFS - partindo dos estados finais, $q_1$ e $q_4$, realizamos uma procura pelos estados a que podemos chegar a partir deles:
+      ![BFS's - Estados produtivos (2)](./imgs/0001/BFS_PRODUTIVOS_2.png#dark=1)
 
-	Repetimos o passo anterior, desta vez partindo dos estados que obtivemos acima: $q_{in}$ e $q_2$:
-	![BFS's - Estados produtivos (3)](./imgs/0001/BFS_PRODUTIVOS_3.png#dark=1)
+      Repetimos o passo anterior, desta vez partindo dos estados que obtivemos acima: $q_{in}$ e $q_2$:
+      ![BFS's - Estados produtivos (3)](./imgs/0001/BFS_PRODUTIVOS_3.png#dark=1)
 
-	A partir dos estados acima obtidos, não podemos atingir qualquer outro estado, pelo que o algoritmo pára e temos determinado o conjunto de estados produtivos do autómato.
-Ora, temos então dois conjuntos em mãos:
+      A partir dos estados acima obtidos, não podemos atingir qualquer outro estado, pelo que o algoritmo pára e temos determinado o conjunto de estados produtivos do autómato.
+
+  Ora, temos então dois conjuntos em mãos:
 
 $$
 \text{Estados Acessiveis} = \{q_{in}, q_1, q_2, q_4, q_5\}\\
