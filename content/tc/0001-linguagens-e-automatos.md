@@ -521,7 +521,7 @@ Consideremos o seguinte autómato:
 Apesar do decorrer do algoritmo de procura de estados distinguíveis não constar deste exemplo, consideremos que, aquando do concluir do mesmo, a tabela é tal que:
 
 | $q_5$ | $\textcircled\times$ | $\textcircled\times$ | $\textcircled\times$ | $\textcircled\times$ |              | $\backslash$ |
-|-------|----------------------|----------------------|----------------------|----------------------|--------------|--------------|
+| ----- | -------------------- | -------------------- | -------------------- | -------------------- | ------------ | ------------ |
 | $q_4$ | $\textcircled\times$ | $\textcircled\times$ | $\textcircled\times$ | $\textcircled\times$ | $\backslash$ | $\backslash$ |
 | $q_3$ | $\textcircled\times$ | $\textcircled\times$ | $\textcircled\times$ | $\backslash$         | $\backslash$ | $\backslash$ |
 | $q_2$ | $\textcircled\times$ |                      | $\backslash$         | $\backslash$         | $\backslash$ | $\backslash$ |
@@ -618,12 +618,38 @@ $$
 Através desta função, podemos definir a **palavra aceite** por um AFND como qualquer palavra $\omega \in \Sigma^*$ tal que $\delta^*(q_{in}, \omega) \cap F \neq \emptyset$.  
 Dito de forma corrente, uma palavra é aceite por um AFND se **houver uma** sequência de estados em $Q$ tal que:
 
-- a concatenaçao dos símbolos das transições entre esses estados resulte na palavra em questão;
+- a concatenação dos símbolos das transições entre esses estados resulte na palavra em questão;
 - a sequência acabe num estado final.
 
 :::details[Exemplo de Palavra Aceite num AFND]
 
-// TODO
+Consideremos o AFND que aceita todas as palavras com **número ímpar de $a$'s** ou que **terminam em $c$**:
+
+![Palavra Aceite por um AFND](./imgs/0001/PALAVRA_ACEITE_AFND.png#dark=1)
+
+Ora, tentemos então verificar se algumas palavras são ou não aceites por este autómato:
+
+- tenhamos $abcab$; não deve ser aceite: **não tem número ímpar de $a$'s nem termina em $c$**. As imagens abaixo procuram seguir a **sequência de estados** da palavra. [**Nenhuma delas termina num estado final**](color:orange), pelo que a palavra não é aceite (como esperado).
+
+  ![Palavra não aceite por um AFND 1](./imgs/0001/PALAVRA1_PASSO_1.png#dark=1)
+  ![Palavra não aceite por um AFND 2](./imgs/0001/PALAVRA1_PASSO_2.png#dark=1)
+  ![Palavra não aceite por um AFND 3](./imgs/0001/PALAVRA1_PASSO_3.png#dark=1)
+  ![Palavra não aceite por um AFND 4](./imgs/0001/PALAVRA1_PASSO_4.png#dark=1)
+  ![Palavra não aceite por um AFND 5](./imgs/0001/PALAVRA1_PASSO_5.png#dark=1)
+  ![Palavra não aceite por um AFND 6](./imgs/0001/PALAVRA1_PASSO_6.png#dark=1)
+
+- por outro lado, consideremos $acbaa$ - a palavra deve ser aceite, já que tem número ímpar de $a$'s. Vejamos então o caminho percorrido ao ler a palavra:
+
+  ![Palavra aceite (1) por um AFND 1](./imgs/0001/PALAVRA1_PASSO_1.png#dark=1)
+  ![Palavra aceite (1) por um AFND 2](./imgs/0001/PALAVRA2_PASSO_2.png#dark=1)
+  ![Palavra aceite (1) por um AFND 3](./imgs/0001/PALAVRA2_PASSO_3.png#dark=1)
+  ![Palavra aceite (1) por um AFND 4](./imgs/0001/PALAVRA2_PASSO_4.png#dark=1)
+  ![Palavra aceite (1) por um AFND 5](./imgs/0001/PALAVRA2_PASSO_5.png#dark=1)
+  ![Palavra aceite (1) por um AFND 6](./imgs/0001/PALAVRA2_PASSO_6.png#dark=1)
+
+  Como último passo, lemos aqui o símbolo vazio - podemos sempre lê-lo, e transitamos assim para o estado final desejado!
+
+  ![Palavra aceite (1) por um AFND 7](./imgs/0001/PALAVRA2_PASSO_7.png#dark=1)
 
 :::
 
