@@ -887,3 +887,221 @@ Observe-se que o que o AFND $A$ oferece é um autómato que a $D$ acrescenta a p
 O estado $\{ s \}$ é de aceitação pois a palavra vazia também está em $L^*$.
 
 :::
+
+### Expressões Regulares
+
+Para um alfabeto $\Sigma$ definimos o **conjunto das [expressões regulares](color:green)** sobre $\Sigma$ como o conjunto $R_\Sigma$ definido indutivamente como se segue:
+
+- $\emptyset \in R_\Sigma$;
+- $\omega \in R_\Sigma$ para cada $\omega \in \Sigma^*$;
+- se $\alpha_1, \alpha_2 \in R_\Sigma$, então $(\alpha_1 + \alpha_2) \in R_\Sigma$ (soma);
+- se $\alpha_1, \alpha_2 \in R_\Sigma$, então $(\alpha_1 . \alpha_2) \in R_\Sigma$ (concatenação);
+- se $\alpha \in R_\Sigma$, então $(\alpha^*) \in R_\Sigma$ (fecho de Kleene).
+
+Para simplificar vamos ocultar os parêntesis quando desnecessários, e vamos abreviar $\alpha . \beta$ por $\alpha \beta$.
+
+Dada uma expressão regular $\alpha \in R_\Sigma$, definimos a **linguagem denotada** por $\alpha$ como o conjunto $L(\alpha) \subset \Sigma^*$ definido indutivamente como se segue:
+
+- $L(\emptyset) = \emptyset$;
+- $L(\omega) = \{ \omega \}$ para cada $\omega \in \Sigma^*$;
+- $L(\alpha_1 + \alpha_2) = L(\alpha_1) \cup L(\alpha_2)$;
+- $L(\alpha_1 . \alpha_2) = L(\alpha_1) . L(\alpha_2)$;
+- $L(\alpha^*) = L(\alpha)^*$.
+
+Duas [expressões regulares](color:green) dizem-se equivalentes ($\alpha_1 = \alpha_2$) se denotarem a mesma linguagem.
+
+:::tip[Proposições para expressões regulares]
+
+Sobre expressões regulares, verificam-se as segunites propriedades:
+
+- $\alpha + \beta = \beta + \alpha$;
+- $\alpha + (\beta + \gamma) = (\alpha + \beta) + \gamma$;
+- $\alpha (\beta  \gamma) = (\alpha  \beta)  \gamma$;
+- $\alpha \epsilon = \epsilon \alpha = \alpha$;
+- $\alpha \emptyset = \emptyset \alpha = \emptyset$;
+- $\alpha (\beta + \gamma) = \alpha \beta + \alpha \gamma$;
+- $(\alpha +\beta) \gamma = \alpha \gamma + \beta \gamma$;
+- $\alpha + \alpha = \alpha$;
+- $\alpha \alpha^* = \alpha^* \alpha$;
+- $\alpha + \emptyset = \alpha$;
+- $\alpha^* + \epsilon = \alpha^*$;
+- $\alpha^* + \alpha \alpha^* = \alpha^*$;
+- $\epsilon + \alpha \alpha^* = \alpha^*$;
+- $(\alpha \beta)^* = \epsilon + \alpha (\beta \alpha)^* \beta$;
+- $\emptyset^* = \epsilon$;
+- $(\alpha^*)^* = \alpha^*$.
+
+:::
+
+A relevância das expressões regulares neste contexto vem da seguinte proposição:
+
+:::tip[Proposição]
+
+Uma linguagem $L$ é regular se e só se houver uma expressão regular $\alpha$ que a denote.
+
+:::
+
+:::details[Prova]
+
+Que a linguagem denotada por uma expressão regular é também regular é imediato a partir da definição de expressão regular, de linguagem denotada por expressão regular, e das propriedades em relação a operações sobre expressões regulares.  
+Para qualquer AFD, é possível reescrevê-lo como um sitema de equações lineares, que podemos resolver como vamos ver a seguir.
+
+:::
+
+:::tip[Solução de uma Equação Linear com Expressões Regulares]
+
+Para resolver sistemas de equações com expressões regulares, observamos que a equação
+
+$$
+X = \beta X + \gamma
+$$
+
+tem como solução a expressão regular $X = \beta^* \gamma$.
+
+Desta forma, podemos resolver um sistema de $n$ equações com $n$ variáveis tal como fazemos nos números reais.  
+Ver o exemplo a baixo para perceber como.
+
+:::
+
+:::details[Exemplo de Resolução de Sitstemas de Equações]
+
+Considere-se o seguinte AFD:
+
+![Grafo de um AFD](./imgs/0001/AFD_graph.png#dark=1)
+
+Podemos traduzir o AFD no seguinte sistema de equações:
+
+$$
+\begin{cases}
+q_{in} = a q_1 \\
+q_1 = a q_1 + b q_2 + c q_2 + \epsilon \\
+q_2 = a q_1 + b q_2 + c q_2
+\end{cases}
+\Leftrightarrow
+\begin{cases}
+q_{in} = a q_1 \\
+q_1 = a q_1 + (b+c) q_2 + \epsilon \\
+q_2 = a q_1 + (b+c) q_2
+\end{cases}
+$$
+
+Note-se como o sistema a cima tem $n$ equações (uma para cada estado) e $n$ variáveis (também uma para cada estado).  
+Vemos agora que a terceira equação é linear em $q_2$, pelo que podemos substituir diretamente pela solução.
+
+$$
+\begin{cases}
+q_{in} = a q_1 \\
+q_1 = a q_1 + (b+c) q_2 + \epsilon \\
+q_2 = (b+c)^* a q_1
+\end{cases}
+\Leftrightarrow
+\begin{cases}
+q_{in} = a q_1 \\
+q_1 = a q_1 + (b+c) (b+c)^* a q_1 + \epsilon \\
+q_2 = (b+c)^* a q_1
+\end{cases}
+$$
+
+$$
+\Leftrightarrow
+\begin{cases}
+q_{in} = a q_1 \\
+q_1 = (\epsilon + (b+c) (b+c)^*) a q_1 + \epsilon \\
+q_2 = (b+c)^* a q_1
+\end{cases}
+\Leftrightarrow
+\begin{cases}
+q_{in} = a q_1 \\
+q_1 = (b+c)^* a q_1 + \epsilon \\
+q_2 = (b+c)^* a q_1
+\end{cases}
+$$
+
+Ficamos agora também com uma equação linear em $q_1$:
+
+$$
+\begin{cases}
+q_{in} = a q_1 \\
+q_1 = ((b+c)^* a)^* \epsilon \\
+q_2 = (b+c)^* a q_1
+\end{cases}
+\Leftrightarrow
+\begin{cases}
+q_{in} = a ((b+c)^* a)^* \\
+q_1 = ((b+c)^* a)^* \\
+q_2 = (b+c)^* a q_1
+\end{cases}
+$$
+
+A expressão correspondente ao estado inicial é então $a((b+c)^* a)^*$, pelo que esta denota a linguagem reconhecida pelo AFD.
+
+:::
+
+### Lema de Pumping
+
+Para mostrar que uma linguagem $L$ não é regular, há que garantir que não existe nenhum autómato finito que a reconheça, ou expressão regular que a denote. A seguinte proposição enuncia um resultado, conhecido como [**Lema de Pumping**](color:yellow) ou [**Lema da bombagem**](color:yellow) (para AFD's), que é útil para esse efeito:  
+Se $L \subset \Sigma^*$ é uma linguagem regular, então existe $k \in \mathbb{N}$ tal que, se $\omega \in L$ é uma palavra com $| \omega | \geq k$ então $\omega = \omega_1 \omega_2 \omega_3$ em que $\omega_1, \omega_2, \omega_3 \in \Sigma^*$ são tais que:
+
+- $\omega_2 \neq \epsilon$;
+- $| \omega_1 . \omega_2 | \leq k$;
+- $\omega_1 . \omega_2^t . \omega_3 \in L$ para cada $t \in \mathbb{N}_0$.
+
+:::details[Prova]
+
+Seja $L$ uma linguagem regular, onde $L=L(A)$, para um AFD $D = (\Sigma, Q, q_{in}, F, \delta)$.  
+Seja $k = \#Q$ e $s$ uma palavra de $L$ com $|s| = n \geq k$.
+
+Quando o autómato $A$ recebe a palavra $s$ lê $n$ letras e portanto passa por $n+1$ estados.
+
+Se na leitura de $s$, passamos por pelo menos $n+1$ estados, temos que, segundo o [Teorema de Pombal](link para os resumos), há um estado pelo qual passamos duas vezes.
+
+Seja $q \in Q$ o primeiro estado que é repetido.
+Chamemos então $\omega_1$ à palavra que é lida até à primeira ocorrência de $q$, $\omega_2$ à palavra que é lida entre as primeiras duas ocorrências de $q$, e $\omega_3$ à restante palavra.
+
+Temos então que
+
+- $|\omega_2| > 0$
+- $| \omega_1 . \omega_2 | \leq p$, porque ainda não se repetiu estados
+- $\omega_1 . \omega_2^t . \omega_3 \in L$, uma vez que podemos apenas repetir as transições de estados que acontecem entre as duas ocorrências de $q$ quantas vezes quisermos.
+
+:::
+
+:::details[Exemplo do Lema de Pumping]
+
+Vamos usar o Lema de Pumping para provar que a linguagem $L = \{ a^n b^n : n \in \mathbb{N}_0 \}$ não é regular.  
+Assuma-se que a linguagem é regular.
+Segundo o Lema de Pumping, existem, para algum $k \in \mathbb{N}$, $\omega_1, \omega_2, \omega_3 \in \Sigma^*$ tal que $\omega = \omega_1 \omega_2 \omega_3$ tais que:
+
+- $\omega_2 \neq \epsilon$;
+- $|\omega_1 \omega_2 | \leq k$;
+- $\omega_1 \omega_2^t \omega_3 \in L$ para cada $t \in \mathbb{N}_0$.
+  Considere-se uma palavra $\omega = a^l b^l$ com $l>k$.
+  Como $|\omega| = 2l > k$, esta palavra está na condição do Lema.
+  Como $|\omega_1 \omega_2| \leq k < l$, temos que $\omega_1 = a^x$ e $\omega = a^y$ para $y \neq 0$.
+  Consequentemente, temos que $\omega_1 \omega_2^0 \omega_3 = a^{l-y} b^l$ tabém pertence à linguagem $L$.  
+  Contudo isto é claramente um absurdo, pelo que a linguagem em questão não é regular.
+
+:::
+
+## Autómato de Pilha
+
+Um [**autómato de pilha (AP)**](color:orange) (em inglês _push-down automaton_) é um tuplo $P = (\Sigma, \Gamma, Q, q_{in}, F, \delta)$ em que:
+
+- $\Sigma$ é um alfabeto;
+- $\Gamma$ é um alfabeto auxiliar;
+- $Q$ é um conjunto finito não vazio de estados;
+- $q_{in} \in Q$ é o estado inicial;
+- $F \subset Q$ é o conjunto de estados finais;
+- $\delta: Q \times (\Sigma \cup \{ \epsilon \}) \times (\Gamma \cup \{ \epsilon \}) \to \wp(Q \times (\Gamma \cup \{ \epsilon \}))$
+
+Explicando de forma mais simples, um [autómato de pilha](color:orange) é um AFND ao qual se adiciona uma estrutura adicional: uma [pilha](https://en.wikipedia.org/wiki/Stack_%28abstract_data_type%29).
+
+As linguagens que são reconhecidas por AP's são denominadas de [**linguagens independentes do contexto**](color:yellow), que abreviamos para [**IND**](color:yellow) ou $\mathcal{IND}$.  
+Temos que $\mathcal{REG} \subsetneq \mathcal{IND}$, isto é, todas as linguagens regulares são independentes de contexto, havendo linguagens que são independentes de contexto, mas não são regulares.
+
+:::details[Prova]
+
+Que $\mathcal{REG} \subset \mathcal{IND}$, uma vez que um autómato de pilha é uma generalização de um AFD. Para fazer um AP que reconheça qualquer $L \in \mathcal{REG}$ basta considerar o AP que é igual ao AFD que reconhece $L$, em que nenhuma transição mexe na pilha.  
+Que $\mathcal{REG} \neq \mathcal{IND}$ é também evidente: já vimos a cima pelo menos uma linguagem que é independente de contexto, mas não é regular (a linguagem das palavras $a^n b^n, n \in \mathbb{N}_0$).
+
+:::
