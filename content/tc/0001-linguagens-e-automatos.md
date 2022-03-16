@@ -730,6 +730,7 @@ Para um alfabeto $\Sigma$ definimos o **conjunto das [expressões regulares](col
 Para simplificar vamos ocultar os parêntesis quando desnecessários, e vamos abreviar $\alpha . \beta$ por $\alpha \beta$.
 
 Dada uma expressão regular $\alpha \in R_\Sigma$, definimos a **linguagem denotada** por $\alpha$ como o conjunto $L(\alpha) \subset \Sigma^*$ definido indutivamente como se segue:
+
 - $L(\emptyset) = \emptyset$;
 - $L(\omega) = \{ \omega \}$ para cada $\omega \in \Sigma^*$;
 - $L(\alpha_1 + \alpha_2) = L(\alpha_1) \cup L(\alpha_2)$;
@@ -741,6 +742,7 @@ Duas [expressões regulares](color:green) dizem-se equivalentes ($\alpha_1 = \al
 :::tip[Proposições para expressões regulares]
 
 Sobre expressões regulares, verificam-se as segunites propriedades:
+
 - $\alpha + \beta = \beta + \alpha$;
 - $\alpha + (\beta + \gamma) = (\alpha + \beta) + \gamma$;
 - $\alpha (\beta  \gamma) = (\alpha  \beta)  \gamma$;
@@ -778,9 +780,11 @@ Para qualquer AFD, é possível reescrevê-lo como um sitema de equações linea
 :::tip[Solução de uma Equação Linear com Expressões Regulares]
 
 Para resolver sistemas de equações com expressões regulares, observamos que a equação
+
 $$
 X = \beta X + \gamma
 $$
+
 tem como solução a expressão regular $X = \beta^* \gamma$.
 
 Desta forma, podemos resolver um sistema de $n$ equações com $n$ variáveis tal como fazemos nos números reais.  
@@ -792,7 +796,7 @@ Ver o exemplo a baixo para perceber como.
 
 Considere-se o seguinte AFD:
 
-![TODO](tyvm_gaspar.png)
+![Grafo de um AFD](./imgs/0001/AFD_graph.png#dark=1)
 
 Podemos traduzir o AFD no seguinte sistema de equações:
 
@@ -809,8 +813,10 @@ q_1 = a q_1 + (b+c) q_2 + \epsilon \\
 q_2 = a q_1 + (b+c) q_2
 \end{cases}
 $$
+
 Note-se como o sistema a cima tem $n$ equações (uma para cada estado) e $n$ variáveis (também uma para cada estado).  
 Vemos agora que a terceira equação é linear em $q_2$, pelo que podemos substituir diretamente pela solução.
+
 $$
 \begin{cases}
 q_{in} = a q_1 \\
@@ -824,6 +830,7 @@ q_1 = a q_1 + (b+c) (b+c)^* a q_1 + \epsilon \\
 q_2 = (b+c)^* a q_1
 \end{cases}
 $$
+
 $$
 \Leftrightarrow
 \begin{cases}
@@ -838,7 +845,9 @@ q_1 = (b+c)^* a q_1 + \epsilon \\
 q_2 = (b+c)^* a q_1
 \end{cases}
 $$
+
 Ficamos agora também com uma equação linear em $q_1$:
+
 $$
 \begin{cases}
 q_{in} = a q_1 \\
@@ -891,14 +900,15 @@ Temos então que
 Vamos usar o Lema de Pumping para provar que a linguagem $L = \{ a^n b^n : n \in \mathbb{N}_0 \}$ não é regular.  
 Assuma-se que a linguagem é regular.
 Segundo o Lema de Pumping, existem, para algum $k \in \mathbb{N}$, $\omega_1, \omega_2, \omega_3 \in \Sigma^*$ tal que $\omega = \omega_1 \omega_2 \omega_3$ tais que:
+
 - $\omega_2 \neq \epsilon$;
 - $|\omega_1 \omega_2 | \leq k$;
 - $\omega_1 \omega_2^t \omega_3 \in L$ para cada $t \in \mathbb{N}_0$.
-Considere-se uma palavra $\omega = a^l b^l$ com $l>k$.
-Como $|\omega| = 2l > k$, esta palavra está na condição do Lema.
-Como $|\omega_1 \omega_2| \leq k < l$, temos que $\omega_1 = a^x$ e $\omega = a^y$ para $y \neq 0$.
-Consequentemente, temos que $\omega_1 \omega_2^0 \omega_3 = a^{l-y} b^l$ tabém pertence à linguagem $L$.  
-Contudo isto é claramente um absurdo, pelo que a linguagem em questão não é regular.
+  Considere-se uma palavra $\omega = a^l b^l$ com $l>k$.
+  Como $|\omega| = 2l > k$, esta palavra está na condição do Lema.
+  Como $|\omega_1 \omega_2| \leq k < l$, temos que $\omega_1 = a^x$ e $\omega = a^y$ para $y \neq 0$.
+  Consequentemente, temos que $\omega_1 \omega_2^0 \omega_3 = a^{l-y} b^l$ tabém pertence à linguagem $L$.  
+  Contudo isto é claramente um absurdo, pelo que a linguagem em questão não é regular.
 
 :::
 
