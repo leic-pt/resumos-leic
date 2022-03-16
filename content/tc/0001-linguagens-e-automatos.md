@@ -15,7 +15,7 @@ type: content
 
 Definimos um [**alfabeto**](color:orange) como um conjunto finito não-vazio (de símbolos). Um alfabeto costuma ser representado pela gregra letra $\Sigma$.
 
-:::details[Exemplo de Alfabeto]
+:::info[Exemplo de Alfabeto]
 
 Um exemplo de um alfabeto é o conjunto $\{a,b,c\}$
 
@@ -24,7 +24,7 @@ Um exemplo de um alfabeto é o conjunto $\{a,b,c\}$
 Definimos uma [**palavra**](color:yellow) sobre um alfabeto $\Sigma$ como uma sequência finita de elementos de $\Sigma$. O conjunto de todas as palavras constituídas pelos símbolos do alfabeto $\Sigma$ é representado por $\Sigma^*$.  
 Todos os alfabetos contêm uma palavra, a que se dá o nome de palavra vazia. Esta costuma ser representada pela letra grega $\epsilon$.
 
-:::details[Exemplo de Palavra]
+:::info[Exemplo de Palavra]
 
 O conjunto de palavras sobre o alfabeto $\{a,b,c\}$ contém, por exemplo, as palavras $a, ab, cccc, cbabca$. Contudo, não contém as palavras $d$, $abababae$, $ffffff$.
 
@@ -73,7 +73,7 @@ Denotamos por $\mathcal{L}^\Sigma$ o conjunto de todas as linguagens sobre $\Sig
 Dadas duas linguagens $L_1, L_2 \in \mathcal{L}^\Sigma$, definimos a **concatenação** das linguagens como sendo a linguagem $L_1 . L_2 = \{ uv : u \in L_1, v \in L_2 \}$.
 
 Definimos ainda o **fecho de Kleene** de uma linguagem $L$ à linguagem
-$ L^\* = \{u_1 . u_2 . \cdots . u_n : n \in \mathbb{N}\_0, u_1, u_2, \cdots, u_n \in L \} $
+$L^* = \{u_1 . u_2 . \cdots . u_n : n \in \mathbb{N}\_0, u_1, u_2, \cdots, u_n \in L \}$
 
 :::
 
@@ -138,13 +138,13 @@ Este gráfico representa o autómato cujo:
 - conjunto de estados finais é $\{q_1\}$;
 - função de transição é tal que
   $$
-  \begin{matrix}
-  \delta &|& a   &  b  &  c  \\
-  -&-&-&-&- \\
-  q_{in} &|& q_1 &     &     \\
-  q_1    &|& q_1 & q_2 & q_2 \\
-  q_2    &|& q_1 & q_2 & q_2
-  \end{matrix}
+  \begin{array}{c|ccc}
+  \delta & a   &  b  &  c  \\
+  \hline
+  q_{in} & q_1 &     &     \\
+  q_1    & q_1 & q_2 & q_2 \\
+  q_2    & q_1 & q_2 & q_2
+  \end{array}
   $$
 
 Mais genericamente, a representação gráfica de um autómato é tal que:
@@ -230,16 +230,16 @@ Ora, procurando seguir os passos descritos na descrição acima:
 
 - De seguida, determinar os estados [produtivos](color:orange): fazer BFS's, partindo de cada estado final, pelo "autómato transposto":
 
-      Inicialmente, o grafo transposto encontra-se assim (os estados finais estão, claro, no conjunto dos estados produtivos):
-      ![BFS's - Estados produtivos (1)](./imgs/0001/BFS_PRODUTIVOS_1.png#dark=1)
+  Inicialmente, o grafo transposto encontra-se assim (os estados finais estão, claro, no conjunto dos estados produtivos):
+  ![BFS's - Estados produtivos (1)](./imgs/0001/BFS_PRODUTIVOS_1.png#dark=1)
 
-      Realizamos aqui o **primeiro passo** da BFS - partindo dos estados finais, $q_1$ e $q_4$, realizamos uma procura pelos estados a que podemos chegar a partir deles:
-      ![BFS's - Estados produtivos (2)](./imgs/0001/BFS_PRODUTIVOS_2.png#dark=1)
+  Realizamos aqui o **primeiro passo** da BFS - partindo dos estados finais, $q_1$ e $q_4$, realizamos uma procura pelos estados a que podemos chegar a partir deles:
+  ![BFS's - Estados produtivos (2)](./imgs/0001/BFS_PRODUTIVOS_2.png#dark=1)
 
-      Repetimos o passo anterior, desta vez partindo dos estados que obtivemos acima: $q_{in}$ e $q_2$:
-      ![BFS's - Estados produtivos (3)](./imgs/0001/BFS_PRODUTIVOS_3.png#dark=1)
+  Repetimos o passo anterior, desta vez partindo dos estados que obtivemos acima: $q_{in}$ e $q_2$:
+  ![BFS's - Estados produtivos (3)](./imgs/0001/BFS_PRODUTIVOS_3.png#dark=1)
 
-      A partir dos estados acima obtidos, não podemos atingir qualquer outro estado, pelo que o algoritmo pára e temos determinado o conjunto de estados produtivos do autómato.
+  A partir dos estados acima obtidos, não podemos atingir qualquer outro estado, pelo que o algoritmo pára e temos determinado o conjunto de estados produtivos do autómato.
 
   Ora, temos então dois conjuntos em mãos:
 
@@ -545,7 +545,7 @@ Pode agora ser mais claro o porquê de considerarmos dois estados equivalentes/d
 
 Introduzimos a notação $\wp(S)$ como o conjunto dos subconjuntos do conjunto $S$. Também se diz que este é o **conjunto das partes** de $S$.
 
-:::details[Exemplo de um Conjunto de Partes]
+:::info[Exemplo de um Conjunto de Partes]
 
 Temos, por exemplo, que $\wp(\{0,1\}) = \{\emptyset, \{0\}, \{1\}, \{0,1\}\}$.
 
@@ -582,16 +582,16 @@ Este gráfico representa o autómato cujo:
 - conjunto de estados finais é $\{q_5\}$;
 - função de transição é tal que
   $$
-  \begin{matrix}
-  \delta &|& a   &  b  &  c & \epsilon \\
-  -&-&--&--&---&--- \\
-  q_{in} &|& \emptyset & \emptyset & \emptyset & \{ q_1, q_3 \} \\
-  q_1 &|& \{ q_2 \} & \{ q_1 \} & \{ q_1 \} & \emptyset \\
-  q_2 &|& \{ q_1 \} & \{ q_2 \} & \{ q_2 \} & \{ q_5 \} \\
-  q_3 &|& \{ q_3 \} & \{ q_3 \} & \{ q_3, q_4 \} & \{ q_4 \} \\
-  q_4 &|& \emptyset & \emptyset & \{ q_5 \} & \emptyset \\
-  q_5 &|& \emptyset & \emptyset & \emptyset & \emptyset
-  \end{matrix}
+  \begin{array}{c|cccc}
+  \delta & a   &  b  &  c & \epsilon \\
+  \hline
+  q_{in} & \emptyset & \emptyset & \emptyset & \{ q_1, q_3 \} \\
+  q_1 & \{ q_2 \} & \{ q_1 \} & \{ q_1 \} & \emptyset \\
+  q_2 & \{ q_1 \} & \{ q_2 \} & \{ q_2 \} & \{ q_5 \} \\
+  q_3 & \{ q_3 \} & \{ q_3 \} & \{ q_3, q_4 \} & \{ q_4 \} \\
+  q_4 & \emptyset & \emptyset & \{ q_5 \} & \emptyset \\
+  q_5 & \emptyset & \emptyset & \emptyset & \emptyset
+  \end{array}
   $$
 
 :::
@@ -657,7 +657,7 @@ A **linguagem reconhecida** por um AFND é o conjunto das palavras aceites por e
 
 :::details[Exemplo de Linguagem Reconhecida por um AFND]
 
-// TODO
+// TODO (em breve)
 
 :::
 
@@ -727,7 +727,7 @@ Ora, isto equivale a $q$ ser um estado final em $A'$, pelo que $\epsilon$ també
 
 :::details[Exemplo da remoção de movimentos-$\epsilon$]
 
-// TODO
+// TODO (em breve)
 
 :::
 
@@ -766,7 +766,7 @@ Então, se $q$ for final em $A$, temos que $C \cap F \neq \emptyset$ e $C$ é fi
 
 :::details[Exemplo da passagem de AFND para AFD]
 
-// TODO
+// TODO (exemplo)
 
 :::
 
