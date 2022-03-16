@@ -15,7 +15,7 @@ type: content
 
 Definimos um [**alfabeto**](color:orange) como um conjunto finito não-vazio (de símbolos). Um alfabeto costuma ser representado pela gregra letra $\Sigma$.
 
-:::details[Exemplo de Alfabeto]
+:::info[Exemplo de Alfabeto]
 
 Um exemplo de um alfabeto é o conjunto $\{a,b,c\}$
 
@@ -24,7 +24,7 @@ Um exemplo de um alfabeto é o conjunto $\{a,b,c\}$
 Definimos uma [**palavra**](color:yellow) sobre um alfabeto $\Sigma$ como uma sequência finita de elementos de $\Sigma$. O conjunto de todas as palavras constituídas pelos símbolos do alfabeto $\Sigma$ é representado por $\Sigma^*$.  
 Todos os alfabetos contêm uma palavra, a que se dá o nome de palavra vazia. Esta costuma ser representada pela letra grega $\epsilon$.
 
-:::details[Exemplo de Palavra]
+:::info[Exemplo de Palavra]
 
 O conjunto de palavras sobre o alfabeto $\{a,b,c\}$ contém, por exemplo, as palavras $a, ab, cccc, cbabca$. Contudo, não contém as palavras $d$, $abababae$, $ffffff$.
 
@@ -73,7 +73,7 @@ Denotamos por $\mathcal{L}^\Sigma$ o conjunto de todas as linguagens sobre $\Sig
 Dadas duas linguagens $L_1, L_2 \in \mathcal{L}^\Sigma$, definimos a **concatenação** das linguagens como sendo a linguagem $L_1 . L_2 = \{ uv : u \in L_1, v \in L_2 \}$.
 
 Definimos ainda o **fecho de Kleene** de uma linguagem $L$ à linguagem
-$ L^\* = \{u_1 . u_2 . \cdots . u_n : n \in \mathbb{N}\_0, u_1, u_2, \cdots, u_n \in L \} $
+$L^* = \{u_1 . u_2 . \cdots . u_n : n \in \mathbb{N}\_0, u_1, u_2, \cdots, u_n \in L \}$
 
 :::
 
@@ -86,11 +86,11 @@ Têm um alfabeto (no caso do português, corresponde às letras - minúsculas, m
 
 :::
 
-## Autómatos Finitos Deterministas e Não Deterministas
+## Autómatos
 
-### Autómatos Finitos Deterministas
+### Autómatos Finitos Determinísticos
 
-Um [**autómato finito determinista (AFD)**](color:purple) é definido como um quíntuplo
+Um [**autómato finito determinístico (AFD)**](color:purple) é definido como um quíntuplo
 $(\Sigma, Q, q_{in}, F, \delta)$ tal que
 
 - $\Sigma$ é um alfabeto;
@@ -138,13 +138,13 @@ Este gráfico representa o autómato cujo:
 - conjunto de estados finais é $\{q_1\}$;
 - função de transição é tal que
   $$
-  \begin{matrix}
-  \delta &|& a   &  b  &  c  \\
-  -&-&-&-&- \\
-  q_{in} &|& q_1 &     &     \\
-  q_1    &|& q_1 & q_2 & q_2 \\
-  q_2    &|& q_1 & q_2 & q_2
-  \end{matrix}
+  \begin{array}{c|ccc}
+  \delta & a   &  b  &  c  \\
+  \hline
+  q_{in} & q_1 &     &     \\
+  q_1    & q_1 & q_2 & q_2 \\
+  q_2    & q_1 & q_2 & q_2
+  \end{array}
   $$
 
 Mais genericamente, a representação gráfica de um autómato é tal que:
@@ -156,7 +156,7 @@ Mais genericamente, a representação gráfica de um autómato é tal que:
 
 :::
 
-Uma linguagem $L \subset \Sigma^*$ diz-se [**regular**](color:brown) se existe uma AFD $D$ com alfabeto $\Sigma$ tal que $L(D) = L$. Por vezes abreviamos [linguagem regular](color:brown) por [REG](color:brown). Denota-se por $\mathcal{REG}^\Sigma$ o conjunto de todas as linguagens regulares com alfabeto $\Sigma$.  
+Uma linguagem $L \subset \Sigma^*$ diz-se [**regular**](color:brown) se existe uma AFD $D$ com alfabeto $\Sigma$ tal que $L(D) = L$. Denota-se por $\mathcal{REG}^\Sigma$ o conjunto de todas as linguagens regulares com alfabeto $\Sigma$.  
 Usa-se apenas $\mathcal{REG}$ em vez de $\mathcal{REG}^\Sigma$ sempre que o alfabeto esteja subentendido ou não seja importante o contexto.
 
 ### Equivalência e Minimização de AFD's
@@ -186,7 +186,7 @@ O algoritmo recebe como input um AFD $D = (\Sigma, Q, q_{in}, F, \delta)$ e dá 
 5. $Aux := \bigcup_{a \in \Sigma} \{ p : \delta(p, a) \in F \}$;
 6. enquanto $Aux \nsubseteq Prd$
    1. $Prd := Prd \cup Aux$;
-   2. $Aux := \bigcup_{a \in \Sigma} \{ p : \delta(p, a) \in Aux \}$;  
+   2. $Aux := \bigcup_{a \in \Sigma} \{ \delta(p, a) : p \in Aux \}$;  
       [Estados produtivos determinados](color:orange)
 7. $Ut := Ac \cap Prd$;
 8. $In := Q \backslash Ut$.  
@@ -206,7 +206,54 @@ Para facilitar a compreensão do algoritmo, pode ser útil vê-lo em prática no
 
 :::details[Exemplo de aplicação do APEN]
 
-// TODO
+Tenhamos um AFD tal que:
+
+![Autómato Inicial - APEN](./imgs/0001/APEN_AUTOM_INI.png#dark=1)
+
+Ora, procurando seguir os passos descritos na descrição acima:
+
+- Descobrir os estados [acessíveis](color:yellow) passa por realizar uma BFS a partir do estado inicial, $q_in$ - todos os estados encontrados dizem-se [acessíveis](color:yellow):
+
+  Começamos com o conjunto de estados acessíveis a conter apenas $q_{in}$:
+
+  ![BFS - Estados acessíveis (1)](./imgs/0001/BFS_ACESSIVEIS_1.png#dark=1)
+
+  Logo de seguida, começamos a **BFS** partindo desse mesmo estado:
+
+  ![BFS - Estados acessíveis (2)](./imgs/0001/BFS_ACESSIVEIS_2.png#dark=1)
+
+  Encontrámos, a distância $1$ do estado inicial, os estados $q_1, q_2, q_5$. A BFS continua então, partindo desses mesmos estados, tal que:
+
+  ![BFS - Estados acessíveis (3)](./imgs/0001/BFS_ACESSIVEIS_3.png#dark=1)
+
+  Podemos observar que a procura encontrou aqui $q_4$. Mais ainda, temos que **não há mais caminhos** por onde prosseguir. A procura termina, portanto, e o conjunto de estados acessíveis foi obtido.
+
+- De seguida, determinar os estados [produtivos](color:orange): fazer BFS's, partindo de cada estado final, pelo "autómato transposto":
+
+  Inicialmente, o grafo transposto encontra-se assim (os estados finais estão, claro, no conjunto dos estados produtivos):
+  ![BFS's - Estados produtivos (1)](./imgs/0001/BFS_PRODUTIVOS_1.png#dark=1)
+
+  Realizamos aqui o **primeiro passo** da BFS - partindo dos estados finais, $q_1$ e $q_4$, realizamos uma procura pelos estados a que podemos chegar a partir deles:
+  ![BFS's - Estados produtivos (2)](./imgs/0001/BFS_PRODUTIVOS_2.png#dark=1)
+
+  Repetimos o passo anterior, desta vez partindo dos estados que obtivemos acima: $q_{in}$ e $q_2$:
+  ![BFS's - Estados produtivos (3)](./imgs/0001/BFS_PRODUTIVOS_3.png#dark=1)
+
+  A partir dos estados acima obtidos, não podemos atingir qualquer outro estado, pelo que o algoritmo pára e temos determinado o conjunto de estados produtivos do autómato.
+
+  Ora, temos então dois conjuntos em mãos:
+
+$$
+\text{Estados Acessiveis} = \{q_{in}, q_1, q_2, q_4, q_5\}\\
+\text{Estados Produtivos} = \{q_{in}, q_1, q_2, q_3, q_4, q_5, q_6\}
+$$
+
+Pela definição da utilidade de um estado (um estado diz-se [útil](color:red) caso seja acessível e produtivo), podemos dizer que a interseção dos conjuntos acima corresponde ao conjunto dos estados úteis do autómato, e que portanto:
+
+$$
+\text{Estados Úteis} = Ac \cap Prd = \{q_in, q_1, q_2, q_4, q_5\}\\
+\text{Estados Inúteis} = Q \backslash Ut = \{q_3, q_6, q_7\}
+$$
 
 :::
 
@@ -275,7 +322,82 @@ Para ajudar a compreender este algoritmo pode ser útil vê-lo em prática a bai
 
 :::details[Exemplo de aplicação do APED]
 
-// TODO
+Consideremos um AFD tal que:
+
+![AFD - APED](./imgs/0001/DISTINGUIVEIS-AFD.png#dark=1)
+
+A nossa primeira tarefa será **preencher $\Delta$ segundo os três critérios iniciais**:
+
+- Num primeiro momento, organizar pares onde um elemento é um estado final e o outro é um estado não final (a ordem é irrelevante) - temos, neste momento:
+
+$$
+\Delta = \{[p, q], [q, s], [q, r]\}
+$$
+
+- De seguida, criar pares onde um elemento é um estado produtivo e o outro não - fazendo a BFS mencionada [acima](./linguagens-e-automatos#equivalência-e-minimzação-de-AFDs), verificamos que todos os estados são produtivos, pelo que $\Delta$ permanece igual.
+
+- Por fim, encontrar todos os pares tais que um dos vértices **transita, segundo um dado símbolo, para um estado produtivo**, e o outro não tem qualquer transição associada a esse símbolo. Verificar esta condição pode ser mais fácil seguindo algumas heurísticas:
+
+  - Num primeiro momento, verificar **todos os estados** para os quais nem todos os símbolos têm uma transição definida - aqui, $p$ não tem transição definida para $b$ e $c$, e é o único nessa situação. Podemos a partir daqui depreender que qualquer par obtido através desta "procura" terá de envolver $p$.
+
+  - Obtidos símbolos sem transição definida para $p$, aqui $b$ e $c$, procuramos os estados que têm transição definida para os mesmos **e onde essa transição leve a um estado produtivo**. Neste caso, $q$ tem transições segundo $b$ e $c$ para estados produtivos, tais como $r$ e $s$, pelo que podemos admitir que os pares criados por esta procura são $\{[p, q], [p, r], [p, s]\}$.
+
+  No final destes três passos, ficamos com:
+
+  $$
+  \Delta = \{[p, q], [q, s], [q, r], [p, r], [p, s]\}.
+  $$
+
+O resto do algoritmo normalmente faz-se recorrendo a uma tabela, onde cada linha e coluna correspondem a um dos estados do autómato (só se utiliza **metade** da tabela, já que é simétrica). A tabela corresponde ao autómato em questão seria:
+
+| $s$ |              |              |              | $\backslash$ |
+| --- | ------------ | ------------ | ------------ | ------------ |
+| $r$ |              |              | $\backslash$ | $\backslash$ |
+| $q$ |              | $\backslash$ | $\backslash$ | $\backslash$ |
+| $p$ | $\backslash$ | $\backslash$ | $\backslash$ | $\backslash$ |
+|     | $p$          | $q$          | $r$          | $s$          |
+
+Cada entrada na tabela corresponde a um dos **pares** de estados possíveis. Começamos por preencher a tabela com uma **cruz** em cada entrada que corresponde a um par em $\Delta$. Seria, portanto:
+
+| $s$ | $\times$     | $\times$     |              | $\backslash$ |
+| --- | ------------ | ------------ | ------------ | ------------ |
+| $r$ | $\times$     | $\times$     | $\backslash$ | $\backslash$ |
+| $q$ | $\times$     | $\backslash$ | $\backslash$ | $\backslash$ |
+| $p$ | $\backslash$ | $\backslash$ | $\backslash$ | $\backslash$ |
+|     | $p$          | $q$          | $r$          | $s$          |
+
+Entramos aqui na secção porventura mais desagradável: percorrer **todos os pares de $\Delta$** (que tenham uma cruz na tabela, portanto), e para cada um deles, verificar se existe um par que não esteja em $\Delta$ tal que, segundo transições por um mesmo símbolo, chegam ao par de estados original (e adicionar qualquer estado encontrado à tabela). Assim que um par é encontrado, a cruz na tabela é rodeada por um círculo (para anotar que já foi explorado).
+
+Ora, procuremos então percorrer$\Delta$:
+
+- todos os estados que incluem $p$ não adicionam pares a $\Delta$, já que não há qualquer estado a **transicionar** para $p$ sequer. A tabela fica, então:
+
+| $s$ | $\textcircled\times$ | $\times$     |              | $\backslash$ |
+| --- | -------------------- | ------------ | ------------ | ------------ |
+| $r$ | $\textcircled\times$ | $\times$     | $\backslash$ | $\backslash$ |
+| $q$ | $\textcircled\times$ | $\backslash$ | $\backslash$ | $\backslash$ |
+| $p$ | $\backslash$         | $\backslash$ | $\backslash$ | $\backslash$ |
+|     | $p$                  | $q$          | $r$          | $s$          |
+
+- olhando para o estado $[q, r]$, podemos notar que não há qualquer par de estados que não esteja em $\Delta$ e em que, segundo o mesmo símbolo, leve ao estado $[q, r]$. Não existe qualquer estado segundo $a$ a transicionar para $r$, nem nenhum estado que segundo $b$ ou $c$ transicione para $q$, pelo que o estado dá-se por explorado sem adicionar nada de novo à tabela (sem ser circular a cruz respetiva a $[q, r]$).
+
+| $s$ | $\textcircled\times$ | $\times$             |              | $\backslash$ |
+| --- | -------------------- | -------------------- | ------------ | ------------ |
+| $r$ | $\textcircled\times$ | $\textcircled\times$ | $\backslash$ | $\backslash$ |
+| $q$ | $\textcircled\times$ | $\backslash$         | $\backslash$ | $\backslash$ |
+| $p$ | $\backslash$         | $\backslash$         | $\backslash$ | $\backslash$ |
+|     | $p$                  | $q$                  | $r$          | $s$          |
+
+- por fim, resta explorar $[q, s]$. Não existe qualquer estado segundo $a$ a transicionar para $s$, nem nenhum estado que segundo $b$ ou $c$ transicione para $q$, pelo que o estado dá-se por explorado sem adicionar nada de novo à tabela (sem ser circular a cruz respetiva a $[q, s]$).
+
+| $s$ | $\textcircled\times$ | $\textcircled\times$ |              | $\backslash$ |
+| --- | -------------------- | -------------------- | ------------ | ------------ |
+| $r$ | $\textcircled\times$ | $\textcircled\times$ | $\backslash$ | $\backslash$ |
+| $q$ | $\textcircled\times$ | $\backslash$         | $\backslash$ | $\backslash$ |
+| $p$ | $\backslash$         | $\backslash$         | $\backslash$ | $\backslash$ |
+|     | $p$                  | $q$                  | $r$          | $s$          |
+
+Todas as entradas com cruzes na tabela foram oficialmente exploradas. Os estados distinguíveis correspondem, então, às **entradas com cruzes** da tabela: podemos afirmar que todos os pares de estados do autómato, exceto $[r, s]$, são distinguíveis entre si.
 
 :::
 
@@ -392,15 +514,38 @@ Quer isto dizer que qualquer palavra aceite por $D$ é também aceite por $m_D$.
 
 :::details[Exemplo da Minimização de um AFD]
 
-// TODO
+Consideremos o seguinte autómato:
+
+![AFD - Minimização](./imgs/0001/MINIMIZACAO-AFD.png#dark=1)
+
+Apesar do decorrer do algoritmo de procura de estados distinguíveis não constar deste exemplo, consideremos que, aquando do concluir do mesmo, a tabela é tal que:
+
+| $q_5$ | $\textcircled\times$ | $\textcircled\times$ | $\textcircled\times$ | $\textcircled\times$ |              | $\backslash$ |
+| ----- | -------------------- | -------------------- | -------------------- | -------------------- | ------------ | ------------ |
+| $q_4$ | $\textcircled\times$ | $\textcircled\times$ | $\textcircled\times$ | $\textcircled\times$ | $\backslash$ | $\backslash$ |
+| $q_3$ | $\textcircled\times$ | $\textcircled\times$ | $\textcircled\times$ | $\backslash$         | $\backslash$ | $\backslash$ |
+| $q_2$ | $\textcircled\times$ |                      | $\backslash$         | $\backslash$         | $\backslash$ | $\backslash$ |
+| $q_1$ | $\textcircled\times$ | $\backslash$         | $\backslash$         | $\backslash$         | $\backslash$ | $\backslash$ |
+| $q_0$ | $\backslash$         | $\backslash$         | $\backslash$         | $\backslash$         | $\backslash$ | $\backslash$ |
+|       | $q_0$                | $q_1$                | $q_2$                | $q_3$                | $q_4$        | $q_5$        |
+
+A tabela final tem, portanto, **dois pares de estados equivalentes**: $[q_1, q_2]$ e $[q_4, q_5]$. Ao desenhar o autómato minimizado, **os estados presentes em cada par terão de estar juntos**.
+
+![AFD - Minimização](./imgs/0001/AFD_MINIMIZADO.png#dark=1)
+
+Pode agora ser mais claro o porquê de considerarmos dois estados equivalentes/distinguíveis: os estados equivalentes têm, no autómato original, transições equivalentes (segundo o mesmo símbolo vão sempre para um estado num "grupo de estados equivalentes"). No caso de $q_1, q_2$, por exemplo, temos que:
+
+- através de $a$ transicionam para o próprio estado em ambas as situações;
+- através de $b$ transicionam, em ambos os casos, para $q_0$;
+- através de $c$ transicionam, em ambos os casos, para um estado dentro do "par equivalente" $[q_4, q_5]$ - $q_1$ para $q_4$ e $q_2$ para $q_5$.
 
 :::
 
-### Autómatos Finitos Não Deterministas
+### Autómatos Finitos Não Determinísticos
 
 Introduzimos a notação $\wp(S)$ como o conjunto dos subconjuntos do conjunto $S$. Também se diz que este é o **conjunto das partes** de $S$.
 
-:::details[Exemplo de um Conjunto de Partes]
+:::info[Exemplo de um Conjunto de Partes]
 
 Temos, por exemplo, que $\wp(\{0,1\}) = \{\emptyset, \{0\}, \{1\}, \{0,1\}\}$.
 
@@ -412,7 +557,7 @@ Se um conjunto $S$ tem $n$ elementos, o conjunto $\wp(S)$ tem $2^n$ elementos.
 
 :::
 
-Um [**autómato finito não determinista (AFND)**](color:pink) é definido como um quíntuplo $(\Sigma, Q, q_{in}, F, \delta)$ tal que:
+Um [**autómato finito não determinístico (AFND)**](color:pink) é definido como um quíntuplo $(\Sigma, Q, q_{in}, F, \delta)$ tal que:
 
 - $\Sigma$ é um alfabeto;
 - $Q$ é um conjunto finito de **estados**;
@@ -422,7 +567,7 @@ Um [**autómato finito não determinista (AFND)**](color:pink) é definido como 
 
 Note-se que a diferença entre um AFND e um AFD é que a função de transição num AFD **não é determinística**, na medida em que não define um e um só estado. Para cada par $(q, a) \in Q \times \Sigma$ temos que $\delta(q, a)$ define o subconjunto de $Q$ dos estados que podem resultar da transição por $a$ a partir de $q$.
 
-Podemos ainda assinalar o autómato finito não determinista como [**AFND$^\epsilon$**](color:pink) se a função de transição tiver como domínio $Q \times (\Sigma \times \{ \epsilon \})$. Ou seja, um AFND$^\epsilon$ é tal que pode haver transições que não são "causadas" por letra nenhuma. Nesta situação diz-se que o AFND tem **movimentos-$\epsilon$**.  
+Podemos ainda assinalar o autómato finito não determinístico como [**AFND$^\epsilon$**](color:pink) se a função de transição tiver como domínio $Q \times (\Sigma \times \{ \epsilon \})$. Ou seja, um AFND$^\epsilon$ é tal que pode haver transições que não são "causadas" por letra nenhuma. Nesta situação diz-se que o AFND tem **movimentos-$\epsilon$**.  
 A distinção entre AFND e AFND$^\epsilon$ é negligenciada em contextos que não seja relevante. Para simplificar, pode-se assumir que um AFND está sempre dotado de movimentos-$\epsilon$.
 
 :::tip[Grafo de um AFND]
@@ -437,16 +582,16 @@ Este gráfico representa o autómato cujo:
 - conjunto de estados finais é $\{q_5\}$;
 - função de transição é tal que
   $$
-  \begin{matrix}
-  \delta &|& a   &  b  &  c & \epsilon \\
-  -&-&--&--&---&--- \\
-  q_{in} &|& \emptyset & \emptyset & \emptyset & \{ q_1, q_3 \} \\
-  q_1 &|& \{ q_2 \} & \{ q_1 \} & \{ q_1 \} & \emptyset \\
-  q_2 &|& \{ q_1 \} & \{ q_2 \} & \{ q_2 \} & \{ q_5 \} \\
-  q_3 &|& \{ q_3 \} & \{ q_3 \} & \{ q_3, q_4 \} & \{ q_4 \} \\
-  q_4 &|& \emptyset & \emptyset & \{ q_5 \} & \emptyset \\
-  q_5 &|& \emptyset & \emptyset & \emptyset & \emptyset
-  \end{matrix}
+  \begin{array}{c|cccc}
+  \delta & a   &  b  &  c & \epsilon \\
+  \hline
+  q_{in} & \emptyset & \emptyset & \emptyset & \{ q_1, q_3 \} \\
+  q_1 & \{ q_2 \} & \{ q_1 \} & \{ q_1 \} & \emptyset \\
+  q_2 & \{ q_1 \} & \{ q_2 \} & \{ q_2 \} & \{ q_5 \} \\
+  q_3 & \{ q_3 \} & \{ q_3 \} & \{ q_3, q_4 \} & \{ q_4 \} \\
+  q_4 & \emptyset & \emptyset & \{ q_5 \} & \emptyset \\
+  q_5 & \emptyset & \emptyset & \emptyset & \emptyset
+  \end{array}
   $$
 
 :::
@@ -473,12 +618,38 @@ $$
 Através desta função, podemos definir a **palavra aceite** por um AFND como qualquer palavra $\omega \in \Sigma^*$ tal que $\delta^*(q_{in}, \omega) \cap F \neq \emptyset$.  
 Dito de forma corrente, uma palavra é aceite por um AFND se **houver uma** sequência de estados em $Q$ tal que:
 
-- a concatenaçao dos símbolos das transições entre esses estados resulte na palavra em questão;
+- a concatenação dos símbolos das transições entre esses estados resulte na palavra em questão;
 - a sequência acabe num estado final.
 
 :::details[Exemplo de Palavra Aceite num AFND]
 
-// TODO
+Consideremos o AFND que aceita todas as palavras com **número ímpar de $a$'s** ou que **terminam em $c$**:
+
+![Palavra Aceite por um AFND](./imgs/0001/PALAVRA_ACEITE_AFND.png#dark=1)
+
+Ora, tentemos então verificar se algumas palavras são ou não aceites por este autómato:
+
+- tenhamos $abcab$; não deve ser aceite: **não tem número ímpar de $a$'s nem termina em $c$**. As imagens abaixo procuram seguir a **sequência de estados** da palavra. [**Nenhuma delas termina num estado final**](color:orange), pelo que a palavra não é aceite (como esperado).
+
+  ![Palavra não aceite por um AFND 1](./imgs/0001/PALAVRA1_PASSO_1.png#dark=1)
+  ![Palavra não aceite por um AFND 2](./imgs/0001/PALAVRA1_PASSO_2.png#dark=1)
+  ![Palavra não aceite por um AFND 3](./imgs/0001/PALAVRA1_PASSO_3.png#dark=1)
+  ![Palavra não aceite por um AFND 4](./imgs/0001/PALAVRA1_PASSO_4.png#dark=1)
+  ![Palavra não aceite por um AFND 5](./imgs/0001/PALAVRA1_PASSO_5.png#dark=1)
+  ![Palavra não aceite por um AFND 6](./imgs/0001/PALAVRA1_PASSO_6.png#dark=1)
+
+- por outro lado, consideremos $acbaa$ - a palavra deve ser aceite, já que tem número ímpar de $a$'s. Vejamos então o caminho percorrido ao ler a palavra:
+
+  ![Palavra aceite (1) por um AFND 1](./imgs/0001/PALAVRA1_PASSO_1.png#dark=1)
+  ![Palavra aceite (1) por um AFND 2](./imgs/0001/PALAVRA2_PASSO_2.png#dark=1)
+  ![Palavra aceite (1) por um AFND 3](./imgs/0001/PALAVRA2_PASSO_3.png#dark=1)
+  ![Palavra aceite (1) por um AFND 4](./imgs/0001/PALAVRA2_PASSO_4.png#dark=1)
+  ![Palavra aceite (1) por um AFND 5](./imgs/0001/PALAVRA2_PASSO_5.png#dark=1)
+  ![Palavra aceite (1) por um AFND 6](./imgs/0001/PALAVRA2_PASSO_6.png#dark=1)
+
+  Como último passo, lemos aqui o símbolo vazio - podemos sempre lê-lo, e transitamos assim para o estado final desejado!
+
+  ![Palavra aceite (1) por um AFND 7](./imgs/0001/PALAVRA2_PASSO_7.png#dark=1)
 
 :::
 
@@ -486,7 +657,7 @@ A **linguagem reconhecida** por um AFND é o conjunto das palavras aceites por e
 
 :::details[Exemplo de Linguagem Reconhecida por um AFND]
 
-// TODO
+// TODO (em breve)
 
 :::
 
@@ -556,7 +727,7 @@ Ora, isto equivale a $q$ ser um estado final em $A'$, pelo que $\epsilon$ també
 
 :::details[Exemplo da remoção de movimentos-$\epsilon$]
 
-// TODO
+// TODO (em breve)
 
 :::
 
@@ -595,7 +766,7 @@ Então, se $q$ for final em $A$, temos que $C \cap F \neq \emptyset$ e $C$ é fi
 
 :::details[Exemplo da passagem de AFND para AFD]
 
-// TODO
+// TODO (exemplo)
 
 :::
 
