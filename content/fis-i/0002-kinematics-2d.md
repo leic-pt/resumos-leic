@@ -209,7 +209,7 @@ $$
 &= \dot \theta \left(- \sin \theta \vec e_x + \cos \theta \vec e_y\right)\\
 &= \dot \theta \vec e_\theta\\
 \\
-\frac{\d \vec e_\theta}{\d t} &= \frac{\d \theta}{\d t} \frac{\d - \sin \theta \vec e_x + \cos \theta \vec e_y}{\d t}\\
+\frac{\d \vec e_\theta}{\d t} &= \frac{\d \theta}{\d t} \frac{\d \left(- \sin \theta \vec e_x + \cos \theta \vec e_y\right)}{\d t}\\
 &= \dot \theta \left(- \cos \theta \vec e_x - \sin \theta \vec e_y\right)\\
 &= - \dot \theta \vec e_r
 \end{aligned}
@@ -322,7 +322,7 @@ Podemos concluir que utilizar coordenadas polares em movimentos circulares simpl
 
 :::tip[Aceleração Angular]
 
-A velocidade angular é a variação da velocidade angular $\theta$ por segundo.
+A velocidade angular é a variação da velocidade angular $\omega$ por segundo.
 A sua unidade SI é $\op{s}^{-2}$ e é dada por
 
 $$
