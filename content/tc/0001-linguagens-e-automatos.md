@@ -156,7 +156,7 @@ Mais genericamente, a representação gráfica de um autómato é tal que:
 
 :::
 
-Uma linguagem $L \subset \Sigma^*$ diz-se [**regular**](color:brown) se existe uma AFD $D$ com alfabeto $\Sigma$ tal que $L(D) = L$. Denota-se por $\mathcal{REG}^\Sigma$ o conjunto de todas as linguagens regulares com alfabeto $\Sigma$.  
+Uma linguagem $L \subset \Sigma^*$ diz-se [**regular**](color:brown) se existe uma AFD $D$ com alfabeto $\Sigma$ tal que $L(D) = L$. Ou seja, uma linguagem é regular se for reconhecida por um AFD. Denota-se por $\mathcal{REG}^\Sigma$ o conjunto de todas as linguagens regulares com alfabeto $\Sigma$.  
 Usa-se apenas $\mathcal{REG}$ em vez de $\mathcal{REG}^\Sigma$ sempre que o alfabeto esteja subentendido ou não seja importante o contexto.
 
 ### Equivalência e Minimização de AFD's
