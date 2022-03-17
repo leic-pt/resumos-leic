@@ -965,7 +965,7 @@ Ver o exemplo a baixo para perceber como.
 
 :::
 
-:::details[Exemplo de Resolução de Sitstemas de Equações]
+:::details[Exemplo de Resolução de Sistemas de Equações]
 
 Considere-se o seguinte AFD:
 
