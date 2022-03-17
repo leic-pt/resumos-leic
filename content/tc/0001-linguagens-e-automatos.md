@@ -165,9 +165,9 @@ Dizemos que dois AFD's são equivalentes se reconhecerem a mesma linguagem.
 Para estudar a equivalência de AFD's, introduzimos as seguintes definições:  
 Para um AFD $D = (\Sigma, Q, q_{in}, F, \delta)$ dizemos que um estado $q \in Q$ é:
 
-- [**acessível**](color:yellow) se existe $\omega \in \Sigma^*$ tal que $\delta^*(q_{in}, \omega) = q$;
-- [**produtivo**](color:orange) se existe $\omega \in \Sigma^*$ tal que $\delta^*(q, \omega) \in F$;
-- [**útil**](color:red) se for acessível e produtivo, [**inútil**](color:red) caso contrário;
+- [**acessível**](color:yellow) se existe $\omega \in \Sigma^*$ tal que $\delta^*(q_{in}, \omega) = q$. Por outras palavras, um estado é [acessível](color:yellow) se for alcançável a partir da origem;
+- [**produtivo**](color:orange) se existe $\omega \in \Sigma^*$ tal que $\delta^*(q, \omega) \in F$. Por outras palavras, um estado é [produtivo](color:orange) se for possível chegar a um estado final a partir dele;
+- [**útil**](color:red) se for acessível e produtivo, [**inútil**](color:red) caso contrário.
 
 Introduzimos a baixo o **algoritmo de procura de estados notáveis (APEN)**:
 
