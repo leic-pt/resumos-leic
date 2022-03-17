@@ -156,7 +156,7 @@ Mais genericamente, a representação gráfica de um autómato é tal que:
 
 :::
 
-Uma linguagem $L \subset \Sigma^*$ diz-se [**regular**](color:brown) se existe uma AFD $D$ com alfabeto $\Sigma$ tal que $L(D) = L$. Denota-se por $\mathcal{REG}^\Sigma$ o conjunto de todas as linguagens regulares com alfabeto $\Sigma$.  
+Uma linguagem $L \subset \Sigma^*$ diz-se [**regular**](color:brown) se existe uma AFD $D$ com alfabeto $\Sigma$ tal que $L(D) = L$. Ou seja, uma linguagem é regular se for reconhecida por um AFD. Denota-se por $\mathcal{REG}^\Sigma$ o conjunto de todas as linguagens regulares com alfabeto $\Sigma$.  
 Usa-se apenas $\mathcal{REG}$ em vez de $\mathcal{REG}^\Sigma$ sempre que o alfabeto esteja subentendido ou não seja importante o contexto.
 
 ### Equivalência e Minimização de AFD's
@@ -165,9 +165,9 @@ Dizemos que dois AFD's são equivalentes se reconhecerem a mesma linguagem.
 Para estudar a equivalência de AFD's, introduzimos as seguintes definições:  
 Para um AFD $D = (\Sigma, Q, q_{in}, F, \delta)$ dizemos que um estado $q \in Q$ é:
 
-- [**acessível**](color:yellow) se existe $\omega \in \Sigma^*$ tal que $\delta^*(q_{in}, \omega) = q$;
-- [**produtivo**](color:orange) se existe $\omega \in \Sigma^*$ tal que $\delta^*(q, \omega) \in F$;
-- [**útil**](color:red) se for acessível e produtivo, [**inútil**](color:red) caso contrário;
+- [**acessível**](color:yellow) se existe $\omega \in \Sigma^*$ tal que $\delta^*(q_{in}, \omega) = q$. Por outras palavras, um estado é [acessível](color:yellow) se for alcançável a partir da origem;
+- [**produtivo**](color:orange) se existe $\omega \in \Sigma^*$ tal que $\delta^*(q, \omega) \in F$. Por outras palavras, um estado é [produtivo](color:orange) se for possível chegar a um estado final a partir dele;
+- [**útil**](color:red) se for acessível e produtivo, [**inútil**](color:red) caso contrário.
 
 Introduzimos a baixo o **algoritmo de procura de estados notáveis (APEN)**:
 
