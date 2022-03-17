@@ -1055,7 +1055,7 @@ Seja $k = \#Q$ e $s$ uma palavra de $L$ com $|s| = n \geq k$.
 
 Quando o autómato $A$ recebe a palavra $s$ lê $n$ letras e portanto passa por $n+1$ estados.
 
-Se na leitura de $s$, passamos por pelo menos $n+1$ estados, temos que, segundo o [Teorema de Pombal](https://resumos.leic.pt/md/principio-pombal), há um estado pelo qual passamos duas vezes.
+Se na leitura de $s$, passamos por pelo menos $n+1$ estados, temos que, segundo o [Teorema de Pombal](/md/principio-pombal), há um estado pelo qual passamos duas vezes.
 
 Seja $q \in Q$ o primeiro estado que é repetido.
 Chamemos então $\omega_1$ à palavra que é lida até à primeira ocorrência de $q$, $\omega_2$ à palavra que é lida entre as primeiras duas ocorrências de $q$, e $\omega_3$ à restante palavra.
