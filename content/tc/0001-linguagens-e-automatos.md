@@ -73,7 +73,7 @@ Denotamos por $\mathcal{L}^\Sigma$ o conjunto de todas as linguagens sobre $\Sig
 Dadas duas linguagens $L_1, L_2 \in \mathcal{L}^\Sigma$, definimos a **concatenação** das linguagens como sendo a linguagem $L_1 . L_2 = \{ uv : u \in L_1, v \in L_2 \}$.
 
 Definimos ainda o **fecho de Kleene** de uma linguagem $L$ à linguagem
-$L^* = \{u_1 . u_2 . \cdots . u_n : n \in \mathbb{N}\_0, u_1, u_2, \cdots, u_n \in L \}$
+$L^* = \{u_1 . u_2 . \cdots . u_n : n \in \mathbb{N}_0, u_1, u_2, \cdots, u_n \in L \}$
 
 :::
 
