@@ -156,7 +156,7 @@ Mais genericamente, a representação gráfica de um autómato é tal que:
 
 :::
 
-Uma linguagem $L \subset \Sigma^*$ diz-se [**regular**](color:brown) se existe uma AFD $D$ com alfabeto $\Sigma$ tal que $L(D) = L$. Denota-se por $\mathcal{REG}^\Sigma$ o conjunto de todas as linguagens regulares com alfabeto $\Sigma$.  
+Uma linguagem $L \subset \Sigma^*$ diz-se [**regular**](color:brown) se existe uma AFD $D$ com alfabeto $\Sigma$ tal que $L(D) = L$. Ou seja, uma linguagem é regular se for reconhecida por um AFD. Denota-se por $\mathcal{REG}^\Sigma$ o conjunto de todas as linguagens regulares com alfabeto $\Sigma$.  
 Usa-se apenas $\mathcal{REG}$ em vez de $\mathcal{REG}^\Sigma$ sempre que o alfabeto esteja subentendido ou não seja importante o contexto.
 
 ### Equivalência e Minimização de AFD's
@@ -165,9 +165,9 @@ Dizemos que dois AFD's são equivalentes se reconhecerem a mesma linguagem.
 Para estudar a equivalência de AFD's, introduzimos as seguintes definições:  
 Para um AFD $D = (\Sigma, Q, q_{in}, F, \delta)$ dizemos que um estado $q \in Q$ é:
 
-- [**acessível**](color:yellow) se existe $\omega \in \Sigma^*$ tal que $\delta^*(q_{in}, \omega) = q$;
-- [**produtivo**](color:orange) se existe $\omega \in \Sigma^*$ tal que $\delta^*(q, \omega) \in F$;
-- [**útil**](color:red) se for acessível e produtivo, [**inútil**](color:red) caso contrário;
+- [**acessível**](color:yellow) se existe $\omega \in \Sigma^*$ tal que $\delta^*(q_{in}, \omega) = q$. Por outras palavras, um estado é [acessível](color:yellow) se for alcançável a partir da origem;
+- [**produtivo**](color:orange) se existe $\omega \in \Sigma^*$ tal que $\delta^*(q, \omega) \in F$. Por outras palavras, um estado é [produtivo](color:orange) se for possível chegar a um estado final a partir dele;
+- [**útil**](color:red) se for acessível e produtivo, [**inútil**](color:red) caso contrário.
 
 Introduzimos a baixo o **algoritmo de procura de estados notáveis (APEN)**:
 
@@ -683,7 +683,9 @@ Vamos compreender as alterações a cima:
 - Se podermos alcançar um estado final através de um movimento-$\epsilon$, então se considerarmos esse estado como sendo também final, as palavras reconhecidas pelo nosso AFND não mudam;
 - Para cada estado $q \in Q$ vamos ver que estados conseguimos alcançar usando apenas a letra $a \in \Sigma$. O conjunto de estados que conseguimos alcançar só com $a$ corresponde ao resultado de aplicar $a$ a todos os estados em $q^\epsilon$ e depois tirar o fecho-$\epsilon$ do resultado. Isto é, pego em todos os estados a que consigo chegar com $\epsilon$, vejo onde consigo chegar com $a$, e finalmente aplico $\epsilon$ outra vez.
 
-// TODO: meter foto
+![Fecho epsilon de um estado](./imgs/0001/fecho_epsilon.png#dark=3)
+
+Por exemplo, na imagem a cima, o fecho-$\epsilon$ do estado $q_{in}$ é o conjunto $\{ q_1, q_3, q_4 \}$.
 
 :::
 
@@ -963,7 +965,7 @@ Ver o exemplo a baixo para perceber como.
 
 :::
 
-:::details[Exemplo de Resolução de Sitstemas de Equações]
+:::details[Exemplo de Resolução de Sistemas de Equações]
 
 Considere-se o seguinte AFD:
 
@@ -1053,7 +1055,7 @@ Seja $k = \#Q$ e $s$ uma palavra de $L$ com $|s| = n \geq k$.
 
 Quando o autómato $A$ recebe a palavra $s$ lê $n$ letras e portanto passa por $n+1$ estados.
 
-Se na leitura de $s$, passamos por pelo menos $n+1$ estados, temos que, segundo o [Teorema de Pombal](link para os resumos), há um estado pelo qual passamos duas vezes.
+Se na leitura de $s$, passamos por pelo menos $n+1$ estados, temos que, segundo o [Teorema de Pombal](/md/principio-pombal), há um estado pelo qual passamos duas vezes.
 
 Seja $q \in Q$ o primeiro estado que é repetido.
 Chamemos então $\omega_1$ à palavra que é lida até à primeira ocorrência de $q$, $\omega_2$ à palavra que é lida entre as primeiras duas ocorrências de $q$, e $\omega_3$ à restante palavra.
