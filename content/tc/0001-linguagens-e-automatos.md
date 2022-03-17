@@ -683,7 +683,9 @@ Vamos compreender as alterações a cima:
 - Se podermos alcançar um estado final através de um movimento-$\epsilon$, então se considerarmos esse estado como sendo também final, as palavras reconhecidas pelo nosso AFND não mudam;
 - Para cada estado $q \in Q$ vamos ver que estados conseguimos alcançar usando apenas a letra $a \in \Sigma$. O conjunto de estados que conseguimos alcançar só com $a$ corresponde ao resultado de aplicar $a$ a todos os estados em $q^\epsilon$ e depois tirar o fecho-$\epsilon$ do resultado. Isto é, pego em todos os estados a que consigo chegar com $\epsilon$, vejo onde consigo chegar com $a$, e finalmente aplico $\epsilon$ outra vez.
 
-// TODO: meter foto
+![Fecho epsilon de um estado](./imgs/0001/fecho_epsilon.png#dark=3)
+
+Por exemplo, na imagem a cima, o fecho-$\epsilon$ do estado $q_{in}$ é o conjunto $\{ q_1, q_3, q_4 \}$.
 
 :::
 
