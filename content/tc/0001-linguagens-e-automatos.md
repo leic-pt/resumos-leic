@@ -73,13 +73,13 @@ Denotamos por $\mathcal{L}^\Sigma$ o conjunto de todas as linguagens sobre $\Sig
 Dadas duas linguagens $L_1, L_2 \in \mathcal{L}^\Sigma$, definimos a **concatenação** das linguagens como sendo a linguagem $L_1 . L_2 = \{ uv : u \in L_1, v \in L_2 \}$.
 
 Definimos ainda o **fecho de Kleene** de uma linguagem $L$ à linguagem
-$L^* = \{u_1 . u_2 . \cdots . u_n : n \in \mathbb{N}\_0, u_1, u_2, \cdots, u_n \in L \}$
+$L^* = \{u_1 . u_2 . \cdots . u_n : n \in \mathbb{N}_0, u_1, u_2, \cdots, u_n \in L \}$
 
 :::
 
 :::details[Exemplo de Linguagem]
 
-Um exemplo de uma linguagem sobre o alfabeto $\{0, 1\}$ é as palavras que acabam com exatamente 3 $1$'s.
+Um exemplo de uma linguagem sobre o alfabeto $\{0, 1\}$ é as palavras que acabam com exatamente três $1$'s.
 
 As linguagens no sentido mais corrente da palavra (Português, Inglês, Mandarim) ou mesmo as linguagens de programação são linguagens de acordo com esta definição.
 Têm um alfabeto (no caso do português, corresponde às letras - minúsculas, maiúsculas, acentuadas e não acentuadas -, bem como outros símbolos - !, ?, ., por exemplo) que, quando de acordo com uma regra (muito complexa, claro) formam palavras "aceites", isto é, palavras que estão de acordo com as regras da linguagem.
@@ -101,7 +101,7 @@ $(\Sigma, Q, q_{in}, F, \delta)$ tal que
 
 Cada AFD define uma liguagem sobre o seu alfabeto $\Sigma$.
 
-Dizemos que um autómato é **total** se a funçao de transição estiver definida para todo o elemento em $Q \times \Sigma$, isto é, se a função de transição em cada estado estiver definida para todas as letras.  
+Dizemos que um autómato é **total** se a função de transição estiver definida para todo o elemento em $Q \times \Sigma$, isto é, se a função de transição em cada estado estiver definida para todas as letras.  
 Um autómato não total pode ser convertido num autómato total da seguinte forma:
 
 - adiciona-se um estado não final $q'$;
@@ -152,11 +152,11 @@ Mais genericamente, a representação gráfica de um autómato é tal que:
 - os estados correspondem aos vértices do grafo;
 - o estado inicial é aquele em que entra a seta sem origem $\rightarrow$;
 - os estados finais são os rodeados;
-- os vértices (dirigidos) indicam a definição da função $\delta$.
+- as arestas (dirigidas) indicam a definição da função $\delta$.
 
 :::
 
-Uma linguagem $L \subset \Sigma^*$ diz-se [**regular**](color:brown) se existe uma AFD $D$ com alfabeto $\Sigma$ tal que $L(D) = L$. Ou seja, uma linguagem é regular se for reconhecida por um AFD. Denota-se por $\mathcal{REG}^\Sigma$ o conjunto de todas as linguagens regulares com alfabeto $\Sigma$.  
+Uma linguagem $L \subset \Sigma^*$ diz-se [**regular**](color:brown) se existe um AFD $D$ com alfabeto $\Sigma$ tal que $L(D) = L$. Ou seja, uma linguagem é regular se for reconhecida por um AFD. Denota-se por $\mathcal{REG}^\Sigma$ o conjunto de todas as linguagens regulares com alfabeto $\Sigma$.  
 Usa-se apenas $\mathcal{REG}$ em vez de $\mathcal{REG}^\Sigma$ sempre que o alfabeto esteja subentendido ou não seja importante o contexto.
 
 ### Equivalência e Minimização de AFD's
@@ -186,7 +186,7 @@ O algoritmo recebe como input um AFD $D = (\Sigma, Q, q_{in}, F, \delta)$ e dá 
 5. $Aux := \bigcup_{a \in \Sigma} \{ p : \delta(p, a) \in F \}$;
 6. enquanto $Aux \nsubseteq Prd$
    1. $Prd := Prd \cup Aux$;
-   2. $Aux := \bigcup_{a \in \Sigma} \{ \delta(p, a) : p \in Aux \}$;  
+   2. $Aux := \bigcup_{a \in \Sigma} \{ p : \delta(p, a) \in Aux \}$;  
       [Estados produtivos determinados](color:orange)
 7. $Ut := Ac \cap Prd$;
 8. $In := Q \backslash Ut$.  
@@ -251,7 +251,7 @@ $$
 Pela definição da utilidade de um estado (um estado diz-se [útil](color:red) caso seja acessível e produtivo), podemos dizer que a interseção dos conjuntos acima corresponde ao conjunto dos estados úteis do autómato, e que portanto:
 
 $$
-\text{Estados Úteis} = Ac \cap Prd = \{q_in, q_1, q_2, q_4, q_5\}\\
+\text{Estados Úteis} = Ac \cap Prd = \{q_{in}, q_1, q_2, q_4, q_5\}\\
 \text{Estados Inúteis} = Q \backslash Ut = \{q_3, q_6, q_7\}
 $$
 
@@ -772,7 +772,7 @@ Então, se $q$ for final em $A$, temos que $C \cap F \neq \emptyset$ e $C$ é fi
 
 :::
 
-Acabamos só por reparar que enquanto os AFD's têma vantagem de terem todas as transições bem determinadas, podem necessitar de bastante mais estados que um AFND equivalente.
+Acabamos só por reparar que enquanto os AFD's têm a vantagem de terem todas as transições bem determinadas, podem necessitar de bastante mais estados que um AFND equivalente.
 Nomeadamente, se $A$ for um AFND com conjunto de estados $Q$ com $n$ elementos, o AFD mínimo $D$ que lhe corresponde pode ter até $2^n$ estados (o conjunto de estados de $D$ está contido em $\wp(Q)$).  
 Desta forma, os AFND's podem ser frequentemente uma forma mais eficiente de representar a mesma linguagem.
 No entanto, como temos algoritmos para converter AFND's em AFD's, podemos dizer ao computador para fazer esse trabalho chato.
@@ -1072,15 +1072,21 @@ Temos então que
 
 Vamos usar o Lema de Pumping para provar que a linguagem $L = \{ a^n b^n : n \in \mathbb{N}_0 \}$ não é regular.  
 Assuma-se que a linguagem é regular.
+
 Segundo o Lema de Pumping, existem, para algum $k \in \mathbb{N}$, $\omega_1, \omega_2, \omega_3 \in \Sigma^*$ tal que $\omega = \omega_1 \omega_2 \omega_3$ tais que:
 
 - $\omega_2 \neq \epsilon$;
 - $|\omega_1 \omega_2 | \leq k$;
 - $\omega_1 \omega_2^t \omega_3 \in L$ para cada $t \in \mathbb{N}_0$.
+
   Considere-se uma palavra $\omega = a^l b^l$ com $l>k$.
+
   Como $|\omega| = 2l > k$, esta palavra está na condição do Lema.
+
   Como $|\omega_1 \omega_2| \leq k < l$, temos que $\omega_1 = a^x$ e $\omega = a^y$ para $y \neq 0$.
-  Consequentemente, temos que $\omega_1 \omega_2^0 \omega_3 = a^{l-y} b^l$ tabém pertence à linguagem $L$.  
+
+  Consequentemente, temos que $\omega_1 \omega_2^0 \omega_3 = a^{l-y} b^l$ também pertence à linguagem $L$.
+
   Contudo isto é claramente um absurdo, pelo que a linguagem em questão não é regular.
 
 :::
@@ -1097,8 +1103,25 @@ Um [**autómato de pilha (AP)**](color:orange) (em inglês _push-down automaton_
 - $\delta: Q \times (\Sigma \cup \{ \epsilon \}) \times (\Gamma \cup \{ \epsilon \}) \to \wp(Q \times (\Gamma \cup \{ \epsilon \}))$
 
 Explicando de forma mais simples, um [autómato de pilha](color:orange) é um AFND ao qual se adiciona uma estrutura adicional: uma [pilha](https://en.wikipedia.org/wiki/Stack_%28abstract_data_type%29).
+Nesta estrutura podemos, em cada transição, adicionar e remover um símbolo do alfabeto auxiliar $\Gamma$ (incluindo símbolos vazios).  
+Desta forma, a função de transição $\delta$ deve ser entendida seguinte:
+$(q', b') \in \delta(q, a, b)$ quer dizer que quando estamos num estado $q \in Q$, lemos uma letra $a \in \Sigma \cup \{ \epsilon \}$ na palavra e verificamos que se encontra um símbolo $b \in \Gamma \cup \{ \epsilon \}$, podemos transitar para o estado $q'$, substituindo o símbolo $b$ na pilha pelo símbolo $b'$.  
+Se a letra lida na pilha for $\epsilon$, a transição de $q$ para $q'$ pode ser feita para qualquer estado da pilha. Devemos então colocar o símbolo $b'$ no topo da pilha.
+Simetricamente, se $b' = \epsilon$, quer dizer que devemos apenas remover o símbolo que estava na pilha, sem colocar nenhum novo.
 
-As linguagens que são reconhecidas por AP's são denominadas de [**linguagens independentes do contexto**](color:yellow), que abreviamos para [**IND**](color:yellow) ou $\mathcal{IND}$.  
+Vamos agora formalizar o conceito de palavra aceite por um AP.  
+Compreendemos que a pilha acumula símbolos do alfabeto auxiliar $\Gamma$, pelo que podemos representá-la por uma palavra em $\Gamma^*$.  
+Definimos então uma [**palavra aceite**](color:green) por um AP $P = (\Sigma, \Gamma, Q, q_{in}, F, \delta)$ como uma palavra $\omega \in \Sigma^*$ tal que:
+
+- $\omega$ pode ser escrita como $a_1 a_2 \cdots a_m$, com $a_i \in \Sigma \cup \{ \epsilon \}, 1 \leq i \leq m$;
+- existem uma sequência de estados $p_0 p_1 \cdots p_m$ e uma sequência de pilhas $\gamma_0 \gamma_1 \cdots \gamma_m$ com $p_j \in Q$ e $\gamma_j \in \Gamma^*$ para cada $0 \leq j \leq m$ tais que:
+  - $p_0 = q_{in}$ e $\gamma_0 = \epsilon$;
+  - $(p_{i+1}, b') \in \delta(p_i, a_{i+1}, b)$ com $\gamma_i = \gamma b$, $\gamma_{i+1} = \gamma b'$ para $0 \leq i < m$ e algum $\gamma \in \Gamma^*$;
+  - $p_m \in F$.
+
+A [**linguagem reconhecida**](color:green) por um AP $P$, denotada $L(P)$ corresponde ao conjunto de palavras aceites por $P$.
+
+As linguagens que são reconhecidas por AP's são denominadas de [**linguagens independentes do contexto**](color:yellow), que abreviamos para $\mathcal{IND}^\Sigma$ ou apenas $\mathcal{IND}$ quando o alfabeto está subentendido ou é irrelevante no contexto.  
 Temos que $\mathcal{REG} \subsetneq \mathcal{IND}$, isto é, todas as linguagens regulares são independentes de contexto, havendo linguagens que são independentes de contexto, mas não são regulares.
 
 :::details[Prova]
@@ -1107,3 +1130,14 @@ Que $\mathcal{REG} \subset \mathcal{IND}$, uma vez que um autómato de pilha é 
 Que $\mathcal{REG} \neq \mathcal{IND}$ é também evidente: já vimos a cima pelo menos uma linguagem que é independente de contexto, mas não é regular (a linguagem das palavras $a^n b^n, n \in \mathbb{N}_0$).
 
 :::
+
+<!--
+## Propriedades das Linguagens Independentes do Contexto
+
+// TODO
+
+### Lema de Pumping para Linguagens Independentes do Contexto
+
+// TODO
+
+-->
