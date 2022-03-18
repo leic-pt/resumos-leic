@@ -1107,8 +1107,8 @@ Vamos agora formalizar o conceito de palavra aceite por um AP.
 Compreendemos que a pilha acumula símbolos do alfabeto auxiliar $\Gamma$, pelo que podemos representá-la por uma palavra em $\Gamma^*$.  
 Definimos então uma [**palavra aceite**](color:green) por um AP $P = (\Sigma, \Gamma, Q, q_{in}, F, \delta)$ como uma palavra $\omega \in \Sigma^*$ tal que:
 
-  - $\omega$ pode ser escrita como $a_1 a_2 \cdots a_m$, com $a_i \in \Sigma \cup \{ \epsilon \}, 1 \leq i \leq m$;
-  - existem uma sequência de estados $p_0 p_1 \cdots p_m$ e uma sequência de pilhas $\gamma_0 \gamma_1 \cdots \gamma_m$ com $p_j \in Q$ e $\gamma_j \in \Gamma^*$ para cada $0 \leq j \leq m$ tais que:
+- $\omega$ pode ser escrita como $a_1 a_2 \cdots a_m$, com $a_i \in \Sigma \cup \{ \epsilon \}, 1 \leq i \leq m$;
+- existem uma sequência de estados $p_0 p_1 \cdots p_m$ e uma sequência de pilhas $\gamma_0 \gamma_1 \cdots \gamma_m$ com $p_j \in Q$ e $\gamma_j \in \Gamma^*$ para cada $0 \leq j \leq m$ tais que:
   - $p_0 = q_{in}$ e $\gamma_0 = \epsilon$;
   - $(p_{i+1}, b') \in \delta(p_i, a_{i+1}, b)$ com $\gamma_i = \gamma b$, $\gamma_{i+1} = \gamma b'$ para $0 \leq i < m$ e algum $\gamma \in \Gamma^*$;
   - $p_m \in F$.
