@@ -1080,13 +1080,13 @@ Segundo o Lema de Pumping, existem, para algum $k \in \mathbb{N}$, $\omega_1, \o
 - $\omega_1 \omega_2^t \omega_3 \in L$ para cada $t \in \mathbb{N}_0$.
 
   Considere-se uma palavra $\omega = a^l b^l$ com $l>k$.
-  
+
   Como $|\omega| = 2l > k$, esta palavra está na condição do Lema.
-  
+
   Como $|\omega_1 \omega_2| \leq k < l$, temos que $\omega_1 = a^x$ e $\omega = a^y$ para $y \neq 0$.
-  
-  Consequentemente, temos que $\omega_1 \omega_2^0 \omega_3 = a^{l-y} b^l$ também pertence à linguagem $L$.  
-  
+
+  Consequentemente, temos que $\omega_1 \omega_2^0 \omega_3 = a^{l-y} b^l$ também pertence à linguagem $L$.
+
   Contudo isto é claramente um absurdo, pelo que a linguagem em questão não é regular.
 
 :::
