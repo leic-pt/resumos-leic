@@ -1103,8 +1103,25 @@ Um [**autómato de pilha (AP)**](color:orange) (em inglês _push-down automaton_
 - $\delta: Q \times (\Sigma \cup \{ \epsilon \}) \times (\Gamma \cup \{ \epsilon \}) \to \wp(Q \times (\Gamma \cup \{ \epsilon \}))$
 
 Explicando de forma mais simples, um [autómato de pilha](color:orange) é um AFND ao qual se adiciona uma estrutura adicional: uma [pilha](https://en.wikipedia.org/wiki/Stack_%28abstract_data_type%29).
+Nesta estrutura podemos, em cada transição, adicionar e remover um símbolo do alfabeto auxiliar $\Gamma$ (incluindo símbolos vazios).  
+Desta forma, a função de transição $\delta$ deve ser entendida seguinte:
+$(q', b') \in \delta(q, a, b)$ quer dizer que quando estamos num estado $q \in Q$, lemos uma letra $a \in \Sigma \cup \{ \epsilon \}$ na palavra e verificamos que se encontra um símbolo $b \in \Gamma \cup \{ \epsilon \}$, podemos transitar para o estado $q'$, substituindo o símbolo $b$ na pilha pelo símbolo $b'$.  
+Se a letra lida na pilha for $\epsilon$, a transição de $q$ para $q'$ pode ser feita para qualquer estado da pilha. Devemos então colocar o símbolo $b'$ no topo da pilha.
+Simetricamente, se $b' = \epsilon$, quer dizer que devemos apenas remover o símbolo que estava na pilha, sem colocar nenhum novo.
 
-As linguagens que são reconhecidas por AP's são denominadas de [**linguagens independentes do contexto**](color:yellow), que abreviamos para [**IND**](color:yellow) ou $\mathcal{IND}$.  
+Vamos agora formalizar o conceito de palavra aceite por um AP.  
+Compreendemos que a pilha acumula símbolos do alfabeto auxiliar $\Gamma$, pelo que podemos representá-la por uma palavra em $\Gamma^*$.  
+Definimos então uma [**palavra aceite**](color:green) por um AP $P = (\Sigma, \Gamma, Q, q_{in}, F, \delta)$ como uma palavra $\omega \in \Sigma^*$ tal que:
+
+- $\omega$ pode ser escrita como $a_1 a_2 \cdots a_m$, com $a_i \in \Sigma \cup \{ \epsilon \}, 1 \leq i \leq m$;
+- existem uma sequência de estados $p_0 p_1 \cdots p_m$ e uma sequência de pilhas $\gamma_0 \gamma_1 \cdots \gamma_m$ com $p_j \in Q$ e $\gamma_j \in \Gamma^*$ para cada $0 \leq j \leq m$ tais que:
+  - $p_0 = q_{in}$ e $\gamma_0 = \epsilon$;
+  - $(p_{i+1}, b') \in \delta(p_i, a_{i+1}, b)$ com $\gamma_i = \gamma b$, $\gamma_{i+1} = \gamma b'$ para $0 \leq i < m$ e algum $\gamma \in \Gamma^*$;
+  - $p_m \in F$.
+
+A [**linguagem reconhecida**](color:green) por um AP $P$, denotada $L(P)$ corresponde ao conjunto de palavras aceites por $P$.
+
+As linguagens que são reconhecidas por AP's são denominadas de [**linguagens independentes do contexto**](color:yellow), que abreviamos para $\mathcal{IND}^\Sigma$ ou apenas $\mathcal{IND}$ quando o alfabeto está subentendido ou é irrelevante no contexto.  
 Temos que $\mathcal{REG} \subsetneq \mathcal{IND}$, isto é, todas as linguagens regulares são independentes de contexto, havendo linguagens que são independentes de contexto, mas não são regulares.
 
 :::details[Prova]
@@ -1113,3 +1130,14 @@ Que $\mathcal{REG} \subset \mathcal{IND}$, uma vez que um autómato de pilha é 
 Que $\mathcal{REG} \neq \mathcal{IND}$ é também evidente: já vimos a cima pelo menos uma linguagem que é independente de contexto, mas não é regular (a linguagem das palavras $a^n b^n, n \in \mathbb{N}_0$).
 
 :::
+
+<!--
+## Propriedades das Linguagens Independentes do Contexto
+
+// TODO
+
+### Lema de Pumping para Linguagens Independentes do Contexto
+
+// TODO
+
+-->
