@@ -8,6 +8,7 @@ type: content
 # Maquinas de Turing
 
 Formalmente, uma [**máquina de Turing**](color:red) é um tuplo $(\Gamma, \Sigma, Q, q_{in}, q_{ac}, q_{rj}, \delta)$ em que:
+
 - $\Gamma$ é um **alfabeto de trabalho**, que inclui um símbolo $\square$, a que damos o nome de símbolo vazio;
 - $\Sigma$ é um **alfabeto de entrada/saída**, $\Sigma \subset \Gamma \backslash \{ \square \}$;
 - $Q$ é um conjunto de estados de controlo;
@@ -24,11 +25,13 @@ Temos um conjunto de estados de controlo $Q$. Tal como nos AFD's e AFND's, este 
 O estado $q_{in}$ é, como nos autómatos, o estado em $Q$ em que começamos as transições.  
 Os estados de aceitação e rejeitação indicam se a nossa computação foi sucedida ou não. Isto é, se criarmos uma máquina de Turing para resolver um dado problema, o nosso problema tem resposta afirmativa se chegar a um estado aceitação, e negativa se chegar a um estado de rejeição. Em ambos os casos, a computação termina nesse momento.  
 A função $\delta$ atua sobre a fita, e sobre o conjunto de estados:
+
 - na fita:
-	- lemos um símbolo, que podemos substituir por outro símbolo em $\Gamma$;
-	- andamos para a esquerda ($L$) ou direita ($R$).
+  - lemos um símbolo, que podemos substituir por outro símbolo em $\Gamma$;
+  - andamos para a esquerda ($L$) ou direita ($R$).
 
 Este mecanismo é um modelo computacional que nos permite:
+
 - decidir uma linguagem - aceitar as suas palavras e rejeitar as restantes;
 - calcular uma função - aceitar inputs num certo domínio e calcular o respetivo output para esses inputs.
 
