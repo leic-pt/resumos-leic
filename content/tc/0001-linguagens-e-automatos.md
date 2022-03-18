@@ -1131,13 +1131,43 @@ Que $\mathcal{REG} \neq \mathcal{IND}$ é também evidente: já vimos a cima pel
 
 :::
 
-<!--
 ## Propriedades das Linguagens Independentes do Contexto
 
+As linguagens independentes do contexto mantêm algumas boas propriedades
+das linguagens regulares, mas perdem algumas. Vamos agora ver exatamente quais das propriedades são preservadas.
+
+:::tip[Proposição]
+
+Para um alfabeto e $L, L_1, L_2 \in \Sigma^* \subset \Sigma^*$ linguagens independentes do contexto, temos que $L_1 \cup L_2$, $L_1 . L_2$ e $L^*$ são linguagens independentes do contexto.
+
+:::
+
+:::details[Prova]
+
 // TODO
+
+:::
+
+No entanto, no geral, a classe das linguagens independentes do contexto não é fechada para intersecções ou complementações, como veremos adiante.  
+Antes, porém precisamos de compreender que há linguagens que não são independentes do contexto.
+Tal como para as linguagens regulares, isto é feito através do Lema de Pumping, mas desta vez da sua versão para autómatos de pilha.
 
 ### Lema de Pumping para Linguagens Independentes do Contexto
 
+Se $L \subset \Sigma^*$ é uma linguagem do contexto, então existe $k \in \mathbb{N}$ tal que se $\omega \in L$ é uma palavra com $| \omega | \geq k$, então
+$\omega = \omega_1 \omega_2 \omega_3 \omega_4 \omega_5$ em que $\omega_1, \omega_2, \omega_3, \omega_4, \omega_5 \in \Sigma^*$ satisfazem as seguintes condições:
+- $\omega_2 \omega_4 \neq \epsilon$, ou seja $\omega_2 \neq \epsilon \vee \omega_4 \neq \epsilon$;
+- $| \omega_2 \omega_3 \omega_4 | \leq k$;
+- $\omega_1 \omega_2^i \omega_3 \omega_4^i \omega_5 \in L$, para qualquer $i \in \mathbb{N}_0$.
+
+:::details[Prova]
+
 // TODO
 
--->
+:::
+
+:::details[Aplicação do Lema de Pumping]
+
+// TODO a^n b^n c^n
+
+:::
