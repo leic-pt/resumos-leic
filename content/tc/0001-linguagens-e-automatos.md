@@ -101,7 +101,7 @@ $(\Sigma, Q, q_{in}, F, \delta)$ tal que
 
 Cada AFD define uma liguagem sobre o seu alfabeto $\Sigma$.
 
-Dizemos que um autómato é **total** se a funçao de transição estiver definida para todo o elemento em $Q \times \Sigma$, isto é, se a função de transição em cada estado estiver definida para todas as letras.  
+Dizemos que um autómato é **total** se a função de transição estiver definida para todo o elemento em $Q \times \Sigma$, isto é, se a função de transição em cada estado estiver definida para todas as letras.  
 Um autómato não total pode ser convertido num autómato total da seguinte forma:
 
 - adiciona-se um estado não final $q'$;
@@ -152,11 +152,11 @@ Mais genericamente, a representação gráfica de um autómato é tal que:
 - os estados correspondem aos vértices do grafo;
 - o estado inicial é aquele em que entra a seta sem origem $\rightarrow$;
 - os estados finais são os rodeados;
-- os vértices (dirigidos) indicam a definição da função $\delta$.
+- as arestas (dirigidas) indicam a definição da função $\delta$.
 
 :::
 
-Uma linguagem $L \subset \Sigma^*$ diz-se [**regular**](color:brown) se existe uma AFD $D$ com alfabeto $\Sigma$ tal que $L(D) = L$. Ou seja, uma linguagem é regular se for reconhecida por um AFD. Denota-se por $\mathcal{REG}^\Sigma$ o conjunto de todas as linguagens regulares com alfabeto $\Sigma$.  
+Uma linguagem $L \subset \Sigma^*$ diz-se [**regular**](color:brown) se existe um AFD $D$ com alfabeto $\Sigma$ tal que $L(D) = L$. Ou seja, uma linguagem é regular se for reconhecida por um AFD. Denota-se por $\mathcal{REG}^\Sigma$ o conjunto de todas as linguagens regulares com alfabeto $\Sigma$.  
 Usa-se apenas $\mathcal{REG}$ em vez de $\mathcal{REG}^\Sigma$ sempre que o alfabeto esteja subentendido ou não seja importante o contexto.
 
 ### Equivalência e Minimização de AFD's
@@ -186,7 +186,7 @@ O algoritmo recebe como input um AFD $D = (\Sigma, Q, q_{in}, F, \delta)$ e dá 
 5. $Aux := \bigcup_{a \in \Sigma} \{ p : \delta(p, a) \in F \}$;
 6. enquanto $Aux \nsubseteq Prd$
    1. $Prd := Prd \cup Aux$;
-   2. $Aux := \bigcup_{a \in \Sigma} \{ \delta(p, a) : p \in Aux \}$;  
+   2. $Aux := \bigcup_{a \in \Sigma} \{ p : \delta(p, a) \in Aux \}$;  
       [Estados produtivos determinados](color:orange)
 7. $Ut := Ac \cap Prd$;
 8. $In := Q \backslash Ut$.  
@@ -251,7 +251,7 @@ $$
 Pela definição da utilidade de um estado (um estado diz-se [útil](color:red) caso seja acessível e produtivo), podemos dizer que a interseção dos conjuntos acima corresponde ao conjunto dos estados úteis do autómato, e que portanto:
 
 $$
-\text{Estados Úteis} = Ac \cap Prd = \{q_in, q_1, q_2, q_4, q_5\}\\
+\text{Estados Úteis} = Ac \cap Prd = \{q_{in}, q_1, q_2, q_4, q_5\}\\
 \text{Estados Inúteis} = Q \backslash Ut = \{q_3, q_6, q_7\}
 $$
 
@@ -772,7 +772,7 @@ Então, se $q$ for final em $A$, temos que $C \cap F \neq \emptyset$ e $C$ é fi
 
 :::
 
-Acabamos só por reparar que enquanto os AFD's têma vantagem de terem todas as transições bem determinadas, podem necessitar de bastante mais estados que um AFND equivalente.
+Acabamos só por reparar que enquanto os AFD's têm a vantagem de terem todas as transições bem determinadas, podem necessitar de bastante mais estados que um AFND equivalente.
 Nomeadamente, se $A$ for um AFND com conjunto de estados $Q$ com $n$ elementos, o AFD mínimo $D$ que lhe corresponde pode ter até $2^n$ estados (o conjunto de estados de $D$ está contido em $\wp(Q)$).  
 Desta forma, os AFND's podem ser frequentemente uma forma mais eficiente de representar a mesma linguagem.
 No entanto, como temos algoritmos para converter AFND's em AFD's, podemos dizer ao computador para fazer esse trabalho chato.
@@ -1072,15 +1072,21 @@ Temos então que
 
 Vamos usar o Lema de Pumping para provar que a linguagem $L = \{ a^n b^n : n \in \mathbb{N}_0 \}$ não é regular.  
 Assuma-se que a linguagem é regular.
+
 Segundo o Lema de Pumping, existem, para algum $k \in \mathbb{N}$, $\omega_1, \omega_2, \omega_3 \in \Sigma^*$ tal que $\omega = \omega_1 \omega_2 \omega_3$ tais que:
 
 - $\omega_2 \neq \epsilon$;
 - $|\omega_1 \omega_2 | \leq k$;
 - $\omega_1 \omega_2^t \omega_3 \in L$ para cada $t \in \mathbb{N}_0$.
+
   Considere-se uma palavra $\omega = a^l b^l$ com $l>k$.
+  
   Como $|\omega| = 2l > k$, esta palavra está na condição do Lema.
+  
   Como $|\omega_1 \omega_2| \leq k < l$, temos que $\omega_1 = a^x$ e $\omega = a^y$ para $y \neq 0$.
-  Consequentemente, temos que $\omega_1 \omega_2^0 \omega_3 = a^{l-y} b^l$ tabém pertence à linguagem $L$.  
+  
+  Consequentemente, temos que $\omega_1 \omega_2^0 \omega_3 = a^{l-y} b^l$ também pertence à linguagem $L$.  
+  
   Contudo isto é claramente um absurdo, pelo que a linguagem em questão não é regular.
 
 :::
