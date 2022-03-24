@@ -1166,11 +1166,13 @@ $\omega = \omega_1 \omega_2 \omega_3 \omega_4 \omega_5$ em que $\omega_1, \omega
 - $| \omega_2 \omega_3 \omega_4 | \leq k$;
 - $\omega_1 \omega_2^i \omega_3 \omega_4^i \omega_5 \in L$, para qualquer $i \in \mathbb{N}_0$.
 
+<!--
 :::details[Prova]
 
-// TODO
+// I don't want to do this, feel free if you want to.
 
 :::
+-->
 
 :::details[Aplicação do Lema de Pumping]
 
