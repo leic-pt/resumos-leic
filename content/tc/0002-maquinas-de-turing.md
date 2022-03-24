@@ -135,7 +135,7 @@ Dizemos que duas máquinas de Turing são **equivalentes** se reconhecerem e dec
 ## Variantes
 
 Há na literatura bastantes variações sobre a definição de máquina de Turing.
-Analisamos de seguida algumas, que nos serão úteis. 
+Analisamos de seguida algumas, que nos serão úteis.
 Apesar de permitirem maior flexibilidade aparente, na verdade os modelos que analisaremos são essencialmente equivalentes ao modelo original, do ponto de vista da teoria da computabilidade.
 
 ### Máquinas com transições-$S$
@@ -144,6 +144,7 @@ Uma [**máquina com transições-$S$**](color:green) é uma máquina cuja funç�
 Este último elemento $S$ corresponde a um movimento em que a cabeça de leitura/escrita não muda de sítio.
 
 As noções introduzidas na secção anterior são facilmente estendíveis a estas máquinas, sendo relevante apenas realçar a extensão da função de transição de configurações, que agora, além do apresentado a cima, satisfaz ainda:
+
 $$
 \Delta(u, q, a.v) = (u, s, b.v) \text{se } \delta(q,a) = (s,b,S)
 $$
@@ -170,12 +171,14 @@ em que $q_a$ denota um novo estado da máquina, e $\gamma$ deve ser expandido pa
 
 Uma [**máquina bidirecional**](color:blue) é como uma máquina de Turing, onde se assume que a fita é infinita em ambas as direções.  
 Mais uma vez, a única diferença assinalável é na função de transição de configurações, que é agora definida de forma que:
+
 $$
 \begin{matrix}
 \Delta(\epsilon, q, a.v) = (\epsilon, s, \square b.v) & \text{se } \delta(q, a) = (s, b, L) \\
 \Delta(\epsilon, q, \epsilon) = (\epsilon, s, \square v) & \text{se } \delta(q, \square) = (s, b, L)
 \end{matrix}
 $$
+
 Devem-se entender as transições a cima como "se não houver nada à esquerda e andarmos para a esquerda, vamos para uma célula vazia".  
 Por contraste, as máquinas de Turing introduzidas inicialmente dizem-se **unidirecionais**.
 
@@ -195,7 +198,8 @@ Sempre que a computação da fita bidirecional determinar que é preciso um espa
 
 ### Máquina multifita
 
-Definimos uma [**máquina de Turing multifita**](color:yellow) como uma máquina de Turing cuja função de transição é do tipo 
+Definimos uma [**máquina de Turing multifita**](color:yellow) como uma máquina de Turing cuja função de transição é do tipo
+
 $$
 \delta : Q \times \Gamma^k \to \hat{Q} \times \Gamma^k \times \{ L, R \}^k
 $$
@@ -216,6 +220,7 @@ com apenas uma fita.
 ### Máquinas não-deterministas
 
 Uma [**máquina de Turing não-determinista**](color:red) é como uma máquia de Turing tal que a função de transição é do tipo
+
 $$
 \delta: Q \times \Gamma \to \wp ( \hat{Q} \times \Gamma \times \{L,R\})
 $$
@@ -232,4 +237,3 @@ Turing determinista.
 // TODO
 
 :::
-
