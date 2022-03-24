@@ -1168,6 +1168,13 @@ $\omega = \omega_1 \omega_2 \omega_3 \omega_4 \omega_5$ em que $\omega_1, \omega
 
 :::details[Aplicação do Lema de Pumping]
 
-// TODO a^n b^n c^n
+Vamos usar o Lema de Pumping para Linguagens Independentes para provar que a linguagem $L = \{ a^n b^n c^n : n \in \mathbb{N}_0 \}$ não é independente.  
+A prova é bastante semelhante à que $\{ a^n b^n : n \in \mathbb{N}_0 \}$ não é regular.
+No entanto, aqui, vamos ter de considerar vários casos:
+Para o $k$ cuja existência é garantida pelo Lema, consideramos a palavra $a^k b^k c^k$. Uma de três coisas acontece:
+- $\omega_2 \omega_3 \omega_4$ tem apenas b's;
+- $\omega_2 \omega_3 \omega_4$ tem pelo menos um a, e não tem nenhum c;
+- $\omega_2 \omega_3 \omega_4$ tem pelo menos um c, e não tem nenhum a.
+Em qualquer um dos casos, podemos ver que a palavra $\omega_1 \omega_2^i \omega_3 \omega_4^i \omega_5$ não tem o mesmo número de a's, b's e c's, pelo que a linguagem não pode ser independente de contexto.
 
 :::
