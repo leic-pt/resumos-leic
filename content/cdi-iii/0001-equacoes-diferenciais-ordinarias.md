@@ -207,7 +207,7 @@ O caso geral ocorre quando nada se pode assumir sobre a nulidade de $a(t)$ e $b(
 Ficamos assim com a expressão, em que $a,b \in \C$:
 
 $$
-\frac{\d x}{\d t} = a(t) x + b(t)
+\frac{\d x}{\d t} + a(t) x = b(t)
 $$
 
 Para resolver este tipo de equações, utilizamos uma função auxiliar, denomidada [**fator de integração**](color:orange).\
@@ -217,27 +217,27 @@ Esta função permite-nos reduzir o caso geral aos casos mais simples que já sa
 1. Começamos por multiplicar todos os membros da equação por $\mu$:
 
 $$
-x' \mu - a(t) x \mu = b(t) \mu
+x' \mu + a(t) x \mu = b(t) \mu
 $$
 
 2. Utilizar as regras de derivação para simplificar a expressão:
 
    Sabe-se que $\mu x' + a(t) \mu x = \mu x' + \mu' x = (\mu x)'$, pelo que obtemos
 
-$$
-(x \cdot \mu)' = b(t) \mu
-$$
+   $$
+   (x \cdot \mu)' = b(t) \mu
+   $$
 
-que é uma EDO resolúvel por integração direta.
+   que é uma EDO resolúvel por integração direta.
 
-$$
-x \cdot \mu = \int b(s) \mu \ ds + C \Leftrightarrow x(t) = \int \frac{\mu(s)}{\mu(t)} \ b(s) ds + \frac{C}{\mu(t)}
-$$
+   $$
+   x \cdot \mu = \int b(s) \mu \ ds + C \Leftrightarrow x(t) = \int \frac{\mu(s)}{\mu(t)} \ b(s) ds + \frac{C}{\mu(t)}
+   $$
 
 3. Note-se que a equação que define o fator integrante: $\mu' = a(t)\mu$ é linear homogénea de primeira ordem. Podemos então descobrir $\mu$, pela fórmula do [caso $b(t) \equiv 0$](#caso-bt-equiv-0---homogéneas) .
 
 $$
-\mu' = -a(t) \mu \Leftrightarrow \mu(t) = K e^{\int a(s) ds}
+\mu' = a(t) \mu \Leftrightarrow \mu(t) = K e^{\int a(s) ds}
 $$
 
 4. Substituir o $\mu$ obtido em 3. na expressão obtida em 2. determinando o conjunto solução da EDO.
