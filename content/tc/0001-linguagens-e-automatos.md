@@ -1146,6 +1146,7 @@ Para um alfabeto e $L, L_1, L_2 \in \Sigma^* \subset \Sigma^*$ linguagens indepe
 
 As provas passam, tal como fizemos nas linguagens regulares, por pegar em autómatos que reconhecem as linguagens $L$, $L_1$ e $L_2$, e construir um autómato que reconheça a linguagem que queremos provar que é independente de contexto.  
 Resumidamente, ficam as ideias para construir os autómatos:
+
 - Para $L_1 \cup L_2$, considerar como fizemos antes um autómato produto (fica para pensar o que é preciso fazer com a pilha);
 - Para $L_1 . L_2$ considerar uma composição dos autómatos $P_1$ e $P_2$: quando estamos num estado final de $P_1$, podemos fazer um movimento-$\epsilon$ para o estado inicial de $P_2$, assinalando esta transição na pilha com um símbolo especial;
 - Para $L^*$ considerar a composição a cima do AP $P$ para si próprio: em cada estado final de $P$ adicionamos um movimento-$\epsilon$ para o estado inicial, marcando também esta transição na pilha com um símbolo especial.
@@ -1162,6 +1163,7 @@ Tal como para as linguagens regulares, isto é feito através do Lema de Pumping
 
 Se $L \subset \Sigma^*$ é uma linguagem do contexto, então existe $k \in \mathbb{N}$ tal que se $\omega \in L$ é uma palavra com $| \omega | \geq k$, então
 $\omega = \omega_1 \omega_2 \omega_3 \omega_4 \omega_5$ em que $\omega_1, \omega_2, \omega_3, \omega_4, \omega_5 \in \Sigma^*$ satisfazem as seguintes condições:
+
 - $\omega_2 \omega_4 \neq \epsilon$, ou seja $\omega_2 \neq \epsilon \vee \omega_4 \neq \epsilon$;
 - $| \omega_2 \omega_3 \omega_4 | \leq k$;
 - $\omega_1 \omega_2^i \omega_3 \omega_4^i \omega_5 \in L$, para qualquer $i \in \mathbb{N}_0$.
@@ -1180,9 +1182,10 @@ Vamos usar o Lema de Pumping para Linguagens Independentes para provar que a lin
 A prova é bastante semelhante à que $\{ a^n b^n : n \in \mathbb{N}_0 \}$ não é regular.
 No entanto, aqui, vamos ter de considerar vários casos:
 Para o $k$ cuja existência é garantida pelo Lema, consideramos a palavra $a^k b^k c^k$. Uma de três coisas acontece:
+
 - $\omega_2 \omega_3 \omega_4$ tem apenas b's;
 - $\omega_2 \omega_3 \omega_4$ tem pelo menos um a, e não tem nenhum c;
 - $\omega_2 \omega_3 \omega_4$ tem pelo menos um c, e não tem nenhum a.
-Em qualquer um dos casos, podemos ver que a palavra $\omega_1 \omega_2^i \omega_3 \omega_4^i \omega_5$ não tem o mesmo número de a's, b's e c's, pelo que a linguagem não pode ser independente de contexto.
+  Em qualquer um dos casos, podemos ver que a palavra $\omega_1 \omega_2^i \omega_3 \omega_4^i \omega_5$ não tem o mesmo número de a's, b's e c's, pelo que a linguagem não pode ser independente de contexto.
 
 :::
