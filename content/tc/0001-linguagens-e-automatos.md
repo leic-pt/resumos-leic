@@ -1144,12 +1144,18 @@ Para um alfabeto e $L, L_1, L_2 \in \Sigma^* \subset \Sigma^*$ linguagens indepe
 
 :::details[Prova]
 
-// TODO
+As provas passam, tal como fizemos nas linguagens regulares, por pegar em autómatos que reconhecem as linguagens $L$, $L_1$ e $L_2$, e construir um autómato que reconheça a linguagem que queremos provar que é independente de contexto.  
+Resumidamente, ficam as ideias para construir os autómatos:
+- Para $L_1 \cup L_2$, considerar como fizemos antes um autómato produto (fica para pensar o que é preciso fazer com a pilha);
+- Para $L_1 . L_2$ considerar uma composição dos autómatos $P_1$ e $P_2$: quando estamos num estado final de $P_1$, podemos fazer um movimento-$\epsilon$ para o estado inicial de $P_2$, assinalando esta transição na pilha com um símbolo especial;
+- Para $L^*$ considerar a composição a cima do AP $P$ para si próprio: em cada estado final de $P$ adicionamos um movimento-$\epsilon$ para o estado inicial, marcando também esta transição na pilha com um símbolo especial.
+
+Lamentamos a brevidade da prova. Aceitam-se contribuições.
 
 :::
 
-No entanto, no geral, a classe das linguagens independentes do contexto não é fechada para intersecções ou complementações, como veremos adiante.  
-Antes, porém precisamos de compreender que há linguagens que não são independentes do contexto.
+No entanto, no geral, a classe das linguagens independentes do contexto não é fechada para intersecções ou complementações.
+Não temos ainda um método para verificar que uma linguagem não é independente do contexto.
 Tal como para as linguagens regulares, isto é feito através do Lema de Pumping, mas desta vez da sua versão para autómatos de pilha.
 
 ### Lema de Pumping para Linguagens Independentes do Contexto
