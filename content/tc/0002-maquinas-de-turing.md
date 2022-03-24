@@ -131,3 +131,105 @@ Dizemos que duas máquinas de Turing são **equivalentes** se reconhecerem e dec
 // TODO
 
 :::
+
+## Variantes
+
+Há na literatura bastantes variações sobre a definição de máquina de Turing.
+Analisamos de seguida algumas, que nos serão úteis. 
+Apesar de permitirem maior flexibilidade aparente, na verdade os modelos que analisaremos são essencialmente equivalentes ao modelo original, do ponto de vista da teoria da computabilidade.
+
+### Máquinas com transições-$S$
+
+Uma [**máquina com transições-$S$**](color:green) é uma máquina cuja função de transição tem como contradomínio $\hat{Q} \times \Gamma \times \{L,R,S\}$, em vez de $\hat{Q} \times \Gamma \times \{L,R\}$.
+Este último elemento $S$ corresponde a um movimento em que a cabeça de leitura/escrita não muda de sítio.
+
+As noções introduzidas na secção anterior são facilmente estendíveis a estas máquinas, sendo relevante apenas realçar a extensão da função de transição de configurações, que agora, além do apresentado a cima, satisfaz ainda:
+$$
+\Delta(u, q, a.v) = (u, s, b.v) \text{se } \delta(q,a) = (s,b,S)
+$$
+
+:::tip[]
+
+Toda a máquina de Turing com transições-$S$ é equivalente a uma máquina de Turing tradicional.
+
+:::
+
+:::details[Prova]
+
+Converter uma máquina com transições-$S$ numa máquina de Turing é razoavelmente simples.
+Basta pegar em cada movimento $S$ e desdobrá-lo em dois movimentos, como apresentado em baixo:
+
+![S-movement Conversion](./imgs/0002/s-movement.png#dark=1)
+
+em que $q_a$ denota um novo estado da máquina, e $\gamma$ deve ser expandido para representar todas as letras do alfabeto $\Gamma$.  
+É fácil de verificar que os dois segmentos a cima levam à mesma transição de configurações.
+
+:::
+
+### Máquinas bidirecionais
+
+Uma [**máquina bidirecional**](color:blue) é como uma máquina de Turing, onde se assume que a fita é infinita em ambas as direções.  
+Mais uma vez, a única diferença assinalável é na função de transição de configurações, que é agora definida de forma que:
+$$
+\begin{matrix}
+\Delta(\epsilon, q, a.v) = (\epsilon, s, \square b.v) & \text{se } \delta(q, a) = (s, b, L) \\
+\Delta(\epsilon, q, \epsilon) = (\epsilon, s, \square v) & \text{se } \delta(q, \square) = (s, b, L)
+\end{matrix}
+$$
+Devem-se entender as transições a cima como "se não houver nada à esquerda e andarmos para a esquerda, vamos para uma célula vazia".  
+Por contraste, as máquinas de Turing introduzidas inicialmente dizem-se **unidirecionais**.
+
+:::tip[]
+
+Toda a máquina de Turing bidireccional é equivalente a uma máquina de Turing unidirecional.
+
+:::
+
+:::details[Prova]
+
+Note-se que mover uma palavra para a direita numa fita unidirecional é algo relativamente fácil.  
+Para uma dada computação numa máquina bidirecional, delineamos a computação respetiva numa máquina de Turing unidirecional da seguinte forma:
+Sempre que a computação da fita bidirecional determinar que é preciso um espaço à esquerda da palavra, movemos toda a palavra para a direita. Desta forma, criamos um espaço na primeira posição onde podemos colocar o símbolo determinado pela computação da fita bidirecional.
+
+:::
+
+### Máquina multifita
+
+Definimos uma [**máquina de Turing multifita**](color:yellow) como uma máquina de Turing cuja função de transição é do tipo 
+$$
+\delta : Q \times \Gamma^k \to \hat{Q} \times \Gamma^k \times \{ L, R \}^k
+$$
+
+:::tip[]
+
+Toda a máquina de Turing multifita é equivalente a uma máquina de Turing
+com apenas uma fita.
+
+:::
+
+:::details[Prova]
+
+// TODO
+
+:::
+
+### Máquinas não-deterministas
+
+Uma [**máquina de Turing não-determinista**](color:red) é como uma máquia de Turing tal que a função de transição é do tipo
+$$
+\delta: Q \times \Gamma \to \wp ( \hat{Q} \times \Gamma \times \{L,R\})
+$$
+
+:::tip[]
+
+Toda a máquina de Turing não-determinista é equivalente a uma máquina de
+Turing determinista.
+
+:::
+
+:::details[Prova]
+
+// TODO
+
+:::
+
