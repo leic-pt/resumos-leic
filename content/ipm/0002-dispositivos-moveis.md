@@ -1,9 +1,10 @@
 ---
-title: Dispositivos moveis
-description: Interação Pessoa-Máquina.
-  Mitos de bom design.
-  Modelos de desenho.
-path: /ipm/dispositivosmoveis
+title: Dispositivos móveis
+description: >-
+  Dark Patterns.
+  Interação em dispositivos móveis.
+  Heurísticas de Usabilidade de Nielsen.
+path: /ipm/dispositivos-moveis
 type: content
 ---
 
@@ -13,7 +14,7 @@ type: content
 
 ```
 
-## Dark Pattern
+## Dark Patterns
 
 Os padrões sombrios (mais conhecidos como _dark patterns_ em inglês) são truques utilizados em aplicações ou sites que nos obrigam a fazer coisas que nao pretendemos fazer, como comprar algo ou subscrever alguma coisa.
 
@@ -45,6 +46,7 @@ Nos dias de hoje quando nos referimos a dispositivos móveis não estamos só a 
 
 **Hidden Markov Models (HMMs)** representam uma classe de modelos de probabilidades gráficas que nos permitem prever uma sequência desconhecida (escondida) de variáveis a partir de um padrão de variáveis observadas.
 Este modelo pode ser utilizaado em diferentes modalidades de interação, especificamente com comandos de voz para que um dispositivo reconheça apenas a voz do seu utilizador e, caso esteja em público, ser apenas ativado pelo seu próprio utilizador.
+
 :::
 
 Em termos de modalidades de interações, os dispositivos móveis permitem poder utilizá-los de muitas outras formas para além do toque. Um grande exemplo disso é o famoso jogo **_Pokémon Go_** que permitia aos seus jogadores uma experiência muito para além da interação com a aplicação.
@@ -85,9 +87,9 @@ Porém tem que haver um conjunto de regras para estes gestos de modo a que os ut
 
 ### Tamanho, Espaçamentos...
 
-Existe um tamanho e espaçamento específico para cada dispositivo (Android, IOS,...) pois, quanto mais pequeno for o aparelho, mais difícil será de se poder interagir com.
+Existe um tamanho e espaçamento específico para cada dispositivo (Android, IOS, ...) pois, quanto mais pequeno for o aparelho, mais difícil será de se poder interagir com.
 
-**(gráfico do slide 51)**
+![Tapping error rate by size graph](./assets/0002-tapping-error-rate-graph.svg#dark=1)
 
 ### Novas técnicas de interação
 
@@ -101,7 +103,7 @@ Com a evolução nos dias de hoje, também precisamos de ter em conta como é qu
 
 ### IPM + ML + Sensor Fusion
 
-**(meter o esquema do slide 61)**
+![Uso de Machine Learning em IPM](./assets/0002-ipm-ml-sensor-fusion.png#dark=3)
 
 Para melhorar o _input_ do utilizador, os novos dispositivos ajudam o utilizador com **"previsões"** do que este poderá querer escrever. Por exemplo, quando estamos a escrever uma mensagem no telemóvel e o teclado da sugestões de palavras que possamos estar a escrever ou que vamos querer escrever depois.
 
