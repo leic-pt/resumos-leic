@@ -128,7 +128,30 @@ Dizemos que duas máquinas de Turing são **equivalentes** se reconhecerem e dec
 
 :::details[Exemplo 4]
 
-// TODO
+Consideremos por exemplo que queremos determinar se uma dada palavra $w$ é um palíndromo.
+Para tal, tenhamos que $\Sigma = \{0, 1\} \wedge w \in \{0, 1\}^*$.
+
+Bem, um AFD não parece uma escolha muito sensata para este propósito - não temos uma maneira clara de **guardar estado**, para verificar se uma palavra é ou não um palíndromo. Uma Máquina de Turing pode, então, ter aqui particular utilidade.
+
+Num primeiro momento, é sempre importante verificar se a **palavra vazia** deve ser aceite - neste caso deve. Quando estamos na presença de um caso destes, _normalmente_ temos de ter especial cuidado a construir a nossa máquina, quer ao construir transições que englobem por definição a possibilidade da palavra ser vazia, quer ao fazer transições que "saltem" parte dos estados da máquina, de modo a aceitar a palavra em questão.
+
+Posto isto, será interessante pensar então na **lógica** por detrás da máquina (como a vamos construir, portanto).
+
+Pensemos: um palíndromo é uma palavra cuja **palavra invertida é igual a si própria**. Parece então fazer sentido ir verificando as **pontas** da palavra, verificando se coincidem. Essa verificação terá de ser feita consecutivamente, "podando as pontas" da palavra até _dar a volta_ (verificando então que a palavra é um palíndromo) ou até as pontas não serem iguais (obtendo então que a palavra não é um palíndromo).
+
+Este método de verificar e podar consecutivamente as pontas tem um defeito: por definição, não tem em conta **palíndromos de comprimento ímpar** - palavras onde eventualmente temos as pontas a "coincidir". Ao construir a máquina teremos, portanto, de ter esse caso em consideração (e já veremos abaixo que é uma modificação bastante simples à máquina).
+
+![Máquina de Turing - Palíndromo](./imgs/0002/turing-machine-palyndrome.png)
+
+Temos, então, a máquina de Turing que resolve o problema proposto acima.
+A azul, podemos notar as tais **transições auxiliares** para palavras de comprimento ímpar referidas acima. A laranja, as iterações pela palavra até encontrar a próxima ponta, e a verde o _backtracking_ até à primeira ponta, marcada a última.
+
+Acabamos, então, esta secção a exemplificar o processamento de um par de palavras segundo esta máquina:
+
+Consideremos, como primeiro exemplo, a palavra [**$10011$**](color:orange). Partindo do estado inicial, o primeiro $1$ é lido, sendo substituído por $x$ na fita.
+Vamos, de seguida, **iterar pela fita** até encontrar a outra ponta da palavra - encontrada, verificamos que também é $1$, pelo que _até agora_ a palavra continua a poder ser um palíndromo. Marcamos esta ponta com $x$ e rebobinamos até à última ponta, e vamos agora passar a considerar a palavra [**$001$**](color:yellow). Marcamos $0$ com $x$ e prosseguimos até à próxima ponta. Descobrimos, aqui, que a outra ponta tem símbolo $1$, pelo que a palavra definitivamente não é um palíndromo. Sem transição associada, a palavra é rejeitada pela máquina, e o processamento termina.
+
+De seguida, tenhamos a palavra [**$10101$**](color:green), palavra esta de **comprimento ímpar**. Vamos, mais uma vez, procurar sucessivamente marcar e podar as pontas da palavra. As 2 primeiras iterações correm da mesma forma que foi observada no primeiro exemplo: podamos as pontas $1$ e $0$, restando a palavra [**$1$**](color:yellow). A vida pregou-nos uma partida, e a palavra tem comprimento ímpar. Contudo, fomos inteligentes, e já mais atrás tínhamos notado e criado transições auxiliares para esta situação! Procurando seguir os estados associados a este processamento, partimos de $q_{in}$, seguindo para $q_2$ (estamos a ler $1$) e movendo o cursor para a direita.Lemos a palavra vazia, pelo que mudamos o cursor para a esquerda e trocamos de estado para $q_3$. Aqui, **tendo a tal transição auxiliar**, podemos aceitar a palavra (já que, movendo-nos para a esquerda, apenas encontrámos mais um $x$), sendo a palavra assim aceite.
 
 :::
 
