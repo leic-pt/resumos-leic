@@ -1,8 +1,10 @@
 ---
 title: Dispositivos moveis
-description: Interação Pessoa-Máquina.
-  Mitos de bom design.
-  Modelos de desenho.
+description: Dark pattern.
+  Especificidades dos dispositivos móveis.
+  Interação em dispositivos móveis.
+  O Futuro.
+  Heurísticas de Usabilidade.
 path: /ipm/dispositivosmoveis
 type: content
 ---
@@ -85,7 +87,7 @@ Porém tem que haver um conjunto de regras para estes gestos de modo a que os ut
 
 Existe um tamanho e espaçamento específico para cada dispositivo (Android, IOS,...) pois, quanto mais pequeno for o aparelho, mais difícil será de se poder interagir com.
 
-**(gráfico do slide 51)**
+<a href='https://www.linkpicture.com/view.php?img=LPic623f2d82e541f2125134176'><img src='https://www.linkpicture.com/q/Screenshot-from-2022-03-26-15-12-19.png' type='image'></a>
 
 ### Novas técnicas de interação
 
@@ -99,7 +101,7 @@ Com a evolução nos dias de hoje, também precisamos de ter em conta como é qu
 
 ### IPM + ML + Sensor Fusion
 
-**(meter o esquema do slide 61)**
+<a href='https://www.linkpicture.com/view.php?img=LPic623f2dcc026832033840193'><img src='https://www.linkpicture.com/q/Screenshot-from-2022-03-26-15-14-00.png' type='image'></a>
 
 Para melhorar o _input_ do utilizador, os novos dispositivos ajudam o utilizador com **"previsões"** do que este poderá querer escrever. Por exemplo, quando estamos a escrever uma mensagem no telemóvel e o teclado da sugestões de palavras que possamos estar a escrever ou que vamos querer escrever depois.
 
