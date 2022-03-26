@@ -192,17 +192,22 @@ Toda a máquina de Turing bidireccional é equivalente a uma máquina de Turing 
 
 Note-se que mover uma palavra para a direita numa fita unidirecional é algo relativamente fácil.  
 Para uma dada computação numa máquina bidirecional, delineamos a computação respetiva numa máquina de Turing unidirecional da seguinte forma:
-Sempre que a computação da fita bidirecional determinar que é preciso um espaço à esquerda da palavra, movemos toda a palavra para a direita. Desta forma, criamos um espaço na primeira posição onde podemos colocar o símbolo determinado pela computação da fita bidirecional.
+Sempre que a computação da fita bidirecional determinar que é preciso um espaço à esquerda da palavra, movemos toda a palavra para a direita.
+Desta forma, criamos um espaço na primeira posição onde podemos colocar o símbolo determinado pela computação da fita bidirecional.
+Uma forma de saber quando precisamos de um espaço à esquerda é, antes da computação, movermos o input um espaço para a esquerda.
+Assim, sempre que lermos um espaço em branco depois de fazermos um movimento para a esquerda, quer dizer que precisamos de mais um espaço à esquerda.
 
 :::
 
 ### Máquina multifita
 
-Definimos uma [**máquina de Turing multifita**](color:yellow) como uma máquina de Turing cuja função de transição é do tipo
+Definimos uma [**máquina de Turing multifita**](color:yellow) como uma máquina de Turing cuja função de transição é (para algum $k \in \mathbb{N}$) do tipo
 
 $$
-\delta : Q \times \Gamma^k \to \hat{Q} \times \Gamma^k \times \{ L, R \}^k
+\delta : Q \times \Gamma^k \to \hat{Q} \times \Gamma^k \times \{ L, S, R \}^k
 $$
+
+Para uma máquina de Turing multifita, convenciona-se que o input é sempre colocado na primeira fita, e o output é sempre devolvido na última fita.
 
 :::tip[]
 
@@ -213,7 +218,26 @@ com apenas uma fita.
 
 :::details[Prova]
 
-// TODO
+Intuitivamente, se conseguirmos dividir a fita da máquina de Turing em $k$ secções "independentes", conseguimos arranjar uma equivalência entre a máquina de Turing tradicional.
+Precisamos no entanto de:
+
+- um símbolo para separar as diferentes secções da fita (que correspondem às várias fitas da máquina multifita) - vamos usar o símbolo $\#$;
+- símbolos para demarcar o início e fim da fita - vamos usar $I$ e $F$;
+- símbolos idênticos aos do nosso alfabeto de trabalho, mas que assinalem que a cabeça de escrita/leitura da respetiva fita está nessa posição - vamos chamar a este conjunto $\Gamma^\blacksquare$.
+  Vamos então usar o alfabeto $\Gamma \cup \Gamma^\blacksquare \cup \{ \#, I, F \}$.  
+  Vamos então tentar construir uma máquina de Turing $T$ tradicional que compute o mesmo que uma máquina multifita $M$.  
+  A máquina $T$ começa por criar uma fita da seguinte forma:
+- coloca $I$ na primeira posição;
+- coloca na segunda posição a correspondente em $\Gamma^\blacksquare$ ao primeiro símbolo no input de $M$;
+- coloca na fita a $\#$ seguido de $\square^\blacksquare$ uma vez por cada fita de $M$ ($k-1$ vezes);
+- acaba por colocar o símbolo de terminação $F$.
+
+![Conversão multifita para Turing](./imgs/0002/conversion.png#dark=1)
+
+Com a fita de $T$ inicializada, podemos agora fazer as mudanças indicadas por $M$.
+Isto é feito da seguinte forma: da esquerda para a direita, reconhecemos onde está a cabeça de escrita/leitura das correspondentes a cada uma das $k$ fitas, e fazemos a alteração necessária.
+Note-se que poderá ser necessário mover símbolos para a direita para disponibilizar novos espaços para alguma fita.  
+É importante realçar que, no final, de forma a que $T$ devolva o mesmo output que $M$, temos de converter o símbolo de $\Gamma^\blacksquare$ do espaço correspondente à última fita no correspondente símbolo de $\Gamma$, bem como remover o $F$ no final da fita.
 
 :::
 
@@ -222,18 +246,32 @@ com apenas uma fita.
 Uma [**máquina de Turing não-determinista**](color:red) é como uma máquia de Turing tal que a função de transição é do tipo
 
 $$
-\delta: Q \times \Gamma \to \wp ( \hat{Q} \times \Gamma \times \{L,R\})
+\delta: Q \times \Gamma \to \wp ( \hat{Q} \times \Gamma \times \{L,S,R\})
 $$
+
+Tal como com os autómatos, dizemos que uma máquina de Turing não-determinista aceita uma palavra se **existir uma** computação que aceite a palavra, dizendo-se que rejeita a palavra se todas as computações forem finitas e rejeitarem a palavra.
+Note-se que uma máquina de Turing pode ter computações que entram em ciclos e portanto são infinitas.
 
 :::tip[]
 
-Toda a máquina de Turing não-determinista é equivalente a uma máquina de
-Turing determinista.
+Toda a máquina de Turing não-determinista é equivalente a uma máquina de Turing determinista.
 
 :::
 
 :::details[Prova]
 
-// TODO
+Vamos, mais uma vez, definir para uma máquina não-determinística $N$, definir uma máquina de Turing $D$ que lhe seja equivalente.  
+A ideia será que $D$ terá 3 fitas:
+
+- a primeira fita manterá o input do problema, sem o alterar;
+- a segunda fita será usada para escolher o caminho a percorrer no grafo das possíveis transições de configurações;
+- a terceira fita será usada para mexer no input para cada sequência na fita 2.
+  A máquina $D$ começa por inicializar as fitas:
+- na segunda fita coloca \$ para indicar o início do caminho, abre $d$ (depende do input) espaços vazios, e coloca $\#$ no final para indicar o fim do caminho.
+- copia-se para a terceira fita o input.
+  Então, executamos na fita 3 de acordo com o caminho 2 até que:
+- cheguemos a um estado de aceitação: neste caso vamos para o estado de aceitação e terminamos a computação;
+- cheguemos a um estado de rejeição: neste caso passamos ao próximo caminho na fita 2.
+  Se nenhum dos caminhos na fita 2 aceitar a palavra, então a palavra deve ser rejeitada.
 
 :::
