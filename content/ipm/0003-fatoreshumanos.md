@@ -22,47 +22,54 @@ type: content
 ```
 
 ## O Modelo de processamento humano de Card
-  Nos anos 80, Stuart Card e colegas aplicaram psicologia cognitiva a experiências com computadores, isto é queriam resumir o comportamneto humano a uma máquina, que deu origem a um livro fundamental: [The Psychology of Human-Computer Interaction](https://s3-euw1-ap-pe-df-pch-content-store-p.s3.eu-west-1.amazonaws.com/9780203736166/0fdeb9bc-5710-4e9b-82de-77735a3f67b7/preview.pdf?AWSAccessKeyId=ASIAQFVOSJ576LEUQBV3&Expires=1648298369&Signature=A2Pn8LhiSbKUhRHCyS4zftxTB44%3D&response-content-disposition=attachment%3B%20filename%3D%2210.1201_9780203736166_previewpdf.pdf%22&x-amz-security-token=IQoJb3JpZ2luX2VjEAQaCWV1LXdlc3QtMSJIMEYCIQDDWh6yTxoFUK9nhU6gJrTqd3T8CZe4L3ATGlctntF6HgIhAMXgAf7Y51RqpHmQrDlP4dHs%2BkeyQ%2F1JVgGKHFI31t8AKoMECI3%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQAxoMMDEyMTc3MjY0NTExIgz89%2FYZzuPkTgsSlDQq1wOspbHKCGt%2Bd3q6ssVads9cWPX%2BNewsXjUrYYxySvDhbwezJ0Kq525RgX%2BdOMPrxuUXan8EodX1ZDevioeSmwCnJaNUsVSrHE8CgQyqFyzCZxJcqBL5tx1pjPiMVn%2FGOR54C3IvokcnMFCyAclnlXs33fCp2mL1X7t9J%2F5HtONvgPVQ6VGMaMhpVxkpuERDHq6LlBHAWMGN0HQw5zReIKQ0rWSXPmNkbTQh1HCZhxHAHaMBQPhIUby20u%2Fq87o4xnGJOpesVHsdG7FXjtVwcmZjJNoaCjBFrLdUov%2BfR7xvkdEDc0LCcxa%2B46uEyjrw5eP5tKupWGy5HYTgcfIEO2knF0KTNtcHPe9s%2BUzjr7FtFRkW2dilILF0iIgUK5ntA%2BFAAsY4vc4Nmtn0z6%2FUcHR1bZcOk0kisNPlaxPlAuwgXT2xH4f8poCM3OPz4LVX1zCiCVlaMIIrjUoSsl9KtI%2BP46HlzuYVk2za3CD24k0j%2FfSoK6NiOfRVBxWskj6htTAXVMtYWyCOa3l39M7icI5USc9wIstngl5yCIHdClNv1F%2FjKn1dXRoXjXXu7O9CXNEv%2BxGM1I4aU6EIHKg3maAI3vb3lktwNST02zbvZ34d7fdRQafkjzcwxvP7kQY6pAFEiqv4B9clsBxQWrQkkGvDBa%2BdHHXWQaGm6ig84wvu3Nxcr4%2F05Ru5TYgK092lZuCQNHvLfsmGD8vfJakvFOOeyUAcQdY3QDS3aSBY9oxtNenli%2B%2BMiKapCVabAvPiiaQ6aCQEh80ogEtpchiKkMeJCbZioqU798pE2b%2FYJq5jSFb430WrMk7LrDNnkNVTcbXW74C0L5lQ8PVbjR33XgNnH5H%2BzQ%3D%3D). A ideia principal deste livro era defiinir o cérebro humano como uma máquina de três sentidos: **visão, audição e toque** (sistema motor), ou seja definir o cérebro humano comum sistema de percepção.
 
-  <a href='https://www.linkpicture.com/view.php?img=LPic623f10169ec2a1213925391'><img src='https://www.linkpicture.com/q/Screenshot-from-2022-03-26-13-01-41.png' type='image'></a>
+Nos anos 80, Stuart Card e colegas aplicaram psicologia cognitiva a experiências com computadores, isto é queriam resumir o comportamneto humano a uma máquina, que deu origem a um livro fundamental: [The Psychology of Human-Computer Interaction](https://s3-euw1-ap-pe-df-pch-content-store-p.s3.eu-west-1.amazonaws.com/9780203736166/0fdeb9bc-5710-4e9b-82de-77735a3f67b7/preview.pdf?AWSAccessKeyId=ASIAQFVOSJ576LEUQBV3&Expires=1648298369&Signature=A2Pn8LhiSbKUhRHCyS4zftxTB44%3D&response-content-disposition=attachment%3B%20filename%3D%2210.1201_9780203736166_previewpdf.pdf%22&x-amz-security-token=IQoJb3JpZ2luX2VjEAQaCWV1LXdlc3QtMSJIMEYCIQDDWh6yTxoFUK9nhU6gJrTqd3T8CZe4L3ATGlctntF6HgIhAMXgAf7Y51RqpHmQrDlP4dHs%2BkeyQ%2F1JVgGKHFI31t8AKoMECI3%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQAxoMMDEyMTc3MjY0NTExIgz89%2FYZzuPkTgsSlDQq1wOspbHKCGt%2Bd3q6ssVads9cWPX%2BNewsXjUrYYxySvDhbwezJ0Kq525RgX%2BdOMPrxuUXan8EodX1ZDevioeSmwCnJaNUsVSrHE8CgQyqFyzCZxJcqBL5tx1pjPiMVn%2FGOR54C3IvokcnMFCyAclnlXs33fCp2mL1X7t9J%2F5HtONvgPVQ6VGMaMhpVxkpuERDHq6LlBHAWMGN0HQw5zReIKQ0rWSXPmNkbTQh1HCZhxHAHaMBQPhIUby20u%2Fq87o4xnGJOpesVHsdG7FXjtVwcmZjJNoaCjBFrLdUov%2BfR7xvkdEDc0LCcxa%2B46uEyjrw5eP5tKupWGy5HYTgcfIEO2knF0KTNtcHPe9s%2BUzjr7FtFRkW2dilILF0iIgUK5ntA%2BFAAsY4vc4Nmtn0z6%2FUcHR1bZcOk0kisNPlaxPlAuwgXT2xH4f8poCM3OPz4LVX1zCiCVlaMIIrjUoSsl9KtI%2BP46HlzuYVk2za3CD24k0j%2FfSoK6NiOfRVBxWskj6htTAXVMtYWyCOa3l39M7icI5USc9wIstngl5yCIHdClNv1F%2FjKn1dXRoXjXXu7O9CXNEv%2BxGM1I4aU6EIHKg3maAI3vb3lktwNST02zbvZ34d7fdRQafkjzcwxvP7kQY6pAFEiqv4B9clsBxQWrQkkGvDBa%2BdHHXWQaGm6ig84wvu3Nxcr4%2F05Ru5TYgK092lZuCQNHvLfsmGD8vfJakvFOOeyUAcQdY3QDS3aSBY9oxtNenli%2B%2BMiKapCVabAvPiiaQ6aCQEh80ogEtpchiKkMeJCbZioqU798pE2b%2FYJq5jSFb430WrMk7LrDNnkNVTcbXW74C0L5lQ8PVbjR33XgNnH5H%2BzQ%3D%3D). A ideia principal deste livro era defiinir o cérebro humano como uma máquina de três sentidos: **visão, audição e toque** (sistema motor), ou seja definir o cérebro humano comum sistema de percepção.
 
-  É possível descrever o ser humano como um humúnculo sensorial visto que os nosso sentidos não são todos iguais. Somos mais sensíveis nas maõs ou no paladar do que nas costas ou braços. Em termos de movimento não podemos dizer que o ser humano é uma máquina sequencial de movimento mas sim uma **"máquina de previsão do futuro"** (acreditamos que tudo o que vamos fazer vai acontecer), visto que os nossos sentidos estão todos interligados. É por essa razão que conseguimos mudar o que estamos a ouvir, apesar do áudio não mudar, meramente porque o [movimento da boca de alguém também mudou](https://www.youtube.com/watch?v=G-lN8vWm3m0), ou porque nos é difícil de identificar a cor de um palavra que descrever outra cor.
+<a href='https://www.linkpicture.com/view.php?img=LPic623f10169ec2a1213925391'><img src='https://www.linkpicture.com/q/Screenshot-from-2022-03-26-13-01-41.png' type='image'></a>
 
-  <a href='https://www.linkpicture.com/view.php?img=LPic623f30404042d186788913'><img src='https://www.linkpicture.com/q/Screenshot-from-2022-03-26-15-23-42.png' type='image'></a>
+É possível descrever o ser humano como um humúnculo sensorial visto que os nosso sentidos não são todos iguais. Somos mais sensíveis nas maõs ou no paladar do que nas costas ou braços. Em termos de movimento não podemos dizer que o ser humano é uma máquina sequencial de movimento mas sim uma **"máquina de previsão do futuro"** (acreditamos que tudo o que vamos fazer vai acontecer), visto que os nossos sentidos estão todos interligados. É por essa razão que conseguimos mudar o que estamos a ouvir, apesar do áudio não mudar, meramente porque o [movimento da boca de alguém também mudou](https://www.youtube.com/watch?v=G-lN8vWm3m0), ou porque nos é difícil de identificar a cor de um palavra que descrever outra cor.
 
-  ### Sistema motor
-  O sistema motor tem comunicações com o tempo, isto é, o nosso tempo de resposta de cada sentido é diferente, havendo sentidos que são mais sensíevis (como o sentido auditivo) e outros menos, como é o caso da dor.
+<a href='https://www.linkpicture.com/view.php?img=LPic623f30404042d186788913'><img src='https://www.linkpicture.com/q/Screenshot-from-2022-03-26-15-23-42.png' type='image'></a>
 
-   | [**Sentido**](color:blue) | [**Tempo**](color:blue) |
-   | ------------------------- | ----------------------- |
-   | Visual                    | 200 ms                  |
-   | Auditivo                  | 150 ms                  |
-   | Dor                       | 700 ms                  |
+### Sistema motor
 
-  ### Sistema Cognitivo
-  O sistema cognitivo representa as nossas memórias, há algumas zonas do nosso cérebro que estão organizadas em camadas mas é difícil dizer qual a zona que está encarregue da memória a curto ou longo prazo. À medida que o ser humano foi evoluindo, o seu cérebro também foi, assim como as nossas capacidades cognitivas, Atualmente, uma pessoa consegue recordar **sete bocados** de informação, mais ou menos dois, seja cada bocado uma unidade simples, letra, frase, palavra, dígito, etc, em termos de memória a curto prazo e podemos guardar infinita informação em termos de memória a longo prazo. Contudo, só nos conseguimos lembrar de informação a longo prazo através da nosso memória de curta duração.
+O sistema motor tem comunicações com o tempo, isto é, o nosso tempo de resposta de cada sentido é diferente, havendo sentidos que são mais sensíevis (como o sentido auditivo) e outros menos, como é o caso da dor.
 
-  ### O MPH de Card
+| [**Sentido**](color:blue) | [**Tempo**](color:blue) |
+| ------------------------- | ----------------------- |
+| Visual                    | 200 ms                  |
+| Auditivo                  | 150 ms                  |
+| Dor                       | 700 ms                  |
 
-  Com o seu trabalho no Modelo de Processamento Humano, Card descreveu as memórias e os processadores através de um conjunto de parâmetros.
+### Sistema Cognitivo
 
-  1. **Para as memórias:**
+O sistema cognitivo representa as nossas memórias, há algumas zonas do nosso cérebro que estão organizadas em camadas mas é difícil dizer qual a zona que está encarregue da memória a curto ou longo prazo. À medida que o ser humano foi evoluindo, o seu cérebro também foi, assim como as nossas capacidades cognitivas, Atualmente, uma pessoa consegue recordar **sete bocados** de informação, mais ou menos dois, seja cada bocado uma unidade simples, letra, frase, palavra, dígito, etc, em termos de memória a curto prazo e podemos guardar infinita informação em termos de memória a longo prazo. Contudo, só nos conseguimos lembrar de informação a longo prazo através da nosso memória de curta duração.
+
+### O MPH de Card
+
+Com o seu trabalho no Modelo de Processamento Humano, Card descreveu as memórias e os processadores através de um conjunto de parâmetros.
+
+1. **Para as memórias:**
+
+
     - μ: A capacidade de armazenamento (em itens);
     - δ: O tempo de declínio de um item;
     - k: O tipo de codificação (física, acústica, visual, semântica, etc).
 
-  2. **Para os processadores:**
-    - t: O tempo de ciclo.
-  
-  ### Os sistemas do MPH de Card
+2. **Para os processadores:**
 
-  Os subsistemas **Perceptual**, **Motor** e **Cognitivo** incluem um processador e uma memória e podem ser descritos por três parâmetros:
-    
+
+    - t: O tempo de ciclo.
+
+### Os sistemas do MPH de Card
+
+Os subsistemas **Perceptual**, **Motor** e **Cognitivo** incluem um processador e uma memória e podem ser descritos por três parâmetros:
+
     Capacidade de armazenamento- U;
     Tempo de decaimento- D;
     Tempo de ciclo e processamento- T.
-  
-  Estes tempos podem ser avaliados experimentalmente:
+
+Estes tempos podem ser avaliados experimentalmente:
 
     t p ~ 100ms [50-200 ms] - perceptual
     t m ~ 70ms [25-170 ms] - motor
@@ -74,11 +81,12 @@ Os conhecimentos de Psicologia podem ser aplicados a quase todas as áreas, é d
 
 :::tip[Leis do ser Humano]
 Da mesma forma que existem leis para descrever não só a Economia como também o mundo que nos rodeia, o mesmo se aplica ao ser humano e à forma como estas se comportam. Ninguem tem habilidades aleatórias mas sim rege-se por "leis". Algumas dessas leis são por exemplo:
+
 - Velocidade de movimento das mãos;
 - Velocidade de leitura;
 - Capacidade de memorizar informação.
-Assim sendo, estas leis são mantidas em conta e quantificados quando usados para criar recomendações e aplicados, posteriomente no desenho de interfaces.
-:::
+  Assim sendo, estas leis são mantidas em conta e quantificados quando usados para criar recomendações e aplicados, posteriomente no desenho de interfaces.
+  :::
 
 ## Lei de Fitts
 
@@ -86,10 +94,10 @@ Assim sendo, estas leis são mantidas em conta e quantificados quando usados par
 Esta lei é muito importante para o segundo bake-off.
 :::
 
-[Sabendo que existe um alvo facilmente identificável, quanto tempo é que uma pessoa demora a passar para esse alvo?](color:blue) 
+[Sabendo que existe um alvo facilmente identificável, quanto tempo é que uma pessoa demora a passar para esse alvo?](color:blue)
 
 Existem três grandes fatores que influenciam o tempo de movimento: o tempo, a distância e o tamanho do alvo. Para prever este tempo até ao contacto com o alvo teremos que usar a **Lei de Fitts**. Esta lei assume o movimento mais rápido e certeiro, baixas taxas de erro e utilização experiente.
-Através da Lei de Fitts conseguimos explicar o compromisso entre velocidade e precisão: o tempo para atingir o alvo, a distância até ao centro do alco e o tamanho do alvo. Conseguimos até, com esta lei, perceber o quão fácil é interagir com uma aplicação ou qualquer interface. Para tal temos que usar a seguinte fórmula: 
+Através da Lei de Fitts conseguimos explicar o compromisso entre velocidade e precisão: o tempo para atingir o alvo, a distância até ao centro do alco e o tamanho do alvo. Conseguimos até, com esta lei, perceber o quão fácil é interagir com uma aplicação ou qualquer interface. Para tal temos que usar a seguinte fórmula:
 
 :::tip[Lei de Fitts]
 T = _a_+_b_ $\log{2}$ ( $\tfrac{Distância}{Tamanho}$ + 1)
@@ -117,7 +125,7 @@ Assim, podemos concluir que aumentar o tamanho é mais benéfico para os alvos m
 
 ### Manter a relação D/L constante
 
-Temos sempre que manter a mesma proporção entre a distância e o tamanho de um alvo para manter a mesma dificuldade! 
+Temos sempre que manter a mesma proporção entre a distância e o tamanho de um alvo para manter a mesma dificuldade!
 
 :::details[Exemplo]
 ID = $\log{2}$ $\tfrac{Distância}{Tamanho}$ + 1)
@@ -139,29 +147,29 @@ Neste caso cado um dos quatro cantos da página é mais fácil de interagir com 
 
 ## Lei de Hick
 
-Sermos deparados com muitas escolhas pode parecer apelativo mas influencia muito o nosso tempo de escolha, é por esta razão que os menus em restaurantes não tẽm muitas escolhas e estão dividos em entradas, prato principal e sobremesas assim como o prato principal está dividido em que tipo de comida a pessoa possa estar mais interessada em. 
+Sermos deparados com muitas escolhas pode parecer apelativo mas influencia muito o nosso tempo de escolha, é por esta razão que os menus em restaurantes não tẽm muitas escolhas e estão dividos em entradas, prato principal e sobremesas assim como o prato principal está dividido em que tipo de comida a pessoa possa estar mais interessada em.
 
 :::tip[Lei de Hick]
 Desta necessidade de haver escolha mas em quantidades certas vem a **Lei de Hick**. Esta lei premite-nos prever o tempo para tomar uma decisão entre várias opções igualmente prováveis
 
-T=_b_* $\log{2}$ (_n_+1)
+T=_b_\* $\log{2}$ (_n_+1)
 
 Seja _n_ o total de itens a escolher e _b_ o coeficiente dependente da tarefa que pode ser determinado empiricamente tal como na Lei de Fitts)
-::: 
+:::
 
-Mas de onde vem a relação logarítmica? 
+Mas de onde vem a relação logarítmica?
 
 Escolher entre 10 ou 100 opções não demora 10 vezes mais tempo!
 <a href='https://www.linkpicture.com/view.php?img=LPic623f51a87d3141517752139'><img src='https://www.linkpicture.com/q/Screenshot-from-2022-03-26-17-40-37.png' type='image'></a>
 
-Em termos de carga cognitiva, os recursos necessários para compreender e interagir com IU são muito menores, daí ser necessário diminuir o número de opções para uma programa ser bom. Uma boa interface  é minimalista, como é o exemplo da Google.
+Em termos de carga cognitiva, os recursos necessários para compreender e interagir com IU são muito menores, daí ser necessário diminuir o número de opções para uma programa ser bom. Uma boa interface é minimalista, como é o exemplo da Google.
 
 Contudo também não podemos oferecer demasiado poucas opções ao utilizador, uma utilização demasiado simplificada também pode gerar problemas!
 
 :::details[Exemplo]
 Se tivermos 50 items e 1 menu:
 
-T=_b_* $\log{2}$ (_n_+1), _b_=1.0
+T=_b_\* $\log{2}$ (_n_+1), _b_=1.0
 $\log{2}$ (50+1) = 5.7s
 
 Se tivermos 5 items e 10 sub menus:
@@ -178,7 +186,7 @@ O nosso cérebro, por mais complexo que seja precisa de organização para se or
 
 ## Lei de Weber
 
-A nossa capacidade de distinguir diferenças é muito proporcional à intensidade do estímulo. Assim sendo podemos calcular a diferença mínima perceptível (**_JND- just noticeable difference_ em inglês), através da seguinta fórmula:
+A nossa capacidade de distinguir diferenças é muito proporcional à intensidade do estímulo. Assim sendo podemos calcular a diferença mínima perceptível (\*\*_JND- just noticeable difference_ em inglês), através da seguinta fórmula:
 
 $\tfrac{\Delta I}{I}$ = k
 
@@ -186,12 +194,12 @@ Seja I a intensidade original do estímulo, a variação ($\Delta$) de I é a di
 
 :::details[Exemplo]
 
-**Se um indivíduo deteta variação de peso de 1kg para 1,1kg**, então também deteta variação de peso de 2kg para 2,2kg. 
+**Se um indivíduo deteta variação de peso de 1kg para 1,1kg**, então também deteta variação de peso de 2kg para 2,2kg.
 
 E assim adiante quando compararamos qualquer par de pesos em que um deles é 10% mais pesado do que o outro.
 :::
 
-Mas aonde é que podemos aplicar a Lei de Weber em IPM? Esta lei está muito relacionado com as implicações de desenho, ou seja ao realçar elementos da interface (variação de tamanho, cor, etc) e o re-desenho de interfaces populares (incrementos menor que a constante de Weber). Temos que ter muito cuidado com as diferenças que fazemos nas nossas interfaces: por causa do elevado número de diferenças, o _Snapchat_ parou de ser uma aplicação tão popular como era. 
+Mas aonde é que podemos aplicar a Lei de Weber em IPM? Esta lei está muito relacionado com as implicações de desenho, ou seja ao realçar elementos da interface (variação de tamanho, cor, etc) e o re-desenho de interfaces populares (incrementos menor que a constante de Weber). Temos que ter muito cuidado com as diferenças que fazemos nas nossas interfaces: por causa do elevado número de diferenças, o _Snapchat_ parou de ser uma aplicação tão popular como era.
 
 ## Lei de Miller
 
@@ -203,7 +211,7 @@ Ao organizarmos conteúdos em "grupos", permitimos facilitar o processamento da 
 
 ## Lei de Jakob
 
-Ao criarmos uma interface é necessário ter em conta a sua consistência interna e externa não só perante o nosso trabalho mas também perante o dos outros. 
+Ao criarmos uma interface é necessário ter em conta a sua consistência interna e externa não só perante o nosso trabalho mas também perante o dos outros.
 
 > Os utilizadores passam a maior parte do seu tempo com outras interfaces e preferem que as vossas interfaces funcionem da mesma forma.
 
