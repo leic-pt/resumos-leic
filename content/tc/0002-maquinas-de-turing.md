@@ -7,6 +7,10 @@ type: content
 
 # Maquinas de Turing
 
+```toc
+
+```
+
 Formalmente, uma [**máquina de Turing**](color:red) é um tuplo $(\Gamma, \Sigma, Q, q_{in}, q_{ac}, q_{rj}, \delta)$ em que:
 
 - $\Gamma$ é um **alfabeto de trabalho**, que inclui um símbolo $\square$, a que damos o nome de símbolo vazio;
@@ -128,23 +132,18 @@ Dizemos que duas máquinas de Turing são **equivalentes** se reconhecerem e dec
 
 :::details[Exemplo 4]
 
-Consideremos por exemplo que queremos determinar se uma dada palavra $w$ é um palíndromo.
-Para tal, tenhamos que $\Sigma = \{0, 1\} \wedge w \in \{0, 1\}^*$.
+Para oferecer um exemplo menos simples, vamos desenhar uma máquina de Turing que reconheça a linguagem sobre o alfabeto $\Sigma = \{ 0, 1 \}$ cujas palavras são palíndromos.
 
-Bem, um AFD não parece uma escolha muito sensata para este propósito - não temos uma maneira clara de **guardar estado**, para verificar se uma palavra é ou não um palíndromo. Uma Máquina de Turing pode, então, ter aqui particular utilidade.
-
-Num primeiro momento, é sempre importante verificar se a **palavra vazia** deve ser aceite - neste caso deve. Quando estamos na presença de um caso destes, _normalmente_ temos de ter especial cuidado a construir a nossa máquina, quer ao construir transições que englobem por definição a possibilidade da palavra ser vazia, quer ao fazer transições que "saltem" parte dos estados da máquina, de modo a aceitar a palavra em questão.
-
-Posto isto, será interessante pensar então na **lógica** por detrás da máquina (como a vamos construir, portanto).
+Num primeiro momento, é sempre importante verificar se a **palavra vazia** deve ser aceite - neste caso deve. Quando estamos na presença de um caso destes, _normalmente_ temos de ter especial cuidado a construir a nossa máquina.
 
 Pensemos: um palíndromo é uma palavra cuja **palavra invertida é igual a si própria**. Parece então fazer sentido ir verificando as **pontas** da palavra, verificando se coincidem. Essa verificação terá de ser feita consecutivamente, "podando as pontas" da palavra até _dar a volta_ (verificando então que a palavra é um palíndromo) ou até as pontas não serem iguais (obtendo então que a palavra não é um palíndromo).
 
 Este método de verificar e podar consecutivamente as pontas tem um defeito: por definição, não tem em conta **palíndromos de comprimento ímpar** - palavras onde eventualmente temos as pontas a "coincidir". Ao construir a máquina teremos, portanto, de ter esse caso em consideração (e já veremos abaixo que é uma modificação bastante simples à máquina).
 
-![Máquina de Turing - Palíndromo](./imgs/0002/turing-machine-palyndrome.png)
+![Máquina de Turing - Palíndromo](./imgs/0002/palyndrome.svg#dark=2)
 
 Temos, então, a máquina de Turing que resolve o problema proposto acima.
-A azul, podemos notar as tais **transições auxiliares** para palavras de comprimento ímpar referidas acima. A laranja, as iterações pela palavra até encontrar a próxima ponta, e a verde o _backtracking_ até à primeira ponta, marcada a última.
+Podemos notar as tais **transições auxiliares** para palavras de comprimento ímpar referidas acima, partindo de $q_1$ e $q_3$ para $q_{ac}$. Em $q_0$ e $q_2$, as iterações pela palavra até encontrar a próxima ponta, e em $B_1$ e $B_2$ o _backtracking_ até à primeira ponta, marcada a última.
 
 Acabamos, então, esta secção a exemplificar o processamento de um par de palavras segundo esta máquina:
 
