@@ -27,7 +27,7 @@ Nessa altura, uma boa interface significava apenas ser mais rápido, uma vez que
 - Revolução na UX
   - Apenas um operador
   - Muito mais eficiente e eficaz
-  
+
 ### Tabulating Machines (1890s)
 
 - Computador eletro-mecânico
@@ -37,6 +37,7 @@ Nessa altura, uma boa interface significava apenas ser mais rápido, uma vez que
 - Utilizada no Censos 1890 (USA) algo que levaria 13 anos manualmente.
 
 ## Computação pré-1950s
+
 Antes desta data existiram os **Computadores Eletrónicos** (1940) e os **Computadores Mecânicos** (1948).
 
 - Utilizadores acomodavam os computadores
@@ -53,6 +54,7 @@ A 2ª Guerra Mundial gerou muitos dados e surgiu a dúvida do que fazer com eles
 Durante a mesma, **Vannevar Bush** foi o diretor do Office of Scientific Research and Development (1941), depois NSF (1941-1947) e do Projeto Manhattan (1942-1946).
 O seu ensaio **"As we think"** de 1945 influenciou gerações de engenheiros e as suas ideias "fora da caixa" (ex: Super secretária com reconhecimento de fala; Camera miniatura com foco universal; Ver os nossos pensamentos) são lembradas até hoje.
 Bush ficará na história devido aos seus ideais:
+
 - Aumentar capacidade cognitiva invés de física - aceder melhor à nossa memória
 - Usar computação para expandir a mente humana.
 
@@ -68,12 +70,12 @@ Bush ficará na história devido aos seus ideais:
 - Background em psicologia (como as pessoas interagem com computadores)
 - "Man-Computer Symbiosis" (1960)
 - Os computadores existem para aumentar a cognição
-  
+
 ### Alguns mecânismos
 
 - Joysticks (1908, 1920s)
   - usados em aviões em 1908
-  - o primeiro Joystick elétrico *Mirick* foi criado em 1926 por C.B.Mirick
+  - o primeiro Joystick elétrico _Mirick_ foi criado em 1926 por C.B.Mirick
     - é quase um rato
 - Trackball (1942)
   - era do tamanho de uma bola de bowling
@@ -90,7 +92,7 @@ Bush ficará na história devido aos seus ideais:
 - Rato (1964-67)
 - Keyset (1954)
   - teclado de acordes desenhado para não tirar a mão do rato
-  
+
 Alguns mais estranhos...
 
 - Knee Operating Pointing Devices (1960s)
@@ -119,41 +121,47 @@ O **Relativo** têm como exemplos o rato, trackpad e joystick; O dispositivo de 
 - Ecrã Tátil Comercial (1972)
 
 - Ecrã Sensível à Força (1976-78)
-  
 - Dynabook (1972) por Alan Kay
+
   - Trabalhou no Xerox Alto, Small Talk
-  - Thin Light Stylus and Wireless 
+  - Thin Light Stylus and Wireless
   - "If you can have what you wanted, what would you have?"
 
 - Apple I (1976)
+
   - Não tinha ecrã
   - Tinha teclado
 
 - Apple II (1977)
+
   - Tinha ecrã
   - Não tinha rato
 
 - Commodore PET (1977)
+
   - Tinha teclado e shortcut no lado esquerdo
 
 - PERQ-1 (1980)
   - Tinha rato
   - Criado por Carnagie-Mullor
-  
 - Xerox Star (1981)
+
   - Steve Jobs inspirou-se muito no Xerox Star
 
 - Rato ótico (1981)
 
 - VPL Dataglove (1982)
+
   - Luvas VR e AR
 
 - Ecrã Tátil Multitoque (1984-85)
+
   - Permitia a interação até 3 dedos no ecrã
 
 - Tablet com caneta sem fios (1984)
 
 - Machintosh (1984)
+
   - Usa muitas ideias da Xerox
 
 - GEM on Atari ST (1985)
@@ -166,8 +174,8 @@ O **Relativo** têm como exemplos o rato, trackpad e joystick; O dispositivo de 
   - Interface gráfica apelativa
   - Não havia adesão aos tablets até muito mais tarde
 
-
 Diferentes Sistemas Operativos tinham metáforas diferentes, tal como o MacOs e o Windows.
+
 - Rato com scroll surgiu muito tempo depois
 - Windows 15 criou muitas metáforas
 - Apple usasideias de neXTSTEP 3.3, adquirido por eles
