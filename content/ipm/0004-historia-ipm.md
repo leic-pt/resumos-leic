@@ -3,7 +3,7 @@ title: História da IPM
 description: Os primórdios
   Computação pré-1950s
   O Computador Pessoal - Evolução
-path: /ipm/historiadeipm
+path: /ipm/historia-ipm
 type: content
 ---
 
