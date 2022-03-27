@@ -195,6 +195,7 @@ Quero agradecer a [todos os que contribuíram](https://github.com/diogotcorreia/
 - [Rafael Rodrigues](https://github.com/diogotcorreia/resumos-leic/commits?author=Rafa10PT) (IAED, CDI-II, MD)
 - [Luís Fonseca](https://github.com/diogotcorreia/resumos-leic/commits?author=luishfonseca) (IAED, CDI-II)
 - [Diogo Cardoso](https://github.com/diogotcorreia/resumos-leic/commits?author=D-Card) (IAED)
+- [Constança Cunha](https://github.com/diogotcorreia/resumos-leic/commits?author=constancadcunha) (IPM)
 - [Diogo Melita](https://github.com/diogotcorreia/resumos-leic/commits?author=dmelita99) (CDI-II)
 - [Gonçalo Nunes](https://github.com/diogotcorreia/resumos-leic/commits?author=Goncalo-Palma-Nunes) (ASA)
 - [Gonçalo Azevedo](https://github.com/diogotcorreia/resumos-leic/commits?author=itsVugz) (AL)
