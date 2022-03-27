@@ -140,11 +140,11 @@ Pensemos: um palíndromo é uma palavra cuja **palavra invertida é igual a si p
 
 Este método de verificar e podar consecutivamente as pontas tem um defeito: por definição, não tem em conta **palíndromos de comprimento ímpar** - palavras onde eventualmente temos as pontas a "coincidir". Ao construir a máquina teremos, portanto, de ter esse caso em consideração (e já veremos abaixo que é uma modificação bastante simples à máquina).
 
-![Máquina de Turing - Palíndromo](./imgs/0002/palyndrome-mt.svg)
+![Máquina de Turing - Palíndromo](./imgs/0002/palyndrome.svg#dark=2)
 <!--- Co-authored-by: Rafael Oliveira <rafdev.x@gmail.com> -->
 
 Temos, então, a máquina de Turing que resolve o problema proposto acima.
-A azul, podemos notar as tais **transições auxiliares** para palavras de comprimento ímpar referidas acima. A laranja, as iterações pela palavra até encontrar a próxima ponta, e a verde o _backtracking_ até à primeira ponta, marcada a última.
+Podemos notar as tais **transições auxiliares** para palavras de comprimento ímpar referidas acima, partindo de $q_1$ e $q_3$ para $q_{ac}$. Em $q_0$ e $q_2$, as iterações pela palavra até encontrar a próxima ponta, e em $B_1$ e $B_2$ o _backtracking_ até à primeira ponta, marcada a última.
 
 Acabamos, então, esta secção a exemplificar o processamento de um par de palavras segundo esta máquina:
 
