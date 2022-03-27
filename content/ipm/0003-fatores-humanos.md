@@ -11,7 +11,7 @@ description: Fatores Humanos
   Lei de Tesler.
   Efeito estética-usabilidade.
   Regra do pico final.
-path: /ipm/fatoreshumanos
+path: /ipm/fatores-humanos
 type: content
 ---
 
@@ -23,13 +23,13 @@ type: content
 
 ## O Modelo de processamento humano de Card
 
-Nos anos 80, Stuart Card e colegas aplicaram psicologia cognitiva a experiências com computadores, isto é queriam resumir o comportamneto humano a uma máquina, que deu origem a um livro fundamental: [The Psychology of Human-Computer Interaction](https://s3-euw1-ap-pe-df-pch-content-store-p.s3.eu-west-1.amazonaws.com/9780203736166/0fdeb9bc-5710-4e9b-82de-77735a3f67b7/preview.pdf?AWSAccessKeyId=ASIAQFVOSJ576LEUQBV3&Expires=1648298369&Signature=A2Pn8LhiSbKUhRHCyS4zftxTB44%3D&response-content-disposition=attachment%3B%20filename%3D%2210.1201_9780203736166_previewpdf.pdf%22&x-amz-security-token=IQoJb3JpZ2luX2VjEAQaCWV1LXdlc3QtMSJIMEYCIQDDWh6yTxoFUK9nhU6gJrTqd3T8CZe4L3ATGlctntF6HgIhAMXgAf7Y51RqpHmQrDlP4dHs%2BkeyQ%2F1JVgGKHFI31t8AKoMECI3%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQAxoMMDEyMTc3MjY0NTExIgz89%2FYZzuPkTgsSlDQq1wOspbHKCGt%2Bd3q6ssVads9cWPX%2BNewsXjUrYYxySvDhbwezJ0Kq525RgX%2BdOMPrxuUXan8EodX1ZDevioeSmwCnJaNUsVSrHE8CgQyqFyzCZxJcqBL5tx1pjPiMVn%2FGOR54C3IvokcnMFCyAclnlXs33fCp2mL1X7t9J%2F5HtONvgPVQ6VGMaMhpVxkpuERDHq6LlBHAWMGN0HQw5zReIKQ0rWSXPmNkbTQh1HCZhxHAHaMBQPhIUby20u%2Fq87o4xnGJOpesVHsdG7FXjtVwcmZjJNoaCjBFrLdUov%2BfR7xvkdEDc0LCcxa%2B46uEyjrw5eP5tKupWGy5HYTgcfIEO2knF0KTNtcHPe9s%2BUzjr7FtFRkW2dilILF0iIgUK5ntA%2BFAAsY4vc4Nmtn0z6%2FUcHR1bZcOk0kisNPlaxPlAuwgXT2xH4f8poCM3OPz4LVX1zCiCVlaMIIrjUoSsl9KtI%2BP46HlzuYVk2za3CD24k0j%2FfSoK6NiOfRVBxWskj6htTAXVMtYWyCOa3l39M7icI5USc9wIstngl5yCIHdClNv1F%2FjKn1dXRoXjXXu7O9CXNEv%2BxGM1I4aU6EIHKg3maAI3vb3lktwNST02zbvZ34d7fdRQafkjzcwxvP7kQY6pAFEiqv4B9clsBxQWrQkkGvDBa%2BdHHXWQaGm6ig84wvu3Nxcr4%2F05Ru5TYgK092lZuCQNHvLfsmGD8vfJakvFOOeyUAcQdY3QDS3aSBY9oxtNenli%2B%2BMiKapCVabAvPiiaQ6aCQEh80ogEtpchiKkMeJCbZioqU798pE2b%2FYJq5jSFb430WrMk7LrDNnkNVTcbXW74C0L5lQ8PVbjR33XgNnH5H%2BzQ%3D%3D). A ideia principal deste livro era defiinir o cérebro humano como uma máquina de três sentidos: **visão, audição e toque** (sistema motor), ou seja definir o cérebro humano comum sistema de percepção.
+Nos anos 80, Stuart Card e colegas aplicaram psicologia cognitiva a experiências com computadores, isto é queriam resumir o comportamneto humano a uma máquina, que deu origem a um livro fundamental: [The Psychology of Human-Computer Interaction](https://books.google.pt/books/about/The_Psychology_of_Human_Computer_Interac.html?id=iUtaDwAAQBAJ). A ideia principal deste livro era defiinir o cérebro humano como uma máquina de três sentidos: **visão, audição e toque** (sistema motor), ou seja definir o cérebro humano comum sistema de percepção.
 
-<a href='https://www.linkpicture.com/view.php?img=LPic623f10169ec2a1213925391'><img src='https://www.linkpicture.com/q/Screenshot-from-2022-03-26-13-01-41.png' type='image'></a>
+![Visão, Audição e Toque](./assets/0003-visao-audicao-toque.svg#dark=3)
 
 É possível descrever o ser humano como um humúnculo sensorial visto que os nosso sentidos não são todos iguais. Somos mais sensíveis nas maõs ou no paladar do que nas costas ou braços. Em termos de movimento não podemos dizer que o ser humano é uma máquina sequencial de movimento mas sim uma **"máquina de previsão do futuro"** (acreditamos que tudo o que vamos fazer vai acontecer), visto que os nossos sentidos estão todos interligados. É por essa razão que conseguimos mudar o que estamos a ouvir, apesar do áudio não mudar, meramente porque o [movimento da boca de alguém também mudou](https://www.youtube.com/watch?v=G-lN8vWm3m0), ou porque nos é difícil de identificar a cor de um palavra que descrever outra cor.
 
-<a href='https://www.linkpicture.com/view.php?img=LPic623f30404042d186788913'><img src='https://www.linkpicture.com/q/Screenshot-from-2022-03-26-15-23-42.png' type='image'></a>
+![Nomes das cores, mas coloridos com a cor errada](./assets/0003-colored-words.png#dark=2)
 
 ### Sistema motor
 
@@ -51,29 +51,27 @@ Com o seu trabalho no Modelo de Processamento Humano, Card descreveu as memória
 
 1. **Para as memórias:**
 
-
-    - μ: A capacidade de armazenamento (em itens);
-    - δ: O tempo de declínio de um item;
-    - k: O tipo de codificação (física, acústica, visual, semântica, etc).
+   - $\mu$: A capacidade de armazenamento (em itens);
+   - $\delta$: O tempo de declínio de um item;
+   - $k$: O tipo de codificação (física, acústica, visual, semântica, etc).
 
 2. **Para os processadores:**
 
-
-    - t: O tempo de ciclo.
+   - $t$: O tempo de ciclo.
 
 ### Os sistemas do MPH de Card
 
 Os subsistemas **Perceptual**, **Motor** e **Cognitivo** incluem um processador e uma memória e podem ser descritos por três parâmetros:
 
-    Capacidade de armazenamento- U;
-    Tempo de decaimento- D;
-    Tempo de ciclo e processamento- T.
+- Capacidade de armazenamento: $U$;
+- Tempo de decaimento: $D$;
+- Tempo de ciclo e processamento: $T$.
 
 Estes tempos podem ser avaliados experimentalmente:
 
-    t p ~ 100ms [50-200 ms] - perceptual
-    t m ~ 70ms [25-170 ms] - motor
-    t c ~ 70ms [30-100 ms] - cognitivo
+- $t_p$ ~ 100ms [50-200 ms] - perceptual
+- $t_m$ ~ 70ms [25-170 ms] - motor
+- $t_c$ ~ 70ms [30-100 ms] - cognitivo
 
 ## Fatores Humanos
 
@@ -100,9 +98,12 @@ Existem três grandes fatores que influenciam o tempo de movimento: o tempo, a d
 Através da Lei de Fitts conseguimos explicar o compromisso entre velocidade e precisão: o tempo para atingir o alvo, a distância até ao centro do alco e o tamanho do alvo. Conseguimos até, com esta lei, perceber o quão fácil é interagir com uma aplicação ou qualquer interface. Para tal temos que usar a seguinte fórmula:
 
 :::tip[Lei de Fitts]
-T = _a_+_b_ $\log{2}$ ( $\tfrac{Distância}{Tamanho}$ + 1)
 
-_Sejam a e b constantes empíricas_
+$$
+T_{\text{movimento}} = a + b \log_{2}\left( \frac{\text{Distância}}{\text{Tamanho}} + 1 \right)
+$$
+
+_Sejam $a$ e $b$ constantes empíricas_
 :::
 
 Esta fórmula é particularmente relavante quando queremos comparar alternativas para verificar qual é o melhor produto.
@@ -111,12 +112,15 @@ Esta fórmula é particularmente relavante quando queremos comparar alternativas
 
 Contudo se passarmos de um alvo de tamanho 5 para um alvo de tamanho 10 (ou seja duplicamos o tamanho do alvo) o nosso índice de dificuldade **diminui mas pouco** por estarmos a trabalhar com uma função logarítmica.
 
-:::details[Exemplo]
-ID = $\log{2}$ $\tfrac{Distância}{Tamanho}$ + 1)
+:::info[Exemplo]
 
-ID = $\log{2}$ $\tfrac{15}{5}$ + 1)=2
-
-ID = $\log{2}$ $\tfrac{15}{10}$ + 1)=1,3
+$$
+\begin{aligned}
+\operatorname{ID} &= \log_{2} \left(\frac{\text{Distância}}{\text{Tamanho}} + 1\right)\\
+\operatorname{ID} &= \log_{2} \left(\frac{15}{5} + 1\right) = 2\\
+\operatorname{ID} &= \log_{2} \left(\frac{15}{10} + 1\right) = 1.3
+\end{aligned}
+$$
 
 Ou seja, há um decremento em 35% da dificuldade.
 :::
@@ -127,12 +131,16 @@ Assim, podemos concluir que aumentar o tamanho é mais benéfico para os alvos m
 
 Temos sempre que manter a mesma proporção entre a distância e o tamanho de um alvo para manter a mesma dificuldade!
 
-:::details[Exemplo]
-ID = $\log{2}$ $\tfrac{Distância}{Tamanho}$ + 1)
+:::info[Exemplo]
 
-ID = $\log{2}$ $\tfrac{15}{5}$ + 1)=2
+$$
+\begin{aligned}
+\operatorname{ID} &= \log_{2} \left(\frac{\text{Distância}}{\text{Tamanho}} + 1\right)\\
+\operatorname{ID} &= \log_{2} \left(\frac{15}{5} + 1\right) = 2\\
+\operatorname{ID} &= \log_{2} \left(\frac{7.5}{2.5} + 1\right) = 2
+\end{aligned}
+$$
 
-ID = $\log{2}$ $\tfrac{7,5}{2,5}$ + 1)=2
 :::
 
 ### Aumento de produtividade
@@ -140,7 +148,7 @@ ID = $\log{2}$ $\tfrac{7,5}{2,5}$ + 1)=2
 Apesar de não parecer ter uma importância assim tão significativa, existe um aumento de produtividade bastante significativo com a utilização de objetos mais claros. Por exemplo, é mais produtivo utilizar o sistema MacOS visto que os butões estão sempre na parte de cima do dispositivo do que no sistema Windows onde os butões apenas se encontram na parte superior da página onde nos encontramos.
 
 :::details[Pergunta de Exame]
-**Considere uma interface do tipo "point-and-click". Considere que tem de posicionar umalvo de dimensão 1 pixel. À luz da Lei de Fitts, diga quais são as cinco melhores posições para o alvo. Justifique.**
+**Considere uma interface do tipo "point-and-click". Considere que tem de posicionar um alvo de dimensão 1 pixel. À luz da Lei de Fitts, diga quais são as cinco melhores posições para o alvo. Justifique.**
 
 Neste caso cado um dos quatro cantos da página é mais fácil de interagir com do que qualquer outro ponto na página, tirando o ponto onde já nos encontramos.
 :::
@@ -152,49 +160,63 @@ Sermos deparados com muitas escolhas pode parecer apelativo mas influencia muito
 :::tip[Lei de Hick]
 Desta necessidade de haver escolha mas em quantidades certas vem a **Lei de Hick**. Esta lei premite-nos prever o tempo para tomar uma decisão entre várias opções igualmente prováveis
 
-T=_b_\* $\log{2}$ (_n_+1)
+$$
+T_{\text{decisão}} = b \times \log_{2}(n+1)
+$$
 
-Seja _n_ o total de itens a escolher e _b_ o coeficiente dependente da tarefa que pode ser determinado empiricamente tal como na Lei de Fitts)
+Seja $n$ o total de itens a escolher e $b$ o coeficiente dependente da tarefa (que pode ser determinado empiricamente tal como na Lei de Fitts)
 :::
 
 Mas de onde vem a relação logarítmica?
 
 Escolher entre 10 ou 100 opções não demora 10 vezes mais tempo!
-<a href='https://www.linkpicture.com/view.php?img=LPic623f51a87d3141517752139'><img src='https://www.linkpicture.com/q/Screenshot-from-2022-03-26-17-40-37.png' type='image'></a>
+
+![Gráfico da Lei de Hick](./assets/0003-lei-hick.svg#dark=3)
 
 Em termos de carga cognitiva, os recursos necessários para compreender e interagir com IU são muito menores, daí ser necessário diminuir o número de opções para uma programa ser bom. Uma boa interface é minimalista, como é o exemplo da Google.
 
 Contudo também não podemos oferecer demasiado poucas opções ao utilizador, uma utilização demasiado simplificada também pode gerar problemas!
 
-:::details[Exemplo]
+:::info[Exemplo]
+
 Se tivermos 50 items e 1 menu:
 
-T=_b_\* $\log{2}$ (_n_+1), _b_=1.0
-$\log{2}$ (50+1) = 5.7s
+$$
+\begin{aligned}
+T_{\text{decisão}} &= b \times \log_{2}(n+1)& b=1.0\\
+&= \log_{2}(50+1)\\
+&= 5.7 \op{s}
+\end{aligned}
+$$
 
 Se tivermos 5 items e 10 sub menus:
-$\log{2}$ (5+1) + $\log{2}$ (10+1) = 6.0s
+
+$$
+T_{\text{decisão}} = \log_{2}(5+1) + \log_{2} (10+1) = 6.0\op{s}
+$$
 
 Ou seja, temos um resultado **contra-intuitivo**!
 :::
 
 ## Lei de Stu Card
 
-O nosso cérebro, por mais complexo que seja precisa de organização para se orientar. É-nos mais fácil contar poucos elementos do que muitos elementos e é-nos mais fácil contar elementos quando agrupados do que muito dispersos. Dessa forma a lei de Stu Card traz a **Regra dos 4,5**, isto é, ao agruparmos elementos em grupo de 4 ou 5 elementos é-nos muito mais prático contar e visualizar tudo de uma só vez.
+O nosso cérebro, por mais complexo que seja precisa de organização para se orientar. É-nos mais fácil contar poucos elementos do que muitos elementos e é-nos mais fácil contar elementos quando agrupados do que muito dispersos. Dessa forma a lei de Stu Card traz a **Regra dos 4.5**, isto é, ao agruparmos elementos em grupo de 4 ou 5 elementos é-nos muito mais prático contar e visualizar tudo de uma só vez.
 
-<a href='https://www.linkpicture.com/view.php?img=LPic623f562122f22683417178'><img src='https://www.linkpicture.com/q/Screenshot-from-2022-03-26-18-06-09.png' type='image'></a>
+![Menus do MacOS a demonstrar opções agrupadas](./assets/0003-lei-stu-card.png#dark=3)
 
 ## Lei de Weber
 
-A nossa capacidade de distinguir diferenças é muito proporcional à intensidade do estímulo. Assim sendo podemos calcular a diferença mínima perceptível (\*\*_JND- just noticeable difference_ em inglês), através da seguinta fórmula:
+A nossa capacidade de distinguir diferenças é muito proporcional à intensidade do estímulo. Assim sendo podemos calcular a diferença mínima perceptível (**_JND - just noticeable difference_** em inglês), através da seguinta fórmula:
 
-$\tfrac{\Delta I}{I}$ = k
+$$
+\frac{\Delta I}{I} = k
+$$
 
-Seja I a intensidade original do estímulo, a variação ($\Delta$) de I é a diferença mínima para que se torne perceptível e k é uma constante.
+Seja $I$ a intensidade original do estímulo, a variação ($\Delta$) de $I$ é a diferença mínima para que se torne perceptível e $k$ é uma constante.
 
-:::details[Exemplo]
+:::info[Exemplo]
 
-**Se um indivíduo deteta variação de peso de 1kg para 1,1kg**, então também deteta variação de peso de 2kg para 2,2kg.
+**Se um indivíduo deteta variação de peso de $1\op{kg}$ para $1.1\op{kg}$**, então também deteta variação de peso de $2\op{kg}$ para $2.2\op{kg}$.
 
 E assim adiante quando compararamos qualquer par de pesos em que um deles é 10% mais pesado do que o outro.
 :::
@@ -205,7 +227,7 @@ Mas aonde é que podemos aplicar a Lei de Weber em IPM? Esta lei está muito rel
 
 Como já tinha sido referido acima, o ser humano, em média consegue colocar em memória de curto prazo 7 $\pm$ 2 items. Assim sendo, ao agruparmos informação relacionada, estamos a permitir aumentar a capacidade de armazenamento.
 
-### Implicações de Desenho- Lei de Miller
+### Implicações de Desenho - Lei de Miller
 
 Ao organizarmos conteúdos em "grupos", permitimos facilitar o processamento da IU. Contudo isto **não** justifica o uso do número "mágico" 7 para opções necessárias! É sempre necessário ter em conta que a memória de curto prazo varia de acordo com o utilizador e situação (daí ser mais ou menos 2 items).
 
