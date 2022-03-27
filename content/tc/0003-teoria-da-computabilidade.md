@@ -24,10 +24,6 @@ Denotamos por $\mathcal{D}^\Sigma$ o conjunto de todas as linguagens decidíveis
 A função $f$ diz-se **computável** se existe uma máquina de Turing $M$ com alfabeto de entrada/saída $\Sigma$ tal que $f = \phi_M$.
 Denotamos por $\mathcal{C}^\Sigma$ o conjunto de todas as funções computáveis sobre o alfabeto $\Sigma$.
 
-:::details[Prova]
-
-:::
-
 ### Propriedades
 
 :::tip[]
