@@ -78,7 +78,7 @@ Estes tempos podem ser avaliados experimentalmente:
 Os conhecimentos de Psicologia podem ser aplicados a quase todas as áreas - é desta forma, aliás, que muitos psicólogos acabam por ganhar prémios Nobel de Economia, já que são eles que criam as "leis" da Economia.
 
 :::tip[Leis do ser Humano]
-Da mesma forma que existem leis para descrever não só a Economia como também o mundo que nos rodeia, o mesmo se aplica ao ser humano e à forma como este se comporta. 
+Da mesma forma que existem leis para descrever não só a Economia como também o mundo que nos rodeia, o mesmo se aplica ao ser humano e à forma como este se comporta.
 
 Ninguém tem habilidades aleatórias - regemo-nos antes por "leis", tais como:
 
@@ -211,7 +211,7 @@ Temos, portanto, um resultado **contra-intuitivo**!
 
 ## Lei de Stu Card
 
-O nosso cérebro, por mais complexo que seja, precisa de organização para se orientar. É-nos mais fácil contar poucos elementos do que muitos elementos, e é também mais fácil contar elementos quando agrupados do que muito dispersos. Dessa forma, a lei de Stu Card traz a **Regra dos 4.5** - isto é, ao agruparmos elementos em grupo de $4$ ou $5$ elementos, é-nos muito mais prático contar e visualizar tudo de uma só vez. 
+O nosso cérebro, por mais complexo que seja, precisa de organização para se orientar. É-nos mais fácil contar poucos elementos do que muitos elementos, e é também mais fácil contar elementos quando agrupados do que muito dispersos. Dessa forma, a lei de Stu Card traz a **Regra dos 4.5** - isto é, ao agruparmos elementos em grupo de $4$ ou $5$ elementos, é-nos muito mais prático contar e visualizar tudo de uma só vez.
 
 ![Menus do MacOS a demonstrar opções agrupadas](./assets/0003-lei-stu-card.png#dark=3)
 
@@ -234,7 +234,7 @@ Podemos, portanto, inferir que vamos notar variações de peso iguais ou superio
 
 Ora, mas como é que a Lei de Weber se relaciona com IPM?
 
-Bem, a Lei de Weber está intrinsecamente relacionada com as **implicações de desenho** de uma aplicação -  temos que ter muito cuidado com as atualiações que vamos realizando à nossa aplicação, sejam elas realçar elementos da interface (variação de tamanho, cor, entre outras) como o re-desenho de interfaces populares (incrementos menor que a constante de Weber). Não queremos que as alterações sejam um [**choque**](color:red) para o utilizador - este sente-se confortável com a aplicação, e alterações bruscas levam a uma nova aprendizagem da mesma, aprendizagem essa que pode não ser do interesse do utilizador. Temos como exemplo principal disso o _SnapChat_, que acabou por ser ultrapassado pelo _Instagram_ quando fez alterações repentinas (uma espécie de _overhaul_ à UI) que levou a que muitos utilizadores deixassem a aplicação.
+Bem, a Lei de Weber está intrinsecamente relacionada com as **implicações de desenho** de uma aplicação - temos que ter muito cuidado com as atualiações que vamos realizando à nossa aplicação, sejam elas realçar elementos da interface (variação de tamanho, cor, entre outras) como o re-desenho de interfaces populares (incrementos menor que a constante de Weber). Não queremos que as alterações sejam um [**choque**](color:red) para o utilizador - este sente-se confortável com a aplicação, e alterações bruscas levam a uma nova aprendizagem da mesma, aprendizagem essa que pode não ser do interesse do utilizador. Temos como exemplo principal disso o _SnapChat_, que acabou por ser ultrapassado pelo _Instagram_ quando fez alterações repentinas (uma espécie de _overhaul_ à UI) que levou a que muitos utilizadores deixassem a aplicação.
 
 ## Lei de Miller
 
