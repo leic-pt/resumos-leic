@@ -147,6 +147,7 @@ Os **relativos** têm como exemplos o rato, trackpad e joystick - O dispositivo 
   - Tinha teclado e shortcut no lado esquerdo
 
 - PERQ-1 (1980)
+
   - Tinha rato
   - Criado pela Carnegie Mellon
 
