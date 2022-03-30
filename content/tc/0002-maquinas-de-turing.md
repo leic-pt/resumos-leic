@@ -1,11 +1,11 @@
 ---
-title: Maquinas de Turing
-description: 'Maquinas de Turing'
+title: Máquinas de Turing
+description: 'Máquinas de Turing'
 path: /tc/maquinas-de-turing
 type: content
 ---
 
-# Maquinas de Turing
+# Máquinas de Turing
 
 ```toc
 
