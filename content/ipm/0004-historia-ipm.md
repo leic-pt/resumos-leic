@@ -104,8 +104,9 @@ Alguns mais estranhos...
 
 ### Dispositivo de Introdução Absoluto e Relativo
 
-O **Absoluto** têm como exemplo o ecrã tátil; Mapeamento 1:1 entre o espaço de entrada e saída.
-O **Relativo** têm como exemplos o rato, trackpad e joystick; O dispositivo de entrada controla a posição relativa da saída.
+Os **absolutos** têm como exemplo o ecrã tátil - Mapeamento 1:1 entre o espaço de entrada e saída.
+
+Os **relativos** têm como exemplos o rato, trackpad e joystick - O dispositivo de entrada controla a posição relativa da saída.
 
 ### The Mother of all Demos (1968)
 
@@ -147,7 +148,8 @@ O **Relativo** têm como exemplos o rato, trackpad e joystick; O dispositivo de 
 
 - PERQ-1 (1980)
   - Tinha rato
-  - Criado por Carnagie-Mullor
+  - Criado pela Carnegie Mellon
+
 - Xerox Star (1981)
 
   - Steve Jobs inspirou-se muito no Xerox Star
@@ -181,8 +183,8 @@ O **Relativo** têm como exemplos o rato, trackpad e joystick; O dispositivo de 
 Diferentes Sistemas Operativos tinham metáforas diferentes, tal como o MacOs e o Windows.
 
 - Rato com scroll surgiu muito tempo depois
-- Windows 15 criou muitas metáforas
-- Apple usasideias de neXTSTEP 3.3, adquirido por eles
+- Windows 95 criou muitas metáforas
+- Apple usa ideias de neXTSTEP 3.3, adquirido por eles
 
 ### Long Nose of Innovation de Bill Buxton
 
