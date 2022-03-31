@@ -273,7 +273,7 @@ A criação de lojas como a _**Amazon Go**_ e _**Continentes Labs**_ levam esta 
 
 Quanto mais estético é um design, mas fácil é para os utilizadores considerar que estão a trabalhar com algo mais simples. Ao mantermos o nosso sistema esteticamente agradável, estamos a permitir ao utilizador que usufrua de uma experiência mais prática e menos complexa.
 
-Contudo, tal como em tudo, tem algo demasiado estético pode causar problemas visto que quanto mais estético for uma interface mais fácil é de mascarar os seus problemas. As interfaces estéticas criam uma perceção de que o sistema funciona melhor e assim os utilizadores tornam-se mais tolerantes a problemas de usabilidade.
+Contudo, tal como em tudo, algo demasiado estético pode causar problemas visto que quanto mais estético for uma interface, mais fácil é de mascarar os seus problemas. As interfaces estéticas criam uma perceção de que o sistema funciona melhor e assim os utilizadores tornam-se mais tolerantes a problemas de usabilidade.
 
 ## Regra do "Pico Final"
 
