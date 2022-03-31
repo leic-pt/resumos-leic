@@ -114,7 +114,7 @@ $$
 
 _Sejam $a$ e $b$ constantes empíricas._
 
-Dá-se o nome de **índice de dificuldade** de Fitts (ou _index of dificulty_ em inglês) à componente com logaritmo da expressão acima, em bits:
+Dá-se o nome de **índice de dificuldade** de Fitts (ou _index of difficulty_ em inglês) à componente com logaritmo da expressão acima, em bits:
 
 $$
 \text{ID} = \log_2\left(\frac{\text{Distância}}{\text{Tamanho}} + 1\right)
