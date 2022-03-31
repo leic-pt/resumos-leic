@@ -64,7 +64,7 @@ Bush ficará na história devido aos seus ideais:
 
 ### Grace Hopper (1906-1992)
 
-- Almirante na Marina Americana
+- Almirante na Marinha Americana
 - Criou o primeiro compilador em 1950
 - Trouxe a programação ao alto nível
 - Permitiu alargar a base de utilizadores a cientistas e engenheiros
