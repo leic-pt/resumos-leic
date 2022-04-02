@@ -24,6 +24,46 @@ Denotamos por $\mathcal{D}^\Sigma$ o conjunto de todas as linguagens decidíveis
 A função $f$ diz-se **computável** se existe uma máquina de Turing $M$ com alfabeto de entrada/saída $\Sigma$ tal que $f = \phi_M$.
 Denotamos por $\mathcal{C}^\Sigma$ o conjunto de todas as funções computáveis sobre o alfabeto $\Sigma$.
 
+O seguinte resultado diz-nos que podemos concentrar-nos apenas em reconhecer/decidir linguagens:
+
+:::tip[Proposição]
+
+Seja $\Sigma$ um alfabeto. Sejam $f: \Sigma^* \to \Sigma^*$ uma função e $G_f = \{ x \text{\textdollar} y : f(x) = y \}$, com $\text{\textdollar} \notin \Sigma$. Então:
+
+1. $f$ é computável se e só se $G_f$ é reconhecível;
+2. se $f$ é total, $f$ é computável se e só se $G_f$ é decidível.
+
+:::
+
+:::details[Prova]
+
+**Prova de 1**
+
+Suponha-se que $f$ é computável e considere-se a máquina de Turing $M_f$ que computa $f$.
+Criamos uma máquina de Turing com duas fitas que:
+
+- copia $x$ para a segunda fita;
+- computa $f$ (usando $M_f$) sobre $x$;
+- compara o output de $M_f$ com $y$, aceitando se estes forem iguais.
+  Evidentemente que esta máquina reconhece $G_f$.
+
+Agora suponha-se que $G_f$ é reconhecível e seja $R$ a máquina de Turing que a reconhece.
+Considere-se a máquina de Turing com 3 fitas tal que:
+
+1. na primeira fita está o input $x$;
+2. escolhe não-deterministicamente uma palavra $y \in \Sigma^*$ - uma palavra que vamos verificar se é o resultado de $f(x)$ - e coloca-a na fita 3;
+3. coloca na segunda fita $x \text{\textdollar} y$;
+4. executa $R$ sobre a segunda fita: se $R$ aceitar a palavra na fita 2, termina, caso contrário volta ao passo 2.
+
+Esta máquina calcula $f$: quando termina (pois $R$ aceitou a palavra na segunda fita), a palavra $y$ (o output esperado) está na última fita (onde o output deve estar).
+
+Observe-se que, para cada $x \in \Sigma^*$ , existe no máximo uma palavra do tipo $x\text{\textdollar}y$ que é reconhecida por $R$.
+Logo, a árvore de computações desta máquina para o input $x$ tem no máximo uma computação de aceitação.
+
+A **prova de 2** é semelhante.
+
+:::
+
 ### Propriedades
 
 :::tip[]
@@ -114,5 +154,86 @@ Como vimos a cima, se $L_1$ e $\overline{L_2}$ são reconhecíveis, então $L_1 
 :::tip[NOTA]
 
 Note-se como já não é verdade que se $L$ é reconhecível então $\overline{L}$ também o é: basta que haja uma palavra em $\overline{L}$ cuja computação não termine na máquina que reconhece $L$ para que isto não seja verdade.
+
+:::
+
+:::tip[]
+
+Seja $L$ uma linguagem sobre o alfabeto $\Sigma$. Então, $L$ é decidível se e só se $L$ e $\overline{L}$ forem reconhecíveis.
+
+:::
+
+:::details[Prova]
+
+Se $L$ for decidível, então $L$ e $\overline{L}$ são decidíveis e portanto reconhecíveis.
+
+Sejam agora $L$ e $\overline{L}$ linguagens reconhecidas por máquinas de Turing $R_1$ e $R_2$, respetivamente.
+Seja $D$ a máquina de Turing com duas fitas que copia o input da primeira fita para a segunda e executa, alternadamente, $R_1$ na primeira fita e $R_2$ na segunda.
+Como $L$ e $\overline{L}$ são reconhecíveis, uma destas computações acaba eventualmente.
+Se for a computação na primeira fita, aceitamos, caso contrário, rejeitamos.  
+De qualquer forma a computação termina e $L$ é decidível.
+
+:::
+
+### Redução Computável
+
+Nas provas a cima e no capítulo anterior, por vezes pegamos em máquinas de Turing que já conheciamos para criar máquinas de Turing que resolviam problemas que ainda nao tinhamos resolvido.
+A ideia de [**redução computável**](color:orange) consiste exatamente nisso:
+
+Sejam $L_1$ e $L_2$ linguagens sobre os alfabetos $\Sigma_1$ e $\Sigma_2$, respetivamente.
+Dizemos que há uma [redução computável](color:orange) de $L_1$ para $L_2$, ou simplesmente que [$L_1$ se reduz a $L_2$](color:orange), o que denotamos por [$L_1 \leq L_2$](color:orange) se existe uma função total computável $f: \Sigma_1^* \to \Sigma_2^*$ tal que, para cada $\omega \in \Sigma_1^*$,
+
+$$
+\omega \in L_1 \Leftrightarrow f(\omega) \in L_2
+$$
+
+:::tip[Proposição]
+
+Sejam $L_1$ e $L_2$ linguagens sobre $\Sigma_1$ e $\Sigma_2$, respetivamente. Se $L_1 \leq L_2$ e $L_2$ é decidível (respetivamente conhecível) então $L_1$ é decidível (resp. reconhecível).
+
+:::
+
+:::details[Prova]
+
+// TODO
+
+:::
+
+A proposição a cima não é no entanto suficiente para verificar se uma linguagem **não é** computável.
+
+Dado uma alfabeto $\Sigma$ distinguimos as seguintes linguagens:
+
+- $\mathcal{L}_{ac}^\Sigma = \{ M \text{\textdollar} \omega : M \in \mathcal{M}^\Sigma, \omega \in L_{ac}(M) \}$ - o **problema da aceitação**;
+- $\mathcal{L}_{rj}^\Sigma = \{ M \text{\textdollar} \omega : M \in \mathcal{M}^\Sigma, \omega \in L_{rj}(M) \}$ - o **problema da rejeição**;
+- $\mathcal{L}_{su}^\Sigma = \mathcal{L}_{ac}^\Sigma \cup \mathcal{L}_{rj}^\Sigma$ - o **problema da computação bem sucedida**;
+- $\mathcal{L}_{ab}^\Sigma = \{ M \text{\textdollar} \omega : M \in \mathcal{M}^\Sigma \text{ e a computação de } M \text{ sobre } \omega \text{ aborta } \}$ - o **problema do abortamento**;
+- $\mathcal{L}_{te}^\Sigma = \mathcal{L}_{su}^\Sigma \cup \mathcal{L}_{ab}^\Sigma$ - o **problema da terminação**.
+
+:::tip[Proposição]
+
+Para um alfabeto $\Sigma$, as linguagens $\mathcal{L}_{ac}^\Sigma$, $\mathcal{L}_{rj}^\Sigma$, $\mathcal{L}_{su}^\Sigma$, $\mathcal{L}_{ab}^\Sigma$ e $\mathcal{L}_{te}^\Sigma$ são reconhecíveis mas não são decidíveis.
+
+:::
+
+:::details[Prova]
+
+// TODO
+
+:::
+
+:::tip[Corolário]
+
+Para um alfabeto $\Sigma$, as linguagens $\overline{\mathcal{L}_{ac}^\Sigma}$, $\overline{\mathcal{L}_{rj}^\Sigma}$, $\overline{\mathcal{L}_{su}^\Sigma}$, $\overline{\mathcal{L}_{ab}^\Sigma}$ e $\overline{\mathcal{L}_{te}^\Sigma}$ não são reconhecíveis.
+
+:::
+
+### Teorema de Rice
+
+O seguinte teorema é uma ferramenta bastante genérica para demonstrar a indecidibilidade de linguagens constituídas por máquinas de Turing cujas linguagens satisfaçam alguma propriedade não-trivial.
+
+:::tip[Teorema de Rice]
+
+Sejam $\Sigma$ um alfabeto e $L \subset \mathcal{M}^\Sigma$ tal que se $M_1 \in L$ e $M_1 \equiv M_2$, então $M_2 \in L$.
+Se $\emptyset \neq L \neq \mathcal{M}^\Sigma$ então $L$ é indecidível.
 
 :::
