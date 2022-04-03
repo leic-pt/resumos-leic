@@ -195,7 +195,16 @@ Sejam $L_1$ e $L_2$ linguagens sobre $\Sigma_1$ e $\Sigma_2$, respetivamente. Se
 
 :::details[Prova]
 
-// TODO
+Como $L_1 \leq L_2$, existe uma função total computável $f : \Sigma_1^* \to \Sigma_2^*$ tal que $\omega \in L_1 \Leftrightarrow f(\omega) \in L_2$.
+Seja $F$ a máquina de Turing que calcula esta função.  
+Como $L_2$ é decidível, é também decidida por uma máquina de Turing $D$.  
+Considere-se a seguinte máquina de Turing $M$:
+
+- dado um input $\omega$, $M$ começa por computar $f(\omega)$ tal como $F$;
+- computa $D$ sobre $f(\omega)$: se $D$ terminar $q_{ac}$, $M$ termina em aceitação, terminando em rejeição caso contrário.
+  Esta máquina decide $L_1$.
+
+A prova para reconhecimento é análoga.
 
 :::
 
@@ -209,6 +218,10 @@ Dado uma alfabeto $\Sigma$ distinguimos as seguintes linguagens:
 - $\mathcal{L}_{ab}^\Sigma = \{ M \text{\textdollar} \omega : M \in \mathcal{M}^\Sigma \text{ e a computação de } M \text{ sobre } \omega \text{ aborta } \}$ - o **problema do abortamento**;
 - $\mathcal{L}_{te}^\Sigma = \mathcal{L}_{su}^\Sigma \cup \mathcal{L}_{ab}^\Sigma$ - o **problema da terminação**.
 
+De forma mais intuitiva, podemos pensar que a linguagem $\mathcal{L}_{ac}^\Sigma$ consiste dos pares $(M, \omega) \in \mathcal{M}^\Sigma \times \Sigma^*$ constituídos por uma máquina de Turing $M$ e uma palavra $\omega$ tais que $\omega \in L_{ac}(M)$, isto é, $\omega$ é aceite por $M$.  
+De forma a podermos representar estes pares por uma palavra, usamos a representaçao canónica de máquinas, separando esta representação da palavra input por um $\text{\textdollar}$.
+De forma semelhante, $L_{rj}^\Sigma$ contém pares $(M, \omega) \in \mathcal{M}^\Sigma \times \Sigma^*$ tais que $\omega \in L_{rj}(M)$, $L_{su}^\Sigma$ os pares tais que $\omega \in L_{ac}(M) \cup L_{rj}(M)$, e por aí em diante.
+
 :::tip[Proposição]
 
 Para um alfabeto $\Sigma$, as linguagens $\mathcal{L}_{ac}^\Sigma$, $\mathcal{L}_{rj}^\Sigma$, $\mathcal{L}_{su}^\Sigma$, $\mathcal{L}_{ab}^\Sigma$ e $\mathcal{L}_{te}^\Sigma$ são reconhecíveis mas não são decidíveis.
@@ -217,7 +230,20 @@ Para um alfabeto $\Sigma$, as linguagens $\mathcal{L}_{ac}^\Sigma$, $\mathcal{L}
 
 :::details[Prova]
 
-// TODO
+As demonstrações para as 5 linguagens são semelhantes, pelo que vamos centrar-nos apenas em $\mathcal{L}_{te}^\Sigma$.
+
+Para mostrar que esta linguagem é reconhecível basta calcular para um input $M \text{\textdollar} \omega$ o valor de $rep(\omega)$ e depois simular $M$ sobre $rep(\omega)$ como na máquina universal, aceitando assim que a computação de $M$ sobre $rep(\omega)$ termine (aceitando, rejeitando ou abortando).
+
+Assuma-se agora então que $\mathcal{L}_{te}^\Sigma$ é decidível.  
+Nesse caso existe uma máquina de Turing $D$ que a decide.
+Construímos a seguinte máquina $T$.
+Para cada input $M$, $T$ começa por simular $D$ sobre $M \text{\textdollar} M$. Se $D$ aceitar, $T$ entra num ciclo infinito. Caso contrário, $T$ aceita.  
+Verificamos que $M$ é aceite por $T$ se e só se a computação de $M$ dado o input $M$ não termina.  
+Como isto se verifica para qualquer máquina de Turing $M$ temos que, em particular, se $M = T$, $T$ é aceite por $T$ se e só se a computaçao de $T$ dado o input $T$ não termina.
+Ou seja, $T$ dado o input termina se e só se $T$ dado o input $T$ não termina.  
+Como isto é uma contradição, conclui-se que a linguagem não é decidível.
+
+Neste [vídeo](https://youtu.be/macM_MtS_w4) podemos encontrar esta demonstração apresentada de uma forma mais leve.
 
 :::
 
