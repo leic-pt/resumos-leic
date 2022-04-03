@@ -304,7 +304,7 @@ Podemos verificar que o alfabeto $\{ 0, 1 \}$ é suficiente para representar qua
 Para uma máquina de Turing $M = (\Sigma, \Gamma, Q, q_{in}, q_{ac}, q_{rj}, \delta)$, podemos por exemplo considerar a seguinte representação, a que se dá o nome de **representação canónica**:
 
 $$
-11\cdots111 \, . \, 0 \, . \, 11\cdots1 \, . \, 0 \, . \, <\text{trans}1> <\text{trans}2> \cdots <\text{trans}n>
+11\cdots111 \, . \, 0 \, . \, 11\cdots1 \, . \, 0 \, . \, <\text{trans}~1> <\text{trans}~2> \cdots <\text{trans}~n>
 $$
 
 A representação pode ser descrita da seguinte forma:
@@ -312,27 +312,27 @@ A representação pode ser descrita da seguinte forma:
 - uma string de $n$ 1's: tantos quanto o número de estados na máquina de Turing, isto é, tantos quanto os estados em $\hat{Q} = Q \cup \{ q_{ac}, q_{rj} \}$: os $n$ estados são identificados da seguinte forma:
 
   $$
-  \begin{matrix}
+  \begin{aligned}
   q_1 = q_{in} &= 100 \cdots 00 \\
   q_2 &= 010 \cdots 00 \\
   q_3 &= 001 \cdots 00 \\
-  \cdots \\
+  & \vdots \\
   q_{n-1} = q_{ac} &= 000 \cdots 10 \\
   q_n = q_{rj} &= 000 \cdots 01
-  \end{matrix}
+  \end{aligned}
   $$
 
 - um 0 de separação;
 - uma string de $k$ 1's: tantos quantos símbolos no alfabeto auxiliar $\Gamma = \Gamma \backslash \{ \square \} \cup \{ \square \} = k+1$: os $k+1$ símbolos são da seguinte forma:
   $$
-  \begin{matrix}
+  \begin{aligned}
   a_0 &= 000 \cdots 00 \\
   a_2 &= 100 \cdots 00 \\
   a_3 &= 010 \cdots 00 \\
-  \cdots \\
+  &\vdots \\
   a_{k-1} &= 000 \cdots 10 \\
   a_k &= 000 \cdots 01
-  \end{matrix}
+  \end{aligned}
   $$
 - um 0 de separação;
 - uma sequência de strings que representam as transições dadas pela função $\delta$: cada string que representa uma transição $\delta(q_i, a_j) = (q_r, a_s, m)$ é uma palavra $trans_i = q_i a_j q_r a_s m \in \{ 0, 1 \}^*$ de comprimento $2n+2k+2$.
@@ -343,17 +343,38 @@ Esta representação permite-nos confundir uma máquina de Turing com uma palavr
 
 Consideremos por exemplo a seguinte máquina de Turing, que decide a linguagem das palavras sobre $\{0,1\}$ que começam com dois $0$'s consecutivos:
 
-![Representação Canónica de uma Máquina de Turing - Máquina](./imgs/0002/chanonic-representation.png#dark=1)
+![Representação Canónica de uma Máquina de Turing - Máquina](./imgs/0002/chanonic-representation.png#dark=3)
 
 A sua representação canónica é:
 
-![Representação Canónica de uma Máquina de Turing - Representação](./imgs/0002/chanonic-representation-string.png#dark=1)
+$$
+\overbrace{1111}^{\text{4 estados}}~
+0~
+\overbrace{11}^{\text{2 símbolos}}~
+0~
+\overbrace{
+  \underbrace{1000}_{q_1 = q_{\op{in}}}~
+  \underbrace{10}_{a_1 = 0}~
+  \underbrace{0100}_{q_2}~
+  \underbrace{10}_{a_1 = 0}~
+  \underbrace{1}_{R}
+}^{\text{transição}}~
+\overbrace{
+  \underbrace{0100}_{q_2}~
+  \underbrace{10}_{a_1 = 0}~
+  \underbrace{0010}_{q_3=q_{\op{ac}}}~
+  \underbrace{10}_{a_1 = 0}~
+  \underbrace{1}_{R}
+}^{\text{transição}}
+
+
+$$
 
 A máquina tem estados ($q_0 = q_{in}$, $q_1$, $q_2 = q_{ac}$ e $q_3 = q_{rj}$).  
 O alfabeto de trabalho da máquina tem $2+1$ símbolos: $0$, $1$ e $\square$.  
 A máquina tem duas transições, representadas a cima.
 
-Nota: a representação a cima só usa um bit para o movimento.
+Nota: a representação acima só usa um bit para o movimento.
 No entanto, se quisermos que a nossa máquina de Turing tenha movimentos $S$, precisamos de 2 bits para codificar essa informação, como referido a cima.
 
 :::
