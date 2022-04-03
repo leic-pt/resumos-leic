@@ -263,3 +263,16 @@ Sejam $\Sigma$ um alfabeto e $L \subset \mathcal{M}^\Sigma$ tal que se $M_1 \in 
 Se $\emptyset \neq L \neq \mathcal{M}^\Sigma$ então $L$ é indecidível.
 
 :::
+
+:::details[Exemplo]
+
+Vamos provar que a linguagem $L = \{ M \in \mathcal{M}^{ \{a,b\} } : L_{ac}(M) \text{ é um conjunto infinito} \}$ é indecidível.
+
+Segundo o Teorema de Rice basta mostrar que (1) $L \neq \emptyset$, (2) $L \neq \mathcal{M}^{ \{a,b\} }$, e (3) $M \in L \wedge M \equiv M' \Rightarrow M' \in L$.
+1. A máquina de Turing sobre $\{a,b\}$ que aceita todas as palavras está em $L$. Então $L \neq \emptyset$.
+2. A máquina de Turing sobre $\{a,b\}$ que não aceita nenhuma palavra não está em $L$. Então $L \neq \mathcal{M}^{\{a,b\}}$.
+3. Seja $M \in L$. Se $M' \equiv M$, então o seu alfabeto é $\{a,b\}$ e $M'$ aceita infinitas palavras, pelo que $M' \in L$.
+
+Podemos então concluir, segundo o Teorema de Rice, que $L$ é indecidível.
+
+:::
