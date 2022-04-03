@@ -297,3 +297,124 @@ A ideia será que $D$ terá 3 fitas:
   Se nenhum dos caminhos na fita 2 aceitar a palavra, então a palavra deve ser rejeitada.
 
 :::
+
+## Máquina Universal
+
+Podemos verificar que o alfabeto $\{ 0, 1 \}$ é suficiente para representar qualquer problema.  
+Para uma máquina de Turing $M = (\Sigma, \Gamma, Q, q_{in}, q_{ac}, q_{rj}, \delta)$, podemos por exemplo considerar a seguinte representação, a que se dá o nome de **representação canónica**:
+
+$$
+11\cdots111 \, . \, 0 \, . \, 11\cdots1 \, . \, 0 \, . \, <\text{trans}~1> <\text{trans}~2> \cdots <\text{trans}~n>
+$$
+
+A representação pode ser descrita da seguinte forma:
+
+- uma string de $n$ 1's: tantos quanto o número de estados na máquina de Turing, isto é, tantos quanto os estados em $\hat{Q} = Q \cup \{ q_{ac}, q_{rj} \}$: os $n$ estados são identificados da seguinte forma:
+
+  $$
+  \begin{aligned}
+  q_1 = q_{in} &= 100 \cdots 00 \\
+  q_2 &= 010 \cdots 00 \\
+  q_3 &= 001 \cdots 00 \\
+  & \vdots \\
+  q_{n-1} = q_{ac} &= 000 \cdots 10 \\
+  q_n = q_{rj} &= 000 \cdots 01
+  \end{aligned}
+  $$
+
+- um 0 de separação;
+- uma string de $k$ 1's: tantos quantos símbolos no alfabeto auxiliar $\Gamma = \Gamma \backslash \{ \square \} \cup \{ \square \} = k+1$: os $k+1$ símbolos são da seguinte forma:
+  $$
+  \begin{aligned}
+  a_0 &= 000 \cdots 00 \\
+  a_2 &= 100 \cdots 00 \\
+  a_3 &= 010 \cdots 00 \\
+  &\vdots \\
+  a_{k-1} &= 000 \cdots 10 \\
+  a_k &= 000 \cdots 01
+  \end{aligned}
+  $$
+- um 0 de separação;
+- uma sequência de strings que representam as transições dadas pela função $\delta$: cada string que representa uma transição $\delta(q_i, a_j) = (q_r, a_s, m)$ é uma palavra $trans_i = q_i a_j q_r a_s m \in \{ 0, 1 \}^*$ de comprimento $2n+2k+2$.
+
+Esta representação permite-nos confundir uma máquina de Turing com uma palavra binária, quando apropriado.
+
+:::details[Exemplo]
+
+Consideremos por exemplo a seguinte máquina de Turing, que decide a linguagem das palavras sobre $\{0,1\}$ que começam com dois $0$'s consecutivos:
+
+![Representação Canónica de uma Máquina de Turing - Máquina](./imgs/0002/chanonic-representation.png#dark=3)
+
+A sua representação canónica é:
+
+$$
+\overbrace{1111}^{\text{4 estados}}~
+0~
+\overbrace{11}^{\text{2 símbolos}}~
+0~
+\overbrace{
+  \underbrace{1000}_{q_1 = q_{\op{in}}}~
+  \underbrace{10}_{a_1 = 0}~
+  \underbrace{0100}_{q_2}~
+  \underbrace{10}_{a_1 = 0}~
+  \underbrace{1}_{R}
+}^{\text{transição}}~
+\overbrace{
+  \underbrace{0100}_{q_2}~
+  \underbrace{10}_{a_1 = 0}~
+  \underbrace{0010}_{q_3=q_{\op{ac}}}~
+  \underbrace{10}_{a_1 = 0}~
+  \underbrace{1}_{R}
+}^{\text{transição}}
+
+
+$$
+
+A máquina tem estados ($q_0 = q_{in}$, $q_1$, $q_2 = q_{ac}$ e $q_3 = q_{rj}$).  
+O alfabeto de trabalho da máquina tem $2+1$ símbolos: $0$, $1$ e $\square$.  
+A máquina tem duas transições, representadas a cima.
+
+Nota: a representação acima só usa um bit para o movimento.
+No entanto, se quisermos que a nossa máquina de Turing tenha movimentos $S$, precisamos de 2 bits para codificar essa informação, como referido a cima.
+
+:::
+
+Dado um alfabeto $\Sigma$, denotamos por $\mathcal{M}^\Sigma$ o conjunto das representações canónicas de máquinas de Turing com alfabeto de entrada/saída $\Sigma$.
+Denotamos por $rep(\omega )$ a representação canónica de uma palavra $\omega \in \Sigma^*$.  
+Por exemplo, para $\Gamma \backslash \{ \square \} = \{ a_1, a_2 \cdots, a_k \}$ temos que $rep(\square) = 000\cdots 00$, $rep(a_1) = 100\cdots 00$, $rep(a_2) = 010\cdots 00$ e por aí a diante.
+
+:::tip[Proposição]
+
+Existe uma máquina de Turing $U$, a que damos o nome de [**máquina Universal**](color:purple), que para qualquer $M \in \mathcal{M}^\Sigma$ e $\omega \in \Sigma^*$, tal que, para um símbolo \$ $ \notin \Sigma$
+
+- U aceita (respetivamente rejeita) $M \text{\textdollar} rep(\omega )$ se e só se $M$ aceita (resp. rejeita) $\omega$;
+- $\phi_U(M \text{\textdollar} rep(\omega ) ) = rep(\phi_M(\omega ))$.
+
+:::
+
+:::details[Prova]
+
+Seja $U$ uma máquina de Turing com 6 fitas.
+
+A máquina, ao receber um input $x$, começa por verificar se a palavra $x$ é da forma $M \text{\textdollar} rep(\omega)$ para alguma máquina de Turing $M \in \mathcal{M}^\Sigma$ e $\omega \in \Sigma^*$, rejeitando se este não for o caso.
+
+Passada esta verificação, a máquina passa para a fase inicial:
+
+- copia a sequência de $1$'s correspondente ao número de estados de $M$ para a fita 2;
+- copia a sequência de $1$'s correspondente ao número de símbolos de $M$ para a fita 3;
+- copia as transições de $M$ para a fita 4;
+- coloca o estado inicial de $M$ na fita 5;
+- copia $rep(\omega)$ para a fita 6;
+- coloca as cabeças de leitura/escrita de cada fita no início destas palavras.
+
+![Máquina Universal](./imgs/0002/universal-machine.png#dark=3)
+
+Após a fase inicial, a máquina entra na fase de simulação.
+Nesta fase, $U$ faz os seguintes passos repetidamente até $M$ abortar/terminar.
+
+- lê o símbolo onde está posicionado a cabeça de leitura/escrita da fita 6;
+- lê o estado atual de $M$ na fita 5;
+- percorre a fita 3 à procura da transição de $M$ para este símbolo e estado. Se não encontrar transição, $U$ aborta. Se encontrar, $U$ altera o estado de $M$ na fita 5, o símbolo na fita 6 e a posiçao da cabeça de leitura/escrita conforme indicado na transição encontrada;
+- Se o passo anterior levar a um estado de terminação de $M$, $U$ termina em acordância com $M$.
+
+:::

@@ -33,7 +33,7 @@ Nos anos 80, Stuart Card e alguns colegas aplicaram psicologia cognitiva a exper
 
 ### Sistema motor
 
-O sistema motor tem comunicações com o tempo - isto é, o nosso tempo de resposta de cada sentido é diferente, havendo sentidos que são mais sensíevis (como o sentido auditivo) e outros menos, como é o caso da dor.
+O sistema motor tem comunicações com o tempo - isto é, o nosso tempo de resposta de cada sentido é diferente, havendo sentidos que são mais sensíveis (como o sentido auditivo) e outros menos, como é o caso da dor.
 
 | [**Sentido**](color:blue) | [**Tempo**](color:blue) |
 | ------------------------- | ----------------------- |
@@ -43,7 +43,7 @@ O sistema motor tem comunicações com o tempo - isto é, o nosso tempo de respo
 
 ### Sistema Cognitivo
 
-O sistema cognitivo representa as nossas memórias. Há algumas zonas do nosso cérebro que estão organizadas em camadas, mas é difícil dizer qual a zona que está encarregue da memória a curto ou longo prazo. À medida que o ser humano foi evoluindo, o seu cérebro também foi, assim como as nossas capacidades cognitivas. Atualmente, uma pessoa consegue recordar [**sete ($\pm 2$) bocados**](color:orange) de informação, considerando um bocado como uma unidade simples: uma letra, frase, palavra, dígito, etc. Podemos, contudo, guardar uma quantidade (teoricamente) infinita de informação a longo prazo. Há, no entanto, uma pequena condição: só nos conseguimos lembrar de informação a longo prazo através da nosso memória de curta duração.
+O sistema cognitivo representa as nossas memórias. Há algumas zonas do nosso cérebro que estão organizadas em camadas, mas é difícil dizer qual a zona que está encarregue da memória a curto ou longo prazo. À medida que o ser humano foi evoluindo, o seu cérebro também foi, assim como as nossas capacidades cognitivas. Atualmente, uma pessoa consegue recordar [**sete ($\pm 2$) bocados**](color:orange) de informação, considerando um bocado como uma unidade simples: uma letra, frase, palavra, dígito, etc. Podemos, contudo, guardar uma quantidade (teoricamente) infinita de informação a longo prazo. Há, no entanto, uma pequena condição: só nos conseguimos lembrar de informação a longo prazo através da nossa memória de curta duração.
 
 ### O Modelo de Processamento Humano de Card
 
@@ -86,7 +86,7 @@ Ninguém tem habilidades aleatórias - regemo-nos antes por "leis", tais como:
 - Velocidade de leitura;
 - Capacidade de memorizar informação.
 
-Assim sendo, estas leis são mantidas em conta e quantificadas quando usadas para criar recomendações e aplicadas, posteriomente no desenho de interfaces.
+Assim sendo, estas leis são mantidas em conta e quantificadas quando usadas para criar recomendações e aplicadas, posteriormente no desenho de interfaces.
 :::
 
 ## Lei de Fitts
@@ -113,6 +113,13 @@ T_{\text{movimento}} = a + b \log_{2}\left( \frac{\text{Distância}}{\text{Taman
 $$
 
 _Sejam $a$ e $b$ constantes empíricas._
+
+Dá-se o nome de **índice de dificuldade** de Fitts (ou _index of difficulty_ em inglês) à componente com logaritmo da expressão acima, em bits:
+
+$$
+\text{ID} = \log_2\left(\frac{\text{Distância}}{\text{Tamanho}} + 1\right)
+$$
+
 :::
 
 Esta fórmula é particularmente relavante quando queremos comparar alternativas para verificar qual é o melhor produto.
@@ -223,7 +230,7 @@ $$
 \frac{\Delta I}{I} = k
 $$
 
-Seja $I$ a intensidade original do estímulo, a variação ($\Delta$) de $I$ é a diferença mínima para que se torne perceptível e $k$ é uma constante.
+sendo $I$ a intensidade original do estímulo, a variação ($\Delta$) de $I$ a diferença mínima para que se torne perceptível e $k$ uma constante.
 
 :::info[Exemplo]
 
@@ -266,11 +273,11 @@ A criação de lojas como a _**Amazon Go**_ e _**Continentes Labs**_ levam esta 
 
 Quanto mais estético é um design, mas fácil é para os utilizadores considerar que estão a trabalhar com algo mais simples. Ao mantermos o nosso sistema esteticamente agradável, estamos a permitir ao utilizador que usufrua de uma experiência mais prática e menos complexa.
 
-Contudo, tal como em tudo, tem algo demasiado estético pode causar problemas visto que quanto mais estético for uma interface mais fácil é de mascarar os seus problemas. As interfaces estéticas criam uma perceção de que o sistema funciona melhor e assim os utilizadores tornam-se mais tolerantes a problemas de usabilidade.
+Contudo, tal como em tudo, algo demasiado estético pode causar problemas visto que quanto mais estético for uma interface, mais fácil é de mascarar os seus problemas. As interfaces estéticas criam uma perceção de que o sistema funciona melhor e assim os utilizadores tornam-se mais tolerantes a problemas de usabilidade.
 
 ## Regra do "Pico Final"
 
-É normal os utilizadores julgarem uma experiência com base no que sentiram no seu **"pico"** e no **final**, ao invés da totalidade da experiência, ou média de todos os momentos. Assim sendo, é necessário encarar os erros no sistema comoo uma oportunidade de tornar a experiência mais positiva, através de [**mensagens positivas**](color:green) e [**desenhos animados**](color:orange) que atraiam os utlizadores.
+É normal os utilizadores julgarem uma experiência com base no que sentiram no seu **"pico"** e no **final**, ao invés da totalidade da experiência, ou média de todos os momentos. Assim sendo, é necessário encarar os erros no sistema como uma oportunidade de tornar a experiência mais positiva, através de [**mensagens positivas**](color:green) e [**desenhos animados**](color:orange) que atraiam os utlizadores.
 
 ![Success screen](./assets/0003-success.png)
 
