@@ -37,7 +37,7 @@ Então,
 4. $L_1 \cap L_2$,
 5. $L_1 \cup L_2$,
 6. $L_1 \backslash L_2$
-   
+
 são linguagens [decidíveis](color:yellow).
 
 :::
