@@ -74,8 +74,8 @@ Então,
 1. $\emptyset$,
 2. $\Sigma^*$,
 3. $\overline{L}$
-4. $L_1 \cap L_2$,
-5. $L_1 \cup L_2$,
+4. $L_1 \cup L_2$,
+5. $L_1 \cap L_2$,
 6. $L_1 \backslash L_2$
 
 são linguagens [decidíveis](color:yellow).
@@ -114,8 +114,8 @@ Então,
 
 1. $\emptyset$,
 2. $\Sigma^*$,
-3. $L_1 \cap L_2$,
-4. $L_1 \cup L_2$,
+3. $L_1 \cup L_2$,
+4. $L_1 \cap L_2$,
 
 são linguagens [reconhecíveis](color:orange).
 
@@ -179,7 +179,7 @@ De qualquer forma a computação termina e $L$ é decidível.
 
 ### Redução Computável
 
-Nas provas a cima e no capítulo anterior, por vezes pegamos em máquinas de Turing que já conheciamos para criar máquinas de Turing que resolviam problemas que ainda nao tinhamos resolvido.
+Nas provas acima e no capítulo anterior, por vezes pegamos em máquinas de Turing que já conhecáamos para criar máquinas de Turing que resolviam problemas que ainda nao tínhamos resolvido.
 A ideia de [**redução computável**](color:orange) consiste exatamente nisso:
 
 Sejam $L_1$ e $L_2$ linguagens sobre os alfabetos $\Sigma_1$ e $\Sigma_2$, respetivamente.
@@ -210,9 +210,9 @@ A prova para reconhecimento é análoga.
 
 :::
 
-A proposição a cima não é no entanto suficiente para verificar se uma linguagem **não é** computável.
+A proposição acima não é no entanto suficiente para verificar se uma linguagem **não é** computável.
 
-Dado uma alfabeto $\Sigma$ distinguimos as seguintes linguagens:
+Dado um alfabeto $\Sigma$ distinguimos as seguintes linguagens:
 
 - $\mathcal{L}_{ac}^\Sigma = \{ M \text{\textdollar} \omega : M \in \mathcal{M}^\Sigma, \omega \in L_{ac}(M) \}$ - o **problema da aceitação**;
 - $\mathcal{L}_{rj}^\Sigma = \{ M \text{\textdollar} \omega : M \in \mathcal{M}^\Sigma, \omega \in L_{rj}(M) \}$ - o **problema da rejeição**;
@@ -220,7 +220,7 @@ Dado uma alfabeto $\Sigma$ distinguimos as seguintes linguagens:
 - $\mathcal{L}_{ab}^\Sigma = \{ M \text{\textdollar} \omega : M \in \mathcal{M}^\Sigma \text{ e a computação de } M \text{ sobre } \omega \text{ aborta } \}$ - o **problema do abortamento**;
 - $\mathcal{L}_{te}^\Sigma = \mathcal{L}_{su}^\Sigma \cup \mathcal{L}_{ab}^\Sigma$ - o **problema da terminação**.
 
-De forma mais intuitiva, podemos pensar que a linguagem $\mathcal{L}_{ac}^\Sigma$ consiste dos pares $(M, \omega) \in \mathcal{M}^\Sigma \times \Sigma^*$ constituídos por uma máquina de Turing $M$ e uma palavra $\omega$ tais que $\omega \in L_{ac}(M)$, isto é, $\omega$ é aceite por $M$.  
+De forma mais intuitiva, podemos pensar que a linguagem $\mathcal{L}_{ac}^\Sigma$ consiste nos pares $(M, \omega) \in \mathcal{M}^\Sigma \times \Sigma^*$ constituídos por uma máquina de Turing $M$ e uma palavra $\omega$ tais que $\omega \in L_{ac}(M)$, isto é, $\omega$ é aceite por $M$.  
 De forma a podermos representar estes pares por uma palavra, usamos a representaçao canónica de máquinas, separando esta representação da palavra input por um $\text{\textdollar}$.
 De forma semelhante, $L_{rj}^\Sigma$ contém pares $(M, \omega) \in \mathcal{M}^\Sigma \times \Sigma^*$ tais que $\omega \in L_{rj}(M)$, $L_{su}^\Sigma$ os pares tais que $\omega \in L_{ac}(M) \cup L_{rj}(M)$, e por aí em diante.
 
