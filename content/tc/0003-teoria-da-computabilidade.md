@@ -11,7 +11,7 @@ type: content
 
 ```
 
-## Computabilidade e decibilidade
+## Computabilidade e decidibilidade
 
 Os problemas relevantes que estudamos são problemas de decisão e reconhecimento de linguagens, ou cálculo de funções.
 É então relevante definir formalmente o que significa [**reconhecer**](color:orange)/[**decidir**](color:yellow) uma linguagem e [**calcular uma função**](color:green).
@@ -37,7 +37,7 @@ Então,
 4. $L_1 \cap L_2$,
 5. $L_1 \cup L_2$,
 6. $L_1 \backslash L_2$
-   
+
 são linguagens [decidíveis](color:yellow).
 
 :::
