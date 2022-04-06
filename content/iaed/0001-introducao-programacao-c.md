@@ -36,4 +36,4 @@ Como nota introdutória à linguagem, é importante realçar que apesar de a ide
 
 `embed:assets/0001-fibo.c`
 
-O tipo de dados `int` em C representa um inteiro de 32 bits. O tipo `long long int` já permite guardar mais do que 64 bits. Vamos deparar-nos ao longo da UC (e noutras ocasiões) com casos em que um `int` normal não basta - aplicações bancárias, por exemplo, requerem uma enorme precisão e capacidade para trabalhar com inteiros (e não só) muito grandes, pelo que `int` não é adequado. 
+O tipo de dados `int` em C representa um inteiro de 32 bits. O tipo `long long int` já permite guardar mais do que 64 bits. Vamos deparar-nos ao longo da UC (e noutras ocasiões) com casos em que um `int` normal não basta - aplicações bancárias, por exemplo, requerem uma enorme precisão e capacidade para trabalhar com inteiros (e não só) muito grandes, pelo que `int` não é adequado.

@@ -19,9 +19,9 @@ Os problemas relevantes que estudamos são problemas de decisão e reconheciment
 Para um alfabeto $\Sigma$, uma linguagem $L \subset \Sigma^*$ e uma função $f: \Sigma^* \to \Sigma^*$, dizemos que:
 
 - Uma linguagem $L$ diz-se [**reconhecível**](color:orange) se existe uma máquina de Turing $M$ com alfabeto de entrada/saída $\Sigma$ tal que $L_{ac}(M) = L$.
-  Denotamos por $\mathcal{R}^\Sigma$ o conjunto de todas as linguagens [reconhecíveis](color:orange) sobre o alfabeto $\Sigma$.  
+  Denotamos por $\mathcal{R}^\Sigma$ o conjunto de todas as linguagens [reconhecíveis](color:orange) sobre o alfabeto $\Sigma$.
 - Uma linguagem $L$ diz-se [**decidível**](color:yellow) se existe uma máquina de Turing $M$ com alfabeto de entrada/saída $\Sigma$ tal que $L_{ac}(M) = L$ e $L_{rj}(M) = \overline{L}$.
-  Denotamos por $\mathcal{D}^\Sigma$ o conjunto de todas as linguagens [decidíveis](color:yellow) sobre o alfabeto $\Sigma$.  
+  Denotamos por $\mathcal{D}^\Sigma$ o conjunto de todas as linguagens [decidíveis](color:yellow) sobre o alfabeto $\Sigma$.
 - Uma função $f$ diz-se [**computável**](color:green) se existe uma máquina de Turing $M$ com alfabeto de entrada/saída $\Sigma$ tal que $f = \phi_M$.
   Denotamos por $\mathcal{C}^\Sigma$ o conjunto de todas as funções [computáveis](color:green) sobre o alfabeto $\Sigma$.
 
