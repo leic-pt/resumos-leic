@@ -64,8 +64,8 @@ A procura de custo uniforme, escolhe para visitar o nó com o menor custo no cam
 
 Propriedades:
 
-- Completa: Sim, se o custo do ramo ≥ ε
-  - ε é uma constante > 0, para evitar ciclos em ramos com custo 0
+- Completa: Sim, se o custo do ramo $\ge ε$
+  - $ε$ é uma constante $> 0$, para evitar ciclos em ramos com custo 0
   - Custo do caminho aumenta sempre com a profundidade
 - Complexidade Temporal: TBA
 - Complexidade Espacial: TBA
