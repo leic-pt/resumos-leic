@@ -15,34 +15,37 @@ type: content
 
 `embed:assets/0002-conversao-temperaturas.c`
 
-:::tip
+:::info[]
 Podes (e deves!) comentar o código utilizando `/*` e `*/`.
+
+A UC de IAED costuma requerer a compilação do código com a flag `-ansi` que, entre outras coisas, proíbe comentários _single-line_ com `//`. Esta é, contudo, outra maneira de comentar o código, podendo ser usada caso a flag em questão não esteja presente.
 :::
 
 Como visto anteriormente, todas as variáveis devem ser declaradas antes de serem utilizadas.
 
 A sintaxe da atribuição de valor a uma variável funciona como em Python (`<variável> = <expressão>`).
 
-Podes definir constantes utilizando `#define`.
+Podes ainda definir constantes utilizando `#define`. No código acima, definimos como constantes `INFERIOR`, `SUPERIOR` e `PASSO`. Existem várias razões para escolher definir algo como uma variável _vs_ defini-lo como uma constante:
+
+- Caso tenhamos a certeza que queremos que aquele nome esteja associado àquele valor durante todo o nosso código, faz sentido defini-lo como uma constante.
+- Para propósitos de tradução, faz sentido ter _strings de ajuda/texto_ associadas a constantes: algo como `#define HELP_MESSAGE "Clique aqui para obter ajuda."` é o exemplo típico para estes casos (costumando, inclusive, ser algo relevante nos projetos de IAED, e que consta das boas práticas da cadeira).
+
+Resta realçar que as constantes são, por convenção, definidas com o nome todo em **caracteres maiúsculos**.
 
 ### Ciclo while
 
 Sintaxe: `while (<expressão>) <instrução>`
 
-Apesar de a identação poder ser ignorada, ao contrário de Python, é importante continuar a usá-la de modo a facilitar
-a leitura do programa.
-
 :::warning
-Um erro comum na escrita de ciclos while consiste na colocação despropositada de um `;` após a expressão que define o ciclo.
-Muitas vezes isto resultará num loop infinito. Um bom truque para evitar isto é abrir chavetas imediatamente
-a seguir à expressão, independentemente do while conter apenas uma instrução.
+Um erro comum na escrita de ciclos `while` consiste na colocação (errada) de um `;` após a expressão que define o ciclo.
+Muitas vezes isto resultará num loop infinito. Um bom truque para o evitar é abrir chavetas **imediatamente a seguir à expressão**, independentemente do `while` conter apenas uma instrução.
 
 `embed:assets/0002-erro-while.c`
 :::
 
 ### Ciclo for
 
-Os ciclos for também já são conhecidos do python. No entanto são escritos de maneira diferente.
+Os ciclos `for` também já são conhecidos do Python. São, no entanto, escritos de maneira diferente.
 
 Sintaxe: `for (<inicialização de variáveis>; <teste>; <incremento>) <instrução>`
 
@@ -60,14 +63,14 @@ Com o `scanf()` é possível ler o input introduzido no terminal, como podes ver
 
 `embed:assets/0002-quadrado-input.c`
 
-:::tip
+:::tip[]
 Utiliza-se o `%d` para ler um inteiro. Se pretendêssemos ler dois inteiros seguidos faríamos
-`scanf("%d%d", &x, &y)`, por exemplo. Para ler um float utiliza-se `%f`.
+`scanf("%d%d", &x, &y)`, por exemplo. Para ler um float utiliza-se `%f` (podem encontrar uma lista mais completa [aqui](https://nick-lab.gs.washington.edu/cworkshop/formaters.html)).
 
-**É necessário colocar o `&` antes do nome da variável.**
+Num `scanf`, **é necessário colocar o `&` antes do nome da variável** (a não ser que estejamos na presença de uma sequência de caracteres, `%s`). Aprenderão mais à frente na cadeira, na secção [Ponteiros e Tabelas](/iaed/ponteiros), o porquê da sintaxe ser esta.
 :::
 
-Temos aqui outro exemplo que inclui um ciclo while. Este programa reproduz no terminal
+Temos aqui outro exemplo que inclui um ciclo `while`. Este programa reproduz no terminal
 o input recebido (assumindo que apenas recebe inteiros) até ser introduzido um número
 negativo. Na aba ao lado mostra-se como adicionar um contador ao programa, que conta
 o número de inteiros introduzidos, imprimindo-o no final.
