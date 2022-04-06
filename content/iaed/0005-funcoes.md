@@ -42,7 +42,7 @@ Todos os argumentos são copiados para **variáveis temporárias** quando a fun�
 Existe uma [**exceção**](color:red) a esta regra: se o argumento for uma tabela, não é efectuada a cópia da tabela. Assim sendo, se a função alterar o conteúdo da tabela, estas alterações preservam-se.
 :::
 
-  `embed:assets/0005-loc.c`
+`embed:assets/0005-loc.c`
 
 :::tip[Conversão do Tipo de 1 Variável]
 Para fazer uma divisão entre inteiros, por vezes a parte inteira não chega.
@@ -51,6 +51,7 @@ Assim, convertemos o divisor para outro tipo de dados, `float`, para que a assim
 ```c
 media = soma / (float) num_alunos;
 ```
+
 :::
 
 ### Copiar Tabelas

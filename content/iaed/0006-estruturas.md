@@ -58,7 +58,7 @@ As estruturas permitem incluir outras estruturas.
 Estruturas não podem ser comparadas usando o usual operador de comparação de igualdade.
 
 Assim sendo, se queremos determinar se duas estruturas são iguais, é necessário comparar [**cada campo da estrutura**](color:red).
-  :::
+:::
 
 ## Funções
 
