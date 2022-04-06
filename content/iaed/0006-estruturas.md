@@ -15,93 +15,73 @@ type: content
 
 ### Porquê uma estrutura?
 
-Para uma inscrição de um aluno numa disciplina é preciso saber:
+Imaginemos que somos um professor, estando atualmente no processo de inserir a nota de um aluno a uma dada UC no Fénix. Ora, para tal, precisamos:
 
-- o seu número de aluno
-- a sigla da disciplina (máx: 6 caracteres)
-- nota obtida
+- do seu número de aluno;
+- da sigla da disciplina (máx: 6 caracteres);
+- da nota obtida.
 
-- Exemplo: `42069 IAED 20`
+Exemplo: `42069 IAED 20`
 
-Como podemos representar em C ?
+Ora, representar algo deste género em C é possível de várias maneiras. Algumas delas são:
 
-- Vector? Todos os dados precisam de ser do mesmo tipo!
-- 3 Vectores do mesmo tamanho? Muito complexo!
+- Recorrendo a um vector. Problema: Todos os dados precisam de ser do mesmo tipo!
+- Poderíamos, então, recorrer a 3 vectores do mesmo tamanho. Ora, mas isso acabava por ser relativamente desagradável, adicionando uma _camada de complexidade_ adicional indesejável (para além de ter de haver $n$ vectores se quiséssemos $n$ propriedades - não ideal).
 
-Solução: Estruturas para representar dados agregados de tipos diferentes.
+A solução "correta" em C passa por recorrer a [**estruturas**](color:green), `struct`s, para representar dados agregados de tipos diferentes.
 
 ### Exemplos
 
-Uma estrutura permite definir estruturas de dados sofisticadas, as quais possibilitam a agregação de diferentes tipos de declarações.
+Uma estrutura permite **definir estruturas de dados sofisticadas**, as quais possibilitam a agregação de diferentes tipos de declarações.
 
 `embed:assets/0006-def.c`
 
 ### Declaração de Variáveis
 
-- Definição da estrutura: introduz um novo tipo de dados
+A definição da estrutura introduz um novo tipo de dados: podemos agora passar a usar a estrutura como qualquer outro tipo de dados nativo a C, como um `int` ou um `char`.
 
 `embed:assets/0006-decl.c`
 
-- Declaração de variável: declara variável como estrutura
-
-`struct ponto centro;`
-
-- Inicialização: `<tipo> <variavel> = { <valores> };`
-
-`struct ponto centro = { 12.3, 5.2 };`
-ou
-`centro.x = 12.3; centro.y = 5.2;`
-
 ### Manipulação de Variáveis
 
-- Manipulação: `<variavel>.<membro> ;`
+A manipulação de propriedades de estruturas tem uma sintaxe bastante intuitiva: _acedemos_ à propriedade via `<variavel>.<membro>`, e é também assim que a podemos alterar.
 
 `embed:assets/0006-man.c`
 
-:::tip
+:::info[Nota]
 As estruturas permitem incluir outras estruturas.
 
 `embed:assets/0006-struception.c`
 :::
 
 :::danger
-Estruturas não podem ser comparadas usando
-operador de comparação de igualdade
+Estruturas não podem ser comparadas usando o usual operador de comparação de igualdade.
 
-- Para determinar se duas estruturas são iguais, é necessário
-  comparar cada campo da estrutura
+Assim sendo, se queremos determinar se duas estruturas são iguais, é necessário comparar [**cada campo da estrutura**](color:red).
   :::
 
 ## Funções
 
-A funções podem receber e retornar estruturas.
+A funções podem, claro, receber e retornar estruturas:
 
 `embed:assets/0006-f.c`
 
-- Função retorna uma cópia da estrutura `res`
-- Passagem de argumentos feita por valor
-  - Chamada `adicionaPonto(pa, pb)` não altera valores
-    de `pa` nem de `pb`.
+A função em questão retorna uma cópia da estrutura `res`. A passagem de argumentos é feita por valor, não por referência: chamar `adicionaPonto(pa, pb)` não altera os valores de `pa` nem de `pb`.
 
 ### Vetores de Estruturas
 
-Permite criar tabelas que guardam estruturas
+Permite, claro, criar tabelas que guardam estruturas:
 
 `embed:assets/0006-vectored.c`
 
-- Inicialização
+Podemos inicializar tabelas de estruturas com valores iniciais pré-definidos:
 
 `embed:assets/0006-hugetip.c`
 
 ## Typedef
 
-- `typedef`permite associar um nome a um tipo de dados já existente
-
-- Formato - `typedef <tipo> <nome> {...} "Alcunha";`
+`typedef` permite associar um nome a um tipo de dados já existente. Para tal, basta adicionar a _keyword_ `typedef` antes de `struct`, e escrever o nome a que queremos associar o novo tipo de dados após a definição da estrutura. Funcionam como uma espécie de alcunhas: podemos sempre usar `struct <struct-name>` para referenciar a estrutura, mas o `typedef` acaba por poder poupar _key-strokes_.
 
 `embed:assets/0006-typedef.c`
 
-Para criar as variáveis:
-`"Alcunha" <nome da variavel>; ` ou `struct <nome> <nome da variavel> ;`
-
-Existem 2 exemplos dados sobre estas funções que se encontram no slides da aula.
+Definir variáveis continua a ser bastante simples: basta escrever`<alcunha> <nome da variavel>` ou `struct <nome> <nome da variavel>`.
