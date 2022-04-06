@@ -358,7 +358,7 @@ f(y)y' = g(t) \Leftrightarrow F[y(t)] = \int g(t) dt + C
 $$
 
 em que $F$ é uma primitiva da função $f$. Note-se que este resultado não oferece uma
-solução explı́cita para y, mas uma solução implı́cita. Contudo, como $F'(y_0) = f(y_0) \neq 0$, podemos aplicar o Teorema da função implícita para afirmar que a equação a cima tem uma solução única numa vizinhança de $y_0$.
+solução explı́cita para y, mas uma solução implı́cita. Contudo, como $F'(y_0) = f(y_0) \neq 0$, podemos aplicar o Teorema da função implícita para afirmar que a equação acima tem uma solução única numa vizinhança de $y_0$.
 
 Como $y(t_0)=y_0$, podemos especificar que a equação
 

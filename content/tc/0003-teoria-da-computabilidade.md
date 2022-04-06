@@ -149,7 +149,7 @@ Se $L_1$ for [reconhecível](color:orange) e $L_2$ for [decidível](color:yellow
 :::details[Prova]
 
 Se $L_2$ é decidível, $\overline{L_2}$ é também decidível e, consequentemente, reconhecível.
-Como vimos a cima, se $L_1$ e $\overline{L_2}$ são reconhecíveis, então $L_1 \cap \overline{L_2} = L_1 \backslash L_2$ é reconhecível.
+Como vimos acima, se $L_1$ e $\overline{L_2}$ são reconhecíveis, então $L_1 \cap \overline{L_2} = L_1 \backslash L_2$ é reconhecível.
 
 :::
 
