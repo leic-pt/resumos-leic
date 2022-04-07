@@ -122,6 +122,7 @@ Com o MEPP, IAC passou para depois de IAED, pelo que é possível que ainda não
 ### Expressões Condicionais
 
 Expressões condicionais são expressões que recorrem a um **operador ternário**, e que dependem do valor de verdade de uma outra expressão. A sintaxe deste tipo de expressões segue o padrão ` <expr1> ? <expr2> : <expr3>`, onde:
+
 - Se `<expr1>` for verdadeiro, o valor da expressão é `<expr2>`;
 - Se `<expr1>` for falso, ovalor da expressão é `<expr3>`.
 
