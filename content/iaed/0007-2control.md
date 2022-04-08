@@ -13,7 +13,7 @@ type: content
 
 ## Execução Condicional
 
-### if
+### If
 
 Mais uma vez, por esta altura já devemos estar mais que habituados a expressões `if`, `else if` e `else`: expressões condicionais que permitem exprimir decisões consoante um dado conjunto de condições.
 
