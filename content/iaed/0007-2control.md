@@ -11,83 +11,49 @@ type: content
 
 ```
 
-## Instruções e Blocos
-
-### Instrução
-
-- Instrução
-- Expressão terminada por `;`
-- Caracter `;` denota o fim de uma instrução
-- Exemplo: `x = 0; i++; `
-
-### Blocos
-
-- Chavetas, `{ }`, permitem agrupar declarações e instruções
-- instruções de uma função
-- conjuntos de instruções em `if, for, while`, etc.
-- Exemplo:
-  `{ int x, i = 1; x = 0; i++; printf("%d %d\n"); }`
-
 ## Execução Condicional
 
 ### if
 
-- Permite exprimir decisões:
-
-- Se `<expressao1>` tem valor diferente de 0
-  então `<instrucao1>` é executada
-- Se `<expressao1>` tem valor igual a 0, e `<expressao2>` é diferente de 0
-  então `<instrucao2>` é executada
+Mais uma vez, por esta altura já devemos estar mais que habituados a expressões `if`, `else if` e `else`: expressões condicionais que permitem exprimir decisões consoante um dado conjunto de condições.
 
 `embed:assets/0007-cond1.c`
 
 ### Switch
 
-- Decisão com opções múltiplas; testa se uma expressão
-  assume um de um conjunto de valores constantes
+Passamos então a uma operação que não foi abordada em FP: `switch` (_switch-case_) corresponde a um problema de decisão com múltiplas opções. Testa-se uma expressão, sendo que se a mesma coincidir com um dado _caso_, a instrução/conjunto de instruções a ele associadas são executadas. Podemos ainda definir (não obrigatoriamente) um conjunto de instruções para o caso especial em que a expressão não coincide com nenhum dos outros casos: `default`. Devemos [**sempre**](color:red) colocar um `break` no final de cada conjunto de instruções, visto que caso contrário continuaremos a verificar todos os outros casos.
 
 `embed:assets/0007-switch.c`
-
-- default é opcional e é executado se a expressão é
-  diferente de qualquer dos outros casos
 
 ## Ciclos Genéricos
 
 ### While
 
-`embed:assets/0007-while.c`
+Enquanto uma dada expressão se verificar, uma instrução/conjunto de instruções são executadas.
 
-Enquanto `<expressao>` for diferente de zero, a
-`<instrucao>` é executada
-Ciclo termina quando valor de `<expressao>` for zero
+`embed:assets/0007-while.c`
 
 ### For
 
-`embed:assets/0007-for.c`
+`for` loops têm a particularidade de ter um **cabeçalho**, ao contrário de `while` loops. Esse mesmo cabeçalho possui:
 
-- Expressão de inicialização: `<expr1>`
-- Condição de ciclo: `<expr2>`
-- Expressão de incremento: `<expr3>`
-- Ciclos com inicialização e incremento simples
+- uma expressão de inicialização, como por exemplo `int i = 0`: tipicamente a variável que vai ser iterada durante o loop e que normalmente faz parte da condição de ciclo do mesmo;
+- a condição de ciclo do loop: enquanto esta se verificar, o loop continua;
+- uma expressão de incremento/alteração, que altera um dado conjunto de variáveis.
+
+Um exemplo de cabeçalho de um `for` loop poderia ser `for (int i = 0; i < 10; i++)`: o loop vai ser executado enquanto a variável `i`, inicializada a 0 e incrementada em 1 unidade por iteração, tiver valor menor que 10.
+
+`embed:assets/0007-for.c`
 
 ### Do-while
 
-`embed:assets/0007-do.c`
+Bastante semelhante ao `while` loop, com um _twist_: o loop é sempre executado **pelo menos uma vez**, já que a condição só é testada no fim do mesmo.
 
-- Enquanto `<expressao>` for diferente de zero, as
-  `<instrucoes>` são executadas
-- Ciclo termina quando valor de `<expressao>` for zero
-- Note-se que `<instrucoes>` são executadas sempre
-  pelo menos uma vez
+`embed:assets/0007-do.c`
 
 ### Break e Continue
 
-- A instrução `break` permite terminar a execução de um
-  `for`, `while`, `do-while` ou `switch`
-- A instrução `continue` desencadeia a execução da \
-  próxima iteração de um `for`, `while` ou `do-while`
-  - Num ciclo `for`, a execução continua com a expressão de
-    incremento
+A instrução `break`, como sabemos, permite terminar a execução de um `for`, `while`, `do-while` ou `switch`. A instrução `continue`, por sua vez, desencadeia a execução da próxima iteração de um `for`, `while` ou `do-while`, ignorando todo o resto das instruções do loop que poderiam ser executadas a seguir.
 
 Exemplo com algumas das funções dadas:
 
