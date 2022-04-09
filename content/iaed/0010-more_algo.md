@@ -19,7 +19,7 @@ A par do _merge sort_, o mais "comum" de entre os algoritmos desta secção. Bas
 
 ![Quick Sort](./assets/0010-qsort.gif)
 
-É o primeiro algoritmo que vamos estudar que segue a metodologia [**"dividir para conquistar"**](color:orange), _divide and conquer_: a ideia chave passa por realizar partições sucessivas dos dados, e ordenar cada partição independente e recursivamente (das mais pequenas para as maiores). As partições em si são feitas ao escolher um **pivô**, um elemento à nossa escolha do vetor, e dividindo o vetor em duas partes: a parte da esquerda, com elementos com chave menor que a do pivô, e a da direita com elementos que possuem chave maior que ele. Estas partições são, claro, criadas recursivamente. Quando chegamos ao fim da recursão, fazemos _backtracking_, ordenando as partições. **Por norma**, o algoritmo de ordenação auxiliar utilizado para ordenar as partições é o _insertion sort_. 
+É o primeiro algoritmo que vamos estudar que segue a metodologia [**"dividir para conquistar"**](color:orange), _divide and conquer_: a ideia chave passa por realizar partições sucessivas dos dados, e ordenar cada partição independente e recursivamente (das mais pequenas para as maiores). As partições em si são feitas ao escolher um **pivô**, um elemento à nossa escolha do vetor, e dividindo o vetor em duas partes: a parte da esquerda, com elementos com chave menor que a do pivô, e a da direita com elementos que possuem chave maior que ele. Estas partições são, claro, criadas recursivamente. Quando chegamos ao fim da recursão, fazemos _backtracking_, ordenando as partições. **Por norma**, o algoritmo de ordenação auxiliar utilizado para ordenar as partições é o _insertion sort_.
 
 `embed:assets/0010-qsort.c`
 
