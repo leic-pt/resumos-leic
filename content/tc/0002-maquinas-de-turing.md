@@ -101,10 +101,11 @@ Em cada momento, uma máquina de Turing está numa certa [**configuração**](co
 - os símbolos na fita;
 - a posição da cabeça de leitura/escrita;
 - o estado em que a máquina se encontra.
-  Esta observação pode ser formalizada da seguinte forma:  
-  Para uma máquina de Turing $M$, definimos a sua [configuração](color:purple) como o triblo $(u, q, v) \in \Gamma^* \times \hat{Q} \times \Gamma^*$ em que $u$ é a palavra à esquerda da cabeça de leitura/escrita, $q$ é o estado corrente e $v$ a palavra que se inicia na cabeça de leitura/escrita e se prolonga para a direita até uma sequência infinita de células vazias.  
-  Uma configuração diz-se de aceitação (respetivamente, de rejeição) se o seu estado corrente for de aceitação (resp., de rejeição).  
-  Observamos ainda que, para um input $\omega$, a configuração inicial de uma máquina de Turing é sempre $(\epsilon, q_{in}, \omega)$.
+
+Esta observação pode ser formalizada da seguinte forma:  
+Para uma máquina de Turing $M$, definimos a sua [configuração](color:purple) como o triblo $(u, q, v) \in \Gamma^* \times \hat{Q} \times \Gamma^*$ em que $u$ é a palavra à esquerda da cabeça de leitura/escrita, $q$ é o estado corrente e $v$ a palavra que se inicia na cabeça de leitura/escrita e se prolonga para a direita até uma sequência infinita de células vazias.  
+Uma configuração diz-se de aceitação (respetivamente, de rejeição) se o seu estado corrente for de aceitação (resp., de rejeição).  
+Observamos ainda que, para um input $\omega$, a configuração inicial de uma máquina de Turing é sempre $(\epsilon, q_{in}, \omega)$.
 
 Definimos agora a função de [transição](color:pink) de configurações $\Delta : \Gamma^* \times \hat{Q} \times \Gamma^* \to \Gamma^* \times \hat{Q} \times \Gamma^*$ de uma máquina de Turing $M = (\Sigma, \Gamma, Q, q_{in}, q_{ac}, q_{rj}, \delta)$ tal que:
 
