@@ -149,7 +149,7 @@ Se $L_1$ for [reconhecível](color:orange) e $L_2$ for [decidível](color:yellow
 :::details[Prova]
 
 Se $L_2$ é decidível, $\overline{L_2}$ é também decidível e, consequentemente, reconhecível.
-Como vimos a cima, se $L_1$ e $\overline{L_2}$ são reconhecíveis, então $L_1 \cap \overline{L_2} = L_1 \backslash L_2$ é reconhecível.
+Como vimos acima, se $L_1$ e $\overline{L_2}$ são reconhecíveis, então $L_1 \cap \overline{L_2} = L_1 \backslash L_2$ é reconhecível.
 
 :::
 
@@ -179,7 +179,7 @@ De qualquer forma a computação termina e $L$ é decidível.
 
 ### Redução Computável
 
-Nas provas acima e no capítulo anterior, por vezes pegamos em máquinas de Turing que já conhecáamos para criar máquinas de Turing que resolviam problemas que ainda nao tínhamos resolvido.
+Nas provas acima e no capítulo anterior, por vezes pegamos em máquinas de Turing que já conhecíamos para criar máquinas de Turing que resolviam problemas que ainda nao tínhamos resolvido.
 A ideia de [**redução computável**](color:orange) consiste exatamente nisso:
 
 Sejam $L_1$ e $L_2$ linguagens sobre os alfabetos $\Sigma_1$ e $\Sigma_2$, respetivamente.

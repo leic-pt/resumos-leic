@@ -86,7 +86,7 @@ No exemplo anterior vimos a máquina de Turing para decidir a linguagem. A únic
 - quando uma palavra não é aceite, imprimir 0 e terminar a computação no estado de aceitação na mesma (a nossa função completou com sucesso, pois reconheceu que a palavra não é aceite).
 
 Para isso, substituímos os estados $q_{ac}$ e $q_{rj}$ por estados $q_3$ e $q_4$ respetivamente, que indicam que já sabemos o resultado da nossa computação.
-Neste ponto, para terminar a computação com sucesso basta então apenas imprimir o output adequado e ir para o estado de aceitação, como é feito a baixo.
+Neste ponto, para terminar a computação com sucesso basta então apenas imprimir o output adequado e ir para o estado de aceitação, como é feito abaixo.
 
 ![Turing Machine Function](./imgs/0002/turing-machine-function.png#dark=1)
 
@@ -94,7 +94,7 @@ Observe-se que o output deve ser imprimido só depois do input ser todo lido, pe
 
 :::
 
-Vamos agora formalizar aquilo que vimos nos exemplos a cima.
+Vamos agora formalizar aquilo que vimos nos exemplos acima.
 
 Em cada momento, uma máquina de Turing está numa certa [**configuração**](color:purple). A [configuração](color:purple) é determinada por:
 
@@ -166,7 +166,7 @@ Apesar de permitirem maior flexibilidade aparente, na verdade os modelos que ana
 Uma [**máquina com transições-$S$**](color:green) é uma máquina cuja função de transição tem como contradomínio $\hat{Q} \times \Gamma \times \{L,R,S\}$, em vez de $\hat{Q} \times \Gamma \times \{L,R\}$.
 Este último elemento $S$ corresponde a um movimento em que a cabeça de leitura/escrita não muda de sítio.
 
-As noções introduzidas na secção anterior são facilmente estendíveis a estas máquinas, sendo relevante apenas realçar a extensão da função de transição de configurações, que agora, além do apresentado a cima, satisfaz ainda:
+As noções introduzidas na secção anterior são facilmente estendíveis a estas máquinas, sendo relevante apenas realçar a extensão da função de transição de configurações, que agora, além do apresentado acima, satisfaz ainda:
 
 $$
 \Delta(u, q, a.v) = (u, s, b.v) \text{se } \delta(q,a) = (s,b,S)
@@ -186,7 +186,7 @@ Basta pegar em cada movimento $S$ e desdobrá-lo em dois movimentos, como aprese
 ![S-movement Conversion](./imgs/0002/s-movement.png#dark=1)
 
 em que $q_a$ denota um novo estado da máquina, e $\gamma$ deve ser expandido para representar todas as letras do alfabeto $\Gamma$.  
-É fácil de verificar que os dois segmentos a cima levam à mesma transição de configurações.
+É fácil de verificar que os dois segmentos acima levam à mesma transição de configurações.
 
 :::
 
@@ -202,7 +202,7 @@ $$
 \end{matrix}
 $$
 
-Devem-se entender as transições a cima como "se não houver nada à esquerda e andarmos para a esquerda, vamos para uma célula vazia".  
+Devem-se entender as transições acima como "se não houver nada à esquerda e andarmos para a esquerda, vamos para uma célula vazia".  
 Por contraste, as máquinas de Turing introduzidas inicialmente dizem-se **unidirecionais**.
 
 :::tip[]
@@ -378,10 +378,10 @@ $$
 
 A máquina tem estados ($q_0 = q_{in}$, $q_1$, $q_2 = q_{ac}$ e $q_3 = q_{rj}$).  
 O alfabeto de trabalho da máquina tem $2+1$ símbolos: $0$, $1$ e $\square$.  
-A máquina tem duas transições, representadas a cima.
+A máquina tem duas transições, representadas acima.
 
 Nota: a representação acima só usa um bit para o movimento.
-No entanto, se quisermos que a nossa máquina de Turing tenha movimentos $S$, precisamos de 2 bits para codificar essa informação, como referido a cima.
+No entanto, se quisermos que a nossa máquina de Turing tenha movimentos $S$, precisamos de 2 bits para codificar essa informação, como referido acima.
 
 :::
 

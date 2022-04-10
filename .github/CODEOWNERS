@@ -46,7 +46,7 @@ content/fis-ii/cheatsheets @Pesteves2002
 content/fp/** @diogotcorreia
 
 # Ges - Main maintainer Diogo Correia
-content/ges/** @trvds @diogotcorreia
+content/ges/** @diogotcorreia
 content/ges/exercicios/** @diogotcorreia
 
 # IA - Main maintainer Diogo Correia
@@ -69,9 +69,9 @@ content/ipm/** @diogotcorreia
 # LP - Main maintainer Diogo Gaspar
 content/lp/** @randomicecube
 
-# MD - Main maintainer João Fonseca
-content/md/* @jmseca
-content/md/imgs/* @jmseca
+# MD - Main maintainer Diogo Correia
+content/md/* @diogotcorreia
+content/md/imgs/* @diogotcorreia
 content/md/exercicios/* @diogotcorreia
 content/md/tools/* @diogotcorreia
 
@@ -94,5 +94,5 @@ content/sd/** @diogotcorreia
 # SO - Main maintainer Tomás Esteves
 content/so/** @Pesteves2002
 
-# TC - Main maintainer Diogo Correia
-content/tc/** @diogotcorreia
+# TC - Main maintainer Diogo Gaspar
+content/tc/** @randomicecube
