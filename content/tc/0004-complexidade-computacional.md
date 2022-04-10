@@ -1,6 +1,11 @@
 ---
 title: Complexidade Computacional
-description: 'Complexidade Computacional'
+description: >-
+  Complexidade Computacional.
+  Funções time e space.
+  Classes de Complexidade.
+  Não determinismo: funções ntime e nspace.
+  Propriedades de Fecho e Redução Polinomial.
 path: /tc/complexidade-computacional
 type: content
 ---
