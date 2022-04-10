@@ -33,7 +33,7 @@ Assim, avaliar as variáveis ajudam a:
 - Gerar e testar hipóteses;
 - Evitar problemas mais tarde.
 
-Podemos considerar variáveis dependentes ou independentes, como já tínhamos visto na aula passada. [Variáveis dependentes](color:red) são por exemplo o [tempo, erros, SUS](color:orange); enquanto [variáveis independentes](color:red) são por exemplo [cor, layout, idade, etc](color:orange).
+Podemos considerar variáveis dependentes ou independentes, como já tínhamos visto na aula passada. [Variáveis dependentes](color:pink) são por exemplo o [tempo, erros, SUS](color:orange); enquanto [variáveis independentes](color:pink) são por exemplo [cor, layout, idade, etc](color:orange).
 
 ### Escalas de Medida
 
@@ -41,25 +41,22 @@ Existem três tipos de **escalas de medida**:
 
 1. **Nominal**
 
-
-    - Cor;
-    - Marca;
-    - Nome
+   - Cor;
+   - Marca;
+   - Nome
 
 2. **Ordinal** (a relação entre os pontos não é comparável)
 
-
-    - Leve, médio pesado;
-    - Satisfeito, neutro, insastisfeito
+   - Leve, médio pesado;
+   - Satisfeito, neutro, insastisfeito
 
 3. **Contínua** (mais usado em IPM)
 
-
-    - Idade;
-    - Altura;
-    - Peso;
-    - Tempo;
-    - Erros
+   - Idade;
+   - Altura;
+   - Peso;
+   - Tempo;
+   - Erros
 
 ### Mensagens importantes
 
@@ -134,15 +131,15 @@ A moda corresponde ao valor mais comum, ou seja, o valor mais repetido dentro da
 
 ### O quê? Quando?
 
-- [Variáveis Nominais](color:red): moda
+- [Variáveis Nominais](color:pink): moda
 
   _"Quantos preferem A, B ou C?"_
 
-- [Variáveis Ordinais](color:red): mediana, moda, quartis
+- [Variáveis Ordinais](color:pink): mediana, moda, quartis
 
   _"Nível de satisfação, de 1 a 5."_
 
-- [Variáveis Contínuas](color:red): média, desvio-padrão, mediana, quartis
+- [Variáveis Contínuas](color:pink): média, desvio-padrão, mediana, quartis
 
   _"Tempo médio para fazer a tarefa."_
 
@@ -176,9 +173,9 @@ Então quais são os testes mais viáveis que podemos utilizar?
 
 Existe um certo procedimento ao qual devemos recorrer de modo a que os nosso testes corram da melhor forma possível.
 
-O primeiro passo refere-se à [Escolha da amostra representativa](color:red), isto é, temos que escolher um grupo de pessoas que possam representar o nosso público-alvo, como vimos na útima aula. Este grupo tem que ser relevante para o nosso produto.
+O primeiro passo refere-se à [Escolha da amostra representativa](color:pink), isto é, temos que escolher um grupo de pessoas que possam representar o nosso público-alvo, como vimos na útima aula. Este grupo tem que ser relevante para o nosso produto.
 
-O segundo passo refere-se à [Formulação da hipótese nula ($$H_0$$)](color:red). A hipótese nula retrata um caso onde não haja diferenças nenhumas, nada muda, por exemplo a mudança de menus não afeta o desempenho. Após a hipótese nula temos que avaliar a **hipótese experimental, $$H_1$$**, ou seja, diz o que queremos verificar, por exemplo, os novos menus melhoram o desempenho.
+O segundo passo refere-se à [Formulação da hipótese nula ($$H_0$$)](color:pink). A hipótese nula retrata um caso onde não haja diferenças nenhumas, nada muda, por exemplo a mudança de menus não afeta o desempenho. Após a hipótese nula temos que avaliar a **hipótese experimental, $$H_1$$**, ou seja, diz o que queremos verificar, por exemplo, os novos menus melhoram o desempenho.
 
 ### Procedimento- Grau de Confiança
 
@@ -198,9 +195,9 @@ Se tivermos $$\alpha = 0,05$$ então sabemos que temos um grau de confiança de 
 Por outro lado se tivermos um $$\alpha = 0,01$$, sabemos que temos um grau de confiança de 99%, ou seja, temos um grau de confiança ainda melhor.
 :::
 
-O terceiro passo refere-se à [Realização dos testes](color:red), ou seja, à recolha de dados. Ao realizarmos os testes temos que ter em cuidado o nosso número de amostras, visto que maiores amostras conferem melhores resultados. É importante relembrar Nielsen quando este disse que o melhor número de participantes é 20, pois quanto mais pessoas houver, mais _outliers_ haverá.
+O terceiro passo refere-se à [Realização dos testes](color:pink), ou seja, à recolha de dados. Ao realizarmos os testes temos que ter em cuidado o nosso número de amostras, visto que maiores amostras conferem melhores resultados. É importante relembrar Nielsen quando este disse que o melhor número de participantes é 20, pois quanto mais pessoas houver, mais _outliers_ haverá.
 
-O último passo refere-se à [Aplicação de tratamento estatśtico](color:red). Ao fazer o nosso teste estatístico vamos aferir se podemos rejeitar $$H_0$$ e aceitar $$H_1$$. Mas, qual é o melhor teste para aplicarmos?
+O último passo refere-se à [Aplicação de tratamento estatśtico](color:pink). Ao fazer o nosso teste estatístico vamos aferir se podemos rejeitar $$H_0$$ e aceitar $$H_1$$. Mas, qual é o melhor teste para aplicarmos?
 
 ### Quatro testes diferentes
 
