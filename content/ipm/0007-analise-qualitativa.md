@@ -48,7 +48,7 @@ Contudo, é necessário referir que existem algumas limitações no que toca a n
 
 Temos noção que a subjetividade tem que fazer parte do nosso processo, especialmente em relação a testes de qualitativos e, precisamente por tal, temos que aceitar essa tal subjetividade, contudo é necessário usar um processo sistemático de análise.
 
-![Análise temática](./assets/0007-analise-tematica.png#dark=3).
+![Análise temática](./assets/0007-analise-tematica.png#dark=3)
 
 A análise temática premite-nos detetar:
 
@@ -74,7 +74,9 @@ Os diagramas de afinidade representam, na maior parte das vezes, frases ou palav
 
 O último passo requirido ao fazer uma análise qualitativa é avaliar os sentimentos dos nossos participantes de modo a ganhar uma melhor perspetiva sobre o que fizemos de bem ou de mal.
 
-O [vídeo mostrado em aula](https://youtu.be/5yZY6fftKPk) retrata muito bem este parâmetro.
+O [vídeo mostrado em aula](https://youtu.be/5yZY6fftKPk) retrata muito bem este parâmetro:
+
+::youtube{#5yZY6fftKPk}
 
 Ao avaliar os nossos resultados temos que ter em conta três entidades diferentes:
 

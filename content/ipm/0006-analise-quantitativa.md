@@ -153,7 +153,7 @@ Ao completarmos uma iteração do nosso projeto temos que verificar se a nossa s
 
 Ao fazemos testes com 10 utilizadores, reparamos que a média é **29,6**, o que tecnicamente está dentro do nosso objetivo, visto que 29,6 é menor que 30. Contudo, ao avaliarmos o desvio-padrão reparamos que toda a gente está entre os 30/35 segundos tirando uma pessoa que conseguiu completar a tarefa em 5 segundos!
 
-![Exemplo](./assets/0006-exemplo.png)
+![Exemplo](./assets/0006-exemplo.png#dark=3)
 :::
 
 Se recorrermos ao mesmo teste mas em vez de 10 utilizadores tivermos 20 utilizadores, já será mais difícil ter uma média perto de 30 segundos se só houver um outlier. Porém se houver mais do que um, então já será mais complicado de ser obter uma média correta.
@@ -167,7 +167,7 @@ Então quais são os testes mais viáveis que podemos utilizar?
 - Teste t-student;
 - Intervalos de Confiança;
 - Qui-Quadrado;
-- Coeficiente de correlação $$r$$ de Pearson
+- Coeficiente de correlação $r$ de Pearson
 
 ## Testes de Hipótese
 
@@ -175,11 +175,11 @@ Existe um certo procedimento ao qual devemos recorrer de modo a que os nosso tes
 
 O primeiro passo refere-se à [Escolha da amostra representativa](color:pink), isto é, temos que escolher um grupo de pessoas que possam representar o nosso público-alvo, como vimos na útima aula. Este grupo tem que ser relevante para o nosso produto.
 
-O segundo passo refere-se à [Formulação da hipótese nula ($$H_0$$)](color:pink). A hipótese nula retrata um caso onde não haja diferenças nenhumas, nada muda, por exemplo a mudança de menus não afeta o desempenho. Após a hipótese nula temos que avaliar a **hipótese experimental, $$H_1$$**, ou seja, diz o que queremos verificar, por exemplo, os novos menus melhoram o desempenho.
+O segundo passo refere-se à [Formulação da hipótese nula ($H_0$)](color:pink). A hipótese nula retrata um caso onde não haja diferenças nenhumas, nada muda, por exemplo a mudança de menus não afeta o desempenho. Após a hipótese nula temos que avaliar a **hipótese experimental, $H_1$**, ou seja, diz o que queremos verificar, por exemplo, os novos menus melhoram o desempenho.
 
 ### Procedimento- Grau de Confiança
 
-$$\alpha = $$ Probabilidade de parecer que $$H_1$$ se verifica, mas afinal estarmos errados
+$\alpha = $ Probabilidade de parecer que $H_1$ se verifica, mas afinal estarmos errados
 
 Por outras palavras, representa a probabilidade de apanharmos o nosso utilizador fora do vulgar, o **outlier**.
 
@@ -190,14 +190,14 @@ $$
 $$
 
 :::info[Exemplo]
-Se tivermos $$\alpha = 0,05$$ então sabemos que temos um grau de confiança de 95%, que é bastante aceitável.
+Se tivermos $\alpha = 0.05$ então sabemos que temos um grau de confiança de 95%, que é bastante aceitável.
 
-Por outro lado se tivermos um $$\alpha = 0,01$$, sabemos que temos um grau de confiança de 99%, ou seja, temos um grau de confiança ainda melhor.
+Por outro lado se tivermos um $\alpha = 0.01$, sabemos que temos um grau de confiança de 99%, ou seja, temos um grau de confiança ainda melhor.
 :::
 
 O terceiro passo refere-se à [Realização dos testes](color:pink), ou seja, à recolha de dados. Ao realizarmos os testes temos que ter em cuidado o nosso número de amostras, visto que maiores amostras conferem melhores resultados. É importante relembrar Nielsen quando este disse que o melhor número de participantes é 20, pois quanto mais pessoas houver, mais _outliers_ haverá.
 
-O último passo refere-se à [Aplicação de tratamento estatśtico](color:pink). Ao fazer o nosso teste estatístico vamos aferir se podemos rejeitar $$H_0$$ e aceitar $$H_1$$. Mas, qual é o melhor teste para aplicarmos?
+O último passo refere-se à [Aplicação de tratamento estatśtico](color:pink). Ao fazer o nosso teste estatístico vamos aferir se podemos rejeitar $H_0$ e aceitar $H_1$. Mas, qual é o melhor teste para aplicarmos?
 
 ### Quatro testes diferentes
 
@@ -211,7 +211,7 @@ Os testes que vão ser apresentados foram escolhidos aleatoriamente, não são o
 - Qui-quadrado:
   Comparar **frequência esperadas** e **observadas**; Variáveis normais
 
-- Coeficientes de correlação $$r$$ de Pearson:
+- Coeficientes de correlação $r$ de Pearson:
   Relação entre **variáveis dependentes**
 
 - [T-student para médias](color:orange)
@@ -230,7 +230,7 @@ Para o vídeo do segundo bake-off **não é necessário** pôr o nosso resultado
 
 ### O t-student para médias
 
-As médias são todas iguais. Isto significa que se rejeitarmos $$H_0$$ podemos dizer que são diferente com uma confiança de $$1 - \alpha$$.
+As médias são todas iguais. Isto significa que se rejeitarmos $H_0$ podemos dizer que são diferente com uma confiança de $1 - \alpha$.
 
 Existe uma série de pressupostos para o t-test:
 

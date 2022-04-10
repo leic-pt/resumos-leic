@@ -22,7 +22,7 @@ type: content
 
 Ao realizarmos qualquer tipo de produto, temos que passar por uma série de etapas de modo a podermos obter o melhor protótipo funcional possível. Na figura abaixo conseguimos ver todos os passos que constituem este [**ciclo iterativo**](color:orange). Contudo, agora apenas nos vamos focar nos [**testes**](color:pink).
 
-![Avaliação no Ciclo Iterativo](./assets/0005-avaliacao-no-ciclo-iterativo.png)
+![Avaliação no Ciclo Iterativo](./assets/0005-avaliacao-no-ciclo-iterativo.png#dark=2)
 
 Para concluir que fizemos um bom trabalho no nosso projeto, temos que realizar [**uma série de testes**](color:pink) com utilizadores exteriores aos membros do nosso grupo para testar a qualidade e utilização no dia-a-dia do que nś fizemos.
 
@@ -101,7 +101,7 @@ Para garantir que os nossos produtos são bons e práticos, é necessário fazer
 
 ### Tipos de Testes de Usabilidade
 
-![Tipos de Testes de Usabilidade](./assets/0005-tipos-de-testes-de-usabilidade.png)
+![Tipos de Testes de Usabilidade](./assets/0005-tipos-de-testes-de-usabilidade.png#dark=3)
 
 Para o primeiro bake-off focámo-nos bastante na [**avaliação formativa**](color:pink), enquanto no segundo focámo-nos mais no [**protótipo final**](color:pink) e [**avaliação sumativa**](color:pink). Isto porque não fazia sentido estarmos a fazer avaliações formativas pois ainda não estava feito.
 
@@ -131,7 +131,7 @@ Quando nos referimos a [**pessoas**](color:orange) com maior disponibilidade tem
 
 Para termos uma boa descrição do nosso grupo de participantes temos que ver a sua [**Demographic Info**](color:orange).
 
-![Demographic Info](./assets/0005-demographic-info.png)
+![Demographic Info](./assets/0005-demographic-info.png#dark=3)
 
 Mas quantos utilizadores devemos ter para que o nosso produto seja devidamente testado sem problemas?
 
@@ -238,12 +238,12 @@ Existem duas maneiras de dividir os grupos para fazer os testes:
 
 - [**Intergrupos:**](color:orange) "Between-subjects", é necessário ter em atenção que temos que recrutar o dobro das pessoas e temos que ter em atenção que os grupos têm que ser comparáveis (ex.: um grupo que tem vacina e outro que não).
 
-![Testes Intergrupos](./assets/0005-testes-intergrupos.png)
+![Testes Intergrupos](./assets/0005-testes-intergrupos.png#dark=3)
 
 - [**Intragrupos:**](color:orange) "within-subjects", cada grupo testa as duas interações, vamos trocando a ordem do uso dos sistemas (aprendizagem, fatiga).
   - foi o que fomos fazendo nas aulas práticas durante os bake-offs.
 
-![Testes Intragrupos](./assets/0005-testes-intragrupos.png)
+![Testes Intragrupos](./assets/0005-testes-intragrupos.png#dark=3)
 
 Contudo temos que ir tendo atenção que há uma série de fatores que influenciam as pessoas. Por exemplo se um grupo já testou 40 vezes o projeto A pode estar mais [**viciado**](color:orange) nesse projeto, ou pode estar mais cansado desse projeto e tem uma opinião mais unfluenciada.
 
@@ -309,9 +309,9 @@ Como os pioneses estavam fora da caixa era mais evidente para o grupo B que a ca
 Em 1962, Glucksberg testou a mesma experiência mas adicionou mais uma variável:
 
 - Obter o tempo médio de resolução
-- Recompensa pelo tempo meis rápido. Top 25% recebe $40, mais rápido recebe $150.
+- Recompensa pelo tempo meis rápido. Top 25% recebe \$40, mais rápido recebe \$150.
 
-![Desenho Experimental 2x2](./assets/0005-desenho-experimental-2x2.png)
+![Desenho Experimental 2x2](./assets/0005-desenho-experimental-2x2.png#dark=3)
 
 Ao motivar os participantes, no grupo que tinha os pioneses na caixa, ou seja, os participantes que necessitavam de [**mais criatividade**](color:orange), o grupo com recompensa foi mais lento, enquanto no grupo que tinha os pioneses dentro da caixa, o grupo com recompensa foi mais rápido.
 
