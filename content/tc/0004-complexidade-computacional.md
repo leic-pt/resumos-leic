@@ -205,7 +205,7 @@ No caso das máquinas não-deterministas vai surgir a primeira diferença substa
 
 Seja $M$ uma máquina não-determinista classificadora. Definem-se as funções $\op{ntime}_M, \op{nspace}_M: \mathbb{N} \to \mathbb{N}$ da seguinte forma:
 
-- $\op{ntime}_M(n)$ é o comprimento do maior rame de computação de $M$ sobre um input $\omega$ com $| \omega | \leq n$;
+- $\op{ntime}_M(n)$ é o comprimento do maior ramo de computação de $M$ sobre um input $\omega$ com $| \omega | \leq n$;
 - $\op{nspace}_M(n)$ é o número máximo de células de memória lidas/escritas durante algum dos ramos de computação de $M$ sobre um input $\omega$ com $| \omega | \leq n$.
 
 :::
