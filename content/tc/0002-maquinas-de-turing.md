@@ -101,10 +101,11 @@ Em cada momento, uma máquina de Turing está numa certa [**configuração**](co
 - os símbolos na fita;
 - a posição da cabeça de leitura/escrita;
 - o estado em que a máquina se encontra.
-  Esta observação pode ser formalizada da seguinte forma:  
-  Para uma máquina de Turing $M$, definimos a sua [configuração](color:purple) como o triblo $(u, q, v) \in \Gamma^* \times \hat{Q} \times \Gamma^*$ em que $u$ é a palavra à esquerda da cabeça de leitura/escrita, $q$ é o estado corrente e $v$ a palavra que se inicia na cabeça de leitura/escrita e se prolonga para a direita até uma sequência infinita de células vazias.  
-  Uma configuração diz-se de aceitação (respetivamente, de rejeição) se o seu estado corrente for de aceitação (resp., de rejeição).  
-  Observamos ainda que, para um input $\omega$, a configuração inicial de uma máquina de Turing é sempre $(\epsilon, q_{in}, \omega)$.
+
+Esta observação pode ser formalizada da seguinte forma:  
+Para uma máquina de Turing $M$, definimos a sua [configuração](color:purple) como o triblo $(u, q, v) \in \Gamma^* \times \hat{Q} \times \Gamma^*$ em que $u$ é a palavra à esquerda da cabeça de leitura/escrita, $q$ é o estado corrente e $v$ a palavra que se inicia na cabeça de leitura/escrita e se prolonga para a direita até uma sequência infinita de células vazias.  
+Uma configuração diz-se de aceitação (respetivamente, de rejeição) se o seu estado corrente for de aceitação (resp., de rejeição).  
+Observamos ainda que, para um input $\omega$, a configuração inicial de uma máquina de Turing é sempre $(\epsilon, q_{in}, \omega)$.
 
 Definimos agora a função de [transição](color:pink) de configurações $\Delta : \Gamma^* \times \hat{Q} \times \Gamma^* \to \Gamma^* \times \hat{Q} \times \Gamma^*$ de uma máquina de Turing $M = (\Sigma, \Gamma, Q, q_{in}, q_{ac}, q_{rj}, \delta)$ tal que:
 
@@ -288,13 +289,18 @@ A ideia será que $D$ terá 3 fitas:
 - a primeira fita manterá o input do problema, sem o alterar;
 - a segunda fita será usada para escolher o caminho a percorrer no grafo das possíveis transições de configurações;
 - a terceira fita será usada para mexer no input para cada sequência na fita 2.
-  A máquina $D$ começa por inicializar as fitas:
+
+A máquina $D$ começa por inicializar as fitas:
+
 - na segunda fita coloca \$ para indicar o início do caminho, abre $d$ (depende do input) espaços vazios, e coloca $\#$ no final para indicar o fim do caminho.
 - copia-se para a terceira fita o input.
-  Então, executamos na fita 3 de acordo com o caminho 2 até que:
-- cheguemos a um estado de aceitação: neste caso vamos para o estado de aceitação e terminamos a computação;
-- cheguemos a um estado de rejeição: neste caso passamos ao próximo caminho na fita 2.
-  Se nenhum dos caminhos na fita 2 aceitar a palavra, então a palavra deve ser rejeitada.
+
+Então, executamos na fita 3 de acordo com o caminho 2 até que:
+
+- cheguemos a um estado de aceitação de $D$: neste caso vamos para o estado de aceitação de $N$ e terminamos a computação;
+- cheguemos a um estado de rejeição de $D$: neste caso passamos ao próximo caminho na fita 2.
+
+Se nenhum dos caminhos na fita 2 aceitar a palavra, então a palavra deve ser rejeitada.
 
 :::
 
