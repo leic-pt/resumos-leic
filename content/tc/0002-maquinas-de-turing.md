@@ -289,13 +289,18 @@ A ideia será que $D$ terá 3 fitas:
 - a primeira fita manterá o input do problema, sem o alterar;
 - a segunda fita será usada para escolher o caminho a percorrer no grafo das possíveis transições de configurações;
 - a terceira fita será usada para mexer no input para cada sequência na fita 2.
-  A máquina $D$ começa por inicializar as fitas:
+
+A máquina $D$ começa por inicializar as fitas:
+
 - na segunda fita coloca \$ para indicar o início do caminho, abre $d$ (depende do input) espaços vazios, e coloca $\#$ no final para indicar o fim do caminho.
 - copia-se para a terceira fita o input.
-  Então, executamos na fita 3 de acordo com o caminho 2 até que:
-- cheguemos a um estado de aceitação: neste caso vamos para o estado de aceitação e terminamos a computação;
-- cheguemos a um estado de rejeição: neste caso passamos ao próximo caminho na fita 2.
-  Se nenhum dos caminhos na fita 2 aceitar a palavra, então a palavra deve ser rejeitada.
+
+Então, executamos na fita 3 de acordo com o caminho 2 até que:
+
+- cheguemos a um estado de aceitação de $D$: neste caso vamos para o estado de aceitação de $N$ e terminamos a computação;
+- cheguemos a um estado de rejeição de $D$: neste caso passamos ao próximo caminho na fita 2.
+
+Se nenhum dos caminhos na fita 2 aceitar a palavra, então a palavra deve ser rejeitada.
 
 :::
 
