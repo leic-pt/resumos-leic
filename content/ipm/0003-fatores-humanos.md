@@ -33,9 +33,13 @@ Nos anos 80, Stuart Card e alguns colegas aplicaram psicologia cognitiva a exper
 
 ### Sistema motor
 
+O sistema motor tem comunicações com o tempo - isto é, o nosso tempo de resposta de cada sentido é diferente, havendo sentidos que são mais sensíveis (como o sentido auditivo) e outros menos, como é o caso da dor.
+
+| [**Sentido**](color:blue) | [**Tempo**](color:blue) |
 | ------------------------- | ----------------------- |
-| Auditivo | 150 ms |
-| Dor | 700 ms |
+| Visual                    | 200 ms                  |
+| Auditivo                  | 150 ms                  |
+| Dor                       | 700 ms                  |
 
 ### Sistema Cognitivo
 
