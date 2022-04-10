@@ -13,11 +13,11 @@ type: content
 
 ```
 
-## Análise Estatística 
+## Análise Estatística
 
 ![Análise Estatística](./assets/0006-analise-estatistica.png#dark=3)
 
-Quando estamos a trabalahr para uma empresa, esta não se importa com a amostra, contudo temos que saber se a amostra é representativa da população ou não. Temos que perceber qual é a probabilidade de a amostra ser característica da população. 
+Quando estamos a trabalahr para uma empresa, esta não se importa com a amostra, contudo temos que saber se a amostra é representativa da população ou não. Temos que perceber qual é a probabilidade de a amostra ser característica da população.
 
 Para tal temos que avaliar as variáveis.
 
@@ -25,12 +25,13 @@ Para tal temos que avaliar as variáveis.
 
 Antes de fazermos inferências sobre os dados é essencial examinar as variáveis. Mas porquê? Se recrutamos _e-athletes_ e pessoas sem grande experiência para testar um jogo de vídeo, é normal que os _e-athletes_ tenham mais sucesso do que as outras pessoas, caso contrário há algum _bug_ no nosso jogo.
 
-Assim, avaliar as variáveis ajudam a: 
-  - Identificar potenciais erros;
-  - Detetar padrões;
-  - Garantir que as conclusões estão corretas;
-  - Gerar e testar hipóteses;
-  - Evitar problemas mais tarde.
+Assim, avaliar as variáveis ajudam a:
+
+- Identificar potenciais erros;
+- Detetar padrões;
+- Garantir que as conclusões estão corretas;
+- Gerar e testar hipóteses;
+- Evitar problemas mais tarde.
 
 Podemos considerar variáveis dependentes ou independentes, como já tínhamos visto na aula passada. [Variáveis dependentes](color:red) são por exemplo o [tempo, erros, SUS](color:orange); enquanto [variáveis independentes](color:red) são por exemplo [cor, layout, idade, etc](color:orange).
 
@@ -38,20 +39,26 @@ Podemos considerar variáveis dependentes ou independentes, como já tínhamos v
 
 Existem três tipos de **escalas de medida**:
 
-  1. **Nominal** 
+1. **Nominal**
+
+
     - Cor;
     - Marca;
     - Nome
 
-  2. **Ordinal** (a relação entre os pontos não é comparável)
+2. **Ordinal** (a relação entre os pontos não é comparável)
+
+
     - Leve, médio pesado;
     - Satisfeito, neutro, insastisfeito
 
-  3. **Contínua** (mais usado em IPM)
+3. **Contínua** (mais usado em IPM)
+
+
     - Idade;
     - Altura;
     - Peso;
-    - Tempo; 
+    - Tempo;
     - Erros
 
 ### Mensagens importantes
@@ -70,25 +77,28 @@ Para o vídeo do segundo bake-off **não é necessário** pôr a nossa análise 
 
 Para estatística descritiva são importantes algumas fórmulas.
 
-- Média: 
-$$
-\bar{x} = \tfrac{\sum x_i}{n}
-$$
+- Média:
+
+  $$
+  \bar{x} = \tfrac{\sum x_i}{n}
+  $$
 
 - Soma dos quadrados das diferenças
-$$
-SQ = \sum (x_i - \bar{x})^{2}
-$$
+
+  $$
+  SQ = \sum (x_i - \bar{x})^{2}
+  $$
 
 - Variância
-$$
-s^{2} = \tfrac{SQ}{n - 1}
-$$
+
+  $$
+  s^{2} = \tfrac{SQ}{n - 1}
+  $$
 
 - Desvio-padrão
-$$
-s = \sqrt{s^2}
-$$
+  $$
+  s = \sqrt{s^2}
+  $$
 
 ### Desvio-padrão
 
@@ -108,10 +118,12 @@ A mediana é calculada após ordenarmos tdos os valores e encontrarmos o valor q
 
 ### Quartis
 
-Os quartis ajudam a segmentar a população. Por exemplo se contivermos uma amostra com os valores 
+Os quartis ajudam a segmentar a população. Por exemplo se contivermos uma amostra com os valores
+
 $$
 1, 1, 1, 2, 2, 2, 2, 3, 4, 4, 8, 9, 9, 12, 15
 $$
+
 sabemos que 25% corresponde ao primeiro 2, 50% corresponde ao 3 e 75% dos valores corresponde ao primeiro 9. Resumidamente dividimos os valores da nossa amostra em 4 e vemos a que valor corresponde.
 
 ### Moda
@@ -134,7 +146,6 @@ A moda corresponde ao valor mais comum, ou seja, o valor mais repetido dentro da
 
   _"Tempo médio para fazer a tarefa."_
 
-
 ## Inferência estatística
 
 Ao completarmos uma iteração do nosso projeto temos que verificar se a nossa solução cumpre os objetivos, ou seha se os nossos critérios de usabilidade são atingidos.
@@ -152,17 +163,18 @@ Se recorrermos ao mesmo teste mas em vez de 10 utilizadores tivermos 20 utilizad
 
 Isto prova, exatamente, que as amostras nem sempre são viáveis por causa dos outliers, haverá sempre pelo menos um. Assim, temos que comparar a nossa média com os dados que obtivemos.
 
-Então quais são os testes mais viáveis que podemos utilizar? 
+Então quais são os testes mais viáveis que podemos utilizar?
 
 **Há vários**:
-  - Teste t-student;
-  - Intervalos de Confiança;
-  - Qui-Quadrado;
-  - Coeficiente de correlação $$r$$ de Pearson
+
+- Teste t-student;
+- Intervalos de Confiança;
+- Qui-Quadrado;
+- Coeficiente de correlação $$r$$ de Pearson
 
 ## Testes de Hipótese
 
-Existe um certo procedimento ao qual devemos recorrer de modo a que os nosso testes corram da melhor forma possível. 
+Existe um certo procedimento ao qual devemos recorrer de modo a que os nosso testes corram da melhor forma possível.
 
 O primeiro passo refere-se à [Escolha da amostra representativa](color:red), isto é, temos que escolher um grupo de pessoas que possam representar o nosso público-alvo, como vimos na útima aula. Este grupo tem que ser relevante para o nosso produto.
 
@@ -175,6 +187,7 @@ $$\alpha = $$ Probabilidade de parecer que $$H_1$$ se verifica, mas afinal estar
 Por outras palavras, representa a probabilidade de apanharmos o nosso utilizador fora do vulgar, o **outlier**.
 
 Assim, podemos classificar o **Grau de Confiança** como:
+
 $$
 1- \alpha
 $$
