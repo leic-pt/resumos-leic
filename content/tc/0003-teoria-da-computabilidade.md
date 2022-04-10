@@ -11,18 +11,18 @@ type: content
 
 ```
 
-## Computabilidade e decibilidade
+## Computabilidade e decidibilidade
 
 Os problemas relevantes que estudamos são problemas de decisão e reconhecimento de linguagens, ou cálculo de funções.
-É então relevante definir formalmente o que significa reconhecer/decidir uma linguagem e calcular uma função.
+É então relevante definir formalmente o que significa [**reconhecer**](color:orange)/[**decidir**](color:yellow) uma linguagem e [**calcular uma função**](color:green).
 
 Para um alfabeto $\Sigma$, uma linguagem $L \subset \Sigma^*$ e uma função $f: \Sigma^* \to \Sigma^*$.  
-A linguagem $L$ diz-se **reconhecível** se existe uma máquina de Turing $M$ com alfabeto de entrada/saída $\Sigma$ tal que $L_{ac}(M) = L$.
-Denotamos por $\mathcal{R}^\Sigma$ o conjunto de todas as linguagens reconhecíveis sobre o alfabeto $\Sigma$.  
-A linguagem $L$ diz-se **decidível** se existe uma máquina de Turing $M$ com alfabeto de entrada/saída $\Sigma$ tal que $L_{ac}(M) = L$ e $L_{rj}(M) = \overline{L}$.
-Denotamos por $\mathcal{D}^\Sigma$ o conjunto de todas as linguagens decidíveis sobre o alfabeto $\Sigma$.  
-A função $f$ diz-se **computável** se existe uma máquina de Turing $M$ com alfabeto de entrada/saída $\Sigma$ tal que $f = \phi_M$.
-Denotamos por $\mathcal{C}^\Sigma$ o conjunto de todas as funções computáveis sobre o alfabeto $\Sigma$.
+A linguagem $L$ diz-se [**reconhecível**](color:orange) se existe uma máquina de Turing $M$ com alfabeto de entrada/saída $\Sigma$ tal que $L_{ac}(M) = L$.
+Denotamos por $\mathcal{R}^\Sigma$ o conjunto de todas as linguagens [reconhecíveis](color:orange) sobre o alfabeto $\Sigma$.  
+A linguagem $L$ diz-se [**decidível**](color:yellow) se existe uma máquina de Turing $M$ com alfabeto de entrada/saída $\Sigma$ tal que $L_{ac}(M) = L$ e $L_{rj}(M) = \overline{L}$.
+Denotamos por $\mathcal{D}^\Sigma$ o conjunto de todas as linguagens [decidíveis](color:yellow) sobre o alfabeto $\Sigma$.  
+A função $f$ diz-se [**computável**](color:green) se existe uma máquina de Turing $M$ com alfabeto de entrada/saída $\Sigma$ tal que $f = \phi_M$.
+Denotamos por $\mathcal{C}^\Sigma$ o conjunto de todas as funções [computáveis](color:green) sobre o alfabeto $\Sigma$.
 
 O seguinte resultado diz-nos que podemos concentrar-nos apenas em reconhecer/decidir linguagens:
 
@@ -68,16 +68,17 @@ A **prova de 2** é semelhante.
 
 :::tip[]
 
-Seja $\Sigma$ um alfabeto e $L, L_1, L_2 \subset \Sigma^*$ linguagens decidíveis.
+Seja $\Sigma$ um alfabeto e $L, L_1, L_2 \subset \Sigma^*$ linguagens [decidíveis](color:yellow).
 Então,
 
 1. $\emptyset$,
 2. $\Sigma^*$,
 3. $\overline{L}$
-4. $L_1 \cap L_2$,
-5. $L_1 \cup L_2$,
+4. $L_1 \cup L_2$,
+5. $L_1 \cap L_2$,
 6. $L_1 \backslash L_2$
-   são linguagens decidíveis.
+
+são linguagens [decidíveis](color:yellow).
 
 :::
 
@@ -108,14 +109,15 @@ Como $L_2$ é decidível, $\overline{L_2}$ é decidível e segundo 4. $L_1 \cap 
 
 :::tip[]
 
-Seja $\Sigma$ um alfabeto e $L, L_1, L_2 \subset \Sigma^*$ linguagens reconhecíveis.
+Seja $\Sigma$ um alfabeto e $L, L_1, L_2 \subset \Sigma^*$ linguagens [reconhecíveis](color:orange).
 Então,
 
 1. $\emptyset$,
 2. $\Sigma^*$,
-3. $L_1 \cap L_2$,
-4. $L_1 \cup L_2$,
-   são linguagens reconhecíveis.
+3. $L_1 \cup L_2$,
+4. $L_1 \cap L_2$,
+
+são linguagens [reconhecíveis](color:orange).
 
 :::
 
@@ -140,14 +142,14 @@ A máquina $N$ reconhece $L_1 \cap L_2$ pelo que esta linguagem é reconhecível
 
 :::tip[]
 
-Se $L_1$ for reconhecível e $L_2$ for decidível, então $L_1 \backslash L_2$ é reconhecível.
+Se $L_1$ for [reconhecível](color:orange) e $L_2$ for [decidível](color:yellow), então $L_1 \backslash L_2$ é [**reconhecível**](color:orange).
 
 :::
 
 :::details[Prova]
 
 Se $L_2$ é decidível, $\overline{L_2}$ é também decidível e, consequentemente, reconhecível.
-Como vimos a cima, se $L_1$ e $\overline{L_2}$ são reconhecíveis, então $L_1 \cap \overline{L_2} = L_1 \backslash L_2$ é reconhecível.
+Como vimos acima, se $L_1$ e $\overline{L_2}$ são reconhecíveis, então $L_1 \cap \overline{L_2} = L_1 \backslash L_2$ é reconhecível.
 
 :::
 
@@ -177,7 +179,7 @@ De qualquer forma a computação termina e $L$ é decidível.
 
 ### Redução Computável
 
-Nas provas a cima e no capítulo anterior, por vezes pegamos em máquinas de Turing que já conheciamos para criar máquinas de Turing que resolviam problemas que ainda nao tinhamos resolvido.
+Nas provas acima e no capítulo anterior, por vezes pegamos em máquinas de Turing que já conhecíamos para criar máquinas de Turing que resolviam problemas que ainda nao tínhamos resolvido.
 A ideia de [**redução computável**](color:orange) consiste exatamente nisso:
 
 Sejam $L_1$ e $L_2$ linguagens sobre os alfabetos $\Sigma_1$ e $\Sigma_2$, respetivamente.
@@ -208,9 +210,9 @@ A prova para reconhecimento é análoga.
 
 :::
 
-A proposição a cima não é no entanto suficiente para verificar se uma linguagem **não é** computável.
+A proposição acima não é no entanto suficiente para verificar se uma linguagem **não é** computável.
 
-Dado uma alfabeto $\Sigma$ distinguimos as seguintes linguagens:
+Dado um alfabeto $\Sigma$ distinguimos as seguintes linguagens:
 
 - $\mathcal{L}_{ac}^\Sigma = \{ M \text{\textdollar} \omega : M \in \mathcal{M}^\Sigma, \omega \in L_{ac}(M) \}$ - o **problema da aceitação**;
 - $\mathcal{L}_{rj}^\Sigma = \{ M \text{\textdollar} \omega : M \in \mathcal{M}^\Sigma, \omega \in L_{rj}(M) \}$ - o **problema da rejeição**;
@@ -218,7 +220,7 @@ Dado uma alfabeto $\Sigma$ distinguimos as seguintes linguagens:
 - $\mathcal{L}_{ab}^\Sigma = \{ M \text{\textdollar} \omega : M \in \mathcal{M}^\Sigma \text{ e a computação de } M \text{ sobre } \omega \text{ aborta } \}$ - o **problema do abortamento**;
 - $\mathcal{L}_{te}^\Sigma = \mathcal{L}_{su}^\Sigma \cup \mathcal{L}_{ab}^\Sigma$ - o **problema da terminação**.
 
-De forma mais intuitiva, podemos pensar que a linguagem $\mathcal{L}_{ac}^\Sigma$ consiste dos pares $(M, \omega) \in \mathcal{M}^\Sigma \times \Sigma^*$ constituídos por uma máquina de Turing $M$ e uma palavra $\omega$ tais que $\omega \in L_{ac}(M)$, isto é, $\omega$ é aceite por $M$.  
+De forma mais intuitiva, podemos pensar que a linguagem $\mathcal{L}_{ac}^\Sigma$ consiste nos pares $(M, \omega) \in \mathcal{M}^\Sigma \times \Sigma^*$ constituídos por uma máquina de Turing $M$ e uma palavra $\omega$ tais que $\omega \in L_{ac}(M)$, isto é, $\omega$ é aceite por $M$.  
 De forma a podermos representar estes pares por uma palavra, usamos a representaçao canónica de máquinas, separando esta representação da palavra input por um $\text{\textdollar}$.
 De forma semelhante, $L_{rj}^\Sigma$ contém pares $(M, \omega) \in \mathcal{M}^\Sigma \times \Sigma^*$ tais que $\omega \in L_{rj}(M)$, $L_{su}^\Sigma$ os pares tais que $\omega \in L_{ac}(M) \cup L_{rj}(M)$, e por aí em diante.
 

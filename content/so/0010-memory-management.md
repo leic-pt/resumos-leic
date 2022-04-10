@@ -79,7 +79,7 @@ A **segmentação** consiste na divisão dos programas em segmentos lógicos que
 Assim, a conversão de endereços virtuais é linear em cada segmento, sendo o segmento a unidade de proteção e de carregamento em memória. Desta forma, a dimensão dos segmentos fica limitada: não pode exceder a dimensão da memória principal.  
 Nesta solução, o programador pode ter que se preocupar com a gestao de memória quando escreve um programa.
 
-Os endereços físicos são obtidos pela UGM como descrito na imagem a baixo:
+Os endereços físicos são obtidos pela UGM como descrito na imagem abaixo:
 
 ![Tradução de Endereços Virtuais em Memória Segmentada](./imgs/0010/segments_translation.png#dark=1)
 
@@ -130,7 +130,7 @@ Hoje em dia, o valor típico para o tamanho de páginas é 4 KBytes.
 :::details[Nota]
 
 O facto de este valor ser uma potência de base 2 garante que o deslocamento de um dado endereço num bloco corresponde aos dígitos menos significativos do endereço real associado.
-Desta forma, a nível de arquitetura, a operação de obtenção do endereço real (base + deslocamento) pode ser feita com uma disjunção lógica (como aludido na imagem a cima).
+Desta forma, a nível de arquitetura, a operação de obtenção do endereço real (base + deslocamento) pode ser feita com uma disjunção lógica (como aludido na imagem acima).
 
 :::
 
