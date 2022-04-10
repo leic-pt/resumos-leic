@@ -1,13 +1,13 @@
 ---
-title: Análise Quanlitativa
+title: Análise Qualitativa
 description: Análise Qualitativa
   Métodos de aquisição de dados
   Técnicas de análise qualitativa
-path: /ipm/analisequanlitativa
+path: /ipm/analise-qualitativa
 type: content
 ---
 
-# Análise Quanlitativa
+# Análise Qualitativa
 
 ```toc
 

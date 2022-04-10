@@ -3,7 +3,7 @@ title: Análise Quantitativa
 description: Análise Estatística
   Estatística Descritiva
   Inferência Estatística
-path: /ipm/analisequantitativa
+path: /ipm/analise-quantitativa
 type: content
 ---
 
