@@ -15,7 +15,7 @@ A computação é uma tarefa que consome recursos.
 Os recursos que mais usualmente são considerados são o tempo (a duração da computação) e o espaço (uma medida da informação que é armazenada/consumida durante a computação), mas também é possível considerar outras quantidades, como a energia (necessária para executar a computação).  
 A complexidade computacional consiste no estudo dos recursos necessários para resolver um problema.
 
-Podemos calcular a eficiência de uma máquina de Turing (que seja um classificador) relativamente ao tempo e ao espaço, de forma relativamente simples, se tomarmos o número de passos de cada computação como uma medida do tempo, e o número de células de memória lidas/escritas ao longo de cada computação como uma medida de espaço.
+Podemos calcular a eficiência de uma máquina de Turing (que seja um classificador) relativamente ao tempo e ao espaço de forma relativamente simples, se tomarmos o número de passos de cada computação como uma medida do tempo, e o número de células de memória lidas/escritas ao longo de cada computação como uma medida de espaço.
 
 :::tip[Definição]
 
@@ -27,7 +27,7 @@ Para uma máquina classificadora $M$ definimos as funções $time_M, space_M : \
 :::
 
 Para cada $n \in \mathbb{N}$, $time_M(n)$ e $space_M(n)$ dão-nos uma avaliação do pior caso, em termos de duração da computação ou da quantidade de memória necessária, respectivamente, para processar inputs de tamanho limitado por $n$.  
-Mais do que a expressão exacta das funções $time_M$ e $space_M$ associadas a um classificadora $M$, estamos interessados em avaliar o seu crescimento. Por essa razão é usual usar notação assintótica, nomeadamente a notação $O$ [como visto em cadeiras anteriores](/iaed/introducao-algoritmos#limite-assimpt%C3%B3tico-superior-o) como IAED ou ASA).
+Mais do que a expressão exacta das funções $time_M$ e $space_M$ associadas a um classificadora $M$, estamos interessados em avaliar o seu crescimento. Por essa razão é usual usar notação assintótica, nomeadamente a notação $O$ ([como visto em cadeiras anteriores](/iaed/introducao-algoritmos#limite-assimpt%C3%B3tico-superior-o) como IAED ou ASA).
 
 ## Classes de Complexidade
 
@@ -35,7 +35,7 @@ Agrupamos problemas, de acordo com a sua dificuldade relativa, em classes de com
 
 :::tip[Definição]
 
-Seja $f : \mathbb{N} \to \mathbb{R}_0^+$ uma funçao. Definiem-se as seguintes classes de linguagens:
+Seja $f : \mathbb{N} \to \mathbb{R}_0^+$ uma funçao. Definem-se as seguintes classes de linguagens:
 
 - $\mathbf{TIME}(f(n)) = \{ L : \text{ existe uma máquina } M \text{ que decide } L \text{ com } \\ time_M(n) = O(f(n)) \}$;
 - $\mathbf{SPACE}(f(n)) = \{ L : \text{ existe uma máquina } M \text{ que decide } L \text{ com } \\ space_M(n) = O(f(n)) \}$;
@@ -44,7 +44,7 @@ Seja $f : \mathbb{N} \to \mathbb{R}_0^+$ uma funçao. Definiem-se as seguintes c
 
 Em certas áreas de estudo, são consideradas como eficientes as máquinas cujo comportamento é limitado por um polinómio.
 Por outro lado, o protótipo das máquinas ineficientes é precisamente o crescimento exponencial.
-Estas considerações levam à definição das seguintes classes de complexidade.
+Estas considerações levam à definição das seguintes classes de complexidade:
 
 :::tip[Definição]
 
@@ -135,7 +135,7 @@ Toda a máquina bidirecional $M$ é equivalente a uma máquina unidirecional $T$
 
 Vamos basear-nos na prova de equivalência apresentada no [capítulo de Máquinas de Turing](/tc/maquinas-de-turing#m%C3%A1quinas-bidirecionais).  
 A computaçao de $T$ começa por balizar o input com os símbolos $I$ e $F$, fazendo $2n + 3$ passos.  
-O resto da computação é identica a $M$, exceto nos casos em que é necessário introduzir espaçamento.
+O resto da computação é idêntica a $M$, exceto nos casos em que é necessário introduzir espaçamento.
 Para introduzir espaço à direita precisamos apenas de 3 movimentos, enquando que à esquerda precisamos de copiar a palavra toda, o que implica $O(space_M(n))$ passos.  
 No final há que apagar o delimitador $F$, o que demora $O(space_M(n))$.
 Na pior das hipóteses, temos que é preciso abrir espaço à esquerda em cada passo, pelo que:
@@ -194,11 +194,11 @@ $$
 
 ## Não-Determinismo
 
-No caso das máquinas não-deterministas vai surgir a primeira diferença substantiva relativamente à teoria da computabilidade.
+No caso das máquinas não-deterministas vai surgir a primeira diferença substancial relativamente à teoria da computabilidade.
 
 :::tip[Definição]
 
-Seja $M$ uma máquina não-determinista classificador. Definem-se as funções $ntime_M, nspace_M: \mathbb{N} \to \mathbb{N}$ da seguinte forma:
+Seja $M$ uma máquina não-determinista classificadora. Definem-se as funções $ntime_M, nspace_M: \mathbb{N} \to \mathbb{N}$ da seguinte forma:
 
 - $ntime_M(n)$ é o comprimento do maior rame de computação de $M$ sobre um input $\omega$ com $| \omega | \leq n$;
 - $nspace_M(n)$ é o número máximo de células de memória lidas/escritas durante algum dos ramos de computação de $M$ sobre um input $\omega$ com $| \omega | \leq n$.
