@@ -309,4 +309,20 @@ $$
 
 :::
 
+Note-se que isto implica que a existência de uma máquina não-determinista de tempo polinomial para resolver um problema parece não nos poder garantir mais do que uma máquina determinista de tempo exponencial para resolver o mesmo problema.  
+O problema $\mathbf{P} \text{ vs } \mathbf{NP}$ pode ser compreendido como perguntando se é possível fazer esta simulação de forma mais eficiente (polinomial).
+
 ## Propriedades de Fecho e Redução Polinomial
+
+:::tip[Proposição]
+
+Seja $\mathcal{C}$ uma das classes de complexidade $\mathbf{P}$, $\mathbf{NP}$, $\mathbf{PSPACE}$, $\mathbf{NPSPACE}$, $\mathbf{EXPTIME}$, $\mathbf{NEXPTIME}$, $\mathbf{EXPSPACE}$, $\mathbf{NEXPSPACE}$, e sejam $\Sigma$ um alfabeto, e $L_1, L_2 \in \mathcal{C}$ linguagens sobre $\Sigma$.  
+Então:
+- $\emptyset \in \mathcal{C}$
+- $\Sigma^* \in \mathcal{C}$
+- $L_1 \cup L_2 \in \mathcal{C}$
+- $L_1 \cap L_2 \in \mathcal{C}$
+Se $\mathcal{C} \neq \mathbf{NP}$ e $\mathcal{C} \neq \mathbf{NEXPTIME}$, então temos também que:
+- $L_1 \backslash L_2 \in \mathcal{C}$
+
+:::
