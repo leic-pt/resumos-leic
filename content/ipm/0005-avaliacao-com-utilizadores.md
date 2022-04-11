@@ -1,5 +1,5 @@
 ---
-title: Avaliação com utilizadores
+title: Avaliação com Utilizadores
 description: Avaliação no Ciclo Iterativo
   Métodos de Avaliação.
   Case Study Halo 3.
@@ -12,7 +12,7 @@ path: /ipm/avaliacao-com-utilizadores
 type: content
 ---
 
-# Avaliação com utilizadores
+# Avaliação com Utilizadores
 
 ```toc
 
@@ -52,7 +52,7 @@ Em termos de [**observação indiretas**](color:pink) referimo-nos a dois tipos 
 
 ### Como usamos um diário?
 
-Diários podem ser usados para verificar a utilização a longo prazo de um produto, ou seja, a utilização mais regular durante [**uma ou mais semanas**](color:pink) do nosso produto. Os diários permitem ao utilizador externo partilhar os seus pensamentos, a sua utilidade, a relação com o produto a um nível mais elevado que após somente uma utilização. O nosso objetico é criar um produto que incorpore as atividades do dia-a-dia, e os diários são a melhor forma de avaliar isso mesmo.
+Diários podem ser usados para verificar a utilização a longo prazo de um produto, ou seja, a utilização mais regular durante [**uma ou mais semanas**](color:pink) do nosso produto. Os diários permitem ao utilizador externo partilhar os seus pensamentos, a sua utilidade, a relação com o produto a um nível mais elevado que após somente uma utilização. O nosso objetivo é criar um produto que incorpore as atividades do dia-a-dia, e os diários são a melhor forma de avaliar isso mesmo.
 
 ## Case Study: Halo 3
 
@@ -93,7 +93,7 @@ Atualmente é possível lançar um jogo passados apenas 2 ou 3 anos e ir receben
 - Card sorting
 - **...**
 
-Nos Bake-Offs passámos por muitos desses métodos.
+Nos Bake-Offs passámos por muitos destes métodos.
 
 ## Testes de Usabilidade
 
@@ -158,13 +158,13 @@ As tarefas que apresentamos aos nossos participantes têm que ser bastante bem d
   - não favorecer uma das soluções
   - usar as mesmas tarefas
 
-Por outras palavras, não podemos favorecer uma das soluções, por exemplo com ratos melhores, comentários do género **"passei vários dias e noites a trabalahar nesta parte"** (o utilizador já sabe que essa parte específica vai ser mais favorável).
+Por outras palavras, não podemos favorecer uma das soluções, por exemplo com ratos melhores, comentários do género **"passei vários dias e noites a trabalhar nesta parte"** (o utilizador já sabe que essa parte específica vai ser mais favorável).
 
 ### Medidas de Usabilidade
 
 - Tempo para completar a tarefa
 - Número de erros cometidos
-- Número de tarefas concluidas
+- Número de tarefas concluídas
 - Número de cliques
 - Número de consultas à ajuda
 - Satisfação do utilizador
@@ -184,7 +184,7 @@ Por outras palavras, não podemos favorecer uma das soluções, por exemplo com 
   - O que pensa do ecrâ principal?
   - Mais difícil de obter?
 
-- [**Objeticos**](color:orange)
+- [**Objetivos**](color:orange)
 
   - Não dependem da pré-disposição(bias) inerente ao ser humano (ex.: tempo, erros, frequência cardíaca, etc)
 
@@ -212,7 +212,7 @@ Os testes-piloto ajudam a encontrar últimos erros antes do produto sair. Para a
 
 ## Testes A/B
 
-Uma das maneiras mais comuns de testar a usabilidade de um produto é através dos [**testes A/B**](color:pink). Estes testes têm o objetivo de verificar qual a melhor opção de [**cor**](color:orange), [**logotipo**](color:orange), [**layout de página web**](color:orange), [**tipografia**](color:orange), [**botões**](color:orange), etc.
+Uma das maneiras mais comuns de testar a usabilidade de um produto é através dos [**testes A/B**](color:pink). Estes testes têm o objetivo de verificar qual a melhor opção de [**cor**](color:orange), [**logótipo**](color:orange), [**layout de página web**](color:orange), [**tipografia**](color:orange), [**botões**](color:orange), etc.
 
 :::tip
 
@@ -222,7 +222,7 @@ Para o segundo bake-off é muito recomendado fazer estes testes A/B em que apena
 
 :::tip[ATENÇÃO]
 
-É expectável ter que voltar a trás várias vezes e que a versão que é mais favorável seja uma versão mais antiga. Isto irá acontecer especialmente entre os valores 8 e 10.
+É expectável ter que voltar atrás várias vezes e que a versão que é mais favorável seja uma versão mais antiga. Isto irá acontecer especialmente entre os valores 8 e 10.
 
 :::
 
@@ -299,7 +299,7 @@ Counter-balancing funciona de uma forma fatorial, resumidamente:
 
 ## Efeitos Secundários
 
-Deparamo-nos agora com um problema, um problema de [**fixação funcional**](color:orange), feito por Duncker em 1945. Bunker colocou à frente dos seus participantes uma vela, uma caixa de pioneses e fósforos e pediu para cada pessoa arranjar uma forma para que a vela fosse acendida mas não pingasse cera para a mesa. Contudo dividiu os participantes em dois grupos:
+Deparamo-nos agora com um problema, um problema de [**fixação funcional**](color:orange), feito por Duncker em 1945. Duncker colocou à frente dos seus participantes uma vela, uma caixa de pioneses e fósforos e pediu para cada pessoa arranjar uma forma para que a vela fosse acendida mas não pingasse cera para a mesa. Contudo dividiu os participantes em dois grupos:
 
 - Grupo A tinha os pioneses dentro da caixa
 - Grupo B tinha os pioneses fora da caixa
