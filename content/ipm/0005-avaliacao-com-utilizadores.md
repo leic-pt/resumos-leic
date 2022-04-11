@@ -24,7 +24,7 @@ Ao realizarmos qualquer tipo de produto, temos que passar por uma série de etap
 
 ![Avaliação no Ciclo Iterativo](./assets/0005-avaliacao-no-ciclo-iterativo.png)
 
-Para concluir que fizemos um bom trabalho no nosso projeto, temos que realizar [**uma série de testes**](color:pink) com utilizadores exteriores aos membros do nosso grupo para testar a qualidade e utilização no dia-a-dia do que nś fizemos.
+Para concluir que fizemos um bom trabalho no nosso projeto, temos que realizar [**uma série de testes**](color:pink) com utilizadores exteriores aos membros do nosso grupo para testar a qualidade e utilização no dia-a-dia do que nós fizemos.
 
 Nestes testes pretendemos ter dois objetivos: [**avaliar**](color:orange) e [**identificar problemas**](color:orange), através de duas componentes distintas:
 
@@ -324,3 +324,51 @@ Associar recompensa a desempenho aumentou o foco mas restringe a criatividade, �
 [**Por outras palavras, quando há mais pressão.**](color:pink)
 
 [**Novelty effect:**](color:orange) quando vemos algo novo, ficamos mais excitados sem razão porque o produto até pode não ser nada de especial mas só por ser algo novo temos curiosidade. Por isso temos que testar o produto mais do que uma vez para testar o quão bom e prático é.
+
+## Ética avaliação com utilizadores
+
+Assumimos logo à pardtida que a ética provém de senso comum e que os cientistas são boas pessoas que nunca nos irão pôr numa posição descomfortável ou contra o nosso ser e as nossas crenças, contudo [a História conta algo bastante diferente](color:pink).
+
+Existem vários casos em que, apesar dos cientistas estarem bem intencionados, as suas experiências acabam não só por prejudicar mas como mesmo traumatizar os participantes. Um grande exemplo de tal é a [Stanford Experiment](color:pink), em que um grupo de investigadores pretendia investigar o comportamento humano numa sociedade na qual os indivíduos são definidos somente pelo grupo em que se encontram. Assim, dividiram os participantes em dois grupos, uns que representavam os polícias e outro que representavam os prisoneiros. Contudo, ao fim de muito pouco tempo, os policias, com o poder que lhes subiu à cabeça, já estavam a maltratar a nível não só emocional mas também físico, os prisioneiros. Esta experiência ficou tão conhecida que em 2015 saiu [um filme](https://www.youtube.com/watch?v=3XN2X72jrFk&ab_channel=ZeroMedia) sobre a mesma.
+
+Contudo existem muitos outros exemplos de experiẽncias que acabaram de uma forma não muito favorável para os participantes, como é o caso de [Tuskegee syphilis study](https://www.britannica.com/event/Tuskegee-syphilis-study) ou até mesmo [Milgram experiment](https://www.simplypsychology.org/milgram.html).
+
+Por isso, ao começarmos a testar o nosso projeto com participantes é necessário ter em conta algumas [considerações éticas](color:orange).
+
+### Considerações éticas
+
+Temos que sempre manter em consideração que os testes podem causar stress, desconforto, entre outros sintomas aos nossos participantes e por isso é da responsabilidade de quem está a realizar o teste de **anticipar e aliviar** esses sintomas.
+
+Os participantes são **voluntários**, por isso **consentimento** para o que quer que seja é de extrema importância; é necessário **evitar pressão** para participar, não obrigando ninguém a tal; informar os participantes que **podem termninar a qualquer momento**; realçar que quem **está a ser testado é o sistema, NUNCA os utilizadores**; e tornar os **dados anónimos/proteger dados**.
+
+Também é necessário manter em consideração que existem certas [populações vulneráveis](color:orange), com quem devemos ter ainda mais cuidado, nomeadamente crianças, pessoas com deficiência ou minorias.
+
+Por último, qualquer teste tem que ter uma [aprovação de uma comissão de ética](color:pink) para ser realizado.
+
+### Três princípios de investigação com pessoas
+
+Resumidamente, existem três princípios muito importantes ao fazer investigação e testes com participantes:
+
+1. [É necessário haver respeito pelas pessoas](color:pink):
+
+- Os indivíduos têm autonomia e escolha
+- Não podem ser usados como meio para atingir um fim
+- É necessário proteger os mais vulneráveis
+- [É necessário usar consentimento informado](color:orange)
+
+2. [Beneficiência _(fazer o bem)_](color:pink):
+
+- Obrigação de fazer o bem
+- Obrigação de não prejudicar
+- Obrigação de prevenir danos
+- Minimizar riscos, maximizar benefícios
+- Bondade além do dever
+- [Avaliação de riscos e benefícios](color:orange)
+
+3. [Justiça](color:pink):
+
+- Garantir igualdade
+- Dividir riscos e benefícios pela amostra
+- [Recrutamento de participantes justo](color:orange)
+
+É sempre necessário ter em conta vários aspetos sobre as pessoas, nomeadamente a nível de crenças, religião, princípios entre outros. Contudo não nos precisamos obrigatoriamente de focar em aspetos como _hobbies_ ou atitudes habituais de uma pessoa, visto que já não afetam a ética de forma alguma.
