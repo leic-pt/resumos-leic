@@ -17,7 +17,7 @@ type: content
 
 ![Análise Estatística](./assets/0006-analise-estatistica.png#dark=3)
 
-Quando estamos a trabalahr para uma empresa, esta não se importa com a amostra, contudo temos que saber se a amostra é representativa da população ou não. Temos que perceber qual é a probabilidade de a amostra ser característica da população.
+Quando estamos a trabalhar para uma empresa, esta não se importa com a amostra, contudo temos que saber se a amostra é representativa da população ou não. Temos que perceber qual é a probabilidade de a amostra ser característica da população.
 
 Para tal temos que avaliar as variáveis.
 
@@ -47,7 +47,7 @@ Existem três tipos de **escalas de medida**:
 
 2. **Ordinal** (a relação entre os pontos não é comparável)
 
-   - Leve, médio pesado;
+   - Leve, médio, pesado;
    - Satisfeito, neutro, insastisfeito
 
 3. **Contínua** (mais usado em IPM)
@@ -97,7 +97,7 @@ Para estatística descritiva são importantes algumas fórmulas.
   s = \sqrt{s^2}
   $$
 
-### Desvio-padrão
+### Desvio-Padrão
 
 O desvio-padrão é muito importante para conseguirmos identificar se há uma variação muito grande entre os resultados dos nossos participantes, conseguimos identificar se há algum _**outlier**_.
 
@@ -143,9 +143,9 @@ A moda corresponde ao valor mais comum, ou seja, o valor mais repetido dentro da
 
   _"Tempo médio para fazer a tarefa."_
 
-## Inferência estatística
+## Inferência Estatística
 
-Ao completarmos uma iteração do nosso projeto temos que verificar se a nossa solução cumpre os objetivos, ou seha se os nossos critérios de usabilidade são atingidos.
+Ao completarmos uma iteração do nosso projeto temos que verificar se a nossa solução cumpre os objetivos, ou seja se os nossos critérios de usabilidade são atingidos.
 
 :::info[Exemplo]
 
@@ -177,7 +177,7 @@ O primeiro passo refere-se à [Escolha da amostra representativa](color:pink), i
 
 O segundo passo refere-se à [Formulação da hipótese nula ($H_0$)](color:pink). A hipótese nula retrata um caso onde não haja diferenças nenhumas, nada muda, por exemplo a mudança de menus não afeta o desempenho. Após a hipótese nula temos que avaliar a **hipótese experimental, $H_1$**, ou seja, diz o que queremos verificar, por exemplo, os novos menus melhoram o desempenho.
 
-### Procedimento- Grau de Confiança
+### Procedimento - Grau de Confiança
 
 $\alpha = $ Probabilidade de parecer que $H_1$ se verifica, mas afinal estarmos errados
 
@@ -197,9 +197,9 @@ Por outro lado se tivermos um $\alpha = 0.01$, sabemos que temos um grau de conf
 
 O terceiro passo refere-se à [Realização dos testes](color:pink), ou seja, à recolha de dados. Ao realizarmos os testes temos que ter em cuidado o nosso número de amostras, visto que maiores amostras conferem melhores resultados. É importante relembrar Nielsen quando este disse que o melhor número de participantes é 20, pois quanto mais pessoas houver, mais _outliers_ haverá.
 
-O último passo refere-se à [Aplicação de tratamento estatśtico](color:pink). Ao fazer o nosso teste estatístico vamos aferir se podemos rejeitar $H_0$ e aceitar $H_1$. Mas, qual é o melhor teste para aplicarmos?
+O último passo refere-se à [Aplicação de tratamento estatístico](color:pink). Ao fazer o nosso teste estatístico vamos aferir se podemos rejeitar $H_0$ e aceitar $H_1$. Mas, qual é o melhor teste para aplicarmos?
 
-### Quatro testes diferentes
+### Quatro Testes Diferentes
 
 :::warning
 Os testes que vão ser apresentados foram escolhidos aleatoriamente, não são os melhores testes e há muitos mais
