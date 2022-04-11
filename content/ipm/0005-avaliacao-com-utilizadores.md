@@ -97,7 +97,7 @@ Nos Bake-Offs passámos por muitos destes métodos.
 
 ## Testes de Usabilidade
 
-Para garantir que os nossos produtos são bons e práticos, é necessário fazer testes à usabilidade. Estes testes permitem ao criador [**identificar problemas**](color:pink) (no design e da aplicação ou produto), [**descobrir opurtunidades**](color:pink) para melhorar o design e [**compreender os utilizadores**](color:pink) através dos seus comportamentos e preferências.
+Para garantir que os nossos produtos são bons e práticos, é necessário fazer testes à usabilidade. Estes testes permitem ao criador [**identificar problemas**](color:pink) (no design e da aplicação ou produto), [**descobrir oportunidades**](color:pink) para melhorar o design e [**compreender os utilizadores**](color:pink) através dos seus comportamentos e preferências.
 
 ### Tipos de Testes de Usabilidade
 
