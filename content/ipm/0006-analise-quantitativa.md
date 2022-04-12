@@ -23,7 +23,7 @@ Para tal temos que avaliar as variáveis.
 
 ### Variáveis
 
-Antes de fazermos inferências sobre os dados, é essencial examinar as variáveis. Mas porquê? Se recrutamos _e-athletes_ e pessoas sem grande experiência para testar um  vídeojogo, é normal que os _e-athletes_ tenham mais sucesso do que as outras pessoas. Caso contrário, há algum _bug_ no nosso jogo.
+Antes de fazermos inferências sobre os dados, é essencial examinar as variáveis. Mas porquê? Se recrutamos _e-athletes_ e pessoas sem grande experiência para testar um vídeojogo, é normal que os _e-athletes_ tenham mais sucesso do que as outras pessoas. Caso contrário, há algum _bug_ no nosso jogo.
 
 Assim, avaliar as variáveis ajuda a:
 
@@ -111,7 +111,7 @@ Para o segundo bake-off, vai ser tomado em conta o _**outlier**_, ou seja, a pes
 
 ### Mediana vs. Média
 
-A mediana é calculada após ordenarmos tdos os valores e encontrarmos o valor que está no meio, é muito útil ao compararmos a mediana e a média, pois, se houver uma diferença entre os dois, então há algo invulgar no nosso projeto.
+A mediana é calculada após ordenarmos todos os valores e encontrarmos o valor que está no meio, é muito útil ao compararmos a mediana e a média, pois, se houver uma diferença entre os dois, então há algo invulgar no nosso projeto.
 
 ### Quartis
 
@@ -149,9 +149,9 @@ Ao completarmos uma iteração do nosso projeto, temos que verificar se a nossa 
 
 :::info[Exemplo]
 
-**Ao acabarmos uma projeto, pretendemos verificar se a nossa solução possibilita o nosso participante a terminar uma tarefa em menos do que 30 segundos**
+**Ao acabarmos um projeto, pretendemos verificar se a nossa solução possibilita o nosso participante a terminar uma tarefa em menos do que 30 segundos**
 
-Ao fazemos testes com 10 utilizadores, reparamos que a média é **29,6**, o que tecnicamente está dentro do nosso objetivo, visto que 29,6 é menor que 30. Contudo, ao avaliarmos o desvio-padrão, reparamos que toda a gente está entre os 30/35 segundos, tirando uma pessoa que conseguiu completar a tarefa em 5 segundos!
+Ao fazemos testes com 10 utilizadores, reparamos que a média é **29,6 segundos**, o que tecnicamente está dentro do nosso objetivo, visto que 29,6 é menor que 30. Contudo, ao avaliarmos o desvio-padrão, reparamos que toda a gente está entre os 30/35 segundos, tirando uma pessoa que conseguiu completar a tarefa em 5 segundos!
 
 ![Exemplo](./assets/0006-exemplo.png#dark=3)
 :::
@@ -219,7 +219,7 @@ Os testes que vão ser apresentados foram escolhidos aleatoriamente, não são o
 ## T-student
 
 :::details[William Sealy Gosset e T-student]
-William Sealy Gosset era um trabalhador para a Guiness que trabalhava para averiguar qual o melhor campo de cultivo através de testes A/B (mas com cerveja). Em 1908, este queria publicar um artigo sobre o seu estudo, mas não queria que o seu nome estivesse associado ao mesmo, então, publicou sobre o pseudónimo Student. Daí, nasceu o **T-student** e o seu nome.
+William Sealy Gosset era um trabalhador para a Guinness que trabalhava para averiguar qual o melhor campo de cultivo através de testes A/B (mas com cerveja). Em 1908, este queria publicar um artigo sobre o seu estudo, mas não queria que o seu nome estivesse associado ao mesmo, então, publicou sobre o pseudónimo Student. Daí, nasceu o **T-student** e o seu nome.
 :::
 
 O t-student pode ser usado com variáveis contínuas, como tempo, erros, altura, etc. Pode também ser usado para comparar duas médias, nomeadamente menus vs. atalhos, códigos-base vs. a nossa implementação, entre outros.
