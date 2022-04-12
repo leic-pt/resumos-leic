@@ -29,8 +29,8 @@ Em termos de métodos, podemos avaliar os nossos dados qualitativos de formas di
 
 Contudo, a que se referem dados qualitativos? Dados qualitativos são dados não numéricos, ou seja, texto, imagens, gravações de áudio, vídeo... Estes permitem capturar informação qualitativa (atitudes, comportamentos, experiências, motivações) e podem ser descritos de duas formas distintas:
 
-- Descritivos- descrevem eventos, opiniões, etc;
-- Explicatórios- explicam eventos, reações, etc.
+- Descritivos: descrevem eventos, opiniões, etc;
+- Explicatórios: explicam eventos, reações, etc.
 
 ## Nuvens de Palavras
 
