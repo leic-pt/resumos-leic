@@ -23,7 +23,7 @@ Para tal temos que avaliar as variáveis.
 
 ### Variáveis
 
-Antes de fazermos inferências sobre os dados é essencial examinar as variáveis. Mas porquê? Se recrutamos _e-athletes_ e pessoas sem grande experiência para testar um jogo de vídeo, é normal que os _e-athletes_ tenham mais sucesso do que as outras pessoas, caso contrário há algum _bug_ no nosso jogo.
+Antes de fazermos inferências sobre os dados é essencial examinar as variáveis. Mas porquê? Se recrutarmos _e-athletes_ e pessoas sem grande experiência para testar um jogo de vídeo, é normal que os _e-athletes_ tenham mais sucesso do que as outras pessoas, caso contrário há algum _bug_ no nosso jogo.
 
 Assim, avaliar as variáveis ajudam a:
 
@@ -60,7 +60,7 @@ Existem três tipos de **escalas de medida**:
 
 ### Mensagens importantes
 
-- Utilizamos análise estatística é importante para generalizar resultados a partir de uma amostra.
+- Utilizaos análise estatística visto ser importante para generalizar resultados a partir de uma amostra.
 
 :::tip[Segundo bake-off]
 Para o vídeo do segundo bake-off **não é necessário** pôr a nossa análise estatística mas **é recomendado**, contudo não afeta minimamente a nota.
@@ -111,7 +111,7 @@ Para o segundo bake-off, vai ser tomado em conta o _**outlier**_, ou seja a pess
 
 ### Mediana vs. Média
 
-A mediana é calculada após ordenarmos tdos os valores e encontrarmos o valor que está no meio, é muito útil ao compararmos a mediana e a média, pois, se houver uma diferença entre os dois, então há algo invulgar no nosso projeto.
+A mediana é calculada após ordenarmos todos os valores e encontrarmos o valor que está no meio, é muito útil ao compararmos a mediana e a média, pois, se houver uma diferença entre os dois, então há algo invulgar no nosso projeto.
 
 ### Quartis
 
@@ -219,7 +219,7 @@ Os testes que vão ser apresentados foram escolhidos aleatoriamente, não são o
 ## T-student
 
 :::details[William Sealy Gosset e T-student]
-William Sealy Gosset era um trabalhador para a Guiness que trabalhava para averiguar qual o melhor campo de cultivo através de testes A/B (mas com cerveja). Em 1908, este queria publicar um artigo sobre o seu estudo mas não queria que o seu nome estivesse associado ao mesmo, então, publicou sobre o pseudónimo Student. Daí nasceu o **T-student** e o seu nome.
+William Sealy Gosset era um trabalhador para a Guinness que trabalhava para averiguar qual o melhor campo de cultivo através de testes A/B (mas com cerveja). Em 1908, este queria publicar um artigo sobre o seu estudo mas não queria que o seu nome estivesse associado ao mesmo, então, publicou sobre o pseudónimo Student. Daí nasceu o **T-student** e o seu nome.
 :::
 
 O t-student pode ser usado com variáveis contínuas, como tempo, erros, altura, etc; ou para comparar duas médias, nomeadamente menus vs. atalhos, códigos-base vs. a nossa implementação entre outros.
@@ -240,6 +240,6 @@ Existe uma série de pressupostos para o t-test:
 - Há uma variância similar?
 - ...
 
-Atenção que existe uma excepção para _samples_ que estejam bem distribuidas, se quisermos algo funcional, não queremos que o resultado esteja bem espalhado, queremos que existe uma _flatline_ no 100.
+Atenção que existe uma excepção para _samples_ que estejam bem distribuidas, se quisermos algo funcional, não queremos que o resultado esteja bem espalhado, queremos que exista uma _flatline_ no 100.
 
 O t-test é especialmente útil, pois conseguimos ver a olho todos os parâmetros.
