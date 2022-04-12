@@ -43,7 +43,7 @@ Os teste analíticos referem-se a avaliações heurísticas, a modelos mais pred
 
 Por outro lado, os testes empíricos referem-se a [**testes de usabilidade**](color:orange), [**testes A/B**](color:orange), [**diários**](color:orange), [**shadowing**](color:orange), [**contextual inquiry**](color:orange), entre muitos outros. Estes testes já retratam uma interação com os utilizadores externos para compreender até que ponto o nosso produto pode e é preferido para ser utilizado.
 
-Dentro dos testes empíricos podemos dividir as observações em duas. Temos [**observações diretas**](color:pink) que retratam utilizadores a serem observados a realizar tarefas, seja presencial ou em vídeo. Um bom exemplo de observação direta é o método [**Wizard of Oz**](color:orange) como foi realizado no primeiro Bake-Off.
+Dentro dos testes empíricos, podemos dividir as observações em duas. Temos [**observações diretas**](color:pink) que retratam utilizadores a serem observados a realizar tarefas, seja presencial ou em vídeo. Um bom exemplo de observação direta é o método [**Wizard of Oz**](color:orange), como foi realizado no primeiro Bake-Off.
 
 Em termos de [**observação indiretas**](color:pink) referimo-nos a dois tipos de interações:
 
@@ -72,7 +72,7 @@ Ao avaliar as condições, a Microsoft criou um [**Heatmap**](color:orange) que 
 
 Também viam as munições: o [**registo automático**](color:pink) conseguia avaliar se havia uma zona do mapa em que as balas era todas perdidas, contudo, foi necessário o auxílio do [**registo direto**](color:pink) para compreender o [**porquê de perderem tantas balas**](color:pink).
 
-Atualmente é possível lançar um jogo passados apenas 2 ou 3 anos e ir recebendo feedback à medida que os utilizadores vão experimentando e usufruindo do jogo, havendo uma constante remodelação do jogo, em vez de ser necessário esperar 5 anos para poderem lançar o jogo pela primeira vez. Através do feedback e dos testes, os jogos podem melhorar mas ser logo jogados.
+Atualmente, é possível lançar um jogo passados apenas 2 ou 3 anos e ir recebendo feedback à medida que os utilizadores vão experimentando e usufruindo do jogo, havendo uma constante remodelação do jogo, em vez de ser necessário esperar 5 anos para poderem lançar o jogo pela primeira vez. Através do feedback e dos testes, os jogos podem melhorar mas ser logo jogados.
 
 ## Diferentes métodos de Avaliação/Investigação
 
@@ -97,13 +97,13 @@ Nos Bake-Offs passámos por muitos destes métodos.
 
 ## Testes de Usabilidade
 
-Para garantir que os nossos produtos são bons e práticos, é necessário fazer testes à usabilidade. Estes testes permitem ao criador [**identificar problemas**](color:pink) (no design e da aplicação ou produto), [**descobrir opurtunidades**](color:pink) para melhorar o design e [**compreender os utilizadores**](color:pink) através dos seus comportamentos e preferências.
+Para garantir que os nossos produtos são bons e práticos, é necessário fazer testes à usabilidade. Estes testes permitem ao criador [**identificar problemas**](color:pink) (no design e da aplicação ou produto), [**descobrir oportunidades**](color:pink) para melhorar o design e [**compreender os utilizadores**](color:pink) através dos seus comportamentos e preferências.
 
 ### Tipos de Testes de Usabilidade
 
 ![Tipos de Testes de Usabilidade](./assets/0005-tipos-de-testes-de-usabilidade.png#dark=3)
 
-Para o primeiro bake-off focámo-nos bastante na [**avaliação formativa**](color:pink), enquanto no segundo focámo-nos mais no [**protótipo final**](color:pink) e [**avaliação sumativa**](color:pink). Isto porque não fazia sentido estarmos a fazer avaliações formativas pois ainda não estava feito.
+Para o primeiro bake-off, focámo-nos bastante na [**avaliação formativa**](color:pink), enquanto que no segundo, focámo-nos mais no [**protótipo final**](color:pink) e [**avaliação sumativa**](color:pink). Isto porque não fazia sentido estarmos a fazer avaliações formativas pois ainda não estava feito.
 
 [**Formativa:**](color:orange) realiza-se durante o processo de desenho, os resultados informam a próxima fase de desenho.
 
@@ -113,7 +113,7 @@ Para o primeiro bake-off focámo-nos bastante na [**avaliação formativa**](col
 
 - **"Qual o resultado da interação"**, ou seja, conseguimos observar o problema mas não como resolve-lo, é o problema das munições referido acima.
 
-Para realizar um bom teste de usabilidade temos que focar-nos em três parâmetros (elementos) diferentes:
+Para realizar um bom teste de usabilidade, temos que focar-nos em três parâmetros (elementos) diferentes:
 
 - Participantes
 - Tarefas
@@ -125,7 +125,7 @@ Os participantes devem ser pessoas próximas do público-alvo, com maior disponi
 
 :::tip[NOTA]
 
-Quando nos referimos a [**pessoas**](color:orange) com maior disponibilidade temos que ver pessoas que tenham tempo para avaliar o nosso produto com calma. Por exemplo se temos um produto para médicos, podemos testá-lo com estudantes de medicina.
+Quando nos referimos a [**pessoas**](color:orange) com maior disponibilidade temos que ver pessoas que tenham tempo para avaliar o nosso produto com calma. Por exemplo, se temos um produto para médicos, podemos testá-lo com estudantes de medicina.
 
 :::
 
@@ -135,7 +135,7 @@ Para termos uma boa descrição do nosso grupo de participantes temos que ver a 
 
 Mas quantos utilizadores devemos ter para que o nosso produto seja devidamente testado sem problemas?
 
-Segundo [**Nielsen**](color:orange) devemos disponibilizar [**20 utilizadores**](color:pink), ou seja, [**4 iterações com 5 utilizadores cada**](color:pink).
+Segundo [**Nielsen**](color:orange), devemos disponibilizar [**20 utilizadores**](color:pink): [**4 iterações com 5 utilizadores cada**](color:pink).
 
 Se tivermos
 
@@ -158,7 +158,7 @@ As tarefas que apresentamos aos nossos participantes têm que ser bastante bem d
   - não favorecer uma das soluções
   - usar as mesmas tarefas
 
-Por outras palavras, não podemos favorecer uma das soluções, por exemplo com ratos melhores, comentários do género **"passei vários dias e noites a trabalhar nesta parte"** (o utilizador já sabe que essa parte específica vai ser mais favorável).
+Por outras palavras, não podemos favorecer uma das soluções, por exemplo, usando ratos melhores ou dizendo comentários do género **"passei vários dias e noites a trabalhar nesta parte"** (o utilizador já sabe que essa parte específica vai ser mais favorável).
 
 ### Medidas de Usabilidade
 
@@ -174,22 +174,22 @@ Por outras palavras, não podemos favorecer uma das soluções, por exemplo com 
 - [**Quantitativos**](color:orange) (quantidade, específicos e medíveis) - Segundo Bake-Off
 
   - [**Completou a tarefa?**](color:pink) Sim/Não
-  - [**Qaunto tempo demorou?**](color:pink)
+  - [**Quanto tempo demorou?**](color:pink)
   - [**Quantos erros?**](color:pink)
   - [**Qual preferiu?**](color:pink) A ou B
 
-- [**Qualitativo**](color:orange) (qualitativo, "aberto") - Primeiro Bake-Off
+- [**Qualitativo**](color:orange) (qualidade, "aberto") - Primeiro Bake-Off
 
   - O que gostou mais na sua experiência?
-  - O que pensa do ecrâ principal?
+  - O que pensa do ecrã principal?
   - Mais difícil de obter?
 
 - [**Objetivos**](color:orange)
 
-  - Não dependem da pré-disposição(bias) inerente ao ser humano (ex.: tempo, erros, frequência cardíaca, etc)
+  - Não dependem da pré-disposição (bias) inerente ao ser humano (ex.: tempo, erros, frequência cardíaca, ...)
 
 - [**Subjetivos**](color:orange)
-  - Realça a perceção do utilizador (ex.: preferência, **SUS**, **SEQ**, etc)
+  - Realça a perceção do utilizador (ex.: preferência, **SUS**, **SEQ**, ...)
 
 [**SUS:**](color:orange) acima de 68% é minimamente utilizável, já há valores médios por ser tão utilizado.
 
@@ -197,7 +197,7 @@ Por outras palavras, não podemos favorecer uma das soluções, por exemplo com 
 
 ### Testes-piloto
 
-Qualquer pessoa pode completá-los, tem que ter 2 a 3 pessoas, é necessário testar procedimento:
+Qualquer pessoa pode completá-los, têm que ter 2 a 3 pessoas, é necessário testar procedimento:
 
 - Duração
 - Instruções
@@ -212,11 +212,11 @@ Os testes-piloto ajudam a encontrar últimos erros antes do produto sair. Para a
 
 ## Testes A/B
 
-Uma das maneiras mais comuns de testar a usabilidade de um produto é através dos [**testes A/B**](color:pink). Estes testes têm o objetivo de verificar qual a melhor opção de [**cor**](color:orange), [**logótipo**](color:orange), [**layout de página web**](color:orange), [**tipografia**](color:orange), [**botões**](color:orange), etc.
+Uma das maneiras mais comuns de testar a usabilidade de um produto é através dos [**testes A/B**](color:pink). Estes testes têm o objetivo de verificar qual a melhor opção de [**cor**](color:orange), [**logótipo**](color:orange), [**layout de página web**](color:orange), [**tipografia**](color:orange), [**botões**](color:orange), ...
 
 :::tip
 
-Para o segundo bake-off é muito recomendado fazer estes testes A/B em que apenas mudamos uma coisa, fazemos apenas uma alteração, para nos facilitar qual o aspeto que temos que mudar. Tal não era recomendado para o primeiro bake-off em que tinhamos que fazer mais alterações.
+Para o segundo bake-off, é muito recomendado fazer estes testes A/B em que apenas fazemos uma alteração ao projeto, para nos facilitar qual o aspeto que temos que mudar. Tal não era recomendado para o primeiro bake-off, em que tinhamos que fazer mais alterações.
 
 :::
 
@@ -245,9 +245,9 @@ Existem duas maneiras de dividir os grupos para fazer os testes:
 
 ![Testes Intragrupos](./assets/0005-testes-intragrupos.png#dark=3)
 
-Contudo temos que ir tendo atenção que há uma série de fatores que influenciam as pessoas. Por exemplo se um grupo já testou 40 vezes o projeto A pode estar mais [**viciado**](color:orange) nesse projeto, ou pode estar mais cansado desse projeto e tem uma opinião mais influenciada.
+Contudo, temos que ter atenção que há uma série de fatores que influenciam as pessoas. Por exemplo, se um grupo já testou 40 vezes o projeto A pode estar mais [**viciado**](color:orange) nesse projeto, ou pode estar mais cansado desse projeto e tem uma opinião mais influenciada.
 
-Então como lidamos com os efeitos da [**ordem de utilização**](color:pink)? Temos que ir alterando os testes a cada produto, [**counter-balancing**](color:orange).
+Então, como lidamos com os efeitos da [**ordem de utilização**](color:pink)? Temos que ir alterando os testes a cada produto, [**counter-balancing**](color:orange).
 
 :::details[Exemplo]
 
@@ -278,14 +278,14 @@ Counter-balancing funciona de uma forma fatorial, resumidamente:
 [**Variáveis Dependentes:**](color:orange)
 
 - O seu valor depende do sistema a testar
-- Variáveis medidas no estudo (tempo, erro, sus)
+- Variáveis medidas no estudo (tempo, erros, SUS)
 - Relacionados com o objetivo do protótipo
 
 [**Variáveis Independentes:**](color:orange)
 
 - Não dependem das variáveis que estamos a medir
-- Características da solução (layout, cor, etc)
-- Características dos participantes (idade, etc)
+- Características da solução (layout, cor, ...)
+- Características dos participantes (idade, ...)
 
 [**Exemplo do segundo bake-off:**](color:orange)
 
@@ -294,19 +294,19 @@ Counter-balancing funciona de uma forma fatorial, resumidamente:
 - [**Variáveis dependentes**](color:pink)
   - Tempo, taxa de erro
 - [**Variáveis independentes**](color:pink)
-  - Solução mais recente do grupo x (esquema de cores, representação do alvo a escolher, etc)
+  - Solução mais recente do grupo x (esquema de cores, representação do alvo a escolher, ...)
 - [**Dados quantitativos**](color:pink)
 
 ## Efeitos Secundários
 
-Deparamo-nos agora com um problema, um problema de [**fixação funcional**](color:orange), feito por Duncker em 1945. Duncker colocou à frente dos seus participantes uma vela, uma caixa de pioneses e fósforos e pediu para cada pessoa arranjar uma forma para que a vela fosse acendida mas não pingasse cera para a mesa. Contudo dividiu os participantes em dois grupos:
+Deparamo-nos agora com um problema, um problema de [**fixação funcional**](color:orange), feito por Duncker em 1945. Duncker colocou à frente dos seus participantes uma vela, uma caixa de pioneses e fósforos e pediu para cada pessoa arranjar uma forma para que a vela fosse acendida mas não pingasse cera para a mesa. Contudo, dividiu os participantes em dois grupos:
 
 - Grupo A tinha os pioneses dentro da caixa
 - Grupo B tinha os pioneses fora da caixa
 
 Como os pioneses estavam fora da caixa era mais evidente para o grupo B que a caixa trabalhava como outro elemento que pudesse ser utilizado e não somente como um suporte para os pioneses. Assim, o grupo B acabou mais rapidamente a experiência.
 
-Em 1962, Glucksberg testou a mesma experiência mas adicionou mais uma variável:
+Em 1962, Glucksberg testou a mesma experiência, mas adicionou mais uma variável:
 
 - Obter o tempo médio de resolução
 - Recompensa pelo tempo mais rápido. Top 25% recebe \$40, mais rápido recebe \$150.
@@ -321,6 +321,6 @@ Associar recompensa a desempenho aumentou o foco mas restringe a criatividade, �
 
 **_"It was suggested that the productivity gain occurred as a result of the motivational effect on the workers of the interest being shown in them."_** - Henry A. Landsborg, 1958
 
-[**Por outras palavras, quando há mais pressão.**](color:pink)
+[**Por outras palavras, quando há mais pressão, há um ganho de produtividade.**](color:pink)
 
-[**Novelty effect:**](color:orange) quando vemos algo novo, ficamos mais excitados sem razão porque o produto até pode não ser nada de especial mas só por ser algo novo temos curiosidade. Por isso temos que testar o produto mais do que uma vez para testar o quão bom e prático é.
+[**Novelty effect:**](color:orange) quando vemos algo novo, ficamos mais excitados sem razão. O produto até pode não ser nada de especial, mas, só por ser algo novo, temos curiosidade. Por isso, temos que testar o produto mais do que uma vez para testar o quão bom e prático é.
