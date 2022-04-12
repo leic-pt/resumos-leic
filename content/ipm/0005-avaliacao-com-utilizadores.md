@@ -186,10 +186,10 @@ Por outras palavras, não podemos favorecer uma das soluções, por exemplo, usa
 
 - [**Objetivos**](color:orange)
 
-  - Não dependem da pré-disposição (bias) inerente ao ser humano (ex.: tempo, erros, frequência cardíaca, ...)
+  - Não dependem da pré-disposição (bias) inerente ao ser humano (ex.: tempo, erros, frequência cardíaca, etc.)
 
 - [**Subjetivos**](color:orange)
-  - Realça a perceção do utilizador (ex.: preferência, **SUS**, **SEQ**, ...)
+  - Realça a perceção do utilizador (ex.: preferência, **SUS**, **SEQ**, etc.)
 
 [**SUS:**](color:orange) acima de 68% é minimamente utilizável, já há valores médios por ser tão utilizado.
 
@@ -212,7 +212,7 @@ Os testes-piloto ajudam a encontrar últimos erros antes do produto sair. Para a
 
 ## Testes A/B
 
-Uma das maneiras mais comuns de testar a usabilidade de um produto é através dos [**testes A/B**](color:pink). Estes testes têm o objetivo de verificar qual a melhor opção de [**cor**](color:orange), [**logótipo**](color:orange), [**layout de página web**](color:orange), [**tipografia**](color:orange), [**botões**](color:orange), ...
+Uma das maneiras mais comuns de testar a usabilidade de um produto é através dos [**testes A/B**](color:pink). Estes testes têm o objetivo de verificar qual a melhor opção de [**cor**](color:orange), [**logótipo**](color:orange), [**layout de página web**](color:orange), [**tipografia**](color:orange), [**botões**](color:orange), etc.
 
 :::tip
 
@@ -284,8 +284,8 @@ Counter-balancing funciona de uma forma fatorial, resumidamente:
 [**Variáveis Independentes:**](color:orange)
 
 - Não dependem das variáveis que estamos a medir
-- Características da solução (layout, cor, ...)
-- Características dos participantes (idade, ...)
+- Características da solução (layout, cor, etc.)
+- Características dos participantes (idade, etc.)
 
 [**Exemplo do segundo bake-off:**](color:orange)
 
@@ -294,7 +294,7 @@ Counter-balancing funciona de uma forma fatorial, resumidamente:
 - [**Variáveis dependentes**](color:pink)
   - Tempo, taxa de erro
 - [**Variáveis independentes**](color:pink)
-  - Solução mais recente do grupo x (esquema de cores, representação do alvo a escolher, ...)
+  - Solução mais recente do grupo x (esquema de cores, representação do alvo a escolher, etc.)
 - [**Dados quantitativos**](color:pink)
 
 ## Efeitos Secundários
