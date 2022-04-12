@@ -69,7 +69,7 @@ analogamente, para o espaço, definimos
 
 Para uma máquina classificadora $M$, tem-se que $\op{time}_M$ e $\op{space}_M$ são funções monótonas e, para qualquer, $n \in \mathbb{N}$:
 
-1. $\op{space}_M(N) \leq \op{time}_M(n)$
+1. $\op{space}_M(n) \leq \op{time}_M(n)$
 2. $\op{time}_M(n) \leq 2^{O(\op{space}_M(n))}$.
 
 :::
@@ -328,7 +328,9 @@ Então:
 - $\Sigma^* \in \mathcal{C}$
 - $L_1 \cup L_2 \in \mathcal{C}$
 - $L_1 \cap L_2 \in \mathcal{C}$
-  Se $\mathcal{C} \neq \mathbf{NP}$ e $\mathcal{C} \neq \mathbf{NEXPTIME}$, então temos também que:
+
+Se $\mathcal{C} \neq \mathbf{NP}$ e $\mathcal{C} \neq \mathbf{NEXPTIME}$, então temos também que:
+
 - $L_1 \backslash L_2 \in \mathcal{C}$
 
 :::

@@ -13,7 +13,7 @@ type: content
 
 ```
 
-## Aquisição de dados
+## Aquisição de Dados
 
 Ao fazermos testes ao nosso produtos, existem diferentes formas de registarmos os dados. Podemos registar através de notas (de onde vem o diário de registo), através de áudio, ou seja registo de voz, fotografias dos nossos participantes a realizarem as tarefas que lhe pedimos ou vídeo.
 
@@ -30,11 +30,11 @@ Em termos de métodos, podemos avaliar os nosso dados qualitativos de formas dif
 Contudo, a que ser referem dados qualitativos? Dados qualitativos sao dados não numéricos, ou seja, texto, imagens, gravações de áudio, vídeo... Estes permitem capturar informação qualitativa (atitudes, comportamentos, experiências, motivações) e podem ser descritos de duas formas distintas:
 
 - Descritivos- descrevem eventos, opiniões, etc;
-- Explicatórios- explicar eventos, reações, etc.
+- Explicatórios- explicam eventos, reações, etc.
 
-## Nuvens de palavras
+## Nuvens de Palavras
 
-Uma das formas mais práticas de captar dados sobre o nosso projeto é através de nuvens de palavras. Este método permite-nos identificar quais são as reações, sensações, preocupações, primeiros pensamentos, entre outros. Esta nuvem permite visualizar quais as palavras mais usadas e assim é mais práticos perceber quais são as palavras mais comuns entre os participantes.
+Uma das formas mais práticas de captar dados sobre o nosso projeto é através de nuvens de palavras. Este método permite-nos identificar quais são as reações, sensações, preocupações, primeiros pensamentos, entre outros. Esta nuvem permite visualizar quais as palavras mais usadas e assim é mais prático perceber quais são as palavras mais comuns entre os participantes.
 
 ![Nuvem de palavras](./assets/0007-nuvem-de-palavras.png#dark=4)
 
@@ -42,7 +42,7 @@ As palavras que estão de um tamanho maior são as mais comuns, e, por isso, as 
 
 ### Limitações
 
-Contudo, é necessário referir que existem algumas limitações no que toca a nuvem de palavras. Apesar de serem fáceis de produzir, representam apenas a **frequência** da utilização das palavras e não chega mesmo a existir uma anãlise do conteúdo.
+Contudo, é necessário referir que existem algumas limitações no que toca a nuvem de palavras. Apesar de serem fáceis de produzir, representam apenas a **frequência** da utilização das palavras e não chega mesmo a existir uma análise do conteúdo.
 
 ## Análise Temática
 
@@ -50,11 +50,11 @@ Temos noção que a subjetividade tem que fazer parte do nosso processo, especia
 
 ![Análise temática](./assets/0007-analise-tematica.png#dark=3)
 
-A análise temática premite-nos detetar:
+A análise temática permite-nos detetar:
 
 - [Códigos](color:pink): etiquetas para atribuir significado (podem ser palavras ou frases). Por exemplo localização, tracing, password
 
-- [Temas](color:pink): são padrões nos dados que se organizam em torno de um conceito, ou seja, grupos de códigos mutualmente exclusivo. Por exemplo privacidade, segurança.
+- [Temas](color:pink): são padrões nos dados que se organizam em torno de um conceito, ou seja, grupos de códigos mutuamente exclusivo. Por exemplo privacidade, segurança.
 
 Ao falarmos de análise temática também temos que ter em considerção outros dois pontos adicionais sobre como a análise possa ser:
 
