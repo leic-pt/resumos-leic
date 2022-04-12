@@ -42,7 +42,7 @@ O próprio [**valor de retorno de uma função**](color:green) pode ser um ponte
 
 ### Passagem de Parâmetros para Funções
 
-Por definição, a passagem de variáveis como argumento de funções em C é feita por valor, não referência: se queremos que as alterações realizadas a uma variável dentro de uma função sejam visíveis **fora** da mesma, temos de a passar como ponteiro. 
+Por definição, a passagem de variáveis como argumento de funções em C é feita por valor, não referência: se queremos que as alterações realizadas a uma variável dentro de uma função sejam visíveis **fora** da mesma, temos de a passar como ponteiro.
 
 `embed:assets/0012-swap.c`
 
@@ -66,7 +66,7 @@ A declaração `int p3[100];` declara, por exemplo, uma tabela com 100 inteiros 
 
 A declaração `char *text;` não aloca qualquer memória
 
-  - no entanto `char *text = "ola";` aloca
+- no entanto `char *text = "ola";` aloca
 
 Qual a diferença entre as duas declarações seguintes ?
 
