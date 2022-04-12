@@ -13,105 +13,58 @@ type: content
 
 ## Ponteiros e Endereços
 
-### Ponteiro É um Enderenço de Memória
-
-- Na memória do computador cada posição é
-  referenciada por um endereço, atribuído de forma
-  sequencial
-- Posições adjacentes têm endereços consecutivos
-- Um ponteiro é uma variável que contém um endereço
-  de outra variável.
+:::info[Ponteiro são Enderenços de Memória]
+Na memória do computador, cada posição é referenciada por um [**endereço**](color:orange), atribuído de forma sequencial. Posições adjacentes têm, assim, endereços consecutivos. Um ponteiro corresponde a uma variável que contém um endereço de outra variável.
+:::
 
 `embed:assets/0012-ex.c`
 
 Na declaração de um ponteiro temos de indicar ao compilador para
-que tipo de variável estamos a endereçar.
+que tipo de variável estamos a endereçar (tal como no resto das variáveis "normais"):
 
 `embed:assets/0012-def.c`
 
 ### Operador &
 
-- O endereço de uma variável é obtido através do
-  operador `&`
+O endereço de uma variável é obtido através do operador `&`. Podemos, aqui, olhar para o porquê de usarmos o operador `&` em `scanf`'s: o `scanf` guarda o valor lido do `stdin` no endereço da variável indicada.
 
 `embed:assets/0012-operador.c`
 
 ### Operador \*
 
-- O operador `*` permite aceder ao conteúdo de uma posição
-  de memória endereçada pelo ponteiro
-  (i.e., o conteúdo para onde um ponteiro “aponta”).
-
-- O valor guardado num determinado endereço é dado
-  pelo operador \*
+O operador `*` permite aceder ao conteúdo de uma posição de memória endereçada pelo ponteiro (i.e., o conteúdo para onde um ponteiro “aponta”). O valor guardado num determinado endereço é dado pelo operador `*`.
 
 `embed:assets/0012-2operador.c`
 
 `embed:assets/0012-uso.c`
 
-- Declarção do Ponteiro
-
-`int *x;`
-
-x é um ponteiro para um inteiro
-
-- Conteúdo da posição de memória apontada pelo ponteiro
-
-`*x = 4;`
-
-(o valor 4 é atribuído ao conteúdo da posição de memória apontada
-por `x`)
-
-- O valor de retorno de uma função pode ser um ponteiro
-
-`int* xpto();`
-
-- O argumento de uma função pode ser um ponteiro
-
-`int abcd(char *a, int *b);`
+O próprio [**valor de retorno de uma função**](color:green) pode ser um ponteiro - `int* xpto()` é uma função possível, onde retornamos um ponteiro para inteiro. Argumentos de funções também podem, claro, ser ponteiros (como em `int abcd(char *a, int *b)`).
 
 ### Passagem de Parâmetros para Funções
 
-Para mudar valores para fora de funções temos de usar ponteiros.
+Por definição, a passagem de variáveis como argumento de funções em C é feita por valor, não referência: se queremos que as alterações realizadas a uma variável dentro de uma função sejam visíveis **fora** da mesma, temos de a passar como ponteiro. 
 
 `embed:assets/0012-swap.c`
 
 ### Ponteiro Nulo
 
-Ponteiro especial para representar o endereço 0
-
-`int *ptr = NULL;`
-
-- Definido em stdlib.h
-  - Necessário `#include <stdlib.h>`
-- Utilizado para indicar situações especiais
-- Na realidade `NULL == 0`
+`NULL` é um ponteiro especial, utilizado para representar o endereço 0 (`int *ptr = NULL`). Está definido na _standard library_ de C, `stdlib`, sendo preciso incluí-la no nosso código para utilizar esta ponteiro. Utilizamo-lo para indicar situações especiais: considerando uma árvore binária, por exemplo, `NULL` pode ser utilizado como que significando "este pai não tem este filho", por exemplo.
 
 ## Ponteiros e Tabelas
 
-### Aritemética
+### Aritmética
 
-Os apontadores têm uma aritmética própria.
-
-É possível efectuar `+` e `-` com ponteiros.
+Ponteiros têm uma aritmética própria - é possível realizar somas e subtrações, respetivamente `+` e `-`, com ponteiros.
 
 `embed:assets/0012-arit.c`
 
 ### Declarações
 
-- A declaração `int *p1;` declara o mesmo que `int p2[]`;
+A declaração `int *p1;` declara o mesmo que `int p2[]` - um vetor de inteiros. `p1`, contudo, poderá ser alterado, enquanto que `p2` não pode.
 
-  - `p1` pode ser alterado
-  - `p2` não pode ser alterado
-  - `int p2[];` só pode ser utilizado em certos casos
+A declaração `int p3[100];` declara, por exemplo, uma tabela com 100 inteiros e aloca memória a quantidade necessária de memória.
 
-- A declaração `int p3[100];` declara uma tabela com 100
-  inteiros e \
-  aloca memória na quantidade necessária
-
-  - `p3` não pode ser alterado
-
-- A declaração `char *text;` não aloca qualquer memória
+A declaração `char *text;` não aloca qualquer memória
 
   - no entanto `char *text = "ola";` aloca
 
