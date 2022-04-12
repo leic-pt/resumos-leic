@@ -60,7 +60,7 @@ Existem três tipos de **escalas de medida**:
 
 ### Mensagens importantes
 
-- Utilizaos análise estatística visto ser importante para generalizar resultados a partir de uma amostra.
+- Utilizamos análise estatística visto ser importante para generalizar resultados a partir de uma amostra.
 
 :::tip[Segundo bake-off]
 Para o vídeo do segundo bake-off **não é necessário** pôr a nossa análise estatística mas **é recomendado**, contudo não afeta minimamente a nota.
@@ -149,9 +149,9 @@ Ao completarmos uma iteração do nosso projeto temos que verificar se a nossa s
 
 :::info[Exemplo]
 
-**Ao acabarmos uma projeto pretendemos verificar se a nossa solução possibilita o nosso participante a terminar uma tarefa em menos do que 30 segundos**
+**Ao acabarmos um projeto pretendemos verificar se a nossa solução possibilita o nosso participante a terminar uma tarefa em menos do que 30 segundos**
 
-Ao fazemos testes com 10 utilizadores, reparamos que a média é **29,6**, o que tecnicamente está dentro do nosso objetivo, visto que 29,6 é menor que 30. Contudo, ao avaliarmos o desvio-padrão reparamos que toda a gente está entre os 30/35 segundos tirando uma pessoa que conseguiu completar a tarefa em 5 segundos!
+Ao fazemos testes com 10 utilizadores, reparamos que a média é **29,6 segundos**, o que tecnicamente está dentro do nosso objetivo, visto que 29,6 é menor que 30. Contudo, ao avaliarmos o desvio-padrão reparamos que toda a gente está entre os 30/35 segundos tirando uma pessoa que conseguiu completar a tarefa em 5 segundos!
 
 ![Exemplo](./assets/0006-exemplo.png#dark=3)
 :::
