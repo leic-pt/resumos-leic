@@ -65,7 +65,7 @@ O que era registado:
 - Timestamp
 - Localização do jogador
 - Número de balas
-- Eventos (morrer, acertar, ...)
+- Eventos (morrer, acertar, etc.)
 - Para onde está a apontar
 
 Ao avaliar as condições, a Microsoft criou um [**Heatmap**](color:orange) que a cada 5s [**mudavam a cor do jogador**](color:pink). Desta forma, se havia muitas cores num só sítio então os programadores sabiam que tinham que [**remodelar o mapa**](color:pink), pois havia muita gente presa nesse sítio, contudo, se o mapa tivesse cores diferentes em lugares diferentes, então tínhamos um [**bom mapa**](color:pink).
@@ -142,7 +142,8 @@ Se tivermos
 - 1 utilizador &rarr; 33% dos problemas identificados
 - 5 utilizadores &rarr; 85% dos problemas identificados
 - 15 utilizadores &rarr; 99% dos problemas identificados
-  estudo publicado por Nielsen em 1993.
+  
+segundo um estudo publicado por Nielsen em 1993.
 
 É necessário um grande número de utilizadores para ter a certeza que há sempre uma média não curta e não manipulável.
 
@@ -220,7 +221,7 @@ Para o segundo bake-off, é muito recomendado fazer estes testes A/B em que apen
 
 :::
 
-:::tip[ATENÇÃO]
+:::warning[ATENÇÃO]
 
 É expectável ter que voltar atrás várias vezes e que a versão que é mais favorável seja uma versão mais antiga. Isto irá acontecer especialmente entre os valores 8 e 10.
 
@@ -230,7 +231,9 @@ Para o segundo bake-off, é muito recomendado fazer estes testes A/B em que apen
 
 ### Google's 41 Shades of Blue
 
-Um bom exemplo de testes A/B é o Google's 41 Shades of Blue, nestes testes a Google mostrou 41 cores diferentes aos seus utilizadores; sempre que alguém entrava no motor de pesquisa, ia para um [**bucket**](color:orange) e assim a empresa podia ver qual a cor que tinha mais sucesso. Apesar de não parecer, uma simples mudança de cor fez com que a empresa ganhasse mais [**$200m por ano**](color:pink).
+Um bom exemplo de testes A/B é o Google's 41 Shades of Blue: nestes testes, a Google mostrou 41 cores diferentes aos seus utilizadores; sempre que alguém entrava no motor de pesquisa, ia para um [**bucket**](color:orange) e assim a empresa podia ver qual a cor que tinha mais sucesso. Apesar de não ser evidente à priori, uma simples mudança de cor fez com que a empresa ganhasse mais [**$200m por ano**](color:pink).
+
+Esta teste levou a um conflito entre as equipas de Engenharia e de Design na Google, dado a decisão de qual a melhor cor ter sido tomada com base numa experiência prática com utilizadores reais em vez de só com base na _expertise_ da equipa de Design.
 
 ### Como dividir os grupos?
 
@@ -240,7 +243,7 @@ Existem duas maneiras de dividir os grupos para fazer os testes:
 
 ![Testes Intergrupos](./assets/0005-testes-intergrupos.png#dark=3)
 
-- [**Intragrupos:**](color:orange) "within-subjects", cada grupo testa as duas interações, vamos trocando a ordem do uso dos sistemas (aprendizagem, fatiga).
+- [**Intragrupos:**](color:orange) "Within-subjects", cada grupo testa as duas interações, vamos trocando a ordem do uso dos sistemas (aprendizagem, fatiga).
   - foi o que fomos fazendo nas aulas práticas durante os bake-offs.
 
 ![Testes Intragrupos](./assets/0005-testes-intragrupos.png#dark=3)
