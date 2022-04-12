@@ -17,17 +17,17 @@ type: content
 
 Ao fazermos testes ao nosso produtos, existem diferentes formas de registarmos os dados. Podemos registar através de notas (de onde vem o diário de registo), através de áudio, ou seja registo de voz, fotografias dos nossos participantes a realizarem as tarefas que lhe pedimos ou vídeo.
 
-Atualmente já existem aplicações que nos permitem fazermos testes de forma mais prática, nomeadamente através da [transcrição automática de áudio](color:pink).
+Atualmente já existem aplicações que nos permitem fazer testes de forma mais prática, nomeadamente através da [transcrição automática de áudio](color:pink).
 
 Estes dados podem ser adquiridos através de observação direta/indireta. Como já tinhamos visto, **observação direta** refere-se a utilizadores serem observados a realizar tarefas, seja presencial ou por vídeo/fotos. **Observação indireta** referem-se a interações manuais (nomeadamente com o uso de diários), ou automáticas (através de _interaction logs_).
 
 ### Métodos
 
-Em termos de métodos, podemos avaliar os nosso dados qualitativos de formas diferentes, podemos avaliar através de observações, estudos de diários, estudos de campo, entrevistas, questionários/_surveys_, entre outros.
+Em termos de métodos, podemos avaliar os nossos dados qualitativos de formas diferentes. Podemos avaliar através de observações, estudos de diários, estudos de campo, entrevistas, questionários/_surveys_, entre outros.
 
 ### Dados qualitativos
 
-Contudo, a que ser referem dados qualitativos? Dados qualitativos sao dados não numéricos, ou seja, texto, imagens, gravações de áudio, vídeo... Estes permitem capturar informação qualitativa (atitudes, comportamentos, experiências, motivações) e podem ser descritos de duas formas distintas:
+Contudo, a que se referem dados qualitativos? Dados qualitativos são dados não numéricos, ou seja, texto, imagens, gravações de áudio, vídeo... Estes permitem capturar informação qualitativa (atitudes, comportamentos, experiências, motivações) e podem ser descritos de duas formas distintas:
 
 - Descritivos- descrevem eventos, opiniões, etc;
 - Explicatórios- explicam eventos, reações, etc.
@@ -38,7 +38,7 @@ Uma das formas mais práticas de captar dados sobre o nosso projeto é através 
 
 ![Nuvem de palavras](./assets/0007-nuvem-de-palavras.png#dark=4)
 
-As palavras que estão de um tamanho maior são as mais comuns, e, por isso, as que nos deviamos preocupar mais com.
+As palavras que estão num tamanho maior são as mais comuns, e, portanto isso, as que requerem uma maior atenção da nossa parte.
 
 ### Limitações
 
@@ -46,7 +46,7 @@ Contudo, é necessário referir que existem algumas limitações no que toca a n
 
 ## Análise Temática
 
-Temos noção que a subjetividade tem que fazer parte do nosso processo, especialmente em relação a testes de qualitativos e, precisamente por tal, temos que aceitar essa tal subjetividade, contudo é necessário usar um processo sistemático de análise.
+Temos noção que a subjetividade tem que fazer parte do nosso processo, especialmente em relação a testes qualitativos e, precisamente por tal, temos que aceitar essa tal subjetividade. Contudo, é necessário usar um processo sistemático de análise.
 
 ![Análise temática](./assets/0007-analise-tematica.png#dark=3)
 
