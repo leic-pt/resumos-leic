@@ -142,7 +142,7 @@ Se tivermos
 - 1 utilizador &rarr; 33% dos problemas identificados
 - 5 utilizadores &rarr; 85% dos problemas identificados
 - 15 utilizadores &rarr; 99% dos problemas identificados
-  
+
 segundo um estudo publicado por Nielsen em 1993.
 
 É necessário um grande número de utilizadores para ter a certeza que há sempre uma média não curta e não manipulável.
