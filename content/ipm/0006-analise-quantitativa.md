@@ -222,7 +222,7 @@ Os testes que vão ser apresentados foram escolhidos aleatoriamente, não são o
 William Sealy Gosset era um trabalhador para a Guiness que trabalhava para averiguar qual o melhor campo de cultivo através de testes A/B (mas com cerveja). Em 1908, este queria publicar um artigo sobre o seu estudo, mas não queria que o seu nome estivesse associado ao mesmo, então, publicou sobre o pseudónimo Student. Daí, nasceu o **T-student** e o seu nome.
 :::
 
-O t-student pode ser usado com variáveis contínuas, como tempo, erros, altura, ... Pode também ser usado para comparar duas médias, nomeadamente menus vs. atalhos, códigos-base vs. a nossa implementação, entre outros.
+O t-student pode ser usado com variáveis contínuas, como tempo, erros, altura, etc. Pode também ser usado para comparar duas médias, nomeadamente menus vs. atalhos, códigos-base vs. a nossa implementação, entre outros.
 
 :::tip[Segundo bake-off]
 Para o vídeo do segundo bake-off, **não é necessário** pôr a nossa análise estatística, porque não afeta minimamente a nota, no entanto, **é recomendado**.
