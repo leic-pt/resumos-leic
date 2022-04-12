@@ -24,7 +24,7 @@ Ao realizarmos qualquer tipo de produto, temos que passar por uma série de etap
 
 ![Avaliação no Ciclo Iterativo](./assets/0005-avaliacao-no-ciclo-iterativo.png#dark=2)
 
-Para concluir que fizemos um bom trabalho no nosso projeto, temos que realizar [**uma série de testes**](color:pink) com utilizadores exteriores aos membros do nosso grupo para testar a qualidade e utilização no dia-a-dia do que nś fizemos.
+Para concluir que fizemos um bom trabalho no nosso projeto, temos que realizar [**uma série de testes**](color:pink) com utilizadores exteriores aos membros do nosso grupo para testar a qualidade e utilização no dia-a-dia do que nós fizemos.
 
 Nestes testes pretendemos ter dois objetivos: [**avaliar**](color:orange) e [**identificar problemas**](color:orange), através de duas componentes distintas:
 
@@ -37,7 +37,7 @@ Contudo, para fazer estes testes temos que nos focar em dois métodos para, como
 
 ### Testes Analíticos
 
-Os teste analíticos referem-se a avaliações heurísticas, a modelos mais preditivos. Isto é, os testes analíticos referem-se somentea como o nosso trabalho está só por si sem haver pessoas a testarem-no. Aos testes analíticos estão associadas a [**Lei de Fitts**](color:pink) e [**Machine Learning**](color:pink).
+Os teste analíticos referem-se a avaliações heurísticas, a modelos mais preditivos. Isto é, os testes analíticos referem-se somente a como o nosso trabalho está só por si sem haver pessoas a testarem-no. Aos testes analíticos estão associadas a [**Lei de Fitts**](color:pink) e [**Machine Learning**](color:pink).
 
 ### Testes Empíricos
 
@@ -245,7 +245,7 @@ Existem duas maneiras de dividir os grupos para fazer os testes:
 
 ![Testes Intragrupos](./assets/0005-testes-intragrupos.png#dark=3)
 
-Contudo temos que ir tendo atenção que há uma série de fatores que influenciam as pessoas. Por exemplo se um grupo já testou 40 vezes o projeto A pode estar mais [**viciado**](color:orange) nesse projeto, ou pode estar mais cansado desse projeto e tem uma opinião mais unfluenciada.
+Contudo temos que ir tendo atenção que há uma série de fatores que influenciam as pessoas. Por exemplo se um grupo já testou 40 vezes o projeto A pode estar mais [**viciado**](color:orange) nesse projeto, ou pode estar mais cansado desse projeto e tem uma opinião mais influenciada.
 
 Então como lidamos com os efeitos da [**ordem de utilização**](color:pink)? Temos que ir alterando os testes a cada produto, [**counter-balancing**](color:orange).
 
@@ -304,12 +304,12 @@ Deparamo-nos agora com um problema, um problema de [**fixação funcional**](col
 - Grupo A tinha os pioneses dentro da caixa
 - Grupo B tinha os pioneses fora da caixa
 
-Como os pioneses estavam fora da caixa era mais evidente para o grupo B que a caixa trabalhava como outro elemnto que pudesse ser utilizado e não somente como um suporte para os pioneses. Assim, o grupo B acabou mais rapidamente a experiência.
+Como os pioneses estavam fora da caixa era mais evidente para o grupo B que a caixa trabalhava como outro elemento que pudesse ser utilizado e não somente como um suporte para os pioneses. Assim, o grupo B acabou mais rapidamente a experiência.
 
 Em 1962, Glucksberg testou a mesma experiência mas adicionou mais uma variável:
 
 - Obter o tempo médio de resolução
-- Recompensa pelo tempo meis rápido. Top 25% recebe \$40, mais rápido recebe \$150.
+- Recompensa pelo tempo mais rápido. Top 25% recebe \$40, mais rápido recebe \$150.
 
 ![Desenho Experimental 2x2](./assets/0005-desenho-experimental-2x2.png#dark=3)
 
