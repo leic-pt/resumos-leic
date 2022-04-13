@@ -62,7 +62,7 @@ Ponteiros têm uma aritmética própria - é possível realizar somas e subtraç
 
 A declaração `int *p1;` declara o mesmo que `int p2[]` - um vetor de inteiros. `p1`, contudo, poderá ser alterado, enquanto que `p2` não pode.
 
-A declaração `int p3[100];` declara, por exemplo, uma tabela com 100 inteiros e aloca memória a quantidade necessária de memória.
+A declaração `int p3[100];` declara, por exemplo, uma tabela com 100 inteiros e aloca a quantidade necessária de memória.
 
 A declaração `char *text;` não aloca qualquer memória
 

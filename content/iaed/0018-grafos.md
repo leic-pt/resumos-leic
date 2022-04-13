@@ -13,274 +13,110 @@ type: content
 
 ## Definição e Representação
 
-![grafo](./assets/0018-grafo.png#dark=1)
+![Grafo](./assets/0018-grafo.png#dark=1)
 
-- Constituído por um conjunto V de vértices (nós) e E de arcos (arestas).
-  - Arco liga 2 vértices
-  - Vértice pode estar ligado a qualquer número de outros vértices
+Um grafo corresponde a uma estrutura de dados $G = (V, E)$, com $V$ e $E$ sendo respectivamente os seus conjuntos de vértices e arestas. Trivialmente, uma aresta (ou arco) liga 2 vértices, e um vértice pode estar ligado a qualquer número de outros vértices. Dizemos que **o número de ligações de um vértice** é o seu [**grau**](color:orange), ou **degree**. Na imagem abaixo podemos observar o grau de cada vértice, $d$:
 
-### Grafo de um Node
+![Grafo - Grau de Vértices](./assets/0018-grafov.png#dark=1)
 
-![grafo](./assets/0018-grafov.png#dark=1)
+Existem várias tipologias diferentes de grafos. Podemos, por exemplo, querer que as ligações dos vértices tenham uma **direção associada**: numa fábrica, por exemplo, as linhas de montagem têm por norma sentido único, algo semelhante ao que pretendemos representar aqui. Dizemos que estes grafos são [**dirigidos**](color:green) ou [**orientados**](color:green).
 
-- O grau de 1 vértice (d,degree) contabiliza o números de ligações de 1 vértice
+![Grafo Dirigido](./assets/0018-grafoo.png#dark=1)
 
-- O grau médio de um grafo (z), é a média dos graus de todos os vértices
+Podemos, claro, pretender **pesar as arestas do grafo**: pensando numa estrada, caminhos diferentes podem ter custos associados distintos (pensemos, por exemplo, em custos associados a portagens e combustível que variam). Dizemos que estes grafos são [**pesados**](color:yellow).
 
-### Alguns Tipos de Grafos
+![Grafo pesado](./assets/0018-grafop.png#dark=1)
 
-#### Grafo orientado
+Em certas situações, podemos querer trabalhar com **grafos que não contêm ciclos**: isto é, grafos onde partindo de qualquer vértice não encontramos um caminho de volta ao mesmo. Podemos, por exemplo, pensar em circuitos ou redes, onde a existência de ciclos pode (ou não, claro) trazer problemas, preferindo por norma grafos sem ciclos. Dizemos que estes grafos são [**acíclicos**](color:red).
 
-- As suas arestas têm direções (->)
+![Grafo Acíclico](./assets/0018-grafoao.png#dark=1)
 
-![grafo](./assets/0018-grafoo.png#dark=1)
+No outro espectro, temos grafos onde, escolhendo qualquer par de vértices $(u, v)$ do grafo, podemos **sempre** percorrer um caminho que nos leva de $u$ a $v$. Grafos com esta propriedade dizem-se [**conexos**](color:purple). Podem experimentar verificar esta propriedade a olho no grafo representado abaixo, e notar que a propriedade se verifica!
 
-#### Grafo Pesado
+![Grafo Conexo](./assets/0018-grafoc.png#dark=1)
 
-- As arestas têm valores
+Temos ainda uma variação adicional dos grafos conexos: os grafos [**bi-conectados**](color:blue), grafos conexos onde podemos remover qualquer vértice e manter o grafo conexo.
 
-![grafo](./assets/0018-grafop.png#dark=1)
-
-#### Grafo Acíclicos Orientados
-
-- Para qualquer vértice v, não há nenhum caminho começando e acabando em v.
-
-![grafo](./assets/0018-grafoao.png#dark=1)
-
-#### Grafo Conexo
-
-- Para quaisqueres vértices v e u, há sempre o caminho a ligar u e v.
-
-![grafo](./assets/0018-grafoc.png#dark=1)
-
-#### Grafo Bi-conectado
-
-- Para qualquer vértice v, se removemos v, o grafo continua conexo.
-
-![grafo](./assets/0018-grafocg.png#dark=1)
+![Grafo Bi-Conectado](./assets/0018-grafocg.png#dark=1)
 
 ## Representação
 
-![rep](./assets/0018-rep.png#dark=1)
+As duas representações mais comuns para grafos (e as abordadas em IAED) são as **matrizes de adjacências** e as **listas de adjacências**, cada uma com os respetivos prós e contras. De notar que a própria representação difere entre grafos dirigidos e não dirigidos, como se pode ver na imagem abaixo:
+
+![Representação - Visão Geral](./assets/0018-rep.png#dark=1)
 
 ### Lista de Adjacências
 
-Cada nó mostra os nós com que faz aresta.
+Nesta representação, cada índice da lista está associado a um vértice do grafo. Esta representação procura, assim, associar a cada vértice $v$ um **conjunto de vértices** $S$, $S \in V$, correspondente aos vértices adjacentes a $v$.
 
-![list](./assets/0018-list.png#dark=1)
+**A noção de adjacência difere entre grafos dirigidos e não dirigidos**: no caso dos grafos dirigidos, a adjacência é no sentido $v \to u$, ou seja, o vértice que estamos a ver, $v$, é adjacente a outro vértice $u$ caso haja um arco dirigido de $v$ para $u$. No caso dos grafos não dirigidos, não havendo esta noção de "sentido" associada aos arcos, temos apenas que dois vértices são adjacentes se houver um arco que os ligue.
 
-#### Vantagens
+![Lista de Adjacências](./assets/0018-list.png#dark=1)
 
-- Inicialização é proporcional a $V$
+#### [**Vantagens**](color:green)
 
-- Utiliza sempre espaço proporcional a $V+E$
-  - Adequado para grafos esparsos
-  - Algoritmos que assentem na análise de arcos em grafos esparsos.
-- Adição de arcos é feita de forma eficiente
+- Inicialização é proporcional a $|V|$, o **tamanho** do conjunto $V$ (ser linear é definitivamente um ponto positivo);
 
-#### Desvantagens
+- Utiliza sempre espaço proporcional a $|V|+|E|$, sendo portanto adequado para grafos esparsos (e em algoritmos que assentem na análise de arcos em grafos esparsos);
 
-- Arcos paralelos e adjacência entre vértices
-  - Requer que se pesquise as listas de adjacências, o que pode levar
-    um tempo proporcional a $V$
-- Remoção de arcos
-  - Pode levar um tempo proporcional a $V$ (este problema pode ser
-    contornado).
-- Não aconselhável para
-  - Grafos de grande dimensão que não podem ter arcos paralelos
-  - Grande utilização de remoção de arcos
+- A adição de arcos é feita de forma eficiente: adicionar um arco de $u$ para $v$ à lista consiste apenas em fazer um _pushback_ de $v$ para o final da lista de $u$, feito em tempo constante.
+
+#### [**Desvantagens**](color:red)
+
+- Verificar arcos paralelos e adjacência entre vértices requer que se pesquise as listas de adjacências, algo que pode levar um tempo proporcional a $|V|$;
+
+- A remoção de arcos pode levar um tempo proporcional a $|V|$ (visto que precisamos de pesquisar o arco em si na lista para o remover);
+
+Não é aconselhável, portanto, para grafos de grande dimensão que não podem ter arcos paralelos (já que, temos de verificar frequentemente se um arco) ou em algoritmos onde esperamos muitas remoções de arcos.
 
 ### Matriz de Adjacências
 
-Matriz que apenas é constituída por (0 e 1), onde 1 simboliza existir uma aresta entre a coluna e a linha.
+Matriz onde as linhas e colunas representam os vértices do grafo. É inicialmente composta totalmente por zeros, representando a **ausência** de adjacência entre os vértices $u$ (linha) e $v$ (coluna). Cada vez que encontramos uma nova adjacência, colocamos um $1$ na posição correspondente à adjacência na matriz.
+
+Tal como na lista de adjacências, a matriz é preenchida de forma diferente consoante o grafo seja ou não dirigido: no caso de grafos não-dirigidos, havendo uma adjacência entre $u$ e $v$ no grafo, tanto a entrada $(u, v)$ como a $(v, u)$ ficam a $1$; caso contrário, apenas alteramos o valor da entrada $(u, v)$.
 
 ![mat](./assets/0018-mat.png#dark=1)
 
-#### Vantagens
+#### [**Vantagens**](color:green)
 
-- Representação mais adequada quando:
+A representação é a mais adequada quando temos:
 
-  - Há espaço disponível
-  - Grafos são densos
-  - Algoritmos requerem mais de $V^2$ operações
+- Bastante espaço disponível (isto é, não são impostas grandes limitações quanto à memória que podemos utilizar);
+- Estamos a trabalhar com grafos densos (com muitos arcos, portanto);
+- Algoritmos que possam requerer mais de $|V|^2$ operações.
 
-- Adição e remoção de arcos é feita de forma eficiente
+As afirmações acima advêm da adição e remoção de arcos ser feita de forma eficiente ($O(1)$), de ser fácil evitar existência de arcos paralelos (também verificável em $O(1)$, claro), e de ser igualmente fácil determinar se 2 vértices estão ou não ligados (numa direção ou noutra).
 
-- Fácil evitar existência de arcos paralelos (repetidos)
+#### [**Desvantagens**](color:red)
 
-- Fácil determinar se 2 vértices estão ou não ligados
-
-#### Desvantagens
-
-- Grafos esparsos de grande dimensão requerem espaço de memória proporcional a $V^2$
-
-- Neste caso, a simples inicialização do grafo
-  (proporcional a $V^2$) pode dominar o tempo de execução
-  global do algoritmo
-
-- Para o caso de grafos muito esparsos, mas com um
-  número muito elevado de vértices, pode nem sequer
-  existir memória suficiente para armazenar a matriz
+- Grafos esparsos de grande dimensão requerem espaço de memória proporcional a $|V|^2$. Num grafo esparso, grande parte dessa memória acaba por ser inutilizada, acabando por ser uma gestão de recursos pouco sensata;
+- Neste caso, apenas inicializar o grafo (tempo proporcional a $|V|^2$) pode dominar o tempo de execução global do algoritmo;
+- Para o caso de grafos muito esparsos, mas com um número muito elevado de vértices, podemos nem ter acesso a memória suficiente para armazenar a matriz!
 
 ### Representações Alternativas
 
-- 3 mecanismos básicos de representação de grafos
+Temos, portanto, três maneiras "básicas" para representar grafos:
 
-  - Vector de arcos (pouco comum)
-  - Matriz de adjacências
-  - Lista de adjacências
+- Vector de arcos (pouco comum, não foi abordada em detalhe nesta secção dada a sua simplicidade);
+- Matriz de adjacências;
+- Lista de adjacências.
 
-- Produzem diferentes desempenhos ao nível das operações de manipulação
-
-- Escolha deverá depender do problema a resolver
+Cada uma destas representações, como pudemos observar ao longo da secção, produzem diferentes desempenhos (tanto quanto ao aspeto temporal como espacial) ao nível das respetivas operações de manipulação. [**A escolha deverá, portanto, depender do problema a resolver**](color:orange).
 
 $$
 \begin{array}{ c| c| c |c }
-Desempenho & Vetor\ de\ arcos & Matriz\ de\ Adj. & Listas\ de\ Adj.\\
+\text{Desempenho} & \text{Vetor de Arcos} & \text{Matriz de Adjacências} & \text{Lista de Adjacências}\\
 \hline
-Espaço & O( E) & O\left( V^{2}\right) & O( V+E)\\
-Inicialização & O( 1) & O\left( V^{2}\right) & O( V)\\
-Cópia & O( E) & O\left( V^{2}\right) & O( E)\\
-Destruição & O( 1) & O( V) & O( E)\\
-Inserir\ Arco & O( 1) & O( 1) & O( V)\\
-Encontrar\ Arco & O( E) & O( 1) & O( V)\\
-Remover\ Arco & O( E) & O( 1) & O( V)
+\text{Espaço} & O( E) & O\left( V^{2}\right) & O( V+E)\\
+\text{Inicialização} & O( 1) & O\left( V^{2}\right) & O( V)\\
+\text{Cópia} & O( E) & O\left( V^{2}\right) & O( E)\\
+\text{Destruição} & O( 1) & O( V) & O( E)\\
+\text{Inserir Arco} & O( 1) & O( 1) & O( V)\\
+\text{Encontrar Arco} & O( E) & O( 1) & O( V)\\
+\text{Remover Arco} & O( E) & O( 1) & O( V)
 \end{array}
 $$
 
-$V$ - vértices (nós)\
-$E$ - arcos (arestas).
+## Algoritmos de Procura em Grafos
 
-A Implementação do código encontra-se nos slides.
-
-## Algoritmos de Exploração/Procura em Grafos
-
-- Quero saber todas as páginas da WWW. (web crawling)
-
-- Quero encontrar os meus amigos no facebook (se os tiver)
-  :::details[Exemplo]
-  amigos dos amigos,\
-  amigos dos amigos do amigos,\
-  amigos dos amigos dos amigos do amigos,\
-  amigos dos amigos dos amigos dos amigos do amigos,\
-  amigos dos amigos dos amigos dos amigos dos amigos do amigos,\
-  amigos dos amigos dos amigos dos amigos dos amigos dos amigos do amigos,\
-  amigos dos amigos dos amigos dos amigos do amigos,\
-  amigos dos amigos dos amigos do amigos,\
-  amigos dos amigos do amigos,\
-  amigos dos amigos,
-
-  ![zucc](./assets/0018-zucc.jpg#dark=1)
-
-  :::
-
-- Propargar mensagens numa rede
-
-- AI, puzzles e labirintos
-
-### Algoritmos de Procura em Grafos
-
-:::tip[Exemplos]
-Para ambos os algoritmos aconselho a ver os exemplos nos slides
-:::
-
-![origem](./assets/0018-or.png#dark=1)
-
-- Dado um vértice origem/fonte
-
-- Visitar todos os vértices atingíveis a partir da origem
-
-  - Todos os vértices que estão em qualquer caminho do grafo que comece na origem
-
-- A ordem pela qual os vértices são visitados depende do tipo de procura
-
-- Procurar em grafos é equivalente a percorrer labirintos
-
-  - Necessário marcar pontos já visitados
-  - Ser-se capaz de recuar, num caminho efectuado, até ao ponto de partida
-
-- Os vários algoritmos de procura em grafos limitam-se a executar uma determinada estratégia de procura em labirintos
-  - Procura em profundidade primeiro (DFS - "Depth-first-search")
-  - Admite 2 implementações: recursiva e com uso de pilha explícita
-  - Substituindo a pilha por um FIFO,\
-    transforma-se em Procura em largura primeiro (BFS - 'Breadth-first-search')
-
-### Procura em Largura Primeiro (BFS)
-
-BFS - Breadth-First Search
-
-![bfs](./assets/0018-bfs.gif)
-
-- Visita os vértice por ordem da sua distância à origem
-- Vértice mais próximos são visitados em 1º lugar
-
-  - Vértices não atingíveis a partir da origem, não são visitados
-
-- Dados $G = (V,E)$ e vértice $s$, BFS explora sistemtaticamente vértices fe $G$ para descobri todos os vértices atingíveis a partir de $s$
-  - Cálculo da distância: menor número de arcos de $s$ para cada vértice atingível
-  - Identificação de árvore BF: caminho mais curto de $s$ para cada vértice atingível $v$
-- Fronteira entre nós descobertos e não descobertos é
-  expandida uniformemente
-
-  - Vértices à distância $k$ descobertos antes de qualquer vértice à
-    distância $k+1$
-
-- Aplicações
-  - Explorar todos os elementos de um grafo acessíveis a partir de
-    uma origem src, sendo que cada nodo é visitado apenas 1 vez!
-  - Encontrar todos os nós de uma componente conexa.
-  - Encontrar todos os caminhos mais curtos entre 2 nós, u e v, de
-    um grafo sem pesos.
-
-### Procura em Profundidade Primeiro (DFS)
-
-DFS - Depth-First Search
-
-![dfs](./assets/0018-dfs.gif)
-
-Equivalente a como nós (humanos) exploramos labirintos
-
-- Visita primeiro os arcos dos vértices mais recentemente visitados
-
-- Grafo pesquisado dando prioridade aos arcos dos vértices mais recentementes visitados
-
-- Aplicações
-
-  - Visitar todos os elementos de um grafo, sendo que cada vértice é
-    visitado apenas 1 vez!
-  - Encontrar um caminho entre 2 nós específicos, u e v, num grafo
-    sem pesos ou com pesos (grafo pesado).
-  - Saber se um grafo é conexo ou não.
-  - Saber se um grafo tem ciclos
-  - Útil para saber a ordenação topológica de um grafo
-  - Identificação de componentes fortemente ligadas
-
-## Ordenação Topológica
-
-![dependecies](./assets/0018-dep.png#dark=1)
-
-:::tip[Exemplos]
-Para o algoritmo aconselho a ver os exemplos nos slides
-:::
-
-O pacote 2 está dependente do pacote 11.
-
-O pacote 11 está dependente do pacote 5 e do pacote 7.
-
-- Grafos como representação de 1 problema de planeamento de tarefas
-
-- Se 1 grafo tem 1 arco de X para Y, então a tarefa X deve ser efectuada antes de Y.
-
-- Uma ordenação topológica de 1 grafo é uma sequência de "tarefas" onde esta condição é verificada.
-
-### Componentes Fortemente Ligados (SCC)
-
-- Um grafo (ou sub-grafo) diz-se fortemente ligado se para
-  cada par de vértices $u$ e $v$ existe um caminho de $u$ para $v$ e
-  de $v$ para $u$
-- Os componentes fortemente ligados de um grafo são os
-  sub-grafos de tamanho máximo que são fortemente
-  ligados
-- Todos os vértices pertencem a uma componente
-  fortemente ligada, mesmo que esta só contenha o próprio
-  elemento
+Esta sub-secção foi abordada com mais detalhe (e suporte teórico) na secção análoga da [página de ASA](/asa/algoritmos-elementares). Notem que definitivamente não precisam de saber os algoritmos com todo a minúcia teórica apresentada nessa página: para IAED, de um modo geral, costuma bastar saber como o algoritmo funciona/saber executar o algoritmo sobre um grafo arbitrário.
