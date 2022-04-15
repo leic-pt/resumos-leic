@@ -30,6 +30,26 @@ Podes ainda definir constantes utilizando `#define`. No código acima, definimos
 - Caso tenhamos a certeza que queremos que aquele nome esteja associado àquele valor durante todo o nosso código, faz sentido defini-lo como uma constante.
 - Para propósitos de tradução, faz sentido ter _strings de ajuda/texto_ associadas a constantes: algo como `#define HELP_MESSAGE "Clique aqui para obter ajuda."` é o exemplo típico para estes casos (costumando, inclusive, ser algo relevante nos projetos de IAED, e que consta das boas práticas da cadeira).
 
+Podemos ainda fazer coisas giras com `#define`:
+
+```c
+#define ever (;;)
+
+void not_stopping_baby() {
+  for ever {
+    printf("Ups\n");
+  }
+}
+
+// ou ainda
+
+void oh_no() {
+  for ever {
+    oh_no();
+  }
+}
+```
+
 Resta realçar que as constantes são, por convenção, definidas com o nome todo em **caracteres maiúsculos**.
 
 ### Ciclo while
