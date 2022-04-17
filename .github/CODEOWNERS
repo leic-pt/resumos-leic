@@ -55,9 +55,8 @@ content/ia/** @diogotcorreia
 # IAC - Main maintainer Diogo Correia
 content/iac/** @diogotcorreia
 
-# IAED - Main maintainer Tomás Esteves
-content/iaed/** @Pesteves2002
-content/iaed/labs/* @diogotcorreia @Pesteves2002
+# IAED - Main maintainer Tomás Esteves / Diogo Gaspar
+content/iaed/** @Pesteves2002 @randomicecube
 content/iaed/meta/* @diogotcorreia
 
 # IEI - Main maintainer Diogo Correia

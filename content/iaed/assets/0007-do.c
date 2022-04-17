@@ -1,4 +1,0 @@
-do
-{
-<instrucoes>
-} while (<expressao>);
