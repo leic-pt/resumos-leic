@@ -180,7 +180,7 @@ De qualquer forma a computação termina e $L$ é decidível.
 
 ### Redução Computável
 
-Nas provas acima e no capítulo anterior, por vezes pegamos em máquinas de Turing que já conhecíamos para criar máquinas de Turing que resolviam problemas que ainda nao tínhamos resolvido.
+Nas provas acima e no capítulo anterior, por vezes pegamos em máquinas de Turing que já conhecíamos para criar máquinas de Turing que resolviam problemas que ainda não tínhamos resolvido.
 A ideia de [**redução computável**](color:orange) consiste exatamente nisso:
 
 Sejam $L_1$ e $L_2$ linguagens sobre os alfabetos $\Sigma_1$ e $\Sigma_2$, respetivamente.
@@ -192,7 +192,7 @@ $$
 
 :::tip[Proposição]
 
-Sejam $L_1$ e $L_2$ linguagens sobre $\Sigma_1$ e $\Sigma_2$, respetivamente. Se $L_1 \leq L_2$ e $L_2$ é decidível (respetivamente conhecível) então $L_1$ é decidível (resp. reconhecível).
+Sejam $L_1$ e $L_2$ linguagens sobre $\Sigma_1$ e $\Sigma_2$, respetivamente. Se $L_1 \leq L_2$ e $L_2$ é decidível (respetivamente reconhecível) então $L_1$ é decidível (resp. reconhecível).
 
 :::
 
@@ -223,7 +223,7 @@ Dado um alfabeto $\Sigma$ distinguimos as seguintes linguagens:
 
 De forma mais intuitiva, podemos pensar que a linguagem $\mathcal{L}_{ac}^\Sigma$ consiste nos pares $(M, \omega) \in \mathcal{M}^\Sigma \times \Sigma^*$ constituídos por uma máquina de Turing $M$ e uma palavra $\omega$ tais que $\omega \in L_{ac}(M)$, isto é, $\omega$ é aceite por $M$.  
 De forma a podermos representar estes pares por uma palavra, usamos a representaçao canónica de máquinas, separando esta representação da palavra input por um $\text{\textdollar}$.
-De forma semelhante, $L_{rj}^\Sigma$ contém pares $(M, \omega) \in \mathcal{M}^\Sigma \times \Sigma^*$ tais que $\omega \in L_{rj}(M)$, $L_{su}^\Sigma$ os pares tais que $\omega \in L_{ac}(M) \cup L_{rj}(M)$, e por aí em diante.
+De forma semelhante, $\mathcal{L}_{rj}^\Sigma$ contém pares $(M, \omega) \in \mathcal{M}^\Sigma \times \Sigma^*$ tais que $\omega \in L_{rj}(M)$, $\mathcal{L}_{su}^\Sigma$ os pares tais que $\omega \in L_{ac}(M) \cup L_{rj}(M)$, e por aí em diante.
 
 :::tip[Proposição]
 
