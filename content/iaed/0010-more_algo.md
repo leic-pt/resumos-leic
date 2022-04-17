@@ -11,116 +11,159 @@ type: content
 
 ```
 
+Entramos agora numa secção com alguns algoritmos de ordenação mais avançados, algoritmos estes que estarão, de uma maneira ou de outra, presentes na nossa carreira profissional.
+
 ## Quick Sort
 
-### Ideia
+A par do _merge sort_, o mais "comum" de entre os algoritmos desta secção. Bastante popular devido ao quão fácil é implementá-lo, a par de um caso médio de complexidade relativamente bom. A `stdlib` em C oferece uma [implementação nativa, `qsort()`](https://linux.die.net/man/3/qsort), mas [**atenção**](color:red): a docência de IAED costuma proibir o seu uso em contexto de projetos, pelo que se a quiserem usar devem consultar o enunciado dos mesmos e/ou contactar a docência.
 
-![Quick Sort](./assets/0010-qsort.gif)
+![Funcionamento do quick sort](./assets/0010-qsort.gif)
 
-- Vantagens
-  - popular devido à facilidade de implementação e eficiência
-    , em média, para ordenar objectos
-  - ciclo interno muito simples e conciso
-- Inconvenientes
-  - não é estável; no pior caso!
-  - frágil: qualquer pequeno erro de concretização pode não ser
-    detectado mas levar a ineficiência
-- Biblioteca C fornece uma concretização: `qsort()`
+É o primeiro algoritmo que vamos estudar que segue a metodologia [**"dividir para conquistar"**](color:orange), _divide and conquer_: a ideia chave passa por realizar partições sucessivas dos dados, e ordenar cada partição independente e recursivamente (das mais pequenas para as maiores). As partições em si são feitas ao escolher um **pivô**, um elemento à nossa escolha do vetor, e dividindo o vetor em duas partes: a parte da esquerda, com elementos com chave menor que a do pivô, e a da direita com elementos que possuem chave maior que ele. Estas partições são, claro, criadas recursivamente. Quando chegamos ao fim da recursão, fazemos _backtracking_, ordenando as partições. **Por norma**, o algoritmo de ordenação auxiliar utilizado para ordenar as partições é o _insertion sort_.
 
-Aplica método dividir para conquistar para ordenar
-(“divide and conquer”)
+```c
+void quick_sort(Item a[], int left, int right) {
+    int i;
+    if (right <= left) {
+        return;
+    }
+    i = partition(a, left, right);
+    quick_sort(a, left, i - 1);
+    quick_sort(a, i + 1, right);
+}
 
-- Ideia chave: efectuar partição dos dados e ordenar as
-  várias partes independentemente (de forma recursiva)
+int partition(Item a[], int left, int right) {
+    int i = left - 1, j = right;
+    Item v = a[right];
+    while (i < j) {
+        while (less(a[++i], v))
+            ;
+        while (less(v, a[--j])) {
+            if (j == left) {
+                break;
+            }
+        }
+        if (i < j) {
+            exch(a[i], a[j]);
+        }
+    }
+    exch(a[i], a[right]);
+    return i;
+}
+```
 
-  - particionar os dados: menores para um lado, maiores para outro
-  - usar recursão e aplicar algoritmo a cada uma das partes
-  - processo de partição é crítico para evitar partições degeneradas
+Pode ser difícil entender o funcionamento do algoritmo só por palavras, pelo que o vídeo abaixo pode ajuda a clarificar algumas dúvidas:
 
-### Código
+::youtube{#XE4VP_8Y0BU}
 
-`embed:assets/0010-qsort.c`
-
-- Trocas: $2N \log (N)$
-- Pior Caso: $O(N^2)$
-- Melhor Caso: $\Omega(N \log (N))$
-
-- Não apenas o tempo necessário para a execução do
-  algoritmo cresce quadraticamente como o espaço
-  necessário para o processo recursivo é de cerca de $N$ o
-  que é inaceitável para vectores grandes. É possível
-  modificar para obter espaço $O(\log (N))$
-
-### Melhorias
-
-- Podemos escolher o pivô para que seja mais eficiente
-
-- QuickSort é garantido instanciar-se a si próprio múltiplas
-  vezes para vectores pequenos!
-- Conveniente utilizar o melhor método possível nesta
-  situação: insertion sort
+O algoritmo realiza $2n\log{n}$ trocas, possuindo complexidade temporal no pior caso quadrática. A complexidade espacial do algoritmo é também quadrática, pelo que para vetores muito grandes pode não ser ideal utilizar o _quick sort_. **Não é um algoritmo estável**.
 
 ## Merge Sort
 
-### Explicação
+O outro algoritmo desta secção baseado na metodologia _divide and conquer_.
 
 ![Merge](./assets/0010-merge-sort.gif)
 
-- Partir sucessivamente ao
-  meio o vector de
-  elementos a ordenar,
-  até obtermos vectores
-  com apenas um elemento
+O objetivo aqui passa por _partir_ sucessivamente em metade o vetor de elementos a ordenar, até obtermos vetores com apenas um elemento. Ao chegar a vetores com um só elemento, fazemos _merges_ sucessivos entre dois vetores "vizinhos", de modo a gerar um vetor ordenado a partir de dois outros vetores ordenados - podemos fazê-lo, já que o _caso base_ da recursão, vetores com um só elemento, estão ordenados por natureza. O _gif_ acima pode ser bastante útil a entender o procedimento do algoritmo.
 
-Quando chegamos a vetores de um elemento:
+```c
+void merge_sort(Item a[], int left, int right) {
+    int m = (right + left) / 2;
+    if (right <= left) {
+        return;
+    }
+    merge_sort(a, left, m);
+    merge_sort(a, m + 1, right);
+    merge(a, left, m, right);
+}
 
-- Aplicar sucessivamente o
-  procedimento de Merge,
-  para gerar um vector
-  ordenado a partir de dois
-  vectores ordenados
+Item aux[maxN];
 
-### Código
+void merge(Item a[], int left, int m, int right) {
+    int i, j, k;
+    for (i = m + 1; i > left; i--) {
+        aux[i - 1] = a[i - 1];
+    }
+    for (j = m; j < right; j++) {
+        aux[right + m - j] = a[j + 1];
+    }
+    for (k = left; k <= right; k++) {
+        if (less(aux[j], aux[i]) || i == m + 1) {
+            a[k] = aux[j--];
+        } else {
+            a[k] = aux[i++];
+        }
+    }
+}
+```
 
-`embed:assets/0010-mergesort.c`
-
-- Pior Caso: $O(N \log (N))$
-- Melhor Caso: $\Omega(N \log (N))$
+Este é o primeiro algoritmo de ordenação de vetores que vimos até agora com [**pior caso sub-quadrático**](color:green): a sua complexidade temporal é $O(n\log{n})$ (e também $\Omega(n\log{n})$).
 
 ## Heap Sort (Enquadramento)
 
-### Explicação
+O _heap sort_ utiliza a noção de _heap_, ou **amontoado**. A raiz desta estrutura deve conter sempre o menor/maior elemento do vetor (consoante queiramos uma _min_ ou _max heap_). Considerando o caso em que o **maior** elemento do vetor é a raiz, podemos definir _heap_ tal que:
 
-![Merge](./assets/0010-heap.gif)
+$$
+\forall_{1 \leq i \leq n}, \qquad A[\op{pai}(i)] \geq A[i]
+$$
 
-- Podemos pensar no heapsort como um selection sort
-  mais eficiente.
+Temos, portanto, que neste caso particular nenhum elemento pode ter chave maior que a do seu pai.
 
-- o Heapsort mantém os dados organizados
-  numa estrutura de dados (chamada heap).
-- A raiz dessa estrutura, contém sempre
-  o maior elemento.
-- Os elementos podem ser sucessivamente removidos
-  da raiz da heap, na ordem desejada, tendo o cuidado
-  de manter as propriedades dessa estrutura
+![Heap - Exemplo](./assets/0010-min-max-heap.png#dark=3)
 
-### Código
+A explicação deste algoritmo por palavras não é muito fácil, pelo que preferimos recorrer ao _gif_ abaixo para ajudar à explicação:
 
-`embed:assets/0010-heap.c`
+![Heap Sort](./assets/0010-heap.gif#dark=3)
 
-- Construção do amontoado (ciclo `for`):
-  - $O(N \log (N))$ no pior caso
-  - Pode ser provado $O(N)$
-- Colocação das chaves (ciclo `while`):
-  - $O(N \log (N))$ no pior caso
-  - Pode ser provado que para elementos distintos, o melhor caso
-    também é Ω$(N \log (N))$
-- Complexidade no pior caso é $O(N \log (N))$
-- Não é estável
+Inicialmente, construímos a **max heap**, que segue o tal princípio de que cada elemento tem chave menor igual à do pai. De seguida, retiramos a raiz do amontoado e colocamo-lo no fim do vetor - esse elemento encontra-se **ordenado**. Vamos ao último elemento do vetor, dizemos que essa é a nova raiz, e fazemos _fix down_ da _heap_, de modo a que o maior elemento do amontoado volte a estar presente na raiz. Fazemos este processo sucessivamente até que o amontoado tenha apenas um elemento, estando então ordenado.
 
-- Algoritmos de ordenação baseados em comparações
-  são pelo menos Ω(N \log N)
+```c
+void heap_sort(Item a[], int l, int r) {
+    build_heap(a, l, r);
+    while (r - l > 0) {
+        exch(a[l], a[r]);
+        fix_down(a, l, --r, l);
+    }
+}
 
-Recomendo vivamente a ver os slides da aula e investigar mais sobre estes algoritmos.
+void build_heap(Item a[], int l, int r) {
+    int k, heapsize = r - l + 1;
+    for (k = heapsize / 2 - 1; k >= l; k--) {
+        fix_down(a, l, r, l + k);
+    }
+}
 
-- [Demonstração visual dos algoritmos](https://gonque.github.io/sorting-algos/)
+void fix_down(Item a[], int l, int r, int k) {
+    int ileft, iright, largest = k;
+    ileft = l + left(k - l);
+    iright = l + right(k - l);
+    if (ileft <= r && less(a[largest], a[ileft])) {
+        largest = ileft;
+    }
+    if (iright <= r && less(a[largest], a[iright])) {
+        largest = iright;
+    }
+    if (largest != k) {
+        exch(a[k], a[largest]);
+        fix_down(a, l, r, largest);
+    }
+}
+
+int parent(int k) {
+    return ((k + 1) / 2) - 1;
+}
+
+int left(int k) {
+    return 2 * k + 1;
+}
+
+int right(int k) {
+    return 2 * (k + 1);
+}
+```
+
+A construção do amontoado é realizada em tempo sub-quadrático, $O(n \log{n})$ (pode ainda ser provado que é realizada em tempo linear). A _colocação das chaves_ segue a mesma complexidade no pior caso, tal como o **próprio algoritmo**: o _heap sort_ tem complexidade temporal $O(n\log{n})$. **Não é estável**.
+
+---
+
+Mais uma vez, e tal como no final da última página, recomendo consultar a [demonstração visual dos algoritmos](https://gonque.github.io/sorting-algos) referidos nesta página.

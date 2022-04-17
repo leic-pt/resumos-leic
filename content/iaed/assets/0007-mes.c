@@ -1,6 +1,5 @@
 #include <stdio.h>
-enum meses
-{
+enum meses {
     JAN = 1,
     FEV, /* = 2 */
     MAR, /* = 3 */
@@ -14,16 +13,17 @@ enum meses
     NOV,
     DEZ /* = 12 */
 };
-int main()
-{
+
+int main() {
     enum meses mes;
 
     mes = FEV;
     mes++;
 
-    if (mes == MAR)
+    if (mes == MAR) {
+        /* Escreve a string */
         puts("Estamos em Março");
-    /*Escreve a string*/
+    }
 
     return 0;
 }
