@@ -31,7 +31,7 @@ Em C, podemos incrementar uma variável em $1$ unidade de várias maneiras. Num 
 
 `i++` e `++i` agem de maneira idêntica quando usadas em contexto "isolado", diferindo contudo quando utilizadas em contextos de comparação ou similares.
 
-- `++i` incrementa o seu valor [**antes**](color:green) de verificar se a condição em que se encontra.
+- `++i` incrementa o seu valor [**antes**](color:green) de verificar a condição em que se encontra.
 
 - `i++` incrementa o seu valor [**depois**](color:red) de verificar a condição em que se encontra.
 
