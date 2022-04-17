@@ -165,4 +165,4 @@ A complexidade temporal do algoritmo está inerentemente ligada ao $h$ escolhido
 
 ---
 
-Os slides que tipicamente acompanham a cadeira costumam incluir alguns exercícios para ajudar a entender o funcionamento dos algoritmos em questão. Mais ainda, aconselhamos também a consulta [deste site](https://gonque.github.io/sorting-algos/) para ajudar à visualização dos mesmos.
+Os slides que tipicamente acompanham a cadeira costumam incluir alguns exercícios para ajudar a entender o funcionamento dos algoritmos em questão. Mais ainda, aconselhamos também a consulta [deste site para ajudar à visualização dos mesmos](https://gonque.github.io/sorting-algos/).

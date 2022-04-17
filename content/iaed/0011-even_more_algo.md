@@ -171,4 +171,4 @@ Abaixo podem ver um exemplo da aplicação do _Radix MSD_:
 
 ---
 
-Mais uma vez, e tal como no final das duas últimas páginas, fica [aqui](https://gonque.github.io/sorting-algos) um _link_ que permite a demonstração visual dos algoritmos referidos nesta página
+Mais uma vez, e tal como no final das duas últimas páginas, recomendo consultar a [demonstração visual dos algoritmos](https://gonque.github.io/sorting-algos) referidos nesta página.

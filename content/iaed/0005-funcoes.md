@@ -102,12 +102,12 @@ int main() {
  */
 ```
 
-:::tip[Conversão do Tipo de 1 Variável]
+:::tip[Conversão do Tipo de Uma Variável]
 Para fazer uma divisão entre inteiros, por vezes a parte inteira não chega.
 Assim, convertemos o divisor para outro tipo de dados, `float`, para que a assim a divisão mostre casas decimais.
 
 ```c
-media = soma / (float) num_alunos;
+float media = soma / (float) num_alunos;
 ```
 
 :::

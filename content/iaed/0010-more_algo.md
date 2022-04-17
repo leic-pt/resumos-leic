@@ -15,7 +15,7 @@ Entramos agora numa secção com alguns algoritmos de ordenação mais avançado
 
 ## Quick Sort
 
-A par do _merge sort_, o mais "comum" de entre os algoritmos desta secção. Bastante popular devido ao quão fácil é implementá-lo, a par de um caso médio de complexidade relativamente bom. A `stdlib` em C oferece uma implementação nativa, `qsort()`, mas [**atenção**](color:red): a docência de IAED costuma proibir o seu uso em contexto de projetos, pelo que se a quiserem usar devem consultar o enunciado dos mesmos e/ou contactar a docência.
+A par do _merge sort_, o mais "comum" de entre os algoritmos desta secção. Bastante popular devido ao quão fácil é implementá-lo, a par de um caso médio de complexidade relativamente bom. A `stdlib` em C oferece uma [implementação nativa, `qsort()`](https://linux.die.net/man/3/qsort), mas [**atenção**](color:red): a docência de IAED costuma proibir o seu uso em contexto de projetos, pelo que se a quiserem usar devem consultar o enunciado dos mesmos e/ou contactar a docência.
 
 ![Funcionamento do quick sort](./assets/0010-qsort.gif)
 
@@ -166,4 +166,4 @@ A construção do amontoado é realizada em tempo sub-quadrático, $O(n \log{n})
 
 ---
 
-Mais uma vez, e tal como no final da última página, fica [aqui](https://gonque.github.io/sorting-algos) um _link_ que permite a demonstração visual dos algoritmos referidos nesta página
+Mais uma vez, e tal como no final da última página, recomendo consultar a [demonstração visual dos algoritmos](https://gonque.github.io/sorting-algos) referidos nesta página.

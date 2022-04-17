@@ -33,7 +33,7 @@ Podemos medir a eficiência/complexidade dos nossos programas em relação ao [*
 
 A **complexidade** de um algoritmo, seja ela temporal ou espacial, está associada a um _crescimento_ da função que a define (em função do seu input). As funções de crescimento com que mais tipicamente nos vamos deparar serão:
 
-[**$1$**](color:red) - O número de instruções de um programa/o espaço ocupado por um programa for um número constante e/ou limitado.
+[**$1$**](color:red) - O número de instruções de um programa/o espaço ocupado por um programa é um número constante e/ou limitado.
 
 [**$\log{n}$**](color:red) - O número de instruções de um programa/o espaço ocupado por um programa é logarítmico: dividimos continuamente o input ao meio (como na pesquisa binária, por exemplo).
 
@@ -61,6 +61,6 @@ A notação assimptótica permite estabelecer taxas de crescimento dos tempo de 
 - A notação $\Omega$ (Ómega) corresponde ao [**limite assimptótico inferior**](color:orange). Permite aferir a complexidade no melhor caso.
 - A notação $\Theta$ (Téta) corresponde ao [**limite assimptótico apertado**](color:green). Corresponde às situações em que os melhor e pior casos têm a mesma complexidade.
 
-Transpondo estas definições para exemplos práticos, podemos pensar nos problemas de pesquisa de elemtno num vetor vs imprimir todos os valores presentes num vetor.
+Transpondo estas definições para exemplos práticos, podemos pensar nos problemas de pesquisa de elementos num vetor vs imprimir todos os valores presentes num vetor.
 
 O primeiro problema tem melhor caso $1$, constante, caso o valor a procurar se encontre logo na primeira posição/o vetor esteja vazio: $\Omega(1)$. Tem, por outro lado, $O(n)$ como pior caso, já que pode ser preciso percorrer o vetor todo para o fazer. O segundo problema, contudo, tem melhor e pior casos com igual número de operações, linear: não podemos imprimir todos os valores de um vetor sem o percorrer completamente, $\Theta(n)$.

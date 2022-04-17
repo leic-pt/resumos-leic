@@ -80,7 +80,7 @@ int main () {
 
 Uma tabela permite guardar vários elementos do mesmo tipo. Podemos, claro, guardar tabelas dentro de tabelas! `char tab[DIM1][DIM2];` cria uma tabela `tab` de tamanho `DIM1` que armazena tabelas de tamanho `DIM2` que armazena caracteres.
 
-Para aceder o valor da tabela indexada por `i` na posição `j`, devemos escrever `tab[i][j]`. Por outro lado, para atribuir um valor à tabela `i` na posição `j`, devemos escrever `tab[i][j] = n`.
+Para aceder ao valor da posição `j` na tabela indexada por `i`, devemos escrever `tab[i][j]`. Por outro lado, para atribuir um valor à posição `j` na tabela `i`, devemos escrever `tab[i][j] = n`.
 
 ## Strings (Cadeias de Caracteres)
 
@@ -96,7 +96,8 @@ $$
 \end{array}
 $$
 
-Em C, qualquer cadeia de caracteres que se preze acaba com `\0`: a cadeia de caracteres "hello\n", por exemplo, é composta pelos caracteres `h`, `e`, `l`, `l`, `o`, `\n` e `\0`. O `\0` indica **o fim da cadeia de caracteres**, e a função `printf` espera strings neste formato (podemos _printar_ cadeias de caracteres usando `%s`).
+Em C, qualquer cadeia de caracteres que se preze acaba com `\0`: a cadeia de caracteres "hello\n", por exemplo, é composta pelos caracteres `h`, `e`, `l`, `l`, `o`, `\n` e `\0`.  
+O `\0` indica **o fim da cadeia de caracteres**, e a função `printf` espera strings neste formato (podemos _printar_ cadeias de caracteres usando `%s`).
 
 Os Vetores são copiados posição a posição!
 
@@ -159,5 +160,5 @@ Exemplos úteis (que vão certamente ser-vos úteis nos vossos projetos) incluem
 - entre outros.
 
 :::tip
-Escrever `man <nome da função>` no terminal permite ver o que as funções fazem. Caso não tenham um sistema onde _manpages_ estejam à vossa disposição, [esta página](https://man7.org/linux/man-pages/dir_section_3.html) pode ser-vos particularmente útil.
+Escrever `man <nome da função>` no terminal permite ver o que as funções fazem. Caso não tenham um sistema onde _manpages_ estejam à vossa disposição, [as _manpages_ online](https://man7.org/linux/man-pages/dir_section_3.html) podem ser-vos particularmente útil.
 :::

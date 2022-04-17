@@ -21,7 +21,7 @@ Podemos ainda usar uma _keyword_ adicional, útil em algumas circunstâncias par
 
 :::danger[]
 
-Resta realçar, por fim, que podemos obter o **tamanho (em bytes) de um tipo de dados na nossa máquina** utilizando `sizeof(<tipo>)`. [**Não devemos decorar o tamanho**](color:red): em alguns casos específicos, este pode mudar de máquina para máquina, pelo que devemos **sempre** utilizar `sizeof` quando nos queremos referir ao tamanho de um tipo.
+Resta realçar, por fim, que podemos obter o **tamanho (em bytes) de um tipo de dados na nossa máquina** utilizando `sizeof(<tipo>)`. [**Não devemos decorar o tamanho**](color:red): em alguns casos específicos, este [pode mudar de máquina para máquina](https://en.wikipedia.org/wiki/Sizeof#Purpose), pelo que devemos **sempre** utilizar `sizeof` quando nos queremos referir ao tamanho de um tipo.
 
 :::
 
@@ -50,7 +50,7 @@ Existe uma [função `atoi` na _standard library_](https://linux.die.net/man/3/a
 
 Na maioria das linguagens tipificadas, é possível **forçar** a conversão de um tipo de dados para outro: esta operação chama-se _casting_. _Casts_ clássicos incluem, por exemplo forçar a **truncagem** de um `float` para um `int` (como por exemplo `int n = (int) 2.34`).
 
-Ao chamar funções, contudo, o _casting_ é automático: consideremos, por exemplo, a função `double sqrt(double n)`, que calcula a raiz quadrada do respetivo argumento. Passar `2` e `2.0` como argumento surte o mesmo efeito, já que o C trata de fazer por nós o _cast_ de `2` para inteiro.
+Ao chamar funções, contudo, o _casting_ é automático: consideremos, por exemplo, a função `double sqrt(double n)`, que calcula a raiz quadrada do respetivo argumento. Passar `2` e `2.0` como argumento surte o mesmo efeito, já que o C trata de fazer por nós o _cast_ de `2` para `double`.
 
 :::
 
@@ -115,7 +115,7 @@ No caso de variáveis locais, na ausência de inicialização estas ficarão com
 
 :::
 
-Podemos ainda definir variáveis constantes, através da _keyword_ `const`: pode anteceder qualquer alteração, e significa que o valor associado àquele nome nunca vai mudar (nem pode). Sempre que tentarmos modificar o valor de uma constante, [**o compilador vai gritar connosco**](color:red) - não queremos que o compilador grite connosco.
+Podemos ainda definir variáveis constantes, através da _keyword_ `const`: pode anteceder qualquer declaração, e significa que o valor associado àquele nome nunca vai mudar (nem pode). Sempre que tentarmos modificar o valor de uma constante, [**o compilador vai gritar connosco**](color:red) - não queremos que o compilador grite connosco.
 
 ```c
 const double e = 2.71828182845905;
@@ -163,7 +163,7 @@ Em C, é possível efectuar operações sobre a representação binária de um n
 - `<<` shift left
 - `>>` shift right
 
-Com o MEPP, IAC passou para depois de IAED, pelo que é possível que ainda não tenham contactado a fundo com notação binária. Podem, contudo, encontrar um apanhado geral do funcionamento destes operadores [aqui](https://www.programiz.com/c-programming/bitwise-operators).
+Com o MEPP, IAC passou para depois de IAED, pelo que é possível que ainda não tenham contactado a fundo com notação binária. Podem, contudo, encontrar um [apanhado geral do funcionamento destes operadores](https://www.programiz.com/c-programming/bitwise-operators) noutros sites.
 
 ```c
 int x = 1, y = 2;
