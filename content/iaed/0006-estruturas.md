@@ -70,8 +70,7 @@ centro.y = 5.2;
 As estruturas permitem incluir outras estruturas.
 
 ```c
-struct rectangulo
-{
+struct rectangulo {
     struct ponto a, b;
 };
 

@@ -67,11 +67,11 @@ O outro algoritmo desta secção baseado na metodologia _divide and conquer_.
 O objetivo aqui passa por _partir_ sucessivamente em metade o vetor de elementos a ordenar, até obtermos vetores com apenas um elemento. Ao chegar a vetores com um só elemento, fazemos _merges_ sucessivos entre dois vetores "vizinhos", de modo a gerar um vetor ordenado a partir de dois outros vetores ordenados - podemos fazê-lo, já que o _caso base_ da recursão, vetores com um só elemento, estão ordenados por natureza. O _gif_ acima pode ser bastante útil a entender o procedimento do algoritmo.
 
 ```c
-void merge_sort(Item a[], int left, int right)
-{
+void merge_sort(Item a[], int left, int right) {
     int m = (right + left) / 2;
-    if (right <= left)
+    if (right <= left) {
         return;
+    }
     merge_sort(a, left, m);
     merge_sort(a, m + 1, right);
     merge(a, left, m, right);

@@ -91,8 +91,7 @@ Cada linha contém 0 ou mais caracteres e acaba com o caracter `\n`. Funções h
 ```c
 #include <stdio.h>
 
-int main()
-{
+int main() {
     char a = 'T';
     printf("Ao caracter %c corresponde o código ASCII %d.\n", a , a);
     return 0;
