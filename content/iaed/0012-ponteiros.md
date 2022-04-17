@@ -60,53 +60,14 @@ Ponteiros têm uma aritmética própria - é possível realizar somas e subtraç
 
 ### Declarações
 
-A declaração `int *p1;` declara o mesmo que `int p2[]` - um vetor de inteiros. `p1`, contudo, poderá ser alterado, enquanto que `p2` não pode.
+A declaração `int *p1;` declara o mesmo que `int p2[]` - um vetor de inteiros. `p1`, contudo, poderá ser alterado, enquanto que `p2` não pode. Aqui, a noção de **alteração** pode não ser clara: podemos alterar elementos de `p2` (por exemplo,`p2[2] = 3;` é possível), mas não podemos dizer "ok, `p2 = <vector diferente>;`. Esta noção tornará-se-á porventura mais clara na próxima página, quando falarmos de alocação dinâmica de memória (e das limitações da alocação estática, como a de `p2`).
 
-A declaração `int p3[100];` declara, por exemplo, uma tabela com 100 inteiros e aloca a quantidade necessária de memória.
+Pegando num exemplo prático, e seguindo a lógica das diferenças entre `p1` e `p2`, qual será a diferença entre as duas declarações seguintes?
 
-A declaração `char *text;` não aloca qualquer memória
+- `char t1[] = "ola";`
 
-- no entanto `char *text = "ola";` aloca
+- `char *t2 = "ola";`
 
-Qual a diferença entre as duas declarações seguintes ?
-
-`char t1[] = "ola";`
-
-`char *t2 = "ola";`
-
-Ambas alocam 4 bytes e copiam para essa posição de
-memória\
-a sequência de caracteres `'o','l','a','\0'`
-
-- No caso `t1` é possível modificar o conteúdo da memória
-  alocada
-- Não é possível alterar o valor de `t1`, ou seja não é possível
-  pôr `t1` a endereçar outra posição de memória
-- É possível alterar o valor de `t2`
+Ambas alocam 4 bytes e copiam para essa posição de memória a sequência de caracteres `'o','l','a','\0'`. Contudo, em `t1` é possível modificar o **conteúdo** da memória alocada - fazer `t1[0] = 'c'`, por exemplo - mas não é possível alterar o valor de `t1` (não é possível pôr `t1` a endereçar outra posição de memória). Podemos, claro, alterar o valor de `t2`
 
 `embed:assets/0012-arrays.c`
-
-:::danger
-
-Ao fazer
-
-`int *a;`
-
-apenas estamos a reservar memória para 1 endereço de
-memória e não para um inteiro.
-
-- Por esta razão, não devemos inicializar o conteúdo de um
-  ponteiro sem que saibamos exactamente onde ele está a
-  escrever.
-
-Evitar isto!!!
-
-`int *a;`
-
-`*a=12; `
-
-É possível ter ponteiros para funções,
-mas o professor desencoraja a usar pois é algo um pouco complexo.
-Se quiserem ver como funciona vejam os slides.
-
-:::
