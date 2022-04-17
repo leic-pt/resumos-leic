@@ -143,7 +143,7 @@ int main () {
 
 :::tip[]
 Utiliza-se o `%d` para ler um inteiro. Se pretendêssemos ler dois inteiros seguidos faríamos
-`scanf("%d%d", &x, &y)`, por exemplo. Para ler um float utiliza-se `%f` (podem encontrar uma lista mais completa [aqui](https://nick-lab.gs.washington.edu/cworkshop/formaters.html)).
+`scanf("%d%d", &x, &y)`, por exemplo. Para ler um float utiliza-se `%f` (para uma lista mais completa, [ver todos os _format codes_ disponíveis](https://nick-lab.gs.washington.edu/cworkshop/formaters.html)).
 
 Num `scanf`, **é necessário colocar o `&` antes do nome da variável** (a não ser que estejamos na presença de uma sequência de caracteres, `%s`). Aprenderão mais à frente na cadeira, na secção [Ponteiros e Tabelas](/iaed/ponteiros), o porquê da sintaxe ser esta.
 :::
