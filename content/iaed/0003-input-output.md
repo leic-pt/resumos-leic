@@ -29,7 +29,7 @@ Podemos atribuir o mesmo valores a várias variáveis: `int notas = aprovacoes =
 
 Em C, podemos incrementar uma variável em $1$ unidade de várias maneiras. Num primeiro momento, iremos abordar `++i` e `i++`.
 
-`i++` e `++i` agem de maneira idêntica fora das condições `for` e `while`, diferindo, contudo quando se encontram dentro das mesmas:
+`i++` e `++i` agem de maneira idêntica quando usadas em contexto "isolado", diferindo contudo quando utilizadas em contextos de comparação ou similares.
 
 - `++i` incrementa o seu valor [**antes**](color:green) de verificar se a condição em que se encontra.
 

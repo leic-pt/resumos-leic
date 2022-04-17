@@ -29,7 +29,9 @@ if (/* condição 1 */) {
 
 ### Switch
 
-Passamos então a uma operação que não foi abordada em FP: `switch` (_switch-case_) corresponde a um problema de decisão com múltiplas opções. Testa-se uma expressão, sendo que se a mesma coincidir com um dado _caso_, a instrução/conjunto de instruções a ele associadas são executadas. Podemos ainda definir (não obrigatoriamente) um conjunto de instruções para o caso especial em que a expressão não coincide com nenhum dos outros casos: `default`. Devemos [**sempre**](color:red) colocar um `break` no final de cada conjunto de instruções, visto que caso contrário continuaremos a verificar todos os outros casos.
+Passamos então a uma operação que não foi abordada em FP: `switch` (_switch-case_) corresponde a um problema de decisão com múltiplas opções. Testa-se uma expressão, sendo que se a mesma coincidir com um dado _caso_, a instrução/conjunto de instruções a ele associadas são executadas. Podemos ainda definir (não obrigatoriamente) um conjunto de instruções para o caso especial em que a expressão não coincide com nenhum dos outros casos: `default`.
+
+Devemos por norma colocar um `break` no final de cada conjunto de instruções, visto que caso contrário continuaremos a verificar todos os outros casos. Exceções aplicam-se quando queremos que dois `case`s distintos seguidos executem o mesmo conjunto de instruções: no trecho abaixo podemos ver isso mesmo com `case 'b'` e `case 'B'`, que vão executar o mesmo conjunto de instruções.
 
 ```c
 switch (c = getchar()) {

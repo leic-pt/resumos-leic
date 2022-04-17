@@ -80,7 +80,7 @@ A complexidade temporal do algoritmo é dada por $O(n + m)$, onde $n$ é o taman
 
 O _radix sort_ baseia-se na **estrutura** dos elementos que pretende ordenar: ordena elementos processando cada dígito/bit/caracter do elemento atual separadamente (utilizando para esse efeito um outro algoritmo de ordenação, tipicamente o _counting sort_).
 
-A sua complexidade temporal é $O(nm)$, onde $n$ é a quantidade de elementos a ordenar e $m$ o _valor_ máximo a considerar: se estivermos a ordenar palavras _lowercase_, por exemplo, dizemos que $m = 26$ (número de letras do alfabeto).
+A sua complexidade temporal é $O(nm)$, onde $n$ é a quantidade de elementos a ordenar e $m$ o tamanho da palavra a considerar: se estivermos a ordenar $10$ números com $3$ dígitos cada, por exemplo, teríamos $n = 10$ e $m = 3$.
 
 ![Radix](./assets/0011-radix.gif)
 
