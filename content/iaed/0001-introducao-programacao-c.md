@@ -10,7 +10,14 @@ type: content
 
 ## hello, world
 
-`embed:assets/0001-hello-world.c`
+```c
+#include <stdio.h>
+
+int main() {
+  printf("hello, world\n");
+  return 0;
+}
+```
 
 **Todos os programas têm uma função `main`.**
 Esta é a primeira função a ser executada no programa.
@@ -34,6 +41,28 @@ Como nota introdutória à linguagem, é importante realçar que apesar de a ide
 
 ## Fibonacci
 
-`embed:assets/0001-fibo.c`
+```c
+#include <stdio.h>
+
+typedef long long int int_t;
+
+int_t fib(int_t n) {
+  if (n == 0) {
+    return 0;
+  } else if (n == 1) {
+    return 1;
+  } else {
+    return fib(n - 1) + fib(n - 2);
+  }
+}
+
+int main(int argc, char **argv) {
+  int n = atoi(argv[1]);
+
+  printf("fib (%d) = %lli\n", n, fib(n));
+
+  return 0;
+}
+```
 
 O tipo de dados `int` em C representa um inteiro de 32 bits. O tipo `long long int` já permite guardar mais do que 64 bits. Vamos deparar-nos ao longo da UC (e noutras ocasiões) com casos em que um `int` normal não basta - aplicações bancárias, por exemplo, requerem uma enorme precisão e capacidade para trabalhar com inteiros (e não só) muito grandes, pelo que `int` não é adequado.

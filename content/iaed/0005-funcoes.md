@@ -17,11 +17,21 @@ type: content
 
 Uma função é definida pelo seu **tipo de retorno**, **nome**, **declaração de parâmetros**, **variáveis (locais) que define** e pelas **instruções que executa**.
 
-`embed:assets/0005-def.c`
+```c
+#include <stdio.h>
+
+int exemplo(int a) {
+    int b = 2;
+    a = a + b;
+    return a;
+}
+```
 
 Os [**protótipos**](color:orange) permitem indicar que a função é conhecida pelo o compilador. **Uma função deve ser conhecida pelo compilador** antes de este "ler" qualquer função que a chame, direta ou indiretamente. Por exemplo, caso `main` seja a primeira função com _código escrito_ no nosso _source code_, devemos ter sempre, ou em _header files_ (`.h`) ou antes da _main_ definidos os protótipos de todas as funções auxiliares do programa.
 
-`embed:assets/0005-prot.c`
+```c
+int exemplo(int a);
+```
 
 ### Return
 
@@ -30,7 +40,31 @@ Quando executada, o valor da `expressão` é automaticamente convertido para o t
 
 Uma funcão pode ainda não devolver nada se o seu tipo de retorno for `void`.
 
-`embed:assets/0005-pot.c`
+```c
+#include <stdio.h>
+
+int potencia(int base, int n); /* Protótipo */
+
+int main() {
+    int i;
+
+    for (i = 0; i < 10; i++) {
+        printf("%d %d %d\n", i, potencia(2, i), potencia(-3, i));
+    }
+
+    return 0;
+}
+
+int potencia(int base, int n) {
+    int i, p = 1;
+
+    for (i = 1; i <= n; i++) {
+        p = p * base;
+    }
+
+    return p;
+}
+```
 
 ## Passagem de Parâmetros
 
@@ -42,7 +76,31 @@ Todos os argumentos são copiados para **variáveis temporárias** quando a fun�
 Existe uma [**exceção**](color:red) a esta regra: se o argumento for uma tabela, não é efectuada a cópia da tabela. Assim sendo, se a função alterar o conteúdo da tabela, estas alterações preservam-se.
 :::
 
-`embed:assets/0005-loc.c`
+```c
+int potencia(int base, int n) {
+    int p;
+    for (p = 1; n > 0; n--) {
+        /* O valor de n dentro da função varia,
+         * mas fora da função n mantém o seu valor original
+         */
+        p = p * base;
+    }
+    return p;
+}
+
+int main() {
+    int n = 2; /* Valor de n antes de ser executada a função potencia */
+    int base = 6;
+    int res;
+    res = potencia(base, n);
+
+    printf("%d\n", n);
+}
+
+/* O output do programa será 2, pois fora da
+ * função potencia o valor de n não mudou
+ */
+```
 
 :::tip[Conversão do Tipo de 1 Variável]
 Para fazer uma divisão entre inteiros, por vezes a parte inteira não chega.
@@ -58,4 +116,12 @@ media = soma / (float) num_alunos;
 
 Uma tabela tem de ser copiada elemento a elemento.
 
-`embed:assets/0005-copia.c`
+```c
+void copia(char destino[], char origem[]) {
+    int i;
+    for (i = 0; origem[i] != '\0'; i++) {
+        destino[i] = origem[i];
+    }
+    destino[i] = '\0';
+}
+```

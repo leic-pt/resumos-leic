@@ -19,10 +19,10 @@ Em C, a estrutura mais usual (e _built-in_) para guardar coleções de itens sã
 #define N 100
 // declaração de arrays
 int tab1[N];
-int *tab2 = (int *) malloc(N*sizeof(int));
-// acesso a elementos de um array
+int *tab2 = (int *) malloc(N * sizeof(int));
+// acesso a elementos de uma array
 x = tab2[i];
-y = *(tab2+i);
+y = *(tab2 + i);
 ```
 
 Esta simplicidade, contudo, traz também alguns pormenores desagradáveis, principalmente quanto à maneira como vetores são guardados em memória: **são guardados de forma sequencial**, isto é, em posições consecutivas de memória. É por essa razão que, em C, _arrays_ têm de ter tamanho fixo, a não ser que sejam alocados dinamicamente (via `malloc`). Ora, ter vetores de tamanho fixo pode ser bastante chato, principalmente porque caso precisemos _mesmo_ que o vetor aumente de tamanho, já que não vamos fugir a ter de realocar memória e copiar todos os elementos de uma posição em memória para outra, processo este relativamente ineficiente.
@@ -34,29 +34,31 @@ Ora, mas ainda antes de C aparecer, já havia sido pensada uma estrutura de dado
 Antes de falar de listas, será interessante definir [**estrutura auto-referenciada**](color:green): uma estrutura em que um dos seus campos é um ponteiro para outra estrutura do mesmo tipo. No exemplo abaixo, podemos ver que a estrutura ponto tem um apontador para outro ponto, o seu "pai".
 
 ```c
-typedef struct ponto {
+typedef struct point {
   double x;
   double y;
-  struct ponto *origem;
-} Ponto;
+  struct point *origem;
+} Point;
 ```
 
 Utilizamos estruturas deste tipo principalmente em **árvores** e **listas**, onde manter referências de nós quanto à sua posição relativa na árvore/lista é bastante importante.
 
 ### Lista Simplesmente Ligada
 
-![Singly Liked List](./assets/0014-listaligada.png#dark=1)
+![Lista Simplesmente Ligada](./assets/0014-listaligada.png#dark=1)
 
 As listas simplesmente ligadas (_singly linked lists_ em inglês) não são mais que uma maneira de organizar um conjunto de nós, onde cada nó contém, para além da respetiva informação útil (um valor, uma chave, etc.), um **ponteiro** para o próximo nó. Desta forma, tendo a **cabeça** da lista, podemos percorrer facilmente a lista completa, saltando de nó em nó recorrendo a ponteiros.
 
 ```c
 struct node {
-  int valor;
+  int value;
   struct node *next;
 };
 
+// ---
+
 struct node {
-  char *nome;
+  char *name;
   struct node *next;
 };
 ```
@@ -98,7 +100,46 @@ Temos ainda de ter em atenção que manter a cabeça destas listas é crucial: c
 
 Podemos implementar estruturas como pilhas e filas com base em listas ligadas:
 
-`embed:assets/0014-pilha.c`
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node {
+    int value;
+    struct node *next;
+};
+static struct node *top;
+
+void init() { /* inicializa a pilha */
+    top = NULL;
+}
+
+void push(int value) { /* introduz novo elemento no topo */
+    struct node *new;
+    new = (struct node *) malloc(sizeof(struct node));
+    new->value = value;
+    new->next = top;
+    top = new;
+}
+
+int is_empty() { /* pergunta se está vazia */
+    return top == NULL;
+}
+
+int pop() { /* apaga o topo e retorna o valor apagado */
+    int value;
+    struct node *old;
+    if (!is_empty()) {
+        value = top->value;
+        old = top;
+        top = top->next;
+        free(old);
+        return value;
+    } else {
+        return -1;
+    }
+}
+```
 
 :::
 
@@ -125,10 +166,11 @@ typedef struct node Node;
 typedef struct node* link;
 
 int length(link head) {
-  int count=0;
+  int count = 0;
   link x;
-  for (x = head; x != NULL; x = x->next)
+  for (x = head; x != NULL; x = x->next) {
       count++;
+  }
   return count;
 }
 ```
@@ -163,7 +205,7 @@ int main(int argc, char *argv[]) {
 
 Em princípio, a vossa interação teve este aspeto:
 
-```
+```sh
 $ ./program this is a test
 Received 5 arguments via command line
 Currently looking at this argument: ./program
@@ -177,4 +219,24 @@ Currently looking at this argument: test
 
 Podem, de seguida, ver uma aplicação mais prática da utilidade desta _feature_:
 
-`embed:assets/0014-arg.c`
+```c
+int main(int argc, char *argv[]) {
+    int i;
+    link head = NULL;
+
+    /* inserir todos os elementos na lista*/
+    for (i = 1; i < argc; i++) {
+        head = insert_end(head, argv[i]);
+    }
+
+    print_list(head); /* imprime toda a lista*/
+
+    /* remover o elemento na posição i (lido do stdin) */
+    scanf("%d", &i);
+    head = delete_node(head, argv[i]);
+
+    print_list(head); /* voltamos a imprimir toda a lista */
+
+    return 0;
+}
+```

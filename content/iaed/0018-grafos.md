@@ -13,31 +13,31 @@ type: content
 
 ## Definição e Representação
 
-![Grafo](./assets/0018-grafo.png#dark=1)
+![Grafo](./assets/0018-grafo.png#dark=2)
 
 Um grafo corresponde a uma estrutura de dados $G = (V, E)$, com $V$ e $E$ sendo respectivamente os seus conjuntos de vértices e arestas. Trivialmente, uma aresta (ou arco) liga 2 vértices, e um vértice pode estar ligado a qualquer número de outros vértices. Dizemos que **o número de ligações de um vértice** é o seu [**grau**](color:orange), ou **degree**. Na imagem abaixo podemos observar o grau de cada vértice, $d$:
 
-![Grafo - Grau de Vértices](./assets/0018-grafov.png#dark=1)
+![Grafo - Grau de Vértices](./assets/0018-grafov.png#dark=2)
 
 Existem várias tipologias diferentes de grafos. Podemos, por exemplo, querer que as ligações dos vértices tenham uma **direção associada**: numa fábrica, por exemplo, as linhas de montagem têm por norma sentido único, algo semelhante ao que pretendemos representar aqui. Dizemos que estes grafos são [**dirigidos**](color:green) ou [**orientados**](color:green).
 
-![Grafo Dirigido](./assets/0018-grafoo.png#dark=1)
+![Grafo Dirigido](./assets/0018-grafoo.png#dark=2)
 
 Podemos, claro, pretender **pesar as arestas do grafo**: pensando numa estrada, caminhos diferentes podem ter custos associados distintos (pensemos, por exemplo, em custos associados a portagens e combustível que variam). Dizemos que estes grafos são [**pesados**](color:yellow).
 
-![Grafo pesado](./assets/0018-grafop.png#dark=1)
+![Grafo pesado](./assets/0018-grafop.png#dark=2)
 
 Em certas situações, podemos querer trabalhar com **grafos que não contêm ciclos**: isto é, grafos onde partindo de qualquer vértice não encontramos um caminho de volta ao mesmo. Podemos, por exemplo, pensar em circuitos ou redes, onde a existência de ciclos pode (ou não, claro) trazer problemas, preferindo por norma grafos sem ciclos. Dizemos que estes grafos são [**acíclicos**](color:red).
 
-![Grafo Acíclico](./assets/0018-grafoao.png#dark=1)
+![Grafo Acíclico](./assets/0018-grafoao.png#dark=4)
 
 No outro espectro, temos grafos onde, escolhendo qualquer par de vértices $(u, v)$ do grafo, podemos **sempre** percorrer um caminho que nos leva de $u$ a $v$. Grafos com esta propriedade dizem-se [**conexos**](color:purple). Podem experimentar verificar esta propriedade a olho no grafo representado abaixo, e notar que a propriedade se verifica!
 
-![Grafo Conexo](./assets/0018-grafoc.png#dark=1)
+![Grafo Conexo](./assets/0018-grafoc.png#dark=2)
 
 Temos ainda uma variação adicional dos grafos conexos: os grafos [**bi-conectados**](color:blue), grafos conexos onde podemos remover qualquer vértice e manter o grafo conexo.
 
-![Grafo Bi-Conectado](./assets/0018-grafocg.png#dark=1)
+![Grafo Bi-Conectado](./assets/0018-grafocg.png#dark=4)
 
 ## Representação
 
@@ -51,7 +51,14 @@ Nesta representação, cada índice da lista está associado a um vértice do gr
 
 **A noção de adjacência difere entre grafos dirigidos e não dirigidos**: no caso dos grafos dirigidos, a adjacência é no sentido $v \to u$, ou seja, o vértice que estamos a ver, $v$, é adjacente a outro vértice $u$ caso haja um arco dirigido de $v$ para $u$. No caso dos grafos não dirigidos, não havendo esta noção de "sentido" associada aos arcos, temos apenas que dois vértices são adjacentes se houver um arco que os ligue.
 
-![Lista de Adjacências](./assets/0018-list.png#dark=1)
+$$
+\begin{darray}{l|r r r r}
+1 & 2 & 4 & /\\
+2 & 1 & 3 & 4 & /\\
+3 & 2 & /\\
+4 & 1 & 2 & /
+\end{darray}
+$$
 
 #### [**Vantagens**](color:green)
 
@@ -75,7 +82,16 @@ Matriz onde as linhas e colunas representam os vértices do grafo. É inicialmen
 
 Tal como na lista de adjacências, a matriz é preenchida de forma diferente consoante o grafo seja ou não dirigido: no caso de grafos não-dirigidos, havendo uma adjacência entre $u$ e $v$ no grafo, tanto a entrada $(u, v)$ como a $(v, u)$ ficam a $1$; caso contrário, apenas alteramos o valor da entrada $(u, v)$.
 
-![mat](./assets/0018-mat.png#dark=1)
+$$
+\begin{darray}{l | r r r r}
+& 1 & 2 & 3 & 4\\
+\hline
+1 & 0 & 1 & 0 & 1\\
+2 & 1 & 0 & 1 & 1\\
+3 & 0 & 1 & 0 & 0\\
+4 & 1 & 1 & 0 & 0
+\end{darray}
+$$
 
 #### [**Vantagens**](color:green)
 

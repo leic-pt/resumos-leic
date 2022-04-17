@@ -40,7 +40,26 @@ Esta notação pode também ser usada para decrementar valores em 1 unidade:
 `i--` e `--i`
 :::
 
-`embed:assets/0003-a++.c`
+```c
+int a = 0, b = 0, c = 0;
+/* Fazem o mesmo */
+a++;
+++a;
+
+// ---
+
+int a = 0;
+while (a++ <= 3) {
+  ... /* O ciclo é executado 4 vezes */
+}
+
+// ---
+
+int a = 0;
+while (++a <= 3) {
+  ... /* O ciclo é executado 3 vezes */
+}
+```
 
 :::warning[]
 É perfeitamente natural que a diferença (subtil) entre as notações vos possa confundir inicialmente: prometemos que é algo que com a prática vos vai parecer cada vez mais natural!
@@ -69,11 +88,24 @@ Cada linha contém 0 ou mais caracteres e acaba com o caracter `\n`. Funções h
 - `getchar()`, que **lê o proximo caracter da _text stream_**.
 - `putchar(n)`, que escreve o caracter cujo código ASCII é o inteiro `n` passado como argumento.
 
-`embed:assets/0003-ascii.c`
+```c
+#include <stdio.h>
+
+int main()
+{
+    char a = 'T';
+    printf("Ao caracter %c corresponde o código ASCII %d.\n", a , a);
+    return 0;
+}
+
+/*
+Resultado:
+    Ao caracter T corresponde o código ASCII 84.
+*/
+```
 
 - As variáveis do tipo `char` são inteiros de 1 Byte.
-- Permitem realizar operações numéricas tal como
-  fazemos com os int's.
+- Permitem realizar operações numéricas tal como fazemos com `int`s.
 
 ### Operadores Lógicos
 
@@ -88,4 +120,37 @@ Sintaxe: `while((c = getchar()) != EOF)`
 
 :::
 
-`embed:assets/0003-conta-palavras.c`
+O seguinte programa conta o número de caracteres e palavras que lhe são dados como input.
+
+```c
+#include <stdio.h>
+
+#define FORA 0
+#define DENTRO 1
+
+int main() {
+    char c;
+    int num_palavras = 0, num_chars = 0, estado = FORA;
+
+    while ((c = getchar()) != EOF) {
+        ++num_chars;
+        if (c == ' ' || c == '\n' || c == '\t') {
+            estado = FORA;
+        } else if (estado == FORA) {
+            estado = DENTRO;
+            ++num_palavras;
+        }
+    }
+
+    printf("%d %d\n", num_palavras, num_chars);
+    return 0;
+}
+```
+
+Por exemplo, quando executado com o input, o programa
+
+```
+Lorem ipsum dolor sit amet, consectetur.
+```
+
+teria output `6 41`.

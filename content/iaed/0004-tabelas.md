@@ -36,7 +36,45 @@ Quando a tabela é criada, os valores que esta guarda não são inicializadas a 
 Para defini-las a 0, podemos fazer um loop atribuindo a cada posição da tabela o valor 0.
 :::
 
-`embed:assets/0004-vect.c`
+```c
+#include <stdio.h>
+
+int main () {
+    int i;
+    int tab[10];
+
+    // Inicializa uma tabela cujos
+    // valores são o dobro dos índices
+    // e.g. [0, 2, 4, 6, ...]
+    for (i = 0; i < 10; i++) {
+        tab[i] = 2 * i;
+    }
+
+    for (i = 0; i < 10; i++) {
+        printf("%d\n", tab[i]);
+    }
+
+    return 0;
+}
+```
+
+:::details[Output do programa acima]
+
+```
+0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+```
+
+:::
 
 ### Tabelas Bidimensionais (Matrizes)
 
@@ -62,11 +100,48 @@ Em C, qualquer cadeia de caracteres que se preze acaba com `\0`: a cadeia de car
 
 Os Vetores são copiados posição a posição!
 
-`embed:assets/0004-copia-str.c`
+```c
+#include <stdio.h>
+
+#define DIM 100
+
+int main() {
+    int c, i;
+    char origem[DIM], destino[DIM];
+
+    for (i = 0; i < DIM - 1 && (c = getchar()) != EOF && c != '\n'; i++) {
+        origem[i] = c;
+    }
+
+    origem[i] = '\0';
+    i = 0;
+
+    while ((destino[i] = origem[i]) != '\0') {
+        i++;
+    }
+
+    printf("Origem: %s\nDestino: %s\n", origem, destino);
+
+    return 0;
+}
+```
 
 ### Leitura de Strings com o Scanf
 
-`embed:assets/0004-scanf.c`
+```c
+#include <stdio.h>
+
+#define DIM 100
+
+int main() {
+    char palavra[DIM];
+    scanf("%s", palavra);
+
+    printf("%s", palavra);
+
+    return 0;
+}
+```
 
 O `scanf` permite ler uma string através da formatação `%s`. A leitura é feita até encontrar um "whitespace" (`" "`, `\n`, `\t`, etc) - não podemos, com um único `scanf("%s", ...)`, ler toda uma cadeia com várias palavras. Mais ainda, o `scanf` automaticamente insere `\0` no final da leitura da cadeia.
 

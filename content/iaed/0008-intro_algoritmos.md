@@ -21,7 +21,7 @@ Uma das principais preocupações que vamos ter em IAED (para passar os malfadad
 
 Observemos o trecho de código abaixo: temos duas funções que fazem exatamente o mesmo: transformam toda uma cadeia de caracteres na sua versão _lower case_. Diferem na **condição de ciclo do seu loop**. Na função de acima, `strlen(s)` é calculada em todas as iteraçõses: sendo que a implementação da mesma consiste em [**iterar pela string até ao fim**](color:red), podemos perceber como tal poderá levar a maiores tempos de execução da mesma. A função de baixa é inegavelmente mais eficiente (podem experimentar correr ambos os trechos localmente para testarem vocês mesmos), e a única diferença é guardar o comprimento da string numa variável, efetivamente eliminando cálculos desnecessários!
 
-`embed:assets/0008-masc.c`
+`embed:assets/0008-maiusculas-minusculas.c`
 
 :::tip[Eficiência]
 
@@ -47,7 +47,7 @@ A **complexidade** de um algoritmo, seja ela temporal ou espacial, está associa
 
 Pegando novamento no exemplo indicado mais acima, podemos finalmente perceber (em termos mais formais) o que está a acontecer: o trecho de cima tem complexidade temporal quadrática, já que `strlen(s)`, uma operação linear, é executada uma vez por cada iteração do `for`, linear também. O trecho de baixo é, claro, linear!
 
-`embed:assets/0008-masc.c`
+`embed:assets/0008-maiusculas-minusculas.c`
 
 :::info[Análise de Algoritmos]
 Ao analisar algoritmos, costumamos sempre pensar no **pior caso** dos mesmos: deste modo, pensamos no [**limite superior**](color:red) do tempo de execução dos mesmos, o que nos vai permitir evitar surpresas desagradáveis no futuro. Podemos, contudo, calcular o **melhor caso** e o **caso médio** de problemas, que também têm a sua utilidade em diversas situações.

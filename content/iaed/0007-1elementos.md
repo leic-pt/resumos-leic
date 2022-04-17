@@ -29,7 +29,22 @@ Resta realçar, por fim, que podemos obter o **tamanho (em bytes) de um tipo de 
 
 É possível converter um tipo de dados para outro: temos o caso clássico de caracteres e inteiros, em que um dado inteiro corresponde a um dado caracter (baseado na Tabela ASCII), podendo realizar operações interessantes com eles. Podemos, ainda, ter dois tipos de dados diferentes (`int` e `float`, por exemplo), e executar uma operação sobre eles que retorna um tipo de dados diferente de um deles: a soma de um inteiro com um `float` não devolve um inteiro, por exemplo.
 
-`embed:assets/0007-conv.c`
+```c
+// Função que recebe uma string de digitos todos juntos
+// e devolve o inteiro correspondente
+int atoi(char s[]) {
+    int i, n;
+    n = 0;
+
+    for (i = 0; s[i] >= '0' && s[i] <= '9'; i++) {
+        n = 10 * n + (s[i] - '0');
+    }
+
+    return n;
+}
+```
+
+Existe uma [função `atoi` na _standard library_](https://linux.die.net/man/3/atoi) que faz o mesmo.
 
 :::info[Conversão Forçada de Tipos]
 
@@ -53,7 +68,18 @@ Abaixo encontra-se um exemplo que poderá, de forma mais direta, mostrar o uso d
 
 A esta altura do campeonato, todos devemos saber os básicos da definição de variáveis: definem-se antes da sua utilização (ou, no limite, assim que se utilizam), especificando o respetivo tipo de dados que representam.
 
-`embed:assets/0007-decvar.c`
+```c
+/* Sequência de declarações */
+int superior, inferior, passo;
+char c, linha[1000];
+
+/* Alternativa */
+int superior;
+int inferior;
+int passo;
+char c;
+char linha[1000];
+```
 
 A declaração de variáveis, contudo, pode ter mais que um significado inerente, consoante o local no código onde estas são definidas e se se usa uma keyword especial, `static`, na definição das mesmas.
 
@@ -61,7 +87,25 @@ A declaração de variáveis, contudo, pode ter mais que um significado inerente
 
 Podemos ainda ter variáveis `static`: a sua inicialização só ocorre uma vez ao longo do programa - se o fluxo do programa voltar à declaração da mesma, esta pegará no valor com que acabou o último fluxo de execução onde se encontrava. O exemplo abaixo (do contador) poderá ilustrar com mais clareza o propósito destas variáveis:
 
-`embed:assets/0007-global.c`
+```c
+int global; /* global = 0 */
+
+int contador() {
+    static int i = 1; /* Só inicializa i a 1 */
+                      /* Depois de inicializada esta instrução é ignorada */
+    return i++;
+}
+
+int main() {
+    int a = global + contador();
+    int b = contador();
+    int c = contador();
+
+    printf("a = %d, b = %d, c = %d\n", a, b, c);
+    /* a = 1, b = 2, c = 3 */
+    return 0;
+}
+```
 
 :::warning[Omissão de Inicialização]
 
@@ -73,7 +117,11 @@ No caso de variáveis locais, na ausência de inicialização estas ficarão com
 
 Podemos ainda definir variáveis constantes, através da _keyword_ `const`: pode anteceder qualquer alteração, e significa que o valor associado àquele nome nunca vai mudar (nem pode). Sempre que tentarmos modificar o valor de uma constante, [**o compilador vai gritar connosco**](color:red) - não queremos que o compilador grite connosco.
 
-`embed:assets/0007-cons.c`
+```c
+const double e = 2.71828182845905;
+const char msg[] = "bem vindo ao C";
+int strlen(const char[]);
+```
 
 :::info[Inicialização de Vectores]
 
@@ -90,12 +138,12 @@ Podemos inicializar vectores de várias maneiras diferentes:
 
 Bem, por esta altura já devemos conhecer a grande maioria dos operadores em C:
 
-- Operadores Aritméticos :
+- Operadores Aritméticos:
   `+ - * / %`
-- Operadores Relacionais :
+- Operadores Relacionais:
   `> >= < <= == !=`
-- Operadores Lógicos :
-  `! && | |`
+- Operadores Lógicos:
+  `! && ||`
 
 As suas precedências, contudo, podem não ser triviais. Em C, temos que a precedẽncia de operadores é tal que:
 
@@ -117,7 +165,15 @@ Em C, é possível efectuar operações sobre a representação binária de um n
 
 Com o MEPP, IAC passou para depois de IAED, pelo que é possível que ainda não tenham contactado a fundo com notação binária. Podem, contudo, encontrar um apanhado geral do funcionamento destes operadores [aqui](https://www.programiz.com/c-programming/bitwise-operators).
 
-`embed:assets/0007-bit.c`
+```c
+int x = 1, y = 2;
+int z = x & y;
+int w = x && y;
+
+printf("z = %d w = %d \n", z, w);
+
+/* z = 0 , w = 1 */
+```
 
 ### Expressões Condicionais
 
@@ -128,4 +184,16 @@ Expressões condicionais são expressões que recorrem a um **operador ternário
 
 O operador ternário permite _one-liners_ interessantes, mas pode tornar o código menos legível: façam escolhas pensadas, pensando sempre primeiro na ótica de quem vai ler o vosso código (tornem a vida dessa pessoa mais fácil).
 
-`embed:assets/0007-cond.c`
+```c
+int maior(int a, int b) {
+    if (a > b) {
+        return a;
+    } else {
+        return b;
+    }
+}
+
+int maior(int a, int b) {
+    return (a > b ? a : b);
+}
+```

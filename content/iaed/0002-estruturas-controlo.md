@@ -13,7 +13,29 @@ type: content
 
 ## Conversão de Temperaturas
 
-`embed:assets/0002-conversao-temperaturas.c`
+```c
+#include <stdio.h>
+
+/* Conversão Fahrenheit-Celsius */
+
+#define INFERIOR 0
+#define SUPERIOR 300
+#define PASSO 20
+
+int main ()
+{
+    float fahr, celsius;
+
+    fahr = INFERIOR;
+    while (fahr <= SUPERIOR)
+    {
+        celsius = (5.0/9.0) * (fahr-32);
+        printf("%3.0f\t%6.1f\n", fahr, celsius);
+        fahr = fahr + PASSO;
+    }
+    return 0;
+}
+```
 
 :::info[]
 Podes (e deves!) comentar o código utilizando `/*` e `*/`.
@@ -60,7 +82,17 @@ Sintaxe: `while (<expressão>) <instrução>`
 Um erro comum na escrita de ciclos `while` consiste na colocação (errada) de um `;` após a expressão que define o ciclo.
 Muitas vezes isto resultará num loop infinito. Um bom truque para o evitar é abrir chavetas **imediatamente a seguir à expressão**, independentemente do `while` conter apenas uma instrução.
 
-`embed:assets/0002-erro-while.c`
+```c
+while (i >= 0);
+    i = i - 1;
+
+// vs.
+
+while (i >= 0) {
+    i = i - 1;
+}
+```
+
 :::
 
 ### Ciclo for
@@ -71,7 +103,20 @@ Sintaxe: `for (<inicialização de variáveis>; <teste>; <incremento>) <instruç
 
 Aplicado ao exemplo anterior,
 
-`embed:assets/0002-ciclo-for.c`
+```c
+while (fahr <= superior) {
+    celsius = (5.0 / 9.0) * (fahr - 32);
+    printf("%3.0f\t%6.1f\n", fahr, celsius);
+    fahr = fahr + passo;
+}
+
+// vs.
+
+for (fahr = INFERIOR; fahr <= SUPERIOR; fahr = fahr + PASSO) {
+    celsius = (5.0 / 9.0) * (fahr - 32);
+    printf("%3.0f\t%6.1f\n", fahr, celsius);
+}
+```
 
 ## Input/Output
 
@@ -81,7 +126,20 @@ Aplicado ao exemplo anterior,
 
 Com o `scanf()` é possível ler o input introduzido no terminal, como podes ver neste exemplo.
 
-`embed:assets/0002-quadrado-input.c`
+```c
+#include <stdio.h>
+/*
+ * Objectivo: vamos pedir um inteiro ao utilizador e devolver o
+ * quadrado desse numero
+ */
+int main () {
+    int x;
+    printf("Introduza um valor inteiro:\n");
+    scanf("%d",&x);
+    printf("O quadrado de %d é %d\n", x, x * x);
+    return 0;
+}
+```
 
 :::tip[]
 Utiliza-se o `%d` para ler um inteiro. Se pretendêssemos ler dois inteiros seguidos faríamos
@@ -97,11 +155,49 @@ o número de inteiros introduzidos, imprimindo-o no final.
 
 ::::tab-group
 :::tab[SEM CONTADOR]
-`embed:assets/0002-copia-inteiros-positivos.c`
+
+```c
+#include <stdio.h>
+
+/* Copia inteiros do input para output */
+
+int main () {
+    int v;
+
+    scanf("%d", &v);
+    while (v >= 0) {
+        printf("%d\n", v);
+        scanf("%d", &v);
+    }
+    return 0;
+}
+```
+
 :::
 
 :::tab[C/ CONTADOR]
-`embed:assets/0002-copia-contador.c`
+
+```c
+#include <stdio.h>
+
+/* Copia inteiros do input para output */
+
+int main () {
+    int v;
+    long contador;
+
+    contador = 0;
+    scanf("%d", &v);
+    while (v >= 0) {
+        printf("%d\n", v);
+        contador++;
+        scanf("%d", &v);
+    }
+    printf("%ld\n", contador);
+    return 0;
+}
+```
+
 :::
 ::::
 
