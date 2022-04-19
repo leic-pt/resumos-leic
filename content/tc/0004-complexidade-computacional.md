@@ -328,7 +328,75 @@ Então:
 - $\Sigma^* \in \mathcal{C}$
 - $L_1 \cup L_2 \in \mathcal{C}$
 - $L_1 \cap L_2 \in \mathcal{C}$
-  Se $\mathcal{C} \neq \mathbf{NP}$ e $\mathcal{C} \neq \mathbf{NEXPTIME}$, então temos também que:
+
+Se $\mathcal{C} \neq \mathbf{NP}$ e $\mathcal{C} \neq \mathbf{NEXPTIME}$, então temos também que:
+
 - $L_1 \backslash L_2 \in \mathcal{C}$
+
+:::
+
+:::details[Prova]
+
+É evidente que $\emptyset$ e $\Sigma^*$ podem ser decididas em $O(1)$, pelo que estão contidas nas classes enumeradas.
+
+Quanto as proposições 3 e 4, usamos as máquinas $M$ como definidas nas [prova que $L_1 \cap L_2$ e $L_1 \cup L_2$ são decidíveis](./tc/teoria-da-computabilidade#propriedades), para $L_1$ e $L_2$ decidíveis.  
+Usamos o caso da disjunção como exemplo, mas a conjução é análoga.
+Se $M_1$ é computada em $O(f(x))$ e $M_2$ é computada em $O(g(x))$, então a máquina $M$ que decide $L_1 \cup L_2$ computa em $O(f(x) + g(x))$, o que é suficiente para provar ambas proposições ([não em teste!](color:red)).
+
+A quinta proposição fica como exercício (agradecem-se contribuições).
+
+:::
+
+Stephen Cook e Leonid Levin mostraram que existem algumas linguagens em $\mathbf{NP}$ às quais todas as outras linguagens dessa classe se reduzem.
+Mais ainda, mostraram que essa redução pode ser feita em tempo polinomial de forma que se se encontrar uma solução eficiente para um desses problemas, também se consegue decidir eficientemente qualquer outro problema de $\mathbf{NP}$.
+Vamos então começar por definir o que é uma redução polinomial de uma linguagem a outra:
+
+:::tip[Definição]
+
+Dadas linguagens sobre $L_1$ e $L_2$ sobre alfabetos $\Sigma_1$ e $\Sigma_2$, respetivamente, dizemos que [**há uma redução polinomial de $L_1$ para $L_2$**](color:orange) ou que [$L_1$ reduz polinomialmente a $L_2$](color:orange), o que denotamos por [$L_1 \leq_P L_2$](color:orange) se existe uma funçao total $f : \Sigma_1^* \to \Sigma_2^*$, calculada por uma máquina determinista em tempo polinomial tal que, para cada $\omega \in \Sigma_1^*$
+
+$$
+\omega \in L_1 \Leftrightarrow f(\omega) \in L_2
+$$
+
+:::
+
+Obviamente, se $L_1 \leq_P L_2$, então $L_1 \leq L_2$.
+
+:::tip[Proposição]
+
+Sejam $L_1$ e $L_2$ linguages sobre alfabetos $\Sigma_1$ e $\Sigma_2$, respetivamente.
+Seja $\mathcal{C}$ uma das classes de complexidade $\mathbf{P}$, $\mathbf{NP}$, $\mathbf{PSPACE}$, $\mathbf{NPSPACE}$, $\mathbf{EXPTIME}$, $\mathbf{NEXPTIME}$, $\mathbf{EXPSPACE}$, $\mathbf{NEXPSPACE}$.
+Se $L_1 \leq_P L_2$ e $L_2 \in \mathcal{C}$, então $L_1 \in \mathcal{C}$.
+
+:::
+
+:::details[Prova]
+
+Eish, a prova é bué longa :depressao:.
+
+:::
+
+## Teorema de Savitch
+
+:::tip[Teorema de Savitch]
+
+Seja $f : \mathbb{N} \to \mathbb{R}^+$ tal que $f(n) \geq n$. Então
+
+$$
+\mathbf{NSPACE}(f(n)) \subset \mathbf{SPACE}(f(n)^2)
+$$
+
+:::
+
+:::details[Prova]
+
+// TODO
+
+:::
+
+:::tip[Corolário]
+
+$\mathbf{PSPACE} = \mathbf{NPSPACE}$ e $\mathbf{ESPSPACE} = \mathbf{NEXPSPACE}$
 
 :::
