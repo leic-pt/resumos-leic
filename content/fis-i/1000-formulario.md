@@ -46,3 +46,26 @@ $\lambda$ - Calor Latente ($KJ Kg^{-1}$)
 $Q = kA \cfrac{\Delta T}{l} \Delta t$
 
 $k$ - Condutividade Térmica ($W m^{-1} K$)
+
+**Gás Ideal**
+
+Para Temperatura Constante, Pressão é Inversamente Proporcional ao Volume
+
+$pV =$ constante
+
+Para Pressão Constante, Volume é Diretamente Proporcional à Temperatura
+
+$V = aT$, sendo $a$ uma constante
+
+Para Volume Constante, Pressão é Diretamente Proporcional à Temperatura
+
+$P = aT$, sendo $a$ uma constante
+
+$pV = nRT$
+
+$p$ - Pressão ($Pa$) $\ \ \ V$ - Volume ($m^3$) $\ \ \ n$ - número de moles ($mol$)\
+$R$ - Constante Universal dos Gases ($8.31 J k^{-1} mol^{-1}$) $\ \ \ T$ - Tempertura ($K$)
+
+$1 L = 1 dm^3$
+
+$ºC = K + 273.15$
