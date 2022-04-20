@@ -15,7 +15,7 @@ type: cheatsheets
 
 ## Termodinâmica
 
-$1$ caloria $= 4.186$ J
+$1 \text{cal} = 4.186 J$
 
 **Expansão Térmica**
 
@@ -49,17 +49,17 @@ $k$ - Condutividade Térmica ($W m^{-1} K$)
 
 **Gás Ideal**
 
-Para Temperatura Constante, Pressão é Inversamente Proporcional ao Volume
+- Para Temperatura Constante, a Pressão é Inversamente Proporcional ao Volume.
 
-$pV =$ constante
+  $pV =$ constante
 
-Para Pressão Constante, Volume é Diretamente Proporcional à Temperatura
+- Para Pressão Constante, o Volume é Diretamente Proporcional à Temperatura.
 
-$V = aT$, sendo $a$ uma constante
+  $V = aT$, sendo $a$ uma constante
 
-Para Volume Constante, Pressão é Diretamente Proporcional à Temperatura
+- Para Volume Constante, a Pressão é Diretamente Proporcional à Temperatura.
 
-$P = aT$, sendo $a$ uma constante
+  $P = aT$, sendo $a$ uma constante
 
 $pV = nRT$
 
