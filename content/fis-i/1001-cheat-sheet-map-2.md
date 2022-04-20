@@ -10,7 +10,7 @@ type: cheatsheets
 ## Corpo Rígido
 
 $$
-s = r\theta \quad\left(\Leftrightarrow \theta = \frac{s}{r}\right)
+s = r\theta \quad\Leftrightarrow\quad \theta = \frac{s}{r}
 $$
 
 onde $s$ é o [**comprimento do arco**](color:orange), $r$ é o raio e $\theta$ é o ângulo.
@@ -80,10 +80,7 @@ onde $M$ é a massa, $R$ ou $R_1 < R_2$ são os raios, $h$ é a espessura, $w$ �
 O [**Teorema do Eixo-Paralelo**](color:orange) diz que o momento de inércia através de qualquer eixo paralelo a um que passe no centro de massa a uma distância $D$ é dado por:
 
 $$
-
-I = I\_{CM} + MD^2
-
-
+I = I_{CM} + MD^2
 $$
 
 :::
@@ -158,9 +155,9 @@ Para um [**sistema isolado**](color:orange), tem-se que:
 
 $$
 \begin{aligned}
-&\Delta E_m &= 0& \Leftrightarrow E_{m_i} &=& E_{m_f} \\
-&\Delta \vec{p} &= 0& \Leftrightarrow \vec{p}_i &=& \vec{p}_f \\
-&\Delta \vec{L} &= 0& \Leftrightarrow \vec{L}_i &=& \vec{L}_f \\
+\Delta E_m &= 0& \Leftrightarrow&& E_{m_i} &= E_{m_f} \\
+\Delta \vec{p} &= 0& \Leftrightarrow&& \vec{p}_i &= \vec{p}_f \\
+\Delta \vec{L} &= 0& \Leftrightarrow&& \vec{L}_i &= \vec{L}_f \\
 \end{aligned}
 $$
 
