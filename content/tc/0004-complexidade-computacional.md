@@ -389,11 +389,13 @@ $$
 
 :::
 
+<!--
 :::details[Prova]
 
 // TODO
 
 :::
+-->
 
 :::tip[Corolário]
 
