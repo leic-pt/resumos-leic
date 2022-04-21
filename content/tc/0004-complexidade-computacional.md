@@ -371,11 +371,13 @@ Se $L_1 \leq_P L_2$ e $L_2 \in \mathcal{C}$, então $L_1 \in \mathcal{C}$.
 
 :::
 
+<!--
 :::details[Prova]
 
 Eish, a prova é bué longa :depressao:.
 
 :::
+-->
 
 ## Teorema de Savitch
 
