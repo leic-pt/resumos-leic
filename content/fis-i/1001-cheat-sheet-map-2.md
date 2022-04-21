@@ -248,4 +248,12 @@ $$
 Q = kA\frac{\Delta T}{\ell}\Delta t
 $$
 
+**Gases Perfeitos**
+
+$$
+pV = nRT
+$$
+
+onde $p$ é a pressão, $V$ é o volume, $n$ é a quantidade de matéria $(\op{mol})$, $R$ é a constante dos gáses perfeitos e $T$ é a temperatura.
+
 [...to be improved](color:pink)
