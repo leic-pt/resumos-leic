@@ -1,11 +1,11 @@
 ---
-title: Cheat Sheet 2º MAP 2021/2022
-description: Cheat Sheet 2º MAP 2021/2022
-path: /fis-i/cheatsheet/map-2
+title: Formulário
+description: Formulário com as fórmulas e conceitos mais importantes de Física I (mecânica, ondas e termodinâmica).
+path: /fis-i/cheatsheets/main-cheatsheet
 type: cheatsheets
 ---
 
-# Cheat Sheet 2º MAP 2021/2022
+# Formulário
 
 ## Corpo Rígido
 
@@ -13,7 +13,7 @@ $$
 s = r\theta \quad\Leftrightarrow\quad \theta = \frac{s}{r}
 $$
 
-onde $s$ é o [**comprimento do arco**](color:orange), $r$ é o raio e $\theta$ é o ângulo.
+onde $s$ é o [**comprimento do arco**](color:orange), $r$ é o raio e $\theta$ é o ângulo (em radianos).
 
 Tem-se que $$\theta$$ é [**positivo**](color:green) no sentido [**contrário ao sentido dos ponteiros do relógio**](color:green) e [**negativo**](color:red) no sentido [**dos ponteiros do relógio**](color:red).
 
@@ -166,7 +166,7 @@ $$
 1. [**Todos os planetas movem-se em orbitas elípticas com o Sol num dos focos.**](color:yellow)
 2. [**O vetor raio do Sol a um planeta varre áreas iguais em intervais de tempo iguais.**](color:yellow)
 
-A força gravítica entre o planeta e o Sol tem a mesma direção que o vetor raio, logo $\vec{\tau} = \vec{r} \times \vec{F} = 0$. Como $\vec{tau} = \frac{d\vec{L}}{d\vec{t}} = 0$, conclui-se que o momento angular $\vec{L}$ do planeta é constante.
+A força gravítica entre o planeta e o Sol tem a mesma direção que o vetor raio, logo $\vec{\tau} = \vec{r} \times \vec{F} = 0$. Como $\vec{\tau} = \frac{d\vec{L}}{d\vec{t}} = 0$, conclui-se que o momento angular $\vec{L}$ do planeta é constante.
 
 3. [**O quadrado do período orbital de qualquer planeta é proporcional ao cubo do eixo semi-maior da sua órbita.**](color:yellow)
 
@@ -212,6 +212,17 @@ $$
 1\op{cal} = 4.186\op{J}
 $$
 
+$$
+\begin{aligned}
+0 \op{ºC} &= 273.15 \op{K}\\
+T_{\op{ºC}} &= T_K - 273.15
+\end{aligned}
+$$
+
+$$
+1 \op{L} = 1 \op{dm}^3
+$$
+
 **Expansão Térmica**
 
 $$
@@ -234,13 +245,15 @@ $$
 \Delta Q = mc\Delta T
 $$
 
+onde $c$ é o calor específico mássico ($\op{J} \op{kg}^{-1} \op{K}^{-1}$)
+
 **Transições de Fase**
 
 $$
 \quad \Delta Q = m\lambda
 $$
 
-onde $c$ é o calor específico mássico e $\lambda$ é o calor latente ($\op{K}\op{J}\op{Kg}^{-1}$).
+onde $\lambda$ é o calor latente ($\op{kJ}\op{kg}^{-1}$).
 
 **Condução**
 
@@ -248,12 +261,36 @@ $$
 Q = kA\frac{\Delta T}{\ell}\Delta t
 $$
 
-**Gases Perfeitos**
+onde $k$ é a condutividade térmica ($\op{W} \op{m}^{-1} \op{K}$).
+
+**Gases Perfeitos/Ideais**
 
 $$
 pV = nRT
 $$
 
-onde $p$ é a pressão, $V$ é o volume, $n$ é a quantidade de matéria $(\op{mol})$, $R$ é a constante dos gáses perfeitos e $T$ é a temperatura.
+onde $p$ é a pressão ($\op{Pa}$), $V$ é o volume ($\op{m^3}$), $n$ é a quantidade de matéria $(\op{mol})$, $R$ é a constante dos gáses perfeitos e $T$ é a temperatura ($\op{K}$).
+
+$$
+R = 8.314 \op{J} \op{K}^{-1} \op{mol}^{-1}
+$$
+
+- Para [temperatura](color:orange) constante, a [pressão](color:pink) é inversamente proporcional ao [volume](color:green):
+
+  $$
+  \smartcolor{pink}{p}\smartcolor{green}{V} = \text{constante}
+  $$
+
+- Para [pressão](color:pink) constante, o [volume](color:green) é diretamente proporcional à [temperatura](color:orange).
+
+  $$
+  \smartcolor{green}{V} = a\smartcolor{orange}{T}\quad \text{sendo } a \text{ uma constante}
+  $$
+
+- Para [volume](color:green) constante, a [pressão](color:pink) é diretamente proporcional à [temperatura](color:orange).
+
+  $$
+  \smartcolor{pink}{p} = a\smartcolor{orange}{T}\quad \text{sendo } a \text{ uma constante}
+  $$
 
 [...to be improved](color:pink)
