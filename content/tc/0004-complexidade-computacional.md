@@ -375,22 +375,22 @@ Se $L_1 \leq_P L_2$ e $L_2 \in \mathcal{C}$, então $L_1 \in \mathcal{C}$.
 
 As demonstrações são semelhantes para todas as classes.
 Ilustra-se a demonstração para a classe $\mathbf{NP}$.  
-Assuma-se então que $L_1 \leq_P L_2$ e $L_2 \in \mathbf{NP}$. Seja $N$ uma máquina de Turing não-determinista que decide $L_2$ e $k \geq 1$ tal que $ntime_N(n) = O(n^k)$.
-Seja $M$ uma máquina de Turing que calcula $f$ e $l \geq 1$ tal que $time_M(n) = O(n^l)$.  
+Assuma-se então que $L_1 \leq_P L_2$ e $L_2 \in \mathbf{NP}$. Seja $N$ uma máquina de Turing não-determinista que decide $L_2$ e $k \geq 1$ tal que $\op{ntime}_N(n) = O(n^k)$.
+Seja $M$ uma máquina de Turing que calcula $f$ e $l \geq 1$ tal que $\op{time}_M(n) = O(n^l)$.  
 Consideremos a máquina de Turing $T$ que ao receber um input $\omega$, calcula $f(\omega)$ em $M$ e usa o resultado dessa computação em $N$, retornando no final o mesmo que $N$.
 Ora, $T$ aceita então uma palavra $\omega$ se e só se $N$ aceitar $f(\omega)$.
 Ora, temos que $N$ aceita $f(\omega)$ se e só se $f(\omega) \in L_2$.
 Por definição de redução polinomial, isto acontece se e só se $\omega \in L_1$.
 Conclui-se então que $T$ decide $L_1$ (pois termina sempre, uma vez que tanto $N$ como $M$ terminam sempre).  
-Basta-nos então provar que $ntime_T(n) \in O(n^t)$ para algum $x \in \mathbb{N}$.
+Basta-nos então provar que $\op{ntime}_T(n) \in O(n^t)$ para algum $x \in \mathbb{N}$.
 Ora:
 
 $$
 \begin{align*}
-ntime_T(n) &= time_M(n) + ntime_N(|f(x)|) \\
-&\leq time_M(n) + ntime_N(space_M(x)) \\
-&\leq time_M(n) + ntime_N(|x| + time_M(|x|)) \\
-&\leq time_M(n) + ntime_N(n + time_M(n)) \\
+\op{ntime}_T(n) &= \op{time}_M(n) + \op{ntime}_N(|f(x)|) \\
+&\leq \op{time}_M(n) + \op{ntime}_N(\op{space}_M(x)) \\
+&\leq \op{time}_M(n) + \op{ntime}_N(|x| + \op{time}_M(|x|)) \\
+&\leq \op{time}_M(n) + \op{ntime}_N(n + \op{time}_M(n)) \\
 &= O(n^l) + O((n + O(n^l))^k) \\
 &= O(n^{lk})
 \end{align*}
