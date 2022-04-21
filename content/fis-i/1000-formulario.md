@@ -68,4 +68,4 @@ $R$ - Constante Universal dos Gases ($8.31 J k^{-1} mol^{-1}$) $\ \ \ T$ - Tempe
 
 $1 L = 1 dm^3$
 
-$ºC = K + 273.15$
+$ºC = K - 273.15$
