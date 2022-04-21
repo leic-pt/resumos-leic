@@ -1,11 +1,11 @@
 ---
-title: Cheat Sheet 2º MAP 2021/2022
-description: Cheat Sheet 2º MAP 2021/2022
-path: /fis-i/cheatsheet/map-2
+title: Formulário
+description: Formulário com as fórmulas e conceitos mais importantes de Física I (mecânica, ondas e termodinâmica).
+path: /fis-i/cheatsheets/main-cheatsheet
 type: cheatsheets
 ---
 
-# Cheat Sheet 2º MAP 2021/2022
+# Formulário
 
 ## Corpo Rígido
 
@@ -13,7 +13,7 @@ $$
 s = r\theta \quad\Leftrightarrow\quad \theta = \frac{s}{r}
 $$
 
-onde $s$ é o [**comprimento do arco**](color:orange), $r$ é o raio e $\theta$ é o ângulo.
+onde $s$ é o [**comprimento do arco**](color:orange), $r$ é o raio e $\theta$ é o ângulo (em radianos).
 
 Tem-se que $$\theta$$ é [**positivo**](color:green) no sentido [**contrário ao sentido dos ponteiros do relógio**](color:green) e [**negativo**](color:red) no sentido [**dos ponteiros do relógio**](color:red).
 
