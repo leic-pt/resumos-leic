@@ -181,3 +181,71 @@ K_S = \frac{4\pi^2}{GM_S}
 $$
 
 :::
+
+## Estabilidade de Sistemas
+
+A [**Lei de Hook**](color:orange) diz que a **força de restituição** de uma mola (_spring_) é dada por:
+
+$$
+F_s = -kx
+$$
+
+onde $k$ é a constante de elasticidade característica da mola, dada em $\op{N}/\op{m}$ e $x$ é a distância da deformação da mola até à posição de equilíbrio.
+
+A posição da mola é dada por:
+
+$$
+x(t) = A\cos(\omega t + \phi)
+$$
+
+onde $A$ é a amplitude da mola, $\omega$ é a frequência angular e $\phi$ é o ângulo inicial de fase. A função $x(t)$ é periódica de período $2\pi$.
+
+$$
+\omega = \sqrt{\frac{k}{m}}
+$$
+
+[...to be continued](color:pink)
+
+## Sistema Termodinâmico
+
+$$
+1\op{cal} = 4.186\op{J}
+$$
+
+**Expansão Térmica**
+
+$$
+\frac{\Delta \ell}{\ell} = \alpha\Delta T \quad \frac{\Delta V}{V} = \beta\Delta T
+$$
+
+onde $\ell$ é o comprimento, $\alpha$ é o coeficiente de dilatação linear ($\op{ºC}^{-1}$), $V$ é o volume e $\beta$ é o coeficiente de dilatação ($\op{ºC}^{-1}$).
+
+**Calor**
+
+$$
+C = \frac{\Delta Q}{\Delta T}\quad c = \frac{C}{m} = \frac{\Delta Q}{m\Delta T}
+$$
+
+onde $C$ é a capacidade calorífica ($\op{J}\op{K}^{-1}$) e $c$ é a capacidade calorífica mássica ($\op{J}\op{kg}^{-1}\op{K}^{-1}$).
+
+**Energia para Mudar de Temperatura**
+
+$$
+\Delta Q = mc\Delta T
+$$
+
+**Transições de Fase**
+
+$$
+\quad \Delta Q = m\lambda
+$$
+
+onde $c$ é o calor específico mássico e $\lambda$ é o calor latente ($\op{K}\op{J}\op{Kg}^{-1}$).
+
+**Condução**
+
+$$
+Q = kA\frac{\Delta T}{\ell}\Delta t
+$$
+
+[...to be improved](color:pink)
