@@ -69,7 +69,7 @@ analogamente, para o espaço, definimos
 
 Para uma máquina classificadora $M$, tem-se que $\op{time}_M$ e $\op{space}_M$ são funções monótonas e, para qualquer, $n \in \mathbb{N}$:
 
-1. $\op{space}_M(N) \leq \op{time}_M(n)$
+1. $\op{space}_M(n) \leq \op{time}_M(n)$
 2. $\op{time}_M(n) \leq 2^{O(\op{space}_M(n))}$.
 
 :::

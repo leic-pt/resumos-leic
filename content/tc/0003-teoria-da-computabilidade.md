@@ -16,13 +16,14 @@ type: content
 Os problemas relevantes que estudamos são problemas de decisão e reconhecimento de linguagens, ou cálculo de funções.
 É então relevante definir formalmente o que significa [**reconhecer**](color:orange)/[**decidir**](color:yellow) uma linguagem e [**calcular uma função**](color:green).
 
-Para um alfabeto $\Sigma$, uma linguagem $L \subset \Sigma^*$ e uma função $f: \Sigma^* \to \Sigma^*$.  
-A linguagem $L$ diz-se [**reconhecível**](color:orange) se existe uma máquina de Turing $M$ com alfabeto de entrada/saída $\Sigma$ tal que $L_{ac}(M) = L$.
-Denotamos por $\mathcal{R}^\Sigma$ o conjunto de todas as linguagens [reconhecíveis](color:orange) sobre o alfabeto $\Sigma$.  
-A linguagem $L$ diz-se [**decidível**](color:yellow) se existe uma máquina de Turing $M$ com alfabeto de entrada/saída $\Sigma$ tal que $L_{ac}(M) = L$ e $L_{rj}(M) = \overline{L}$.
-Denotamos por $\mathcal{D}^\Sigma$ o conjunto de todas as linguagens [decidíveis](color:yellow) sobre o alfabeto $\Sigma$.  
-A função $f$ diz-se [**computável**](color:green) se existe uma máquina de Turing $M$ com alfabeto de entrada/saída $\Sigma$ tal que $f = \phi_M$.
-Denotamos por $\mathcal{C}^\Sigma$ o conjunto de todas as funções [computáveis](color:green) sobre o alfabeto $\Sigma$.
+Para um alfabeto $\Sigma$, uma linguagem $L \subset \Sigma^*$ e uma função $f: \Sigma^* \to \Sigma^*$, dizemos que:
+
+- Uma linguagem $L$ diz-se [**reconhecível**](color:orange) se existe uma máquina de Turing $M$ com alfabeto de entrada/saída $\Sigma$ tal que $L_{ac}(M) = L$.
+  Denotamos por $\mathcal{R}^\Sigma$ o conjunto de todas as linguagens [reconhecíveis](color:orange) sobre o alfabeto $\Sigma$.
+- Uma linguagem $L$ diz-se [**decidível**](color:yellow) se existe uma máquina de Turing $M$ com alfabeto de entrada/saída $\Sigma$ tal que $L_{ac}(M) = L$ e $L_{rj}(M) = \overline{L}$.
+  Denotamos por $\mathcal{D}^\Sigma$ o conjunto de todas as linguagens [decidíveis](color:yellow) sobre o alfabeto $\Sigma$.
+- Uma função $f$ diz-se [**computável**](color:green) se existe uma máquina de Turing $M$ com alfabeto de entrada/saída $\Sigma$ tal que $f = \phi_M$.
+  Denotamos por $\mathcal{C}^\Sigma$ o conjunto de todas as funções [computáveis](color:green) sobre o alfabeto $\Sigma$.
 
 O seguinte resultado diz-nos que podemos concentrar-nos apenas em reconhecer/decidir linguagens:
 
@@ -179,7 +180,7 @@ De qualquer forma a computação termina e $L$ é decidível.
 
 ### Redução Computável
 
-Nas provas acima e no capítulo anterior, por vezes pegamos em máquinas de Turing que já conhecíamos para criar máquinas de Turing que resolviam problemas que ainda nao tínhamos resolvido.
+Nas provas acima e no capítulo anterior, por vezes pegamos em máquinas de Turing que já conhecíamos para criar máquinas de Turing que resolviam problemas que ainda não tínhamos resolvido.
 A ideia de [**redução computável**](color:orange) consiste exatamente nisso:
 
 Sejam $L_1$ e $L_2$ linguagens sobre os alfabetos $\Sigma_1$ e $\Sigma_2$, respetivamente.
@@ -191,7 +192,7 @@ $$
 
 :::tip[Proposição]
 
-Sejam $L_1$ e $L_2$ linguagens sobre $\Sigma_1$ e $\Sigma_2$, respetivamente. Se $L_1 \leq L_2$ e $L_2$ é decidível (respetivamente conhecível) então $L_1$ é decidível (resp. reconhecível).
+Sejam $L_1$ e $L_2$ linguagens sobre $\Sigma_1$ e $\Sigma_2$, respetivamente. Se $L_1 \leq L_2$ e $L_2$ é decidível (respetivamente reconhecível) então $L_1$ é decidível (resp. reconhecível).
 
 :::
 
@@ -222,7 +223,7 @@ Dado um alfabeto $\Sigma$ distinguimos as seguintes linguagens:
 
 De forma mais intuitiva, podemos pensar que a linguagem $\mathcal{L}_{ac}^\Sigma$ consiste nos pares $(M, \omega) \in \mathcal{M}^\Sigma \times \Sigma^*$ constituídos por uma máquina de Turing $M$ e uma palavra $\omega$ tais que $\omega \in L_{ac}(M)$, isto é, $\omega$ é aceite por $M$.  
 De forma a podermos representar estes pares por uma palavra, usamos a representaçao canónica de máquinas, separando esta representação da palavra input por um $\text{\textdollar}$.
-De forma semelhante, $L_{rj}^\Sigma$ contém pares $(M, \omega) \in \mathcal{M}^\Sigma \times \Sigma^*$ tais que $\omega \in L_{rj}(M)$, $L_{su}^\Sigma$ os pares tais que $\omega \in L_{ac}(M) \cup L_{rj}(M)$, e por aí em diante.
+De forma semelhante, $\mathcal{L}_{rj}^\Sigma$ contém pares $(M, \omega) \in \mathcal{M}^\Sigma \times \Sigma^*$ tais que $\omega \in L_{rj}(M)$, $\mathcal{L}_{su}^\Sigma$ os pares tais que $\omega \in L_{ac}(M) \cup L_{rj}(M)$, e por aí em diante.
 
 :::tip[Proposição]
 
