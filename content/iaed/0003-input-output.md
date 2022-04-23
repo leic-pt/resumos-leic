@@ -18,7 +18,7 @@ type: content
 - Desigualdade: `> < >= <= !=`
 
 :::tip[]
-Variáveis do tipo `long` reservam 32 bits (4 bytes) para guardar o inteiro pretendido. Num `printf` ou `scanf`, usamos `%ld` para nos referirmos a variávelis deste tipo.
+Variáveis do tipo `long` reservam 64 bits ou 8 bytes (em arquiteturas de 64-bits) para guardar o inteiro pretendido. Num `printf` ou `scanf`, usamos `%ld` para nos referirmos a variáveis deste tipo.
 :::
 
 :::tip[]
