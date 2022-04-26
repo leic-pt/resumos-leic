@@ -18,14 +18,16 @@ node *insertEnd(node *head, int number)
     node *aux;
     if (head == NULL)
     {
-        node *x = malloc(sizeof(node));
+        x = (node *) malloc(sizeof(node));
         x->value = number;
+        x->next = NULL;
         return x;
     }
     for (x = head; x->next != NULL; x = x->next)
         ;
-    aux = malloc(sizeof(node));
+    aux = (node *) malloc(sizeof(node));
     aux->value = number;
+    aux->next = NULL;
     x->next = aux;
     return head;
 }
