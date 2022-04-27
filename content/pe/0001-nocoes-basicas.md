@@ -6,6 +6,10 @@ type: content
 
 # Noções Básicas
 
+```toc
+
+```
+
 Começamos por introduzir umas definições essenciais para formalizar o trabalho com probabilidade.
 Primeiro, é essencial definir exatamente em que consiste uma [**experiência aleatória**](color:red):
 
