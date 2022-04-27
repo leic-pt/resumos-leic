@@ -60,7 +60,7 @@ Damos o nome de **prova de Bernoulli** a qualquer experiência aleatória cujo e
 
 :::warning[Sucesso pode ser mau!]
 
-Enquanto que estamos habituados a associar sucesso a coisas boas e insucesso a coisas más, neste caso, o sucesso deve ser entendido apenas como **aquilo que queremos modular**.  
+Enquanto que estamos habituados a associar sucesso a coisas boas e insucesso a coisas más, neste caso, o sucesso deve ser entendido apenas como **aquilo que queremos modelar**.  
 Sendo assim, por exemplo, se considerarmos a EA que verifica se o ecrã de um telemóvel se parte no primeiro ano de uso, o sucesso será "o ecrã partiu-se".  
 Claro que dada uma Prova de Bernoulli $A$, podemos sempre considerar a experiência aleatória contrária $B$, e, nesse caso, o sucesso de $B$ será o insucesso de $A$ e vice-versa.
 Podemos aproveitar-nos disto à vontade desde que tenhamos em atenção que o sucesso da prova de Bernoulli e o que queremos medir com a VA sejam coerentes.
@@ -110,7 +110,7 @@ $$
 
 :::tip[]
 
-Esta distribuição é usada para dada uma prova de Bernoulli que é executada $n$ vezes (independentemente), medir a probabilidade de haver exatamente $x$ sucessos.
+Esta distribuição é usada para, dada uma prova de Bernoulli que é executada $n$ vezes (independentemente), medir a probabilidade de haver exatamente $x$ sucessos.
 
 :::
 
@@ -157,7 +157,7 @@ Uma VA $X$ com [distribuição binomial](color:yellow) tem:
 
 :::tip[]
 
-Esta distribuição é usada para dada uma prova de Bernoulli, medir a probabilidade de o primeiro sucesso ocorrer ao fim de exatamente $x$ tentativas.
+Esta distribuição é usada para, dada uma prova de Bernoulli, medir a probabilidade de o primeiro sucesso ocorrer ao fim de exatamente $x$ tentativas.
 
 :::
 
@@ -282,7 +282,7 @@ Uma VA $X$ com [distribuição de Poisson](color:purple) tem:
 
 **Propriedades da [distribuição de Poisson](color:purple)**:
 
-- A distribuição de Poisson pode ser aproximada pela binomial, se consideramrmos o acontecimento do evento no intervalo em que é impossível o evento acontecer duas vezes como uma prova de Bernoulli. Desta forma temos que
+- A distribuição de Poisson pode ser aproximada pela binomial, se considerarmos o acontecimento do evento no intervalo em que é impossível o evento acontecer duas vezes como uma prova de Bernoulli. Desta forma, temos que
   $$
   X \sim Poisson(\lambda) \Leftrightarrow X \sim \lim_{n \to \infty} binomial\left(n, \frac{\lambda}{n} \right)
   $$
