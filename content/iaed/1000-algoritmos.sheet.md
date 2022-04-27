@@ -82,7 +82,7 @@ void insertion(Item a[], int left, int right) {
       a[j + 1] = a[j]; // andamos uma casa para a direita
       j--;
     }
-    
+
     a[j + 1] = v; // guarda o valor na casa acima à do valor menor
   }
 }
@@ -223,7 +223,7 @@ void fixDown(Item a[], int l, int r, int k) {
     largest = ileft;
   if (iright <= r && less(a[largest], a[iright]))
     largest = iright;
-  
+
   if (largest != k) {
     exch(a[k], a[largest]);
     fixDown(a, l, r, largest);
