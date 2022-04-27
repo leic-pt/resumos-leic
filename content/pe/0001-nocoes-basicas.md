@@ -150,6 +150,7 @@ $$
 :::tip[Acontecimentos Independentes]
 
 Dois eventos $A$ e $B$ dizem-se independentes e representa-se $A \indep B$ se
+
 $$
 P(A | B) = P(A) \Leftrightarrow P(B | A) = P(B) \Leftrightarrow P(A \cap B) = P(A) \cdot P(B)
 $$
@@ -169,11 +170,13 @@ $$
 :::tip[Probabilidades com Partições]
 
 Definimos uma **partição de $\Omega$** como uma coleção $P_\Omega$ de conjuntos \{ A_1, A_2, \cdots \}$ tais que
+
 - $A_i, A_j \in P_\Omega \Rightarrow A_i \cap A_j = \emptyset$ - os elementos de $P_\Omega$ são disjuntos;
 - $\bigcup_{A \in P_\Omega} A = \Omega$ - a união dos elementos de $P_\Omega$ é $\Omega$;
 - $P(A) > 0, \forall_{A \in P_\Omega}$ - os elementos de $P_\Omega$ são todos possíveis.
 
 Temos então que, para qualquer partição de $\Omega$:
+
 $$
 P(B) = \sum_{A \in P_\Omega} P(B | A) \cdot P(A)
 $$
@@ -183,7 +186,8 @@ $$
 :::details[Prova]
 
 Como todos os elementos $A$ de $P_\Omega$ são disjuntos dois a dois, temos que$(B \cap A_i) \cap (B \cap A_j) = \emptyset, \forall_{A_i, A_j \in P_\Omega}$.
-Sendo assim, 
+Sendo assim,
+
 $$
 \sum_{A \in P_\Omega} P(B|A) \cdot P(A) = \sum_{A \in P_\Omega} P(A \cap B) = P\left( \bigcup_{A \in P_\Omega} A \cap B \right) \\
 = P\left( \left( \bigcup_{A \in P_\Omega} A \right) \cap B \right) = P(\Omega \cap B) = P(B)
@@ -194,6 +198,7 @@ $$
 :::tip[Teorema de Bayes]
 
 Para quaisquer eventos $A$ e $B$ possíveis, tem-se que
+
 $$
 P(A | B) = P(B | A) \cdot \frac{P(A)}{P(B)}
 $$
@@ -203,6 +208,7 @@ $$
 :::details[Prova]
 
 Basta ver que
+
 $$
 P(A | B) \cdot P(B) = P(A \cup B) = P(B | A) \cdot P(A)
 $$
