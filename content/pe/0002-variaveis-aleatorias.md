@@ -91,7 +91,7 @@ $$
 
 Dependendo se a VA é discreta ou contínua, esta função tem restrições e propriedades diferentes (apesar de análogas).
 Nomeadamente, para VA's discretas é possível usar somatórios, já que $\Omega$ é contável.
-Para VA's contínuas, por contraste teremos de trabalhar com integrais.  
+Para VA's contínuas, por contraste, teremos de trabalhar com integrais.  
 Está então na altura de analisar cada caso em separado.
 
 ## Variáveis Aleatórias Discretas
@@ -143,7 +143,7 @@ Dizemos entao que uma VA $X$ é contínua se e só se:
 
 AS VA's contínuas têm as seguintes propriedades:
 
-- Um gráfica vagamente semelhante ao representado abaixo, devido à continuidade e monotonicidade lata:
+- Um gráfico vagamente semelhante ao representado abaixo, devido à continuidade e monotonicidade lata:
 
 ![Gráfico da fd de um VA contínua](./imgs/0002/continuous_fd_graph.png#dark=3)
 
