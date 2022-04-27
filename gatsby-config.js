@@ -69,7 +69,10 @@ module.exports = {
                 '\\d': '\\mathop{}\\!\\mathrm d',
                 '\\1': '1\\!\\!1',
                 '\\Q': '\\mathbb{Q}',
+                '\\Z': '\\mathbb{Z}',
                 '\\C': '\\mathbb{C}',
+                '\\R': '\\mathbb{R}',
+                '\\N': '\\mathbb{N}',
                 '\\car': '\\operatorname{car}',
                 '\\ondiv': '\\operatorname{div}',
                 '\\rot': '\\operatorname{rot}',
@@ -77,6 +80,7 @@ module.exports = {
                   '\\left[\\hspace{-5pt}\\begin{array}{#1}#2\\end{array}\\hspace{-5pt}\\right]',
                 '\\lapt': '\\mathcal{L}\\left\\{#1\\right\\}', // Laplace Transfomation
                 '\\smartcolor': '\\htmlClass{md-color--#1}{#2}', // Handle colors on light/dark mode
+				'\\indep': '\\perp \\!\\!\\! \\perp',
               },
               throwOnError: false,
               trust: (context) =>
