@@ -42,7 +42,7 @@ Mais ainda, de realçar que todos os algoritmos apresentados nesta secção est�
 
 ### Selection Sort
 
-[Explicação nos resumos](../algoritmos-elementares-ordenacao#selection-sort).
+[Explicação nos resumos](/iaed/algoritmos-elementares-ordenacao#selection-sort).
 
 :::details[Selection Sort]
 
@@ -65,7 +65,7 @@ void selection(Item a[], int left, int right) {
 
 ### Insertion Sort
 
-[Explicação nos resumos](../algoritmos-elementares-ordenacao#insertion-sort).
+[Explicação nos resumos](/iaed/algoritmos-elementares-ordenacao#insertion-sort).
 
 :::details[Insertion Sort]
 
@@ -92,7 +92,7 @@ void insertion(Item a[], int left, int right) {
 
 ### Bubble Sort
 
-[Explicação nos resumos](../algoritmos-elementares-ordenacao#bubble-sort-borbulhamento).
+[Explicação nos resumos](/iaed/algoritmos-elementares-ordenacao#bubble-sort-borbulhamento).
 
 :::details[Bubble Sort]
 
@@ -117,7 +117,7 @@ void bubble(Item a[], int left, int right) {
 
 ### Quick Sort
 
-[Explicação nos resumos](../algoritmos-eficientes-ordenacao#quick-sort).
+[Explicação nos resumos](/iaed/algoritmos-eficientes-ordenacao#quick-sort).
 
 :::details[Quick Sort]
 
@@ -159,7 +159,7 @@ int partition(Item a[], int left, int right) {
 
 ### Merge Sort
 
-[Explicação nos resumos](../algoritmos-eficientes-ordenacao#merge-sort).
+[Explicação nos resumos](/iaed/algoritmos-eficientes-ordenacao#merge-sort).
 
 :::details[Merge Sort]
 
@@ -195,7 +195,7 @@ void merge(Item a[], int left, int m, int right) {
 
 ### Heap Sort
 
-[Explicação nos resumos](../algoritmos-eficientes-ordenacao#heap-sort-enquadramento).
+[Explicação nos resumos](/iaed/algoritmos-eficientes-ordenacao#heap-sort-enquadramento).
 
 :::details[Heap Sort]
 
@@ -247,36 +247,61 @@ int right(int k) {
 
 ### Counting Sort
 
-[Explicação nos resumos](../algoritmos-elementares-ordenacao-2#counting-sort).
+[Explicação nos resumos](/iaed/algoritmos-elementares-ordenacao-2#counting-sort).
 
 **De realçar que a implementação do _counting sort_ varia dependendo da situação**: o que é intrínseco à lógica acaba por manter-se, mas temos obviamente que utilizar este algoritmo para ordenar caracteres e inteiros será diferente. A implementação abaixo corresponde a uma implementação-exemplo para ordenação de um vetor de inteiros.
 
 :::details[Counting Sort]
 
 ```c
-#define MAX 100 // 100 é placeholder
-/* vamos evitar o uso de variáveis na declaração de vetores,
- * porque variable length arrays are bad
- * devemos OU usar constantes OU usar malloc e amigos
- * wikipedia article relevante:
- * https://en.wikipedia.org/wiki/Variable-length_array#C99
- */
+/* Quantos elementos diferentes podem aparecer */
+/* No exemplo da imagem acima, podem aparecer 9, os números entre 0 e 8 */
+#define DISTINCT_ELEMENTS 9
+/* Tamanho máximo do vetor que queremos ordenar */
+#define MAX_SIZE 10
 
-void countingSort(int numbers[], int size) {
-  int count[SIZE];
-  for (int i = 0; i < MAX; i++)
+void counting_sort(int vec[], int left, int right) {
+  /* Vetor count que irá guardar quantas vezes aparece cada elemento */
+  int i, count[DISTINCT_ELEMENTS + 1];
+
+  /* Vetor auxiliar onde vamos guardar o vetor ordenado */
+  /* Mais à frente iremos ver como alocar dinâmicamente
+    o espaço a ser alocado pelo mesmo (com malloc) */
+  int sorted_vec[MAX_SIZE];
+
+  /* Inicializar vetor count a zeros */
+  for (i = 0; i < DISTINCT_ELEMENTS; i++) {
     count[i] = 0;
+  }
 
-  for (int i = 0; i < size; i++)
-    count[numbers[i]]++;
+  /* Para cada elemento de vec, somar 1 ao índice correspondente de count */
+  for (i = left; i < right; i++) {
+    count[vec[i] + 1]++;
+  }
+  /* Para o exemplo da imagem, iremos obter o vetor: */
+  /* count = [0, 0, 1, 2, 2, 1, 0, 0, 0, 1] */
 
-  int index = 0;
-  for (int i = 0; i < MAX; i++) {
-    while (count[i] > 0) {
-      numbers[index] = i;
-      index++;
-      count[i]--;
-    }
+  /* Passar a contagem de elementos para uma contagem comulativa */
+  for (i = 1; i < DISTINCT_ELEMENTS + 2; i++) {
+    count[i] += count[i - 1];
+  }
+  /* Ficamos agora com um vetor count igual ao da imagem exemplo */
+  /* Cada índice indica a primeira posição onde iremos inserir o elemento,
+    daí existir uma posição no início que não está associada a nada. */
+
+  /* Para cada elemento do vetor original, vamos ver qual o índice inicial
+    no vetor ordenado. Para colocarmos corretamente valores repetidos no
+    vetor ordenado, temos de incrementar o valor no count, de forma a colocar
+    os repetidos na posição seguinte. */
+  for (i = left; i < right; i++) {
+    sorted_vec[count[vec[i]]++] = vec[i];
+  }
+  /* O vetor sorted_vec contém agora o resultado final, ordenado */
+  /* sorted_vec = [1, 2, 2, 3, 3, 4, 8] */
+
+  /* Finalmente, inserir o vetor ordenado de volta no vetor original */
+  for (i = left; i < right; i++) {
+    vec[i] = sorted_vec[i - left];
   }
 }
 
@@ -286,37 +311,50 @@ void countingSort(int numbers[], int size) {
 
 ### Radix Sort LSD
 
-[Explicação nos resumos](../algoritmos-elementares-ordenacao-2#radix-lsd).
+[Explicação nos resumos](/iaed/algoritmos-elementares-ordenacao-2#radix-lsd).
 
 :::details[Radix Sort LSD]
 
 ```c
-#define maxN 100000
-#define bitsword 32
-#define bitsbyte 8
-#define bytesword 4
-#define R (1 << bitsbyte)
-#define digit(n, w) ((n & ( 1 << w )) >> w)
+/* Estamos a ordenar inteiros */
+typedef int Item;
 
-// defines um pouquinho cursed, mas é o que há
+/* Existem 10 dígitos diferentes */
+#define DISTINCT_ELEMENTS 10
+/* Como exemplo, vamos usar números de 3 dígitos */
+#define INT_LENGTH 3
+/* Número máximo de elementos a ordenar */
+#define MAX_SIZE 100
 
-Item aux[maxN];
+/* Obter dígito de num no índice digit_i */
+int digit(int num, int digit_i) {
+  while (digit_i > 0) {
+    num = num / 10;
+    digit_i--;
+  }
+  return num % 10;
+}
 
-void radixLSD(Item a[], int l, int r) {
-  int i, j, w, count[R + 1];
-
-  for (w = bytesword - 1; w >= 0; w--) {
-    /* Counting sort para o digito w */
-    for (j = 0; j < R; j++)
-      count[j] = 0;
-    for (i = l; i <= r; i++)
-      count[digit(a[i], w) + 1]++;
-    for (j = 1; j < R; j++)
-      count[j] += count[j - 1];
-    for (i = l; i <= r; i++)
-      aux[count[digit(a[i], w)]++] = a[i];
-    for (i = l; i <= r; i++)
-      a[i] = aux[i - l];
+void radix_lsd(Item vec[], int left, int right) {
+  int i, curr_digit, count[DISTINCT_ELEMENTS + 1];
+  int sorted_vec[MAX_SIZE];
+  for (curr_digit = 0; curr_digit < INT_LENGTH; curr_digit++) {
+    /* Counting sort em cada dígito */
+    for (i = 0; i < DISTINCT_ELEMENTS; i++) {
+      count[i] = 0;
+    }
+    for (i = left; i < right; i++) {
+      count[digit(vec[i], curr_digit) + 1]++;
+    }
+    for (i = 1; i < DISTINCT_ELEMENTS + 2; i++) {
+      count[i] += count[i - 1];
+    }
+    for (i = left; i < right; i++) {
+      sorted_vec[count[digit(vec[i], curr_digit)]++] = vec[i];
+    }
+    for (i = left; i < right; i++) {
+      vec[i] = sorted_vec[i - left];
+    }
   }
 }
 ```
@@ -325,72 +363,30 @@ void radixLSD(Item a[], int l, int r) {
 
 ### Radix Sort MSD
 
-[Explicação nos resumos](../algoritmos-elementares-ordenacao-2#radix-msd).
+[Explicação nos resumos](/iaed/algoritmos-elementares-ordenacao-2#radix-msd).
 
 :::details[Radix Sort MSD]
 
 ```c
-#include <stdio.h>
-
-#define DIM 10
-#define compexch(A, B) \
-    if (less(B, A))    \
-    exch(A, B)
-#define maxN 1000000
-#define bitsword 32
-#define bitsbyte 8
-#define bytesword 4
-#define R (1 << bitsbyte)
-#define digit(n, w) ((n & ( 1 << w )) >> w)
-#define bin(A) l + count[A]
-#define QM 10
-
-Item aux[maxN];
-
-void insertion(Item a[], int l, int r) {
-  int i;
-  /* Coloca o menor elemento na primeira posicao */
-  for (i = l + 1; i <= r; i++)
-    compexch(a[l], a[i]);
-  for (i = l + 2; i <= r; i++) {
-    int j = i;
-    /* Variavel auxiliar para guardar o valor a[i] */
-    Item v = a[i];
-    /* Enquanto v < a[j] puxar os valores para a direita */
-    /* Como o primeiro elemento e o menor podemos omitir a condicao j>=l */
-    while (less(v, a[j - 1])) {
-      a[j] = a[j - 1];
+void radix_msd(int a[], int l, int r, int w) {
+  int i = l, j = r;
+  if (r <= l || w > bitsword) {
+    return;
+  }
+  while (j != i) {
+    while (digit(a[i], w) == 0 && (i < j)) {
+      i++;
+    }
+    while (digit(a[j], w) == 1 && (j > i)) {
       j--;
     }
-    /* Guardar o valor originalmente na posicao i na posicao libertada */
-    a[j] = v;
+    exch(a[i], a[j]);
   }
-}
-
-void radixMSD(Item a[], int l, int r, int w) {
-  int i, j, count[R + 1];
-  if (w > bytesword)
-    return;
-  /* Optimizacao */
-  if (r - l <= QM) {
-    insertion(a, l, r);
-    return;
+  if (digit(a[r], w) == 0) {
+    j++;
   }
-  /* Counting sort para o digito w */
-  for (j = 0; j < R; j++)
-    count[j] = 0;
-  for (i = l; i <= r; i++)
-    count[digit(a[i], w) + 1]++;
-  for (j = 1; j < R; j++)
-    count[j] += count[j - 1];
-  for (i = l; i <= r; i++)
-    aux[count[digit(a[i], w)]++] = a[i];
-  for (i = l; i <= r; i++)
-    a[i] = aux[i - l];
-  /* Os bins denotam as caixas discutidas acima */
-  radixMSD(a, l, bin(0) - 1, w + 1);
-  for (j = 0; j < R - 1; j++)
-    radixMSD(a, bin(j), bin(j + 1) - 1, w + 1);
+  radix_msd(a, l, j - 1, w + 1);
+  radix_msd(a, j, r, w + 1);
 }
 ```
 
