@@ -1,5 +1,9 @@
 ---
 title: Variáveis Aleatórias
+description: >-
+  Variáveis Aleatórias Discretas e Contínuas.
+  Condição de Mensurabilidade.
+  Valor Esperado, Variância e Desvio Padrão.
 path: /pe/variaveis-aleatorias
 type: content
 ---
@@ -107,7 +111,7 @@ $$
 F_X(x) = P(X \leq x) = \sum_{y \in \R_X, y \leq x} P(X = y)
 $$
 
-AS VA's discretas satisfazem as seguintes propriedades:
+As VA's discretas satisfazem as seguintes propriedades:
 
 - $F_X$ é monótona crescente, contínua à direita e tem $\#\R_X$ pontos de descontínuidade. Consequentemente, o gráfica da fd de uma VA discreta é algo parecido a:
 
@@ -141,7 +145,7 @@ Dizemos entao que uma VA $X$ é contínua se e só se:
   $$
   A esta função dá-se o nome de [**função de densidade de probabilidade (fdp)**](color:pink).
 
-AS VA's contínuas têm as seguintes propriedades:
+As VA's contínuas têm as seguintes propriedades:
 
 - Um gráfico vagamente semelhante ao representado abaixo, devido à continuidade e monotonicidade lata:
 
