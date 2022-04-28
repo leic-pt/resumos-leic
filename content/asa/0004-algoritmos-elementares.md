@@ -20,7 +20,7 @@ Vamos procurar rever e aprofundar conceitos previamente abordados em IAED, tais 
 
 ## DFS - _Depth First Search_
 
-Consiste num algoritmo recursivo que utiliza a noção de _backtracking_. Procura esgotar todos os caminhos possíveis em frente, voltando para trás quando já não há mais possibilidades de seguir em frente. Foi [abordado em IAED](/iaed/grafos#procura-em-profundidade-primeiro-dfs), e será aprofundado nesta secção.
+Consiste num algoritmo recursivo que utiliza a noção de _backtracking_. Procura esgotar todos os caminhos possíveis em frente, voltando para trás quando já não há mais possibilidades de seguir em frente.
 
 :::details[Exemplo simples da execução do algoritmo]
 
@@ -253,7 +253,7 @@ Se $G(V, E)$ é um DAG (grafo acíclico dirigido) e $(u, v) \in E$, então $v$ �
 
 :::
 
-Uma ordenação topológica pode, então, ser dada pela **ordem decrescente de tempos de fecho** de uma DFS a um dado grafo. Por exemplo, dado o grafo abaixo e respetiva DFS a começar em A:
+Uma ordenação topológica pode, então, ser dada pela **ordem decrescente de tempos de fecho** de uma DFS a um dado grafo. Por exemplo, dado o grafo abaixo e respetiva DFS a começar em $A$:
 
 ![DFS - Ordenação Topológica](./assets/0004-top-order-exemplo.png#dark=1)
 
