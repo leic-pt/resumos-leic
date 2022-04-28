@@ -1,11 +1,11 @@
 ---
-title: Maquinas de Turing
-description: 'Maquinas de Turing'
+title: Máquinas de Turing
+description: 'Máquinas de Turing'
 path: /tc/maquinas-de-turing
 type: content
 ---
 
-# Maquinas de Turing
+# Máquinas de Turing
 
 ```toc
 
@@ -86,7 +86,7 @@ No exemplo anterior vimos a máquina de Turing para decidir a linguagem. A únic
 - quando uma palavra não é aceite, imprimir 0 e terminar a computação no estado de aceitação na mesma (a nossa função completou com sucesso, pois reconheceu que a palavra não é aceite).
 
 Para isso, substituímos os estados $q_{ac}$ e $q_{rj}$ por estados $q_3$ e $q_4$ respetivamente, que indicam que já sabemos o resultado da nossa computação.
-Neste ponto, para terminar a computação com sucesso basta então apenas imprimir o output adequado e ir para o estado de aceitação, como é feito a baixo.
+Neste ponto, para terminar a computação com sucesso basta então apenas imprimir o output adequado e ir para o estado de aceitação, como é feito abaixo.
 
 ![Turing Machine Function](./imgs/0002/turing-machine-function.png#dark=1)
 
@@ -94,17 +94,18 @@ Observe-se que o output deve ser imprimido só depois do input ser todo lido, pe
 
 :::
 
-Vamos agora formalizar aquilo que vimos nos exemplos a cima.
+Vamos agora formalizar aquilo que vimos nos exemplos acima.
 
 Em cada momento, uma máquina de Turing está numa certa [**configuração**](color:purple). A [configuração](color:purple) é determinada por:
 
 - os símbolos na fita;
 - a posição da cabeça de leitura/escrita;
 - o estado em que a máquina se encontra.
-  Esta observação pode ser formalizada da seguinte forma:  
-  Para uma máquina de Turing $M$, definimos a sua [configuração](color:purple) como o triblo $(u, q, v) \in \Gamma^* \times \hat{Q} \times \Gamma^*$ em que $u$ é a palavra à esquerda da cabeça de leitura/escrita, $q$ é o estado corrente e $v$ a palavra que se inicia na cabeça de leitura/escrita e se prolonga para a direita até uma sequência infinita de células vazias.  
-  Uma configuração diz-se de aceitação (respetivamente, de rejeição) se o seu estado corrente for de aceitação (resp., de rejeição).  
-  Observamos ainda que, para um input $\omega$, a configuração inicial de uma máquina de Turing é sempre $(\epsilon, q_{in}, \omega)$.
+
+Esta observação pode ser formalizada da seguinte forma:  
+Para uma máquina de Turing $M$, definimos a sua [configuração](color:purple) como o triblo $(u, q, v) \in \Gamma^* \times \hat{Q} \times \Gamma^*$ em que $u$ é a palavra à esquerda da cabeça de leitura/escrita, $q$ é o estado corrente e $v$ a palavra que se inicia na cabeça de leitura/escrita e se prolonga para a direita até uma sequência infinita de células vazias.  
+Uma configuração diz-se de aceitação (respetivamente, de rejeição) se o seu estado corrente for de aceitação (resp., de rejeição).  
+Observamos ainda que, para um input $\omega$, a configuração inicial de uma máquina de Turing é sempre $(\epsilon, q_{in}, \omega)$.
 
 Definimos agora a função de [transição](color:pink) de configurações $\Delta : \Gamma^* \times \hat{Q} \times \Gamma^* \to \Gamma^* \times \hat{Q} \times \Gamma^*$ de uma máquina de Turing $M = (\Sigma, \Gamma, Q, q_{in}, q_{ac}, q_{rj}, \delta)$ tal que:
 
@@ -165,7 +166,7 @@ Apesar de permitirem maior flexibilidade aparente, na verdade os modelos que ana
 Uma [**máquina com transições-$S$**](color:green) é uma máquina cuja função de transição tem como contradomínio $\hat{Q} \times \Gamma \times \{L,R,S\}$, em vez de $\hat{Q} \times \Gamma \times \{L,R\}$.
 Este último elemento $S$ corresponde a um movimento em que a cabeça de leitura/escrita não muda de sítio.
 
-As noções introduzidas na secção anterior são facilmente estendíveis a estas máquinas, sendo relevante apenas realçar a extensão da função de transição de configurações, que agora, além do apresentado a cima, satisfaz ainda:
+As noções introduzidas na secção anterior são facilmente estendíveis a estas máquinas, sendo relevante apenas realçar a extensão da função de transição de configurações, que agora, além do apresentado acima, satisfaz ainda:
 
 $$
 \Delta(u, q, a.v) = (u, s, b.v) \text{se } \delta(q,a) = (s,b,S)
@@ -185,7 +186,7 @@ Basta pegar em cada movimento $S$ e desdobrá-lo em dois movimentos, como aprese
 ![S-movement Conversion](./imgs/0002/s-movement.png#dark=1)
 
 em que $q_a$ denota um novo estado da máquina, e $\gamma$ deve ser expandido para representar todas as letras do alfabeto $\Gamma$.  
-É fácil de verificar que os dois segmentos a cima levam à mesma transição de configurações.
+É fácil de verificar que os dois segmentos acima levam à mesma transição de configurações.
 
 :::
 
@@ -201,7 +202,7 @@ $$
 \end{matrix}
 $$
 
-Devem-se entender as transições a cima como "se não houver nada à esquerda e andarmos para a esquerda, vamos para uma célula vazia".  
+Devem-se entender as transições acima como "se não houver nada à esquerda e andarmos para a esquerda, vamos para uma célula vazia".  
 Por contraste, as máquinas de Turing introduzidas inicialmente dizem-se **unidirecionais**.
 
 :::tip[]
@@ -288,12 +289,138 @@ A ideia será que $D$ terá 3 fitas:
 - a primeira fita manterá o input do problema, sem o alterar;
 - a segunda fita será usada para escolher o caminho a percorrer no grafo das possíveis transições de configurações;
 - a terceira fita será usada para mexer no input para cada sequência na fita 2.
-  A máquina $D$ começa por inicializar as fitas:
+
+A máquina $D$ começa por inicializar as fitas:
+
 - na segunda fita coloca \$ para indicar o início do caminho, abre $d$ (depende do input) espaços vazios, e coloca $\#$ no final para indicar o fim do caminho.
 - copia-se para a terceira fita o input.
-  Então, executamos na fita 3 de acordo com o caminho 2 até que:
-- cheguemos a um estado de aceitação: neste caso vamos para o estado de aceitação e terminamos a computação;
-- cheguemos a um estado de rejeição: neste caso passamos ao próximo caminho na fita 2.
-  Se nenhum dos caminhos na fita 2 aceitar a palavra, então a palavra deve ser rejeitada.
+
+Então, executamos na fita 3 de acordo com o caminho 2 até que:
+
+- cheguemos a um estado de aceitação de $D$: neste caso vamos para o estado de aceitação de $N$ e terminamos a computação;
+- cheguemos a um estado de rejeição de $D$: neste caso passamos ao próximo caminho na fita 2.
+
+Se nenhum dos caminhos na fita 2 aceitar a palavra, então a palavra deve ser rejeitada.
+
+:::
+
+## Máquina Universal
+
+Podemos verificar que o alfabeto $\{ 0, 1 \}$ é suficiente para representar qualquer problema.  
+Para uma máquina de Turing $M = (\Sigma, \Gamma, Q, q_{in}, q_{ac}, q_{rj}, \delta)$, podemos por exemplo considerar a seguinte representação, a que se dá o nome de **representação canónica**:
+
+$$
+11\cdots111 \, . \, 0 \, . \, 11\cdots1 \, . \, 0 \, . \, <\text{trans}~1> <\text{trans}~2> \cdots <\text{trans}~n>
+$$
+
+A representação pode ser descrita da seguinte forma:
+
+- uma string de $n$ 1's: tantos quanto o número de estados na máquina de Turing, isto é, tantos quanto os estados em $\hat{Q} = Q \cup \{ q_{ac}, q_{rj} \}$: os $n$ estados são identificados da seguinte forma:
+
+  $$
+  \begin{aligned}
+  q_1 = q_{in} &= 100 \cdots 00 \\
+  q_2 &= 010 \cdots 00 \\
+  q_3 &= 001 \cdots 00 \\
+  & \vdots \\
+  q_{n-1} = q_{ac} &= 000 \cdots 10 \\
+  q_n = q_{rj} &= 000 \cdots 01
+  \end{aligned}
+  $$
+
+- um 0 de separação;
+- uma string de $k$ 1's: tantos quantos símbolos no alfabeto auxiliar $\Gamma = \Gamma \backslash \{ \square \} \cup \{ \square \} = k+1$: os $k+1$ símbolos são da seguinte forma:
+  $$
+  \begin{aligned}
+  a_0 &= 000 \cdots 00 \\
+  a_2 &= 100 \cdots 00 \\
+  a_3 &= 010 \cdots 00 \\
+  &\vdots \\
+  a_{k-1} &= 000 \cdots 10 \\
+  a_k &= 000 \cdots 01
+  \end{aligned}
+  $$
+- um 0 de separação;
+- uma sequência de strings que representam as transições dadas pela função $\delta$: cada string que representa uma transição $\delta(q_i, a_j) = (q_r, a_s, m)$ é uma palavra $trans_i = q_i a_j q_r a_s m \in \{ 0, 1 \}^*$ de comprimento $2n+2k+2$.
+
+Esta representação permite-nos confundir uma máquina de Turing com uma palavra binária, quando apropriado.
+
+:::details[Exemplo]
+
+Consideremos por exemplo a seguinte máquina de Turing, que decide a linguagem das palavras sobre $\{0,1\}$ que começam com dois $0$'s consecutivos:
+
+![Representação Canónica de uma Máquina de Turing - Máquina](./imgs/0002/chanonic-representation.png#dark=3)
+
+A sua representação canónica é:
+
+$$
+\overbrace{1111}^{\text{4 estados}}~
+0~
+\overbrace{11}^{\text{2 símbolos}}~
+0~
+\overbrace{
+  \underbrace{1000}_{q_1 = q_{\op{in}}}~
+  \underbrace{10}_{a_1 = 0}~
+  \underbrace{0100}_{q_2}~
+  \underbrace{10}_{a_1 = 0}~
+  \underbrace{1}_{R}
+}^{\text{transição}}~
+\overbrace{
+  \underbrace{0100}_{q_2}~
+  \underbrace{10}_{a_1 = 0}~
+  \underbrace{0010}_{q_3=q_{\op{ac}}}~
+  \underbrace{10}_{a_1 = 0}~
+  \underbrace{1}_{R}
+}^{\text{transição}}
+
+
+$$
+
+A máquina tem estados ($q_0 = q_{in}$, $q_1$, $q_2 = q_{ac}$ e $q_3 = q_{rj}$).  
+O alfabeto de trabalho da máquina tem $2+1$ símbolos: $0$, $1$ e $\square$.  
+A máquina tem duas transições, representadas acima.
+
+Nota: a representação acima só usa um bit para o movimento.
+No entanto, se quisermos que a nossa máquina de Turing tenha movimentos $S$, precisamos de 2 bits para codificar essa informação, como referido acima.
+
+:::
+
+Dado um alfabeto $\Sigma$, denotamos por $\mathcal{M}^\Sigma$ o conjunto das representações canónicas de máquinas de Turing com alfabeto de entrada/saída $\Sigma$.
+Denotamos por $rep(\omega )$ a representação canónica de uma palavra $\omega \in \Sigma^*$.  
+Por exemplo, para $\Gamma \backslash \{ \square \} = \{ a_1, a_2 \cdots, a_k \}$ temos que $rep(\square) = 000\cdots 00$, $rep(a_1) = 100\cdots 00$, $rep(a_2) = 010\cdots 00$ e por aí a diante.
+
+:::tip[Proposição]
+
+Existe uma máquina de Turing $U$, a que damos o nome de [**máquina Universal**](color:purple), que para qualquer $M \in \mathcal{M}^\Sigma$ e $\omega \in \Sigma^*$, tal que, para um símbolo \$ $ \notin \Sigma$
+
+- U aceita (respetivamente rejeita) $M \text{\textdollar} rep(\omega )$ se e só se $M$ aceita (resp. rejeita) $\omega$;
+- $\phi_U(M \text{\textdollar} rep(\omega ) ) = rep(\phi_M(\omega ))$.
+
+:::
+
+:::details[Prova]
+
+Seja $U$ uma máquina de Turing com 6 fitas.
+
+A máquina, ao receber um input $x$, começa por verificar se a palavra $x$ é da forma $M \text{\textdollar} rep(\omega)$ para alguma máquina de Turing $M \in \mathcal{M}^\Sigma$ e $\omega \in \Sigma^*$, rejeitando se este não for o caso.
+
+Passada esta verificação, a máquina passa para a fase inicial:
+
+- copia a sequência de $1$'s correspondente ao número de estados de $M$ para a fita 2;
+- copia a sequência de $1$'s correspondente ao número de símbolos de $M$ para a fita 3;
+- copia as transições de $M$ para a fita 4;
+- coloca o estado inicial de $M$ na fita 5;
+- copia $rep(\omega)$ para a fita 6;
+- coloca as cabeças de leitura/escrita de cada fita no início destas palavras.
+
+![Máquina Universal](./imgs/0002/universal-machine.png#dark=3)
+
+Após a fase inicial, a máquina entra na fase de simulação.
+Nesta fase, $U$ faz os seguintes passos repetidamente até $M$ abortar/terminar.
+
+- lê o símbolo onde está posicionado a cabeça de leitura/escrita da fita 6;
+- lê o estado atual de $M$ na fita 5;
+- percorre a fita 3 à procura da transição de $M$ para este símbolo e estado. Se não encontrar transição, $U$ aborta. Se encontrar, $U$ altera o estado de $M$ na fita 5, o símbolo na fita 6 e a posiçao da cabeça de leitura/escrita conforme indicado na transição encontrada;
+- Se o passo anterior levar a um estado de terminação de $M$, $U$ termina em acordância com $M$.
 
 :::

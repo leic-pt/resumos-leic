@@ -11,84 +11,106 @@ type: content
 
 ```
 
-## Instruções e Blocos
-
-### Instrução
-
-- Instrução
-- Expressão terminada por `;`
-- Caracter `;` denota o fim de uma instrução
-- Exemplo: `x = 0; i++; `
-
-### Blocos
-
-- Chavetas, `{ }`, permitem agrupar declarações e instruções
-- instruções de uma função
-- conjuntos de instruções em `if, for, while`, etc.
-- Exemplo:
-  `{ int x, i = 1; x = 0; i++; printf("%d %d\n"); }`
-
 ## Execução Condicional
 
-### if
+### If
 
-- Permite exprimir decisões:
+Mais uma vez, por esta altura já devemos estar mais que habituados a expressões `if`, `else if` e `else`: expressões condicionais que permitem exprimir decisões consoante um dado conjunto de condições.
 
-- Se `<expressao1>` tem valor diferente de 0
-  então `<instrucao1>` é executada
-- Se `<expressao1>` tem valor igual a 0, e `<expressao2>` é diferente de 0
-  então `<instrucao2>` é executada
-
-`embed:assets/0007-cond1.c`
+```c
+if (/* condição 1 */) {
+    /* instrução 1 */
+} else if (/* condição 2 */) {
+    /* instrução 2 */
+} else {
+    /* instrução 3 */
+}
+```
 
 ### Switch
 
-- Decisão com opções múltiplas; testa se uma expressão
-  assume um de um conjunto de valores constantes
+Passamos então a uma operação que não foi abordada em FP: `switch` (_switch-case_) corresponde a um problema de decisão com múltiplas opções. Testa-se uma expressão, sendo que se a mesma coincidir com um dado _caso_, a instrução/conjunto de instruções a ele associadas são executadas. Podemos ainda definir (não obrigatoriamente) um conjunto de instruções para o caso especial em que a expressão não coincide com nenhum dos outros casos: `default`.
 
-`embed:assets/0007-switch.c`
+Devemos por norma colocar um `break` no final de cada conjunto de instruções, visto que caso contrário continuaremos a verificar todos os outros casos. Exceções aplicam-se quando queremos que dois `case`s distintos seguidos executem o mesmo conjunto de instruções: no trecho abaixo podemos ver isso mesmo com `case 'b'` e `case 'B'`, que vão executar o mesmo conjunto de instruções.
 
-- default é opcional e é executado se a expressão é
-  diferente de qualquer dos outros casos
+```c
+switch (c = getchar()) {
+    case 'a':
+        /* instruções 1 */
+        break; /* parar a execução dentro do switch aqui */
+    case 'b':
+    case 'B':
+        /* instruções 2 */
+    default:
+        /* instruções 3 */
+}
+```
 
 ## Ciclos Genéricos
 
 ### While
 
-`embed:assets/0007-while.c`
+Enquanto uma dada expressão se verificar, uma instrução/conjunto de instruções são executadas.
 
-Enquanto `<expressao>` for diferente de zero, a
-`<instrucao>` é executada
-Ciclo termina quando valor de `<expressao>` for zero
+```c
+while (/* expressão */) {
+    /* instruções */
+}
+```
 
 ### For
 
-`embed:assets/0007-for.c`
+`for` loops têm a particularidade de ter um **cabeçalho**, ao contrário de `while` loops. Esse mesmo cabeçalho possui:
 
-- Expressão de inicialização: `<expr1>`
-- Condição de ciclo: `<expr2>`
-- Expressão de incremento: `<expr3>`
-- Ciclos com inicialização e incremento simples
+- uma expressão de inicialização, como por exemplo `int i = 0`: tipicamente a variável que vai ser iterada durante o loop e que normalmente faz parte da condição de ciclo do mesmo;
+- a condição de ciclo do loop: enquanto esta se verificar, o loop continua;
+- uma expressão de incremento/alteração, que altera um dado conjunto de variáveis.
+
+Um exemplo de cabeçalho de um `for` loop poderia ser `for (int i = 0; i < 10; i++)`: o loop vai ser executado enquanto a variável `i`, inicializada a 0 e incrementada em 1 unidade por iteração, tiver valor menor que 10.
+
+```c
+for (/* expr inicialização */; /* condição */; /* expr alteração */) {
+  /* instruções */
+}
+```
 
 ### Do-while
 
-`embed:assets/0007-do.c`
+Bastante semelhante ao `while` loop, com um _twist_: o loop é sempre executado **pelo menos uma vez**, já que a condição só é testada no fim do mesmo.
 
-- Enquanto `<expressao>` for diferente de zero, as
-  `<instrucoes>` são executadas
-- Ciclo termina quando valor de `<expressao>` for zero
-- Note-se que `<instrucoes>` são executadas sempre
-  pelo menos uma vez
+```c
+do {
+    /* instruções */
+} while (/* condição */);
+```
 
 ### Break e Continue
 
-- A instrução `break` permite terminar a execução de um
-  `for`, `while`, `do-while` ou `switch`
-- A instrução `continue` desencadeia a execução da \
-  próxima iteração de um `for`, `while` ou `do-while`
-  - Num ciclo `for`, a execução continua com a expressão de
-    incremento
+A instrução `break`, como sabemos, permite terminar a execução de um `for`, `while`, `do-while` ou `switch`. A instrução `continue`, por sua vez, desencadeia a execução da próxima iteração de um `for`, `while` ou `do-while`, ignorando todo o resto das instruções do loop que poderiam ser executadas a seguir.
+
+---
 
 Exemplo com algumas das funções dadas:
 
-`embed:assets/0007-ex.c`
+```c
+int main() {
+    char command;
+    while (1) {
+        command = getchar(); /* Lê o comando */
+        switch (command) {
+            case 'a':
+                /* Chama a função responsável pela execução do comando a */
+                break;
+            case 'b':
+                /* Chama a função responsável pela execução do comando b */
+                break;
+            case 'x':
+                return 0; /* Termina o programa com sucesso */
+            default:
+                printf("ERRO: Comando desconhecido\n");
+        }
+        getchar(); /* Lê o '\n' introduzido pelo utilizador */
+    }
+    return -1; /* Se chegou aqui algo correu mal */
+}
+```

@@ -36,7 +36,7 @@ Se usarmos a _flag_ `-l`, associada a cada ficheiro vem a sua meta-informação:
 
 ` -rwxr-xr-x 1 luis staff 8680 Nov 14 19:46 do_exec`
 
-Eis a informação que está apresentada na linha a cima (por ordem):
+Eis a informação que está apresentada na linha acima (por ordem):
 
 - permissões do ficheiro: `-rwxr-xr-x`
   - podem ser de leitura (`r`), escrita (`w`) e execução (`x`);

@@ -216,7 +216,7 @@ Por exemplo, um comando como `ls -la | grep xpto | ...etc...` redireciona o outp
 
 :::tip[Exemplo: Redirecionamento de Entradas/Saídas]
 
-O comando indicado a cima na shell podia ser implementado de forma semelhante à apresentada de seguida:
+O comando indicado acima na shell podia ser implementado de forma semelhante à apresentada de seguida:
 
 ```c
 int main()

@@ -126,7 +126,7 @@ Ao conjunto das palavras aceites por um AFD $D$, $L(D) = \{w \in \Sigma^* : \del
 
 :::tip[Grafos de AFD's]
 
-Estas entidades são normalmente representadas e entendidas de acordo com grafos como o que mostramos a baixo. Para caractirizar rigorosamente esta linguagem é útil considerar a extensão a $\Sigma^*$ da função de transição do AFD.
+Estas entidades são normalmente representadas e entendidas de acordo com grafos como o que mostramos abaixo. Para caractirizar rigorosamente esta linguagem é útil considerar a extensão a $\Sigma^*$ da função de transição do AFD.
 
 ![Grafo de um AFD](./imgs/0001/AFD_graph.png#dark=1)
 
@@ -169,7 +169,7 @@ Para um AFD $D = (\Sigma, Q, q_{in}, F, \delta)$ dizemos que um estado $q \in Q$
 - [**produtivo**](color:orange) se existe $\omega \in \Sigma^*$ tal que $\delta^*(q, \omega) \in F$. Por outras palavras, um estado é [produtivo](color:orange) se for possível chegar a um estado final a partir dele;
 - [**útil**](color:red) se for acessível e produtivo, [**inútil**](color:red) caso contrário.
 
-Introduzimos a baixo o **algoritmo de procura de estados notáveis (APEN)**:
+Introduzimos abaixo o **algoritmo de procura de estados notáveis (APEN)**:
 
 :::tip[APEN]
 
@@ -194,7 +194,7 @@ O algoritmo recebe como input um AFD $D = (\Sigma, Q, q_{in}, F, \delta)$ e dá 
 
 Temos que a execução deste algoritmo termina sempre e identifica corretamente os estados acessíveis ($Ac$), produtivos ($Prd$), úteis ($Ut$) e inúteis ($In$).
 
-Vamos então tentar compreender o que o algoritmo a cima está a fazer:
+Vamos então tentar compreender o que o algoritmo acima está a fazer:
 
 - Numa primeira fase (passos 1 a 3), vamos descobrir quais são os estados [acessíveis](color:yellow). Intuitivamente, podemos fazer isto começando em $q_{in}$ e fazendo uma procura (BFS) no grafo do AFD. À medida que o fazemos, colocamos esses estados no conjunto de estados [acessíveis](color:yellow);
 - Numa segunda fase (passos 4 a 6), vamos determinar os estados [produtivos](color:orange). Estes são aqueles que vão levar a estados finais. Então, começamos exatamente nos estados finais e fazemos também uma procura (BFS), mas desta vez no sentido contrário das setas do grafo do AFD. À medida que descobrimos os estados [produtivos](color:orange), colocamo-los no conjunto apropriado.
@@ -309,14 +309,14 @@ O algoritmo recebe como input o AFD $D = (\Sigma, Q, q_{in}, F, \delta)$ e o seu
    2. $Aux := \{ \{p,q\} \notin \Delta: \exists a \in \Sigma: \{ \delta(p,a), \delta(q,a) \} \in Aux \}$;
 4. $Dst := \Delta \cup Aux$.
 
-O que o algoritmo a cima faz é o seguinte:  
+O que o algoritmo acima faz é o seguinte:  
 Para começar, determinar os estados distinguíveis de acordo com os 3 primeiros critérios.
 Então, enquanto os houver, determinar mais estados distinguíveis de acordo com o 4º critério.
 À medida que estes estados vão sendo encontrados, vão sendo agrupados no conjunto $Dst$.
 
 A execução deste algoritmo termina sempre retornando exatamente o conjunto de pares de estados distinguíveis do AFD.
 
-Para ajudar a compreender este algoritmo pode ser útil vê-lo em prática a baixo.
+Para ajudar a compreender este algoritmo pode ser útil vê-lo em prática abaixo.
 
 :::
 
@@ -484,7 +484,7 @@ Dado um AFD $D = (\Sigma, Q, q_{in}, F, \delta)$ a minimização de $D$ é o AFD
 
 :::tip[Observações]
 
-É relevante para o algoritmo a cima notar que, para um conjunto $C$ de estados equivalentes:
+É relevante para o algoritmo acima notar que, para um conjunto $C$ de estados equivalentes:
 
 - Se existe um estado produtivo em $C$, então $C$ só tem estados produtivos. Assim sendo, ao ignorarmos estados inúteis não podemos ignorar estados inúteis por equivalência;
 - Se $F \cap C \neq \emptyset$, então $C \subset F$. Isto é, se há um estado final em $C$, todos os estados de $C$ são finais. Isto é uma consequência direta do primeiro critério de distinção de estados e faz com que a definição de estados finais de $m_D$ seja não ambígua;
@@ -678,14 +678,14 @@ Desta forma, é claro que $\delta'^*(q, \omega) = \delta^*(q, \omega)$ (em $A'$,
 
 :::tip[Remoção de movimentos-$\epsilon$]
 
-Vamos compreender as alterações a cima:
+Vamos compreender as alterações acima:
 
 - Se podermos alcançar um estado final através de um movimento-$\epsilon$, então se considerarmos esse estado como sendo também final, as palavras reconhecidas pelo nosso AFND não mudam;
 - Para cada estado $q \in Q$ vamos ver que estados conseguimos alcançar usando apenas a letra $a \in \Sigma$. O conjunto de estados que conseguimos alcançar só com $a$ corresponde ao resultado de aplicar $a$ a todos os estados em $q^\epsilon$ e depois tirar o fecho-$\epsilon$ do resultado. Isto é, pego em todos os estados a que consigo chegar com $\epsilon$, vejo onde consigo chegar com $a$, e finalmente aplico $\epsilon$ outra vez.
 
 ![Fecho epsilon de um estado](./imgs/0001/fecho_epsilon.png#dark=3)
 
-Por exemplo, na imagem a cima, o fecho-$\epsilon$ do estado $q_{in}$ é o conjunto $\{ q_1, q_3, q_4 \}$.
+Por exemplo, na imagem acima, o fecho-$\epsilon$ do estado $q_{in}$ é o conjunto $\{ q_1, q_3, q_4 \}$.
 
 :::
 
@@ -811,7 +811,7 @@ $$
 
 :::tip[Corolário]
 
-É imediato a partir da proposição a cima que se $L_1$ e $L_2$ são regulares, então, por exemplo, $L_1 \cup L_2$ e $L_1 \backslash L_2$ também o são.
+É imediato a partir da proposição acima que se $L_1$ e $L_2$ são regulares, então, por exemplo, $L_1 \cup L_2$ e $L_1 \backslash L_2$ também o são.
 
 :::
 
@@ -961,7 +961,7 @@ $$
 tem como solução a expressão regular $X = \beta^* \gamma$.
 
 Desta forma, podemos resolver um sistema de $n$ equações com $n$ variáveis tal como fazemos nos números reais.  
-Ver o exemplo a baixo para perceber como.
+Ver o exemplo abaixo para perceber como.
 
 :::
 
@@ -987,7 +987,7 @@ q_2 = a q_1 + (b+c) q_2
 \end{cases}
 $$
 
-Note-se como o sistema a cima tem $n$ equações (uma para cada estado) e $n$ variáveis (também uma para cada estado).  
+Note-se como o sistema acima tem $n$ equações (uma para cada estado) e $n$ variáveis (também uma para cada estado).  
 Vemos agora que a terceira equação é linear em $q_2$, pelo que podemos substituir diretamente pela solução.
 
 $$
@@ -1127,7 +1127,7 @@ Temos que $\mathcal{REG} \subsetneq \mathcal{IND}$, isto é, todas as linguagens
 :::details[Prova]
 
 Que $\mathcal{REG} \subset \mathcal{IND}$, uma vez que um autómato de pilha é uma generalização de um AFD. Para fazer um AP que reconheça qualquer $L \in \mathcal{REG}$ basta considerar o AP que é igual ao AFD que reconhece $L$, em que nenhuma transição mexe na pilha.  
-Que $\mathcal{REG} \neq \mathcal{IND}$ é também evidente: já vimos a cima pelo menos uma linguagem que é independente de contexto, mas não é regular (a linguagem das palavras $a^n b^n, n \in \mathbb{N}_0$).
+Que $\mathcal{REG} \neq \mathcal{IND}$ é também evidente: já vimos acima pelo menos uma linguagem que é independente de contexto, mas não é regular (a linguagem das palavras $a^n b^n, n \in \mathbb{N}_0$).
 
 :::
 
@@ -1149,7 +1149,7 @@ Resumidamente, ficam as ideias para construir os autómatos:
 
 - Para $L_1 \cup L_2$, considerar como fizemos antes um autómato produto (fica para pensar o que é preciso fazer com a pilha);
 - Para $L_1 . L_2$ considerar uma composição dos autómatos $P_1$ e $P_2$: quando estamos num estado final de $P_1$, podemos fazer um movimento-$\epsilon$ para o estado inicial de $P_2$, assinalando esta transição na pilha com um símbolo especial;
-- Para $L^*$ considerar a composição a cima do AP $P$ para si próprio: em cada estado final de $P$ adicionamos um movimento-$\epsilon$ para o estado inicial, marcando também esta transição na pilha com um símbolo especial.
+- Para $L^*$ considerar a composição acima do AP $P$ para si próprio: em cada estado final de $P$ adicionamos um movimento-$\epsilon$ para o estado inicial, marcando também esta transição na pilha com um símbolo especial.
 
 Lamentamos a brevidade da prova. Aceitam-se contribuições.
 
