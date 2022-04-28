@@ -93,7 +93,7 @@ $$
 \det Df(1,0) = e^2 \ne 0
 $$
 
-Então, pelo {green}(**Teorema da Função Inversa**), $f$ é inversível numa vizinhança de $(1,0)$ e
+Então, pelo [**Teorema da Função Inversa**](color:green), $f$ é inversível numa vizinhança de $(1,0)$ e
 
 $$
 Df^{-1}(u,v) = \left(Df \left(f^{-1}(u,v) \right) \right)^{-1}

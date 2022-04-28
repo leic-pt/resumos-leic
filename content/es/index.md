@@ -8,7 +8,7 @@ type: topLevelPage
 
 > Familiarização com os métodos de engenharia e gestão necessários ao desenvolvimento de sistemas de
 > software complexos e/ou em larga escala, de forma economicamente eficaz e com elevada qualidade.
-> Conhecer eas técnicas e ferramentas necessárias para executar e gerir as várias atividades
+> Conhecer as técnicas e ferramentas necessárias para executar e gerir as várias atividades
 > do processo de desenvolvimento de software de qualidade.
 
 :::warning[PÁGINA EM CONSTRUÇÃO]

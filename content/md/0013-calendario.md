@@ -89,7 +89,7 @@ $$
 N_j = 2 - (\lambda_j - 1 + (\lambda \div 4))\%7
 $$
 
-que corresponde à fórmula a cima.
+que corresponde à fórmula acima.
 
 ---
 
@@ -107,7 +107,7 @@ $$
 N_j = 7 - (\lambda_j - 1 + (\lambda \div 4)-(\lambda_g \div 100)+(\lambda_g \div 400))\%7
 $$
 
-que corresponde à fórmula a cima. Note-se que isto não conta com os 10 dias que foram omitidos neste calendário. O professor não mencionou este facto pelo que suponho que o facto de o primeiro dia do primeiro ano ter sido uma segunda-feira já seja a contar com este facto.
+que corresponde à fórmula acima. Note-se que isto não conta com os 10 dias que foram omitidos neste calendário. O professor não mencionou este facto pelo que suponho que o facto de o primeiro dia do primeiro ano ter sido uma segunda-feira já seja a contar com este facto.
 
 **NOTA1:** $\%$ representa o resto da divisão e $\div$ a divisão inteira.
 
