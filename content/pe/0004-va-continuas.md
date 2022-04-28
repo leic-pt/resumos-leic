@@ -55,7 +55,7 @@ Uma VA $X$ com [distribuição uniforme contínua](color:green) tem:
   1, &x > b
   \end{cases}
   $$
-- Dois intervalos com a mesma amplitude têm a mesmpa probabilidade de acontecer. Isto é, para $\Delta \in \R^+$ e $c, d \in [a, b-\Delta]$ temos que:
+- Dois intervalos com a mesma amplitude têm a mesma probabilidade de acontecer. Isto é, para $\Delta \in \R^+$ e $c, d \in [a, b-\Delta]$ temos que:
   $$
   P(c \leq x \leq c+\Delta) = P(d \leq x \leq d+\Delta) = \frac{\Delta}{b-a}
   $$
