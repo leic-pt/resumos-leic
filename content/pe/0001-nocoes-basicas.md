@@ -102,7 +102,7 @@ Sobre uma $\sigma$-álgebra, definimos uma função de probabilidade da seguinte
 Para uma certa $\sigma$-álgebra $\mathcal{A}$ definimos uma **função de probabilidade** como uma função $P : \mathcal \to [0,1]$ tal que
 
 1. $P(\Omega) = 1$
-2. $0 \leq P(A) \leq 1 \, \forall\_{A \in \mathcal{A}}$
+2. $0 \leq P(A) \leq 1 \, \forall {A \in \mathcal{A}}$
 3. $P\left( \bigcup_{i=1}^{\infty} A_i \right) = \sum_{i=1}^{\infty} P(A_i)$ para qualquer coleção $\{ A_1, A_2, \cdots \} \subset \mathcal{A}$ tal que $A_i \cap A_j = \emptyset, \forall{i, j \in \mathbb{N}}$
 
 Intuitivamente o que isto nos diz é que:
@@ -146,7 +146,7 @@ Vamos agora introduzir mais umas definições e proposições que facilitam o es
 Dada uma função de probabilidade $P$ sobre um espaço de resultados $\Sigma$ definimos **probabilidade condicionada** de A por B como
 
 $$
-P(A | B) = \frac{P(A \cup B)}{P(B)}, \forall_{A,B \in \Omega}
+P(A | B) = \frac{P(A \cap B)}{P(B)}, \forall_{A,B \in \Omega}
 $$
 
 :::
@@ -214,7 +214,7 @@ $$
 Basta ver que
 
 $$
-P(A | B) \cdot P(B) = P(A \cup B) = P(B | A) \cdot P(A)
+P(A | B) \cdot P(B) = P(A \cap B) = P(B | A) \cdot P(A)
 $$
 
 :::
