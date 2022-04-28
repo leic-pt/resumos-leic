@@ -1,5 +1,13 @@
 ---
 title: Noções Básicas
+description: >-
+  Noções Básicas de Probabilidades: Experiência Aleatória, Espaço de Resultados, Evento.
+  Axiomática Probabilística.
+  Probabilidade Condicionada.
+  Acontecimentos Independentes.
+  Probabilidade Composta.
+  Probabilidade com Partições.
+  Teorema de Bayes.
 path: /pe/nocoes-basicas
 type: content
 ---
