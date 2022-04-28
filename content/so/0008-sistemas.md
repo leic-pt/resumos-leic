@@ -16,10 +16,20 @@ type: content
 
 ## Constituição do Sistema Operativo
 
-O utilizador típico de um computador não é um programador com conhecimento profundo de como a memória, processos e outros recursos do computador funcionam.
-Desta forma, permitir que o utilizador típico de um computador tivesse acesso a estes recursos podia ser bastante destrutivo para a "segurança do computador".
-Desta forma, o Sistema Operativo deve ser uma interface de proteção dos recursos essenciais do computador.  
-Entre outros, o SO deve garantir que:
+O utilizador típico de um computador não é um programador com conhecimento profundo de como a memória, processos e outros recursos do computador funcionam, e no caso do utilizador o ser, este não necessita de controlar todos os aspetos da sua máquina, assim sendo o SO tem de apresentar certas características que facilitam muito o trabalho do programador.
+
+- Abstração
+  - O programador típico não deve precisar de se preocupar com os detalhes de comunicar com os vários periféricos (que podem estar ligados de n formas diferentes - SPI, I²C, etc. - ter m bugs que precisam de ser contornados, e w interfaces com paradigmas diferentes)
+    - Estas abstrações podem ser mais ou menos complexas, e abstrações de vários níveis podem coexistir. P.ex. discos tanto são acedidos indiretamente por sistemas de ficheiros/mounts, como por ficheiros diretamente como block devices (deixando literalmente escrever todo o disco de início ao fim); interfaces de rede tanto podem ser geridas pelo SO e manipuladas como sockets como expostas diretamente a processos
+- Multitarefa
+  - O utilizador quer correr várias coisas, mas nem ele nem o programador se devem ter de preocupar com fazer isto funcionar - o SO abstrai a existência de outros processos a executar em concorrência e deixa o programador de aplicação usar o computador como se fosse o único processo a executar - todas as questões de sincronizar acessos a recursos partilhados são tratadas por SO.
+- Segurança
+
+  - O SO responsabiliza-se por controlar acessos aos vários recursos do computador (não deixa processos escrever na memória uns dos outros - excepto quando ambos concordam com shared memory, permissões do sistema de ficheiros).
+    Desta forma, permitir que o utilizador típico de um computador tivesse acesso a estes recursos podia ser bastante destrutivo para a "segurança do computador".
+    Desta forma, o Sistema Operativo deve ser uma interface de proteção dos recursos essenciais do computador.
+
+Alem de que o SO deve garantir que:
 
 - os processos não interferem diretamente com recursos físicos do computador;
 - os processos não interferem uns com os outros.
@@ -28,10 +38,10 @@ Para responder a esta necessidade, qualquer Sistema Operativo distingue dois mod
 
 [**Modo Utilizador**](color:green)
 
-Processos em modo utilizador **não têm privilégios**.
-Isto é, não conseguem aceder diretamente à memória, periféricos, ficheiros, etc (os recursos bloqueados em modo utilizador dependem do SO).  
+Processos em modo utilizador **têm acesso restrito a privilégios**.
+Isto é, não conseguem aceder diretamente a qualquer endereço de memória, periféricos, ficheiros, etc (os recursos bloqueados em modo utilizador dependem do SO). Além de certas instruções do CPU que impactam o sistema globalmente serem restritas.
 A maioria das aplicações que correm no nosso computador estão em modo utilizador.
-O espaço de endereçamento acessível a um processo neste modo está limitado e deve ser disjunto do dos outros processos (para que estes não comuniquem entre si).
+O espaço de endereçamento acessível a um processo neste modo está limitado e por omissão deve ser disjunto do dos outros processos (para que estes não comuniquem entre si) a menos que estejam a usar memória partilhada.
 Podem aceder às suas variáveis e executar operações aritméticas, entre outros, mas estão proibidas de executar operações "perigosas" sobre os recursos físicos.
 
 Quando um processo em modo utilizador pretende aceder a um recurso lógico, pede ao Sistema Operativo através de uma [**chamada de sistema**](color:purple).
@@ -40,20 +50,24 @@ Quando um processo em modo utilizador pretende aceder a um recurso lógico, pede
 [**Modo núcleo**](color:red)
 
 Modo priveligiado em que o código do Sistema Operativo é executado, de forma a poder interagir diretamente com os recursos físicos.
-É responsável por disponibilizar aos processos que correm em [modo utilizador](color:green) uma biblioteca de funções sistema que lhes permitam aceder a recursos físicos de forma segura.  
+Podemos dizer por poucas palavras que o modo núcleo funciona como executor de chamadas sistema.
+Permite assim aos processos que correm em [modo utilizador](color:green) uma biblioteca de funções sistema que lhes permitam aceder a recursos físicos de forma segura.  
 Só o código do SO pode correr neste modo (de outra forma, estariamos a dar privilégios a processos que não os deviam ter).
 
 Todas as atividades do modo núcleo são desencadeadas por [exceções](color:orange).
 Estas podem ser:
 
-- **assíncronas**: provocadas por algo ortogonal ao programa em execução (exemplos: timer, falta de energia, etc). Estas excepções também são frequentemente designadas por **interrupções**;
-- **síncronas**: provocadas por um acontecimento relacionado com o programa em execução (exemplos: divisão por zero, acesso a zona de memória proíbida, [chamada de sistema](color:purple), etc);
+- **Assíncronas**: provocadas por algo ortogonal ao programa em execução (exemplos: timer, falta de energia, etc). Estas excepções também são frequentemente designadas por **interrupções**;
+- **Síncronas**: provocadas por um acontecimento relacionado com o programa em execução (exemplos: divisão por zero, acesso a zona de memória proíbida, [chamada de sistema](color:purple), etc);
 
 Quanto à origem, podemos classificar as interrupções como:
 
-- **Desencadeadas por Hardware**: relógio e periféricos (teclado, rato, etc);
+- **Desencadeadas por Hardware**: periféricos (teclado, rato, etc);
 - **Desencadeadas por Software (_traps_)**: para chamadas a funções de sistema;
-- **Outras exceções**: por exemplo exceções de aritmética (divisão por zero) e acesso a memória indevido.
+
+- Existem exceções que podem ser desencadeadas por Hardware ou Software:
+
+  - Exceções de aritmética (divisão por zero) e acesso a memória indevido.
 
 :::warning[Informação Conflituosa]
 
@@ -87,16 +101,25 @@ Para exemplificar o que acontece quando um processo faz uma [chamada de sistema]
 
 :::
 
+:::details[Interações Assíncronas]
+Enviar n pedidos ao SO por syscalls para fazer coisas com recurso, que não bloqueiam.
+
+- Fazer um pedido ao SO para bloquear até que uma ou todas essas n operações acabem;
+- Ou um primeiro pedido - p.ex. `select`
+  - que bloqueia até que um ou mais dos n recursos em que se queira mexer esteja pronto para interações, e só depois mandar o pedido de leitura/escrita/etc a esse recurso, que nunca bloqueia: fazendo a operação, ou diz para tentar mais tarde
+
+:::
+
 ## Iniciação de um Sistema Operativo
 
 Quando o nosso computador está desligado, não passa de um objeto inanimado.
 Contudo, quando carregamos num botãozinho, esse objeto inanimado converte-se numa caixa mágica capaz de fazer as mais diversas operações.
 Vamos agora ver como é que isso é possível.
 
-Quando uma máquina recebe energia, o PC (_Program Counter_) aponta para um programa na _Boot ROM_.
-Nos computadores pessoais este programa pode ser o **BIOS** (_Basic Input/Output System_) ou a **UEFI** (_Unified Extensible Firmware Interface_).
-Este programa faz algumas verificações sobre o computador (nomeadamente seestá em condições de ser iniciado) e, de seguida,
-copia o bloco de código do disco para a RAM e salta para a primeira instrução desse programa, chamado _bootloader_.
+Quando uma máquina recebe energia, o PC (_Program Counter_) aponta para um programa (_firmware_) na _Boot ROM_.
+Nos computadores pessoais é habitual este programa ser uma implementação de **BIOS** (_Basic Input/Output System_) ou **UEFI** (_Unified Extensible Firmware Interface_).
+Este programa faz algumas verificações sobre o computador (nomeadamente se está em condições de ser iniciado) e, de seguida,
+determina a localização do _bootloader_ (no limite definido estaticamente no firmware, mas tanto em BIOS como UEFI há uma "ordem de arranque" que diz em que sítios procurar e com que ordem), copia-o para RAM, e passa-lhe o controlo (salta)
 
 O _bootloader_, por sua vez, carrega o programa do núcleo em RAM e salta para a rotina de inicialização do núcleo.
 A inicialização do núcleo passa por:

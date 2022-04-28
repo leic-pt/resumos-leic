@@ -1,5 +1,13 @@
 ---
 title: Noções Básicas
+description: >-
+  Noções Básicas de Probabilidades: Experiência Aleatória, Espaço de Resultados, Evento.
+  Axiomática Probabilística.
+  Probabilidade Condicionada.
+  Acontecimentos Independentes.
+  Probabilidade Composta.
+  Probabilidade com Partições.
+  Teorema de Bayes.
 path: /pe/nocoes-basicas
 type: content
 ---
@@ -15,7 +23,7 @@ Primeiro, é essencial definir exatamente em que consiste uma [**experiência al
 
 :::tip[Experiência Aleatória (EA)]
 
-Dá-se o nome de [**experiência aleatória (EA)**](color:red) a qualque experiência cujo resultado exato não pode ser predito antes da realização da mesma, devido à intervenção do acaso.
+Dá-se o nome de [**experiência aleatória (EA)**](color:red) a qualquer experiência cujo resultado exato não pode ser predito antes da realização da mesma, devido à intervenção do acaso.
 
 :::
 
@@ -45,14 +53,14 @@ O estudo de **Probabilidade** prende-se então com a atribuição de valores que
 Esta atribuição de valores de probabilidade pode ser feita de várias formas, tendo cada uma as suas vantagens e desvantagens.
 As mais comuns e simples são as seguintes:
 
-- **Probabilidade Clássica de Laplace**: Se $\Omega$ for finito e construídos por eventos elementares (eventos que correspondem a conjuntos com um só elemento) e equiprováveis, então
+- **Probabilidade Clássica de Laplace**: Se $\Omega$ for finito e construído por eventos elementares (eventos que correspondem a conjuntos com um só elemento) e equiprováveis, então
 
   $$
   P(A) = \frac{\#A}{\#\Omega}
   $$
 
   para qualquer evento $A \subset \Omega$.  
-  Esta noção é bastante limitada por várias razões: só trabalha com conjuntos finitos, exige que os eventos sejam todos elementares e equiprováveis.
+  Esta noção é bastante limitada por várias razões: só trabalha com conjuntos finitos, e exige que os eventos sejam todos elementares e equiprováveis.
 
 - **Probabilidade Frequencista**: Dada uma EA que foi realizada $N$ vezes, definimos **frequência** de um evento $A$ como o quociente $$ f_N(A) = \frac{n_N(A)}{N} $$ em que $n_N(A)$ é o número de vezes em que $A$ ocorre nas $N$ concretizações da EA realizada.  
   Definimos a probabilidade frequencista como
@@ -102,7 +110,7 @@ Sobre uma $\sigma$-álgebra, definimos uma função de probabilidade da seguinte
 Para uma certa $\sigma$-álgebra $\mathcal{A}$ definimos uma **função de probabilidade** como uma função $P : \mathcal \to [0,1]$ tal que
 
 1. $P(\Omega) = 1$
-2. $0 \leq P(A) \leq 1 \, \forall\_{A \in \mathcal{A}}$
+2. $0 \leq P(A) \leq 1 \, \forall {A \in \mathcal{A}}$
 3. $P\left( \bigcup_{i=1}^{\infty} A_i \right) = \sum_{i=1}^{\infty} P(A_i)$ para qualquer coleção $\{ A_1, A_2, \cdots \} \subset \mathcal{A}$ tal que $A_i \cap A_j = \emptyset, \forall{i, j \in \mathbb{N}}$
 
 Intuitivamente o que isto nos diz é que:
@@ -133,20 +141,20 @@ A partir da definição a cima podemos inferir as seguintes probabilidades:
 
 :::warning[]
 
-Não é preciso saber as definições a cima, no entanto, as propriedades e axiomas da função de probabilidade (enquanto que muito simples e intuitivas) são importantes de saber!
+Não é preciso saber as definições acima. No entanto, as propriedades e axiomas da função de probabilidade (apesar de muito simples e intuitivas) são importantes de saber!
 
 :::
 
 ## Leis Probabilísticas
 
-Vamos agora introduzir mais umas definições e proposições que facilitam o estudo de propabilidades.
+Vamos agora introduzir mais umas definições e proposições que facilitam o estudo de probabilidades.
 
 :::tip[Probabilidade Condicionada]
 
 Dada uma função de probabilidade $P$ sobre um espaço de resultados $\Sigma$ definimos **probabilidade condicionada** de A por B como
 
 $$
-P(A | B) = \frac{P(A \cup B)}{P(B)}, \forall_{A,B \in \Omega}
+P(A | B) = \frac{P(A \cap B)}{P(B)}, \forall_{A,B \in \Omega}
 $$
 
 :::
@@ -173,7 +181,7 @@ $$
 
 :::tip[Probabilidades com Partições]
 
-Definimos uma **partição de $\Omega$** como uma coleção $P_\Omega$ de conjuntos \{ A_1, A_2, \cdots \}$ tais que
+Definimos uma **partição de $\Omega$** como uma coleção $P_\Omega$ de conjuntos $\{ A_1, A_2, \cdots \}$ tais que
 
 - $A_i, A_j \in P_\Omega \Rightarrow A_i \cap A_j = \emptyset$ - os elementos de $P_\Omega$ são disjuntos;
 - $\bigcup_{A \in P_\Omega} A = \Omega$ - a união dos elementos de $P_\Omega$ é $\Omega$;
@@ -214,7 +222,7 @@ $$
 Basta ver que
 
 $$
-P(A | B) \cdot P(B) = P(A \cup B) = P(B | A) \cdot P(A)
+P(A | B) \cdot P(B) = P(A \cap B) = P(B | A) \cdot P(A)
 $$
 
 :::

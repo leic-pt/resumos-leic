@@ -13,30 +13,28 @@ type: content
 
 ## O que é um Sistema Operativo?
 
-O SO define funcionalmente o uso do computador:
+O SO define funcionalmente o uso do computador.
+É o SO que caracteriza a "máquina informática" que usamos e a "operação" baseia-se numa interface que a o SO disponibiliza.
 
-- É o SO que caracteriza a "máquina informática" que usamos
-- A "operação" baseia-se numa interface que a o SO disponibiliza
+![abs](./imgs/0001/0001-abs.png#dark=1)
 
-O Sistema Operativo cria uma máquina virtual totalmente independente
-do hardware onde se executa
+O Sistema Operativo cria uma máquina virtual totalmente independente do hardware onde se executa que:
 
-- O Sistema Operativo virtualiza praticamente
-  todos os mecanismos de hardware e cria uma
-  nova máquina
-
-- Gerir Recursos
-
-  - Seria difícil às aplicações controlar todos os aspetos da máquina física (interrupções,
-    organização da memória, dispositivos, ...)
-  - Abstrair os recursos físicos, oferecendo às aplicações um conjunto de recursos lógicos
-
-- As aplicações com os seus dados são o que realmente tem valor para as organizações
+- Virtualiza praticamente todos os mecanismos de hardware;
+- Gere os recursos: Seria difícil às aplicações controlar todos os aspetos da máquina física (interrupções, organização da memória, dispositivos, ...). O SO abstrai então os recursos físicos, oferecendo às aplicações um conjunto de recursos lógicos;
+- As aplicações com os seus dados são o que realmente tem valor para as organizações;
 - As grandes vantagens de ter uma aplicações que "corre" em Unix/Linux/Windows/MacOS:
   - Temos a certeza de a conseguir manter e fazer evoluir neste SO
   - O SO cria uma máquina virtual segura, fiável e otimizada
+- Os sistemas disponibilizam uma interface que permite a qualquer programador estender o seu ambiente de programação permitindo-lhe criar aplicações muito sofisticadas, que beneficiam de:
+  - Paralelismo
+  - Optimização da memória
+  - Persistência
+  - Comunicação entre processos, local ou distribuída
+  - Tratamento de erros
+  - Novos periféricos, protocolos, etc.
 
-## Recursos Lógicos vs Físicos
+### Recursos Lógicos vs Físicos
 
 | Recursos Lógicos                      | Recursos Físicos Virtualizados              |
 | ------------------------------------- | ------------------------------------------- |
@@ -47,26 +45,6 @@ do hardware onde se executa
 | Comunicação entre processos           | Partilha de memória, redes de dados         |
 | Utilizadores, permissões, privilégios | Mecanismos de segurança físicos do hardware |
 
-## Missão do Sistema Operativo
-
-![abs](./imgs/0001/0001-abs.png#dark=1)
-
-- Criar uma máquina virtual sobre a máquina física que ofereça
-  os recursos lógicos básicos necessários ao desenvolvimento das
-  aplicações
-
-- Independente do hardware onde se executa
-
-- Os sistemas disponibilizam uma interface que permite a qualquer programador estender o
-  seu ambiente de programação permitindo-lhe criar aplicações muito sofisticadas,
-  que beneficiam de:
-  - Paralelismo
-  - Optimização da memória
-  - Persistência
-  - Comunicação entre processos, local ou distribuída
-  - Tratamento de erros
-  - Novos periféricos, protocolos, etc.
-
 ## "Interfaces" do Sistema Operativo
 
 ### Interface Operacional
@@ -74,14 +52,12 @@ do hardware onde se executa
 Destinada a ser utilizada pelo utilizador, quer seja uma interface gráfica como
 uma interface de texto (i.e. terminal).
 
-![Terminal](./imgs/0001/0001-term.png)
+![Exemplos de Interfaces Operacionais](./imgs/0001/operational_interface.png#dark=3)
 
-![Windows Explorer](./imgs/0001/0001-windows.png#dark=1)
-
-### Interface programática
+### Interface Programática
 
 Bibliotecas de funções do sistema.  
-A sua documentação pode ser consultada com o comando `man <nome da função/biblioteca>`.
+A sua documentação pode ser consultada com o comando `man <nome da função/biblioteca>`
 
 ![APIs de sistema - man read](./imgs/0001/0001-man.png)
 

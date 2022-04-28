@@ -264,7 +264,7 @@ e^{\lambda_1 t} & 0 & \dots & 0\\
 \end{darray}
 $$
 
-Se quisermos verificar que determinármos bem a exponencial de uma matrix $A$,
+Se quisermos verificar que determinámos bem a exponencial de uma matrix $A$,
 podemos usar os seguintes **critérios de verificação**:
 
 1. $$
@@ -534,11 +534,12 @@ Dá-se o nome de **bloco de Jordan** de dimensão $n$ a uma matriz $J_\lambda$ q
 
 $$
 J_\lambda = \begin{bmatrix}
-\lambda & 1 & 0 & \dots & 0\\
-0 & \lambda & 1 & \ddots & \vdots\\
-0 & 0 & \lambda & \ddots & 0\\
-\vdots & \vdots & \ddots & \ddots & 1\\
-0 & 0 & \dots & 0 & \lambda
+\lambda & 1 & 0 & \cdots & 0 & 0\\
+0 & \lambda & 1 & \cdots & 0 & 0\\
+0 & 0 & \lambda & \cdots & 0 & 0\\
+\vdots & \vdots & \vdots & \ddots & \vdots & \vdots\\
+0 & 0 & 0 & \cdots & \lambda & 1\\
+0 & 0 & 0 & \cdots & 0 & \lambda
 \end{bmatrix}
 $$
 
