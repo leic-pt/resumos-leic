@@ -4,8 +4,6 @@ path: /pe/distribuicoes-conjuntas
 type: content
 ---
 
-// TODO: Gaspar mete aí cores nos bolds pls
-
 # Distribuições Conjuntas de Probabilidade
 
 Definimos um [**par aleatório**](color:blue) como uma função $(X,Y) : \Omega \to \R_{X,Y} \subset \R^2$ que satisfaz uma condição de mensurabilidade.
@@ -20,7 +18,7 @@ Os pares aleatórios discretos e contínuos, enquanto que partilham muitas semel
 
 ## Pares Aleatórios Discretos
 
-Um par aleatório $(X,Y)$ diz-se discreto se o seu contradomínio $\R_{X,Y}$ for contável tal que existe uma **função de probabilidade conjunta** $P: \R^2 \to [0,1]$ tal que
+Um par aleatório $(X,Y)$ diz-se discreto se o seu contradomínio $\R_{X,Y}$ for contável tal que existe uma [**função de probabilidade conjunta**](color:green) $P: \R^2 \to [0,1]$ tal que
 
 $$
 \sum_{(X,Y) \in \R_{X,Y}} P(X = x, Y = y) = 1
@@ -34,19 +32,19 @@ A função de probabilidade conjunta costuma ser representada por uma tabela de 
 
 // TODO: INSERIR TABELA
 
-A **função de distribuição conjunta** é dada por
+A [**função de distribuição conjunta**](color:yellow) é dada por
 
 $$
 F_{X,Y}(x,y) = P(X \leq x, Y \leq y) = \sum_{x' \leq x, y' \leq y} P(X = x', Y = y')
 $$
 
-Às funções que nos dão uma das VA de um par aleatório para todos os valores da outra dá-se o nome de **funções de probabilidade marginais**. As funções marginais de X e Y são então, respetivamente, dadas por
+Às funções que nos dão uma das VA de um par aleatório para todos os valores da outra dá-se o nome de [**funções de probabilidade marginais**](color:orange). As funções marginais de X e Y são então, respetivamente, dadas por
 
 $$
 P(X=x) = \sum_y P(X=x, Y=y) \quad P(Y=y) = \sum_x P(X=x, Y=y)
 $$
 
-A partir destas funções definem-se as **funções distribuição marginais**
+A partir destas funções definem-se as [**funções distribuição marginais**](color:red)
 
 $$
 F_X(x) = P(X \leq x) = \sum_{x' \leq x} P(X = x') = \sum_{x' \leq x} \sum_y P(X = x', Y = y)
@@ -56,7 +54,7 @@ $$
 F_Y(y) = P(Y \leq y) = \sum_{y' \leq y} P(Y = y') = \sum_{y' \leq y} \sum_x P(Y = y', X = x)
 $$
 
-Podemos ainda averiguar a influência que as VA's têm uma sobre a outra através das **funções de probabilidade condicionais** (assumindo que todos os eventos no domínio da VA são possíveis):
+Podemos ainda averiguar a influência que as VA's têm uma sobre a outra através das [**funções de probabilidade condicionais**](color:purple) (assumindo que todos os eventos no domínio da VA são possíveis):
 
 $$
 P(X = x | Y = y) = \frac{P(X=x, Y=y)}{P(Y=y)}
@@ -92,11 +90,9 @@ E(Y|X=x) = E(Y) \Leftrightarrow E(X|Y=y) = E(X) \Leftrightarrow \\
 V(Y|X=x) = V(Y) \Leftrightarrow V(X|Y=y) = V(X) \\
 $$
 
-// GASPAAAAAAAAAAAAAAR mete as mesmas cores que meteste em cima :fixe2:
-
 ## Pares Aleatórios Contínuos
 
-Um par aleatório $(X,Y)$ diz-se contínuo se o seu contradomínio $\R_{X,Y}$ for não contável tal que existe uma **função de densidade de probabilidade conjunta** $f_X: \R^2 \to [0,1]$ tal que
+Um par aleatório $(X,Y)$ diz-se contínuo se o seu contradomínio $\R_{X,Y}$ for não contável tal que existe uma [**função de densidade de probabilidade conjunta**](color:green) $f_X: \R^2 \to [0,1]$ tal que
 
 $$
 \iint_{\R^2} f_{X,Y}(x, y) = 1
@@ -110,25 +106,25 @@ $$
 P((X,Y) \in A) = \iint_{A} f_{X,Y}(x, y) \, dy \, dx
 $$
 
-A **função de distribuição conjunta** é dada por
+A [**função de distribuição conjunta**](color:yellow) é dada por
 
 $$
 F_{X,Y}(x,y) = P(X \leq x, Y \leq y) = \int_{-\infty}^x \int_{-\infty}^y f_{X,Y}(x,y) \, dx \, dy
 $$
 
-Às funções que nos dão uma das VA de um par aleatório para todos os valores da outra dá-se o nome de **funções de densidade de probabilidade marginais**. As funções marginais de X e Y são então, respetivamente, dadas por
+Às funções que nos dão uma das VA de um par aleatório para todos os valores da outra dá-se o nome de [**funções de densidade de probabilidade marginais**](color:orange). As funções marginais de X e Y são então, respetivamente, dadas por
 
 $$
 f_X(x) = \int_{-\infty}^\infty f_{X,Y}(x,y) \, dy \quad \quad f_Y(y) = \int_{-\infty}^\infty f_{X,Y}(x,y) \, dx
 $$
 
-A partir destas funções definem-se as **funções distribuição marginais**
+A partir destas funções definem-se as [**funções distribuição marginais**](color:red)
 
 $$
 F_X(x) = P(X \leq x) = \int_{-\infty}^x f_X(u) \, du \quad \quad F_Y(y) = P(Y \leq y) = \int_{-\infty}^y f_Y(u) \, du
 $$
 
-Tal como no caso discreto podemos averiguar a influência que as VA's têm uma sobre a outra através das **funções de densidade de probabilidade condicionais**:
+Tal como no caso discreto podemos averiguar a influência que as VA's têm uma sobre a outra através das [**funções de densidade de probabilidade condicionais**](color:purple):
 
 $$
 f_{X|Y=y}(x) = \frac{f_{X,Y}(x,y)}{f_Y(y)} \quad \quad f_{Y|X=x}(y) = \frac{f_{X,Y}(x,y)}{f_X(x)}
@@ -168,7 +164,7 @@ $$
 cov(X,Y) = E\left( (X - E(X))(Y-E(Y)) \right) = E(XY) - E(X)E(Y)
 $$
 
-A covariância desfruta das seguintes propriedades:
+A [covariância](color:yellow) desfruta das seguintes propriedades:
 
 - $X \indep Y \Rightarrow cov(X,Y) = 0$ e equivalentemente $cov(X,Y) \neq 0 \Rightarrow X \not\indep Y$
 - A implicãção contrária não é necessariamente verdade! $cov(X,Y) = 0 \not\Rightarrow X \indep Y$
@@ -191,7 +187,7 @@ $$
 
 $X$ e $Y$ dizem-se **correlacionadas** se $corr(X,Y) \neq 0$ e não correlacionadas caso contrário.
 
-A correlação desfruta das seguintes propriedades:
+A [correlação](color:orange) desfruta das seguintes propriedades:
 
 - $X \indep Y \Rightarrow corr(X,Y) = 0$ e equivalentemente $corr(X,Y) \neq 0 \Rightarrow X \not\indep Y$
 - A implicãção contrária não é necessariamente verdade! $corr(X,Y) = 0 \not\Rightarrow X \indep Y$
