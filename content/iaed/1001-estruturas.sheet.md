@@ -26,7 +26,7 @@ As estruturas de dados abordadas em IAED são estruturas clássicas, que qualque
 
 ## Lista Simplesmente Ligada (SLL)
 
-[Explicação nos Resumos](../listas#lista-simplesmente-ligada).
+[Explicação nos Resumos](/iaed/listas#lista-simplesmente-ligada).
 
 :::details[Lista Simplesmente Ligada]
 
@@ -158,7 +158,7 @@ Existe ainda uma estrutura muito semelhante à pilha, a **fila** - na fila, inse
 
 ## Hash Table (Linear Probing)
 
-[Explicação nos Resumos](../hash-tables#resolução-via-procura-linear-linear-probing).
+[Explicação nos Resumos](/iaed/hash-tables#resolução-via-procura-linear-linear-probing).
 
 :::details[Hash Table]
 
@@ -251,7 +251,7 @@ void destroy_hash(link *heads) {
 
 ## Árvores AVL
 
-[Explicação nos Resumos](../arvores-binarias#árvores-avl-adelson-velsky-and-landis).
+[Explicação nos Resumos](/iaed/arvores-binarias#árvores-avl-adelson-velsky-and-landis).
 
 :::details[Árvores AVL]
 
