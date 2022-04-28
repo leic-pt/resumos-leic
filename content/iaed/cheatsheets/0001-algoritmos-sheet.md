@@ -1,6 +1,13 @@
 ---
 title: Algoritmos de Ordenação (Cheat Sheet)
-description: Selection Sort, Insertion Sort, Bubble Sort, Quick Sort, Merge Sort, Heap Sort, Counting Sort, Radix Sort LSD/MSD
+description: Selection Sort.
+  Insertion Sort.
+  Bubble Sort.
+  Quick Sort.
+  Merge Sort.
+  Heap Sort.
+  Counting Sort.
+  Radix Sort LSD/MSD.
 path: /iaed/cheatsheet/algoritmos
 type: cheatsheets
 ---
@@ -28,14 +35,14 @@ typedef int Item; // caso queiramos ordenar inteiros
 #define key(A) A
 #define less(A, B) (key(A) < key(B))
 #define exch(A, B)  \
-    {               \
-        Item t = A; \
-        A = B;      \
-        B = t;      \
-    }
+  {               \
+    Item t = A; \
+    A = B;      \
+    B = t;      \
+  }
 #define compexch(A, B) \
-    if (less(B, A))    \
-    exch(A, B)
+  if (less(B, A))    \
+  exch(A, B)
 ```
 
 Mais ainda, de realçar que todos os algoritmos apresentados nesta secção estão explicados na secção respetiva dos resumos, indicada a par do respetivo código.
@@ -47,16 +54,16 @@ Mais ainda, de realçar que todos os algoritmos apresentados nesta secção est�
 :::details[Selection Sort]
 
 ```c
-void selection(Item a[], int left, int right) {
+void selection_sort(Item arr[], int left, int right) {
   int i, j;
 
   for (i = left; i < right; i++) {
     int min = i;
     for (j = i + 1; j <= right; j++) {
-      if (less(a[j], a[min]))
+      if (less(arr[j], arr[min]))
         min = j;
     }
-    exch(a[i], a[min]);
+    exch(arr[i], arr[min]);
   }
 }
 ```
@@ -70,20 +77,20 @@ void selection(Item a[], int left, int right) {
 :::details[Insertion Sort]
 
 ```c
-void insertion(Item a[], int left, int right) {
+void insertion_sort(Item arr[], int left, int right) {
   int i, j;
 
   for (i = left + 1; i <= right; i++) {
-    Item v = a[i];
+    Item curr = arr[i];
     j = i - 1;
 
-    while (j >= left && less(v, a[j])) {
-      // vetor percorrido até encontrar o elemento menor que v
-      a[j + 1] = a[j]; // andamos uma casa para a direita
+    while (j >= left && less(curr, arr[j])) {
+      // vetor percorrido até encontrar o elemento menor que curr
+      arr[j + 1] = arr[j]; // andamos uma casa para a direita
       j--;
     }
 
-    a[j + 1] = v; // guarda o valor na casa acima à do valor menor
+    arr[j + 1] = curr; // guarda o valor na casa acima à do valor menor
   }
 }
 ```
@@ -97,15 +104,15 @@ void insertion(Item a[], int left, int right) {
 :::details[Bubble Sort]
 
 ```c
-void bubble(Item a[], int left, int right) {
+void bubble_sort(Item arr[], int left, int right) {
   int i, j;
   int done = 0; // flag utilizada para indicar quando o vetor está ordenado
 
-  for (i = left; i < right && done == 0; i++) {
+  for (i = left; i < right && !done; i++) {
     done = 1;
     for (j = left; j < right + (left - i); j++) {
-      if (less(a[j], a[j - 1])) {
-        exch(a[j - 1], a[j]);
+      if (less(arr[j], arr[j - 1])) {
+        exch(arr[j - 1], arr[j]);
         done = 0;
       }
     }
@@ -122,33 +129,32 @@ void bubble(Item a[], int left, int right) {
 :::details[Quick Sort]
 
 ```c
-void quicksort(Item a[], int left, int right) {
+void quick_sort(Item arr[], int left, int right) {
   int i;
-  int j;
   if (right <= left)
     return;
 
   i = partition(a, left, right);
 
-  quicksort(a, left, i - 1);
-  quicksort(a, i + 1, right);
+  quick_sort(arr, left, i - 1);
+  quick_sort(arr, i + 1, right);
 }
 
-int partition(Item a[], int left, int right) {
+int partition(Item arr[], int left, int right) {
   int i = left - 1;
   int j = right;
-  Item v = a[right];
+  Item el = arr[right];
   while (i < j) {
-    while (less(a[++i], v));
+    while (less(arr[++i], el));
 
-    while (less(v, a[--j])) {
+    while (less(el, arr[--j])) {
       if (j == left)
         break;
       if (i < j)
-        exch(a[i], a[j]);
+        exch(arr[i], arr[j]);
     }
 
-    exch(a[i], a[right]);
+    exch(arr[i], arr[right]);
   }
 
   return i;
@@ -164,29 +170,30 @@ int partition(Item a[], int left, int right) {
 :::details[Merge Sort]
 
 ```c
-void mergesort(Item a[], int left, int right) {
-  int m = (right + left) / 2;
+void merge_sort(Item arr[], int left, int right) {
+  int mid = (right + left) / 2;
   if (right <= left)
     return;
-  mergesort(a, left, m);
-  mergesort(a, m + 1, right);
-  merge(a, left, m, right);
+
+  merge_sort(arr, left, mid);
+  merge_sort(arr, mid + 1, right);
+  merge(arr, left, mid, right);
 }
 
 Item aux[DIM];
 
-void merge(Item a[], int left, int m, int right) {
+void merge(Item arr[], int left, int mid, int right) {
   int i, j, k;
-  for (i = m + 1; i > left; i--)
-    aux[i - 1] = a[i - 1];
-  for (j = m; j < right; j++)
-    aux[right + m - j] = a[j + 1];
+  for (i = mid + 1; i > left; i--)
+    aux[i - 1] = arr[i - 1];
+  for (j = mid; j < right; j++)
+    aux[right + mid - j] = arr[j + 1];
   for (k = left; k <= right; k++) {
     // vamos escolhendo os elementos das pontas para ordenar o vetor
-    if (less(aux[j], aux[i]) || i == m + 1)
-      a[k] = aux[j--];
+    if (less(aux[j], aux[i]) || i == mid + 1)
+      arr[k] = aux[j--];
     else
-      a[k] = aux[i++];
+      arr[k] = aux[i++];
   }
 }
 ```
@@ -200,33 +207,33 @@ void merge(Item a[], int left, int m, int right) {
 :::details[Heap Sort]
 
 ```c
-void heapsort(Item a[], int l, int r) {
-  buildheap(a, l, r);
-  while (r - l > 0) {
-    exch(a[l], a[r]);
-    fixDown(a, l, --r, l);
+void heap_sort(Item arr[], int left, int right) {
+  build_heap(arr, left, right);
+  while (right - left > 0) {
+    exch(arr[left], arr[right]);
+    fix_down(arr, left, --right, left);
   }
 }
 
-void buildheap(Item a[], int l, int r) {
-  int k, heapsize = r - l + 1;
-  for (k = heapsize / 2 - 1; k >= l; k--)
-    fixDown(a, l, r, l + k);
+void build_heap(Item arr[], int left, int right) {
+  int k, heapsize = right - left + 1;
+  for (k = heapsize / 2 - 1; k >= left; k--)
+    fix_down(arr, left, right, left + k);
 }
 
-void fixDown(Item a[], int l, int r, int k) {
+void fix_down(Item arr[], int left, int right, int k) {
   int ileft, iright, largest = k;
-  ileft = l + left(k - l);
-  iright = l + right(k - l);
+  ileft = left + left_child(k - left);
+  iright = left + right_child(k - left);
 
-  if (ileft <= r && less(a[largest], a[ileft]))
+  if (ileft <= right && less(arr[largest], arr[ileft]))
     largest = ileft;
-  if (iright <= r && less(a[largest], a[iright]))
+  if (iright <= right && less(arr[largest], arr[iright]))
     largest = iright;
 
   if (largest != k) {
-    exch(a[k], a[largest]);
-    fixDown(a, l, r, largest);
+    exch(arr[k], arr[largest]);
+    fix_down(arr, left, right, largest);
   }
 }
 
@@ -234,11 +241,11 @@ int parent(int k) {
   return ((k + 1) / 2) - 1;
 }
 
-int left(int k) {
+int left_child(int k) {
   return 2 * k + 1;
 }
 
-int right(int k) {
+int right_child(int k) {
   return 2 * (k + 1);
 }
 ```
@@ -255,7 +262,7 @@ int right(int k) {
 
 ```c
 /* Quantos elementos diferentes podem aparecer */
-/* No exemplo da imagem acima, podem aparecer 9, os números entre 0 e 8 */
+/* Vamos considerar, neste algoritmo-exemplo, que podem aparecer 9 elementos: os números entre 0 e 8 */
 #define DISTINCT_ELEMENTS 9
 /* Tamanho máximo do vetor que queremos ordenar */
 #define MAX_SIZE 10

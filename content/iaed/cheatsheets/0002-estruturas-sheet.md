@@ -36,28 +36,24 @@ typedef struct {
   struct node *next;
 } node;
 
-node *insertBegin(node *head, int number) {
+node *insert_begin(node *head, int number) {
   node *x = malloc(sizeof(node));
-  x->value = number;
-  x->next = head;
+  node->value = number;
+  if (head != NULL)
+    return insert(x, head);
   return x;
 }
 
-node *insertEnd(node *head, int number) {
-  node *x;
-  node *aux;
+node *insert_end(node *head, int number) {
+  node *x = malloc(sizeof(node));
+  node *tail;
+  x->value = number;
   if (head == NULL) {
-    x = (node *) malloc(sizeof(node));
-    x->value = number;
-    x->next = NULL;
     return x;
   }
-  for (x = head; x->next != NULL; x = x->next);
-  aux = (node *) malloc(sizeof(node));
-  aux->value = number;
-  aux->next = NULL;
-  x->next = aux;
-  return head;
+  for (tail = head; tail->next != NULL; tail = tail->next);
+  insert(x, tail);
+  return head; // queremos sempre devolver a head
 }
 
 node *insert(node *x, node *t) {
@@ -112,42 +108,44 @@ Podemos pensar numa pilha como uma lista ligada onde inserimos **sempre** na cau
 :::details[Pilha]
 
 ```c
+#define INITIAL_CAP 100
+
 typedef struct {
-  int *v;  /* conteúdo da stack */
+  int *elements;  /* conteúdo da stack */
   int cap; /* máximo de elementos que se podem inserir na stack */
-  int sz;  /* número de elementos atualmente guardados na stack */
+  int size;  /* número de elementos atualmente guardados na stack */
 } stack;
 
 stack *build() {
   stack *s;
   s = malloc(sizeof(stack));
-  s->v = malloc(sizeof(int) * 4);
-  s->cap = 4;
-  s->sz = 0;
+  s->elements = malloc(sizeof(int) * INITIAL_CAP);
+  s->cap = INITIAL_CAP;
+  s->size = 0;
   return s;
 }
 
-void push(stack *s, int e) {
-  if (s->sz == s->cap) {
-    s->v = realloc(s->v, sizeof(int) * (++s->cap));
+void push(stack *s, int el) {
+  if (s->size == s->cap) {
+    s->elements = realloc(s->elements, sizeof(int) * (++s->cap));
   }
-  s->v[s->sz++] = e;
+  s->elements[s->size++] = el;
 }
 
 int top(stack *s) {
-  return s->v[s->sz - 1];
+  return s->elements[s->size - 1];
 }
 
 int pop(stack *s) {
-  return s->v[--s->sz];
+  return s->elements[--s->size];
 }
 
 int is_empty(stack *s) {
-  return !s->sz;
+  return s->size == 0;
 }
 
 void destroy(stack *s) {
-  free(s->v);
+  free(s->elements);
   free(s);
 }
 ```
@@ -176,7 +174,7 @@ typedef struct number {
 
 int M;
 
-link *HASHinit(int max) {
+link *hash_table_init(int max) {
   int i;
   M = max;
   link *heads = (link *)malloc(M * sizeof(link));
@@ -198,7 +196,7 @@ int hash_string(char* v, int size) {
   return hash;
 }
 
-link newNode(Item item, link next) {
+link new_node(Item item, link next) {
   link x = (link)malloc(sizeof(struct node));
 
   x->item = item;
@@ -206,14 +204,15 @@ link newNode(Item item, link next) {
   return x;
 }
 
-void deleteNode(link node) {
+void delete_node(link node) {
   deleteItem(node->item);
   free(node);
 }
 
-Item getItem(link h) {
+Item get_item(link h) {
   if (h)
     return h->item;
+  return NULL;
 }
 
 void insert(link *heads, Item item) {
