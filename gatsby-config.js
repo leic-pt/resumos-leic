@@ -78,6 +78,7 @@ module.exports = {
                 '\\lapt': '\\mathcal{L}\\left\\{#1\\right\\}', // Laplace Transfomation
                 '\\smartcolor': '\\htmlClass{md-color--#1}{#2}', // Handle colors on light/dark mode
                 '\\op': '\\operatorname{#1}',
+                '\\indep': '\\perp \\!\\!\\! \\perp',
               },
               throwOnError: false,
               trust: (context) =>
