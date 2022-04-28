@@ -1,6 +1,9 @@
 ---
 title: Estruturas de Dados (Cheat Sheet)
-description: Lista Simplesmente Ligada, Pilha (Stack), Hash Table e AVL
+description: Listas Simplesmente e Duplamente Ligadas.
+  Pilha (Stack).
+  Hash Table.
+  Árvores AVL.
 path: /iaed/cheatsheet/estruturas
 type: cheatsheets
 ---
