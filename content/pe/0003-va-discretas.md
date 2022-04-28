@@ -250,7 +250,7 @@ A [distribuição de Poisson](color:purple) mede o número de ocorrência de uma
 Para que isto seja possível é necessário assumirmos que:
 
 - existe um intervalo pequeno suficiente tal que podemos considerar que é impossível o evento acontecer duas vezes nesse intervalo;
-- a ocurrência do evento num intervalo é independente da ocorrência noutros intervalos, bem de como qual é o intervalo em questão.
+- a ocorrência do evento num intervalo é independente da ocorrência noutros intervalos, bem de como qual é o intervalo em questão.
 
 :::
 
