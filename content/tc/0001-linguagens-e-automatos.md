@@ -821,8 +821,6 @@ De forma semelhante, haverá estados $P_2 = \{ q_1, q_3, q_4 \}$ e $P_3 = \{ q_1
 
 O algoritmo de transição de $N$ para $D$ limita-se então a repetir este processo para todos os estados que vão aparecendo, até que todos os estados tenham transições definidas para as letras do alfabeto que se justificam.
 
-Note-se que este processo pode ser muito extensivo - no limite é preciso criar um estado para todos os $2^n$ subconjuntos de $Q$ e identificar as transições para cada um destes novos estados.
-
 :::
 
 Acabamos só por reparar que enquanto os AFD's têm a vantagem de terem todas as transições bem determinadas, podem necessitar de bastante mais estados que um AFND equivalente.
