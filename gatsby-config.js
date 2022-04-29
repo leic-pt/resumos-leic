@@ -27,6 +27,23 @@ module.exports = {
         },
       ],
     },
+    footer: {
+      links: [
+        {
+          title: 'IST LEIC-A',
+          href: 'https://fenix.tecnico.ulisboa.pt/cursos/leic-a',
+        },
+        {
+          title: 'GitHub',
+          href: 'https://github.com/diogotcorreia/resumos-leic',
+        },
+        {
+          title: 'Como Contribuir',
+          href: 'https://github.com/diogotcorreia/resumos-leic/wiki',
+        },
+      ],
+      contributorsLink: 'https://github.com/diogotcorreia/resumos-leic/graphs/contributors',
+    },
   },
   plugins: [
     {

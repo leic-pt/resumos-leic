@@ -1,0 +1,28 @@
+footer {
+  margin-top: 7rem;
+  width: 100%;
+  opacity: 60%;
+  transition: opacity 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+footer:hover {
+  opacity: 100%;
+}
+
+.footer-attributions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-attributions span {
+  padding: 0.5rem 1rem;
+}
+
+.footer-github-logo {
+  height: 1em;
+  vertical-align: baseline;
+  margin-left: 0.3em;
+  fill: inherit;
+}
