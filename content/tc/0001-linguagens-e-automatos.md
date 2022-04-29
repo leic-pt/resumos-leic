@@ -667,7 +667,9 @@ A **linguagem reconhecida** por um AFND é o conjunto das palavras aceites por e
 
 :::details[Exemplo de Linguagem Reconhecida por um AFND]
 
-// TODO (em breve)
+![AFND depois de remover movimentos-epsilon](./imgs/0001/AFND-sem-movimentos-epsilon.png#dark=3)
+
+Por exemplo, a linguagem reconhecida pelo AFND acima é a linguagem das palavras sobre o alfabeto $\{a,b,c\}^*$ que têm um número ímpares de $a$'s ou acabam em $c$.
 
 :::
 
