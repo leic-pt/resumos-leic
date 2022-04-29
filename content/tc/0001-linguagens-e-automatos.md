@@ -212,7 +212,7 @@ Tenhamos um AFD tal que:
 
 Ora, procurando seguir os passos descritos na descrição acima:
 
-- Descobrir os estados [acessíveis](color:yellow) passa por realizar uma BFS a partir do estado inicial, $q_in$ - todos os estados encontrados dizem-se [acessíveis](color:yellow):
+- Descobrir os estados [acessíveis](color:yellow) passa por realizar uma BFS a partir do estado inicial, $q_{in}$ - todos os estados encontrados dizem-se [acessíveis](color:yellow):
 
   Começamos com o conjunto de estados acessíveis a conter apenas $q_{in}$:
 
@@ -557,6 +557,16 @@ Se um conjunto $S$ tem $n$ elementos, o conjunto $\wp(S)$ tem $2^n$ elementos.
 
 :::
 
+:::details[Prova]
+
+Isto é uma consequência de cada conjunto estar unicamente determinado pelos elementos que têm.
+Ora, para cada elemento, ele ou está, ou não está num dado conjunto - isto é, cada elemento tem 2 opções em relação a um dado conjunto.
+Sendo assim, deve haver $2^n$ subconjuntos de um conjunto de $n$ elementos.
+
+Esta prova pode ser formalizada por indução.
+
+:::
+
 Um [**autómato finito não determinístico (AFND)**](color:pink) é definido como um quíntuplo $(\Sigma, Q, q_{in}, F, \delta)$ tal que:
 
 - $\Sigma$ é um alfabeto;
@@ -685,7 +695,13 @@ Vamos compreender as alterações acima:
 
 ![Fecho epsilon de um estado](./imgs/0001/fecho_epsilon.png#dark=3)
 
-Por exemplo, na imagem acima, o fecho-$\epsilon$ do estado $q_{in}$ é o conjunto $\{ q_1, q_3, q_4 \}$.
+Por exemplo, na imagem acima, estão assinalados que podem ser obtidos a partir de $q_{in}$ com a letra $b$.
+Todas as transições a partir de $q_{in}$ passam por:
+- ver onde é possível chegar com movimentos-$\epsilon$. Na nossa imagem, estes primeiros movimentos estão assinalados a [verde](color:green). O estado $q_4$, apesar de estar em $q_{in}^\epsilon$ não está marcado com seta verde pois não há nenhum transição a partir de $q_4$ com $b$.
+- depois, fazemos então as transições que usam a letra $b$, transições estas que estão assinaladas com setas [vermelhas](color:red).
+- finalmente, podemos ainda fazer mais movimentos-$\epsilon$, que estão assinalados a [azul](color:blue).
+
+Os estados que conseguimos obter a partir de $q_{in}$ com apenas um $b$ são os [vermelhos](color:red) e os [azuis](color:blue) - $\{ q_1, q_3, q_4 \}$.
 
 :::
 
@@ -729,7 +745,20 @@ Ora, isto equivale a $q$ ser um estado final em $A'$, pelo que $\epsilon$ també
 
 :::details[Exemplo da remoção de movimentos-$\epsilon$]
 
-// TODO (em breve)
+Em relaçao à imagem mostrada acima, vamos construir um AFND equivalente sem movimentos-$\epsilon$ que vamos denominar $A'$.
+
+Começamos por ver que a partir de $q_{in}$ podemos:
+- usando $a$ chegar a $q_2$ (a partir de $q_1$), $q_5$ (também a partir de $q_1$, usando depois um movimento-$\epsilon$), $q_3$ (através de $q_3$) e finalmente $q_4$ (através de $q_3$, usando depois um movimento-$\epsilon$).
+- usando $b$ chegar a $\{ q_1, q_3, q_4 \}$ (como vimos acima).
+- usando $c$ chegar a $\{ q_1, q_3, q_4, q_5 \}$.
+
+O processo de remoção dos movimentos-$\epsilon$ não passa de identificar estes conjuntos para todos os estados e assinalar as tranisções correspondentes no novo autómato $A'$.
+Desta forma, vamos então obter o autómato apresentado abaixo.
+
+![AFND depois de remover movimentos-epsilon](./imgs/0001/AFND-sem-movimentos-epsilon.png#dark=3)
+
+Note-se que o estado $q_2$ também passou a ser final, como tinha sido dito na teoria.
+Isto, como já foi explicado, acontece já que todas as palavras que terminem em $q_2$ são aceites (pois podem terminar em $q_5$ com mais um movimento-$\epsilon$).
 
 :::
 
@@ -742,6 +771,15 @@ Dado um AFND $A = (\Sigma, Q, q_{in}, F, \delta)$, temos que o AFD $D = (\Sigma,
   \delta'(C, a) = \bigcup_{q \in C} \delta(q,a)
   $$
   reconhece a mesma linguagem que $A$
+
+:::tip[]
+
+Observe-se que a função $\delta$, por ser uma função, está bem definida **e é determinística** para todo o input.
+Isto é, para qualquer input, só pode ter um output.  
+A questão é que, como vimos na definição, este output está definido em $\wp(Q)$ e não em $Q$.
+O segredo para arranjar um AFD $D$ equivalente a um AFND $N$ será então identificar os estados de $D$ com conjuntos de estados de $N$.
+
+:::
 
 :::details[Prova da equivalência entre $A$ e $D$]
 
@@ -768,7 +806,20 @@ Então, se $q$ for final em $A$, temos que $C \cap F \neq \emptyset$ e $C$ é fi
 
 :::details[Exemplo da passagem de AFND para AFD]
 
-// TODO (exemplo)
+Como foi sugerido acima, a passagem para o determinsmo é feita através da identificação dos estados do AFD $D$ com conjuntos de estados do AFND $N$.
+
+Voltando ao exemplo que temos visto, depois da remoção dos movimentos-$\epsilon$ ficámos com o AFND
+
+![AFND depois de remover movimentos-epsilon](./imgs/0001/AFND-sem-movimentos-epsilon.png#dark=3)
+
+No novo AFD $D$ vamos começar com um estado inicial que corresponde ao conjunto $\{ q_{in} \}$.  
+A partir deste estado, com um $a$ é possível chegar aos estados em $P_1 = \{ q_2, q_3, q_4, q_5 \}$.
+Desta forma, em $D$ vai haver um estado correspondente a este conjunto $P_1$ de forma que $\delta(a, \{ q_{in} \}) = P_1$.  
+De forma semelhante, haverá estados $P_2 = \{ q_1, q_3, q_4 \}$ e $P_3 = \{ q_1, q_3, q_4, q_5 \}$ de forma que $\delta(\{q_{in}\}, b) = P_2$ e $\delta(\{q_{in}\}, c) = P_3$.
+
+O algoritmo de transição de $N$ para $D$ limita-se então a repetir este processo para todos os estados que vão aparecendo, até que todos os estados tenham transições definidas para as letras do alfabeto que se justificam.
+
+Note-se que este processo pode ser muito extensivo - no limite é preciso criar um estado para todos os $2^n$ subconjuntos de $Q$ e identificar as transições para cada um destes novos estados.
 
 :::
 
