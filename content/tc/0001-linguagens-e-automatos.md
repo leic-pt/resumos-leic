@@ -697,6 +697,7 @@ Vamos compreender as alterações acima:
 
 Por exemplo, na imagem acima, estão assinalados que podem ser obtidos a partir de $q_{in}$ com a letra $b$.
 Todas as transições a partir de $q_{in}$ passam por:
+
 - ver onde é possível chegar com movimentos-$\epsilon$. Na nossa imagem, estes primeiros movimentos estão assinalados a [verde](color:green). O estado $q_4$, apesar de estar em $q_{in}^\epsilon$ não está marcado com seta verde pois não há nenhum transição a partir de $q_4$ com $b$.
 - depois, fazemos então as transições que usam a letra $b$, transições estas que estão assinaladas com setas [vermelhas](color:red).
 - finalmente, podemos ainda fazer mais movimentos-$\epsilon$, que estão assinalados a [azul](color:blue).
@@ -748,6 +749,7 @@ Ora, isto equivale a $q$ ser um estado final em $A'$, pelo que $\epsilon$ també
 Em relaçao à imagem mostrada acima, vamos construir um AFND equivalente sem movimentos-$\epsilon$ que vamos denominar $A'$.
 
 Começamos por ver que a partir de $q_{in}$ podemos:
+
 - usando $a$ chegar a $q_2$ (a partir de $q_1$), $q_5$ (também a partir de $q_1$, usando depois um movimento-$\epsilon$), $q_3$ (através de $q_3$) e finalmente $q_4$ (através de $q_3$, usando depois um movimento-$\epsilon$).
 - usando $b$ chegar a $\{ q_1, q_3, q_4 \}$ (como vimos acima).
 - usando $c$ chegar a $\{ q_1, q_3, q_4, q_5 \}$.
