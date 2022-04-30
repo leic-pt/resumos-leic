@@ -33,7 +33,7 @@ module.exports = {
         website: 'https://diogotc.com',
       },
       githubLink: 'https://github.com/leic-pt/resumos-leic',
-      contributionGuideLink: 'https://github.com/leic-pt/resumos-leic/wiki',
+      contributionGuideLink: 'https://leic-pt.github.io/docs',
       contributorsLink: 'https://github.com/leic-pt/resumos-leic/graphs/contributors',
       vercelLink: 'https://vercel.com/?utm_source=leic-pt&utm_campaign=oss',
     },
