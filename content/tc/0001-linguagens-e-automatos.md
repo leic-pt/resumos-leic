@@ -823,6 +823,20 @@ De forma semelhante, haverá estados $P_2 = \{ q_1, q_3, q_4 \}$ e $P_3 = \{ q_1
 
 O algoritmo de transição de $N$ para $D$ limita-se então a repetir este processo para todos os estados que vão aparecendo, até que todos os estados tenham transições definidas para as letras do alfabeto que se justificam.
 
+Geralmente, procuramos usar uma **tabela** para nos ajudar na conversão. Os estados representados no AFD final correspondem a todos os estados a que podemos chegar a partir do estado inicial, ao olhar para a tabela.
+
+![Tabela Conversão](./imgs/0001/AFND_to_AFD_TABELA.png#dark=1)
+
+O preenchimento da tabela é muito simples: um par linha-coluna corresponde a um par estado-símbolo, onde o conteúdo da entrada da tabela correspondente está associado ao **conjunto de estados a que podemos aceder** partindo desse estado e transicionando através desse símbolo.
+
+[**Não é preciso incluir todas as linhas da tabela que foram incluídas**](color:red): fizemo-lo por completude, mas só precisamos de representar os estados a que podemos chegar a partir do estado inicial.
+
+Neste caso, por exemplo, após $q_{in}$ podíamos representar logo $\{q_2, q_3, q_4, q_5\}, \{q_1, q_3, q_4\}, \{q_1, q_3, q_4, q_5\}$ na tabela e não $q_1$, depois $q_2$, etc.
+
+O autómato resultante desta conversão será o seguinte:
+
+![AFD final](./imgs/0001/AFND_to_AFD_FINAL.png#dark=3)
+
 :::
 
 Acabamos só por reparar que enquanto os AFD's têm a vantagem de terem todas as transições bem determinadas, podem necessitar de bastante mais estados que um AFND equivalente.
