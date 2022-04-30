@@ -31,7 +31,7 @@ Para uma máquina classificadora $M$ definimos as funções $\op{time}_M, \op{sp
 
 :::
 
-Para cada $n \in \mathbb{N}$, $\op{time}_M(n)$ e $\op{space}_M(n)$ dão-nos uma avaliação do pior caso, em termos de duração da computação ou da quantidade de memória necessária, respectivamente, para processar inputs de tamanho limitado por $n$.  
+Para cada $n \in \mathbb{N}$, $\op{time}_M(n)$ e $\op{space}_M(n)$ dão-nos uma avaliação do pior caso, em termos de duração da computação ou da quantidade de memória necessária, respetivamente, para processar inputs de tamanho limitado por $n$.  
 Mais do que a expressão exacta das funções $\op{time}_M$ e $\op{space}_M$ associadas a um classificadora $M$, estamos interessados em avaliar o seu crescimento. Por essa razão é usual usar notação assintótica, nomeadamente a notação $O$ ([como visto em cadeiras anteriores](/iaed/introducao-algoritmos#limite-assimpt%C3%B3tico-superior-o) como IAED ou ASA).
 
 ## Classes de Complexidade
@@ -331,7 +331,7 @@ Então:
 
 Se $\mathcal{C} \neq \mathbf{NP}$ e $\mathcal{C} \neq \mathbf{NEXPTIME}$, então temos também que:
 
-- $L_1 \backslash L_2 \in \mathcal{C}$
+- $L_1 \setminus L_2 \in \mathcal{C}$
 
 :::
 
@@ -353,7 +353,7 @@ Vamos então começar por definir o que é uma redução polinomial de uma lingu
 
 :::tip[Definição]
 
-Dadas linguagens sobre $L_1$ e $L_2$ sobre alfabetos $\Sigma_1$ e $\Sigma_2$, respetivamente, dizemos que [**há uma redução polinomial de $L_1$ para $L_2$**](color:orange) ou que [$L_1$ reduz polinomialmente a $L_2$](color:orange), o que denotamos por [$L_1 \leq_P L_2$](color:orange) se existe uma funçao total $f : \Sigma_1^* \to \Sigma_2^*$, calculada por uma máquina determinista em tempo polinomial tal que, para cada $\omega \in \Sigma_1^*$
+Dadas linguagens sobre $L_1$ e $L_2$ sobre alfabetos $\Sigma_1$ e $\Sigma_2$, respetivamente, dizemos que [**há uma redução polinomial de $L_1$ para $L_2$**](color:orange) ou que [$L_1$ reduz polinomialmente a $L_2$](color:orange), o que denotamos por [$L_1 \leq_P L_2$](color:orange) se existe uma função total $f : \Sigma_1^* \to \Sigma_2^*$, calculada por uma máquina determinista em tempo polinomial tal que, para cada $\omega \in \Sigma_1^*$
 
 $$
 \omega \in L_1 \Leftrightarrow f(\omega) \in L_2
@@ -421,6 +421,6 @@ $$
 
 :::tip[Corolário]
 
-$\mathbf{PSPACE} = \mathbf{NPSPACE}$ e $\mathbf{ESPSPACE} = \mathbf{NEXPSPACE}$
+$\mathbf{PSPACE} = \mathbf{NPSPACE}$ e $\mathbf{EXPSPACE} = \mathbf{NEXPSPACE}$
 
 :::

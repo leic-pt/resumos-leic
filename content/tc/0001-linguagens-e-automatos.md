@@ -67,7 +67,7 @@ Uma [**linguagem**](color:green) sobre o alfabeto $\Sigma$ é qualquer conjunto 
 
 :::tip[Operações sobre Linguagens]
 
-Damos o nome de **linguagem complementar** de $L$ à linguagem $\overline{L} = \Sigma^* / L$.  
+Damos o nome de **linguagem complementar** de $L$ à linguagem $\overline{L} = \Sigma^* \setminus L$.  
 Denotamos por $\mathcal{L}^\Sigma$ o conjunto de todas as linguagens sobre $\Sigma$.
 
 Dadas duas linguagens $L_1, L_2 \in \mathcal{L}^\Sigma$, definimos a **concatenação** das linguagens como sendo a linguagem $L_1 . L_2 = \{ uv : u \in L_1, v \in L_2 \}$.
@@ -174,7 +174,7 @@ Introduzimos abaixo o **algoritmo de procura de estados notáveis (APEN)**:
 :::tip[APEN]
 
 Apresentamos agora um algoritmo para a procura de **estados notáveis**.  
-O algoritmo recebe como input um AFD $D = (\Sigma, Q, q_{in}, F, \delta)$ e dá como output um tuplo $(Ac, Prod, Ut, In)$ com os estados acessíveis, produtivos, úteis e inúteis de $D$.
+O algoritmo recebe como input um AFD $D = (\Sigma, Q, q_{in}, F, \delta)$ e dá como output um tuplo $(Ac, Prod, Ut, In)$ com, respetivamente, os estados acessíveis, produtivos, úteis e inúteis de $D$.
 
 1. $Ac := \{q_{in}\}$;
 2. $Aux := \bigcup_{a \in \Sigma} \{ \delta(q_{in}, a) \}$;
@@ -189,7 +189,7 @@ O algoritmo recebe como input um AFD $D = (\Sigma, Q, q_{in}, F, \delta)$ e dá 
    2. $Aux := \bigcup_{a \in \Sigma} \{ p : \delta(p, a) \in Aux \}$;  
       [Estados produtivos determinados](color:orange)
 7. $Ut := Ac \cap Prd$;
-8. $In := Q \backslash Ut$.  
+8. $In := Q \setminus Ut$.  
    [Estados úteis e inúteis determinados](color:red)
 
 Temos que a execução deste algoritmo termina sempre e identifica corretamente os estados acessíveis ($Ac$), produtivos ($Prd$), úteis ($Ut$) e inúteis ($In$).
@@ -212,7 +212,7 @@ Tenhamos um AFD tal que:
 
 Ora, procurando seguir os passos descritos na descrição acima:
 
-- Descobrir os estados [acessíveis](color:yellow) passa por realizar uma BFS a partir do estado inicial, $q_in$ - todos os estados encontrados dizem-se [acessíveis](color:yellow):
+- Descobrir os estados [acessíveis](color:yellow) passa por realizar uma BFS a partir do estado inicial, $q_{in}$ - todos os estados encontrados dizem-se [acessíveis](color:yellow):
 
   Começamos com o conjunto de estados acessíveis a conter apenas $q_{in}$:
 
@@ -252,7 +252,7 @@ Pela definição da utilidade de um estado (um estado diz-se [útil](color:red) 
 
 $$
 \text{Estados Úteis} = Ac \cap Prd = \{q_{in}, q_1, q_2, q_4, q_5\}\\
-\text{Estados Inúteis} = Q \backslash Ut = \{q_3, q_6, q_7\}
+\text{Estados Inúteis} = Q \setminus Ut = \{q_3, q_6, q_7\}
 $$
 
 :::
@@ -366,7 +366,7 @@ Cada entrada na tabela corresponde a um dos **pares** de estados possíveis. Com
 | $p$ | $\backslash$ | $\backslash$ | $\backslash$ | $\backslash$ |
 |     | $p$          | $q$          | $r$          | $s$          |
 
-Entramos aqui na secção porventura mais desagradável: percorrer **todos os pares de $\Delta$** (que tenham uma cruz na tabela, portanto), e para cada um deles, verificar se existe um par que não esteja em $\Delta$ tal que, segundo transições por um mesmo símbolo, chegam ao par de estados original (e adicionar qualquer estado encontrado à tabela). Assim que um par é encontrado, a cruz na tabela é rodeada por um círculo (para anotar que já foi explorado).
+Entramos aqui na secção porventura mais desagradável: percorrer **todos os pares de $\Delta$** (que tenham uma cruz na tabela, portanto), e para cada um deles, verificar se existe um par que não esteja em $\Delta$ tal que, segundo transições por um mesmo símbolo, chegam ao par de estados original (e adicionar qualquer estado encontrado à tabela). Assim que um par é (ou não) encontrado, a cruz na tabela é rodeada por um círculo (para anotar que já foi explorado).
 
 Ora, procuremos então percorrer$\Delta$:
 
@@ -557,6 +557,16 @@ Se um conjunto $S$ tem $n$ elementos, o conjunto $\wp(S)$ tem $2^n$ elementos.
 
 :::
 
+:::details[Prova]
+
+Isto é uma consequência de cada conjunto estar unicamente determinado pelos elementos que têm.
+Ora, para cada elemento, ele ou está, ou não está num dado conjunto - isto é, cada elemento tem 2 opções em relação a um dado conjunto.
+Sendo assim, deve haver $2^n$ subconjuntos de um conjunto de $n$ elementos.
+
+Esta prova pode ser formalizada por indução.
+
+:::
+
 Um [**autómato finito não determinístico (AFND)**](color:pink) é definido como um quíntuplo $(\Sigma, Q, q_{in}, F, \delta)$ tal que:
 
 - $\Sigma$ é um alfabeto;
@@ -657,7 +667,9 @@ A **linguagem reconhecida** por um AFND é o conjunto das palavras aceites por e
 
 :::details[Exemplo de Linguagem Reconhecida por um AFND]
 
-// TODO (em breve)
+![AFND depois de remover movimentos-epsilon](./imgs/0001/AFND-sem-movimentos-epsilon.png#dark=3)
+
+Por exemplo, a linguagem reconhecida pelo AFND acima é a linguagem das palavras sobre o alfabeto $\{a,b,c\}^*$ que têm um número ímpares de $a$'s ou acabam em $c$.
 
 :::
 
@@ -685,7 +697,14 @@ Vamos compreender as alterações acima:
 
 ![Fecho epsilon de um estado](./imgs/0001/fecho_epsilon.png#dark=3)
 
-Por exemplo, na imagem acima, o fecho-$\epsilon$ do estado $q_{in}$ é o conjunto $\{ q_1, q_3, q_4 \}$.
+Por exemplo, na imagem acima, estão assinalados que podem ser obtidos a partir de $q_{in}$ com a letra $b$.
+Todas as transições a partir de $q_{in}$ passam por:
+
+- ver onde é possível chegar com movimentos-$\epsilon$. Na nossa imagem, estes primeiros movimentos estão assinalados a [verde](color:green). O estado $q_4$, apesar de estar em $q_{in}^\epsilon$ não está marcado com seta verde pois não há nenhum transição a partir de $q_4$ com $b$.
+- depois, fazemos então as transições que usam a letra $b$, transições estas que estão assinaladas com setas [vermelhas](color:red).
+- finalmente, podemos ainda fazer mais movimentos-$\epsilon$, que estão assinalados a [azul](color:blue).
+
+Os estados que conseguimos obter a partir de $q_{in}$ com apenas um $b$ são os [vermelhos](color:red) e os [azuis](color:blue) - $\{ q_1, q_3, q_4 \}$.
 
 :::
 
@@ -729,7 +748,21 @@ Ora, isto equivale a $q$ ser um estado final em $A'$, pelo que $\epsilon$ també
 
 :::details[Exemplo da remoção de movimentos-$\epsilon$]
 
-// TODO (em breve)
+Em relaçao à imagem mostrada acima, vamos construir um AFND equivalente sem movimentos-$\epsilon$ que vamos denominar $A'$.
+
+Começamos por ver que a partir de $q_{in}$ podemos:
+
+- usando $a$ chegar a $q_2$ (a partir de $q_1$), $q_5$ (também a partir de $q_1$, usando depois um movimento-$\epsilon$), $q_3$ (através de $q_3$) e finalmente $q_4$ (através de $q_3$, usando depois um movimento-$\epsilon$).
+- usando $b$ chegar a $\{ q_1, q_3, q_4 \}$ (como vimos acima).
+- usando $c$ chegar a $\{ q_1, q_3, q_4, q_5 \}$.
+
+O processo de remoção dos movimentos-$\epsilon$ não passa de identificar estes conjuntos para todos os estados e assinalar as tranisções correspondentes no novo autómato $A'$.
+Desta forma, vamos então obter o autómato apresentado abaixo.
+
+![AFND depois de remover movimentos-epsilon](./imgs/0001/AFND-sem-movimentos-epsilon.png#dark=3)
+
+Note-se que o estado $q_2$ também passou a ser final, como tinha sido dito na teoria.
+Isto, como já foi explicado, acontece já que todas as palavras que terminem em $q_2$ são aceites (pois podem terminar em $q_5$ com mais um movimento-$\epsilon$).
 
 :::
 
@@ -742,6 +775,15 @@ Dado um AFND $A = (\Sigma, Q, q_{in}, F, \delta)$, temos que o AFD $D = (\Sigma,
   \delta'(C, a) = \bigcup_{q \in C} \delta(q,a)
   $$
   reconhece a mesma linguagem que $A$
+
+:::tip[]
+
+Observe-se que a função $\delta$, por ser uma função, está bem definida **e é determinística** para todo o input.
+Isto é, para qualquer input, só pode ter um output.  
+A questão é que, como vimos na definição, este output está definido em $\wp(Q)$ e não em $Q$.
+O segredo para arranjar um AFD $D$ equivalente a um AFND $N$ será então identificar os estados de $D$ com conjuntos de estados de $N$.
+
+:::
 
 :::details[Prova da equivalência entre $A$ e $D$]
 
@@ -768,7 +810,32 @@ Então, se $q$ for final em $A$, temos que $C \cap F \neq \emptyset$ e $C$ é fi
 
 :::details[Exemplo da passagem de AFND para AFD]
 
-// TODO (exemplo)
+Como foi sugerido acima, a passagem para o determinsmo é feita através da identificação dos estados do AFD $D$ com conjuntos de estados do AFND $N$.
+
+Voltando ao exemplo que temos visto, depois da remoção dos movimentos-$\epsilon$ ficámos com o AFND
+
+![AFND depois de remover movimentos-epsilon](./imgs/0001/AFND-sem-movimentos-epsilon.png#dark=3)
+
+No novo AFD $D$ vamos começar com um estado inicial que corresponde ao conjunto $\{ q_{in} \}$.  
+A partir deste estado, com um $a$ é possível chegar aos estados em $P_1 = \{ q_2, q_3, q_4, q_5 \}$.
+Desta forma, em $D$ vai haver um estado correspondente a este conjunto $P_1$ de forma que $\delta(a, \{ q_{in} \}) = P_1$.  
+De forma semelhante, haverá estados $P_2 = \{ q_1, q_3, q_4 \}$ e $P_3 = \{ q_1, q_3, q_4, q_5 \}$ de forma que $\delta(\{q_{in}\}, b) = P_2$ e $\delta(\{q_{in}\}, c) = P_3$.
+
+O algoritmo de transição de $N$ para $D$ limita-se então a repetir este processo para todos os estados que vão aparecendo, até que todos os estados tenham transições definidas para as letras do alfabeto que se justificam.
+
+Geralmente, procuramos usar uma **tabela** para nos ajudar na conversão. Os estados representados no AFD final correspondem a todos os estados a que podemos chegar a partir do estado inicial, ao olhar para a tabela.
+
+![Tabela Conversão](./imgs/0001/AFND_to_AFD_TABELA.png#dark=1)
+
+O preenchimento da tabela é muito simples: um par linha-coluna corresponde a um par estado-símbolo, onde o conteúdo da entrada da tabela correspondente está associado ao **conjunto de estados a que podemos aceder** partindo desse estado e transicionando através desse símbolo.
+
+[**Não é preciso incluir todas as linhas da tabela que foram incluídas**](color:red): fizemo-lo por completude, mas só precisamos de representar os estados a que podemos chegar a partir do estado inicial.
+
+Neste caso, por exemplo, após $q_{in}$ podíamos representar logo $\{q_2, q_3, q_4, q_5\}, \{q_1, q_3, q_4\}, \{q_1, q_3, q_4, q_5\}$ na tabela e não $q_1$, depois $q_2$, etc.
+
+O autómato resultante desta conversão será o seguinte:
+
+![AFD final](./imgs/0001/AFND_to_AFD_FINAL.png#dark=3)
 
 :::
 
@@ -811,14 +878,14 @@ $$
 
 :::tip[Corolário]
 
-É imediato a partir da proposição acima que se $L_1$ e $L_2$ são regulares, então, por exemplo, $L_1 \cup L_2$ e $L_1 \backslash L_2$ também o são.
+É imediato a partir da proposição acima que se $L_1$ e $L_2$ são regulares, então, por exemplo, $L_1 \cup L_2$ e $L_1 \setminus L_2$ também o são.
 
 :::
 
 :::details[Prova]
 
 $L_1 \cup L_2 = \overline{\overline{L_1} \cap \overline{L_2}}$.  
-$L_1 \backslash L_2 = L_1 \cap \overline{L_2}$
+$L_1 \setminus L_2 = L_1 \cap \overline{L_2}$
 
 :::
 
@@ -1079,15 +1146,12 @@ Segundo o Lema de Pumping, existem, para algum $k \in \mathbb{N}$, $\omega_1, \o
 - $|\omega_1 \omega_2 | \leq k$;
 - $\omega_1 \omega_2^t \omega_3 \in L$ para cada $t \in \mathbb{N}_0$.
 
-  Considere-se uma palavra $\omega = a^l b^l$ com $l>k$.
+Considere-se uma palavra $\omega = a^l b^l$ com $l>k$.
+Como $|\omega| = 2l > k$, esta palavra está na condição do Lema.
+Como $|\omega_1 \omega_2| \leq k < l$, temos que $\omega_1 = a^x$ e $\omega_2 = a^y$ para $y \neq 0$.
+Consequentemente, temos que $\omega_1 \omega_2^0 \omega_3 = a^{l-y} b^l$ também pertence à linguagem $L$.
 
-  Como $|\omega| = 2l > k$, esta palavra está na condição do Lema.
-
-  Como $|\omega_1 \omega_2| \leq k < l$, temos que $\omega_1 = a^x$ e $\omega = a^y$ para $y \neq 0$.
-
-  Consequentemente, temos que $\omega_1 \omega_2^0 \omega_3 = a^{l-y} b^l$ também pertence à linguagem $L$.
-
-  Contudo isto é claramente um absurdo, pelo que a linguagem em questão não é regular.
+Contudo isto é claramente um absurdo, pelo que a linguagem em questão não é regular.
 
 :::
 
