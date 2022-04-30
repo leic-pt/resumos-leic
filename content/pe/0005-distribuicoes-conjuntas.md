@@ -30,7 +30,13 @@ $$
 
 A função de probabilidade conjunta costuma ser representada por uma tabela de duas entradas como mostrado abaixo:
 
-// TODO: INSERIR TABELA
+| $X \backslash Y$ | $y_1$ | $y_2$ | $\cdots$ | $y_m$ |
+|:--------:|:-----------------:|:-----------------:|:--------:|:-----------------:|
+|   $x_1$  | $P(X=x_1, Y=y_1)$ | $P(X=x_1, Y=y_2)$ | $\cdots$ | $P(X=x_1, Y=y_m)$ | 
+|   $x_2$  | $P(X=x_2, Y=y_1)$ | $P(X=x_2, Y=y_2)$ | $\cdots$ | $P(X=x_2, Y=y_m)$ | 
+| $\vdots$ |      $\vdots$     |     $\vdots$      | $\ddots$ |      $\vdots$     |
+|   $x_n$  | $P(X=x_n, Y=y_1)$ | $P(X=x_n, Y=y_2)$ | $\cdots$ | $P(X=x_n, Y=y_m)$ | 
+
 
 A [**função de distribuição conjunta**](color:yellow) é dada por
 
