@@ -23,9 +23,19 @@ module.exports = {
         },
         {
           title: 'GitHub',
-          href: 'https://github.com/diogotcorreia/resumos-leic',
+          href: 'https://github.com/leic-pt/resumos-leic',
         },
       ],
+    },
+    footer: {
+      owner: {
+        name: 'Diogo Correia',
+        website: 'https://diogotc.com',
+      },
+      githubLink: 'https://github.com/leic-pt/resumos-leic',
+      contributionGuideLink: 'https://github.com/leic-pt/resumos-leic/wiki',
+      contributorsLink: 'https://github.com/leic-pt/resumos-leic/graphs/contributors',
+      vercelLink: 'https://vercel.com/?utm_source=leic-pt&utm_campaign=oss',
     },
   },
   plugins: [
@@ -79,6 +89,7 @@ module.exports = {
                 '\\lapt': '\\mathcal{L}\\left\\{#1\\right\\}', // Laplace Transfomation
                 '\\smartcolor': '\\htmlClass{md-color--#1}{#2}', // Handle colors on light/dark mode
                 '\\op': '\\operatorname{#1}',
+                '\\indep': '\\perp \\!\\!\\! \\perp',
               },
               throwOnError: false,
               trust: (context) =>

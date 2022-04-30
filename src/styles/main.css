@@ -273,6 +273,10 @@ h2 {
   max-width: 740px;
   margin: 3.6rem auto 0 auto;
   padding: 2rem 2.5rem;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 85vh;
 }
 
 @media (max-width: 959px) {
