@@ -27,7 +27,7 @@ Abaixo encontram-se guias para instalação em Windows e Linux.
 1. Fazer clone do repo:
 
 ```bash
-git clone https://github.com/diogotcorreia/resumos-leic.git
+git clone https://github.com/leic-pt/resumos-leic.git
 ```
 
 2. Instalar dependências:
@@ -69,4 +69,4 @@ yarn format
 
 ## Wiki
 
-Se tiverem mais dúvidas, podem recorrer à [Wiki](https://github.com/diogotcorreia/resumos-leic/wiki) e/ou entrar em contacto connosco!
+Se tiverem mais dúvidas, podem recorrer à [Wiki](https://github.com/leic-pt/resumos-leic/wiki) e/ou entrar em contacto connosco!
