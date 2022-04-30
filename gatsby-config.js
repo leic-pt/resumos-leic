@@ -89,6 +89,8 @@ module.exports = {
                 '\\smartcolor': '\\htmlClass{md-color--#1}{#2}', // Handle colors on light/dark mode
                 '\\op': '\\operatorname{#1}',
                 '\\indep': '\\perp \\!\\!\\! \\perp',
+                '\\iid': '\\stackrel{iid}{\\sim}',
+                '\\sima': '\\stackrel{a}{\\sim}',
               },
               throwOnError: false,
               trust: (context) =>
