@@ -40,7 +40,7 @@ A função $\delta$ atua sobre a fita, e sobre o conjunto de estados:
 - no conjunto de estados:
   - transitamos tal como faziamos nos autómatos.
 
-Este mecanismo é um modelo computacional que nos permite fazer vários tipos de comutação, nomeadamente:
+Este mecanismo é um modelo computacional que nos permite fazer vários tipos de computação, nomeadamente:
 
 - reconhecer uma linguagem - aceitar as suas palavras;
 - decidir uma linguagem - aceitar as suas palavras e rejeitar as restantes;
@@ -121,7 +121,7 @@ $$
 para quaisquer $a,b,c \in \Gamma$, $u, v \in \Gamma^*$, $q \in Q$ e $s \in \hat{Q}$.
 
 Com esta definição, podemos então entender uma [**computação**](color:green) como uma sequência (finita ou infinita) de configurações.
-Nomeadamente, a configuração de uma máquina de Turing $M$ dado um input $\omega \in \Sigma^*$ corresponde à sequência de configurações obtida a partir da configuração inicial $(\epsilon, q_{in}, \omega)$ usando transições de configuração $\Delta$.  
+Nomeadamente, a computação de uma máquina de Turing $M$ dado um input $\omega \in \Sigma^*$ corresponde à sequência de configurações obtida a partir da configuração inicial $(\epsilon, q_{in}, \omega)$ usando transições de configuração $\Delta$.  
 Dizemos que a computação **termina** se sequência de configurações for finita, o que acontece se e só se for atingindo um estado de terminação (neste caso, a computação é bem sucedida) ou atingir uma configuração a partir da qual não está definida nenhuma transição (caso em que se diz que a computação aborta).
 Se a computação não terminar, diz-se **divergente**.
 
@@ -169,7 +169,7 @@ Este último elemento $S$ corresponde a um movimento em que a cabeça de leitura
 As noções introduzidas na secção anterior são facilmente estendíveis a estas máquinas, sendo relevante apenas realçar a extensão da função de transição de configurações, que agora, além do apresentado acima, satisfaz ainda:
 
 $$
-\Delta(u, q, a.v) = (u, s, b.v) \text{se } \delta(q,a) = (s,b,S)
+\Delta(u, q, a.v) = (u, s, b.v) \text{ se } \delta(q,a) = (s,b,S)
 $$
 
 :::tip[]
@@ -307,13 +307,22 @@ Se nenhum dos caminhos na fita 2 aceitar a palavra, então a palavra deve ser re
 ## Máquina Universal
 
 Podemos verificar que o alfabeto $\{ 0, 1 \}$ é suficiente para representar qualquer problema.  
-Para uma máquina de Turing $M = (\Sigma, \Gamma, Q, q_{in}, q_{ac}, q_{rj}, \delta)$, podemos por exemplo considerar a seguinte representação, a que se dá o nome de **representação canónica**:
+Por exemplo, como é amplamente sabido, a representação em base 10 dos números pode ser substituída por uma representação binária.
+Há na verdade várias representações em base binária para os números naturais.
+Se fizermos por exemplo a correspondência entre cada algarismo $0,1,\cdots,9$ para uma palavra binária, obtemos uma representação binária diferente da tradicional.  
+Mais genericamente, é possível definir uma tradução para binário semelhante à explicada a cima para qualquer alfabeto.  
+Mais ainda, é possível definir uma representação binária para uma Máquina de Turing.
+Abaixo vemos os detalhes destas representações, tanto de uma representaçao de um alfabeto em binário como uma representação para Máquinas de Turing, a que damos o nome de [**representação canónica**](color:orange).
+
+:::details[Representação Canónica]
+
+Para uma máquina de Turing $M = (\Sigma, \Gamma, Q, q_{in}, q_{ac}, q_{rj}, \delta)$, a [representação canónica](color:orange) é uma string da forma:
 
 $$
 11\cdots111 \, . \, 0 \, . \, 11\cdots1 \, . \, 0 \, . \, <\text{trans}~1> <\text{trans}~2> \cdots <\text{trans}~n>
 $$
 
-A representação pode ser descrita da seguinte forma:
+que pode ser descrita da seguinte forma:
 
 - uma string de $n$ 1's: tantos quanto o número de estados na máquina de Turing, isto é, tantos quanto os estados em $\hat{Q} = Q \cup \{ q_{ac}, q_{rj} \}$: os $n$ estados são identificados da seguinte forma:
 
@@ -341,11 +350,14 @@ A representação pode ser descrita da seguinte forma:
   \end{aligned}
   $$
 - um 0 de separação;
-- uma sequência de strings que representam as transições dadas pela função $\delta$: cada string que representa uma transição $\delta(q_i, a_j) = (q_r, a_s, m)$ é uma palavra $trans_i = q_i a_j q_r a_s m \in \{ 0, 1 \}^*$ de comprimento $2n+2k+2$.
+- uma sequência de strings que representam as transições dadas pela função $\delta$: cada string que representa uma transição $\delta(q_i, a_j) = (q_r, a_s, m)$ é uma palavra $trans_i = q_i a_j q_r a_s m \in \{ 0, 1 \}^*$ de comprimento $2n+2k+1$.
 
-Esta representação permite-nos confundir uma máquina de Turing com uma palavra binária, quando apropriado.
+:::
 
-:::details[Exemplo]
+Assim, estamos capacitados de confundir uma máquina de Turing com uma palavra binária, quando apropriado.
+Desta forma, podemos falar em linguagens que incluam certas Máquinas de Turing, que será aquilo em que estaremos interessados.
+
+:::details[Exemplo de Representação Canónica]
 
 Consideremos por exemplo a seguinte máquina de Turing, que decide a linguagem das palavras sobre $\{0,1\}$ que começam com dois $0$'s consecutivos:
 
@@ -380,18 +392,17 @@ A máquina tem estados ($q_0 = q_{in}$, $q_1$, $q_2 = q_{ac}$ e $q_3 = q_{rj}$).
 O alfabeto de trabalho da máquina tem $2+1$ símbolos: $0$, $1$ e $\square$.  
 A máquina tem duas transições, representadas acima.
 
-Nota: a representação acima só usa um bit para o movimento.
-No entanto, se quisermos que a nossa máquina de Turing tenha movimentos $S$, precisamos de 2 bits para codificar essa informação, como referido acima.
-
 :::
 
-Dado um alfabeto $\Sigma$, denotamos por $\mathcal{M}^\Sigma$ o conjunto das representações canónicas de máquinas de Turing com alfabeto de entrada/saída $\Sigma$.
-Denotamos por $rep(\omega )$ a representação canónica de uma palavra $\omega \in \Sigma^*$.  
+Dado um alfabeto $\Sigma$, denotamos por $\mathcal{M}^\Sigma$ o conjunto das [representações canónicas](color:orange) de máquinas de Turing com alfabeto de entrada/saída $\Sigma$.
+Denotamos por $rep(\omega )$ a [representação canónica](color:orange) de uma palavra $\omega \in \Sigma^*$.  
 Por exemplo, para $\Gamma \backslash \{ \square \} = \{ a_1, a_2 \cdots, a_k \}$ temos que $rep(\square) = 000\cdots 00$, $rep(a_1) = 100\cdots 00$, $rep(a_2) = 010\cdots 00$ e por aí a diante.
+
+Vamos então chegar à proposição que motiva todas estas representações.
 
 :::tip[Proposição]
 
-Existe uma máquina de Turing $U$, a que damos o nome de [**máquina Universal**](color:purple), que para qualquer $M \in \mathcal{M}^\Sigma$ e $\omega \in \Sigma^*$, tal que, para um símbolo \$ $ \notin \Sigma$
+Existe uma máquina de Turing $U$, a que damos o nome de [**máquina Universal**](color:purple), que para qualquer $M \in \mathcal{M}^\Sigma$ e $\omega \in \Sigma^*$, tal que, para um símbolo $\text{\textdollar} \notin \Sigma$
 
 - U aceita (respetivamente rejeita) $M \text{\textdollar} rep(\omega )$ se e só se $M$ aceita (resp. rejeita) $\omega$;
 - $\phi_U(M \text{\textdollar} rep(\omega ) ) = rep(\phi_M(\omega ))$.
@@ -424,3 +435,6 @@ Nesta fase, $U$ faz os seguintes passos repetidamente até $M$ abortar/terminar.
 - Se o passo anterior levar a um estado de terminação de $M$, $U$ termina em acordância com $M$.
 
 :::
+
+A existência desta máquina permite-nos falar por exemplo "na linguagem de palavras da forma $M \text{\textdollar} \omega$ tal que a máquina de Turing $M \in \mathcal{M}^\Sigma$ aceita $\omega \in \Sigma^*$".
+Isto vai ser bastante relevante no próximo capítulo.
