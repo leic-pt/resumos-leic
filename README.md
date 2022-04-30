@@ -74,3 +74,5 @@ Se tiverem mais dúvidas, podem recorrer à [Wiki](https://github.com/diogotcorr
 ## Parceiros
 
 ![Powered by Vercel](./src/images/powered-by-vercel.svg)
+
+change
