@@ -67,7 +67,7 @@ Uma [**linguagem**](color:green) sobre o alfabeto $\Sigma$ é qualquer conjunto 
 
 :::tip[Operações sobre Linguagens]
 
-Damos o nome de **linguagem complementar** de $L$ à linguagem $\overline{L} = \Sigma^* / L$.  
+Damos o nome de **linguagem complementar** de $L$ à linguagem $\overline{L} = \Sigma^* \setminus L$.  
 Denotamos por $\mathcal{L}^\Sigma$ o conjunto de todas as linguagens sobre $\Sigma$.
 
 Dadas duas linguagens $L_1, L_2 \in \mathcal{L}^\Sigma$, definimos a **concatenação** das linguagens como sendo a linguagem $L_1 . L_2 = \{ uv : u \in L_1, v \in L_2 \}$.
@@ -174,7 +174,7 @@ Introduzimos abaixo o **algoritmo de procura de estados notáveis (APEN)**:
 :::tip[APEN]
 
 Apresentamos agora um algoritmo para a procura de **estados notáveis**.  
-O algoritmo recebe como input um AFD $D = (\Sigma, Q, q_{in}, F, \delta)$ e dá como output um tuplo $(Ac, Prod, Ut, In)$ com os estados acessíveis, produtivos, úteis e inúteis de $D$.
+O algoritmo recebe como input um AFD $D = (\Sigma, Q, q_{in}, F, \delta)$ e dá como output um tuplo $(Ac, Prod, Ut, In)$ com, respetivamente, os estados acessíveis, produtivos, úteis e inúteis de $D$.
 
 1. $Ac := \{q_{in}\}$;
 2. $Aux := \bigcup_{a \in \Sigma} \{ \delta(q_{in}, a) \}$;
@@ -189,7 +189,7 @@ O algoritmo recebe como input um AFD $D = (\Sigma, Q, q_{in}, F, \delta)$ e dá 
    2. $Aux := \bigcup_{a \in \Sigma} \{ p : \delta(p, a) \in Aux \}$;  
       [Estados produtivos determinados](color:orange)
 7. $Ut := Ac \cap Prd$;
-8. $In := Q \backslash Ut$.  
+8. $In := Q \setminus Ut$.  
    [Estados úteis e inúteis determinados](color:red)
 
 Temos que a execução deste algoritmo termina sempre e identifica corretamente os estados acessíveis ($Ac$), produtivos ($Prd$), úteis ($Ut$) e inúteis ($In$).
@@ -252,7 +252,7 @@ Pela definição da utilidade de um estado (um estado diz-se [útil](color:red) 
 
 $$
 \text{Estados Úteis} = Ac \cap Prd = \{q_{in}, q_1, q_2, q_4, q_5\}\\
-\text{Estados Inúteis} = Q \backslash Ut = \{q_3, q_6, q_7\}
+\text{Estados Inúteis} = Q \setminus Ut = \{q_3, q_6, q_7\}
 $$
 
 :::
@@ -366,7 +366,7 @@ Cada entrada na tabela corresponde a um dos **pares** de estados possíveis. Com
 | $p$ | $\backslash$ | $\backslash$ | $\backslash$ | $\backslash$ |
 |     | $p$          | $q$          | $r$          | $s$          |
 
-Entramos aqui na secção porventura mais desagradável: percorrer **todos os pares de $\Delta$** (que tenham uma cruz na tabela, portanto), e para cada um deles, verificar se existe um par que não esteja em $\Delta$ tal que, segundo transições por um mesmo símbolo, chegam ao par de estados original (e adicionar qualquer estado encontrado à tabela). Assim que um par é encontrado, a cruz na tabela é rodeada por um círculo (para anotar que já foi explorado).
+Entramos aqui na secção porventura mais desagradável: percorrer **todos os pares de $\Delta$** (que tenham uma cruz na tabela, portanto), e para cada um deles, verificar se existe um par que não esteja em $\Delta$ tal que, segundo transições por um mesmo símbolo, chegam ao par de estados original (e adicionar qualquer estado encontrado à tabela). Assim que um par é (ou não) encontrado, a cruz na tabela é rodeada por um círculo (para anotar que já foi explorado).
 
 Ora, procuremos então percorrer$\Delta$:
 
@@ -811,14 +811,14 @@ $$
 
 :::tip[Corolário]
 
-É imediato a partir da proposição acima que se $L_1$ e $L_2$ são regulares, então, por exemplo, $L_1 \cup L_2$ e $L_1 \backslash L_2$ também o são.
+É imediato a partir da proposição acima que se $L_1$ e $L_2$ são regulares, então, por exemplo, $L_1 \cup L_2$ e $L_1 \setminus L_2$ também o são.
 
 :::
 
 :::details[Prova]
 
 $L_1 \cup L_2 = \overline{\overline{L_1} \cap \overline{L_2}}$.  
-$L_1 \backslash L_2 = L_1 \cap \overline{L_2}$
+$L_1 \setminus L_2 = L_1 \cap \overline{L_2}$
 
 :::
 
