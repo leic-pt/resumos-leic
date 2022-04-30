@@ -110,7 +110,7 @@ As entradas da FAT:
 
 :::tip[Exemplo]
 
-Por exemplo, na imagem a cima:
+Por exemplo, na imagem acima:
 
 O FichA tem dados nos blocos:
 
