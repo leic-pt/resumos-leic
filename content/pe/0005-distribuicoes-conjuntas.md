@@ -6,6 +6,10 @@ type: content
 
 # Distribuições Conjuntas de Probabilidade
 
+```toc
+
+```
+
 Definimos um [**par aleatório**](color:blue) como uma função $(X,Y) : \Omega \to \R_{X,Y} \subset \R^2$ que satisfaz uma condição de mensurabilidade.
 
 :::details[Condição de mensurabilidade]
@@ -30,13 +34,12 @@ $$
 
 A função de probabilidade conjunta costuma ser representada por uma tabela de duas entradas como mostrado abaixo:
 
-| $X \backslash Y$ | $y_1$ | $y_2$ | $\cdots$ | $y_m$ |
-|:--------:|:-----------------:|:-----------------:|:--------:|:-----------------:|
-|   $x_1$  | $P(X=x_1, Y=y_1)$ | $P(X=x_1, Y=y_2)$ | $\cdots$ | $P(X=x_1, Y=y_m)$ | 
-|   $x_2$  | $P(X=x_2, Y=y_1)$ | $P(X=x_2, Y=y_2)$ | $\cdots$ | $P(X=x_2, Y=y_m)$ | 
-| $\vdots$ |      $\vdots$     |     $\vdots$      | $\ddots$ |      $\vdots$     |
-|   $x_n$  | $P(X=x_n, Y=y_1)$ | $P(X=x_n, Y=y_2)$ | $\cdots$ | $P(X=x_n, Y=y_m)$ | 
-
+| $X \backslash Y$ |       $y_1$       |       $y_2$       | $\cdots$ |       $y_m$       |
+| :--------------: | :---------------: | :---------------: | :------: | :---------------: |
+|      $x_1$       | $P(X=x_1, Y=y_1)$ | $P(X=x_1, Y=y_2)$ | $\cdots$ | $P(X=x_1, Y=y_m)$ |
+|      $x_2$       | $P(X=x_2, Y=y_1)$ | $P(X=x_2, Y=y_2)$ | $\cdots$ | $P(X=x_2, Y=y_m)$ |
+|     $\vdots$     |     $\vdots$      |     $\vdots$      | $\ddots$ |     $\vdots$      |
+|      $x_n$       | $P(X=x_n, Y=y_1)$ | $P(X=x_n, Y=y_2)$ | $\cdots$ | $P(X=x_n, Y=y_m)$ |
 
 A [**função de distribuição conjunta**](color:yellow) é dada por
 
@@ -86,14 +89,19 @@ $$
 
 com definições análogas para $Y|X$.
 
-As VA de um par aleatória dizem-se independentes ($X \indep Y$) se para todo o $(x,y) \in \R^2$
+As VA de um par aleatório dizem-se independentes ($X \indep Y$) se para todo o $(x,y) \in \R^2$
 
 $$
-P(X=x, Y=y) = P(X=x)P(Y=y) \Leftrightarrow \\
-F_{X,Y}(x,y) = F_X(x) F_Y(y) \Leftrightarrow \\
-P(X=x|Y=y) = P(X=x) \Leftrightarrow P(Y=y|X=x) = P(Y=y) \Leftrightarrow \\
-E(Y|X=x) = E(Y) \Leftrightarrow E(X|Y=y) = E(X) \Leftrightarrow \\
-V(Y|X=x) = V(Y) \Leftrightarrow V(X|Y=y) = V(X) \\
+\begin{aligned}
+&&P(X=x, Y=y) &= P(X=x)P(Y=y)\\
+&\Leftrightarrow& F_{X,Y}(x,y) &= F_X(x) F_Y(y)\\
+&\Leftrightarrow& P(X=x|Y=y) &= P(X=x)\\
+&\Leftrightarrow& P(Y=y|X=x) &= P(Y=y)\\
+&\Leftrightarrow& E(Y|X=x) &= E(Y)\\
+&\Leftrightarrow& E(X|Y=y) &= E(X)\\
+&\Leftrightarrow& V(Y|X=x) &= V(Y)\\
+&\Leftrightarrow& V(X|Y=y) &= V(X)
+\end{aligned}
 $$
 
 ## Pares Aleatórios Contínuos
@@ -152,14 +160,19 @@ $$
 
 com definições análogas para $Y|X$.
 
-As VA de um par aleatória dizem-se independentes ($X \indep Y$) se para todo o $(x,y) \in \R^2$
+As VA de um par aleatório dizem-se independentes ($X \indep Y$) se para todo o $(x,y) \in \R^2$
 
 $$
-f_{X,Y}(x,y) = f_X(x)f_Y(y) \Leftrightarrow \\
-F_{X,Y}(x,y) = F_X(x) F_Y(y) \Leftrightarrow \\
-f_{X|Y=y}(x) = f_X(x) \Leftrightarrow f_{Y|x=x}(y) = f_Y(y) \Leftrightarrow \\
-E(Y|X=x) = E(Y) \Leftrightarrow E(X|Y=y) = E(X) \Leftrightarrow \\
-V(Y|X=x) = V(Y) \Leftrightarrow V(X|Y=y) = V(X) \\
+\begin{aligned}
+&&f_{X,Y}(x,y) &= f_X(x)f_Y(y)\\
+&\Leftrightarrow& F_{X,Y}(x,y) &= F_X(x) F_Y(y)\\
+&\Leftrightarrow& f_{X|Y=y}(x) &= f_X(x)\\
+&\Leftrightarrow& f_{Y|x=x}(y) &= f_Y(y)\\
+&\Leftrightarrow& E(Y|X=x) &= E(Y)\\
+&\Leftrightarrow& E(X|Y=y) &= E(X)\\
+&\Leftrightarrow& V(Y|X=x) &= V(Y)\\
+&\Leftrightarrow& V(X|Y=y) &= V(X)
+\end{aligned}
 $$
 
 ## Covariância e Correlação
