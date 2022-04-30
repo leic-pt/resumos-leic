@@ -11,10 +11,13 @@ const Footer = () => {
       site {
         siteMetadata {
           footer {
+            githubLink
+            contributionGuideLink
             contributorsLink
-            links {
-              href
-              title
+            vercelLink
+            owner {
+              name
+              website
             }
           }
         }
@@ -22,26 +25,26 @@ const Footer = () => {
     }
   `);
 
+  const { githubLink, contributionGuideLink, contributorsLink, vercelLink, owner } =
+    data.site.siteMetadata.footer;
+
   return (
     <footer>
       <hr />
       <div className='footer-attributions'>
         <span>
-          <ExternalLink href='#'>Website</ExternalLink>
+          <ExternalLink href={githubLink}>Website</ExternalLink>
           <GitHubLogo className='footer-github-logo' /> by{' '}
-          <ExternalLink href='https://diogotc.com'>Diogo Correia</ExternalLink> with ❤️
+          <ExternalLink href={owner.website}>{owner.name}</ExternalLink> with ❤️
         </span>
         <span>
-          <ExternalLink href='#'>How to Contribute</ExternalLink>
+          <ExternalLink href={contributionGuideLink}>How to Contribute</ExternalLink>
         </span>
         <span>
-          Content by{' '}
-          <ExternalLink href={data.site.siteMetadata.footer.contributorsLink}>
-            many awesome contributors
-          </ExternalLink>
+          Content by <ExternalLink href={contributorsLink}>many awesome contributors</ExternalLink>
         </span>
         <span>
-          <ExternalLink href='https://vercel.com?utm_source=leic-pt&utm_campaign=oss'>
+          <ExternalLink href={vercelLink}>
             <img style={{ height: '2.2em' }} src={PoweredByVercelLogo} alt='Powered by Vercel' />
           </ExternalLink>
         </span>
