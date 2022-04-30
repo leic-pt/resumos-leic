@@ -1,5 +1,4 @@
 # Global owner
-
 * @diogotcorreia
 
 # AL - Main maintainer Diogo Correia
@@ -77,8 +76,8 @@ content/md/tools/* @diogotcorreia
 # OC - Main maintainer Diogo Correia
 content/oc/** @diogotcorreia
 
-# PE - Main maintainer Diogo Correia
-content/pe/** @diogotcorreia
+# PE - Main maintainer João Rocha
+content/pe/** @Calhau18
 
 # PO - Main maintainer Diogo Correia
 content/po/** @diogotcorreia
@@ -93,5 +92,5 @@ content/sd/** @diogotcorreia
 # SO - Main maintainer Tomás Esteves
 content/so/** @Pesteves2002
 
-# TC - Main maintainer Diogo Gaspar
-content/tc/** @randomicecube
+# TC - Main maintainer João Rocha
+content/tc/** @Calhau18
