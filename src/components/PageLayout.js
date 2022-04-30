@@ -4,6 +4,7 @@ import React, { useCallback, useState } from 'react';
 import '../styles/main.css';
 import '../styles/markdown.css';
 import { customComponents } from '../utils/customComponents';
+import Footer from './Footer';
 import Navbar from './Navbar';
 import PageMetadata from './PageMetadata';
 import Sidebar from './Sidebar';
@@ -31,6 +32,8 @@ export default function Template({ data }) {
         {components?.map((Component, i) => (
           <Component key={i} />
         ))}
+        <div style={{ flexGrow: 1 }} />
+        <Footer />
       </div>
     </div>
   );

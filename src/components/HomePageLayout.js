@@ -4,6 +4,7 @@ import IstLogo from '../images/ist-logo.svg';
 import '../styles/homepage.css';
 import '../styles/main.css';
 import '../styles/markdown.css';
+import Footer from './Footer';
 import Navbar from './Navbar';
 import PageMetadata from './PageMetadata';
 import SectionButton, { SectionButtonLayout } from './SectionButton';
@@ -48,6 +49,7 @@ const HomePageLayout = ({ data }) => {
         ))}
       </div>
       <div className='content' dangerouslySetInnerHTML={{ __html: page.html }} />
+      <Footer />
     </div>
   );
 };
