@@ -172,8 +172,8 @@ years:
 
 ## Links úteis
 
+- [LEIC-A no Fénix](https://fenix.tecnico.ulisboa.pt/cursos/leic-a) - Página oficial do curso (Alameda)
 - [Discord IST Hub](https://isthub.pt) - Discord para toda a comunidade IST
-- [EdenBox](https://www.edenbox.org/) - Testes, fichas e muito mais de todas as UCs de LEIC
 - [IST Space Finder](https://spaces.leic.pt) - Find your way around the IST campi - Offline Web App made by Diogo Correia
 - [Fónix Mails](https://s.rafael.ovh/fonixmails) - Receber anúncios do Fénix por e-mail
 - [Criador de Horários (Daniel Gonçalves)](https://horarios.dang.pt/)
@@ -181,11 +181,16 @@ years:
 - [Reencaminhar emails do Técnico para o Gmail](https://www.notion.so/diogocorreia/Reenchaminhar-emails-do-T-cnico-para-Gmail-2975d496a1d3447a84b0d0cf163dd65f)
 - [Caderno Rita Mendes](https://www.notion.so/IST-MEEC-0c22d514a81645eca3c2a58739e323e1) - (IST - MEEC)
 
-## Contribuidores
+## Como Contribuir?
+
+Se estás a pensar contribuir para os Resumos LEIC, fizemos um guia passo a passo só para ti!
+Vai à [nossa documentação para aprenderes tudo o que precisas](https://leic-pt.github.io/docs/).
+
+### Contribuidores
 
 Quero agradecer a [todos os que contribuíram](https://github.com/leic-pt/resumos-leic/graphs/contributors) para os conteúdos deste site:
 
-- [Diogo Correia](https://github.com/leic-pt/resumos-leic/commits?author=leic-pt) (**Website**, **CDI-I**, **CDI-II**, **CDI-III**, **Fis-I**, MD, IAED)
+- [Diogo Correia](https://github.com/leic-pt/resumos-leic/commits?author=diogotcorreia) (**Website**, **CDI-I**, **CDI-II**, **CDI-III**, **Fis-I**, MD, IAED)
 - [Diogo Gaspar](https://github.com/leic-pt/resumos-leic/commits?author=randomicecube) (**LP**, **ASA**, **IAED**, TC, LP, CDI-I, CDI-III, PO)
 - [Tomás Esteves](https://github.com/leic-pt/resumos-leic/commits?author=Pesteves2002) (**IAED**, **Fis-II**, **SO**, Fis-I, MD, CDI-II, LP)
 - [João Rocha](https://github.com/leic-pt/resumos-leic/commits?author=Calhau18) (**SO**, **TC**, **PE**, CDI-I, CDI-II, MD, CDI-III, Fis-II, ASA)
