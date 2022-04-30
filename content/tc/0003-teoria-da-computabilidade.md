@@ -77,7 +77,7 @@ Então,
 3. $\overline{L}$
 4. $L_1 \cup L_2$,
 5. $L_1 \cap L_2$,
-6. $L_1 \backslash L_2$
+6. $L_1 \setminus L_2$
 
 são linguagens [decidíveis](color:yellow).
 
@@ -103,7 +103,7 @@ Então, executa $M_1$ na fita 1:
 Como $L_1$ e $L_2$ são decidíveis, $\overline{L_1}$ e $\overline{L_2}$ também o são.
 Então, segundo 4., $\overline{L_1} \cap \overline{L_2}$ também é decidível e, mais uma vez, $\overline{\overline{L_1} \cap \overline{L_2}}$.
 
-(6) Basta observar que $L_1 \backslash L_2 = L_1 \cap \overline{L_2}$.
+(6) Basta observar que $L_1 \setminus L_2 = L_1 \cap \overline{L_2}$.
 Como $L_2$ é decidível, $\overline{L_2}$ é decidível e segundo 4. $L_1 \cap \overline{L_2}$ é decidível.
 
 :::
@@ -143,14 +143,14 @@ A máquina $N$ reconhece $L_1 \cap L_2$ pelo que esta linguagem é reconhecível
 
 :::tip[]
 
-Se $L_1$ for [reconhecível](color:orange) e $L_2$ for [decidível](color:yellow), então $L_1 \backslash L_2$ é [**reconhecível**](color:orange).
+Se $L_1$ for [reconhecível](color:orange) e $L_2$ for [decidível](color:yellow), então $L_1 \setminus L_2$ é [**reconhecível**](color:orange).
 
 :::
 
 :::details[Prova]
 
 Se $L_2$ é decidível, $\overline{L_2}$ é também decidível e, consequentemente, reconhecível.
-Como vimos acima, se $L_1$ e $\overline{L_2}$ são reconhecíveis, então $L_1 \cap \overline{L_2} = L_1 \backslash L_2$ é reconhecível.
+Como vimos acima, se $L_1$ e $\overline{L_2}$ são reconhecíveis, então $L_1 \cap \overline{L_2} = L_1 \setminus L_2$ é reconhecível.
 
 :::
 
@@ -192,7 +192,7 @@ $$
 
 :::tip[Proposição]
 
-Sejam $L_1$ e $L_2$ linguagens sobre $\Sigma_1$ e $\Sigma_2$, respetivamente. Se $L_1 \leq L_2$ e $L_2$ é decidível (respetivamente reconhecível) então $L_1$ é decidível (resp. reconhecível).
+Sejam $L_1$ e $L_2$ linguagens sobre $\Sigma_1$ e $\Sigma_2$, respetivamente. Se $L_1 \leq L_2$ e $L_2$ é decidível (resp. reconhecível) então $L_1$ é decidível (resp. reconhecível).
 
 :::
 
