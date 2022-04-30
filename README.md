@@ -70,3 +70,7 @@ yarn format
 ## Wiki
 
 Se tiverem mais dúvidas, podem recorrer à [Wiki](https://github.com/leic-pt/resumos-leic/wiki) e/ou entrar em contacto connosco!
+
+## Parceiros
+
+![Powered by Vercel](./src/images/powered-by-vercel.svg)
