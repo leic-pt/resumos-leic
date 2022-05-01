@@ -22,7 +22,7 @@ Um exemplo de um alfabeto é o conjunto $\{a,b,c\}$
 :::
 
 Definimos uma [**palavra**](color:yellow) sobre um alfabeto $\Sigma$ como uma sequência finita de elementos de $\Sigma$. O conjunto de todas as palavras constituídas pelos símbolos do alfabeto $\Sigma$ é representado por $\Sigma^*$.  
-Todos os alfabetos contêm uma palavra, a que se dá o nome de palavra vazia. Esta costuma ser representada pela letra grega $\epsilon$.
+Existe uma palavra, a que chamamos **palavra vazia** e representamos por $\epsilon$ que satisfaz $\epsilon \in \Sigma^*$ para qualquer alfabeto $\Sigma$.
 
 :::info[Exemplo de Palavra]
 
