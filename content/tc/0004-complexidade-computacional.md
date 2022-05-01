@@ -81,10 +81,19 @@ O facto de as funções $\op{time}_M$ e $\op{space}_M$ serem monótonas segue da
 (1) A primeira propriedade vem apenas do facto de que, para escrever numa célula de memória de memória, é necessário deslocarmo-nos para essa célula.
 Desta forma, o número de passos de uma computação é pelo menos igual ao número de células escritas.
 
-(2) Considere-se a computação da máquina de Turing $M$ com alfabeto de trabalho $\Gamma$ e conjunto de estados $Q$ sobre um input de comprimento menor ou igual a $n$, com o maior número de configurações.
-Então $r$ não tem configurações repetidas, pelo que o número de configurações em $r$ tem de ser inferior ou igual ao número de configurações que podem existir no espaço que $r$ utiliza.  
-Suponha-se que em $r$ são visitadas $m$ células.
-Então, o número de configurações possíveis é $|\Gamma|^m \cdot |Q| \cdot m$, pelo que:
+(2) Considere-se a computação da máquina de Turing $M$ com alfabeto de trabalho $\Gamma$ e conjunto de estados $Q$, sobre um input de comprimento menor ou igual a $n$.  
+Temos que $M$ é classificadora pelo que a sua computação termina sempre.
+Verificamos que a computação de $M$ não pode passar duas vezes pela mesma configuração: se isto acontecesse, a máquina entraria em ciclo infinito uma vez que todas as transições são deterministas.
+Sendo assim, o tempo que a máquina demora a fazer a sua computação está majorado pelo seu número de configurações.  
+Seja $m = space_M(n)$.
+Temos então que o número de configurações é definido por:
+
+- o conteúdo na fita, que é no máximo $|\Gamma|^m$;
+- a posição da cabeça de leitura/escrita, que pode estar numa de $m$ posições;
+- o estado em que a computação se encontra, que é um de $|Q|$.
+
+Desta forma, o número de estados é majorado por $|\Gamma|^m \times |Q| \times m$.  
+Então:
 
 $$
 \begin{align*}
