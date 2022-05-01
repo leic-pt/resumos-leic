@@ -129,7 +129,10 @@ Uma palavra $\omega \in \Sigma^*$ diz-se **aceite** por $M$ se a computação qu
 Usamos $L_{ac}(M), L_{rj}(M) \subset \Sigma^*$, respetivamente, para denotar as linguagens aceite e rejeitada pela máquina de Turing $M$.  
 Caso $\omega$ seja aceite por $M$ tal que $(u, q_{ac}, v)$ é a configuração atingida pela computação, se $v = x.y$ com $x \in \Sigma^*$ e $y \in \{ \square \}^*$, dizemos que $x$ é o **output** da computação e denotamos $\phi_M(\omega) = x$. A função $\phi_M : \Sigma^* \to \Sigma^*$ demonia-se de **função calculada** por $M$.
 
-Dizemos que duas máquinas de Turing são **equivalentes** se reconhecerem e decidirem a mesma linguagem, bem como calcularem a mesma função.
+Dizemos que duas máquinas de Turing são [**equivalentes**](color:orange) (representa-se [$M_1 \equiv M_2$](color:orange)) se se verificarem 3 coisas:
+- aceitam a mesma linguagem: $L_{ac}(M_1) = L_{ac}(M_2)$
+- rejeitam a mesma linguagem: $L_{rj}(M_1) = L_{rj}(M_2)$
+- calculam a mesma função: $\phi_{M_1} = \phi_{M_2}$
 
 :::details[Exemplo 4]
 
