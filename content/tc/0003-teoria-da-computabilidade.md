@@ -67,6 +67,12 @@ A **prova de 2** é semelhante.
 
 ### Propriedades
 
+Nesta secção vão ser enunciadas várias propriedades sobre a decibilidade de linguagens.
+É bastante relevante entender a justificação por detrás destas propriedades.
+Muitas vezes estas justificações usam raciocínios muito semelhantes aos que podem ser usar para justificar a decibilidade de outras linguagens.
+Nomeadamente, vai ser usada muitas vezes (nesta e na próxima secção) a ideia de definir uma máquina que decida uma linguagem a partir de máquinas que decidem linguagens já conhecidas.
+Esta ideia é muito importante e útil.
+
 :::tip[]
 
 Seja $\Sigma$ um alfabeto e $L, L_1, L_2 \subset \Sigma^*$ linguagens [decidíveis](color:yellow).
@@ -184,7 +190,7 @@ Nas provas acima e no capítulo anterior, por vezes pegamos em máquinas de Turi
 A ideia de [**redução computável**](color:orange) consiste exatamente nisso:
 
 Sejam $L_1$ e $L_2$ linguagens sobre os alfabetos $\Sigma_1$ e $\Sigma_2$, respetivamente.
-Dizemos que há uma [redução computável](color:orange) de $L_1$ para $L_2$, ou simplesmente que [$L_1$ se reduz a $L_2$](color:orange), o que denotamos por [$L_1 \leq L_2$](color:orange) se existe uma função total computável $f: \Sigma_1^* \to \Sigma_2^*$ tal que, para cada $\omega \in \Sigma_1^*$,
+Dizemos que há uma [redução computável](color:orange) de $L_1$ para $L_2$, ou simplesmente que [$L_1$ se reduz a $L_2$](color:orange), o que denotamos por [$L_1 \leq L_2$](color:orange) se existe uma função **total computável** $f: \Sigma_1^* \to \Sigma_2^*$ tal que, para cada $\omega \in \Sigma_1^*$,
 
 $$
 \omega \in L_1 \Leftrightarrow f(\omega) \in L_2
@@ -208,6 +214,18 @@ Considere-se a seguinte máquina de Turing $M$:
   Esta máquina decide $L_1$.
 
 A prova para reconhecimento é análoga.
+
+:::
+
+:::tip[Nota]
+
+Para usarmos a ideia de redução computável basta então encontrar uma função $f$ que reduza uma linguagem $L_1$ a outra $L_2$.
+Para esta função $f$ é essencial provar que:
+- ela é **total** - está definida para todo o input;
+- ela é **computável** - existe uma máquina de Turing que a computa;
+- satisfaz a propriedade $$\omega \in L_1 \Leftrightarrow f(\omega) \in L_2$$
+
+Claro está, se alguma destas propriedades não se verificar, a redução computável não está bem definida.
 
 :::
 
@@ -250,6 +268,13 @@ Neste [vídeo](https://youtu.be/macM_MtS_w4) podemos encontrar esta demonstraç�
 
 :::
 
+:::tip[Nota]
+
+O resultado enunciado acima permite-nos provar a indecidibilidade de uma linguagem $L$ mostrando que uma das linguagens enunciadas reduz a $L$ (se $L$ fosse decidível então qualquer linguagem que reduza a ela deve também ser decidível).
+No entanto é importante perceber o raciocínio por trás da prova, já que raciocínios semelhantes a este podem também ser aplicados frequentemente.
+
+:::
+
 :::tip[Corolário]
 
 Para um alfabeto $\Sigma$, as linguagens $\overline{\mathcal{L}_{ac}^\Sigma}$, $\overline{\mathcal{L}_{rj}^\Sigma}$, $\overline{\mathcal{L}_{su}^\Sigma}$, $\overline{\mathcal{L}_{ab}^\Sigma}$ e $\overline{\mathcal{L}_{te}^\Sigma}$ não são reconhecíveis.
@@ -262,7 +287,7 @@ O seguinte teorema é uma ferramenta bastante genérica para demonstrar a indeci
 
 :::tip[Teorema de Rice]
 
-Sejam $\Sigma$ um alfabeto e $L \subset \mathcal{M}^\Sigma$ tal que se $M_1 \in L$ e $M_1 \equiv M_2$, então $M_2 \in L$.
+Sejam $\Sigma$ um alfabeto e $L \subset \mathcal{M}^\Sigma$ tal que se $M_1 \in L$ e $M_1 \equiv M_2$, então $M_2 \in L$.  
 Se $\emptyset \neq L \neq \mathcal{M}^\Sigma$ então $L$ é indecidível.
 
 :::
