@@ -221,6 +221,7 @@ A prova para reconhecimento é análoga.
 
 Para usarmos a ideia de redução computável basta então encontrar uma função $f$ que reduza uma linguagem $L_1$ a outra $L_2$.
 Para esta função $f$ é essencial provar que:
+
 - ela é **total** - está definida para todo o input;
 - ela é **computável** - existe uma máquina de Turing que a computa;
 - satisfaz a propriedade $$\omega \in L_1 \Leftrightarrow f(\omega) \in L_2$$
