@@ -176,7 +176,7 @@ De seguida, devem abrir o R através da linha de comandos: escrever `R` e pressi
 
 - Correr `install.packages("IRkernel")` para instalar o [**IRKernel**](https://irkernel.github.io/irkernel/), o pacote necessário para o funcionamento do Jupyter Notebook com R;
 - Correr `IRkernel::installspec()`, instala a _kernelspec_, ficando assim o Jupyter a saber que o IRKernel existe.
-  
+
 Devem ainda instalar a [extensão para Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) no VSCode.
 
 Ora, agora devemos estar completamente prontos para começar a usar Jupyter Notebooks! Para confirmar, devem criar um ficheiro qualquer do tipo `.ipynb` e abri-lo no VSCode. No canto superior direito devem ter uma opção `Switch Kernel` ou equivalente: cliquem, e se tudo tiver corrido bem, o _kernel_ de R deve aparecer.
