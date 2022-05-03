@@ -39,6 +39,35 @@ Ou até mesmo procurar por uma função:
 Na documentação online conseguem encontrar uma explicação semelhante à abaixo,
 e mais completa.
 
+## Bibliotecas/Pacotes
+
+À medida que forem usando R, irão precisar de instalar determinadas bibliotecas
+de forma a chegarem ao resultado pretendido.
+
+Bibliotecas mais comuns:
+
+- [`ggplot2` (docs)](https://www.rdocumentation.org/packages/ggplot2/): gráficos (histogramas, barras, etc)
+- [`gganimate` (docs)](https://www.rdocumentation.org/packages/gganimate/): criar animações (GIFs) de gráficos
+- [`openxlsx` (docs)](https://www.rdocumentation.org/packages/openxlsx/): importar dataframes de ficheiros xlsx
+- [`plotly` (docs)](https://www.rdocumentation.org/packages/plotly/): gráficos interativos para a web
+- [`gapmindner` (docs)](https://www.rdocumentation.org/packages/gapminder/): data source (países)
+- [`IRkernel` (docs)](https://www.rdocumentation.org/packages/IRkernel/): kernel para Jupyter Notebooks
+
+Para instalar uma biblioteca, usa-se a função `install.packages`:
+
+```R
+# Instalar uma única package
+install.packages('nome_da_package')
+# Instalar várias packages de uma vez
+install.packages(c('nome_da_package1', 'nome_da_package2', ...))
+```
+
+Para utilizar as bibliotecas nos programas, usa-se a função `library`:
+
+```R
+library('nome_da_package')
+```
+
 ## Vetores e Atribuição
 
 Em R, um vetor é definido com a função `c` (_concatenate_), levando como argumento todos os elementos.
@@ -77,3 +106,31 @@ y <- c(10.4, 5.6, 3.1, 6.4, 21.7) # Recomendada
 c(10.4, 5.6, 3.1, 6.4, 21.7) -> y
 y = c(10.4, 5.6, 3.1, 6.4, 21.7)
 ```
+
+## Leitura de Ficheiros XLSX
+
+Frequentemente vamos querer importar dados de ficheiros XLSX (que podem estar mal formatados e/ou incluir dados desnecessários).
+Para isto, podemos utilizar a biblioteca `openxlsx`, que nos dá acesso
+[à função `read.xlsx`](https://www.rdocumentation.org/packages/openxlsx/topics/read.xlsx):
+
+```R
+library('openxlsx')
+
+df1 <- read.xlsx(xlsxFile = 'dataset.xlsx', sheet = 1)
+df1
+```
+
+Existem vários parâmetros úteis que podemos passar à função, por exemplo para obtermos
+apenas parte de uma folha do ficheiro. Todas as opções podem ser encontradas na
+[documentação da função `read.xlsx`](https://www.rdocumentation.org/packages/openxlsx/topics/read.xlsx).
+
+## Gráficos (Plotting)
+
+Para gerar gráficos a partir de um dataset, utiliza-se a biblioteca `ggplot2`.
+
+Existe uma [galeria com dezenas de gráficos diferentes e o respetivo código](https://r-graph-gallery.com/),
+pelo que recomendo vivamente a sua consulta.
+
+Recomendo também a leitura do [R Graphics Cookbook](https://r-graphics.org/) que
+tem vários exemplos de gráficos com o `ggplot2`, assim como explicações de
+como funciona esta biblioteca.
