@@ -122,10 +122,9 @@ Obviamente variará de _distro_ para _distro_, mas o procedimento-base é semelh
 
 ### Ubuntu
 
-Deverão executar um dos seguintes comandos:
+Deverão executar:
 
 ```bash
-sudo apt install visual-studio-code-bin # proprietary binary by microsoft
 sudo apt install code                   # open source version of vscode
 ```
 
@@ -134,7 +133,7 @@ sudo apt install code                   # open source version of vscode
 Deverão executar um dos seguintes comandos:
 
 ```bash
-sudo pacman -S visual-studio-code-bin # proprietary binary by microsoft
+paru -S visual-studio-code-bin # proprietary binary by microsoft
 sudo pacman -S code                   # open source version of vscode
 ```
 
