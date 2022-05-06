@@ -124,6 +124,24 @@ Existem vários parâmetros úteis que podemos passar à função, por exemplo p
 apenas parte de uma folha do ficheiro. Todas as opções podem ser encontradas na
 [documentação da função `read.xlsx`](https://www.rdocumentation.org/packages/openxlsx/topics/read.xlsx).
 
+Note-se que esta função devolve um _dataframe_.
+
+## DataFrames
+
+Para guardarmos e analisarmos os dados, usamos uma estrutura chamada **dataframe**.  
+Esta estrutura é semelhante a uma tabela, com linhas e colunas.  
+Cada coluna tem um nome e cada linha tem um índice (numérico ou não).
+
+Abaixo seguem alguns exemplos simples de como usar dataframes.
+
+```R
+# Criar um dataframe
+# https://www.rdocumentation.org/packages/base/topics/data.frame
+df <- data.frame(year = c(2010, 2011, 2012, 2013),
+  money = c(50, 60, 20, 70))
+
+```
+
 ## Gráficos (Plotting)
 
 Para gerar gráficos a partir de um dataset, utiliza-se a biblioteca `ggplot2`.
