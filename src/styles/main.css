@@ -87,6 +87,11 @@ code:not(code[class*='language-']) {
   border-radius: 3px;
 }
 
+a code:not(code[class*='language-']) {
+  color: var(--accentColor);
+  text-decoration: underline;
+}
+
 hr {
   border: 0;
   border-top: 1px solid var(--borderColor);
