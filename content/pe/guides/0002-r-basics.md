@@ -19,7 +19,7 @@ type: guides
 Para isso, basta executar os seguintes comandos na consola de R (tanto `R` ou `radian`):
 
 ```R
-options("browser"="brave")    # (Opcional) Alterar o browser default para "brave"
+options("browser" = "brave")    # (Opcional) Alterar o browser default para "brave"
 help.start()                  # Ligar o servidor com a documentação
 ```
 
@@ -52,6 +52,8 @@ Bibliotecas mais comuns:
 - [`ggplot2` (docs)](https://www.rdocumentation.org/packages/ggplot2/): gráficos (histogramas, barras, etc)
 - [`gganimate` (docs)](https://www.rdocumentation.org/packages/gganimate/): criar animações (GIFs) de gráficos
 - [`openxlsx` (docs)](https://www.rdocumentation.org/packages/openxlsx/): importar dataframes de ficheiros xlsx
+- [`dplyr` (docs)](https://www.rdocumentation.org/packages/dplyr/): tratamento de dados em dataframes
+- [`tidyr` (docs)](https://www.rdocumentation.org/packages/tidyr/): tratamento de dados (_tidy your data_)
 - [`plotly` (docs)](https://www.rdocumentation.org/packages/plotly/): gráficos interativos para a web
 - [`gapmindner` (docs)](https://www.rdocumentation.org/packages/gapminder/): data source (países)
 - [`IRkernel` (docs)](https://www.rdocumentation.org/packages/IRkernel/): kernel para Jupyter Notebooks
