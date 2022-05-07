@@ -225,3 +225,17 @@ Quero agradecer a [todos os que contribuíram](https://github.com/leic-pt/resumo
 - [Rita Mendes](https://github.com/leic-pt/resumos-leic/commits?author=SparklingRita) (Imagens CDI-II)
 - [André Teodósio](https://github.com/leic-pt/resumos-leic/commits?author=TioDosio) (CDI-II)
 - [Rafaela Oliveira](https://github.com/leic-pt/resumos-leic/commits?author=rafaelacorreiaoliveira) (CDI-II)
+
+---
+
+:::warning[Disclaimer]
+Resumos LEIC não está afiliado ao
+[tecnico.ulisboa.pt](https://tecnico.ulisboa.pt) de forma alguma.
+Todo o conteúdo escrito disponível neste site é dado por contribuidores (listados acima).
+Alguns anexos podem ter sido cedidos por professores, após obter a respetiva permissão.  
+Visto que algum do conteúdo pode estar incorreto, incompleto e/ou desatualizado,
+usa este site _at your own risk_.  
+Como sempre, se encontrares algum erro, podes e deves [contribuir](https://leic-pt.github.io/docs)!
+
+Questões relacionadas com _copyright_ deverão ser encaminhadas para [resumos@leic.pt](mailto:resumos@leic.pt).
+:::
