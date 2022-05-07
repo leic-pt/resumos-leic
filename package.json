@@ -23,7 +23,7 @@
     "prettier": "^2.5.1"
   },
   "dependencies": {
-    "docs-searchbar.js": "^2.0.1",
+    "@meilisearch/instant-meilisearch": "^0.7.0",
     "gatsby": "^4.4.0",
     "gatsby-plugin-image": "^2.4.0",
     "gatsby-plugin-manifest": "^4.4.0",
@@ -50,6 +50,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
+    "react-instantsearch-dom": "^6.24.2",
     "remark-directive": "^1.0.1",
     "use-dark-mode": "^2.3.1"
   }

@@ -2,28 +2,18 @@ import { navigate } from 'gatsby-link';
 import React, { useCallback, useEffect, useState } from 'react';
 import '../styles/searchbar.css';
 import Dialog from './Dialog/Dialog';
+import { InstantSearch, SearchBox, Hits, Highlight } from 'react-instantsearch-dom';
+import { instantMeiliSearch } from '@meilisearch/instant-meilisearch';
+
+const searchClient = instantMeiliSearch(
+  // TODO replace host with production server (and update it!)
+  'http://localhost:7700',
+  'c2972e080f75e3d6891861c6a06ab5e335ccf16c395dcba2322eab5027cba783'
+);
 
 const SearchBar = () => {
-  useEffect(() => {
-    Promise.all([
-      import(
-        /* webpackChunkName: "docs-searchbar" */ 'docs-searchbar.js/dist/cdn/docs-searchbar.min.js'
-      ),
-      import(
-        /* webpackChunkName: "docs-searchbar" */ 'docs-searchbar.js/dist/cdn/docs-searchbar.min.css'
-      ),
-    ]).then(([docsSearchBar]) => /*docsSearchBar.default({
-        hostUrl: 'https://meilisearch.diogotc.com/',
-        apiKey: 'c2972e080f75e3d6891861c6a06ab5e335ccf16c395dcba2322eab5027cba783',
-        indexUid: 'resumos-leic-v2',
-        enableDarkMode: true,
-        inputSelector: '#searchbar-input',
-        handleSelected: (_input, _event, suggestion) => {
-          const url = new URL(suggestion.url);
-          navigate(url.href.replace(url.origin, ''));
-        },
-      })*/ {});
-  }, []);
+  // const url = new URL(suggestion.url);
+  // navigate(url.href.replace(url.origin, ''));
 
   const [open, setOpen] = useState(false);
 
@@ -66,9 +56,15 @@ const SearchBar = () => {
       <Dialog open={open}>
         test
         <button onClick={handleCloseSearch}>Close</button>
+        <InstantSearch indexName='resumos-leic-v2' searchClient={searchClient}>
+          <SearchBox />
+          <Hits hitComponent={Hit} />
+        </InstantSearch>
       </Dialog>
     </div>
   );
 };
+
+const Hit = ({ hit }) => <Highlight attribute='url' hit={hit} />;
 
 export default SearchBar;
