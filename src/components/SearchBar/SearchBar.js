@@ -3,6 +3,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Configure, Hits, InstantSearch, SearchBox } from 'react-instantsearch-dom';
 import { useCurrentSection } from '../../hooks/useCurrentSection';
 import Dialog from '../Dialog/Dialog';
+import Search from '../icons/Search';
 import Hit from './Hit';
 import './SearchBar.css';
 
@@ -55,26 +56,52 @@ const SearchBar = () => {
   }, [setOpen]);
 
   return (
-    <div className='searchbar'>
-      <button onClick={handleOpenSearch}>Search</button>
+    <>
+      <button className='search-button' onClick={handleOpenSearch}>
+        Search
+      </button>
       <Dialog open={open}>
-        <button onClick={handleCloseSearch}>Close</button>
-        {currentSection && (
-          <button onClick={handleToggleFilterBySection}>
-            Filter by section {filterBySection ? 'ON' : 'OFF'}
-          </button>
-        )}
         <InstantSearch indexName='resumos-leic-v2' searchClient={searchClient}>
           <Configure
             filters={
               currentSection && filterBySection ? `hierarchy_lvl0 = "${currentSection}"` : ''
             }
           />
-          <SearchBox />
+          <div className='search-top'>
+            <Search className='search-icon' />
+            <SearchBox
+              translations={{
+                placeholder: `Search ${(filterBySection && currentSection) || 'entire site'}...`,
+              }}
+            />
+            <button className='search-close' onClick={handleCloseSearch}>
+              esc
+            </button>
+          </div>
           <Hits hitComponent={Hit} />
+          <div className='search-footer'>
+            {currentSection && (
+              <button class='search-filterbysection' onClick={handleToggleFilterBySection}>
+                <span
+                  className={`search-filterbysection--btn ${
+                    filterBySection ? 'search-filterbysection--btn__active' : ''
+                  }`}
+                >
+                  {`${currentSection} only`}
+                </span>
+                <span
+                  className={`search-filterbysection--btn ${
+                    filterBySection ? '' : 'search-filterbysection--btn__active'
+                  }`}
+                >
+                  Entire site
+                </span>
+              </button>
+            )}
+          </div>
         </InstantSearch>
       </Dialog>
-    </div>
+    </>
   );
 };
 
