@@ -63,6 +63,59 @@
   overflow-y: auto;
 }
 
+.ais-Hits-list {
+  list-style-type: none;
+  padding: 0 1em;
+}
+
+.ais-Hits-item {
+  padding: 0.5em 0.7em;
+}
+
+.ais-Hits-item:not(:last-child) {
+  border-bottom: 1px solid var(--borderColor);
+}
+
+.search-hit {
+  color: var(--textColor);
+}
+
+.search-hit--section {
+  font-size: 0.6em;
+  font-weight: bold;
+  text-transform: uppercase;
+  opacity: 0.6;
+
+  margin: 0;
+  margin-bottom: 0.3em;
+}
+
+.search-hit--page-path {
+  font-weight: bold;
+
+  margin: 0;
+}
+
+.search-hit--page-path:not(:last-child) {
+  margin-bottom: 0.4em;
+}
+
+.search-hit--page-path__separator {
+  font-size: 0.9em;
+  opacity: 0.7;
+}
+
+.ais-Snippet {
+  font-weight: normal;
+}
+
+.ais-Snippet-highlighted,
+.ais-Highlight-highlighted {
+  font-style: normal;
+  font-weight: bold;
+  color: var(--accentColor);
+}
+
 .search-footer {
   border-top: 1px solid var(--borderColor);
 
