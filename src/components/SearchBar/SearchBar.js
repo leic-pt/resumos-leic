@@ -17,6 +17,7 @@ const SearchBar = () => {
   const currentSection = useCurrentSection();
   const [open, setOpen] = useState(false);
   const [filterBySection, setFilterBySection] = useState(true);
+  const inputRef = React.createRef();
 
   const handleOpenSearch = useCallback(() => setOpen(true), [setOpen]);
   const handleCloseSearch = useCallback(() => setOpen(false), [setOpen]);
@@ -29,14 +30,14 @@ const SearchBar = () => {
   useEffect(() => {
     const handleKeyPress = (event) => {
       // CTRL + K or CMD + K (on Mac) toggles search modal
-      if (
-        (event.ctrlKey || event.metaKey) &&
-        !event.altKey &&
-        !event.shiftKey &&
-        event.key === 'k'
-      ) {
+      if ((event.ctrlKey || event.metaKey) && !event.altKey && event.key.toLowerCase() === 'k') {
         event.preventDefault();
-        setOpen((wasOpen) => !wasOpen);
+        setOpen((wasOpen) => {
+          if (!wasOpen) {
+            setFilterBySection(!event.shiftKey);
+          }
+          return !wasOpen;
+        });
       }
       if (
         event.key === 'Escape' &&
@@ -53,7 +54,13 @@ const SearchBar = () => {
     return () => {
       window.removeEventListener('keydown', handleKeyPress);
     };
-  }, [setOpen]);
+  }, [setOpen, setFilterBySection]);
+
+  useEffect(() => {
+    if (open && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [open, inputRef]);
 
   return (
     <>
@@ -70,6 +77,7 @@ const SearchBar = () => {
           <div className='search-top'>
             <Search className='search-icon' />
             <SearchBox
+              inputRef={inputRef}
               translations={{
                 placeholder: `Search ${(filterBySection && currentSection) || 'entire site'}...`,
               }}
