@@ -1,9 +1,10 @@
-import { navigate } from 'gatsby-link';
-import React, { useCallback, useEffect, useState } from 'react';
-import '../styles/searchbar.css';
-import Dialog from './Dialog/Dialog';
-import { InstantSearch, SearchBox, Hits, Highlight } from 'react-instantsearch-dom';
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch';
+import React, { useCallback, useEffect, useState } from 'react';
+import { Configure, Hits, InstantSearch, SearchBox } from 'react-instantsearch-dom';
+import { useCurrentSection } from '../../hooks/useCurrentSection';
+import Dialog from '../Dialog/Dialog';
+import Hit from './Hit';
+import './SearchBar.css';
 
 const searchClient = instantMeiliSearch(
   // TODO replace host with production server (and update it!)
@@ -12,13 +13,16 @@ const searchClient = instantMeiliSearch(
 );
 
 const SearchBar = () => {
-  // const url = new URL(suggestion.url);
-  // navigate(url.href.replace(url.origin, ''));
-
+  const currentSection = useCurrentSection();
   const [open, setOpen] = useState(false);
+  const [filterBySection, setFilterBySection] = useState(true);
 
   const handleOpenSearch = useCallback(() => setOpen(true), [setOpen]);
   const handleCloseSearch = useCallback(() => setOpen(false), [setOpen]);
+  const handleToggleFilterBySection = useCallback(
+    () => setFilterBySection((v) => !v),
+    [setFilterBySection]
+  );
 
   // Global keybinds
   useEffect(() => {
@@ -54,9 +58,18 @@ const SearchBar = () => {
     <div className='searchbar'>
       <button onClick={handleOpenSearch}>Search</button>
       <Dialog open={open}>
-        test
         <button onClick={handleCloseSearch}>Close</button>
+        {currentSection && (
+          <button onClick={handleToggleFilterBySection}>
+            Filter by section {filterBySection ? 'ON' : 'OFF'}
+          </button>
+        )}
         <InstantSearch indexName='resumos-leic-v2' searchClient={searchClient}>
+          <Configure
+            filters={
+              currentSection && filterBySection ? `hierarchy_lvl0 = "${currentSection}"` : ''
+            }
+          />
           <SearchBox />
           <Hits hitComponent={Hit} />
         </InstantSearch>
@@ -64,7 +77,5 @@ const SearchBar = () => {
     </div>
   );
 };
-
-const Hit = ({ hit }) => <Highlight attribute='url' hit={hit} />;
 
 export default SearchBar;

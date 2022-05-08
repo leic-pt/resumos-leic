@@ -27,4 +27,7 @@ body.body--dialog-open {
   margin: 60px 20px;
   background-color: var(--cardColor);
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+
+  overflow-y: auto;
+  max-height: calc(100% - 120px);
 }
