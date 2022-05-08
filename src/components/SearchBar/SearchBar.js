@@ -1,17 +1,15 @@
-import { instantMeiliSearch } from '@meilisearch/instant-meilisearch';
+import MeiliSearch from 'meilisearch';
 import React, { useCallback, useEffect, useState } from 'react';
-import { Configure, Hits, InstantSearch, SearchBox } from 'react-instantsearch-dom';
 import { useCurrentSection } from '../../hooks/useCurrentSection';
 import Dialog from '../Dialog/Dialog';
-import Search from '../icons/Search';
-import Hit from './Hit';
 import './SearchBar.css';
+import SearchModal from './SearchModal';
 
-const searchClient = instantMeiliSearch(
+const searchClient = new MeiliSearch({
   // TODO replace host with production server (and update it!)
-  'http://localhost:7700',
-  'c2972e080f75e3d6891861c6a06ab5e335ccf16c395dcba2322eab5027cba783'
-);
+  host: 'http://localhost:7700',
+  apiKey: 'c2972e080f75e3d6891861c6a06ab5e335ccf16c395dcba2322eab5027cba783',
+});
 
 const SearchBar = () => {
   const currentSection = useCurrentSection();
@@ -67,8 +65,9 @@ const SearchBar = () => {
       <button className='search-button' onClick={handleOpenSearch}>
         Search
       </button>
-      <Dialog open={open}>
-        <InstantSearch indexName='resumos-leic-v2' searchClient={searchClient}>
+      <Dialog open={open} onClose={handleCloseSearch}>
+        <SearchModal searchClient={searchClient} />
+        {/*<InstantSearch indexName='resumos-leic-v2' searchClient={searchClient}>
           <Configure
             filters={
               currentSection && filterBySection ? `hierarchy_lvl0 = "${currentSection}"` : ''
@@ -107,7 +106,7 @@ const SearchBar = () => {
               </button>
             )}
           </div>
-        </InstantSearch>
+                </InstantSearch>*/}
       </Dialog>
     </>
   );
