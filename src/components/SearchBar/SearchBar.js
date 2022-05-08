@@ -81,7 +81,7 @@ const SearchBar = () => {
           <Hits hitComponent={Hit} />
           <div className='search-footer'>
             {currentSection && (
-              <button class='search-filterbysection' onClick={handleToggleFilterBySection}>
+              <button className='search-filterbysection' onClick={handleToggleFilterBySection}>
                 <span
                   className={`search-filterbysection--btn ${
                     filterBySection ? 'search-filterbysection--btn__active' : ''

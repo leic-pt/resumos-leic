@@ -43,6 +43,12 @@
   opacity: 0.6;
 }
 
+@media (max-width: 599px) {
+  .ais-SearchBox-input {
+    font-size: 1em;
+  }
+}
+
 .ais-SearchBox-submit,
 .ais-SearchBox-reset {
   display: none;
