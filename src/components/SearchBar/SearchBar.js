@@ -1,5 +1,6 @@
 import MeiliSearch from 'meilisearch';
 import React, { useCallback, useEffect, useState } from 'react';
+import useViewHeightCSS from '../../hooks/useViewHeightCSS';
 import Dialog from '../Dialog/Dialog';
 import Search from '../icons/Search';
 import './SearchBar.css';
@@ -11,6 +12,7 @@ const searchClient = new MeiliSearch({
 });
 
 const SearchBar = () => {
+  useViewHeightCSS();
   const [open, setOpen] = useState(false);
   const [filterBySection, setFilterBySection] = useState(true);
   const inputRef = React.createRef();

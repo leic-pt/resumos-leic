@@ -10,6 +10,7 @@ body.body--dialog-open {
 
   width: 100vw;
   height: 100vh;
+  height: calc(var(--vh) * 100);
 
   background-color: rgba(26, 32, 39, 0.7);
   backdrop-filter: blur(4px);
