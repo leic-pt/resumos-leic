@@ -1,10 +1,12 @@
 import React from 'react';
+import Search from '../icons/Search';
 
 const MAX_QUERY_SIZE = 50;
 
-const SearchForm = ({ inputRef, getInputProps }) => {
+const SearchForm = ({ inputRef, getInputProps, onClose }) => {
   return (
     <>
+      <Search className='search-icon' />
       <form className='search-form'>
         <input
           className='search-input'
@@ -16,6 +18,9 @@ const SearchForm = ({ inputRef, getInputProps }) => {
           })}
         />
       </form>
+      <button className='search-close' onClick={onClose}>
+        esc
+      </button>
     </>
   );
 };

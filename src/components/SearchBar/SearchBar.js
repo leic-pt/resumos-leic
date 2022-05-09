@@ -66,7 +66,7 @@ const SearchBar = () => {
         Search
       </button>
       <Dialog open={open} onClose={handleCloseSearch}>
-        <SearchModal searchClient={searchClient} />
+        <SearchModal searchClient={searchClient} onClose={handleCloseSearch} />
         {/*<InstantSearch indexName='resumos-leic-v2' searchClient={searchClient}>
           <Configure
             filters={

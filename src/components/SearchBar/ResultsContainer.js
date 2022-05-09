@@ -1,11 +1,12 @@
 import React from 'react';
 import SectionHit from './SectionHit';
+import StartSearching from './StartSearching';
 
-const ResultsContainer = ({ state, getListProps, getItemProps }) => {
+const ResultsContainer = ({ state, getListProps, getItemProps, onItemClick }) => {
   const hasCollections = state.collections.some((collection) => collection.items.length > 0);
 
   if (!state.query) {
-    return 'TODO: start searching';
+    return <StartSearching />;
   }
 
   if (!hasCollections) {
@@ -19,10 +20,12 @@ const ResultsContainer = ({ state, getListProps, getItemProps }) => {
 
         return (
           <SectionHit
+            key={title}
             collection={collection}
             title={title}
             getListProps={getListProps}
             getItemProps={getItemProps}
+            onItemClick={onItemClick}
           />
         );
       })}

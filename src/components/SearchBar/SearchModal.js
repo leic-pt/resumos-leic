@@ -5,7 +5,7 @@ import SearchForm from './SearchForm';
 import { useTouchEvents } from './useTouchEvents';
 import ResultsContainer from './ResultsContainer';
 
-const SearchModal = ({ searchClient }) => {
+const SearchModal = ({ searchClient, onClose }) => {
   // Refs to elements of search, to use with autocomplete-core
   const formElementRef = React.useRef(null);
   const inputRef = React.useRef(null);
@@ -36,6 +36,11 @@ const SearchModal = ({ searchClient }) => {
     });
   }, [searchClient]);
 
+  const onItemClick = React.useCallback((item) => {
+    // In the future, we might want to save recent searches
+    onClose();
+  }, []);
+
   const { getEnvironmentProps, getInputProps, getListProps, getItemProps } = autocomplete;
 
   useTouchEvents({
@@ -48,11 +53,17 @@ const SearchModal = ({ searchClient }) => {
   return (
     <>
       <header className='search-header' ref={formElementRef}>
-        <SearchForm inputRef={inputRef} getInputProps={getInputProps} />
+        <SearchForm inputRef={inputRef} getInputProps={getInputProps} onClose={onClose} />
       </header>
       <div ref={resultsContainerRef} className='search-results'>
-        <ResultsContainer state={state} getListProps={getListProps} getItemProps={getItemProps} />
+        <ResultsContainer
+          state={state}
+          getListProps={getListProps}
+          getItemProps={getItemProps}
+          onItemClick={onItemClick}
+        />
       </div>
+      <div className='search-footer'></div>
     </>
   );
 };

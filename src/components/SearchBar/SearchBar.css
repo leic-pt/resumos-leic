@@ -67,6 +67,18 @@
   overflow-y: auto;
 }
 
+.search-start {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-start--heading {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
 .search-hit-list {
   list-style-type: none;
   padding: 0 1em;
@@ -78,10 +90,13 @@
 
 .search-hit-item[aria-selected='true'] {
   background-color: var(--bgColor);
+  border-radius: 1em;
+  border-color: var(--borderColor);
 }
 
 .search-hit-item:not(:last-child) {
-  border-bottom: 1px solid var(--borderColor);
+  border-bottom: 1px solid transparent;
+  border-bottom-color: var(--borderColor);
 }
 
 .search-hit {

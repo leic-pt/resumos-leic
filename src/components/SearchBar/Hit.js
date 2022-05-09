@@ -2,11 +2,20 @@ import { Link } from 'gatsby';
 import React from 'react';
 import { stripDomainFromLink } from './autocomplete';
 
-const Hit = ({ hit, source, getItemProps }) => {
+const Hit = ({ hit, source, getItemProps, onItemClick }) => {
   const targetLink = stripDomainFromLink(hit.url);
 
   return (
-    <li className='search-hit-item' {...getItemProps({ item: hit, source })}>
+    <li
+      className='search-hit-item'
+      {...getItemProps({
+        item: hit,
+        source,
+        onClick() {
+          onItemClick(hit);
+        },
+      })}
+    >
       <Link to={targetLink} className='search-hit'>
         <p className='search-hit--section'>{hit.hierarchy_lvl0}</p>
         <p className='search-hit--page-path'>
