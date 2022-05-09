@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@algolia/autocomplete-core": "^1.6.2",
-    "gatsby": "^4.13.1",
+    "gatsby": "^4.15.0-next.1",
     "gatsby-plugin-image": "^2.13.0",
     "gatsby-plugin-manifest": "^4.13.0",
     "gatsby-plugin-page-creator": "^4.13.0",
