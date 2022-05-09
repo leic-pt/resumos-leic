@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useTrapFocus } from '../../hooks/useTrapFocus';
+import useViewHeightCSS from '../../hooks/useViewHeightCSS';
 import './Dialog.css';
 
 const BODY_DIALOG_OPEN_CLASSNAME = 'body--dialog-open';
@@ -20,6 +21,7 @@ const Dialog = ({ open, onClose, children }) => {
 
   const containerRef = React.useRef(null);
   useTrapFocus({ container: containerRef.current });
+  useViewHeightCSS(open);
 
   if (!open) {
     return null;

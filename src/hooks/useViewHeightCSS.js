@@ -4,10 +4,11 @@
 
 import React from 'react';
 
-const useViewHeightCSS = () => {
+const useViewHeightCSS = (active) => {
   React.useEffect(() => {
+    if (!active) return;
+
     const updateViewportHeight = () => {
-      console.log('updating');
       if (document?.body && window) {
         const vh = window.innerHeight * 0.01;
         document.body.style.setProperty('--vh', `${vh}px`);
@@ -25,7 +26,7 @@ const useViewHeightCSS = () => {
         window.removeEventListener('resize', updateViewportHeight);
       }
     };
-  }, []);
+  }, [active]);
 };
 
 export default useViewHeightCSS;
