@@ -1,5 +1,63 @@
 .search-button {
   margin-right: 1rem;
+
+  background-color: var(--cardColor);
+  border: 2px solid var(--borderColor);
+  border-radius: 2em;
+
+  color: inherit;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 200px;
+
+  cursor: pointer;
+}
+
+.search-button--icon {
+  height: 100%;
+
+  margin-right: 0.5em;
+}
+
+.search-button--label {
+  text-align: left;
+  flex-grow: 1;
+
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.search-button--keybinds {
+  margin-left: 0.5em;
+}
+
+.search-button--keybinds kbd {
+  background-color: var(--bgColor);
+  border-radius: 0.3em;
+  border: 1px solid var(--borderColor);
+
+  padding: 0.1em 0.3em;
+}
+
+@media (max-width: 845px) {
+  .search-button--label,
+  .search-button--keybinds {
+    display: none;
+  }
+
+  .search-button {
+    min-width: unset;
+    background: none;
+    border: none;
+  }
+
+  .search-button--icon {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 .search-header {
@@ -165,6 +223,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+
+.search-footer--keyboard-tips {
+  font-size: 0.7em;
+  margin-top: 1em;
+}
+
+@media (max-width: 599px) {
+  .search-footer--keyboard-tips {
+    display: none;
+  }
 }
 
 .search-filterbysection {

@@ -1,6 +1,7 @@
 import MeiliSearch from 'meilisearch';
 import React, { useCallback, useEffect, useState } from 'react';
 import Dialog from '../Dialog/Dialog';
+import Search from '../icons/Search';
 import './SearchBar.css';
 import SearchModal from './SearchModal';
 
@@ -61,7 +62,11 @@ const SearchBar = () => {
   return (
     <>
       <button className='search-button' onClick={handleOpenSearch}>
-        Search
+        <Search className='search-button--icon' />
+        <span className='search-button--label'>Search</span>
+        <span className='search-button--keybinds'>
+          <kbd>CTRL</kbd>+<kbd>K</kbd>
+        </span>
       </button>
       <Dialog open={open} onClose={handleCloseSearch}>
         <SearchModal

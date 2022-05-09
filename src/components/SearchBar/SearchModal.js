@@ -75,22 +75,28 @@ const SearchModal = ({ searchClient, onClose, filterBySection, handleToggleFilte
       </div>
       <div className='search-footer'>
         {currentSection && (
-          <button className='search-filterbysection' onClick={handleToggleFilterBySection}>
-            <span
-              className={`search-filterbysection--btn ${
-                filterBySection ? 'search-filterbysection--btn__active' : ''
-              }`}
-            >
-              {`${currentSection} only`}
-            </span>
-            <span
-              className={`search-filterbysection--btn ${
-                filterBySection ? '' : 'search-filterbysection--btn__active'
-              }`}
-            >
-              Entire site
-            </span>
-          </button>
+          <>
+            <button className='search-filterbysection' onClick={handleToggleFilterBySection}>
+              <span
+                className={`search-filterbysection--btn ${
+                  filterBySection ? 'search-filterbysection--btn__active' : ''
+                }`}
+              >
+                {`${currentSection} only`}
+              </span>
+              <span
+                className={`search-filterbysection--btn ${
+                  filterBySection ? '' : 'search-filterbysection--btn__active'
+                }`}
+              >
+                Entire site
+              </span>
+            </button>
+            <div className='search-footer--keyboard-tips'>
+              <strong>PROTIP:</strong> You can use <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>K</kbd>{' '}
+              to open search by entire site
+            </div>
+          </>
         )}
       </div>
     </>
