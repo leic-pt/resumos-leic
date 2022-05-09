@@ -17,7 +17,7 @@ const ResultsContainer = ({ state, getListProps, getItemProps, onItemClick }) =>
   return (
     <div>
       {state.collections.map((collection) => {
-        if (collection.items.length == 0) {
+        if (collection.items.length === 0) {
           return null;
         }
 

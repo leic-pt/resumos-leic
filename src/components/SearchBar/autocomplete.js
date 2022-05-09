@@ -1,6 +1,6 @@
 import { navigate } from 'gatsby';
 
-export function createGetSources({ searchClient, onClose }) {
+export function createGetSources({ searchClient, onClose, section }) {
   return async ({ query, setContext, setStatus }) => {
     // TODO
     if (!query) {
@@ -11,7 +11,6 @@ export function createGetSources({ searchClient, onClose }) {
     try {
       const { hits, nbHits } = await searchClient.index('resumos-leic-v2').search(query, {
         attributesToHighlight: [
-          'hierarchy_lvl0',
           'hierarchy_lvl1',
           'hierarchy_lvl2',
           'hierarchy_lvl3',
@@ -21,6 +20,7 @@ export function createGetSources({ searchClient, onClose }) {
           'content',
         ],
         limit: 30,
+        filter: section ? `hierarchy_lvl0 = "${section}"` : undefined,
       });
 
       const groupedHits = groupElementsByKey(hits, 'hierarchy_lvl0');

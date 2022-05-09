@@ -1,6 +1,5 @@
 import MeiliSearch from 'meilisearch';
 import React, { useCallback, useEffect, useState } from 'react';
-import { useCurrentSection } from '../../hooks/useCurrentSection';
 import Dialog from '../Dialog/Dialog';
 import './SearchBar.css';
 import SearchModal from './SearchModal';
@@ -12,7 +11,6 @@ const searchClient = new MeiliSearch({
 });
 
 const SearchBar = () => {
-  const currentSection = useCurrentSection();
   const [open, setOpen] = useState(false);
   const [filterBySection, setFilterBySection] = useState(true);
   const inputRef = React.createRef();
@@ -66,47 +64,12 @@ const SearchBar = () => {
         Search
       </button>
       <Dialog open={open} onClose={handleCloseSearch}>
-        <SearchModal searchClient={searchClient} onClose={handleCloseSearch} />
-        {/*<InstantSearch indexName='resumos-leic-v2' searchClient={searchClient}>
-          <Configure
-            filters={
-              currentSection && filterBySection ? `hierarchy_lvl0 = "${currentSection}"` : ''
-            }
-          />
-          <div className='search-top'>
-            <Search className='search-icon' />
-            <SearchBox
-              inputRef={inputRef}
-              translations={{
-                placeholder: `Search ${(filterBySection && currentSection) || 'entire site'}...`,
-              }}
-            />
-            <button className='search-close' onClick={handleCloseSearch}>
-              esc
-            </button>
-          </div>
-          <Hits hitComponent={Hit} />
-          <div className='search-footer'>
-            {currentSection && (
-              <button className='search-filterbysection' onClick={handleToggleFilterBySection}>
-                <span
-                  className={`search-filterbysection--btn ${
-                    filterBySection ? 'search-filterbysection--btn__active' : ''
-                  }`}
-                >
-                  {`${currentSection} only`}
-                </span>
-                <span
-                  className={`search-filterbysection--btn ${
-                    filterBySection ? '' : 'search-filterbysection--btn__active'
-                  }`}
-                >
-                  Entire site
-                </span>
-              </button>
-            )}
-          </div>
-                </InstantSearch>*/}
+        <SearchModal
+          searchClient={searchClient}
+          onClose={handleCloseSearch}
+          filterBySection={filterBySection}
+          handleToggleFilterBySection={handleToggleFilterBySection}
+        />
       </Dialog>
     </>
   );
