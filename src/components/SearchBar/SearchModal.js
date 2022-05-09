@@ -32,7 +32,7 @@ const SearchModal = ({ searchClient, onClose }) => {
       onStateChange(props) {
         setState(props.state);
       },
-      getSources: createGetSources({ searchClient }),
+      getSources: createGetSources({ searchClient, onClose }),
     });
   }, [searchClient]);
 

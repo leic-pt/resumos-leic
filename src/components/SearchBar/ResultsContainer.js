@@ -16,7 +16,12 @@ const ResultsContainer = ({ state, getListProps, getItemProps, onItemClick }) =>
   return (
     <div>
       {state.collections.map((collection) => {
-        const title = 'TODO';
+        if (collection.items.length == 0) {
+          return null;
+        }
+
+        console.log(collection.items[0]);
+        const title = collection.items[0].hierarchy_lvl0;
 
         return (
           <SectionHit

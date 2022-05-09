@@ -1,6 +1,6 @@
 import { navigate } from 'gatsby';
 
-export function createGetSources({ searchClient }) {
+export function createGetSources({ searchClient, onClose }) {
   return async ({ query, setContext, setStatus }) => {
     // TODO
     if (!query) {
@@ -11,36 +11,25 @@ export function createGetSources({ searchClient }) {
     try {
       const { hits, nbHits } = await searchClient.index('resumos-leic-v2').search(query);
 
+      const groupedHits = groupElementsByKey(hits, 'hierarchy_lvl0');
+
       setContext({ nbHits });
 
-      return [
-        {
-          sourceId: 'hit',
-          onSelect() {
-            // TODO
-          },
-          getItemUrl({ item }) {
-            return stripDomainFromLink(item.url);
-          },
-          getItems() {
-            return hits;
-          },
-        },
-      ];
-      /*return hits.map((hit, index) => {
-        return {
-          sourceId: `hits${index}`,
-          onSelect()  {
-            // TODO
-          },
-          getItemUrl({item}) {
-            return item.url;
-          },
-          getItems() {
-
+      return Object.entries(groupedHits).map(([title, sectionHits]) => ({
+        sourceId: `hit_${title}`,
+        onSelect({ item, event }) {
+          // In the future save recent item here
+          if (!event.shiftKey && !event.ctrlKey && !event.metaKey) {
+            onClose();
           }
-        }
-      })*/
+        },
+        getItemUrl({ item }) {
+          return stripDomainFromLink(item.url);
+        },
+        getItems() {
+          return sectionHits;
+        },
+      }));
     } catch (error) {
       // Failed to fetch from meilisearch backend
       setStatus('error');
@@ -63,3 +52,17 @@ export const navigator = Object.freeze({
     navigate(itemUrl);
   },
 });
+
+// Group elements by a specific key
+export function groupElementsByKey(list, key) {
+  const groups = {};
+
+  list.forEach((el) => {
+    const value = el[key];
+    const list = groups[value] || (groups[value] = []);
+
+    list.push(el);
+  });
+
+  return groups;
+}

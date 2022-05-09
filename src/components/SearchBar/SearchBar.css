@@ -79,6 +79,17 @@
   font-weight: bold;
 }
 
+.search-section-hit--title {
+  font-size: 0.8em;
+  font-weight: bold;
+  text-transform: uppercase;
+  opacity: 0.6;
+
+  margin: 0;
+
+  padding: 0.5em 1em;
+}
+
 .search-hit-list {
   list-style-type: none;
   padding: 0 1em;
@@ -101,16 +112,6 @@
 
 .search-hit {
   color: var(--textColor);
-}
-
-.search-hit--section {
-  font-size: 0.6em;
-  font-weight: bold;
-  text-transform: uppercase;
-  opacity: 0.6;
-
-  margin: 0;
-  margin-bottom: 0.3em;
 }
 
 .search-hit--page-path {

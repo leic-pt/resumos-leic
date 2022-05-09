@@ -17,7 +17,6 @@ const Hit = ({ hit, source, getItemProps, onItemClick }) => {
       })}
     >
       <Link to={targetLink} className='search-hit'>
-        <p className='search-hit--section'>{hit.hierarchy_lvl0}</p>
         <p className='search-hit--page-path'>
           {[1, 2, 3, 4, 5, 6]
             .map((level) => `hierarchy_lvl${level}`)
