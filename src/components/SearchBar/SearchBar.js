@@ -7,7 +7,7 @@ import SearchModal from './SearchModal';
 
 const searchClient = new MeiliSearch({
   host: 'https://meilisearch.diogotc.com',
-  apiKey: 'c2972e080f75e3d6891861c6a06ab5e335ccf16c395dcba2322eab5027cba783',
+  apiKey: 'S3goii63d54d41ee506eb2bdfea46f62cb3b90a3141ec34ee3e546db99dbffd73a7872e9',
 });
 
 const SearchBar = () => {
