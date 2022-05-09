@@ -34,14 +34,6 @@
   margin-left: 0.5em;
 }
 
-.search-button--keybinds kbd {
-  background-color: var(--bgColor);
-  border-radius: 0.3em;
-  border: 1px solid var(--borderColor);
-
-  padding: 0.1em 0.3em;
-}
-
 @media (max-width: 845px) {
   .search-button--label,
   .search-button--keybinds {
@@ -253,6 +245,7 @@
   margin: 0.2em;
   border-radius: 1em;
   padding: 0.4em 0.7em;
+  line-height: 1em;
 }
 
 .search-filterbysection--btn__active {

@@ -94,7 +94,7 @@ const SearchModal = ({ searchClient, onClose, filterBySection, handleToggleFilte
             </button>
             <div className='search-footer--keyboard-tips'>
               <strong>PROTIP:</strong> You can use <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>K</kbd>{' '}
-              to open search by entire site
+              to search the entire site
             </div>
           </>
         )}

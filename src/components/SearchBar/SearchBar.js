@@ -32,6 +32,10 @@ const SearchBar = () => {
         setOpen((wasOpen) => {
           if (!wasOpen) {
             setFilterBySection(!event.shiftKey);
+          } else if (filterBySection !== !event.shiftKey) {
+            // If toggling filterBySection, keep open
+            setFilterBySection(!event.shiftKey);
+            return true;
           }
           return !wasOpen;
         });
@@ -51,7 +55,7 @@ const SearchBar = () => {
     return () => {
       window.removeEventListener('keydown', handleKeyPress);
     };
-  }, [setOpen, setFilterBySection]);
+  }, [setOpen, setFilterBySection, filterBySection]);
 
   useEffect(() => {
     if (open && inputRef.current) {
@@ -65,7 +69,8 @@ const SearchBar = () => {
         <Search className='search-button--icon' />
         <span className='search-button--label'>Search</span>
         <span className='search-button--keybinds'>
-          <kbd>CTRL</kbd>+<kbd>K</kbd>
+          <kbd>CTRL</kbd>
+          <kbd>K</kbd>
         </span>
       </button>
       <Dialog open={open} onClose={handleCloseSearch}>
