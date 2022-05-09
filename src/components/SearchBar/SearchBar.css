@@ -64,10 +64,12 @@
 }
 
 .search-results {
+  flex-grow: 1;
   overflow-y: auto;
 }
 
-.search-start {
+.search-start,
+.search-no-results {
   min-height: 100px;
   display: flex;
   align-items: center;
@@ -76,6 +78,21 @@
 
 .search-start--heading {
   font-size: 1.4em;
+  font-weight: bold;
+}
+
+.search-no-results {
+  margin: 1em;
+  flex-direction: column;
+}
+
+.search-no-results--icon {
+  font-size: 8em;
+  font-weight: bold;
+}
+
+.search-no-results--text {
+  margin-top: 1rem;
   font-weight: bold;
 }
 
@@ -93,6 +110,7 @@
 .search-hit-list {
   list-style-type: none;
   padding: 0 1em;
+  margin: 0.5em 0;
 }
 
 .search-hit-item {
@@ -129,12 +147,11 @@
   opacity: 0.7;
 }
 
-.ais-Snippet {
+.search-hit--content {
   font-weight: normal;
 }
 
-.ais-Snippet-highlighted,
-.ais-Highlight-highlighted {
+.search-hit em {
   font-style: normal;
   font-weight: bold;
   color: var(--accentColor);

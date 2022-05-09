@@ -1,4 +1,5 @@
 import React from 'react';
+import NoResults from './NoResults';
 import SectionHit from './SectionHit';
 import StartSearching from './StartSearching';
 
@@ -10,7 +11,7 @@ const ResultsContainer = ({ state, getListProps, getItemProps, onItemClick }) =>
   }
 
   if (!hasCollections) {
-    return 'TODO: no results';
+    return <NoResults query={state.query} />;
   }
 
   return (
@@ -20,7 +21,6 @@ const ResultsContainer = ({ state, getListProps, getItemProps, onItemClick }) =>
           return null;
         }
 
-        console.log(collection.items[0]);
         const title = collection.items[0].hierarchy_lvl0;
 
         return (

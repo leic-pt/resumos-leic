@@ -1,6 +1,7 @@
 import { Link } from 'gatsby';
 import React from 'react';
 import { stripDomainFromLink } from './autocomplete';
+import Highlight from './Highlight';
 
 const Hit = ({ hit, source, getItemProps, onItemClick }) => {
   const targetLink = stripDomainFromLink(hit.url);
@@ -21,8 +22,7 @@ const Hit = ({ hit, source, getItemProps, onItemClick }) => {
           {[1, 2, 3, 4, 5, 6]
             .map((level) => `hierarchy_lvl${level}`)
             .filter((attr) => !!hit[attr])
-            //.map((attribute) => <Highlight key={attribute} attribute={attribute} hit={hit} />)
-            .map((attribute) => hit[attribute])
+            .map((attribute) => <Highlight key={attribute} attribute={attribute} hit={hit} />)
             .reduce((acc, el, i) => {
               if (i === 0) {
                 return [...acc, el];
@@ -36,7 +36,7 @@ const Hit = ({ hit, source, getItemProps, onItemClick }) => {
               ];
             }, [])}
         </p>
-        {hit.content /*&& <Snippet attribute='content' hit={hit} />*/}
+        {hit.content && <Highlight className='search-hit--content' attribute='content' hit={hit} />}
       </Link>
     </li>
   );
