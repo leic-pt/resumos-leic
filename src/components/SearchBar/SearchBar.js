@@ -6,8 +6,7 @@ import './SearchBar.css';
 import SearchModal from './SearchModal';
 
 const searchClient = new MeiliSearch({
-  // TODO replace host with production server (and update it!)
-  host: 'http://localhost:7700',
+  host: 'https://meilisearch.diogotc.com',
   apiKey: 'c2972e080f75e3d6891861c6a06ab5e335ccf16c395dcba2322eab5027cba783',
 });
 

@@ -2,7 +2,6 @@ import { navigate } from 'gatsby';
 
 export function createGetSources({ searchClient, onClose, section }) {
   return async ({ query, setContext, setStatus }) => {
-    // TODO
     if (!query) {
       // Return no results if query is empty
       return [];

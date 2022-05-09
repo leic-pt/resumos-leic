@@ -12,7 +12,6 @@ const SectionHit = ({ collection, title, getListProps, getItemProps, onItemClick
 
       <ul className='search-hit-list' {...getListProps()}>
         {collection.items.map((item) => {
-          // TODO check if index is necessary
           return (
             <Hit
               key={[title, item.objectID].join(':')}
