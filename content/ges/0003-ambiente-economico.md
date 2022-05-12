@@ -145,7 +145,7 @@ A microeconomia trata de assuntos menores que a macroeconomia. O mercado é um d
 - **Mercado**: Conjunto dos que pretendem comprar (procura/demand) e dos que pretende vender (oferta/supply).
   Resultam o preço do produto e a quantidade transacionada. Existem vários fatores que influenciam a procura e a oferta.
 
-A procura de bens pode ser definida pela curva azul do gráfico a baixo.
+A procura de bens pode ser definida pela curva azul do gráfico abaixo.
 
 ![Gráfico Procura de Bens](./assets/0003-procura-bens.png#dark=2)
 

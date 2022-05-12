@@ -16,7 +16,8 @@ type: content
 ## Os primórdios
 
 As Interfaces Pessoa-Máquina surgiram após as Interfaces Homem-Máquina (IHM).
-Nessa altura, uma boa interface significava apenas ser mais rápido, uma vez que o computador era usado para ações repetidas. Só mais tarde, o Homem percebeu que havia a **necessidade de boas interfaces**, o que precedeu os computadores; devido à Revolução Industrial passou a existir mecanismos (ex: botões, interruptores, alavancas) para controlar grandes máquinas e proliferação de ferramentas e dispositivos; Existiu alguma programação rudimentar e a unidades de controlo.
+
+Nessa altura, uma boa interface significava apenas ser mais rápido, já que o computador era usado para ações monótonas e repetidas. Só mais tarde, o Homem percebeu que havia a **necessidade de boas interfaces**, algo que precedeu os computadores: devido à Revolução Industrial, passaram a existir mecanismos (tais como botões, interruptores, alavancas, entre outras) para controlar grandes máquinas, partindo daí a proliferação de ferramentas e dispositivos. Existia, na altura, alguma programação rudimentar e unidades de controlo.
 
 ### Jacquard Machine (1801-03)
 
@@ -38,10 +39,10 @@ Nessa altura, uma boa interface significava apenas ser mais rápido, uma vez que
 
 ## Computação pré-1950s
 
-Antes desta data existiram os **Computadores Eletrónicos** (1940) e os **Computadores Mecânicos** (1948).
+Até então, existiram os **Computadores Eletrónicos** (1940) e os **Computadores Mecânicos** (1948).
 
 - Utilizadores acomodavam os computadores
-- Recursos escassos com interfaces consideradas supérfulas
+- Recursos escassos com interfaces consideradas supérfluas
 - Computação com processamento por lotes
   - extremamente lento: o feedback podia demorar horas ou dias
 - Não havia noção de utilizadores: eram peritos.
@@ -52,15 +53,18 @@ O progresso nos Computadores Eletro-mecânicos levou-nos aos Computadores Digita
 
 A 2ª Guerra Mundial gerou muitos dados e surgiu a dúvida do que fazer com eles...
 Durante a mesma, **Vannevar Bush** foi o diretor do Office of Scientific Research and Development (1941), depois NSF (1941-1947) e do Projeto Manhattan (1942-1946).
-O seu ensaio **"As we think"** de 1945 influenciou gerações de engenheiros e as suas ideias "fora da caixa" (ex: Super secretária com reconhecimento de fala; Camera miniatura com foco universal; Ver os nossos pensamentos) são lembradas até hoje.
+O seu ensaio _**"As we may think"**_, de 1945, influenciou gerações de engenheiros através das suas ideias "fora da caixa" (tais como uma super secretária com reconhecimento de fala, uma câmera miniatura com foco universal, ou até mesmo ver os nossos pensamentos) são lembradas até hoje.
+
+![As we may think](./assets/0004-as-we-think-1.jpg)
+
 Bush ficará na história devido aos seus ideais:
 
-- Aumentar capacidade cognitiva invés de física - aceder melhor à nossa memória
+- Aumentar a capacidade cognitiva ao invés da física - aceder melhor à nossa memória
 - Usar computação para expandir a mente humana.
 
 ### Grace Hopper (1906-1992)
 
-- Almirante na Marina Americana
+- Almirante na Marinha Americana
 - Criou o primeiro compilador em 1950
 - Trouxe a programação ao alto nível
 - Permitiu alargar a base de utilizadores a cientistas e engenheiros
@@ -100,8 +104,9 @@ Alguns mais estranhos...
 
 ### Dispositivo de Introdução Absoluto e Relativo
 
-O **Absoluto** têm como exemplo o ecrã tátil; Mapeamento 1:1 entre o espaço de entrada e saída.
-O **Relativo** têm como exemplos o rato, trackpad e joystick; O dispositivo de entrada controla a posição relativa da saída.
+Os **absolutos** têm como exemplo o ecrã tátil - Mapeamento 1:1 entre o espaço de entrada e saída.
+
+Os **relativos** têm como exemplos o rato, trackpad e joystick - O dispositivo de entrada controla a posição relativa da saída.
 
 ### The Mother of all Demos (1968)
 
@@ -142,8 +147,10 @@ O **Relativo** têm como exemplos o rato, trackpad e joystick; O dispositivo de 
   - Tinha teclado e shortcut no lado esquerdo
 
 - PERQ-1 (1980)
+
   - Tinha rato
-  - Criado por Carnagie-Mullor
+  - Criado pela Carnegie Mellon
+
 - Xerox Star (1981)
 
   - Steve Jobs inspirou-se muito no Xerox Star
@@ -177,8 +184,8 @@ O **Relativo** têm como exemplos o rato, trackpad e joystick; O dispositivo de 
 Diferentes Sistemas Operativos tinham metáforas diferentes, tal como o MacOs e o Windows.
 
 - Rato com scroll surgiu muito tempo depois
-- Windows 15 criou muitas metáforas
-- Apple usasideias de neXTSTEP 3.3, adquirido por eles
+- Windows 95 criou muitas metáforas
+- Apple usa ideias de neXTSTEP 3.3, adquirido por eles
 
 ### Long Nose of Innovation de Bill Buxton
 

@@ -132,13 +132,13 @@ $$
 \circ \circ \circ \circ \circ \circ \circ \circ \circ \circ
 $$
 
-Admita-se que queremos dividir estas 10 bolas por 3 caixas. Fazer isto equivale a dividir as bolas a cima em 3 secções, como por exemplo, da seguinte forma:
+Admita-se que queremos dividir estas 10 bolas por 3 caixas. Fazer isto equivale a dividir as bolas acima em 3 secções, como por exemplo, da seguinte forma:
 
 $$
 \circ \circ \circ | \circ \circ \circ \circ \circ | \circ \circ
 $$
 
-O que a divisão a cima representa é que vão 3 bolas para a primeira caixa, 5 bolas para a terceira e 2 bolas para a última caixa.  
+O que a divisão acima representa é que vão 3 bolas para a primeira caixa, 5 bolas para a terceira e 2 bolas para a última caixa.  
 Note-se que cada posicionamento das barras define uma única divisão possível das 10 bolas pelas 3 caixas.
 Desta forma, o nosso problema de descobrir o número de formas de dividir 10 bolas por 3 caixas equivale a
 descobrir o número de formas de colocar 2 barras nos espaços entre as 10 bolas.
@@ -193,7 +193,7 @@ $$
 
 Se tivermos uma restrição do tipo $x_k \geq 3$ (a caixa $k$ tem de ter pelo menos 3 bolas) a solução é muito simples: começamos por colocar 2 das nossas bolas na caixa $k$, e resolvemos o problema do costume para $n-2$ bolas.
 
-Conjugando estas duas técnicas a cima, ficamos capazes de resolver qualquer tipo de restrições do tipo $x_k \geq t$:
+Conjugando estas duas técnicas acima, ficamos capazes de resolver qualquer tipo de restrições do tipo $x_k \geq t$:
 
 1. adicionar bolas A TODAS AS CAIXAS até todas as variáveis terem domínio em $\mathbb{N}^+$;
 2. colocar bolas nas caixas que precisam de ter pelo menos $t$ bolas para $t>1$;
@@ -259,7 +259,7 @@ y_1 + y_2 + \cdots + y_k = n \quad \wedge \quad x_1 + x_2 + \cdots + x_{k+1} = m
 $$
 
 com $x_1, x_{k+1} \in \mathbb{N}_0, y_1, x_2, y_2, \cdots, x_k, y_k \in \mathbb{N}^+$.
-Neste ponto podemos ir buscar do nosso génio combinatório e usar os métodos discutidos na secção a cima,
+Neste ponto podemos ir buscar do nosso génio combinatório e usar os métodos discutidos na secção acima,
 mas aqui queremos falar de geradoras portanto isso fica como exercício para o leitor :P.
 Vamos então representar a geradora deste problema:
 
