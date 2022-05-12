@@ -13,6 +13,7 @@ module.exports = {
       { key: 'exercises', name: '✏️ Exercícios' },
       { key: 'tools', name: '🛠 Ferramentas' },
       { key: 'guides', name: '📚 Guias' },
+      { key: 'archive', name: '📥 Arquivo' },
     ],
     navbar: {
       siteTitle: 'Resumos LEIC-A',
