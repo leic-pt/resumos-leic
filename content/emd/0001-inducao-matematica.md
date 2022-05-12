@@ -1,7 +1,7 @@
 ---
 title: Indução Matemática
 description: Demonstrações por indução matemática; Exemplos; Indução simples e complexa; Sequência de Fibonacci
-path: /md/inducao-matematica
+path: /emd/inducao-matematica
 type: content
 ---
 
