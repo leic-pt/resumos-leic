@@ -1,5 +1,8 @@
 ---
 title: Variáveis Aleatórias Contínuas
+description: >-
+  Variáveis Aleatórias Contínuas:
+  Distribuição Uniforme Contínua, Normal e Exponencial.
 path: /pe/va-continuas
 type: content
 ---
@@ -18,7 +21,7 @@ Esta distribuição é normalmente usada em situações em que há um intervalo 
 
 :::
 
-Dizemos que uma VA discreta $X$ têm uma [**distribuição uniforme contínua**](color:green) e representamos $X \sim uniforme \, contínua(a,b)$ se, dados os **parâmetros**:
+Dizemos que uma VA contínua $X$ têm uma [**distribuição uniforme contínua**](color:green) e representamos $X~\sim~\op{uniforme \, contínua}(a,b)$ se, dados os **parâmetros**:
 
 - $a,b$: limites do intervalo ($a,b \in \R$)
 
@@ -41,6 +44,8 @@ Uma VA $X$ com [distribuição uniforme contínua](color:green) tem:
 **Variância**: $V(X) = \frac{(b-a)^2}{12}$
 
 :::details[Exemplo]
+
+// TODO
 
 :::
 
@@ -68,7 +73,7 @@ Esta distribuição é usada para... tipo quase tudo.
 
 :::
 
-Dizemos que uma VA discreta $X$ têm uma [**distribuição normal**](color:yellow) e representamos $X \sim normal(\mu,\sigma^2)$ se, dados os **parâmetros**:
+Dizemos que uma VA contínua $X$ têm uma [**distribuição normal**](color:yellow) e representamos $X~\sim~\op{normal}(\mu,\sigma^2)$ se, dados os **parâmetros**:
 
 - $\mu = E(X) \in \R$
 - $\sigma^2 = V(X) \in \R_0^+$
@@ -89,13 +94,15 @@ Uma VA $X$ com [distribuição normal](color:yellow) tem:
 
 :::details[Exemplo]
 
+// TODO
+
 :::
 
 **Propriedades da [distribuição normal](color:yellow)**:
 
 - O integral $\int_{-\infty}^x \frac{1}{\sqrt{2\pi} \sigma} e^{-\frac{(t-\mu)^2}{2 \sigma^2}} \, dt$ não tem forma fechada pelo que a distribuição normal **não tem uma função de distribuição** que possa ser escrita em forma fechada. Sendo assim, os valores desta função têm de ser obtidos por consulta de tabelas. Esta consulta é facilitada pela próxima propriedade;
-- $X \sim normal(\mu, \sigma^2) \Leftrightarrow aX+b \sim normal(aX + b, a^2 \sigma^2)$  
-  Consequentemente, $X \sim normal(\mu, \sigma^2) \Leftrightarrow \frac{X-\mu}{\sigma} \sim normal(0,1)$.  
+- $X \sim \op{normal}(\mu, \sigma^2) \Leftrightarrow aX+b \sim \op{normal}(aX + b, a^2 \sigma^2)$  
+  Consequentemente, $X \sim \op{normal}(\mu, \sigma^2) \Leftrightarrow \frac{X-\mu}{\sigma} \sim \op{normal}(0,1)$.  
   Desta forma, para qualquer VA $X$ com distribuição normal, é sempre possível fazer uma transformação linear de forma a obter uma VA com distribuição normal centrada em $0$ e com variância $1$.
   À distribuição normal centrada em $0$ com variância $1$ dá-se o nome de **distribuição normal padrão**. A sua função de distribuição representa-se por $\Phi(x)$ e é dada por
   $$
@@ -119,7 +126,7 @@ Esta distribuição é normalmente usada para atribuir uma probabilidade ao temp
 
 :::
 
-Dizemos que uma VA discreta $X$ têm uma [**distribuição exponencial**](color:orange) e representamos $X \sim exponencial(\lambda)$ se, dados os **parâmetros**:
+Dizemos que uma VA contínua $X$ têm uma [**distribuição exponencial**](color:orange) e representamos $X~\sim~\op{exponencial}(\lambda)$ se, dados os **parâmetros**:
 
 - $\lambda \in \R_0^+$: valor esperado do tempo até o evento acontecer
 
@@ -131,7 +138,7 @@ satisfizer:
 $$
 P(X = x) =
 \begin{cases}
-\lambda e^{-\lambda x}, &x \leq 0 \\
+\lambda e^{-\lambda x}, &x \geq 0 \\
 0, &x < 0
 \end{cases}
 $$
@@ -142,6 +149,8 @@ Uma VA $X$ com [distribuição exponencial](color:orange) tem:
 **Variância**: $V(X) = \frac{1}{\lambda^2}$
 
 :::details[Exemplo]
+
+// TODO
 
 :::
 
@@ -161,15 +170,15 @@ Uma VA $X$ com [distribuição exponencial](color:orange) tem:
   $$
   Por outras palavras, a VA $Y = X-k | X>k$ é tal que
   $$
-  Y \sim exponencial(p)
+  Y \sim \op{exponencial}(p)
   $$
 - **Processo de Poisson**: Damos o nome de Processo de Poisson a uma coleçao de VA's $\{ N_t: t \in \R^+ \}$ que registam o número de ocorrências de um certo evento no intervalo $]0,1]$ tal que:
   - O número de ocorrências em intervalos disjuntos são VA independentes;
   - O número de ocorrências em intervalos de amplitude igual satisfazem a mesma distribuição;
-  - $N_t \sim Poisson(\lambda t)$
+  - $N_t \sim \op{Poisson}(\lambda t)$
     Podemos então concluir que a VA $X_t$ que determina o tempo entre duas ocorrências do evento satisfaz
     $$
-    X_t \sim exponencial(\lambda)
+    X_t \sim \op{exponencial}(\lambda)
     $$
 
 :::warning[]
