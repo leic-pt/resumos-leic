@@ -18,7 +18,7 @@ Esta distribuição é normalmente usada em situações em que todos os eventos 
 
 :::
 
-Dizemos que uma VA discreta $X$ têm uma [**distribuição uniforme discreta**](color:green) e representamos $X \sim uniforme \, discreta(S)$ se, dados os **parâmetros**:
+Dizemos que uma VA discreta $X$ têm uma [**distribuição uniforme discreta**](color:green) e representamos $X~\sim~\op{uniforme \, discreta}(S)$ se, dados os **parâmetros**:
 
 - $S = \{ x_1, x_2, \cdots, x_n \}$ para $n \in \N$ e $x_i \in \R, \forall_{i \in \{ 1, 2, \cdots, n \}}$
 
@@ -37,10 +37,18 @@ $$
 
 Uma VA $X$ com [distribuição uniforme discreta](color:green) tem:
 
-**Valor Esperado**: $E(X) = \frac{1}{n} \sum_{i=1}^n x_i$  
-**Variância**: $V(X) = \frac{1}{n} \sum_{i=1}^n x_i^2 - \left( \frac{1}{n} \sum_{i=1}^n x_i \right)^2$
+- **Valor Esperado**:
+  $$
+  E(X) = \frac{1}{n} \sum_{i=1}^n x_i
+  $$
+- **Variância**:
+  $$
+  V(X) = \frac{1}{n} \sum_{i=1}^n x_i^2 - \left( \frac{1}{n} \sum_{i=1}^n x_i \right)^2
+  $$
 
 :::details[Exemplo]
+
+// TODO
 
 :::
 
@@ -67,9 +75,9 @@ Podemos aproveitar-nos disto à vontade desde que tenhamos em atenção que o su
 
 :::
 
-Dizemos que uma VA discreta $X$ têm uma [**distribuição de Bernoulli**](color:blue) e representamos $X \sim Bernoulli(p)$ se, dados os **parâmetros**:
+Dizemos que uma VA discreta $X$ têm uma [**distribuição de Bernoulli**](color:blue) e representamos $X~\sim~\op{Bernoulli}(p)$ se, dados os **parâmetros**:
 
-- $p = P(Sucesso)$, $p \in [0,1]$
+- $p = P(\op{Sucesso})$, $p \in [0,1]$
 
 satisfizer:
 
@@ -101,7 +109,7 @@ O lançamento de uma moeda ao ar é um exemplo de uma prova de Bernoulli com $p 
 Se $X$ for uma VA que mede se o lançamento da moeda ao ar dá "coroa" (vamos tomar isto como o nosso sucesso), dizemos que
 
 $$
-X \sim Bernoulli(0.5)
+X~\sim~\op{Bernoulli}(0.5)
 $$
 
 :::
@@ -114,7 +122,7 @@ Esta distribuição é usada para, dada uma prova de Bernoulli que é executada 
 
 :::
 
-Dizemos que uma VA discreta $X$ têm uma [**distribuição binomial**](color:yellow) e representamos $X \sim binomial(n,p)$ se, dados os **parâmetros**:
+Dizemos que uma VA discreta $X$ têm uma [**distribuição binomial**](color:yellow) e representamos $X~\sim~\op{binomial}(n,p)$ se, dados os **parâmetros**:
 
 - $n$: número de provas de Bernoulli executadas ($n \in \N$);
 - $p$: probabilidade de sucesso da prova de Bernoulli ($p \in [0,1]$).
@@ -139,14 +147,16 @@ Uma VA $X$ com [distribuição binomial](color:yellow) tem:
 
 :::details[Exemplo]
 
+// TODO
+
 :::
 
 **Propriedades da [distribuição binomial](color:yellow)**:
 
 - A distribuição binomial **não tem uma função de distribuição** que possa ser escrita em forma fechada (isto é, sem um somatório);
-- Se $X \sim binomial(n,p)$ e $Y$ for a VA que mede o número de insucessos associados a $X$, isto é
+- Se $X~\sim~\op{binomial}(n,p)$ e $Y$ for a VA que mede o número de insucessos associados a $X$, isto é
   $$
-  Y = n-X \sim binomial(n, 1-p)
+  Y = n-X~\sim~\op{binomial}(n, 1-p)
   $$
   temos que
   $$
@@ -161,7 +171,7 @@ Esta distribuição é usada para, dada uma prova de Bernoulli, medir a probabil
 
 :::
 
-Dizemos que uma VA discreta $X$ têm uma [**distribuição geométrica**](color:orange) e representamos $X \sim geométrica(p)$ se, dados os **parâmetros**:
+Dizemos que uma VA discreta $X$ têm uma [**distribuição geométrica**](color:orange) e representamos $X~\sim~\op{geométrica}(p)$ se, dados os **parâmetros**:
 
 - $p$: probabilidade de sucesso da prova de Bernoulli ($p \in [0,1]$).
 
@@ -185,6 +195,8 @@ Uma VA $X$ com [distribuição geométrica](color:orange) tem:
 
 :::details[Exemplo]
 
+// TODO
+
 :::
 
 **Propriedades da [distribuição geométrica](color:orange)**:
@@ -203,7 +215,7 @@ Uma VA $X$ com [distribuição geométrica](color:orange) tem:
   $$
   Por outras palavras, a VA $Y = X-k | X>k$ é tal que
   $$
-  Y \sim geométrica(p)
+  Y \sim \op{geométrica}(p)
   $$
 
 ## Distribuição Hipergeométrica
@@ -214,7 +226,7 @@ Tal como a distribuição binomial, esta distribuição tem a ver com o número 
 
 :::
 
-Dizemos que uma VA discreta $X$ têm uma [**distribuição hipergeométrica**](color:red) e representamos $X \sim hipergeométrica(N, M, n)$ se, dados os **parâmetros**:
+Dizemos que uma VA discreta $X$ têm uma [**distribuição hipergeométrica**](color:red) e representamos $X~\sim~\op{hipergeométrica}(N, M, n)$ se, dados os **parâmetros**:
 
 - $N$: tamanho da população ($n \in \Z^+$);
 - $M$: tamanho da população sucesso ($m \in \Z^+$);
@@ -222,7 +234,7 @@ Dizemos que uma VA discreta $X$ têm uma [**distribuição hipergeométrica**](c
 
 satisfizer:
 
-**Contradomínio**: $\{ max(0, n - (N-M)), \cdots , min(n, M) \} = D$  
+**Contradomínio**: $\{ \op{max}(0, n - (N-M)), \cdots , \op{min}(n, M) \} = D$  
 **Função de Probabilidade**
 
 $$
@@ -235,10 +247,18 @@ $$
 
 Uma VA $X$ com [distribuição hipergeométrica](color:red) tem:
 
-**Valor Esperado**: $E(X) = n\frac{M}{N}$  
-**Variância**: $V(X) = n\frac{M}{N} \left( 1-\frac{M}{N} \right)\frac{N-n}{N-1}$
+- **Valor Esperado**:
+  $$
+  E(X) = n\frac{M}{N}
+  $$
+- **Variância**:
+  $$
+  V(X) = n\frac{M}{N} \left( 1-\frac{M}{N} \right)\frac{N-n}{N-1}
+  $$
 
 :::details[Exemplo]
+
+// TODO
 
 :::
 
@@ -254,7 +274,7 @@ Para que isto seja possível é necessário assumirmos que:
 
 :::
 
-Dizemos então que uma VA discreta $X$ têm uma [**distribuição de Poisson**](color:purple) e representamos $X \sim Poisson(\lambda)$ se, dados os **parâmetros**:
+Dizemos então que uma VA discreta $X$ têm uma [**distribuição de Poisson**](color:purple) e representamos $X~\sim~\op{Poisson}(\lambda)$ se, dados os **parâmetros**:
 
 - $\lambda$: valor esperado de ocorrências do evento num intervalo base ($\lambda \in \R^+$)
 
@@ -278,11 +298,13 @@ Uma VA $X$ com [distribuição de Poisson](color:purple) tem:
 
 :::details[Exemplo]
 
+// TODO
+
 :::
 
 **Propriedades da [distribuição de Poisson](color:purple)**:
 
 - A distribuição de Poisson pode ser aproximada pela binomial, se considerarmos o acontecimento do evento no intervalo em que é impossível o evento acontecer duas vezes como uma prova de Bernoulli. Desta forma, temos que
   $$
-  X \sim Poisson(\lambda) \Leftrightarrow X \sim \lim_{n \to \infty} binomial\left(n, \frac{\lambda}{n} \right)
+  X \sim \op{Poisson}(\lambda) \Leftrightarrow X \sim \lim_{n \to \infty} \op{binomial}\left(n, \frac{\lambda}{n} \right)
   $$
