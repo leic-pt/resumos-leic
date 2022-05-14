@@ -24,19 +24,19 @@ entre [**bases de dados**](color:green) e [**sistemas de gestão de bases de dad
 Uma [**base de dados**](color:green) é, como o próprio nome indica, um conjunto de dados
 que estão interligados entre si.
 Frequentemente descreve organizações que existem no mundo real.  
-Por exemplo, numa instituição como o Ténico, é preciso associar professores a um
+Por exemplo, numa instituição como o Técnico, é preciso associar professores a um
 departamento. Teremos então duas [**entidades**](color:pink): professores e departamentos.
-Estas duas entidades estão [**relacionadas**](color:purple): o professor X pertence ao departamento Y.
+Estas duas entidades estão [**relacionadas**](color:purple): o professor _X_ pertence ao departamento _Y_.
 
 Por outro lado, um [**sistema de gestão de bases de dados**](color:yellow) é um pacote de
 software que está desenhado para guardar e gerir bases de dados.
-Existem diferentes SGBDs, como veremos mais à frente.  
+Existem diferentes tipos de SGBDs, como veremos mais à frente.  
 Os SGBD têm de uma grande quantidade de funcionalidades para facilitar a vida a
 quem usa as bases de dados (e.g. programadores), como garantias de consistência,
 controlo de acessos, gestão de concorrência (_transactions_), e muito mais.  
-Estas são também as vantagens da utilização de SGBDs em vez de [**ficheiros**](color:red),
-visto que um programador necessitaria de programar estas funcionalidades do zero
-todas as vezes.
+Estas são também vantagens da utilização de SGBDs em vez de [**ficheiros**](color:red),
+visto que nesse caso um programador necessitaria de programar estas funcionalidades do
+zero todas as vezes, enquanto que SGBDs conseguem abstrair toda essa complexidade.
 
 ![Exemplos de SGBDs relacionais](./assets/0001-dbms-examples.png#dark=3)
 
@@ -104,19 +104,19 @@ Já referenciámos algumas das vantagens de SGBDs, no entanto existem muitas mai
 - **Acesso Concorrente e Recuperação de Falhas**
 
   Os SGBDs proporcionam ferramentas (_transactions_) para minimizar o tempo perdido
-  por acessos concorrentes, minimizando também as falhas que podem ocorrer.
+  por acessos concorrentes, minimizando também as falhas que possam ocorrer.
 
 - **Redução do Tempo de Desenvolvimento de Aplicações**
 
   Com todas as ferramentas disponibilizadas pelos SGBDs, assim como linguagens
   próprias de interrogação, dedicadas a dados (e.g. SQL), o trabalho dos programadores
   é imensamente facilitado.
-  Estas linguagens dão uma interface de alto nível para os dados, que tal como já
+  Estas linguagens dão uma interface de alto nível para os dados, que, tal como já
   vimos, permitem criar várias abstrações que simplificam o desenvolvimento de aplicações.
 
 [**Desvantagens**](color:red)
 
-Embora sejam muitas as vantagens dos SGBDs, existem algumas (embora poucas) desvantagens.
+Embora sejam muitas as vantagens dos SGBDs, existem algumas desvantagens a ter em conta:
 
 - **Aplicações Muito Complexas**
 
@@ -131,7 +131,7 @@ Embora sejam muitas as vantagens dos SGBDs, existem algumas (embora poucas) desv
 - **Falta de Análise Flexível para Certos Tipos de Dados**
 
   Maioritariamente para texto, em que podemos querer fazer pesquisas avançadas
-  (_full text search_/_fuzzy search_) que a maioria dos SGBDs não suportam.
+  (como _full text search_ ou _fuzzy search_) que a maioria dos SGBDs não suportam.
 
 - **Falta de Necessidade**
 
@@ -149,8 +149,10 @@ um passo importante na criação dos SGBDs relacionais que conhecemos hoje em di
 que propôs a separação da base de dados em 3 níveis.
 
 - **Nível Externo (_views_)**: Uma _view_ descreve como os utilizadores vêm os dados.
-  Cada utilizador pode ter uma _view_ diferente que é particular a si mesmo, que pode
-  ser uma reflexão dos dados que lhe são úteis assim como apenas aqueles que tem acesso.
+  Cada utilizador pode ter _views_ diferentes, particulares a si mesmo, sendo
+  reflexões dos dados que lhe são úteis e a que simultaneamente tem acesso.
+  Cada _view_ pode ser partilhada por vários utilizadores e cada utilizador
+  pode ter acesso a várias _views_.
 
 - **Nível Conceptual**: O nível conceptual é responsável por descrever que dados existem
   na base de dados e como se relacionam entre si. Em SGBDs relacionais, isto é
@@ -201,17 +203,19 @@ Um SGBD tem de usar um **modelo de dados**, um conjunto de conceitos e métodos,
 
 Existem vários tipos de modelos de dados hoje em dia:
 
-- **Relacional** (o mais usado)
+- **Relacionais** (os mais usados)
 - **Entidade-Relação** (para conceção de bases de dados)
-- **Orientada a Objetos**
+- **Baseados em Objetos** (Orientados a Objetos ou Objeto-Relacionais)
 - **Semi-Estruturados** (XML, JSON, etc.)
+
+Historicamente, também eram comuns modelos de dados **em rede** e **hierárquicos**.
 
 ### Modelo Relacional
 
 Atualmente, o **modelo relacional** é o mais usado.
 Como o próprio nome indica, é composto por relações.
-Uma relação (chamada no dia-a-dia de tabela/_table_), é constituída pelo seu **nome**,
-o **nome de cada atributo** (_field_) e o **tipo de cada atributo**.
+Uma **relação**, também denominada no dia-a-dia de tabela (ou _table_), é constituída pelo seu **nome**,
+o **nome de cada atributo** (_field_) e o **tipo de dados de cada atributo**.
 
 :::info[Exemplo]
 
@@ -232,19 +236,22 @@ representa um único aluno.
 
 :::
 
-Neste exemplo podemos querer também enforçar restrições de integridade.
+Neste exemplo faria também sentido impor restrições de integridade.
 Neste caso, a restrição mais óbvia é garantir que não existem dois alunos diferentes
-com o mesmo `ist_id`. No entanto, podem existir alunos com o mesmo nome.
+com o mesmo `ist_id`. No entanto, podem existir alunos com o mesmo nome.  
+Mais à frente veremos como podemos indicar ao SGBD para seguir estas regras,
+de forma a assegurar a integridade dos dados.
 
 ## Arquitetura de SGBDs
 
-Para falarmos com os SGBDs temos de usar uma linguagem. No caso do modelo relacional,
-essa linguagem é o [**SQL**](color:orange) (Structured Query Language).
+Para falarmos com os SGBDs, temos de usar uma linguagem que eles compriendam de modo a
+expressar de forma clara as nossas intenções. No caso do modelo relacional, é comummente
+utilizado o [**SQL**](color:orange) (Structured Query Language).
 
 Na imagem abaixo podemos ver o esquema que representa a estrutura todo o fluxo de execução
 entre a aplicação e a base de dados, passando pelo SGBD.
 
-![Esquema que representa a arquitetura de um SGBD](./assets/0001-dbms-architecture.svg)
+![Esquema que representa a arquitetura de um SGBD](./assets/0001-dbms-architecture.svg#dark=3)
 
 Quando executamos uma _query_ (interrogação), esta é enviada ao
 _query evaluation engine_, que depois acede a várias outras partes
