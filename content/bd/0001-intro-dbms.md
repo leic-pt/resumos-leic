@@ -135,3 +135,52 @@ Embora sejam muitas as vantagens dos SGBDs, existem algumas (embora poucas) desv
   pode não fazer sentido a introdução de um SGBD, por mais pequeno que seja
   o _overhead_ de o fazer hoje em dia.
   Uma aplicação deste tipo não beneficiaria de um SGBD.
+
+## Modelo ANSI-SPARC
+
+![Arquitetura ANSI-SPARC](./assets/0001-ansi-sparc-architecture.svg)
+
+O aparecimento do [modelo ANSI-SPARC](https://en.wikipedia.org/wiki/ANSI-SPARC_Architecture) foi
+um passo importante na criação dos SGBDs relacionais que conhecemos hoje em dia, visto
+que propôs a separação da base de dados em 3 níveis.
+
+- **Nível Externo (_views_)**: Uma _view_ descreve como os utilizadores vêm os dados.
+  Cada utilizador pode ter uma _view_ diferente que é particular a si mesmo, que pode
+  ser uma reflexão dos dados que lhe são úteis assim como apenas aqueles que tem acesso.
+
+- **Nível Conceptual**: O nível conceptual é responsável por descrever que dados existem
+  na base de dados e como se relacionam entre si. Em SGBDs relacionais, isto é
+  aquilo a que casualmente nos referimos como _schema_.
+
+- **Nível Físico/Interno**: É responsável pelo armazenamento dos dados, isto é,
+  a sua representação física no sistema.
+
+Imaginemos que temos o esquema lógico abaixo:
+
+```
+Student (ist_id: string, student_name: string, birthday: integer)
+Course (course_id: string, course_name: string, description: integer)
+Shift (shift_id: string, course_id: string, capacity: integer)
+Enrollment (ist_id: string, shift_id: string)
+Room (room_name: string, course_id: string, capacity: integer)
+```
+
+Uma possível _view_ para este esquema lógico seria:
+
+```
+CourseShiftRooms (room_name: string, course_name: string,
+                  enrolled_count: integer)
+```
+
+Podemos reparar que esta relação não está representada explicitamente no
+esquema lógico, no entanto todos os dados podem ser derivados das relações
+definidas no mesmo.
+
+A [**grande vantagem**](color:green) desde modelo é a independência dos dados. Como estamos
+a dividir a estrutura em três níveis, podemos alterar cada um deles sem ter de propagar
+estas alterações "para cima":
+
+- Podemos alterar o esquema lógico sem alterar as nossas aplicações, visto que as vistas
+  se podem manter.
+- Podemos alterar a organização física dos dados, isto é, como são armazenados, sem termos
+  de modificar o esquema lógico.
