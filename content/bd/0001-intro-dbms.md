@@ -231,3 +231,19 @@ representa um único aluno.
 Neste exemplo podemos querer também enforçar restrições de integridade.
 Neste caso, a restrição mais óbvia é garantir que não existem dois alunos diferentes
 com o mesmo `ist_id`. No entanto, podem existir alunos com o mesmo nome.
+
+## Arquitetura de SGBDs
+
+Para falarmos com os SGBDs temos de usar uma linguagem. No caso do modelo relacional,
+essa linguagem é o [**SQL**](color:orange) (Structured Query Language).
+
+Na imagem abaixo podemos ver o esquema que representa a estrutura todo o fluxo de execução
+entre a aplicação e a base de dados, passando pelo SGBD.
+
+![Esquema que representa a arquitetura de um SGBD](./assets/0001-dbms-architecture.svg)
+
+Quando executamos uma _query_ (interrogação), esta é enviada ao
+_query evaluation engine_, que depois acede a várias outras partes
+do SGBD para conseguir completar o pedido.
+
+Iremos falar com mais detalhe de cada uma destes "módulos" do SGBD mais à frente.
