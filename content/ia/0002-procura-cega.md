@@ -11,6 +11,12 @@ type: content
 
 ```
 
+:::warning[Aviso]
+
+Esta secção será aprofundada num futuro próximo.
+
+:::
+
 Procura cega ou procura não informada, tal como o nome indica, trata-se de fazer uma procura **sem informação do que vem a seguir**. Os algoritmos de procura cega que aprendemos foram:
 
 ## BFS
