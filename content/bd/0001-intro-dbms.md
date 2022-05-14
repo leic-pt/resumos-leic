@@ -2,6 +2,10 @@
 title: Introdução aos SGBD
 description: >-
   Introdução aos Sistemas de Gestão de Bases de Dados - SGBD, ou Database Management System - DBMS - em inglês.
+  Vantagens e Desvantagens de SGBDs. Porque são estes melhores que ficheiros?
+  Modelo ANSI-SPARC. Views.
+  Modelos de Dados: Modelo Relacional.
+  Arquitetura de SGBDs.
 path: /bd/intro-dbms
 type: content
 ---
