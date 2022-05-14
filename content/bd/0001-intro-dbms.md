@@ -155,11 +155,14 @@ que propôs a separação da base de dados em 3 níveis.
 - **Nível Físico/Interno**: É responsável pelo armazenamento dos dados, isto é,
   a sua representação física no sistema.
 
+:::info[Exemplo]
+
 Imaginemos que temos o esquema lógico abaixo:
 
 ```
-Student (ist_id: string, student_name: string, birthday: integer)
-Course (course_id: string, course_name: string, description: integer)
+Student (ist_id: string, student_name: string, birthday: date)
+Course (course_id: string, course_name: string,
+        description: integer)
 Shift (shift_id: string, course_id: string, capacity: integer)
 Enrollment (ist_id: string, shift_id: string)
 Room (room_name: string, course_id: string, capacity: integer)
@@ -176,6 +179,8 @@ Podemos reparar que esta relação não está representada explicitamente no
 esquema lógico, no entanto todos os dados podem ser derivados das relações
 definidas no mesmo.
 
+:::
+
 A [**grande vantagem**](color:green) desde modelo é a independência dos dados. Como estamos
 a dividir a estrutura em três níveis, podemos alterar cada um deles sem ter de propagar
 estas alterações "para cima":
@@ -184,3 +189,45 @@ estas alterações "para cima":
   se podem manter.
 - Podemos alterar a organização física dos dados, isto é, como são armazenados, sem termos
   de modificar o esquema lógico.
+
+## Modelos de Dados
+
+Um SGBD tem de usar um **modelo de dados**, um conjunto de conceitos e métodos, para descrever
+**dados**, **relacionamentos**, **semântica de dados** e **restrições**.
+
+Existem vários tipos de modelos de dados hoje em dia:
+
+- **Relacional** (o mais usado)
+- **Entidade-Relação** (para conceção de bases de dados)
+- **Orientada a Objetos**
+- **Semi-Estruturados** (XML, JSON, etc.)
+
+### Modelo Relacional
+
+Atualmente, o **modelo relacional** é o mais usado.
+Como o próprio nome indica, é composto por relações.
+Uma relação (chamada no dia-a-dia de tabela/_table_), é constituída pelo seu **nome**,
+o **nome de cada atributo** (_field_) e o **tipo de cada atributo**.
+
+:::info[Exemplo]
+
+```
+Student (ist_id: string, student_name: string, birthday: date)
+```
+
+Podemos depois adicionar linhas (_rows_) nesta relação. Neste caso, cada linha
+representa um único aluno.
+
+| `ist_id`   | `student_name` | `birthday` |
+| ---------- | -------------- | ---------- |
+| ist1123456 | Diogo          | 2002-03-06 |
+| ist1123234 | Rafa           | 2002-08-05 |
+| ist1124453 | Tomás          | 2002-12-18 |
+| ist1123534 | Diogo          | 2001-09-16 |
+| ist1123532 | Diogo          | 2002-04-27 |
+
+:::
+
+Neste exemplo podemos querer também enforçar restrições de integridade.
+Neste caso, a restrição mais óbvia é garantir que não existem dois alunos diferentes
+com o mesmo `ist_id`. No entanto, podem existir alunos com o mesmo nome.
