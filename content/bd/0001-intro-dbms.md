@@ -109,3 +109,29 @@ Já referenciámos algumas das vantagens de SGBDs, no entanto existem muitas mai
   é imensamente facilitado.
   Estas linguagens dão uma interface de alto nível para os dados, que tal como já
   vimos, permitem criar várias abstrações que simplificam o desenvolvimento de aplicações.
+
+[**Desvantagens**](color:red)
+
+Embora sejam muitas as vantagens dos SGBDs, existem algumas (embora poucas) desvantagens.
+
+- **Aplicações Muito Complexas**
+
+  Por vezes podemos ter aplicações muito complexas em que não é possível modelar
+  os nossos dados num sistema relacional.
+
+- **Desempenho Inaceitável (e.g. para aplicações de tempo-real)**
+
+  Para algumas aplicações, como uma bolsa, os dados são alterados tão rapidamente
+  que o desempenho dos SGBDs não é suficiente.
+
+- **Falta de Análise Flexível para Certos Tipos de Dados**
+
+  Maioritariamente para texto, em que podemos querer fazer pesquisas avançadas
+  (_full text search_/_fuzzy search_) que a maioria dos SGBDs não suportam.
+
+- **Falta de Necessidade**
+
+  Para aplicações extremamente simples ou com dados maioritariamente imutáveis,
+  pode não fazer sentido a introdução de um SGBD, por mais pequeno que seja
+  o _overhead_ de o fazer hoje em dia.
+  Uma aplicação deste tipo não beneficiaria de um SGBD.
