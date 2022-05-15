@@ -1,25 +1,22 @@
 ---
-title: Procura Cega
+title: Resolução de Problemas com Procura
 description: Algoritmos de Procura Não Informada
-path: /ia/procura-cega
+# TODO: add more to the description
+path: /ia/resolucao-procura
 type: content
 ---
 
-# Procura Cega
+# Resolução de Problemas com Procura
 
 ```toc
 
 ```
 
-:::warning[Aviso]
-
-Esta secção será aprofundada num futuro próximo.
-
-:::
+## Procura Cega/Não Informada
 
 Procura cega ou procura não informada, tal como o nome indica, trata-se de fazer uma procura **sem informação do que vem a seguir**. Os algoritmos de procura cega que aprendemos foram:
 
-## BFS
+### BFS
 
 A procura em largura expande o nó de menor profundidade na
 fronteira. Ou seja, visita os nós de uma dada profundidade e expande-os gerando os nós da próxima profundidade que apenas serão visitados assim que todos os da atual tiverem sido visitados.
@@ -31,7 +28,7 @@ Propriedades ($b$ é o fator máximo de ramificação, $d$ é a profundidade da 
 - Complexidade Espacial: $O(b^d)$
 - Ótima: Sim, se o custo do caminho não diminuir ao aumentar a profundidade (Por exemplo custo de todas as ações igual a $1$). Em geral, não é ótima.
 
-## DFS
+### DFS
 
 A procura em profundidade expande o nó na fronteira com a maior profundidade. Ou seja, percorre o caminho completo e volta para trás assim que deixa de haver um caminho possível.
 
@@ -42,7 +39,7 @@ Propriedades:
 - Complexidade Espacial: $O(b*m)$
 - Ótima: Não
 
-## DFS Limitada
+### DFS Limitada
 
 Uma DFS em que existe uma profundidade limite onde não se consegue expandir nenhum dos nós.
 
@@ -53,7 +50,7 @@ Propriedades:
 - Complexidade Espacial: $O(b*l)$
 - Ótima: Não
 
-## DFS Iterativa
+### DFS Iterativa
 
 Consiste em várias DFS iterativas. A primeira com limite $1$, de seguida com limite $2$, etc.
 
@@ -64,7 +61,7 @@ Propriedades:
 - Complexidade Espacial: $O(b*d)$
 - Ótima: Sim, se o custo de cada ação for igual a $1$
 
-## Procura Custo Uniforme
+### Procura Custo Uniforme
 
 A procura de custo uniforme, escolhe para visitar o nó com o menor custo no caminho até ele. Caso todas as ações tiverem o mesmo custo é equivalente à BFS.
 
@@ -80,3 +77,4 @@ Propriedades:
 ---
 
 Resta realçar que caso queiram recordar com mais pormenor alguns destes algoritmos (nomeadamente as versões básicas da [BFS e DFS](/asa/algoritmos-elementares) e da [Procura Custo Uniforme](/asa/arvores-abrangentes-menor-custo)), os resumos de ASA vão bastante _a fundo_ nas respetivas secções. Nesta cadeira, contudo, não será necessário ter uma memória tão "viva" dos conceitos abordados nessa UC.
+Mais, adicionamos que esta secção corresponde ao terceiro capítulo do livro que acompanha a cadeira (_Solving Problems by Searching_), sub-secções 3.1 a 3.4.
