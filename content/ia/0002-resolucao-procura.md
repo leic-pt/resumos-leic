@@ -12,6 +12,64 @@ type: content
 
 ```
 
+Nesta secção vamos explorar mais a ideia de agentes baseados em objetivos, focando-nos num subtipo em particular: os **agentes que resolvem problemas**.
+
+## Problem-Solving Agents
+
+Em particular, temos que _problem-solving agents_ devem, ao contrário de outros tipos de agentes mais elementares, poder considerar ações futuras (e as respetivas consequências).
+Ora, tendo um **objetivo** estabelecido (objetivo esse gerado a partir do estado final onde queremos chegar, tendo em conta um conjunto de medidas de performance), encontrar a forma ótima de o atingir nem sempre é trivial, acabando frequentemente por requerer estratégias de **procura** adequadas à situação em que o agente se encontra.
+De forma sucinta, dizemos que essa "forma ótima de o atingir" corresponde à sequência de ações que o agente terá sucessivamente de tomar por forma a satisfazer o objetivo.
+
+O exemplo clássico utilizado para explicar o funcionamento-base deste tipo de agentes é o problema **Arad-Bucareste**.
+
+:::tip[Arad-Bucareste]
+
+Considere-se um casal que está de férias em Arad, na Roménia. Amanhã têm de apanhar o avião de volta para Lisboa, em Bucareste, e têm de decidir a melhor forma de lá chegar - neste caso, definimos _melhor forma_ como o caminho mais barato (com menor custo/km). Ora, considere-se o seguinte grafo, onde cada arco (estrada) é pesado consoante o custo de fazer o trajeto entre os vértices (cidades) que liga:
+
+![Grafo Roménia (c/ custos associados)](./imgs/0002-romania-graph.svg#dark=2)
+
+Uma procura relativamente simples, _a olho_, levar-nos-ia à conclusão que o caminho com menor custo que liga Arad a Bucareste é o caminho
+
+$$
+\text{Arad} \to \text{Sibiu} \to \text{Rimnicu Vilcea} \to \text{Pilesti} \to \text{Bucareste}
+$$
+
+Um agente não consegue, claro, fazer "pesquisas a olho": precisa de uma **estratégia de procura** adequada para encontrar a sequência pretendida (as estratégias serão abordadas mais à frente). Por fim, executa-se a sequência de ações obtida pelo agente pela ordem obtida.
+
+Como nota adicional, podemos afirmar que o ambiente em questão é **estático**, **completamente observável**, **discreto** e **determinístico**.
+
+:::
+
+A partir do exemplo anterior, podemos indiretamente enunciar **5 pontos-chave** para a formulação (e posterior resolução) de problemas através destes agentes:
+
+- o **estado inicial**: no caso do exemplo anterior, o agente encontra-se inicialmente em Arad;
+- as **ações que o agente pode tomar**, considerando o seu estado atual. Em relação ao exemplo anterior, o agente pode, partindo de Arad, decidir ir para Zerind, Sibiu ou Timisoara;
+- um **modelo de transição**, que retorna o estado resultante de executar uma dada ação partindo de um certo estado. Estando em Arad e tomando a ação `Ir(Sibiu)`, o agente passa a estar em Sibiu, sendo portanto Sibiu o estado retornado pelo modelo de transição nessa situação;
+- um **teste objetivo**, um teste simples que nos diz se um dado estado é ou não um estado objetivo. A resposta do teste à pergunta "Siriu é um estado objetivo" seria negativa, claro, já que o objetivo é apenas Bucareste;
+- um **custo caminho**, uma função que atribui um custo numérico a cada caminho (consideramos aqui caminho como um todo). Este custo está dependente das medidas de performance pretendidas - no caso Arad-Bucareste podemos escolher custos como distâncias em km, tempo gasto, entre um leque de outras opções possíveis.
+
+Pegando nestes cinco pontos, podemos criar o pseudocódigo correspondente a um agente que resolve problemas relativamente simples:
+
+```bash
+function simple_problem_solving_agent(perception)
+  static sequence = [] # sequência de ações a executar
+  static state # descrição do estado atual
+  static goal # descrição do objetivo, inicialmente não definido
+  static problem = [...] # formulação do problema
+
+  state = update_state(state, perception)
+  if sequence is empty then # lembrar que a sequência é static
+    goal = formulate_goal(state)
+    problem = formulate_problem(state, goal)
+    sequence = search(problem)
+    if sequence is empty then
+      return "I don't know how to solve this problem"
+  action = sequence.first
+  sequence = sequence.rest
+  return action
+end
+```
+
 ## Procura Cega/Não Informada
 
 Procura cega ou procura não informada, tal como o nome indica, trata-se de fazer uma procura **sem informação do que vem a seguir**. Os algoritmos de procura cega que aprendemos foram:
