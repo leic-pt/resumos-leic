@@ -171,38 +171,45 @@ A procura de custo uniforme equivale ao algoritmo de Dijkstra - corresponde a um
 
 A procura em profundidade primeiro expande sempre o nó na fronteira com a maior profundidade - procura percorrer um caminho até ao fim, voltando para trás (vulgo _backtracking_) assim que deixa de haver um caminho possível.
 
-Propriedades:
-
-- **Completa**: Não, visto que pode haver profundidades infinitas ou ciclos
+- **Completa**: Não, visto que pode haver profundidades infinitas ou ciclos.
 - **Complexidade Temporal**: $O(b^m)$ ($m$ é a profundidade máxima)
-- **Complexidade Espacial**: $O(b*m)$
-- **Ótima**: Não
+- **Complexidade Espacial**: $O(b*m)$ se for implementada recursivamente, $O(m)$ iterativamente
+- **Ótima**: Não, já que o nó retornado é o primeiro que satisfaz o objetivo, e não necessariamente o que satisfaz o objetivo **e** tem o caminho de menor custo. Olhando para o exemplo abaixo, caso $J$ e $C$ passassem no teste objetivo, $J$ seria retornado em vez de $C$, apesar de $C$ apresentar um custo caminho menor (considerando, claro, arcos com peso constante).
 
-### DFS Limitada
+![DFS](imgs/0002-dfs.png 'DFS (retirado do livro)')
 
-Uma DFS em que existe uma profundidade limite onde não se consegue expandir nenhum dos nós.
+### DFS Limitada (Depth-Limited Search)
 
-Propriedades:
+Uma DFS em que existe uma profundidade limite, a partir da qual não procuramos mais (como se a partir do limite os nós deixassem artificialmente de ter sucessores). Resolve, claro, o problema da profundidade infinita, tal como impõe um limite à profundidade máxima da solução.
+Introduz, contudo, um problema: se o nó-objetivo menos profundo estiver para lá do limite, nunca o vamos encontrar, pelo que podemos chegar à conclusão (errada) que não há solução, quando na verdade apenas impusemos um limite demasiado restrito.
 
-- **Completa**: Não, a solução pode estar fora do limite.
+Pensando num caso como o de Arad-Bucareste, faz sentido aplicar um limite à profundidade da procura: existem 20 cidades, e é possível verificar que podemos chegar do ponto $A$ ao ponto $B$, $\forall_{A, B}$, em no máximo 9 "passos", pelo que impor um limite de profundidade em 9 unidades permite-nos remover o problema da profundidade infinita, mantendo a solução ótima ao nosso alcance.
+Como nota, dizemos que este "número máximo de passos" para atravessar todo o espaço de estados é o seu **diâmetro**.
+
+- **Completa**: Não, já que a solução pode estar fora do limite.
 - **Complexidade Temporal**: $O(b^l)$ ($l$ é a profundidade limite)
-- **Complexidade Espacial**: $O(b*l)$
-- **Ótima**: Não
+- **Complexidade Espacial**: $O(b*l)$ com implementaçã recursiva, $O(l)$ com implementação iterativa
+- **Ótima**: Nem sempre é garantido que conseguimos atingir a solução ótima, já que a sua profundidade pode estar para lá do limite imposto.
 
-### DFS Iterativa
+### DFS Iterativa (Iterative Deepening Search)
 
-Consiste em várias DFS iterativas. A primeira com limite $1$, de seguida com limite $2$, etc.
+Consiste na realização de DFS limitadas sucessivas, com o limite de profundidade a aumentar a cada iteração (começando em 0 - na raiz).
 
-Propriedades:
+Acaba por combinar vantagens da BFS e da DFS, combatendo algumas das suas fraquezas. A DFS regular acaba por não ser a melhor opção em árvores com objetivo "mais à direita", ainda que perto da raiz, já que vamos ter de visitar uma quantidade arbitrária de sub-árvores à sua esquerda na totalidade antes de lá chegar (em muitos casos acaba por ser uma perda de tempo, portanto).
+A BFS acaba por combater esse problema, tendo contudo uma complexidade espacial bastante superior ($O(|E|)$ em vez de $O(d)$, para guardar os nós por visitar).
+A DFS Iterativa acaba por pegar no "melhor dos dois mundos" e juntá-lo, sendo na prática uma estratégia _superior_ às outras duas (ainda que na prática a complexidade temporal no pior caso seja a mesma).
 
-- **Completa**: Sim
+- **Completa**: Sim, caso a profundidade seja finita - explorando no pior caso todos os níveis, é garantido que se houver uma solução, será encontrada.
 - **Complexidade Temporal**: $O(b^d)$
 - **Complexidade Espacial**: $O(b*d)$
-- **Ótima**: Sim, se o custo de cada ação for igual a $1$
+- **Ótima**: Sim, se o custo de cada ação for maior que 0.
+
+![DFS Iterativa](imgs/0002-iterativa.png 'DFS Iterativa (retirado do livro)')
+
+Explorando ainda a complexidade da procura em questão, temos que o _overhead_ adicionado pelas procuras adicionais não é particularmente significativo, já que numa árvore a vasta maioria dos nós encontra-se nas folhas (que são visitadas muito menos vezes).
 
 ### Procura Bi-Direcional
 
 ---
 
-Realça-se novamento, como nota de rodapé, que caso queiram recordar com mais pormenor alguns destes algoritmos (nomeadamente as versões básicas da [BFS e DFS](/asa/algoritmos-elementares) e da [Procura Custo Uniforme](/asa/arvores-abrangentes-menor-custo)), os resumos de ASA vão bastante _a fundo_ nas respetivas secções.
-Mais, adicionamos que esta secção corresponde ao terceiro capítulo do livro que acompanha a cadeira (_Solving Problems by Searching_), sub-secções 3.1 a 3.4.
+Adicionamos que esta secção corresponde ao terceiro capítulo do livro que acompanha a cadeira (_Solving Problems by Searching_), sub-secções 3.1 a 3.4.
