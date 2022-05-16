@@ -23,7 +23,7 @@ entre [**bases de dados**](color:green) e [**sistemas de gestão de bases de dad
 
 Uma [**base de dados**](color:green) é, como o próprio nome indica, um conjunto de dados
 que estão interligados entre si.
-Frequentemente descreve organizações que existem no mundo real.  
+Frequentemente, descreve organizações que existem no mundo real.  
 Por exemplo, numa instituição como o Técnico, é preciso associar professores a um
 departamento. Teremos então duas [**entidades**](color:pink): professores e departamentos.
 Estas duas entidades estão [**relacionadas**](color:purple): o professor _X_ pertence ao departamento _Y_.
@@ -31,23 +31,23 @@ Estas duas entidades estão [**relacionadas**](color:purple): o professor _X_ pe
 Por outro lado, um [**sistema de gestão de bases de dados**](color:yellow) é um pacote de
 software que está desenhado para guardar e gerir bases de dados.
 Existem diferentes tipos de SGBDs, como veremos mais à frente.  
-Os SGBD têm de uma grande quantidade de funcionalidades para facilitar a vida a
-quem usa as bases de dados (e.g. programadores), como garantias de consistência,
+Os SGBDs têm uma grande quantidade de funcionalidades para facilitar a vida a
+quem usa bases de dados (e.g. programadores), como garantias de consistência,
 controlo de acessos, gestão de concorrência (_transactions_), e muito mais.  
 Estas são também vantagens da utilização de SGBDs em vez de [**ficheiros**](color:red),
-visto que nesse caso um programador necessitaria de programar estas funcionalidades do
+visto que, nesse caso, um programador necessitaria de programar estas funcionalidades a partir do
 zero todas as vezes, enquanto que SGBDs conseguem abstrair toda essa complexidade.
 
 ![Exemplos de SGBDs relacionais](./assets/0001-dbms-examples.png#dark=3)
 
-Hoje em dia existem vários [**sistemas de gestão de bases de dados**](color:yellow),
-cada um com as suas vantagens e desvantagens, entre os quais já devem conhecer alguns:
+Hoje em dia, existem vários [**sistemas de gestão de bases de dados**](color:yellow),
+cada um com as suas vantagens e desvantagens, entre os quais:
 MySQL, MariaBD, PostgreSQL, SQLite, Microsoft SQL Server, Oracle Database, H2,
-Microsoft Access, e muitos outros.  
+Microsoft Access, e muitos outros.
 Todos estes são exemplos de SGBDs relacionais. Existem outros tipos de SGBDs,
-entre os quais NoSQL, os quais iremos explorar no futuro.
+como é o caso do _NoSQL_, sobre os quais iremos falar no futuro.
 
-Hoje em dia existem também serviços cloud que nos dão acesso a bases de dados
+Para além disso, atualmente existem também serviços cloud que nos dão acesso a bases de dados
 de uma forma extremamente simples e escalável, como a Amazon Web Services e
 a Azure Cloud.
 
@@ -60,7 +60,7 @@ Já referenciámos algumas das vantagens de SGBDs, no entanto existem muitas mai
 - **Independência dos dados**
 
   Existe uma camada de abstração entre a representação dos dados quando são armazenados
-  e ao que as aplicações têm acesso. Uma aplicação não tem de saber (nem sabe)
+  e aquilo a que as aplicações têm acesso. Uma aplicação não tem de saber (nem sabe)
   como é feito o armazenamento dos dados.  
   Podemos, por exemplo, tanto por razões de _performance_ como de resiliência,
   ter os dados armazenados em discos diferentes ou até máquinas diferentes.
@@ -77,8 +77,8 @@ Já referenciámos algumas das vantagens de SGBDs, no entanto existem muitas mai
 - **Integridade dos Dados e Segurança**
 
   Quando estamos a modelar dados do mundo real, por vezes existem restrições a que temos
-  de obedecer para assegurar que os dados são válidos. A este processo chama-se
-  garantir a integridade dos dados, e é algo que os SGBDs fazem por nós.  
+  de obedecer para assegurar que os dados são válidos. Este processo é denominado por
+  garantia da integridade dos dados, e é algo que os SGBDs fazem por nós.  
   Por exemplo, no Técnico queremos garantir que um aluno não está a fazer mais
   de 42 ECTS por semestre. Podemos dar esta regra ao nosso SGBD e não temos
   de nos preocupar com esta restrição no desenvolvimento da aplicação.
@@ -89,9 +89,9 @@ Já referenciámos algumas das vantagens de SGBDs, no entanto existem muitas mai
 
 - **Armazenamento Persistente**
 
-  Quando usamos um SGBD temos a certeza que quando acabamos de executar uma instrução
-  (e.g. inserir, atualizar, apagar, etc.) essa instrução foi executada e guardada
-  persistentemente. Caso haja uma falha imediatamente após a execução desta instrução,
+  Quando usamos um SGBD temos a certeza que, quando acabamos de executar uma instrução
+  (e.g. inserir, atualizar, apagar, etc.), essa instrução foi executada e guardada
+  persistentemente. Caso haja uma falha imediatamente após a execução de qualquer instrução,
   temos a garantia que não perdemos estes dados.
 
 - **Administração dos Dados**
@@ -109,8 +109,8 @@ Já referenciámos algumas das vantagens de SGBDs, no entanto existem muitas mai
 - **Redução do Tempo de Desenvolvimento de Aplicações**
 
   Com todas as ferramentas disponibilizadas pelos SGBDs, assim como linguagens
-  próprias de interrogação, dedicadas a dados (e.g. SQL), o trabalho dos programadores
-  é imensamente facilitado.
+  próprias de interrogação dedicadas a dados (e.g. SQL), o trabalho dos programadores
+  fica imensamente facilitado.
   Estas linguagens dão uma interface de alto nível para os dados, que, tal como já
   vimos, permitem criar várias abstrações que simplificam o desenvolvimento de aplicações.
 
@@ -120,7 +120,7 @@ Embora sejam muitas as vantagens dos SGBDs, existem algumas desvantagens a ter e
 
 - **Aplicações Muito Complexas**
 
-  Por vezes podemos ter aplicações muito complexas em que não é possível modelar
+  Por vezes, podemos ter aplicações muito complexas nas quais não nos é possível modelar
   os nossos dados num sistema relacional.
 
 - **Desempenho Inaceitável (e.g. para aplicações de tempo-real)**
@@ -131,7 +131,7 @@ Embora sejam muitas as vantagens dos SGBDs, existem algumas desvantagens a ter e
 - **Falta de Análise Flexível para Certos Tipos de Dados**
 
   Maioritariamente para texto, em que podemos querer fazer pesquisas avançadas
-  (como _full text search_ ou _fuzzy search_) que a maioria dos SGBDs não suportam.
+  (e.g. _full text search_, _fuzzy search_), algo que a maioria dos SGBDs não suporta.
 
 - **Falta de Necessidade**
 
@@ -148,22 +148,22 @@ O aparecimento do [modelo ANSI-SPARC](https://en.wikipedia.org/wiki/ANSI-SPARC_A
 um passo importante na criação dos SGBDs relacionais que conhecemos hoje em dia, visto
 que propôs a separação da base de dados em 3 níveis.
 
-- **Nível Externo (_views_)**: Uma _view_ descreve como os utilizadores vêm os dados.
+- **Nível Externo (_views_)**: Uma _view_ descreve como os utilizadores vêem os dados.
   Cada utilizador pode ter _views_ diferentes, particulares a si mesmo, sendo
   reflexões dos dados que lhe são úteis e a que simultaneamente tem acesso.
   Cada _view_ pode ser partilhada por vários utilizadores e cada utilizador
   pode ter acesso a várias _views_.
 
-- **Nível Conceptual**: O nível conceptual é responsável por descrever que dados existem
+- **Nível Conceptual/Lógico**: O nível conceptual é responsável por descrever que dados existem
   na base de dados e como se relacionam entre si. Em SGBDs relacionais, isto é
   aquilo a que casualmente nos referimos como _schema_.
 
-- **Nível Físico/Interno**: É responsável pelo armazenamento dos dados, isto é,
-  a sua representação física no sistema.
+- **Nível Físico/Interno**: O nível físico é responsável pelo armazenamento dos dados, isto é,
+  pela sua representação interna no sistema.
 
 :::info[Exemplo]
 
-Imaginemos que temos o esquema lógico abaixo:
+Imaginemos que temos o seguinte esquema lógico:
 
 ```
 Student (ist_id: string, student_name: string, birthday: date)
@@ -208,13 +208,13 @@ Existem vários tipos de modelos de dados hoje em dia:
 - **Baseados em Objetos** (Orientados a Objetos ou Objeto-Relacionais)
 - **Semi-Estruturados** (XML, JSON, etc.)
 
-Historicamente, também eram comuns modelos de dados **em rede** e **hierárquicos**.
+Historicamente, também era comum o uso de modelos de dados **em rede** e **hierárquicos**.
 
 ### Modelo Relacional
 
 Atualmente, o **modelo relacional** é o mais usado.
 Como o próprio nome indica, é composto por relações.
-Uma **relação**, também denominada no dia-a-dia de tabela (ou _table_), é constituída pelo seu **nome**,
+Uma **relação**, vulgarmente conhecida como tabela (ou _table_), é constituída pelo seu **nome**,
 o **nome de cada atributo** (_field_) e o **tipo de dados de cada atributo**.
 
 :::info[Exemplo]
@@ -236,19 +236,19 @@ representa um único aluno.
 
 :::
 
-Neste exemplo faria também sentido impor restrições de integridade.
+Neste exemplo, faria também sentido impor restrições de integridade.
 Neste caso, a restrição mais óbvia é garantir que não existem dois alunos diferentes
 com o mesmo `ist_id`. No entanto, podem existir alunos com o mesmo nome.  
-Mais à frente veremos como podemos indicar ao SGBD para seguir estas regras,
+Mais à frente, veremos como podemos indicar ao SGBD para seguir estas regras,
 de forma a assegurar a integridade dos dados.
 
 ## Arquitetura de SGBDs
 
-Para falarmos com os SGBDs, temos de usar uma linguagem que eles compriendam de modo a
-expressar de forma clara as nossas intenções. No caso do modelo relacional, é comummente
+Para falarmos com os SGBDs, temos de usar uma linguagem que eles compreendam de modo a
+expressar de forma clara as nossas intenções. No caso do modelo relacional, é geralmente
 utilizado o [**SQL**](color:orange) (Structured Query Language).
 
-Na imagem abaixo podemos ver o esquema que representa a estrutura todo o fluxo de execução
+Na imagem abaixo, podemos ver o esquema que representa a estrutura de todo o fluxo de execução
 entre a aplicação e a base de dados, passando pelo SGBD.
 
 ![Esquema que representa a arquitetura de um SGBD](./assets/0001-dbms-architecture.svg#dark=3)
@@ -257,4 +257,4 @@ Quando executamos uma _query_ (interrogação), esta é enviada ao
 _query evaluation engine_, que depois acede a várias outras partes
 do SGBD para conseguir completar o pedido.
 
-Iremos falar com mais detalhe de cada uma destes "módulos" do SGBD mais à frente.
+Iremos falar com mais detalhe de cada um destes "módulos" do SGBD mais à frente.
