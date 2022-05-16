@@ -24,6 +24,9 @@ cg:
   - content/cg/**/*
 comp:
   - content/comp/**/*
+emd:
+  - content/emd/**/*
+  - content/md/**/*
 es:
   - content/es/**/*
 fis-i:
@@ -34,6 +37,8 @@ fp:
   - content/fp/**/*
 ges:
   - content/ges/**/*
+ia:
+  - content/ia/**/*
 iac:
   - content/iac/**/*
 iaed:
@@ -44,8 +49,6 @@ ipm:
   - content/ipm/**/*
 lp:
   - content/lp/**/*
-md:
-  - content/md/**/*
 oc:
   - content/oc/**/*
 pe:
