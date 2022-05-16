@@ -14,6 +14,17 @@ type: content
 
 ```
 
+## Introdução à Inteligência Artificial
+
+No geral, existem diferentes perspetivas relativamente ao estudo da Inteligência Artificial e da maneira como esta é definida, estando cada uma delas predominantemente associada a uma determinada área.
+
+|               | **...como os humanos**                                             | **...racionalmente**                                          |
+| ------------- | ------------------------------------------------------------------ | ------------------------------------------------------------- |
+| **pensar...** | [**Pensar como os humanos**](color:pink) (Psicologia e Neurologia) | [**Pensar racionalmente**](color:green) (Matemática e Lógica) |
+| **atuar...**  | [**Atuar como os humanos**](color:yellow) (Teste de Turing)        | _**[Atuar racionalmente](color:blue) (Agentes Racionais)**_   |
+
+A perspetiva seguida na cadeira é a última apresentada, focando-se no estudo de [**agentes racionais**](color:blue) capazes de, tal como o nome sugere, atuar racionalmente.
+
 ## Introdução a Agentes
 
 A definição de **agente** está intrinsecamente ligada ao ambiente que o envolve - um [**agente**](color:orange) é tudo o que capta o ambiente que o envolve, através de **sensores**, e que consegue atuar sobre o mesmo (através de **atuadores**). Podemos pensar, por exemplo, nos **humanos** como agentes: os seus recetores são, entre outros, os olhos e o nariz, atuando através das mãos, pés e por aí fora. Um robô, por outro lado, teria câmeras e/ou infravermelhos como recetores, atuando através das respetivas partes motoras.
