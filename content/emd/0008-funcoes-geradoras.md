@@ -1,7 +1,7 @@
 ---
 title: Funções Geradoras
 description: Funções Geradoras, Exemplos.
-path: /md/funcoes-geradoras
+path: /emd/funcoes-geradoras
 type: content
 ---
 

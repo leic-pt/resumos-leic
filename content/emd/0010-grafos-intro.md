@@ -1,6 +1,6 @@
 ---
 title: Grafos - Início
-path: /md/grafos
+path: /emd/grafos
 type: content
 ---
 
@@ -26,7 +26,7 @@ V = \{V_1,V_2,V_3,V_4\}\\
 R = \{(V_1,V_2),(V_2,V_1),(V_2,V_3),(V_3,V_2),(V_1,V_3),(V_3,V_1),(V_3,V_4),(V_4,V_3),\}
 $$
 
-Como uma aresta não tem direção, em $R$ representa-se os dois pares das $2$ "direções" de cada aresta.  
+Como uma aresta não tem direção, em $R$ representa-se os dois pares das $2$ "direções" de cada aresta.
 Contudo, como isto é uma propriedade conhecida dos grafos, também se pode represente um grafo $g$ por $g = (R,E)$, onde $E$ é o conjunto $R$ sem repetições.
 
 No caso do exemplo acima, um $E$ possível seria
@@ -55,7 +55,7 @@ $\#A$ = número de elementos do conjunto $A$
 
 ### Grau de um vértice
 
-$g = (V,E)$. Para um vértice $v\in V$, o seu grau **em $g$** corresponde ao número de arestas de $g$ que incidem em $v$.  
+$g = (V,E)$. Para um vértice $v\in V$, o seu grau **em $g$** corresponde ao número de arestas de $g$ que incidem em $v$.
 Representa-se por:
 
 $$\operatorname{deg}_g(v)$$
@@ -72,7 +72,7 @@ Primeiro define-se a seguinte operação
 
 $$\operatorname{I}:V \times E \rightarrow \{0,1\}$$
 
-Seja $v$ um vértice e $e$ uma aresta de $g$,  
+Seja $v$ um vértice e $e$ uma aresta de $g$,
 $\operatorname{I}(v,e) =$ número de vezes que a aresta $e$ incide em $v$
 
 Seja $S_{deg}$ a soma dos graus dos vértices de $g$,
@@ -111,14 +111,14 @@ v_1,\dots,v_k \rightarrow \text{vértices pares}\\
 u_1,\dots,u_{p-k} \rightarrow \text{vértices ímpares}
 $$
 
-Pelo [Teorema Fundamental da Teoria dos Grafos](#teorema-fundamental-da-teoria-dos-grafos), a soma dos graus é $2\times q$, com $q$ o número de arestas.  
+Pelo [Teorema Fundamental da Teoria dos Grafos](#teorema-fundamental-da-teoria-dos-grafos), a soma dos graus é $2\times q$, com $q$ o número de arestas.
 Assim sendo, será um número par. Como a soma dos graus dos vértices pares é par, para o resultado final também ser par, é obrigatório haver um número par de vértices ímpares.
 
 QED
 :::
 
 :::details[Aplicações]
-**Exercício 5 da Série 4**  
+**Exercício 5 da Série 4**
 Um certa comissão parlamentar da Assembleia da República é composta por 15 deputados. Conclua que
 não é possível que cada um deles já tenha estado em comissões parlamentares anteriores com exatamente 5
 dos outros deputados que fazem parte desta comissão.
@@ -132,7 +132,7 @@ QED
 
 ### Grafo Regular
 
-Um grafo diz-se regular se todos os seus **vértices têm o mesmo** [grau](#grau-de-um-vertice).  
+Um grafo diz-se regular se todos os seus **vértices têm o mesmo** [grau](#grau-de-um-vertice).
 Um grafo diz-se $k$-regular $(k \in N)$ se os seus vértices têm grau $k$.
 
 :::details[Exemplo]
@@ -212,7 +212,7 @@ Dois vértices $u$ e $v$ de um grafo $g = (V,E)$ dizem-se `conectados` se forem 
 
 :::details[Exemplo]
 ![Grafo 6](./imgs/0018-grafo5.png)
-$V_1$ e $V_2$ são `vértices conectados`.  
+$V_1$ e $V_2$ são `vértices conectados`.
 O caminho [vermelho](color:red) é um exemplo de caminho que prova esse facto.
 :::
 
@@ -226,7 +226,7 @@ Um grafo é `conexo` se quaisquer dois vértices do grafo estão [conectados](#v
 
 ### Subgrafo
 
-Dado um grafo $g=(V,E)$, diz-se que o grafo $h = (V',E')$ é `subgrafo` de $g$ se $V' \subseteq V$ **ou** $E'\subseteq E$.  
+Dado um grafo $g=(V,E)$, diz-se que o grafo $h = (V',E')$ é `subgrafo` de $g$ se $V' \subseteq V$ **ou** $E'\subseteq E$.
 Um grafo é `subgrafo` de si mesmo
 
 ---
@@ -297,7 +297,7 @@ $$
 
 Por **indução simples**, variando o `Tamanho do Grafo` $(q)$
 
-$q=0$,  
+$q=0$,
 Neste caso o número de vértices é igual ao número de componentes.
 
 $$ 0 \geq p-p = 0, \quad \text{P.V.}$$
@@ -307,7 +307,7 @@ $$ 0 \geq p-p = 0, \quad \text{P.V.}$$
 Para esta prova, vamos supor que o grafo é `esquelético`, ou seja, todas as arestas são pontes. (No final da Demonstração há um exemplo de grafo esquelético.)
 Se a prova funcionar para grafos `esqueléticos` funcionará para qualquer um, pois estes têm o menor número de arestas para um dado número de vértices.
 
-Se removermos uma aresta de um `grafo esquelético`, o número de componentes aumenta.  
+Se removermos uma aresta de um `grafo esquelético`, o número de componentes aumenta.
 Deste modo, por hipótese de indução
 
 $$
@@ -316,7 +316,7 @@ q \geq p - (k+1)\quad \text{(Removendo uma aresta)}\\
 q+1 \geq p-k
 $$
 
-O que é válido, pois $q \geq p-k$.  
+O que é válido, pois $q \geq p-k$.
 A primeira inequação está provada $\checkmark$.
 
 2. Provar que $q \leq \frac{(p-k+1)(p-k)}{2}$
@@ -325,8 +325,8 @@ Como estamos a tentar provar que o número de arestas tem um limite máximo, vam
 
 Seja $k'$ uma componente do grafo em estudo. Se essa compontente tem $p'$ vértices, tem no máximo $\frac{p'(p'-1)}{2}$ arestas.
 
-Se o grafo tem $k$ componentes, o que acontecerá se transferirmos um vértices de uma componente para outra?  
-Seja $h_1$ e $h_2$ duas componentes com $p_1, q_1$ e $p_2,q_2$, respetivamente **e** $p_1 \leq p_2$ (o que é verdade para quaisquer duas componentes, haverá com mais vértices, ou têm as duas o mesmo número).  
+Se o grafo tem $k$ componentes, o que acontecerá se transferirmos um vértices de uma componente para outra?
+Seja $h_1$ e $h_2$ duas componentes com $p_1, q_1$ e $p_2,q_2$, respetivamente **e** $p_1 \leq p_2$ (o que é verdade para quaisquer duas componentes, haverá com mais vértices, ou têm as duas o mesmo número).
 Seja $\Delta q_i, i=1,2$ a variação do número de arestas nas componentes $h_1$ e $h_2$, quando "transferimos" um vértice de $h_1$ para $h_2$.
 
 $$
@@ -349,7 +349,7 @@ $$
 \frac{(p-k+1)(p-k)}{2}
 $$
 
-Finalmente, podemos concluir que $q\leq\frac{(p-k+1)(p-k)}{2}$  
+Finalmente, podemos concluir que $q\leq\frac{(p-k+1)(p-k)}{2}$
 A segunda inequação está provada $\checkmark$.
 
 QED

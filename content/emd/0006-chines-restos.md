@@ -1,6 +1,6 @@
 ---
 title: Teorema Chinês dos Restos
-path: /md/teorema-chines-restos
+path: /emd/teorema-chines-restos
 type: content
 ---
 
@@ -61,7 +61,7 @@ E $k_0$ será o inverso
 
 :::details[Exemplo]
 
-Calcular $22k_0 \equiv_{25} 1$, inverso de $22$ módulo $25$.  
+Calcular $22k_0 \equiv_{25} 1$, inverso de $22$ módulo $25$.
 Usando o método manual,
 
 $$(7\times k_0) + (8 \times k_1) = 1,\quad k_0?$$
@@ -95,7 +95,7 @@ $$\lambda = 8 + 25t, \quad t \in \Z$$
 
 ### Teorema 1
 
-$a_1, \dots, a_k \in \Z$ e $m_1,\dots,m_k \in \N_1$, com estes últimos primos entre si 2 a 2.  
+$a_1, \dots, a_k \in \Z$ e $m_1,\dots,m_k \in \N_1$, com estes últimos primos entre si 2 a 2.
 O problema:
 
 $$
@@ -113,7 +113,7 @@ $$M = \prod_{i=1}^k m_i$$
 
 ### Teorema 2
 
-$a_1, \dots, a_k \in \Z$ e $m_1,\dots,m_k \in \N_1$, com estes útlimos **não** necessariamente primos entre si.  
+$a_1, \dots, a_k \in \Z$ e $m_1,\dots,m_k \in \N_1$, com estes útlimos **não** necessariamente primos entre si.
 O problema,
 
 $$
@@ -300,7 +300,7 @@ $$
 Onde,
 
 - $M = \prod_{i=1}^k c_i$
-- $c_i$ é tal que: $c_i|m_i$ e $c_1 \times \dots \times c_k = m_1 \smile \dots \smile m_k = M$  
+- $c_i$ é tal que: $c_i|m_i$ e $c_1 \times \dots \times c_k = m_1 \smile \dots \smile m_k = M$
   (com o exemplo fica claro)
 - $c_1,\dots,c_k$ são primos 2 a 2.
 - $n_i = c_1\times\dots\times c_{i-1} \times c_{i+1}\times \dots \times c_k = \frac M {c_i}$

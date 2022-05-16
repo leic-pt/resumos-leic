@@ -1,10 +1,10 @@
 ---
-title: Kruskal e Dijkstra
-path: /md/kruskal-dijkstra
+title: Otimização em Grafos
+path: /emd/otimizacao-grafos
 type: content
 ---
 
-# Kruskal e Dijkstra
+# Otimização em Grafos
 
 ## Definições e Teoremas
 
@@ -89,8 +89,8 @@ O custo da árvore representada é $21.1$
 
 #### Descrição Informal
 
-Assinalam-se sempre as arestas de custo mínimo, se **não** formarem ciclos. Caso forme um ciclo, a aresta é identificada e ignorada durante resto da execução do Algoritmo.  
-O `Algoritmo de Kruskal` termina quando todas as arestas já foram analisadas. Tanto podem estar assinaladas ou identificadas como arestas que completam ciclos.  
+Assinalam-se sempre as arestas de custo mínimo, se **não** formarem ciclos. Caso forme um ciclo, a aresta é identificada e ignorada durante resto da execução do Algoritmo.
+O `Algoritmo de Kruskal` termina quando todas as arestas já foram analisadas. Tanto podem estar assinaladas ou identificadas como arestas que completam ciclos.
 O resultado final é uma [Árvore Económica](#arvore-economica), que também será uma Árvore de Custo mínimo.
 
 :::tip[NOTA]
@@ -101,12 +101,12 @@ Por convenção, só se deve identificar arestas que formam ciclos, quando o val
 
 :::details[Exemplos:]
 
-[Exemplo 1](https://drive.google.com/file/d/1NgSvB6UQeGYJ6huZq3bs-H_5HmP4DyvF/view?usp=sharing)  
+[Exemplo 1](https://drive.google.com/file/d/1NgSvB6UQeGYJ6huZq3bs-H_5HmP4DyvF/view?usp=sharing)
 [Exemplo 2](https://drive.google.com/file/d/1Q6XZtKX0j555RMUbwCqzEgGrdyuN2jon/view?usp=sharing)
 
 :::
 
-Também se pode usar o `Algoritmos de Kruskal` para encontrar uma `árvore de cobertura máxima`, basta ir assinalando as arestas pela ordem inversa (1º as que têm valor máximo).  
+Também se pode usar o `Algoritmos de Kruskal` para encontrar uma `árvore de cobertura máxima`, basta ir assinalando as arestas pela ordem inversa (1º as que têm valor máximo).
 No entanto, esse método **não** pode ser chamado `Algoritmo de Kruskal`, é apenas uma adaptação
 
 #### Teorema - Correção de Kruskal
@@ -121,14 +121,14 @@ Uma [Árvore Económica](#arvore-economica) de uma Rede é sempre uma árvore de
 
 Seja $N=(V,E,c)$ uma Rede, $T$ uma Árvore Económica construída com o `Algoritmo de Kruskal` e $T_0$ a árvore de custo **mínimo** (é conhecida).
 
-Através do [Teorema 1](#teorema-1), sabe-se que $T$ e $T_0$ têm $p-1$ arestas ($p$ é o número de vértices da Rede $N$).  
-Seja $a_1,\dots,a_i,\dots,a_{p-1}$ a sequência de arestas de $T$ assinaladas através do Algoritmo de Kruskal.  
-Seja $a_i$ a **primeira** aresta que pertence a $T$ e não pertence a $T_0$. Se adicionarmos $a_i$ a $T_0$, ficaríamos com um `ciclo` em vez de uma árvore, porque ficávamos com $p$ arestas, e, novamente pelo [Teorema 1](#teorema-1), uma árvore só pode ter $p-1$ arestas.  
+Através do [Teorema 1](#teorema-1), sabe-se que $T$ e $T_0$ têm $p-1$ arestas ($p$ é o número de vértices da Rede $N$).
+Seja $a_1,\dots,a_i,\dots,a_{p-1}$ a sequência de arestas de $T$ assinaladas através do Algoritmo de Kruskal.
+Seja $a_i$ a **primeira** aresta que pertence a $T$ e não pertence a $T_0$. Se adicionarmos $a_i$ a $T_0$, ficaríamos com um `ciclo` em vez de uma árvore, porque ficávamos com $p$ arestas, e, novamente pelo [Teorema 1](#teorema-1), uma árvore só pode ter $p-1$ arestas.
 Nesse ciclo, há necessariamente uma aresta, $a_k$, que não pertence a $T$, se removermos $a_k$ de $T_0$ ficamos com uma nova árvore, $T_0'$.
 
 $$T_0' = T_0+a_i-a_k$$
 
-**Importante** (chave do Teorema)  
+**Importante** (chave do Teorema)
 No `Algoritmo de Kruskal` escolhe-se sempre as arestas por ordem **crescente** do valor. Por isso, se $a_k$ não está em $T$ e todas as arestas até $a_i$ estão em $T$ e $T_0$ (foram feitas sempre as mesmas escolhas), das duas uma:
 
 - $a_k$ e $a_i$ têm o mesmo custo, mas se escolhermos uma delas a outra completará um ciclo, e para $T$ escolheu-se $a_i$, ficando $a_k$ de fora
@@ -146,7 +146,7 @@ Pelas condições apresentadas, conclui-se que a única solução possível ser�
 
 Repare-se que $T_0'$ e $T$ têm mais uma aresta em comum, $a_k$, do que $T_0$ e $T$.
 
-Este processo é **recursivo**. Seja $T_k$ a árvore com custo igual a $T_0$ que se obtém no final de processo descrito acima, por exemplo, agora teríamos $T_k=T_0'$.  
+Este processo é **recursivo**. Seja $T_k$ a árvore com custo igual a $T_0$ que se obtém no final de processo descrito acima, por exemplo, agora teríamos $T_k=T_0'$.
 Se fossemos aplicando o processo para cada $T_k$ ($T_k$ seria agora o novo $T_0$), para todas as arestas que restam de $T$ $(a_{i+1},\dots$ $a_{p-1})$, ignorando as arestas que já são comuns, no final, o último $T_k$ será igual a $T$ e como o custo de $T_k$ é igual ao de $T_0$, **concluí-se** que $T$ também será uma `Árvore de custo mínimo`.
 
 QED
@@ -165,19 +165,19 @@ Este Algoritmo resolve o Problema da Trajetória mínima.
 
 #### Descrição Informal
 
-Seja $v_1$ o vértice de partida, $S$ o conjunto de arestas, ainda não percorridas, que **não** fazem ciclos e que incidem nos vértices já percorridos (vamos chamar ao conjunto de vértices já percorridos $Q$).  
+Seja $v_1$ o vértice de partida, $S$ o conjunto de arestas, ainda não percorridas, que **não** fazem ciclos e que incidem nos vértices já percorridos (vamos chamar ao conjunto de vértices já percorridos $Q$).
 Seja $\operatorname{F}(i)$ uma função que atribui a um vértice $v_i$, já percorrido, o custo necessário para lá chegar.
 
-No início $Q=\{v_1\}$, por isso, escolhe-se a aresta que incide em $v_1$ com menor valor associado.  
-Agora $\#Q>1$, por isso, em vez de escolhermos a aresta com menor valor disponível em $S$, escolhemos uma aresta que incida num novo vértice $v_k$, tal que ,**de todos os vértices ainda por explorar**, $\operatorname{F}(k)$ é o mínimo de todos os $\operatorname{F}(i)$ desse conjunto.  
+No início $Q=\{v_1\}$, por isso, escolhe-se a aresta que incide em $v_1$ com menor valor associado.
+Agora $\#Q>1$, por isso, em vez de escolhermos a aresta com menor valor disponível em $S$, escolhemos uma aresta que incida num novo vértice $v_k$, tal que ,**de todos os vértices ainda por explorar**, $\operatorname{F}(k)$ é o mínimo de todos os $\operatorname{F}(i)$ desse conjunto.
 O Algoritmo termina quando tivermos um custo associado a todos os vértices.
 
 O resultado final será uma `Árvore de Cobertura`, onde para cada $v_i$, $\operatorname{F}(i)$ é o `custo mínimo possível`.
 
 :::details[Exemplos]
 
-[Exemplo 1](https://drive.google.com/file/d/1l_czeoOKD8iraUcvxC6frQ5woZ0ZPxL8/view?usp=sharing)  
-[Exemplo 2](https://drive.google.com/file/d/1SsrPh9jPIYL2Tll_Y2WCII27PtXHkMZt/view?usp=sharing)  
+[Exemplo 1](https://drive.google.com/file/d/1l_czeoOKD8iraUcvxC6frQ5woZ0ZPxL8/view?usp=sharing)
+[Exemplo 2](https://drive.google.com/file/d/1SsrPh9jPIYL2Tll_Y2WCII27PtXHkMZt/view?usp=sharing)
 [Exemplo 3](https://drive.google.com/file/d/1OlzA0vowlUEHniqPvHfMmRDl1poWhBQ2/view?usp=sharing)
 
 :::

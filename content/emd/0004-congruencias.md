@@ -1,6 +1,6 @@
 ---
 title: Congruências
-path: /md/congruencias
+path: /emd/congruencias
 type: content
 ---
 
@@ -26,7 +26,7 @@ Através desta definição, podemos também concluir facilmente que $a \equiv_n 
 
 ### Teorema 1
 
-Se adicionarmos, membro a membro, duas congruências do mesmo módulo, obtemos ainda uma congruência desse mesmo módulo.  
+Se adicionarmos, membro a membro, duas congruências do mesmo módulo, obtemos ainda uma congruência desse mesmo módulo.
 Ou seja,
 
 $$
@@ -77,9 +77,9 @@ $$
 a^0 = 1 \equiv_n 1 = b^0
 $$
 
-2. Hereditariedade  
-   **Hip**: $a^k \equiv_n b^k$, para todo o $k \in \N$ e $n \in \N_1$  
-   **Tese**: $a^{k+1} \equiv_n b^{k+1}$, para todo o $k \in \N$ e $n \in \N_1$  
+2. Hereditariedade
+   **Hip**: $a^k \equiv_n b^k$, para todo o $k \in \N$ e $n \in \N_1$
+   **Tese**: $a^{k+1} \equiv_n b^{k+1}$, para todo o $k \in \N$ e $n \in \N_1$
    Pelo [Teorema 1](#teorema-1) e pela `Hip. de Indução`
 
 $$
@@ -124,7 +124,7 @@ $$
 t = dq + r, \quad 0 \leq r < d
 $$
 
-**NOTA:** Para valores diferentes de $t$, vamos ter valores diferentes de $q$ e $r$ ($d$ é fixo).  
+**NOTA:** Para valores diferentes de $t$, vamos ter valores diferentes de $q$ e $r$ ($d$ é fixo).
 Substituindo na equação das soluções,
 
 $$
@@ -191,12 +191,12 @@ $$
 
 1. Condição necessária
 
-Se $ac \equiv_n bc$, sabemos que $ac-bc = kn$, onde concluímos que $c(a-b)=kn$.  
+Se $ac \equiv_n bc$, sabemos que $ac-bc = kn$, onde concluímos que $c(a-b)=kn$.
 Seja $d=n \frown c$,
 
 $$(a-b)\frac c d = k \frac n d$$
 
-Como $\frac c d$ e $\frac n d$ são primos entre si, concluímos (tal como em provas passadas) que $\frac n d \mid (a-b)$, por exemplo.  
+Como $\frac c d$ e $\frac n d$ são primos entre si, concluímos (tal como em provas passadas) que $\frac n d \mid (a-b)$, por exemplo.
 Então,
 
 $$
@@ -221,7 +221,7 @@ QED
 
 ### Teorema 6
 
-$x \equiv_{pq} a$ , se e só se $x \equiv_p a$ e $x \equiv_q a$,  
+$x \equiv_{pq} a$ , se e só se $x \equiv_p a$ e $x \equiv_q a$,
 $a \in \Z$, $\quad p,q \in \N_1$ primos entre si ($p \frown q = 1$).
 
 :::details[Demonstração]
@@ -242,7 +242,7 @@ x-a = k_qp, \qquad (k_q = kq, k_q \in \Z)\\
 x \equiv_p q
 $$
 
-2. Condição Suficiente  
+2. Condição Suficiente
    Assumindo que $x \equiv_p a$ e $x \equiv_q a$.
 
 $$
@@ -253,7 +253,7 @@ $$
 k_1q = k_0p
 $$
 
-Como $q$ e $p$ são primos entre si, para a igualdade se verificar, $q | k_0$, por exemplo.  
+Como $q$ e $p$ são primos entre si, para a igualdade se verificar, $q | k_0$, por exemplo.
 Logo,
 
 $$k_0 = \lambda q, \qquad \lambda \in \Z$$
