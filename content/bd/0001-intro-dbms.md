@@ -31,12 +31,12 @@ Estas duas entidades estão [**relacionadas**](color:purple): o professor _X_ pe
 Por outro lado, um [**sistema de gestão de bases de dados**](color:yellow) é um pacote de
 software que está desenhado para guardar e gerir bases de dados.
 Existem diferentes tipos de SGBDs, como veremos mais à frente.  
-Os SGBDs têm de uma grande quantidade de funcionalidades para facilitar a vida a
+Os SGBDs têm uma grande quantidade de funcionalidades para facilitar a vida a
 quem usa bases de dados (e.g. programadores), como garantias de consistência,
 controlo de acessos, gestão de concorrência (_transactions_), e muito mais.  
 Estas são também vantagens da utilização de SGBDs em vez de [**ficheiros**](color:red),
 visto que, nesse caso, um programador necessitaria de programar estas funcionalidades a partir do
-zero todas as vezes, enquanto que os SGBDs conseguem abstrair toda essa complexidade.
+zero todas as vezes, enquanto que SGBDs conseguem abstrair toda essa complexidade.
 
 ![Exemplos de SGBDs relacionais](./assets/0001-dbms-examples.png#dark=3)
 
@@ -47,7 +47,7 @@ Microsoft Access, e muitos outros.
 Todos estes são exemplos de SGBDs relacionais. Existem outros tipos de SGBDs,
 como é o caso do _NoSQL_, sobre os quais iremos falar no futuro.
 
-Hoje em dia, existem também serviços cloud que nos dão acesso a bases de dados
+Para além disso, atualmente existem também serviços cloud que nos dão acesso a bases de dados
 de uma forma extremamente simples e escalável, como a Amazon Web Services e
 a Azure Cloud.
 
@@ -55,7 +55,7 @@ a Azure Cloud.
 
 [**Vantagens**](color:green)
 
-Já referenciámos algumas das vantagens dos SGBDs, no entanto existem muitas mais.
+Já referenciámos algumas das vantagens de SGBDs, no entanto existem muitas mais.
 
 - **Independência dos dados**
 
@@ -228,11 +228,11 @@ representa um único aluno.
 
 | `ist_id`   | `student_name` | `birthday` |
 | ---------- | -------------- | ---------- |
-| ist123456 | Diogo          | 2002-03-06 |
-| ist123234 | Rafa           | 2002-08-05 |
-| ist124453 | Tomás          | 2002-12-18 |
-| ist123534 | Diogo          | 2001-09-16 |
-| ist123532 | Diogo          | 2002-04-27 |
+| ist1123456 | Diogo          | 2002-03-06 |
+| ist1123234 | Rafa           | 2002-08-05 |
+| ist1124453 | Tomás          | 2002-12-18 |
+| ist1123534 | Diogo          | 2001-09-16 |
+| ist1123532 | Diogo          | 2002-04-27 |
 
 :::
 
@@ -253,7 +253,7 @@ entre a aplicação e a base de dados, passando pelo SGBD.
 
 ![Esquema que representa a arquitetura de um SGBD](./assets/0001-dbms-architecture.svg#dark=3)
 
-Quando executamos uma _query_ (interrogação), esta é enviada à
+Quando executamos uma _query_ (interrogação), esta é enviada ao
 _query evaluation engine_, que depois acede a várias outras partes
 do SGBD para conseguir completar o pedido.
 
