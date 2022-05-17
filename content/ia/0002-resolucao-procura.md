@@ -164,7 +164,15 @@ Como nota de rodapé, note-se que tal como na BFS lecionada em ASA e IAED, a BFS
 
 ### Procura Custo Uniforme
 
-A procura de custo uniforme equivale ao algoritmo de Dijkstra - corresponde a uma procura que expande sempre o nó da fronteira com menor custo caminho associado. Aqui, o teste objetivo tem de ser feito aquando da expansão, não na geração, já que o primeiro nó que passe o teste objetivo pode não ser o nó com menor custo em relação ao caminho total **aquando da sua geração**. Basta pensar que queremos gerar dois nós, $A$ e $B$, com custos associados $8$ e $6$, respetivamente - mesmo que ambos sejam objetivos, $B$ seria o nó com caminho ótimo, mas sendo $A$ gerado primeiro, seria também testado primeiro (e levaria a um resultado erróneo).
+A procura de custo uniforme equivale ao algoritmo de Dijkstra, já estudado em MD e ASA - uma procura que expande sempre o nó da fronteira com **menor custo caminho associado**. Aqui, o teste objetivo tem de ser feito aquando da expansão, não na geração, já que o primeiro nó que passe o teste objetivo pode não ser o nó com menor custo em relação ao caminho total **aquando da sua geração**. Basta pensar num caso arbitrário em que vamos gerar de seguida dois nós, $A$ e $B$ (**com o mesmo pai**), com custos associados $8$ e $6$, respetivamente. Mesmo que ambos sejam nós-objetivo, $B$ seria o nó com caminho ótimo; sendo $A$ gerado primeiro, caso o teste fosse realizado na geração, $A$ faria parte do caminho ótimo retornado (ao invés de $B$), o que seria uma resposta errada.
+
+:::details[Exemplo - Procura Custo Uniforme]
+
+Encontra-se abaixo um exemplo de procura custo uniforme por uma árvore (note-se que o teste é realizado **na expansão**).
+
+![Procura Custo Uniforme - Exemplo](imgs/0002-procura-custo-uniforme.svg#dark=2)
+
+:::
 
 - **Completa**: Sim, se o custo do ramo $\ge \varepsilon$, com $\varepsilon$ a representar uma constante $> 0$. A verificação é utilizada para evitar ciclos em ramos com custo $0$ - o custo do caminho deve sempre aumentar com a profundidade, e caso tal não aconteça, podemos facilmente entrar em ciclos infinitos (até porque a procura não quer saber do número de passos de um caminho, apenas do seu custo).
 - **Complexidade Temporal**: $O(b^{1 + \lfloor \frac{C^*}{\varepsilon}\rfloor})$ [\*](color:yellow)
