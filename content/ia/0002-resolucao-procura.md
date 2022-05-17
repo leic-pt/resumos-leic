@@ -154,7 +154,7 @@ A procura em largura expande o nó de menor profundidade na fronteira - visita o
 
 ![BFS - Exemplo com o teste de Geração Errado](imgs/0002-bfs-exemplo.svg#dark=2)
 
-Note-se que a BFS deve realizar o teste objetivo [**assim que o nó é gerado**](color:red), para evitar processamento desnecessário. Numa BFS, sabemos que no nó do primeiro teste objetivo passado com sucesso vmos ter a solução com menor profundidade, já que todos os nós que existem a uma profundidade menor - **com menor custo** - já foram exploradas e não passaram no teste. Com efeito, os exercícios associados à procura em largura primeiro apresentadas na [plataforma de apoio à cadeira disponibilizada pela docência](https://aitutorsystem.herokuapp.com/) recorrem ao teste [**na geração**](color:yellow), sendo portanto relevante ter esta ideia em conta.
+Note-se que a BFS deve realizar o teste objetivo [**assim que o nó é gerado**](color:red), para evitar processamento desnecessário. Numa BFS, sabemos que no nó do primeiro teste objetivo passado com sucesso vamos ter a solução com menor profundidade, já que todos os nós que existem a uma profundidade menor - **com menor custo** - já foram exploradas e não passaram no teste. Com efeito, os exercícios associados à procura em largura primeiro apresentadas na [plataforma de apoio à cadeira disponibilizada pela docência](https://aitutorsystem.herokuapp.com/) recorrem ao teste [**na geração**](color:yellow), sendo portanto relevante ter esta ideia em conta.
 
 ![Teste Expansão vs Geração](imgs/0002-teste-expansao-vs-geracao.svg#dark=2)
 
