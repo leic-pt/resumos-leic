@@ -156,7 +156,7 @@ A procura em largura primeiro expande o nó de menor profundidade na fronteira -
 
 ![BFS - Exemplo com o teste de Geração Errado](imgs/0002-bfs-exemplo.svg#dark=2)
 
-Note-se que a BFS deve realizar o teste objetivo [**assim que o nó é gerado**](color:red), para evitar processamento desnecessário. Numa BFS, sabemos que no nó do primeiro teste objetivo passado com sucesso vmos ter a solução com menor profundidade, já que todos os nós que existem a uma profundidade menor - **com menor custo** - já foram exploradas e não passaram no teste. Com efeito, os exercícios associados à procura em largura primeiro apresentadas na [plataforma de apoio à cadeira disponibilizada pela docência](https://aitutorsystem.herokuapp.com/) recorrem ao teste [**na geração**](color:yellow), sendo portanto relevante ter esta ideia em conta.
+Note-se que a BFS deve realizar o teste objetivo [**assim que o nó é gerado**](color:red), para evitar processamento desnecessário. Numa BFS, sabemos que no nó do primeiro teste objetivo passado com sucesso vamos ter a solução com menor profundidade, já que todos os nós que existem a uma profundidade menor - **com menor custo** - já foram exploradas e não passaram no teste. Com efeito, os exercícios associados à procura em largura primeiro apresentadas na [plataforma de apoio à cadeira disponibilizada pela docência](https://aitutorsystem.herokuapp.com/) recorrem ao teste [**na geração**](color:yellow), sendo portanto relevante ter esta ideia em conta.
 
 ![Teste Expansão vs Geração](imgs/0002-teste-expansao-vs-geracao.svg#dark=2)
 
@@ -166,7 +166,7 @@ Como nota de rodapé, note-se que tal como na BFS lecionada em ASA e IAED, a BFS
 
 ### Procura de Custo Uniforme
 
-A procura de custo uniforme equivale ao algoritmo de Dijkstra, já estudado em MD e ASA - uma procura que expande sempre o nó da fronteira com **menor custo caminho associado**. Aqui, o teste objetivo tem de ser feito aquando da expansão, não na geração, já que o primeiro nó que passe o teste objetivo pode não ser o nó com menor custo em relação ao caminho total **aquando da sua geração**. Basta pensar num caso arbitrário em que vamos gerar de seguida dois nós, $A$ e $B$ (**com o mesmo pai**), com custos associados $8$ e $6$, respetivamente. Mesmo que ambos sejam nós-objetivo, $B$ seria o nó com caminho ótimo; sendo $A$ gerado primeiro, caso o teste fosse realizado na geração, $A$ faria parte do caminho ótimo retornado (ao invés de $B$), o que seria uma resposta errada.
+A procura de custo uniforme equivale ao [algoritmo de Dijkstra](/asa/caminhos-mais-curtos#algoritmo-de-dijkstra), já estudado em MD e ASA - uma procura que expande sempre o nó da fronteira com **menor custo caminho associado**. Aqui, o teste objetivo tem de ser feito aquando da expansão, não na geração, já que o primeiro nó que passe o teste objetivo pode não ser o nó com menor custo em relação ao caminho total **aquando da sua geração**. Basta pensar num caso arbitrário em que vamos gerar de seguida dois nós, $A$ e $B$ (**com o mesmo pai**), com custos associados $8$ e $6$, respetivamente. Mesmo que ambos sejam nós-objetivo, $B$ seria o nó com caminho ótimo; sendo $A$ gerado primeiro, caso o teste fosse realizado na geração, $A$ faria parte do caminho ótimo retornado (ao invés de $B$), o que seria uma resposta errada.
 
 :::details[Exemplo - Procura Custo Uniforme]
 
