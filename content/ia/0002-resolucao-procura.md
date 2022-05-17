@@ -89,7 +89,11 @@ Temos, claro, que cada nó da árvore corresponde a um estado (com a raiz sendo 
 
 No caso Arad-Bucareste, por exemplo, podíamos ter uma árvore de procura deste tipo (note-se que está apenas parcialmente representada):
 
-![Árvore de procura (parcial) Arad-Bucareste](imgs/0002-partial-search-tree-arad-bucharest.png#dark=2)
+![Árvore de procura Arad-Bucareste - Fase 1](imgs/0002-arvore-procura-arad-fase1.svg#dark=2)
+![Árvore de procura Arad-Bucareste - Fase 2](imgs/0002-arvore-procura-arad-fase2.svg#dark=2)
+![Árvore de procura Arad-Bucareste - Fase 3](imgs/0002-arvore-procura-arad-fase3.svg#dark=2)
+
+**Nesta figura**, considera-se que todos os estados a tracejado consideram-se **por gerar**, tal como ações a tracejado ainda não foram realizadas (ou seja, o _pai_ ainda não foi explorado). Estados a traço cheio já foram gerados, não explorados, e ações a traço cheio já foram testadas. Estados a azul já foram explorados.
 
 Note-se que costumamos dizer que a raiz está no "nível 0" da árvore, os seus filhos no "nível 1", e assim sucessivamente.
 
@@ -141,24 +145,36 @@ Note-se que a complexidade temporal é sempre função do número de nós gerado
 
 ### Procura em Largura Primeiro (PLP) / Breadth-First Search (BFS)
 
-A procura em largura primeiro expande o nó de menor profundidade na fronteira - visita os nós de uma dada profundidade e expande-os gerando os nós da próxima profundidade, que apenas serão visitados assim que todos os da atual tiverem sido visitados.
+A procura em largura primeiro expande o nó de menor profundidade na fronteira - visita os nós de uma dada profundidade e expande-os, gerando os nós da próxima profundidade, que apenas serão visitados assim que todos os da atual tiverem sido visitados.
 
 - **Completa**: Sim, se $b$ for finito.
 - **Complexidade Temporal**: $b+b^2+b^3+\cdots+b^d=O(b^d)$
 - **Complexidade Espacial**: $O(b^d)$
-- **Ótima**: Sim, se o custo do caminho não diminuir ao aumentar a profundidade - em geral, não podemos afirmar que é ótima.
+- **Ótima**: Sim, se o custo do caminho não diminuir ao aumentar a profundidade[\*](color:yellow) - em geral, não podemos afirmar que é ótima, já que tal não é sempre garantido.
 
-![BFS](imgs/0002-bfs.png#dark=2)
+[\*](color:yellow) note-se que caso tal não aconteça, podemos facilmente entrar em ciclos infinitos - se eu quiser ir de Arad a Sibiu e esse trajeto tiver um custo negativo (ou seja, ganho tempo/dinheiro), vou querer fazê-lo infinitamente, para ter a "solução ótima"!
 
-Note-se que a BFS deve realizar o teste objetivo **assim que o nó é gerado**, para evitar processamento desnecessário - numa BFS, sabemos que no nó do primeiro teste objetivo passado com sucesso temos a solução com menor profundidade (já que todos os nós que existem a uma profundidade menor - com menor custo - já foram exploradas e não passaram no teste), mas não necessariamente a solução de menor custo, já que se os arcos podem ter custos associados.
-Caso não tenham (ou sejam uniformes), dizemos que a solução menos profunda é também a ótima, de menor custo.
-Abaixo encontra-se a diferença entre fazer o teste na geração vs na expansão de nós (gráficos retirados dos slides da cadeira):
+![BFS - Exemplo com o teste de Geração Errado](imgs/0002-bfs-exemplo.svg#dark=2)
 
-![Teste Expansão](imgs/0002-teste-expansao.png 'Teste na expansão (retirado dos slides)') ![Teste Geração](imgs/0002-teste-geracao.png 'Teste na geração (retirado dos slides)')
+Note-se que a BFS deve realizar o teste objetivo [**assim que o nó é gerado**](color:red), para evitar processamento desnecessário. Numa BFS, sabemos que no nó do primeiro teste objetivo passado com sucesso vmos ter a solução com menor profundidade, já que todos os nós que existem a uma profundidade menor - **com menor custo** - já foram exploradas e não passaram no teste. Com efeito, os exercícios associados à procura em largura primeiro apresentadas na [plataforma de apoio à cadeira disponibilizada pela docência](https://aitutorsystem.herokuapp.com/) recorrem ao teste [**na geração**](color:yellow), sendo portanto relevante ter esta ideia em conta.
+
+![Teste Expansão vs Geração](imgs/0002-teste-expansao-vs-geracao.svg#dark=2)
+
+É, aqui, clara a diferença temporal e espacial entre realizar o teste na geração e na expansão dos nós: com o teste na geração, exploramos completamente apenas 2 níveis da árvore (já que G ao ser gerado passa logo o teste objetivo e acabamos), poupando aí a expansão de todo um nível da árvore. Mais ainda, há seis nós que nunca precisamos de gerar, equivalendo a quase todo um nível da árvore que não precisamos de gerar, poupando memória. As complexidades temporal e espacial descem, portanto, de $O(b^{d + 1})$ para $O(b^d)$ (o que a escalas mais baixas pode não parecer fazer diferença, _but it adds up quickly_).
+
+Como nota de rodapé, note-se que tal como na BFS lecionada em ASA e IAED, a BFS em IA tem por base uma fila (LIFO) onde vamos guardando os vários nós encontrados, por forma a não procurar nenhum nó num nível da árvore posterior a nós por explorar.
 
 ### Procura de Custo Uniforme
 
-A procura de custo uniforme equivale ao algoritmo de Dijkstra - corresponde a uma procura que expande sempre o nó da fronteira com menor custo caminho associado. Aqui, o teste objetivo tem de ser feito aquando da expansão, não na geração, já que o primeiro nó que passe o teste objetivo pode não ser o nó com menor custo em relação ao caminho total **aquando da sua geração**. Basta pensar que queremos gerar dois nós, $A$ e $B$, com custos associados $8$ e $6$, respetivamente - mesmo que ambos sejam objetivos, $B$ seria o nó com caminho ótimo, mas sendo $A$ gerado primeiro, seria também testado primeiro (e levaria a um resultado erróneo).
+A procura de custo uniforme equivale ao algoritmo de Dijkstra, já estudado em MD e ASA - uma procura que expande sempre o nó da fronteira com **menor custo caminho associado**. Aqui, o teste objetivo tem de ser feito aquando da expansão, não na geração, já que o primeiro nó que passe o teste objetivo pode não ser o nó com menor custo em relação ao caminho total **aquando da sua geração**. Basta pensar num caso arbitrário em que vamos gerar de seguida dois nós, $A$ e $B$ (**com o mesmo pai**), com custos associados $8$ e $6$, respetivamente. Mesmo que ambos sejam nós-objetivo, $B$ seria o nó com caminho ótimo; sendo $A$ gerado primeiro, caso o teste fosse realizado na geração, $A$ faria parte do caminho ótimo retornado (ao invés de $B$), o que seria uma resposta errada.
+
+:::details[Exemplo - Procura Custo Uniforme]
+
+Encontra-se abaixo um exemplo de procura custo uniforme por uma árvore (note-se que o teste é realizado **na expansão**).
+
+![Procura Custo Uniforme - Exemplo](imgs/0002-procura-custo-uniforme.svg#dark=2)
+
+:::
 
 - **Completa**: Sim, se o custo do ramo $\ge \varepsilon$, com $\varepsilon$ a representar uma constante $> 0$. A verificação é utilizada para evitar ciclos em ramos com custo $0$ - o custo do caminho deve sempre aumentar com a profundidade, e caso tal não aconteça, podemos facilmente entrar em ciclos infinitos (até porque a procura não quer saber do número de passos de um caminho, apenas do seu custo).
 - **Complexidade Temporal**: $O(b^{1 + \lfloor \frac{C^*}{\varepsilon}\rfloor})$ [\*](color:yellow)
