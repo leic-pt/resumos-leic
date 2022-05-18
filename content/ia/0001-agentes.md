@@ -21,9 +21,9 @@ No geral, existem diferentes perspetivas relativamente ao estudo da Inteligênci
 |               | **...como os humanos**                                             | **...racionalmente**                                          |
 | ------------- | ------------------------------------------------------------------ | ------------------------------------------------------------- |
 | **pensar...** | [**Pensar como os humanos**](color:pink) (Psicologia e Neurologia) | [**Pensar racionalmente**](color:green) (Matemática e Lógica) |
-| **atuar...**  | [**Atuar como os humanos**](color:yellow) (Teste de Turing)        | _**[Atuar racionalmente](color:blue) (Agentes Racionais)**_   |
+| **atuar...**  | [**Atuar como os humanos**](color:yellow) (Teste de Turing)        | _**[Atuar racionalmente](color:purple) (Agentes Racionais)**_ |
 
-A perspetiva seguida na cadeira é a última apresentada, focando-se no estudo de [**agentes racionais**](color:blue) capazes de, tal como o nome sugere, atuar racionalmente.
+A perspetiva seguida na cadeira é a última apresentada, focando-se no estudo de [**agentes racionais**](color:purple) capazes de, tal como o nome sugere, atuar racionalmente.
 
 ## Introdução a Agentes
 
@@ -99,9 +99,9 @@ Existem mais alguns exemplos na página 42 do livro.
 
 Os "ambientes" a que nos referimos correspondem, de forma bastante sucinta, ao que rodeia os agentes - estes interagem com o ambiente em que se encontram através dos tais atuadores e sensores. Dada a tarefa que temos em mãos e o ambiente em que nos encontramos, pode ser importante escolher um ou outro tipo de agente que se adeque mais aos nossos objetivos - dizemos que **o agente que escolhemos depende diretamente do ambiente em que nos encontramos**.
 
-- Ambientes [**Completamente Observáveis**](color:yellow) vs [**Parcialmente Observáveis**](color:orange): dizemos que um agente consegue observar completamente um ambiente caso este consiga, através dos seus sensores, detetar tudo o que é **relevante para resolver o problema em questão**, [tornando-se assim desnecessário guardar estado interno sobre o que vai observando](color:blue), já que tem sempre tudo "na palma da mão".
+- Ambientes [**Completamente Observáveis**](color:yellow) vs [**Parcialmente Observáveis**](color:orange): dizemos que um agente consegue observar completamente um ambiente caso este consiga, através dos seus sensores, detetar tudo o que é **relevante para resolver o problema em questão**, [tornando-se assim desnecessário guardar estado interno sobre o que vai observando](color:purple), já que tem sempre tudo "na palma da mão".
 
-  Temos, claro, que se tal não se verificar (isto é, se for um ambiente parcialmente observável), o agente [terá que manter um **estado interno** sobre o que vai detetando](color:blue), por forma a poder decidir que passos tomar a seguir.
+  Temos, claro, que se tal não se verificar (isto é, se for um ambiente parcialmente observável), o agente [terá que manter um **estado interno** sobre o que vai detetando](color:purple), por forma a poder decidir que passos tomar a seguir.
 
   Podemos estar em ambientes parcialmente observáveis caso, por exemplo, o agente tenha sensores pouco exatos, ou se for pura e simplesmente impossível mapear o ambiente a todo o momento.
   O xadrez, por exemplo, é completamente observável, enquanto que o ambiente que envolve um agente condutor de táxi já não o é - não sabemos a todo o momento tudo o que se passa à nossa volta, podendo, por exemplo, haver um peão fora do campo de visão do condutor.
@@ -119,7 +119,7 @@ Os "ambientes" a que nos referimos correspondem, de forma bastante sucinta, ao q
 
 - Ambientes [**Estáticos**](color:yellow) vs [**Dinâmicos**](color:orange): ambientes estáticos não se alteram a não ser através da ação do(s) agente(s), ou seja, enquanto os agentes estão a pensar sobre que decisão tomar o ambiente mantém-se inalterado.
 
-  O ambiente que envolve um taxista, por exemplo, é claramente dinâmico, enquanto que o de um jogo de sudoku é estático. Temos ainda casos intermédios, como o de jogar **sudoku com relógio**, em que o ambiente em si não se altera com o passar do tempo mas o desempenho do agente vai diminuindo - trata-se de um ambiente [**semidinâmico**](color:blue).
+  O ambiente que envolve um taxista, por exemplo, é claramente dinâmico, enquanto que o de um jogo de sudoku é estático. Temos ainda casos intermédios, como o de jogar **sudoku com relógio**, em que o ambiente em si não se altera com o passar do tempo mas o desempenho do agente vai diminuindo - trata-se de um ambiente [**semidinâmico**](color:purple).
 
 - Ambientes [**Discretos**](color:yellow) vs [**Contínuos**](color:orange): a noção de continuidade de um ambiente está ligada à quantidade de perceções diferentes que um ambiente consegue obter/o número de ações diferentes que o agente pode tomar dentro do ambiente. Ambientes discretos têm, como o nome leva a crer, um número limitado de perceções e ações associadas - um caso possível é o xadrez, onde há um número limitado de ações que podemos tomar para o estado atual, e o ambiente em si "é o que é".
 
@@ -127,11 +127,11 @@ Por fim, notar que os ambientes podem ser de [**agente único**](color:yellow) (
 
 Seguem-se alguns exemplos de ambientes, com as respetivas propriedades discriminadas.
 
-| Ambiente                        | Observável?                              | Agentes?                     | Determínistico?                | Episódico?                 | Estático?                | Contínuo?                |
-| ------------------------------- | ---------------------------------------- | ---------------------------- | ------------------------------ | -------------------------- | ------------------------ | ------------------------ |
-| [Palavras Cruzadas](color:blue) | [Completamente Observável](color:yellow) | [Agente Único](color:yellow) | [Determínistico](color:yellow) | [Sequencial](color:orange) | [Estático](color:yellow) | [Discreto](color:yellow) |
-| [Poker](color:blue)             | [Parcialmente Observável](color:orange)  | [Multi-Agente](color:orange) | [Estocástico](color:orange)    | [Sequencial](color:orange) | [Estático](color:yellow) | [Discreto](color:yellow) |
-| [Mundo Real](color:blue)        | [Parcialmente Observável](color:orange)  | [Multi-Agente](color:orange) | [Estocástico](color:orange)    | [Sequencial](color:orange) | [Dinâmico](color:orange) | [Contínuo](color:orange) |
+| Ambiente                         | Observável?                              | Agentes?                     | Determínistico?                | Episódico?                 | Estático?                | Contínuo?                |
+| -------------------------------- | ---------------------------------------- | ---------------------------- | ------------------------------ | -------------------------- | ------------------------ | ------------------------ |
+| [Palavras Cruzadas](color:green) | [Completamente Observável](color:yellow) | [Agente Único](color:yellow) | [Determínistico](color:yellow) | [Sequencial](color:orange) | [Estático](color:yellow) | [Discreto](color:yellow) |
+| [Poker](color:green)             | [Parcialmente Observável](color:orange)  | [Multi-Agente](color:orange) | [Estocástico](color:orange)    | [Sequencial](color:orange) | [Estático](color:yellow) | [Discreto](color:yellow) |
+| [Mundo Real](color:green)        | [Parcialmente Observável](color:orange)  | [Multi-Agente](color:orange) | [Estocástico](color:orange)    | [Sequencial](color:orange) | [Dinâmico](color:orange) | [Contínuo](color:orange) |
 
 Pode-se observar que o exemplo do mundo real tem o máximo da complexidade, tendo sempre a característica "pior" de cada par.
 
@@ -143,9 +143,9 @@ Fará sentido dividir os agentes que vamos estudar consoante algumas das suas ca
 
 ### Agentes de Reflexos Simples
 
-O tipo de agente mais elementar, escolhendo a ação a tomar tendo apenas em conta as perceções atuais, sem qualquer noção de histórico de perceções associada. Se voltarmos ao exemplo inicial do aspirador, este será, claro, um exemplo de um agente de reflexos simples: não precisa de saber perceções anteriores, já que a função agente associada só depende da sujidade do chão e da sua localização atual.
+Corresponde ao tipo de agente mais elementar, escolhendo a ação a tomar tendo apenas em conta as perceções atuais, sem qualquer noção de histórico de perceções associada. Se voltarmos ao exemplo inicial do aspirador, este será, claro, um exemplo de um agente de reflexos simples: não precisa de saber perceções anteriores, já que a função agente associada só depende da sujidade do chão e da sua localização atual.
 
-:::details[Programa Agente associada ao Aspirador]
+:::details[Programa Agente associado ao Aspirador]
 
 ```bash
 function vaccum_agent([location, status])
@@ -165,7 +165,7 @@ Realça-se novamente que, tendo este programa, **não precisamos de qualquer no�
 
 ![Diagrama -  Agentes de Reflexos Simples](./imgs/0001-simple-reflex-agent.png#dark=2)
 
-O diagrama acima representa o _core_ do funcionamento de um agente de reflexos simples. A noção de [**regras condições-ações**](color:blue), _condition-action rules_, referida no mesmo está relacionada com o funcionamento base de qualquer agente, por mais complexo que seja - nós próprios funcionamos assim!
+O diagrama acima representa o _core_ do funcionamento de um agente de reflexos simples. A noção de [**regras condições-ações**](color:purple), _condition-action rules_, referida no mesmo está relacionada com o funcionamento base de qualquer agente, por mais complexo que seja - nós próprios funcionamos assim!
 Se estivermos a conduzir e o carro à nossa frente travar, fazemos internamente uma "conexão" causada pela condição `o-carro-está-a-travar` e procuramos também travar, já que chocar com ele não seria ideal.
 Aplicamos uma lógica semelhante no aspirador, utilizando esta noção de condição-ação: se está sujo, limpo, e se não estiver movo-me para a direita ou para a esquerda, conforme onde estiver agora.
 
@@ -229,8 +229,8 @@ Por fim, abordamos os agentes com aprendizagem (_learning agents_), que correspo
 
 - O elemento de [**crítica**](color:red): corresponde a um padrão de _performance_ que avalia o que os sensores percecionam e dá o feedback correspondente ao [**elemento de aprendizagem**](color:yellow).
 - O elemento de [**aprendizagem**](color:yellow): tem como propósito tornar o agente mais eficiente ao longo do tempo, pega no feedback dado pela crítica e faz as alterações necessárias de acordo com o mesmo.
-- O elemento de [**_perforamance_**](color:pink): seleciona a ação a tomar pelo agente (dentro do leque das ações que pode tomar agora) consoante o que espera surtir melhores resultados OU consoante o que o **gerador de problemas** lhe indicou.
-- O [**gerador de problemas**](color:blue): peça muito importante nesta ideia, podemos pensar nele como um copiloto que sugere ações a tomar, que podem trazer informação útil (a partir da qual podemos vir a perceber melhor/ter mais certezas sobre as ações ótimas do agente).
+- O elemento de [**_performance_**](color:pink): seleciona a ação a tomar pelo agente (dentro do leque das ações que pode tomar agora) consoante o que espera surtir melhores resultados OU consoante o que o **gerador de problemas** lhe indicou.
+- O [**gerador de problemas**](color:purple): peça muito importante nesta ideia, podemos pensar nele como um copiloto que sugere ações a tomar, que podem trazer informação útil (a partir da qual podemos vir a perceber melhor/ter mais certezas sobre as ações ótimas do agente).
 
 O diagrama associado a estes agentes tem este aspeto:
 

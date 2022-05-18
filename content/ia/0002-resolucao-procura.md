@@ -248,14 +248,15 @@ Explorando ainda a complexidade da procura em questão, temos que o _overhead_ a
 
 ### Procura Bi-Direcional
 
-Consiste na realização de 2 procuras em simultâneo, uma a começar no estado inicial e outra no estado objetivo. (...)
+<!-- Consiste na realização de 2 procuras em simultâneo, uma a começar no estado inicial e outra no estado objetivo. (...)
 
 É mais eficiente se a árvore cresce exponencialmente, visto que $b^{\frac{d}{2}} + b^{\frac{d}{2}} \ll b^d$. (...)
 
-Problema: pode não ser conhecido o estado objetivo logo à partida (por exemplo, num jogo de Sudoku vs 8-puzzle). Existe também uma necessidade de calcular eficientemente os predecessores de um nó. (...)
+Problema: pode não ser conhecido o estado objetivo logo à partida (por exemplo, num jogo de Sudoku vs 8-puzzle). Existe também uma necessidade de calcular eficientemente os predecessores de um nó. (...) -->
+
 :::warning[Em construção]
 
-O conteúdo será adicionado assim que possível.
+Esta secção encontra-se atualmente incompleta, será completada assim que possível.
 
 :::
 
