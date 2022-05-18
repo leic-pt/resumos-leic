@@ -190,14 +190,14 @@ Vai à [nossa documentação para aprenderes tudo o que precisas](https://leic-p
 
 Quero agradecer a [todos os que contribuíram](https://github.com/leic-pt/resumos-leic/graphs/contributors) para os conteúdos deste site:
 
-- [Diogo Correia](https://github.com/leic-pt/resumos-leic/commits?author=diogotcorreia) (**Website**, **CDI-I**, **CDI-II**, **CDI-III**, **Fis-I**, MD, IAED)
-- [Diogo Gaspar](https://github.com/leic-pt/resumos-leic/commits?author=randomicecube) (**LP**, **ASA**, **IAED**, TC, LP, CDI-I, CDI-III, PO)
+- [Diogo Correia](https://github.com/leic-pt/resumos-leic/commits?author=diogotcorreia) (**Website**, **CDI-I**, **CDI-II**, **CDI-III**, **Fis-I**, **BD**, MD, IAED)
+- [Diogo Gaspar](https://github.com/leic-pt/resumos-leic/commits?author=randomicecube) (**LP**, **ASA**, **IAED**, **IA**, TC, CDI-I, CDI-III, PO)
 - [Tomás Esteves](https://github.com/leic-pt/resumos-leic/commits?author=Pesteves2002) (**IAED**, **Fis-II**, **SO**, Fis-I, MD, CDI-II, LP)
 - [João Rocha](https://github.com/leic-pt/resumos-leic/commits?author=Calhau18) (**SO**, **TC**, **PE**, CDI-I, CDI-II, MD, CDI-III, Fis-II, ASA)
 - [Rúben Nobre](https://github.com/leic-pt/resumos-leic/commits?author=RubenNobre123) (**MD**, CDI-III)
 - [João Fonseca](https://github.com/leic-pt/resumos-leic/commits?author=jmseca) (**MD**)
 - [Constança Cunha](https://github.com/leic-pt/resumos-leic/commits?author=constancadcunha) (**IPM**, Fis-I)
-- [Rafael Oliveira](https://github.com/leic-pt/resumos-leic/commits?author=RafDevX) (CDI-II, CDI-III, Fis-I, Fis-II, LP, IAED, MD, PO, Ges, SO, ASA, IPM, TC)
+- [Rafael Oliveira](https://github.com/leic-pt/resumos-leic/commits?author=RafDevX) (CDI-II, CDI-III, Fis-I, Fis-II, LP, IAED, MD, PO, Ges, SO, ASA, IPM, TC, BD, IA)
 - [Eduardo Espadeiro](https://github.com/leic-pt/resumos-leic/commits?author=EdSwordsmith) (IA)
 - [Rafael Rodrigues](https://github.com/leic-pt/resumos-leic/commits?author=Rafa10PT) (IAED, CDI-II, MD, CDI-III)
 - [Luís Fonseca](https://github.com/leic-pt/resumos-leic/commits?author=luishfonseca) (IAED, CDI-II, LP, AL)
