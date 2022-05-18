@@ -1,7 +1,7 @@
 ---
 title: Resolução de Problemas com Procura
-description: Algoritmos de Procura Não Informada
-# TODO: add more to the description
+description: Problem-Solving Agents
+  Algoritmos de Procura Não Informada
 path: /ia/resolucao-procura
 type: content
 ---
@@ -17,7 +17,7 @@ Nesta secção vamos explorar mais a ideia de agentes baseados em objetivos, foc
 ## Problem-Solving Agents
 
 Em particular, temos que _problem-solving agents_ devem, ao contrário de outros tipos de agentes mais elementares, poder considerar ações futuras (e as respetivas consequências).
-Ora, tendo um **objetivo** estabelecido (objetivo esse gerado a partir do estado final onde queremos chegar, tendo em conta um conjunto de medidas de performance), encontrar a forma ótima de o atingir nem sempre é trivial, acabando frequentemente por requerer estratégias de **procura** adequadas à situação em que o agente se encontra.
+Ora, tendo um [**objetivo**](color:pink) estabelecido (objetivo esse gerado a partir do estado final onde queremos chegar, tendo em conta um conjunto de medidas de performance), encontrar a forma ótima de o atingir nem sempre é trivial, acabando frequentemente por requerer [**estratégias de procura**](color:blue) adequadas à situação em que o agente se encontra.
 De forma sucinta, dizemos que essa "forma ótima de o atingir" corresponde à sequência de ações que o agente terá sucessivamente de tomar por forma a satisfazer o objetivo.
 
 O exemplo clássico utilizado para explicar o funcionamento-base deste tipo de agentes é o problema **Arad-Bucareste**.
@@ -34,19 +34,19 @@ $$
 \text{Arad} \to \text{Sibiu} \to \text{Rimnicu Vilcea} \to \text{Pilesti} \to \text{Bucareste}
 $$
 
-Um agente não consegue, claro, fazer "pesquisas a olho": precisa de uma **estratégia de procura** adequada para encontrar a sequência pretendida (as estratégias serão abordadas mais à frente). Por fim, executa-se a sequência de ações obtida pelo agente pela ordem obtida.
+Um agente não consegue, claro, fazer "pesquisas a olho": precisa de uma [**estratégia de procura**](color:blue) adequada para encontrar a sequência pretendida (as estratégias serão abordadas mais à frente). Por fim, executa-se a sequência de ações obtida pelo agente pela ordem obtida.
 
-Como nota adicional, podemos afirmar que o ambiente em questão é **estático**, **completamente observável**, **discreto** e **determinístico**.
+Como nota adicional, podemos afirmar que o ambiente em questão é [**estático**](color:yellow), [**completamente observável**](color:yellow), [**discreto**](color:yellow) e [**determinístico**](color:yellow).
 
 :::
 
 A partir do exemplo anterior, podemos indiretamente enunciar **5 pontos-chave** para a formulação (e posterior resolução) de problemas através destes agentes:
 
-- o **estado inicial**: no caso do exemplo anterior, o agente encontra-se inicialmente em Arad;
-- as **ações que o agente pode tomar**, considerando o seu estado atual. Em relação ao exemplo anterior, o agente pode, partindo de Arad, decidir ir para Zerind, Sibiu ou Timisoara;
-- um **modelo de transição**, que retorna o estado resultante de executar uma dada ação partindo de um certo estado. Estando em Arad e tomando a ação `Ir(Sibiu)`, o agente passa a estar em Sibiu, sendo portanto Sibiu o estado retornado pelo modelo de transição nessa situação;
-- um **teste objetivo**, um teste simples que nos diz se um dado estado é ou não um estado objetivo. A resposta do teste à pergunta "Siriu é um estado objetivo" seria negativa, claro, já que o objetivo é apenas Bucareste;
-- um **custo caminho**, uma função que atribui um custo numérico a cada caminho (consideramos aqui caminho como um todo). Este custo está dependente das medidas de performance pretendidas - no caso Arad-Bucareste podemos escolher custos como distâncias em km, tempo gasto, entre um leque de outras opções possíveis.
+- o [**estado inicial**](color:orange): no caso do exemplo anterior, o agente encontra-se inicialmente em Arad;
+- as [**ações que o agente pode tomar**](color:orange), considerando o seu estado atual. Em relação ao exemplo anterior, o agente pode, partindo de Arad, decidir ir para Zerind, Sibiu ou Timisoara;
+- um [**modelo de transição**](color:orange), que retorna o estado resultante de executar uma dada ação partindo de um certo estado. Estando em Arad e tomando a ação `Ir(Sibiu)`, o agente passa a estar em Sibiu, sendo portanto Sibiu o estado retornado pelo modelo de transição nessa situação;
+- um [**teste objetivo**](color:orange), um teste simples que nos diz se um dado estado é ou não um estado objetivo. A resposta do teste à pergunta "Siriu é um estado objetivo" seria negativa, claro, já que o objetivo é apenas Bucareste;
+- um [**custo caminho**](color:orange), uma função que atribui um custo numérico a cada caminho (consideramos aqui caminho como um todo). Este custo está dependente das medidas de performance pretendidas - no caso Arad-Bucareste podemos escolher custos como distâncias em km, tempo gasto, entre um leque de outras opções possíveis. Note-se que este ponto se refere ao _passado_: sei (e só sei) o caminho que já percorri.
 
 Pegando nestes cinco pontos, podemos criar o pseudocódigo correspondente a um agente que resolve problemas relativamente simples:
 
@@ -84,7 +84,7 @@ O teste objetivo corresponderá a verificar se existem 8 rainhas no tabuleiro **
 
 :::
 
-Com o problema formulado, _resolvê-lo_ passa por encontrar a sequência de ações ótima para chegar ao objetivo. Para tal, utilizamos **algoritmos de procura**, que pesquisam vários ramos da "árvore da sequência de ações", em busca de uma sequência que satisfaça os objetivos dentro das medidas de desempenho pretendidas.
+Com o problema formulado, _resolvê-lo_ passa por encontrar a sequência de ações ótima para chegar ao objetivo. Para tal, utilizamos [**algoritmos de procura**](color:blue), que pesquisam vários ramos da "árvore da sequência de ações", em busca de uma sequência que satisfaça os objetivos dentro das medidas de desempenho pretendidas.
 Temos, claro, que cada nó da árvore corresponde a um estado (com a raiz sendo o estado inicial), e que os filhos de um nó correspondem aos estados resultantes de tomar uma ação partindo do estado pai.
 
 No caso Arad-Bucareste, por exemplo, podíamos ter uma árvore de procura deste tipo (note-se que está apenas parcialmente representada):
@@ -137,9 +137,9 @@ Desta feita, será útil recorrer a medidas alternativas, apropriadas ao tipo de
 
 Note-se que a complexidade temporal é sempre função do número de nós gerados, não dos expandidos, já que o tempo para expandir um nó cresce com o número de nós por ele gerados. A complexidade espacial aborda todos os nós guardados em memória.
 
-### Breadth-First Search (BFS)
+### Procura em Largura Primeiro (PLP) / Breadth-First Search (BFS)
 
-A procura em largura expande o nó de menor profundidade na fronteira - visita os nós de uma dada profundidade e expande-os, gerando os nós da próxima profundidade, que apenas serão visitados assim que todos os da atual tiverem sido visitados.
+A procura em largura primeiro expande o nó de menor profundidade na fronteira - visita os nós de uma dada profundidade e expande-os, gerando os nós da próxima profundidade, que apenas serão visitados assim que todos os da atual tiverem sido visitados.
 
 - **Completa**: Sim, se $b$ for finito.
 - **Complexidade Temporal**: $b+b^2+b^3+\cdots+b^d=O(b^d)$
@@ -158,7 +158,7 @@ Note-se que a BFS deve realizar o teste objetivo [**assim que o nó é gerado**]
 
 Como nota de rodapé, note-se que tal como na BFS lecionada em ASA e IAED, a BFS em IA tem por base uma fila (FIFO) onde vamos guardando os vários nós encontrados, por forma a não procurar nenhum nó num nível da árvore posterior a nós por explorar.
 
-### Procura Custo Uniforme
+### Procura de Custo Uniforme
 
 A procura de custo uniforme equivale ao [algoritmo de Dijkstra](/asa/caminhos-mais-curtos#algoritmo-de-dijkstra), já estudado em MD e ASA - uma procura que expande sempre o nó da fronteira com **menor custo caminho associado**. Aqui, o teste objetivo tem de ser feito aquando da expansão, não na geração, já que o primeiro nó que passe o teste objetivo pode não ser o nó com menor custo em relação ao caminho total **aquando da sua geração**. Basta pensar num caso arbitrário em que vamos gerar de seguida dois nós, $A$ e $B$ (**com o mesmo pai**), com custos associados $8$ e $6$, respetivamente. Mesmo que ambos sejam nós-objetivo, $B$ seria o nó com caminho ótimo; sendo $A$ gerado primeiro, caso o teste fosse realizado na geração, $A$ faria parte do caminho ótimo retornado (ao invés de $B$), o que seria uma resposta errada.
 
@@ -195,7 +195,7 @@ Caso a procura termine no nível $k$, vamos ter de expandir $1 + b + \cdots + b^
 
 :::
 
-### Depth-First Search (DFS)
+### Procura em Profundidade Primeiro (PPP) / Depth-First Search (DFS)
 
 A procura em profundidade primeiro expande sempre o nó na fronteira com a maior profundidade - procura percorrer um caminho até ao fim, voltando para trás (vulgo _backtracking_) assim que deixa de haver um caminho possível.
 
@@ -216,7 +216,7 @@ Em termos de complexidade temporal, parece então óbvio o porquê de $b^m$ (vs 
 
 :::
 
-### DFS Limitada (Depth-Limited Search)
+### Procura em Profundidade Limitada / DFS Limitada (Depth-Limited Search)
 
 Uma DFS em que existe uma profundidade limite, a partir da qual [**não procuramos mais**](color:red) (como se a partir do limite os nós deixassem artificialmente de ter sucessores). Resolve, claro, o problema da profundidade infinita, tal como impõe um limite à profundidade máxima da solução.
 Introduz, contudo, um problema novo: se o nó-objetivo menos profundo estiver para lá do limite por nós imposto, nunca o vamos encontrar. Dada essa particularidade, o pseudocódigo desta procura apresenta agora um terceiro retorno possível (para além do sucesso, retornando o nó objetivo, e fracasso): retornamos _cut-off_ caso não tenhamos encontramos solução dentro da profundidade limite a que recorremos, mas sabemos que o limite utilizado [**não corresponde à profundidade máxima da árvore**](color:red).
@@ -229,9 +229,7 @@ Como nota, dizemos que este "número máximo de passos" para atravessar todo o e
 - **Complexidade Espacial**: $O(bl)$ com implementaçã recursiva, $O(l)$ com implementação iterativa.
 - **Ótima**: Nem sempre é garantido que conseguimos atingir a solução ótima, já que a sua profundidade pode estar para lá do limite imposto.
 
-Note-se como as complexidades desta procura são praticamente partilhadas com a DFS "normal", estando contudo em função de $b$ e $l$ (em vez de $b$ e $m$).
-
-### DFS Iterativa (Iterative Deepening Search)
+### Procura em Profundidade Iterativa / DFS Iterativa (Iterative Deepening Search)
 
 Consiste na realização de DFS limitadas sucessivas, com o limite de profundidade a aumentar a cada iteração (começando em 0 - na raiz).
 
@@ -250,6 +248,11 @@ Explorando ainda a complexidade da procura em questão, temos que o _overhead_ a
 
 ### Procura Bi-Direcional
 
+Consiste na realização de 2 procuras em simultâneo, uma a começar no estado inicial e outra no estado objetivo. (...)
+
+É mais eficiente se a árvore cresce exponencialmente, visto que $b^{\frac{d}{2}} + b^{\frac{d}{2}} \ll b^d$. (...)
+
+Problema: pode não ser conhecido o estado objetivo logo à partida (por exemplo, num jogo de Sudoku vs 8-puzzle). Existe também uma necessidade de calcular eficientemente os predecessores de um nó. (...)
 :::warning[Em construção]
 
 O conteúdo será adicionado assim que possível.
