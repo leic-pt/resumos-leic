@@ -7,8 +7,8 @@ description: >-
   Derivada de uma Sucessão Aritmética;
   Soma da Sucessão Aritmética como Polinómio Fatorial;
   Polinómios Fatoriais Negativos;
-path: /md/formulas-fechadas-somatorios
-type: content
+path: /emd/arquivo/formulas-fechadas-somatorios
+type: archive
 ---
 
 # Fórmulas Fechadas de Somatórios

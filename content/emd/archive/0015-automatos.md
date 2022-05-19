@@ -1,7 +1,7 @@
 ---
 title: Autómatos Finitos
-path: /md/automatos-finitos
-type: content
+path: /emd/arquivo/automatos-finitos
+type: archive
 ---
 
 # Autómatos Finitos

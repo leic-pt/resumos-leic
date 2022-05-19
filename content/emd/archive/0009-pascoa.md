@@ -1,7 +1,7 @@
 ---
 title: Páscoa
-path: /md/pascoa
-type: content
+path: /emd/arquivo/pascoa
+type: archive
 ---
 
 # Páscoa

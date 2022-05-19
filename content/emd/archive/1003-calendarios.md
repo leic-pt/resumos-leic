@@ -1,8 +1,8 @@
 ---
 title: Calendários (Cheat Sheet)
 description: Calendário. Calendário Gregoriano. Calendário Juliano.
-path: /md/cheatsheet/calendarios
-type: cheatsheets
+path: /emd/arquivo/calendarios
+type: archive
 ---
 
 # Calendários (Cheat Sheet)

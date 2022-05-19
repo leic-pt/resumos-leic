@@ -1,8 +1,8 @@
 ---
 title: Teorema de Newton
 description: Teorema de Newton; Exemplos.
-path: /md/teorema-de-newton
-type: content
+path: /emd/arquivo/teorema-de-newton
+type: archive
 ---
 
 # Teorema de Newton
