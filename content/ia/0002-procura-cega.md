@@ -1,8 +1,14 @@
 ---
-title: Resolução de Problemas com Procura
-description: Problem-Solving Agents
-  Algoritmos de Procura Não Informada
-path: /ia/resolucao-procura
+title: Procura Cega
+description: Problem-Solving Agents.
+  Algoritmos de Procura Não Informada.
+  Procura em Largura Primeiro.
+  Procura de Custo Uniforme.
+  Procura em Profundidade Primeiro.
+  Procura em Profundidade Limitada.
+  Procura em Profundidade Iterativa.
+  Procura Bi-Direcional.
+path: /ia/procura-cega
 type: content
 ---
 
