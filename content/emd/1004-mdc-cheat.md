@@ -131,4 +131,4 @@ E dispôr nas suas filas respetivas onde o módulo tem de dividir o $c_i$
 
 - [Sistemas de Congruências no WolframAplha](https://www.wolframalpha.com/input/?i=%283+x+%2B+1%29+mod+7+%3D+6%2C+x+mod+9+%3D+2%2C+%28x+-+2%29+mod+4+%3D+1)
 
-![desISTo2](./imgs/1004-q.jpeg)
+![desISTo2](./assets/1004-q.jpeg)

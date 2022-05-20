@@ -132,7 +132,7 @@ $$
 
 Na seguinte tabela, encontra-se a `letra calêndrica` do primeiro dia de cada mês ($L_m$).
 
-![Letras calêndricas](./imgs/0013-calendAux.png)
+![Letras calêndricas](./assets/s/s/s/s/0013-calendAux.png)
 
 Passa-se de $L_m$ para $F_m$ com a ajuda da [tabela 1](#numero-letra-dominical).
 
@@ -227,6 +227,6 @@ $$
 
 Podemos concluir que `7 de setembro de 2021` calha a uma **3ªfeira**, no calendário `Gregoriano`.
 
-![Setembro 2021](./imgs/0013-setembro7.png)
+![Setembro 2021](./assets/s/0013-setembro7.png)
 
 :::

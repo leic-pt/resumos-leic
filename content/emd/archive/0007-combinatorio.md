@@ -42,7 +42,7 @@ $$
 
 Demonstração:
 
-![Demonstração do segundo teorema](./imgs/0009-soma.png)
+![Demonstração do segundo teorema](./assets/s/s/s/0009-soma.png)
 
 ### Teorema 3
 
@@ -90,13 +90,13 @@ $${l+n-1 \choose n-1}$$
 
 Demonstração:
 
-![Demonstração para a fórmula usada para problemas de contagem](./imgs/0009-demonstracao.png)
+![Demonstração para a fórmula usada para problemas de contagem](./assets/s/s/s/0009-demonstracao.png)
 
 Exemplos:
 
-![Exemplo 1](./imgs/0009-exemplo1.png)
+![Exemplo 1](./assets/s/s/0009-exemplo1.png)
 
-![Exemplo 2](./imgs/0009-exemplo2.png)
+![Exemplo 2](./assets/s/0009-exemplo2.png)
 
 ## Dicas para Problemas de Combinatória
 

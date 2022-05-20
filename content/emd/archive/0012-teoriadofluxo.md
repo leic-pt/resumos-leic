@@ -13,7 +13,7 @@ type: archive
 Grafo dirigido, todas as arestas têm orientação.
 
 :::details[Exemplo]
-![Digrafo](./imgs/0023-digEx.png)
+![Digrafo](./assets/s/s/s/0023-digEx.png)
 :::
 
 #### Grau de Entrada/Saída
@@ -24,7 +24,7 @@ Seja $v$ um vértice de um digrafo $d$:
 - Grau de Saída: Quantas arestas partem de $v$ para outro vértice
 
 :::details[Exemplo]
-![Digrafo](./imgs/0023-digEx.png)
+![Digrafo](./assets/s/s/s/s/0023-digEx.png)
 
 Neste exemplo, o vértice **_v_** tem
 
@@ -95,7 +95,7 @@ Soma das **capacidades** de todas as arestas do corte.
 
 :::details[Exemplo]
 
-![Corte](./imgs/0023-corte.png)
+![Corte](./assets/s/s/s/s/0023-corte.png)
 
 Neste Corte a [vermelho](color:red) a capacidade do `Corte` será:
 
@@ -115,7 +115,7 @@ Qualquer Corte numa `Rede Capacitada` tem sempre o mesmo `Balanço de Fluxo`.
 
 :::details[Exemplos]
 
-![Corte](./imgs/0023-corte.png)
+![Corte](./assets/s/s/s/s/s/0023-corte.png)
 
 O `Balanço do Fluxo` deste corte será:
 
@@ -150,7 +150,7 @@ uma Quasi-trajetória, pode existir uma aresta $a_i$ (\*com $1<i<k$) que está d
 
 :::details[Exemplos]
 
-![Quase](./imgs/0023-Quasi.png)
+![Quase](./assets/s/s/s/s/s/0023-Quasi.png)
 
 Ambas respresentam `Quasi-Trajetórias`, mesmo que a [vermelha](color:red) não tenho arestas negativas
 
@@ -235,7 +235,7 @@ Contudo, esta exceção não deve ser avaliada.
 Numa Rede capacitada $N=(V,E,s,t,\operatorname{cap})$, permite-nos encontrar o `Fluxo` **máximo** e, consequentemente, o `Corte mínimo`.
 
 :::details[Pseudo-Código]
-![Pseudo Ford](./imgs/0023-pseudoFord.png)
+![Pseudo Ford](./assets/s/0023-pseudoFord.png)
 :::
 
 ### Decrição Informal

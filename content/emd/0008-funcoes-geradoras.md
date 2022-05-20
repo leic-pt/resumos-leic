@@ -25,7 +25,7 @@ $$1z^0+0z^1+1z^2+0z^3+\dots+0z^{2x-1}+1z^{2x}$$
 
 Abaixo está como averiguar o número de formas possíveis de obter 8 euros com moedas de 1 euro e de dois.
 
-![8Euros](./imgs/0007-oito.png)
+![8Euros](./assets/0007-oito.png)
 
 ou, de modo geral:
 
