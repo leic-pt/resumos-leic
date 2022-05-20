@@ -1,7 +1,7 @@
 ---
 title: RSA Calculator
 description: Calculadora automática passo a passo para encriptação e desencriptação RSA
-path: /md/tools/rsa-calculator
+path: /emd/tools/rsa-calculator
 type: tools
 components:
   - md-tools/RSACalculator
