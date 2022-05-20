@@ -78,3 +78,34 @@ Representamos uma associação com atributos das seguinte forma:
 // TODO inserir exemplo
 
 // TODO associações ternárias
+
+### Restrições
+
+Existem dois tipos de restrições que podemos aplicar a associações:
+[**restrições de cardinalidade**](color:pink) e [**restrições de participação**](color:purple).
+
+As [**restrições de cardinalidade**](color:pink) referem a multiplicidade da relação,
+isto é, _one-to-one_, _one-to-many_ ou _many-to-many_.
+
+// TODO inserir exemplo
+
+As [**restrições de participação**](color:purple) indicam se é necessário a
+associação existir ou não.
+
+// TODO inserir exemplo
+
+Podemos aplicar ambas as restrições simultaneamente.
+
+:::info[Exemplos]
+
+1. Um aluno pode estar inscrito em várias disciplinas e cada disciplina tem
+   vários alunos, sendo que cada disciplina tem pelo menos 1 aluno.
+
+   // TODO inserir imagem
+
+2. Existe um delegado para cada curso, sendo que cada curso tem obrigatoriamnete
+   de ter um e só um delegado
+
+   // TODO inserir imagem
+
+:::
