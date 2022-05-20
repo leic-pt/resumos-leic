@@ -191,7 +191,7 @@ Temos, claro, que cada ação/ramo custa pelo menos $\varepsilon$, como referido
 - $\cdots$
 - $b^k$ nós no nível $k$.
 
-Caso a procura termine no nível $k$, vamos ter de expandir $1 + b + \cdots + b^k = \frac{b^{k + 1} - 1}{b - 1}$ nós no total para encontrar o caminho de custo ótimo. Com $C^*$ sendo o custo do caminho ótimo e a cada passo ficamos $\varepsilon$ mais perto do mesmo, vamos precisar de $\frac{C^*}{\varepsilon}$ passos até lá chegar, equivalente a $\frac{C^*}{\varepsilon}$ níveis (no pior caso, em que todas as ações custam $\varepsilon$) - o nosso $k$ aqui será $\frac{C^*}{\varepsilon}$. Como a verificação é feita na expansão e na geração, vamos reutilizar o que já provámos na BFS anteriormente para afirmar que o custo temporal e espacial desta procura é $O(b^{1 + \frac{C^*}{\epsilon}})$.
+Caso a procura termine no nível $k$, vamos ter de expandir $1 + b + \cdots + b^k = \frac{b^{k + 1} - 1}{b - 1}$ nós no total para encontrar o caminho de custo ótimo. Com $C^*$ sendo o custo do caminho ótimo e a cada passo ficamos $\varepsilon$ mais perto do mesmo, vamos precisar de $\frac{C^*}{\varepsilon}$ passos até lá chegar, equivalente a $\frac{C^*}{\varepsilon}$ níveis (no pior caso, em que todas as ações custam $\varepsilon$) - o nosso $k$ aqui será $\frac{C^*}{\varepsilon}$. Como a verificação é feita na expansão e não na geração, vamos reutilizar o que já provámos na BFS anteriormente para afirmar que o custo temporal e espacial desta procura é $O(b^{1 + \frac{C^*}{\epsilon}})$.
 
 :::
 
@@ -202,7 +202,7 @@ A procura em profundidade primeiro expande sempre o nó na fronteira com a maior
 - **Completa**: Não, visto que pode haver profundidades infinitas ou ciclos (que, numa procura por profundidade primeiro, rapidamente se tornam desagradáveis).
 - **Complexidade Temporal**: $O(b^m)$
 - **Complexidade Espacial**: $O(bm)$ se for implementada recursivamente, $O(m)$ iterativamente.
-- **Ótima**: Não, já que o nó retornado é o primeiro que satisfaz o objetivo, e não necessariamente o que simultaneamente satisfaz o objetivo **e** tem o caminho de menor custo. Olhando para o exemplo abaixo, caso $J$ e $C$ fossem ambos nós-objetivo, $J$ seria retornado em vez de $C$, apesar de $C$ ter menor profundidade na árvore ($C$, considerando arcos com custo uniforme, seria a solução ótima).
+- **Ótima**: Não, já que o nó retornado é o primeiro que satisfaz o objetivo, e não necessariamente o que simultaneamente satisfaz o objetivo **e** tem o caminho de menor custo. Olhando para o exemplo abaixo, caso $D$ e $C$ fossem ambos nós-objetivo, $D$ seria retornado em vez de $C$, apesar de $C$ ter menor profundidade na árvore ($C$, considerando arcos com custo uniforme, seria a solução ótima).
 
 ![DFS](imgs/0002-dfs.svg#dark=3)
 
