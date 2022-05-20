@@ -202,7 +202,7 @@ A procura em profundidade primeiro expande sempre o nó na fronteira com a maior
 - **Completa**: Não, visto que pode haver profundidades infinitas ou ciclos (que, numa procura por profundidade primeiro, rapidamente se tornam desagradáveis).
 - **Complexidade Temporal**: $O(b^m)$
 - **Complexidade Espacial**: $O(bm)$ se for implementada recursivamente, $O(m)$ iterativamente.
-- **Ótima**: Não, já que o nó retornado é o primeiro que satisfaz o objetivo, e não necessariamente o que simultaneamente satisfaz o objetivo **e** tem o caminho de menor custo. Olhando para o exemplo abaixo, caso $J$ e $C$ fossem ambos nós-objetivo, $J$ seria retornado em vez de $C$, apesar de $C$ ter menor profundidade na árvore ($C$, considerando arcos com custo uniforme, seria a solução ótima).
+- **Ótima**: Não, já que o nó retornado é o primeiro que satisfaz o objetivo, e não necessariamente o que simultaneamente satisfaz o objetivo **e** tem o caminho de menor custo. Olhando para o exemplo abaixo, caso $D$ e $C$ fossem ambos nós-objetivo, $D$ seria retornado em vez de $C$, apesar de $C$ ter menor profundidade na árvore ($C$, considerando arcos com custo uniforme, seria a solução ótima).
 
 ![DFS](imgs/0002-dfs.svg#dark=3)
 
