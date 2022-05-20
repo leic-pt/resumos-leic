@@ -40,7 +40,7 @@ Exemplos de entidades são "Pessoa", "Produto", "Compra", etc.
 Exemplos de atributos, neste caso de uma "Pessoa", são "número cartão de cidadão",
 "nome", "sexo", "data de nascimento", etc.
 
-// TODO inserir exemplo
+![Exemplo de Entidade (Pessoa) no Modelo E-A](./assets/0003-er-entity.svg#dark=3)
 
 As [**entidades**](color:orange) são representadas por um retângulo, enquanto que
 os [**atributos**](color:green) são representados por uma elipse.
@@ -57,7 +57,7 @@ Como exemplo simples, podemos pensar que uma "Compra" contém "Produtos", pelo
 que estão relacionados.  
 Podemos representar esta associação com a seguinte notação:
 
-// TODO inserir exemplo
+![Exemplo de Associação (Compra-Produto) no Modelo E-A](./assets/0003-er-relationship.svg#dark=3)
 
 As associações têm normalmente um nome, único em todo o diagrama, que normalmente
 é um verbo.
@@ -87,12 +87,12 @@ Existem dois tipos de restrições que podemos aplicar a associações:
 As [**restrições de cardinalidade**](color:pink) referem a multiplicidade da relação,
 isto é, _one-to-one_, _one-to-many_ ou _many-to-many_.
 
-// TODO inserir exemplo
+![Restrições de cardinalidade: one-to-one, one-to-many e many-to-many](./assets/0003-er-cardinality-constraints.svg#dark=3)
 
 As [**restrições de participação**](color:purple) indicam se é necessário a
 associação existir ou não.
 
-// TODO inserir exemplo
+![Restrições de participação: opcional, obrigatório e mútuo](./assets/0003-er-participation-constraints.svg#dark=3)
 
 Podemos aplicar ambas as restrições simultaneamente.
 
@@ -101,11 +101,11 @@ Podemos aplicar ambas as restrições simultaneamente.
 1. Um aluno pode estar inscrito em várias disciplinas e cada disciplina tem
    vários alunos, sendo que cada disciplina tem pelo menos 1 aluno.
 
-   // TODO inserir imagem
+   ![Exemplo da Relação Aluno-Disciplina](./assets/0003-er-relations-example-student-course.svg#dark=3)
 
 2. Existe um delegado para cada curso, sendo que cada curso tem obrigatoriamnete
-   de ter um e só um delegado
+   de ter um e só um delegado. Um aluno só pode ser delegado de um curso.
 
-   // TODO inserir imagem
+   ![Exemplo da Relação Delegado-Curso](./assets/0003-er-relations-example-delegate-degree.svg#dark=3)
 
 :::
