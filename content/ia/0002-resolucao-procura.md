@@ -191,7 +191,7 @@ Temos, claro, que cada ação/ramo custa pelo menos $\varepsilon$, como referido
 - $\cdots$
 - $b^k$ nós no nível $k$.
 
-Caso a procura termine no nível $k$, vamos ter de expandir $1 + b + \cdots + b^k = \frac{b^{k + 1} - 1}{b - 1}$ nós no total para encontrar o caminho de custo ótimo. Com $C^*$ sendo o custo do caminho ótimo e a cada passo ficamos $\varepsilon$ mais perto do mesmo, vamos precisar de $\frac{C^*}{\varepsilon}$ passos até lá chegar, equivalente a $\frac{C^*}{\varepsilon}$ níveis (no pior caso, em que todas as ações custam $\varepsilon$) - o nosso $k$ aqui será $\frac{C^*}{\varepsilon}$. Como a verificação é feita na expansão e na geração, vamos reutilizar o que já provámos na BFS anteriormente para afirmar que o custo temporal e espacial desta procura é $O(b^{1 + \frac{C^*}{\epsilon}})$.
+Caso a procura termine no nível $k$, vamos ter de expandir $1 + b + \cdots + b^k = \frac{b^{k + 1} - 1}{b - 1}$ nós no total para encontrar o caminho de custo ótimo. Com $C^*$ sendo o custo do caminho ótimo e a cada passo ficamos $\varepsilon$ mais perto do mesmo, vamos precisar de $\frac{C^*}{\varepsilon}$ passos até lá chegar, equivalente a $\frac{C^*}{\varepsilon}$ níveis (no pior caso, em que todas as ações custam $\varepsilon$) - o nosso $k$ aqui será $\frac{C^*}{\varepsilon}$. Como a verificação é feita na expansão e não na geração, vamos reutilizar o que já provámos na BFS anteriormente para afirmar que o custo temporal e espacial desta procura é $O(b^{1 + \frac{C^*}{\epsilon}})$.
 
 :::
 
