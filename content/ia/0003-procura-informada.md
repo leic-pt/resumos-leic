@@ -333,9 +333,69 @@ O exemplo seguinte pode ajudar a consolidar ideias:
 
 ![Exemplo IDA*](imgs/0003-ida-estrela.svg#dark=3)
 
-<!-- TODO: adicionar complexidades, notas sobre completude e otimalidade -->
-
 ## Procura Melhor Primeiro Recursiva (RBFS)
+
+No seu _core_, a RBFS acaba por procurar implementar a procura melhor primeiro
+em espaço linear (através da recursão). Vamos procurando expandir sempre o nó, dentro
+dos filhos do nó atual, que tenha menor valor de $f$. Ao mesmo tempo, vamos sempre guardando
+recursivamente o **melhor caminho alternativo** ao nó atual - ou seja, o seu irmão ou antepassado
+com menor valor de $f$. Se nenhum dos seus filhos tiver $f$ menor que esse valor alternativo,
+passamos então a explorar o nó alternativo guardado (a recursão permite-nos recuperá-lo).
+A procura termina assim que tentarmos expandir um nó que passa no teste objetivo.
+
+:::details[Exemplo RBFS, Arad-Bucareste]
+
+Observe-se o exemplo seguinte:
+
+![Exemplo - RBFS Step 1](imgs/0003-rbfs-fase-1.svg#dark=3)
+
+Note-se a evolução da procura na imagem anterior:
+
+- ao explorar Arad, encontrámos Sibiu, Timisoara e Zerind; Sibiu é o nó com menor $f$,
+  logo vamos explorá-lo a seguir (e anotamos também que Timisoara, com $f = 447$, é a sua
+  alternativa);
+- ao explorar Sibiu, encontrámos Arad, Fagaras, Rimnicu Vilcea e Oradea; Rimnicu Vilcea
+  é o nó com menor $f$, logo vamos explorá-lo a seguir (e anotamos também que Fagaras, com $f = 415$,
+  é a sua alternativa);
+- ao explorar Timisoara, encontrámos Craiova, Pitesti e Sibiu; estamos agora num impasse:
+  o seu filho com menor valor de $f$ é Pitesti, com $f = 417$, mas existe uma alternativa
+  com $f$ menor. Optamos, claro, por procurar primeiro a alternativa, visto que caso não o
+  façamos podemos estar a ignorar um caminho melhor (e ainda por cima sabemos que ele existe,
+  não faria sentido não ir lá).
+
+![Exemplo RBFS Step 2](imgs/0003-rbfs-fase-2.svg#dark=3)
+
+Após o _backtracking_, atualizamos o valor de $f$ em Rimnicu Vilcea (para o menor valor dos
+seus filhos - sabemos mais sobre o custo de caminhos que partem dali, logo porque não
+precisar ainda mais o custo daquele caminho?). Mais, anotamos agora Rimnicu Vilcea como alternativa
+a Fagaras, e prosseguimos à respetiva expansão. Encontramos de novo o mesmo problema:
+Bucareste, com $f = 450$, é o seu filho com menor valor de $f$, sendo este valor maior que
+o caminho alternativo guardado anteriormente. Vamos, portanto, voltar a andar para trás
+e seguir em frente em Pitesti:
+
+![Exemplo - RBFS Step 3](imgs/0003-rbfs-fase-3.svg#dark=3)
+
+Note-se como desta vez o caminho alternativo guardado é Tamisoara - conseguimos recursivamente
+voltar lá, ao **melhor caminho alternativo por visitar**, se for preciso. O próximo
+nó a expandir seria Bucareste ($418$), que passa o teste objetivo, pelo que podemos
+interromper a procura - chegámos ao caminho ótimo!
+
+:::
+
+No exemplo acima podemos notar que ocorrem duas **mudanças de opinião** por parte do
+algoritmo. Estas mudanças de opinião, apesar de fulcrais para o funcionamento do algoritmo,
+levam a uma regeneração de nós que rapidamente pode tornar-se desagradável: utilizando apenas
+espaço linear, o algoritmo acaba por ter de "esquecer" caminhos já expandidos, o que leva a que
+tenhamos que expandir nós repetidamente, acabando por afetar a complexidade temporal
+da procura. É, contudo, **completa** (para caminhos com custo crescente) e **ótima**
+(para heurísticas admissíveis), _which is pretty nice_.
+
+A complexidade espacial, linear, deve-se a guardarmos, na pior das hipóteses, o caminho
+correspondente a todo um ramo, do início ao fim: caso tenhamos um caminho com profundidade
+$d$, em que o último nó pai a ser expandido tem $b$ filhos, vamos ter $(d - 1) + bd$ nós em
+memória (já que esquecemos todos os nós que não estejam no caminho que estamos a percorrer),
+pelo que o espaço ocupado é dado por $O(bd)$. A complexidade temporal é, tal como em $IDA^*$,
+exponencial: $O(b^d)$.
 
 ---
 
