@@ -4,9 +4,11 @@ description: Algoritmos de Procura Informada.
   Função Heurística.
   Procura Gananciosa.
   Procura A*.
+  Heurísticas Admissíveis.
+  Heurísticas Consistentes.
   Procura IDA*.
   Procura Melhor Primeiro Recursiva.
-  Heurísticas.
+  Como obter boas heurísticas.
 path: /ia/procura-informada
 type: content
 ---
@@ -196,7 +198,117 @@ da procura; como vamos ver à frente, [**a procura $A^*$ não é ótima**](color
 
 :::
 
+Infelizmente, não podemos garantir a otimalidade da procura $A^*$. Como contra-exemplo,
+observe-se a seguinte árvore de procura (onde $D$ e $G$ são ambos estados objetivo):
+
+![Árvore de Procura - Procura $A^*$ não é ótima](imgs/0003-a-estrela-nao-otima.svg#dark=3)
+
+Aqui, $G$ é o objetivo ótimo, com custo caminho igual a $7$. Temos, contudo, que o seu pai
+($C$) nunca é explorado, já que $B$ tem menor valor de $f$, $8$, e depois um dos seus filhos
+também tem menor valor de $f$ - esse filho vai passar no teste objetivo, pelo que acabamos por não
+pesquisar o resto da árvore, ficando sem passar por $G$.
+
 ### Quando é que uma procura pode ser ótima?
+
+Parecia estar tudo a correr bem, mas voltámos a apercebermo-nos que secalhar ter uma procura
+ótima não é assim tão fácil. Há, contudo, uma maneira de garantir que $A^*$ é ótima: recorrer
+a **heurísticas admissíveis**.
+
+:::tip[Heurísticas Admissíveis]
+
+Dizemos que uma heurística é **admissível** se, para todo o nó $n$ da árvore de procura
+se verificar que
+
+$$
+h(n) \leq h^*(n).
+$$
+
+Dito de outra forma, heurísticas admissíveis são sempre [**otimistas**](color:orange),
+estimando sempre por baixo o custo de atingir o objetivo. Uma heurística admissível é,
+por exemplo, a utilizada em Arad-Bucareste mais acima, onde $h$ corresponde à distância
+em linha reta de cada nó ao destino: temos, claro, que a distância em linha reta é sempre
+o **melhor caso**, mas que geralmente $h(n) < h^*(n)$ (os caminhos têm por norma curvas e afins).
+
+[**Utilizar uma heurística admissível torna $A^*$ ótima**](color:green) em procura em árvore - podem ler
+a prova detalhada [aqui](https://en.wikipedia.org/wiki/Admissible_heuristic#Optimality_Proof).
+
+:::
+
+Voltando ao exemplo de Arad-Bucareste, podemos agora perceber melhor a utilidade das garantias
+que heurísticas admissíveis nos dão: há uma situação em que temos a possibilidade de ir
+para Bucareste (já está na fronteira), mas que optamos por passar por Pitesti, visto
+ter um valor de função de avaliação menor. A lógica acaba por ser bastante simples:
+se existe a possibilidade de fazer um caminho mais curto por ali, vou primeiro verificar
+se de facto consigo ou não antes de me contentar com o que já tenho.
+
+Note-se que foi referido acima que utilizar heurísticas admissíveis só torna $A^*$ ótima
+na procura em árvore: na **procura em grafo**, não adicionamos à fronteira estados por onde
+já passámos, pelo que podemos eventualmente perder o caminho mais curto até ao objetivo.
+Abaixo encontra-se um exemplo de uma situação onde podemos verificar isso mesmo:
+
+![Procura em Grafo - Não Ótima](imgs/0003-procura-grafo-nao-otima.svg#dark=3)
+
+A admissibilidade da heurística não garante, portanto, que $A^*$ seja ótima na procura em grafo,
+visto que um nó pode ser descartado se já estiver sido explorado no passado - estamos
+a perder possíveis caminhos mais curtos só por já ter explorado um mais caro anteriormente.
+
+Podemos, contudo, garantir a otimalidade da procura $A^*$ em grafo, através de uma segunda
+restrição às heurísticas: estas devem ser [**consistentes**](color:purple).
+
+:::tip[Heurísticas Consistentes]
+
+Dizemos que uma heurística é **consistente** se, para todo o $n$, para todos os seus
+sucessores $n'$ gerados por ações $a$ se verificar a **desigualdade triangular**:
+
+$$
+h(n) \leq h(n') + c(n, a, n'),
+$$
+
+onde $c(n, a, n')$ corresponde ao custo associado a realizar a ação $a$ de $n$ para $n'$.
+
+![Desigualdade Triangular](imgs/0003-desigualdade-triangular.svg#dark=3)
+
+De forma mais simples, uma heurística diz-se consistente se, para todo o $n$, para todos os
+seus sucessores $n'$ gerados por ações $a$, o custo estimado de ir de $n$ ao objetivo
+for menor ou igual ao custo real de ir de $n$ a $n'$ somado ao custo estimado de ir de $n'$ ao objetivo.
+
+Teremos, portanto:
+
+$$
+\begin{equation}
+\begin{split}
+f(n') &= g(n') + h(n')\\
+&= g(n) + c(n, a, n') + h(n')\\
+&\geq g(n) + h(n)\\
+&\geq f(n)
+\end{split}
+\end{equation}
+$$
+
+Podemos assim depreender que, numa heurística consistente, $f$ nunca decresce ao longo do caminho.
+
+:::
+
+Voltemos então a olhar para a imagem-exemplo anterior:
+
+![Procura em Grafo - Não Ótima (2)](imgs/0003-procura-grafo-nao-otima.svg#dark=3)
+
+Ora, notando que não é ótima, resta tentar perceber porque é que não é consistente (já que
+caso contrário a questão nem se colocaria). Pegando na nossa proposição inicial,
+$h(n) \leq h(n') + c(n, a, n')$, podemos facilmente perceber que este é desrespeitado:
+
+$$
+h(A) = 7 \nleq 4 + 1 = c(A, B) + h(B).
+$$
+
+Como remate final, podemos dizer que [toda a heurística consistente é admissível](https://www.cs.cmu.edu/~15381-s19/recitations/rec2/rec2_sol.pdf),
+mas [não podemos afirmar o contrário](https://cs.stackexchange.com/questions/63481/how-does-consistency-imply-that-a-heuristic-is-also-admissible).
+
+### Completude, Otimalidade e Complexidades
+
+Largando heurísticas particulares e voltando à procura $A^*$, podemos afirmar que:
+
+<!-- TODO: referir completude, complexidades da A* -->
 
 ## Procura IDA$^*$
 
