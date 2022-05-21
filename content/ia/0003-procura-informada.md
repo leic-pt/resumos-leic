@@ -304,11 +304,18 @@ $$
 Como remate final, podemos dizer que [toda a heurística consistente é admissível](https://www.cs.cmu.edu/~15381-s19/recitations/rec2/rec2_sol.pdf),
 mas [não podemos afirmar o contrário](https://cs.stackexchange.com/questions/63481/how-does-consistency-imply-that-a-heuristic-is-also-admissible).
 
-### Completude, Otimalidade e Complexidades
+---
 
-Largando heurísticas particulares e voltando à procura $A^*$, podemos afirmar que:
+Colocando de parte estas definições sobre heurísticas e voltando à procura $A^*$,
+podemos afirmar que esta é completa para qualquer árvore com conjunto de estados finito.
+Mais, é ótima para heurísticas admissíveis (como referido mais acima).
 
-<!-- TODO: referir completude, complexidades da A* -->
+A complexidade temporal está, tal como as procuras que vamos abordar mais abaixo, dependente
+da heurística utilizada - contudo, e como nos costumamos focar no pior caso, podemos afirmar
+que esta é [exponencial](https://cs.stackexchange.com/questions/56176/a-graph-search-time-complexity),
+$O(b^d)$. Adiciona-se ainda que, como $A^*$ acaba por consistir numa "BFS guiada por uma heurística",
+podemos pensar no seu pior caso como tendo uma heurística constante - nesse caso, partilha
+a complexidade espacial da BFS, também exponencial.
 
 ## Procura IDA$^*$
 
@@ -332,6 +339,12 @@ apenas para decidir se este é cortado - a decisão de qual nó expandir é da D
 O exemplo seguinte pode ajudar a consolidar ideias:
 
 ![Exemplo IDA*](imgs/0003-ida-estrela.svg#dark=3)
+
+$IDA^*$ partilha a completude e a complexidade temporal ($O(b^m)$) com $A^*$; mais,
+é igualmente ótima para heurísticas admissíveis. Difere, contudo, quanto à complexidade
+espacial: uma das propriedades que herda da sua semelhança com a DFS é precisamente
+o espaço que ocupa, linear - $O(bm)$ - um claro _upgrade_ em relação ao espaço exponencial
+ocupado pela abordagem $A^*$ "normal".
 
 ## Procura Melhor Primeiro Recursiva (RBFS)
 
@@ -396,6 +409,16 @@ $d$, em que o último nó pai a ser expandido tem $b$ filhos, vamos ter $(d - 1)
 memória (já que esquecemos todos os nós que não estejam no caminho que estamos a percorrer),
 pelo que o espaço ocupado é dado por $O(bd)$. A complexidade temporal é, tal como em $IDA^*$,
 exponencial: $O(b^d)$.
+
+## Como criar boas heurísticas admissíveis
+
+:::warning[Página em Construção]
+
+O conteúdo será adicionado assim que possível.
+
+:::
+
+<!-- TODO -->
 
 ---
 
