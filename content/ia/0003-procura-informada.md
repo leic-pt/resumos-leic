@@ -312,6 +312,29 @@ Largando heurísticas particulares e voltando à procura $A^*$, podemos afirmar 
 
 ## Procura IDA$^*$
 
+Da mesma maneira que tínhamos na DFS uma versão iterativa, que pesquisava a árvore
+em profundidade com limites que aumentavam sequencialmente, existe uma abordagem de procura
+$A^*$ que vai buscar parte da sua lógica à DFS iterativa: a procura $IDA^*$.
+
+Corresponde, tal como se pode esperar, a uma versão iterativa em profundidade de $A^*$, onde
+aqui o limite, $l$, baseia-se em $f$ (em vez dos níveis da árvore de procura).
+
+A cada iteração, vamos procurar, **usando uma DFS**[\*](color:yellow) todos os nós da árvore que
+possuam $f \leq l$; caso um nó, aquando da sua geração, tenha $f(n) > l$, **cortamo-lo** da árvore
+momentaeamente. Levamos a iteração até ao fim, e quando a acabamos vamos atualizar o
+limite para o **menor valor de $f$** entre os nós cortados na última iteração. Paramos
+quando vamos expandir um nó e este passa o teste objetivo - como vamos ver um pouco mais
+à frente, se o teste fosse feito na geração perdíamos otimalidade.
+
+[\*](color:yellow)[**O valor de $f$ de um nó não é utilizado para escolher o próximo nó a expandir**](color:red),
+apenas para decidir se este é cortado - a decisão de qual nó expandir é da DFS.
+
+O exemplo seguinte pode ajudar a consolidar ideias:
+
+![Exemplo IDA*](imgs/0003-ida-estrela.svg#dark=3)
+
+<!-- TODO: adicionar complexidades, notas sobre completude e otimalidade -->
+
 ## Procura Melhor Primeiro Recursiva (RBFS)
 
 ---
