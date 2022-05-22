@@ -29,6 +29,10 @@ Com este modelo conseguimos exprimir:
 - Agregações
 - Generalizações/Especializações
 
+Por vezes o modelo não é suficiente para representar todos os requisitos da nossa
+aplicação. Podemos assim recorrer também a [**Restrições de Integridade**](color:yellow)
+(_Integrity Contraints_) quando necessário.
+
 ## Entidades e Atributos
 
 Uma [**entidade**](color:orange) pode conter vários [**atributos**](color:green),
@@ -75,9 +79,19 @@ A associação entre a entidade Fornecedor e a entidade Loja tem assim um atribu
 o número máximo de produtos mensais.  
 Representamos uma associação com atributos das seguinte forma:
 
-// TODO inserir exemplo
+![Exemplo de Associação (Fornecedor-Loja) com um atributo no Modelo E-A](./assets/0003-er-relationship-attributes.svg#dark=3)
 
-// TODO associações ternárias
+### Associações Ternárias
+
+Nada nos impede de criar associações entre três ou mais entidades.
+Atenção que estas podem, por vezes, ser pouco explícitas. Alternativamente, podemos
+criar uma [agregação](#agregações), que, além de mais mais explícita, dá-nos maior
+flexibilidade a definir [restrições](#restrições).
+
+Voltando ao exemplo da _Compra_ e do _Produto_, tomemos outra entidade, _Cliente_,
+que passa a fazer parte da relação.
+
+![Exemplo de Associação (Compra-Cliente-Produto) no Modelo E-A](./assets/0003-er-relationship-ternary.svg#dark=3)
 
 ### Restrições
 
@@ -103,9 +117,19 @@ Podemos aplicar ambas as restrições simultaneamente.
 
    ![Exemplo da Relação Aluno-Disciplina](./assets/0003-er-relations-example-student-course.svg#dark=3)
 
-2. Existe um delegado para cada curso, sendo que cada curso tem obrigatoriamnete
-   de ter um e só um delegado. Um aluno só pode ser delegado de um curso.
+2. Existe um delegado para cada curso, sendo que cada curso tem obrigatoriamente
+   um e só um delegado. Um aluno só pode ser delegado de um curso.
 
    ![Exemplo da Relação Delegado-Curso](./assets/0003-er-relations-example-delegate-degree.svg#dark=3)
 
 :::
+
+## Generalizações/Especializações
+
+## Restrições de Integridade
+
+## Entidades Fracas
+
+## Agregações
+
+// TODO
