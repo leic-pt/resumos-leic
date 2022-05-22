@@ -1,7 +1,13 @@
 ---
 title: Modelo EA
 description: >-
-  Modelo Entidade-Associação
+  Modelo Entidade-Associação.
+  Entidades e Atributos.
+  Associações Binárias e Ternárias. Restrições de Cardinalidade e Participação.
+  Generalizações e Especializações.
+  Restrições de Identidade.
+  Entidades Fracas.
+  Agregações.
 path: /bd/er-model
 type: content
 ---
