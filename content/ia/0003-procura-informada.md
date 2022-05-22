@@ -519,6 +519,40 @@ portanto que $h_2$ é mais eficiente.
 
 :::
 
+:::info[Heurísticas não admissíveis podem fazer sentido]
+
+Considere-se um agente GPS. Um condutor fez uma _query_, em que pediu ao GPS o melhor
+caminho para ir de Pombal a Vale de Cambra. Tenhamos em atenção o gráfico abaixo, que
+apresenta o comportamento de três heurísticas em relação ao mesmo problema:
+
+![Heurísticas Não Admissíveis?](imgs/0003-grafico-nao-admissiveis.svg#dark=2)
+
+Ora, a primeira coisa em que reparamos ao olhar para $h_3$ é, provavelmente, de duas uma:
+
+- $h_3$ não é ótima, já que há certos intervalos em que $h_3(n) > h^*(n)$;
+- $h_3$ domina tanto $h_2$ como $h_1$, encontrando-se inclusive sempre muito mais próxima de
+  $h^*$ que as outras duas.
+
+Voltemos ao exemplo do GPS: considere-se que as duas primeiras heurísticas demoram $4$
+e $5$ minutos, respetivamente, a responder à _query_ proposta, e que a terceira demora $7$
+segundos. Com um erro associado tão baixo ($h_3$ nunca se desvia muito de $h^*$), não
+fará mais sentido contentarmo-nos com uma resposta quase ótima mas muito rápida, em vez
+de uma que seja garantidamente ótima mas que seja bastante demorada? Um trajeto de $1$ hora e
+um quarto retornado de forma praticamente instantânea parece sem dúvida uma proposta melhor
+do que um caminho que corte $2$ minutos à duração da viagem mas cuja resposta demore muito mais!
+
+:::
+
+### Como inventar boas heurísticas?
+
+:::warning[Página em Construção]
+
+Esta secção encontra-se atualmente incompleta.
+
+O conteúdo será adicionado assim que possível.
+
+:::
+
 ---
 
 Adicionamos que esta secção corresponde ao terceiro capítulo do livro que acompanha a cadeira
