@@ -12,7 +12,7 @@ type: content
 
 ```
 
-Nesta secção vamos explorar mais a ideia de agentes baseados em objetivos, focando-nos num subtipo em particular: os **agentes que resolvem problemas**.
+Nesta secção, vamos explorar mais a ideia de agentes baseados em objetivos, focando-nos num subtipo em particular: os **agentes que resolvem problemas**.
 
 ## Problem-Solving Agents
 
@@ -93,7 +93,7 @@ No caso Arad-Bucareste, por exemplo, podíamos ter uma árvore de procura deste 
 ![Árvore de procura Arad-Bucareste - Fase 2](imgs/0002-arvore-procura-arad-fase2.svg#dark=2)
 ![Árvore de procura Arad-Bucareste - Fase 3](imgs/0002-arvore-procura-arad-fase3.svg#dark=2)
 
-**Nesta figura**, considera-se que todos os estados a tracejado consideram-se **por gerar**, tal como ações a tracejado ainda não foram realizadas (ou seja, o _pai_ ainda não foi explorado). Estados a traço cheio já foram gerados, não explorados, e ações a traço cheio já foram testadas. Estados a azul já foram explorados.
+**Nesta figura**, considera-se que todos os estados a tracejado se encontram **por gerar**, tal como ações a tracejado ainda não foram realizadas (ou seja, o _pai_ ainda não foi explorado). Estados a traço cheio já foram gerados, não explorados, e ações a traço cheio já foram testadas. Estados a azul já foram explorados.
 
 Note-se que costumamos dizer que a raiz está no "nível 0" da árvore, os seus filhos no "nível 1", e assim sucessivamente.
 
@@ -127,7 +127,7 @@ Antes de referir algumas estratégias de procura cega, vamos precisar de definir
 - uma estratégia de procura diz-se [**completa**](color:purple) caso encontre **sempre** uma solução para o problema proposto, caso exista (e caso não exista, diz que não há solução).
 - uma estratégia de procura diz-se [**ótima**](color:orange) caso encontre a solução ótima (de menor custo).
 
-Em IAED e ASA, customávamos definir as noções de complexidade temporal e espacial com base em $|V|$ e $|E|$, a quantidade de vértices e arcos do grafo, respetivamente.
+Em IAED e ASA, costumávamos definir as noções de complexidade temporal e espacial com base em $|V|$ e $|E|$, a quantidade de vértices e arcos do grafo, respetivamente.
 Ora, estas unidades de medida costumam ser apropriadas para grafos como mapas e afins, onde há uma estrutura de dados onde podemos explicitamente definir o que é que são vértices e arcos; em IA, nem sempre nos podemos dar a esse luxo, já que os grafos costumam ser definidos pelo seu estado inicial, ações e modelos de transição, podendo eventualmente ser infinitos.
 Desta feita, será útil recorrer a medidas alternativas, apropriadas ao tipo de grafo que temos em mãos:
 
@@ -150,7 +150,7 @@ A procura em largura primeiro expande o nó de menor profundidade na fronteira -
 
 ![BFS - Exemplo com o teste de Geração Errado](imgs/0002-bfs-exemplo.svg#dark=2)
 
-Note-se que a BFS deve realizar o teste objetivo [**assim que o nó é gerado**](color:red), para evitar processamento desnecessário. Numa BFS, sabemos que no nó do primeiro teste objetivo passado com sucesso vamos ter a solução com menor profundidade, já que todos os nós que existem a uma profundidade menor - **com menor custo** - já foram exploradas e não passaram no teste. Com efeito, os exercícios associados à procura em largura primeiro apresentadas na [plataforma de apoio à cadeira disponibilizada pela docência](https://aitutorsystem.herokuapp.com/) recorrem ao teste [**na geração**](color:yellow), sendo portanto relevante ter esta ideia em conta.
+Note-se que a BFS deve realizar o teste objetivo [**assim que o nó é gerado**](color:red), para evitar processamento desnecessário. Numa BFS, sabemos que no nó do primeiro teste objetivo passado com sucesso vamos ter a solução com menor profundidade, já que todos os nós que existem a uma profundidade menor - **com menor custo** - já foram exploradas e não passaram no teste. Com efeito, os exercícios associados à procura em largura primeiro apresentados na [plataforma de apoio à cadeira disponibilizada pela docência](https://aitutorsystem.herokuapp.com/) recorrem ao teste [**na geração**](color:yellow), sendo portanto relevante ter esta ideia em conta.
 
 ![Teste Expansão vs Geração](imgs/0002-teste-expansao-vs-geracao.svg#dark=2)
 
@@ -175,7 +175,7 @@ Note-se que a fila usada nesta procura é uma **fila de prioridade**, não uma f
 - **Completa**: Sim, se o custo do ramo $\ge \varepsilon$, com $\varepsilon$ a representar uma constante $> 0$. A verificação é utilizada para evitar ciclos em ramos com custo $0$ - o custo do caminho deve sempre aumentar com a profundidade, e caso tal não aconteça, podemos facilmente entrar em ciclos infinitos (até porque a procura não quer saber do número de passos de um caminho, apenas do seu custo).
 - **Complexidade Temporal**: $O(b^{1 + \lfloor \frac{C^*}{\varepsilon}\rfloor})$ [\*](color:yellow)
 - **Complexidade Espacial**: $O(b^{1 + \lfloor \frac{C^*}{\varepsilon}\rfloor})$
-- **Ótima**: Sim, porque os nós são expandidados pela ordem de custo.
+- **Ótima**: Sim, porque os nós são expandidos pela ordem de custo.
 
 [\*](color:yellow) ${1 + \lfloor \frac{C^*}{\varepsilon}\rfloor}$, onde $C^*$ corresponde ao custo da solução ótima, e $\varepsilon$ a uma constante $> 0$.
 
@@ -208,9 +208,9 @@ A procura em profundidade primeiro expande sempre o nó na fronteira com a maior
 
 :::details[Complexidades - Porquê?]
 
-Em primeiro lugar, de realçar que aqui usamos uma pilha (LIFO) em vez das filas (FIFO) das procuras em largura primeiro e custo uniforme.
+Em primeiro lugar, é de realçar que aqui usamos uma pilha (LIFO) em vez das filas (FIFO) das procuras em largura primeiro e custo uniforme.
 
-Voltámos, aqui, a evitar definir as complexidades temporal e espacial em função de $b$ e $d$, optando aqui por defini-las em função de $b$ e $m$ - note-se, como referido acima, que a primeira solução retornada é a **primeira que passa o teste objetivo**, não a que passa o teste objetivo [**e**](color:green) e é menos profunda. O relevante, portanto, acaba por ser a profundidade máxima a que um nó pode estar na árvore de procura, e não a profundidade do nó objetivo mais abaixo (já que no pior caso vamos ter de atravessar a árvore de cima a baixo).
+Voltámos, aqui, a evitar definir as complexidades temporal e espacial em função de $b$ e $d$, optando por defini-las em função de $b$ e $m$ - note-se, como referido acima, que a primeira solução retornada é a **primeira que passa o teste objetivo**, não a que passa o teste objetivo [**e**](color:green) e é menos profunda. O relevante, portanto, acaba por ser a profundidade máxima a que um nó pode estar na árvore de procura, e não a profundidade do nó objetivo mais abaixo (já que no pior caso vamos ter de atravessar a árvore de cima a baixo).
 
 Em termos de complexidade temporal, parece então óbvio o porquê de $b^m$ (vs $b^d$ da BFS) - desta vez, expandimos no pior caso $1 + b + b^2 + \cdots + b^m$ nós. Note-se, na imagem exemplo utilizada mais acima, como teríamos de pesquisar até ao fim do "ramo da esquerda", fosse a profundidade do mesmo qual fosse (o que seria claramente contraprodutivo). Já quanto ao espaço ocupado, este acaba por diferir consoante a implementação escolhida. Temos, claro, que vamos guardar na pilha os nós do "caminho" da árvore de procura antecessores do que estamos a procurar atualmente: o número de nós guardados nunca deverá, portanto, exceder $m$ caso queiramos apenas iterar pela árvore. Recorrendo a recursão, contudo, acabamos por precisar de, no pior caso, guardar $b$ pilhas com $m$ elementos (uma por cada _branch_, caso a raiz tenha $b$ sucessores).
 
@@ -226,7 +226,7 @@ Como nota, dizemos que este "número máximo de passos" para atravessar todo o e
 
 - **Completa**: Não, já que a solução pode estar fora do limite.
 - **Complexidade Temporal**: $O(b^l)$ ($l$ é a profundidade limite).
-- **Complexidade Espacial**: $O(bl)$ com implementaçã recursiva, $O(l)$ com implementação iterativa.
+- **Complexidade Espacial**: $O(bl)$ com implementação recursiva, $O(l)$ com implementação iterativa.
 - **Ótima**: Nem sempre é garantido que conseguimos atingir a solução ótima, já que a sua profundidade pode estar para lá do limite imposto.
 
 ### Procura em Profundidade Iterativa / DFS Iterativa (Iterative Deepening Search)
@@ -234,10 +234,10 @@ Como nota, dizemos que este "número máximo de passos" para atravessar todo o e
 Consiste na realização de DFS limitadas sucessivas, com o limite de profundidade a aumentar a cada iteração (começando em 0 - na raiz).
 
 Acaba por combinar vantagens da BFS e da DFS, combatendo algumas das suas fraquezas. A DFS regular acaba por não ser a melhor opção em árvores com objetivo "mais à direita", ainda que perto da raiz, já que vamos ter de visitar uma quantidade arbitrária de sub-árvores à sua esquerda na totalidade antes de lá chegar (em muitos casos acaba por ser uma perda de tempo, portanto).
-A BFS acaba por combater esse problema, tendo contudo uma complexidade espacial bastante superior ($O(|E|)$ em vez de $O(d)$, para guardar os nós por visitar).
-A DFS Iterativa acaba por pegar no "melhor dos dois mundos" e juntá-los, sendo na prática uma estratégia _superior_ às outras duas (ainda que na prática a complexidade temporal no pior caso seja a mesma).
+A BFS acaba por combater esse problema, tendo, contudo, uma complexidade espacial bastante superior ($O(|E|)$ em vez de $O(d)$, para guardar os nós por visitar).
+A DFS Iterativa acaba por pegar no "melhor dos dois mundos" e juntá-los, sendo, na prática, uma estratégia "superior" às outras duas (ainda que, na prática, a complexidade temporal no pior caso seja a mesma).
 
-- **Completa**: Sim, caso a profundidade seja finita - explorando no pior caso todos os níveis, é garantido que se houver uma solução, será encontrada.
+- **Completa**: Sim, caso a profundidade seja finita - explorando, no pior caso, todos os níveis, é garantido que, se houver uma solução, será encontrada.
 - **Complexidade Temporal**: $O(b^d)$
 - **Complexidade Espacial**: $O(bd)$
 - **Ótima**: Sim, se o custo de cada ação for maior que 0.
