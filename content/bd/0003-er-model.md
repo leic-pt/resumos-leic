@@ -136,7 +136,7 @@ _data de nascimento_, etc. Podemos criar uma entidade [_Pessoa_](color:green) qu
 duas especialidades, [_Professor_](color:orange) e [_Aluno_](color:yellow), e que tenha
 também estes atributos comuns:
 
-// TODO inserir diagrama
+![Exemplo da Especialização de Pessoa em Professor/Aluno](./assets/0003-teacher-student-example.svg#dark=3)
 
 De realçar que cada uma das especializações pode ter atributos adicionais.
 Isto é particularmente relevante quando temos atributos "opcionais": muitas vezes
@@ -148,11 +148,14 @@ vamos ver algumas das suas propriedades e o que podemos fazer com elas.
 Podemos, tal como nas associações, aplicar restrições às especializações:
 
 - podemos obrigar a que exista a especialização
-- podemos obrigar a que apenas exista uma especialização de um conjunto
+- podemos obrigar a que a especialização seja disjunta, isto é, não pode ser também
+  outra instância de outra especialização
 
 Como nas associações, é também possível aplicar ambas as restrições simultaneamente.
+As bolinhas azuis nos diagramas de Venn indicam onde podem existir entidades dentro
+das especializações possíveis.
 
-// TODO inserir diagrama
+![Restrições de Especializações: Visualização da notação e diagramas Venn](./assets/0003-types-of-specializations.svg#dark=3)
 
 Para conseguir ilustrar tudo, vamos tomar um exemplo mais complexo. Temos um clube
 que contém membros. Esses membros podem ser [sócios](color:green), [gestores](color:orange)
@@ -169,14 +172,14 @@ apresentado um diagrama de Venn, de forma a clarificar o significado de cada sí
 O primeiro passo é criar a especialização [sócio](color:green) e [gestor](color:orange).
 Um membro pode não ser nenhum deles (isto é, ser apenas membro), como pode ser ambos simultaneamente.
 
-// TODO inserir diagrama
+![Exemplo da especialização de sócio e gestor num membro](./assets/0003-club-example-1.svg#dark=3)
 
 De seguida, criamos outra especialização, a frequência. Será que faz sentido especializar
 tanto o _sócio_ como _gestor_? [**NÃO**!](color:red) Isso resultaria em duplicação
 de especializações, como podemos ver abaixo. Se tivéssemos ainda mais especializações
 abaixo destas, criaríamos uma árvore muito grande para obtermos as combinações todas.
 
-// TODO inserir diagrama
+![Exemplo do que não se deve fazer a especializar em níveis abaixo](./assets/0003-club-example-wrong-specialization.svg#dark=3)
 
 Como podemos resolver entre problema? É simples, criamos outra especialização ao
 mesmo nível daquela que já existe. Isto permite existir as várias combinações,
@@ -184,17 +187,21 @@ preservando a facilidade de leitura e simplicidade do modelo.
 Sabemos que um _membro_ tem de ser obrigatoriamente [regular](color:green) ou
 [ocasional](color:orange), mas não pode ser ambos simultaneamente.
 
-// TODO inserir diagrama
+![Exemplo da especialização de regular e ocasional num membro](./assets/0003-club-example-2.svg#dark=3)
 
 Finalmente, podemos criar as especializações do _tier_ de sócio. Como seria de
 esperar, estes _tiers_ vão ser especializações de [sócio](color:green).
 Um [sócio](color:green) tem obrigatoriamente um e apenas um _tier_.
 
-// TODO inserir diagrama
+![Exemplo da especialização do tier de um sócio](./assets/0003-club-example-3.svg#dark=3)
 
 ## Restrições de Integridade
 
+// TODO
+
 ## Entidades Fracas
+
+// TODO
 
 ## Agregações
 
