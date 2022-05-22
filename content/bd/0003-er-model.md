@@ -126,6 +126,72 @@ Podemos aplicar ambas as restrições simultaneamente.
 
 ## Generalizações/Especializações
 
+Membro -> (Sócio, Não Sócio) | Gestor | (Regular, Não Regular)
+Sócio -> (Sócio Bronze, Sócio Silver, Sócio Gold)
+
+Por vezes duas entidades diferem por poucos ou até nenhum atributo. Quando isto
+acontece, podemos estar num caso em que podemos generalizar/especializar uma entidade noutras.
+Um exemplo fácil de perceber é o caso Professor/Aluno. Ambos têm um _nome_, _cartão de cidadão_,
+_data de nascimento_, etc. Podemos criar uma entidade [_Pessoa_](color:green) que tem
+duas especialidades, [_Professor_](color:orange) e [_Aluno_](color:yellow), e que tenha
+também estes atributos comuns:
+
+// TODO inserir diagrama
+
+De realçar que cada uma das especializações pode ter atributos adicionais.
+Isto é particularmente relevante quando temos atributos "opcionais": muitas vezes
+estes podem ser modelados mais corretamente através de uma especialização.
+
+Agora que delimitámos o **porquê** de querermos criar generalizações/especializações,
+vamos ver algumas das suas propriedades e o que podemos fazer com elas.
+
+Podemos, tal como nas associações, aplicar restrições às especializações:
+
+- podemos obrigar a que exista a especialização
+- podemos obrigar a que apenas exista uma especialização de um conjunto
+
+Como nas associações, é também possível aplicar ambas as restrições simultaneamente.
+
+// TODO inserir diagrama
+
+Para conseguir ilustrar tudo, vamos tomar um exemplo mais complexo. Temos um clube
+que contém membros. Esses membros podem ser [sócios](color:green), [gestores](color:orange)
+ou nenhum dos dois.
+Cada sócio tem um _tier_, consoante as quotas que pagam: [_bronze_](color:brown),
+[_silver_](color:blue) e [_gold_](color:yellow). Os sócios são identificados pelo
+número de sócio.  
+Finalmente, consoante a frequência que o membro interage com o clube, pode também
+ser classificado como [regular](color:green) ou [ocasional](color:red).
+
+Vamos então começar a modelar esta situação. Ao lado do modelo E-A, irá ser também
+apresentado um diagrama de Venn, de forma a clarificar o significado de cada símbolo.
+
+O primeiro passo é criar a especialização [sócio](color:green) e [gestor](color:orange).
+Um membro pode não ser nenhum deles (isto é, ser apenas membro), como pode ser ambos simultaneamente.
+
+// TODO inserir diagrama
+
+De seguida, criamos outra especialização, a frequência. Será que faz sentido especializar
+tanto o _sócio_ como _gestor_? [**NÃO**!](color:red) Isso resultaria em duplicação
+de especializações, como podemos ver abaixo. Se tivéssemos ainda mais especializações
+abaixo destas, criaríamos uma árvore muito grande para obtermos as combinações todas.
+
+// TODO inserir diagrama
+
+Como podemos resolver entre problema? É simples, criamos outra especialização ao
+mesmo nível daquela que já existe. Isto permite existir as várias combinações,
+preservando a facilidade de leitura e simplicidade do modelo.  
+Sabemos que um _membro_ tem de ser obrigatoriamente [regular](color:green) ou
+[ocasional](color:orange), mas não pode ser ambos simultaneamente.
+
+// TODO inserir diagrama
+
+Finalmente, podemos criar as especializações do _tier_ de sócio. Como seria de
+esperar, estes _tiers_ vão ser especializações de [sócio](color:green).
+Um [sócio](color:green) tem obrigatoriamente um e apenas um _tier_.
+
+// TODO inserir diagrama
+
 ## Restrições de Integridade
 
 ## Entidades Fracas
