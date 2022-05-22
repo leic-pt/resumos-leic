@@ -356,6 +356,12 @@ com menor valor de $f$. Se nenhum dos seus filhos tiver $f$ menor que esse valor
 passamos então a explorar o nó alternativo guardado (a recursão permite-nos recuperá-lo).
 A procura termina assim que tentarmos expandir um nó que passa no teste objetivo.
 
+**De realçar que a função de avaliação utilizada continua a ser igual à de $A^*$**,
+
+$$
+f(n) = g(n) + h(n).
+$$
+
 :::details[Exemplo RBFS, Arad-Bucareste]
 
 Observe-se o exemplo seguinte:
@@ -410,15 +416,108 @@ memória (já que esquecemos todos os nós que não estejam no caminho que estam
 pelo que o espaço ocupado é dado por $O(bd)$. A complexidade temporal é, tal como em $IDA^*$,
 exponencial: $O(b^d)$.
 
-## Como criar boas heurísticas admissíveis
+## Heurísticas - _deep-dive_
 
-:::warning[Página em Construção]
+Considere-se o problema 8-Puzzle, onde, dada uma configuração inicial de peças, o objetivo
+passa por movê-las horizontal ou verticalmente até atingir a configuração-objetivo.
 
-O conteúdo será adicionado assim que possível.
+![8 Puzzle - Exemplo](imgs/0003-8-puzzle-exemplo.svg#dark=3)
+_Custo Ótimo = 26 passos_
+
+Temos, como propriedades calculadas _à-priori_ do problema, que a profundidade média
+de uma solução para este problema (dada uma configuração inicial gerada aleatoriamente)
+é de $22$ passos. Mais ainda, o fator de ramificação, $b$, é de cerca de $3$: com o canto
+vazio, podemos mover para lá $2$ peças; com o centro vazio, podemos mover para lá $4$
+peças, e com qualquer outra posição vazia podemos mover para lá $3$ peças (e a ramificação
+média acaba por ser à volta de $3$). Temos, portanto, que uma árvore de procura poderá
+ter, na pior das hipóteses, $b^d = 3^{22}$ estados: fazer uma procura exaustiva por
+todos eles seria relativamente desagradável, pelo que convém arranjarmos uma boa heurística
+que nos permita restringir de forma concisa certos ramos da árvore, evitando pesquisas
+desnecessárias.
+
+Existem duas heurísticas admissíveis clássicas para o 8-Puzzle a que se costuma recorrer
+para ilustrar a utilidade de boas heurísticas:
+
+- uma primeira, seja ela $h_1$, que admite que qualquer peça que não esteja na posição
+  correta precisa de pelo menos um movimento para lá chegar. Com $g_i$ a representar a posição
+  correta da peça $i$, e $n_i$ a sua posição atual, podemos definir $h_1$ tal que:
+
+  $$
+  h_1(n) = \sum_{i=1}^{8} \left\{
+    \begin{array}{ll}
+      1 & \text{se } n_i \neq g_i \\
+      0 & \text{caso contrário}
+    \end{array} \right.
+  $$
+
+  No caso do 8-Puzzle proposto acima, temos que $h_1(n) = 8$, inicialmente. A heurística é,
+  claro, **admissível**: cada jogada move apenas uma peça, pelo que se houver inicialmente
+  $x$ peças fora do sítio, pelo menos $x$ movimentos terão de ser feitos para chegar
+  à configuração pretendida. Garantidamente, $h_1(n) \leq h^*(n)$.
+
+- uma segunda, seja ela $h_2$, que recorre à noção de
+  [distância de Manhattan](https://xlinux.nist.gov/dads/HTML/manhattanDistance.html)
+  entre uma peça e a sua localização correta, por forma a estimar o número de passos necessários
+  até a atingir. $h_2$ pode ser definida da seguinte forma:
+
+  $$
+  h_2(n) = \sum_{i=1}^{8} |g_i - n_i|
+  $$
+
+  Tal como $h_1$, $h_2$ é igualmente admissível: estamos aqui a admitir que se realizarmos
+  uma quantidade de movimentos exatamente igual ao chão do número de movimentos requeridos
+  para colocar todas as peças no sítio, elas ficam no sítio. Esta estimativa e o número real
+  podem até ser iguais, mas como só movemos uma peça por jogada, a estimativa nunca
+  ultrapassará o custo real, pelo que $h_2(n) \leq h^*(n)$. Note-se ainda que, para o exemplo
+  utilizado, $h_2(n)$ é inicialmente $3 + 1 + 2 + 2 + 2 + 3 + 3 + 2 = 18$: a peça $1$
+  precisa de $3$ movimentos horizontais e/ou verticais para chegar à peça ideal, a peça
+  $2$ de apenas $1$ e assim sucessivamente.
+
+### Comparar heurísticas
+
+Seria agora interessante comparar $h_1$ e $h_2$, para procurar perceber qual das duas
+acaba por dar maiores ganhos de performance em procuras. Uma maneira bastante comum de
+fazer esta comparação é recorrendo a $b^*$,
+o [**_effective branching factor_**](http://ozark.hendrix.edu/~ferrer/courses/335/f11/lectures/effective-branching.html)
+da árvore de procura, já que este acaba por ser relativamente consistente para problemas
+suficientemente difíceis. Dizemos que heurísticas são tanto melhores quanto mais o seu
+$b^*$ se aproximar de $1$, já que dessa forma estamos efetivamente a dizer que para atingir
+a "solução média" do problema praticamente não temos de fazer _branching_ (ou pouco),
+havendo portanto menos caminhos alternativos a ser explorados: com uma heurística ideal,
+teríamos $b^* = 1$ e a árvore de procura seria apenas um ramo contínuo.
+
+O livro que acompanha a cadeira apresenta uma tabela que ajuda a comparar o total de
+nós gerados e o $b^*$ entre $A^*$ com cada uma das heurísticas e a DFS iterativa (esta
+última uma procura cega, sem heurísticas).
+
+![Tabela, Comparação Heurísticas](imgs/0003-tabela-comparacao.svg#dark=4)
+
+Como podemos observar, a procura cega torna-se rapidamente incomportável; mais, apesar
+de $h_1$ não ser horrível, não traz qualquer benefício em comparação com $h_2$ e existe
+uma justificação teórica para tal acontecer.
+
+Em primeiro lugar, vamos notar que
+
+$$
+h_1(n) \leq h_2(n) \leq h^*(n), \forall_n.
+$$
+
+Quando para qualquer nó $n$ podemos garantir que $h_2(n) \geq h_1(n)$, afirmamos que
+[**$h_2$ domina $h_1$**](color:orange). Mais importante ainda, a noção de dominância traduz-se
+diretamente em eficiência: se $h_2$ domina $h_1$, $h_2$ [**nunca**](color:red) irá
+expandir mais nós que $h_1$.
+
+:::details[Prova: Dominância $\implies$ Eficiência]
+
+Na procura $A^*$, é garantido que todos os nós com função de avaliação menor que o
+custo do caminho mais barato vão ser expandidos - todos os nós tal que $f(n) < C^*$.
+Tal é o mesmo que afirmar que todos os nós com $h(n) < C^* - g(n)$ serão expandidos.
+Ora, mas se $h_2$ domina $h_1$, então qualquer nó expandido via $h_2$ será inevitavelmente
+expandido por $h_1$, podendo ainda haver mais nós a ser expandidos com esta última.
+Assim sendo, podemos afirmar que com $h_2$ vamos sempre expandir menos nó, garantindo
+portanto que $h_2$ é mais eficiente.
 
 :::
-
-<!-- TODO -->
 
 ---
 
