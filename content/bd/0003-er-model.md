@@ -158,8 +158,8 @@ Podemos, tal como nas associações, aplicar restrições às especializações:
   outra instância de outra especialização
 
 Como nas associações, é também possível aplicar ambas as restrições simultaneamente.
-As bolinhas azuis nos diagramas de Venn indicam onde podem existir entidades dentro
-das especializações possíveis.
+As bolinhas azuis nos diagramas de Venn (meramente ilustrativos; não fazem parte
+do Modelo E-A) indicam onde podem existir entidades dentro das especializações possíveis.
 
 ![Restrições de Especializações: Visualização da notação e diagramas Venn](./assets/0003-types-of-specializations.svg#dark=3)
 
