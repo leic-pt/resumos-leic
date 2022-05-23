@@ -39,7 +39,7 @@ Podemos representar um `Labirinto` através de um grafo, onde todas as entradas,
 
 :::details[Exemplos]
 
-![Labirinto Grafo1](./imgs/0020-LabGraf1.png) ![Labirinto Grafo2](./imgs/0020-LabGraf2.png)
+![Labirinto Grafo1](./assets/0020-LabGraf1.png) ![Labirinto Grafo2](./assets/0020-LabGraf2.png)
 
 :::
 
@@ -131,7 +131,7 @@ QED
 
 A prova para grafos (não multigrafos) é muito parecida. A única diferença é que temos de adicionar um vértice com duas arestas, uma que se liga a $u$ outra a $v$, porque podemos ter uma travessia como:
 
-![Imagem Exceção](./imgs/0020-excecao.png)
+![Imagem Exceção](./assets/0020-excecao.png)
 
 Como estamos a trabalhar com grafos, não podemos ter mais do que $1$ aresta a ligar $2$ vértices.  
 Apesar desta exceção a prova é igual, só que retiramos/adicionamos $2$ arestas e $1$ vértice como descrito.

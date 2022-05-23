@@ -48,7 +48,7 @@ $$p_n=p_0+\Delta p_0n^{\underline 1}+ \frac 1 {2!}\Delta^2p_0n^{\underline 2} + 
 
 Agora, pode-se resolver problemas como os seguintes:
 
-![Exemplos](./imgs/0008-problemas.png)
+![Exemplos](./assets/0008-problemas.png)
 
 ## Resolução de Exemplos
 
@@ -56,11 +56,11 @@ Agora, pode-se resolver problemas como os seguintes:
 
 Começa-se por dispor os dados conhecidos por linhas
 
-![Tabela parte 1](./imgs/0008-tabela1.png)
+![Tabela parte 1](./assets/0008-tabela1.png)
 
 A seguir, expande-se a tabela para incluir as linhas anteriores através de contas simples visto que, por exemplo, $\Delta^2=\Delta^1_{n+1}-\Delta^1_{n}$. Assume-se também que a segunda derivada permanecerá constante, e que, por consequência, a terceira será nula. obtendo-se o seguinte:
 
-![Tabela parte 2](./imgs/0008-tabela2.png)
+![Tabela parte 2](./assets/0008-tabela2.png)
 
 Agora, com a fórmula já vista para $p_0$, retirando os valores da linha $n=0$, vem:
 
@@ -70,16 +70,16 @@ $$p_n=0+0+\frac{2}{2!}n^{\underline{2}} = n(n-1)$$
 
 Como tabela, tem-se:
 
-![Exemplo 2](./imgs/0008-ex2.png)
+![Exemplo 2](./assets/0008-ex2.png)
 
 Agora, **recorrendo aos números de Stirling de primeira espécie**:
 
-![Stirling](./imgs/0008-ex2final.png)
+![Stirling](./assets/0008-ex2final.png)
 
 O exercício 3 seria resolvido de uma maneira análoga a estes últimos dois, com solução $n(n+1)$.
 
 Abaixo segue outro exemplo importante, de um exercício tipo para testes feito pelo professor José.
 
-![Exercicio final](./imgs/0008-final1.png)
+![Exercicio final](./assets/0008-final1.png)
 
-![Exercicio final 2](./imgs/0008-final2.png)
+![Exercicio final 2](./assets/0008-final2.png)

@@ -19,7 +19,7 @@ Segundo o professor José Félix, a questão do teste sobre o calendário terá 
 
 ## Ciclo de Méton
 
-![Méton](./imgs/0014-meton.png)
+![Méton](./assets/0014-meton.png)
 
 O `Ciclo de Méton`, descrito em cima, é um ciclo de **19 anos** que simula o verdadeiro comportamento da Lua. Um ano pode ter 12 ou 13 ciclos lunares.  
 Cada mês/ciclo lunar começa e acaba com uma Lua Nova.
@@ -50,7 +50,7 @@ $$G = 1 + \lambda\%19$$
 
 ## Matriz Lunar
 
-![Matriz Lunar](./imgs/0014-matriz_lunar.png)
+![Matriz Lunar](./assets/0014-matriz_lunar.png)
 
 Na `Matriz Lunar` estão representados os dias de cada ano do `Ciclo de Méton` que são Lua Nova.  
 Por exemplo, 2 de fevereiro é Lua Nova no ano **XI** do `Ciclo de Méton`.
@@ -185,7 +185,7 @@ Uma propriedade interessante é que a soma da `Epacta`, de um ano $\lambda$ ,com
 - $44, \quad$ entre 21 e 44 de março (13 de abril)
 - $74, \quad$ entre 45 e 49 de março (18 de abril, última data possível para a Lua Cheia Pascal)
 
-![Tabela Lua R](./imgs/0014-tabela_R.png)
+![Tabela Lua R](./assets/0014-tabela_R.png)
 
 **NOTA:** As Luas Cheias são **13** dias depois da Lua Nova. Conseguimos obter todas as Luas Cheias, de cada `Número de Ouro`, através da [Tabela das Luas Novas](#matriz-lunar).
 
@@ -227,7 +227,7 @@ $$
 
 Agora que já sabemos a data da Lua Cheia Pascal, basta determinar quando é o primeiro domingo que vem depois desta. O número de dias que falta para domingo é determinado pelo número calêndrico de um dia e pelo número dominical do ano, nomeadamente, pela quantidade $N-C$.
 
-![Fluxograma](./imgs/0014-fluxJul.png)
+![Fluxograma](./assets/0014-fluxJul.png)
 
 :::details[Exemplo]
 
@@ -294,7 +294,7 @@ A Reforma Gregoriana trouxe novas regras com consequências no Cálculo da Pásc
 - Foram retirados 10 dias ao Calendário no ano 1582
 - A partir do ano 1600, de 100 em 100 anos deixou e haver ano bissexto, voltando a acontecer de 400 em 400 anos.
 - A partir de 1800, começou-se a tirar um dia à Lua de 300 em 300 anos, com um exceção no 8º dia a retirar, que tem um intervalo de 400 anos. (A primeira ocorrência não conta)
-  ![Tabela Sol Lua](./imgs/0014-luaSol.png)
+  ![Tabela Sol Lua](./assets/0014-luaSol.png)
 
 ### Epacta Gregoriana
 
@@ -426,7 +426,7 @@ Considera-se a `Epacta Final` como sendo a soma da `Epacta Gregoriana` com a `Co
 
 ### Exemplo - Páscoa Gregoriana
 
-![Fluxograma](./imgs/0014-fluxGreg.png)
+![Fluxograma](./assets/0014-fluxGreg.png)
 
 :::details[Exemplo]
 
@@ -486,5 +486,5 @@ P = R + N - C\\
 $$
 
 A Páscoa em 2222 será no dia `31 de março`.
-![Páscoa 2222](./imgs/0014-pascoa2222.png)
+![Páscoa 2222](./assets/0014-pascoa2222.png)
 :::
