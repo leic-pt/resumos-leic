@@ -67,14 +67,14 @@ Abaixo segue outro exemplo de raciocínio análogo, à exceção de que nos dão
 
 E se não nos dessem os primeiros termos?
 
-![Exemplo anterior mas sem os primeiros termos](./assets/s/0010-semtermos.png)
+![Exemplo anterior mas sem os primeiros termos](./assets/0010-semtermos.png)
 
 ### Exemplo 1 - Aumento populacional
 
-![Primeiro exemplo - Aumento populacional](./assets/s/0010-1exemplo.png)
+![Primeiro exemplo - Aumento populacional](./assets/0010-1exemplo.png)
 
-![Parte 2](./assets/s/s/0010-1exemplo_2.png)
+![Parte 2](./assets/0010-1exemplo_2.png)
 
-![Parte 3](./assets/s/0010-1exemplo_3.png)
+![Parte 3](./assets/0010-1exemplo_3.png)
 
 ![Parte 4](./assets/0010-1exemplo_4.png)

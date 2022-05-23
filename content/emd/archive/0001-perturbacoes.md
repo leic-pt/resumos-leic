@@ -54,7 +54,7 @@ Calculámos assim o valor do somatório, $S_{n} = 2^{n+1} -1$.
 
 ## Perturbação Indireta
 
-Por vezes, não é possível calcular o valor do somatório pois o método da perturbação direta é inconclusivo.
+Por vezes, não é possível calcular o valor do somatório pois o método da perturbação direta é inconclusivo.  
 Um exemplo deste caso é a seguinte soma:
 
 $$
@@ -82,7 +82,7 @@ $$
 
 :::
 
-Então como é que podemos resolver este problema?
+Então como é que podemos resolver este problema?  
 Se analisarmos com atenção o resultado anterior, podemos concluir que ao calcular o valor de $\displaystyle \sum^n_{k=0}k^2$,
 acabámos por conseguir calcular o valor de $\displaystyle \sum^n_{k=0}k$:
 
@@ -107,7 +107,7 @@ S'_{n+1} =\sum ^{n+1}_{k=0} k^{3} =0+\sum ^{n+1}_{k=1} k^{3} =\sum ^{n}_{k=0}( k
 $$
 
 Parece que vamos conseguir obter o valor de $S_n$ desta forma. Podemos também substituir o valor de $\displaystyle \sum ^{n}_{k=0} k$,
-que foi calculado acima.
+que foi calculado acima.  
 Igualando então as duas expressões, conseguimos obter o valor de $\displaystyle \sum ^{n}_{k=0} k^2$:
 
 $$
