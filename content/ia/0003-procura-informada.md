@@ -430,7 +430,7 @@ de uma solução para este problema (dada uma configuração inicial gerada alea
 vazio, podemos mover para lá $2$ peças; com o centro vazio, podemos mover para lá $4$
 peças, e com qualquer outra posição vazia podemos mover para lá $3$ peças (e a ramificação
 média acaba por ser à volta de $3$). Temos, portanto, que uma árvore de procura poderá
-ter, na pior das hipóteses, $b^d = 3^{22}$ estados: fazer uma procura exaustiva por
+ter, no caso médio, $b^d = 3^{22}$ estados: fazer uma procura exaustiva por
 todos eles seria relativamente desagradável, pelo que convém arranjarmos uma boa heurística
 que nos permita restringir de forma concisa certos ramos da árvore, evitando pesquisas
 desnecessárias.
