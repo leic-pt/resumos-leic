@@ -24,15 +24,15 @@ todo o espaço de procura sem qualquer indicação do quão longe se encontra do
 Ora, mas caso saibamos de antemão informações úteis sobre o objetivo, fará todo o sentido
 usá-las a nosso favor, por forma a conseguir (idealmente) procuras mais eficientes.
 É aqui que entram as estratégias de **procura informada**, abordagens que, de um modo geral,
-baseiam-se na [**procura melhor primeiro**](color:green), uma estratégia de procura que recorre a uma
-função de avaliação, $f(n)$, para escolher a ordem de expansão dos nós.
+se baseiam na [**procura melhor primeiro**](color:green), uma estratégia de procura que recorre a uma
+**função de avaliação**, $f(n)$, para escolher a ordem de expansão dos nós.
 
 A função de avaliação é modelada como uma estimativa do custo entre um nó, $n$, e o objetivo.
-Por norma, poderá ser constituída por algumas componentes principais (correspondendo à soma/composição/... destas):
+Por norma, poderá ser constituída por algumas componentes principais (correspondendo à soma/composição/etc. destas):
 
 - $g(n)$, o custo do caminho percorrido desde o estado inicial até $n$;
 - $h(n)$, uma [**estimativa**](color:green) do custo do melhor caminho desde $n$ até ao objetivo;
-- $h^*(n)$, o [**custo real**](color:orange) do melhor caminho desde $n$ até ao objetivo.
+- $h^*(n)$, o [**custo real**](color:orange) do melhor caminho desde $n$ até ao objetivo, isto é, a estimativa exata.
 
 Dizemos que $h(n)$ é uma **função heurística**.
 
@@ -62,7 +62,7 @@ na ideia de **função de avaliação**, que mapeia cada nó a uma estimativa: o
 do objetivo mais próximo. Seguindo esta abordagem, vamos sempre tentar expandir o nó com o menor
 valor de $f(n)$ na fronteira, já que idealmente será esse nó que nos aproximará de
 forma ótima do objetivo (com algumas exceções, que vamos ver mais à frente). A fronteira em si
-tem os nós ordenadados de forma crescente (através de uma _min priority queue_) segundo a respetiva
+tem os nós ordenados de forma crescente (através de uma _min priority queue_) segundo a respetiva
 função de avaliação.
 
 Se pensarmos bem, acaba por ter uma lógica igual à da [procura custo uniforme](/ia/procura-cega#procura-de-custo-uniforme),
@@ -86,7 +86,7 @@ Se na procura custo uniforme tínhamos $f(n) = g(n)$, isto é, a função de ava
 focava-se exclusivamente no caminho percorrido para trás, a procura gananciosa olha
 precisamente para o oposto: para o caminho que falta percorrer, sem se preocupar com o
 caminho percorrido até agora (procurando, portanto, expandir sempre o nó que aparenta estar
-mais próximo do objetivo). Dizemos, assim, que na _greedy search_
+mais próximo do objetivo). Dizemos, assim, que na _greedy search_ se tem
 
 $$
 f(n) = h(n).
@@ -210,7 +210,7 @@ pesquisar o resto da árvore, ficando sem passar por $G$.
 
 ### Quando é que uma procura pode ser ótima?
 
-Parecia estar tudo a correr bem, mas voltámos a apercebermo-nos que secalhar ter uma procura
+Parecia estar tudo a correr bem, mas voltámos a apercebermo-nos que se calhar ter uma procura
 ótima não é assim tão fácil. Há, contudo, uma maneira de garantir que $A^*$ é ótima: recorrer
 a **heurísticas admissíveis**.
 
@@ -394,7 +394,7 @@ e seguir em frente em Pitesti:
 
 ![Exemplo - RBFS Step 3](imgs/0003-rbfs-fase-3.svg#dark=3)
 
-Note-se como desta vez o caminho alternativo guardado é Tamisoara - conseguimos recursivamente
+Note-se como desta vez o caminho alternativo guardado é Timisoara - conseguimos recursivamente
 voltar lá, ao **melhor caminho alternativo por visitar**, se for preciso. O próximo
 nó a expandir seria Bucareste ($418$), que passa o teste objetivo, pelo que podemos
 interromper a procura - chegámos ao caminho ótimo!
@@ -403,7 +403,7 @@ interromper a procura - chegámos ao caminho ótimo!
 
 No exemplo acima podemos notar que ocorrem duas **mudanças de opinião** por parte do
 algoritmo. Estas mudanças de opinião, apesar de fulcrais para o funcionamento do algoritmo,
-levam a uma regeneração de nós que rapidamente pode tornar-se desagradável: utilizando apenas
+levam a uma regeneração de nós que rapidamente se pode tornar desagradável: utilizando apenas
 espaço linear, o algoritmo acaba por ter de "esquecer" caminhos já expandidos, o que leva a que
 tenhamos que expandir nós repetidamente, acabando por afetar a complexidade temporal
 da procura. É, contudo, **completa** (para caminhos com custo crescente) e **ótima**
@@ -424,7 +424,7 @@ passa por movê-las horizontal ou verticalmente até atingir a configuração-ob
 ![8 Puzzle - Exemplo](imgs/0003-8-puzzle-exemplo.svg#dark=3)
 _Custo Ótimo = 26 passos_
 
-Temos, como propriedades calculadas _à-priori_ do problema, que a profundidade média
+Temos, como propriedades calculadas _à priori_ do problema, que a profundidade média
 de uma solução para este problema (dada uma configuração inicial gerada aleatoriamente)
 é de $22$ passos. Mais ainda, o fator de ramificação, $b$, é de cerca de $3$: com o canto
 vazio, podemos mover para lá $2$ peças; com o centro vazio, podemos mover para lá $4$
