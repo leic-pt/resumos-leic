@@ -1,5 +1,5 @@
 ---
-title: Equações de Diferenças Finitas
+title: Equações de diferenças finitas
 description: Problema da torre de Hanói;
 path: /emd/equacoes-diferencas-finitas
 type: content
@@ -61,20 +61,20 @@ $$H_n=\frac {-1}{1-z}+ \frac{1}{1-2z}\longrightarrow h_n= -1 + 2^n$$
 
 Abaixo segue outro exemplo de raciocínio análogo, à exceção de que nos dão os dois primeiros termos da sucessão $u_n$:
 
-![Exercício de raciocínio análogo ao anterior](./assets/0010-analogo.png)
+![Exercício de raciocínio análogo ao anterior](./imgs/0010-analogo.png)
 
-![Parte 2](./assets/0010-analogo_2.png)
+![Parte 2](./imgs/0010-analogo_2.png)
 
 E se não nos dessem os primeiros termos?
 
-![Exemplo anterior mas sem os primeiros termos](./assets/0010-semtermos.png)
+![Exemplo anterior mas sem os primeiros termos](./imgs/0010-semtermos.png)
 
 ### Exemplo 1 - Aumento populacional
 
-![Primeiro exemplo - Aumento populacional](./assets/0010-1exemplo.png)
+![Primeiro exemplo - Aumento populacional](./imgs/0010-1exemplo.png)
 
-![Parte 2](./assets/0010-1exemplo_2.png)
+![Parte 2](./imgs/0010-1exemplo_2.png)
 
-![Parte 3](./assets/0010-1exemplo_3.png)
+![Parte 3](./imgs/0010-1exemplo_3.png)
 
-![Parte 4](./assets/0010-1exemplo_4.png)
+![Parte 4](./imgs/0010-1exemplo_4.png)

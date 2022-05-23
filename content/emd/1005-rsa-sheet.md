@@ -27,7 +27,7 @@ $$a^{p-1}\equiv_p 1$$
 
 ### Teorema 3
 
-Para todos os primos $p$ e $q$ distintos, para todo o $e \in \N$, tal que $e \frown (p-1)(q-1) = 1$, então
+Para todos os primos $p$ e $q$ distintos, para todo o $e \in \N$, tal que $e \frown (p-1)(q-1) = 1$, então  
 Para todo o $M \in \N$, tal que $0 \leq M < pq = N$.
 
 $$
@@ -44,12 +44,12 @@ Comunica-se a `Chave Pública` $(N,e)$ e guarda-se a `Chave Privada` $(N,d)$, on
 
 A `Chave Pública` servirá para encriptar a mensagem e a `Chave Privada` para a desencriptar.
 
-Com os 2 primos já escolhidos: $13$ e $5$
+Com os 2 primos já escolhidos: $13$ e $5$  
 O expoente $(e): \quad 11$
 
 $$N = 13\times5 = 65$$
 
-Falta determinar o inverso de $e$, módulo $(13-1)(5-1) = 48 \quad (d)$
+Falta determinar o inverso de $e$, módulo $(13-1)(5-1) = 48 \quad (d)$  
 Queremos resolver a `Eq. Diofantina`:
 
 $$
@@ -74,4 +74,4 @@ A `Chave Pública` é $(65,11)$
 
 A `Chave Privada` é $(65,35)$
 
-![EZHACKS](./assets/1005-hack.jpg#dark=1)
+![EZHACKS](./imgs/1005-hack.jpg#dark=1)

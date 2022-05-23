@@ -26,7 +26,7 @@ Mostre que, se há mais livros numa biblioteca do que páginas em qualquer dos l
 
 ---
 
-Imaginemos que os livros estão vazios, e temos de associar a cada livro um número de páginas, de acordo com as condições do enunciado.
+Imaginemos que os livros estão vazios, e temos de associar a cada livro um número de páginas, de acordo com as condições do enunciado.  
 Seja $P$ o conjunto dos vários números de páginas possíveis, ordenados de forma crescente.
 
 $$P=\{p_1,p_2,\dots,p_k\}$$
@@ -51,7 +51,7 @@ $a_k + a_{k+1} + a_{k+2} + \dots + a_{k+m}$ é divisível por $n$.
 
 **Importante:**
 
-- Sejam $j_1 > j_2$ dois números tais que $j_1\%n = j_2\%n$, então $(j_1 - j_2)\%n = 0$.
+- Sejam $j_1 > j_2$ dois números tais que $j_1\%n = j_2\%n$, então $(j_1 - j_2)\%n = 0$.  
   (Também é válido para $j_1\leq j_2$, mas nesse caso $j_1-j_2\leq0$ e para este exercício dá jeito a solução positiva por causa dos números naturais)
 - Este exercício só faz sentido se considerarmos números naturais a partir de $1$
 
@@ -64,7 +64,7 @@ s_1 = a_{\lambda} + a_{\lambda+1}\\
 s_n = a_{\lambda} + a_{\lambda+1} + \dots + a_{\lambda+n}
 $$
 
-Como os termos da sucessão pertencem todos a $\N_1$, para $j>i$ tem-se $s_j > s_i$, logo de $s_0$ a $s_n$ teremos $n+1$ valores diferentes.
+Como os termos da sucessão pertencem todos a $\N_1$, para $j>i$ tem-se $s_j > s_i$, logo de $s_0$ a $s_n$ teremos $n+1$ valores diferentes.  
 Se fizermos o resto da divisão inteira por $n$ para todos os valores da soma, como esse resto tem de pertencer a $\{0,\dots,n-1\}$ ($n$ valores possíveis) e temos $n+1$ somas **diferentes**, pela [Primeira Forma do Princípio de Pombal](#primeira-forma-do-principio-do-pombal), haverá pelo menos duas somas com o mesmo resto.
 
 Se têm o mesmo resto, pela Nota **Importante** do início da prova, a sua diferença será divisível por $n$.
@@ -114,8 +114,8 @@ $$
 \operatorname{f} : X \rightarrow Y
 $$
 
-Como $\#X>\#Y$, existirão $2$ números de aluno iguais no conjunto $\{n_1,n_1+1,\dots,n_{151},n_{151}+1\}$.
-Como dois alunos não podem ter o mesmo número $(n_i \neq n_j)$ e portanto também é verdade que $n_i+1 \neq n_j+1$, tem de haver pelo menos um caso onde $n_j = n_i+1$, ou seja $n_j$ é o número a seguir a $n_i$.
+Como $\#X>\#Y$, existirão $2$ números de aluno iguais no conjunto $\{n_1,n_1+1,\dots,n_{151},n_{151}+1\}$.  
+Como dois alunos não podem ter o mesmo número $(n_i \neq n_j)$ e portanto também é verdade que $n_i+1 \neq n_j+1$, tem de haver pelo menos um caso onde $n_j = n_i+1$, ou seja $n_j$ é o número a seguir a $n_i$.  
 Conclui-se que pelo menos dois alunos têm números consecutivos.
 
 QED
@@ -130,12 +130,12 @@ Se $\operatorname{f}$ é uma aplicação de assinatura $\operatorname{f} : X \ri
 
 Seja $\#X = 5$ e $\#Y = 2$, pela [Terceira Forma do Princípio de Pombal](#terceira-forma-do-principio-do-pombal) existem pelo menos $\lceil\frac{5}{2}\rceil=3$ valores $a_1, a_2, a_3$ de $X$ tais que $\operatorname{f} (a_1) = \operatorname{f} (a_2) = \operatorname{f} (a_3)$.
 
-![Pombal 3](./assets/0019-3Pombal.png)
+![Pombal 3](./imgs/0019-3Pombal.png)
 
 :::
 
 :::tip[Nota]
-$k = \lceil\frac{a}{b}\rceil$ significa que $k$ é a divisão de $a$ por $b$ arredondada por excesso.
+$k = \lceil\frac{a}{b}\rceil$ significa que $k$ é a divisão de $a$ por $b$ arredondada por excesso.  
 Exemplos
 
 $$
@@ -160,24 +160,24 @@ Seja $X= \{t_1,\dots,t_{20}\}$ o conjunto de _T-SHIRTS_ e $Y=\{c_1,c_2,c_3\}$ o 
 
 **(a)-4**
 
-Como cada cor está associada a pelo menos $4$ _T-SHIRTS_ (pelo enunciado), podemos aplicar diretamente a [Terceira Forma do Princípio de Pombal](#terceira-forma-do-principio-do-pombal).
-Sendo $k$ o número mínimo de _T_SHIRTS_ a retirar, como existem $3$ cores possíveis e queremos pelo menos $4$ _T-SHIRTS_ de cores iguais, pela [Terceira Forma do Princípio de Pombal](#terceira-forma-do-principio-do-pombal) $4 = \lceil\frac{k}{3}\rceil$, ou seja, $k=10$.
+Como cada cor está associada a pelo menos $4$ _T-SHIRTS_ (pelo enunciado), podemos aplicar diretamente a [Terceira Forma do Princípio de Pombal](#terceira-forma-do-principio-do-pombal).  
+Sendo $k$ o número mínimo de _T_SHIRTS_ a retirar, como existem $3$ cores possíveis e queremos pelo menos $4$ _T-SHIRTS_ de cores iguais, pela [Terceira Forma do Princípio de Pombal](#terceira-forma-do-principio-do-pombal) $4 = \lceil\frac{k}{3}\rceil$, ou seja, $k=10$.  
 (Para $k=11$ e $k=12$ a equação também era válida, mas queremos o menor $k$ possível)
 
 **(b)-5**
 
-Neste caso não podemos aplicar diretamente a [Terceira Forma do Princípio de Pombal](#terceira-forma-do-principio-do-pombal), pois o número de _T-SHIRTS_ brancas é $4$, o que significa que é impossível retirar $5$ _T-SHIRTS_ brancas do cesto.
+Neste caso não podemos aplicar diretamente a [Terceira Forma do Princípio de Pombal](#terceira-forma-do-principio-do-pombal), pois o número de _T-SHIRTS_ brancas é $4$, o que significa que é impossível retirar $5$ _T-SHIRTS_ brancas do cesto.  
 Para ter a certeza que retirams $5$ _T-SHIRTS_ iguais do cesto é necessário retirar todas as $4$ _T-SHIRTS_ brancas.
 
-Depois de retiradas as $4$ brancas já se pode aplicar diretamente a [Terceira Forma do Princípio de Pombal](#terceira-forma-do-principio-do-pombal).
-Das $16$ restantes queremos retirar o mínimo de _T-SHIRTS_ $k$ tal que pelo menos $5$ têm a mesma cor. Como só existem 2 cores no cesto $5 = \lceil\frac{k}{2}\rceil$, $k=9$.
+Depois de retiradas as $4$ brancas já se pode aplicar diretamente a [Terceira Forma do Princípio de Pombal](#terceira-forma-do-principio-do-pombal).  
+Das $16$ restantes queremos retirar o mínimo de _T-SHIRTS_ $k$ tal que pelo menos $5$ têm a mesma cor. Como só existem 2 cores no cesto $5 = \lceil\frac{k}{2}\rceil$, $k=9$.  
 (**ATENÇÃO:** $k$ tem de ser menor que o número de _T-SHIRTS_ do cesto, neste caso $16$. Se o resultado for maior ou houve um erro de contas/raciocínio ou o exercício é impossível).
 
 Resposta será $k+4=13$
 
-Para quem ainda não percebeu a razão pela qual tiramos as $4$ _T-SHIRTS_ brancas:
-Tentem pensar em casos onde se consegue retirar no máximo $5$ _T-SHIRTS_ iguais, sem retirar as $4$ brancas.
-Por exemplo, retirar logo $5$ azuis/verdes ou $5$ azuis/verdes, $4$ verdes/azuis e $3$ brancas (total $12$). Em todos esses casos conseguimos pensar em outros onde retiramos o mesmo número de _T-SHIRTS_ sem conseguir retirar as $5$ iguais.
+Para quem ainda não percebeu a razão pela qual tiramos as $4$ _T-SHIRTS_ brancas:  
+Tentem pensar em casos onde se consegue retirar no máximo $5$ _T-SHIRTS_ iguais, sem retirar as $4$ brancas.  
+Por exemplo, retirar logo $5$ azuis/verdes ou $5$ azuis/verdes, $4$ verdes/azuis e $3$ brancas (total $12$). Em todos esses casos conseguimos pensar em outros onde retiramos o mesmo número de _T-SHIRTS_ sem conseguir retirar as $5$ iguais.  
 Para termos a certeza que em $\lambda$ _T-SHIRTS_ temos $5$ iguais significa que quando temos $\lambda-1$ _T-SHIRTS_ a próxima será a $5$ª igual para uma dada cor. Sem retirar todas as $4$ brancas, a $\lambda$-ésima _T-SHIRT_ pode ser uma branca, que nunca será a $5$ª igual.
 
 **AVISO:** Existem mais alíneas nos slides para quem tiver curiosidade.
