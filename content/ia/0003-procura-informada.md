@@ -44,7 +44,7 @@ medida que nos aproximamos de um objetivo.
 
 Note-se que acima foi utilizada a palavra [**estimativa**](color:green): funções heurísticas
 não são necessariamente representações fiéis do custo real de um nó ao objetivo, mas sim
-aproximações que fazemos, [idealmente por baixo](/ia/nao-me-posso-esquecer-de-linkar-isto) do mesmo.
+aproximações que fazemos, [idealmente por baixo](/ia/procura-informada#quando-é-que-uma-procura-pode-ser-ótima) do mesmo.
 
 **Se estivermos num nó objetivo**, a função heurística deve ser nula ($h(n) = 0$, portanto).
 
