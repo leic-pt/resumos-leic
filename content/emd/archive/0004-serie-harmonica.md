@@ -118,7 +118,7 @@ $$\forall_{n \in \mathbb N} \forall_{i \in \mathbb N} \left( ( 0 < i \leq n) \im
 
 Gráfico de $\frac{1}{x}$:
 
-![Integral com 1/x](./assets/0004-integral.png#dark=1)
+![Integral com 1/x](../assets/0004-integral.png#dark=1)
 
 Sendo $H_n = \sum_{k=1}^{n}\frac{1}{k}$, tem-se:
 

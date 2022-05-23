@@ -10,7 +10,7 @@ type: archive
 
 Representação gráfica de um autómato que, numa palavra de $0$'s e $1$'s finita, verifica se o número de $0$'s é par e $1$'s é ímpar.
 
-![Auto Inic](./assets/0026-autoInit.png)
+![Auto Inic](../assets/0026-autoInit.png)
 
 Onde $p$ é par, $i$ ímpar e primeiro referimo-nos aos $0$'s e depois aos $1$'s.  
 "Ei" aponta para o estado inicial.
@@ -31,7 +31,7 @@ Um autómato finito determinístico é um quíntuplo $D = (Q,\Sigma,\delta,q_0,F
 
 Pegando no exemplo do início onde queríamos verificar se, numa palavra de $0$'s e $1$'s, o número de $0$'s é par e $1$'s é ímpar.
 
-![Auto Inic](./assets/0026-autoInit.png)
+![Auto Inic](../assets/0026-autoInit.png)
 
 $$
 D = (Q,\Sigma,\delta,q_0,F)\\
@@ -60,7 +60,7 @@ Relembrar que queríamos ver se a palavra tinha um número par de $0$'s e ímpar
 
 Queremos verificar se uma palavra consituída por elementos de $\Sigma=\{x,y,z\}$ acaba em $yz$
 
-![Auto 2](./assets/0026-auto2.png)
+![Auto 2](../assets/0026-auto2.png)
 
 $$
 D = (Q,\Sigma,\delta,q_0,F)\\
@@ -86,7 +86,7 @@ $$
 Queremos um AFD que receba palavras formadas por $\Sigma=\{a,b,c\}$ e que verifique se começa e acaba na mesma letra.  
 Neste exemplo, mostra-se apenas a representação gráfica.
 
-![Auto 3](./assets/0026.auto3.png)
+![Auto 3](../assets/0026.auto3.png)
 
 $F = \{q_1,q_2,q_3\}$
 
@@ -126,7 +126,7 @@ Há casos onde isto não acontece, e aí estamos perante um `Autómato Não Comp
 
 Queremos um autómato que recebe uma palavra de $0$'s e $1$'s e verifica se a palavra é consituída primeiro por um número par de $0$'s e depois por um número par de $1$'s. Por exemplo, $00111$ é aceite, mas $01011$ não é.
 
-![Auto ANC](./assets/0026-autoNC1.png)
+![Auto ANC](../assets/0026-autoNC1.png)
 
 Seja $q_0$ o estado inicial e $F=\{q_1\}$
 
@@ -135,7 +135,7 @@ Repare-se que não está especificado o que acontece se estivermos em $q_1$ e re
 Não é sem querer que isso acontece apenas nesses casos, de facto nessas situações a palavra seria logo "não aceite".  
 Nos `ANC`, omitimos um estado onde vai parar tudo o que não está especificado, o `Estado de rejeição`.
 
-![Auto ANC Comp](./assets/0026-autoNC1v2.png)
+![Auto ANC Comp](../assets/0026-autoNC1v2.png)
 
 :::tip[NOTA]
 
@@ -169,7 +169,7 @@ Um `AFND` é um quíntuplo $N=(Q,\Sigma,\delta,q_0,F)$, onde:
 
 AFND para calcular se uma palavra constituída por $0$'s e $1$'s tem um $1$ na penúltima posição.
 
-![Auto ND 1](./assets/0026-autoND1.png)
+![Auto ND 1](../assets/0026-autoND1.png)
 
 Este autómato não é [completo](#automato-completo)
 
@@ -232,7 +232,7 @@ Qualquer que seja o `AFND` $D$, existe um `AFD` $N$ que lhe é equivalente, ou s
 
 Temos o seguinte `AFND`
 
-![Auto coisa](./assets/0026-autoNdD1.png)
+![Auto coisa](../assets/0026-autoNdD1.png)
 
 Repare-se que temos uma "transição $\epsilon$", ou seja, pode acontecer do nada. Deste modo, o estado inicial tanto pode ser $q_0$ ou $q_2$.
 
@@ -248,7 +248,7 @@ Como fazemos para encontrar o `AFD`?
 
 Segue-se a representação final, com um pequeno exemplo de uma parte da execução abaixo
 
-![Auto Coiso 2](./assets/0026-autoNdD2.png)
+![Auto Coiso 2](../assets/0026-autoNdD2.png)
 
 1. Começamos nos estado que engloba os estados iniciais $q_0$ e $q_2$
 2. Quando estamos em $q_0$ ou $q_2$ e recebemos $b$, vamos sempre para $q_1$. Se recebermos $a$, tanto podemos ir para $q_0$ ou para $q_1$, **por causa** da transição $\epsilon$.
@@ -295,14 +295,14 @@ $$
 
 Primeira faz-se o autómato da soma da direita para esquerda
 
-![Troca 11](./assets/0026-troca11.png)
+![Troca 11](../assets/0026-troca11.png)
 
 Os estados $0$ e $1$ simbolizam os restos.  
 $q_0 = 0$ e $F = \{0\}$ ($0$ é o estado inicila e o de aceitação).
 
 Agora trocamos os estados de aceitação e inicial (como é o mesmo, não trocamos), por isso apenas se trocam as transições entre estados.
 
-![Troca 12](./assets/0026-troca12.png)
+![Troca 12](../assets/0026-troca12.png)
 
 Como é um `AFD` já é o resultado final
 
@@ -335,16 +335,16 @@ $$
 
 Primeira faz-se o autómato da `Divisão por 2` da direita para esquerda.
 
-![Troca 21](./assets/0026-troca21.png)
+![Troca 21](../assets/0026-troca21.png)
 
 Agora, para obtermos a operação da esquerda para a direita fazemos as trocas necessárias.
 
-![Troca 22](./assets/0026-troca22.png)
+![Troca 22](../assets/0026-troca22.png)
 
 Agora temos que $q_0=0$ e $F=\{q_1\}$.  
 Temos um `AFND`. Precisamos de passar para um `AFD`.
 
-![Troca 23](./assets/0026-troca23.png)
+![Troca 23](../assets/0026-troca23.png)
 
 Neste último autómato está representado o `estado de rejeição` a [**vermelho**](color:red)
 
@@ -360,7 +360,7 @@ O **complementar** de uma Linguagem Regular (LR), a **interseção** de duas LR 
 
 O seguinte autómato serve para encontrar palavras formadas por $x,y,z$ que acabem em $yz$, onde $F=\{<yz>\}$.
 
-![Auto 2](./assets/0026-auto2.png)
+![Auto 2](../assets/0026-auto2.png)
 
 A única diferença entre este e o seu complementar (palavras que não terminam em $yz$) é o $F$, que passa a $F=\{<Ei>,<y>\}$
 :::
@@ -379,7 +379,7 @@ Com este Teorema conseguimos construir autómatos maiores/mais complexos, a part
 
 Sejam $A_1$ e $A_2$ dois autómatos diferentes, cuja representação, omitindo as transições e com estados de aceitação duplamente identificados, é a seguinte:
 
-![União 1](./assets/0026-uniao1.png)
+![União 1](../assets/0026-uniao1.png)
 
 Seja $L_1 = L(A_1)$ e $L_2 = L(A_2)$, (**relembrar** que $L(B)$ é a [lingaugem de aceitação](#linguagem-reconhecida) do autómato $B$)
 
@@ -387,7 +387,7 @@ $$L_1 \cup L_2 = L(?)$$
 
 Para representar o autómato de `linguagem reconehcida` $L_1 \cup L_2$ basta adicionar um novo estado inicial que se liga aos estados inicias de $A_1$ e $A_2$ por transições $\epsilon$.
 
-![União 2](./assets/0026-uniao2.png)
+![União 2](../assets/0026-uniao2.png)
 
 Esta última representação é de um `AFND`, para passar para `AFD` é só aplicar o [algoritmo](#passar-de-afnd-para-afd).
 
@@ -397,7 +397,7 @@ Esta última representação é de um `AFND`, para passar para `AFD` é só apli
 
 Sejam $A_1$ e $A_2$ dois autómatos diferentes, cuja representação, omitindo as transições e com estados de aceitação duplamente identificados, é a seguinte:
 
-![União 1](./assets/0026-uniao1.png)
+![União 1](../assets/0026-uniao1.png)
 
 Seja $L_1 = L(A_1)$ e $L_2 = L(A_2)$,
 
@@ -423,7 +423,7 @@ O autómato final aceita apenas uma sequência de $0$'s à direita e $1$'s à es
 Para representar o autómato de `linguagem reconehcida` $L_1 \circ L_2$ basta adicionar transições $\epsilon$, que ligam os estados de aceitação de $A_1$ ao estado inicial de $A_2$.  
 O estado inicial é o estado inicial de $A_1$ e os de aceitação são os de $A_2$.
 
-![Concat 1](./assets/0026-concat1.png)
+![Concat 1](../assets/0026-concat1.png)
 
 Esta representação é de um `AFND`, para passar para `AFD` é só aplicar o [algoritmo](#passar-de-afnd-para-afd).
 
@@ -433,7 +433,7 @@ Esta representação é de um `AFND`, para passar para `AFD` é só aplicar o [a
 
 Seja $A_1$ um autómato, cuja representação, omitindo as transições e com estados de aceitação duplamente identificados, é a seguinte:
 
-![Star 1](./assets/0026-star2.png)
+![Star 1](../assets/0026-star2.png)
 
 Seja $L_1 = L(A_1)$,
 
@@ -446,7 +446,7 @@ $$
 
 Para representar o autómato de `linguagem reconehcida` $L_1^*$ adicionamos um novo estado inicial, que também é de aceitação (para aceitar a palavra nula) e transições $\epsilon$ como representado abaixo.
 
-![Star 2](./assets/0026-star1.png)
+![Star 2](../assets/0026-star1.png)
 
 :::tip[NOTA]
 
