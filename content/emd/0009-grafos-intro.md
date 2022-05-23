@@ -19,7 +19,7 @@ Um grafo é um par $g = (V,R)$, onde:
 
 Por exemplo
 
-![Grafo 1](./imgs/0018-grafo1.png)
+![Grafo 1](./assets/0018-grafo1.png)
 
 $$
 V = \{V_1,V_2,V_3,V_4\}\\
@@ -137,7 +137,7 @@ Um grafo diz-se $k$-regular $(k \in N)$ se os seus vértices têm grau $k$.
 
 :::details[Exemplo]
 
-![Grafo 2](./imgs/0018-grafo7.png)
+![Grafo 2](./assets/0018-grafo7.png)
 :::
 
 ---
@@ -148,7 +148,7 @@ Um grafo diz-se completo quando cada par de vértices constitui uma aresta (est�
 
 :::details[Exemplo]
 
-![Grafo 3](./imgs/0018-grafo2.png)
+![Grafo 3](./assets/0018-grafo2.png)
 :::
 
 :::tip[NOTA]
@@ -168,7 +168,7 @@ Um grafo diz-se completo quando cada par de vértices constitui uma aresta (est�
 **Em suma**, uma `Rede` é um grafo onde as arestas têm valores reais associados.
 
 :::details[Exemplo]
-![Grafo 4](./imgs/0018-grafo3.png)
+![Grafo 4](./assets/0018-grafo3.png)
 :::
 
 ---
@@ -179,7 +179,7 @@ Um grafo diz-se completo quando cada par de vértices constitui uma aresta (est�
 Pode-se representar um multigrafo substituindo cada aresta por $n$ arestas, onde $n$ é o valor associado. (Com o exemplo fica claro)
 
 :::details[Exemplo]
-![Grafo 5](./imgs/0018-grafo4.png)
+![Grafo 5](./assets/0018-grafo4.png)
 :::
 
 :::tip[NOTA]
@@ -211,7 +211,7 @@ Num grafo $g=(V,E)$ é uma sequência alternada de vértices e arestas $P = v_0a
 Dois vértices $u$ e $v$ de um grafo $g = (V,E)$ dizem-se `conectados` se forem o mesmo vértice ou se existir um caminho onde as extremidades são $u$ e $v$
 
 :::details[Exemplo]
-![Grafo 6](./imgs/0018-grafo5.png)
+![Grafo 6](./assets/0018-grafo5.png)
 $V_1$ e $V_2$ são `vértices conectados`.  
 O caminho [vermelho](color:red) é um exemplo de caminho que prova esse facto.
 :::
@@ -236,7 +236,7 @@ Um grafo é `subgrafo` de si mesmo
 $h$ é uma `componente` de um grafo $g$, se $h$ for um subgrafo [conexo](#grafo-conexo) de $g$ e **não for** [subgrafo](#subgrafo) de nenhum outro subgrafo conexo de $g$.
 
 :::details[Exemplo]
-![Grafo 7](./imgs/0018-grafo6.png)
+![Grafo 7](./assets/0018-grafo6.png)
 
 $h$ é uma componente do grafo $g$
 :::
@@ -261,7 +261,7 @@ A Região "Exterior" também conta
 
 :::details[Exemplo]
 
-![Grafo Teorema 3](./imgs/0018-teorema3.png)
+![Grafo Teorema 3](./assets/0018-teorema3.png)
 
 Sejam $A,B,C$ e $D$ as regiões, a igualdade confirma-se
 
@@ -277,7 +277,7 @@ Aresta de um grafo, que, se for removida, aumenta o número de componentes.
 
 :::details[Exemplo]
 
-![Grafo Ponte](./imgs/0018-ponte.png)
+![Grafo Ponte](./assets/0018-ponte.png)
 
 A Aresta Verde é uma `Ponte`.
 
@@ -356,7 +356,7 @@ QED
 
 :::details[Exemplo Grafo Esquelético]
 
-![Esquelético](./imgs/0018-esqueletico.png)
+![Esquelético](./assets/0018-esqueletico.png)
 
 :::
 
