@@ -186,7 +186,7 @@ A procura $A^*$ que, partindo de Arad procura o caminho mais barato até Bucares
 uma árvore de procura como a seguinte:
 
 Note-se que os valores indicados ao lado de cada estado na árvore correspondem a $f$, sendo
-a soma de $g$ (o caminho até agora percorrido) e $f$ (a estimativa do caminho por percorrer).
+a soma de $g$ (o caminho até agora percorrido) e $h$ (a estimativa do caminho por percorrer).
 
 ![Árvore de Procura Procura $A^*$ Arad-Bucareste](imgs/0003-a-estrela-arad-bucareste.svg#dark=3)
 
