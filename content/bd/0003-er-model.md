@@ -22,7 +22,7 @@ type: content
 
 O [Modelo Entidade-Associação](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model)
 permite-nos exprimir as necessidades do domínio de uma aplicação.
-Ao construir um Modelo E-A, conseguimos mais tarde determinar que tabelas e
+Ao construir um Modelo E-A, conseguimos, mais tarde, determinar de que tabelas e
 colunas necessitamos na nossa base de dados.
 
 Com este modelo conseguimos exprimir:
@@ -35,26 +35,26 @@ Com este modelo conseguimos exprimir:
 - Agregações
 - Generalizações/Especializações
 
-Por vezes o modelo não é suficiente para representar todos os requisitos da nossa
-aplicação. Podemos assim recorrer também a [**Restrições de Integridade**](color:yellow)
-(_Integrity Contraints_) quando necessário.
+Por vezes, o modelo não é suficiente para representar todos os requisitos da nossa
+aplicação. Podemos, assim, recorrer também a [**Restrições de Integridade**](color:yellow)
+(_Integrity Contraints_), quando necessário.
 
 ## Entidades e Atributos
 
 Uma [**entidade**](color:orange) pode conter vários [**atributos**](color:green),
 sendo que alguns desses atributos podem ser a sua chave primária.  
-Dizemos que os atributos que contituem a chave primária são os atributos
+Dizemos que os atributos que constituem a chave primária são os atributos
 que **caracterizam** a entidade.
 
-Exemplos de entidades são "Pessoa", "Produto", "Compra", etc.  
-Exemplos de atributos, neste caso de uma "Pessoa", são "número cartão de cidadão",
-"nome", "sexo", "data de nascimento", etc.
+Exemplos de entidades são _Pessoa_, _Produto_, _Compra_, etc.  
+Exemplos de atributos, no caso da entidade _Pessoa_, são _número do cartão de cidadão_,
+_nome_, _sexo_, _data de nascimento_, etc.
 
 ![Exemplo de Entidade (Pessoa) no Modelo E-A](./assets/0003-er-entity.svg#dark=3)
 
 As [**entidades**](color:orange) são representadas por um retângulo, enquanto que
 os [**atributos**](color:green) são representados por uma elipse.
-Os atributos que são chave primária representam-se a sublinhado.
+Os atributos que são chave primária distinguem-se dos restantes pelo sublinhado.
 
 [**Pelo menos**](color:red) um atributo tem de ser uma chave primária.
 
@@ -63,7 +63,7 @@ Os atributos que são chave primária representam-se a sublinhado.
 Uma associação entre **duas ou mais** entidades representa a relação entre
 elas.
 
-Como exemplo simples, podemos pensar que uma "Compra" contém "Produtos", pelo
+Como exemplo simples, podemos pensar que uma _Compra_ contém _Produtos_, pelo
 que estão relacionados.  
 Podemos representar esta associação com a seguinte notação:
 
@@ -72,16 +72,16 @@ Podemos representar esta associação com a seguinte notação:
 As associações têm normalmente um nome, único em todo o diagrama, que normalmente
 é um verbo.
 
-As associações são adirecionais, mas podemos utilizar os símbolos `>` e `<` para
+Para além disso, não têm direção, mas podemos utilizar os símbolos `>` e `<` para
 desambiguar alguns casos.
 
 Algumas associações podem também conter atributos. No entanto, é importante ter em
-conta que se tivermos muitos atributos numa associação, pode valer a pena criar
+conta que se tivermos muitos atributos numa associação, pode justificar-se a criação de
 uma nova entidade.
 
-Tomemos um cenário em que temos uma relação Fornecedor-Loja, em que existe um
+Tomemos um cenário em que temos uma relação _Fornecedor_-_Loja_ e em que existe um
 número máximo de produtos mensais que podem ser encomendados pela loja ao fornecedor.
-A associação entre a entidade Fornecedor e a entidade Loja tem assim um atributo:
+A associação entre a entidade _Fornecedor_ e a entidade _Loja_ tem assim um atributo:
 o número máximo de produtos mensais.  
 Representamos uma associação com atributos das seguinte forma:
 
@@ -91,7 +91,7 @@ Representamos uma associação com atributos das seguinte forma:
 
 Nada nos impede de criar associações entre três ou mais entidades.
 Atenção que estas podem, por vezes, ser pouco explícitas. Alternativamente, podemos
-criar uma [agregação](#agregações), que, além de mais mais explícita, dá-nos maior
+criar uma [agregação](#agregações), que, para além de ser mais explícita, dá-nos maior
 flexibilidade a definir [restrições](#restrições).
 
 Voltando ao exemplo da _Compra_ e do _Produto_, tomemos outra entidade, _Cliente_,
@@ -135,8 +135,8 @@ Podemos aplicar ambas as restrições simultaneamente.
 Membro -> (Sócio, Não Sócio) | Gestor | (Regular, Não Regular)
 Sócio -> (Sócio Bronze, Sócio Silver, Sócio Gold)
 
-Por vezes duas entidades diferem por poucos ou até nenhum atributo. Quando isto
-acontece, podemos estar num caso em que podemos generalizar/especializar uma entidade noutras.
+Por vezes, duas entidades diferem por poucos ou até nenhum atributo. Quando isto
+acontece, podemos estar num caso em que conseguimos generalizar/especializar uma entidade noutras.
 Um exemplo fácil de perceber é o caso Professor/Aluno. Ambos têm um _nome_, _cartão de cidadão_,
 _data de nascimento_, etc. Podemos criar uma entidade [_Pessoa_](color:green) que tem
 duas especialidades, [_Professor_](color:orange) e [_Aluno_](color:yellow), e que tenha
@@ -144,7 +144,7 @@ também estes atributos comuns:
 
 ![Exemplo da Especialização de Pessoa em Professor/Aluno](./assets/0003-teacher-student-example.svg#dark=3)
 
-De realçar que cada uma das especializações pode ter atributos adicionais.
+É de realçar que cada uma das especializações pode ter atributos adicionais.
 Isto é particularmente relevante quando temos atributos "opcionais": muitas vezes
 estes podem ser modelados mais corretamente através de uma especialização.
 
@@ -155,7 +155,7 @@ Podemos, tal como nas associações, aplicar restrições às especializações:
 
 - podemos obrigar a que exista a especialização
 - podemos obrigar a que a especialização seja disjunta, isto é, não pode ser também
-  outra instância de outra especialização
+  uma instância de outra especialização
 
 Como nas associações, é também possível aplicar ambas as restrições simultaneamente.
 As bolinhas azuis nos diagramas de Venn (meramente ilustrativos; não fazem parte
@@ -166,10 +166,10 @@ do Modelo E-A) indicam onde podem existir entidades dentro das especializações
 Para conseguir ilustrar tudo, vamos tomar um exemplo mais complexo. Temos um clube
 que contém membros. Esses membros podem ser [sócios](color:green), [gestores](color:orange)
 ou nenhum dos dois.
-Cada sócio tem um _tier_, consoante as quotas que pagam: [_bronze_](color:brown),
+Cada sócio tem um _tier_, consoante as quotas que paga: [_bronze_](color:brown),
 [_silver_](color:blue) e [_gold_](color:yellow). Os sócios são identificados pelo
 número de sócio.  
-Finalmente, consoante a frequência que o membro interage com o clube, pode também
+Finalmente, consoante a frequência com que o membro interage com o clube, pode também
 ser classificado como [regular](color:green) ou [ocasional](color:red).
 
 Vamos então começar a modelar esta situação. Ao lado do modelo E-A, irá ser também
@@ -188,7 +188,7 @@ abaixo destas, criaríamos uma árvore muito grande para obtermos as combinaçõ
 ![Exemplo do que não se deve fazer a especializar em níveis abaixo](./assets/0003-club-example-wrong-specialization.svg#dark=3)
 
 Como podemos resolver entre problema? É simples, criamos outra especialização ao
-mesmo nível daquela que já existe. Isto permite existir as várias combinações,
+mesmo nível daquela que já existe. Esta abordagem permite que existam as várias combinações,
 preservando a facilidade de leitura e simplicidade do modelo.  
 Sabemos que um _membro_ tem de ser obrigatoriamente [regular](color:green) ou
 [ocasional](color:orange), mas não pode ser ambos simultaneamente.
@@ -203,7 +203,7 @@ Um [sócio](color:green) tem obrigatoriamente um e apenas um _tier_.
 
 ## Restrições de Integridade
 
-Frequentemente vamos precisar de incluir no nosso Modelo E-A certas restrições que
+Frequentemente, vamos precisar de incluir no nosso Modelo E-A certas restrições que
 não são representáveis graficamente. Por esta razão, as [**Restrições de Integridade**](color:yellow)
 (_Integrity Constraints_) são das poucas coisas que iremos representar textualmente.
 
@@ -224,7 +224,7 @@ Imaginemos que temos uma cadeia de supermercados. Cada supermercado tem um super
 que é escolhido entre os trabalhadores dessa loja. Adicionalmente, cada trabalhador tem
 de trabalhar no mínimo 6h semanais por local de trabalho.  
 Como podemos indicar no nosso Modelo E-A que o supervisor tem obrigatoriamente de trabalhar no supermercado?
-E garantir que cada trabalhador trabalha pelo menos 6h por semana em cada supermercado?
+E garantir que cada trabalhador trabalhe pelo menos 6h por semana em cada supermercado?
 Com uma Restrição de Integridade!
 
 ![Aplicação de Restrições de Integridade ao Modelo E-A de uma cadeia de supermercados](./assets/0003-integrity-constraints-supermarket.svg#dark=3)
@@ -260,13 +260,13 @@ ou mesmo **limitar a profundidade máxima**.
 
 ## Entidades Fracas
 
-Nem sempre conseguimos identificar uma entidade, isto é, a sua chave não é suficiente.
-Podemos ter por exemplo uma rua, um andar, etc. Cada um destes conceitos não pode existir
+Nem sempre conseguimos identificar uma entidade, isto é, por vezes, a sua chave não é suficiente para a definir.
+Podemos ter, por exemplo, uma rua, um andar, etc. Cada um destes conceitos não pode existir
 sem outro (e.g. freguesia e prédio, respetivamente).
 
-Quando criamos uma entidade fraca, temos de indicar qual a associação que passa a
+Quando criamos uma entidade fraca, temos de indicar qual é a associação que passa a
 identificar a entidade.
-É possível também ter entidades fracas ligadas a entidades fracas, deste que tenham
+É possível, também, ter entidades fracas ligadas a entidades fracas, deste que tenham
 uma ligação a uma entidade forte.
 
 Modelando, por exemplo, as estradas de um distrito:
@@ -276,12 +276,12 @@ Modelando, por exemplo, as estradas de um distrito:
 ## Agregações
 
 Como referido nas [associações ternárias](#associações-ternárias), estas nem sempre são
-nem claras nem flexíveis o suficiente.
+claras nem flexíveis o suficiente.
 Para resolvermos este problema, podemos utilizar uma notação do Modelo E-A chamada
-[**agregações**](color:orange).
+[**agregação**](color:orange).
 
 Com as agregações, podemos juntar associações de duas entidades e fazer com que estas
-se comportem como apenas uma. No geral, **não** se deve utilizar uma agregação em mais que
+se comportem como apenas uma. No geral, **não** se deve utilizar uma agregação em mais do que
 uma associação.  
 Isto faz com que seja possível tornar a associação opcional ou definir multiplicidades
 mais granularmente.
@@ -292,7 +292,7 @@ Pegando num exemplo que ocorre no Fénix: agregamos a associação Disciplina/Se
 pelo que ganhamos granularidade na associação de professores à mesma.  
 Podemos, no exemplo da esquerda, permitir que uma execução de uma disciplina não tenha
 nenhum professor associado (embora não faça muito sentido), como também obrigar a que
-tenha um ou mais, no exemplo da direita.
+tenha um ou mais, como no exemplo da direita.
 
 ![Agregação: Disciplina/Semestre](./assets/0003-aggregations-course-semester.svg#dark=3)
 
