@@ -528,7 +528,7 @@ apresenta o comportamento de três heurísticas em relação ao mesmo problema:
 
 Ora, a primeira coisa em que reparamos ao olhar para $h_3$ é, provavelmente, de duas uma:
 
-- $h_3$ pode não levar a uma procura ótima, já que há certos intervalos em que não é otimista, isto é, $h_3(n) > h^*(n)$;
+- $h_3$ pode não levar a uma procura ótima, já que há certos intervalos em que não é admissível, isto é, $h_3(n) > h^*(n)$;
 - $h_3$ domina tanto $h_2$ como $h_1$, encontrando-se inclusive sempre muito mais próxima de
   $h^*$ que as outras duas.
 
