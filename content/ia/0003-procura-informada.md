@@ -19,9 +19,9 @@ type: content
 
 ```
 
-Na [última secção](/ia/procura-cega) abordámos a procura cega, uma abordagem que explora
+Na [última secção](/ia/procura-cega), abordámos a procura cega, uma abordagem que explora
 todo o espaço de procura sem qualquer indicação do quão longe se encontra dos nós-objetivo.
-Ora, mas caso saibamos de antemão informações úteis sobre o objetivo, fará todo o sentido
+No entanto, se soubermos, de antemão, informações úteis sobre o objetivo, fará todo o sentido
 usá-las a nosso favor, por forma a conseguir (idealmente) procuras mais eficientes.
 É aqui que entram as estratégias de **procura informada**, abordagens que, de um modo geral,
 se baseiam na [**procura melhor primeiro**](color:green), uma estratégia de procura que recorre a uma
@@ -42,9 +42,9 @@ Uma função heurística [**estima**](color:green) o quão perto um dado estado 
 podemos pensar nela como uma espécie de detetor de metais, que apita cada vez mais alto à
 medida que nos aproximamos de um objetivo.
 
-Note-se que acima foi utilizada a palavra [**estimativa**](color:green): funções heurísticas
+Note-se que, acima, foi utilizada a palavra [**estimativa**](color:green): funções heurísticas
 não são necessariamente representações fiéis do custo real de um nó ao objetivo, mas sim
-aproximações que fazemos, [idealmente por baixo](/ia/procura-informada#quando-é-que-uma-procura-pode-ser-ótima) do mesmo.
+aproximações que fazemos, [idealmente por defeito](/ia/procura-informada#quando-é-que-uma-procura-pode-ser-ótima).
 
 **Se estivermos num nó objetivo**, a função heurística deve ser nula ($h(n) = 0$, portanto).
 
@@ -57,24 +57,24 @@ procurando minimizar os custos até ao objetivo.
 
 ## Procura Melhor Primeiro (Genérica)
 
-Tal como referido mais acima, a procura melhor primeiro corresponde a uma estratégia baseia-se
+Tal como referido mais acima, a procura melhor primeiro corresponde a uma estratégia baseada
 na ideia de **função de avaliação**, que mapeia cada nó a uma estimativa: o quão perto estará
 do objetivo mais próximo. Seguindo esta abordagem, vamos sempre tentar expandir o nó com o menor
-valor de $f(n)$ na fronteira, já que idealmente será esse nó que nos aproximará de
-forma ótima do objetivo (com algumas exceções, que vamos ver mais à frente). A fronteira em si
+valor de $f(n)$ na fronteira, já que idealmente será esse nó que nos aproximará, de
+forma ótima, do objetivo (com algumas exceções, que vamos ver mais à frente). A fronteira em si
 tem os nós ordenados de forma crescente (através de uma _min priority queue_) segundo a respetiva
 função de avaliação.
 
 Se pensarmos bem, acaba por ter uma lógica igual à da [procura custo uniforme](/ia/procura-cega#procura-de-custo-uniforme),
 onde aqui $f$ corresponde ao custo do caminho percorrido nessa procura: podemos, portanto,
-recorrendo à notação $g$ exposta mais acima, afirmar que na procura custo uniforme temos
+recorrendo à notação $g$ exposta mais acima, afirmar que, na procura custo uniforme, temos
 
 $$
 f(n) = g(n).
 $$
 
 Isto é, na procura custo uniforme, a função de avaliação foca-se exclusivamente no caminho percorrido
-até agora, sem se preocupar com o caminho para a frente - se pensarmos bem, faz então sentido
+até agora, sem se preocupar com o caminho para a frente. Se pensarmos bem, faz então sentido
 que se encaixe nas procuras cegas, já que de facto não há informação útil que usemos sobre o
 objetivo: apenas sabemos coisas sobre o que está para trás.
 
@@ -136,18 +136,18 @@ voltamos a expandir Iasi - entramos, portanto, num ciclo infinito, e fica o cald
 
 Quanto às complexidades temporal e espacial, temos que o pior caso para ambas é exponencial,
 $b^m$.
-Note-se que em relação à memória basta pensar que a fronteira pode eventualmente conter todos os nós
+Note-se que, em relação à memória, basta pensar que a fronteira pode eventualmente conter todos os nós
 (já que temos de manter as heurísticas em memória), sendo proporcional ao número de nós dentro da
 fronteira e ao comprimento do maior caminho (em número de nós) percorrido.
 
-Resta notar que apesar da complexidade temporal exponencial da procura gananciosa, esta pode
+Resta notar que, apesar da complexidade temporal exponencial da procura gananciosa, esta pode
 ser drasticamente reduzida utilizando uma boa heurística.
 
 ## Procura A$^*$
 
 Na procura custo uniforme, a heurística utilizada baseava-se exclusivamente em $g(n)$. Já na
 procura gananciosa, abordada acima, recorremos unicamente a $h(n)$, a estimativa do caminho até ao
-objetivo: é então natural que surja a ideia de combinar ambas numa única função de avaliação,
+objetivo. É, então, natural que surja a ideia de combinar ambas numa única função de avaliação,
 em princípio mais precisa (já que terá em conta mais detalhes sobre o caminho). É precisamente essa
 a função de avaliação utilizada pela procura $A^*$:
 
@@ -164,7 +164,7 @@ de cada nó.
 
 :::details[Exemplo - Procura $A^*$, Arad-Bucareste]
 
-Voltemos a ter presente exemplo de Arad-Bucareste, considerando novamente como $h(n)$ a
+Voltemos a ter presente o exemplo de Arad-Bucareste, considerando novamente como $h(n)$ a
 **distância em linha reta** do nó atual ao objetivo (Bucareste):
 
 ![Mapa Arad-Bucareste](imgs/0002-romania-graph.svg#dark=3)
@@ -192,7 +192,7 @@ a soma de $g$ (o caminho até agora percorrido) e $h$ (a estimativa do caminho p
 
 Podemos notar algo relevante: estados a representar a mesma cidade podem ser adicionados mais do que
 uma vez à fronteira (temos, por exemplo, Sibiu e Bucareste a ser adicionadas duas vezes).
-Mais, chegámos através desta abordagem ao caminho ótimo de Arad a Bucareste, algo que não
+Para além disso, chegámos, através desta abordagem, ao caminho ótimo de Arad a Bucareste, algo que não
 se tinha verificado na abordagem _greedy_: não é indicativo, contudo, da otimalidade geral
 da procura; como vamos ver à frente, [**a procura $A^*$ não é ótima**](color:red).
 
@@ -216,7 +216,7 @@ a **heurísticas admissíveis**.
 
 :::tip[Heurísticas Admissíveis]
 
-Dizemos que uma heurística é **admissível** se, para todo o nó $n$ da árvore de procura
+Dizemos que uma heurística é **admissível** se, para todo o nó $n$ da árvore de procura,
 se verificar que
 
 $$
@@ -224,10 +224,10 @@ h(n) \leq h^*(n).
 $$
 
 Dito de outra forma, heurísticas admissíveis são sempre [**otimistas**](color:orange),
-estimando sempre por baixo o custo de atingir o objetivo. Uma heurística admissível é,
-por exemplo, a utilizada em Arad-Bucareste mais acima, onde $h$ corresponde à distância
+estimando sempre por defeito o custo de atingir o objetivo. Uma heurística admissível é,
+por exemplo, a utilizada em Arad-Bucareste no exemplo acima, onde $h$ corresponde à distância
 em linha reta de cada nó ao destino: temos, claro, que a distância em linha reta é sempre
-o **melhor caso**, mas que geralmente $h(n) < h^*(n)$ (os caminhos têm por norma curvas e afins).
+o **melhor caso**, mas que, geralmente, $h(n) < h^*(n)$ (os caminhos têm por norma curvas e afins).
 
 [**Utilizar uma heurística admissível torna $A^*$ ótima**](color:green) em procura em árvore - podem ler
 a prova detalhada [aqui](https://en.wikipedia.org/wiki/Admissible_heuristic#Optimality_Proof).
@@ -239,12 +239,12 @@ que heurísticas admissíveis nos dão: há uma situação em que temos a possib
 para Bucareste (já está na fronteira), mas que optamos por passar por Pitesti, visto
 ter um valor de função de avaliação menor. A lógica acaba por ser bastante simples:
 se existe a possibilidade de fazer um caminho mais curto por ali, vou primeiro verificar
-se de facto consigo ou não antes de me contentar com o que já tenho.
+se, de facto, consigo ou não antes de me contentar com o que já tenho.
 
 Note-se que foi referido acima que utilizar heurísticas admissíveis só torna $A^*$ ótima
 na procura em árvore: na **procura em grafo**, não adicionamos à fronteira estados por onde
 já passámos, pelo que podemos eventualmente perder o caminho mais curto até ao objetivo.
-Abaixo encontra-se um exemplo de uma situação onde podemos verificar isso mesmo:
+De seguida, encontra-se um exemplo de uma situação onde podemos verificar isso mesmo:
 
 ![Procura em Grafo - Não Ótima](imgs/0003-procura-grafo-nao-otima.svg#dark=3)
 
@@ -285,11 +285,11 @@ f(n') &= g(n') + h(n')\\
 \end{equation}
 $$
 
-Podemos assim depreender que, numa heurística consistente, $f$ nunca decresce ao longo do caminho.
+Podemos, assim, depreender que, numa heurística consistente, $f$ nunca decresce ao longo do caminho.
 
 :::
 
-Voltemos então a olhar para a imagem-exemplo anterior:
+Voltemos, então, a olhar para a imagem-exemplo anterior:
 
 ![Procura em Grafo - Não Ótima (2)](imgs/0003-procura-grafo-nao-otima.svg#dark=3)
 
@@ -308,7 +308,7 @@ mas [não podemos afirmar o contrário](https://cs.stackexchange.com/questions/6
 
 Colocando de parte estas definições sobre heurísticas e voltando à procura $A^*$,
 podemos afirmar que esta é completa para qualquer árvore com conjunto de estados finito.
-Mais, é ótima para heurísticas admissíveis (como referido mais acima).
+Mais ainda, é ótima para heurísticas admissíveis (como referido mais acima).
 
 A complexidade temporal está, tal como as procuras que vamos abordar mais abaixo, dependente
 da heurística utilizada - contudo, e como nos costumamos focar no pior caso, podemos afirmar
@@ -319,7 +319,7 @@ a complexidade espacial da BFS, também exponencial.
 
 ## Procura IDA$^*$
 
-Da mesma maneira que tínhamos na DFS uma versão iterativa, que pesquisava a árvore
+Da mesma maneira que tínhamos, na $DFS$, uma versão iterativa, que pesquisava a árvore
 em profundidade com limites que aumentavam sequencialmente, existe uma abordagem de procura
 $A^*$ que vai buscar parte da sua lógica à DFS iterativa: a procura $IDA^*$.
 
@@ -328,27 +328,27 @@ aqui o limite, $l$, baseia-se em $f$ (em vez dos níveis da árvore de procura).
 
 A cada iteração, vamos procurar, **usando uma DFS**[\*](color:yellow) todos os nós da árvore que
 possuam $f \leq l$; caso um nó, aquando da sua geração, tenha $f(n) > l$, **cortamo-lo** da árvore
-momentaeamente. Levamos a iteração até ao fim, e quando a acabamos vamos atualizar o
+momentaneamente. Levamos a iteração até ao fim, e, quando a acabamos, vamos atualizar o
 limite para o **menor valor de $f$** entre os nós cortados na última iteração. Paramos
 quando vamos expandir um nó e este passa o teste objetivo - como vamos ver um pouco mais
-à frente, se o teste fosse feito na geração perdíamos otimalidade.
+à frente, se o teste fosse feito na geração, perdíamos otimalidade.
 
 [\*](color:yellow)[**O valor de $f$ de um nó não é utilizado para escolher o próximo nó a expandir**](color:red),
-apenas para decidir se este é cortado - a decisão de qual nó expandir é da DFS.
+apenas para decidir se este é cortado - a decisão de qual o nó a expandir é da $DFS$.
 
 O exemplo seguinte pode ajudar a consolidar ideias:
 
 ![Exemplo IDA*](imgs/0003-ida-estrela.svg#dark=3)
 
-$IDA^*$ partilha a completude e a complexidade temporal ($O(b^m)$) com $A^*$; mais,
-é igualmente ótima para heurísticas admissíveis. Difere, contudo, quanto à complexidade
-espacial: uma das propriedades que herda da sua semelhança com a DFS é precisamente
+A procura $IDA^*$ partilha a completude e a complexidade temporal ($O(b^m)$) com $A^*$, sendo
+igualmente ótima para heurísticas admissíveis. Difere, contudo, quanto à complexidade
+espacial: uma das propriedades que herda da sua semelhança com a $DFS$ é precisamente
 o espaço que ocupa, linear - $O(bm)$ - um claro _upgrade_ em relação ao espaço exponencial
 ocupado pela abordagem $A^*$ "normal".
 
 ## Procura Melhor Primeiro Recursiva (RBFS)
 
-No seu _core_, a RBFS acaba por procurar implementar a procura melhor primeiro
+Na sua essência, a $RBFS$ acaba por procurar implementar a procura melhor primeiro
 em espaço linear (através da recursão). Vamos procurando expandir sempre o nó, dentro
 dos filhos do nó atual, que tenha menor valor de $f$. Ao mesmo tempo, vamos sempre guardando
 recursivamente o **melhor caminho alternativo** ao nó atual - ou seja, o seu irmão ou antepassado
@@ -373,35 +373,34 @@ Note-se a evolução da procura na imagem anterior:
 - ao explorar Arad, encontrámos Sibiu, Timisoara e Zerind; Sibiu é o nó com menor $f$,
   logo vamos explorá-lo a seguir (e anotamos também que Timisoara, com $f = 447$, é a sua
   alternativa);
-- ao explorar Sibiu, encontrámos Arad, Fagaras, Rimnicu Vilcea e Oradea; Rimnicu Vilcea
-  é o nó com menor $f$, logo vamos explorá-lo a seguir (e anotamos também que Fagaras, com $f = 415$,
+- ao explorar Sibiu, encontrámos Arad, Oradea, Fagaras e Rimnicu Vilcea, sendo este último o nó com menor $f$, logo vamos explorá-lo a seguir (e anotamos também que Fagaras, com $f = 415$,
   é a sua alternativa);
-- ao explorar Timisoara, encontrámos Craiova, Pitesti e Sibiu; estamos agora num impasse:
+- ao explorar Rimnicu Vilcea, encontrámos Craiova, Pitesti e Sibiu; estamos agora num impasse:
   o seu filho com menor valor de $f$ é Pitesti, com $f = 417$, mas existe uma alternativa
-  com $f$ menor. Optamos, claro, por procurar primeiro a alternativa, visto que caso não o
-  façamos podemos estar a ignorar um caminho melhor (e ainda por cima sabemos que ele existe,
+  com $f$ menor. Optamos, claro, por procurar primeiro a alternativa, visto que, caso não o
+  façamos, poderemos estar a ignorar um caminho melhor (e ainda por cima sabemos que ele existe,
   não faria sentido não ir lá).
 
 ![Exemplo RBFS Step 2](imgs/0003-rbfs-fase-2.svg#dark=3)
 
 Após o _backtracking_, atualizamos o valor de $f$ em Rimnicu Vilcea (para o menor valor dos
 seus filhos - sabemos mais sobre o custo de caminhos que partem dali, logo porque não
-precisar ainda mais o custo daquele caminho?). Mais, anotamos agora Rimnicu Vilcea como alternativa
-a Fagaras, e prosseguimos à respetiva expansão. Encontramos de novo o mesmo problema:
+precisar ainda mais o custo daquele caminho?). Anotamos, agora, Rimnicu Vilcea como alternativa
+a Fagaras e prosseguimos à respetiva expansão. Encontramos, de novo, o mesmo problema:
 Bucareste, com $f = 450$, é o seu filho com menor valor de $f$, sendo este valor maior que
 o caminho alternativo guardado anteriormente. Vamos, portanto, voltar a andar para trás
 e seguir em frente em Pitesti:
 
 ![Exemplo - RBFS Step 3](imgs/0003-rbfs-fase-3.svg#dark=3)
 
-Note-se como desta vez o caminho alternativo guardado é Timisoara - conseguimos recursivamente
+Note-se como, desta vez, o caminho alternativo guardado é o de Timisoara - conseguimos, recursivamente,
 voltar lá, ao **melhor caminho alternativo por visitar**, se for preciso. O próximo
 nó a expandir seria Bucareste ($418$), que passa o teste objetivo, pelo que podemos
 interromper a procura - chegámos ao caminho ótimo!
 
 :::
 
-No exemplo acima podemos notar que ocorrem duas **mudanças de opinião** por parte do
+No exemplo acima, podemos notar que ocorrem duas **mudanças de opinião** por parte do
 algoritmo. Estas mudanças de opinião, apesar de fulcrais para o funcionamento do algoritmo,
 levam a uma regeneração de nós que rapidamente se pode tornar desagradável: utilizando apenas
 espaço linear, o algoritmo acaba por ter de "esquecer" caminhos já expandidos, o que leva a que
@@ -409,11 +408,11 @@ tenhamos que expandir nós repetidamente, acabando por afetar a complexidade tem
 da procura. É, contudo, **completa** (para caminhos com custo crescente) e **ótima**
 (para heurísticas admissíveis), _which is pretty nice_.
 
-A complexidade espacial, linear, deve-se a guardarmos, na pior das hipóteses, o caminho
+A complexidade espacial linear deve-se a guardarmos, na pior das hipóteses, o caminho
 correspondente a todo um ramo, do início ao fim: caso tenhamos um caminho com profundidade
 $d$, em que o último nó pai a ser expandido tem $b$ filhos, vamos ter $(d - 1) + bd$ nós em
 memória (já que esquecemos todos os nós que não estejam no caminho que estamos a percorrer),
-pelo que o espaço ocupado é dado por $O(bd)$. A complexidade temporal é, tal como em $IDA^*$,
+pelo que o espaço ocupado é dado por $O(bd)$. A complexidade temporal é, tal como na procura $IDA^*$,
 exponencial: $O(b^d)$.
 
 ## Heurísticas - _deep-dive_
@@ -451,7 +450,7 @@ para ilustrar a utilidade de boas heurísticas:
   $$
 
   No caso do 8-Puzzle proposto acima, temos que $h_1(n) = 8$, inicialmente. A heurística é,
-  claro, **admissível**: cada jogada move apenas uma peça, pelo que se houver inicialmente
+  claro, **admissível**: cada jogada move apenas uma peça, pelo que, se houver inicialmente
   $x$ peças fora do sítio, pelo menos $x$ movimentos terão de ser feitos para chegar
   à configuração pretendida. Garantidamente, $h_1(n) \leq h^*(n)$.
 
@@ -476,23 +475,23 @@ para ilustrar a utilidade de boas heurísticas:
 ### Comparar heurísticas
 
 Seria agora interessante comparar $h_1$ e $h_2$, para procurar perceber qual das duas
-acaba por dar maiores ganhos de performance em procuras. Uma maneira bastante comum de
+acaba por dar maiores ganhos de desempenho em procuras. Uma maneira bastante comum de
 fazer esta comparação é recorrendo a $b^*$,
 o [**_effective branching factor_**](http://ozark.hendrix.edu/~ferrer/courses/335/f11/lectures/effective-branching.html)
 da árvore de procura, já que este acaba por ser relativamente consistente para problemas
 suficientemente difíceis. Dizemos que heurísticas são tanto melhores quanto mais o seu
 $b^*$ se aproximar de $1$, já que dessa forma estamos efetivamente a dizer que para atingir
 a "solução média" do problema praticamente não temos de fazer _branching_ (ou pouco),
-havendo portanto menos caminhos alternativos a ser explorados: com uma heurística ideal,
+havendo, portanto, menos caminhos alternativos a ser explorados: com uma heurística ideal,
 teríamos $b^* = 1$ e a árvore de procura seria apenas um ramo contínuo.
 
-O livro que acompanha a cadeira apresenta uma tabela que ajuda a comparar o total de
+O livro que acompanha a cadeira apresenta uma tabela que ajuda a comparar o número total de
 nós gerados e o $b^*$ entre $A^*$ com cada uma das heurísticas e a DFS iterativa (esta
 última uma procura cega, sem heurísticas).
 
 ![Tabela, Comparação Heurísticas](imgs/0003-tabela-comparacao.svg#dark=4)
 
-Como podemos observar, a procura cega torna-se rapidamente incomportável; mais, apesar
+Como podemos observar, a procura cega torna-se rapidamente incomportável. Para além disso, apesar
 de $h_1$ não ser horrível, não traz qualquer benefício em comparação com $h_2$ e existe
 uma justificação teórica para tal acontecer.
 
@@ -502,7 +501,7 @@ $$
 h_1(n) \leq h_2(n) \leq h^*(n), \forall_n.
 $$
 
-Quando para qualquer nó $n$ podemos garantir que $h_2(n) \geq h_1(n)$, afirmamos que
+Quando, para qualquer nó $n$, podemos garantir que $h_2(n) \geq h_1(n)$, afirmamos que
 [**$h_2$ domina $h_1$**](color:orange). Mais importante ainda, a noção de dominância traduz-se
 diretamente em eficiência: se $h_2$ domina $h_1$, $h_2$ [**nunca**](color:red) irá
 expandir mais nós que $h_1$.
@@ -514,7 +513,7 @@ custo do caminho mais barato vão ser expandidos - todos os nós tal que $f(n) <
 Tal é o mesmo que afirmar que todos os nós com $h(n) < C^* - g(n)$ serão expandidos.
 Ora, mas se $h_2$ domina $h_1$, então qualquer nó expandido via $h_2$ será inevitavelmente
 expandido por $h_1$, podendo ainda haver mais nós a ser expandidos com esta última.
-Assim sendo, podemos afirmar que com $h_2$ vamos sempre expandir menos nó, garantindo
+Assim sendo, podemos afirmar que, com $h_2$, vamos sempre expandir menos nós, garantindo
 portanto que $h_2$ é mais eficiente.
 
 :::
@@ -529,7 +528,7 @@ apresenta o comportamento de três heurísticas em relação ao mesmo problema:
 
 Ora, a primeira coisa em que reparamos ao olhar para $h_3$ é, provavelmente, de duas uma:
 
-- $h_3$ não é ótima, já que há certos intervalos em que $h_3(n) > h^*(n)$;
+- $h_3$ pode não levar a uma procura ótima, já que há certos intervalos em que não é admissível, isto é, $h_3(n) > h^*(n)$;
 - $h_3$ domina tanto $h_2$ como $h_1$, encontrando-se inclusive sempre muito mais próxima de
   $h^*$ que as outras duas.
 
@@ -538,8 +537,8 @@ e $5$ minutos, respetivamente, a responder à _query_ proposta, e que a terceira
 segundos. Com um erro associado tão baixo ($h_3$ nunca se desvia muito de $h^*$), não
 fará mais sentido contentarmo-nos com uma resposta quase ótima mas muito rápida, em vez
 de uma que seja garantidamente ótima mas que seja bastante demorada? Um trajeto de $1$ hora e
-um quarto retornado de forma praticamente instantânea parece sem dúvida uma proposta melhor
-do que um caminho que corte $2$ minutos à duração da viagem mas cuja resposta demore muito mais!
+um quarto retornado de forma praticamente instantânea parece, sem dúvida, uma proposta melhor
+do que um caminho que corte $2$ minutos à duração da viagem, mas cuja resposta demore muito mais!
 
 :::
 
