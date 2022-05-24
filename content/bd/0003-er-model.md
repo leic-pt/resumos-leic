@@ -275,4 +275,25 @@ Modelando, por exemplo, as estradas de um distrito:
 
 ## Agregações
 
-// TODO
+Como referido nas [associações ternárias](#associações-ternárias), estas nem sempre são
+nem claras nem flexíveis o suficiente.
+Para resolvermos este problema, podemos utilizar uma notação do Modelo E-A chamada
+[**agregações**](color:orange).
+
+Com as agregações, podemos juntar associações de duas entidades e fazer com que estas
+se comportem como apenas uma. No geral, **não** se deve utilizar uma agregação em mais que
+uma associação.  
+Isto faz com que seja possível tornar a associação opcional ou definir multiplicidades
+mais granularmente.
+
+Podemos continuar a efetuar associações diretamente com entidades dentro da agregação.
+
+Pegando num exemplo que ocorre no Fénix: agregamos a associação Disciplina/Semestre,
+pelo que ganhamos granularidade na associação de professores à mesma.  
+Podemos, no exemplo da esquerda, permitir que uma execução de uma disciplina não tenha
+nenhum professor associado (embora não faça muito sentido), como também obrigar a que
+tenha um ou mais, no exemplo da direita.
+
+![Agregação: Disciplina/Semestre](./assets/0003-aggregations-course-semester.svg#dark=3)
+
+_(atributos das entidades omitidos por brevidade)_
