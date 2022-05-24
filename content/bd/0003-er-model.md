@@ -260,7 +260,18 @@ ou mesmo **limitar a profundidade máxima**.
 
 ## Entidades Fracas
 
-// TODO
+Nem sempre conseguimos identificar uma entidade, isto é, a sua chave não é suficiente.
+Podemos ter por exemplo uma rua, um andar, etc. Cada um destes conceitos não pode existir
+sem outro (e.g. freguesia e prédio, respetivamente).
+
+Quando criamos uma entidade fraca, temos de indicar qual a associação que passa a
+identificar a entidade.
+É possível também ter entidades fracas ligadas a entidades fracas, deste que tenham
+uma ligação a uma entidade forte.
+
+Modelando, por exemplo, as estradas de um distrito:
+
+![Entidades Fracas: Concelho, Freguesia e Estrada](./assets/0003-weak-entities-streets.svg#dark=3)
 
 ## Agregações
 
