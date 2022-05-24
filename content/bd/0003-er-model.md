@@ -203,7 +203,53 @@ Um [sócio](color:green) tem obrigatoriamente um e apenas um _tier_.
 
 ## Restrições de Integridade
 
-// TODO
+Frequentemente vamos precisar de incluir no nosso Modelo E-A certas restrições que
+não são representáveis graficamente. Por esta razão, as [**Restrições de Integridade**](color:yellow)
+(_Integrity Constraints_) são das poucas coisas que iremos representar textualmente.
+
+É preciso ter em atenção que devemos [**evitar ao máximo**](color:red) utilizar representação textual,
+usando sempre que possível a representação gráfica disponível no Modelo E-A
+(e.g. nas multiplicidades das associações).
+
+As restrições de integridade são indicadas no Modelo E-A com a notação **(RI - _X_)**
+(em inglês, **(IC - _X_)**), onde _X_ é o número da restrição.  
+O texto de cada restrição deve ser claro e objetivo, utilizando vocabulário de
+obrigatoriedade ou proibições, sem nunca utilizar referências temporais.
+Quando possível, é preferível separar uma restrição de integridade complexa
+em várias mais simples.
+
+:::info[Exemplo]
+
+Imaginemos que temos uma cadeia de supermercados. Cada supermercado tem um supervisor,
+que é escolhido entre os trabalhadores dessa loja. Adicionalmente, cada trabalhador tem
+de trabalhar no mínimo 6h semanais por local de trabalho.  
+Como podemos indicar no nosso Modelo E-A que o supervisor tem obrigatoriamente de trabalhar no supermercado?
+E garantir que cada trabalhador trabalha pelo menos 6h por semana em cada supermercado?
+Com uma Restrição de Integridade!
+
+// TODO add diagram
+
+_(atributos de Trabalhador e Supermercado omitidos por brevidade)_
+
+:::
+
+:::details[Mais exemplos]
+
+**Atributo único**
+
+// TODO add diagram utilizador -> email PK, telemóvel UNIQUE
+
+---
+
+**Associação Recursiva**
+
+Quando temos uma associação recursiva, é útil definir restrições adicionais,
+como **evitar associação de uma instância a si mesma**, **evitar dependências circulares**
+ou mesmo **limitar a profundidade máxima**.
+
+// TODO add diagram category
+
+:::
 
 ## Entidades Fracas
 
