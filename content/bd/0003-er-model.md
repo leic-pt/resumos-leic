@@ -227,7 +227,10 @@ Como podemos indicar no nosso Modelo E-A que o supervisor tem obrigatoriamente d
 E garantir que cada trabalhador trabalha pelo menos 6h por semana em cada supermercado?
 Com uma Restrição de Integridade!
 
-// TODO add diagram
+![Aplicação de Restrições de Integridade ao Modelo E-A de uma cadeia de supermercados](./assets/0003-integrity-constraints-supermarket.svg#dark=3)
+
+- **(IC - 1):** Um trabalhador **só pode** supervisionar um supermercado em que trabalha.
+- **(IC - 2):** Um trabalhador **tem** de trabalhar pelo menos 6h semanais por supermercado.
 
 _(atributos de Trabalhador e Supermercado omitidos por brevidade)_
 
@@ -237,7 +240,9 @@ _(atributos de Trabalhador e Supermercado omitidos por brevidade)_
 
 **Atributo único**
 
-// TODO add diagram utilizador -> email PK, telemóvel UNIQUE
+![Restrição de Integridade: atributo com valor único](./assets/0003-integrity-constraints-unique.svg#dark=3)
+
+- **(IC - 1):** O telemóvel de um utilizador **tem** de ser único.
 
 ---
 
@@ -247,7 +252,9 @@ Quando temos uma associação recursiva, é útil definir restrições adicionai
 como **evitar associação de uma instância a si mesma**, **evitar dependências circulares**
 ou mesmo **limitar a profundidade máxima**.
 
-// TODO add diagram category
+![Restrição de Integridade: circularidade](./assets/0003-integrity-constraints-circularity.svg#dark=3)
+
+- **(IC - 1):** Uma categoria **não pode** ser sua sub categoria.
 
 :::
 
