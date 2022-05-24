@@ -57,7 +57,7 @@ procurando minimizar os custos até ao objetivo.
 
 ## Procura Melhor Primeiro (Genérica)
 
-Tal como referido mais acima, a procura melhor primeiro corresponde a uma estratégia baseia-se
+Tal como referido mais acima, a procura melhor primeiro corresponde a uma estratégia baseada
 na ideia de **função de avaliação**, que mapeia cada nó a uma estimativa: o quão perto estará
 do objetivo mais próximo. Seguindo esta abordagem, vamos sempre tentar expandir o nó com o menor
 valor de $f(n)$ na fronteira, já que idealmente será esse nó que nos aproximará de
