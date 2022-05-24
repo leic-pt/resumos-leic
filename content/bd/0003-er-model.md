@@ -132,9 +132,6 @@ Podemos aplicar ambas as restrições simultaneamente.
 
 ## Generalizações/Especializações
 
-Membro -> (Sócio, Não Sócio) | Gestor | (Regular, Não Regular)
-Sócio -> (Sócio Bronze, Sócio Silver, Sócio Gold)
-
 Por vezes, duas entidades diferem por poucos ou até nenhum atributo. Quando isto
 acontece, podemos estar num caso em que conseguimos generalizar/especializar uma entidade noutras.
 Um exemplo fácil de perceber é o caso Professor/Aluno. Ambos têm um _nome_, _cartão de cidadão_,
