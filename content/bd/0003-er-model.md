@@ -43,7 +43,7 @@ aplicação. Podemos assim recorrer também a [**Restrições de Integridade**](
 
 Uma [**entidade**](color:orange) pode conter vários [**atributos**](color:green),
 sendo que alguns desses atributos podem ser a sua chave primária.  
-Dizemos que os atributos que contituem a chave primária são os atributos
+Dizemos que os atributos que constituem a chave primária são os atributos
 que **caracterizam** a entidade.
 
 Exemplos de entidades são "Pessoa", "Produto", "Compra", etc.  
