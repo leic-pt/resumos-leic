@@ -260,7 +260,7 @@ ou mesmo **limitar a profundidade máxima**.
 ## Entidades Fracas
 
 Nem sempre conseguimos identificar uma entidade, isto é, por vezes, a sua chave não é suficiente
-para a especificar de forma inequivoca no universo. Podemos ter, por exemplo, uma rua, um andar,
+para a especificar de forma inequívoca no universo. Podemos ter, por exemplo, uma rua, um andar,
 etc. Cada um destes conceitos não pode existir sem outro (e.g. freguesia e prédio, respetivamente).
 
 Quando criamos uma entidade fraca, temos de indicar qual é a associação que passa a
