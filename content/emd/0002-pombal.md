@@ -94,9 +94,9 @@ Seja $X$ o conjunto de pombos e $Y$ o conjunto de pombais. Atribuímos cada pomb
 
 ### Provas Exemplo 2
 
-:::details[Exemplo 1 - Alunos de MD dos Slides]
+:::details[Exemplo 1 - Alunos de EMD dos Slides]
 
-Prove que se selecionar 151 alunos de MD de numeros compreendidos entre $ist199001$ e $ist199300$, inclusive, pelo menos dois alunos têm
+Prove que se selecionar 151 alunos de EMD de numeros compreendidos entre $ist199001$ e $ist199300$, inclusive, pelo menos dois alunos têm
 números consecutivos.
 
 ---
