@@ -44,7 +44,7 @@ aplicação. Podemos, assim, recorrer também a [**Restrições de Integridade**
 Uma [**entidade**](color:orange) pode conter vários [**atributos**](color:green),
 sendo que alguns desses atributos podem ser a sua chave primária.  
 Dizemos que os atributos que constituem a chave primária são os atributos
-que **caracterizam** a entidade.
+que **caracterizam** a entidade, identificando-a inequivocamente no universo.
 
 Exemplos de entidades são _Pessoa_, _Produto_, _Compra_, etc.  
 Exemplos de atributos, no caso da entidade _Pessoa_, são _número do cartão de cidadão_,
@@ -54,7 +54,7 @@ _nome_, _sexo_, _data de nascimento_, etc.
 
 As [**entidades**](color:orange) são representadas por um retângulo, enquanto que
 os [**atributos**](color:green) são representados por uma elipse.
-Os atributos que são chave primária distinguem-se dos restantes pelo sublinhado.
+Os atributos que são chave primária distinguem-se dos restantes por serem representados a sublinhado.
 
 [**Pelo menos**](color:red) um atributo tem de ser uma chave primária.
 
@@ -91,7 +91,7 @@ Representamos uma associação com atributos das seguinte forma:
 
 Nada nos impede de criar associações entre três ou mais entidades.
 Atenção que estas podem, por vezes, ser pouco explícitas. Alternativamente, podemos
-criar uma [agregação](#agregações), que, para além de ser mais explícita, dá-nos maior
+criar uma [agregação](#agregações), que, para além de ser mais explícita, nos dá maior
 flexibilidade a definir [restrições](#restrições).
 
 Voltando ao exemplo da _Compra_ e do _Produto_, tomemos outra entidade, _Cliente_,
@@ -151,8 +151,10 @@ vamos ver algumas das suas propriedades e o que podemos fazer com elas.
 Podemos, tal como nas associações, aplicar restrições às especializações:
 
 - podemos obrigar a que exista a especialização
-- podemos obrigar a que a especialização seja disjunta, isto é, não pode ser também
-  uma instância de outra especialização
+- podemos obrigar a que a especialização seja disjunta, isto é, que nenhum exemplar
+  de uma entidade possa ser simultaneamente um exemplar de mais do que uma
+  especialização (e.g., uma pessoa pode ser um _Professor_ ou um _Aluno_, mas
+  nunca os dois ao mesmo tempo).
 
 Como nas associações, é também possível aplicar ambas as restrições simultaneamente.
 As bolinhas azuis nos diagramas de Venn (meramente ilustrativos; não fazem parte
@@ -222,7 +224,7 @@ que é escolhido entre os trabalhadores dessa loja. Adicionalmente, cada trabalh
 de trabalhar no mínimo 6h semanais por local de trabalho.  
 Como podemos indicar no nosso Modelo E-A que o supervisor tem obrigatoriamente de trabalhar no supermercado?
 E garantir que cada trabalhador trabalhe pelo menos 6h por semana em cada supermercado?
-Com uma Restrição de Integridade!
+Com Restrições de Integridade!
 
 ![Aplicação de Restrições de Integridade ao Modelo E-A de uma cadeia de supermercados](./assets/0003-integrity-constraints-supermarket.svg#dark=3)
 
@@ -257,9 +259,9 @@ ou mesmo **limitar a profundidade máxima**.
 
 ## Entidades Fracas
 
-Nem sempre conseguimos identificar uma entidade, isto é, por vezes, a sua chave não é suficiente para a definir.
-Podemos ter, por exemplo, uma rua, um andar, etc. Cada um destes conceitos não pode existir
-sem outro (e.g. freguesia e prédio, respetivamente).
+Nem sempre conseguimos identificar uma entidade, isto é, por vezes, a sua chave não é suficiente
+para a especificar de forma inequivoca no universo. Podemos ter, por exemplo, uma rua, um andar,
+etc. Cada um destes conceitos não pode existir sem outro (e.g. freguesia e prédio, respetivamente).
 
 Quando criamos uma entidade fraca, temos de indicar qual é a associação que passa a
 identificar a entidade.
@@ -287,7 +289,7 @@ Podemos continuar a efetuar associações diretamente com entidades dentro da ag
 
 Pegando num exemplo que ocorre no Fénix: agregamos a associação Disciplina/Semestre,
 pelo que ganhamos granularidade na associação de professores à mesma.  
-Podemos, no exemplo da esquerda, permitir que uma execução de uma disciplina não tenha
+Podemos, como no exemplo da esquerda, permitir que uma execução de uma disciplina não tenha
 nenhum professor associado (embora não faça muito sentido), como também obrigar a que
 tenha um ou mais, como no exemplo da direita.
 
