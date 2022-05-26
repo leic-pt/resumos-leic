@@ -54,7 +54,7 @@ _nome_, _sexo_, _data de nascimento_, etc.
 
 As [**entidades**](color:orange) são representadas por um retângulo, enquanto que
 os [**atributos**](color:green) são representados por uma elipse.
-Os atributos que são chave primária distinguem-se dos restantes por serem representados a sublinhado.
+Os atributos que são chave primária distinguem-se dos restantes pelo texto a sublinhado.
 
 [**Pelo menos**](color:red) um atributo tem de ser uma chave primária.
 
