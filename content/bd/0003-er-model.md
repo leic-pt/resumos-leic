@@ -136,7 +136,7 @@ Por vezes, duas entidades diferem por poucos ou até nenhum atributo. Quando ist
 acontece, podemos estar num caso em que conseguimos generalizar/especializar uma entidade noutras.
 Um exemplo fácil de perceber é o caso Professor/Aluno. Ambos têm um _nome_, _cartão de cidadão_,
 _data de nascimento_, etc. Podemos criar uma entidade [_Pessoa_](color:green) que tem
-duas especialidades, [_Professor_](color:orange) e [_Aluno_](color:yellow), e que tenha
+duas especializações, [_Professor_](color:orange) e [_Aluno_](color:yellow), e que tenha
 também estes atributos comuns:
 
 ![Exemplo da Especialização de Pessoa em Professor/Aluno](./assets/0003-teacher-student-example.svg#dark=3)
