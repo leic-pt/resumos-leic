@@ -190,15 +190,15 @@ Vai à [nossa documentação para aprenderes tudo o que precisas](https://leic-p
 
 Quero agradecer a [todos os que contribuíram](https://github.com/leic-pt/resumos-leic/graphs/contributors) para os conteúdos deste site:
 
-- [Diogo Correia](https://github.com/leic-pt/resumos-leic/commits?author=diogotcorreia) (**Website**, **CDI-I**, **CDI-II**, **CDI-III**, **Fis-I**, MD, IAED)
-- [Diogo Gaspar](https://github.com/leic-pt/resumos-leic/commits?author=randomicecube) (**LP**, **ASA**, **IAED**, TC, LP, CDI-I, CDI-III, PO)
+- [Diogo Correia](https://github.com/leic-pt/resumos-leic/commits?author=diogotcorreia) (**Website**, **CDI-I**, **CDI-II**, **CDI-III**, **Fis-I**, **BD**, MD, IAED)
+- [Diogo Gaspar](https://github.com/leic-pt/resumos-leic/commits?author=randomicecube) (**LP**, **ASA**, **IAED**, **IA**, TC, CDI-I, CDI-III, PO)
 - [Tomás Esteves](https://github.com/leic-pt/resumos-leic/commits?author=Pesteves2002) (**IAED**, **Fis-II**, **SO**, Fis-I, MD, CDI-II, LP)
 - [João Rocha](https://github.com/leic-pt/resumos-leic/commits?author=Calhau18) (**SO**, **TC**, **PE**, CDI-I, CDI-II, MD, CDI-III, Fis-II, ASA)
 - [Rúben Nobre](https://github.com/leic-pt/resumos-leic/commits?author=RubenNobre123) (**MD**, CDI-III)
 - [João Fonseca](https://github.com/leic-pt/resumos-leic/commits?author=jmseca) (**MD**)
 - [Constança Cunha](https://github.com/leic-pt/resumos-leic/commits?author=constancadcunha) (**IPM**, Fis-I)
-- [Eduardo Espadeiro](https://github.com/leic-pt/resumos-leic/commits?author=EdSwordsmith) (**IA**)
-- [Rafael Oliveira](https://github.com/leic-pt/resumos-leic/commits?author=RafDevX) (MD, CDI-II, LP, IAED)
+- [Rafael Oliveira](https://github.com/leic-pt/resumos-leic/commits?author=RafDevX) (CDI-II, CDI-III, Fis-I, Fis-II, LP, IAED, MD, PO, Ges, SO, ASA, IPM, TC, BD, IA)
+- [Eduardo Espadeiro](https://github.com/leic-pt/resumos-leic/commits?author=EdSwordsmith) (IA)
 - [Rafael Rodrigues](https://github.com/leic-pt/resumos-leic/commits?author=Rafa10PT) (IAED, CDI-II, MD, CDI-III)
 - [Luís Fonseca](https://github.com/leic-pt/resumos-leic/commits?author=luishfonseca) (IAED, CDI-II, LP, AL)
 - [Diogo Cardoso](https://github.com/leic-pt/resumos-leic/commits?author=D-Card) (IAED, PO, CDI-III, Fis-II, FP, Ges)
@@ -225,3 +225,17 @@ Quero agradecer a [todos os que contribuíram](https://github.com/leic-pt/resumo
 - [Rita Mendes](https://github.com/leic-pt/resumos-leic/commits?author=SparklingRita) (Imagens CDI-II)
 - [André Teodósio](https://github.com/leic-pt/resumos-leic/commits?author=TioDosio) (CDI-II)
 - [Rafaela Oliveira](https://github.com/leic-pt/resumos-leic/commits?author=rafaelacorreiaoliveira) (CDI-II)
+
+---
+
+:::warning[Disclaimer]
+Resumos LEIC não está afiliado ao
+[tecnico.ulisboa.pt](https://tecnico.ulisboa.pt) de forma alguma.
+Todo o conteúdo escrito disponível neste site é dado por contribuidores (listados acima).
+Alguns anexos podem ter sido cedidos por professores, após obter a respetiva permissão.  
+Visto que algum do conteúdo pode estar incorreto, incompleto e/ou desatualizado,
+usa este site _at your own risk_.  
+Como sempre, se encontrares algum erro, podes e deves [contribuir](https://leic-pt.github.io/docs)!
+
+Questões relacionadas com _copyright_ deverão ser encaminhadas para [resumos@leic.pt](mailto:resumos@leic.pt).
+:::

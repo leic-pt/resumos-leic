@@ -33,7 +33,7 @@ module.exports = {
         website: 'https://diogotc.com',
       },
       githubLink: 'https://github.com/leic-pt/resumos-leic',
-      contributionGuideLink: 'https://github.com/leic-pt/resumos-leic/wiki',
+      contributionGuideLink: 'https://leic-pt.github.io/docs',
       contributorsLink: 'https://github.com/leic-pt/resumos-leic/graphs/contributors',
       vercelLink: 'https://vercel.com/?utm_source=leic-pt&utm_campaign=oss',
     },
@@ -89,6 +89,8 @@ module.exports = {
                 '\\smartcolor': '\\htmlClass{md-color--#1}{#2}', // Handle colors on light/dark mode
                 '\\op': '\\operatorname{#1}',
                 '\\indep': '\\perp \\!\\!\\! \\perp',
+                '\\iid': '\\stackrel{iid}{\\sim}',
+                '\\sima': '\\stackrel{a}{\\sim}',
               },
               throwOnError: false,
               trust: (context) =>

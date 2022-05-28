@@ -1,0 +1,46 @@
+body.body--dialog-open {
+  overflow: hidden;
+}
+
+.dialog-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1600;
+
+  width: 100vw;
+  height: 100vh;
+  height: calc(var(--vh) * 100);
+
+  background-color: rgba(26, 32, 39, 0.7);
+  backdrop-filter: blur(4px);
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.dialog-modal {
+  flex-grow: 1;
+  max-width: 700px;
+  border-radius: 1em;
+
+  margin: 60px 20px;
+  background-color: var(--cardColor);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+
+  max-height: calc(100% - 120px);
+
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 599px) {
+  .dialog-modal {
+    margin: 0;
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+    max-height: unset;
+  }
+}

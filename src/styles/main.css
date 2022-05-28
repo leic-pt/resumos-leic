@@ -13,6 +13,9 @@ body {
   --miniCodeBgColor: rgba(27, 31, 35, 0.05);
   --scrollbarColor: rgba(0, 0, 0, 0.4);
   --tableStripeBgColor: #f6f8fa;
+
+  --scrollbarWidth: 6px;
+  --scrollbarHeight: 8px;
 }
 
 @media not print {
@@ -31,8 +34,8 @@ body {
 
 @media (min-width: 719px) {
   ::-webkit-scrollbar {
-    max-width: 6px;
-    max-height: 8px;
+    max-width: var(--scrollbarWidth);
+    max-height: var(--scrollbarHeight);
   }
 
   ::-webkit-scrollbar-thumb {
@@ -84,6 +87,11 @@ code:not(code[class*='language-']) {
   margin: 0;
   font-size: 0.85em;
   border-radius: 3px;
+}
+
+a code:not(code[class*='language-']) {
+  color: var(--accentColor);
+  text-decoration: underline;
 }
 
 hr {
@@ -305,4 +313,12 @@ h2 {
 
 .anchor.before {
   fill: var(--accentColor);
+}
+
+kbd {
+  background-color: var(--bgColor);
+  border-radius: 0.3em;
+  border: 1px solid var(--borderColor);
+
+  padding: 0.1em 0.3em;
 }
