@@ -57,9 +57,60 @@ e valores, correspondências essas que não deverão violar qualquer das restri�
 impostas pelo problema. Estas correspondências, ou **atribuições**, podem ser **parciais**
 ou **completas**, claro: uma atribuição diz-se completa caso todas as variáveis em $X$ tenham
 um valor associado. Mais ainda, diz-se **consistente** caso todas as atribuições
-respeitem respeitem o conjunto $C$. Dizemos que temos em mãos uma solução para o
-CSP quando temos uma atribuição **completa e consistente**: não existem variáveis sem
+respeitem respeitem o conjunto $C$. Dizemos que temos em mãos uma [**solução**](color:green) para o
+CSP quando temos uma atribuição [**completa e consistente**](color:green): não existem variáveis sem
 atribuições, estando todas elas atribuídas de acordo com o que o problema nos impõe.
+
+:::
+
+Tal como o exemplo Arad-Bucareste acompanhou as secções das procuras cega e informada,
+o exemplo seguinte - colorir um mapa australiano com cores diferentes, sem que duas
+regiões adjacentes partilhem uma cor - acompanhar-nos-á ao longo desta secção.
+
+Considere-se o seguinte mapa da Austrália (que está obviamente realista e não está
+assim só porque dava jeito ter um SVG):
+
+![Mapa Austrália Exemplo](imgs/0004-australia-map.svg#dark=3)
+
+Podemos considerar o problema de [**colorir o mapa australiano**](color:yellow) como um CSP:
+aqui, temos que $X$ corresponderá ao conjunto de regiões do mapa, $D$ corresponderá
+ao conjunto de cores disponíveis para as pintar, e $C$ corresponde ao conjunto de
+restrições impostas. Teríamos, portanto, algo como:
+
+$$
+X = \{WA, NT, Q, SA, NSW, V, T\} \\
+D = \{\{vermelho, verde, azul\}, \{vermelho, verde, azul\}, \cdots, \{vermelho, verde, azul\}\} \\
+C = \{SA \neq WA, SA \neq NT, \cdots\}
+$$
+
+Pode ser útil procurar visualizar este tipo de problemas sob o ponto de vista de um
+[**grafo de restrições**](color:purple). Se olharmos para o grafo abaixo, as restrições
+que envolvem um dado par de nós, as variáveis, correspondem a arcos entre os mesmos.
+
+![Grafo de Restrições - Austrália](imgs/0004-australia-constraint-graph.svg#dark=2)
+
+Seguindo as restrições impostas, uma solução possível para o problema seria:
+
+![Mapa Australiano Colorido (Solução)](imgs/0004-australia-map-colored.svg#dark=2)
+
+:::tip[Porquê usar CSP's]
+
+Bem, em primeiro lugar é importante realçar que muitos dos problemas que vamos querer
+resolver são, por natureza, modelados à volta de restrições: o problema das $8$ rainhas,
+por exemplo, baseia-se nas restrições "uma rainha não pode atacar a outra", não podendo,
+portanto, partilhar linha, coluna ou diagonal.
+
+Mais ainda, tal como referido na introdução desta secção, algoritmos baseados em CSPs
+são, na prática, [**mais eficientes que algoritmos de procura tradicionais**](color:green), já que podem
+ignorar rapidamente ramos da árvore de procura que não satisfazem as restrições requeridas.
+Basta pensar no exemplo do mapa australiano, onde se a nossa primeira opção for colorir
+_South Australia_ com verde, estamos a eliminar a possibilidade de $5$ outras regiões
+serem pintadas com verde - passamos a contar ao todo com $2^5 = 32$ possibilidades restantes,
+ao invés de $3^5 = 243$, um _pruning_ substancial feito à árvore!
+
+Mais, se numa procura clássica a única análise qualitativa que fazíamos eram testes-objetivo,
+sendo tudo o resto quantitativo, em CSPs tal não é o caso: podemos claramente inferir não
+só que $n$ ramos podem ser descartados da procura, como o porquê de tal acontecer!
 
 :::
 
