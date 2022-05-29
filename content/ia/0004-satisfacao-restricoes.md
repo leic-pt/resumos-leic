@@ -375,6 +375,36 @@ do grafo, já que caso contrário "acaba por nem valer a pena".
 
 ### Restrições Globais
 
+Restrições globais, ou de ordem superior, não são mais do que formas de exprimir relações entre um
+número arbitrário de variáveis ([**não confundir com precisar de envolver todas as variáveis**](color:red)).
+Não são muito diferentes do que vimos até agora, acabando por conseguir capturar muitas
+vezes pormenores sobre a natureza do problema - `allDiff` é uma restrição global, por exemplo,
+que captura a essência do Sudoku de forma extremamente concisa: _todas estas variáveis têm
+de tomar valores diferentes_. Mais importante, através de restrições globais podemos
+detetar inconsistências claras facilmente: se tivermos um conjunto de $m$ variáveis envolvidas
+numa restrição global e $n$ valores que podem tomar, então será impossível atingir uma solução
+consistente (tal como no caso de colorir o mapa australiano com $2$ cores, abordado mais acima).
+
+Existe ainda um algoritmo que nos permite resolver restrições `allDiff` de forma relativamente
+simples: passa por ir removendo progressivamente da restrição todas as variáveis com
+domínio de tamanho unitário, apagando o valor presente no domínio de todos os outros domínios
+que ainda existam. Vamos fazendo estas remoções sucessivamente, parando quando:
+
+- deixar de haver variáveis por remover, retornando _sucesso_ (e conseguindo até devolver
+  a solução consistente);
+- houver uma variável que fica com domínio vazio - chegámos aqui a uma inconsistência,
+  e o CSP não tem solução, retornando _failure_.
+
+É efetivamente isto que fazemos "a olho" quando resolvemos Sudoku's fáceis: vamos vendo
+"esta posição só pode tomar este valor", e colocar esse valor nessa posição surte _efeito dominó_
+sobre os valores que outras posições podem tomar.
+
+Existem também outras restrições globais clássicas, como a `atmost` ou _restrição de recursos_,
+que tal como o nome indica restringe os valores das variáveis a "as variáveis têm de ter atribuições
+que, somadas, não ultrapassem este valor".
+
+## Procura em CSPs
+
 ---
 
 Adicionamos que esta secção corresponde ao sexto capítulo do livro que acompanha a cadeira
