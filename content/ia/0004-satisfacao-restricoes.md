@@ -296,7 +296,84 @@ $$
 
 ### Consistência de Caminhos
 
+Como verificámos acima, há problemas para os quais a consistência de arcos é imensamente
+útil. Temos, contrastando, problemas em que esta noção acaba por ser praticamente
+irrelevante: basta pensar no exemplo do mapa australiano, onde os domínios têm $2$
+em vez de $3$ cores. É claro que é impossível resolver o problema com apenas $2$
+cores: se pensarmos no tridente $\text{SA} - \text{WA} - \text{NT}$, vamos ter que ter necessariamente
+$3$ cores diferentes (visto que são todos adjacentes entre si) para obter uma solução
+consistente para o problema. Ora, mas a consistência de arcos não nos permite aferir
+nada quanto a isso: se formos a ver, as variáveis acabam por ser consistentes em arco
+umas com as outras, não retornando _failure_ (como idealmente aconteceria); mais, também
+não ocorre redução de domínio, pelo que efetivamente terminamos a execução do algoritmo
+tal como começámos. Precisamos, portanto, de uma noção extra de consistência, que nos permita
+tratar este tipo de problemas: vamos recorrer à [**consistência de caminhos**](color:orange).
+
+Se ao falar na consistência em nó tocámos em restrições unárias, e na consistência
+em arco abordámos as restrições unárias, parece fazer todo o sentido que aqui abordemos
+restrições de ordem superior. Bem, sim e não: de facto, vamos tocar em restrições que
+envolvem mais que $2$ variáveis ($3$, neste caso), mas não sob o contexto de restrições
+ternárias diretamente.
+
+:::tip[Consistência de Caminhos]
+
+Dizemos que um par de variáveis $(X_i, X_j)$ é consistente em caminho para uma terceira
+variável, seja ela $X_k$, caso qualquer atribuição possível que seja consistente
+com as restrições que envolvem $(X_i, X_j)$ seja também consistente
+com as restrições que englobam $(X_i, X_k)$ e $(X_k, X_j)$. Falamos em [**caminho**](color:green)
+porque, se pensarmos bem, é de um caminho que se trata: estamos a criar um caminho
+entre $X_i$ e $X_j$ que passa por $X_k$, e a dizer que "tudo o que está entre elas
+tem de bater certo".
+
+:::
+
+Bem, já que acima referimos que $\text{AC-3}$ não era adequado para o exemplo
+do mapa australiano com $2$ cores, faz sentido que verifiquemos se a consistência
+de caminhos é adequada para o mesmo. Considerem-se novamente as variáveis $\text{WA, SA}$ e $\text{NT}$,
+sendo que vamos querer verificar se $(\text{WA, SA})$ é consistente em caminho para $\text{NT}$.
+Tal como referido acima, vamos verificar se **todas as combinações de atribuições
+consistentes em arco também o são em caminho**:
+
+$$
+\{\{\text{WA = vermelho, SA = azul}\}, \{\text{WA = azul, SA = vermelho}\}\}
+$$
+
+Ora, peguemos na primeira atribuição: para $(\text{WA, SA})$ ser consistente em caminho
+com $\text{NT}$, esta atribuição terá de respeitar todas as restrições em $(\text{WA, NT})$ e $(\text{NT, SA})$.
+Ora, para $\text{WA = vermelho}$ ser consistente em arco com $\text{NT}$, teremos de ter $\text{NT = azul}$;
+[**contudo**](color:yellow), da mesma maneira, para $\text{NT = azul}$ ser consistente em arco com $\text{WA}$,
+teremos de ter $\text{WA = vermelho}$: [**não é o caso, nesta atribuição**](color:red), já
+que $\text{WA = azul}$, por premissa. Assim sendo, esta atribuição é removida do conjunto
+de atribuições consistentes em caminho possíveis; mais, o mesmo verifica-se para a outra atribuição,
+pelo que são ambas removidas, e assim sendo podemos [**garantir**](color:4green) que não existe solução
+consistente para este problema!
+
+Para a consistência de caminhos, temos um algoritmo bastante semelhante a $\text{AC-3}$,
+o $\text{PC-2}$.
+
 ### Consistência K
+
+Podemos generalizar as noções de consistência supra-abordadas através da noção de
+[**$k$-consistência**](color:orange) - um problema diz-se $k$-consistente se para
+todo o conjunto de $k-1$ variáveis (seja esse conjunto $K$), para qualquer atribuição consistente
+para as suas variáveis podemos sempre atribuir um valor que não torne o problema inconsistente
+a uma nova variável $k$. A consistência em nó é, portanto, a $1$-consistência, a consistência
+em arco é a $2$-consistência, etc.
+
+Temos ainda a noção de [**CSP fortemente $k$-consistente**](color:purple): todo o
+CSP que seja $k$-consistente, e $(k-1)$-consistente, ..., $1$-consistente diz-se
+**fortemente $k$-consistente**. É bastante importante, já que se tivermos um
+CSP com $n$ variáveis e este for $n$-consistente, então podemos facilmente
+atingir a solução: basta escolher um valor consistente para $X_1$, qualquer que seja $X_1$;
+como o CSP é $2$-consistente, podemos escolher um valor consistente para $X_2$; como é
+$3$-consistente, também o vamos poder fazer para $X_3$, e assim sucessivamente.
+
+Existe, contudo, um _catch_: tornar um CSP $k$-consistente é um processo moroso, com
+complexidade exponencial (tanto temporal como espacial). Assim sendo, acabamos por usar
+a abordagem acima indicada apenas quando conseguimos verificar empiricamente a $k$-consistência
+do grafo, já que caso contrário "acaba por nem valer a pena".
+
+### Restrições Globais
 
 ---
 
