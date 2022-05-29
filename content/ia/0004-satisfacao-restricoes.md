@@ -180,8 +180,8 @@ Dizemos que uma variável é [**nó-consistente**](color:green) caso todos os va
 no seu domínio satisfaçam as suas restrições unárias. Pensando no exemplo do mapa
 australiano, caso pintemos _South Australia_ de verde, _Western Australia_ vai deixar
 de poder ser pintada com essa cor, pelo que para esta ser nó-consistente vamos ter de
-"atualizar" o seu domínio, removendo verde. Mais, dizemos que um **grafo** é nó-consistente
-caso todas as suas variáveis também o sejam.
+"atualizar" o seu domínio, removendo verde. [Mais, dizemos que um **grafo** é nó-consistente
+caso todas as suas variáveis também o sejam](color:yellow).
 
 ### Consistência de Arcos
 
@@ -200,8 +200,99 @@ vamos ter $X$ consistente em arco para $Y$: para $0$, $1$, $2$ e $3$ existem, re
 $0$, $1$, $4$ e $9$ como valores no domínio de $Y$ que satisfazem a restrição binária para
 o respetivo valor de $X$.
 
-Temos que um grafo é arco-consistente caso qualquer variável seja arco-consistente
-com todas as outras variáveis.
+[Temos que um **grafo** é arco-consistente caso qualquer variável seja arco-consistente
+com todas as outras variáveis](color:yellow).
+
+O algoritmo mais conhecido para tratar a consistência de arcos é o
+[$\text{AC-3}$](https://en.wikipedia.org/wiki/AC-3_algorithm). É utilizado mais frequentemente
+que outros algoritmos dentro do mesmo âmbito, já que os seus antecessores são muito menos
+eficientes e os seus sucessores têm implementações bastante mais complexas.
+
+O seu funcionamento é relativamente simples: mantemos um _set_ de arcos (que inicialmente
+tem todos os arcos do CSP em questão), e vamos aleatoriamente removendo um arco do _set_
+(seja o arco $(X, Y)$); fazemos com que $X$ seja consistente em arco com $Y$, e daí
+vamos ter três cenários possíveis:
+
+- Caso $D_X$ **não tenha sido alterado**, $X$ já era consistente em arco com $Y$, pelo
+  que o arco é só removido e não acontece nada;
+- Caso $D_X$ **tenha visto o seu tamanho reduzido** (com $|D_X \neq 0$), adicionamos todos
+  os outros arcos $(X, X_j)$ de volta ao _set_ - temos restrições adicionais, pelo que
+  podemos agora encontrar outras maneiras de reduzir o tamanho do domínio de $X$;
+- Caso $D_X$ tenha visto o seu domínio reduzido ao **conjunto vazio**, podemos afirmar que
+  não existe solução consistente para o problema, pelo que o algoritmo retorna _failure_.
+
+O algoritmo termina ou quando verifica que o domínio de uma das variáveis passa a ser
+o conjunto vazio, retornando _failure_, ou quando o _set_ de arcos fica vazio, retornando
+_true_. Note-se, contudo, que este algoritmo não resolve por si só o problema: pode ajudar
+(bastante até) dado que reduz o tamanho dos domínios das variáveis o mais que consegue,
+mas por vezes termina sem que todos os domínios fiquem com tamanho $1$: nesse caso,
+vamos precisar de métodos adicionais para resolver os problemas em mãos.
+
+:::details[Exemplo $\text{AC-3}$: Sudoku]
+
+Tenha-se o seguinte tabuleiro de Sudoku:
+
+![Sudoku - Tabuleiro Inicial (AC-3)](imgs/0004-sudoku-grid-ac3.png#dark=3)
+
+Se quisermos modelar "preencher o tabuleiro" como um CSP, vamos ter:
+
+$$
+X = \{A_1, A_2, \cdots, I_8, I_9\} \\
+D = \{D_{A_1}, D_{A_2}, \cdots, D_{I_8}, D_{I_9}\}, D_{A_1} = D_{A_2} = \cdots = \{1, \cdots, 9\} \\
+C = \text{allDiff}(A_1, \cdots, A_9), \text{allDiff}(A_1, \cdots, I_1), \cdots
+$$
+
+Procuremos ver como 2 passos de $\text{AC-3}$ permitem reduzir o tamanho dos domínios
+de 2 variáveis.
+
+- Escolhendo a variável $E_6$ (que corresponde ao arco $(E, 6)$), vamos ter:
+
+  - Quanto à coluna, $E_6$ não vai poder tomar os valores $5, 6, 2, 8, 9, 3$;
+  - Quanto à linha, $E_6$ não vai poder tomar os valores $7, 8$;
+  - Quanto à "caixa", $E_6$ não vai poder tomar os valores $1, 2, 7, 8$;
+
+  Temos, portanto, que para $E$ ser consistente em arco com $6$, o domínio de $E_6$
+  deve ser reduzido para $D_{E_6} = \{4\}$. Chegámos, portanto, a um "movimento
+  obrigatório" aqui! O que faríamos de seguida era adicionar todas as variáveis
+  $E_j, j \neq 6$ ao _set_ de arcos mantidos pelo algoritmo, para ver se podíamos
+  reduzir mais domínios.
+
+- Escolhendo a variável $I_6$ (que corresponde ao arco $(I, 6)$), vamos ter:
+
+  - Quanto à coluna, $I_6$ não vai poder tomar os valores $5, 6, 2, \smartcolor{red}{4}, 8, 9, 3 \smartcolor{yellow}{^*}$;
+  - Quanto à linha, $I_6$ não vai poder tomar os valores $5, 1, 3$;
+  - Quanto à "caixa", $I_6$ não vai poder tomar os valores $1, 2, 3, 6, 9$;
+
+  [\*](color:yellow)Note-se que devido a termos descoberto que $E_6$ apenas pode tomar
+  o valor $4$, $4$ é adicionado às restrições de todas as variáveis da sexta coluna.
+
+  Temos, portanto, que para $I$ ser consistente em arco com $6$, o domínio de $I_6$
+  deve ser reduzido para $D_{I_6} = \{7\}$. Chegámos a mais um movimento "obrigatório"!
+
+Podíamos, realizando os vários passos a que $\text{AC-3}$ nos levaria, resolver de
+uma assentada o problema, sem recorrer a procuras adicionais. O resultado final seria o seguinte:
+
+![Sudoku - Tabuleiro Resolvido (AC-3)](imgs/0004-sudoku-grid-solved-ac3.png#dark=3)
+
+Como referido anteriormente, há problemas em que o algoritmo $\text{AC-3}$ não resolve
+sozinho o problema - nem todos os tabuleiros Sudoku conseguem ser completados seguindo
+unicamente este algoritmo, por exemplo - pelo que para resolver problemas mais complexos
+precisamos de misturar procura com inferência, procurando propagar restrições através
+de "tentativas" (i.e "não sei se $6$ é o valor certo aqui, mas é bastante possível
+por isso vou tentar"), ou até mesmo usando outros algoritmos de consistência.
+
+:::
+
+Considerando $c$ como o total de restrições binárias do problema e $d$ o tamanho máximo do
+domínio de uma variável, podemos afirmar que a consistência de um arco pode ser analisada
+em tempo $d^2$ - na pior das hipóteses, verificamos cada par de variáveis $1$ a $1$. Mais,
+como um arco pode ser inserido no _set_ de arcos no máximo $d$ vezes (já que o
+domínio só tem $d$ valores que podem ser removidos, e no pior caso são removidos $1$ a $1$),
+havendo $c$ restrições binárias, vamos ter que
+
+$$
+\text{TIME(AC-3)} \in O(c \cdot d \cdot d^2) = O(c \cdot d^3).
+$$
 
 ### Consistência de Caminhos
 
