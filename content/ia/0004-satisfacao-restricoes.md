@@ -544,7 +544,50 @@ ser útil (página $217$, secção $6.3.1$):
 
 ## Procura e Inferência
 
-a
+Até agora, vimos como utilizar a inferência a nosso favor no pré-processamento de um CSP.
+De seguida, vimos como boas procuras (com boas heurísticas) podem fazer um _pruning_
+antecipado e cuidado da árvore de procura, levando a que encontremos soluções completas
+e consistentes. Chegou, agora, a altura de combinar ambas estas noções, por forma
+a chegar a soluções verdadeiramente ótimas para estes problemas: a inferência já
+consegue ser de grande utilidade para pré-processar o nosso problema, mas consegue ser
+ainda mais útil logo após um passo numa procura: se conseguirmos, descendo apenas um nível,
+determinar que tudo o que está para baixo vai levar a soluções inconsistentes, é da maior
+relevância usar essas estratégias a nosso favor. Uma das formas de inferência clássicas
+utilizadas neste contexto é [**_forward checking_**](color:orange).
+
+:::info[Forward Checking]
+
+À medida que vamos atribuindo valores a variáveis, fazemos com que todas as outras sejam
+consistentes em arco com ela própria. Se uma das variáveis ficar com domínio vazio, ou experimentamos
+um valor diferente para a variável em mãos, ou fazemos _backtrack_. Temos, claro, que
+se fizermos _backtrack_ até à raiz, deduzimos que não existe solução completa e consistente
+para o problema. Adiciona-se ainda que, como estamos apenas a verificar sucessivamente a
+consistência de arco de várias variáveis, caso esse tipo de pré-processamento (via $\text{AC-3}$,
+por exemplo) já tenha sido feito, não haverá utilidade em fazê-lo enquanto procuramos.
+
+Abaixo podemos ver o exemplo de um cenário em que
+[_forward checking_](<https://en.wikipedia.org/wiki/Look-ahead_(backtracking)>) leva a que encontremos
+inconsistências relativamente rápido:
+
+:::details[Exemplo]
+
+![Exemplo Forward Checking](imgs/0004-forward-checking-example.svg#dark=2)
+
+:::
+
+Geralmente, combinamos _forward checking_ com o $\text{MRV}$ - vamos sucessivamente
+restringindo os domínios das variáveis e escolhendo as variáveis mais restritas!
+
+Existe, contudo, um problema com este tipo de abordagem: não consegue detetar inconsistências
+para lá do "passo diretamente a seguir". Basta pensar, por exemplo, que quando acima
+pintámos _Western Australia_ de vermelho e _Queensland_ de verde, podíamos empiricamente
+notar que tínhamos uma inconsistência em mãos, já que _South Australia_ e _Northern Territory_
+são adjacentes e os respetivos domínios são constituídos exclusivamente pela cor azul. É aqui
+que entra o algoritmo $\text{MAC}$, de _Maintaining Arc Consistency_.
+
+:::info[Maintaining Arc Consistency]
+
+:::
 
 ---
 
