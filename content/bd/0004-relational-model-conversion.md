@@ -132,13 +132,23 @@ vamos novamente ter [**Restrições de Integridade**](color:orange).
 
 As restrições de integridade podem ser aplicadas tanto às **relações** como à **base de dados**.
 
+Dependendo do tipo de restrição, deve-se usar diferentes mecanismos no SGBD:
+
+| Tipo de Restrição       | Mecanismo do SGBD                              |
+| ----------------------- | ---------------------------------------------- |
+| Domínio                 | Domínios dos atributos; `CHECK`                |
+| Chave Primária          | `PRIMARY KEY`                                  |
+| Unicidade               | `UNIQUE`                                       |
+| Integridade Referencial | `FOREIGN KEY`                                  |
+| Integridade Genérica    | _Assertions_, _Stored Procedures_ e _Triggers_ |
+
 ### Restrições aplicadas a Relações
 
 Podemos ter três tipos de restrições aplicadas a relações:
 
 - Restrições de Domínio
-- Restriçoes de Chave
 - Restrições de Unicidade
+- Restriçoes de Chave
 
 :::tip[Definição]
 Uma restrição de integridade aplicada a uma relação é uma condição num dos
@@ -162,3 +172,118 @@ Tais restrições podem ser indicadas da seguinte forma:
 > product(p_code, p_name, price, stock)
 >
 > - (price > 0): O preço de um produto tem sempre de ser positivo
+
+#### Restrições de Unicidade
+
+Uma restrição de unicidade indica quais são os atributos, ou conjuntos de atributos,
+cujos valores não se podem repetir na relação.
+
+Quando temos uma restrição de unicidade num conjunto de atributos, estamos a indicar
+que este par de valores não pode repetir, mas os valores individualmente podem.  
+No exemplo indicado abaixo, podemos ter dois produtos com o nome "Bolacha" se tiverem
+preços diferentes.
+
+> product(p_code, p_name, price, stock)
+>
+> - UNIQUE(p_code)
+> - UNIQUE(p_name, price)
+
+Com estas restrições:
+
+- não podem existir dois produtos com o mesmo código de barras.
+- não podem existir dois produtos com a mesma combinação _nome_/_preço_.
+
+:::tip[Minimal vs Mínimo]
+
+É importante perceber a diferença entre um elemento minimal e um elemento mínimo.
+
+- Um [**elemento minimal**](color:orange) é um elemento tal que não existe nenhum elemento menor que ele.
+- Um [**elemento mínimo**](color:yellow) é um elemento que é menor que todos os outros.
+
+É de notar que podem existir vários [**elementos minimais**](color:orange), mas
+apenas um [**elemento mínimo**](color:yellow).
+Podemos concluir também que um [**elemento mínimo**](color:yellow) é sempre
+[**minimal**](color:orange).
+
+:::
+
+Só devemos aplicar restrições de unicidade a [**elementos minimais**](color:orange), isto é,
+às combinações de atributos de tamanho mínimo necessário para garantir a unicidade.
+Se é possível identificar um produto apenas pelo seu código de barras, não faz
+sentido ter uma restrição de unicidade no par _chave_/_nome_.
+
+#### Restrições de Chave
+
+Uma restrição de chave indica qual é o atributo (ou o conjunto de atributos minimal) que
+identifica unicamente um tuplo.
+Por outras palavras, não existe nenhum subconjunto da chave que pode também identificar
+unicamente o conjunto.  
+Representamos esta restrição através de sublinhado, de forma semelhante ao Modelo E-A.
+
+Tomemos dois exemplos, um com chave de um atributo e outro com chave de dois atributos.
+
+> product(<u>p_code</u>, p_name, price, stock)
+
+> order(<u>p_code, client_id</u>, quantity, date)
+
+### Restrições aplicadas à Base de Dados
+
+As restrições aplicadas à base de dados são aplicadas a conjuntos de relações.
+
+Existem dois tipos:
+
+- Restrições de Integridade Referencial (ou _foreign keys_)
+- Restrições de Integridade Genéricas
+
+#### Restrições de Integridade Referencial (_Foreign Keys_)
+
+Restrições deste tipo requerem que exista um valor (ou combinação de valores)
+correspondente noutra relação. Chama-se a isto uma _foreign key_.
+
+Se os dados numa das relações forem alterados, é necessário verificar que as
+relações continuam a ser válidas.
+
+> order(<u>p_code, client_id</u>, quantity, date)
+>
+> - p_code: FK(product.p_code)
+
+Caso o nome dos atributos seja igual em ambas as relações, podemos omitir o nome
+do atributo dentro do `FK`, isto é, `p_code: FK(product)`.
+
+Podemos também incluir _foreign keys_ para atributos da mesma relação.
+
+> category(<u>name</u>, parent_category)
+>
+> - parent_category: FK(category.name)
+
+É de realçar também que se quisermos aplicar uma _foreign key_ a um conjunto
+de atributos, devemos usar a seguinte notação:
+
+> course(<u>course_name, year</u>, degree)
+>
+> enrollment(<u>student, course_name, year</u>)
+>
+> - course_name, year: FK(course_name, year)
+
+#### Restrições de Integridade Genéricas
+
+Há certas restrições que não se encaixam em mais nenhum tipo de categoria e têm
+de ser explicitadas textualmente.
+
+> degree(<u>degree_id</u>, name)
+>
+> student(<u>ist_id</u>, name, degree)
+>
+> - degree: FK(degree.degree_id)
+>
+> course(<u>course_name, year</u>, degree)
+>
+> - degree: FK(degree.degree_id)
+>
+> enrollment(<u>student, course_name, year</u>)
+>
+> - student: FK(student)
+> - course_name, year: FK(course_name, year)
+>
+> IC-1: Students can only be enrolled in courses belonging to the same degree
+> they signed up for.
