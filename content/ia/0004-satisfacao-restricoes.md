@@ -456,7 +456,7 @@ completa consistente para o problema**](color:yellow) caso tenhamos de retrocede
 
 ![Procura com Retrocesso](imgs/0004-backtracking-search-example.svg#dark=2)
 
-Esta procura é, contudo, **cega**, tal como as que vimos inicialmente no contexto de
+Esta procura é, contudo, [**cega**](color:red), tal como as que vimos inicialmente no contexto de
 Inteligência Artificial: fará, portanto, sentido introduzir [**heurísticas**](color:green)
 às nossas procuras, por forma a que sejam (idealmente) mais eficientes. No contexto de CSPs,
 contudo, e tentando manter o padrão de "abstração de implementação" quando ao domínio que
@@ -464,7 +464,83 @@ tentamos tentado manter nestas procuras, vamos querer utilizar também heurísti
 independentes do problema em mãos: heurísticas que sabemos que estão mais que testadas,
 e que devemos (em princípio) poder utilizar à confiança. Podemos dividir a "abordagem
 das heurísticas" consoante o respetivo foco: servem para escolher a [**próxima variável**](color:purple)
-a atribuir, ou o [**próximo valor**](color:purple)?
+a ser atribúida, ou o [**próximo valor**](color:purple) a atribuir?
+Ambas as abordagens têm o seu mérito, pelo que vamos de seguida tentar perceber as vantagens
+de cada uma (e os métodos mais comuns de o fazer).
+
+### Escolher a Próxima Variável
+
+Numa árvore de procura como as supra-mencionadas, não existe uma "ordem pré-determinada"
+para cada nível corresponder a uma dada variável específica - tanto podemos só respeitar
+a ordem pelas quais estão definidas em $X$, como podemos associar cada nível à variável
+que preferirmos - esta escolha é bastante poderosa, podendo tornar as nossas procuras
+substancialmente mais eficientes.
+Encontram-se abaixo dois exemplos da mesma procura, que seguem ordenações das variávieis
+por nível diferentes, por forma a ilustrar as diferenças que pequenas alterações podem surtir.
+Note-se que, para o mesmo problema (problema este relativamente simples, com poucas variáveis
+e restrições), conseguimos um ganho de $50\%$ em desempenho: conseguimos cortar metade dos testes de
+consistência realizados!
+
+![Escolher a ordem das variáveis é relevante](imgs/0004-choosing-variables-matters.svg#dark=2)
+
+Uma das heurísticas clássicas para fazer esta escolha é, a cada instante, [**escolher a variável
+que apresenta atualmente o menor número de possibilidades**](color:yellow), e delegar todo
+o nível à "expansão" dessa variável. Esta é a [**Heurística dos Valores Remanescentes Mínimos**](color:purple),
+$\text{MRV}$, que tem por base a lógica de que "quanto menos valores possíveis tiver para tratar, mais rápido
+começo a falhar", acabando assim por fazer _pruning_ da árvore mais cedo (e evitando
+pelo meio processamento desnecessário) - se um passo mais acima tiver falhado, em
+príncipio fico a saber mais cedo se estou a ir por um caminho errado ou não.
+Esta heurística não ajuda, contudo, em todas as nossas procuras:
+em casos onde as restrições iniciais não permitam ter variáveis mais restringidas que
+outras, podemos utilizar uma heurística adicional, a [**Heurística do Maior Grau**](color:green),
+por forma a **procurar reduzir o fator de ramificação da árvore no futuro**.
+Tal como tínhamos notado mais acima ao falar do exemplo do mapa australiano, [**colorir
+_South Australia_**](color:yellow) leva a que um grande número de variáveis fiquem de repente
+com o respetivo domínio mais pequeno, já que tem um grande número de adjacências. Esta
+heurística pega nessa lógica e formaliza-a: a cada nível, escolhemos a variável envolvida
+no maior número de restrições (num grafo, a variável com **maior grau**), já que atribuir
+valores a essa variável deverá criar um "efeito dominó" sobre uma área maior do problema.
+
+Note-se, claro, que podemos usar estas heurísticas em conjunto no mesmo problema:
+por norma, aplicamos $\text{MRV}$ primeiro, utilizando a de maior grau como forma de desempate.
+
+### Escolher o Próximo Valor
+
+Escolhida a variável, podemos ainda escolher a ordem do [**valor que pretendemos atribuir
+primeiro**](color:orange) - da mesma maneira que há escolhas de variáveis que nos permitem
+fazer um _pruning_ antecipado à árvore, também deverão haver heurísticas para escolhas
+de valores que permitam procuras mais eficientes.
+
+Ora, se o $\text{MRV}$ pretendia que se "falhasse" tão cedo quanto possível, por forma a nunca
+ter de avançar muito pela árvore sem ser o teoricamente necessário, aqui vamos querer
+precisamente o oposto: vamos sempre escolher os valores que nos levem a **falhar o menos
+possível** - isto porque não só queremos detetar falhas tão cedo quanto possível, também
+vamos querer sempre entrar no ramo mais promissor. Esta dicotomia é explicada
+da seguinte forma por [Max Welling](https://staff.fnwi.uva.nl/m.welling/):
+
+> In all stages of the searching for one solution, we want to **enter the most promising branch, but we also want to detect inevitable failure sooner**.
+>
+> $\text{MRV}$: **the variable that is most likely to cause failure in a branch is assigned first**. The variable must be assigned at some point, so if it is doomed to fail, we’d better found out soon.
+>
+> $\text{LCV}$[\*](color:yellow): **tries to avoid failure by assigning values that leave maximal flexibility for the remaining variables**. We want our search to succeed as soon as possible, so given some ordering, we want to find the branch that is more likely to succeed.
+
+[Nesta _thread_](https://cs.stackexchange.com/questions/98075/aren-t-most-constraining-variable-and-least-constraining-value-the-exact-opposit)
+podem encontrar uma resposta mais detalhada sobre o porquê de utilizar estas heurísticas
+(escrita melhor do que eu a conseguiria escrever).
+
+[\*](color:yellow) $\text{LCV}$, de _Least Constraining Value_, corresponde à heurística
+que, entre os valores passíveis de atribuição a uma variável, escolhe aquele que tem menos
+restrições impostas (eliminando, portanto, menos valores dos domínios de outras variáveis).
+
+Adiciona-se ainda o seguinte trecho do livro que acompanha a cadeira, que também pode
+ser útil (página $217$, secção $6.3.1$):
+
+> Why should variable selection be fail-ﬁrst, but value selection be fail-last?
+> It turns out that, for a wide variety of problems, a variable ordering that chooses a variable
+> with the minimum number of remaining values helps minimize the number of nodes in the search tree
+> by pruning larger parts of the tree earlier. For value orderi ng, the trick is that we only need
+> one solution; therefore it makes sense to look for the most likely values ﬁrst. If we wanted to
+> enumerate all solutions rather than just ﬁnd one, then value ordering would be irrelevant.
 
 ---
 
