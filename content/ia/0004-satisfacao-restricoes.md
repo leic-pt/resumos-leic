@@ -405,6 +405,67 @@ que, somadas, não ultrapassem este valor".
 
 ## Procura em CSPs
 
+Nem sempre conseguimos resolver CSPs utilizando exclusivamente inferência - basta pensar no
+problema das $8$ rainhas, onde inicialmente acabamos por ter que **"atirar ao calhas"** e tentar
+proceder a partir daí (fazendo uma procura, portanto). Temos, claro, diferentes maneiras de
+fazer as procuras, cada uma delas com as respetivas vantagens e desvantagens - vamos, nesta secção,
+procurar entender maneiras boas e más de aliar procuras às nossas estratégias de resolução
+de problemas, tentando simultaneamente perceber porque é que funcionam melhor em certos
+contextos em comparação com outras.
+
+Procuras mais básicas (pensemos, por exemplo, numa $DFS$ limitada) têm o defeito de [**ignorar
+o contexto do problema**](color:red), acabando por não se aperceber de padrões repetitivos na árvore de
+procura, levando a travessias redundantes: pensando no caso de um CSP com
+$n$ variáveis, onde o respetivo domínio pode ter até $d$ valores, vamos ter uma árvore
+de procura com ramificação no primeiro nível igual a $nd$, definitivamente longe do ideal. Mais, cada nível
+da árvore vai apenas removendo uma variável do conjunto de variáveis por atribuir, pelo que
+o nível seguinte terá ramificação de ordem $(n - 1)d$, e assim sucessivamente. Vamos, portanto,
+poder afirmar que uma árvore de procura _naíve_ que procure resolver um CSP poderá ter
+$n!d^n$ folhas! Ora, a [**redundância**](color:red) entra precisamente aqui: porque é que
+havemos de precisar de $n!d^n$ folhas na nossa árvore, quando só existem $d^n$ atribuições completas
+possíveis[\*](color:yellow)? Esta procura não parece, portanto, aperceber-se da possibilidade de variáveis
+atribuídos por ordens diferentes poderem ir dar a um conjunto de atribuições final igual - basta
+ver o exemplo abaixo, onde três caminhos da mesma árvore vão dar ao mesmo, sendo a única diferença
+a ordem da atribuição das variáveis:
+
+![Exemplo - Procura Básica is bad, and you should feel bad](imgs/0004-basic-search-example.svg#dark=4)
+
+[\*](color:yellow) Basta pensar que se tivermos $5$ caixinhas que podem ser preenchidas
+com $0$ ou $1$, vamos ter $2^5$ atribuições completas diferentes (e posteriormente
+generalizar para $n$ caixinhas com $d$ valores possíveis).
+
+Parece que voltámos ao secundário, quando aprendemos a diferença entre permutações e combinações:
+CSPs são comutativos, e como tal a ordem das atribuições é irrelevante, tal como nas combinações.
+Idealmente devemos conseguir remover esta redundância das nossas árvores de procura, efetivamente
+fazendo um _pruning_ bastante siginificativo das mesmas - removemo-la passando a considerar
+apenas uma variável por nível da árvore, conseguindo assim eliminar os tais ramos desnecessários
+da nossa árvore, tendo no máximo $d^n$ folhas. Adaptando o exemplo acima, ficaríamos com algo como:
+
+![Exemplo - Procura Básica sem redundâncias](imgs/0004-basic-search-example-without-redundancies.svg#dark=4)
+
+De realçar que aqui todas as soluções estão a [**profundidade $n$**](color:orange), já que
+cada nível trata de todas as atribuições possíveis para $1$ variável!
+
+### Procura com Retrocesso (_Backtracking Search_)
+
+Mais uma abordagem de procura bastante simples, funciona como uma DFS que vai avançando
+pela árvore atribuindo valores à variável correspondente ao nível em que está, verificando
+sempre se a solução é consistente - se não for, parte para um dos seus irmãos (e caso
+não haja irmãos restantes, retrocede para o nível anterior). Dizemos que [**não existe solução
+completa consistente para o problema**](color:yellow) caso tenhamos de retroceder de volta à raiz.
+
+![Procura com Retrocesso](imgs/0004-backtracking-search-example.svg#dark=2)
+
+Esta procura é, contudo, **cega**, tal como as que vimos inicialmente no contexto de
+Inteligência Artificial: fará, portanto, sentido introduzir [**heurísticas**](color:green)
+às nossas procuras, por forma a que sejam (idealmente) mais eficientes. No contexto de CSPs,
+contudo, e tentando manter o padrão de "abstração de implementação" quando ao domínio que
+tentamos tentado manter nestas procuras, vamos querer utilizar também heurísticas
+independentes do problema em mãos: heurísticas que sabemos que estão mais que testadas,
+e que devemos (em princípio) poder utilizar à confiança. Podemos dividir a "abordagem
+das heurísticas" consoante o respetivo foco: servem para escolher a [**próxima variável**](color:purple)
+a atribuir, ou o [**próximo valor**](color:purple)?
+
 ---
 
 Adicionamos que esta secção corresponde ao sexto capítulo do livro que acompanha a cadeira
