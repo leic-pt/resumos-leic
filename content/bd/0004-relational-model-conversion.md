@@ -287,3 +287,69 @@ de ser explicitadas textualmente.
 >
 > IC-1: Students can only be enrolled in courses belonging to the same degree
 > they signed up for.
+
+## Conversão a partir do Modelo E-A
+
+### Entidades e Atributos
+
+A conversão de entidade e atributos do Modelo E-A para o Modelo Relacional é
+bastante simples. As chaves primárias continuam a ser **representadas por um sublinhado**,
+e os atributos únicos passam a ter uma **restrição de unicidade**.
+
+![Entidade com chave primária e atributo único](./assets/0004-convert-entity-attributes.svg#dark=3)
+
+> student(<u>st_id</u>, name, birthdate)
+>
+> - UNIQUE(name)
+
+### Associações
+
+Dependendo do tipo de associação, a conversão para o modelo relacional faz-se de forma
+diferente.
+
+- **_Many-to-Many_** e **Ternárias**: cria-se uma nova relação com as chaves das entidades envolvidas
+- **_One-to-Many_**: cria-se uma nova relação em que a chave primária é a chave da entidade com multiplicidade 1.
+- **_One-to-One_**: igual à _many-to-many_, mas adiciona-se uma restrição de unicidade às chaves das entidades envolvidas.
+
+Existem também casos especiais para quando temos [participação obrigatória](/bd/er-model#restrições):
+
+- **_Many-to-Many_ com participação obrigatória**: não é possível representar diretamente no
+  modelo relacional, pelo que precisamos de uma restrição de integridade.
+- **_One-to-Many_ com participação obrigatória**: deixamos de precisar de uma nova relação,
+  e colocamos os atributos na relação da entidade com multiplicidade 1.
+
+#### Many-to-Many
+
+// TODO diagram
+
+(atributos das entidades omitidos por brevidade)
+
+> student(<u>ist_id</u>, name)
+>
+> course(<u>course_id</u>, course_name, department)
+>
+> enrolls(<u>ist_id, course_id</u>, enrollment_date)
+>
+> - ist_id: FK(student)
+> - course_id: FK(course)
+
+#### One-to-Many
+
+// TODO diagram
+
+(atributos das entidades omitidos por brevidade)
+
+> student(<u>ist_id</u>, name)
+>
+> degree(<u>degree_acronym</u>, degree_name, department)
+>
+> studies(<u>ist_id</u>, degree_acronym, start_date)
+>
+> - ist_id: FK(student)
+> - degree_acronym: FK(degree)
+
+#### One-to-One
+
+#### Many-to-Many com Participação Obrigatória
+
+#### One-to-Many com Participação Obrigatória
