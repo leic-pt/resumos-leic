@@ -56,7 +56,7 @@ Se considerarmos a primeira hipótese apresentada como a [hipótese nula](color:
 
 Temos que a [hipótese nula](color:blue) $H_0: \mu \geq 1,70$:
 
-> A média das alturas dos portugueses é no mínimo 1,70m 
+> A média das alturas dos portugueses é no mínimo 1,70m
 
 Tem uma [hipotese alternativa unilateral inferior](color:green): $H_1: \mu < 1,70$.
 
@@ -208,7 +208,7 @@ $$
 Z = \frac{\overline{X} - \mu}{\frac{s}{\sqrt{n}}} \sim_{H_0} t_{(n-1)}
 $$
 
-em que $s$ é um estimador para a variância - a variância corrigida.  
+em que $s$ é um estimador para a variância - a variância corrigida.
 
 Sendo assim, a região de rejeição é exatamente
 
@@ -236,7 +236,7 @@ $$
 Z = \frac{(\overline{X_1} - \overline{X_2}) - (\mu_1 - \mu_2)}{\sqrt{\frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1+n_2-2}\left(\frac{1}{n_1} + \frac{1}{n_2} \right)}} \sim_{H_0} t_{(n_1+n_2-1)}
 $$
 
-em que $s$ é um estimador para a variância - a variância corrigida.  
+em que $s$ é um estimador para a variância - a variância corrigida.
 
 Sendo assim, a região de rejeição é exatamente
 
