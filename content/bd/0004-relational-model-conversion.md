@@ -124,3 +124,41 @@ de duas relações:
   =&\{\lang \text{Bolacha}, 50\rang\}
   \end{aligned}
   $$
+
+## Restrições
+
+Tal como [tínhamos no modelo E-A](/bd/er-model#restrições-de-integridade)
+vamos novamente ter [**Restrições de Integridade**](color:orange).
+
+As restrições de integridade podem ser aplicadas tanto às **relações** como à **base de dados**.
+
+### Restrições aplicadas a Relações
+
+Podemos ter três tipos de restrições aplicadas a relações:
+
+- Restrições de Domínio
+- Restriçoes de Chave
+- Restrições de Unicidade
+
+:::tip[Definição]
+Uma restrição de integridade aplicada a uma relação é uma condição num dos
+atributos dessa relação, que restringe os dados que podem ser guardados
+nessa relação.
+:::
+
+#### Restrições de Domínio
+
+Uma restrição de domínio, tal como o próprio nome indica, restringe os valores do
+domínio de um atributo da relação.
+
+É fácil pensar em vários exemplos:
+
+- O preço de um produto tem de ser um inteiro positivo
+- O código do produto tem de ter 6 caracteres e começar pela letra 'A'
+- A data de nascimento de um utilizador tem de ser anterior a 2002-01-01
+
+Tais restrições podem ser indicadas da seguinte forma:
+
+> product(p_code, p_name, price, stock)
+>
+> - (price > 0): O preço de um produto tem sempre de ser positivo
