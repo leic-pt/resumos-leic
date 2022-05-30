@@ -320,7 +320,7 @@ Existem também casos especiais para quando temos [participação obrigatória](
 
 #### Many-to-Many
 
-// TODO diagram
+![Diagrama do Modelo E-A de uma associação many-to-many](./assets/0004-association-many-to-many.svg#dark=3)
 
 (atributos das entidades omitidos por brevidade)
 
@@ -335,7 +335,7 @@ Existem também casos especiais para quando temos [participação obrigatória](
 
 #### One-to-Many
 
-// TODO diagram
+![Diagrama do Modelo E-A de uma associação one-to-many](./assets/0004-association-one-to-many.svg#dark=3)
 
 (atributos das entidades omitidos por brevidade)
 
@@ -350,7 +350,7 @@ Existem também casos especiais para quando temos [participação obrigatória](
 
 #### One-to-One
 
-// TODO diagram
+![Diagrama do Modelo E-A de uma associação one-to-one](./assets/0004-association-one-to-one.svg#dark=3)
 
 (atributos das entidades omitidos por brevidade)
 
@@ -370,7 +370,9 @@ Existem também casos especiais para quando temos [participação obrigatória](
 Tal como referido acima, não é possível modelar completamente esta associação sem
 recorrer a **Restrições de Integridade**.
 
-// TODO diagram
+![Diagrama do Modelo E-A de uma associação many-to-many com participação obrigatória](./assets/0004-association-many-to-many-mandatory.svg#dark=3)
+
+(atributos das entidades omitidos por brevidade)
 
 > teacher(<u>ist_id</u>, name)
 >
@@ -384,3 +386,16 @@ recorrer a **Restrições de Integridade**.
 > - course_id: FK(course)
 
 #### One-to-Many com Participação Obrigatória
+
+Neste caso não precisamos de uma nova relação, usamos a relação já existente
+da entidade de multiplicidade 1 e obrigatória.
+
+![Diagrama do Modelo E-A de uma associação one-to-many com participação obrigatória](./assets/0004-association-one-to-many-mandatory.svg#dark=3)
+
+(atributos das entidades omitidos por brevidade)
+
+> department(<u>department_acronym</u>, deparment_name)
+>
+> teacher(<u>ist_id</u>, name, department_acronym, join_date)
+>
+> - department_acronym: FK(department)
