@@ -100,7 +100,7 @@ Os seguintes conjuntos [**não são relações**](color:red):
 ### Propriedades das Relações
 
 Uma relação **não tem tuplos duplicados** nem **colunas duplicadas**.
-Do mesmo modo, a ordenação tanto tos tuplos como dos atributos (colunas) é **irrelevante**.
+Do mesmo modo, a ordenação tanto dos tuplos como dos atributos (colunas) é **irrelevante**.
 
 Ou seja, a relação `product(p_code, p_name)` é equivalente a `product(p_name, p_code)`.
 
@@ -350,6 +350,37 @@ Existem também casos especiais para quando temos [participação obrigatória](
 
 #### One-to-One
 
+// TODO diagram
+
+(atributos das entidades omitidos por brevidade)
+
+> student(<u>ist_id</u>, name)
+>
+> degree(<u>degree_acronym</u>, degree_name, department)
+>
+> is_delegate(<u>ist_id, degree_acronym</u>, start_date)
+>
+> - ist_id: FK(student)
+> - degree_acronym: FK(degree)
+> - UNIQUE(ist_id)
+> - UNIQUE(degree_acronym)
+
 #### Many-to-Many com Participação Obrigatória
+
+Tal como referido acima, não é possível modelar completamente esta associação sem
+recorrer a **Restrições de Integridade**.
+
+// TODO diagram
+
+> teacher(<u>ist_id</u>, name)
+>
+> course(<u>course_id</u>, course_name, department)
+>
+> - IC-1: Every course (course_id) must participate in the lectures association
+>
+> lectures(<u>ist_id, course_id</u>)
+>
+> - ist_id: FK(teacher)
+> - course_id: FK(course)
 
 #### One-to-Many com Participação Obrigatória
