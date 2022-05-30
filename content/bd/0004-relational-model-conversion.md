@@ -399,3 +399,92 @@ da entidade de multiplicidade 1 e obrigatória.
 > teacher(<u>ist_id</u>, name, department_acronym, join_date)
 >
 > - department_acronym: FK(department)
+
+### Generalizações/Especializações
+
+// TODO
+
+Pegando no exemplo anterior de _pessoa_, _professor_ e _aluno_, como podemos
+converter este modelo para o modelo relacional?
+
+<!-- Using asset from page 0003 -->
+
+![Modelo E-A de Pessoa, Professor e Aluno](./assets/0003-teacher-student-example.svg#dark=3)
+
+Cada uma das especializações vai ser uma relação distinta, partilhando a chave da sua
+generalização.
+
+> person(<u>name</u>, citizen_card, birthday)
+>
+> - UNIQUE(citizen_card)
+>
+> teacher(<u>name</u>)
+>
+> - name: FK(person)
+>
+> student(<u>name</u>, ingress_date)
+>
+> - name: FK(person)
+
+Para modelar disjunções e obrigatoriedade, temos de recorrer a restrições de integridade.  
+Imaginando agora os seguintes cenários para a especialização de _pessoa_, teríamos
+as seguintes restrições de integridade na relação `person`:
+
+- **Obrigatoriedade:**
+  - **(IC-1)** name must exist in teacher and/or student
+- **Disjunção:**
+  - **(IC-1)** No person can exist at the same time in 'teacher' and in 'student'
+- **Obrigatoriedade e Disjunção:**
+  - **(IC-1)** name must exist in teacher or student
+  - **(IC-2)** No person can exist at the same time in 'teacher' and in 'student'
+
+Relembremos agora [o exemplo de membro e sócio](/bd/er-model#generalizaçõesespecializações)
+da página anterior, para ilustrarmos a conversão de especializações de vários níveis.  
+Neste caso, devemos criar uma _foreign key_ com a generalização imediatamente acima, e
+[**não**](color:red) com a generalização no "topo da árvore".
+
+![Exemplo da especialização de membro e de sócio](./assets/0004-specialization-nested.svg#dark=3)
+
+> member(<u>name</u>, citizen_card, birthdate)
+>
+> - UNIQUE(citizen_card)
+> - (IC-1) name must exist in 'regular_member' or 'occasional_member'
+> - (IC-2) No member can exist at the same time in 'regular_member' and in 'occasional_member'
+>
+> regular_member(<u>name</u>, regularity)
+>
+> - name: FK(member)
+>
+> occasional_member(<u>name</u>, last_visit)
+>
+> - name: FK(member)
+>
+> manager(<u>name</u>)
+>
+> - name: FK(member)
+>
+> associate(<u>name</u>, join_date)
+>
+> - name: FK(member)
+> - (IC-1) name must exist in 'bronze', 'silver' or 'gold'
+> - (IC-2) No associate can exist at the same time in any combination of 'bronze', 'silver' and 'gold'
+>
+> bronze(<u>name</u>)
+>
+> - name: FK(associate)
+>
+> silver(<u>name</u>)
+>
+> - name: FK(associate)
+>
+> gold(<u>name</u>)
+>
+> - name: FK(associate)
+
+### Entidades Fracas
+
+// TODO
+
+### Agregações
+
+// TODO
