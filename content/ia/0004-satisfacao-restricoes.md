@@ -420,7 +420,7 @@ $n$ variáveis, onde o respetivo domínio pode ter até $d$ valores, vamos ter u
 de procura com ramificação no primeiro nível igual a $nd$, definitivamente longe do ideal. Mais, cada nível
 da árvore vai apenas removendo uma variável do conjunto de variáveis por atribuir, pelo que
 o nível seguinte terá ramificação de ordem $(n - 1)d$, e assim sucessivamente. Vamos, portanto,
-poder afirmar que uma árvore de procura _naíve_ que procure resolver um CSP poderá ter
+poder afirmar que uma árvore de procura _naive_ que procure resolver um CSP poderá ter
 $n!d^n$ folhas! Ora, a [**redundância**](color:red) entra precisamente aqui: porque é que
 havemos de precisar de $n!d^n$ folhas na nossa árvore, quando só existem $d^n$ atribuições completas
 possíveis[\*](color:yellow)? Esta procura não parece, portanto, aperceber-se da possibilidade de variáveis
@@ -437,7 +437,7 @@ generalizar para $n$ caixinhas com $d$ valores possíveis).
 Parece que voltámos ao secundário, quando aprendemos a diferença entre permutações e combinações:
 CSPs são comutativos, e como tal a ordem das atribuições é irrelevante, tal como nas combinações.
 Idealmente devemos conseguir remover esta redundância das nossas árvores de procura, efetivamente
-fazendo um _pruning_ bastante siginificativo das mesmas - removemo-la passando a considerar
+fazendo um _pruning_ bastante significativo das mesmas - removemo-la passando a considerar
 apenas uma variável por nível da árvore, conseguindo assim eliminar os tais ramos desnecessários
 da nossa árvore, tendo no máximo $d^n$ folhas. Adaptando o exemplo acima, ficaríamos com algo como:
 
@@ -464,7 +464,7 @@ tentamos tentado manter nestas procuras, vamos querer utilizar também heurísti
 independentes do problema em mãos: heurísticas que sabemos que estão mais que testadas,
 e que devemos (em princípio) poder utilizar à confiança. Podemos dividir a "abordagem
 das heurísticas" consoante o respetivo foco: servem para escolher a [**próxima variável**](color:purple)
-a ser atribúida, ou o [**próximo valor**](color:purple) a atribuir?
+a ser atribuída, ou o [**próximo valor**](color:purple) a atribuir?
 Ambas as abordagens têm o seu mérito, pelo que vamos de seguida tentar perceber as vantagens
 de cada uma (e os métodos mais comuns de o fazer).
 
@@ -475,7 +475,7 @@ para cada nível corresponder a uma dada variável específica - tanto podemos s
 a ordem pelas quais estão definidas em $X$, como podemos associar cada nível à variável
 que preferirmos - esta escolha é bastante poderosa, podendo tornar as nossas procuras
 substancialmente mais eficientes.
-Encontram-se abaixo dois exemplos da mesma procura, que seguem ordenações das variávieis
+Encontram-se abaixo dois exemplos da mesma procura, que seguem ordenações das variáveis
 por nível diferentes, por forma a ilustrar as diferenças que pequenas alterações podem surtir.
 Note-se que, para o mesmo problema (problema este relativamente simples, com poucas variáveis
 e restrições), conseguimos um ganho de $50\%$ em desempenho: conseguimos cortar metade dos testes de
@@ -489,7 +489,7 @@ o nível à "expansão" dessa variável. Esta é a [**Heurística dos Valores Re
 $\text{MRV}$, que tem por base a lógica de que "quanto menos valores possíveis tiver para tratar, mais rápido
 começo a falhar", acabando assim por fazer _pruning_ da árvore mais cedo (e evitando
 pelo meio processamento desnecessário) - se um passo mais acima tiver falhado, em
-príncipio fico a saber mais cedo se estou a ir por um caminho errado ou não.
+princípio fico a saber mais cedo se estou a ir por um caminho errado ou não.
 Esta heurística não ajuda, contudo, em todas as nossas procuras:
 em casos onde as restrições iniciais não permitam ter variáveis mais restringidas que
 outras, podemos utilizar uma heurística adicional, a [**Heurística do Maior Grau**](color:green),
@@ -535,12 +535,16 @@ restrições impostas (eliminando, portanto, menos valores dos domínios de outr
 Adiciona-se ainda o seguinte trecho do livro que acompanha a cadeira, que também pode
 ser útil (página $217$, secção $6.3.1$):
 
-> Why should variable selection be fail-ﬁrst, but value selection be fail-last?
+> Why should variable selection be [**fail-first**](color:green), but value selection be [**fail-last**](color:red)?
 > It turns out that, for a wide variety of problems, a variable ordering that chooses a variable
 > with the minimum number of remaining values helps minimize the number of nodes in the search tree
-> by pruning larger parts of the tree earlier. For value orderi ng, the trick is that we only need
-> one solution; therefore it makes sense to look for the most likely values ﬁrst. If we wanted to
+> by pruning larger parts of the tree earlier. For value ordering, the trick is that we only need
+> one solution; therefore it makes sense to look for the most likely values first. If we wanted to
 > enumerate all solutions rather than just ﬁnd one, then value ordering would be irrelevant.
+
+## Procura e Inferência
+
+a
 
 ---
 
