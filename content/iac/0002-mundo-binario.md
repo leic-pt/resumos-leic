@@ -71,7 +71,7 @@ Para passarmos de binário para decimal vamos apenas multiplicando o algarismo e
 
 :::
 
-Para passarmos de um número de binário para hexadecimal temos que devidir em conjuntos de 4 algarismos o nosso número e escrever o seu número correspondente em base hexadecimal, ou seja:
+Para passarmos de um número de binário para hexadecimal temos que dividir em conjuntos de 4 algarismos o nosso número e escrever o seu número correspondente em base hexadecimal, ou seja:
 
 ![Binário para hexadecimal](./assets/0002-binario-hexadecimal.png#dark=3)
 
@@ -81,7 +81,7 @@ Por último passar de hexadecimal para binário é apenas fazer o inverso, isto 
 
 ### Gama de números
 
-Existe uma quantidade certa de números para os quais podemos representar com um determinado número de bits. Por exemplo, se queremos representar um número com N bit so podemos representar os números inteiros [0,2N -1] ou [–2N-1, 2N-1 -1].
+Existe uma quantidade certa de números para os quais podemos representar com um determinado número de bits. Por exemplo, se queremos representar um número com N bit so podemos representar os números inteiros $[0, 2^n - 1]$ ou $[-2^{n - 1}, 2^{n - 1} - 1]$.
 
 As duas representações diferentes ajuda-nos para o caso de termos números com ou sem sinal.
 
@@ -89,7 +89,7 @@ As duas representações diferentes ajuda-nos para o caso de termos números com
 
 ### Simétrico em complemento para 2
 
-Para obtermos o simétrico para complemento para 2 apenas temos que somar 1 ao nosso número e a resposta será o nosso simétrico, como podemos observar no exemplo.
+Para obtermos o simétrico em complemento para 2 temos de inverter o valor de cada bit e no final somar 1 ao nosso número e a resposta será o nosso simétrico, como podemos observar no exemplo.
 
 ![Simétrico em complemento para 2](./assets/0002-exemplos.png#dark=3)
 

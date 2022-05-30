@@ -25,7 +25,7 @@ Como podemos ver pelo esquema acima, existem várias componentes num computador 
 
 ![Processador e Memória](./assets/0003-processador-mem.png#dark=3)
 
-Começamos por falar sobre o [processador e a memória](color:pink). Um **processador** serve para controlar tudo dentro de um computador, daí ser composto por uma [unidade de controlo](color:orange) e uma [unidade de dados](color:orange). Dentro da unidade de controlo podemos observar a [memória de intruções](color:orange) que, tal como o nome indica, avalia as intruções do programa que estamos a correr, isto é, as regras que têm que ser cumpridas. Por outro laod, dentro da unidade de dados, conseguimos observar a [memória de dados e periféricos (entradas/saídas)](color:orange); a memória de dados avalia os dados que vamos processar, enquanto os periféricos avaliam a entrada e a saída dos mesmos, por outras palavras, funcionam como uma espécie de células de memória cujos bits ligam ao **mundo exterior**.
+Começamos por falar sobre o [processador e a memória](color:pink). Um **processador** serve para controlar tudo dentro de um computador, daí ser composto por uma [unidade de controlo](color:orange) e uma [unidade de dados](color:orange). Dentro da unidade de controlo podemos observar a [memória de intruções](color:orange) que, tal como o nome indica, avalia as intruções do programa que estamos a correr, isto é, as regras que têm que ser cumpridas. Por outro lado, dentro da unidade de dados, conseguimos observar a [memória de dados e periféricos (entradas/saídas)](color:orange); a memória de dados avalia os dados que vamos processar, enquanto os periféricos avaliam a entrada e a saída dos mesmos, por outras palavras, funcionam como uma espécie de células de memória cujos bits ligam ao **mundo exterior**.
 
 ## Memória de dados
 
@@ -159,7 +159,7 @@ Porém, para facilitar o nosso programa podemos usar [constantes simbólicas](co
 7. Sata para 4
 8. Salta para 8 (fim do programa)
 
-Assim, podemos concluir que as **variáveis** ficam em [memória de dados](color:orange), as **instruções** ficam na [memória de instruções](color:orange), a cada passo do algoritmo temos uma instrução e o número de passos é o [endereço na memória de instruções](color:orange)
+Assim, podemos concluir que as **variáveis** ficam em [memória de dados](color:orange), as **instruções** ficam na [memória de instruções](color:orange), a cada passo do algoritmo temos uma instrução e o número do passo é o [endereço na memória de instruções](color:orange)
 
 ### Contador de Programa
 
