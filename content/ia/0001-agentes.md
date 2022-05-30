@@ -27,7 +27,7 @@ A perspetiva seguida na cadeira é a última apresentada, focando-se no estudo d
 
 ## Introdução a Agentes
 
-A definição de **agente** está intrinsecamente ligada ao ambiente que o envolve - um [**agente**](color:orange) é tudo o que capta o ambiente que o envolve, através de **sensores**, e que consegue atuar sobre o mesmo (através de **atuadores**). Podemos pensar, por exemplo, nos **humanos** como agentes: os seus recetores são, entre outros, os olhos e o nariz, atuando através das mãos, pés e por aí fora. Um **robô**, por outro lado, teria câmeras e/ou infravermelhos como recetores, atuando através das respetivas partes motoras.
+A definição de **agente** está intrinsecamente ligada ao ambiente que o envolve - um [**agente**](color:orange) é tudo o que capta o ambiente que o envolve, através de **sensores**, e que consegue atuar sobre o mesmo (através de **atuadores**). Podemos pensar, por exemplo, nos **humanos** como agentes: os seus recetores são, entre outros, os olhos e o nariz, atuando através das mãos, pés e por aí fora. Um **robô**, por outro lado, teria câmaras e/ou infravermelhos como recetores, atuando através das respetivas partes motoras.
 
 ![Diagrama - Agentes e Ambientes](https://developmentalsystems.org/sensorimotor-lenia/public/mechanistic.svg#dark=3)
 
@@ -47,11 +47,11 @@ A função agente mapeia uma _sequência de perceções_ [(não apenas uma únic
 
 :::
 
-O exemplo clássico (utilizado tanto no livro que acompanha a cadeira como nas aulas teóricas) utilizado para demonstrar funções agente é o do **aspirador**, um agente autónomo com um "mundo" e conjunto de ações finito (e pequeno).
+O exemplo clássico (presente tanto no livro que acompanha a cadeira como nas aulas teóricas) utilizado para demonstrar funções agente é o do **aspirador**, um agente autónomo com um "mundo" e conjunto de ações finito (e pequeno).
 
 ![Aspirador - Localizações](imgs/0001-aspirador.png#dark=2)
 
-Aqui, consideramos que a localização $A$ está mesmo à direita da $B$ (e vice-versa), havendo portanto duas posições possíveis para o robô estar, e que cada localização pode estar atualmente limpa ou suja. Mais, consideramos que este só pode executar três ações: (1) mover-se para a direita, (2) mover-se para a esquerda ou (3) aspirar. Abaixo temos uma possível sequência de perceções, com a respetiva ação tomada pelo agente associada.
+Aqui, consideramos que a localização $B$ está mesmo à direita da $A$ (e vice-versa), havendo portanto duas posições possíveis para o robô estar, e que cada localização pode estar atualmente limpa ou suja. Mais ainda, consideramos que este só pode executar três ações: (1) mover-se para a direita, (2) mover-se para a esquerda ou (3) aspirar. Abaixo, temos uma possível sequência de perceções, com a respetiva ação tomada pelo agente associada.
 
 | Sequência de Perceções                | Ação              |
 | ------------------------------------- | ----------------- |
@@ -75,7 +75,7 @@ Agentes racionais procuram sempre realizar as ações que, segundo a informaçã
 Existe aqui, mais que uma função agente quase direta (tenho isto, faço aquilo, sem considerar contexto nem nada do género), um raciocínio por detrás da escolha a tomar, que pode nem sempre ser o óbvio.
 
 Devemos, contudo, atentar que tal como nós, como seres humanos, não sabemos sempre a decisão certa (apesar de poder raciocinar sobre a mesma), [**os agentes também não**](color:red): agentes racionais devem responder com a decisão ótima **dentro do que sabem**, mas não são **omniscientes** - não sabem tudo - pelo que a decisão que tomam pode não ser a ideal.
-Mais ainda, racionalidade não implica **clarividência**, isto é, **a ação tomada pode não resultar no que pretendemos**, já que imprevistos acontecem e nem sempre conseguimos escapar deles. Se estivermos numa estrada e de repente houver um acidente que corta todas as faixas, azar, ficamos umas horas presas no trânsito, mesmo tendo verificado que em teoria seguir essa estrada traduzir-se-ia no caminho mais curto antes de sair de casa.
+Mais ainda, racionalidade não implica **clarividência**, isto é, **a ação tomada pode não resultar no que pretendemos**, já que imprevistos acontecem e nem sempre conseguimos escapar deles. Se estivermos numa estrada e de repente houver um acidente que corta todas as faixas, infelizmente, ficamos umas horas presas no trânsito, mesmo tendo verificado que em teoria seguir essa estrada traduzir-se-ia no caminho mais curto antes de sair de casa.
 Podemos, portanto, a partir dos dois pontos aqui levantados, afirmar que [**o raciocínio nem sempre leva ao sucesso**](color:yellow).
 
 Idealmente, agentes racionais devem **explorar, aprender e ser autónomos**. Voltando ao exemplo do aspirador, o agente deve inicialmente explorar as várias localizações e experimentando executar várias ações em situações semelhantes, procurando perceber qual delas se adequa melhor às nossas expectativas de sucesso - se tivermos um local sujo e mudarmos só de localização, vai continuar sujo (não ideal).
@@ -85,13 +85,13 @@ Esta exploração pode até ser feita fora do âmbito do objetivo, testando apen
 
 ## Caracterização de um Agente
 
-Para modelar agentes racionais, é útil ter um _standard_ para o fazer: algo que nos permita descrever o agente segundo um conjunto de características. Vamos aqui utilizar a descrição [**PEAS**](color:orange): _[**P**](color:orange)erformance_, _[**E**](color:orange)nvironment_, _[**A**](color:orange)ctuators_, _[**S**](color:orange)ensors_. Abaixo seguem-se alguns exemplos de agentes segundo esta descrição:
+Para modelar agentes racionais, é útil ter um _standard_ para o fazer: algo que nos permita descrever o agente segundo um conjunto de características. Vamos aqui utilizar a descrição [**PEAS**](color:orange): _[**P**](color:orange)erformance_, _[**E**](color:orange)nvironment_, _[**A**](color:orange)ctuators_, _[**S**](color:orange)ensors_. De seguida, seguem-se alguns exemplos de agentes segundo esta descrição:
 
 | Agente                          | _Performance_                                        | Ambiente                                        | Atuadores                  | Sensores                                                      |
 | ------------------------------- | ---------------------------------------------------- | ----------------------------------------------- | -------------------------- | ------------------------------------------------------------- |
-| Condutor de Táxi (Automatizado) | Maximizar o Lucro; Conforto; Segurança.              | Estradas; Tráfego; Peões; Clientes.             | Motor; Acelerador; Buzina. | Câmeras; GPS; Velocímetro.                                    |
+| Condutor de Táxi (Automatizado) | Maximizar o Lucro; Conforto; Segurança.              | Estradas; Tráfego; Peões; Clientes.             | Motor; Acelerador; Buzina. | Câmaras; GPS; Velocímetro.                                    |
 | Robô Professor                  | Feedback dos Alunos; Notas dos Alunos.               | Alunos; Ambiente de Testes.                     | Monitor.                   | Teclado.                                                      |
-| Robô que joga Futebol           | Golos Marcados; Golos (não) sofridos; Pontos ganhos. | Campo; Colegas de Equipa; Adversários; Árbitro. | Motores; Articulações.     | Câmeras; Sensores de proximidade; Sensores de infravermelhos. |
+| Robô que joga Futebol           | Golos Marcados; Golos (não) sofridos; Pontos ganhos. | Campo; Colegas de Equipa; Adversários; Árbitro. | Motores; Articulações.     | Câmaras; Sensores de proximidade; Sensores de infravermelhos. |
 
 Existem mais alguns exemplos na página 42 do livro.
 
@@ -106,9 +106,9 @@ Os "ambientes" a que nos referimos correspondem, de forma bastante sucinta, ao q
   Podemos estar em ambientes parcialmente observáveis caso, por exemplo, o agente tenha sensores pouco exatos, ou se for pura e simplesmente impossível mapear o ambiente a todo o momento.
   O xadrez, por exemplo, é completamente observável, enquanto que o ambiente que envolve um agente condutor de táxi já não o é - não sabemos a todo o momento tudo o que se passa à nossa volta, podendo, por exemplo, haver um peão fora do campo de visão do condutor.
 
-- Ambientes [**Determínisticos**](color:yellow) vs [**Estocásticos**](color:orange): um ambiente diz-se determínistico caso o próximo estado do mesmo seja apenas ditado pelo seu estado atual e pela ação seguinte do agente, sem qualquer grau de incerteza associado nem outras ações do exterior que o possam perturbar.
+- Ambientes [**Determinísticos**](color:yellow) vs [**Estocásticos**](color:orange): um ambiente diz-se determinístico caso o próximo estado do mesmo seja apenas ditado pelo seu estado atual e pela ação seguinte do agente, sem qualquer grau de incerteza associado nem outras ações do exterior que o possam perturbar.
 
-  Mais ainda, dizemos que um ambiente continua a ser determínistico (mas, mais concretamente, [**estratégico**](color:yellow)) caso estejamos num ambiente multi-agente onde o próximo estado pode estar também dependente das ações de outros agentes (como é o caso do xadrez).
+  Mais ainda, dizemos que um ambiente continua a ser determinístico (mas, mais concretamente, [**estratégico**](color:yellow)) caso estejamos num ambiente multi-agente onde o próximo estado pode estar também dependente das ações de outros agentes (como é o caso do xadrez).
   O ambiente que rodeia um taxista é, claro, estocástico - não podemos prever o tráfego a parar abruptamente, um pneu a rebentar, entre outros, pelo que o ambiente pode alterar sem que a ação do agente tenha uma influência direta sobre ele.
 
 - Ambientes [**Episódicos**](color:yellow) vs [**Sequenciais**](color:orange): dizemos que um ambiente é episódico caso cada estado seja atómico - isto é, estamos num estado, realizamos uma ação, e o estado seguinte não vai ter qualquer dependência em relação às ações tomadas no estado anterior.
@@ -127,9 +127,9 @@ Por fim, notar que os ambientes podem ser de [**agente único**](color:yellow) (
 
 Seguem-se alguns exemplos de ambientes, com as respetivas propriedades discriminadas.
 
-| Ambiente                         | Observável?                              | Agentes?                     | Determínistico?                | Episódico?                 | Estático?                | Contínuo?                |
+| Ambiente                         | Observável?                              | Agentes?                     | Determinístico?                | Episódico?                 | Estático?                | Contínuo?                |
 | -------------------------------- | ---------------------------------------- | ---------------------------- | ------------------------------ | -------------------------- | ------------------------ | ------------------------ |
-| [Palavras Cruzadas](color:green) | [Completamente Observável](color:yellow) | [Agente Único](color:yellow) | [Determínistico](color:yellow) | [Sequencial](color:orange) | [Estático](color:yellow) | [Discreto](color:yellow) |
+| [Palavras Cruzadas](color:green) | [Completamente Observável](color:yellow) | [Agente Único](color:yellow) | [Determinístico](color:yellow) | [Sequencial](color:orange) | [Estático](color:yellow) | [Discreto](color:yellow) |
 | [Poker](color:green)             | [Parcialmente Observável](color:orange)  | [Multi-Agente](color:orange) | [Estocástico](color:orange)    | [Sequencial](color:orange) | [Estático](color:yellow) | [Discreto](color:yellow) |
 | [Mundo Real](color:green)        | [Parcialmente Observável](color:orange)  | [Multi-Agente](color:orange) | [Estocástico](color:orange)    | [Sequencial](color:orange) | [Dinâmico](color:orange) | [Contínuo](color:orange) |
 
@@ -167,9 +167,9 @@ Realça-se novamente que, tendo este programa, **não precisamos de qualquer no�
 
 O diagrama acima representa o _core_ do funcionamento de um agente de reflexos simples. A noção de [**regras condições-ações**](color:purple), _condition-action rules_, referida no mesmo está relacionada com o funcionamento base de qualquer agente, por mais complexo que seja - nós próprios funcionamos assim!
 Se estivermos a conduzir e o carro à nossa frente travar, fazemos internamente uma "conexão" causada pela condição `o-carro-está-a-travar` e procuramos também travar, já que chocar com ele não seria ideal.
-Aplicamos uma lógica semelhante no aspirador, utilizando esta noção de condição-ação: se está sujo, limpo, e se não estiver movo-me para a direita ou para a esquerda, conforme onde estiver agora.
+Aplicamos uma lógica semelhante no aspirador, utilizando esta noção de condição-ação: se está sujo, limpo, e se não estiver, movo-me para a direita ou para a esquerda, conforme o sítio onde estiver agora.
 
-Um programa-tipo para agentes de reflexos simples seria a seguinte:
+Um programa-tipo para agentes de reflexos simples seria o seguinte:
 
 ```bash
 function simple_reflex_agent(perception)
@@ -184,7 +184,7 @@ end
 
 ### Agentes de Reflexos baseados em Modelos
 
-Em ambientes parcialmente observáveis, o agente vai por norma precisar de manter um estado interno onde vai mapeando as partes do mundo que já viu (e que pode ou não estar a ver agora). Contrasta, portanto, diretamente com o último modelo, já que guarda um histórico de perceções.
+Em ambientes parcialmente observáveis, o agente vai, por norma, precisar de manter um estado interno onde vai mapeando as partes do mundo que já viu (e que pode ou não estar a ver agora). Contrasta, portanto, diretamente com o último modelo, já que guarda um histórico de perceções.
 Esta distinção é bastante útil, já que há problemas onde os agentes de reflexos simples não conseguem realizar as tarefas pedidas, casos em que nem sempre temos tudo o que precisamos no estado atual e precisamos de mais que um conjunto de regras para nos orientarmos.
 Ainda assim, a sua complexidade não altera de forma drástica - é uma alteração relativamente suave, até - daí um outro nome para este tipo de agentes, **agentes de reflexos simples com estado interno**, ser tão próximo do último modelo.
 

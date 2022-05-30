@@ -22,6 +22,7 @@ footer:hover {
 
 .footer-github-logo {
   height: 1em;
+  width: unset;
   vertical-align: baseline;
   margin-left: 0.3em;
 }
