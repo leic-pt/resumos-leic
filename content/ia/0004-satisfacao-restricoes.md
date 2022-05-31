@@ -667,7 +667,7 @@ ao subir na árvore recalculamos o conjunto de conflito da variável para a qual
 a "saltar" como se segue (seja $X$ a variável mais abaixo e $Y$ a variável mais acima):
 
 $$
-\smartcolor{green}{conf(Y) = conf(Y) \cup conf(X) - \{Y\}}
+conf(Y) = conf(Y) \cup conf(X) - \{Y\}
 $$
 
 :::details[Exemplo]
@@ -676,7 +676,7 @@ Consideremos a seguinte extensão ao exemplo ilustrado mais acima, onde para al�
 colorir $\text{WA, NST}$ e $\text{T}$ a vermelho, colorimos ainda $\text{NT}$ a azul
 e $\text{Q}$ a verde:
 
-![Constraint-Directed Backjumping](imgs/0004-constraint-directed-backjumping.svg#dark=2)
+![Conflict-Directed Backjumping](imgs/0004-conflict-directed-backjumping.svg#dark=2)
 
 Ora, se quisermos colorir $\text{SA}$ a seguir, vamos reparar que o seu domínio está
 agora vazio; assim sendo, vamos querer fazer um _backjump_: mas para onde?
@@ -755,6 +755,67 @@ em cache, como criando restrições de ordem superior envolvendo todas as atribu
 
 A noção de _no-good_ é, claro, independente da utilização de saltos para trás ou de
 _forward checking_, podendo ser utilizada sem problemas em ambas as abordagens.
+
+### Procura Local para CSPs
+
+Por [**procura local**](color:orange) entendemos um algoritmo que anda de solução em solução (num **espaço de
+soluções candidatas**) à procura de uma solução considerada ótima. Pensando na árvore
+de procura, onde as **folhas** correspondem a **atribuições completas**, vamos andar a percorrer
+as várias folhas à procura de uma solução ótima - aqui, corresponderá a uma solução consistente.
+
+Como funciona, então, a procura entre as folhas? Aliada à noção de procura, há-de existir
+também a ideia de melhores e piores procuras - não vamos fazer procuras aleatórias, mas sim
+procurar sempre que a "escolha seguinte" apresente uma configuração mais próxima de uma solução
+consistente que a anterior. A **transição entre estados** na procura vai, então, para tentar
+encontrar melhores configurações, procurar re-atribuir variáveis partindo de uma configuração
+inicial (que pode ou não ser aleatória).
+
+:::tip[Procura Local em CSPs - Heurística Min-Conflicts]
+
+A abordagem-padrão da procura local é relativamente simples: escolhemos de forma aleatória
+uma das variáveis atualmente em conflito, seja ela $X$, e vamos procurar um valor $v$ tal que,
+de entre todos os valores passíveis de atribuição para $X$, $v$ é o que viola o menor
+número de restrições possível. Temos, claro, que se houver vários valores a violar o mínimo
+número de restrições possível, podemos escolher um deles aleatoriamente e avançar.
+
+:::
+
+O exemplo clássico utilizado para ilustrar a eficiência da procura local em CSPs
+é o das $n$ rainhas. Considere-se o seguinte tabuleiro, cuja configuração inicial
+vai ser a seguinte atribuição aleatória de valores (completa):
+
+![Procura Local - Configuração Inicial](imgs/0004-local-search-initial.svg#dark=2)
+
+Todas as variáveis estão atualmente em conflito, pelo que a solução, já de si aleatória,
+mais aleatória ficou. Se escolhermos, por exemplo, a rainha na segunda linha e segunda coluna,
+vamos notar que a atribuição que leva a um menor número de conflitos é subir $1$ casa para cima
+(aqui fica sem conflitos, enquanto que qualquer outro movimento mantém pelo menos um conflito):
+
+![Procura Local - Rainha na Segunda Linha](imgs/0004-local-search-step-2.svg#dark=2)
+
+Desta vez, três das variáveis estão em conflito - escolhendo, entre elas, uma aleatória (seja
+ela a variável da terceira linha e terceira coluna), podemos notar que movê-la $1$ casa para baixo
+remove não são só todos os seus conflitos como os das outras variáveis, ficando
+assim com uma solução completa e consistente!
+
+![Procura Local - Rainha na Terceira Linha](imgs/0004-local-search-step-3.svg#dark=2)
+
+Note-se, claro, que resolver o problema em $2$ passos acabou por revelar alguma sorte: caso
+no segundo passo tivéssemos escolhido outra variável, podíamos precisar de um passo extra
+por forma a obter uma solução completa e consistente. Não é, contudo, isso que está aqui
+em causa: o que é relevante é que conseguimos obter uma solução com relativamente
+pouco esforço. Mais, este método é [**escalável**](color:orange)! Conseguimos inclusive
+resolver o problema do milhão de rainhas em $50$ passos em média! Para o problema das
+$n$ rainhas, o tempo de execução da procura parece quase dissociar-se da dimensão dos
+domínios, sendo quase realizada em "tempo constante" para tamanhos muito grandes.
+
+A procura local não se adequa, contudo, a todo o tipo de CSPs - caso contrário, tínhamos
+em mãos o _santo Graal_ das procuras, e nunca mais íamos precisar de fazê-las de maneira
+diferente. Esta procura funciona principalmente em problemas cujas soluções estão densamente
+distribuídas pelo espaço de estados, e onde qualquer solução sirva (desde que seja consistente).
+Mais, não nos permite provar que não há solução, o que em certos casos pode ser um problema.
+
+### Estrutura de Problemas
 
 ---
 
