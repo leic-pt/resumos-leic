@@ -64,12 +64,32 @@ $$
 
 :::
 
+:::details[Exemplo 3]
+
+Considere-se a EA que consiste em lançar uma moeda ao ar.
+O espaço de resultados é:
+
+$$
+\Omega = \{ \text{Sai Cara}, \text{Sai Coroa} \}
+$$
+
+Uma VA que podemos definir é a função $X: \Omega \to \R$ tal que:
+
+$$
+X( \text{Sai Cara} ) = 0 \\
+X( \text{Sai Coroa} ) = 1
+$$
+
+:::
+
 :::tip[Nota]
 
-Em ambos os exemplos podiamos ter definido qualquer outra VA que nos apetecesse.
-No entanto estas são as que nos farão mais sentido para trabalhar com elas.
-De facto, normalmente as variáveis aleatórias são tão pouco "originais" que é fácil confundir o input (o evento) com o output (um valor numérico).
+Em todos os exemplos podiamos ter definido qualquer outra VA que nos apetecesse.  
+Nos primeiros dois exemplos não fazia sentido definir qualquer VA que não as que foram definidas - estas são as que nos fazem mais sentido.
+De facto, nesses casos as variáveis aleatórias são tão pouco "originais" que é fácil confundir o input (o evento) com o output (um valor numérico).  
+No entanto, no terceiro exemplo já é mais notável qual o objetivo da VA.
 Na verdade, a VA não passa exatamente de um formalismo que transforma eventos em valores numéricos.
+Desta forma, podemos definir qualquer VA desde que consigamos trabalhar com ela.
 
 :::
 
