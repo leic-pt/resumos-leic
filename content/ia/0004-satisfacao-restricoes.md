@@ -557,7 +557,7 @@ utilizadas neste contexto é [**_forward checking_**](color:orange).
 
 :::info[Forward Checking]
 
-À medida que vamos atribuindo valores a variáveis, fazemos com que todas as outras sejam
+À medida que vamos atribuindo valores a variáveis, fazemos com que todas as suas adjacências (não atribuídas) sejam
 consistentes em arco com ela própria. Se uma das variáveis ficar com domínio vazio, ou experimentamos
 um valor diferente para a variável em mãos, ou fazemos _backtrack_. Temos, claro, que
 se fizermos _backtrack_ até à raiz, deduzimos que não existe solução completa e consistente
@@ -580,14 +580,20 @@ restringindo os domínios das variáveis e escolhendo as variáveis mais restrit
 
 Existe, contudo, um problema com este tipo de abordagem: não consegue detetar inconsistências
 para lá do "passo diretamente a seguir". Basta pensar, por exemplo, que quando acima
-pintámos _Western Australia_ de vermelho e _Queensland_ de verde, podíamos empiricamente
+pintámos _Western Australia_ a vermelho e _Queensland_ a verde, podíamos empiricamente
 notar que tínhamos uma inconsistência em mãos, já que _South Australia_ e _Northern Territory_
 são adjacentes e os respetivos domínios são constituídos exclusivamente pela cor azul. É aqui
-que entra o algoritmo $\text{MAC}$, de _Maintaining Arc Consistency_.
+que entra o algoritmo [$\text{MAC}$](color:purple), de [**_Maintaining Arc Consistency_**](color:purple), que consegue
+precisamente "olhar para a frente", conseguindo aperceber-se de mais inconsistências
+que o _forward checking_. Em vez de apenas tornar as adjacências consistentes em arco
+com a variável que estamos agora a atribuir, vamos mais além e aplicamos [$\text{AC-3}$](color:green),
+partindo de um _set_ inicial que inclui todas as adjacências da variável atual, e que vai
+fazendo a tal propagação de restrições que $\text{AC-3}$ realiza, conseguindo assim
+eliminar mais inconsistências e aperceber-se do fracasso mais cedo. Note-se que,
+tal como em _forward checking_, $\text{MAC}$ falha caso uma das variáveis alvo da propagação fique
+com domínio vazio, tendo portanto de recuar na árvore de procura.
 
-:::info[Maintaining Arc Consistency]
-
-:::
+<!-- TODO: adicionar GIF com exemplo das 4 rainhas dos slides, it's pretty nice -->
 
 ---
 
