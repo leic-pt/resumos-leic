@@ -459,8 +459,8 @@ completa consistente para o problema**](color:yellow) caso tenhamos de retrocede
 Esta procura é, contudo, [**cega**](color:red), tal como as que vimos inicialmente no contexto de
 Inteligência Artificial: fará, portanto, sentido introduzir [**heurísticas**](color:green)
 às nossas procuras, por forma a que sejam (idealmente) mais eficientes. No contexto de CSPs,
-contudo, e tentando manter o padrão de "abstração de implementação" quando ao domínio que
-tentamos tentado manter nestas procuras, vamos querer utilizar também heurísticas
+contudo, e tentando manter o padrão de "abstração de implementação" quano ao domínio que
+temos tentado manter nestas procuras, vamos querer utilizar também heurísticas
 independentes do problema em mãos: heurísticas que sabemos que estão mais que testadas,
 e que devemos (em princípio) poder utilizar à confiança. Podemos dividir a "abordagem
 das heurísticas" consoante o respetivo foco: servem para escolher a [**próxima variável**](color:purple)
