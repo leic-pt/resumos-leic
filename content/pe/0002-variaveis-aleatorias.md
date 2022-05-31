@@ -62,8 +62,14 @@ $$
 X(\text{O objeto demorou } x \text{ a cair}) = x
 $$
 
-Note-se que tanto neste exemplo como no anterior podiamos ter definido qualquer outra VA que nos apetecesse.
+:::
+
+:::tip[Nota]
+
+Em ambos os exemplos podiamos ter definido qualquer outra VA que nos apetecesse.
 No entanto estas são as que nos farão mais sentido para trabalhar com elas.
+De facto, normalmente as variáveis aleatórias são tão pouco "originais" que é fácil confundir o input (o evento) com o output (um valor numérico).
+Na verdade, a VA não passa exatamente de um formalismo que transforma eventos em valores numéricos.
 
 :::
 
@@ -97,6 +103,12 @@ Dependendo se a VA é discreta ou contínua, esta função tem restrições e pr
 Nomeadamente, para VA's discretas é possível usar somatórios, já que $\Omega$ é contável.
 Para VA's contínuas, por contraste, teremos de trabalhar com integrais.  
 Está então na altura de analisar cada caso em separado.
+
+:::tip[Nota]
+
+A relevância da [função de distribuição](color:purple) é proveniente da forma como a condição de mensurabilidade está definida.
+
+:::
 
 ## Variáveis Aleatórias Discretas
 
