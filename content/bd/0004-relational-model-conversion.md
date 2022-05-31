@@ -1,7 +1,11 @@
 ---
 title: Conversão para o Modelo Relacional
 description: >-
-  Conversão do Modelo E-A para o Modelo Relacional
+  Conversão do Modelo E-A para o Modelo Relacional.
+  O que são relações?
+  Que restrições podemos aplicar no modelo relacional?
+  Conversão de entidades, atributos, associações, generalizações/especializações,
+  entidades fracas e agregações.
 path: /bd/relational-model-conversion
 type: content
 ---
@@ -402,8 +406,6 @@ da entidade de multiplicidade 1 e obrigatória.
 
 ### Generalizações/Especializações
 
-// TODO
-
 Pegando no exemplo anterior de _pessoa_, _professor_ e _aluno_, como podemos
 converter este modelo para o modelo relacional?
 
@@ -481,10 +483,74 @@ Neste caso, devemos criar uma _foreign key_ com a generalização imediatamente 
 >
 > - name: FK(associate)
 
+:::warning[Restrições de Integridade: Disjunção e Obrigatoriedade]
+Na maioria dos SGBDs, não existe um mecanismo nativo e simples para implementar as restrições
+de integridade relativas à disjunção e à obrigatoriedade.
+Pode ser necessário usar mecanismos mais avançados do SGBD ou mesmo implementar
+estas restrições em código da aplicação.
+:::
+
 ### Entidades Fracas
 
-// TODO
+Para convertermos uma entidade fraca (ou um conjunto delas), recorremos praticamente
+à mesma metodologia que utilizámos para [associações _one-to-many_ com participação obrigatória](#one-to-many-com-participação-obrigatória),
+mas desta vez fazemos com que a chave da entidade forte faça parte da chave da entidade fraca.
+
+Tomemos um exemplo em que temos [armazéns](color:orange) que contêm [armários](color:green)
+que por si estão divididos em [prateleiras](color:yellow):
+
+![Modelo E-A de entidades fracas: warehouse, cabinet e shelf](./assets/0004-weak-entities.svg#dark=3)
+
+Modelar a relação [_cabinet_ (armário)](color:green) é simples, visto que basta fazer com que a chave
+de [_warehouse_](color:orange) faça também parte da chave de [_cabinet_](color:green).  
+No entanto, temos de prestar atenção ao modelar uma [prateleira](color:yellow), visto que temos
+de garantir que tanto a chave de [_warehouse_](color:orange) como de [_cabinet_](color:yellow) formam uma entidade válida.
+Para isto, utilizamos uma _foreign key_ com múltiplos atributos.
+Caso não o fizessemos, poderíamos ter uma [prateleira](color:yellow) que estava associada a um [armário](color:green)
+e a um [armazém](color:orange) que não contém esse [armário](color:green).
+
+> warehouse(<u>address</u>, max_workers)
+>
+> cabinet(<u>address, cabinet_letter</u>, height, width)
+>
+> - address: FK(warehouse)
+>
+> shelf(<u>address, cabinet_letter, shelf_number</u>, max_weight, height)
+>
+> - address, cabinet_letter: FK(address, cabinet_letter)
 
 ### Agregações
 
-// TODO
+Visto que uma agregação é apenas uma associação entre uma entidade e outra associação,
+quando estamos a converter uma agregação para o modelo relacional podemos ter isso em mente.
+
+Considerando o seguinte Modelo E-A, em que temos [professor](color:orange),
+[disciplina](color:green) e [curso](color:yellow):
+
+![Modelo E-A de uma agregação: professor, disciplina e curso](./assets/0004-aggregations.svg#dark=3)
+
+Podemos começar por modelar a associação [_course_](color:green)/[_degree_](color:yellow),
+para o qual vamos recorrer às mesmas regras de uma associação [_many-to-many_](#many-to-many).
+Possivelmente aqui faria sentido aplicar uma restrição de obrigatoriedade, mas vamos
+omitir essa restrição por simplicidade; seria, no entanto, não muito complicado de a aplicar.
+
+De seguida, vamos considerar que estamos perante uma associação entre [_teacher_](color:orange)
+e _part of curriculum_, voltando a aplicar uma associação [_many-to-many_](#many-to-many).
+
+Ficamos então com o seguinte modelo relacional:
+
+> degree(<u>degree_acronym</u>, degree_name, department)
+>
+> course(<u>course_name</u>)
+>
+> part_of_curriculum(<u>degree_acronym, course_name</u>)
+>
+> - degree_acronym: FK(degree)
+> - course_name: FK(course)
+>
+> teacher(<u>ist_id</u>, name, birthdate)
+>
+> lectures(<u>ist_id, degree_acronym, course_name</u>, year)
+>
+> - ist_id: FK(teacher)
+> - degree_acronym, course_name: FK(part_of_curriculum.degree_acronym, part_of_curriculum.course_name)
