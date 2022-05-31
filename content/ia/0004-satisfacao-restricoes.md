@@ -725,6 +725,8 @@ conf(NSW) &= conf(NSW) \cup conf(NT) - \{NSW\} \\
 \end{aligned}
 $$
 
+<!-- TODO: explicar o que está acima melhor -->
+
 Retrocedendo para $\text{NSW}$, vamos agora ter a possibilidade de experimentar
 valores que não vermelho; conseguimos, assim, saltar três níveis (em vez de só um),
 uma melhoria significativa em termos de desempenho, considerando que conseguimos evitar
@@ -734,7 +736,12 @@ subidas e desnecessárias em ramos intermédios da árvore.
 
 Existe, contudo, algo que continua a faltar à nossa metodologia: o retrocesso
 inteligente até agora não arranjou maneira de impedir que "cometamos o mesmo erro mais
-que uma vez".
+que uma vez". Sempre que temos de fazer _backjump_, é porque algo de errado aconteceu até lá
+chegarmos - um subconjunto da pilha de conflito há-de ser responsável pelo erro. Seria
+fantástico se conseguíssemos perceber que conjunto de atribuições causou o erro, por forma
+a não voltar a repeti-lo. É aqui que entra a [**aprendizagem de restrições**](color:green).
+
+### Aprendizagem de Restrições
 
 ---
 
