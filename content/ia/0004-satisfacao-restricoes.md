@@ -595,6 +595,62 @@ com domínio vazio, tendo portanto de recuar na árvore de procura.
 
 <!-- TODO: adicionar GIF com exemplo das 4 rainhas dos slides, it's pretty nice -->
 
+### Retrocesso Inteligente
+
+Tal como notámos, em _forward checking_, que fazia todo o sentido olhar para além
+do "passo seguinte" (recorrendo, para tal, ao algoritmo $\text{MAC}$), na procura
+em retrocesso existem abordagens análogas que reaproveitam essa lógica: nem sempre
+repensar as ações mais próximas (cronologicamente falando) é o mais sensato.
+
+Pensemos, por exemplo, na seguinte ordem de eventos, seguindo uma procura com
+retrocesso padrão, sem recorrer a _forward checking_ nem $\text{MAC}$:
+
+![Smart Backtracking - Início](imgs/0004-smart-backtracking.svg#dark=2)
+
+Se fôssemos agora tentar colorir _South Australia_, íamos notar que o seu domínio está agora vazio.
+Assim sendo, a procura com retrocesso ia dar um passo atrás, procurando colorir _Tasmania_ com as duas
+outras cores, já que cronologicamente é o evento que antecede colorir $\text{SA}$. Ora,
+mas empiricamente sabemos que isto não faz qualquer sentido: _Tasmania_ não tem qualquer
+restrição associada a _South Australia_, e além disso o erro foi feito antes! A ordem
+cronológica, aqui, acaba por não ser a maneira mais eficiente de chegar a uma solução.
+Existem várias formas de tentar perceber "onde é que começou a correr mal", por forma
+a voltar até esse ponto e corrigir o que de mal foi feito. A primeira dessas formas é
+o [_backjumping_](color:orange).
+
+:::info[Backjumping]
+
+O método é bastante simples: mantemos, para cada variável $X$, uma [**pilha** de conflito](color:red):
+o conjunto de variáveis (e respetivas atribuições) que retiraram valores ao domínio de $X$.
+Quando encontramos um cenário em que $X$ tem domínio vazio, retiramos a primeira variável
+da pilha e fazemos _backtrack_ até lá - note-se que no exemplo supra-referido, _backjumping_
+ia permitir que "saltássemos" _Tasmania_, voltando diretamente para _New South Wales_
+e fazendo logo aí uma nova atribuição.
+
+|                     [**Procura em Retrocesso Padrão**](color:red)                      |                 [**Procura em Retrocesso com _backjumping_**](color:green)                  |
+| :------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------: |
+| ![Procura em Retrocesso Padrão](imgs/0004-backtracking-without-backjumping.svg#dark=2) | ![Procura em Retrocesso c/ Backjumping](imgs/0004-backtracking-with-backjumping.svg#dark=2) |
+
+:::
+
+Note-se ainda que realizar _forward checking_ e _backjumping_ em simultâneo é redundante:
+_forward checking_ impediria que chegássemos a nós em conflito antes sequer de lá chegarmos!
+Bem, assim sendo esta estratégia aparenta não ter grande utilidade, se _forward checking_
+permite um _pruning_ antecipado de tudo o que _backjumping_ consegue ver. A ideia, não
+o método, é o que importa aqui: **poder voltar atrás sem ser por ordem cronológica
+direta é bastante relevante**.
+
+Considere-se o exemplo seguinte, mais interessante que o anterior: vamos procurar
+colorir primeiro _Western Australia_, depois _New South Wales_ e por fim _Tasmania_,
+todas de vermelho:
+
+![Backjumping não chega](imgs/0004-backjumping-not-enough.svg#dark=2)
+
+Se fôssemos agora tentar colorir $\text{NT, Q, V}$ e $\text{SA}$, empiricamente conseguimos
+notar que não existe qualquer atribuição de cores possível que leve a uma solução completa
+e consistente.
+
+<!-- TODO: continue -->
+
 ---
 
 Adicionamos que esta secção corresponde ao sexto capítulo do livro que acompanha a cadeira
