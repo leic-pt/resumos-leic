@@ -28,11 +28,11 @@ Para instruções gerais, seguir as instruções do [mirror de R](https://cloud.
 
 - **Windows:**
 
-  Fazer download do [instalador](https://cloud.r-project.org/bin/windows/base/) e execulá-lo.
+  Fazer download do [instalador](https://cloud.r-project.org/bin/windows/base/) e executá-lo.
 
 - **MacOS:**
 
-  Fazer download do [instalador](https://cloud.r-project.org/bin/macosx/) e execulá-lo.
+  Fazer download do [instalador](https://cloud.r-project.org/bin/macosx/) e executá-lo.
 
 Para verificar que o R ficou instalado, executar `R` no terminal.
 Devem obter um output semelhante ao abaixo:
