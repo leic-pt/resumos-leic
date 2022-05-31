@@ -34,8 +34,8 @@ Vejamos agora que literais/operadores existem em álgebra relacional, isto é, q
 | Projeção Generalizada    | $\pi_{F_1, \dots, F_n}(E)$                        |
 | Renomeação               | $\rho_{A_1\mapsto B_1,\dots, A_m \mapsto B_m}(E)$ |
 | União                    | $E_1 \cup E_2$                                    |
-| Interceção               | $E_1 \cap E_2$                                    |
 | Diferença                | $E_1- E_2$                                        |
+| Interceção               | $E_1 \cap E_2$                                    |
 | Produto Cartesiano       | $E_1 \times E_2$                                  |
 | Divisão                  | $E_1 \div E_2$                                    |
 | Atribuição               | $r <- E$                                          |
@@ -57,7 +57,7 @@ Relembremos a sintaxe, $\sigma_c(E)$. Aqui, temos que:
 Assim, iremos obter uma nova relação, definida por:
 
 $$
-\sigma_c(r) = \{t | t \in r \op{and} c(t)\}
+\sigma_c(r) = \{t | t \in r \enspace \op{and} \enspace c(t)\}
 $$
 
 Na seleção, a condição $c$ irá ser avaliada por cada tuplo $t$.
@@ -118,7 +118,7 @@ Relembremos a sintaxe, $\rho_{A_1\mapsto B_1,\dots, A_m \mapsto B_m}(E)$. Aqui, 
 Assim, iremos obter uma nova relação, definida por:
 
 $$
-\rho_{A_1\mapsto B_1,\dots, A_m \mapsto B_m}(r) = \{t | \exists u \in r, t[B_i] = u[A_i] \forall 1 \leq i \leq m\}
+\rho_{A_1\mapsto B_1,\dots, A_m \mapsto B_m}(r) = \{t | \exists u \in r, \enspace t[B_i] = u[A_i] \enspace \forall 1 \leq i \leq m\}
 $$
 
 Na renomeação, iremos obter os mesmos tuplos, apenas com nomes de colunas diferentes.
@@ -131,9 +131,71 @@ Na renomeação, iremos obter os mesmos tuplos, apenas com nomes de colunas dife
 
 ## União
 
-## Interceção
+A união em álgebra relacional funciona de forma semelhante, se não idêntica, à união
+que já conhecemos da teoria de conjuntos. A união de conjuntos consiste em obter um
+novo conjunto com os valores de ambos os conjuntos, eliminando valores duplicados.
+Do mesmo modo, a **união de relações** consiste em obter os tuplos de ambas
+as relações, eliminando tuplos duplicados.
+
+Relembremos a sintaxe, $r \cup s$, em que $r$ e $s$ são as duas relações a unir.
+
+Para isto, temos primeiro de obedecer a duas condições: tanto $r$ como $s$ têm de ter
+o mesmo número de atributos, e os tipos (isto é, os domínios) dos atributos na i-ésima
+posição de cada uma das relações têm de corresponder.
+
+Assim, iremos obter uma nova relação, definida por:
+
+$$
+r \cup s = \{t | t \in r \enspace \op{or} \enspace t \in s\}
+$$
+
+:::info[Exemplo]
+
+// TODO
+
+:::
 
 ## Diferença
+
+A diferença entre duas relações funciona também da mesma forma que a diferença
+entre conjuntos (isto é, $A \backslash B$).
+Tal como na união, as relações têm de ter o mesmo número de atributos e estes têm
+de ter domínios compatíveis.
+
+Relembremos a sintaxe, $r - s$, em que $r$ e $s$ são as duas relações em que se aplica a diferença.
+
+Assim, iremos obter uma nova relação, definida por:
+
+$$
+r - s = \{t | t \in r \enspace \op{and} \enspace t \notin s\}
+$$
+
+## Interceção
+
+A interceção entre duas relações funciona também da mesma forma que a interceção
+entre conjuntos (isto é, $A \cap B$).
+Tal como na união, as relações têm de ter o mesmo número de atributos e estes têm
+de ter domínios compatíveis.
+
+Relembremos a sintaxe, $r \cap s$, em que $r$ e $s$ são as duas relações a intersetar.  
+É também de realçar que a interceção é nada mais nada menos que duas diferenças,
+isto é:
+
+$$
+r \cap s = r - (r - s)
+$$
+
+Assim, iremos obter uma nova relação, definida por:
+
+$$
+r \cap s = \{t | t \in r \enspace \op{and} \enspace t \in s\}
+$$
+
+:::info[Exemplo]
+
+// TODO
+
+:::
 
 ## Produto Cartesiano
 
