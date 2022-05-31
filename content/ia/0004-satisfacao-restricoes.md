@@ -714,8 +714,9 @@ conf(NT) &= conf(NT) \cup conf(Q) - \{NT\} \\
 \end{aligned}
 $$
 
-Mais uma vez ficamos sem valores por atribuir, pelo que saltamos novamente para cima,
-desta vez para $\text{NSW}$:
+Íamos depois ter apenas a cor verde livre para $\text{NT}$, que obrigaria a que $\text{Q}$
+ficasse azul - entrávamos no mesmo problema, voltávamos para trás, e ficamos agira sem valores
+por atribuir, pelo que saltamos novamente para cima, desta vez para $\text{NSW}$:
 
 $$
 \begin{aligned}
@@ -724,8 +725,6 @@ conf(NSW) &= conf(NSW) \cup conf(NT) - \{NSW\} \\
 &= \{WA\}
 \end{aligned}
 $$
-
-<!-- TODO: explicar o que está acima melhor -->
 
 Retrocedendo para $\text{NSW}$, vamos agora ter a possibilidade de experimentar
 valores que não vermelho; conseguimos, assim, saltar três níveis (em vez de só um),
