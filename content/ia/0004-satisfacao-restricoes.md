@@ -817,6 +817,24 @@ Mais, não nos permite provar que não há solução, o que em certos casos pode
 
 ### Estrutura de Problemas
 
+:::warning[Página em Construção]
+
+Esta secção encontra-se atualmente incompleta.
+
+O conteúdo será adicionado assim que possível.
+
+:::
+
+tl;dr enquanto não se coloca tudo:
+
+- se um CSP não tiver ciclos, podemos chegar a uma solução em tempo $nd^2$ (vs $d^n$),
+  linear no número de variáveis;
+- técnicas para transformar CSPs com estrutura de grafo com ciclos em árvores (sem ciclos):
+  - remoção de nós
+  - colapsagem de nós
+
+coloco explicações em condições quando conseguir <3 até lá vejam os slides e o livro
+
 ---
 
 Adicionamos que esta secção corresponde ao sexto capítulo do livro que acompanha a cadeira
