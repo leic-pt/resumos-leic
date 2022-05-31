@@ -647,9 +647,94 @@ todas de vermelho:
 
 Se fôssemos agora tentar colorir $\text{NT, Q, V}$ e $\text{SA}$, empiricamente conseguimos
 notar que não existe qualquer atribuição de cores possível que leve a uma solução completa
-e consistente.
+e consistente. O método de _backjumping_ regular, contudo, não deteta a situação logo,
+acabando por ainda tentar ir atribuir valores a $\text{NT}$ (sendo que posteriormente vai descobrir
+que não se chega a solução, qualquer que seja a subsequente combinação de variáveis)
+em vez de voltar atrás a $\text{NSW}$ e seguir um rumo diferente. De forma em tudo análoga
+à relação entre _forward checking_ e o $\text{MAC}$, vamos ter uma relação entre
+_backjumping_ e o [**_conflict-directed backjumping_**](color:green): tal como $\text{MAC}$ permitia
+que olhássemos para lá do passo diretamente à nossa frente, este último método permite
+que usemos pilhas de conflito de maneira diferente, por forma a aproveitar melhor o contexto
+atual do problema e verificar antecipadamente se uma dada atribuição leva a cenários
+sem solução.
 
-<!-- TODO: continue -->
+:::info[Retrocesso com Salto Dirigido ao Conflito]
+
+Recupera o conceito de pilha de conflito utilizado pelo _backjumping_ explicado mais acima,
+com o "retrocesso" a funcionar de maneira um pouco diferente: se anteriormente a pilha
+de conflito acima na árvore permanece inalterada, mesmo depois do retrocesso, aqui
+ao subir na árvore recalculamos o conjunto de conflito da variável para a qual estamos
+a "saltar" como se segue (seja $X$ a variável mais abaixo e $Y$ a variável mais acima):
+
+$$
+\smartcolor{green}{conf(Y) = conf(Y) \cup conf(X) - \{Y\}}
+$$
+
+:::details[Exemplo]
+
+Consideremos a seguinte extensão ao exemplo ilustrado mais acima, onde para além de
+colorir $\text{WA, NST}$ e $\text{T}$ a vermelho, colorimos ainda $\text{NT}$ a azul
+e $\text{Q}$ a verde:
+
+![Constraint-Directed Backjumping](imgs/0004-constraint-directed-backjumping.svg#dark=2)
+
+Ora, se quisermos colorir $\text{SA}$ a seguir, vamos reparar que o seu domínio está
+agora vazio; assim sendo, vamos querer fazer um _backjump_: mas para onde?
+
+Bem, a sua pilha de conflito, $conf(SA)$, é agora $\{WA, NT, Q\}$ (note-se que $\text{NSW}$
+não entra aqui, porque pintar $\text{WA}$ de vermelho ocorreu antes de pintar $\text{NSW}$
+dessa cor). Recorrendo à expressão mencionada mais acima, vamos buscar $Q$ à pilha e obter:
+
+$$
+\begin{aligned}
+conf(Q) &= conf(Q) \cup conf(SA) - \{Q\} \\
+&= \{NSW, NT\} \cup \{WA, NT\} - \{Q\} \\
+&= \{WA, NSW, NT\}
+\end{aligned}
+$$
+
+Ora, as atribuições associadas a cada variável em $conf(Q)$ são, respetivamente:
+
+$$
+\begin{aligned}
+WA &= \text{vermelho} \\
+NSW &= \text{vermelho} \\
+NT &= \text{azul}
+\end{aligned}
+$$
+
+Ora, mas se o _backjump_ veio tentar substituir verde, e não existem outras cores
+por que possamos descer, vamos ter de voltar a subir, desta vez para $\text{NT}$:
+
+$$
+\begin{aligned}
+conf(NT) &= conf(NT) \cup conf(Q) - \{NT\} \\
+&= \{WA\} \cup \{WA, NSW, NT\} - \{NT\} \\
+&= \{WA, NSW\}
+\end{aligned}
+$$
+
+Mais uma vez ficamos sem valores por atribuir, pelo que saltamos novamente para cima,
+desta vez para $\text{NSW}$:
+
+$$
+\begin{aligned}
+conf(NSW) &= conf(NSW) \cup conf(NT) - \{NSW\} \\
+&= \{WA\} \cup \{WA, NSW\} - \{NSW\} \\
+&= \{WA\}
+\end{aligned}
+$$
+
+Retrocedendo para $\text{NSW}$, vamos agora ter a possibilidade de experimentar
+valores que não vermelho; conseguimos, assim, saltar três níveis (em vez de só um),
+uma melhoria significativa em termos de desempenho, considerando que conseguimos evitar
+subidas e desnecessárias em ramos intermédios da árvore.
+
+:::
+
+Existe, contudo, algo que continua a faltar à nossa metodologia: o retrocesso
+inteligente até agora não arranjou maneira de impedir que "cometamos o mesmo erro mais
+que uma vez".
 
 ---
 
