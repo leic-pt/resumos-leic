@@ -743,6 +743,20 @@ a não voltar a repeti-lo. É aqui que entra a [**aprendizagem de restrições**
 
 ### Aprendizagem de Restrições
 
+Para implementar esta noção de _subconjunto de atribuições que causou o erro_, o [**_no-good_**](color:red),
+vamos, assim que encontramos uma inconsistência e começamos a subir, procurar manter o
+**conjunto mínimo de variáveis** da pilha de conflitos que estão a causar o problema:
+quanto mais subimos, mais estamos a restringir esse conjunto (que é, aliás, ideal:
+saber que uma só atribuição leva a que não haja soluções possíveis é muito melhor
+do que saber que uma combinação de $n$ atribuições leva a cenários sem solução possível,
+já que durante uma procura vamos, em média, encontrar muitos mais casos com aquela atribuição
+específica (que podemos cortar) do que com uma combinação maior de atribuições). Este subconjunto
+pode ser, depois, utilizado de duas maneiras: tanto mantendo uma **lista de conjuntos _no-good_**
+em cache, como criando restrições de ordem superior envolvendo todas as atribuições em questão.
+
+A noção de _no-good_ é, claro, independente da utilização de saltos para trás ou de
+_forward checking_, podendo ser utilizada sem problemas em ambas as abordagens.
+
 ---
 
 Adicionamos que esta secção corresponde ao sexto capítulo do livro que acompanha a cadeira
