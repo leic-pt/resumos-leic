@@ -45,7 +45,31 @@ Uma VA $X$ com [distribuição uniforme contínua](color:green) tem:
 
 :::details[Exemplo]
 
-// TODO
+O Humberto trabalha na RNL.
+O Humberto tem um turno definido entre as 10h e as 12h.
+Como o Humberto tem problemas com alarmes, a hora a que ele chega ao trabalho é uniformemente distribuída pelo turno todo.
+Sendo assim, temos que
+
+$$
+X~\sim~\text{uniformemente contínua}(10, 12)
+$$
+
+A função de probabilidade desta VA é
+
+$$
+P(X = x) =
+\begin{cases}
+\frac{1}{2}, &x \in [10, 12] \\
+0, &x \notin [10, 12]
+\end{cases}
+$$
+
+e o seu valor esperado e variância são:
+
+$$
+E(X) = \frac{10+12}{2} = 11 \quad \quad
+V(X) = \frac{(12-10)^2}{12} = \frac{1}{3}
+$$
 
 :::
 
@@ -94,7 +118,21 @@ Uma VA $X$ com [distribuição normal](color:yellow) tem:
 
 :::details[Exemplo]
 
-// TODO
+Considere-se a VA $X$ que regista a altura de um português aleatório.
+Assumindo a altura dos portugueses satisfaz uma distribuição normal com valor esperado 1.75m e variancia 30cm temos que:
+
+$$
+X~\sim~\text{normal}(1.75, 0.3)
+$$
+
+A função de probabilidade desta VA é
+
+$$
+P(X = x) =
+\frac{1}{\sqrt{0.6\pi}} e^{-\frac{(x-1.75)^2}{0.6}}, \quad x \in \R
+$$
+
+e o seu valor esperado e variância são 1.75m e 0.3m.
 
 :::
 
@@ -111,6 +149,8 @@ Uma VA $X$ com [distribuição normal](color:yellow) tem:
 - A distribuição normal padrão satisfaz $\Phi(x) + \Phi(-x) = 1, \forall_{x \in \R}$, pelo que as tabelas estatísticas só precisam de ter os valores desta função para $x$ positivo.
 
 :::details[Como obter $F_X(x)$ através da tabela]
+
+// TODO
 
 - fazer TL
 - se for negativo, cenas
@@ -150,7 +190,31 @@ Uma VA $X$ com [distribuição exponencial](color:orange) tem:
 
 :::details[Exemplo]
 
-// TODO
+Lançamos um dado ao ar.
+Considere-se a VA $X$ que mede o tempo, em segundos, que demora ao dado a cair sobre a superfície da mesa.
+Assuma-se que o valor esperado desta medição é 2 segundo.
+Então:
+
+$$
+X~\sim~\text{exponencial}(2)
+$$
+
+A função de probabilidade desta VA é
+
+$$
+P(X = x) =
+\begin{cases}
+2e^{-2x}, &x \geq 0 \\
+0, x < 0
+\end{cases}
+$$
+
+e o seu valor esperado e variância são
+
+$$
+E(X) = \frac{1}{2} \quad \quad
+V(X) = \frac{1}{2^2} = \frac{1}{4}
+$$
 
 :::
 
