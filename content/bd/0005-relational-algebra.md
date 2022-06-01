@@ -104,6 +104,10 @@ ao remover certas colunas poderemos diminuir o número de tuplos na relação.
 
 :::
 
+### Projeção Generalizada
+
+// TODO
+
 ## Renomeação
 
 A renomeação funciona de forma semelhante à cláusula `AS` do SQL,
@@ -293,3 +297,7 @@ $$
 // TODO
 
 :::
+
+## Agregação
+
+// TODO
