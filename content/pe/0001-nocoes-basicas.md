@@ -57,7 +57,7 @@ Exemplos de [eventos](color:blue) em relação a esta [EA](color:red) são:
 
 - O resultado da EA é $6$;
 - O resultado da EA é par;
-- O resultado da EA é no máximo 2.
+- O resultado da EA é no máximo $2$.
 
 Poderá ainda ser útil apresentar um exemplo de uma [EA](color:red) com um [espaço de resultados contínuo](color:green).
 Um tal exemplo é o tempo em milisegundos que o dado lançado demora a parar na superfície da mesa (sobre a qual é lançado).
