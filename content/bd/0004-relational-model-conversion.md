@@ -24,9 +24,7 @@ vamos definir o que é uma Relação.
 :::tip[Definição]
 
 Considerando um _schema_ de relação $R(A_1, \dots, A_n)$, em que cada
-atributo $A_i$ tem um domínio implícito e discreto de valores $D_i$.
-
-Temos assim que uma [**relação** $r$](color:green) de um _schema_ de relação $R$,
+atributo $A_i$ tem um domínio implícito e discreto de valores $D_i$, temos que uma [**relação** $r$](color:green) de um _schema_ de relação $R$,
 é o conjunto:
 
 $$
@@ -52,7 +50,7 @@ Vejamos o seguinte exemplo:
 Daqui para a frente, por razões de simplicidade, não se irá representar os domínios de cada atributo.
 :::
 
-Temos então que a relação $\text{product}$ é o conjunto:
+Temos, então, que a relação $\text{product}$ é o conjunto:
 
 $$
 \text{product} \subseteq \text{string} \times \text{string} \times \text{integer} \times \text{integer}
@@ -74,8 +72,8 @@ $$
 
 Para uma relação, podemos determinar:
 
-- O [**grau de uma relação**](color:orange) é o número de atributos (ou se preferirem, campos ou colunas)
-- A [**cardinalidade de uma relação**](color:yellow) é o número de tuplos (isto é, linhas)
+- O [**grau de uma relação**](color:orange), que corresponde ao número de atributos (ou se preferirem, campos ou colunas)
+- A [**cardinalidade de uma relação**](color:yellow), que equivale ao número de tuplos (isto é, linhas)
 
 Uma relação é um [**objeto matemático**](color:purple) que é representável como uma tabela.
 
@@ -124,14 +122,14 @@ de duas relações:
   $$
   \begin{aligned}
   &\{\lang \text{Bolacha}, 50\rang, \lang \text{Napolitana}, 20 \rang\} \cap
-    \{\lang\text{Napolitana} 25 \rang, \lang \text{Bolacha}, 50 \rang\}\\
+    \{\lang \text{Napolitana}, 25\rang, \lang \text{Bolacha}, 50 \rang\}\\
   =&\{\lang \text{Bolacha}, 50\rang\}
   \end{aligned}
   $$
 
 ## Restrições
 
-Tal como [tínhamos no modelo E-A](/bd/er-model#restrições-de-integridade)
+Tal como [no modelo E-A](/bd/er-model#restrições-de-integridade),
 vamos novamente ter [**Restrições de Integridade**](color:orange).
 
 As restrições de integridade podem ser aplicadas tanto às **relações** como à **base de dados**.
@@ -152,12 +150,12 @@ Podemos ter três tipos de restrições aplicadas a relações:
 
 - Restrições de Domínio
 - Restrições de Unicidade
-- Restriçoes de Chave
+- Restrições de Chave
 
 :::tip[Definição]
 Uma restrição de integridade aplicada a uma relação é uma condição num dos
 atributos dessa relação, que restringe os dados que podem ser guardados
-nessa relação.
+na mesma.
 :::
 
 #### Restrições de Domínio
@@ -183,7 +181,7 @@ Uma restrição de unicidade indica quais são os atributos, ou conjuntos de atr
 cujos valores não se podem repetir na relação.
 
 Quando temos uma restrição de unicidade num conjunto de atributos, estamos a indicar
-que este par de valores não pode repetir, mas os valores individualmente podem.  
+que este par de valores não se pode repetir, mas os valores individualmente podem.  
 No exemplo indicado abaixo, podemos ter dois produtos com o nome "Bolacha" se tiverem
 preços diferentes.
 
@@ -228,7 +226,7 @@ Tomemos dois exemplos, um com chave de um atributo e outro com chave de dois atr
 
 > product(<u>p_code</u>, p_name, price, stock)
 
-> order(<u>p_code, client_id</u>, quantity, date)
+> order(<u>p_code</u>, <u>client_id</u>, quantity, date)
 
 ### Restrições aplicadas à Base de Dados
 
@@ -247,7 +245,7 @@ correspondente noutra relação. Chama-se a isto uma _foreign key_.
 Se os dados numa das relações forem alterados, é necessário verificar que as
 relações continuam a ser válidas.
 
-> order(<u>p_code, client_id</u>, quantity, date)
+> order(<u>p_code</u>, <u>client_id</u>, quantity, date)
 >
 > - p_code: FK(product.p_code)
 
@@ -263,11 +261,11 @@ Podemos também incluir _foreign keys_ para atributos da mesma relação.
 É de realçar também que se quisermos aplicar uma _foreign key_ a um conjunto
 de atributos, devemos usar a seguinte notação:
 
-> course(<u>course_name, year</u>, degree)
+> course(<u>course_name</u>, <u>year</u>, degree)
 >
-> enrollment(<u>student, course_name, year</u>)
+> enrollment(<u>student</u>, <u>course_name</u>, <u>year</u>)
 >
-> - course_name, year: FK(course_name, year)
+> - course_name, year: FK(course.course_name, course.year)
 
 #### Restrições de Integridade Genéricas
 
@@ -280,14 +278,14 @@ de ser explicitadas textualmente.
 >
 > - degree: FK(degree.degree_id)
 >
-> course(<u>course_name, year</u>, degree)
+> course(<u>course_name</u>, <u>year</u>, degree)
 >
 > - degree: FK(degree.degree_id)
 >
-> enrollment(<u>student, course_name, year</u>)
+> enrollment(<u>student</u>, <u>course_name</u>, <u>year</u>)
 >
-> - student: FK(student)
-> - course_name, year: FK(course_name, year)
+> - student: FK(student.ist_id)
+> - course_name, year: FK(course.course_name, course.year)
 >
 > IC-1: Students can only be enrolled in courses belonging to the same degree
 > they signed up for.
@@ -322,17 +320,17 @@ Existem também casos especiais para quando temos [participação obrigatória](
 - **_One-to-Many_ com participação obrigatória**: deixamos de precisar de uma nova relação,
   e colocamos os atributos na relação da entidade com multiplicidade 1.
 
+Nos exemplos seguintes, os atributos das entidades nas representações em modelo E-A serão omitidos por brevidade.
+
 #### Many-to-Many
 
 ![Diagrama do Modelo E-A de uma associação many-to-many](./assets/0004-association-many-to-many.svg#dark=3)
-
-(atributos das entidades omitidos por brevidade)
 
 > student(<u>ist_id</u>, name)
 >
 > course(<u>course_id</u>, course_name, department)
 >
-> enrolls(<u>ist_id, course_id</u>, enrollment_date)
+> enrolls(<u>ist_id</u>, <u>course_id</u>, enrollment_date)
 >
 > - ist_id: FK(student)
 > - course_id: FK(course)
@@ -340,8 +338,6 @@ Existem também casos especiais para quando temos [participação obrigatória](
 #### One-to-Many
 
 ![Diagrama do Modelo E-A de uma associação one-to-many](./assets/0004-association-one-to-many.svg#dark=3)
-
-(atributos das entidades omitidos por brevidade)
 
 > student(<u>ist_id</u>, name)
 >
@@ -356,13 +352,11 @@ Existem também casos especiais para quando temos [participação obrigatória](
 
 ![Diagrama do Modelo E-A de uma associação one-to-one](./assets/0004-association-one-to-one.svg#dark=3)
 
-(atributos das entidades omitidos por brevidade)
-
 > student(<u>ist_id</u>, name)
 >
 > degree(<u>degree_acronym</u>, degree_name, department)
 >
-> is_delegate(<u>ist_id, degree_acronym</u>, start_date)
+> is_delegate(<u>ist_id</u>, <u>degree_acronym</u>, start_date)
 >
 > - ist_id: FK(student)
 > - degree_acronym: FK(degree)
@@ -376,27 +370,21 @@ recorrer a **Restrições de Integridade**.
 
 ![Diagrama do Modelo E-A de uma associação many-to-many com participação obrigatória](./assets/0004-association-many-to-many-mandatory.svg#dark=3)
 
-(atributos das entidades omitidos por brevidade)
-
 > teacher(<u>ist_id</u>, name)
 >
 > course(<u>course_id</u>, course_name, department)
 >
-> - IC-1: Every course (course_id) must participate in the lectures association
->
-> lectures(<u>ist_id, course_id</u>)
->
+> - IC-1: Every course (_course_id_) must participate in the lectures association
+
 > - ist_id: FK(teacher)
 > - course_id: FK(course)
 
 #### One-to-Many com Participação Obrigatória
 
-Neste caso não precisamos de uma nova relação, usamos a relação já existente
+Neste caso, não precisamos de uma nova relação, usamos a relação já existente
 da entidade de multiplicidade 1 e obrigatória.
 
 ![Diagrama do Modelo E-A de uma associação one-to-many com participação obrigatória](./assets/0004-association-one-to-many-mandatory.svg#dark=3)
-
-(atributos das entidades omitidos por brevidade)
 
 > department(<u>department_acronym</u>, deparment_name)
 >
@@ -406,8 +394,8 @@ da entidade de multiplicidade 1 e obrigatória.
 
 ### Generalizações/Especializações
 
-Pegando no exemplo anterior de _pessoa_, _professor_ e _aluno_, como podemos
-converter este modelo para o modelo relacional?
+Pegando no exemplo de _Pessoa_, _Professor_ e _Aluno_, como podemos
+converter este modelo E-A para o modelo relacional?
 
 <!-- Using asset from page 0003 -->
 
@@ -429,18 +417,18 @@ generalização.
 > - name: FK(person)
 
 Para modelar disjunções e obrigatoriedade, temos de recorrer a restrições de integridade.  
-Imaginando agora os seguintes cenários para a especialização de _pessoa_, teríamos
+Imaginando, agora, os seguintes cenários para a especialização de _Pessoa_, teríamos
 as seguintes restrições de integridade na relação `person`:
 
 - **Obrigatoriedade:**
-  - **(IC-1)** name must exist in teacher and/or student
+  - **(IC-1)** _name_ must exist in 'teacher' and/or 'student'
 - **Disjunção:**
-  - **(IC-1)** No person can exist at the same time in 'teacher' and in 'student'
+  - **(IC-1)** _name_ cannot exist at the same time in 'teacher' and 'student'
 - **Obrigatoriedade e Disjunção:**
-  - **(IC-1)** name must exist in teacher or student
-  - **(IC-2)** No person can exist at the same time in 'teacher' and in 'student'
+  - **(IC-1)** _name_ must exist in 'teacher' or 'student'
+  - **(IC-2)** _name_ cannot exist at the same time in 'teacher' and 'student'
 
-Relembremos agora [o exemplo de membro e sócio](/bd/er-model#generalizaçõesespecializações)
+Relembremos, agora, [o exemplo de membro e sócio](/bd/er-model#generalizaçõesespecializações)
 da página anterior, para ilustrarmos a conversão de especializações de vários níveis.  
 Neste caso, devemos criar uma _foreign key_ com a generalização imediatamente acima, e
 [**não**](color:red) com a generalização no "topo da árvore".
@@ -450,8 +438,8 @@ Neste caso, devemos criar uma _foreign key_ com a generalização imediatamente 
 > member(<u>name</u>, citizen_card, birthdate)
 >
 > - UNIQUE(citizen_card)
-> - (IC-1) name must exist in 'regular_member' or 'occasional_member'
-> - (IC-2) No member can exist at the same time in 'regular_member' and in 'occasional_member'
+> - IC-1: _name_ must exist in 'regular_member' or 'occasional_member'
+> - IC-2: _name_ cannot exist at the same time in 'regular_member' and 'occasional_member'
 >
 > regular_member(<u>name</u>, regularity)
 >
@@ -468,8 +456,8 @@ Neste caso, devemos criar uma _foreign key_ com a generalização imediatamente 
 > associate(<u>name</u>, join_date)
 >
 > - name: FK(member)
-> - (IC-1) name must exist in 'bronze', 'silver' or 'gold'
-> - (IC-2) No associate can exist at the same time in any combination of 'bronze', 'silver' and 'gold'
+> - IC-1: _name_ must exist in 'bronze', 'silver' or 'gold'
+> - IC-2: _name_ cannot exist at the same time in 'bronze', 'silver' and 'gold'
 >
 > bronze(<u>name</u>)
 >
@@ -487,7 +475,7 @@ Neste caso, devemos criar uma _foreign key_ com a generalização imediatamente 
 Na maioria dos SGBDs, não existe um mecanismo nativo e simples para implementar as restrições
 de integridade relativas à disjunção e à obrigatoriedade.
 Pode ser necessário usar mecanismos mais avançados do SGBD ou mesmo implementar
-estas restrições em código da aplicação.
+estas restrições no código da aplicação.
 :::
 
 ### Entidades Fracas
@@ -497,7 +485,7 @@ Para convertermos uma entidade fraca (ou um conjunto delas), recorremos praticam
 mas desta vez fazemos com que a chave da entidade forte faça parte da chave da entidade fraca.
 
 Tomemos um exemplo em que temos [armazéns](color:orange) que contêm [armários](color:green)
-que por si estão divididos em [prateleiras](color:yellow):
+que, por si, estão divididos em [prateleiras](color:yellow):
 
 ![Modelo E-A de entidades fracas: warehouse, cabinet e shelf](./assets/0004-weak-entities.svg#dark=3)
 
@@ -506,33 +494,33 @@ de [_warehouse_](color:orange) faça também parte da chave de [_cabinet_](color
 No entanto, temos de prestar atenção ao modelar uma [prateleira](color:yellow), visto que temos
 de garantir que tanto a chave de [_warehouse_](color:orange) como de [_cabinet_](color:yellow) formam uma entidade válida.
 Para isto, utilizamos uma _foreign key_ com múltiplos atributos.
-Caso não o fizessemos, poderíamos ter uma [prateleira](color:yellow) que estava associada a um [armário](color:green)
+Caso não o fizéssemos, poderíamos ter uma [prateleira](color:yellow) que estava associada a um [armário](color:green)
 e a um [armazém](color:orange) que não contém esse [armário](color:green).
 
 > warehouse(<u>address</u>, max_workers)
 >
-> cabinet(<u>address, cabinet_letter</u>, height, width)
+> cabinet(<u>address</u>, <u>cabinet_letter</u>, height, width)
 >
 > - address: FK(warehouse)
 >
-> shelf(<u>address, cabinet_letter, shelf_number</u>, max_weight, height)
+> shelf(<u>address</u>, <u>cabinet_letter</u>, <u>shelf_number</u>, height, max_weight)
 >
-> - address, cabinet_letter: FK(address, cabinet_letter)
+> - address, cabinet_letter: FK(cabinet.address, cabinet.cabinet_letter)
 
 ### Agregações
 
 Visto que uma agregação é apenas uma associação entre uma entidade e outra associação,
 quando estamos a converter uma agregação para o modelo relacional podemos ter isso em mente.
 
-Considerando o seguinte Modelo E-A, em que temos [professor](color:orange),
+Consideremos o seguinte Modelo E-A, em que temos [professor](color:orange),
 [disciplina](color:green) e [curso](color:yellow):
 
 ![Modelo E-A de uma agregação: professor, disciplina e curso](./assets/0004-aggregations.svg#dark=3)
 
 Podemos começar por modelar a associação [_course_](color:green)/[_degree_](color:yellow),
-para o qual vamos recorrer às mesmas regras de uma associação [_many-to-many_](#many-to-many).
-Possivelmente aqui faria sentido aplicar uma restrição de obrigatoriedade, mas vamos
-omitir essa restrição por simplicidade; seria, no entanto, não muito complicado de a aplicar.
+recorrendo às mesmas regras de uma associação [_many-to-many_](#many-to-many).
+Possivelmente, aqui, faria sentido aplicar uma restrição de obrigatoriedade, mas vamos
+omití-la por simplicidade, embora não fosse muito complicado aplicá-la.
 
 De seguida, vamos considerar que estamos perante uma associação entre [_teacher_](color:orange)
 e _part of curriculum_, voltando a aplicar uma associação [_many-to-many_](#many-to-many).
@@ -543,14 +531,14 @@ Ficamos então com o seguinte modelo relacional:
 >
 > course(<u>course_name</u>)
 >
-> part_of_curriculum(<u>degree_acronym, course_name</u>)
+> part_of_curriculum(<u>degree_acronym</u>, <u>course_name</u>)
 >
 > - degree_acronym: FK(degree)
 > - course_name: FK(course)
 >
 > teacher(<u>ist_id</u>, name, birthdate)
 >
-> lectures(<u>ist_id, degree_acronym, course_name</u>, year)
+> lectures(<u>ist_id</u>, <u>degree_acronym</u>, <u>course_name</u>, year)
 >
 > - ist_id: FK(teacher)
 > - degree_acronym, course_name: FK(part_of_curriculum.degree_acronym, part_of_curriculum.course_name)
