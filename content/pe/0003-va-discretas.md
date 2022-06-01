@@ -71,7 +71,7 @@ e o seu valor esperado e variância são
 
 $$
 E(X) = \frac{1}{6} \sum_{i=1}^6 i = \frac{7}{2} \quad \quad
-V(X) = \frac{1}{6} \sum_{i=1}^6 i^2 - \left( \frac{1}{n} \sum_{i=1}^6 i \right)^2 = \frac{91}{6} - \frac{49}{4} = \frac{83}{12}
+V(X) = \frac{1}{6} \sum_{i=1}^6 i^2 - \left( \frac{1}{6} \sum_{i=1}^6 i \right)^2 = \frac{91}{6} - \frac{49}{4} = \frac{35}{12}
 $$
 
 :::
@@ -277,7 +277,7 @@ $$
 e o seu valor esperado e variância são
 
 $$
-E(X) = \frac{1}{0.6} = 1.66 \quad \quad V(X) = \frac{0.4}{0.6^2} = 1.11
+E(X) = \frac{1}{0.6} = 1.67 \quad \quad V(X) = \frac{0.4}{0.6^2} = 1.11
 $$
 
 :::
@@ -369,7 +369,7 @@ satisfizer:
 $$
 P(X = x) =
 \begin{cases}
-e^{-\lambda}\frac{\lambda^x}{x!}, &x \in \Z_0^+ \\
+\frac{e^{-\lambda} \lambda^x}{x!}, &x \in \Z_0^+ \\
 0, &x \notin \Z_0^+
 \end{cases}
 $$
@@ -393,7 +393,7 @@ Sendo assim, a VA tem função de probabilidade
 $$
 P(X = x) =
 \begin{cases}
-e^{-0.08} \frac{0.08^x}{x!}, &x \in \Z^+_0 \\
+\frac{e^{-0.08} 0.08^x}{x!}, &x \in \Z^+_0 \\
 0, &x \notin \Z^+_0
 \end{cases}
 $$
