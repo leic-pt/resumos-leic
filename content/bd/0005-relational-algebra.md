@@ -199,10 +199,97 @@ $$
 
 ## Produto Cartesiano
 
+O produto cartesiano entre duas relações associa cada valor da primeira relação
+a todos os valores da segunda. Isto significa que se a primeira relação tiver
+$n$ tuplos e a segunda tiver $m$ tuplos, a relação obtida pelo produto cartesiano
+entre estas duas vai ter $nm$ tuplos.
+
+Para efetuar o produto cartesiano, o [**nome dos atributos das duas relações têm de ser diferentes**](color:red),
+isto é, não podem ter nomes de atributos em comuns. Caso seja este o caso, é
+necessário utilizar uma [renomeação](#renomeação).
+
+Relembremos a sintaxe, $r \times s$, em que $r$ e $s$ são as duas relações em que
+queremos efetuar o produto cartesiano.
+
+Assim, iremos obter uma nova relação, definida por:
+
+$$
+r \times s = \{t_r t_s | t_r \in r, t_s \in s\}
+$$
+
+:::info[Exemplo]
+
+// TODO
+
+:::
+
 ## Divisão
 
-## Composição de Relações
+A divisão entre duas relações é algo relativamente complicado de perceber. Esta consiste em
+determinar o subconjunto dos tuplos de $r$ que cobrem todos os tuplos de $s$.
+Pode-se considerar como a operação inversa do [produto cartesiano](#produto-cartesiano),
+como se pode ver nos exemplos abaixo.
+
+Relembremos a sintaxe, $r \div s$, em que $r$ e $s$ são as duas relações em que
+queremos efetuar a divisão. Devemos também considerar $R$ e $S$, que correspondem
+às _schemas_, isto é, aos atributos de $r$ e $s$, respetivamente.
+
+Assim, iremos obter uma nova relação, definida por:
+
+$$
+r \div s = \left\{t[R-S] | t\in r \op{and} s \subseteq \{u[s] | u \in r \op{and} u[R-s]=t[R-S]\}\right\}
+$$
+
+:::info[Exemplo]
+
+// TODO
+
+:::
+
+## Composição de Operações
+
+Como seria de esperar, podemos encadear várias destas operações, visto que
+cada uma das operações "retorna" uma nova relação.
+
+Por exemplo, podemos efetuar uma projeção após efetuarmos uma seleção:
+
+$$
+\pi_{\op{name}} \left(\sigma_{\op{price}<100}(\op{products})\right)
+$$
 
 ### Atribuição
 
+Além de encadearmos operações, o que se pode revelar muito verboso e até confuso,
+podemos atribuir resultados de operações a novas relações, como se estivessemos
+a definir uma "variável".
+
+$$
+\begin{aligned}
+&\op{cheap\_products} \leftarrow \sigma_{\op{price}<100}(\op{products})\\
+&\pi_{\op{name}} (\op{cheap\_products})
+\end{aligned}
+$$
+
 ## Natural Join
+
+O _natural join_ entre duas relações efetua a junção de duas relações, juntando
+os tuplos que têm valores iguais para atributos com o mesmo nome.
+De realçar que se tivermos dois atributos [**não relacionados**](color:red) nas duas relações
+que estamos a juntar, deveremos usar a operação de [renomeação](#renomeação) numa
+delas para [**evitar resultados indesejados**](color:red).
+
+Relembremos a sintaxe, $r \bowtie s$, em que $r$ e $s$ são as duas relações a juntar.
+Devemos também considerar $R$ e $S$, que correspondem às _schemas_, isto é,
+aos atributos de $r$ e $s$, respetivamente.
+
+Assim, iremos obter uma nova relação, definida por:
+
+$$
+r \bowtie s = \{t_r t_s | t_r \in r \op{and} t_s \in s \op{and} t_r[R\cap S] = t_s[R \cap S]\}
+$$
+
+:::info[Exemplo]
+
+// TODO
+
+:::
