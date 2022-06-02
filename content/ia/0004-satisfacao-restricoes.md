@@ -214,7 +214,7 @@ vamos ter três cenários possíveis:
 
 - Caso $D_X$ **não tenha sido alterado**, $X$ já era consistente em arco com $Y$, pelo
   que o arco é só removido e não acontece nada;
-- Caso $D_X$ **tenha visto o seu tamanho reduzido** (com $|D_X \neq 0$), adicionamos todos
+- Caso $D_X$ **tenha visto o seu tamanho reduzido** (com $|D_X| \neq 0$), adicionamos todos
   os outros arcos $(X, X_j)$ de volta ao _set_ - temos restrições adicionais, pelo que
   podemos agora encontrar outras maneiras de reduzir o tamanho do domínio de $X$;
 - Caso $D_X$ tenha visto o seu domínio reduzido ao **conjunto vazio**, podemos afirmar que
