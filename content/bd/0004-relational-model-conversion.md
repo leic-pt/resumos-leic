@@ -76,7 +76,7 @@ Para uma relação, podemos determinar:
 - O [**grau de uma relação**](color:orange), que corresponde ao número de atributos (ou se preferirem, campos ou colunas)
 - A [**cardinalidade de uma relação**](color:yellow), que equivale ao número de tuplos (isto é, linhas)
 
-Uma relação é um [**objeto matemático**](color:purple) que é representável como uma tabela.
+Uma relação é um [**objeto matemático**](color:purple) que é **representável** como uma tabela.
 
 :::info[Quais são relações?]
 
@@ -322,7 +322,7 @@ Existem também casos especiais para quando temos [participação obrigatória](
 - **_One-to-Many_ com participação obrigatória**: deixamos de precisar de uma nova relação,
   e colocamos os atributos na relação da entidade com multiplicidade 1.
 
-Nos exemplos seguintes, os atributos das entidades nas representações em modelo E-A serão omitidos por brevidade.
+Nos exemplos abaixo, os atributos das entidades nas representações em modelo E-A são omitidos por brevidade.
 
 #### Many-to-Many
 
@@ -377,7 +377,9 @@ recorrer a **Restrições de Integridade**.
 > course(<u>course_id</u>, course_name, department)
 >
 > - IC-1: Every course (_course_id_) must participate in the lectures association
-
+>
+> lectures(<u>ist_id</u>, <u>course_id</u>)
+>
 > - ist_id: FK(teacher)
 > - course_id: FK(course)
 
@@ -397,7 +399,7 @@ da entidade de multiplicidade 1 e obrigatória.
 ### Generalizações/Especializações
 
 Pegando no exemplo de _Pessoa_, _Professor_ e _Aluno_, como podemos
-converter este modelo E-A para o modelo relacional?
+converter este diagrama de modelo E-A para o modelo relacional?
 
 <!-- Using asset from page 0003 -->
 
@@ -509,6 +511,13 @@ e a um [armazém](color:orange) que não contém esse [armário](color:green).
 >
 > - address, cabinet_letter: FK(cabinet.address, cabinet.cabinet_letter)
 
+Note-se que, na [prateleira](color:yellow), o atributo _address_ é uma
+_foreign key_ referente ao [armário](color:green) e não ao
+[armazém](color:orange), visto que a relação da [prateleira[(color:yellow)
+é exclusivamente com o [armário](color:green) e não com o
+[armazém](color:orange), apesar de ser este que tem _address_
+como atributo "originalmente".
+
 ### Agregações
 
 Visto que uma agregação é apenas uma associação entre uma entidade e outra associação,
@@ -522,7 +531,7 @@ Consideremos o seguinte Modelo E-A, em que temos [professor](color:orange),
 Podemos começar por modelar a associação [_course_](color:green)/[_degree_](color:yellow),
 recorrendo às mesmas regras de uma associação [_many-to-many_](#many-to-many).
 Possivelmente, aqui, faria sentido aplicar uma restrição de obrigatoriedade, mas vamos
-omití-la por simplicidade, embora não fosse muito complicado aplicá-la.
+omiti-la por simplicidade, embora não fosse muito complicado aplicá-la.
 
 De seguida, vamos considerar que estamos perante uma associação entre [_teacher_](color:orange)
 e _part of curriculum_, voltando a aplicar uma associação [_many-to-many_](#many-to-many).
