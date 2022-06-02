@@ -66,9 +66,40 @@ assim como os operadores lógicos $\land$, $\lor$ e $\neg$.
 
 :::info[Exemplo]
 
-// TODO
+Considerando seguinte relação, [correspondente ao exemplo da loja](/bd/sql#exemplo-loja),
 
-:::
+> product(<u>product_code</u>, product_name, price, stock)
+
+com os seguintes valores:
+
+| `product_code` | `product_name`      | `price` | `stock` |
+| -------------- | ------------------- | ------: | ------: |
+| 111111         | Bolachas            |      50 |      10 |
+| 222222         | Napolitanas         |      25 |      15 |
+| 333333         | Leite com Chocolate |     100 |       3 |
+
+- **Selecionar o produto com o identificador `222222`**
+
+  $$
+  \sigma_{\op{product\_code} = "222222"} (\op{product})
+  $$
+
+  | `product_code` | `product_name` | `price` | `stock` |
+  | -------------- | -------------- | ------: | ------: |
+  | 222222         | Napolitanas    |      25 |      15 |
+
+- **Selecionar os produtos com preço igual ou inferior a 50 cêntimos e stock superior a 5**
+
+  $$
+  \sigma_{\op{price} \leq 50~\land~\op{stock} > 5} (\op{product})
+  $$
+
+  | `product_code` | `product_name` | `price` | `stock` |
+  | -------------- | -------------- | ------: | ------: |
+  | 111111         | Bolachas       |      50 |      10 |
+  | 222222         | Napolitanas    |      25 |      15 |
+
+  :::
 
 ## Projeção
 
@@ -91,16 +122,63 @@ Todas as colunas $A_i$ têm de pertencer à relação $r$.
 
 :::info[Exemplo]
 
-// TODO
+Considerando novamente seguinte relação, [correspondente ao exemplo da loja](/bd/sql#exemplo-loja),
 
-:::
+> product(<u>product_code</u>, product_name, price, stock)
+
+com os seguintes valores:
+
+| `product_code` | `product_name`      | `price` | `stock` |
+| -------------- | ------------------- | ------: | ------: |
+| 111111         | Bolachas            |      50 |      10 |
+| 222222         | Napolitanas         |      25 |      15 |
+| 333333         | Leite com Chocolate |     100 |       3 |
+
+- **Projetar os atributos `product_name` e `stock`**
+
+  $$
+  \pi_{\op{product\_name}, \op{stock}}(\op{product})
+  $$
+
+  | `product_name`      | `stock` |
+  | ------------------- | ------: |
+  | Bolachas            |      10 |
+  | Napolitanas         |      15 |
+  | Leite com Chocolate |       3 |
+
+  :::
 
 :::warning[Tuplos duplicados]
 
 Visto que as relações não contêm tuplos duplicados (isto é, são _sets_ e não listas),
 ao remover certas colunas poderemos diminuir o número de tuplos na relação.
 
-// TODO exemplo
+Por exemplo, na relação
+
+> student(<u>ist_id</u>, name, birthday)
+
+com os seguintes valores
+
+| `ist_id`   | `name` | `birthday` |
+| ---------- | ------ | ---------- |
+| ist1123456 | Diogo  | 2002-03-06 |
+| ist1123234 | Rafa   | 2002-08-05 |
+| ist1124453 | Tomás  | 2002-12-18 |
+| ist1123534 | Diogo  | 2001-09-16 |
+| ist1123532 | Diogo  | 2002-04-27 |
+
+se efetuarmos a projeção apenas do atributo `name`, vamos obter
+apenas 3 linhas:
+
+$$
+\pi_{\op{name}}(\op{student})
+$$
+
+| `name` |
+| ------ |
+| Diogo  |
+| Rafa   |
+| Tomás  |
 
 :::
 
@@ -127,9 +205,43 @@ entre valores dos atributos de $r$ ou até mesmo com literais
 
 :::info[Exemplo]
 
-// TODO
+Considerando novamente seguinte relação, [correspondente ao exemplo da loja](/bd/sql#exemplo-loja),
 
-:::
+> product(<u>product_code</u>, product_name, price, stock)
+
+com os seguintes valores:
+
+| `product_code` | `product_name`      | `price` | `stock` |
+| -------------- | ------------------- | ------: | ------: |
+| 111111         | Bolachas            |      50 |      10 |
+| 222222         | Napolitanas         |      25 |      15 |
+| 333333         | Leite com Chocolate |     100 |       3 |
+
+- **Projetar o atributo `product_name` a expressão `price * stock`**
+
+  $$
+  \pi_{\op{product\_name}, \op{price} * \op{stock}}(\op{product})
+  $$
+
+  | `product_name`      | `price * stock` |
+  | ------------------- | --------------: |
+  | Bolachas            |             500 |
+  | Napolitanas         |             375 |
+  | Leite com Chocolate |             300 |
+
+- **Projetar o atributo `product_name` e o valor do IVA (expressão `price * 0.23`)**
+
+  $$
+  \pi_{\op{product\_name}, \op{price} * \op{stock}}(\op{product})
+  $$
+
+  | `product_name`      | `price * 0.23` |
+  | ------------------- | -------------: |
+  | Bolachas            |           11.5 |
+  | Napolitanas         |           5.75 |
+  | Leite com Chocolate |             23 |
+
+  :::
 
 ## Renomeação
 
@@ -152,7 +264,29 @@ Na renomeação, iremos obter os mesmos tuplos, apenas com nomes de colunas dife
 
 :::info[Exemplo]
 
-// TODO
+Considerando novamente seguinte relação, [correspondente ao exemplo da loja](/bd/sql#exemplo-loja),
+
+> product(<u>product_code</u>, product_name, price, stock)
+
+com os seguintes valores:
+
+| `product_code` | `product_name`      | `price` | `stock` |
+| -------------- | ------------------- | ------: | ------: |
+| 111111         | Bolachas            |      50 |      10 |
+| 222222         | Napolitanas         |      25 |      15 |
+| 333333         | Leite com Chocolate |     100 |       3 |
+
+- **Renomear o atributo `product_code` para `code` e o atributo `product_name` para `name`**
+
+  $$
+  \rho_{\op{product\_code} \mapsto \op{code}, \op{product\_name} \mapsto \op{name}}(\op{product})
+  $$
+
+  | `code` | `name`              | `price` | `stock` |
+  | ------ | ------------------- | ------: | ------: |
+  | 111111 | Bolachas            |      50 |      10 |
+  | 222222 | Napolitanas         |      25 |      15 |
+  | 333333 | Leite com Chocolate |     100 |       3 |
 
 :::
 
@@ -166,8 +300,8 @@ as relações, eliminando tuplos duplicados.
 
 Relembremos a sintaxe, $r \cup s$, em que $r$ e $s$ são as duas relações a unir.
 
-Para isto, temos primeiro de obedecer a duas condições: tanto $r$ como $s$ têm de ter
-o mesmo número de atributos, e os tipos (isto é, os domínios) dos atributos na i-ésima
+Para isto, temos primeiro de obedecer a duas condições: **tanto $r$ como $s$ têm de ter
+o mesmo número de atributos**, e os tipos (isto é, os domínios) dos atributos na i-ésima
 posição de cada uma das relações têm de corresponder.
 
 Assim, iremos obter uma nova relação, definida por:
@@ -176,9 +310,50 @@ $$
 r \cup s = \{t | t \in r \enspace \op{or} \enspace t \in s\}
 $$
 
+É normalmente útil utilizar uma [projeção](#projeção) ou [renomeação](#renomeação)
+para garantir o mesmo número e tipo de atributos.
+
 :::info[Exemplo]
 
-// TODO
+Considerando duas relações, `student` e `teacher`, muito simples,
+
+> student(<u>name</u>)
+>
+> teacher(<u>name</u>)
+
+com os seguintes valores:
+
+<div class="side-by-side">
+
+| `name` (student) |
+| ---------------- |
+| Diogo            |
+| Tomás            |
+| Rafa             |
+| João             |
+
+| `name` (teacher) |
+| ---------------- |
+| João             |
+| André            |
+
+</div>
+
+A união destas duas relações seria a seguinte:
+
+$$
+\op{student} \cup \op{teacher}
+$$
+
+| `name` |
+| ------ |
+| Diogo  |
+| Tomás  |
+| Rafa   |
+| João   |
+| André  |
+
+Ou seja, obtivemos todos os alunos e professores.
 
 :::
 
@@ -196,6 +371,48 @@ Assim, iremos obter uma nova relação, definida por:
 $$
 r - s = \{t | t \in r \enspace \op{and} \enspace t \notin s\}
 $$
+
+:::info[Exemplo]
+
+Considerando novamente duas relações, `student` e `teacher`,
+
+> student(<u>name</u>)
+>
+> teacher(<u>name</u>)
+
+com os seguintes valores:
+
+<div class="side-by-side">
+
+| `name` (student) |
+| ---------------- |
+| Diogo            |
+| Tomás            |
+| Rafa             |
+| João             |
+
+| `name` (teacher) |
+| ---------------- |
+| João             |
+| André            |
+
+</div>
+
+A diferença destas duas relações seria a seguinte:
+
+$$
+\op{student} - \op{teacher}
+$$
+
+| `name` |
+| ------ |
+| Diogo  |
+| Tomás  |
+| Rafa   |
+
+Ou seja, obtivemos todos os alunos que não são também professores.
+
+:::
 
 ## Interceção
 
@@ -220,7 +437,41 @@ $$
 
 :::info[Exemplo]
 
-// TODO
+Considerando novamente duas relações, `student` e `teacher`,
+
+> student(<u>name</u>)
+>
+> teacher(<u>name</u>)
+
+com os seguintes valores:
+
+<div class="side-by-side">
+
+| `name` (student) |
+| ---------------- |
+| Diogo            |
+| Tomás            |
+| Rafa             |
+| João             |
+
+| `name` (teacher) |
+| ---------------- |
+| João             |
+| André            |
+
+</div>
+
+A interceção destas duas relações seria a seguinte:
+
+$$
+\op{student} \cap \op{teacher}
+$$
+
+| `name` |
+| ------ |
+| João   |
+
+Ou seja, obtivemos todas as pessoas que são tanto alunos como professores.
 
 :::
 
@@ -246,7 +497,37 @@ $$
 
 :::info[Exemplo]
 
-// TODO
+Considerando duas relações, uma contendo 3 tuplos e outra contendo 2 tuplos.
+Sabemos, pelas propriedades do produto cartesiano, que vamos obter uma nova
+relação com 6 tuplos.
+
+<div class="side-by-side">
+
+| `A` |
+| --- |
+| 1   |
+| 2   |
+| 3   |
+
+$\times$
+
+| `B` | `C` |
+| --- | --- |
+| a   | X   |
+| b   | Y   |
+
+$=$
+
+| `A` | `B` | `C` |
+| --- | --- | --- |
+| 1   | a   | X   |
+| 1   | b   | Y   |
+| 2   | a   | X   |
+| 2   | b   | Y   |
+| 3   | a   | X   |
+| 3   | b   | Y   |
+
+</div>
 
 :::
 
@@ -269,7 +550,69 @@ $$
 
 :::info[Exemplo]
 
-// TODO
+Considerando o [exemplo no produto cartesiano](#produto-cartesiano), podemos
+verificar que a divisão é efetivamente a operação inversa:
+
+<div class="side-by-side">
+
+| `A` | `B` | `C` |
+| --- | --- | --- |
+| 1   | a   | X   |
+| 1   | b   | Y   |
+| 2   | a   | X   |
+| 2   | b   | Y   |
+| 3   | a   | X   |
+| 3   | b   | Y   |
+
+$\div$
+
+| `B` | `C` |
+| --- | --- |
+| a   | X   |
+| b   | Y   |
+
+$=$
+
+| `A` |
+| --- |
+| 1   |
+| 2   |
+| 3   |
+
+</div>
+
+Como podemos observar, obtivemos todos os valores originais da relação com o atributo `A`,
+visto que todas as ocorrências deste atributo apresentavam todos os valores para `B, C`.
+
+Se retirarmos um tuplo, fazendo com que apenas haja um tuplo com `A = 3`, vamos obter
+um resultado diferente, que indica que os valores `A = 3` já não cobrem todos os valores
+para `B, C`.
+
+<div class="side-by-side">
+
+| `A` | `B` | `C` |
+| --- | --- | --- |
+| 1   | a   | X   |
+| 1   | b   | Y   |
+| 2   | a   | X   |
+| 2   | b   | Y   |
+| 3   | b   | Y   |
+
+$\div$
+
+| `B` | `C` |
+| --- | --- |
+| a   | X   |
+| b   | Y   |
+
+$=$
+
+| `A` |
+| --- |
+| 1   |
+| 2   |
+
+</div>
 
 :::
 
@@ -315,9 +658,127 @@ $$
 r \bowtie s = \{t_r t_s | t_r \in r \op{and} t_s \in s \op{and} t_r[R\cap S] = t_s[R \cap S]\}
 $$
 
+Se repararmos, um _natural join_ é uma especialização do [produto cartesiano](#produto-cartesiano).
+Não é nada mais nada menos que um produto cartesiano seguido de uma [seleção](#seleção).
+
 :::info[Exemplo]
 
-// TODO
+Podemos verificar que com um natural join podemos efetuar associações do tipo
+_one-to-one_, _one-to-many_ e até _many-to-many_.
+
+- **_One-to-one_**
+
+  <div class="side-by-side">
+
+  | `A` | `B` |
+  | --- | --- |
+  | 1   | a   |
+  | 2   | b   |
+  | 3   | c   |
+
+  $\bowtie$
+
+  | `B` | `C` |
+  | --- | --- |
+  | a   | X   |
+  | b   | Y   |
+  | c   | Z   |
+
+  $=$
+
+  | `A` | `B` | `C` |
+  | --- | --- | --- |
+  | 1   | a   | X   |
+  | 2   | b   | Y   |
+  | 3   | c   | Z   |
+
+  </div>
+
+- **_One-to-many_**
+
+  <div class="side-by-side">
+
+  | `A` | `B` |
+  | --- | --- |
+  | 1   | a   |
+  | 2   | b   |
+  | 3   | b   |
+
+  $\bowtie$
+
+  | `B` | `C` |
+  | --- | --- |
+  | a   | X   |
+  | b   | Y   |
+  | c   | Z   |
+
+  $=$
+
+  | `A` | `B` | `C` |
+  | --- | --- | --- |
+  | 1   | a   | X   |
+  | 2   | b   | Y   |
+  | 3   | b   | Y   |
+
+  </div>
+
+- **_Many-to-many_**
+
+  <div class="side-by-side">
+
+  | `A` | `B` |
+  | --- | --- |
+  | 1   | a   |
+  | 2   | b   |
+  | 3   | b   |
+
+  $\bowtie$
+
+  | `B` | `C` |
+  | --- | --- |
+  | a   | X   |
+  | b   | Y   |
+  | b   | Z   |
+
+  $=$
+
+  | `A` | `B` | `C` |
+  | --- | --- | --- |
+  | 1   | a   | X   |
+  | 2   | b   | Y   |
+  | 2   | b   | Z   |
+  | 3   | b   | Y   |
+  | 3   | b   | Z   |
+
+  </div>
+
+Relembra-se também que pode haver mais que uma coluna em comum, e só se
+junta os tuplos caso os valores sejam iguais em todas as colunas.
+
+<div class="side-by-side">
+
+| `A` | `B` | `C` |
+| --- | --- | --- |
+| 1   | a   | 9   |
+| 2   | b   | 8   |
+| 3   | b   | 7   |
+
+$\bowtie$
+
+| `B` | `C` | `D` |
+| --- | --- | --- |
+| a   | 9   | X   |
+| b   | 7   | Y   |
+| b   | 3   | Z   |
+
+$=$
+
+| `A` | `B` | `C` | `D` |
+| --- | --- | --- | --- |
+| 1   | a   | 9   | X   |
+| 2   | b   | 7   | Y   |
+
+</div>
 
 :::
 
@@ -360,6 +821,76 @@ $$
 
 :::info[Exemplo]
 
-// TODO
+Considerando novamente o [exemplo da loja](/bd/sql#exemplo-loja), tomemos uma
+simplificação da relação `purchase`.
+
+> purchase(<u>purchase_id</u>, customer_name, product_name, quantity)
+
+| `purchase_id` | `customer_name` | `product_name` | `quantity` |
+| ------------- | --------------- | -------------- | ---------: |
+| 1             | Diogo           | Napolitana     |          2 |
+| 2             | Rafa            | Napolitana     |          4 |
+| 3             | Rafa            | Napolitana     |          2 |
+| 4             | Tomás           | Bolachas       |        100 |
+| 5             | Luís            | Chá            |          1 |
+| 6             | Diogo           | Bolachas       |          2 |
+
+- **Determinar quantas compras foram feitas no total**
+
+  $$
+  G_{\op{count}()}(\op{purchase})
+  $$
+
+  | `count()` |
+  | --------- |
+  | 6         |
+
+- **Determinar quantas unidades foram vendidas no total**
+
+  $$
+  G_{\op{sum}(\op{quantity})}(\op{purchase})
+  $$
+
+  | `sum(quantity)` |
+  | --------------- |
+  | 111             |
+
+- **Determinar quantas unidades foram vendidas por produto**
+
+  $$
+  _{\op{product\_name}}G_{\op{sum}(\op{quantity})}(\op{purchase})
+  $$
+
+  | `product_name` | `sum(quantity)` |
+  | -------------- | --------------- |
+  | Napolitana     | 8               |
+  | Bolachas       | 102             |
+  | Chá            | 1               |
+
+- **Determinar quantas unidades foram vendidas por produto e cliente**
+
+  $$
+  _{\op{customer\_name}, \op{product\_name}}G_{\op{sum}(\op{quantity})}(\op{purchase})
+  $$
+
+  | `customer_name` | `product_name` | `sum(quantity)` |
+  | --------------- | -------------- | --------------- |
+  | Diogo           | Napolitana     | 2               |
+  | Rafa            | Napolitana     | 6               |
+  | Tomás           | Bolachas       | 100             |
+  | Luís            | Chá            | 1               |
+  | Diogo           | Bolachas       | 2               |
+
+- **Determinar o máximo de unidades vendidas numa só compra, por produto**
+
+  $$
+  _{\op{product\_name}}G_{\op{max}(\op{quantity})}(\op{purchase})
+  $$
+
+  | `product_name` | `max(quantity)` |
+  | -------------- | --------------- |
+  | Napolitana     | 4               |
+  | Bolachas       | 100             |
+  | Chá            | 1               |
 
 :::
