@@ -410,7 +410,7 @@ Parece que voltámos ao secundário, quando aprendemos a diferença entre permut
 CSPs são comutativos, e como tal, a ordem das atribuições é irrelevante, tal como nas combinações.
 Idealmente, devemos conseguir remover esta redundância das nossas árvores de procura, efetivamente
 fazendo um _pruning_ bastante significativo das mesmas, passando a considerar
-apenas uma variável por nível da árvore, conseguindo, assim, eliminar os tais ramos desnecessários
+[**apenas uma variável por nível da árvore**](color:green), conseguindo, assim, eliminar os tais ramos desnecessários
 da nossa árvore, tendo, no máximo, $d^n$ folhas. Adaptando o exemplo acima, ficaríamos com algo como:
 
 ![Exemplo - Procura Básica sem redundâncias](imgs/0004-basic-search-example-without-redundancies.svg#dark=4)
