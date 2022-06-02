@@ -57,7 +57,7 @@ e valores, correspondências essas que não deverão violar qualquer das restri�
 impostas pelo problema. Estas correspondências, ou **atribuições**, podem ser **parciais**
 ou **completas**, claro: uma atribuição diz-se completa caso todas as variáveis em $X$ tenham
 um valor associado. Mais ainda, diz-se **consistente** caso todas as atribuições
-respeitem respeitem o conjunto $C$. Dizemos que temos em mãos uma [**solução**](color:green) para o
+respeitem o conjunto $C$. Dizemos que temos em mãos uma [**solução**](color:green) para o
 CSP quando temos uma atribuição [**completa e consistente**](color:green): não existem variáveis sem
 atribuições, estando todas elas atribuídas de acordo com o que o problema nos impõe.
 
@@ -103,12 +103,12 @@ portanto, partilhar linha, coluna ou diagonal.
 Mais ainda, tal como referido na introdução desta secção, algoritmos baseados em CSPs
 são, na prática, [**mais eficientes que algoritmos de procura tradicionais**](color:green), já que podem
 ignorar rapidamente ramos da árvore de procura que não satisfazem as restrições requeridas.
-Basta pensar no exemplo do mapa australiano, onde se a nossa primeira opção for colorir
-_South Australia_ com verde, estamos a eliminar a possibilidade de $5$ outras regiões
-serem pintadas com verde - passamos a contar ao todo com $2^5 = 32$ possibilidades restantes,
+Basta pensar no exemplo do mapa australiano, onde se a nossa primeira opção fosse colorir
+_South Australia_ com verde, estaríamos a eliminar a possibilidade de $5$ outras regiões
+serem pintadas com verde - passando a contar ao todo com $2^5 = 32$ possibilidades restantes,
 ao invés de $3^5 = 243$, um _pruning_ substancial feito à árvore!
 
-Mais, se numa procura clássica a única análise qualitativa que fazíamos eram testes-objetivo,
+Para além disso, se numa procura clássica a única análise qualitativa que fazíamos eram testes-objetivo,
 sendo tudo o resto quantitativo, em CSPs tal não é o caso: podemos claramente inferir não
 só que $n$ ramos podem ser descartados da procura, como o porquê de tal acontecer!
 
@@ -118,8 +118,7 @@ Podemos ter restrições **unárias**, **binárias** e **de ordem superior**. As
 são relativamente simples - restrições unárias relacionam uma variável com valores do
 respetivo domínio que podem ou não tomar (como `South Australia != verde`), e
 restrições binárias relacionam duas variáveis (aqui seria algo como `South Australia != Tasmania`).
-As restrições de ordem superior, que envolvem 3 ou mais variáveis, podem não ser tão intuitivas;
-mais, se as quisermos representar sob a forma de grafo, vamos precisar de um
+As restrições de ordem superior, que envolvem 3 ou mais variáveis, podem não ser tão intuitivas e, se as quisermos representar sob a forma de grafo, vamos precisar de um
 [**hipergrafo de restrições**](color:orange), uma generalização do grafo de restrições tradicional
 onde podemos, através de um nó auxiliar, ligar mais que dois vértices.
 
@@ -136,17 +135,17 @@ Podemos ainda ter [**restrições de preferências**](color:purple), que diferem
 anteriores por não serem absolutas - todas as anteriores eram **invioláveis**, e qualquer
 solução teria de as respeitar; restrições de preferências ajudam a modelar o problema
 em volta de um conjunto de coisas que _gostávamos que acontecessem_ (e damos um peso a cada
-coisa, conforme sejamos mais ou menos firmes quanto a que tal aconteça ou não), mas
+uma, conforme sejamos mais ou menos firmes quanto a que tal aconteça ou não), mas
 cuja obrigatoriedade não está _set in stone_.
 
 Podemos pensar, por exemplo, no problema da organização de horários dos professores
 de Inteligência Artificial: temos, claro, restrições invioláveis, como o facto de
-um professor não poder duas aulas presenciais ao mesmo tempo. Existem, contudo,
+um professor não poder estar a dar duas aulas presenciais ao mesmo tempo. Existem, contudo,
 conjuntos de restrições que idealmente se verificariam, mas caso tal não seja possível
-a solução não deixa de ser aceitável. Temos, claro, o facto de professores idealmente
+a solução não deixa de ser aceitável. Temos, claro, o facto de os professores idealmente
 não terem horários em que num dia terminam as aulas às 20h e no dia seguinte têm
 logo uma aula às 8h - pode ter de acontecer, mas idealmente não. Cada professor poderá
-ainda preferir aulas em certos dias da semana, ou em certos horários (manhã/tarde), e todas
+ainda preferir dar aulas em certos dias da semana, ou em certos horários (manhã/tarde), e todas
 essas preferências poderão ser introduzidas num conjunto à parte, o **conjunto de restrições
 de preferências do problema**, onde cada uma destas preferências seria devidamente pesada
 e resolvida como um **problema de otimização de restrições**.
@@ -159,10 +158,10 @@ No caso de algoritmos baseados em CSPs, para além de podermos fazer uma procura
 temos ainda a noção de [**restrições**](color:yellow); mais importante ainda, temos a
 noção de [**propagação de restrições**](color:green), uma forma de _fazer **inferência**_
 quanto a uma dada situação, atualizando progressivamente os caminhos que podemos tomar.
-Temos como exemplo mais direto desta propagação o caso do mapa australiano, onde à medida
-que íamos colorindo o mapa íamos ficando progressivamente com cada vez menos opções
+Temos como exemplo mais direto desta propagação o caso do mapa australiano, onde, à medida
+que íamos colorindo o mapa, íamos ficando progressivamente com cada vez menos opções
 que satisfizessem as restrições impostas, tendo em conta o que já foi feito. As restrições
-podem ser-nos úteis logo no pré-processamento inicial do problema, podendo inclusive
+podem ser-nos úteis logo no pré-processamento inicial do problema, podendo, inclusive,
 fazer com que não tenha de haver procura: num Sudoku _fácil_, por exemplo, existe sempre
 um movimento "obrigatório" (leia-se "aquele número **tem** de estar ali") à medida que vamos
 avançando no jogo, pelo que o pré-processamento leva a uma propagação sucessiva de restrições
@@ -170,7 +169,7 @@ que levam a uma solução direta, sem recorrer a procura/tentativas sem garantia
 
 A propagação tem por objetivo, assim, utilizar as restrições a seu favor por forma
 a [**reduzir o tamanho dos domínios das variáveis**](color:orange) (idealmente a $1$, nunca a $0$),
-garantindo assim que "aquela variável tem de estar associada àquele valor para uma solução consistente".
+garantindo, assim, que "aquela variável tem de estar associada àquele valor para uma solução consistente".
 Vai, aqui, voltar a ser relevante aquela visualização do problema como um grafo mencionada
 mais acima.
 
@@ -180,14 +179,14 @@ Dizemos que uma variável é [**nó-consistente**](color:green) caso todos os va
 no seu domínio satisfaçam as suas restrições unárias. Pensando no exemplo do mapa
 australiano, caso pintemos _South Australia_ de verde, _Western Australia_ vai deixar
 de poder ser pintada com essa cor, pelo que para esta ser nó-consistente vamos ter de
-"atualizar" o seu domínio, removendo verde. [Mais, dizemos que um **grafo** é nó-consistente
+"atualizar" o seu domínio, removendo verde. [Adicionalmente, dizemos que um **grafo** é nó-consistente
 caso todas as suas variáveis também o sejam](color:yellow).
 
 ### Consistência de Arcos
 
 Dizemos que uma variável é [**arco-consistente**](color:green) caso todos os valores
 no seu domínio satisfaçam as suas restrições binárias. Dizemos que uma variável
-$X$ é **consistente em arco** para $Y$ caso para todas os valores no domínio de $X$
+$X$ é **consistente em arco** para $Y$ caso, para todos os valores no domínio de $X$,
 exista um valor no domínio de $Y$ que satisfaça a restrição binária que as liga.
 O exemplo clássico é a restrição $Y = X^2$, onde com domínios tais que:
 
@@ -221,16 +220,16 @@ vamos ter três cenários possíveis:
 - Caso $D_X$ tenha visto o seu domínio reduzido ao **conjunto vazio**, podemos afirmar que
   não existe solução consistente para o problema, pelo que o algoritmo retorna _failure_.
 
-O algoritmo termina ou quando verifica que o domínio de uma das variáveis passa a ser
+O algoritmo termina quando verifica que o domínio de uma das variáveis passa a ser
 o conjunto vazio, retornando _failure_, ou quando o _set_ de arcos fica vazio, retornando
 _true_. Note-se, contudo, que este algoritmo não resolve por si só o problema: pode ajudar
-(bastante até) dado que reduz o tamanho dos domínios das variáveis o mais que consegue,
-mas por vezes termina sem que todos os domínios fiquem com tamanho $1$: nesse caso,
-vamos precisar de métodos adicionais para resolver os problemas em mãos.
+(bastante até), dado que reduz o tamanho dos domínios das variáveis o máximo possível,
+mas, por vezes, termina sem que todos os domínios fiquem com tamanho $1$: nesse caso,
+vamos precisar de métodos adicionais para resolver os problemas em questão.
 
 :::details[Exemplo $\text{AC-3}$: Sudoku]
 
-Tenha-se o seguinte tabuleiro de Sudoku:
+Considere-se o seguinte tabuleiro de Sudoku:
 
 ![Sudoku - Tabuleiro Inicial (AC-3)](imgs/0004-sudoku-grid-ac3.png#dark=3)
 
@@ -259,7 +258,7 @@ de 2 variáveis.
 
 - Escolhendo a variável $I_6$ (que corresponde ao arco $(I, 6)$), vamos ter:
 
-  - Quanto à coluna, $I_6$ não vai poder tomar os valores $5, 6, 2, \smartcolor{red}{4}, 8, 9, 3 \smartcolor{yellow}{^*}$;
+  - Quanto à coluna, $I_6$ não vai poder tomar os valores $5, 6, 2, \smartcolor{red}{4}\smartcolor{yellow}{^*}, 8, 9, 3$;
   - Quanto à linha, $I_6$ não vai poder tomar os valores $5, 1, 3$;
   - Quanto à "caixa", $I_6$ não vai poder tomar os valores $1, 2, 3, 6, 9$;
 
@@ -274,16 +273,16 @@ uma assentada o problema, sem recorrer a procuras adicionais. O resultado final 
 
 ![Sudoku - Tabuleiro Resolvido (AC-3)](imgs/0004-sudoku-grid-solved-ac3.png#dark=3)
 
-Como referido anteriormente, há problemas em que o algoritmo $\text{AC-3}$ não resolve
+Como referido anteriormente, há situações em que o algoritmo $\text{AC-3}$ não resolve
 sozinho o problema - nem todos os tabuleiros Sudoku conseguem ser completados seguindo
-unicamente este algoritmo, por exemplo - pelo que para resolver problemas mais complexos
+unicamente este algoritmo, pelo que, para resolver problemas mais complexos,
 precisamos de misturar procura com inferência, procurando propagar restrições através
-de "tentativas" (i.e "não sei se $6$ é o valor certo aqui, mas é bastante possível
+de "tentativas" (i.e "não sei se $6$ é o valor certo aqui, mas é bastante provável,
 por isso vou tentar"), ou até mesmo usando outros algoritmos de consistência.
 
 :::
 
-Considerando $c$ como o total de restrições binárias do problema e $d$ o tamanho máximo do
+Considerando $c$ como o número total de restrições binárias do problema e $d$ como o tamanho máximo do
 domínio de uma variável, podemos afirmar que a consistência de um arco pode ser analisada
 em tempo $d^2$ - na pior das hipóteses, verificamos cada par de variáveis $1$ a $1$. Mais,
 como um arco pode ser inserido no _set_ de arcos no máximo $d$ vezes (já que o
@@ -341,22 +340,22 @@ $$
 Ora, peguemos na primeira atribuição: para $(\text{WA, SA})$ ser consistente em caminho
 com $\text{NT}$, esta atribuição terá de respeitar todas as restrições em $(\text{WA, NT})$ e $(\text{NT, SA})$.
 Ora, para $\text{WA = vermelho}$ ser consistente em arco com $\text{NT}$, teremos de ter $\text{NT = azul}$;
-[**contudo**](color:yellow), da mesma maneira, para $\text{NT = azul}$ ser consistente em arco com $\text{WA}$,
-teremos de ter $\text{WA = vermelho}$: [**não é o caso, nesta atribuição**](color:red), já
-que $\text{WA = azul}$, por premissa. Assim sendo, esta atribuição é removida do conjunto
-de atribuições consistentes em caminho possíveis; mais, o mesmo verifica-se para a outra atribuição,
-pelo que são ambas removidas, e assim sendo podemos [**garantir**](color:4green) que não existe solução
+[**contudo**](color:yellow), da mesma maneira, para $\text{NT = azul}$ ser consistente em arco com $\text{SA}$,
+teremos de ter $\text{SA = vermelho}$: [**não é o caso, nesta atribuição**](color:red), já
+que $\text{SA = azul}$, por premissa. Assim sendo, esta atribuição é removida do conjunto
+de atribuições consistentes em caminho possíveis, verificando-se o mesmo para a outra atribuição,
+pelo que são ambas removidas. Assim sendo, podemos [**garantir**](color:green) que não existe solução
 consistente para este problema!
 
-Para a consistência de caminhos, temos um algoritmo bastante semelhante a $\text{AC-3}$,
+Para a consistência de caminhos, temos um algoritmo bastante semelhante ao $\text{AC-3}$,
 o $\text{PC-2}$.
 
 ### Consistência K
 
 Podemos generalizar as noções de consistência supra-abordadas através da noção de
-[**$k$-consistência**](color:orange) - um problema diz-se $k$-consistente se para
+[**$k$-consistência**](color:orange) - um problema diz-se $k$-consistente se, para
 todo o conjunto de $k-1$ variáveis (seja esse conjunto $K$), para qualquer atribuição consistente
-para as suas variáveis podemos sempre atribuir um valor que não torne o problema inconsistente
+para as suas variáveis, podemos sempre atribuir um valor que não torne o problema inconsistente
 a uma nova variável $k$. A consistência em nó é, portanto, a $1$-consistência, a consistência
 em arco é a $2$-consistência, etc.
 
@@ -382,7 +381,7 @@ vezes pormenores sobre a natureza do problema - `allDiff` é uma restrição glo
 que captura a essência do Sudoku de forma extremamente concisa: _todas estas variáveis têm
 de tomar valores diferentes_. Mais importante, através de restrições globais podemos
 detetar inconsistências claras facilmente: se tivermos um conjunto de $m$ variáveis envolvidas
-numa restrição global e $n$ valores que podem tomar, então será impossível atingir uma solução
+numa restrição global e $n$ valores que podem tomar (com $m$ > $n$), então será impossível atingir uma solução
 consistente (tal como no caso de colorir o mapa australiano com $2$ cores, abordado mais acima).
 
 Existe ainda um algoritmo que nos permite resolver restrições `allDiff` de forma relativamente
@@ -424,7 +423,7 @@ poder afirmar que uma árvore de procura _naive_ que procure resolver um CSP pod
 $n!d^n$ folhas! Ora, a [**redundância**](color:red) entra precisamente aqui: porque é que
 havemos de precisar de $n!d^n$ folhas na nossa árvore, quando só existem $d^n$ atribuições completas
 possíveis[\*](color:yellow)? Esta procura não parece, portanto, aperceber-se da possibilidade de variáveis
-atribuídos por ordens diferentes poderem ir dar a um conjunto de atribuições final igual - basta
+atribuídas por ordens diferentes poderem ir dar a um conjunto de atribuições final igual - basta
 ver o exemplo abaixo, onde três caminhos da mesma árvore vão dar ao mesmo, sendo a única diferença
 a ordem da atribuição das variáveis:
 
@@ -435,16 +434,16 @@ com $0$ ou $1$, vamos ter $2^5$ atribuições completas diferentes (e posteriorm
 generalizar para $n$ caixinhas com $d$ valores possíveis).
 
 Parece que voltámos ao secundário, quando aprendemos a diferença entre permutações e combinações:
-CSPs são comutativos, e como tal a ordem das atribuições é irrelevante, tal como nas combinações.
-Idealmente devemos conseguir remover esta redundância das nossas árvores de procura, efetivamente
-fazendo um _pruning_ bastante significativo das mesmas - removemo-la passando a considerar
-apenas uma variável por nível da árvore, conseguindo assim eliminar os tais ramos desnecessários
-da nossa árvore, tendo no máximo $d^n$ folhas. Adaptando o exemplo acima, ficaríamos com algo como:
+CSPs são comutativos, e como tal, a ordem das atribuições é irrelevante, tal como nas combinações.
+Idealmente, devemos conseguir remover esta redundância das nossas árvores de procura, efetivamente
+fazendo um _pruning_ bastante significativo das mesmas, passando a considerar
+apenas uma variável por nível da árvore, conseguindo, assim, eliminar os tais ramos desnecessários
+da nossa árvore, tendo, no máximo, $d^n$ folhas. Adaptando o exemplo acima, ficaríamos com algo como:
 
 ![Exemplo - Procura Básica sem redundâncias](imgs/0004-basic-search-example-without-redundancies.svg#dark=4)
 
-De realçar que aqui todas as soluções estão a [**profundidade $n$**](color:orange), já que
-cada nível trata de todas as atribuições possíveis para $1$ variável!
+É de realçar que aqui todas as soluções estão a [**profundidade $n$**](color:orange), já que
+cada nível trata de todas as atribuições possíveis para apenas $1$ variável!
 
 ### Procura com Retrocesso (_Backtracking Search_)
 
@@ -459,7 +458,7 @@ completa consistente para o problema**](color:yellow) caso tenhamos de retrocede
 Esta procura é, contudo, [**cega**](color:red), tal como as que vimos inicialmente no contexto de
 Inteligência Artificial: fará, portanto, sentido introduzir [**heurísticas**](color:green)
 às nossas procuras, por forma a que sejam (idealmente) mais eficientes. No contexto de CSPs,
-contudo, e tentando manter o padrão de "abstração de implementação" quano ao domínio que
+contudo, e tentando manter o padrão de "abstração de implementação" quanto ao domínio que
 temos tentado manter nestas procuras, vamos querer utilizar também heurísticas
 independentes do problema em mãos: heurísticas que sabemos que estão mais que testadas,
 e que devemos (em princípio) poder utilizar à confiança. Podemos dividir a "abordagem
@@ -478,8 +477,7 @@ substancialmente mais eficientes.
 Encontram-se abaixo dois exemplos da mesma procura, que seguem ordenações das variáveis
 por nível diferentes, por forma a ilustrar as diferenças que pequenas alterações podem surtir.
 Note-se que, para o mesmo problema (problema este relativamente simples, com poucas variáveis
-e restrições), conseguimos um ganho de $50\%$ em desempenho: conseguimos cortar metade dos testes de
-consistência realizados!
+e restrições), conseguimos reduzir em $50\%$ o número de testes de consistência realizados!
 
 ![Escolher a ordem das variáveis é relevante](imgs/0004-choosing-variables-matters.svg#dark=2)
 
@@ -495,14 +493,14 @@ em casos onde as restrições iniciais não permitam ter variáveis mais restrin
 outras, podemos utilizar uma heurística adicional, a [**Heurística do Maior Grau**](color:green),
 por forma a **procurar reduzir o fator de ramificação da árvore no futuro**.
 Tal como tínhamos notado mais acima ao falar do exemplo do mapa australiano, [**colorir
-_South Australia_**](color:yellow) leva a que um grande número de variáveis fiquem de repente
+_South Australia_**](color:yellow) leva a que um grande número de variáveis fique, de repente,
 com o respetivo domínio mais pequeno, já que tem um grande número de adjacências. Esta
 heurística pega nessa lógica e formaliza-a: a cada nível, escolhemos a variável envolvida
 no maior número de restrições (num grafo, a variável com **maior grau**), já que atribuir
 valores a essa variável deverá criar um "efeito dominó" sobre uma área maior do problema.
 
-Note-se, claro, que podemos usar estas heurísticas em conjunto no mesmo problema:
-por norma, aplicamos $\text{MRV}$ primeiro, utilizando a de maior grau como forma de desempate.
+Note-se, claro, que podemos usar estas heurísticas em conjunto no mesmo problema. Quando o fazemos, por norma, aplicamos
+$\text{MRV}$ primeiro, utilizando a de maior grau como forma de desempate.
 
 ### Escolher o Próximo Valor
 
@@ -514,7 +512,7 @@ de valores que permitam procuras mais eficientes.
 Ora, se o $\text{MRV}$ pretendia que se "falhasse" tão cedo quanto possível, por forma a nunca
 ter de avançar muito pela árvore sem ser o teoricamente necessário, aqui vamos querer
 precisamente o oposto: vamos sempre escolher os valores que nos levem a **falhar o menos
-possível** - isto porque não só queremos detetar falhas tão cedo quanto possível, também
+possível** - isto porque não só queremos detetar falhas tão cedo quanto possível, como também
 vamos querer sempre entrar no ramo mais promissor. Esta dicotomia é explicada
 da seguinte forma por [Max Welling](https://staff.fnwi.uva.nl/m.welling/):
 
@@ -524,8 +522,8 @@ da seguinte forma por [Max Welling](https://staff.fnwi.uva.nl/m.welling/):
 >
 > $\text{LCV}$[\*](color:yellow): **tries to avoid failure by assigning values that leave maximal flexibility for the remaining variables**. We want our search to succeed as soon as possible, so given some ordering, we want to find the branch that is more likely to succeed.
 
-[Nesta _thread_](https://cs.stackexchange.com/questions/98075/aren-t-most-constraining-variable-and-least-constraining-value-the-exact-opposit)
-podem encontrar uma resposta mais detalhada sobre o porquê de utilizar estas heurísticas
+[Nesta _thread_](https://cs.stackexchange.com/questions/98075/aren-t-most-constraining-variable-and-least-constraining-value-the-exact-opposit),
+podem encontrar uma resposta mais detalhada sobre o porquê de se utilizarem estas heurísticas
 (escrita melhor do que eu a conseguiria escrever).
 
 [\*](color:yellow) $\text{LCV}$, de _Least Constraining Value_, corresponde à heurística
@@ -565,7 +563,7 @@ para o problema. Adiciona-se ainda que, como estamos apenas a verificar sucessiv
 consistência de arco de várias variáveis, caso esse tipo de pré-processamento (via $\text{AC-3}$,
 por exemplo) já tenha sido feito, não haverá utilidade em fazê-lo enquanto procuramos.
 
-Abaixo podemos ver o exemplo de um cenário em que
+Abaixo, podemos ver o exemplo de um cenário em que
 [_forward checking_](<https://en.wikipedia.org/wiki/Look-ahead_(backtracking)>) leva a que encontremos
 inconsistências relativamente rápido:
 
@@ -588,7 +586,7 @@ precisamente "olhar para a frente", conseguindo aperceber-se de mais inconsistê
 que o _forward checking_. Em vez de apenas tornar as adjacências consistentes em arco
 com a variável que estamos agora a atribuir, vamos mais além e aplicamos [$\text{AC-3}$](color:green),
 partindo de um _set_ inicial que inclui todas as adjacências da variável atual, e que vai
-fazendo a tal propagação de restrições que $\text{AC-3}$ realiza, conseguindo assim
+fazendo a tal propagação de restrições que $\text{AC-3}$ realiza, conseguindo, assim,
 eliminar mais inconsistências e aperceber-se do fracasso mais cedo. Note-se que,
 tal como em _forward checking_, $\text{MAC}$ falha caso uma das variáveis alvo da propagação fique
 com domínio vazio, tendo portanto de recuar na árvore de procura.
@@ -611,7 +609,7 @@ Se fôssemos agora tentar colorir _South Australia_, íamos notar que o seu dom�
 Assim sendo, a procura com retrocesso ia dar um passo atrás, procurando colorir _Tasmania_ com as duas
 outras cores, já que cronologicamente é o evento que antecede colorir $\text{SA}$. Ora,
 mas empiricamente sabemos que isto não faz qualquer sentido: _Tasmania_ não tem qualquer
-restrição associada a _South Australia_, e além disso o erro foi feito antes! A ordem
+restrição associada a _South Australia_, e, além disso, o erro foi feito antes! A ordem
 cronológica, aqui, acaba por não ser a maneira mais eficiente de chegar a uma solução.
 Existem várias formas de tentar perceber "onde é que começou a correr mal", por forma
 a voltar até esse ponto e corrigir o que de mal foi feito. A primeira dessas formas é
@@ -623,7 +621,7 @@ O método é bastante simples: mantemos, para cada variável $X$, uma [**pilha**
 o conjunto de variáveis (e respetivas atribuições) que retiraram valores ao domínio de $X$.
 Quando encontramos um cenário em que $X$ tem domínio vazio, retiramos a primeira variável
 da pilha e fazemos _backtrack_ até lá - note-se que no exemplo supra-referido, _backjumping_
-ia permitir que "saltássemos" _Tasmania_, voltando diretamente para _New South Wales_
+ia permitir que "saltássemos" _Tasmania_, voltando diretamente para _Victoria_
 e fazendo logo aí uma nova atribuição.
 
 |                     [**Procura em Retrocesso Padrão**](color:red)                      |                 [**Procura em Retrocesso com _backjumping_**](color:green)                  |
@@ -634,7 +632,7 @@ e fazendo logo aí uma nova atribuição.
 
 Note-se ainda que realizar _forward checking_ e _backjumping_ em simultâneo é redundante:
 _forward checking_ impediria que chegássemos a nós em conflito antes sequer de lá chegarmos!
-Bem, assim sendo esta estratégia aparenta não ter grande utilidade, se _forward checking_
+Bem, assim sendo, esta estratégia aparenta não ter grande utilidade, se _forward checking_
 permite um _pruning_ antecipado de tudo o que _backjumping_ consegue ver. A ideia, não
 o método, é o que importa aqui: **poder voltar atrás sem ser por ordem cronológica
 direta é bastante relevante**.
@@ -673,7 +671,7 @@ $$
 :::details[Exemplo]
 
 Consideremos a seguinte extensão ao exemplo ilustrado mais acima, onde para além de
-colorir $\text{WA, NST}$ e $\text{T}$ a vermelho, colorimos ainda $\text{NT}$ a azul
+colorir $\text{WA, NSW}$ e $\text{T}$ a vermelho, colorimos ainda $\text{NT}$ a azul
 e $\text{Q}$ a verde:
 
 ![Conflict-Directed Backjumping](imgs/0004-conflict-directed-backjumping.svg#dark=2)
@@ -715,7 +713,7 @@ conf(NT) &= conf(NT) \cup conf(Q) - \{NT\} \\
 $$
 
 Íamos depois ter apenas a cor verde livre para $\text{NT}$, que obrigaria a que $\text{Q}$
-ficasse azul - entrávamos no mesmo problema, voltávamos para trás, e ficamos agira sem valores
+ficasse azul - entrávamos no mesmo problema, voltávamos para trás, e ficamos agora sem valores
 por atribuir, pelo que saltamos novamente para cima, desta vez para $\text{NSW}$:
 
 $$
@@ -729,7 +727,7 @@ $$
 Retrocedendo para $\text{NSW}$, vamos agora ter a possibilidade de experimentar
 valores que não vermelho; conseguimos, assim, saltar três níveis (em vez de só um),
 uma melhoria significativa em termos de desempenho, considerando que conseguimos evitar
-subidas e desnecessárias em ramos intermédios da árvore.
+subidas e descidas desnecessárias em ramos intermédios da árvore.
 
 :::
 
@@ -795,7 +793,7 @@ vamos notar que a atribuição que leva a um menor número de conflitos é subir
 
 Desta vez, três das variáveis estão em conflito - escolhendo, entre elas, uma aleatória (seja
 ela a variável da terceira linha e terceira coluna), podemos notar que movê-la $1$ casa para baixo
-remove não são só todos os seus conflitos como os das outras variáveis, ficando
+remove não só todos os seus conflitos como os das outras variáveis, ficando
 assim com uma solução completa e consistente!
 
 ![Procura Local - Rainha na Terceira Linha](imgs/0004-local-search-step-3.svg#dark=2)
@@ -813,7 +811,7 @@ A procura local não se adequa, contudo, a todo o tipo de CSPs - caso contrário
 em mãos o _santo Graal_ das procuras, e nunca mais íamos precisar de fazê-las de maneira
 diferente. Esta procura funciona principalmente em problemas cujas soluções estão densamente
 distribuídas pelo espaço de estados, e onde qualquer solução sirva (desde que seja consistente).
-Mais, não nos permite provar que não há solução, o que em certos casos pode ser um problema.
+No entanto, não nos permite provar que não há solução, o que em certos casos pode ser um problema.
 
 ### Estrutura de Problemas
 
