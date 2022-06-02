@@ -38,7 +38,7 @@ tal que $a_i \in D$.
 :::
 
 Por palavras mais simples, uma relação é composta por vários "campos", em que cada um
-deles tem um domínio. Os elementos que pertencem a essa relação, são tuplos
+deles tem um domínio. Os elementos que pertencem a essa relação são tuplos
 com cada um dos valores para os respetivos "campos".
 
 ::::info[Exemplo]
@@ -241,7 +241,8 @@ Existem dois tipos:
 #### Restrições de Integridade Referencial (_Foreign Keys_)
 
 Restrições deste tipo requerem que exista um valor (ou combinação de valores)
-correspondente noutra relação. Chama-se a isto uma _foreign key_.
+correspondente noutra relação. Chama-se a isto uma _foreign key_ (ou _chave estrangeira_
+em português).
 
 Se os dados numa das relações forem alterados, é necessário verificar que as
 relações continuam a ser válidas.
