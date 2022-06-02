@@ -344,7 +344,7 @@ Ora, para $\text{WA = vermelho}$ ser consistente em arco com $\text{NT}$, teremo
 teremos de ter $\text{SA = vermelho}$: [**não é o caso, nesta atribuição**](color:red), já
 que $\text{SA = azul}$, por premissa. Assim sendo, esta atribuição é removida do conjunto
 de atribuições consistentes em caminho possíveis, verificando-se o mesmo para a outra atribuição,
-pelo que são ambas removidas. Assim sendo, podemos [**garantir**](color:green) que não existe solução
+pelo que são ambas removidas. Podemos, assim, [**garantir**](color:green) que não existe solução
 consistente para este problema!
 
 Para a consistência de caminhos, temos um algoritmo bastante semelhante ao $\text{AC-3}$,
