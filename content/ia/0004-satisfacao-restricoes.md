@@ -130,6 +130,9 @@ ordem superior (ordem $9$ para o sudoku clássico) da seguinte forma:
 
 A restrição utilizada acima é a `allDiff`, uma das mais comuns quando abordamos
 hipergrafos de restrições - corresponderia a algo como $X_i \neq X_j, \forall_{i, j}$.
+Existem também outras restrições globais clássicas, como a `atmost` ou _restrição de recursos_,
+que tal como o nome indica restringe os valores das variáveis a "as variáveis têm de ter atribuições
+que, somadas, não ultrapassem este valor".
 
 Podemos ainda ter [**restrições de preferências**](color:purple), que diferem das três
 anteriores por não serem absolutas - todas as anteriores eram **invioláveis**, e qualquer
@@ -372,36 +375,6 @@ complexidade exponencial (tanto temporal como espacial). Assim sendo, acabamos p
 a abordagem acima indicada apenas quando conseguimos verificar empiricamente a $k$-consistência
 do grafo, já que caso contrário "acaba por nem valer a pena".
 
-### Restrições Globais
-
-Restrições globais, ou de ordem superior, não são mais do que formas de exprimir relações entre um
-número arbitrário de variáveis ([**não confundir com precisar de envolver todas as variáveis**](color:red)).
-Não são muito diferentes do que vimos até agora, acabando por conseguir capturar muitas
-vezes pormenores sobre a natureza do problema - `allDiff` é uma restrição global, por exemplo,
-que captura a essência do Sudoku de forma extremamente concisa: _todas estas variáveis têm
-de tomar valores diferentes_. Mais importante, através de restrições globais podemos
-detetar inconsistências claras facilmente: se tivermos um conjunto de $m$ variáveis envolvidas
-numa restrição global e $n$ valores que podem tomar (com $m$ > $n$), então será impossível atingir uma solução
-consistente (tal como no caso de colorir o mapa australiano com $2$ cores, abordado mais acima).
-
-Existe ainda um algoritmo que nos permite resolver restrições `allDiff` de forma relativamente
-simples: passa por ir removendo progressivamente da restrição todas as variáveis com
-domínio de tamanho unitário, apagando o valor presente no domínio de todos os outros domínios
-que ainda existam. Vamos fazendo estas remoções sucessivamente, parando quando:
-
-- deixar de haver variáveis por remover, retornando _sucesso_ (e conseguindo até devolver
-  a solução consistente);
-- houver uma variável que fica com domínio vazio - chegámos aqui a uma inconsistência,
-  e o CSP não tem solução, retornando _failure_.
-
-É efetivamente isto que fazemos "a olho" quando resolvemos Sudoku's fáceis: vamos vendo
-"esta posição só pode tomar este valor", e colocar esse valor nessa posição surte _efeito dominó_
-sobre os valores que outras posições podem tomar.
-
-Existem também outras restrições globais clássicas, como a `atmost` ou _restrição de recursos_,
-que tal como o nome indica restringe os valores das variáveis a "as variáveis têm de ter atribuições
-que, somadas, não ultrapassem este valor".
-
 ## Procura em CSPs
 
 Nem sempre conseguimos resolver CSPs utilizando exclusivamente inferência - basta pensar no
@@ -431,13 +404,13 @@ a ordem da atribuição das variáveis:
 
 [\*](color:yellow) Basta pensar que se tivermos $5$ caixinhas que podem ser preenchidas
 com $0$ ou $1$, vamos ter $2^5$ atribuições completas diferentes (e posteriormente
-generalizar para $n$ caixinhas com $d$ valores possíveis).
+generalizar para $n$ caixinhas com $d$ valores possíveis). Existem, claro, $5!$ maneiras de chegar à mesma configuração completa da caixinha, mas não é isso que nos interessa!
 
 Parece que voltámos ao secundário, quando aprendemos a diferença entre permutações e combinações:
 CSPs são comutativos, e como tal, a ordem das atribuições é irrelevante, tal como nas combinações.
 Idealmente, devemos conseguir remover esta redundância das nossas árvores de procura, efetivamente
 fazendo um _pruning_ bastante significativo das mesmas, passando a considerar
-apenas uma variável por nível da árvore, conseguindo, assim, eliminar os tais ramos desnecessários
+[**apenas uma variável por nível da árvore**](color:green), conseguindo, assim, eliminar os tais ramos desnecessários
 da nossa árvore, tendo, no máximo, $d^n$ folhas. Adaptando o exemplo acima, ficaríamos com algo como:
 
 ![Exemplo - Procura Básica sem redundâncias](imgs/0004-basic-search-example-without-redundancies.svg#dark=4)
