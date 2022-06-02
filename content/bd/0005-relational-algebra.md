@@ -29,18 +29,18 @@ Vejamos agora que literais/operadores existem em álgebra relacional, isto é, q
 | Relação vazia            | $\emptyset$                                       |
 | Literal de Relação       | $\{\lang v_1, \dots, v_n\rang, \dots \}$          |
 | Nome de Relação/_relval_ | $r$                                               |
-| Seleção                  | $\sigma_c(E)$                                     |
-| Projeção                 | $\pi_{A_1, \dots, A_n}(E)$                        |
-| Projeção Generalizada    | $\pi_{F_1, \dots, F_n}(E)$                        |
-| Renomeação               | $\rho_{A_1\mapsto B_1,\dots, A_m \mapsto B_m}(E)$ |
-| União                    | $E_1 \cup E_2$                                    |
-| Diferença                | $E_1- E_2$                                        |
-| Interceção               | $E_1 \cap E_2$                                    |
-| Produto Cartesiano       | $E_1 \times E_2$                                  |
-| Divisão                  | $E_1 \div E_2$                                    |
+| Seleção                  | $\sigma_c(r)$                                     |
+| Projeção                 | $\pi_{A_1, \dots, A_n}(r)$                        |
+| Projeção Generalizada    | $\pi_{F_1, \dots, F_n}(r)$                        |
+| Renomeação               | $\rho_{A_1\mapsto B_1,\dots, A_m \mapsto B_m}(r)$ |
+| União                    | $r \cup s$                                        |
+| Diferença                | $r - s$                                           |
+| Interceção               | $r \cap s$                                        |
+| Produto Cartesiano       | $r \times s$                                      |
+| Divisão                  | $r \div s$                                        |
 | Atribuição               | $r <- E$                                          |
 | _Natural Join_           | $\bowtie$                                         |
-| Agregação                | $G_{L,F}(E)$                                      |
+| Agregação                | $_L G_{F}(r)$                                     |
 
 Aprofundemos, de seguida, alguns destes operadores.
 
@@ -49,10 +49,10 @@ Aprofundemos, de seguida, alguns destes operadores.
 A seleção funciona de forma semelhante à cláusula `WHERE` do SQL,
 em que se restringe uma relação de acordo com uma condição/predicado.
 
-Relembremos a sintaxe, $\sigma_c(E)$. Aqui, temos que:
+Relembremos a sintaxe, $\sigma_c(r)$. Aqui, temos que:
 
 - $c$ é uma condição/predicado, podendo ser simples ou composta
-- $E$ é a relação a que queremos aplicar esta condição
+- $r$ é a relação a que queremos aplicar esta condição
 
 Assim, iremos obter uma nova relação, definida por:
 
@@ -75,10 +75,10 @@ assim como os operadores lógicos $\land$, $\lor$ e $\neg$.
 A projeção funciona de forma semelhante à cláusula `SELECT` do SQL,
 em que seleciona certas colunas/atributos de uma relação.
 
-Relembremos a sintaxe, $\pi_{A_1, \dots, A_n}(E)$. Aqui, temos que:
+Relembremos a sintaxe, $\pi_{A_1, \dots, A_n}(r)$. Aqui, temos que:
 
-- $E$ é a relação que queremos projetar
-- $A_i$ é uma coluna/atributo da relação $E$
+- $r$ é a relação que queremos projetar
+- $A_i$ é uma coluna/atributo da relação $r$
 
 Assim, iremos obter uma nova relação, definida por:
 
@@ -106,7 +106,30 @@ ao remover certas colunas poderemos diminuir o número de tuplos na relação.
 
 ### Projeção Generalizada
 
+A projeção generalizada, tal como o nome indica, é uma generalização da projeção
+apresentada acima, permitindo, além de referenciar atributos de uma relação, a
+utilização de expressões sobre os atributos da relação.
+
+Relembremos a sintaxe, $\pi_{F_1,\dots,F_n}(r)$. Aqui, temos que:
+
+- $r$ é a relação que queremos projetar
+- $F_i$ é uma função/expressão sobre os atributos de $r$
+
+Assim, iremos obter uma nova relação, definida por:
+
+$$
+\pi_{F_1, \dots, F_n}(r) = \{\lang F_1(t), \dots, F_n(t)\rang | t \in r\}
+$$
+
+As expressões $F_i$ podem efetuar aritmética (somas, subtrações, multiplicações, etc)
+entre valores dos atributos de $r$ ou até mesmo com literais
+(i.e. somar $X$ a todos os valores de um atributo).
+
+:::info[Exemplo]
+
 // TODO
+
+:::
 
 ## Renomeação
 
@@ -300,4 +323,43 @@ $$
 
 ## Agregação
 
+Antes de olharmos para a operação de agregação em si, temos primeiro de definir
+o que são [**funções de agregação**](color:orange). Uma função de agregação
+pega num conjunto de valores e efetua-lhes uma operação, de forma a obter
+um único valor. Funções estas como o máximo/mínimo de um conjunto, a soma,
+a contagem e até a média.
+
+Existem assim, em álgebra relacional, cinco funções lecionadas em aula:
+`min`, `max`, `sum`, `count` e `avg`, que penso serem explícitas no seu comportamento.
+Todas estas funções necessitam de um argumento a indicar qual o atributo sobre o
+qual efetuam os cálculos, à exceção do `count` cujo argumento é opcional (contar
+quantos valores existem, num atributo específico ou no geral é, regra geral, indiferente).
+
+O operador de agregação usa estas funções e aplica-as sobre grupos de tuplos,
+grupos estes que serão gerados através de um conjunto de atributos.
+
+Relembremos a sintaxe, $_{A_1, \dots, A_n} G_{F_1, \dots, F_k}(r)$. Aqui, temos que:
+
+- $r$ é a relação onde queremos aplicar a agregação
+- $A_i$ é um atributo de $r$. Os tuplos serão agrupados pelos valores dos atributos $A_i$,
+  isto é, juntando os tuplos que partilham os mesmos valores para os atributos $A_i$.
+  Caso $n = 0$, isto é, não seja dado nenhum atributo por onde agrupar, considera-se
+  a relação na sua totalidade.
+- $F_i$ é uma função de agregação a aplicar em cada um dos grupos. Podemos, por conveniência,
+  renomear logo o atributo resultante da função para algo mais ilustrativo:
+  $_{\op{product}}G_{\op{SUM(price)} \mapsto \op{profit}}(\op{orders})$
+
+Assim, iremos obter uma nova relação, definida por:
+
+$$
+\begin{aligned}
+_{A_1, \dots, A_n} G_{F_1, \dots, F_k}(r) = \{t |& t[A_1, \dots, A_n] \in \pi_{A_1, \dots, A_n}(r)\\
+&\op{and} t[F_i] = F_i (\{u | u[A_1, \dots, A_n] = t[A_1, \dots, A_n]\}), \forall_{1\leq i \leq k}\}
+\end{aligned}
+$$
+
+:::info[Exemplo]
+
 // TODO
+
+:::
