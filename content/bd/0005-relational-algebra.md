@@ -232,7 +232,7 @@ com os seguintes valores:
 - **Projetar o atributo `product_name` e o valor do IVA (expressão `price * 0.23`)**
 
   $$
-  \pi_{\op{product\_name}, \op{price} * \op{stock}}(\op{product})
+  \pi_{\op{product\_name}, \op{price} * 0.23}(\op{product})
   $$
 
   | `product_name`      | `price * 0.23` |
