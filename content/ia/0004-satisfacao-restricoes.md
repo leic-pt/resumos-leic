@@ -404,7 +404,7 @@ a ordem da atribuição das variáveis:
 
 [\*](color:yellow) Basta pensar que se tivermos $5$ caixinhas que podem ser preenchidas
 com $0$ ou $1$, vamos ter $2^5$ atribuições completas diferentes (e posteriormente
-generalizar para $n$ caixinhas com $d$ valores possíveis).
+generalizar para $n$ caixinhas com $d$ valores possíveis). Existem, claro, $5!$ maneiras de chegar à mesma configuração completa da caixinha, mas não é isso que nos interessa!
 
 Parece que voltámos ao secundário, quando aprendemos a diferença entre permutações e combinações:
 CSPs são comutativos, e como tal, a ordem das atribuições é irrelevante, tal como nas combinações.
