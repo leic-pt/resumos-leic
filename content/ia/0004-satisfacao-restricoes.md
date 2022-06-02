@@ -244,7 +244,7 @@ $$
 Procuremos ver como 2 passos de $\text{AC-3}$ permitem reduzir o tamanho dos domínios
 de 2 variáveis.
 
-- Escolhendo a variável $E_6$ (que corresponde ao arco $(E, 6)$), vamos ter:
+- Escolhendo a variável $E_6$ (que corresponde ao nó $E_6$ no grafo de restrições), vamos ter:
 
   - Quanto à coluna, $E_6$ não vai poder tomar os valores $5, 6, 2, 8, 9, 3$;
   - Quanto à linha, $E_6$ não vai poder tomar os valores $7, 8$;
