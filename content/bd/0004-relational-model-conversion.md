@@ -24,7 +24,8 @@ vamos definir o que é uma Relação.
 :::tip[Definição]
 
 Considerando um _schema_ de relação $R(A_1, \dots, A_n)$, em que cada
-atributo $A_i$ tem um domínio implícito e discreto de valores $D_i$, temos que uma [**relação** $r$](color:green) de um _schema_ de relação $R$,
+atributo $A_i$ tem um domínio implícito e discreto de valores $D_i$,
+temos que uma [**relação** $r$](color:green) de um _schema_ de relação $R$,
 é o conjunto:
 
 $$
