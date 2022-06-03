@@ -233,6 +233,6 @@ A média está de modo geral relacionada com o estimador de MV do valor esperado
 Como já vimos no capítulo anterior:
 
 $$
-X \sim normal(\mu, \sigma^2) \Rightarrow \overline{X} \sim normal(\mu, \frac{\sigma^2}{n}) \\
-X \text{ com qualquer distribuição } \Rightarrow \overline{X} \sim normal(\mu, \frac{\sigma^2}{n}) \text{ para } n>> \text{ (segundo o TLC)}
+X \sim \op{normal}(\mu, \sigma^2) \Rightarrow \overline{X} \sim \op{normal}(\mu, \frac{\sigma^2}{n}) \\
+X \text{ com qualquer distribuição } \Rightarrow \overline{X} \sim \op{normal}(\mu, \frac{\sigma^2}{n}) \text{ para } n>> \text{ (segundo o TLC)}
 $$
