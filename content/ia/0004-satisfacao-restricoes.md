@@ -95,7 +95,7 @@ Seguindo as restrições impostas, uma solução possível para o problema seria
 
 :::tip[Porquê usar CSP's]
 
-Bem, em primeiro lugar é importante realçar que muitos dos problemas que vamos querer
+Bem, em primeiro lugar, é importante realçar que muitos dos problemas que vamos querer
 resolver são, por natureza, modelados à volta de restrições: o problema das $8$ rainhas,
 por exemplo, baseia-se nas restrições "uma rainha não pode atacar a outra", não podendo,
 portanto, partilhar linha, coluna ou diagonal.
@@ -130,6 +130,9 @@ ordem superior (ordem $9$ para o sudoku clássico) da seguinte forma:
 
 A restrição utilizada acima é a `allDiff`, uma das mais comuns quando abordamos
 hipergrafos de restrições - corresponderia a algo como $X_i \neq X_j, \forall_{i, j}$.
+Existem também outras restrições globais clássicas, como a `atmost` ou _restrição de recursos_,
+que tal como o nome indica restringe os valores das variáveis a "as variáveis têm de ter atribuições
+que, somadas, não ultrapassem este valor".
 
 Podemos ainda ter [**restrições de preferências**](color:purple), que diferem das três
 anteriores por não serem absolutas - todas as anteriores eram **invioláveis**, e qualquer
@@ -250,13 +253,11 @@ de 2 variáveis.
   - Quanto à linha, $E_6$ não vai poder tomar os valores $7, 8$;
   - Quanto à "caixa", $E_6$ não vai poder tomar os valores $1, 2, 7, 8$;
 
-  Temos, portanto, que para $E$ ser consistente em arco com $6$, o domínio de $E_6$
-  deve ser reduzido para $D_{E_6} = \{4\}$. Chegámos, portanto, a um "movimento
-  obrigatório" aqui! O que faríamos de seguida era adicionar todas as variáveis
-  $E_j, j \neq 6$ ao _set_ de arcos mantidos pelo algoritmo, para ver se podíamos
+  Temos, portanto, que o domínio de $E_6$ deve ser reduzido para $D_{E_6} = \{4\}$. Chegámos, portanto, a um "movimento
+  obrigatório" aqui! O que faríamos de seguida era adicionar todas os arcos $(E_6, E_j), j \neq 6$ ao _set_ de arcos mantidos pelo algoritmo, para ver se podíamos
   reduzir mais domínios.
 
-- Escolhendo a variável $I_6$ (que corresponde ao arco $(I, 6)$), vamos ter:
+- Escolhendo a variável $I_6$ (que corresponde ao nó $I_6$ no grafo de restrições), vamos ter:
 
   - Quanto à coluna, $I_6$ não vai poder tomar os valores $5, 6, 2, \smartcolor{red}{4}\smartcolor{yellow}{^*}, 8, 9, 3$;
   - Quanto à linha, $I_6$ não vai poder tomar os valores $5, 1, 3$;
@@ -265,8 +266,7 @@ de 2 variáveis.
   [\*](color:yellow)Note-se que devido a termos descoberto que $E_6$ apenas pode tomar
   o valor $4$, $4$ é adicionado às restrições de todas as variáveis da sexta coluna.
 
-  Temos, portanto, que para $I$ ser consistente em arco com $6$, o domínio de $I_6$
-  deve ser reduzido para $D_{I_6} = \{7\}$. Chegámos a mais um movimento "obrigatório"!
+  Temos, portanto, que o domínio de $I_6$ deve ser reduzido para $D_{I_6} = \{7\}$. Chegámos a mais um movimento "obrigatório"!
 
 Podíamos, realizando os vários passos a que $\text{AC-3}$ nos levaria, resolver de
 uma assentada o problema, sem recorrer a procuras adicionais. O resultado final seria o seguinte:
@@ -308,7 +308,7 @@ não ocorre redução de domínio, pelo que efetivamente terminamos a execução
 tal como começámos. Precisamos, portanto, de uma noção extra de consistência, que nos permita
 tratar este tipo de problemas: vamos recorrer à [**consistência de caminhos**](color:orange).
 
-Se ao falar na consistência em nó tocámos em restrições unárias, e na consistência
+Se, ao falar na consistência em nó, tocámos em restrições unárias, e na consistência
 em arco abordámos as restrições unárias, parece fazer todo o sentido que aqui abordemos
 restrições de ordem superior. Bem, sim e não: de facto, vamos tocar em restrições que
 envolvem mais que $2$ variáveis ($3$, neste caso), mas não sob o contexto de restrições
@@ -362,7 +362,7 @@ em arco é a $2$-consistência, etc.
 Temos ainda a noção de [**CSP fortemente $k$-consistente**](color:purple): todo o
 CSP que seja $k$-consistente, e $(k-1)$-consistente, ..., $1$-consistente diz-se
 **fortemente $k$-consistente**. É bastante importante, já que se tivermos um
-CSP com $n$ variáveis e este for $n$-consistente, então podemos facilmente
+CSP com $n$ variáveis e este for fortemente $n$-consistente, então podemos facilmente
 atingir a solução: basta escolher um valor consistente para $X_1$, qualquer que seja $X_1$;
 como o CSP é $2$-consistente, podemos escolher um valor consistente para $X_2$; como é
 $3$-consistente, também o vamos poder fazer para $X_3$, e assim sucessivamente.
@@ -371,36 +371,6 @@ Existe, contudo, um _catch_: tornar um CSP $k$-consistente é um processo moroso
 complexidade exponencial (tanto temporal como espacial). Assim sendo, acabamos por usar
 a abordagem acima indicada apenas quando conseguimos verificar empiricamente a $k$-consistência
 do grafo, já que caso contrário "acaba por nem valer a pena".
-
-### Restrições Globais
-
-Restrições globais, ou de ordem superior, não são mais do que formas de exprimir relações entre um
-número arbitrário de variáveis ([**não confundir com precisar de envolver todas as variáveis**](color:red)).
-Não são muito diferentes do que vimos até agora, acabando por conseguir capturar muitas
-vezes pormenores sobre a natureza do problema - `allDiff` é uma restrição global, por exemplo,
-que captura a essência do Sudoku de forma extremamente concisa: _todas estas variáveis têm
-de tomar valores diferentes_. Mais importante, através de restrições globais podemos
-detetar inconsistências claras facilmente: se tivermos um conjunto de $m$ variáveis envolvidas
-numa restrição global e $n$ valores que podem tomar (com $m$ > $n$), então será impossível atingir uma solução
-consistente (tal como no caso de colorir o mapa australiano com $2$ cores, abordado mais acima).
-
-Existe ainda um algoritmo que nos permite resolver restrições `allDiff` de forma relativamente
-simples: passa por ir removendo progressivamente da restrição todas as variáveis com
-domínio de tamanho unitário, apagando o valor presente no domínio de todos os outros domínios
-que ainda existam. Vamos fazendo estas remoções sucessivamente, parando quando:
-
-- deixar de haver variáveis por remover, retornando _sucesso_ (e conseguindo até devolver
-  a solução consistente);
-- houver uma variável que fica com domínio vazio - chegámos aqui a uma inconsistência,
-  e o CSP não tem solução, retornando _failure_.
-
-É efetivamente isto que fazemos "a olho" quando resolvemos Sudoku's fáceis: vamos vendo
-"esta posição só pode tomar este valor", e colocar esse valor nessa posição surte _efeito dominó_
-sobre os valores que outras posições podem tomar.
-
-Existem também outras restrições globais clássicas, como a `atmost` ou _restrição de recursos_,
-que tal como o nome indica restringe os valores das variáveis a "as variáveis têm de ter atribuições
-que, somadas, não ultrapassem este valor".
 
 ## Procura em CSPs
 
@@ -431,13 +401,13 @@ a ordem da atribuição das variáveis:
 
 [\*](color:yellow) Basta pensar que se tivermos $5$ caixinhas que podem ser preenchidas
 com $0$ ou $1$, vamos ter $2^5$ atribuições completas diferentes (e posteriormente
-generalizar para $n$ caixinhas com $d$ valores possíveis).
+generalizar para $n$ caixinhas com $d$ valores possíveis). Existem, claro, $5!$ maneiras de chegar à mesma configuração completa da caixinha, mas não é isso que nos interessa!
 
 Parece que voltámos ao secundário, quando aprendemos a diferença entre permutações e combinações:
 CSPs são comutativos, e como tal, a ordem das atribuições é irrelevante, tal como nas combinações.
 Idealmente, devemos conseguir remover esta redundância das nossas árvores de procura, efetivamente
 fazendo um _pruning_ bastante significativo das mesmas, passando a considerar
-apenas uma variável por nível da árvore, conseguindo, assim, eliminar os tais ramos desnecessários
+[**apenas uma variável por nível da árvore**](color:green), conseguindo, assim, eliminar os tais ramos desnecessários
 da nossa árvore, tendo, no máximo, $d^n$ folhas. Adaptando o exemplo acima, ficaríamos com algo como:
 
 ![Exemplo - Procura Básica sem redundâncias](imgs/0004-basic-search-example-without-redundancies.svg#dark=4)
