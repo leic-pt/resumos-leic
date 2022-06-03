@@ -35,7 +35,7 @@ Vejamos agora que literais/operadores existem em álgebra relacional, isto é, q
 | Renomeação               | $\rho_{A_1\mapsto B_1,\dots, A_m \mapsto B_m}(r)$ |
 | União                    | $r \cup s$                                        |
 | Diferença                | $r - s$                                           |
-| Interceção               | $r \cap s$                                        |
+| Interseção               | $r \cap s$                                        |
 | Produto Cartesiano       | $r \times s$                                      |
 | Divisão                  | $r \div s$                                        |
 | Atribuição               | $r <- E$                                          |
@@ -49,7 +49,7 @@ Aprofundemos, de seguida, alguns destes operadores.
 A seleção funciona de forma semelhante à cláusula `WHERE` do SQL,
 em que se restringe uma relação de acordo com uma condição/predicado.
 
-Relembremos a sintaxe, $\sigma_c(r)$. Aqui, temos que:
+Relembremos a sintaxe $\sigma_c(r)$. Aqui, temos que:
 
 - $c$ é uma condição/predicado, podendo ser simples ou composta
 - $r$ é a relação a que queremos aplicar esta condição
@@ -66,7 +66,7 @@ assim como os operadores lógicos $\land$, $\lor$ e $\neg$.
 
 :::info[Exemplo]
 
-Considerando seguinte relação, [correspondente ao exemplo da loja](/bd/sql#exemplo-loja),
+Considerando a seguinte relação, [correspondente ao exemplo da loja](/bd/sql#exemplo-loja),
 
 > product(<u>product_code</u>, product_name, price, stock)
 
@@ -104,9 +104,9 @@ com os seguintes valores:
 ## Projeção
 
 A projeção funciona de forma semelhante à cláusula `SELECT` do SQL,
-em que seleciona certas colunas/atributos de uma relação.
+na medida em que seleciona certas colunas/atributos de uma relação.
 
-Relembremos a sintaxe, $\pi_{A_1, \dots, A_n}(r)$. Aqui, temos que:
+Relembremos a sintaxe $\pi_{A_1, \dots, A_n}(r)$. Aqui, temos que:
 
 - $r$ é a relação que queremos projetar
 - $A_i$ é uma coluna/atributo da relação $r$
@@ -122,7 +122,7 @@ Todas as colunas $A_i$ têm de pertencer à relação $r$.
 
 :::info[Exemplo]
 
-Considerando novamente seguinte relação, [correspondente ao exemplo da loja](/bd/sql#exemplo-loja),
+Considerando novamente a seguinte relação, [correspondente ao exemplo da loja](/bd/sql#exemplo-loja),
 
 > product(<u>product_code</u>, product_name, price, stock)
 
@@ -188,7 +188,7 @@ A projeção generalizada, tal como o nome indica, é uma generalização da pro
 apresentada acima, permitindo, além de referenciar atributos de uma relação, a
 utilização de expressões sobre os atributos da relação.
 
-Relembremos a sintaxe, $\pi_{F_1,\dots,F_n}(r)$. Aqui, temos que:
+Relembremos a sintaxe $\pi_{F_1,\dots,F_n}(r)$. Aqui, temos que:
 
 - $r$ é a relação que queremos projetar
 - $F_i$ é uma função/expressão sobre os atributos de $r$
@@ -205,7 +205,7 @@ entre valores dos atributos de $r$ ou até mesmo com literais
 
 :::info[Exemplo]
 
-Considerando novamente seguinte relação, [correspondente ao exemplo da loja](/bd/sql#exemplo-loja),
+Considerando novamente a seguinte relação, [correspondente ao exemplo da loja](/bd/sql#exemplo-loja),
 
 > product(<u>product_code</u>, product_name, price, stock)
 
@@ -217,7 +217,7 @@ com os seguintes valores:
 | 222222         | Napolitanas         |      25 |      15 |
 | 333333         | Leite com Chocolate |     100 |       3 |
 
-- **Projetar o atributo `product_name` a expressão `price * stock`**
+- **Projetar o atributo `product_name` e a expressão `price * stock`**
 
   $$
   \pi_{\op{product\_name}, \op{price} * \op{stock}}(\op{product})
@@ -246,9 +246,9 @@ com os seguintes valores:
 ## Renomeação
 
 A renomeação funciona de forma semelhante à cláusula `AS` do SQL,
-em que altera o nome de certas colunas/atributos de uma relação.
+na medida em que altera o nome de certas colunas/atributos de uma relação.
 
-Relembremos a sintaxe, $\rho_{A_1\mapsto B_1,\dots, A_m \mapsto B_m}(E)$. Aqui, temos que:
+Relembremos a sintaxe $\rho_{A_1\mapsto B_1,\dots, A_m \mapsto B_m}(E)$. Aqui, temos que:
 
 - $E$ é a relação cujas colunas queremos renomear
 - $A_i$ é o nome original (ou posição) de uma coluna da relação $E$
@@ -264,7 +264,7 @@ Na renomeação, iremos obter os mesmos tuplos, apenas com nomes de colunas dife
 
 :::info[Exemplo]
 
-Considerando novamente seguinte relação, [correspondente ao exemplo da loja](/bd/sql#exemplo-loja),
+Considerando novamente a seguinte relação, [correspondente ao exemplo da loja](/bd/sql#exemplo-loja),
 
 > product(<u>product_code</u>, product_name, price, stock)
 
@@ -298,7 +298,7 @@ novo conjunto com os valores de ambos os conjuntos, eliminando valores duplicado
 Do mesmo modo, a **união de relações** consiste em obter os tuplos de ambas
 as relações, eliminando tuplos duplicados.
 
-Relembremos a sintaxe, $r \cup s$, em que $r$ e $s$ são as duas relações a unir.
+Relembremos a sintaxe $r \cup s$, em que $r$ e $s$ são as duas relações a unir.
 
 Para isto, temos primeiro de obedecer a duas condições: **tanto $r$ como $s$ têm de ter
 o mesmo número de atributos**, e os tipos (isto é, os domínios) dos atributos na i-ésima
@@ -364,7 +364,7 @@ entre conjuntos (isto é, $A \backslash B$).
 Tal como na união, as relações têm de ter o mesmo número de atributos e estes têm
 de ter domínios compatíveis.
 
-Relembremos a sintaxe, $r - s$, em que $r$ e $s$ são as duas relações em que se aplica a diferença.
+Relembremos a sintaxe $r - s$, em que $r$ e $s$ são as duas relações em que se aplica a diferença.
 
 Assim, iremos obter uma nova relação, definida por:
 
@@ -414,15 +414,15 @@ Ou seja, obtivemos todos os alunos que não são também professores.
 
 :::
 
-## Interceção
+## Interseção
 
-A interceção entre duas relações funciona também da mesma forma que a interceção
+A interseção entre duas relações funciona também da mesma forma que a interseção
 entre conjuntos (isto é, $A \cap B$).
 Tal como na união, as relações têm de ter o mesmo número de atributos e estes têm
 de ter domínios compatíveis.
 
-Relembremos a sintaxe, $r \cap s$, em que $r$ e $s$ são as duas relações a intersetar.  
-É também de realçar que a interceção é nada mais nada menos que duas diferenças,
+Relembremos a sintaxe $r \cap s$, em que $r$ e $s$ são as duas relações a intersetar.  
+É também de realçar que a interseção é nada mais nada menos que duas diferenças,
 isto é:
 
 $$
@@ -461,7 +461,7 @@ com os seguintes valores:
 
 </div>
 
-A interceção destas duas relações seria a seguinte:
+A interseção destas duas relações seria a seguinte:
 
 $$
 \op{student} \cap \op{teacher}
@@ -471,22 +471,22 @@ $$
 | ------ |
 | João   |
 
-Ou seja, obtivemos todas as pessoas que são tanto alunos como professores.
+Ou seja, obtivemos todos os alunos que são também professores.
 
 :::
 
 ## Produto Cartesiano
 
 O produto cartesiano entre duas relações associa cada valor da primeira relação
-a todos os valores da segunda. Isto significa que se a primeira relação tiver
+a todos os valores da segunda. Isto significa que, se a primeira relação tiver
 $n$ tuplos e a segunda tiver $m$ tuplos, a relação obtida pelo produto cartesiano
 entre estas duas vai ter $nm$ tuplos.
 
 Para efetuar o produto cartesiano, o [**nome dos atributos das duas relações têm de ser diferentes**](color:red),
-isto é, não podem ter nomes de atributos em comuns. Caso seja este o caso, é
+isto é, não podem ter nomes de atributos em comum. Caso seja este o caso, é
 necessário utilizar uma [renomeação](#renomeação).
 
-Relembremos a sintaxe, $r \times s$, em que $r$ e $s$ são as duas relações em que
+Relembremos a sintaxe $r \times s$, em que $r$ e $s$ são as duas relações entre as quais
 queremos efetuar o produto cartesiano.
 
 Assim, iremos obter uma nova relação, definida por:
@@ -497,8 +497,8 @@ $$
 
 :::info[Exemplo]
 
-Considerando duas relações, uma contendo 3 tuplos e outra contendo 2 tuplos.
-Sabemos, pelas propriedades do produto cartesiano, que vamos obter uma nova
+Considerando duas relações, uma contendo 3 tuplos e outra contendo 2 tuplos,
+sabemos, pelas propriedades do produto cartesiano, que vamos obter uma nova
 relação com 6 tuplos.
 
 <div class="side-by-side">
@@ -538,7 +538,7 @@ determinar o subconjunto dos tuplos de $r$ que cobrem todos os tuplos de $s$.
 Pode-se considerar como a operação inversa do [produto cartesiano](#produto-cartesiano),
 como se pode ver nos exemplos abaixo.
 
-Relembremos a sintaxe, $r \div s$, em que $r$ e $s$ são as duas relações em que
+Relembremos a sintaxe $r \div s$, em que $r$ e $s$ são as duas relações em que
 queremos efetuar a divisão. Devemos também considerar $R$ e $S$, que correspondem
 às _schemas_, isto é, aos atributos de $r$ e $s$, respetivamente.
 
@@ -550,7 +550,7 @@ $$
 
 :::info[Exemplo]
 
-Considerando o [exemplo no produto cartesiano](#produto-cartesiano), podemos
+Considerando o [exemplo do produto cartesiano](#produto-cartesiano), podemos
 verificar que a divisão é efetivamente a operação inversa:
 
 <div class="side-by-side">
@@ -584,7 +584,7 @@ $=$
 Como podemos observar, obtivemos todos os valores originais da relação com o atributo `A`,
 visto que todas as ocorrências deste atributo apresentavam todos os valores para `B, C`.
 
-Se retirarmos um tuplo, fazendo com que apenas haja um tuplo com `A = 3`, vamos obter
+Se retirarmos um tuplo, fazendo com que haja apenas um tuplo com `A = 3`, vamos obter
 um resultado diferente, que indica que os valores `A = 3` já não cobrem todos os valores
 para `B, C`.
 
@@ -619,7 +619,7 @@ $=$
 ## Composição de Operações
 
 Como seria de esperar, podemos encadear várias destas operações, visto que
-cada uma das operações "retorna" uma nova relação.
+cada uma destas "retorna" uma nova relação.
 
 Por exemplo, podemos efetuar uma projeção após efetuarmos uma seleção:
 
@@ -630,7 +630,7 @@ $$
 ### Atribuição
 
 Além de encadearmos operações, o que se pode revelar muito verboso e até confuso,
-podemos atribuir resultados de operações a novas relações, como se estivessemos
+podemos atribuir resultados de operações a novas relações, como se estivéssemos
 a definir uma "variável".
 
 $$
@@ -642,13 +642,13 @@ $$
 
 ## Natural Join
 
-O _natural join_ entre duas relações efetua a junção de duas relações, juntando
+O _natural join_ entre duas relações efetua a junção das mesmas, juntando
 os tuplos que têm valores iguais para atributos com o mesmo nome.
-De realçar que se tivermos dois atributos [**não relacionados**](color:red) nas duas relações
+É de realçar que se tivermos dois atributos [**não relacionados**](color:red) nas duas relações
 que estamos a juntar, deveremos usar a operação de [renomeação](#renomeação) numa
 delas para [**evitar resultados indesejados**](color:red).
 
-Relembremos a sintaxe, $r \bowtie s$, em que $r$ e $s$ são as duas relações a juntar.
+Relembremos a sintaxe $r \bowtie s$, em que $r$ e $s$ são as duas relações a juntar.
 Devemos também considerar $R$ e $S$, que correspondem às _schemas_, isto é,
 aos atributos de $r$ e $s$, respetivamente.
 
@@ -787,7 +787,7 @@ $=$
 Antes de olharmos para a operação de agregação em si, temos primeiro de definir
 o que são [**funções de agregação**](color:orange). Uma função de agregação
 pega num conjunto de valores e efetua-lhes uma operação, de forma a obter
-um único valor. Funções estas como o máximo/mínimo de um conjunto, a soma,
+um único valor, como, por exemplo, o máximo/mínimo de um conjunto, a soma,
 a contagem e até a média.
 
 Existem assim, em álgebra relacional, cinco funções lecionadas em aula:
@@ -799,7 +799,7 @@ quantos valores existem, num atributo específico ou no geral é, regra geral, i
 O operador de agregação usa estas funções e aplica-as sobre grupos de tuplos,
 grupos estes que serão gerados através de um conjunto de atributos.
 
-Relembremos a sintaxe, $_{A_1, \dots, A_n} G_{F_1, \dots, F_k}(r)$. Aqui, temos que:
+Relembremos a sintaxe $_{A_1, \dots, A_n} G_{F_1, \dots, F_k}(r)$. Aqui, temos que:
 
 - $r$ é a relação onde queremos aplicar a agregação
 - $A_i$ é um atributo de $r$. Os tuplos serão agrupados pelos valores dos atributos $A_i$,
