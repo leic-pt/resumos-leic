@@ -38,7 +38,7 @@ Vejamos agora que literais/operadores existem em álgebra relacional, isto é, q
 | Interseção               | $r \cap s$                                        |
 | Produto Cartesiano       | $r \times s$                                      |
 | Divisão                  | $r \div s$                                        |
-| Atribuição               | $r <- E$                                          |
+| Atribuição               | $r \leftarrow E$                                  |
 | _Natural Join_           | $\bowtie$                                         |
 | Agregação                | $_L G_{F}(r)$                                     |
 
@@ -66,7 +66,7 @@ assim como os operadores lógicos $\land$, $\lor$ e $\neg$.
 
 :::info[Exemplo]
 
-Considerando a seguinte relação, [correspondente ao exemplo da loja](/bd/sql#exemplo-loja),
+Considerando a relação abaixo, [correspondente ao exemplo da loja](/bd/sql#exemplo-loja),
 
 > product(<u>product_code</u>, product_name, price, stock)
 
@@ -122,7 +122,7 @@ Todas as colunas $A_i$ têm de pertencer à relação $r$.
 
 :::info[Exemplo]
 
-Considerando novamente a seguinte relação, [correspondente ao exemplo da loja](/bd/sql#exemplo-loja),
+Considerando novamente a relação abaixo, [correspondente ao exemplo da loja](/bd/sql#exemplo-loja),
 
 > product(<u>product_code</u>, product_name, price, stock)
 
@@ -205,7 +205,7 @@ entre valores dos atributos de $r$ ou até mesmo com literais
 
 :::info[Exemplo]
 
-Considerando novamente a seguinte relação, [correspondente ao exemplo da loja](/bd/sql#exemplo-loja),
+Considerando outra vez a relação abaixo, [correspondente ao exemplo da loja](/bd/sql#exemplo-loja),
 
 > product(<u>product_code</u>, product_name, price, stock)
 
@@ -264,7 +264,7 @@ Na renomeação, iremos obter os mesmos tuplos, apenas com nomes de colunas dife
 
 :::info[Exemplo]
 
-Considerando novamente a seguinte relação, [correspondente ao exemplo da loja](/bd/sql#exemplo-loja),
+Considerando mais uma vez a relação abaixo, [correspondente ao exemplo da loja](/bd/sql#exemplo-loja),
 
 > product(<u>product_code</u>, product_name, price, stock)
 
@@ -791,10 +791,9 @@ um único valor, como, por exemplo, o máximo/mínimo de um conjunto, a soma,
 a contagem e até a média.
 
 Existem assim, em álgebra relacional, cinco funções lecionadas em aula:
-`min`, `max`, `sum`, `count` e `avg`, que penso serem explícitas no seu comportamento.
-Todas estas funções necessitam de um argumento a indicar qual o atributo sobre o
-qual efetuam os cálculos, à exceção do `count` cujo argumento é opcional (contar
-quantos valores existem, num atributo específico ou no geral é, regra geral, indiferente).
+`min`, `max`, `sum`, `count` e `avg`, que em princípio são explícitas no seu
+comportamento. Todas estas funções necessitam de um argumento a indicar qual o atributo
+sobre o qual efetuam os cálculos, à exceção do `count`, que **não aceita argumentos**.
 
 O operador de agregação usa estas funções e aplica-as sobre grupos de tuplos,
 grupos estes que serão gerados através de um conjunto de atributos.
@@ -802,12 +801,13 @@ grupos estes que serão gerados através de um conjunto de atributos.
 Relembremos a sintaxe $_{A_1, \dots, A_n} G_{F_1, \dots, F_k}(r)$. Aqui, temos que:
 
 - $r$ é a relação onde queremos aplicar a agregação
-- $A_i$ é um atributo de $r$. Os tuplos serão agrupados pelos valores dos atributos $A_i$,
-  isto é, juntando os tuplos que partilham os mesmos valores para os atributos $A_i$.
-  Caso $n = 0$, isto é, não seja dado nenhum atributo por onde agrupar, considera-se
-  a relação na sua totalidade.
+- $A_i$ é um atributo de $r$. Os tuplos serão agrupados pelos valores dos atributos
+  $A_1, \dots, A_n$, isto é, juntando os tuplos que partilham os mesmos valores para os
+  atributos $A_1, \dots, A_n$. Caso $n = 0$, isto é, não seja dado nenhum atributo por
+  onde agrupar, considera-se a relação na sua totalidade.
 - $F_i$ é uma função de agregação a aplicar em cada um dos grupos. Podemos, por conveniência,
-  renomear logo o atributo resultante da função para algo mais ilustrativo:
+  renomear logo o atributo resultante da função para algo mais ilustrativo, utilizando
+  o operador $A \mapsto B$ ou $A \op{as} B$:
   $_{\op{product}}G_{\op{SUM(price)} \mapsto \op{profit}}(\op{orders})$
 
 Assim, iremos obter uma nova relação, definida por:
