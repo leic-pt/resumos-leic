@@ -461,7 +461,7 @@ Neste caso, devemos criar uma _foreign key_ com a generalização imediatamente 
 >
 > - name: FK(member)
 > - IC-1: _name_ must exist in 'bronze', 'silver' or 'gold'
-> - IC-2: _name_ cannot exist at the same time in 'bronze', 'silver' and 'gold'
+> - IC-2: _name_ cannot exist at the same time in 'bronze', 'silver' or 'gold'
 >
 > bronze(<u>name</u>)
 >
