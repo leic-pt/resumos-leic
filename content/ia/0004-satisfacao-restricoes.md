@@ -253,7 +253,7 @@ de 2 variáveis.
   - Quanto à linha, $E_6$ não vai poder tomar os valores $7, 8$;
   - Quanto à "caixa", $E_6$ não vai poder tomar os valores $1, 2, 7, 8$;
 
-  Temos, portanto, que o domínio de $E_6$  deve ser reduzido para $D_{E_6} = \{4\}$. Chegámos, portanto, a um "movimento
+  Temos, portanto, que o domínio de $E_6$ deve ser reduzido para $D_{E_6} = \{4\}$. Chegámos, portanto, a um "movimento
   obrigatório" aqui! O que faríamos de seguida era adicionar todas os arcos $(E_6, E_j), j \neq 6$ ao _set_ de arcos mantidos pelo algoritmo, para ver se podíamos
   reduzir mais domínios.
 
