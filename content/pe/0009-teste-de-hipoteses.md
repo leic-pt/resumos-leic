@@ -150,10 +150,10 @@ Neste caso estamos interessados em determinar a zona de rejeição para uma hip�
 
 Consideramos então a [hipótese nula](color:blue) $H_0: \mu = \mu_0$.
 
-Se $X \sim normal(\mu, \sigma^2)$, temos então que
+Se $X \sim \op{normal}(\mu, \sigma^2)$, temos então que
 
 $$
-Z = \frac{\overline{X} - \mu_0}{\frac{\sigma}{\sqrt{n}}} \sim_{H_0} normal(0,1)
+Z = \frac{\overline{X} - \mu_0}{\frac{\sigma}{\sqrt{n}}} \sim_{H_0} \op{normal}(0,1)
 $$
 
 Sendo assim, a região de rejeição é exatamente
@@ -165,7 +165,7 @@ Sendo assim, a região de rejeição é exatamente
 Se $X$ não seguir uma distribuição normal, invocamos o TLC para obter que
 
 $$
-\frac{\overline{X} - \mu_0}{\frac{\sigma}{\sqrt{n}}} \sima_{H_0} normal(0,1)
+\frac{\overline{X} - \mu_0}{\frac{\sigma}{\sqrt{n}}} \sima_{H_0} \op{normal}(0,1)
 $$
 
 e portanto podemos obter as mesmas regiões de rejeição indicadas acima, desta vez com nível de significância aproximado.
@@ -176,10 +176,10 @@ Neste caso estamos interessados em determinar a zona de rejeição para uma hip�
 
 Consideramos então a [hipótese nula](color:blue) $H_0: \mu_1 - \mu_2 = \mu_0$.
 
-Se $X_i \sim normal(\mu_i, \sigma_i^2)$ ($i \in \{1,2\}$), temos que
+Se $X_i \sim \op{normal}(\mu_i, \sigma_i^2)$ ($i \in \{1,2\}$), temos que
 
 $$
-Z = \frac{(\overline{X_1} - \overline{X_2}) - (\mu_1 - \mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}} \sim_{H_0} normal(0,1)
+Z = \frac{(\overline{X_1} - \overline{X_2}) - (\mu_1 - \mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}} \sim_{H_0} \op{normal}(0,1)
 $$
 
 Sendo assim, a região de rejeição é exatamente
@@ -191,7 +191,7 @@ Sendo assim, a região de rejeição é exatamente
 Se $X$ não seguir uma distribuição normal, invocamos o TLC para obter que
 
 $$
-\frac{(\overline{X_1} - \overline{X_2}) - (\mu_1 - \mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}} \sima_{H_0} normal(0,1)
+\frac{(\overline{X_1} - \overline{X_2}) - (\mu_1 - \mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}} \sima_{H_0} \op{normal}(0,1)
 $$
 
 e portanto podemos obter as mesmas regiões de rejeição indicadas acima, desta vez com nível de significância aproximado.
@@ -202,7 +202,7 @@ Neste caso estamos interessados em determinar a zona de rejeição para uma hip�
 
 Consideramos então a [hipótese nula](color:blue) $H_0: \mu = \mu_0$.
 
-Se $X \sim normal(\mu, \sigma^2)$, temos que
+Se $X \sim \op{normal}(\mu, \sigma^2)$, temos que
 
 $$
 Z = \frac{\overline{X} - \mu}{\frac{s}{\sqrt{n}}} \sim_{H_0} t_{(n-1)}
@@ -219,7 +219,7 @@ Sendo assim, a região de rejeição é exatamente
 Se $X$ não seguir uma distribuição normal, invocamos o TLC para obter que
 
 $$
-\frac{\overline{X} - \mu}{\frac{s}{\sqrt{n}}} \sima_{H_0} normal(0,1)
+\frac{\overline{X} - \mu}{\frac{s}{\sqrt{n}}} \sima_{H_0} \op{normal}(0,1)
 $$
 
 e portanto podemos obter as mesmas regiões de rejeição indicadas acima, desta vez com nível de significância aproximado.
@@ -230,7 +230,7 @@ Neste caso estamos interessados em determinar a zona de rejeição para uma hip�
 
 Consideramos então a [hipótese nula](color:blue) $H_0: \mu_1 - \mu_2 = \mu_0$.
 
-Se $X_i \sim normal(\mu_i, \sigma_i^2)$ ($i \in \{1,2\}$), temos que
+Se $X_i \sim \op{normal}(\mu_i, \sigma_i^2)$ ($i \in \{1,2\}$), temos que
 
 $$
 Z = \frac{(\overline{X_1} - \overline{X_2}) - (\mu_1 - \mu_2)}{\sqrt{\frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1+n_2-2}\left(\frac{1}{n_1} + \frac{1}{n_2} \right)}} \sim_{H_0} t_{(n_1+n_2-1)}
@@ -247,7 +247,7 @@ Sendo assim, a região de rejeição é exatamente
 Se $X_1$ e $X_2$ não seguirem uma distribuição normal, invocamos o TLC para obter que
 
 $$
-\frac{(\overline{X_1} - \overline{X_2}) - (\mu_1 - \mu_2)}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}} \sima_{H_0} normal(0,1)
+\frac{(\overline{X_1} - \overline{X_2}) - (\mu_1 - \mu_2)}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}} \sima_{H_0} \op{normal}(0,1)
 $$
 
 e portanto podemos obter as mesmas regiões de rejeição indicadas acima, desta vez com nível de significância aproximado.
@@ -258,7 +258,7 @@ Neste caso estamos interessados em determinar a zona de rejeição para uma hip�
 
 Consideramos então a [hipótese nula](color:blue) $H_0: \sigma^2 = \sigma_0^2$.
 
-Como $X \sim normal(\mu, \sigma^2)$ temos que
+Como $X \sim \op{normal}(\mu, \sigma^2)$ temos que
 
 $$
 Z = \frac{(n-1)s^2}{\sigma^2} \sim_{H_0} \chi_{(n-1)}^2
@@ -277,7 +277,7 @@ Neste caso estamos interessados em determinar a zona de rejeição para uma hip�
 Como $X \sim Bernoulli(p)$ temos segundo o TLC que para $n>>$
 
 $$
-Z = \frac{\overline{X} - p}{\sqrt{\frac{\overline{X}(1-\overline{X})}{n}}} \sima_{H_0} normal(0,1)
+Z = \frac{\overline{X} - p}{\sqrt{\frac{\overline{X}(1-\overline{X})}{n}}} \sima_{H_0} \op{normal}(0,1)
 $$
 
 Sendo assim, a região de rejeição é aproximadamente

@@ -53,10 +53,10 @@ Neste caso estamos interessados em descobrir o valor do parâmetro $\mu$ (valor 
 **VA de interesse**: Uma VA qualquer a que vamos chamar $X$  
 **Outros parâmetros**: $\sigma^2$ (conhecido)
 
-Se $X \sim normal(\mu, \sigma^2)$, sabemos que
+Se $X \sim \op{normal}(\mu, \sigma^2)$, sabemos que
 
 $$
-Z = \frac{\overline{X} - \mu}{\frac{\sigma}{\sqrt{n}}} \sim normal(0,1)
+Z = \frac{\overline{X} - \mu}{\frac{\sigma}{\sqrt{n}}} \sim \op{normal}(0,1)
 $$
 
 Aplicando o método da VA fulcral à VA $Z$, obtemos um intervalo de confiança
@@ -70,7 +70,7 @@ com grau de confiança **exatamente** $1-\alpha$.
 Se $X$ não seguir uma distribuição normal, invocamos o TLC para obter que
 
 $$
-Z = \frac{\overline{X} - \mu}{\frac{\sigma}{\sqrt{n}}} \sima normal(0,1)
+Z = \frac{\overline{X} - \mu}{\frac{\sigma}{\sqrt{n}}} \sima \op{normal}(0,1)
 $$
 
 e portanto podemos obter um intervalo de confiança
@@ -89,10 +89,10 @@ Neste caso estamos interessados em descobrir o valor do parâmetro $\mu_1 - \mu_
 **VA de interesse**: Duas VA quaisquer a que vamos chamar $X_1, X_2$, $X_1 \indep X_2$  
 **Outros parâmetros**: $\sigma_1^2, \sigma_2^2$ (conhecidos)
 
-Se $X_i \sim normal(\mu_i, \sigma_i^2)$ ($i \in \{1,2\}$), temos que
+Se $X_i \sim \op{normal}(\mu_i, \sigma_i^2)$ ($i \in \{1,2\}$), temos que
 
 $$
-Z = \frac{(\overline{X_1} - \overline{X_2}) - (\mu_1 - \mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}} \sim normal(0,1)
+Z = \frac{(\overline{X_1} - \overline{X_2}) - (\mu_1 - \mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}} \sim \op{normal}(0,1)
 $$
 
 Aplicando o método da VA fulcral à VA $Z$, obtemos um intervalo de confiança
@@ -106,7 +106,7 @@ com grau de confiança **exatamente** $1-\alpha$.
 Se $X_1$ e $X_2$ não seguirem uma distribuição normal, invocamos o TLC para obter que
 
 $$
-Z = \frac{(\overline{X_1} - \overline{X_2}) - (\mu_1 - \mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}} \sima normal(0,1)
+Z = \frac{(\overline{X_1} - \overline{X_2}) - (\mu_1 - \mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}} \sima \op{normal}(0,1)
 $$
 
 e portanto podemos obter um intervalo de confiança
@@ -125,7 +125,7 @@ Neste caso estamos interessados em descobrir o valor do parâmetro $\mu$ (valor 
 **VA de interesse**: Uma VA qualquer a que vamos chamar $X$  
 **Outros parâmetros**: $\sigma^2$ (desconhecido)
 
-Se $X \sim normal(\mu, \sigma^2)$, temos que
+Se $X \sim \op{normal}(\mu, \sigma^2)$, temos que
 
 $$
 Z = \frac{\overline{X} - \mu}{\frac{s}{\sqrt{n}}} \sim t_{(n-1)}
@@ -143,7 +143,7 @@ com grau de confiança **exatamente** $1-\alpha$.
 Se $X$ não seguir uma distribuição normal, invocamos o TLC para obter que
 
 $$
-Z = \frac{\overline{X} - \mu}{\frac{s}{\sqrt{n}}} \sima normal(0,1)
+Z = \frac{\overline{X} - \mu}{\frac{s}{\sqrt{n}}} \sima \op{normal}(0,1)
 $$
 
 e portanto podemos obter um intervalo de confiança
@@ -162,7 +162,7 @@ Neste caso estamos interessados em descobrir o valor do parâmetro $\mu_1 - \mu_
 **VA de interesse**: Duas VA quaisquer a que vamos chamar $X_1, X_2$, $X_1 \indep X_2$  
 **Outros parâmetros**: $\sigma_1^2, \sigma_2^2$ (desconhecidos)
 
-Se $X_i \sim normal(\mu_i, \sigma_i^2)$ ($i \in \{1,2\}$), temos que
+Se $X_i \sim \op{normal}(\mu_i, \sigma_i^2)$ ($i \in \{1,2\}$), temos que
 
 $$
 Z = \frac{(\overline{X_1} - \overline{X_2}) - (\mu_1 - \mu_2)}{\sqrt{\frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1+n_2-2}\left(\frac{1}{n_1} + \frac{1}{n_2} \right)}} \sim t_{(n-1)}
@@ -182,7 +182,7 @@ com grau de confiança **exatamente** $1-\alpha$.
 Se $X_1$ e $X_2$ não seguirem uma distribuição normal, invocamos o TLC para obter que
 
 $$
-Z = \frac{(\overline{X_1} - \overline{X_2}) - (\mu_1 - \mu_2)}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}} \sima normal(0,1)
+Z = \frac{(\overline{X_1} - \overline{X_2}) - (\mu_1 - \mu_2)}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}} \sima \op{normal}(0,1)
 $$
 
 e portanto podemos obter um intervalo de confiança
@@ -201,7 +201,7 @@ Neste caso estamos interessados em descobrir o valor do parâmetro $\sigma^2$ (v
 **VA de interesse**: Uma VA qualquer que vamos chamar $X$  
 **Outros parâmetros**: $\mu$ (desconhecido)
 
-Se $X \sim normal(\mu, \sigma^2)$ temos que
+Se $X \sim \op{normal}(\mu, \sigma^2)$ temos que
 
 $$
 Z = \frac{(n-1)s^2}{\sigma^2} \sim \chi_{(n-1)}^2
@@ -226,7 +226,7 @@ com grau de confiança **exatamente** $1-\alpha$.
 Se $X \sim Bernoulli(p)$ temos segundo o TLC que para $n>>$
 
 $$
-\frac{\overline{X} - p}{\sqrt{\frac{\overline{X}(1-\overline{X})}{n}}} \sima normal(0,1)
+\frac{\overline{X} - p}{\sqrt{\frac{\overline{X}(1-\overline{X})}{n}}} \sima \op{normal}(0,1)
 $$
 
 Aplicando o método da VA fulcral à VA $Z$, obtemos o intervalo de confiança
@@ -248,7 +248,7 @@ com grau de confiança **aproximadamente** $1-\alpha$.
 Se $X \sim Possion(\lambda)$ temos segundo o TLC que para $n>>$
 
 $$
-\frac{\overline{X} - \lambda}{\sqrt{\frac{\overline{X}}{n}}} \sima normal(0,1)
+\frac{\overline{X} - \lambda}{\sqrt{\frac{\overline{X}}{n}}} \sima \op{normal}(0,1)
 $$
 
 Aplicando o método da VA fulcral à VA $Z$, obtemos o intervalo de confiança
