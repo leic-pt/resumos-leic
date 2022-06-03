@@ -219,9 +219,7 @@ o **nome de cada atributo** (_field_) e o **tipo de dados de cada atributo**.
 
 :::info[Exemplo]
 
-```
-Student (ist_id: string, student_name: string, birthday: date)
-```
+> student (ist_id: string, student_name: string, birthday: date)
 
 Podemos depois adicionar linhas (_rows_) nesta relação. Neste caso, cada linha
 representa um único aluno.
