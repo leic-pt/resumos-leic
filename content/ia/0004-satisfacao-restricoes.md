@@ -95,7 +95,7 @@ Seguindo as restrições impostas, uma solução possível para o problema seria
 
 :::tip[Porquê usar CSP's]
 
-Bem, em primeiro lugar é importante realçar que muitos dos problemas que vamos querer
+Bem, em primeiro lugar, é importante realçar que muitos dos problemas que vamos querer
 resolver são, por natureza, modelados à volta de restrições: o problema das $8$ rainhas,
 por exemplo, baseia-se nas restrições "uma rainha não pode atacar a outra", não podendo,
 portanto, partilhar linha, coluna ou diagonal.
@@ -311,7 +311,7 @@ não ocorre redução de domínio, pelo que efetivamente terminamos a execução
 tal como começámos. Precisamos, portanto, de uma noção extra de consistência, que nos permita
 tratar este tipo de problemas: vamos recorrer à [**consistência de caminhos**](color:orange).
 
-Se ao falar na consistência em nó tocámos em restrições unárias, e na consistência
+Se, ao falar na consistência em nó, tocámos em restrições unárias, e na consistência
 em arco abordámos as restrições unárias, parece fazer todo o sentido que aqui abordemos
 restrições de ordem superior. Bem, sim e não: de facto, vamos tocar em restrições que
 envolvem mais que $2$ variáveis ($3$, neste caso), mas não sob o contexto de restrições
@@ -365,7 +365,7 @@ em arco é a $2$-consistência, etc.
 Temos ainda a noção de [**CSP fortemente $k$-consistente**](color:purple): todo o
 CSP que seja $k$-consistente, e $(k-1)$-consistente, ..., $1$-consistente diz-se
 **fortemente $k$-consistente**. É bastante importante, já que se tivermos um
-CSP com $n$ variáveis e este for $n$-consistente, então podemos facilmente
+CSP com $n$ variáveis e este for fortemente $n$-consistente, então podemos facilmente
 atingir a solução: basta escolher um valor consistente para $X_1$, qualquer que seja $X_1$;
 como o CSP é $2$-consistente, podemos escolher um valor consistente para $X_2$; como é
 $3$-consistente, também o vamos poder fazer para $X_3$, e assim sucessivamente.
