@@ -272,6 +272,10 @@ Modelando, por exemplo, as estradas de um distrito:
 
 ![Entidades Fracas: Concelho, Freguesia e Estrada](./assets/0003-weak-entities-streets.svg#dark=3)
 
+Aqui tem-se que a chave de uma estrada, o seu nome, é uma chave parcial, visto que podem existir várias estradas com o mesmo nome. Assim, o nome de uma estrada não basta para a identificar no mundo, apenas dentro de uma freguesia, onde não há estradas com nomes repetidos.
+
+Do mesmo modo, uma freguesia só tem nome único dentro do mesmo concelho, pelo que a sua chave é também parcial, não sendo suficiente para a identificar de forma absoluta. Tem-se que a chave primária de uma freguesia é a composição do seu nome com o nome do concelho ao qual pertence. A chave de uma estrada é, analogamente, a composição do seu nome com os nomes da freguesia e do concelho onde se encontra.
+
 ## Agregações
 
 Como referido nas [associações ternárias](#associações-ternárias), estas nem sempre são
