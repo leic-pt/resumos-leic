@@ -248,7 +248,7 @@ _(atributos de Trabalhador e Supermercado omitidos por brevidade)_
 **Associação Recursiva**
 
 Quando temos uma associação recursiva, é útil definir restrições adicionais,
-como **evitar associação de uma instância a si mesma**, **evitar dependências circulares**
+como **evitar associação de um exemplar a si mesmo**, **evitar dependências circulares**
 ou mesmo **limitar a profundidade máxima**.
 
 ![Restrição de Integridade: circularidade](./assets/0003-integrity-constraints-circularity.svg#dark=3)
