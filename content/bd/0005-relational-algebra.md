@@ -792,7 +792,7 @@ a contagem e até a média.
 
 Existem assim, em álgebra relacional, cinco funções lecionadas em aula:
 `min`, `max`, `sum`, `count` e `avg`, que em princípio são explícitas no seu
-comportamento. Todas estas funções necessitam de um argumento a indicar qual oatributo
+comportamento. Todas estas funções necessitam de um argumento a indicar qual o atributo
 sobre o qual efetuam os cálculos, à exceção do `count`, que **não aceita argumentos**.
 
 O operador de agregação usa estas funções e aplica-as sobre grupos de tuplos,
