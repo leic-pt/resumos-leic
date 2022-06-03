@@ -253,13 +253,11 @@ de 2 variáveis.
   - Quanto à linha, $E_6$ não vai poder tomar os valores $7, 8$;
   - Quanto à "caixa", $E_6$ não vai poder tomar os valores $1, 2, 7, 8$;
 
-  Temos, portanto, que para $E$ ser consistente em arco com $6$, o domínio de $E_6$
-  deve ser reduzido para $D_{E_6} = \{4\}$. Chegámos, portanto, a um "movimento
-  obrigatório" aqui! O que faríamos de seguida era adicionar todas as variáveis
-  $E_j, j \neq 6$ ao _set_ de arcos mantidos pelo algoritmo, para ver se podíamos
+  Temos, portanto, que o domínio de $E_6$ deve ser reduzido para $D_{E_6} = \{4\}$. Chegámos, portanto, a um "movimento
+  obrigatório" aqui! O que faríamos de seguida era adicionar todas os arcos $(E_6, E_j), j \neq 6$ ao _set_ de arcos mantidos pelo algoritmo, para ver se podíamos
   reduzir mais domínios.
 
-- Escolhendo a variável $I_6$ (que corresponde ao arco $(I, 6)$), vamos ter:
+- Escolhendo a variável $I_6$ (que corresponde ao nó $I_6$ no grafo de restrições), vamos ter:
 
   - Quanto à coluna, $I_6$ não vai poder tomar os valores $5, 6, 2, \smartcolor{red}{4}\smartcolor{yellow}{^*}, 8, 9, 3$;
   - Quanto à linha, $I_6$ não vai poder tomar os valores $5, 1, 3$;
@@ -268,8 +266,7 @@ de 2 variáveis.
   [\*](color:yellow)Note-se que devido a termos descoberto que $E_6$ apenas pode tomar
   o valor $4$, $4$ é adicionado às restrições de todas as variáveis da sexta coluna.
 
-  Temos, portanto, que para $I$ ser consistente em arco com $6$, o domínio de $I_6$
-  deve ser reduzido para $D_{I_6} = \{7\}$. Chegámos a mais um movimento "obrigatório"!
+  Temos, portanto, que o domínio de $I_6$ deve ser reduzido para $D_{I_6} = \{7\}$. Chegámos a mais um movimento "obrigatório"!
 
 Podíamos, realizando os vários passos a que $\text{AC-3}$ nos levaria, resolver de
 uma assentada o problema, sem recorrer a procuras adicionais. O resultado final seria o seguinte:
