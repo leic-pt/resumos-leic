@@ -62,8 +62,34 @@ $$
 X(\text{O objeto demorou } x \text{ a cair}) = x
 $$
 
-Note-se que tanto neste exemplo como no anterior podiamos ter definido qualquer outra VA que nos apetecesse.
-No entanto estas são as que nos farão mais sentido para trabalhar com elas.
+:::
+
+:::details[Exemplo 3]
+
+Considere-se a EA que consiste em lançar uma moeda ao ar.
+O espaço de resultados é:
+
+$$
+\Omega = \{ \text{Sai Cara}, \text{Sai Coroa} \}
+$$
+
+Uma VA que podemos definir é a função $X: \Omega \to \R$ tal que:
+
+$$
+X( \text{Sai Cara} ) = 0 \\
+X( \text{Sai Coroa} ) = 1
+$$
+
+:::
+
+:::tip[Nota]
+
+Em todos os exemplos podiamos ter definido qualquer outra VA que nos apetecesse.  
+Nos primeiros dois exemplos não fazia sentido definir qualquer VA que não as que foram definidas - estas são as que nos fazem mais sentido.
+De facto, nesses casos as variáveis aleatórias são tão pouco "originais" que é fácil confundir o input (o evento) com o output (um valor numérico).  
+No entanto, no terceiro exemplo já é mais notável qual o objetivo da VA.
+Na verdade, a VA não passa exatamente de um formalismo que transforma eventos em valores numéricos.
+Desta forma, podemos definir qualquer VA desde que consigamos trabalhar com ela.
 
 :::
 
@@ -97,6 +123,12 @@ Dependendo se a VA é discreta ou contínua, esta função tem restrições e pr
 Nomeadamente, para VA's discretas é possível usar somatórios, já que $\Omega$ é contável.
 Para VA's contínuas, por contraste, teremos de trabalhar com integrais.  
 Está então na altura de analisar cada caso em separado.
+
+:::tip[Nota]
+
+A relevância da [função de distribuição](color:purple) é proveniente da forma como a condição de mensurabilidade está definida.
+
+:::
 
 ## Variáveis Aleatórias Discretas
 

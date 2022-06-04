@@ -51,7 +51,28 @@ Uma VA $X$ com [distribuição uniforme discreta](color:green) tem:
 
 :::details[Exemplo]
 
-// TODO
+Se considerarmos a VA $X$ que mede o resultado do lançamento de um dado ao ar, temos que:
+
+$$
+X~\sim~\text{uniforme discreta}(\{1,2,3,4,5,6\})
+$$
+
+Sendo assim, a função de probabilidade desta VA é
+
+$$
+P(X = x) =
+\begin{cases}
+\frac{1}{6}, &x \in \{1,2,3,4,5,6\} \\
+0, &x \notin \{1,2,3,4,5,6\}
+\end{cases}
+$$
+
+e o seu valor esperado e variância são
+
+$$
+E(X) = \frac{1}{6} \sum_{i=1}^6 i = \frac{7}{2} \quad \quad
+V(X) = \frac{1}{6} \sum_{i=1}^6 i^2 - \left( \frac{1}{6} \sum_{i=1}^6 i \right)^2 = \frac{91}{6} - \frac{49}{4} = \frac{35}{12}
+$$
 
 :::
 
@@ -115,6 +136,22 @@ $$
 X~\sim~\op{Bernoulli}(0.5)
 $$
 
+A função de probabilidade desta VA é
+
+$$
+P(X = x) =
+\begin{cases}
+0.5, &x \in \{0,1\} \\
+0, &x \notin \{0,1\}
+\end{cases}
+$$
+
+e o seu valor esperado e variância são
+
+$$
+E(X) = 0.5 \quad \quad V(X) = 0.5 \cdot 0.5 = 0.25
+$$
+
 :::
 
 ## Distribuição Binomial
@@ -138,7 +175,7 @@ satisfizer:
 $$
 P(X = x) =
 \begin{cases}
-{n \choose x} p^x(1-p)^{1-x}, &x \in \{0,1,\cdots,n\} \\
+{n \choose x} p^x(1-p)^{n-x}, &x \in \{0,1,\cdots,n\} \\
 0, &x \notin \{0,1,\cdots,n\}
 \end{cases}
 $$
@@ -150,7 +187,29 @@ Uma VA $X$ com [distribuição binomial](color:yellow) tem:
 
 :::details[Exemplo]
 
-// TODO
+Aproveitando a prova de Bernoulli que vimos no exemplo acima, temos que um exemplo de uma VA com distribuição binomial é a VA $X$ que regista o número de coroas em 10 lançamentos de uma moeda ao ar.
+Para realçar a diferença entre um sucesso e insucesso, vamos no entanto usar uma moeda enviesada, cuja probabilidade de sucesso é $p=0.6$.
+Temos que:
+
+$$
+X~\sim~\text{binomial}(10, 0.6)
+$$
+
+A função de probabilidade desta VA é
+
+$$
+P(X = x) =
+\begin{cases}
+{10 \choose x} ~ 0.6^x ~ 0.4^{10-x}, &x \in \{0,1,2,3,4,5,6,7,8,9,10\} \\
+0, &x \notin \{0,1,2,3,4,5,6,7,8,9,10\}
+\end{cases}
+$$
+
+e o seu valor esperado e variância são
+
+$$
+E(X) = 10 \cdot 0.6 = 6 \quad \quad V(X) = 10 \cdot 0.6 \cdot 0.4 = 2.4
+$$
 
 :::
 
@@ -198,7 +257,28 @@ Uma VA $X$ com [distribuição geométrica](color:orange) tem:
 
 :::details[Exemplo]
 
-// TODO
+Continuando com o lançamento da moeda enviesada, queremos agora contar quantas vezes temos de lançar a moeda até sair coroa (sucesso).
+Temos que a VA $X$ que regista esse valor satisfaz:
+
+$$
+X~\sim~\text{exponencial}(0.6)
+$$
+
+A função de probabilidade desta VA é
+
+$$
+P(X = x) =
+\begin{cases}
+0.6 \cdot 0.4^{x-1}, &x \in \Z^+ \\
+0, &x \notin \Z^+
+\end{cases}
+$$
+
+e o seu valor esperado e variância são
+
+$$
+E(X) = \frac{1}{0.6} = 1.67 \quad \quad V(X) = \frac{0.4}{0.6^2} = 1.11
+$$
 
 :::
 
@@ -222,6 +302,12 @@ Uma VA $X$ com [distribuição geométrica](color:orange) tem:
   $$
 
 ## Distribuição Hipergeométrica
+
+:::warning[]
+
+Esta distribuição não faz parte da matéria leccionada no programa de 2021/22.
+
+:::
 
 :::tip[]
 
@@ -259,12 +345,6 @@ Uma VA $X$ com [distribuição hipergeométrica](color:red) tem:
   V(X) = n\frac{M}{N} \left( 1-\frac{M}{N} \right)\frac{N-n}{N-1}
   $$
 
-:::details[Exemplo]
-
-// TODO
-
-:::
-
 ## Distribuição de Poisson
 
 :::tip[]
@@ -289,7 +369,7 @@ satisfizer:
 $$
 P(X = x) =
 \begin{cases}
-e^{-\lambda}\frac{\lambda^x}{x!}, &x \in \Z_0^+ \\
+\frac{e^{-\lambda} \lambda^x}{x!}, &x \in \Z_0^+ \\
 0, &x \notin \Z_0^+
 \end{cases}
 $$
@@ -301,7 +381,34 @@ Uma VA $X$ com [distribuição de Poisson](color:purple) tem:
 
 :::details[Exemplo]
 
-// TODO
+Considere-se a VA $X$ que regista o número de remates que há num dado intervalo de um jogo de futebol.
+Se assumirmos que o valor esperado de remates num minuto é $\lambda = 0.08$ temos que o número de remates que acontecem em qualquer intervalo de um minuto do jogo satisfaz
+
+$$
+X~\sim~\text{Poisson}(0.08)
+$$
+
+Sendo assim, a VA tem função de probabilidade
+
+$$
+P(X = x) =
+\begin{cases}
+\frac{e^{-0.08} 0.08^x}{x!}, &x \in \Z^+_0 \\
+0, &x \notin \Z^+_0
+\end{cases}
+$$
+
+e valor esperado e variância
+
+$$
+E(X) = V(X) = 0.08
+$$
+
+Se, por outro lado, quisermos a VA $Y$ que regista o número de remates em 5 minutos do jogo de futebol, temos que:
+
+$$
+Y~\sim~\text{Poisson}(5 \cdot 0.08)
+$$
 
 :::
 

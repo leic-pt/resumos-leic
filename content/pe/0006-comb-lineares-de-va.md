@@ -153,6 +153,8 @@ Vamos ver agora aproximações distribuições, algumas que seguem do TLC, outra
 
 :::tip[]
 
+[Esta distribuição (e portanto esta aproximação) não é leccionada no programa de 2021/22.](color:red)
+
 Uma VA $X \sim \op{hipergeométrica}(N, M, n)$ pode ser aproximada por
 
 $$

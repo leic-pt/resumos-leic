@@ -48,6 +48,23 @@ Damos o nome de [**evento**](color:blue) a qualquer subconjunto $A \subset \Omeg
 
 :::
 
+:::details[Exemplo]
+
+Um dos exemplos mais típicos de uma [experiência aleatória](color:red) é o lançamento de um dado: de facto, o resultado exato do lançamento de um dado não pode ser predito antes do mesmo, devido à interação do acaso.  
+No entanto, é possível determinar um [espaço de resultados](color:green) - sabemos que o resultado do lançamento vai estar no conjunto $\Omega = \{1,2,3,4,5,6\}$.
+Este [espaço de resultados](color:green) é [discreto](color:green) uma vez que é finito (e portanto contável).  
+Exemplos de [eventos](color:blue) em relação a esta [EA](color:red) são:
+
+- O resultado da EA é $6$;
+- O resultado da EA é par;
+- O resultado da EA é no máximo $2$.
+
+Poderá ainda ser útil apresentar um exemplo de uma [EA](color:red) com um [espaço de resultados contínuo](color:green).
+Um tal exemplo é o tempo em milisegundos que o dado lançado demora a parar na superfície da mesa (sobre a qual é lançado).
+Neste caso, o espaço de resultados é $\Omega = \R^+$, que é um conjunto não contável.
+
+:::
+
 O estudo de **Probabilidade** prende-se então com a atribuição de valores que representem a confiança que temos em que um dado evento se concretize, dada uma certa experiência aleatória.
 
 Esta atribuição de valores de probabilidade pode ser feita de várias formas, tendo cada uma as suas vantagens e desvantagens.
