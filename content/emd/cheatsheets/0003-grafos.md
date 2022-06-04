@@ -1,7 +1,7 @@
 ---
 title: Grafos 4 Dummies (Cheat Sheet)
 description: Cheat Sheet dos Grafos.
-path: /emd/cheatsheet/grafos
+path: /emd/cheatsheets/grafos
 type: cheatsheets
 ---
 
@@ -302,4 +302,4 @@ Grafo dirigido, todas as arestas têm orientação.\
 Um digrafo-$s$-$t$ é um digrafo com `fonte` $s$
 e `semidouro` $t$
 
-![ponteeuclidiana](./assets/1006-euc.png#dark=1)
+![ponteeuclidiana](./assets/0003-euc.png#dark=3)

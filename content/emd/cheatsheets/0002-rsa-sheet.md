@@ -1,7 +1,7 @@
 ---
 title: Criptografia RSA (Cheat Sheet)
 description: RSA.
-path: /emd/cheatsheet/rsa
+path: /emd/cheatsheets/rsa
 type: cheatsheets
 ---
 
@@ -74,4 +74,4 @@ A `Chave Pública` é $(65,11)$
 
 A `Chave Privada` é $(65,35)$
 
-![EZHACKS](./assets/1005-hack.jpg#dark=1)
+![EZHACKS](./assets/0002-hack.jpg#dark=3)
