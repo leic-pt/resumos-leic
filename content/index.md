@@ -232,9 +232,9 @@ Quero agradecer a [todos os que contribuíram](https://github.com/leic-pt/resumo
 Resumos LEIC não está afiliado ao
 [tecnico.ulisboa.pt](https://tecnico.ulisboa.pt) de forma alguma.
 Todo o conteúdo escrito disponível neste site é dado por contribuidores (listados acima).
-Alguns anexos podem ter sido cedidos por professores, após obter a respetiva permissão.
+Alguns anexos podem ter sido cedidos por professores, após obter a respetiva permissão.  
 Visto que algum do conteúdo pode estar incorreto, incompleto e/ou desatualizado,
-usa este site _at your own risk_.
+usa este site _at your own risk_.  
 Como sempre, se encontrares algum erro, podes e deves [contribuir](https://leic-pt.github.io/docs)!
 
 Questões relacionadas com _copyright_ deverão ser encaminhadas para [resumos@leic.pt](mailto:resumos@leic.pt).

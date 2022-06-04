@@ -58,8 +58,6 @@ $$
 \frac 1 {(1-\lambda z)^m} = \sum_{k=0}^{+\infty} {k+m-1 \choose m-1}\lambda^kz^k
 $$
 
-\\
-
 ## Combinatória
 
 $l$ = valor da soma  

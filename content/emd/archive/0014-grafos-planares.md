@@ -43,7 +43,7 @@ $$
 Sustituindo $q$ por $q+1$ temos $2$ casos:
 
 1. Grafo é uma árvore  
-    Se é uma árvore, sabemos que terá $q+1$ arestas e apenas tem $1$ região, logo, por hipótese de Indução:
+   Se é uma árvore, sabemos que terá $q+1$ arestas e apenas tem $1$ região, logo, por hipótese de Indução:
 
    $$
    (q+2) + 1 = (q+1) + 2 \quad \checkmark
@@ -102,7 +102,7 @@ O grafo completo de $5$ vértices $(k_5)$ não é planar.
 Como é completo, o número de arestas será
 
 $$
- q = \frac{p(p-1)}{2}
+q = \frac{p(p-1)}{2}
 $$
 
 Onde $p$ é o número de vértices. Se $p=5$, $q=10$ e, pelo [Teorema 2](#teorema-2) um grafo de $5$ vértices tem de ter:
