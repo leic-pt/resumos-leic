@@ -449,7 +449,7 @@ por nível diferentes, por forma a ilustrar as diferenças que pequenas alteraç
 Note-se que, para o mesmo problema (problema este relativamente simples, com poucas variáveis
 e restrições), conseguimos reduzir em $50\%$ o número de testes de consistência realizados!
 
-![Escolher a ordem das variáveis é relevante](imgs/0004-choosing-variables-matters.svg#dark=2)
+![Escolher a ordem das variáveis não é irrelevante](imgs/0004-choosing-variables-matters.svg#dark=2)
 
 Uma das heurísticas clássicas para fazer esta escolha é, a cada instante, [**escolher a variável
 que apresenta atualmente o menor número de possibilidades**](color:yellow), e delegar todo
