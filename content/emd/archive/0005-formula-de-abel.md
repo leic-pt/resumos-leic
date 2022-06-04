@@ -39,7 +39,7 @@ $$
 \end{array}
 $$
 
-O Vermelho é o Resto da Divisão.
+O laranja é o Resto da Divisão.
 
 $$\longrightarrow 1\cdot(k+3)(k+2)\smartcolor{orange}{-8}(k+3)\smartcolor{orange}{+20}$$
 
