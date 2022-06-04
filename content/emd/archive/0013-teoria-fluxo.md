@@ -89,7 +89,9 @@ Ao conjunto de arestas orientadas de vértices em $V_s$ para vértices em $V_t$,
 
 ### Capacidade do Corte
 
-$$\operatorname{cap}(V_s,V_t) = \sum_{x \in V_s} \sum_{y \in V_t}\operatorname{cap}(xy)$$
+$$
+\operatorname{cap}(V_s,V_t) = \sum_{x \in V_s} \sum_{y \in V_t}\operatorname{cap}(xy)
+$$
 
 Soma das **capacidades** de todas as arestas do corte.
 
@@ -119,7 +121,9 @@ Qualquer Corte numa `Rede Capacitada` tem sempre o mesmo `Balanço de Fluxo`.
 
 O `Balanço do Fluxo` deste corte será:
 
-$$6+3+10+9 - 3=25$$
+$$
+6+3+10+9 - 3=25
+$$
 
 :::
 
@@ -137,7 +141,9 @@ Uma `trajetória` numa rede capacitada $N=(V,E,s,t,\operatorname{cap})$ é uma `
 
 [Trajetória](#trajetoria-num-digrafo), mas que pode ter arestas negativas. Seja
 
-$$Q = s,a_1,v_1,a_2,\dots,v_{k-1},a_k,t$$
+$$
+Q = s,a_1,v_1,a_2,\dots,v_{k-1},a_k,t
+$$
 
 uma Quasi-trajetória, pode existir uma aresta $a_i$ (\*com $1<i<k$) que está dirigida de $v_i$ para $v_{i-1}$. Este tipo de arestas é designado por `arestas negativas`
 

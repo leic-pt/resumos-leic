@@ -18,7 +18,9 @@ $$
 
 $ã \in \Z$ é o inverso de $a \in \Z$, para o módulo $n \in \N_1$, se
 
-$$ã\times a = a\times ã \equiv_n 1$$
+$$
+ã\times a = a\times ã \equiv_n 1
+$$
 
 :::tip[NOTA]
 
@@ -55,7 +57,9 @@ Se quisermos uma solução positiva, podemos recorrer à [Solução Geral](#inve
 
 Resolve-se a equação diofantina
 
-$$(a\times k_0) + (n \times k_1) = 1$$
+$$
+(a\times k_0) + (n \times k_1) = 1
+$$
 
 E $k_0$ será o inverso
 
@@ -64,7 +68,9 @@ E $k_0$ será o inverso
 Calcular $22k_0 \equiv_{25} 1$, inverso de $22$ módulo $25$.  
 Usando o método manual,
 
-$$(7\times k_0) + (8 \times k_1) = 1,\quad k_0?$$
+$$
+(7\times k_0) + (8 \times k_1) = 1,\quad k_0?
+$$
 
 Pelo Algoritmo de Euclides (extendido)
 
@@ -83,11 +89,15 @@ $$
 
 Ou seja,
 
-$$k_0 = 8 \quad \checkmark$$
+$$
+k_0 = 8 \quad \checkmark
+$$
 
 A solução geral é dada por:
 
-$$\lambda = 8 + 25t, \quad t \in \Z$$
+$$
+\lambda = 8 + 25t, \quad t \in \Z
+$$
 
 :::
 
@@ -109,7 +119,9 @@ $$
 
 Tem solução única Módulo $M$
 
-$$M = \prod_{i=1}^k m_i$$
+$$
+M = \prod_{i=1}^k m_i
+$$
 
 ### Teorema 2
 
@@ -134,7 +146,9 @@ $$
 
 **SE E SÓ SE**, $\forall i,j = 1,\dots, k$, tais que $1 \leq i < j \leq k$,
 
-$$(m_i \frown m_j)|(a_i-a_j)$$
+$$
+(m_i \frown m_j)|(a_i-a_j)
+$$
 
 ## Teorema Chinês dos Restos
 
@@ -199,7 +213,9 @@ $$
  x \equiv_7 4 \quad \checkmark
 $$
 
-$$x\equiv_9 2 \quad \checkmark$$
+$$
+x\equiv_9 2 \quad \checkmark
+$$
 
 $$
 x-2 \equiv_4  1\\
@@ -242,15 +258,21 @@ $$
 
 4. Caclular os inversos de $n_i$ módulo $m_i$ ($ñ_i$)
 
-$$36ñ_1 \equiv_7 1, \quad 36 \frown 7 = 1$$
+$$
+36ñ_1 \equiv_7 1, \quad 36 \frown 7 = 1
+$$
 
 Como $(36\times1) - (7 \times 5) = 1, ñ_1 = 1$
 
-$$28ñ_2 \equiv_9 1, \quad 28 \frown 9 = 1$$
+$$
+28ñ_2 \equiv_9 1, \quad 28 \frown 9 = 1
+$$
 
 Como $(28\times1) - (9 \times 3) = 1, ñ_2 = 1$
 
-$$63ñ_3 \equiv_4 1, , \quad 63 \frown 4 = 1$$
+$$
+63ñ_3 \equiv_4 1, , \quad 63 \frown 4 = 1
+$$
 
 Como $(63 \times 3) - (4 \times 47)=1, ñ_3 = 3$
 
@@ -258,7 +280,9 @@ Como $(63 \times 3) - (4 \times 47)=1, ñ_3 = 3$
 
 Solução **Geral** é dada por,
 
-$$x = x_0 +252t, \quad t \in \Z$$
+$$
+x = x_0 +252t, \quad t \in \Z
+$$
 
 $$
 x_0 = a_1n_1ñ_1+a_2n_2ñ_2+a_3n_3ñ_3\\
@@ -288,7 +312,9 @@ $m_1,\dots,m_k$, **não** necessariamente primos entre si.
 
 Pelo [Teorema 2](#teorema-2), há solução, se $\forall i,j = 1,\dots, k$, tais que $1 \leq i < j \leq k$,
 
-$$(m_i \frown m_j)|(a_i-a_j)$$
+$$
+(m_i \frown m_j)|(a_i-a_j)
+$$
 
 Se a condição se verificar, a **Solução Geral** é dada por
 
@@ -352,7 +378,9 @@ $$
 c_1 = 3, \quad c_2 = 2^3, \quad c_3 = 5
 $$
 
-$$M = 2^3 \times 3 \times 5 = 120$$
+$$
+M = 2^3 \times 3 \times 5 = 120
+$$
 
 3. Calcular os $n_i$
 
@@ -366,23 +394,31 @@ $$
 
 4. Calcular os $ñ_i$
 
-$$40ñ_1 \equiv_3 1$$
+$$
+40ñ_1 \equiv_3 1
+$$
 
 Como $(40\times1) - (3 \times 13) = 1, ñ_1 = 1$
 
-$$15ñ_2 \equiv_8 1$$
+$$
+15ñ_2 \equiv_8 1
+$$
 
 Como $(15\times1) - (8 \times 2) = -1,\quad ñ_2 = -1(1) = -1$
 
 **Atenção**: Podemos igualar a $-1$, em vez de $1$. Nestes casos, o inverso do número $n$ é $(-1 \times k)$, onde $nk \equiv_n -1$. Para mais esclarecimentos, consultar [Cálculo de Inversos](#inverso)
 
-$$24ñ_3 \equiv_5 1$$
+$$
+24ñ_3 \equiv_5 1
+$$
 
 Como $(24 \times 1) - (5 \times 5)=-1,\quad ñ_3 = -1(1) = -1$
 
 1. Solução Geral e Particular
 
-$$x = x_0 +120t, \quad t \in \Z$$
+$$
+x = x_0 +120t, \quad t \in \Z
+$$
 
 $$
 x_0 = a_1n_1ñ_1+a_2n_2ñ_2+a_3n_3ñ_3\\

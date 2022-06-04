@@ -21,15 +21,21 @@ $$
 
 ### Teorema Fundamental do Cálculo Finito
 
-$$\sum_{k=0}^{n-1} \Delta u_{k} = [u_{n}]_{0}^{n}$$
+$$
+\sum_{k=0}^{n-1} \Delta u_{k} = [u_{n}]_{0}^{n}
+$$
 
 ### Somatório de n
 
-$$\sum_{k=0}^{n-1} k =\frac{n(n-1)}{2}  $$
+$$
+\sum_{k=0}^{n-1} k =\frac{n(n-1)}{2}
+$$
 
 ### Somas fechadas do tipo aⁿ
 
-$$\sum_{k=0}^{n-1} a^{k} =\frac{[a^k]^n_0}{a-1} = \frac{a^n-1}{a -1} \quad, \quad a\ne 0,1 $$
+$$
+\sum_{k=0}^{n-1} a^{k} =\frac{[a^k]^n_0}{a-1} = \frac{a^n-1}{a -1} \quad, \quad a\ne 0,1
+$$
 
 ### Polinómios Fatoriais
 
@@ -49,11 +55,15 @@ $$
 
 ### Série Harmónica
 
-$$H_n = \sum_{k=1}^{n}\frac{1}{k} \quad , H_0 = 0 $$
+$$
+H_n = \sum_{k=1}^{n}\frac{1}{k} \quad , H_0 = 0
+$$
 
 ### Fórmula de Abel
 
-$$\sum_{k=0}^{\textbf{n-1}}u_k\Delta v_k = [u_kv_k]_0^\textbf{n} - \sum_{k=0}^{n-1}v_{k+1}\Delta u_k$$
+$$
+\sum_{k=0}^{\textbf{n-1}}u_k\Delta v_k = [u_kv_k]_0^\textbf{n} - \sum_{k=0}^{n-1}v_{k+1}\Delta u_k
+$$
 
 ### Diferença Finita do Quociente
 

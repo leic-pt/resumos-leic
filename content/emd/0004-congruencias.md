@@ -134,7 +134,9 @@ $$
 
 Como $nq$ é múltiplo de $n$,
 
-$$x \equiv_n x_0 + \frac n d r$$
+$$
+x \equiv_n x_0 + \frac n d r
+$$
 
 Isto significa que, se tivermos $t_1 = dq_1 + r$ e $t_2 = dq_2 + r$, onde $q_1 \neq q_2$, as soluções
 
@@ -194,7 +196,9 @@ $$
 Se $ac \equiv_n bc$, sabemos que $ac-bc = kn$, onde concluímos que $c(a-b)=kn$.  
 Seja $d=n \frown c$,
 
-$$(a-b)\frac c d = k \frac n d$$
+$$
+(a-b)\frac c d = k \frac n d
+$$
 
 Como $\frac c d$ e $\frac n d$ são primos entre si, concluímos (tal como em provas passadas) que $\frac n d \mid (a-b)$, por exemplo.  
 Então,
@@ -256,7 +260,9 @@ $$
 Como $q$ e $p$ são primos entre si, para a igualdade se verificar, $q | k_0$, por exemplo.  
 Logo,
 
-$$k_0 = \lambda q, \qquad \lambda \in \Z$$
+$$
+k_0 = \lambda q, \qquad \lambda \in \Z
+$$
 
 Substituindo,
 

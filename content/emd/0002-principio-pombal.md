@@ -29,11 +29,15 @@ Mostre que, se há mais livros numa biblioteca do que páginas em qualquer dos l
 Imaginemos que os livros estão vazios, e temos de associar a cada livro um número de páginas, de acordo com as condições do enunciado.  
 Seja $P$ o conjunto dos vários números de páginas possíveis, ordenados de forma crescente.
 
-$$P=\{p_1,p_2,\dots,p_k\}$$
+$$
+P=\{p_1,p_2,\dots,p_k\}
+$$
 
 Como $p_k$ é menor que o número de livros (pelo enunciado) e $p_i$ toma apenas valores em $\N_1$,
 
-$$\#P<\text{número de livros}$$
+$$
+\#P<\text{número de livros}
+$$
 
 Pela [Primeira Forma do Princípio de Pombal](#primeira-forma-do-principio-do-pombal), ao associarmos cada $p_i$ com um livro vamos, obrigatoriamente, repetir o número de páginas para, pelo menos, $2$ livros diferentes, ficando estes com o mesmo número de páginas.
 
@@ -71,7 +75,9 @@ Se têm o mesmo resto, pela Nota **Importante** do início da prova, a sua difer
 
 Por fim, como as somas consideradas são de termos **consecutivos** a começar sempre pelo mesmo, a diferença entre quaisquer duas será também uma soma consecutiva de termos.
 
-$$s_j - s_i = a_{i+1+\lambda}+a_{i+2+\lambda}+\dots+a_{j+\lambda}, \quad j>i$$
+$$
+s_j - s_i = a_{i+1+\lambda}+a_{i+2+\lambda}+\dots+a_{j+\lambda}, \quad j>i
+$$
 
 QED
 

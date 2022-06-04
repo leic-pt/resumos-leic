@@ -38,8 +38,11 @@ $$
 
 #### Grau de um vértice
 
-$g = (V,E)$. Para um vértice $v\in V$, o seu grau **em $g$** corresponde ao número de arestas de $g$ que incidem em $v$.  
-$$\operatorname{deg}_g(v)$$
+$g = (V,E)$. Para um vértice $v\in V$, o seu grau **em $g$** corresponde ao número de arestas de $g$ que incidem em $v$.
+
+$$
+\operatorname{deg}_g(v)
+$$
 
 ### Teoremas de Grafos
 
@@ -234,7 +237,9 @@ Grafo [conexo](#grafo-conexo) que não tem ciclos.
 
 Se $T$ é uma árvore de [ordem](#grafos) $p$ e [tamanho](#grafos) $q$, então
 
-$$q = p-1$$
+$$
+q = p-1
+$$
 
 #### Teorema 2
 

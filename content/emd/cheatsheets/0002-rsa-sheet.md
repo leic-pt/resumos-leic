@@ -17,13 +17,17 @@ type: cheatsheets
 
 Para todo o $a \in \N$ e para todo o $p$ primo,
 
-$$a^p\equiv_pa$$
+$$
+a^p\equiv_pa
+$$
 
 ### Teorema 2
 
 Para todo o $a \in \N$ e para todo o $p$ primo, se $a \frown p = 1$
 
-$$a^{p-1}\equiv_p 1$$
+$$
+a^{p-1}\equiv_p 1
+$$
 
 ### Teorema 3
 
@@ -47,7 +51,9 @@ A `Chave Pública` servirá para encriptar a mensagem e a `Chave Privada` para a
 Com os 2 primos já escolhidos: $13$ e $5$  
 O expoente $(e): \quad 11$
 
-$$N = 13\times5 = 65$$
+$$
+N = 13\times5 = 65
+$$
 
 Falta determinar o inverso de $e$, módulo $(13-1)(5-1) = 48 \quad (d)$  
 Queremos resolver a `Eq. Diofantina`:

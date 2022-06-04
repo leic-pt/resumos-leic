@@ -13,11 +13,15 @@ type: archive
 
 ## Método das Pontas
 
-$$\sum_{k=1}^{n-1}\frac{(k-2)(k-1)}{(k+1)(k+2)(k+3)}$$
+$$
+\sum_{k=1}^{n-1}\frac{(k-2)(k-1)}{(k+1)(k+2)(k+3)}
+$$
 
 De início não parece ser possível haver uma resolução direta devido ao que se tem no numerador. Em exercícios deste tipo usa-se o que se chama **o método das pontas**, que consiste em eliminar os fatores mais exteriores do denominador. Por exemplo:
 
-$$(k-2)(k-1)=k^2-3k+2$$
+$$
+(k-2)(k-1)=k^2-3k+2
+$$
 
 Queremos transformar isto nalgo que tenha fatores, por exemplo, $(k+3)$ (poderia ser $k+1$). Aplica-se então o método de Horner/Ruffini a este polinómio, dividindo por $(k+3)(k+2)$:
 
@@ -41,7 +45,9 @@ $$
 
 O laranja é o Resto da Divisão.
 
-$$\longrightarrow 1\cdot(k+3)(k+2)\smartcolor{orange}{-8}(k+3)\smartcolor{orange}{+20}$$
+$$
+\longrightarrow 1\cdot(k+3)(k+2)\smartcolor{orange}{-8}(k+3)\smartcolor{orange}{+20}
+$$
 
 e o somatório original vem como:
 
@@ -70,11 +76,15 @@ $$
 
 Pelo que se pode aplicar facilmente:
 
-$$\sum_{k=0}^{\textbf{n-1}}u_k\Delta v_k = [u_kv_k]_0^\textbf{n} - \sum_{k=0}^{n-1}v_{k+1}\Delta u_k$$
+$$
+\sum_{k=0}^{\textbf{n-1}}u_k\Delta v_k = [u_kv_k]_0^\textbf{n} - \sum_{k=0}^{n-1}v_{k+1}\Delta u_k
+$$
 
 Exemplo:
 
-$$\sum_{k=0}^{n-1}kH_k = \sum_{k=0}^{n-1}H_k\Delta\frac{k^{\underline{2}}}{2} = \left[\frac{k^{\underline{2}}}{2}H_k\right]_0^n - \sum_{k=0}^{n-1}\left(\frac{k(k+1)}2\cdot\frac{1}{k+1}\right)$$
+$$
+\sum_{k=0}^{n-1}kH_k = \sum_{k=0}^{n-1}H_k\Delta\frac{k^{\underline{2}}}{2} = \left[\frac{k^{\underline{2}}}{2}H_k\right]_0^n - \sum_{k=0}^{n-1}\left(\frac{k(k+1)}2\cdot\frac{1}{k+1}\right)
+$$
 
 ## Diferença Finita do Quociente
 
@@ -90,21 +100,29 @@ $$
 
 1.
 
-$$\sum_{k=0}^{n-1}\frac{k2^k}{(k+1)(k+2)} = \quad ?$$
+$$
+\sum_{k=0}^{n-1}\frac{k2^k}{(k+1)(k+2)} = \quad ?
+$$
 
 Repare-se:
 
-$$\Delta\frac{2^k}{k+1} = \frac{2^k(k+1)-2^k(1)}{(k+1)(k+2)}=\frac{k2^k}{(k+1)(k+2)}$$
+$$
+\Delta\frac{2^k}{k+1} = \frac{2^k(k+1)-2^k(1)}{(k+1)(k+2)}=\frac{k2^k}{(k+1)(k+2)}
+$$
 
 logo:
 
-$$\sum_{k=0}^{n-1}\frac{k2^k}{(k+1)(k+2)} = \sum_{k=0}^{n-1}\Delta\frac{2^k}{k+1} = \left[\frac{2^k}{k+1}\right]_0^n =\frac{2^{n}}{n+1} -1 $$
+$$
+\sum_{k=0}^{n-1}\frac{k2^k}{(k+1)(k+2)} = \sum_{k=0}^{n-1}\Delta\frac{2^k}{k+1} = \left[\frac{2^k}{k+1}\right]_0^n =\frac{2^{n}}{n+1} -1
+$$
 
 ---
 
 2.
 
-$$\sum_{k=0}^{n-1}\frac{k2^k}{(k+2)!} = \quad ?$$
+$$
+\sum_{k=0}^{n-1}\frac{k2^k}{(k+2)!} = \quad ?
+$$
 
 Repara-se:
 
@@ -117,16 +135,24 @@ $$
 
 3.
 
-$$\sum_{k=0}^{n-1}\frac{2k-1}{2^{k-1}} = \quad ?$$
+$$
+\sum_{k=0}^{n-1}\frac{2k-1}{2^{k-1}} = \quad ?
+$$
 
 Repara-se:
 
-$$\Delta\frac{ak+b}{2^{k-1}} = \frac{a2^{k-1}-(ak+b)2^{k-1}}{2^{k-1}2^{k}}= \frac{a-(ak+b)}{2^{k}} = \frac{-\frac a 2k+\frac{a-b} 2}{2^{k-1}}$$
+$$
+\Delta\frac{ak+b}{2^{k-1}} = \frac{a2^{k-1}-(ak+b)2^{k-1}}{2^{k-1}2^{k}}= \frac{a-(ak+b)}{2^{k}} = \frac{-\frac a 2k+\frac{a-b} 2}{2^{k-1}}
+$$
 
-$$\begin{dcases}-\frac a 2 = 2\\\frac{a-b} 2 = -1\end{dcases} \Leftrightarrow  \begin{dcases}a=4\\b = -2\end{dcases} $$
+$$
+\begin{dcases}-\frac a 2 = 2\\\frac{a-b} 2 = -1\end{dcases} \Leftrightarrow  \begin{dcases}a=4\\b = -2\end{dcases}
+$$
 
 logo
 
-$$\Delta \frac{-4k-2}{2^{k-1}} = \frac{2k-1}{2^{k-1}}$$
+$$
+\Delta \frac{-4k-2}{2^{k-1}} = \frac{2k-1}{2^{k-1}}
+$$
 
 :::

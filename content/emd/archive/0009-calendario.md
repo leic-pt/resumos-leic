@@ -163,14 +163,20 @@ Relembrar que $F_{\text{janeiro}} = A.$
 
 1. Abril ( _April_ ) <br>
    Como o mês em inglês começa com vogal, <br>
-   $$F_{\text{abril}}=11-4=7$$
+
+   $$
+   F_{\text{abril}}=11-4=7
+   $$
+
    Podemos verificar na [tabela 2](#numero-letra-calendrica)
    que a `letra calêndrica` do 1º dia de abril é G $\checkmark$.
 
 1. Maio ( _May_ ) <br>
    Como o mês em inglês não começa, nem acaba, em vogal, usamos o método recursivo.
 
-$$F_{\text{maio}}=(F_{\text{abril}} + k_{\text{abril}})\% 7 = (7+30)\% 7 = 2$$
+$$
+F_{\text{maio}}=(F_{\text{abril}} + k_{\text{abril}})\% 7 = (7+30)\% 7 = 2
+$$
 
 Podemos verificar na [tabela 2](#numero-letra-calendrica) que a `letra calêndrica` do 1º dia de maio é B $\checkmark$.
 

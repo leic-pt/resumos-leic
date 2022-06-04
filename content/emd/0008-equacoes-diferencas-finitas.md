@@ -26,13 +26,17 @@ $$
 
 Note-se que o índice dos somatórios deve ser o menor inteiro para o qual a expressão faz sentido (1, neste caso). Também se deve ter a potência de $z$ coincidente com a ordem da sucessão (valor para $n$). Note-se que para o último somatório:
 
-$$\sum_{k=1}^{+\infty}z^k=\frac{1}{1-z}\smartcolor{red}{-1}=\frac z {1-z}$$
+$$
+\sum_{k=1}^{+\infty}z^k=\frac{1}{1-z}\smartcolor{red}{-1}=\frac z {1-z}
+$$
 
 onde o assinalado a vermelho vem devido ao índice do nosso somatório ($z^0=1$).
 
 Agora, para o somatório do meio:
 
-$$z\sum_{k=1}^{+\infty}h_{k-1}z^{k-1}=z\sum_{j=0}^{\infty}h_jz^j=zH(z)$$
+$$
+z\sum_{k=1}^{+\infty}h_{k-1}z^{k-1}=z\sum_{j=0}^{\infty}h_jz^j=zH(z)
+$$
 
 onde $H$ é a função geradora de $h_n$.
 
@@ -45,21 +49,31 @@ $$
 
 Com a fórmula nesta escrita, não conseguimos concluir nada acerca da sucessão $h_n$. Para isso, decompõe-se as frações com o **método de Hermite**, ou _cover-up method_:
 
-$$\frac{z}{(1-z)(1-2z)}=\frac {\Alpha}{1-z}+ \frac{\Beta}{1-2z}$$
+$$
+\frac{z}{(1-z)(1-2z)}=\frac {\Alpha}{1-z}+ \frac{\Beta}{1-2z}
+$$
 
 Para descobrir o coeficiente $\Alpha$, _tapa-se_ o respetivo denominador na fração inicial e avalia-se a expressão resultante no zero desse denominador, do seguinte modo:
 
-$$\Alpha=\left|\frac z{1-2z}\right|_{z=1}=\frac 1 {1-2}=-1$$
+$$
+\Alpha=\left|\frac z{1-2z}\right|_{z=1}=\frac 1 {1-2}=-1
+$$
 
-$$\Beta=\left|\frac z{1-z}\right|_{z=\frac 1 2}=\frac {\frac 1 2} {1-\frac 1 2}=1$$
+$$
+\Beta=\left|\frac z{1-z}\right|_{z=\frac 1 2}=\frac {\frac 1 2} {1-\frac 1 2}=1
+$$
 
 logo:
 
-$$\frac{z}{(1-z)(1-2z)}=\frac {-1}{1-z}+ \frac{1}{1-2z}$$
+$$
+\frac{z}{(1-z)(1-2z)}=\frac {-1}{1-z}+ \frac{1}{1-2z}
+$$
 
 donde se tira a conclusão que:
 
-$$H_n=\frac {-1}{1-z}+ \frac{1}{1-2z}\longrightarrow h_n= -1 + 2^n$$
+$$
+H_n=\frac {-1}{1-z}+ \frac{1}{1-2z}\longrightarrow h_n= -1 + 2^n
+$$
 
 Abaixo segue outro exemplo de raciocínio análogo, à exceção de que nos dão os dois primeiros termos da sucessão $u_n$:
 

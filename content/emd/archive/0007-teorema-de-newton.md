@@ -11,11 +11,15 @@ type: archive
 
 Seja $p_n$ um polinómio geral:
 
-$$p_n=p_0+b_1n+b_2n^2+b_3n^3+\dots+b_rn^r,\qquad b_r\neq 0$$
+$$
+p_n=p_0+b_1n+b_2n^2+b_3n^3+\dots+b_rn^r,\qquad b_r\neq 0
+$$
 
 Repare-se que se quiséssemos, por exemplo, a segunda derivada de $p_n$:
 
-$$\Delta^2p_n=\Delta\Delta p_n=\Delta(p_{n+1}-p_n)=p_{n+2}-2p_{n+1}+p_n$$
+$$
+\Delta^2p_n=\Delta\Delta p_n=\Delta(p_{n+1}-p_n)=p_{n+2}-2p_{n+1}+p_n
+$$
 
 Agora, toma-se a expansão de $p_n$ e deriva-se termo a termo:
 
@@ -30,7 +34,9 @@ $$
 
 Note-se que:
 
-$$\Delta p_0=(\Delta p_n)_{n=0}$$
+$$
+\Delta p_0=(\Delta p_n)_{n=0}
+$$
 
 Tem-se então:
 
@@ -44,7 +50,9 @@ $$
 
 Donde agora se pode obter como expressão geral para um polinómio, o **teorema de newton:**
 
-$$p_n=p_0+\Delta p_0n^{\underline 1}+ \frac 1 {2!}\Delta^2p_0n^{\underline 2} + \frac 1 {3!}\Delta^3p_0n^{\underline 3} + \dots \frac 1 {r!}\Delta^rp_0n^{\underline r}$$
+$$
+p_n=p_0+\Delta p_0n^{\underline 1}+ \frac 1 {2!}\Delta^2p_0n^{\underline 2} + \frac 1 {3!}\Delta^3p_0n^{\underline 3} + \dots \frac 1 {r!}\Delta^rp_0n^{\underline r}
+$$
 
 Agora, pode-se resolver problemas como os seguintes:
 
@@ -64,7 +72,9 @@ A seguir, expande-se a tabela para incluir as linhas anteriores através de cont
 
 Agora, com a fórmula já vista para $p_0$, retirando os valores da linha $n=0$, vem:
 
-$$p_n=0+0+\frac{2}{2!}n^{\underline{2}} = n(n-1)$$
+$$
+p_n=0+0+\frac{2}{2!}n^{\underline{2}} = n(n-1)
+$$
 
 ### 2)
 

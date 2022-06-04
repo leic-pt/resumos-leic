@@ -69,7 +69,9 @@ $$
 
 exemplos de aplicação:
 
-$$\frac{1}{(1-z)^2} =\sum_{k=0}^{+\infty}{k+2-1 \choose 2-1}z^k=\sum_{k=0}^{+\infty}(k+1)z^k= n+1$$
+$$
+\frac{1}{(1-z)^2} =\sum_{k=0}^{+\infty}{k+2-1 \choose 2-1}z^k=\sum_{k=0}^{+\infty}(k+1)z^k= n+1
+$$
 
 e generalizando:
 
@@ -82,11 +84,15 @@ $$
 
 Seja $n \in \N_1$ e $l \in \N.$ O número de soluções inteiras não negativas da equação:
 
-$$x_1+x_2+x_3+x_4+\dots+x_n=l$$
+$$
+x_1+x_2+x_3+x_4+\dots+x_n=l
+$$
 
 é dado pela expressão:
 
-$${l+n-1 \choose n-1}$$
+$$
+{l+n-1 \choose n-1}
+$$
 
 Demonstração:
 

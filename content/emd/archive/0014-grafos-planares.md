@@ -14,7 +14,9 @@ Grafos que podem ser desenhados sem que haja interseções de arestas.
 
 Num grafo conexo planar de $p$ vértices, $q$ arestas e $r$ regiões, então
 
-$$p+r = q+2$$
+$$
+p+r = q+2
+$$
 
 :::details[Demonstração]
 
@@ -24,18 +26,24 @@ Por indução Simples
 
 $q=0$, então o grafo terá apenas $1$ vértice e $1$ região.
 
-$$1+1=0+2 \quad \checkmark$$
+$$
+1+1=0+2 \quad \checkmark
+$$
 
 **Hipótese de Indução**
 
-$$p+r = q+2$$
+$$
+p+r = q+2
+$$
 
 Sustituindo $q$ por $q+1$ temos $2$ casos:
 
 1. Grafo é uma árvore  
-   Se é uma árvore, sabemos que terá $q+1$ arestas e apenas tem $1$ região, logo, por hipótese de Indução:
+    Se é uma árvore, sabemos que terá $q+1$ arestas e apenas tem $1$ região, logo, por hipótese de Indução:
 
-   $$(q+2) + 1 = (q+1) + 2 \quad \checkmark$$
+   $$
+   (q+2) + 1 = (q+1) + 2 \quad \checkmark
+   $$
 
 2. Não é árvore, tem pelo menos um ciclo  
    Removendo uma aresta do ciclo ficamos com $q$ arestas. Agora já não temos ciclo, por isso também temos menos uma região (a do ciclo).
@@ -89,11 +97,15 @@ A região $R_1$ assinalada a [verde](color:green) é limitada por um triângulo 
 O grafo completo de $5$ vértices $(k_5)$ não é planar.  
 Como é completo, o número de arestas será
 
-$$ q = \frac{p(p-1)}{2}$$
+$$
+ q = \frac{p(p-1)}{2}
+$$
 
 Onde $p$ é o número de vértices. Se $p=5$, $q=10$ e, pelo [Teorema 2](#teorema-2) um grafo de $5$ vértices tem de ter:
 
-$$q \leq 3 \times5 -6 = 9$$
+$$
+q \leq 3 \times5 -6 = 9
+$$
 
 Como $10>9$, conclui-se que $k_5$ não é planar
 
@@ -109,7 +121,9 @@ Um grafo pode respeitar as condições do [Teorema 2](#teorema-2) e não ser pla
 
 Num grafo conexo planar de $p\geq 2$ vértices, que não tem triângulos, tem-se
 
-$$q \leq 2p-4$$
+$$
+q \leq 2p-4
+$$
 
 :::details[Demonstração]
 
@@ -154,7 +168,9 @@ Imagine-se que afinal havia pelo menos um vértice de grau $\leq 6$.
 
 Então, para grafos onde os vértices têm todos grau $\geq 6$, pelo [Teorema Fundamental da Teoria dos Grafos](/md/grafos#teorema-fundamental-da-teoria-dos-grafos)
 
-$$6p \leq 2q$$
+$$
+6p \leq 2q
+$$
 
 Onde $p$ é o número de vértices e $q$ o número de arestas.
 

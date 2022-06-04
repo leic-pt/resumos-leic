@@ -34,7 +34,9 @@ Algumas características do `Ciclo de Méton`:
 Para um dado ano $\lambda$, o seu respetivo ano do `Ciclo de Méton` é o `Número de Ouro`.  
 Seja $G$ o `Número de Ouro` do ano $\lambda$,
 
-$$G = 1 + \lambda\%19$$
+$$
+G = 1 + \lambda\%19
+$$
 
 :::details[Lógica da Fórmula]
 
@@ -122,7 +124,9 @@ $$
 
 Logo,
 
-$$E = (8 +11(G -1))\% 30$$
+$$
+E = (8 +11(G -1))\% 30
+$$
 
 \*Exemplo:
 
@@ -277,7 +281,9 @@ Dia "`32 de março`", ou seja, dia `1 de abril`.
 :::tip[NOTA IMPORTANTE]
 Se $N>C$,
 
-$$P= D + N - C$$
+$$
+P= D + N - C
+$$
 
 :::
 
@@ -318,7 +324,11 @@ Esta correção tem por base os dias adicionados ao Sol e os dias retirados à L
 :::tip[NOTA]
 Em aritmética do Calendário define-se século ($S$), como os primeiros $n-2$ dígitos de uma ano ($n$ é u número de dígitos do ano).
 Por exemplo,
-$$S_{2020} = 20 \quad S_{12345}=123 \quad S_{12}=0$$
+
+$$
+S_{2020} = 20 \quad S_{12345}=123 \quad S_{12}=0
+$$
+
 :::
 
 1. Equação do Sol

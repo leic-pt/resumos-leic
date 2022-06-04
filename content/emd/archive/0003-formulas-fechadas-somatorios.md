@@ -40,7 +40,9 @@ $$
 
 O sinal dos números de Stirling **de primeira espécie** depende da paridade de $n+k$, ou seja, sendo $s(n,k)$ um número de Stirling, tem-se:
 
-$$s(n,k) = (-1)^{n+k}\left|\begin{bmatrix}n \\ k \end{bmatrix}\right|$$
+$$
+s(n,k) = (-1)^{n+k}\left|\begin{bmatrix}n \\ k \end{bmatrix}\right|
+$$
 
 :::
 
@@ -145,7 +147,9 @@ o que facilita imenso a avaliação da soma de $n^{3}$.
 
 :::tip[DEFINIÇÃO]
 
-$$\sum_{k=0}^{m}n^{p} = \sum_{k=0}^{m}\left( \sum_{k=0}^{p} \begin{Bmatrix}p\\k\end{Bmatrix}n^{\underline{k}}\right) $$
+$$
+\sum_{k=0}^{m}n^{p} = \sum_{k=0}^{m}\left( \sum_{k=0}^{p} \begin{Bmatrix}p\\k\end{Bmatrix}n^{\underline{k}}\right)
+$$
 
 onde $\begin{Bmatrix}m\\k\end{Bmatrix}$ é o número de Stirling de segunda espécie.
 
@@ -244,7 +248,9 @@ $$
 
 Através desta fórmula é possível achar a soma fechada para expressões do tipo:
 
-$$\sum_{k=0}^{n}(2k+3)^{\underline{2}}$$
+$$
+\sum_{k=0}^{n}(2k+3)^{\underline{2}}
+$$
 
 $$
 \begin{aligned}
@@ -283,7 +289,9 @@ Como $n = 10$, a resposta é $40 755\ km$.
 
 Define-se um polinomial fatorial com valor negativo $(n^{\underline{-r}})$ como:
 
-$$u_{n}^{\underline{-r}} = \frac{1}{u_{n+1} \cdot \cdot \cdot u_{n+r}}$$
+$$
+u_{n}^{\underline{-r}} = \frac{1}{u_{n+1} \cdot \cdot \cdot u_{n+r}}
+$$
 
 :::
 
@@ -291,15 +299,21 @@ Como mnemónica, escreve-se o último termo no denominador primeiro porque coinc
 
 :::details[Exemplos]
 
-$$u_{n}^{\underline{-2}} = \frac{1}{(n+1)(n+2)}$$
+$$
+u_{n}^{\underline{-2}} = \frac{1}{(n+1)(n+2)}
+$$
 
 ---
 
-$$\frac{1}{(n+2)(n+3)(n+4)} = (n+1)^{\underline{-3}}$$
+$$
+\frac{1}{(n+2)(n+3)(n+4)} = (n+1)^{\underline{-3}}
+$$
 
 ---
 
-$$\frac{1}{(2n+1)(2n+3)(2n+5)} = \frac{1}{(2(n+1)-1)(2(n+2)-1)(2(n+3)-1)} = (2n-1)^{\underline{-3}}$$
+$$
+\frac{1}{(2n+1)(2n+3)(2n+5)} = \frac{1}{(2(n+1)-1)(2(n+2)-1)(2(n+3)-1)} = (2n-1)^{\underline{-3}}
+$$
 
 :::
 
@@ -309,9 +323,13 @@ A [fórmula anteriormente conhecida](/md/introducao-calculo-finito#somas-fechada
 
 :::tip[DEFINIÇÃO]
 
-$$\sum_{k=0}^{n-1}k^{\underline{r}} = \left[\frac{k^{\underline{r+1}}}{r+1}\right]_{0}^{n}\quad,\quad r \in \mathbb{Z}\backslash \{-1\}$$
+$$
+\sum_{k=0}^{n-1}k^{\underline{r}} = \left[\frac{k^{\underline{r+1}}}{r+1}\right]_{0}^{n}\quad,\quad r \in \mathbb{Z}\backslash \{-1\}
+$$
 
-$$\sum_{k=0}^{n-1}u_{k}^{\underline{r}} = \left[\frac{u_{k}^{\underline{r+1}}}{a(r+1)}\right]_{0}^{n}\quad,\quad r \in \mathbb{Z}\backslash \{-1\}\quad,\quad u_k=ak+b$$
+$$
+\sum_{k=0}^{n-1}u_{k}^{\underline{r}} = \left[\frac{u_{k}^{\underline{r+1}}}{a(r+1)}\right]_{0}^{n}\quad,\quad r \in \mathbb{Z}\backslash \{-1\}\quad,\quad u_k=ak+b
+$$
 
 :::
 

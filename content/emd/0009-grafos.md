@@ -31,7 +31,9 @@ Contudo, como isto é uma propriedade conhecida dos grafos, também se pode repr
 
 No caso do exemplo acima, um $E$ possível seria
 
-$$E = \{(V_1,V_2),(V_3,V_2),(V_4,V_3),(V_1,V_3)\}$$
+$$
+E = \{(V_1,V_2),(V_3,V_2),(V_4,V_3),(V_1,V_3)\}
+$$
 
 ## Definições e Teoremas
 
@@ -58,7 +60,9 @@ $\#A$ = número de elementos do conjunto $A$
 $g = (V,E)$. Para um vértice $v\in V$, o seu grau **em $g$** corresponde ao número de arestas de $g$ que incidem em $v$.  
 Representa-se por:
 
-$$\operatorname{deg}_g(v)$$
+$$
+\operatorname{deg}_g(v)
+$$
 
 ---
 
@@ -70,7 +74,9 @@ Num grafo $g=(V,E)$, a soma dos graus dos seus vértices é igual ao **dobro** d
 
 Primeiro define-se a seguinte operação
 
-$$\operatorname{I}:V \times E \rightarrow \{0,1\}$$
+$$
+\operatorname{I}:V \times E \rightarrow \{0,1\}
+$$
 
 Seja $v$ um vértice e $e$ uma aresta de $g$,  
 $\operatorname{I}(v,e) =$ número de vezes que a aresta $e$ incide em $v$
@@ -300,7 +306,9 @@ Por **indução simples**, variando o `Tamanho do Grafo` $(q)$
 $q=0$,  
 Neste caso o número de vértices é igual ao número de componentes.
 
-$$ 0 \geq p-p = 0, \quad \text{P.V.}$$
+$$
+ 0 \geq p-p = 0, \quad \text{P.V.}
+$$
 
 **Hipótese**: Grafos com $q$ arestas (não importando o nº de componentes e vértices): $p-k \leq q$.
 

@@ -29,7 +29,9 @@ A soma de todas as derivadas desde zero até $n-1$ é igual a $u_{n} - u_{0}$. A
 
 :::tip[DEFINIÇÃO]
 
-$$\sum_{k=0}^{n-1} \Delta u_{k} = u_{n} - u_{0}$$
+$$
+\sum_{k=0}^{n-1} \Delta u_{k} = u_{n} - u_{0}
+$$
 
 :::
 
@@ -78,15 +80,23 @@ $$
 
 Tome-se
 
-$$\sum_{k=0}^{n-1} 2^{k}$$. Sabe-se que $2^{k} = \Delta2^{k}$ logo, tem-se
+$$
+\sum_{k=0}^{n-1} 2^{k}
+$$
 
-$$\sum_{k=0}^{n-1} 2^{k} = \sum_{k=0}^{n-1} \Delta2^{k} = [2^{k}]_{0}^{n} = 2^{n} - 1$$
+. Sabe-se que $2^{k} = \Delta2^{k}$ logo, tem-se
+
+$$
+\sum_{k=0}^{n-1} 2^{k} = \sum_{k=0}^{n-1} \Delta2^{k} = [2^{k}]_{0}^{n} = 2^{n} - 1
+$$
 
 e, generalizando, tem-se:
 
 :::tip[DEFINIÇÃO]
 
-$$\sum_{k=0}^{n-1} a^{k} =\frac{[a^k]^n_0}{a-1} = \frac{a^n-1}{a -1} \quad, \quad a\ne 0,1 $$
+$$
+\sum_{k=0}^{n-1} a^{k} =\frac{[a^k]^n_0}{a-1} = \frac{a^n-1}{a -1} \quad, \quad a\ne 0,1
+$$
 
 :::
 
@@ -112,7 +122,9 @@ decrementa-se o valor de $n$.
 
 Assim, como exemplo, tem-se
 
-$$n^{\underline{3}} = n(n-1)(n-2)$$
+$$
+n^{\underline{3}} = n(n-1)(n-2)
+$$
 
 $$
 \begin{aligned}
@@ -167,4 +179,6 @@ donde se tira que $k = \frac{1}{2}\Delta k^{\underline{2}}$.
 
 Logo, pode-se reescrever o somatório para algo com que já se sabe trabalhar:
 
-$$\sum_{k=0}^{n-1}k =\frac{1}{2}\sum_{k=0}^{n-1}\Delta k^{\underline{2}} = \frac{1}{2}(n)(n-1)$$
+$$
+\sum_{k=0}^{n-1}k =\frac{1}{2}\sum_{k=0}^{n-1}\Delta k^{\underline{2}} = \frac{1}{2}(n)(n-1)
+$$

@@ -15,13 +15,17 @@ type: content
 
 Tome-se o número de maneiras que se pode fazer $x$ euros com moedas de 1 euro:
 
-$$1z^0+1z^1+1z^2+1z^3+\dots1z^x$$
+$$
+1z^0+1z^1+1z^2+1z^3+\dots1z^x
+$$
 
 Onde o coeficiente de $z^x$ representa o número de formas possíveis de distribuir as moedas.
 
 Assim, o número de maneiras que se pode fazer $x$ euros com moedas de 2 euros é:
 
-$$1z^0+0z^1+1z^2+0z^3+\dots+0z^{2x-1}+1z^{2x}$$
+$$
+1z^0+0z^1+1z^2+0z^3+\dots+0z^{2x-1}+1z^{2x}
+$$
 
 Abaixo está como averiguar o número de formas possíveis de obter 8 euros com moedas de 1 euro e de dois.
 
@@ -37,7 +41,9 @@ $$
 
 Em geral, uma sucessão $u_n$ é gerada por:
 
-$$u_n \longrightarrow v(z) = \sum_{k=0}^{+\infty}u_kz^k$$
+$$
+u_n \longrightarrow v(z) = \sum_{k=0}^{+\infty}u_kz^k
+$$
 
 seja $u_n = 1,1,1,1,1,1,0,0,\dots$:
 
@@ -49,7 +55,9 @@ $$
 
 ou então $u_n = 1,3,3,1,0,0,\dots$:
 
-$$v(x)=1+3z+3z^2+z^3 = (1+z)^3$$
+$$
+v(x)=1+3z+3z^2+z^3 = (1+z)^3
+$$
 
 ou então $u_n = 1\quad\forall_{n \in \N}$:
 
@@ -74,11 +82,15 @@ $$
 
 Repare-se que a partir desta fórmula pode-se também chegar a geradora de $u_n=n$:
 
-$$u_n=n+1 \implies v(z) _{n+1}=\sum_{k=0}^{+\infty}(k+1)z^k = \sum_{k=0}^{+\infty}kz^k+\sum_{k=0}^{+\infty}z^k$$
+$$
+u_n=n+1 \implies v(z) _{n+1}=\sum_{k=0}^{+\infty}(k+1)z^k = \sum_{k=0}^{+\infty}kz^k+\sum_{k=0}^{+\infty}z^k
+$$
 
 onde o primeiro somatório da última igualdade representa a geradora da sucessão $u_n=n$. Assim, viria:
 
-$$v(z)_{n} = \frac{z}{(1-z)^2}$$
+$$
+v(z)_{n} = \frac{z}{(1-z)^2}
+$$
 
 Agora, para $u_n=3^n$:
 
@@ -89,19 +101,27 @@ $$
 
 Ou, de um modo geral:
 
-$$u_n=a^n\implies v(z)_{u_n}=\frac 1 {1-az}$$
+$$
+u_n=a^n\implies v(z)_{u_n}=\frac 1 {1-az}
+$$
 
 Já agora, a função geradora para as moedas de dois euros seria:
 
-$$D(z) = \sum_{k=0}^{+\infty}(z^2)^k = \frac 1 {1-z^2}$$
+$$
+D(z) = \sum_{k=0}^{+\infty}(z^2)^k = \frac 1 {1-z^2}
+$$
 
 Voltando agora ao exemplo inicial, vamos ver quantas formas há de obter $x$ euros a partir de moedas de 1 e 2 euros:
 
-$$G(z) = v(z)D(z) = \frac 1 {(1-z)(1-z^2)} = \frac 1 {(1-z)^2(1-(-z))}$$
+$$
+G(z) = v(z)D(z) = \frac 1 {(1-z)(1-z^2)} = \frac 1 {(1-z)^2(1-(-z))}
+$$
 
 Agora, tem-se:
 
-$$\frac 1 {(1-z)^2(1-(-z))} = \frac{\frac 1 4}{1-z}+\frac{\frac 1 2}{(1-z)^2}+\frac{\frac 1 4}{1-(-z)}$$
+$$
+\frac 1 {(1-z)^2(1-(-z))} = \frac{\frac 1 4}{1-z}+\frac{\frac 1 2}{(1-z)^2}+\frac{\frac 1 4}{1-(-z)}
+$$
 
 agora, relacionando com as fórmulas já vistas:
 

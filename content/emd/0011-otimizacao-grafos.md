@@ -22,7 +22,9 @@ Grafo conexo que não tem ciclos
 
 Se $T$ é uma árvore de ordem $p$ e tamanho $q$, então
 
-$$q = p-1$$
+$$
+q = p-1
+$$
 
 :::tip[Relembrar]
 
@@ -126,7 +128,9 @@ Seja $a_1,\dots,a_i,\dots,a_{p-1}$ a sequência de arestas de $T$ assinaladas at
 Seja $a_i$ a **primeira** aresta que pertence a $T$ e não pertence a $T_0$. Se adicionarmos $a_i$ a $T_0$, ficaríamos com um `ciclo` em vez de uma árvore, porque ficávamos com $p$ arestas, e, novamente pelo [Teorema 1](#teorema-1), uma árvore só pode ter $p-1$ arestas.  
 Nesse ciclo, há necessariamente uma aresta, $a_k$, que não pertence a $T$, se removermos $a_k$ de $T_0$ ficamos com uma nova árvore, $T_0'$.
 
-$$T_0' = T_0+a_i-a_k$$
+$$
+T_0' = T_0+a_i-a_k
+$$
 
 **Importante** (chave do Teorema)  
 No `Algoritmo de Kruskal` escolhe-se sempre as arestas por ordem **crescente** do valor. Por isso, se $a_k$ não está em $T$ e todas as arestas até $a_i$ estão em $T$ e $T_0$ (foram feitas sempre as mesmas escolhas), das duas uma:

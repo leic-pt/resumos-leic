@@ -198,17 +198,23 @@ $$
 
 Tal como nos `AFD`, nos `AFND` podemos definir ainda $\delta^*$, como sendo a função que recebe um estado e uma palavra e que define a que conjunto de estados podemos acabar no final da palavra. Pode ser definido por:
 
-$$\delta^* :  Q \times \Sigma^* \rightarrow P(Q)$$
+$$
+\delta^* :  Q \times \Sigma^* \rightarrow P(Q)
+$$
 
 Onde:
 
 - Ao aplicarmos $\delta^*$ a um estado $q$ e se não recebermos nada, poderá transitar para todos as transições $\epsilon$ do estado $q$. Estes estados são representados por $\Epsilon(\{q\})$.
 
-  $$\delta^*(q,\epsilon) = \Epsilon(\{q\}), \quad \forall q \in Q$$
+  $$
+  \delta^*(q,\epsilon) = \Epsilon(\{q\}), \quad \forall q \in Q
+  $$
 
 - Ao aplicarmos $\delta^*$ a um estado $q$ quando recebe uma palavra $wa$, onde $a$ é o último símbolo da palavra e $w \in \Sigma^*$, o estado final será o resultado de aplicar $\delta$, quando recebe a letra $a$, a todos os estados a que podemos chegar quando recebemos a palavra $w$. Não esquecendo as transições $\epsilon$.
 
-$$\delta^*(q,wa) = \bigcup_{r \in \delta^*(q,w)} \Epsilon(\delta(r,a)), \quad \forall r,q \in Q$$
+$$
+\delta^*(q,wa) = \bigcup_{r \in \delta^*(q,w)} \Epsilon(\delta(r,a)), \quad \forall r,q \in Q
+$$
 
 :::
 
@@ -216,13 +222,17 @@ $$\delta^*(q,wa) = \bigcup_{r \in \delta^*(q,w)} \Epsilon(\delta(r,a)), \quad \f
 
 Diz-se que um $N=(Q,\Sigma,\delta,q_0,F)$ **aceita** a palavra $w \in \Sigma^*$ se
 
-$$\delta^*(q_0,w) \cap F \neq \emptyset$$
+$$
+\delta^*(q_0,w) \cap F \neq \emptyset
+$$
 
 ### Linguagem Reconhecida
 
 A `Linguagem Reconhecida` por um `AFND` $N=(Q,\Sigma,\delta,q_0,F)$ será:
 
-$$L(N)=\{w \in \Sigma^* : \delta^*(q_0,w) \cap F \neq \emptyset\}$$
+$$
+L(N)=\{w \in \Sigma^* : \delta^*(q_0,w) \cap F \neq \emptyset\}
+$$
 
 ### Teorema 1
 
@@ -380,7 +390,9 @@ Sejam $A_1$ e $A_2$ dois autómatos diferentes, cuja representação, omitindo a
 
 Seja $L_1 = L(A_1)$ e $L_2 = L(A_2)$, (**relembrar** que $L(B)$ é a [lingaugem de aceitação](#linguagem-reconhecida) do autómato $B$)
 
-$$L_1 \cup L_2 = L(?)$$
+$$
+L_1 \cup L_2 = L(?)
+$$
 
 Para representar o autómato de `linguagem reconehcida` $L_1 \cup L_2$ basta adicionar um novo estado inicial que se liga aos estados inicias de $A_1$ e $A_2$ por transições $\epsilon$.
 
@@ -514,7 +526,9 @@ Como $L$ é regular tem de existir um $p \in \N_1$ tal que todas as palavras $s 
 
 Se existe um $p$ que satisfaz as condições acima, então a palavra
 
-$$s=0^p1^p=0_1 \dots 0_p1_1 \dots 1_p$$
+$$
+s=0^p1^p=0_1 \dots 0_p1_1 \dots 1_p
+$$
 
 Pertence à linguagem $L$ e tem de verificar as condições acima, uma vez que $|s| = 2p \geq p$.  
 Dividindo $s$ em $3$ subpalavras $(s=xyz)$, pelas condições do `Lema de Pumping` $|xy|\leq p$. Deste modo $xy$ é uma palavra somente constituída por $0$'s. (Relembrar que $s = 0^p1^p$).

@@ -20,7 +20,9 @@ Relembrando que quando queremos provar uma coleção de enunciados através de I
 
 onde $P(n)$ (antecedente) é a nossa _Hipótese de Indução._ A sucessão de _Fibonacci_ é um ótimo exemplo de algo donde se podem derivar várias propriedades a partir da indução matemática. É definida da seguinte forma:
 
-$$f_n=\begin{cases}\ 0\quad \text{se } \quad n = 0\\\  1\quad \text{se } \quad n = 1 \\\ f_{n-1} + f_{n-2}\quad \text{se }\quad n \in \mathbb N\end{cases}$$
+$$
+f_n=\begin{cases}\ 0\quad \text{se } \quad n = 0\\\  1\quad \text{se } \quad n = 1 \\\ f_{n-1} + f_{n-2}\quad \text{se }\quad n \in \mathbb N\end{cases}
+$$
 
 Com termos:
 
@@ -37,11 +39,15 @@ $$
 
 Pretende-se provar que:
 
-$$\sum_{k=0}^{n}f_k = f_{n+2} -1$$
+$$
+\sum_{k=0}^{n}f_k = f_{n+2} -1
+$$
 
 Base da indução (n = 0)
 
-$$\sum_{k=0}^{0}f_k = 0 = 1-1 = f_{0+2}-1$$
+$$
+\sum_{k=0}^{0}f_k = 0 = 1-1 = f_{0+2}-1
+$$
 
 Hipótese de Indução: $\sum_{k=0}^{n}f_n = f_{n+2} -1$
 
@@ -58,11 +64,15 @@ Onde se aplicou a nossa hipótese de indução.
 
 Pretende-se provar que:
 
-$$\sum_{k=0}^{n}f_k^2 = f_nf_{n+1}$$
+$$
+\sum_{k=0}^{n}f_k^2 = f_nf_{n+1}
+$$
 
 Base da indução (n = 0)
 
-$$\sum_{k=0}^{0}f_k^2 = 0^2=0=0\cdot1=f_0f_{0+1}$$
+$$
+\sum_{k=0}^{0}f_k^2 = 0^2=0=0\cdot1=f_0f_{0+1}
+$$
 
 Hipótese de Indução: $\sum_{k=0}^{n}f_k^2 = f_nf_{n+1}$
 
@@ -76,17 +86,23 @@ $$
 
 Pretende-se provar que:
 
-$$f_{n-1}f_{n+1} = f_n^2 +(-1)^n$$
+$$
+f_{n-1}f_{n+1} = f_n^2 +(-1)^n
+$$
 
 Base da indução (n = 1)
 
-$$f_{0}f_{2}= 0\cdot1 = 0 = f_1^2+(-1)^1=1-1=0$$
+$$
+f_{0}f_{2}= 0\cdot1 = 0 = f_1^2+(-1)^1=1-1=0
+$$
 
 Hipótese de Indução: $f_{n-1}f_{n+1} = f_n^2 +(-1)^n$
 
 Passo de indução
 
-$$f_{n}f_{n+2} = f_n(f_{n+1}+f_{n}) =\\ f_n^2+f_nf_{n+1} = f_{n-1}f_{n+1}-(-1)^n + f_{n}f_{n+1} =\\ f_{n+1}(f_n+f_{n-1}) + (-1)^{n+1} = f_{n+1}^2 + (-1)^{n+1}$$
+$$
+f_{n}f_{n+2} = f_n(f_{n+1}+f_{n}) =\\ f_n^2+f_nf_{n+1} = f_{n-1}f_{n+1}-(-1)^n + f_{n}f_{n+1} =\\ f_{n+1}(f_n+f_{n-1}) + (-1)^{n+1} = f_{n+1}^2 + (-1)^{n+1}
+$$
 
 ## Tipos de indução
 
@@ -112,7 +128,9 @@ Quer se provar que **todo o número natural é a soma de números de Fibonacci n
 
 Base da indução (n = 0)
 
-$$0~\text{é um número de Fibonacci.}$$
+$$
+0~\text{é um número de Fibonacci.}
+$$
 
 Hipótese de Indução: $\text{Todo o número natural é a soma de números de Fibonacci não consecutivos.}$
 
@@ -126,8 +144,12 @@ Como resultado, $\ n$ pode ser representado como a soma de $F_j$ e o conjunto $D
 
 Como exemplo, tome-se o número doze como valor para $m$:
 
-$$8 < 12 < 13$$
+$$
+8 < 12 < 13
+$$
 
 Tem-se que $m-f_j = 12 - 8 = 4 = 3+1$ (sabe-se que tem representação através de números de Fibonacci devido à nossa hipótese). Logo tem-se que:
 
-$$12= 8+4 = 8+3+1$$
+$$
+12= 8+4 = 8+3+1
+$$

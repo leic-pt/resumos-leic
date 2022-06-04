@@ -67,7 +67,9 @@ Tem-se $a = bq_1 + r_1$ onde $q_1$ é o quociente entre $a$ e $b$ e $r_1$ o rest
 
 1. Repare-se que se $d|a$ e $d|b$, então $d|r_1$:
 
-$$a = bq_1+r_1 \Leftrightarrow dk=dk'q_1+r_1 \Leftrightarrow r_1=d(k-k'q_1)$$
+$$
+a = bq_1+r_1 \Leftrightarrow dk=dk'q_1+r_1 \Leftrightarrow r_1=d(k-k'q_1)
+$$
 
 2. Por um raciocínio análogo, se $d|b$ e $d|r_1$, então $d|a$.
 
@@ -190,7 +192,9 @@ Se $p \in \N_1$ divide $a \times b$ ($a,b \in \Z$), e $p$ é primo com $b$, ent�
 
 :::details[Demonstração]
 
-$$p \frown b = 1$$
+$$
+p \frown b = 1
+$$
 
 Pelo [Teorema 4](#teorema-4),
 
