@@ -6,6 +6,10 @@ type: content
 
 # Teorema Chinês dos Restos
 
+```toc
+
+```
+
 $$
 \left\{ \begin{aligned}
   x \equiv_5 \quad 1\\

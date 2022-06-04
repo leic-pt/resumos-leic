@@ -6,6 +6,10 @@ type: content
 
 # Congruências
 
+```toc
+
+```
+
 ## Definição
 
 Dados 2 números $a , b \in \Z$ e um $n \in \N_1$, diz-se que **$a$ é congruente com $b$ para módulo $n$**, se:

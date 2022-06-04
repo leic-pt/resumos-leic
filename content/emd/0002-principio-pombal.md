@@ -6,6 +6,10 @@ type: content
 
 # Princípio do Pombal
 
+```toc
+
+```
+
 ## Primeira Forma do Princípio do Pombal
 
 Se $n$ pombos voam para $k<n$ pombais, num dos $k$ pombais coabitam pelo menos dois pombos.

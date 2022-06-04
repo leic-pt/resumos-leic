@@ -6,6 +6,10 @@ type: archive
 
 # Algoritmo de Kuratowski
 
+```toc
+
+```
+
 ## Definições
 
 ### Subdivisão de um grafo

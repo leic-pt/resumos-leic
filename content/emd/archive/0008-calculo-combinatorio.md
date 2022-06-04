@@ -7,6 +7,10 @@ type: archive
 
 # Teoremas e Cálculo Combinatório
 
+```toc
+
+```
+
 ## Teoremas sobre Cálculo Combinatório e Funções Geradoras
 
 ### Teorema 1

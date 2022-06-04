@@ -6,6 +6,10 @@ type: archive
 
 # Algoritmos de Gale-Shapley
 
+```toc
+
+```
+
 ## Definições
 
 ### Grafo k-partido

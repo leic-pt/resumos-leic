@@ -6,6 +6,10 @@ type: content
 
 # Otimização em Grafos
 
+```toc
+
+```
+
 ## Definições e Teoremas
 
 ### Árvore

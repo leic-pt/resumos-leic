@@ -6,6 +6,10 @@ type: archive
 
 # Autómatos Finitos
 
+```toc
+
+```
+
 :::details[Pequeno Exemplo]
 
 Representação gráfica de um autómato que, numa palavra de $0$'s e $1$'s finita, verifica se o número de $0$'s é par e $1$'s é ímpar.

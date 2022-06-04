@@ -7,6 +7,10 @@ type: content
 
 # MDC e Eq. Diofantinas
 
+```toc
+
+```
+
 ## Máximo divisor comum
 
 **Definição:** dados dois números $a$ e $b$ inteiros, diz-se que o número $d \in \N_1$ é máximo divisor comum de $a$ e $b$, e escreve-se $a \frown b = d$, se:

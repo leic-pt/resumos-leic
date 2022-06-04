@@ -6,6 +6,10 @@ type: archive
 
 # Grafos Planares
 
+```toc
+
+```
+
 Grafos que podem ser desenhados sem que haja interseções de arestas.
 
 ## Teoremas

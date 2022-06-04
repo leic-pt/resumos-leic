@@ -6,6 +6,10 @@ type: archive
 
 # Teoria do Fluxo
 
+```toc
+
+```
+
 ## Definições
 
 ### Digrafo

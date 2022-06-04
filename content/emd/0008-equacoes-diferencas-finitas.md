@@ -5,7 +5,11 @@ path: /emd/equacoes-diferencas-finitas
 type: content
 ---
 
-# Equações de diferenças finitas
+# Equações de Diferenças Finitas
+
+```toc
+
+```
 
 ## Problema da Torre de Hanói
 

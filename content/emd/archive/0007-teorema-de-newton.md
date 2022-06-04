@@ -7,6 +7,10 @@ type: archive
 
 # Teorema de Newton
 
+```toc
+
+```
+
 ## Teorema de Newton
 
 Seja $p_n$ um polinómio geral:
