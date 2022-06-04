@@ -2,6 +2,8 @@
 title: Procura Adversária e Jogos
 description: Jogos zero-sum.
   Procura Adversária.
+  Minimax.
+  Cortes Alfa-Beta.
 path: /ia/jogos
 type: content
 ---
@@ -107,7 +109,7 @@ o fator de imprevisibilidade que retira a otimalidade ao algoritmo.
 :::tip[Generalização para $n$ jogadores]
 
 Podemos generalizar o funcionamento do algoritmo para $n$ agentes. Para tal,
-vamos guardar um **vetor de valores de utilidade**, em vez de um valor só, e cada jogador
+vamos guardar um **vetor de valores Minimax**, em vez de um valor só, e cada jogador
 vai, idealmente, escolher a jogada que mais o beneficia de entre todas as possíveis,
 mantendo, claro, guardados também os valores que cada jogada terá para os outros agentes:
 havendo uma quantidade arbitrária de jogadores, cada um deles acaba por não se preocupar
@@ -180,6 +182,68 @@ da complexidade temporal do melhor caso dos cortes $\alpha$-$\beta$
 atingir [**o dobro da profundidade**](color:green) na procura no mesmo período de tempo!
 
 :::
+
+É natural que, sem saber de antemão a ordenação dos valores dos nós que temos em mãos,
+queiramos ainda assim escolher os nós por uma [**ordem ideal**](color:orange), ou vá,
+uma ordem que se aproxime tanto do ideal quanto possível. Mais ainda, podemos não querer
+ter de navegar até às folhas da árvore de procura para saber os valores Minimax dos nós
+mais acima, aceitando estimativas que sejam relativamente próximas do valor real.
+Aqui entra, uma ideia nova: a de uma [**tabela de transposições**](color:orange), que nos vai
+ajudar a combater nós diferentes a representar estados equivalentes.
+
+O objetivo passará, então, por guardar cada estado com o respetivo valor Minimax numa
+**_hash table_**, a nossa [**tabela de transposições**](color:yellow).
+Verificamos, antes de o tentar guardar, se ele já lá existe, claro: se já lá existir,
+escusamos de voltar a analisar tudo o que está para baixo dele, visto que já
+temos o respetivo valor Minimax. Conseguimos, através desta técnica, **duplicar** a
+profundidade de procura no mesmo intervalo de tempo. Temos, contudo, um catch: para espaços
+de estado enormes, vamos ter de manter uma quantidade igualmente enorme de entradas na tabela.
+Existem duas estratégias clássicas, propostas por Claude Shannon, para combater este problema,
+mas que na cadeira não são abordadas em detalhe (uma primeira que propõe olhar apenas para jogadas
+até uma certa profundidade na árvore, e uma segunda que propõe ignorar jogadas que "não pareçam
+promissoras").
+
+### Procura $\alpha$-$\beta$ heurística
+
+Existem, claro, outras maneiras de realizar procura com cortes $\alpha$-$\beta$ sem ir
+necessariamente até às folhas da árvore de procura: podemos reutilizar a ideia de funções
+de avaliação, que estimem a função de utilidade de um dado nó! Vamos procurar _cortar_ a nossa
+árvore de procura a uma profundidade arbitrária, atribuir aos "novos nós-folha" os valores
+correspondentes à respetiva função de avaliação e de seguida propagar para cima tal
+como fazíamos anteriormente. Os nossos valores minimax serão, então, dados por:
+
+$$
+\op{h-minimax(s, d)} = \begin{cases}
+  \op{eval(s, MAX)} & \text{se} \op{is-cutoff(s, d)} \\
+  \max_{a \in \op{actions(s)}} \op{h-minimax(result(s, a), d + 1)} & \text{se} \op{player(s)} = \op{MAX} \\
+  \min_{a \in \op{actions(s)}} \op{h-minimax(result(s, a), d + 1)} & \text{se} \op{player(s)} = \op{MIN}
+\end{cases}
+$$
+
+É, contudo, relevante colocar o dedo na ferida: como é que vamos ter aqui boas heurísticas?
+Bem, em primeiro lugar é relevante notar que vamos ter sempre de ter, para [**nós terminais**](color:red):
+
+$$
+\op{eval(s, p)} = \op{utility(s, p)}.
+$$
+
+Mais ainda, uma função de avaliação deverá, claro, ter valores próximos dos reais, por forma
+a não levar o jogador a fazer jogadas descabidas. [**Deve ser simples e eficiente de calcular**](color:green),
+já que caso contrário mais valia fazer apenas a procura até ao fim. Dado este último ponto, uma abordagem possível é
+tratar a função de avaliação como uma função matemática: uma soma linear de características da
+configuração atual do jogo (devidamente pesadas). Podemos pensar, no caso do jogo do galo,
+nas várias posições onde podemos colocar uma peça nossa, e pesar cada jogada de acordo com o quão
+perto ficamos de vencer.
+
+$$
+\op{eval(s)} = \sum_{i=1}^n \op{weight(i)} \op{feature_i(s)}
+$$
+
+Temos, contudo, que esta forma de olhar para a função de avaliação peca por considerar todas
+as _features_ do jogo como independentes: considera, em xadrez, que ter dois bispos é apenas
+equivalente a duas vezes o valor de um bispo, quando na verdade ter dois bispos (principalmente
+em momentos mais avançados no jogo) tem uma grande importância contextual. Abordagens mais
+recentes têm, portanto, acabado por afastar-se desta noção linear da função de avaliação.
 
 ---
 
