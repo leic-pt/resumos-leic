@@ -70,10 +70,7 @@ simétrico (apesar de em alguns jogos, como o xadrez, tal não ser necessariamen
 
 ## Escolhas Ótimas - Algoritmo Minimax
 
-Ora, mas se no jogo do galo vamos poder ter $9!$ nós terminais diferentes (não necessariamente
-todos distintos), deverão haver maneiras de otimizar as nossas travessias pela árvore, por
-forma a tornar as nossas previsões comportáveis para jogos com espaços de estados maiores.
-Um dos algoritmos clássicos que procura isso mesmo é o [**Minimax**](color:green).
+Um dos algoritmos clássicos de procura em jogos é o [**Minimax**](color:green).
 
 Considerando jogos com dois agentes, o funcionamento do algoritmo Minimax é relativamente
 simples: cada agente vai sempre escolher a jogada que maximiza o [**valor minimax**](color:green),
@@ -97,7 +94,39 @@ maior valor minimax. O exemplo abaixo poderá ajudar a clarificar este conceito:
 
 ![Minimax - Exemplo Inicial](imgs/0005-minimax-basic-example.svg#dark=2)
 
-a
+O algoritmo faz, portanto, uma **procura em profundidade** (para obter os valores dos estados
+terminais e propagá-los para cima), acabando por ter de explorar toda a árvore
+de jogo na mesma - já vamos ver que é um pormenor desagradável da implementação _naive_ do
+algoritmo, podendo modificá-lo por forma a melhor a sua eficiência. Tratando-se basicamente
+de uma $DFS$, partilha também as suas complexidades temporal e espacial: a **complexidade temporal**
+é $O(b^d)$ e a **espacial** é linear, $O(bd)$ (podendo ainda ser melhorada para $O(d)$,
+caso os sucessores sejam gerados um a um). É completo, claro, e tal como referido acima
+só garante otimalidade contra adversários ótimos: em cenários reais, haverá obviamente
+o fator de imprevisibilidade que retira a otimalidade do algoritmo.
+
+:::tip[Generalização para $n$ jogadores]
+
+Podemos generalizar o funcionamento do algoritmo para $n$ agentes. Para tal,
+vamos guardar um **vetor de valores de utilidade**, em vez de um valor só, e cada jogador
+vai, idealmente, escolher a jogada que mais o beneficia de entre todas as possíveis,
+mantendo, claro, guardados também os valores que cada jogada terá para os outros agentes:
+havendo uma quantidade arbitrária de jogadores, cada um deles acaba por não se preocupar
+tanto com "estragar o jogo ao outro" como com "preocupar-se com o próprio jogo". As
+estratégias ótimas podem, naturalmente, traduzir-se em alianças informais entre vários
+jogadores (pensemos, por exemplo, nas alianças que são feitas no Monopólio).
+
+:::details[Minimax - Exemplo Multi-Agente]
+
+![Minimax - Exemplo Multi-Agente](imgs/0005-minimax-multiplayer-example.svg#dark=2)
+
+Note-se que $C$ escolhe, no seu nó mais à esquerda, $(1, 2, 6)$, visto que, entre os seus filhos, é essa a jogada
+que maximiza $X_C$. Vamos aplicando lógicas semelhantes sucessivamente (para todos os nós
+da árvore), chegando eventualmente à conclusão que $(1, 2, 6)$ é a jogada ótima para $A$,
+considerando, claro, que todos os outros agentes também jogam de forma ótima.
+
+:::
+
+### Procura com Cortes
 
 ---
 
