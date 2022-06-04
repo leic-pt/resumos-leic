@@ -1,3 +1,7 @@
+#resumos-search-input::-webkit-search-cancel-button {
+  display: none;
+}
+
 .search-button {
   margin-right: 1rem;
 
