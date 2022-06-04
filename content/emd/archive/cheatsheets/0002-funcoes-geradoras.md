@@ -1,7 +1,7 @@
 ---
 title: Funções Geradoras (Cheat Sheet)
 description: Fórmulas; Teoremas; Combinatória. Cheat Sheet de Funções Geradoras
-path: /emd/arquivo/cheatsheets/funcoes-geradoras
+path: /emd/archive/cheatsheets/funcoes-geradoras
 type: archive
 ---
 

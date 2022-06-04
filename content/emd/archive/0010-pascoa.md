@@ -1,6 +1,6 @@
 ---
 title: Páscoa
-path: /emd/arquivo/pascoa
+path: /emd/archive/pascoa
 type: archive
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Algoritmo de Kuratowski
-path: /emd/arquivo/algoritmo-kuratowski
+path: /emd/archive/algoritmo-kuratowski
 type: archive
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Autómatos Finitos
-path: /emd/arquivo/automatos-finitos
+path: /emd/archive/automatos-finitos
 type: archive
 ---
 

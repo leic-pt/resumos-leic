@@ -1,6 +1,6 @@
 ---
 title: Calendário - Início
-path: /emd/arquivo/calendario
+path: /emd/archive/calendario
 type: archive
 ---
 

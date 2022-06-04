@@ -1,7 +1,7 @@
 ---
 title: Teoremas e Cálculo Combinatório
 description: Teoremas sobre Combinatória; Problemas de Contagem.
-path: /emd/arquivo/calculo-combinatorio
+path: /emd/archive/calculo-combinatorio
 type: archive
 ---
 

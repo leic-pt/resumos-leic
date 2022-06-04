@@ -1,6 +1,6 @@
 ---
 title: Algoritmos de Gale-Shapley
-path: /emd/arquivo/relacionamentos-gale-shapley
+path: /emd/archive/relacionamentos-gale-shapley
 type: archive
 ---
 

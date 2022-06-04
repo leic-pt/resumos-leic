@@ -1,6 +1,6 @@
 ---
 title: Grafos Planares
-path: /emd/arquivo/grafos-planares
+path: /emd/archive/grafos-planares
 type: archive
 ---
 

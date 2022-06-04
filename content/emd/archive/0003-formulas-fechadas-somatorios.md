@@ -7,7 +7,7 @@ description: >-
   Derivada de uma Sucessão Aritmética;
   Soma da Sucessão Aritmética como Polinómio Fatorial;
   Polinómios Fatoriais Negativos;
-path: /emd/arquivo/formulas-fechadas-somatorios
+path: /emd/archive/formulas-fechadas-somatorios
 type: archive
 ---
 

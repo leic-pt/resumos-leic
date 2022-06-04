@@ -1,6 +1,6 @@
 ---
 title: Teoria do Fluxo
-path: /emd/arquivo/teoria-fluxo
+path: /emd/archive/teoria-fluxo
 type: archive
 ---
 

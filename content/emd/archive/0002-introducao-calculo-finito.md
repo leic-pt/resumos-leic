@@ -3,7 +3,7 @@ title: Introdução ao Cálculo Finito
 description: >-
   Introdução ao Cálculo Finito: derivada de uma sucessão, teorema fundamental do cálculo finito, 
   somas fechadas do tipo aⁿ, polinómios fatoriais.
-path: /emd/arquivo/introducao-calculo-finito
+path: /emd/archive/introducao-calculo-finito
 type: archive
 ---
 

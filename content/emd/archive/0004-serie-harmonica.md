@@ -1,7 +1,7 @@
 ---
 title: Série Harmónica
 description: Triângulo de Pascal; Revisões; Propriedades dos Números de Stirling de Primeira e Segunda Espécie; Série Harmónica;
-path: /emd/arquivo/serie-harmonica
+path: /emd/archive/serie-harmonica
 type: archive
 ---
 

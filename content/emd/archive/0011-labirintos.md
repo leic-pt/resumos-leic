@@ -1,6 +1,6 @@
 ---
 title: Labirintos
-path: /emd/arquivo/labirintos
+path: /emd/archive/labirintos
 type: archive
 ---
 
