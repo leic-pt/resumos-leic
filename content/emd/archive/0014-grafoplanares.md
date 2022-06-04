@@ -75,9 +75,9 @@ $$
 
 QED
 
-:::details[Triângulo "torto"]
+**Triângulo "torto"**
 
-![Tri Torto](../assets/0024-triTorto.png)
+![Tri Torto](./assets/0014-triTorto.png#dark=3)
 
 A região $R_1$ assinalada a [verde](color:green) é limitada por um triângulo ("torto").  
 **Mas atenção:** "torto" não foi uma designação dada pelo professor na aula, nem sei se existe.
@@ -136,7 +136,7 @@ QED
 
 Um grafo bipartido com partições de dimensão $3$ $(k_{3,3})$ não é planar.
 
-![K 33](../assets/0024-k33.png)
+![K 33](./assets/0014-k33.png#dark=3)
 
 A região mínima é um quadrado.  
 Se verificarmos, temos $9$ arestas. Pelo [Teorema 3](#teorema-3) temos de ter no máximo $8$ em grafos com $6$ vértices.  

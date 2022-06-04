@@ -70,7 +70,7 @@ Um ano é Bissexto se é divisível por 4 e não for divisível por 100,\
  a não ser que seja também divisível por 400 (Só se aplica para o Calendário Gregoriano)
 
 :::details[At Dover Dwell George Brown Esquire, Good Christopher Finch And David Friar]
-![completo](../assets/1003-calendario.jpeg#dark=1)
+![completo](./assets/1003-calendario.jpeg#dark=3)
 :::
 
 ## Calendário Gregoriano (Calendário usado por Todos Nós)
@@ -84,7 +84,7 @@ $\mathcal{F}$ = Número do 1º Dia Do Mês (Tabela no início do Resumo)
 $\mathcal{Y}$ = Ano
 
 :::details[Gregoriano]
-![gregoriano](../assets/1003-gregoriano.jpeg#dark=1)
+![gregoriano](./assets/1003-gregoriano.jpeg#dark=3)
 :::
 
 $\mathcal{C} = 1 + (\mathcal{D}+ \mathcal{F} -2)$ % 7 (corresponde ao **número calêndrico**)
@@ -106,7 +106,7 @@ Aqui, $\mathcal{W}$ corresponde ao **dia da semana**.
 ${Y}$ = Ano
 
 :::details[Gregoriano]
-![pascoa_gregoriano](../assets/1003-pascoag.jpeg#dark=1)
+![pascoa_gregoriano](./assets/1003-pascoag.jpeg#dark=3)
 :::
 
 ${S} = {Y}$ / 100 (corresponde ao **"século - 1"**)
@@ -146,7 +146,7 @@ $\mathcal{F}$ = Número do 1º Dia Do Mês (Tabela no início do Resumo)
 $\mathcal{Y}$ = Ano
 
 :::details[Juliano]
-![julaino](../assets/1003-juliano.jpeg#dark=1)
+![julaino](./assets/1003-juliano.jpeg#dark=3)
 :::
 
 $\mathcal{C} = 1 + (\mathcal{D}+ \mathcal{F} -2)$ % 7 (corresponde ao **número calêndrico**)
@@ -168,7 +168,7 @@ Aqui, $\mathcal{W}$ corresponde ao **dia da semana**.
 ${Y}$ = Ano
 
 :::details[Juliano]
-![pascoa_julaino](../assets/1003-pascoaj.jpeg#dark=1)
+![pascoa_julaino](./assets/1003-pascoaj.jpeg#dark=3)
 :::
 
 ${G} = 1 + {Y}$ % 19 (corresponde ao **número de ouro do calendário**)
@@ -191,4 +191,4 @@ ${S} = {D} + 7 - ({C} - {N})$ % 7
 
 Dia da páscoa = dia 1 de março + S
 
-![desISTo](../assets/1003-cal.jpg#dark=1)
+![desISTo](./assets/1003-cal.jpg#dark=3)

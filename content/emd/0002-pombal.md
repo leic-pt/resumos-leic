@@ -130,7 +130,7 @@ Se $\operatorname{f}$ é uma aplicação de assinatura $\operatorname{f} : X \ri
 
 Seja $\#X = 5$ e $\#Y = 2$, pela [Terceira Forma do Princípio de Pombal](#terceira-forma-do-principio-do-pombal) existem pelo menos $\lceil\frac{5}{2}\rceil=3$ valores $a_1, a_2, a_3$ de $X$ tais que $\operatorname{f} (a_1) = \operatorname{f} (a_2) = \operatorname{f} (a_3)$.
 
-![Pombal 3](./assets/0019-3Pombal.png)
+![Pombal 3](./assets/0002-3Pombal.png#dark=3)
 
 :::
 

@@ -39,7 +39,9 @@ Podemos representar um `Labirinto` através de um grafo, onde todas as entradas,
 
 :::details[Exemplos]
 
-![Labirinto Grafo1](../assets/0020-LabGraf1.png) ![Labirinto Grafo2](../assets/0020-LabGraf2.png)
+![Labirinto Grafo1](./assets/0011-LabGraf1.png#dark=3)
+
+![Labirinto Grafo2](./assets/0011-LabGraf2.png#dark=3)
 
 :::
 
@@ -103,27 +105,27 @@ Podem encontrar a aula no mesmo [link](https://www.youtube.com/watch?v=-yBPgkOCJ
 
 :::
 
-:::details[Demonstração]
+::::details[Demonstração]
 
 1. Condição Necessária
 
-Seja $g$ um multigrafo atravessável, significa que, se eu partir de um vértice $u$, consigo percorrer um `atalho euleriano aberto` (`travessia euleriana`), ou seja, que percorre todas as arestas sem repetições e termina num vértice diferente, $v$.
+   Seja $g$ um multigrafo atravessável, significa que, se eu partir de um vértice $u$, consigo percorrer um `atalho euleriano aberto` (`travessia euleriana`), ou seja, que percorre todas as arestas sem repetições e termina num vértice diferente, $v$.
 
-Supondo que agora criávamos uma nova aresta de $u$ a $v$, de modo a que fosse possível percorrer um `circuito euleriano` (`atalho euleriano fechado`). Basta pensar na `travessia euleriana` que tinhamos e agora acrescenta-se uma aresta que liga $u$ a $v$.  
-**NOTA:** $u$ e $v$ poderiam até já ter arestas que os interligassem, mas não eram suficientes para formar um `circuito euleriano`.
+   Supondo que agora criávamos uma nova aresta de $u$ a $v$, de modo a que fosse possível percorrer um `circuito euleriano` (`atalho euleriano fechado`). Basta pensar na `travessia euleriana` que tinhamos e agora acrescenta-se uma aresta que liga $u$ a $v$.  
+   **NOTA:** $u$ e $v$ poderiam até já ter arestas que os interligassem, mas não eram suficientes para formar um `circuito euleriano`.
 
-Como se sabe, um `circuito euleriano` tem todos os vértices pares. Então, se removermos a aresta que adicionámos $u$ e $v$ passaram a ter grau ímpar e serão os únicos, pois a aresta removida era comum aos dois. Os outros vértice permanecerão com grau par.
+   Como se sabe, um `circuito euleriano` tem todos os vértices pares. Então, se removermos a aresta que adicionámos $u$ e $v$ passaram a ter grau ímpar e serão os únicos, pois a aresta removida era comum aos dois. Os outros vértice permanecerão com grau par.
 
-Logo, se $g$ é atravessável , então tem pelo apenas $2$ vértices com grau ímpar.
+   Logo, se $g$ é atravessável , então tem pelo apenas $2$ vértices com grau ímpar.
 
 2. Condição Suficiente
 
-(A ideia é quase igual à da Condição Necessária)
+   (A ideia é quase igual à da Condição Necessária)
 
-Seja $g$ um multigrafo com apenas $2$ vértices com grau ímpar.
+   Seja $g$ um multigrafo com apenas $2$ vértices com grau ímpar.
 
-Se unitrmos esses vértices com uma nova aresta, pelo [Teorema de Euler-Hierholzer](#teorema-de-euler-hierholzer) $g$ terá um `circuito euleriano`.  
-Então, se eu remover a aresta adicionada, $g$ passará a ter uma `travessia euleriana`, logo será atravessável.
+   Se unitrmos esses vértices com uma nova aresta, pelo [Teorema de Euler-Hierholzer](#teorema-de-euler-hierholzer) $g$ terá um `circuito euleriano`.  
+   Então, se eu remover a aresta adicionada, $g$ passará a ter uma `travessia euleriana`, logo será atravessável.
 
 QED
 
@@ -131,12 +133,14 @@ QED
 
 A prova para grafos (não multigrafos) é muito parecida. A única diferença é que temos de adicionar um vértice com duas arestas, uma que se liga a $u$ outra a $v$, porque podemos ter uma travessia como:
 
-![Imagem Exceção](../assets/0020-excecao.png)
+![Imagem Exceção](./assets/0011-excecao.png#dark=3)
 
 Como estamos a trabalhar com grafos, não podemos ter mais do que $1$ aresta a ligar $2$ vértices.  
 Apesar desta exceção a prova é igual, só que retiramos/adicionamos $2$ arestas e $1$ vértice como descrito.
 
 :::
+
+::::
 
 ---
 

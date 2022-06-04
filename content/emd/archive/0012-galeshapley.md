@@ -15,7 +15,7 @@ Se $k=2$ pode-se chamar `bipartido`, se $k=3$ `tripartido` e para $k> 3$ multipa
 
 :::details[Exemplo]
 
-![Grafo Tripartido](../assets/0021-TriPartido.png)
+![Grafo Tripartido](./assets/0012-TriPartido.png#dark=3)
 
 É um grafo `tripartido`. Repare-se que existe uma partição em $3$ conjuntos (azuis, verdes e vermelhos), e em cada conjunto não há vértices adjacentes.
 
@@ -80,7 +80,7 @@ Serve para verificar se uma `Lista de Relacionamentos` é estável ou instável.
 
 O Algorimto é descrito pelo seguinte pseudo-código.
 
-![Estabilidade Pseudo](../assets/0021-pseudoEst.png)
+![Estabilidade Pseudo](./assets/0012-pseudoEst.png#dark=3)
 
 ## Algoritmo de Gale-Shapley
 
@@ -99,7 +99,7 @@ O Algorimto é descrito pelo seguinte pseudo-código.
 
 #### Pseudo-Código
 
-![Gale-Shapley Pseudo](../assets/0021-pseudoGS.png)
+![Gale-Shapley Pseudo](./assets/0012-pseudoGS.png#dark=3)
 
 :::tip[NOTA]
 

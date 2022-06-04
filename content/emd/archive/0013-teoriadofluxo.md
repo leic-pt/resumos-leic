@@ -13,7 +13,7 @@ type: archive
 Grafo dirigido, todas as arestas têm orientação.
 
 :::details[Exemplo]
-![Digrafo](../assets/0023-digEx.png)
+![Digrafo](./assets/0013-digEx.png#dark=3)
 :::
 
 #### Grau de Entrada/Saída
@@ -24,7 +24,7 @@ Seja $v$ um vértice de um digrafo $d$:
 - Grau de Saída: Quantas arestas partem de $v$ para outro vértice
 
 :::details[Exemplo]
-![Digrafo](../assets/0023-digEx.png)
+![Digrafo](./assets/0013-digEx.png#dark=3)
 
 Neste exemplo, o vértice **_v_** tem
 
@@ -95,7 +95,7 @@ Soma das **capacidades** de todas as arestas do corte.
 
 :::details[Exemplo]
 
-![Corte](../assets/0023-corte.png)
+![Corte](./assets/0013-corte.png#dark=3)
 
 Neste Corte a [vermelho](color:red) a capacidade do `Corte` será:
 
@@ -115,7 +115,7 @@ Qualquer Corte numa `Rede Capacitada` tem sempre o mesmo `Balanço de Fluxo`.
 
 :::details[Exemplos]
 
-![Corte](../assets/0023-corte.png)
+![Corte](./assets/0013-corte.png#dark=3)
 
 O `Balanço do Fluxo` deste corte será:
 
@@ -150,7 +150,7 @@ uma Quasi-trajetória, pode existir uma aresta $a_i$ (\*com $1<i<k$) que está d
 
 :::details[Exemplos]
 
-![Quase](../assets/0023-Quasi.png)
+![Quase](./assets/0013-Quasi.png#dark=3)
 
 Ambas respresentam `Quasi-Trajetórias`, mesmo que a [vermelha](color:red) não tenho arestas negativas
 
@@ -235,7 +235,7 @@ Contudo, esta exceção não deve ser avaliada.
 Numa Rede capacitada $N=(V,E,s,t,\operatorname{cap})$, permite-nos encontrar o `Fluxo` **máximo** e, consequentemente, o `Corte mínimo`.
 
 :::details[Pseudo-Código]
-![Pseudo Ford](../assets/0023-pseudoFord.png)
+![Pseudo Ford](./assets/0013-pseudoFord.png#dark=3)
 :::
 
 ### Decrição Informal
@@ -259,6 +259,6 @@ Um vértice $v$ é `alcançável` se é possível aumentar o fluxo de uma "pseud
 Pode acontecer que uma aresta já tenha fluxo **=** capacidade, mas o vértice a que se dirige seja `alcançável`. Esses casos devem-se à existência de arestas negativas.
 :::
 
-:::details[Exemplo do Ford-Fulkerson + Corte ]
+:::details[Exemplo do Ford-Fulkerson + Corte]
 [Link](https://drive.google.com/file/d/1WLyfkmldGriq6_eygv4AIU230pY409GS/view?usp=sharing)
 :::

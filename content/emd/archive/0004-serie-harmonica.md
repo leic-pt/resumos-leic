@@ -118,7 +118,7 @@ $$\forall_{n \in \mathbb N} \forall_{i \in \mathbb N} \left( ( 0 < i \leq n) \im
 
 Gráfico de $\frac{1}{x}$:
 
-![Integral com 1/x](../assets/0004-integral.png#dark=1)
+![Integral com 1/x](./assets/0004-integral.png#dark=2)
 
 Sendo $H_n = \sum_{k=1}^{n}\frac{1}{k}$, tem-se:
 
@@ -139,15 +139,12 @@ $$\sum_{k=0}^{n-1}k^{\underline{-1}} = \sum_{k=0}^{n-1}\Delta H_k = \left[H_k\ri
 Outros resultados:
 
 $$
-
 \sum_{k=0}^{n-1}H_k= \\
 \Delta (kH_k) =(k+1)H_{k+1} -kH_k = \\ (k+1)(H_k + \frac 1 {k+1}) -kH_k = \\
 (k+1)H_k +1 -kH_k = \\
 H_k +1 \\
 \Leftrightarrow
 H_k = \Delta (kH_k)-1
-
-
 $$
 
 ou seja:
@@ -157,17 +154,11 @@ $$\sum_{k=0}^{n-1}H_k = nH_n - n$$
 Se quiséssemos calcular $\displaystyle \sum_{k=0}^{n-1}kH_k$, teríamos que encontrar a diferença finita da sucessão $\frac{k^{\underline2}}{2} H_k$:
 
 $$
-
 \Delta \left(\frac{k^{\underline{2}}}{2}H_k\right) = \frac 1 2 k(k+1)H_{k+1} - \frac 1 2k(k-1)H_k \\
 = \frac 1 2k(k+1)\left(H_k + \frac 1 {k+1}\right) - \frac 1 2k(k-1)H_k \\
 =\frac 1 2kH_k(k+1-(k-1)) + \frac 1 2k \\
 = kH_k + \frac 1 2 k \\
 \Leftrightarrow kH_k = \Delta\left(\frac{k^{\underline2}}{2}H_k\right)-\frac 1 2k
-
-
 $$
 
 Chegou-se assim, a uma fórmula parecida à da primitivação por partes.
-
-$$
-$$

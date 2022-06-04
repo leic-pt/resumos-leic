@@ -14,7 +14,7 @@ Grafo conexo que não tem ciclos
 
 :::details[Exemplo]
 
-![Árvore Exemplo](./assets/0022-arvEx.png)
+![Árvore Exemplo](./assets/0011-arvEx.png#dark=3)
 
 :::
 
@@ -49,7 +49,7 @@ Seja $g$ um grafo, $T$ é a sua `Árvore de Cobertura` se:
 
 :::details[Exemplo]
 
-![Cobertura Exemplo](./assets/0022-arcCobEx.png)
+![Cobertura Exemplo](./assets/0011-arcCobEx.png#dark=3)
 
 :::
 
@@ -63,7 +63,7 @@ Dada uma `Rede` $(V,E,c)$, o custo de uma árvore de cobertura $T$ da `Rede` é 
 
 :::details[Exemplo]
 
-![Custo Exemplo](./assets/0022.custoEx.png)
+![Custo Exemplo](./assets/0011-custoEx.png#dark=3)
 
 O custo da árvore representada é $21.1$
 
@@ -83,7 +83,7 @@ O custo da árvore representada é $21.1$
 
 :::details[Pseudo-Código]
 
-![Kruskal Pseudo](./assets/0022-kruskalPseudo.png)
+![Kruskal Pseudo](./assets/0011-kruskalPseudo.png#dark=3)
 
 :::
 
@@ -159,7 +159,7 @@ Este Algoritmo resolve o Problema da Trajetória mínima.
 
 :::details[Pseudo-Código]
 
-![Dijkstra Pseudo](./assets/0022-dijkstraPseudo.png)
+![Dijkstra Pseudo](./assets/0011-dijkstraPseudo.png#dark=3)
 
 :::
 

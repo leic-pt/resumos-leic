@@ -18,7 +18,7 @@ Um grafo $g_1$ é `isomorfo` de um grafo $g_2$ se existe uma aplicação que col
 
 :::details[Exemplo]
 
-![Iso 2](../assets/0025-iso2.png)
+![Iso 2](./assets/0015-iso2.png#dark=3)
 Os dois grafos separados pela linha [**vermelha**](color:red) são isomorfos
 
 :::
@@ -28,10 +28,10 @@ Os dois grafos separados pela linha [**vermelha**](color:red) são isomorfos
 Dois grafos $g_1$ e $g_2$ são equivalentes se são [isomorfos](#grafos-isomorfos) e preservam as fronteiras.
 
 :::details[Exemplos]
-![Iso 1](../assets/0025-iso1.png)
+![Iso 1](./assets/0015-iso1.png#dark=3)
 Os grafos acima **são** isomorfos e equivalentes.
 
-![Iso 3](../assets/0025-iso3.png)
+![Iso 3](./assets/0015-iso3.png#dark=3)
 Os dois grafos separados pela linha [**vermelha**](color:red) são isomorfos, mas como a região a [**verde**](color:green) não é preservada (os vértices que forma a fronteira são diferentes nos $2$ casos), **não** é equivalente.
 
 :::
@@ -55,7 +55,7 @@ Reduz-se um grafo, quando eliminamos um vértice de grau $2$. Se eliminarmos $v$
 
 :::details[Exemplo]
 
-![Redux](../assets/0025-rudux.png)
+![Redux](./assets/0015-rudux.png#dark=3)
 
 :::
 

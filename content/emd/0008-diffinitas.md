@@ -1,5 +1,5 @@
 ---
-title: Equações de diferenças finitas
+title: Equações de Diferenças Finitas
 description: Problema da torre de Hanói;
 path: /emd/equacoes-diferencas-finitas
 type: content
@@ -20,7 +20,9 @@ A que se chama uma equação às diferenças finitas. Os coeficientes que multip
 
 ## Passos
 
-$$h_k\quad= 2\qquad h_{k-1}\quad+1\rightarrow \color{red}{\sum_{k=1}^{+\infty}\color{black}h_k\color{red}z^k}\color{black}=2\color{red}z{\sum_{k=1}^{+\infty}\color{black}h_{k-1}\color{red}z^{k-1}}\color{black}+\color{red}{\sum_{k=1}^{+\infty}\color{black}\color{red}z^k}\color{black}$$
+$$
+h_k\quad= 2\qquad h_{k-1}\quad+1\rightarrow \smartcolor{red}{\sum_{k=1}^{+\infty}}h_k\smartcolor{red}{z^k}=2\smartcolor{red}{z\sum_{k=1}^{+\infty}}h_{k-1}\smartcolor{red}{z^{k-1}}+\smartcolor{red}{\sum_{k=1}^{+\infty}z^k}
+$$
 
 Note-se que o índice dos somatórios deve ser o menor inteiro para o qual a expressão faz sentido (1, neste caso). Também se deve ter a potência de $z$ coincidente com a ordem da sucessão (valor para $n$). Note-se que para o último somatório:
 
@@ -61,20 +63,20 @@ $$H_n=\frac {-1}{1-z}+ \frac{1}{1-2z}\longrightarrow h_n= -1 + 2^n$$
 
 Abaixo segue outro exemplo de raciocínio análogo, à exceção de que nos dão os dois primeiros termos da sucessão $u_n$:
 
-![Exercício de raciocínio análogo ao anterior](./assets/0010-analogo.png)
+![Exercício de raciocínio análogo ao anterior](./assets/0008-analogo.png#dark=3)
 
-![Parte 2](./assets/0010-analogo_2.png)
+![Parte 2](./assets/0008-analogo_2.png#dark=3)
 
 E se não nos dessem os primeiros termos?
 
-![Exemplo anterior mas sem os primeiros termos](./assets/0010-semtermos.png)
+![Exemplo anterior mas sem os primeiros termos](./assets/0008-semtermos.png#dark=3)
 
 ### Exemplo 1 - Aumento populacional
 
-![Primeiro exemplo - Aumento populacional](./assets/0010-1exemplo.png)
+![Primeiro exemplo - Aumento populacional](./assets/0008-1exemplo.png#dark=3)
 
-![Parte 2](./assets/0010-1exemplo_2.png)
+![Parte 2](./assets/0008-1exemplo_2.png#dark=3)
 
-![Parte 3](./assets/0010-1exemplo_3.png)
+![Parte 3](./assets/0008-1exemplo_3.png#dark=3)
 
-![Parte 4](./assets/0010-1exemplo_4.png)
+![Parte 4](./assets/0008-1exemplo_4.png#dark=3)
