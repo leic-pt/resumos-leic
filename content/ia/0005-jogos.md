@@ -102,7 +102,7 @@ de uma $DFS$, partilha também as suas complexidades temporal e espacial: a **co
 é $O(b^d)$ e a **espacial** é linear, $O(bd)$ (podendo ainda ser melhorada para $O(d)$,
 caso os sucessores sejam gerados um a um). É completo, claro, e tal como referido acima
 só garante otimalidade contra adversários ótimos: em cenários reais, haverá obviamente
-o fator de imprevisibilidade que retira a otimalidade do algoritmo.
+o fator de imprevisibilidade que retira a otimalidade ao algoritmo.
 
 :::tip[Generalização para $n$ jogadores]
 
@@ -113,7 +113,7 @@ mantendo, claro, guardados também os valores que cada jogada terá para os outr
 havendo uma quantidade arbitrária de jogadores, cada um deles acaba por não se preocupar
 tanto com "estragar o jogo ao outro" como com "preocupar-se com o próprio jogo". As
 estratégias ótimas podem, naturalmente, traduzir-se em alianças informais entre vários
-jogadores (pensemos, por exemplo, nas alianças que são feitas no Monopólio).
+jogadores.
 
 :::details[Minimax - Exemplo Multi-Agente]
 
@@ -127,6 +127,59 @@ considerando, claro, que todos os outros agentes também jogam de forma ótima.
 :::
 
 ### Procura com Cortes
+
+Como podem ter notado com o exemplo para o Minimax de 2 agentes acima, existem situações
+em que não precisamos de olhar para todos os "filhos" de um nó para obter toda a informação
+que precisamos - por vezes, podemos inferir se a jogada que estamos a ver é relevante
+ou não mais cedo, conseguindo assim reduzir com segurança o número de estados que temos
+de analisar. Uma das formas de verificar isso mesmo é, claro, [**cortando**](color:green)
+ramos da árvore, e vamos abordar os cortes $\op{\alpha - \beta}$ para esse efeito.
+
+Vamos ter, aqui, que a nossa $DFS$ vai manter um par de valores, $\op{\alpha}$ e $\op{\beta}$,
+correspondendo, respetivamente, ao **valor da melhor escolha encontrada até agora para MAX** e ao
+**valor da melhor escolha encontrada até agora para MIN**.
+
+Procuremos olhar primeiro para o exemplo abaixo:
+
+:::details[Exemplo - Alpha-Beta Pruning]
+
+![Alpha-Beta Pruning](imgs/0005-alpha-beta-pruning.svg#dark=2)
+
+Note-se que chegámos exatamente à mesma **jogada ótima** a que tínhamos chegado segundo
+o Minimax clássico - fizemo-lo, contudo, de forma mais eficiente, cortando ramos irrelevantes!
+
+:::
+
+A abordagem seguindo cortes $\alpha$ e $\beta$ corresponde, na prática, a uma alteração simples
+ao pseudo-código original do algoritmo Minimax: agora, caso nós já saibamos (porque já vimos)
+que temos mais acima na árvore uma opção melhor do que aquela que estamos a analisar agora,
+então a escolha ótima nunca recairá sobre o nó onde nos encontrámos, pelo que podemos
+simplesmente cortá-lo e avançar para o próximo.
+
+Note-se que aplicar este tipo de cortes [**não afeta a completude nem a otimalidade**](color:red)
+do algoritmo: continua a ser completo, e a ser ótimo apenas considerando adversários ótimos.
+Mais, a sua eficiência tem uma _range_ de melhoria, podendo ir desde ser completamente irrelevante
+até uma melhoria exponencial de $O(b^d)$ para $O(b^{\frac{d}{2}})$!
+
+:::info[Cortes - Melhoria de Desempenho]
+
+A ordenação [**ótima**](color:green) de nós é a ordenada segundo os valores que queremos
+visitar primeiro, claro - no caso do MIN, de forma [**crescente**](color:green), e [**decrescente**](color:red)
+no caso do MAX, por forma a poder cortar logo todos os outros nós.
+Note-se, contudo, que na prática só nos é completamente útil
+caso saibamos de antemão que está assim ordenada, já que caso contrário podemos ter na mesma
+de verificar todos os nós até ao fim. A imagem abaixo pode tornar esta ideia mais clara:
+
+![Alpha Beta - Ordenação Ótima](imgs/0005-alpha-beta-optimal.svg#dark=2)
+
+Caso consigamos **sempre** cortar o resto da sub-árvore assim que analisamos o primeiro nó
+(estamos, aí, na presença da [**ordenação ótima**](color:orange)), vamos verificar que
+o algoritmo corre em tempo $b^{\frac{d}{2}}$: podem encontrar uma prova mais completa
+da complexidade temporal do melhor caso dos cortes $\alpha$-$\beta$
+[aqui](http://www.cs.utsa.edu/~bylander/cs5233/a-b-analysis.pdf). Podemos, com a ordenação ótima,
+atingir [**o dobro da profundidade**](color:green) na procura no mesmo período de tempo!
+
+:::
 
 ---
 
