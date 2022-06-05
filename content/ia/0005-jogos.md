@@ -240,10 +240,87 @@ $$
 $$
 
 Temos, contudo, que esta forma de olhar para a função de avaliação peca por considerar todas
-as _features_ do jogo como independentes: considera, em xadrez, que ter dois bispos é apenas
+as _features_ do jogo como independentes: considera, no xadrez, que ter dois bispos é apenas
 equivalente a duas vezes o valor de um bispo, quando na verdade ter dois bispos (principalmente
 em momentos mais avançados no jogo) tem uma grande importância contextual. Abordagens mais
 recentes têm, portanto, acabado por afastar-se desta noção linear da função de avaliação.
+
+:::tip[Utilizar a função de avaliação na procura com cortes]
+
+As alterações à procura $\alpha$-$\beta$ são poucas e relativamente simples: pegando
+nas diferenças entre valores $\op{minimax}$ e valores $\op{h-minimax}$, vamos usar aqui
+**testes limite**, que decidem se um estado é "final" caso esteja numa profundidade igual
+ou superior ao limite imposto, em vez dos **testes terminais** introduzidos inicialmente.
+Temos ainda, claro, que ao chegar ao limite vamos retornar o valor da função de avaliação,
+ao invés de retornar o valor da função de utilidade. Funciona, de resto, de forma
+praticamente semelhante.
+
+:::
+
+Esta abordagem tem, contudo, [**falhas**](color:red): por considerar apenas o estado atual, podemos estar
+a perder informação extremamente relevante sobre jogadas imediatamente posteriores às impostas
+pelo limite: devemos, portanto, aplicar a função de avaliação apenas a [**estados quiescentes**](color:orange),
+isto é, estados que [**estão em "repouso"**](color:orange) - estados em que não há nenhuma jogada
+pendente que fosse alterar o valor da função de avaliação brutalmente. Podemos pensar, por exemplo,
+que um estado aquiescente seria o estado precisamente anterior ao da captura de uma rainha por
+parte de um dos jogadores, e que um estado quiescente seria um estado em que não há ataques
+"obrigatórios"/que causem alterações demasiado grandes à função de avaliação a seguir.
+Quando estamos na presença de estados aquiescentes que se encontrem no limite, avançamos na
+árvore de procura por esse estado até encontrar um estado quiescente, parando aí e fazendo a propagação
+do valor da função de avaliação para cima - dizemos que estamos na presença de uma
+[**procura quiescente**](color:green), nesta situação.
+
+Para além do problema da aquiescência, alia-se ainda o [**problema do horizonte**](color:yellow):
+jogadas atuais podem "atirar problemas para um futuro longínquo": eles continuam lá,
+nós é que vamos deixar de os ver por momentos. Esta falha pode levar a problemas graves:
+visto que por norma não vamos até ao fim da árvore de procura, o limite pode estar "para cá"
+desse horizonte, limitando a nossa perceção sobre o que será uma jogada boa e má.
+Este problema surge, geralmente, quando temos uma jogada que é "muito melhor que as outras":
+para o resolver, registamos a jogada em mãos como [**jogada singular**](color:purple), e aumentamos o
+limite da procura só para ela, por forma a tentar ver para lá do horizonte.
+
+:::details[Exemplo - Problema do Horizonte (Xadrez)]
+
+Encontra-se abaixo o exemplo de uma situação que ilustra este problema: conseguimos,
+empiricamente, perceber, que o bispo preto está condenado a ser capturado pelo jogador
+branco. Contudo, uma jogada que a árvore de procura pode encontrar que é "momentaneamente
+melhor" é mover um dos seus peões por forma a fazer cheque ao rei. É, contudo, um esforço
+inglório, já que a rei vai só capturar esse peão e não resolvemos o problema do bispo,
+pelo que perdemos um peão sem qualquer ganho.
+
+![Horizonte - Xadrez](imgs/0005-chess-horizon.svg)
+
+:::
+
+### Cortes progressivos
+
+Para além de cortes $\alpha$-$\beta$ e cortes-limite, temos ainda uma terceira forma de cortar
+a nossa árvore de procura: através de [**cortes progressivos**](color:orange). Ao contrário
+dos cortes $\alpha$-$\beta$, onde temos a garantia do que estamos a cortar ser irrelevante
+para o valor da função de avaliação de um nó, aqui vamos procurar "prever" que assim é,
+sem qualquer garantia de tal ser o caso. Temos duas maneiras principais de os fazer:
+
+- [**Procura em Banda/Beam Search**](color:green) - consideramos, para cada nível, as
+  $n$ melhores jogadas (segundo a função de avaliação associada). Não há garantias de
+  que não estamos a cortar ramos que nos levassem à jogada ótima.
+- [**Corte Probabilístico/ProbCut**](color:green) - cortamos não só os ramos que estão
+  garantidamente fora da "janela $(\alpha, \beta)$, como também os que **provavelmente**
+  estão: usamos a "experiência de procuras anteriores" para determinar a probabilidade
+  de um dado valor a uma dada profundidade estar ou não fora da janela $(\alpha, \beta)$.
+
+## Jogos Estocásticos
+
+Os jogos estocásticos são os que introduzem o elemento [**sorte**](color:green): para além
+de haver a imprevisibilidade dos movimentos do adversário, existe também a possibilidade
+da ação que queremos fazer não corresponder à que de facto acontece. É como se no xadrez,
+para além de ter a dificuldade de fazer a jogada que nos leve para mais próximo da vitória,
+ainda tenhamos que lançar um dado para ver que conjunto de jogadas é que podemos fazer
+em cada ronda. Cada nó vai ter, assim de estar associado a uma probabilidade, para além
+da própria "qualidade da jogada": vamos querer combinações que incluam jogadas prováveis e
+jogadas boas, por forma a tentar ter as melhores previsões possíveis (que nos levem a boas
+jogadas). A complexidade temporal destes problemas é, aqui, $O(b^d n^d)$, onde $n$ corresponde
+ao número de lançamentos distintos de dados que realizamos: conseguimos, portanto, atingir profundidades
+muito menor no mesmo intervalo de tempo.
 
 ---
 
