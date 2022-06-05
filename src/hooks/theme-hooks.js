@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import '../styles/themes/black.css';
+import '../styles/themes/solarized.css';
 
 // Custom hook
 export function useFontSettings() {
