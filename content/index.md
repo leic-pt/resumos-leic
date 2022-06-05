@@ -61,7 +61,7 @@ years:
             color: '#00695c'
           - name: EMD
             description: P4
-            link: '/md'
+            link: '/emd'
             image: assets/md.svg
             color: '#283593'
   - name: '2º Ano'
