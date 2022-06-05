@@ -1,6 +1,15 @@
 ---
 title: Problemas de Satisfação de Restrições
-description: # TODO
+description: Definição de CSPs.
+  Inferência.
+  Consistência de Nó e Arco.
+  Consistência de Caminho.
+  Consistência K.
+  Procura em Retrocesso.
+  MRV, Heurística de Maior Grau, LCV.
+  Procura e Inferência.
+  Aprendizagem de Restrições.
+  Procura Local para CSPs.
 path: /ia/satisfacao-restricoes
 type: content
 ---
