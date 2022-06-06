@@ -15,7 +15,7 @@ type: content
 
 Tal como referido na secção dos CSPs, a procura local é uma abordagem de procura que
 parte de uma configuração inicial completa, procurando encontrar uma configuração
-completa e consistente - de um modo mais geral, e procurando abstrair-mo-nos do contexto
+completa e consistente - de um modo mais geral, e procurando abstrairmo-nos do contexto
 dos CSPs, procuramos um [**estado objetivo**](color:orange), realizando transições sucessivas
 entre "estados vizinhos". Tem, claro, [**ganhos**](color:green) quanto à sua
 [**complexidade espacial**](color:green), em comparação com a procura sistemática habitual: em vez
@@ -44,6 +44,20 @@ dois vizinhos (o estado "à esquerda" e o "à direita"), vamos acabar sempre por
 efetivamente afastando-nos do estado ótimo. Assim que chegamos ao máximo local, os respetivos estados
 à esquerda e à direita têm ambos valores objetivo menos, pelo que a procura para aí,
 num **máximo local** que não é o **máximo global**.
+
+Em relação a cenários práticos onde a procura local possa ser utilizada como aliada da
+procura global, pensemos por exemplo num cenário de GPS, onde uma procura global
+conseguiu encontrar o caminho mais curto entre duas localidades. O motorista começou a sua viagem,
+e a meio ocorre um acidente que corta uma das estradas que o caminho mais curto utilizava - aqui,
+a procura local pode ser particularmente útil, já que partindo de um estado inicial completo,
+bastará em princípio alterar pouco a rota em vez de ter de realizar uma nova procura global.
+
+![Amadora - IST](imgs/0006-amadora-ist.png)
+
+Na imagem acima, podemos ver dois pontos onde a rota se podia alterar facilmente - se houvesse
+um acidente ao pé do Alegro Alfragide, o GPS deveria recalcular a melhor rota. Em vez de
+fazer uma procura global de novo para o fazer, pode escolher estados "vizinhos", tal como a rota
+demarcada com a seta vermelha!
 
 ## Procura Hill-Climbing/Local Gananciosa
 
@@ -127,7 +141,7 @@ em média, partindo de uma configuração inicial arbitrária:
 - se for encontrar uma solução, fá-lo-á em cerca de $4$ passos;
 - se for ficar preso, tal acontecerá em cerca de $3$ passos.
 
-Podemos, assim, "parar a procura" (tanto artificialmente como porque chegamos a uma
+Podemos, assim, "parar a procura" (tanto artificialmente como por chegarmos a uma
 solução) bastante rápido, pelo que vale a pena fazer a procura várias vezes, com
 configurações iniciais distintas, por forma a tentar obter a solução pretendida.
 
@@ -168,6 +182,38 @@ em direção ao global. Esta escolha é feita da seguinte maneira:
   estes vizinhos diminui à medida que o movimento se aproxima cada vez mais dos extremos globais -
   isto é, se nos estivermos a aproximar "do que queremos", não faz tanto sentido ir noutra direção
   como fazia inicialmente, quando estávamos longe e era mais ou menos indiferente.
+
+## Local Beam Search
+
+A procura local surge, de uma forma geral, como alternativa à procura global, principalmente
+no que à memória diz respeito. Ora, mas passar de memória exponencial para constante ainda
+é um salto relativamente grande: não haverá um meio termo que nos beneficie mais?
+Bem, é a partir deste pensamento que surge a [**procura local em banda**](color:orange), um **compromisso
+intermédio** entre as duas abordagens.
+
+Optamos, aqui, por gerar $k$ estados iniciais, todos eles aleatórios. Se algum deles for
+estado-objetivo, paramos. Caso contrário, vamos ver todos os vizinhos dos $k$ estados,
+e escolhemos os $k$[\*](color:yellow) melhores estados, entre todos os vizinhos que gerámos. Este
+processo é realizado iterativamente até que encontremos um estado-objetivo.
+
+[\*](color:yellow) Note-se que caso um dos estados, seja ele $K$, gere $\frac{k}{2}$ vizinhos
+fantásticos e todos os outros, para todos os outros estados, sejam medíocres, não vamos
+apenas escolher $1$ vizinho por estado: vamos escolher os $\frac{k}{2}$ vizinhos de $K$,
+e depois outros $\frac{k}{2}$ vizinhos de entre o resto dos medíocres.
+
+:::info[Procura Local em Banda Estocástica]
+
+Podemos, eventualmente, chegar a situações em que os $k$ estados que temos em mãos
+são pouco diversos - tal pode acontecer, por exemplo, num espaço de estados relativamente
+pequeno, em que facilmente consigamos ficar "presos" a um conjunto curto de bons estados.
+Para nos ajudar a combater este problema, existe a variante [**estocástica**](color:orange)
+da procura local em banda, onde em vez de escolhermos sempre os $k$ melhores vizinhos
+dos estados atuais, escolhemos $k$ vizinhos de forma estocástica - vamos aqui, considerar
+que quanto "melhor" for o vizinho, maior a probabilidade de ser escolhido, contudo
+sem qualquer garantia de tal acontecer. A médio-longo prazo, esta abordagem permite
+uma maior diversidade no conjunto de estados que vamos explorando!
+
+:::
 
 ---
 
