@@ -1,6 +1,8 @@
 ---
 title: Procura Local
-description: # TODO
+description: Procura Local.
+  Hill Climbing.
+  Variações de Hill Climbing.
 path: /ia/procura-local
 type: content
 ---
@@ -137,6 +139,35 @@ Considerando, por exemplo, o problema das $8$ rainhas que converge para soluçã
 bastante rápido, esta abordagem parece excelente: apesar de não garantir, em teoria,
 completude, na prática é raríssimo que com um número suficiente de tentativas não encontremos
 a solução.
+
+## Simulated Annealing
+
+Na área da metalurgia, _annealing_ corresponde ao processo de endurecer um metal, colocando-o
+primeiro a temperaturas muito altas, procurando de seguida arrefecê-lo gradualmente.
+O método descrito abaixo, _simulated annealing_, acaba por ser uma implementação de uma metáfora semelhante
+no contexto da procura local (bem, igual, só que diferente): pensemos num cenário em que
+queremos que uma bola chegue ao fundo de um "vale" com aspeto parabólico, vale esse
+com paredes particularmente pegajosas (às quais a bola pode facilmente prender-se):
+
+![Sticky Ball - Exemplo](imgs/0006-sticky-ball.svg#dark=2)
+
+Se abanarmos vezes suficientes o vale, mesmo que a bola vá ficando presa em "mínimos locais"
+(leia-se, fique pegada às paredes do vale) sucessivos, eventualmente vamos conseguir fazer com que
+chegue lá abaixo. A procura por _simulated annealing_ baseia-se nisso mesmo, em tentar
+fazer com que os estados saiam de máximos/mínimos locais, [**"abanando-os"**](color:yellow).
+"Abanar" os estados consiste, aqui, em escolher (por vezes) estados com valor objetivo
+menor que o que temos atualmente, por forma a procurar sair de máximos/mínimos locais
+em direção ao global. Esta escolha é feita da seguinte maneira:
+
+- se gerarmos um vizinho com valor objetivo maior que o que temos atualmente, escolhemo-lo,
+  _no questions asked_;
+- caso geremos um vizinho com valor objetivo menor que o que temos atualmente, existe a
+  **possibilidade** de o escolhermos na mesma: temos, contudo, de ter cuidado para não nos
+  afastarmos demais dos extremos locais que já encontrámos, ficando ainda mais longe de
+  encontrar extremos globais, pelo que a probabilidade (sempre menor que $1$) de escolher
+  estes vizinhos diminui à medida que o movimento se aproxima cada vez mais dos extremos globais -
+  isto é, se nos estivermos a aproximar "do que queremos", não faz tanto sentido ir noutra direção
+  como fazia inicialmente, quando estávamos longe e era mais ou menos indiferente.
 
 ---
 
