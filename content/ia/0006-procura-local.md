@@ -37,7 +37,7 @@ O gráfico abaixo ilustra de forma clara este problema: através da procura loca
 encontrar de forma rápida [**máximos locais**](color:orange), mas não é garantido que
 encontremos o [**máximo global**](color:red), configuração ótima pretendida:
 
-![Procura Local - Máximos Locais vs Globais](...)
+![Procura Local - Máximos Locais vs Globais](imgs/0006-local-search-plot.svg#dark=3)
 
 Note-se como, olhando para o estado atual, e considerando que a cada momento temos apenas
 dois vizinhos (o estado "à esquerda" e o "à direita"), vamos acabar sempre por ir para a direita,
@@ -185,6 +185,8 @@ em direção ao global. Esta escolha é feita da seguinte maneira:
 
 ## Local Beam Search
 
+<!-- TODO: adicionar exemplo -->
+
 A procura local surge, de uma forma geral, como alternativa à procura global, principalmente
 no que à memória diz respeito. Ora, mas passar de memória exponencial para constante ainda
 é um salto relativamente grande: não haverá um meio termo que nos beneficie mais?
@@ -275,6 +277,18 @@ O livro que acompanha a cadeira inclui esta passagem, bastante interessante no q
 Como recurso adicional, a seguinte _playlist_ cobre esta secção da matéria:
 
 ::youtube{#9zfeTw-uFCw}
+
+## Procura Local em Espaços Contínuos
+
+:::warning[Página em construção]
+
+O conteúdo será adicionado assim que possível.
+
+:::
+
+## Procura com Ações Não Determinísticas
+
+## Procura em Ambientes Parcialmente Observáveis
 
 ---
 
