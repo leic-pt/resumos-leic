@@ -348,7 +348,76 @@ referido, e que qualquer outro tipo deve ser rejeitado.
 
 Na vida real, nem sempre vamos conhecer por completo o nosso meio envolvente - tal
 como referido no início da secção de resumos de IA, este tipo de ambiente diz-se [**parcialmente
-observável**](color:orange).
+observável**](color:orange). Vamos, portanto, debruçar-nos sobre estratégias que procurem
+remover alguma da camada de incerteza que vai estar associada a este tipo de cenários, estratégias
+essas que assentam na ideia da **ausência de sensores**: se o nosso agente não precisar
+de saber exatamente qual é o ambiente que o envolve, consegue trabalhar melhor em cenários mais
+complicados.
+
+A nossa procura vai tratar, em vez de um conjunto de estados palpáveis/completamente observáveis,
+um [**conjunto de crenças**](color:orange) do agente. Tem um conjunto de componentes diferente
+do que foi visto até agora:
+
+- Um conjunto de estados, o **espaço de crenças**: contém todos os subconjuntos de estados
+  físicos do problema original;
+- Um **estado inicial** - por norma, encontra-se inicialmente [**cheio**](color:orange),
+  já que na pior das hipóteses não termos qualquer informação sobre o que nos rodeia
+  (tendo, portanto, de considerar qualquer cenário como possível). Na prática, costumamos
+  ter algumas pistas quanto ao estado inicial;
+- Um **conjunto de ações**, que corresponde ao conjunto de todos as ações
+  que podemos fazer partindo de qualquer um dos estados do espaço de crenças;
+- Um **modelo de transição**, que difere entre as versões determinista e não-determinista. Num
+  problema $P$, para uma dada crença $b$, a versão determinista dita que a crença $b'$,
+  resultante de aplicar uma qualquer ação $a$ será dada por:
+
+  $$
+  b' = \op{result(b, a)} = \{s': s' = s \in b \cap s' \in \op{result_P(s, a)}\}
+  $$
+
+  Por outro lado, a versão não-determinista dita que:
+
+  $$
+  \begin{aligned}
+  b' = \op{result(b, a)} &= \{s': s' = s \in b \cap s' \in \op{ results_P(s, a)} \cup b\} \\
+  &= \bigcup_{s \in b} \op{results_P(s, a)}
+  \end{aligned}
+  $$
+
+  O modelo de transição em si tem três etapas: inicialmente, a fase daa [**previsão**](color:orange),
+  onde vai calcular as crenças resultantes da ação que vai tomar. De seguida, caso esteja num
+  ambiente parcialmente observável, utiliza os seus sensores, e utiliza a informação obtida
+  para atualizar o seu espaço de crenças.
+
+- O **teste objetivo**, que aqui tem um senão: só é [**garantido**](color:green) que estamos
+  no objetivo se toda o nosso espaço de crenças assim o garantir - isto é, se todos os estados
+  do nosso espaço de crenças satisfizerem o objetivo; caso contrário, **possivelmente**
+  alcançámos o objetivo, contudo sem garantias.
+
+![Aspirador - Exemplo da transição de espaços de crença](imgs/0006-unknown-vacuum.svg#dark=3)
+
+Abaixo ilustra-se ainda o exemplo do modelo de transição num cenário em que o nosso agente
+tem sensores: aqui, vai conseguir olhar para o meio que o envolve e remover algumas crenças
+que afinal não têm cabimento.
+
+![Aspirador - Exemplo da transição de espaços de crença com sensores](imgs/0006-unknown-vacuum-sensors.svg#dark=3)
+
+Podemos, claro, aplicar a procura AND-OR a este tipo de cenários:
+
+![Aspirador - AND-OR](imgs/0006-and-or-search.svg#dark=3)
+
+## Procura Online - Ambientes Desconhecidos
+
+Quando não conhecemos o ambiente que nos envolve, e existem penalizações (sejam elas
+artificiais ou naturais) por tempos de computação demasiado longos, pode fazer sentido
+**intervalar a procura com ações**, em vez de seguir sempre a mesma linha de procura
+até agora abordada: observamos o ambiente atual e o que sabemos sobre ele,
+calculamos a próxima ação a tomar por forma a atingir mais rápido o objetivo, e executamos
+essa mesma ação. Pensemos num caso mais extremo: queremos fugir de um labirinto, e temos
+uma quantidade de tempo limitada para o fazer. Nem sempre vamos ter tempo para parar
+e pensar, até porque muitas vezes não temos informação útil com que raciocinar: devemos,
+nessas circunstâncias, procurar navegar o desconhecido, por forma a recolher informação.
+Estamos, claro, bastante vulneráveis a encontrar becos sem saída, já que esta navegação
+consegue assemelhar-se, de vez em quando, a uma procura às cegas.
 
 ---
 
