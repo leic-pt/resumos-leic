@@ -288,14 +288,11 @@ O conteúdo será adicionado assim que possível.
 
 ## Procura com Ações Não Determinísticas
 
-Em cenários reais, nem sempre vamos conhecer por completo o nosso meio envolvente - tal
-como referido no início da secção de resumos de IA, este tipo de ambiente diz-se [**parcialmente
-observável**](color:orange). Adiciona toda uma camada de incerteza às nossas procuras: não só
-temos de nos preocupar com tentar fazer procuras eficientes e corretas, como também de o fazer
-com um _backup plan_ caso algo não corra exatamente como esperado. Formalmente, passamos
-de situações tal que "estou num estado $s_1$, e executando uma ação $a_1$ passo a estar
-em $s_2$", para situações mais vagas: "estou num estado, que tanto pode ser $s_1$ como $s_2$ como $s_k$,
-e executando uma ação $a_1$ posso passar a estar em $s_{k +1}$ ou ... ou $s_n$.
+Em cenários reais, as nossas ações podem ter mais de resultado possível: se um indivíduo
+particularmente descoordenado tentar rematar uma bola de futebol, por exemplo, a bola
+pode não ir exatamente para onde ele quer (apesar de haver a possibilidade de tal
+acontecer). Esta é, claro, a ideia-base por detrás do não determinismo, questão sobre
+a qual nos vamos debruçar de seguida.
 
 Podemos tentar ilustrar esta ideia através do exemplo do aspirador que utilizámos na
 [secção dos agentes](/ia/agentes): considerando um estado inicial, em que o aspirador
@@ -348,6 +345,10 @@ referido, e que qualquer outro tipo deve ser rejeitado.
 :::
 
 ## Procura em Ambientes Parcialmente Observáveis
+
+Na vida real, nem sempre vamos conhecer por completo o nosso meio envolvente - tal
+como referido no início da secção de resumos de IA, este tipo de ambiente diz-se [**parcialmente
+observável**](color:orange).
 
 ---
 
