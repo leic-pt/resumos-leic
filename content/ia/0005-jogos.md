@@ -56,7 +56,7 @@ da **melhor jogada** funcionará, tal como referido em secções anteriores, atr
 travessias por essa mesma árvore (e, claro, tal como nessas secções, vamos ver formas
 de tornar esta procura mais eficiente).
 
-Abaixo encontra-se um exemplo do que corresponderia a dois níveis distintos da árvore,
+Abaixo, encontra-se um exemplo do que corresponderia a dois níveis distintos da árvore,
 devidamente identificados com MIN e MAX:
 
 :::details[Exemplo - Árvore de Procura, Jogo do Galo]
@@ -102,7 +102,7 @@ de jogo na mesma - já vamos ver que é um pormenor desagradável da implementa�
 algoritmo, podendo modificá-lo por forma a melhor a sua eficiência. Tratando-se basicamente
 de uma $DFS$, partilha também as suas complexidades temporal e espacial: a **complexidade temporal**
 é $O(b^d)$ e a **espacial** é linear, $O(bd)$ (podendo ainda ser melhorada para $O(d)$,
-caso os sucessores sejam gerados um a um). É completo, claro, e tal como referido acima
+caso os sucessores sejam gerados um a um). É completo, claro, e, tal como referido acima,
 só garante otimalidade contra adversários ótimos: em cenários reais, haverá obviamente
 o fator de imprevisibilidade que retira a otimalidade ao algoritmo.
 
@@ -133,7 +133,7 @@ considerando, claro, que todos os outros agentes também jogam de forma ótima.
 Como podem ter notado com o exemplo para o Minimax de 2 agentes acima, existem situações
 em que não precisamos de olhar para todos os "filhos" de um nó para obter toda a informação
 que precisamos - por vezes, podemos inferir se a jogada que estamos a ver é relevante
-ou não mais cedo, conseguindo assim reduzir com segurança o número de estados que temos
+ou não mais cedo, conseguindo, assim, reduzir com segurança o número de estados que temos
 de analisar. Uma das formas de verificar isso mesmo é, claro, [**cortando**](color:green)
 ramos da árvore, e vamos abordar os cortes $\op{\alpha - \beta}$ para esse efeito.
 
@@ -188,7 +188,7 @@ queiramos ainda assim escolher os nós por uma [**ordem ideal**](color:orange), 
 uma ordem que se aproxime tanto do ideal quanto possível. Mais ainda, podemos não querer
 ter de navegar até às folhas da árvore de procura para saber os valores Minimax dos nós
 mais acima, aceitando estimativas que sejam relativamente próximas do valor real.
-Aqui entra, uma ideia nova: a de uma [**tabela de transposições**](color:orange), que nos vai
+Aqui, entra uma ideia nova: a de uma [**tabela de transposições**](color:orange), que nos vai
 ajudar a combater nós diferentes a representar estados equivalentes.
 
 O objetivo passará, então, por guardar cada estado com o respetivo valor Minimax numa
@@ -207,7 +207,7 @@ promissoras").
 
 Existem, claro, outras maneiras de realizar procura com cortes $\alpha$-$\beta$ sem ir
 necessariamente até às folhas da árvore de procura: podemos reutilizar a ideia de funções
-de avaliação, que estimem a função de utilidade de um dado nó! Vamos procurar _cortar_ a nossa
+de avaliação que estimem a função de utilidade de um dado nó! Vamos procurar _cortar_ a nossa
 árvore de procura a uma profundidade arbitrária, atribuir aos "novos nós-folha" os valores
 correspondentes à respetiva função de avaliação e de seguida propagar para cima tal
 como fazíamos anteriormente. Os nossos valores minimax serão, então, dados por:
@@ -232,7 +232,7 @@ a não levar o jogador a fazer jogadas descabidas. [**Deve ser simples e eficien
 já que caso contrário mais valia fazer apenas a procura até ao fim. Dado este último ponto, uma abordagem possível é
 tratar a função de avaliação como uma função matemática: uma soma linear de características da
 configuração atual do jogo (devidamente pesadas). Podemos pensar, no caso do jogo do galo,
-nas várias posições onde podemos colocar uma peça nossa, e pesar cada jogada de acordo com o quão
+nas várias posições onde podemos colocar uma peça nossa e pesar cada jogada de acordo com o quão
 perto ficamos de vencer.
 
 $$
@@ -273,7 +273,7 @@ do valor da função de avaliação para cima - dizemos que estamos na presença
 Para além do problema da aquiescência, alia-se ainda o [**problema do horizonte**](color:yellow):
 jogadas atuais podem "atirar problemas para um futuro longínquo": eles continuam lá,
 nós é que vamos deixar de os ver por momentos. Esta falha pode levar a problemas graves:
-visto que por norma não vamos até ao fim da árvore de procura, o limite pode estar "para cá"
+visto que, por norma, não vamos até ao fim da árvore de procura, o limite pode estar "para cá"
 desse horizonte, limitando a nossa perceção sobre o que será uma jogada boa e má.
 Este problema surge, geralmente, quando temos uma jogada que é "muito melhor que as outras":
 para o resolver, registamos a jogada em mãos como [**jogada singular**](color:purple), e aumentamos o
@@ -319,7 +319,7 @@ em cada ronda. Cada nó vai ter, assim de estar associado a uma probabilidade, p
 da própria "qualidade da jogada": vamos querer combinações que incluam jogadas prováveis e
 jogadas boas, por forma a tentar ter as melhores previsões possíveis (que nos levem a boas
 jogadas). A complexidade temporal destes problemas é, aqui, $O(b^d n^d)$, onde $n$ corresponde
-ao número de lançamentos distintos de dados que realizamos: conseguimos, portanto, atingir profundidades
+ao número de lançamentos distintos de dados que realizamos. Conseguimos, portanto, atingir profundidades
 muito menor no mesmo intervalo de tempo.
 
 ---
