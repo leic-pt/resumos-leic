@@ -113,7 +113,7 @@ vamos guardar um **vetor de valores Minimax**, em vez de um valor só, e cada jo
 vai, idealmente, escolher a jogada que mais o beneficia de entre todas as possíveis,
 mantendo, claro, guardados também os valores que cada jogada terá para os outros agentes:
 havendo uma quantidade arbitrária de jogadores, cada um deles acaba por não se preocupar
-tanto com "estragar o jogo ao outro" como com "preocupar-se com o próprio jogo". As
+tanto com "estragar o jogo ao outro" como com "fazer o melhor possível com o próprio jogo". As
 estratégias ótimas podem, naturalmente, traduzir-se em alianças informais entre vários
 jogadores.
 
@@ -154,7 +154,7 @@ o Minimax clássico - fizemo-lo, contudo, de forma mais eficiente, cortando ramo
 
 A abordagem seguindo cortes $\alpha$ e $\beta$ corresponde, na prática, a uma alteração simples
 ao pseudo-código original do algoritmo Minimax: agora, caso nós já saibamos (porque já vimos)
-que temos mais acima na árvore uma opção melhor do que aquela que estamos a analisar agora,
+que temos mais acima na árvore uma opção melhor do que aquela que estamos a analisar,
 então a escolha ótima nunca recairá sobre o nó onde nos encontramos, pelo que podemos
 simplesmente cortá-lo e avançar para o próximo.
 
@@ -188,7 +188,7 @@ queiramos ainda assim escolher os nós por uma [**ordem ideal**](color:orange), 
 uma ordem que se aproxime tanto do ideal quanto possível. Mais ainda, podemos não querer
 ter de navegar até às folhas da árvore de procura para saber os valores Minimax dos nós
 mais acima, aceitando estimativas que sejam relativamente próximas do valor real.
-Aqui, entra uma ideia nova: a de uma [**tabela de transposições**](color:orange), que nos vai
+Aqui, entra uma ideia nova: a de usar uma [**tabela de transposições**](color:orange), que nos vai
 ajudar a combater nós diferentes a representar estados equivalentes.
 
 O objetivo passará, então, por guardar cada estado com o respetivo valor Minimax numa
@@ -270,7 +270,7 @@ Quando estamos na presença de estados aquiescentes que se encontrem no limite, 
 do valor da função de avaliação para cima - dizemos que estamos na presença de uma
 [**procura quiescente**](color:green), nesta situação.
 
-Para além do problema da aquiescência, alia-se ainda o [**problema do horizonte**](color:yellow):
+Para além do problema da aquiescência, alia-se ainda o [**problema do horizonte**](color:yellow), segundo o qual
 jogadas atuais podem "atirar problemas para um futuro longínquo": eles continuam lá,
 nós é que vamos deixar de os ver por momentos. Esta falha pode levar a problemas graves:
 visto que, por norma, não vamos até ao fim da árvore de procura, o limite pode estar "para cá"
@@ -284,7 +284,7 @@ limite da procura só para ela, por forma a tentar ver para lá do horizonte.
 Encontra-se abaixo o exemplo de uma situação que ilustra este problema: conseguimos,
 empiricamente, perceber, que o bispo preto está condenado a ser capturado pelo jogador
 branco. Contudo, uma jogada que a árvore de procura pode encontrar que é "momentaneamente
-melhor" é mover um dos seus peões por forma a fazer cheque ao rei. É, contudo, um esforço
+melhor" é mover um dos seus peões por forma a fazer cheque ao rei. É, no entanto, um esforço
 inglório, já que o rei vai só capturar esse peão e não resolvemos o problema do bispo,
 pelo que perdemos um peão sem qualquer ganho.
 
@@ -296,7 +296,7 @@ pelo que perdemos um peão sem qualquer ganho.
 
 Para além de cortes $\alpha$-$\beta$ e cortes-limite, temos ainda uma terceira forma de cortar
 a nossa árvore de procura: através de [**cortes progressivos**](color:orange). Ao contrário
-dos cortes $\alpha$-$\beta$, onde temos a garantia do que estamos a cortar ser irrelevante
+dos cortes $\alpha$-$\beta$, onde temos a garantia de que o que estamos a cortar é irrelevante
 para o valor da função de avaliação de um nó, aqui vamos procurar "prever" que assim é,
 sem qualquer garantia de tal ser o caso. Temos duas maneiras principais de os fazer:
 
@@ -313,12 +313,12 @@ sem qualquer garantia de tal ser o caso. Temos duas maneiras principais de os fa
 Os jogos estocásticos são os que introduzem o elemento [**sorte**](color:green): para além
 de haver a imprevisibilidade dos movimentos do adversário, existe também a possibilidade
 da ação que queremos fazer não corresponder à que de facto acontece. É como se no xadrez,
-para além de termos a dificuldade de fazer a jogada que nos leve para mais próximo da vitória,
+para além de termos a dificuldade de fazer a jogada que nos aproxime mais da vitória,
 ainda tenhamos que lançar um dado para ver que conjunto de jogadas é que podemos fazer
 em cada ronda. Cada nó vai ter, assim de estar associado a uma probabilidade, para além
 da própria "qualidade da jogada": vamos querer combinações que incluam jogadas prováveis e
 jogadas boas, por forma a tentar ter as melhores previsões possíveis (que nos levem a boas
-jogadas). A complexidade temporal destes problemas é, aqui, $O(b^d n^d)$, onde $n$ corresponde
+jogadas). A complexidade temporal destes problemas é $O(b^d n^d)$, onde $n$ corresponde
 ao número de lançamentos distintos de dados que realizamos. Conseguimos, portanto, atingir profundidades
 muito menor no mesmo intervalo de tempo.
 
