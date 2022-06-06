@@ -288,6 +288,65 @@ O conteúdo será adicionado assim que possível.
 
 ## Procura com Ações Não Determinísticas
 
+Em cenários reais, nem sempre vamos conhecer por completo o nosso meio envolvente - tal
+como referido no início da secção de resumos de IA, este tipo de ambiente diz-se [**parcialmente
+observável**](color:orange). Adiciona toda uma camada de incerteza às nossas procuras: não só
+temos de nos preocupar com tentar fazer procuras eficientes e corretas, como também de o fazer
+com um _backup plan_ caso algo não corra exatamente como esperado. Formalmente, passamos
+de situações tal que "estou num estado $s_1$, e executando uma ação $a_1$ passo a estar
+em $s_2$", para situações mais vagas: "estou num estado, que tanto pode ser $s_1$ como $s_2$ como $s_k$,
+e executando uma ação $a_1$ posso passar a estar em $s_{k +1}$ ou ... ou $s_n$.
+
+Podemos tentar ilustrar esta ideia através do exemplo do aspirador que utilizámos na
+[secção dos agentes](/ia/agentes): considerando um estado inicial, em que o aspirador
+está na posição $A$ e essa mesma posição está suja, a ação "aspirar" pode nem sempre
+resultar na mesma transição:
+
+- O aspirador pode avariar-se de repente, e não aspiramos nada;
+- Podemos aspirar, sem querer, a posição $B$ (para além de $A$).
+
+Vamos, portanto, ter de [**adaptar a nossa noção de modelo de transição**](color:orange),
+passando esta a retornar um **conjunto de estados**, o conjunto de estados que podem
+resultar de aplicar uma ação $a$ a um estado $s$. Tratam-se, portanto, de [**cenários
+não determinísticos**](color:red).
+
+:::tip[Como realizar procuras em cenários não determinísticos]
+
+Surge então uma questão pertinente - em cenários onde não é possível prever com exatidão
+o resultado de uma dada ação, como é que é suposto fazermos procuras corretas?
+Bem, sabemos sempre que, partindo de qualquer estado, podemos construir o conjunto das
+ações realizáveis a partir dele. Mais ainda, sabemos que, se a ação $a$ é realizável,
+então terá um conjunto de estados resultantes de realizar a ação $a$ partindo de um estado $s$.
+Começa aqui a formar-se uma ideia quase cíclica: partimos de estados, temos um conjunto
+de ações que podemos tomar, e realizando essas ações podemos ir parar a um conjunto
+de outros estados. Esta ideia traduz-se, na prática, numa [**árvore AND-OR**](color:orange):
+uma árvore com dois tipos de nós, onde:
+
+- os nós OR correspondem a ações: a ação "aspirar", por exemplo, corresponde a um nó OR válido;
+- os nós AND correspondem a estados.
+
+A lógica por detrás destas árvores é, então, simples de entender: partindo de nós AND,
+vemos que ações podemos executar a partir deles, e geramos os nós correspondentes (que vão
+ser seus filhos) - os nós OR. Posteriormente, verificamos os estados resultantes de aplicar
+a ação em OR ao pai AND, e daí resultam os filhos de OR: os tais estados resultantes,
+um conjunto de nós AND. A árvore correspondente ao cenário do aspirador podia,
+então, ser representada da seguinte forma:
+
+![Aspirador - Exemplo](imgs/0006-vacuum.svg#dark=2)
+
+Neste tipo de árvores, [**todas as folhas são objetivos**](color:green). Mais ainda,
+caso encontremos um estado repetido seguindo um dado caminho, podemos dizer que
+[**entrámos em ciclo**](color:red), retornando _failure_.
+
+Existem, contudo, cenários onde temos de utilizar ciclos para atingir a solução pretendida:
+caso apenas nos falte uma posição por limpar, por exemplo, e a nossa tentativa de aspirar
+essa posição falhar, vamos inevitavelmente entrar em ciclo. A solução passa, nestas
+circunstâncias, por tentar repetidamente aspirar, até finalmente conseguir! Depreende-se,
+então, que ciclos causados "aleatoriamente" são aceitáveis, como o do exemplo ainda agora
+referido, e que qualquer outro tipo deve ser rejeitado.
+
+:::
+
 ## Procura em Ambientes Parcialmente Observáveis
 
 ---
