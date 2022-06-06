@@ -1,6 +1,6 @@
 /* Nord Light */
 
-body {
+body.theme-nord {
   --accentColor: #5e81ac;
   --bgColor: #ffffff;
   --cardColor: #f2f4f8;
@@ -32,7 +32,7 @@ body {
 /* Nord Dark */
 
 @media not print {
-  body.dark-mode {
+  body.dark-mode.theme-nord {
     --accentColor: #88c0d0;
     --bgColor: #242933;
     --cardColor: #2e3440;
