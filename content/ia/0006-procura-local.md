@@ -24,7 +24,7 @@ _there's no such thing as a free lunch_, estes ganhos em memória traduzem-se na
 do problema a uma solução - esta forma de procura é, portanto, **ideal para cenários
 onde o caminho é irrelevante**, e apenas queremos saber se existe uma solução possível
 (e, se sim, qual). Mais ainda, correm o risco de ficar facilmente presas em ciclos,
-não sendo, portanto, [**completas**](color:red)[\*](color:yellow) nem [**ótimas**](color:red) com implementações
+não sendo, portanto, [**completas**](color:red) nem [**ótimas**](color:red) com implementações
 normais.
 
 A ausência de otimalidade é relativamente simples de compreender: se um estado tiver um
@@ -64,13 +64,10 @@ function hill_climbing(problem)
   done
 ```
 
-Note-se o perigo de ciclos: rapidamente podemos começar a andar às voltas entre o mesmo par
-de estados! Olhando para o exemplo abaixo, partindo do espaço atual, vamos mover-nos para
-o "estado à direita". De seguida, vamos ver os valores objetivos dos vizinhos desse novo
-estado, e como o original tem valor objetivo superior, voltamos a mover-nos para ele,
-efetivamente entrando num ciclo, do qual não conseguimos sair.
+Note-se mais uma vez como _hill climbing_ sofre o problema de poder parar em máximos
+locais, ignorando outros máximos que existam (possivelmente com valor maior do que onde está):
 
-![Hill Climbing - Ciclos](imgs/0006-hill-climbing-cycles.svg#dark=2)
+![Hill Climbing - Ciclos](imgs/0006-hill-climbing-maximum.svg#dark=2)
 
 [\*](color:yellow) Voltando a pegar na questão da completude, o nosso estado final
 [**pode até não corresponder a uma solução admissível**](color:red): no exemplo das $8$
@@ -80,7 +77,66 @@ procura termina, e terminámos sem solução!
 
 ![8 Rainhas - Final sem Solução Completa](imgs/0006-chess-completeness.svg#dark=3)
 
-<!-- TODO: adicionar mais cenas, slide 18/82 -->
+Uma maneira que foi pensada para contornar o problema dos máximos locais nesta procura
+foi alterar ligeiramente o pseudo-código do mesmo: passar de
+`if neighbor.value <= current_state.value then` para `if neighbor.value < current_state.value then`,
+podendo, assim, "atravessar planaltos". Surgem, contudo, outros problemas: podemos
+facilmente entrar em ciclos (combatidos colocando um limite no número de _sideways moves_,
+por exemplo), e, claro, continua sem haver garantia de que de facto encontremos a solução
+pretendida.
+
+### Variações - Hill Climbing
+
+Sendo _hill climbing_ uma das abordagens clássicas para procura local, houve inevitavelmente
+várias maneiras de a tentar melhorar.
+
+:::info[Stochastic Hill Climbing]
+
+Variação bastante simples: em vez de escolher sempre o estado com maior valor objetivo
+de entre os vizinhos com valor objetivo maior que o seu, vamos aqui escolher um estado
+de [**forma aleatória**](color:yellow) de entre esse mesmo grupo de vizinhos - deixa de ser uma escolha
+_gananciosa_, já que não vamos sempre escolher o estado com maior valor objetivo, passando
+a ser estocástica (ligada à sorte, portanto).
+
+:::
+
+:::tip[First-Choice Hill Climbing]
+
+Em vez de gerar todos os sucessores de uma vez e escolher o vizinho entre o conjunto
+de todos os vizinhos com valor objetivo maior que o próprio, vamos aqui gerar os
+sucessores, de forma aleatória, um de cada vez, e escolher [**o primeiro**](color:green)
+com valor objetivo maior que o que já temos. Poupa, claro, tempo de processamento
+(visto que, por norma, há uma grande quantidade de sucessores que nunca é gerada),
+sendo portanto ideal para espaços de estados onde cada um tem uma quantidade relativamente
+grande de vizinhos.
+
+:::
+
+Note-se que nenhuma das abordagens referidas até agora resolve o problema do algoritmo
+poder parar em máximos locais.
+
+Ora, uma maneira interessante de contornar este problema seria, por exemplo, a
+[**aleatoriedade**](color:orange): visto que vamos sempre iniciar a procura com uma
+configuração inicial aleatória, se o fizermos vezes suficientes é bastante provável
+que cheguemos à solução pretendida. Houve estudos realizados para o problema das $8$ rainhas,
+precisamente para tentar perceber se esta abordagem valeria ou não a pena. Descobriu-se que,
+em média, partindo de uma configuração inicial arbitrária:
+
+- se for encontrar uma solução, fá-lo-á em cerca de $4$ passos;
+- se for ficar preso, tal acontecerá em cerca de $3$ passos.
+
+Podemos, assim, "parar a procura" (tanto artificialmente como porque chegamos a uma
+solução) bastante rápido, pelo que vale a pena fazer a procura várias vezes, com
+configurações iniciais distintas, por forma a tentar obter a solução pretendida.
+
+Tem-se que esta variante, a [**random-restart hill climbing**](color:orange), é completa
+para uma probabilidade próxima de $1$ - quanto mais vezes for repetida, maior a probabilidade
+de encontrar a solução. Considerando $p$ como a probabilidade de sucesso de cada procura,
+vamos (em princípio) precisar de cerca de $\frac{1}{p}$ tentativas para encontrar a solução.
+Considerando, por exemplo, o problema das $8$ rainhas que converge para solução (ou fracasso)
+bastante rápido, esta abordagem parece excelente: apesar de não garantir, em teoria,
+completude, na prática é raríssimo que com um número suficiente de tentativas não encontremos
+a solução.
 
 ---
 
