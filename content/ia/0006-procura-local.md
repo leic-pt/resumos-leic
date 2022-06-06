@@ -30,7 +30,7 @@ não sendo, portanto, [**completas**](color:red) nem [**ótimas**](color:red) co
 normais.
 
 A ausência de otimalidade é relativamente simples de compreender: se um estado tiver um
-dada valor objetivo $n$, e todos os seus vizinhos tiverem valores objetivo superiores a $n$
+dado valor objetivo $n$, e todos os seus vizinhos tiverem valores objetivo superiores a $n$
 (considerando, claro, que o objetivo é maximizar esse valor), o algoritmo fica sem saber para
 onde ir, parando ali, mesmo que eventualmente exista outro estado com valor objetivo maior.
 O gráfico abaixo ilustra de forma clara este problema: através da procura local, conseguimos
@@ -42,7 +42,7 @@ encontremos o [**máximo global**](color:red), configuração ótima pretendida:
 Note-se como, olhando para o estado atual, e considerando que a cada momento temos apenas
 dois vizinhos (o estado "à esquerda" e o "à direita"), vamos acabar sempre por ir para a direita,
 efetivamente afastando-nos do estado ótimo. Assim que chegamos ao máximo local, os respetivos estados
-à esquerda e à direita têm ambos valores objetivo menos, pelo que a procura para aí,
+à esquerda e à direita têm ambos valores objetivo menores, pelo que a procura para aí,
 num **máximo local** que não é o **máximo global**.
 
 Em relação a cenários práticos onde a procura local possa ser utilizada como aliada da
@@ -214,6 +214,67 @@ sem qualquer garantia de tal acontecer. A médio-longo prazo, esta abordagem per
 uma maior diversidade no conjunto de estados que vamos explorando!
 
 :::
+
+## Algoritmos Genéticos
+
+Correspondem a algoritmos baseados na procura em banda estocástica, referida acima,
+e na ideia da "seleção natural" associada à [genética](color:green). Começamos com uma população
+inicial, com $k$ estados (ou **indivíduos**). Estes indivíduos vão eventualmente procriar,
+por forma a dar continuidade à espécie (leia-se, vamos gerar os estados vizinhos), e
+eventualmente vamos gerando indivíduos "melhores", tal como dita a teoria da evolução - as
+mutações positivas mantêm-se, tal como vamos sempre procurar estados que estejam a
+"ir na direção certa". Esta noção de estados melhores e piores pode ser quantificada
+segundo uma função, a [_fitness function_](color:orange), onde os melhores estados recebem os valores mais altos.
+Vamos eventualmente cruzando estados pais, mantendo propriedades iguais entre os mesmos,
+procurando ainda verificar se certas alterações levam ou não a resultados melhores,
+em busca do "indivíduo perfeito": a solução pretendida, o estado que corresponda a uma
+solução.
+
+Este tipo de algoritmos pode, ainda, variar considerando várias componentes:
+
+- O tamanho da população pode, claro, ser infinitamente variável;
+- A representação de um estado - tanto podemos ter _strings_ sobre alfabetos $\{0, 1\}$,
+  como qualquer alfabeto numérico, entre outros;
+- A quantidade de "pais" - acima foram referidos dois pais, mas podemos ter um (sendo essa
+  abordagem a procura em banda estocástica clássica) ou mesmo mais que dois pais;
+- O próprio processo de seleção, que não tem necessariamente de ter uma relação direta
+  com a _fitness function_ (podendo ser mais aleatório), entre outras.
+
+Tomemos novamente o exemplo das $8$ rainhas, contando com $4$ configurações iniciais.
+Aqui, cada estado corresponde a uma _string_ com comprimento $8$, onde cada dígito
+corresponde à linha onde a rainha da coluna em questão está colocada. O valor da
+_fitness function_ associado a cada estado corresponde ao [**número de pares de rainhas
+que não se atacam**](color:orange), onde, claro, valores maiores correspondem a
+estados melhores.
+
+![Genética - Exemplo](imgs/0006-genetics.svg#dark=4)
+
+Podemos ver que foram escolhidos dois pares de estados para cruzamento, escolha
+esta aleatória. Escolhemos ainda que partes da _string_ se vão cruzar, escolha
+esta igualmente aleatória. Cruzamos, então, os estados, gerando quatro novos estados.
+Por fim, iríamos aplicar [**mutações**](color:orange) aos estados gerados, adicionando
+assim mais uma camada de aleatoriedade aos nossos estados.
+
+O livro que acompanha a cadeira inclui esta passagem, bastante interessante no que toca a este tema:
+
+> The theory of genetic algorithms explains how this works using the idea of a **schema**, which
+> is a substring in which some of the positions can be left unspecified. For example, the
+> schema 246**\*** describes all 8-queens states in which the first three queens are in
+> positions 2, 4, and 6, respectively. Strings that match the schema (such as 24613578) are
+> called instances of the schema. It can be shown that if the average fitness of the instances of
+> a schema is above the mean, then the number of instances of the schema will grow over
+> time.
+> Clearly, this effect is unlikely to be significant if adjacent bits are totally unrelated to each
+> other, because then there will be few contiguous blocks that provide a consistent benefit.
+> Genetic algorithms work best when schemas correspond to meaningful components of a
+> solution. For example, if the string is a representation of an antenna, then the schemas may
+> represent components of the antenna, such as reflectors and deflectors. A good component
+> is likely to be good in a variety of different designs. This suggests that successful use of
+> genetic algorithms requires careful engineering of the representation.
+
+Como recurso adicional, a seguinte _playlist_ cobre esta secção da matéria:
+
+::youtube{#9zfeTw-uFCw}
 
 ---
 
