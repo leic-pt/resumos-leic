@@ -155,7 +155,7 @@ o Minimax clássico - fizemo-lo, contudo, de forma mais eficiente, cortando ramo
 A abordagem seguindo cortes $\alpha$ e $\beta$ corresponde, na prática, a uma alteração simples
 ao pseudo-código original do algoritmo Minimax: agora, caso nós já saibamos (porque já vimos)
 que temos mais acima na árvore uma opção melhor do que aquela que estamos a analisar agora,
-então a escolha ótima nunca recairá sobre o nó onde nos encontrámos, pelo que podemos
+então a escolha ótima nunca recairá sobre o nó onde nos encontramos, pelo que podemos
 simplesmente cortá-lo e avançar para o próximo.
 
 Note-se que aplicar este tipo de cortes [**não afeta a completude nem a otimalidade**](color:red)
@@ -196,7 +196,7 @@ O objetivo passará, então, por guardar cada estado com o respetivo valor Minim
 Verificamos, antes de o tentar guardar, se ele já lá existe, claro: se já lá existir,
 escusamos de voltar a analisar tudo o que está para baixo dele, visto que já
 temos o respetivo valor Minimax. Conseguimos, através desta técnica, **duplicar** a
-profundidade de procura no mesmo intervalo de tempo. Temos, contudo, um catch: para espaços
+profundidade de procura no mesmo intervalo de tempo. Temos, contudo, um _catch_: para espaços
 de estado enormes, vamos ter de manter uma quantidade igualmente enorme de entradas na tabela.
 Existem duas estratégias clássicas, propostas por Claude Shannon, para combater este problema,
 mas que na cadeira não são abordadas em detalhe (uma primeira que propõe olhar apenas para jogadas
@@ -207,7 +207,7 @@ promissoras").
 
 Existem, claro, outras maneiras de realizar procura com cortes $\alpha$-$\beta$ sem ir
 necessariamente até às folhas da árvore de procura: podemos reutilizar a ideia de funções
-de avaliação que estimem a função de utilidade de um dado nó! Vamos procurar _cortar_ a nossa
+de avaliação que estimem a função de utilidade de um dado nó! Vamos procurar "cortar" a nossa
 árvore de procura a uma profundidade arbitrária, atribuir aos "novos nós-folha" os valores
 correspondentes à respetiva função de avaliação e de seguida propagar para cima tal
 como fazíamos anteriormente. Os nossos valores minimax serão, então, dados por:
@@ -285,7 +285,7 @@ Encontra-se abaixo o exemplo de uma situação que ilustra este problema: conseg
 empiricamente, perceber, que o bispo preto está condenado a ser capturado pelo jogador
 branco. Contudo, uma jogada que a árvore de procura pode encontrar que é "momentaneamente
 melhor" é mover um dos seus peões por forma a fazer cheque ao rei. É, contudo, um esforço
-inglório, já que a rei vai só capturar esse peão e não resolvemos o problema do bispo,
+inglório, já que o rei vai só capturar esse peão e não resolvemos o problema do bispo,
 pelo que perdemos um peão sem qualquer ganho.
 
 ![Horizonte - Xadrez](imgs/0005-chess-horizon.svg)
@@ -302,9 +302,9 @@ sem qualquer garantia de tal ser o caso. Temos duas maneiras principais de os fa
 
 - [**Procura em Banda/Beam Search**](color:green) - consideramos, para cada nível, as
   $n$ melhores jogadas (segundo a função de avaliação associada). Não há garantias de
-  que não estamos a cortar ramos que nos levassem à jogada ótima.
+  que não estamos a cortar ramos que nos levariam à jogada ótima.
 - [**Corte Probabilístico/ProbCut**](color:green) - cortamos não só os ramos que estão
-  garantidamente fora da "janela $(\alpha, \beta)$, como também os que **provavelmente**
+  garantidamente fora da "janela $(\alpha, \beta)$", como também os que **provavelmente**
   estão: usamos a "experiência de procuras anteriores" para determinar a probabilidade
   de um dado valor a uma dada profundidade estar ou não fora da janela $(\alpha, \beta)$.
 
@@ -313,7 +313,7 @@ sem qualquer garantia de tal ser o caso. Temos duas maneiras principais de os fa
 Os jogos estocásticos são os que introduzem o elemento [**sorte**](color:green): para além
 de haver a imprevisibilidade dos movimentos do adversário, existe também a possibilidade
 da ação que queremos fazer não corresponder à que de facto acontece. É como se no xadrez,
-para além de ter a dificuldade de fazer a jogada que nos leve para mais próximo da vitória,
+para além de termos a dificuldade de fazer a jogada que nos leve para mais próximo da vitória,
 ainda tenhamos que lançar um dado para ver que conjunto de jogadas é que podemos fazer
 em cada ronda. Cada nó vai ter, assim de estar associado a uma probabilidade, para além
 da própria "qualidade da jogada": vamos querer combinações que incluam jogadas prováveis e
