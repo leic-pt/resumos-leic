@@ -147,7 +147,7 @@ configurações iniciais distintas, por forma a tentar obter a solução pretend
 Tem-se que esta variante, a [**random-restart hill climbing**](color:orange), é completa
 para uma probabilidade próxima de $1$ - quanto mais vezes for repetida, maior a probabilidade
 de encontrar a solução. Considerando $p$ como a probabilidade de sucesso de cada procura,
-vamos (em princípio) precisar de cerca de $\frac{1}{p}$ tentativas para encontrar a solução.
+vamos (em princípio) precisar de cerca de [$\frac{1}{p}$ tentativas](/pe/va-discretas#distribuição-geométrica) para encontrar a solução.
 Considerando, por exemplo, o problema das $8$ rainhas que converge para solução (ou fracasso)
 bastante rápido, esta abordagem parece excelente: apesar de não garantir, em teoria,
 completude, na prática é raríssimo que com um número suficiente de tentativas não encontremos
