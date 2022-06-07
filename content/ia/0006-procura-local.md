@@ -15,7 +15,7 @@ type: content
 
 Tal como referido na secção dos CSPs, a procura local é uma abordagem de procura que
 parte de uma configuração inicial completa, procurando encontrar uma configuração
-completa e consistente - de um modo mais geral, e procurando abstrairmo-nos do contexto
+completa e **consistente** - de um modo mais geral, e procurando abstrairmo-nos do contexto
 dos CSPs, procuramos um [**estado objetivo**](color:orange), realizando transições sucessivas
 entre "estados vizinhos". Tem, claro, [**ganhos**](color:green) quanto à sua
 [**complexidade espacial**](color:green), em comparação com a procura sistemática habitual: em vez
@@ -24,8 +24,8 @@ do problema que se vai alterando com o passar do tempo. Contudo, e como
 _there's no such thing as a free lunch_, estes ganhos em memória traduzem-se na
 [**incapacidade de saber o caminho**](color:red) que leva uma configuração "vazia"
 do problema a uma solução - esta forma de procura é, portanto, **ideal para cenários
-onde o caminho é irrelevante**, e apenas queremos saber se existe uma solução possível
-(e, se sim, qual). Mais ainda, correm o risco de ficar facilmente presas em ciclos,
+onde o caminho é irrelevante**, onde apenas queremos saber se existe uma solução possível
+(e, se sim, qual). Correm também o risco de ficar facilmente presas em ciclos,
 não sendo, portanto, [**completas**](color:red) nem [**ótimas**](color:red) com implementações
 normais.
 
@@ -35,7 +35,7 @@ dado valor objetivo $n$, e todos os seus vizinhos tiverem valores objetivo super
 onde ir, parando ali, mesmo que eventualmente exista outro estado com valor objetivo maior.
 O gráfico abaixo ilustra de forma clara este problema: através da procura local, conseguimos
 encontrar de forma rápida [**máximos locais**](color:orange), mas não é garantido que
-encontremos o [**máximo global**](color:red), configuração ótima pretendida:
+encontremos o [**máximo global**](color:red), a configuração ótima pretendida:
 
 ![Procura Local - Máximos Locais vs Globais](imgs/0006-local-search-plot.svg#dark=3)
 
@@ -63,7 +63,7 @@ demarcada com a seta vermelha!
 
 Funciona tal e qual foi referido mais acima: uma procura que escolhe sempre o estado
 com [**maior valor objetivo**](color:green) de entre os seus vizinhos, terminando quando
-nenhum dos seus vizinhos tem valor melhor que ele próprio. O nome vem precisamente da forma
+nenhum deles tem valor melhor que o dele próprio. O nome vem precisamente da forma
 como se comporta: esta abordagem procura sempre "trepar a colina mais inclinada que consegue ver",
 considerando, claro, que só consegue ver o que está imediatamente à sua frente.
 
@@ -86,20 +86,19 @@ locais, ignorando outros máximos que existam (possivelmente com valor maior do 
 ![Hill Climbing - Ciclos](imgs/0006-hill-climbing-maximum.svg#dark=2)
 
 [\*](color:yellow) Voltando a pegar na questão da completude, o nosso estado final
-[**pode até não corresponder a uma solução admissível**](color:red): no exemplo das $8$
+[**pode até não corresponder a uma solução admissível**](color:red), caso apenas o máximo global corresponda a uma solução admissível: no exemplo das $8$
 rainhas ilustrado abaixo, chegamos a uma situação onde qualquer movimento que façamos
 leva a que mais rainhas se ataquem (no momento imediatamente seguinte), pelo que a
-procura termina, e terminámos sem solução!
+procura termina, e terminámos sem uma solução consistente!
 
 ![8 Rainhas - Final sem Solução Completa](imgs/0006-chess-completeness.svg#dark=3)
 
-Uma maneira que foi pensada para contornar o problema dos máximos locais nesta procura
+Uma estratégia pensada para contornar o problema dos máximos locais nesta procura
 foi alterar ligeiramente o pseudo-código do mesmo: passar de
 `if neighbor.value <= current_state.value then` para `if neighbor.value < current_state.value then`,
 podendo, assim, "atravessar planaltos". Surgem, contudo, outros problemas: podemos
 facilmente entrar em ciclos (combatidos colocando um limite no número de _sideways moves_,
-por exemplo), e, claro, continua sem haver garantia de que de facto encontremos a solução
-pretendida.
+por exemplo), e, claro, continua sem haver garantia de encontrar a solução pretendida.
 
 ### Variações - Hill Climbing
 
@@ -138,11 +137,11 @@ que cheguemos à solução pretendida. Houve estudos realizados para o problema 
 precisamente para tentar perceber se esta abordagem valeria ou não a pena. Descobriu-se que,
 em média, partindo de uma configuração inicial arbitrária:
 
-- se for encontrar uma solução, fá-lo-á em cerca de $4$ passos;
-- se for ficar preso, tal acontecerá em cerca de $3$ passos.
+- se _hill climbing_ for encontrar uma solução, fá-lo-á em cerca de $4$ passos;
+- se for ficar preso num ciclo, tal acontecerá em cerca de $3$ passos.
 
-Podemos, assim, "parar a procura" (tanto artificialmente como por chegarmos a uma
-solução) bastante rápido, pelo que vale a pena fazer a procura várias vezes, com
+Podemos, assim, "parar a procura" (tanto artificialmente como ao chegar a uma
+solução) bastante rápido, pelo que vale a pena repetir a procura várias vezes, com
 configurações iniciais distintas, por forma a tentar obter a solução pretendida.
 
 Tem-se que esta variante, a [**random-restart hill climbing**](color:orange), é completa
@@ -158,7 +157,7 @@ a solução.
 
 Na área da metalurgia, _annealing_ corresponde ao processo de endurecer um metal, colocando-o
 primeiro a temperaturas muito altas, procurando de seguida arrefecê-lo gradualmente.
-O método descrito abaixo, _simulated annealing_, acaba por ser uma implementação de uma metáfora semelhante
+O método descrito abaixo, _simulated annealing_, acaba por corresponder a uma implementação de uma metáfora semelhante
 no contexto da procura local (bem, igual, só que diferente): pensemos num cenário em que
 queremos que uma bola chegue ao fundo de um "vale" com aspeto parabólico, vale esse
 com paredes particularmente pegajosas (às quais a bola pode facilmente prender-se):
@@ -167,10 +166,10 @@ com paredes particularmente pegajosas (às quais a bola pode facilmente prender-
 
 Se abanarmos vezes suficientes o vale, mesmo que a bola vá ficando presa em "mínimos locais"
 (leia-se, fique pegada às paredes do vale) sucessivos, eventualmente vamos conseguir fazer com que
-chegue lá abaixo. A procura por _simulated annealing_ baseia-se nisso mesmo, em tentar
+chegue lá abaixo. A procura por _simulated annealing_ baseia-se nisso mesmo: em tentar
 fazer com que os estados saiam de máximos/mínimos locais, [**"abanando-os"**](color:yellow).
 "Abanar" os estados consiste, aqui, em escolher (por vezes) estados com valor objetivo
-menor que o que temos atualmente, por forma a procurar sair de máximos/mínimos locais
+pior do que o que temos atualmente, por forma a procurar sair de máximos/mínimos locais
 em direção ao global. Esta escolha é feita da seguinte maneira:
 
 - se gerarmos um vizinho com valor objetivo maior que o que temos atualmente, escolhemo-lo,
@@ -181,7 +180,7 @@ em direção ao global. Esta escolha é feita da seguinte maneira:
   encontrar extremos globais, pelo que a probabilidade (sempre menor que $1$) de escolher
   estes vizinhos diminui à medida que o movimento se aproxima cada vez mais dos extremos globais -
   isto é, se nos estivermos a aproximar "do que queremos", não faz tanto sentido ir noutra direção
-  como fazia inicialmente, quando estávamos longe e era mais ou menos indiferente.
+  como fazia inicialmente, quando estávamos longe e qualquer abanão podia surtir efeitos positivos.
 
 ## Local Beam Search
 
@@ -201,13 +200,13 @@ processo é realizado iterativamente até que encontremos um estado-objetivo.
 [\*](color:yellow) Note-se que caso um dos estados, seja ele $K$, gere $\frac{k}{2}$ vizinhos
 fantásticos e todos os outros, para todos os outros estados, sejam medíocres, não vamos
 apenas escolher $1$ vizinho por estado: vamos escolher os $\frac{k}{2}$ vizinhos de $K$,
-e depois outros $\frac{k}{2}$ vizinhos de entre o resto dos medíocres.
+e depois outros $\frac{k}{2}$ vizinhos entre o resto dos medíocres.
 
 :::info[Procura Local em Banda Estocástica]
 
 Podemos, eventualmente, chegar a situações em que os $k$ estados que temos em mãos
 são pouco diversos - tal pode acontecer, por exemplo, num espaço de estados relativamente
-pequeno, em que facilmente consigamos ficar "presos" a um conjunto curto de bons estados.
+pequeno (e/ou denso), em que facilmente conseguimos ficar "presos" a um conjunto parco de bons estados.
 Para nos ajudar a combater este problema, existe a variante [**estocástica**](color:orange)
 da procura local em banda, onde em vez de escolhermos sempre os $k$ melhores vizinhos
 dos estados atuais, escolhemos $k$ vizinhos de forma estocástica - vamos aqui, considerar
@@ -221,13 +220,13 @@ uma maior diversidade no conjunto de estados que vamos explorando!
 
 Correspondem a algoritmos baseados na procura em banda estocástica, referida acima,
 e na ideia da "seleção natural" associada à [genética](color:green). Começamos com uma população
-inicial, com $k$ estados (ou **indivíduos**). Estes indivíduos vão eventualmente procriar,
+inicial, com $k$ estados (ou **indivíduos**). Estes indivíduos vão eventualmente reproduzir-se,
 por forma a dar continuidade à espécie (leia-se, vamos gerar os estados vizinhos), e
 eventualmente vamos gerando indivíduos "melhores", tal como dita a teoria da evolução - as
-mutações positivas mantêm-se, tal como vamos sempre procurar estados que estejam a
+mutações positivas mantêm-se, da mesma maneira que vamos sempre procurar estados que estejam a
 "ir na direção certa". Esta noção de estados melhores e piores pode ser quantificada
-segundo uma função, a [_fitness function_](color:orange), onde os melhores estados recebem os valores mais altos.
-Vamos eventualmente cruzando estados pais, mantendo propriedades iguais entre os mesmos,
+segundo uma função, a [_fitness function_](color:orange), onde os melhores estados recebem os valores mais altos: _the fittest individuals stay alive_.
+Vamos cruzando estados pais, mantendo propriedades iguais entre os mesmos,
 procurando ainda verificar se certas alterações levam ou não a resultados melhores,
 em busca do "indivíduo perfeito": a solução pretendida, o estado que corresponda a uma
 solução.
@@ -235,7 +234,7 @@ solução.
 Este tipo de algoritmos pode, ainda, variar considerando várias componentes:
 
 - O tamanho da população pode, claro, ser infinitamente variável;
-- A representação de um estado - tanto podemos ter _strings_ sobre alfabetos $\{0, 1\}$,
+- A representação de um estado é também arbitrária: tanto podemos ter _strings_ sobre alfabetos $\{0, 1\}$,
   como qualquer alfabeto numérico, entre outros;
 - A quantidade de "pais" - acima foram referidos dois pais, mas podemos ter um (sendo essa
   abordagem a procura em banda estocástica clássica) ou mesmo mais que dois pais;
@@ -247,14 +246,14 @@ Aqui, cada estado corresponde a uma _string_ com comprimento $8$, onde cada díg
 corresponde à linha onde a rainha da coluna em questão está colocada. O valor da
 _fitness function_ associado a cada estado corresponde ao [**número de pares de rainhas
 que não se atacam**](color:orange), onde, claro, valores maiores correspondem a
-estados melhores.
+estados melhores, visto que no fim queremos que nenhum par se ataque.
 
 ![Genética - Exemplo](imgs/0006-genetics.svg#dark=4)
 
 Podemos ver que foram escolhidos dois pares de estados para cruzamento, escolha
 esta aleatória. Escolhemos ainda que partes da _string_ se vão cruzar, escolha
 esta igualmente aleatória. Cruzamos, então, os estados, gerando quatro novos estados.
-Por fim, iríamos aplicar [**mutações**](color:orange) aos estados gerados, adicionando
+Por fim, podemos (ou não) aplicar [**mutações**](color:orange) aos estados gerados, adicionando
 assim mais uma camada de aleatoriedade aos nossos estados.
 
 O livro que acompanha a cadeira inclui esta passagem, bastante interessante no que toca a este tema:
@@ -316,7 +315,7 @@ ações realizáveis a partir dele. Mais ainda, sabemos que, se a ação $a$ é 
 então terá um conjunto de estados resultantes de realizar a ação $a$ partindo de um estado $s$.
 Começa aqui a formar-se uma ideia quase cíclica: partimos de estados, temos um conjunto
 de ações que podemos tomar, e realizando essas ações podemos ir parar a um conjunto
-de outros estados. Esta ideia traduz-se, na prática, numa [**árvore AND-OR**](color:orange):
+de outros estados, ideia esta que não parece nova (e de facto não é - temos, contudo, de precaver _outcomes_ diferentes para uma mesma ação). Esta ideia traduz-se, na prática, numa [**árvore AND-OR**](color:orange):
 uma árvore com dois tipos de nós, onde:
 
 - os nós OR correspondem a ações: a ação "aspirar", por exemplo, corresponde a um nó OR válido;
@@ -355,7 +354,7 @@ de saber exatamente qual é o ambiente que o envolve, consegue trabalhar melhor 
 complicados.
 
 A nossa procura vai tratar, em vez de um conjunto de estados palpáveis/completamente observáveis,
-um [**conjunto de crenças**](color:orange) do agente. Tem um conjunto de componentes diferente
+de um [**conjunto de crenças**](color:orange) do agente. Tem um conjunto de componentes diferente
 do que foi visto até agora:
 
 - Um conjunto de estados, o **espaço de crenças**: contém todos os subconjuntos de estados
@@ -383,15 +382,15 @@ do que foi visto até agora:
   \end{aligned}
   $$
 
-  O modelo de transição em si tem três etapas: inicialmente, a fase daa [**previsão**](color:orange),
+  O modelo de transição em si tem três etapas: inicialmente, a fase da [**previsão**](color:orange),
   onde vai calcular as crenças resultantes da ação que vai tomar. De seguida, caso esteja num
   ambiente parcialmente observável, utiliza os seus sensores, e utiliza a informação obtida
   para atualizar o seu espaço de crenças.
 
 - O **teste objetivo**, que aqui tem um senão: só é [**garantido**](color:green) que estamos
-  no objetivo se toda o nosso espaço de crenças assim o garantir - isto é, se todos os estados
+  no objetivo se toda o nosso espaço de crenças assim o afirmar - isto é, se todos os estados
   do nosso espaço de crenças satisfizerem o objetivo; caso contrário, **possivelmente**
-  alcançámos o objetivo, contudo sem garantias.
+  alcançámos o objetivo, sem qualquer garantia.
 
 ![Aspirador - Exemplo da transição de espaços de crença](imgs/0006-unknown-vacuum.svg#dark=3)
 
