@@ -36,3 +36,7 @@ type: content
 ## NULL
 
 - Aritmética do NULL
+
+- Comportamento com OUTER JOINs
+
+- Inconsistências
