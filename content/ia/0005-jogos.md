@@ -61,7 +61,7 @@ travessias por essa mesma árvore (e, claro, tal como nessas secções, vamos ve
 de tornar esta procura mais eficiente).
 
 Abaixo, encontra-se um exemplo do que corresponderia a dois níveis distintos da árvore,
-devidamente identificados com MIN e MAX:
+devidamente identificados com [MIN](color:red) e [MAX](color:green):
 
 :::details[Exemplo - Árvore de Procura, Jogo do Galo]
 
@@ -69,8 +69,9 @@ devidamente identificados com MIN e MAX:
 
 Note-se, claro, que o estado mais à esquerda é considerado [**estado terminal**](color:yellow) para o jogo
 do galo, estando devidamente etiquetado com o valor da respetiva função de utilidade
-para o jogador MAX, X. Idealmente, o jogador MIN, O, teria função de utilidade associada com valor
-simétrico (apesar de em alguns jogos, como o xadrez, tal não ser necessariamente o caso).
+para o jogador [MAX](color:green), [X](color:green). Idealmente, o jogador [MIN](color:red), [O](color:red),
+teria função de utilidade associada com valor simétrico (apesar de em alguns jogos, como o xadrez, tal não
+ser necessariamente o caso).
 
 :::
 
@@ -87,15 +88,15 @@ Este valor pode ser calculado através da seguinte função:
 
 $$
 \op{minimax(s)} = \begin{cases}
-  \op{utility(s, MAX)} & \text{se} \op{terminal\_test(s)} \\
-  \max_{a \in \op{actions(s)}} \op{minimax(result(s, a))} & \text{se} \op{player(s)} = \op{MAX} \\
-  \min_{a \in \op{actions(s)}} \op{minimax(result(s, a))} & \text{se} \op{player(s)} = \op{MIN}
+  \op{utility(s, \textcolor{green}{MAX})} & \text{se} \op{terminal\_test(s)} \\
+  \max_{a \in \op{actions(s)}} \op{minimax(result(s, a))} & \text{se} \op{player(s)} = \op{\textcolor{green}{MAX}} \\
+  \min_{a \in \op{actions(s)}} \op{minimax(result(s, a))} & \text{se} \op{player(s)} = \op{\textcolor{red}{MIN}}
 \end{cases}
 $$
 
-Colocando por palavras, temos que MIN vai sempre tentar escolher a jogada que [**minimiza**](color:red)
-as hipóteses de MAX ganhar. Assim sendo, de entre todas as jogadas que MIN idealmente fará,
-MAX vai tentar [**maximizar**](color:green) as suas próprias hipóteses de ganhar, escolhendo a jogada com
+Colocando por palavras, temos que [MIN](color:red) vai sempre tentar escolher a jogada que [**minimiza**](color:red)
+as hipóteses de [MAX](color:green) ganhar. Assim sendo, de entre todas as jogadas que [MIN](color:red) idealmente fará,
+[MAX](color:green) vai tentar [**maximizar**](color:green) as suas próprias hipóteses de ganhar, escolhendo a jogada com
 maior valor minimax. O exemplo abaixo poderá ajudar a clarificar este conceito:
 
 ![Minimax - Exemplo Inicial](imgs/0005-minimax-basic-example.svg#dark=2)
@@ -141,9 +142,10 @@ ou não mais cedo, conseguindo, assim, reduzir com segurança o número de estad
 de analisar. Uma das formas de verificar isso mesmo é, claro, [**cortando**](color:green)
 ramos da árvore, e vamos abordar os cortes $\op{\alpha - \beta}$ para esse efeito.
 
-Vamos ter, aqui, que a nossa $DFS$ vai manter um par de valores, $\op{\alpha}$ e $\op{\beta}$,
-correspondendo, respetivamente, ao **valor da melhor escolha encontrada até agora para MAX** e ao
-**valor da melhor escolha encontrada até agora para MIN**.
+Vamos ter, aqui, que a nossa $DFS$ vai manter um par de valores, $\op{\textcolor{green}{\alpha}}$
+e $\op{\textcolor{red}{\beta}}$, correspondendo, respetivamente, ao
+**valor da melhor escolha encontrada até agora para [MAX](color:green)** e ao
+**valor da melhor escolha encontrada até agora para [MIN](color:red)**.
 
 Procuremos olhar primeiro para o exemplo abaixo:
 
@@ -266,9 +268,9 @@ a perder informação extremamente relevante sobre jogadas imediatamente posteri
 pelo limite: devemos, portanto, aplicar a função de avaliação apenas a [**estados quiescentes**](color:orange),
 isto é, estados que [**estão em "repouso"**](color:orange) - estados em que não há nenhuma jogada
 pendente que fosse alterar o valor da função de avaliação brutalmente. Podemos pensar, por exemplo,
-que um estado aquiescente seria o estado precisamente anterior ao da captura de uma rainha por
-parte de um dos jogadores, e que um estado quiescente seria um estado em que não há ataques
-"obrigatórios"/que causem alterações demasiado grandes à função de avaliação a seguir.
+que um estado aquiescente (isto é, o contrário de quiescente) seria o estado precisamente anterior ao da
+captura de uma rainha por parte de um dos jogadores, e que um estado quiescente seria um estado em que não há
+ataques "obrigatórios"/que causem alterações demasiado grandes à função de avaliação a seguir.
 Quando estamos na presença de estados aquiescentes que se encontrem no limite, avançamos na
 árvore de procura por esse estado até encontrar um estado quiescente, parando aí e fazendo a propagação
 do valor da função de avaliação para cima - dizemos que estamos na presença de uma
@@ -319,7 +321,7 @@ de haver a imprevisibilidade dos movimentos do adversário, existe também a pos
 da ação que queremos fazer não corresponder à que de facto acontece. É como se no xadrez,
 para além de termos a dificuldade de fazer a jogada que nos aproxime mais da vitória,
 ainda tenhamos que lançar um dado para ver que conjunto de jogadas é que podemos fazer
-em cada ronda. Cada nó vai ter, assim de estar associado a uma probabilidade, para além
+em cada ronda. Cada nó vai ter, assim, de estar associado a uma probabilidade, para além
 da própria "qualidade da jogada": vamos querer combinações que incluam jogadas prováveis e
 jogadas boas, por forma a tentar ter as melhores previsões possíveis (que nos levem a boas
 jogadas). A complexidade temporal destes problemas é $O(b^d n^d)$, onde $n$ corresponde
