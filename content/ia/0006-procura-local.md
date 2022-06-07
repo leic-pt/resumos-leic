@@ -42,7 +42,7 @@ encontremos o [**máximo global**](color:red), a configuração ótima pretendid
 Note-se como, olhando para o estado atual, e considerando que a cada momento temos apenas
 dois vizinhos (o estado "à esquerda" e o "à direita"), vamos acabar sempre por ir para a direita,
 efetivamente afastando-nos do estado ótimo. Assim que chegamos ao máximo local, os respetivos estados
-à esquerda e à direita têm ambos valores objetivo menores, pelo que a procura suspende aí,
+à esquerda e à direita têm ambos valores objetivo menores, pelo que a procura é suspensa aí,
 num **máximo local** que não é o **máximo global**.
 
 Em relação a cenários práticos onde a procura local possa ser utilizada como aliada da
