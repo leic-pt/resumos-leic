@@ -76,7 +76,7 @@ function hill_climbing(problem)
     neighbor = current_state.get_highest_valued_neighbor()
     if neighbor.value <= current_state.value then
       return current_state
-    current = neighbor
+    current_state = neighbor
   done
 ```
 
