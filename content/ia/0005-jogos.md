@@ -3,7 +3,11 @@ title: Procura Adversária e Jogos
 description: Jogos zero-sum.
   Procura Adversária.
   Minimax.
+  Procura com Cortes.
   Cortes Alfa-Beta.
+  Cortes com Limite.
+  Cortes progressivos.
+  Jogos Estocásticos.
 path: /ia/jogos
 type: content
 ---
