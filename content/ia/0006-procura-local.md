@@ -253,8 +253,8 @@ estados melhores, visto que, no fim, queremos que nenhum par se ataque.
 Podemos ver que foram escolhidos, de forma aleatória, dois pares de estados para cruzamento.
 Escolhemos ainda que partes da _string_ se vão cruzar, escolha
 esta igualmente aleatória. Cruzamos, então, os estados, gerando quatro novos estados.
-Por fim, podemos (ou não) aplicar [**mutações**](color:orange) aos estados gerados, adicionando
-assim mais uma camada de aleatoriedade aos nossos estados.
+Por fim, podemos (ou não) aplicar [**mutações**](color:orange) aos estados gerados, adicionando-lhes,
+assim, mais uma camada de aleatoriedade.
 
 O livro que acompanha a cadeira inclui esta passagem, bastante interessante no que toca a este tema:
 
@@ -287,7 +287,7 @@ O conteúdo será adicionado assim que possível.
 
 ## Procura com Ações Não Determinísticas
 
-Em cenários reais, as nossas ações podem ter mais de resultado possível: se um indivíduo
+Em cenários reais, as nossas ações podem ter mais do que um resultado possível: se um indivíduo
 particularmente descoordenado tentar rematar uma bola de futebol, por exemplo, a bola
 pode não ir exatamente para onde ele quer (apesar de haver a possibilidade de tal
 acontecer). Esta é, claro, a ideia-base por detrás do não determinismo, questão sobre
@@ -302,7 +302,7 @@ resultar na mesma transição:
 - Podemos aspirar, sem querer, a posição $B$ (para além de $A$).
 
 Vamos, portanto, ter de [**adaptar a nossa noção de modelo de transição**](color:orange),
-passando esta a retornar um **conjunto de estados**, o conjunto de estados que podem
+passando esta a retornar um **conjunto de estados** que podem
 resultar de aplicar uma ação $a$ a um estado $s$. Tratam-se, portanto, de [**cenários
 não determinísticos**](color:red).
 
@@ -360,10 +360,10 @@ do que foi visto até agora:
 - Um conjunto de estados, o **espaço de crenças**: contém todos os subconjuntos de estados
   físicos do problema original;
 - Um **estado inicial** - por norma, encontra-se inicialmente [**cheio**](color:orange),
-  já que na pior das hipóteses não termos qualquer informação sobre o que nos rodeia
+  já que, na pior das hipóteses, não temos qualquer informação sobre o que nos rodeia
   (tendo, portanto, de considerar qualquer cenário como possível). Na prática, costumamos
   ter algumas pistas quanto ao estado inicial;
-- Um **conjunto de ações**, que corresponde ao conjunto de todos as ações
+- Um **conjunto de ações**, que corresponde ao conjunto de todas as ações
   que podemos fazer partindo de qualquer um dos estados do espaço de crenças;
 - Um **modelo de transição**, que difere entre as versões determinista e não-determinista. Num
   problema $P$, para uma dada crença $b$, a versão determinista dita que a crença $b'$,
@@ -382,19 +382,19 @@ do que foi visto até agora:
   \end{aligned}
   $$
 
-  O modelo de transição em si tem três etapas: inicialmente, a fase da [**previsão**](color:orange),
+  O modelo de transição tem três etapas: inicialmente, a fase da [**previsão**](color:orange),
   onde vai calcular as crenças resultantes da ação que vai tomar. De seguida, caso esteja num
-  ambiente parcialmente observável, utiliza os seus sensores, e utiliza a informação obtida
+  ambiente parcialmente observável, utiliza os seus sensores e a informação obtida
   para atualizar o seu espaço de crenças.
 
 - O **teste objetivo**, que aqui tem um senão: só é [**garantido**](color:green) que estamos
-  no objetivo se toda o nosso espaço de crenças assim o afirmar - isto é, se todos os estados
+  no objetivo se todo o nosso espaço de crenças assim o afirmar - isto é, se todos os estados
   do nosso espaço de crenças satisfizerem o objetivo; caso contrário, **possivelmente**
   alcançámos o objetivo, sem qualquer garantia.
 
 ![Aspirador - Exemplo da transição de espaços de crença](imgs/0006-unknown-vacuum.svg#dark=3)
 
-Abaixo ilustra-se ainda o exemplo do modelo de transição num cenário em que o nosso agente
+Abaixo, ilustra-se ainda o exemplo do modelo de transição num cenário em que o nosso agente
 tem sensores: aqui, vai conseguir olhar para o meio que o envolve e remover algumas crenças
 que afinal não têm cabimento.
 
@@ -410,9 +410,9 @@ Quando não conhecemos o ambiente que nos envolve, e existem penalizações (sej
 artificiais ou naturais) por tempos de computação demasiado longos, pode fazer sentido
 [**intervalar a procura com ações**](color:green), em vez de seguir sempre a mesma linha de procura
 até agora abordada: observamos o ambiente atual e o que sabemos sobre ele,
-calculamos a próxima ação a tomar por forma a atingir mais rápido o objetivo, e executamos
+calculamos a próxima ação a tomar por forma a atingir mais rapidamente o objetivo, e executamos
 essa mesma ação. Pensemos num caso mais extremo: queremos fugir de um labirinto, e temos
-uma quantidade de tempo limitada para o fazer. Nem sempre vamos ter tempo para parar
+uma quantidade limitada de tempo para o fazer. Nem sempre vamos ter tempo para parar
 e pensar, até porque muitas vezes não temos informação útil com que raciocinar: devemos,
 nessas circunstâncias, procurar navegar o desconhecido, por forma a recolher informação.
 Estamos, claro, bastante vulneráveis a encontrar becos sem saída, já que esta navegação
@@ -428,14 +428,14 @@ objetivo.
 Abordámos, sem saber, um tipo de procura (local) cega mais acima: _hill climbing_, se pensarmos
 bem, mantém apenas informação sobre os seus vizinhos diretos, e não tem noção do meio
 que o envolve sem ser o que imediatamente o rodeia. Podemos, contudo, adicionar [**memória**](color:orange)
-a _hill climbing_, por forma a tornar esta procura mais inteligente (e, lá está, a usar memória):
+a _hill climbing_, por forma a tornar esta procura mais inteligente:
 guardamos uma estimativa de quanto custa chegar ao objetivo, partindo de cada estado que já foi visitado.
 Note-se, claro, que inicialmente cada nó tem uma heurística arbitrária:
 
 ![Hill Climbing Online](imgs/0006-hill-climbing-online.svg#dark=2)
 
 O agente, aqui, utiliza o que sabe sobre a sua envolvência e, enquanto explora, vai guardando
-a nova informação sobre o ambiente que o vai recolhendo. Assim que se apercebe que pode seguir
+a nova informação sobre o ambiente que o rodeia. Assim que se apercebe que pode seguir
 um caminho melhor que o anterior, escolhe-o. A esta procura, _hill climbing_ com memória,
 dá-se também o nome de [**_Learning Real-Time $A^*$_**](color:orange), $LRTA^*$. Dizemos que
 $LRTA^*$ opera segundo o princípio de [**otimismo sob incerteza**](color:green): ao contrário
