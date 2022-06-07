@@ -30,7 +30,7 @@ não sendo, portanto, [**completas**](color:red) nem [**ótimas**](color:red) co
 normais.
 
 A ausência de otimalidade é relativamente simples de compreender: se um estado tiver um
-dado valor objetivo $n$, e todos os seus vizinhos tiverem valores objetivo superiores a $n$
+dado valor objetivo $n$ e todos os seus vizinhos tiverem valores objetivo inferiores a $n$
 (considerando, claro, que o objetivo é maximizar esse valor), o algoritmo fica sem saber para
 onde ir, parando ali, mesmo que eventualmente exista outro estado com valor objetivo maior.
 O gráfico abaixo ilustra de forma clara este problema: através da procura local, conseguimos
@@ -42,15 +42,15 @@ encontremos o [**máximo global**](color:red), a configuração ótima pretendid
 Note-se como, olhando para o estado atual, e considerando que a cada momento temos apenas
 dois vizinhos (o estado "à esquerda" e o "à direita"), vamos acabar sempre por ir para a direita,
 efetivamente afastando-nos do estado ótimo. Assim que chegamos ao máximo local, os respetivos estados
-à esquerda e à direita têm ambos valores objetivo menores, pelo que a procura para aí,
+à esquerda e à direita têm ambos valores objetivo menores, pelo que a procura suspende aí,
 num **máximo local** que não é o **máximo global**.
 
 Em relação a cenários práticos onde a procura local possa ser utilizada como aliada da
-procura global, pensemos por exemplo num cenário de GPS, onde uma procura global
+procura global, pensemos, por exemplo, num cenário de GPS, onde uma procura global
 conseguiu encontrar o caminho mais curto entre duas localidades. O motorista começou a sua viagem,
 e a meio ocorre um acidente que corta uma das estradas que o caminho mais curto utilizava - aqui,
-a procura local pode ser particularmente útil, já que partindo de um estado inicial completo,
-bastará em princípio alterar pouco a rota em vez de ter de realizar uma nova procura global.
+a procura local pode ser particularmente útil, já que, partindo de um estado inicial completo,
+bastará, em princípio, alterar um pouco a rota em vez de ter de realizar uma nova procura global.
 
 ![Amadora - IST](imgs/0006-amadora-ist.png)
 
@@ -59,7 +59,7 @@ um acidente ao pé do Alegro Alfragide, o GPS deveria recalcular a melhor rota. 
 fazer uma procura global de novo para o fazer, pode escolher estados "vizinhos", tal como a rota
 demarcada com a seta vermelha!
 
-## Procura Hill-Climbing/Local Gananciosa
+## Procura Hill Climbing/Local Gananciosa
 
 Funciona tal e qual foi referido mais acima: uma procura que escolhe sempre o estado
 com [**maior valor objetivo**](color:green) de entre os seus vizinhos, terminando quando
@@ -76,12 +76,12 @@ function hill_climbing(problem)
     neighbor = current_state.get_highest_valued_neighbor()
     if neighbor.value <= current_state.value then
       return current_state
-    current = neighbor
+    current_state = neighbor
   done
 ```
 
-Note-se mais uma vez como _hill climbing_ sofre o problema de poder parar em máximos
-locais, ignorando outros máximos que existam (possivelmente com valor maior do que onde está):
+Note-se, mais uma vez, como a _hill climbing_ sofre o problema de poder parar em máximos
+locais, ignorando outros máximos que existam (possivelmente com valor maior do que aquele onde está):
 
 ![Hill Climbing - Ciclos](imgs/0006-hill-climbing-maximum.svg#dark=2)
 
@@ -94,7 +94,7 @@ procura termina, e terminámos sem uma solução consistente!
 ![8 Rainhas - Final sem Solução Completa](imgs/0006-chess-completeness.svg#dark=3)
 
 Uma estratégia pensada para contornar o problema dos máximos locais nesta procura
-foi alterar ligeiramente o pseudo-código do mesmo: passar de
+consiste em alterar ligeiramente o pseudo-código do mesmo: passar de
 `if neighbor.value <= current_state.value then` para `if neighbor.value < current_state.value then`,
 podendo, assim, "atravessar planaltos". Surgem, contudo, outros problemas: podemos
 facilmente entrar em ciclos (combatidos colocando um limite no número de _sideways moves_,
@@ -102,13 +102,13 @@ por exemplo), e, claro, continua sem haver garantia de encontrar a solução pre
 
 ### Variações - Hill Climbing
 
-Sendo _hill climbing_ uma das abordagens clássicas para procura local, houve inevitavelmente
+Sendo _hill climbing_ uma das abordagens clássicas para procura local, surgiram, inevitavelmente,
 várias maneiras de a tentar melhorar.
 
 :::info[Stochastic Hill Climbing]
 
-Variação bastante simples: em vez de escolher sempre o estado com maior valor objetivo
-de entre os vizinhos com valor objetivo maior que o seu, vamos aqui escolher um estado
+Em vez de escolher sempre o estado com maior valor objetivo
+de entre os vizinhos com valor objetivo maior que o seu, vamos, aqui, escolher um estado
 de [**forma aleatória**](color:yellow) de entre esse mesmo grupo de vizinhos - deixa de ser uma escolha
 _gananciosa_, já que não vamos sempre escolher o estado com maior valor objetivo, passando
 a ser estocástica (ligada à sorte, portanto).
@@ -118,11 +118,11 @@ a ser estocástica (ligada à sorte, portanto).
 :::tip[First-Choice Hill Climbing]
 
 Em vez de gerar todos os sucessores de uma vez e escolher o vizinho entre o conjunto
-de todos os vizinhos com valor objetivo maior que o próprio, vamos aqui gerar os
-sucessores, de forma aleatória, um de cada vez, e escolher [**o primeiro**](color:green)
+de todos os vizinhos com valor objetivo maior que o próprio, vamos, aqui, gerar os
+sucessores de forma aleatória, um de cada vez, e escolher [**o primeiro**](color:green)
 com valor objetivo maior que o que já temos. Poupa, claro, tempo de processamento
 (visto que, por norma, há uma grande quantidade de sucessores que nunca é gerada),
-sendo portanto ideal para espaços de estados onde cada um tem uma quantidade relativamente
+sendo, portanto, ideal para espaços de estados onde cada um tem uma quantidade relativamente
 grande de vizinhos.
 
 :::
@@ -150,7 +150,7 @@ de encontrar a solução. Considerando $p$ como a probabilidade de sucesso de ca
 vamos (em princípio) precisar de cerca de [$\frac{1}{p}$ tentativas](/pe/va-discretas#distribuição-geométrica) para encontrar a solução.
 Considerando, por exemplo, o problema das $8$ rainhas que converge para solução (ou fracasso)
 bastante rápido, esta abordagem parece excelente: apesar de não garantir, em teoria,
-completude, na prática é raríssimo que com um número suficiente de tentativas não encontremos
+completude, na prática é raríssimo que, com um número suficiente de tentativas, não encontremos
 a solução.
 
 ## Simulated Annealing
@@ -158,7 +158,7 @@ a solução.
 Na área da metalurgia, _annealing_ corresponde ao processo de endurecer um metal, colocando-o
 primeiro a temperaturas muito altas, procurando de seguida arrefecê-lo gradualmente.
 O método descrito abaixo, _simulated annealing_, acaba por corresponder a uma implementação de uma metáfora semelhante
-no contexto da procura local (bem, igual, só que diferente): pensemos num cenário em que
+no contexto da procura local (bem, igual, só que diferente). Pensemos num cenário em que
 queremos que uma bola chegue ao fundo de um "vale" com aspeto parabólico, vale esse
 com paredes particularmente pegajosas (às quais a bola pode facilmente prender-se):
 
@@ -176,7 +176,7 @@ em direção ao global. Esta escolha é feita da seguinte maneira:
   _no questions asked_;
 - caso geremos um vizinho com valor objetivo menor que o que temos atualmente, existe a
   **possibilidade** de o escolhermos na mesma: temos, contudo, de ter cuidado para não nos
-  afastarmos demais dos extremos locais que já encontrámos, ficando ainda mais longe de
+  afastarmos demasiado dos extremos locais que já encontrámos, ficando ainda mais longe de
   encontrar extremos globais, pelo que a probabilidade (sempre menor que $1$) de escolher
   estes vizinhos diminui à medida que o movimento se aproxima cada vez mais dos extremos globais -
   isto é, se nos estivermos a aproximar "do que queremos", não faz tanto sentido ir noutra direção
@@ -228,7 +228,7 @@ mutações positivas mantêm-se, da mesma maneira que vamos sempre procurar esta
 segundo uma função, a [_fitness function_](color:orange), onde os melhores estados recebem os valores mais altos: _the fittest individuals stay alive_.
 Vamos cruzando estados pais, mantendo propriedades iguais entre os mesmos,
 procurando ainda verificar se certas alterações levam ou não a resultados melhores,
-em busca do "indivíduo perfeito": a solução pretendida, o estado que corresponda a uma
+em busca do "indivíduo perfeito": a solução pretendida, o estado que corresponde a uma
 solução.
 
 Este tipo de algoritmos pode, ainda, variar considerando várias componentes:
@@ -246,12 +246,12 @@ Aqui, cada estado corresponde a uma _string_ com comprimento $8$, onde cada díg
 corresponde à linha onde a rainha da coluna em questão está colocada. O valor da
 _fitness function_ associado a cada estado corresponde ao [**número de pares de rainhas
 que não se atacam**](color:orange), onde, claro, valores maiores correspondem a
-estados melhores, visto que no fim queremos que nenhum par se ataque.
+estados melhores, visto que, no fim, queremos que nenhum par se ataque.
 
-![Genética - Exemplo](imgs/0006-genetics.svg#dark=4)
+![Genética - Exemplo](imgs/0006-genetics.svg#dark=3)
 
-Podemos ver que foram escolhidos dois pares de estados para cruzamento, escolha
-esta aleatória. Escolhemos ainda que partes da _string_ se vão cruzar, escolha
+Podemos ver que foram escolhidos, de forma aleatória, dois pares de estados para cruzamento.
+Escolhemos ainda que partes da _string_ se vão cruzar, escolha
 esta igualmente aleatória. Cruzamos, então, os estados, gerando quatro novos estados.
 Por fim, podemos (ou não) aplicar [**mutações**](color:orange) aos estados gerados, adicionando
 assim mais uma camada de aleatoriedade aos nossos estados.
