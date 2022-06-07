@@ -50,7 +50,7 @@ procura global, pensemos, por exemplo, num cenário de GPS, onde uma procura glo
 conseguiu encontrar o caminho mais curto entre duas localidades. O motorista começou a sua viagem,
 e a meio ocorre um acidente que corta uma das estradas que o caminho mais curto utilizava - aqui,
 a procura local pode ser particularmente útil, já que, partindo de um estado inicial completo,
-bastará, em princípio, alterar um pouco a rota em vez de ter de realizar uma nova procura global.
+bastará, em princípio, alterar pouco a rota em vez de ter de realizar uma nova procura global.
 
 ![Amadora - IST](imgs/0006-amadora-ist.png)
 
@@ -80,7 +80,7 @@ function hill_climbing(problem)
   done
 ```
 
-Note-se, mais uma vez, como a _hill climbing_ sofre o problema de poder parar em máximos
+Note-se, mais uma vez, como a procura _hill climbing_ sofre o problema de poder parar em máximos
 locais, ignorando outros máximos que existam (possivelmente com valor maior do que aquele onde está):
 
 ![Hill Climbing - Ciclos](imgs/0006-hill-climbing-maximum.svg#dark=2)
@@ -93,7 +93,7 @@ procura termina, e terminámos sem uma solução consistente!
 
 ![8 Rainhas - Final sem Solução Completa](imgs/0006-chess-completeness.svg#dark=3)
 
-Uma estratégia pensada para contornar o problema dos máximos locais nesta procura
+Uma estratégia para contornar o problema dos máximos locais nesta procura
 consiste em alterar ligeiramente o pseudo-código do mesmo: passar de
 `if neighbor.value <= current_state.value then` para `if neighbor.value < current_state.value then`,
 podendo, assim, "atravessar planaltos". Surgem, contudo, outros problemas: podemos
