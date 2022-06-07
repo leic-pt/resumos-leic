@@ -30,7 +30,7 @@ não sendo, portanto, [**completas**](color:red) nem [**ótimas**](color:red) co
 normais.
 
 A ausência de otimalidade é relativamente simples de compreender: se um estado tiver um
-dado valor objetivo $n$, e todos os seus vizinhos tiverem valores objetivo superiores a $n$
+dado valor objetivo $n$ e todos os seus vizinhos tiverem valores objetivo inferiores a $n$
 (considerando, claro, que o objetivo é maximizar esse valor), o algoritmo fica sem saber para
 onde ir, parando ali, mesmo que eventualmente exista outro estado com valor objetivo maior.
 O gráfico abaixo ilustra de forma clara este problema: através da procura local, conseguimos
@@ -42,15 +42,15 @@ encontremos o [**máximo global**](color:red), a configuração ótima pretendid
 Note-se como, olhando para o estado atual, e considerando que a cada momento temos apenas
 dois vizinhos (o estado "à esquerda" e o "à direita"), vamos acabar sempre por ir para a direita,
 efetivamente afastando-nos do estado ótimo. Assim que chegamos ao máximo local, os respetivos estados
-à esquerda e à direita têm ambos valores objetivo menores, pelo que a procura para aí,
+à esquerda e à direita têm ambos valores objetivo menores, pelo que a procura é suspensa aí,
 num **máximo local** que não é o **máximo global**.
 
 Em relação a cenários práticos onde a procura local possa ser utilizada como aliada da
-procura global, pensemos por exemplo num cenário de GPS, onde uma procura global
+procura global, pensemos, por exemplo, num cenário de GPS, onde uma procura global
 conseguiu encontrar o caminho mais curto entre duas localidades. O motorista começou a sua viagem,
 e a meio ocorre um acidente que corta uma das estradas que o caminho mais curto utilizava - aqui,
-a procura local pode ser particularmente útil, já que partindo de um estado inicial completo,
-bastará em princípio alterar pouco a rota em vez de ter de realizar uma nova procura global.
+a procura local pode ser particularmente útil, já que, partindo de um estado inicial completo,
+bastará, em princípio, alterar pouco a rota em vez de ter de realizar uma nova procura global.
 
 ![Amadora - IST](imgs/0006-amadora-ist.png)
 
@@ -59,7 +59,7 @@ um acidente ao pé do Alegro Alfragide, o GPS deveria recalcular a melhor rota. 
 fazer uma procura global de novo para o fazer, pode escolher estados "vizinhos", tal como a rota
 demarcada com a seta vermelha!
 
-## Procura Hill-Climbing/Local Gananciosa
+## Procura Hill Climbing/Local Gananciosa
 
 Funciona tal e qual foi referido mais acima: uma procura que escolhe sempre o estado
 com [**maior valor objetivo**](color:green) de entre os seus vizinhos, terminando quando
@@ -80,8 +80,8 @@ function hill_climbing(problem)
   done
 ```
 
-Note-se mais uma vez como _hill climbing_ sofre o problema de poder parar em máximos
-locais, ignorando outros máximos que existam (possivelmente com valor maior do que onde está):
+Note-se, mais uma vez, como a procura _hill climbing_ sofre o problema de poder parar em máximos
+locais, ignorando outros máximos que existam (possivelmente com valor maior do que aquele onde está):
 
 ![Hill Climbing - Ciclos](imgs/0006-hill-climbing-maximum.svg#dark=2)
 
@@ -93,8 +93,8 @@ procura termina, e terminámos sem uma solução consistente!
 
 ![8 Rainhas - Final sem Solução Completa](imgs/0006-chess-completeness.svg#dark=3)
 
-Uma estratégia pensada para contornar o problema dos máximos locais nesta procura
-foi alterar ligeiramente o pseudo-código do mesmo: passar de
+Uma estratégia para contornar o problema dos máximos locais nesta procura
+consiste em alterar ligeiramente o pseudo-código do mesmo: passar de
 `if neighbor.value <= current_state.value then` para `if neighbor.value < current_state.value then`,
 podendo, assim, "atravessar planaltos". Surgem, contudo, outros problemas: podemos
 facilmente entrar em ciclos (combatidos colocando um limite no número de _sideways moves_,
@@ -102,13 +102,13 @@ por exemplo), e, claro, continua sem haver garantia de encontrar a solução pre
 
 ### Variações - Hill Climbing
 
-Sendo _hill climbing_ uma das abordagens clássicas para procura local, houve inevitavelmente
+Sendo _hill climbing_ uma das abordagens clássicas para procura local, surgiram, inevitavelmente,
 várias maneiras de a tentar melhorar.
 
 :::info[Stochastic Hill Climbing]
 
-Variação bastante simples: em vez de escolher sempre o estado com maior valor objetivo
-de entre os vizinhos com valor objetivo maior que o seu, vamos aqui escolher um estado
+Em vez de escolher sempre o estado com maior valor objetivo
+de entre os vizinhos com valor objetivo maior que o seu, vamos, aqui, escolher um estado
 de [**forma aleatória**](color:yellow) de entre esse mesmo grupo de vizinhos - deixa de ser uma escolha
 _gananciosa_, já que não vamos sempre escolher o estado com maior valor objetivo, passando
 a ser estocástica (ligada à sorte, portanto).
@@ -118,11 +118,11 @@ a ser estocástica (ligada à sorte, portanto).
 :::tip[First-Choice Hill Climbing]
 
 Em vez de gerar todos os sucessores de uma vez e escolher o vizinho entre o conjunto
-de todos os vizinhos com valor objetivo maior que o próprio, vamos aqui gerar os
-sucessores, de forma aleatória, um de cada vez, e escolher [**o primeiro**](color:green)
+de todos os vizinhos com valor objetivo maior que o próprio, vamos, aqui, gerar os
+sucessores de forma aleatória, um de cada vez, e escolher [**o primeiro**](color:green)
 com valor objetivo maior que o que já temos. Poupa, claro, tempo de processamento
 (visto que, por norma, há uma grande quantidade de sucessores que nunca é gerada),
-sendo portanto ideal para espaços de estados onde cada um tem uma quantidade relativamente
+sendo, portanto, ideal para espaços de estados onde cada um tem uma quantidade relativamente
 grande de vizinhos.
 
 :::
@@ -150,7 +150,7 @@ de encontrar a solução. Considerando $p$ como a probabilidade de sucesso de ca
 vamos (em princípio) precisar de cerca de [$\frac{1}{p}$ tentativas](/pe/va-discretas#distribuição-geométrica) para encontrar a solução.
 Considerando, por exemplo, o problema das $8$ rainhas que converge para solução (ou fracasso)
 bastante rápido, esta abordagem parece excelente: apesar de não garantir, em teoria,
-completude, na prática é raríssimo que com um número suficiente de tentativas não encontremos
+completude, na prática é raríssimo que, com um número suficiente de tentativas, não encontremos
 a solução.
 
 ## Simulated Annealing
@@ -158,7 +158,7 @@ a solução.
 Na área da metalurgia, _annealing_ corresponde ao processo de endurecer um metal, colocando-o
 primeiro a temperaturas muito altas, procurando de seguida arrefecê-lo gradualmente.
 O método descrito abaixo, _simulated annealing_, acaba por corresponder a uma implementação de uma metáfora semelhante
-no contexto da procura local (bem, igual, só que diferente): pensemos num cenário em que
+no contexto da procura local (bem, igual, só que diferente). Pensemos num cenário em que
 queremos que uma bola chegue ao fundo de um "vale" com aspeto parabólico, vale esse
 com paredes particularmente pegajosas (às quais a bola pode facilmente prender-se):
 
@@ -176,7 +176,7 @@ em direção ao global. Esta escolha é feita da seguinte maneira:
   _no questions asked_;
 - caso geremos um vizinho com valor objetivo menor que o que temos atualmente, existe a
   **possibilidade** de o escolhermos na mesma: temos, contudo, de ter cuidado para não nos
-  afastarmos demais dos extremos locais que já encontrámos, ficando ainda mais longe de
+  afastarmos demasiado dos extremos locais que já encontrámos, ficando ainda mais longe de
   encontrar extremos globais, pelo que a probabilidade (sempre menor que $1$) de escolher
   estes vizinhos diminui à medida que o movimento se aproxima cada vez mais dos extremos globais -
   isto é, se nos estivermos a aproximar "do que queremos", não faz tanto sentido ir noutra direção
@@ -228,7 +228,7 @@ mutações positivas mantêm-se, da mesma maneira que vamos sempre procurar esta
 segundo uma função, a [_fitness function_](color:orange), onde os melhores estados recebem os valores mais altos: _the fittest individuals stay alive_.
 Vamos cruzando estados pais, mantendo propriedades iguais entre os mesmos,
 procurando ainda verificar se certas alterações levam ou não a resultados melhores,
-em busca do "indivíduo perfeito": a solução pretendida, o estado que corresponda a uma
+em busca do "indivíduo perfeito": a solução pretendida, o estado que corresponde a uma
 solução.
 
 Este tipo de algoritmos pode, ainda, variar considerando várias componentes:
@@ -246,15 +246,15 @@ Aqui, cada estado corresponde a uma _string_ com comprimento $8$, onde cada díg
 corresponde à linha onde a rainha da coluna em questão está colocada. O valor da
 _fitness function_ associado a cada estado corresponde ao [**número de pares de rainhas
 que não se atacam**](color:orange), onde, claro, valores maiores correspondem a
-estados melhores, visto que no fim queremos que nenhum par se ataque.
+estados melhores, visto que, no fim, queremos que nenhum par se ataque.
 
-![Genética - Exemplo](imgs/0006-genetics.svg#dark=4)
+![Genética - Exemplo](imgs/0006-genetics.svg#dark=3)
 
-Podemos ver que foram escolhidos dois pares de estados para cruzamento, escolha
-esta aleatória. Escolhemos ainda que partes da _string_ se vão cruzar, escolha
+Podemos ver que foram escolhidos, de forma aleatória, dois pares de estados para cruzamento.
+Escolhemos ainda que partes da _string_ se vão cruzar, escolha
 esta igualmente aleatória. Cruzamos, então, os estados, gerando quatro novos estados.
-Por fim, podemos (ou não) aplicar [**mutações**](color:orange) aos estados gerados, adicionando
-assim mais uma camada de aleatoriedade aos nossos estados.
+Por fim, podemos (ou não) aplicar [**mutações**](color:orange) aos estados gerados, adicionando-lhes,
+assim, mais uma camada de aleatoriedade.
 
 O livro que acompanha a cadeira inclui esta passagem, bastante interessante no que toca a este tema:
 
@@ -287,7 +287,7 @@ O conteúdo será adicionado assim que possível.
 
 ## Procura com Ações Não Determinísticas
 
-Em cenários reais, as nossas ações podem ter mais de resultado possível: se um indivíduo
+Em cenários reais, as nossas ações podem ter mais do que um resultado possível: se um indivíduo
 particularmente descoordenado tentar rematar uma bola de futebol, por exemplo, a bola
 pode não ir exatamente para onde ele quer (apesar de haver a possibilidade de tal
 acontecer). Esta é, claro, a ideia-base por detrás do não determinismo, questão sobre
@@ -302,7 +302,7 @@ resultar na mesma transição:
 - Podemos aspirar, sem querer, a posição $B$ (para além de $A$).
 
 Vamos, portanto, ter de [**adaptar a nossa noção de modelo de transição**](color:orange),
-passando esta a retornar um **conjunto de estados**, o conjunto de estados que podem
+passando esta a retornar um **conjunto de estados** que podem
 resultar de aplicar uma ação $a$ a um estado $s$. Tratam-se, portanto, de [**cenários
 não determinísticos**](color:red).
 
@@ -360,10 +360,10 @@ do que foi visto até agora:
 - Um conjunto de estados, o **espaço de crenças**: contém todos os subconjuntos de estados
   físicos do problema original;
 - Um **estado inicial** - por norma, encontra-se inicialmente [**cheio**](color:orange),
-  já que na pior das hipóteses não termos qualquer informação sobre o que nos rodeia
+  já que, na pior das hipóteses, não temos qualquer informação sobre o que nos rodeia
   (tendo, portanto, de considerar qualquer cenário como possível). Na prática, costumamos
   ter algumas pistas quanto ao estado inicial;
-- Um **conjunto de ações**, que corresponde ao conjunto de todos as ações
+- Um **conjunto de ações**, que corresponde ao conjunto de todas as ações
   que podemos fazer partindo de qualquer um dos estados do espaço de crenças;
 - Um **modelo de transição**, que difere entre as versões determinista e não-determinista. Num
   problema $P$, para uma dada crença $b$, a versão determinista dita que a crença $b'$,
@@ -382,19 +382,19 @@ do que foi visto até agora:
   \end{aligned}
   $$
 
-  O modelo de transição em si tem três etapas: inicialmente, a fase da [**previsão**](color:orange),
+  O modelo de transição tem três etapas: inicialmente, a fase da [**previsão**](color:orange),
   onde vai calcular as crenças resultantes da ação que vai tomar. De seguida, caso esteja num
-  ambiente parcialmente observável, utiliza os seus sensores, e utiliza a informação obtida
+  ambiente parcialmente observável, utiliza os seus sensores e a informação obtida
   para atualizar o seu espaço de crenças.
 
 - O **teste objetivo**, que aqui tem um senão: só é [**garantido**](color:green) que estamos
-  no objetivo se toda o nosso espaço de crenças assim o afirmar - isto é, se todos os estados
+  no objetivo se todo o nosso espaço de crenças assim o afirmar - isto é, se todos os estados
   do nosso espaço de crenças satisfizerem o objetivo; caso contrário, **possivelmente**
   alcançámos o objetivo, sem qualquer garantia.
 
 ![Aspirador - Exemplo da transição de espaços de crença](imgs/0006-unknown-vacuum.svg#dark=3)
 
-Abaixo ilustra-se ainda o exemplo do modelo de transição num cenário em que o nosso agente
+Abaixo, ilustra-se ainda o exemplo do modelo de transição num cenário em que o nosso agente
 tem sensores: aqui, vai conseguir olhar para o meio que o envolve e remover algumas crenças
 que afinal não têm cabimento.
 
@@ -410,9 +410,9 @@ Quando não conhecemos o ambiente que nos envolve, e existem penalizações (sej
 artificiais ou naturais) por tempos de computação demasiado longos, pode fazer sentido
 [**intervalar a procura com ações**](color:green), em vez de seguir sempre a mesma linha de procura
 até agora abordada: observamos o ambiente atual e o que sabemos sobre ele,
-calculamos a próxima ação a tomar por forma a atingir mais rápido o objetivo, e executamos
+calculamos a próxima ação a tomar por forma a atingir mais rapidamente o objetivo, e executamos
 essa mesma ação. Pensemos num caso mais extremo: queremos fugir de um labirinto, e temos
-uma quantidade de tempo limitada para o fazer. Nem sempre vamos ter tempo para parar
+uma quantidade limitada de tempo para o fazer. Nem sempre vamos ter tempo para parar
 e pensar, até porque muitas vezes não temos informação útil com que raciocinar: devemos,
 nessas circunstâncias, procurar navegar o desconhecido, por forma a recolher informação.
 Estamos, claro, bastante vulneráveis a encontrar becos sem saída, já que esta navegação
@@ -428,14 +428,14 @@ objetivo.
 Abordámos, sem saber, um tipo de procura (local) cega mais acima: _hill climbing_, se pensarmos
 bem, mantém apenas informação sobre os seus vizinhos diretos, e não tem noção do meio
 que o envolve sem ser o que imediatamente o rodeia. Podemos, contudo, adicionar [**memória**](color:orange)
-a _hill climbing_, por forma a tornar esta procura mais inteligente (e, lá está, a usar memória):
+a _hill climbing_, por forma a tornar esta procura mais inteligente:
 guardamos uma estimativa de quanto custa chegar ao objetivo, partindo de cada estado que já foi visitado.
 Note-se, claro, que inicialmente cada nó tem uma heurística arbitrária:
 
 ![Hill Climbing Online](imgs/0006-hill-climbing-online.svg#dark=2)
 
 O agente, aqui, utiliza o que sabe sobre a sua envolvência e, enquanto explora, vai guardando
-a nova informação sobre o ambiente que o vai recolhendo. Assim que se apercebe que pode seguir
+a nova informação sobre o ambiente que o rodeia. Assim que se apercebe que pode seguir
 um caminho melhor que o anterior, escolhe-o. A esta procura, _hill climbing_ com memória,
 dá-se também o nome de [**_Learning Real-Time $A^*$_**](color:orange), $LRTA^*$. Dizemos que
 $LRTA^*$ opera segundo o princípio de [**otimismo sob incerteza**](color:green): ao contrário
