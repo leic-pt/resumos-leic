@@ -409,7 +409,7 @@ Podemos, claro, aplicar a procura AND-OR a este tipo de cenários:
 
 Quando não conhecemos o ambiente que nos envolve, e existem penalizações (sejam elas
 artificiais ou naturais) por tempos de computação demasiado longos, pode fazer sentido
-**intervalar a procura com ações**, em vez de seguir sempre a mesma linha de procura
+[**intervalar a procura com ações**](color:green), em vez de seguir sempre a mesma linha de procura
 até agora abordada: observamos o ambiente atual e o que sabemos sobre ele,
 calculamos a próxima ação a tomar por forma a atingir mais rápido o objetivo, e executamos
 essa mesma ação. Pensemos num caso mais extremo: queremos fugir de um labirinto, e temos
@@ -418,6 +418,29 @@ e pensar, até porque muitas vezes não temos informação útil com que racioci
 nessas circunstâncias, procurar navegar o desconhecido, por forma a recolher informação.
 Estamos, claro, bastante vulneráveis a encontrar becos sem saída, já que esta navegação
 consegue assemelhar-se, de vez em quando, a uma procura às cegas.
+
+Note-se que esta abordagem tem particular utilidade no âmbito da exploração - é bastante
+provável que um agente, procurando às cegas, chegue ao fim tendo procurado a vasta maioria
+do ambiente que o envolve. Quanto à _velocidade_ a que chega ao objetivo, contudo, é obviamente pior:
+uma procura pensada, em que conhecemos o ambiente e podemos prever o resultado das nossas
+ações tem todo um outro nível de "curadoria" que nos permite chegar mais eficientemente ao
+objetivo.
+
+Abordámos, sem saber, um tipo de procura (local) cega mais acima: _hill climbing_, se pensarmos
+bem, mantém apenas informação sobre os seus vizinhos diretos, e não tem noção do meio
+que o envolve sem ser o que imediatamente o rodeia. Podemos, contudo, adicionar [**memória**](color:orange)
+a _hill climbing_, por forma a tornar esta procura mais inteligente (e, lá está, a usar memória):
+guardamos uma estimativa de quanto custa chegar ao objetivo, partindo de cada estado que já foi visitado.
+Note-se, claro, que inicialmente cada nó tem uma heurística arbitrária:
+
+![Hill Climbing Online](imgs/0006-hill-climbing-online.svg#dark=2)
+
+O agente, aqui, utiliza o que sabe sobre a sua envolvência e, enquanto explora, vai guardando
+a nova informação sobre o ambiente que o vai recolhendo. Assim que se apercebe que pode seguir
+um caminho melhor que o anterior, escolhe-o. A esta procura, _hill climbing_ com memória,
+dá-se também o nome de [**_Learning Real-Time $A^*$_**](color:orange), $LRTA^*$. Dizemos que
+$LRTA^*$ opera segundo o princípio de [**otimismo sob incerteza**](color:green): ao contrário
+da versão clássica de _hill climbing_, aqui o agente é encorajado a explorar o ambiente que o rodeia.
 
 ---
 
