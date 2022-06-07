@@ -324,7 +324,7 @@ da própria "qualidade da jogada": vamos querer combinações que incluam jogada
 jogadas boas, por forma a tentar ter as melhores previsões possíveis (que nos levem a boas
 jogadas). A complexidade temporal destes problemas é $O(b^d n^d)$, onde $n$ corresponde
 ao número de lançamentos distintos de dados que realizamos. Conseguimos, portanto, atingir profundidades
-muito menor no mesmo intervalo de tempo.
+muito menores no mesmo intervalo de tempo.
 
 ---
 
