@@ -1,0 +1,45 @@
+/* Solarized Light */
+
+body.theme-solarized {
+  --accentColor: #268bd2;
+  --bgColor: #eee8d5;
+  --cardColor: #fdf6e3;
+  --textColor: #2c3e50;
+  --borderColor: #c3beb0;
+  --lighten20TextColor: #476582;
+  --miniCodeBgColor: rgba(27, 31, 35, 0.05);
+  --scrollbarColor: rgba(0, 0, 0, 0.4);
+  --tableStripeBgColor: #f6f8faaa;
+
+  --infoBorder: #268bd2;
+  --tipBorder: #859900;
+  --warningBorder: #b58900;
+  --warningBorderTable: #b5890055;
+  --warningBackground: #b589001a;
+  --dangerBorder: #dc322f;
+  --dangerBackground: #dc322f26;
+
+  --colorRed: #dc322f;
+  --colorGreen: #859900;
+  --colorBlue: #2aa198;
+  --colorPink: #d33682;
+  --colorPurple: #6c71c4;
+  --colorYellow: #b58900;
+  --colorOrange: #cb4b16;
+  --colorBrown: #9e571a;
+}
+
+/* Solarized Dark */
+
+@media not print {
+  body.dark-mode.theme-solarized {
+    --bgColor: #002b36;
+    --cardColor: #073642;
+    --textColor: #e2e2e2;
+    --borderColor: #045266;
+    --lighten20TextColor: #e8e8e8;
+    --miniCodeBgColor: hsla(0, 0%, 100%, 0.1);
+    --scrollbarColor: hsla(0, 0%, 100%, 0.4);
+    --tableStripeBgColor: #024859aa;
+  }
+}

@@ -1,0 +1,176 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: fig2dev Version 3.2 Patchlevel 5-alpha7 -->
+<!-- CreationDate: Wed Feb  8 21:15:43 2006 -->
+<!-- Magnification: 1.050 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="1.9in" height="1.7in" viewBox="2349 1215 2340 2056">
+<g style="stroke-width:.025in; stroke:black; fill:none">
+<!-- Line: box -->
+<rect x="2362" y="1228" width="2314" height="2031" rx="0" 
+style="stroke:#ffffff;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+fill:#ffffff;
+"/>
+<!-- Circle -->
+<circle cx="2551" cy="3118" r="106"
+ style="stroke:#000000;stroke-width:16;"/>
+<!-- Circle -->
+<circle cx="3023" cy="2551" r="106"
+ style="stroke:#000000;stroke-width:16;"/>
+<!-- Circle -->
+<circle cx="3496" cy="3118" r="106"
+ style="stroke:#000000;stroke-width:16;"/>
+<!-- Circle -->
+<circle cx="3496" cy="1984" r="106"
+ style="stroke:#000000;stroke-width:16;"/>
+<!-- Circle -->
+<circle cx="3968" cy="2503" r="106"
+ style="stroke:#000000;stroke-width:16;"/>
+<!-- Circle -->
+<circle cx="3968" cy="1417" r="106"
+ style="stroke:#000000;stroke-width:16;"/>
+<!-- Circle -->
+<circle cx="4535" cy="1984" r="106"
+ style="stroke:#000000;stroke-width:16;"/>
+<!-- Line -->
+<polyline points="2949,2632
+2623,3037
+" style="stroke:#000000;stroke-width:16;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Line -->
+<polyline points="3106,2627
+3427,3034
+" style="stroke:#000000;stroke-width:16;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Line -->
+<polyline points="3417,2060
+3099,2467
+" style="stroke:#000000;stroke-width:16;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Line -->
+<polyline points="3579,2064
+3886,2427
+" style="stroke:#000000;stroke-width:16;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Line -->
+<polyline points="3892,1496
+3574,1902
+" style="stroke:#000000;stroke-width:16;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Line -->
+<polyline points="4054,1482
+4456,1909
+" style="stroke:#000000;stroke-width:16;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Line -->
+<polyline points="3804,1267
+3471,1664
+" style="stroke:#0000ff;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Arrowhead on XXXpoint -->
+<polygon points="3469 1616
+3413 1734
+3518 1657
+3469 1616
+
+" style="stroke:#0000ff;stroke-width:8;
+fill:white;"/>
+<!-- Line -->
+<polyline points="3269,1868
+3022,2195
+" style="stroke:#0000ff;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Arrowhead on XXXpoint -->
+<polygon points="3017 2149
+2966 2268
+3067 2186
+3017 2149
+
+" style="stroke:#0000ff;stroke-width:8;
+fill:white;"/>
+<!-- Line -->
+<polyline points="2810,2438
+2501,2820
+" style="stroke:#0000ff;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Arrowhead on XXXpoint -->
+<polygon points="2497 2773
+2443 2892
+2545 2813
+2497 2773
+
+" style="stroke:#0000ff;stroke-width:8;
+fill:white;"/>
+<!-- Line -->
+<polyline points="2747,3156
+3030,2789
+3218,3011
+" style="stroke:#0000ff;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Arrowhead on XXXpoint -->
+<polygon points="3172 3004
+3278 3081
+3220 2964
+3172 3004
+
+" style="stroke:#0000ff;stroke-width:8;
+fill:white;"/>
+<!-- Line -->
+<polyline points="3622,2971
+3244,2537
+3479,2212
+3680,2448
+" style="stroke:#0000ff;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Arrowhead on XXXpoint -->
+<polygon points="3634 2441
+3740 2517
+3681 2401
+3634 2441
+
+" style="stroke:#0000ff;stroke-width:8;
+fill:white;"/>
+<!-- Line -->
+<polyline points="4088,2341
+3727,1970
+3983,1613
+4264,1910
+" style="stroke:#0000ff;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Arrowhead on XXXpoint -->
+<polygon points="4217 1906
+4327 1976
+4263 1863
+4217 1906
+
+" style="stroke:#0000ff;stroke-width:8;
+fill:white;"/>
+<!-- Line -->
+<polyline points="4655,1808
+4308,1451
+" style="stroke:#0000ff;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Arrowhead on XXXpoint -->
+<polygon points="4354 1454
+4244 1385
+4309 1497
+4354 1454
+
+" style="stroke:#0000ff;stroke-width:8;
+fill:white;"/>
+</g>
+</svg>
