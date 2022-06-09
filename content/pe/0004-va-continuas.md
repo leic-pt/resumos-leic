@@ -45,7 +45,31 @@ Uma VA $X$ com [distribuição uniforme contínua](color:green) tem:
 
 :::details[Exemplo]
 
-// TODO
+O Humberto trabalha na RNL.
+O Humberto tem um turno definido entre as 10h e as 12h.
+Como o Humberto tem problemas com alarmes, a hora a que ele chega ao trabalho é uniformemente distribuída pelo turno todo.
+Sendo assim, temos que
+
+$$
+X~\sim~\text{uniformemente contínua}(10, 12)
+$$
+
+A função de probabilidade desta VA é
+
+$$
+P(X = x) =
+\begin{cases}
+\frac{1}{2}, &x \in [10, 12] \\
+0, &x \notin [10, 12]
+\end{cases}
+$$
+
+e o seu valor esperado e variância são:
+
+$$
+E(X) = \frac{10+12}{2} = 11 \quad \quad
+V(X) = \frac{(12-10)^2}{12} = \frac{1}{3}
+$$
 
 :::
 
@@ -94,7 +118,21 @@ Uma VA $X$ com [distribuição normal](color:yellow) tem:
 
 :::details[Exemplo]
 
-// TODO
+Considere-se a VA $X$ que regista a altura de um português aleatório.
+Assumindo a altura dos portugueses satisfaz uma distribuição normal com valor esperado 1.75m e variancia 30cm temos que:
+
+$$
+X~\sim~\text{normal}(1.75, 0.3)
+$$
+
+A função de probabilidade desta VA é
+
+$$
+P(X = x) =
+\frac{1}{\sqrt{0.6\pi}} e^{-\frac{(x-1.75)^2}{0.6}}, \quad x \in \R
+$$
+
+e o seu valor esperado e variância são 1.75m e 0.3m.
 
 :::
 
@@ -112,9 +150,26 @@ Uma VA $X$ com [distribuição normal](color:yellow) tem:
 
 :::details[Como obter $F_X(x)$ através da tabela]
 
-- fazer TL
-- se for negativo, cenas
-- obter valor que queremos
+Para uma distriubição $X \sim \op{normal}(23,{0.1}^{2})$ queremos saber o valor de $P(X \leq 23.045)$.
+
+Sabendo que $X \sim \op{normal}(\mu, \sigma^2) \Leftrightarrow Z = \frac{X-\mu}{\sigma} \sim \op{normal}(0,1)$ e que os valores da função
+
+$$
+\Phi(x) = P(Z \leq x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} e^{-\frac{t^2}{2}} \, dt
+$$
+
+podem ser consultados numa tabela estatística, temos então uma forma de calcular a probabilidade pretendida.
+
+Temos que $P(X \leq 23.045) = P (\frac{X - 23}{{0.1}} \equiv \frac{X-\mu}{\sigma}  \leq \frac{23.045 - 23}{{0.1}}) = \Phi(0.45)$
+
+Indo ver à tabela conluímos que $\Phi(0.45) = 0.6736$ pelo que $P(X \leq 23.045) = 0.6736$.
+
+![table](./imgs/0004/table.png#dark=1)
+
+Observe-se que a tabela não permite consultar a função $\Phi$ em valores negativos.
+Nesse caso, basta aproveitarmo-nos do facto que $\Phi(-x) = 1 - \Phi(x)$ e depois consultar a tabela.
+
+Por exemplo, temos que $\Phi(-0.45) = 1-\Phi(0.45) = 0.3264$.
 
 :::
 
@@ -150,7 +205,31 @@ Uma VA $X$ com [distribuição exponencial](color:orange) tem:
 
 :::details[Exemplo]
 
-// TODO
+Lançamos um dado ao ar.
+Considere-se a VA $X$ que mede o tempo, em segundos, que demora ao dado a cair sobre a superfície da mesa.
+Assuma-se que o valor esperado desta medição é 2 segundo.
+Então:
+
+$$
+X~\sim~\text{exponencial}(2)
+$$
+
+A função de probabilidade desta VA é
+
+$$
+P(X = x) =
+\begin{cases}
+2e^{-2x}, &x \geq 0 \\
+0, x < 0
+\end{cases}
+$$
+
+e o seu valor esperado e variância são
+
+$$
+E(X) = \frac{1}{2} \quad \quad
+V(X) = \frac{1}{2^2} = \frac{1}{4}
+$$
 
 :::
 
