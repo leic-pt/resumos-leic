@@ -152,21 +152,24 @@ e o seu valor esperado e variância são 1.75m e 0.3m.
 
 Para uma distriubição $X \sim \op{normal}(23,{0.1}^{2})$ queremos saber o valor de $P(X \leq 23.045)$.
 
-Sabendo que $X \sim \op{normal}(\mu, \sigma^2) \Leftrightarrow Z = \frac{X-\mu}{\sigma} \sim \op{normal}(0,1)$ e que
+Sabendo que $X \sim \op{normal}(\mu, \sigma^2) \Leftrightarrow Z = \frac{X-\mu}{\sigma} \sim \op{normal}(0,1)$ e que os valores da função
 
-$\Phi(x) = P(Z \leq x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} e^{-\frac{t^2}{2}} \, dt$
+$$
+\Phi(x) = P(Z \leq x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} e^{-\frac{t^2}{2}} \, dt
+$$
 
-podemos inferir que $P (\frac{X - 23}{{0.1}} \equiv \frac{X-\mu}{\sigma}  \leq \frac{23.045 - 23}{{0.1}})$
+podem ser consultados numa tabela estatística, temos então uma forma de calcular a probabilidade pretendida.
 
-Assim temos que $\Phi(0.45)$
+Temos que $P(X \leq 23.045) = P (\frac{X - 23}{{0.1}} \equiv \frac{X-\mu}{\sigma}  \leq \frac{23.045 - 23}{{0.1}}) = \Phi(0.45)$
 
-Indo ver à tabela conluímos que $\Phi(0.45) = 0.6736$
-
-No caso de $\Phi(x)$ onde $x < 0$ basta aplicar este cálculo $ \Phi(-x) = 1 - \Phi(x)$ e depois consultar a tabela.
+Indo ver à tabela conluímos que $\Phi(0.45) = 0.6736$ pelo que $P(X \leq 23.045) = 0.6736$.
 
 ![table](./imgs/0004/table.png#dark=1)
 
-Temos assim que $P(X \leq 23.045) = 0.6736$
+Observe-se que a tabela não permite consultar a função $\Phi$ em valores negativos.
+Nesse caso, basta aproveitarmo-nos do facto que $\Phi(-x) = 1 - \Phi(x)$ e depois consultar a tabela.
+
+Por exemplo, temos que $\Phi(-0.45) = 1-\Phi(0.45) = 0.3264$.
 
 :::
 
