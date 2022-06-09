@@ -150,11 +150,23 @@ e o seu valor esperado e variância são 1.75m e 0.3m.
 
 :::details[Como obter $F_X(x)$ através da tabela]
 
-// TODO
+Para uma distriubição $X \sim \op{normal}(23,{0.1}^{2})$ queremos saber o valor de $P(X \leq 23.045)$.
 
-- fazer TL
-- se for negativo, cenas
-- obter valor que queremos
+Sabendo que $X \sim \op{normal}(\mu, \sigma^2) \Leftrightarrow Z = \frac{X-\mu}{\sigma} \sim \op{normal}(0,1)$ e que
+
+$\Phi(x) = P(Z \leq x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} e^{-\frac{t^2}{2}} \, dt$
+
+podemos inferir que $P (\frac{X - 23}{{0.1}} \equiv \frac{X-\mu}{\sigma}  \leq \frac{23.045 - 23}{{0.1}})$
+
+Assim temos que $\Phi(0.45)$
+
+Indo ver à tabela conluímos que $\Phi(0.45) = 0.6736$
+
+No caso de $\Phi(x)$ onde $x < 0$ basta aplicar este cálculo $ \Phi(-x) = 1 - \Phi(x)$ e depois consultar a tabela.
+
+![table](./imgs/0004/table.png#dark=1)
+
+Temos assim que $P(X \leq 23.045) = 0.6736$
 
 :::
 
