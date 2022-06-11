@@ -3,6 +3,13 @@ title: Procura Local
 description: Procura Local.
   Hill Climbing.
   Variações de Hill Climbing.
+  Simulated Annealing.
+  Local Beam Search.
+  Algoritmos Genéticos.
+  Procura Local em Espaços Contínuos.
+  Procura com Ações não Determinísticas.
+  Procura Local em Espaços parcialmente Observáveis.
+  Procura Online.
 path: /ia/procura-local
 type: content
 ---
