@@ -362,7 +362,34 @@ Esta cláusula retorna verdadeiro caso a _sub query_ não tenha linhas repetidas
 
 ## Cross Join
 
-- Cross join as alternative to join
+O _cross join_ (ou produto cartesiano) permite-nos efetuar o mesmo
+que [o produto cartesiano em álgebra relacional](/bd/relational-algebra#produto-cartesiano).
+
+Por exemplo, se efetuarmos um _cross join_ entre as tabelas `student` e `enrollment`,
+vamos obter uma nova tabela com as colunas de `student` e de `enrollment`, contendo todas
+as combinações possíveis entre si, tal como na álgebra relacional.
+
+```sql
+-- Efetuar um cross join entre student e enrollment
+SELECT * FROM student, enrollment;
+```
+
+Podemos, como seria de esperar, utilizar a cláusula `WHERE` para filtrar os resultados.
+Caso igualemos as colunas correspondentes, vamos obter uma _query_ equivalente
+a um [_inner join_](/bd/sql#inner-join).
+
+```sql
+SELECT student.student_name, student.ist_id, enrollment.course
+  FROM student, enrollment
+  WHERE student.ist_id = enrollment.ist_id;
+
+-- é equivalente a
+
+SELECT student.student_name, student.ist_id, enrollment.course
+  FROM student
+  INNER JOIN enrollment
+    ON student.ist_id = enrollment.ist_id;
+```
 
 ## Division
 
