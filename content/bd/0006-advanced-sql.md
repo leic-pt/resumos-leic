@@ -112,7 +112,10 @@ de queries, utilizando o seu resultado para o `FROM`, o `JOIN`, o `IN`, etc.
 É possível efetuar comparações entre um valor e um conjunto, verificando, por exemplo,
 se existe um valor igual, se todos os valores são iguais, se existe um valor maior, etc.
 
-Para isto, vamos introduzir duas novas cláusulas: `ALL` e `ANY`, com as seguintes sintaxes:
+Para isto, vamos introduzir duas novas cláusulas:
+[`ALL`](https://www.postgresql.org/docs/current/functions-subquery.html#FUNCTIONS-SUBQUERY-ALL) e
+[`ANY`](https://www.postgresql.org/docs/current/functions-subquery.html#FUNCTIONS-SUBQUERY-ANY-SOME),
+com as seguintes sintaxes:
 
 ```sql
 <value> <operator> ALL (<set>)
