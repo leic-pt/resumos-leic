@@ -24,7 +24,7 @@ Recapitulando algumas das funções que existem:
 | `COUNT(*)`              | Número de linhas                                            |
 | `COUNT([DISTINCT] col)` | Número de linhas com valores [distintos] não nulos de `col` |
 | `SUM([DISTINCT] col)`   | Soma dos valores [distintos] não nulos de `col`             |
-| `AVG([DISTINCT] col)`   | Soma dos valores [distintos] não nulos de `col`             |
+| `AVG([DISTINCT] col)`   | Média dos valores [distintos] não nulos de `col`            |
 | `MAX(col)`              | O valor máximo entre os valores não nulos de `col`          |
 | `MIN(col)`              | O valor mínimo entre os valores não nulos de `col`          |
 
@@ -63,7 +63,7 @@ de queries, utilizando o seu resultado para o `FROM`, o `JOIN`, o `IN`, etc.
   é altamente redundante).
 
   ```sql
-  -- Obter os nomes de todos os alunos nascidos em ou depois de 2022
+  -- Obter os nomes de todos os alunos nascidos em ou depois de 2002
   SELECT S.student_name FROM (
     SELECT * FROM students WHERE birthday >= '2002-01-01'
   ) AS S;
@@ -120,7 +120,7 @@ Para isto, vamos introduzir duas novas cláusulas: `ALL` e `ANY`, com as seguint
 ```
 
 Como se pode deduzir pelos nomes, a cláusula `ALL` verifica se `<value> <operator> <set element>` para
-[todos](color:green) os valores de `<set>`, equanto a cláusula `ANY` verifica se `<value> <operator> <set element>`
+[todos](color:green) os valores de `<set>`, enquanto a cláusula `ANY` verifica se `<value> <operator> <set element>`
 para [pelos menos um](color:yellow) valor de `<set>`.
 
 :::tip[Relação com `IN` e `NOT IN`]
@@ -131,7 +131,7 @@ se for diferente de todos os seus elementos.
 :::
 
 Estas duas cláusulas são úteis para calcularmos o [**máximo de um conjunto**](color:orange) (ou o mínimo).
-Vejamos como as podemos utilizar para determinar os alunos com melhor notas e os alunos
+Vejamos como as podemos utilizar para determinar os alunos com melhores notas e os alunos
 inscritos ao maior número de disciplinas:
 
 ```sql
