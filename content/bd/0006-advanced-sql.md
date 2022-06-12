@@ -62,7 +62,7 @@ SELECT COUNT(*) as count FROM purchase;
 
 -- Com GROUP BY
 SELECT client, COUNT(*) as count FROM purchase
-GROUP BY client;
+  GROUP BY client;
 
 --   client |  count
 -- ---------+---------
@@ -82,7 +82,9 @@ que funciona de forma semelhante ao `WHERE`, mas é executada **após** a agraga
 -- Pegando no exemplo anterior,
 -- vamos agora querer os clientes com mais que 1 compra.
 
-SELECT client, COUNT(*) FROM frigu GROUP BY client HAVING COUNT(*) > 1;
+SELECT client, COUNT(*) FROM frigu
+  GROUP BY client
+  HAVING COUNT(*) > 1;
 
 --   client |  count
 -- ---------+---------
