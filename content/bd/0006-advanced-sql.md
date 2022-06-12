@@ -36,9 +36,33 @@ Relembrando a Álgebra Relacional, vamos poder ou não indicar quais as colunas 
 agrupar valores. Para isso, utilizamos a cláusula [`GROUP BY`](https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-GROUP).
 
 ```sql
--- TODO exemplo sem group by
+-- Imaginemos que queremos saber a quantidade de compras feitas
+-- por cada pessoa num dado dia.
 
--- TODO exemplo com group by
+--   client |  purchase
+-- ---------+-----------
+--    Diogo |    20
+--    José  |    15
+--    Diogo |    18
+--    Tiago |    12
+
+-- Sem GROUP BY
+SELECT COUNT(*) FROM frigu
+
+--   count
+-- --------
+--     4
+-- (1 row)
+
+-- Com GROUP BY
+SELECT client, COUNT(*) FROM frigu GROUP BY client
+
+--   client |  count
+-- ---------+---------
+--    Diogo |    2
+--    José  |    1
+--    Tiago |    1
+-- (3 rows)
 ```
 
 Caso queiramos filtrar linhas por uma condição que contém valores agrupados,
@@ -48,7 +72,15 @@ Para resolver este problema, temos de usar a cláusula [`HAVING`](https://www.po
 que funciona de forma semelhante ao `WHERE`, mas é executada **após** a agragação.
 
 ```sql
--- TODO exemplo HAVING a filtrar por uma função de agregação
+-- Pegando no exemplo anterior,
+-- vamos agora querer os clientes com mais que 1 compra.
+
+SELECT client, COUNT(*) FROM frigu GROUP BY client HAVING COUNT(*) > 1
+
+--   client |  count
+-- ---------+---------
+--    Diogo |    2
+-- (1 row)
 ```
 
 ## Nested Queries
