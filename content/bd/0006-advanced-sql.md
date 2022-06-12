@@ -284,7 +284,48 @@ SELECT ist_id, COALESCE(grade, 0) AS grade FROM grades
 
 ## Correlation
 
-- Correlation (EXISTS e UNIQUE)
+<!-- esta introdução está um bocado confusa, aceitam-se sugestões -->
+
+Usando uma técnica chamada _correlation_, podemos efetuar _nested queries_ que acedem
+aos valores da _query_ principal, de forma a verificar se existe algum valor ou se esses
+valores são únicos. Para isto, utilizamos as cláusulas
+[`EXISTS`](https://www.postgresql.org/docs/current/functions-subquery.html#FUNCTIONS-SUBQUERY-EXISTS)
+e `UNIQUE` (que não existe em PostgreSQL), respetivamente.
+
+```sql
+-- Obter o nome dos alunos que estão inscritos a pelo menos
+-- uma disciplina
+SELECT student.student_name FROM student
+  WHERE EXISTS (
+    SELECT * FROM enrollment
+      WHERE enrollment.ist_id = student.ist_id
+  );
+
+-- A query acima é equivalente a
+SELECT student.student_name FROM student
+  WHERE 0 <> (
+    SELECT COUNT(*) FROM enrollment
+      WHERE enrollment.ist_id = student.ist_id
+  );
+```
+
+Como é evidente pelo exemplo acima, a cláusula `EXISTS` vai retornar verdadeiro
+caso a _sub query_ não esteja vazia.
+
+Vejamos agora a cláusula `UNIQUE`:
+
+```sql
+-- Obter o nome dos alunos que estão inscritos, no máximo,
+-- a uma disciplina
+SELECT student.student_name FROM student
+  WHERE UNIQUE (
+    SELECT student.ist_id FROM enrollment
+      WHERE enrollment.ist_id = student.ist_id
+  );
+```
+
+Esta cláusula retorna verdadeiro caso a _sub query_ não tenha linhas repetidas.
+[**Caso a _query_ retorne uma tabela vazia, esta cláusula retorna vedadeiro.**](color:red)
 
 ## Cross Join
 
