@@ -47,7 +47,7 @@ agrupar valores. Para isso, utilizamos a cláusula [`GROUP BY`](https://www.post
 --    Tiago |    12
 
 -- Sem GROUP BY
-SELECT COUNT(*) FROM frigu
+SELECT COUNT(*) FROM frigu;
 
 --   count
 -- --------
@@ -55,7 +55,7 @@ SELECT COUNT(*) FROM frigu
 -- (1 row)
 
 -- Com GROUP BY
-SELECT client, COUNT(*) FROM frigu GROUP BY client
+SELECT client, COUNT(*) FROM frigu GROUP BY client;
 
 --   client |  count
 -- ---------+---------
@@ -75,7 +75,7 @@ que funciona de forma semelhante ao `WHERE`, mas é executada **após** a agraga
 -- Pegando no exemplo anterior,
 -- vamos agora querer os clientes com mais que 1 compra.
 
-SELECT client, COUNT(*) FROM frigu GROUP BY client HAVING COUNT(*) > 1
+SELECT client, COUNT(*) FROM frigu GROUP BY client HAVING COUNT(*) > 1;
 
 --   client |  count
 -- ---------+---------
