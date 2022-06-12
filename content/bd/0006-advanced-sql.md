@@ -53,11 +53,59 @@ que funciona de forma semelhante ao `WHERE`, mas é executada **após** a agraga
 
 ## Nested Queries
 
-- FROM
+Além de podermos fazer queries "simples", podemos também executar queries dentro
+de queries, utilizando o seu resultado para o `FROM`, o `JOIN`, o `IN`, etc.
 
-- JOIN
+- `FROM`
 
-- IN
+  Podemos utilizar o resultado de uma query no `FROM`, efetuando depois o `SELECT` dos atributos
+  que queremos ou até mesmo operações mais avançadas (já que a utilização no exemplo abaixo
+  é altamente redundante).
+
+  ```sql
+  -- Obter os nomes de todos os alunos nascidos em ou depois de 2022
+  SELECT S.student_name FROM (
+    SELECT * FROM students WHERE birthday >= '2002-01-01'
+  ) AS S;
+
+  -- Esta query é claramente equivalente a
+  SELECT student_name FROM students WHERE birthday >= '2002-01-01'
+  ```
+
+- `JOIN`
+
+  Do mesmo modo, podemos utilizar o resultado de uma query no `JOIN` (em [qualquer um deles](/bd/sql#cláusula-join)).
+
+  ```sql
+  -- Obter os nomes dos alunos inscritos em 5 ou mais disciplinas
+  SELECT student.student_name FROM student
+    NATURAL JOIN (
+      SELECT ist_id FROM enrollment
+      GROUP BY ist_id
+      HAVING COUNT(*) >= 5
+    );
+
+  -- Esta query é equivalente a
+  SELECT student_name FROM student
+    NATURAL JOIN enrollment
+    GROUP BY ist_id, student_name
+    HAVING COUNT(*) >= 5;
+  ```
+
+- `IN`
+
+  A cláusula `IN` pode ser usada numa condição para verificar se um valor está
+  num contido num conjunto. Em vez de especificarmos um conjunto fixo, podemos
+  especificar uma query que retorne apenas uma coluna.
+
+  ```sql
+  -- Obter os delegados de LEIC-A
+  SELECT student.student_name FROM student
+    WHERE student.ist_id IN (
+      SELECT delegate.ist_id FROM delegate
+        WHERE delegate.course = 'LEIC-A'
+    );
+  ```
 
 ## Operações em Conjuntos
 
