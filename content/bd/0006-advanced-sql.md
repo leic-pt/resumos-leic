@@ -109,10 +109,48 @@ de queries, utilizando o seu resultado para o `FROM`, o `JOIN`, o `IN`, etc.
 
 ## Operações em Conjuntos
 
-- ALL/ANY
+É possível efetuar comparações entre um valor e um conjunto, verificando, por exemplo,
+se existe um valor igual, se todos os valores são iguais, se existe um valor maior, etc.
 
-- Máximo Absoluto de um Conjunto
-  - Máximo de somas e count
+Para isto, vamos introduzir duas novas cláusulas: `ALL` e `ANY`, com as seguintes sintaxes:
+
+```sql
+<value> <operator> ALL (<set>)
+<value> <operator> ANY (<set>)
+```
+
+Como se pode deduzir pelos nomes, a cláusula `ALL` verifica se `<value> <operator> <set element>` para
+[todos](color:green) os valores de `<set>`, equanto a cláusula `ANY` verifica se `<value> <operator> <set element>`
+para [pelos menos um](color:yellow) valor de `<set>`.
+
+:::tip[Relação com `IN` e `NOT IN`]
+Podemos intuitivamente reparar que `IN` é equivalente a `= ANY` e que
+`NOT IN` é equivalente a `<> ANY`: um elemento só pertence a um conjunto
+se for igual a algum elemento do mesmo, e não pertence a um conjunto
+se for diferente de todos os seus elementos.
+:::
+
+Estas duas cláusulas são úteis para calcularmos o [**máximo de um conjunto**](color:orange) (ou o mínimo).
+Vejamos como as podemos utilizar para determinar os alunos com melhor notas e os alunos
+inscritos ao maior número de disciplinas:
+
+```sql
+-- Determinar o IST ID dos alunos com a melhor nota e o respetivo valor
+-- Poderíamos fazer um JOIN para obter o nome
+SELECT ist_id, grade FROM grades
+  WHERE grade >= ALL (
+    SELECT grade FROM grades WHERE course = 'BD'
+  ) AND course = 'BD';
+
+-- Determinar o IST ID dos alunos inscritos ao maior
+-- número de disciplinas (e o respetivo valor)
+SELECT ist_id, COUNT(*) FROM enrollment
+  GROUP BY ist_id
+  HAVING COUNT(*) >= (
+    SELECT COUNT(*) FROM enrollment
+    GROUP BY ist_id
+  );
+```
 
 ## NULL
 
