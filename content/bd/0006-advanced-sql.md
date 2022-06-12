@@ -36,10 +36,10 @@ Relembrando a Álgebra Relacional, vamos poder ou não indicar quais as colunas 
 agrupar valores. Para isso, utilizamos a cláusula [`GROUP BY`](https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-GROUP).
 
 ```sql
--- Imaginemos que queremos saber a quantidade de compras feitas
--- por cada pessoa num dado dia.
+-- Imaginemos que queremos saber a quantidade de compras feitas,
+-- tanto no total como por cliente
 
---   client |  purchase
+--   client |  price
 -- ---------+-----------
 --    Diogo |    20
 --    José  |    15
@@ -47,7 +47,7 @@ agrupar valores. Para isso, utilizamos a cláusula [`GROUP BY`](https://www.post
 --    Tiago |    12
 
 -- Sem GROUP BY
-SELECT COUNT(*) FROM frigu;
+SELECT COUNT(*) as count FROM purchase;
 
 --   count
 -- --------
@@ -55,7 +55,8 @@ SELECT COUNT(*) FROM frigu;
 -- (1 row)
 
 -- Com GROUP BY
-SELECT client, COUNT(*) FROM frigu GROUP BY client;
+SELECT client, COUNT(*) as count FROM purchase
+GROUP BY client;
 
 --   client |  count
 -- ---------+---------
@@ -366,7 +367,3 @@ Esta cláusula retorna verdadeiro caso a _sub query_ não tenha linhas repetidas
 ## Division
 
 - Division
-
-```
-
-```
