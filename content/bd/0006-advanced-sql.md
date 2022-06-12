@@ -1,7 +1,13 @@
 ---
 title: SQL Avançado
 description: >-
-  SQL Avançado.
+  Agregação.
+  Nested Queries.
+  Operações em Conjuntos.
+  Valores NULL.
+  Correlation.
+  Cross Join.
+  Divisão.
 path: /bd/advanced-sql
 type: content
 ---
@@ -316,8 +322,6 @@ SELECT ist_id, COALESCE(grade, 0) AS grade FROM grades
 ```
 
 ## Correlation
-
-<!-- esta introdução está um bocado confusa, aceitam-se sugestões -->
 
 Usando uma técnica chamada _correlation_, podemos efetuar _nested queries_ que acedem
 aos valores da _query_ principal, de forma a verificar se existe algum valor ou se esses
