@@ -391,6 +391,60 @@ SELECT student.student_name, student.ist_id, enrollment.course
     ON student.ist_id = enrollment.ist_id;
 ```
 
-## Division
+## Divisão
 
-- Division
+A cláusula `DIVIDE` não existe na maior parte dos SGBD, e é, por isso, frequentemente
+implementada como [**dupla negação**](color:yellow).
+
+Voltando às nossas tabelas, `enrollment` e `course`, vamos querer efetuar a divisão de
+`enrollment` por `course`, de forma obter os alunos que estão inscritos a todas as disciplinas.
+
+Considerem-se os seguintes dados para os exemplos abaixo:
+
+<div class="side-by-side">
+<div>
+
+**Enrollment:**
+
+| `ist_id`   | `course_acronym` |
+| ---------- | ---------------- |
+| ist1123456 | BD               |
+| ist1123456 | IA               |
+| ist1654321 | BD               |
+| ist1123123 | BD               |
+| ist1123123 | IA               |
+
+</div>
+<div>
+
+**Course:**
+
+| `course_acronym` |
+| ---------------- |
+| BD               |
+| IA               |
+
+</div>
+</div>
+
+Para isto, podemos utilizar a seguinte _query_, recorrendo ao [`EXCEPT`](/bd/sql#cláusula-except):
+
+```sql
+SELECT DISTINCT ist_id FROM enrollment E
+WHERE NOT EXISTS (
+  SELECT course_acronym
+  FROM course
+  EXCEPT
+  SELECT course.course_acronym
+  FROM course
+  INNER JOIN enrollment
+    ON enrollment.course_acronym = course.course_acronym
+  WHERE enrollment.ist_id = E.ist_id
+);
+```
+
+Vamos dissecar, com calma, a _query_ acima.
+Dentro dos parêntesis, estamos a obter a lista de todos os cursos que um
+dado aluno não frequenta. De seguida, obtemos todos os alunos para os quais
+esse conjunto é vazio.  
+Efetuamos assim a divisão.
