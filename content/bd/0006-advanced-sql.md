@@ -154,15 +154,130 @@ SELECT ist_id, COUNT(*) FROM enrollment
 
 ## NULL
 
-- Aritmética do NULL
+Em SQL, tal como em algumas linguagens de programação, é possível ter valores `null`.
+Isto pode ser tanto algo bom como algo mau: por um lado ganhamos a flexibilidade de
+poder omitir certos valores, mas por outro sujeitamo-nos a comportamentos inesperados.
+Tal deve-se ao facto que o [**comportamento do `NULL` em SQL é ambíguo e muda de situação
+para situação**](color:red), como iremos ver.
+Geralmente, estes valores são representados como um espaço vazio, isto é, ausência de valor.
 
-- Comportamento com OUTER JOINs
+:::warning[Comportamento predefinido]
 
-- Inconsistências
+Em SQL, quando criamos uma tabela, todas as colunas são _nullable_, isto é,
+podem ter valores `null`.
+Para alterarmos este comporamento, deveremos usar a restrição `NOT NULL` na coluna.
 
-  - Agregações
+Por exemplo:
 
-- Substituir nulls por outros valores
+```sql
+CREATE TABLE students (
+  ist_id VARCHAR(15) NOT NULL,
+  student_name VARCHAR(255) NOT NULL,
+  PRIMARY KEY(ist_id)
+);
+```
+
+:::
+
+Para percebermos o comportamento do `NULL`, vamos olhar para o seu comportamento em
+vários tipos de expressões. É preciso ter em mente que nem todas as funcionalidades
+em SQL seguem estas regras quando em contacto com o `NULL`, como iremos ver abaixo.
+
+- **Expressões Aritméticas**
+
+  Todas as expressões aritméticas que contêm `NULL` irão resultar em `NULL`.
+
+  | Expressão       | Resultado |
+  | --------------- | --------- |
+  | `5 + NULL`      | `NULL`    |
+  | `NULL * 10`     | `NULL`    |
+  | `5 * 10 + NULL` | `NULL`    |
+
+- **Expressões Lógicas**
+
+  As expressões lógicas que dependem do `NULL` para saber o seu
+  valor lógico, irão resultar em `NULL`.
+
+  | Expressão        | Resultado |
+  | ---------------- | --------- |
+  | `NULL AND TRUE`  | `NULL`    |
+  | `NULL AND FALSE` | `FALSE`   |
+  | `NULL OR TRUE`   | `TRUE`    |
+  | `NULL OR FALSE`  | `NULL`    |
+
+  É de realçar que nas situações em que o valor de `NULL` não afeta o
+  resultado da expressão lógica, o SGBD vai-nos dar um valor de `TRUE` ou `FALSE`.
+
+- **Expressões Relacionais**
+
+  As expressões relacionais vão resultar num valor `unknown` se conterem
+  um valor `NULL`. A cláusula `WHERE` trata os valores `unknown` como `FALSE`.
+
+  | Expressão      | Resultado |
+  | -------------- | --------- |
+  | `NULL = NULL`  | `unknown` |
+  | `NULL = 5`     | `unknown` |
+  | `NULL <> NULL` | `unknown` |
+  | `NULL <> 5`    | `unknown` |
+
+Este comportamento leva-nos a uma situação engraçada: se tentarmos obter
+os valores nulos de uma tabela com o operador `=`, não vamos obter qualquer resultado:
+
+```sql
+-- O operador = não funciona
+SELECT * FROM student WHERE birthday = NULL;
+
+--  ist_id | student_name | birthday
+-- --------+--------------+----------
+-- (0 rows)
+```
+
+Para resolvermos esta situação, temos de usar um operator especial, o `IS`:
+
+```sql
+-- O operador IS já funciona
+SELECT * FROM student WHERE birthday IS NULL;
+
+--    ist_id   | student_name | birthday
+-- ------------+--------------+----------
+--  ist1123456 | Diogo        |
+-- (1 row)
+```
+
+Mas como é que aparecem valores `NULL`?
+Uma das formas é a mais óbvia: são inseridos voluntariamente pelos utilizadores
+da base de dados.
+
+Podem também aparecer como o resultado de [outer joins](/bd/sql#outer-join),
+como já vimos anteriormente.
+
+Outro caso de onde podem resultar valores `NULL` são as funções de agregação:
+caso tentemos fazer um `MAX`, `MIN`, `AVG`, `SUM`, etc. num conjunto vazio, vamos
+obter um valor `NULL`.
+
+Por falar em funções de agregação, estas [**desobdecem às regras de aritmética do `null`**](color:red):
+só o `COUNT(*)` é que se comporta como esperado, todas as outras ignoram valores `NULL`.
+Por exemplo, ao efetuar `SUM(col)`, os valores a `NULL` não são somados, indo contra o
+princípio que `x + NULL` é `NULL`.
+
+### Substituir NULLs
+
+Pode-nos ser útil substituir os valores `NULL` numa tabela por um valor predefinido.
+Para tal, podemos usar a [cláusula `COALESCE`](https://www.postgresql.org/docs/current/functions-conditional.html#FUNCTIONS-COALESCE-NVL-IFNULL).
+
+Esta cláusula retorna o primeiro dos seus valores que não é `NULL`.
+
+```sql
+SELECT ist_id, COALESCE(grade, 0) AS grade FROM grades
+  WHERE course = 'BD';
+
+--    ist_id   | grade
+-- ------------+-------
+--  ist1123456 |    20
+--  ist1654321 |     0
+--  ist1123123 |    18
+-- (3 rows)
+```
 
 ## Correlation
 
@@ -175,3 +290,7 @@ SELECT ist_id, COUNT(*) FROM enrollment
 ## Division
 
 - Division
+
+```
+
+```
