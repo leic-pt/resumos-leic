@@ -15,6 +15,12 @@ type: content
 
 ## Distribuição Uniforme Discreta
 
+:::danger[]
+
+Esta distribuição não é leccionada no programa de 2021/22 mas pode ser importante para perceber alguns conceitos.
+
+:::
+
 :::tip[]
 
 Esta distribuição é normalmente usada em situações em que todos os eventos são equiprováveis.

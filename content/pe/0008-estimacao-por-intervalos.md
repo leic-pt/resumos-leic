@@ -83,6 +83,12 @@ com grau de confiança **aproximadamente** $1-\alpha$.
 
 ### Determinação de $\mu_1 - \mu_2$ para $\sigma_1^2, \sigma_2^2$ conhecidos
 
+:::danger[]
+
+Esta determinação não é leccionada no programa de 2021/22.
+
+:::
+
 Neste caso estamos interessados em descobrir o valor do parâmetro $\mu_1 - \mu_2$ (diferença entre os valores esperados) para duas VA arbitrárias $X_1, X_2$ independentes entre si ($X_1 \indep X_2$) cuja variância já conhecemos.
 
 **Parâmetro desconhecido**: $\mu_1 - \mu_2$  
@@ -155,6 +161,12 @@ $$
 com grau de confiança **aproximadamente** $1-\alpha$.
 
 ### Determinação de $\mu_1 - \mu_2$ para $\sigma_1^2, \sigma_2^2$ desconhecidos
+
+:::danger[]
+
+Esta determinação não é leccionada no programa de 2021/22.
+
+:::
 
 Neste caso estamos interessados em descobrir o valor do parâmetro $\mu_1 - \mu_2$ (diferença entre os valores esperados) para duas VA arbitrárias $X_1, X_2$ independentes entre si ($X_1 \indep X_2$) cuja variância não conhecemos.
 

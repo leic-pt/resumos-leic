@@ -151,10 +151,11 @@ Vamos ver agora aproximações distribuições, algumas que seguem do TLC, outra
 
 ## Aproximações de Distribuições
 
-:::tip[]
+:::danger[]
 
-[Esta distribuição (e portanto esta aproximação) não é leccionada no programa de 2021/22.](color:red)
+Estas aproximações não são leccionadas no programa de 2021/22.
 
+:::
 Uma VA $X \sim \op{hipergeométrica}(N, M, n)$ pode ser aproximada por
 
 $$
@@ -164,8 +165,6 @@ $$
 para $n < 0.1 N$
 
 A lógica por trás desta aproximação é que se a população for muito maior que a amostra (isto é, o número de individuos analisados), a não-reposição torna-se negligenciável.
-
-:::
 
 :::tip[]
 

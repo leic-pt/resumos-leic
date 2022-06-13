@@ -172,6 +172,12 @@ e portanto podemos obter as mesmas regiões de rejeição indicadas acima, desta
 
 ### Determinação de $\mu_1 - \mu_2$ para $\sigma_1^2, \sigma_2^2$ conhecidos
 
+:::danger[]
+
+Esta determinação não é leccionada no programa de 2021/22.
+
+:::
+
 Neste caso estamos interessados em determinar a zona de rejeição para uma hipótese paramétrica em relação à diferença entre os valores esperados de duas VA arbitrárias $X_1$ e $X_2$ cuja variância já conhecemos.
 
 Consideramos então a [hipótese nula](color:blue) $H_0: \mu_1 - \mu_2 = \mu_0$.
@@ -225,6 +231,12 @@ $$
 e portanto podemos obter as mesmas regiões de rejeição indicadas acima, desta vez com nível de significância aproximado.
 
 ### Determinação de $\mu_1 - \mu_2$ para $\sigma_1^2, \sigma_2^2$ desconhecidos
+
+:::danger[]
+
+Esta determinação não é leccionada no programa de 2021/22.
+
+:::
 
 Neste caso estamos interessados em determinar a zona de rejeição para uma hipótese paramétrica em relação à diferença entre os valores esperados de duas VA arbitrárias $X_1$ e $X_2$ cuja variância não conhecemos.
 

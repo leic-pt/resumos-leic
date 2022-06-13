@@ -143,6 +143,12 @@ Nesse exemplo, obtivemos como [estimativa](color:blue) o valor de 1,82m.
 
 ### Enviasamento
 
+:::danger[]
+
+A definição de enviasamento não é leccionada no programa de 2021/22.
+
+:::
+
 Damos o nome de [**enviasamento**](color:green) de um estimador $T$ de $\theta$ ao valor
 
 $$
@@ -160,6 +166,12 @@ A variância corrigida é centrada, ao contrário da não corrigida.
 :::
 
 ### Erro Quadrático Médio
+
+:::danger[]
+
+A definição de erro quadrático médio não é leccionada no programa de 2021/22.
+
+:::
 
 O [**erro quadrático médio**](color:purple) procura calcular quanto um estimador se dispersa em torno do verdadeiro valor do parâmetro desconhecido $\theta$.
 Este é dado por
