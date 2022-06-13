@@ -89,90 +89,6 @@ $$
   P(c \leq x \leq c+\Delta) = P(d \leq x \leq d+\Delta) = \frac{\Delta}{b-a}
   $$
 
-## Distribuição Normal
-
-:::tip[]
-
-Esta distribuição é usada para... tipo quase tudo.
-
-:::
-
-Dizemos que uma VA contínua $X$ têm uma [**distribuição normal**](color:yellow) e representamos $X~\sim~\op{normal}(\mu,\sigma^2)$ se, dados os **parâmetros**:
-
-- $\mu = E(X) \in \R$
-- $\sigma^2 = V(X) \in \R_0^+$
-
-satisfizer:
-
-**Contradomínio**: $\R$  
-**Função de Probabilidade**
-
-$$
-P(X = x) = \frac{1}{\sqrt{2\pi} \sigma} e^{-\frac{(x-\mu)^2}{2 \sigma^2}}
-$$
-
-Uma VA $X$ com [distribuição normal](color:yellow) tem:
-
-**Valor Esperado**: $E(X) = \mu$  
-**Variância**: $V(X) = \sigma^2$
-
-:::details[Exemplo]
-
-Considere-se a VA $X$ que regista a altura de um português aleatório.
-Assumindo a altura dos portugueses satisfaz uma distribuição normal com valor esperado 1.75m e variancia 30cm temos que:
-
-$$
-X~\sim~\text{normal}(1.75, 0.3)
-$$
-
-A função de probabilidade desta VA é
-
-$$
-P(X = x) =
-\frac{1}{\sqrt{0.6\pi}} e^{-\frac{(x-1.75)^2}{0.6}}, \quad x \in \R
-$$
-
-e o seu valor esperado e variância são 1.75m e 0.3m.
-
-:::
-
-**Propriedades da [distribuição normal](color:yellow)**:
-
-- O integral $\int_{-\infty}^x \frac{1}{\sqrt{2\pi} \sigma} e^{-\frac{(t-\mu)^2}{2 \sigma^2}} \, dt$ não tem forma fechada pelo que a distribuição normal **não tem uma função de distribuição** que possa ser escrita em forma fechada. Sendo assim, os valores desta função têm de ser obtidos por consulta de tabelas. Esta consulta é facilitada pela próxima propriedade;
-- $X \sim \op{normal}(\mu, \sigma^2) \Leftrightarrow aX+b \sim \op{normal}(aX + b, a^2 \sigma^2)$  
-  Consequentemente, $X \sim \op{normal}(\mu, \sigma^2) \Leftrightarrow \frac{X-\mu}{\sigma} \sim \op{normal}(0,1)$.  
-  Desta forma, para qualquer VA $X$ com distribuição normal, é sempre possível fazer uma transformação linear de forma a obter uma VA com distribuição normal centrada em $0$ e com variância $1$.
-  À distribuição normal centrada em $0$ com variância $1$ dá-se o nome de **distribuição normal padrão**. A sua função de distribuição representa-se por $\Phi(x)$ e é dada por
-  $$
-  \Phi(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} e^{-\frac{t^2}{2}} \, dt
-  $$
-- A distribuição normal padrão satisfaz $\Phi(x) + \Phi(-x) = 1, \forall_{x \in \R}$, pelo que as tabelas estatísticas só precisam de ter os valores desta função para $x$ positivo.
-
-:::details[Como obter $F_X(x)$ através da tabela]
-
-Para uma distriubição $X \sim \op{normal}(23,{0.1}^{2})$ queremos saber o valor de $P(X \leq 23.045)$.
-
-Sabendo que $X \sim \op{normal}(\mu, \sigma^2) \Leftrightarrow Z = \frac{X-\mu}{\sigma} \sim \op{normal}(0,1)$ e que os valores da função
-
-$$
-\Phi(x) = P(Z \leq x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} e^{-\frac{t^2}{2}} \, dt
-$$
-
-podem ser consultados numa tabela estatística, temos então uma forma de calcular a probabilidade pretendida.
-
-Temos que $P(X \leq 23.045) = P (\frac{X - 23}{{0.1}} \equiv \frac{X-\mu}{\sigma}  \leq \frac{23.045 - 23}{{0.1}}) = \Phi(0.45)$
-
-Indo ver à tabela conluímos que $\Phi(0.45) = 0.6736$ pelo que $P(X \leq 23.045) = 0.6736$.
-
-![table](./imgs/0004/table.png#dark=1)
-
-Observe-se que a tabela não permite consultar a função $\Phi$ em valores negativos.
-Nesse caso, basta aproveitarmo-nos do facto que $\Phi(-x) = 1 - \Phi(x)$ e depois consultar a tabela.
-
-Por exemplo, temos que $\Phi(-0.45) = 1-\Phi(0.45) = 0.3264$.
-
-:::
-
 ## Distribuição Exponencial
 
 :::tip[]
@@ -263,5 +179,89 @@ $$
 :::warning[]
 
 Esta última propriedade também aparece muito raramente em exercícios, sendo pouco provável que apareça em alguma avaliação que não oral.
+
+:::
+
+## Distribuição Normal
+
+:::tip[]
+
+Esta distribuição é usada para... tipo quase tudo.
+
+:::
+
+Dizemos que uma VA contínua $X$ têm uma [**distribuição normal**](color:yellow) e representamos $X~\sim~\op{normal}(\mu,\sigma^2)$ se, dados os **parâmetros**:
+
+- $\mu = E(X) \in \R$
+- $\sigma^2 = V(X) \in \R_0^+$
+
+satisfizer:
+
+**Contradomínio**: $\R$  
+**Função de Probabilidade**
+
+$$
+P(X = x) = \frac{1}{\sqrt{2\pi} \sigma} e^{-\frac{(x-\mu)^2}{2 \sigma^2}}
+$$
+
+Uma VA $X$ com [distribuição normal](color:yellow) tem:
+
+**Valor Esperado**: $E(X) = \mu$  
+**Variância**: $V(X) = \sigma^2$
+
+:::details[Exemplo]
+
+Considere-se a VA $X$ que regista a altura de um português aleatório.
+Assumindo a altura dos portugueses satisfaz uma distribuição normal com valor esperado 1.75m e variancia 30cm temos que:
+
+$$
+X~\sim~\text{normal}(1.75, 0.3)
+$$
+
+A função de probabilidade desta VA é
+
+$$
+P(X = x) =
+\frac{1}{\sqrt{0.6\pi}} e^{-\frac{(x-1.75)^2}{0.6}}, \quad x \in \R
+$$
+
+e o seu valor esperado e variância são 1.75m e 0.3m.
+
+:::
+
+**Propriedades da [distribuição normal](color:yellow)**:
+
+- O integral $\int_{-\infty}^x \frac{1}{\sqrt{2\pi} \sigma} e^{-\frac{(t-\mu)^2}{2 \sigma^2}} \, dt$ não tem forma fechada pelo que a distribuição normal **não tem uma função de distribuição** que possa ser escrita em forma fechada. Sendo assim, os valores desta função têm de ser obtidos por consulta de tabelas. Esta consulta é facilitada pela próxima propriedade;
+- $X \sim \op{normal}(\mu, \sigma^2) \Leftrightarrow aX+b \sim \op{normal}(aX + b, a^2 \sigma^2)$  
+  Consequentemente, $X \sim \op{normal}(\mu, \sigma^2) \Leftrightarrow \frac{X-\mu}{\sigma} \sim \op{normal}(0,1)$.  
+  Desta forma, para qualquer VA $X$ com distribuição normal, é sempre possível fazer uma transformação linear de forma a obter uma VA com distribuição normal centrada em $0$ e com variância $1$.
+  À distribuição normal centrada em $0$ com variância $1$ dá-se o nome de **distribuição normal padrão**. A sua função de distribuição representa-se por $\Phi(x)$ e é dada por
+  $$
+  \Phi(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} e^{-\frac{t^2}{2}} \, dt
+  $$
+- A distribuição normal padrão satisfaz $\Phi(x) + \Phi(-x) = 1, \forall_{x \in \R}$, pelo que as tabelas estatísticas só precisam de ter os valores desta função para $x$ positivo.
+
+:::details[Como obter $F_X(x)$ através da tabela]
+
+Para uma distriubição $X \sim \op{normal}(23,{0.1}^{2})$ queremos saber o valor de $P(X \leq 23.045)$.
+
+Sabendo que $X \sim \op{normal}(\mu, \sigma^2) \Leftrightarrow Z = \frac{X-\mu}{\sigma} \sim \op{normal}(0,1)$ e que os valores da função
+
+$$
+\Phi(x) = P(Z \leq x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} e^{-\frac{t^2}{2}} \, dt
+$$
+
+podem ser consultados numa tabela estatística, temos então uma forma de calcular a probabilidade pretendida.
+
+Temos que $P(X \leq 23.045) = P (\frac{X - 23}{{0.1}} \equiv \frac{X-\mu}{\sigma}  \leq \frac{23.045 - 23}{{0.1}}) = \Phi(0.45)$
+
+Indo ver à tabela conluímos que $\Phi(0.45) = 0.6736$ pelo que $P(X \leq 23.045) = 0.6736$.
+
+![table](./imgs/0004/table.png#dark=1)
+
+Observe-se que a tabela não permite consultar a função $\Phi$ em valores negativos.
+Nesse caso, basta aproveitarmo-nos do facto que $\Phi(-x) = 1 - \Phi(x)$ e depois consultar a tabela.
+
+Por exemplo, temos que $\Phi(-0.45) = 1-\Phi(0.45) = 0.3264$.
 
 :::

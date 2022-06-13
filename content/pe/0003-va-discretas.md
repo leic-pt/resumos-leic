@@ -76,84 +76,6 @@ $$
 
 :::
 
-## Distribuição de Bernoulli
-
-:::tip[]
-
-Este tipo de distribuição é usado para modular situações em que apenas há dois resultados possíveis.
-
-:::
-
-:::tip[Prova de Bernoulli]
-
-Damos o nome de **prova de Bernoulli** a qualquer experiência aleatória cujo espaço de resultados tem apenas dois eventos elementares: um evento a que damos o nome de **sucesso**, com probabilidade $p$, e um a que damos nome de **insucesso**, com probabilidade $1-p$.
-
-:::
-
-:::warning[Sucesso pode ser mau!]
-
-Enquanto que estamos habituados a associar sucesso a coisas boas e insucesso a coisas más, neste caso, o sucesso deve ser entendido apenas como **aquilo que queremos modelar**.  
-Sendo assim, por exemplo, se considerarmos a EA que verifica se o ecrã de um telemóvel se parte no primeiro ano de uso, o sucesso será "o ecrã partiu-se".  
-Claro que dada uma Prova de Bernoulli $A$, podemos sempre considerar a experiência aleatória contrária $B$, e, nesse caso, o sucesso de $B$ será o insucesso de $A$ e vice-versa.
-Podemos aproveitar-nos disto à vontade desde que tenhamos em atenção que o sucesso da prova de Bernoulli e o que queremos medir com a VA sejam coerentes.
-
-:::
-
-Dizemos que uma VA discreta $X$ têm uma [**distribuição de Bernoulli**](color:blue) e representamos $X~\sim~\op{Bernoulli}(p)$ se, dados os **parâmetros**:
-
-- $p = P(\op{Sucesso})$, $p \in [0,1]$
-
-satisfizer:
-
-**Contradomínio**: $\{ 0, 1 \}$  
-**Função de Probabilidade**
-
-$$
-P(X = x) =
-\begin{cases}
-p, &x=1 \\
-1-p, &x=0 \\
-0, &x \notin \{0,1\}
-\end{cases}
-\Leftrightarrow
-\begin{cases}
-p^x(1-p)^{1-x}, &x \in \{0,1\} \\
-0, &x \notin \{0,1\}
-\end{cases}
-$$
-
-Uma VA $X$ com [distribuição de Bernoulli](color:blue) discreta tem:
-
-**Valor Esperado**: $E(X) = p$  
-**Variância**: $V(X) = p(1-p)$
-
-:::details[Exemplo]
-
-O lançamento de uma moeda ao ar é um exemplo de uma prova de Bernoulli com $p = 0.5$.
-Se $X$ for uma VA que mede se o lançamento da moeda ao ar dá "coroa" (vamos tomar isto como o nosso sucesso), dizemos que
-
-$$
-X~\sim~\op{Bernoulli}(0.5)
-$$
-
-A função de probabilidade desta VA é
-
-$$
-P(X = x) =
-\begin{cases}
-0.5, &x \in \{0,1\} \\
-0, &x \notin \{0,1\}
-\end{cases}
-$$
-
-e o seu valor esperado e variância são
-
-$$
-E(X) = 0.5 \quad \quad V(X) = 0.5 \cdot 0.5 = 0.25
-$$
-
-:::
-
 ## Distribuição Binomial
 
 :::tip[]
@@ -301,50 +223,6 @@ $$
   Y \sim \op{geométrica}(p)
   $$
 
-## Distribuição Hipergeométrica
-
-:::warning[]
-
-Esta distribuição não faz parte da matéria leccionada no programa de 2021/22.
-
-:::
-
-:::tip[]
-
-Tal como a distribuição binomial, esta distribuição tem a ver com o número de sucessos em $n$ provas de Bernoulli. No entanto, desta vez, as provas não são independentes entre si e podem ser pensadas como seguindo um processo de extração sem repetição.
-
-:::
-
-Dizemos que uma VA discreta $X$ têm uma [**distribuição hipergeométrica**](color:red) e representamos $X~\sim~\op{hipergeométrica}(N, M, n)$ se, dados os **parâmetros**:
-
-- $N$: tamanho da população ($n \in \Z^+$);
-- $M$: tamanho da população sucesso ($m \in \Z^+$);
-- $n$: número de provas de Bernoulli executadas ($n \in \Z^+, n \leq L$)
-
-satisfizer:
-
-**Contradomínio**: $\{ \op{max}(0, n - (N-M)), \cdots , \op{min}(n, M) \} = D$  
-**Função de Probabilidade**
-
-$$
-P(X = x) =
-\begin{cases}
-\frac{{M \choose x}{N-M \choose n-x}}{{N \choose n}}, &x \in D
-0, &x \notin D
-\end{cases}
-$$
-
-Uma VA $X$ com [distribuição hipergeométrica](color:red) tem:
-
-- **Valor Esperado**:
-  $$
-  E(X) = n\frac{M}{N}
-  $$
-- **Variância**:
-  $$
-  V(X) = n\frac{M}{N} \left( 1-\frac{M}{N} \right)\frac{N-n}{N-1}
-  $$
-
 ## Distribuição de Poisson
 
 :::tip[]
@@ -417,4 +295,126 @@ $$
 - A distribuição de Poisson pode ser aproximada pela binomial, se considerarmos o acontecimento do evento no intervalo em que é impossível o evento acontecer duas vezes como uma prova de Bernoulli. Desta forma, temos que
   $$
   X \sim \op{Poisson}(\lambda) \Leftrightarrow X \sim \lim_{n \to \infty} \op{binomial}\left(n, \frac{\lambda}{n} \right)
+  $$
+
+## Distribuição de Bernoulli
+
+:::tip[]
+
+Este tipo de distribuição é usado para modular situações em que apenas há dois resultados possíveis.
+
+:::
+
+:::tip[Prova de Bernoulli]
+
+Damos o nome de **prova de Bernoulli** a qualquer experiência aleatória cujo espaço de resultados tem apenas dois eventos elementares: um evento a que damos o nome de **sucesso**, com probabilidade $p$, e um a que damos nome de **insucesso**, com probabilidade $1-p$.
+
+:::
+
+:::warning[Sucesso pode ser mau!]
+
+Enquanto que estamos habituados a associar sucesso a coisas boas e insucesso a coisas más, neste caso, o sucesso deve ser entendido apenas como **aquilo que queremos modelar**.  
+Sendo assim, por exemplo, se considerarmos a EA que verifica se o ecrã de um telemóvel se parte no primeiro ano de uso, o sucesso será "o ecrã partiu-se".  
+Claro que dada uma Prova de Bernoulli $A$, podemos sempre considerar a experiência aleatória contrária $B$, e, nesse caso, o sucesso de $B$ será o insucesso de $A$ e vice-versa.
+Podemos aproveitar-nos disto à vontade desde que tenhamos em atenção que o sucesso da prova de Bernoulli e o que queremos medir com a VA sejam coerentes.
+
+:::
+
+Dizemos que uma VA discreta $X$ têm uma [**distribuição de Bernoulli**](color:blue) e representamos $X~\sim~\op{Bernoulli}(p)$ se, dados os **parâmetros**:
+
+- $p = P(\op{Sucesso})$, $p \in [0,1]$
+
+satisfizer:
+
+**Contradomínio**: $\{ 0, 1 \}$  
+**Função de Probabilidade**
+
+$$
+P(X = x) =
+\begin{cases}
+p, &x=1 \\
+1-p, &x=0 \\
+0, &x \notin \{0,1\}
+\end{cases}
+\Leftrightarrow
+\begin{cases}
+p^x(1-p)^{1-x}, &x \in \{0,1\} \\
+0, &x \notin \{0,1\}
+\end{cases}
+$$
+
+Uma VA $X$ com [distribuição de Bernoulli](color:blue) discreta tem:
+
+**Valor Esperado**: $E(X) = p$  
+**Variância**: $V(X) = p(1-p)$
+
+:::details[Exemplo]
+
+O lançamento de uma moeda ao ar é um exemplo de uma prova de Bernoulli com $p = 0.5$.
+Se $X$ for uma VA que mede se o lançamento da moeda ao ar dá "coroa" (vamos tomar isto como o nosso sucesso), dizemos que
+
+$$
+X~\sim~\op{Bernoulli}(0.5)
+$$
+
+A função de probabilidade desta VA é
+
+$$
+P(X = x) =
+\begin{cases}
+0.5, &x \in \{0,1\} \\
+0, &x \notin \{0,1\}
+\end{cases}
+$$
+
+e o seu valor esperado e variância são
+
+$$
+E(X) = 0.5 \quad \quad V(X) = 0.5 \cdot 0.5 = 0.25
+$$
+
+:::
+
+## Distribuição Hipergeométrica
+
+:::warning[]
+
+Esta distribuição não faz parte da matéria leccionada no programa de 2021/22.
+
+:::
+
+:::tip[]
+
+Tal como a distribuição binomial, esta distribuição tem a ver com o número de sucessos em $n$ provas de Bernoulli. No entanto, desta vez, as provas não são independentes entre si e podem ser pensadas como seguindo um processo de extração sem repetição.
+
+:::
+
+Dizemos que uma VA discreta $X$ têm uma [**distribuição hipergeométrica**](color:red) e representamos $X~\sim~\op{hipergeométrica}(N, M, n)$ se, dados os **parâmetros**:
+
+- $N$: tamanho da população ($n \in \Z^+$);
+- $M$: tamanho da população sucesso ($m \in \Z^+$);
+- $n$: número de provas de Bernoulli executadas ($n \in \Z^+, n \leq L$)
+
+satisfizer:
+
+**Contradomínio**: $\{ \op{max}(0, n - (N-M)), \cdots , \op{min}(n, M) \} = D$  
+**Função de Probabilidade**
+
+$$
+P(X = x) =
+\begin{cases}
+\frac{{M \choose x}{N-M \choose n-x}}{{N \choose n}}, &x \in D
+0, &x \notin D
+\end{cases}
+$$
+
+Uma VA $X$ com [distribuição hipergeométrica](color:red) tem:
+
+- **Valor Esperado**:
+  $$
+  E(X) = n\frac{M}{N}
+  $$
+- **Variância**:
+  $$
+  V(X) = n\frac{M}{N} \left( 1-\frac{M}{N} \right)\frac{N-n}{N-1}
   $$
