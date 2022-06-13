@@ -254,6 +254,12 @@ com grau de confiança **aproximadamente** $1-\alpha$.
 
 ### Determinação de $\lambda$ numa distribuição de Poisson
 
+:::danger[]
+
+Esta determinação não é leccionada no programa de 2021/22.
+
+:::
+
 **Parâmetro desconhecido**: $\lambda$  
 **VA de interesse**: Uma VA com distribuição de Poisson $X$
 
