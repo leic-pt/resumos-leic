@@ -76,7 +76,7 @@ Caso queiramos filtrar linhas por uma condição que contém valores agrupados,
 rapidamente reparamos que tal não é possível com a cláusula `WHERE`: esta cláusula
 é executada **antes** da agregação.
 Para resolver este problema, temos de usar a cláusula [`HAVING`](https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-GROUP),
-que funciona de forma semelhante ao `WHERE`, mas é executada **após** a agragação.
+que funciona de forma semelhante ao `WHERE`, mas é executada **após** a agregação.
 
 ```sql
 -- Pegando no exemplo anterior,
@@ -209,7 +209,7 @@ Geralmente, estes valores são representados como um espaço vazio, isto é, aus
 
 Em SQL, quando criamos uma tabela, todas as colunas são _nullable_, isto é,
 podem ter valores `null`.
-Para alterarmos este comporamento, deveremos usar a restrição `NOT NULL` na coluna.
+Para alterarmos este comportamento, deveremos usar a restrição `NOT NULL` na coluna.
 
 Por exemplo:
 
@@ -299,7 +299,7 @@ Outro caso de onde podem resultar valores `NULL` são as funções de agregaçã
 caso tentemos fazer um `MAX`, `MIN`, `AVG`, `SUM`, etc. num conjunto vazio, vamos
 obter um valor `NULL`.
 
-Por falar em funções de agregação, estas [**desobdecem às regras de aritmética do `null`**](color:red):
+Por falar em funções de agregação, estas [**desobedecem às regras de aritmética do `null`**](color:red):
 só o `COUNT(*)` é que se comporta como esperado, todas as outras ignoram valores `NULL`.
 Por exemplo, ao efetuar `SUM(col)`, os valores a `NULL` não são somados, indo contra o
 princípio que `x + NULL` é `NULL`.
@@ -364,7 +364,7 @@ SELECT student.student_name FROM student
 ```
 
 Esta cláusula retorna verdadeiro caso a _sub query_ não tenha linhas repetidas.
-[**Caso a _query_ retorne uma tabela vazia, esta cláusula retorna vedadeiro.**](color:red)
+[**Caso a _query_ retorne uma tabela vazia, esta cláusula retorna verdadeiro.**](color:red)
 
 ## Cross Join
 
