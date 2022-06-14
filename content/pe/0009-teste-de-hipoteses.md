@@ -289,7 +289,7 @@ Neste caso estamos interessados em determinar a zona de rejeição para uma hip�
 Como $X \sim Bernoulli(p)$ temos segundo o TLC que para $n>>$
 
 $$
-Z = \frac{\overline{X} - p}{\sqrt{\frac{\overline{X}(1-\overline{X})}{n}}} \sima_{H_0} \op{normal}(0,1)
+Z = \frac{\overline{X} - p}{\sqrt{\frac{p(1-p)}{n}}} \sima_{H_0} \op{normal}(0,1)
 $$
 
 Sendo assim, a região de rejeição é aproximadamente
