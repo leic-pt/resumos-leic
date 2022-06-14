@@ -20,7 +20,7 @@ type: content
 
 ## Agregação
 
-Já vimos anteriormente como funcionam as [agregações em Álgebra Relacional](/bd/relational-algebra#agregação).
+Já vimos, anteriormente, como funcionam as [agregações em Álgebra Relacional](/bd/relational-algebra#agregação).
 Como seria de esperar, estas estão também [presentes no SQL](https://www.postgresql.org/docs/current/functions-aggregate.html).
 
 Recapitulando algumas das funções que existem:
@@ -39,11 +39,11 @@ Como veremos [mais abaixo](#null), os valores nulos têm um comportamento à par
 :::
 
 Relembrando a Álgebra Relacional, vamos poder ou não indicar quais as colunas pelas quais
-agrupar valores. Para isso, utilizamos a cláusula [`GROUP BY`](https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-GROUP).
+agrupamos valores. Para isso, utilizamos a cláusula [`GROUP BY`](https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-GROUP).
 
 ```sql
 -- Imaginemos que queremos saber a quantidade de compras feitas,
--- tanto no total como por cliente
+-- tanto no total como por cliente.
 
 --   client |  price
 -- ---------+-----------
@@ -52,7 +52,7 @@ agrupar valores. Para isso, utilizamos a cláusula [`GROUP BY`](https://www.post
 --    Diogo |    18
 --    Tiago |    12
 
--- Sem GROUP BY
+-- Sem GROUP BY:
 SELECT COUNT(*) as count FROM purchase;
 
 --   count
@@ -60,7 +60,7 @@ SELECT COUNT(*) as count FROM purchase;
 --     4
 -- (1 row)
 
--- Com GROUP BY
+-- Com GROUP BY:
 SELECT client, COUNT(*) as count FROM purchase
   GROUP BY client;
 
@@ -80,7 +80,7 @@ que funciona de forma semelhante ao `WHERE`, mas é executada **após** a agrega
 
 ```sql
 -- Pegando no exemplo anterior,
--- vamos agora querer os clientes com mais que 1 compra.
+-- vamos agora querer os clientes com mais do que 1 compra.
 
 SELECT client, COUNT(*) FROM frigu
   GROUP BY client
@@ -104,13 +104,13 @@ de queries, utilizando o seu resultado para o `FROM`, o `JOIN`, o `IN`, etc.
   é altamente redundante).
 
   ```sql
-  -- Obter os nomes de todos os alunos nascidos em ou depois de 2002
+  -- Obter os nomes de todos os alunos nascidos em ou depois de 2002:
   SELECT S.student_name FROM (
-    SELECT * FROM students WHERE birthday >= '2002-01-01'
+    SELECT * FROM student WHERE birthday >= '2002-01-01'
   ) AS S;
 
   -- Esta query é claramente equivalente a
-  SELECT student_name FROM students WHERE birthday >= '2002-01-01'
+  SELECT student_name FROM student WHERE birthday >= '2002-01-01'
   ```
 
 - `JOIN`
@@ -118,7 +118,7 @@ de queries, utilizando o seu resultado para o `FROM`, o `JOIN`, o `IN`, etc.
   Do mesmo modo, podemos utilizar o resultado de uma query no `JOIN` (em [qualquer um deles](/bd/sql#cláusula-join)).
 
   ```sql
-  -- Obter os nomes dos alunos inscritos em 5 ou mais disciplinas
+  -- Obter os nomes dos alunos inscritos em 5 ou mais disciplinas:
   SELECT student.student_name FROM student
     NATURAL JOIN (
       SELECT ist_id FROM enrollment
@@ -136,11 +136,11 @@ de queries, utilizando o seu resultado para o `FROM`, o `JOIN`, o `IN`, etc.
 - `IN`
 
   A cláusula `IN` pode ser usada numa condição para verificar se um valor está
-  num contido num conjunto. Em vez de especificarmos um conjunto fixo, podemos
+  contido num conjunto. Em vez de especificarmos um conjunto fixo, podemos
   especificar uma query que retorne apenas uma coluna.
 
   ```sql
-  -- Obter os delegados de LEIC-A
+  -- Obter os delegados de LEIC-A:
   SELECT student.student_name FROM student
     WHERE student.ist_id IN (
       SELECT delegate.ist_id FROM delegate
@@ -153,7 +153,7 @@ de queries, utilizando o seu resultado para o `FROM`, o `JOIN`, o `IN`, etc.
 É possível efetuar comparações entre um valor e um conjunto, verificando, por exemplo,
 se existe um valor igual, se todos os valores são iguais, se existe um valor maior, etc.
 
-Para isto, vamos introduzir duas novas cláusulas:
+Para isso, vamos introduzir duas novas cláusulas:
 [`ALL`](https://www.postgresql.org/docs/current/functions-subquery.html#FUNCTIONS-SUBQUERY-ALL) e
 [`ANY`](https://www.postgresql.org/docs/current/functions-subquery.html#FUNCTIONS-SUBQUERY-ANY-SOME),
 com as seguintes sintaxes:
@@ -180,14 +180,14 @@ inscritos ao maior número de disciplinas:
 
 ```sql
 -- Determinar o IST ID dos alunos com a melhor nota e o respetivo valor
--- Poderíamos fazer um JOIN para obter o nome
+-- (poderíamos fazer um JOIN para obter o nome):
 SELECT ist_id, grade FROM grades
   WHERE grade >= ALL (
     SELECT grade FROM grades WHERE course = 'BD'
   ) AND course = 'BD';
 
 -- Determinar o IST ID dos alunos inscritos ao maior
--- número de disciplinas (e o respetivo valor)
+-- número de disciplinas (e o respetivo valor):
 SELECT ist_id, COUNT(*) FROM enrollment
   GROUP BY ist_id
   HAVING COUNT(*) >= (
@@ -199,8 +199,8 @@ SELECT ist_id, COUNT(*) FROM enrollment
 ## NULL
 
 Em SQL, tal como em algumas linguagens de programação, é possível ter valores `null`.
-Isto pode ser tanto algo bom como algo mau: por um lado ganhamos a flexibilidade de
-poder omitir certos valores, mas por outro sujeitamo-nos a comportamentos inesperados.
+Isto pode ser tanto algo bom como algo mau: por um lado, ganhamos a flexibilidade de
+poder omitir certos valores, mas, por outro, sujeitamo-nos a comportamentos inesperados.
 Tal deve-se ao facto que o [**comportamento do `NULL` em SQL é ambíguo e muda de situação
 para situação**](color:red), como iremos ver.
 Geralmente, estes valores são representados como um espaço vazio, isto é, ausência de valor.
@@ -214,7 +214,7 @@ Para alterarmos este comportamento, deveremos usar a restrição `NOT NULL` na c
 Por exemplo:
 
 ```sql
-CREATE TABLE students (
+CREATE TABLE student (
   ist_id VARCHAR(15) NOT NULL,
   student_name VARCHAR(255) NOT NULL,
   PRIMARY KEY(ist_id)
@@ -240,7 +240,7 @@ em SQL seguem estas regras quando em contacto com o `NULL`, como iremos ver abai
 - **Expressões Lógicas**
 
   As expressões lógicas que dependem do `NULL` para saber o seu
-  valor lógico, irão resultar em `NULL`.
+  valor lógico irão resultar em `NULL`.
 
   | Expressão        | Resultado |
   | ---------------- | --------- |
@@ -249,12 +249,12 @@ em SQL seguem estas regras quando em contacto com o `NULL`, como iremos ver abai
   | `NULL OR TRUE`   | `TRUE`    |
   | `NULL OR FALSE`  | `NULL`    |
 
-  É de realçar que nas situações em que o valor de `NULL` não afeta o
+  É de realçar que, nas situações em que o valor de `NULL` não afeta o
   resultado da expressão lógica, o SGBD vai-nos dar um valor de `TRUE` ou `FALSE`.
 
 - **Expressões Relacionais**
 
-  As expressões relacionais vão resultar num valor `unknown` se conterem
+  As expressões relacionais vão resultar num valor `unknown` se contiverem
   um valor `NULL`. A cláusula `WHERE` trata os valores `unknown` como `FALSE`.
 
   | Expressão      | Resultado |
@@ -268,7 +268,7 @@ Este comportamento leva-nos a uma situação engraçada: se tentarmos obter
 os valores nulos de uma tabela com o operador `=`, não vamos obter qualquer resultado:
 
 ```sql
--- O operador = não funciona
+-- O operador = não funciona:
 SELECT * FROM student WHERE birthday = NULL;
 
 --  ist_id | student_name | birthday
@@ -279,7 +279,7 @@ SELECT * FROM student WHERE birthday = NULL;
 Para resolvermos esta situação, temos de usar um operator especial, o `IS`:
 
 ```sql
--- O operador IS já funciona
+-- O operador IS já funciona:
 SELECT * FROM student WHERE birthday IS NULL;
 
 --    ist_id   | student_name | birthday
@@ -289,14 +289,14 @@ SELECT * FROM student WHERE birthday IS NULL;
 ```
 
 Mas como é que aparecem valores `NULL`?
-Uma das formas é a mais óbvia: são inseridos voluntariamente pelos utilizadores
+Uma das formas é óbvia: são inseridos voluntariamente pelos utilizadores
 da base de dados.
 
 Podem também aparecer como o resultado de [outer joins](/bd/sql#outer-join),
 como já vimos anteriormente.
 
-Outro caso de onde podem resultar valores `NULL` são as funções de agregação:
-caso tentemos fazer um `MAX`, `MIN`, `AVG`, `SUM`, etc. num conjunto vazio, vamos
+Para além disso, também podem aparecer valores `NULL` como resultado de funções de agregação.
+Caso tentemos fazer um `MAX`, `MIN`, `AVG`, `SUM`, etc. num conjunto vazio, vamos
 obter um valor `NULL`.
 
 Por falar em funções de agregação, estas [**desobedecem às regras de aritmética do `null`**](color:red):
@@ -333,7 +333,7 @@ e `UNIQUE` (que não existe em PostgreSQL), respetivamente.
 
 ```sql
 -- Obter o nome dos alunos que estão inscritos a pelo menos
--- uma disciplina
+-- uma disciplina:
 SELECT student.student_name FROM student
   WHERE EXISTS (
     SELECT * FROM enrollment
@@ -355,7 +355,7 @@ Vejamos agora a cláusula `UNIQUE`:
 
 ```sql
 -- Obter o nome dos alunos que estão inscritos, no máximo,
--- a uma disciplina
+-- a uma disciplina:
 SELECT student.student_name FROM student
   WHERE UNIQUE (
     SELECT student.ist_id FROM enrollment
@@ -402,8 +402,8 @@ SELECT student.student_name, student.ist_id, enrollment.course
 A cláusula `DIVIDE` não existe na maior parte dos SGBD, e é, por isso, frequentemente
 implementada como [**dupla negação**](color:yellow).
 
-Voltando às nossas tabelas, `enrollment` e `course`, vamos querer efetuar a divisão de
-`enrollment` por `course`, de forma obter os alunos que estão inscritos a todas as disciplinas.
+Voltando às nossas tabelas `enrollment` e `course`, vamos querer efetuar a divisão de
+`enrollment` por `course`, de forma a obter os alunos que estão inscritos a todas as disciplinas.
 
 Considerem-se os seguintes dados para os exemplos abaixo:
 
@@ -452,5 +452,4 @@ WHERE NOT EXISTS (
 Vamos dissecar, com calma, a _query_ acima.
 Dentro dos parêntesis, estamos a obter a lista de todos os cursos que um
 dado aluno não frequenta. De seguida, obtemos todos os alunos para os quais
-esse conjunto é vazio.  
-Efetuamos assim a divisão.
+esse conjunto é vazio. Efetuamos, assim, a divisão.
