@@ -16,7 +16,7 @@ Olá! \:D
 
 Esta página é um tutorial de como correr os ficheiros `.cgi` no vosso computador, de forma a conseguirem fazer debug e serem mais eficientes a fazer a aplicação web de BD.
 
-## Servidor Local
+## Servidor Local 
 
 Precisam de um servidor local. Vamos o usar o que vem com o [Python](https://docs.python.org/3/library/http.server.html#http.server.CGIHTTPRequestHandler).
 
