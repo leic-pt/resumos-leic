@@ -16,7 +16,7 @@ Olá! \:D
 
 Esta página é um tutorial de como correr os ficheiros `.cgi` no vosso computador, de forma a conseguirem fazer debug e serem mais eficientes a fazer a aplicação web de BD.
 
-## Servidor Local 
+## Servidor Local
 
 Precisam de um servidor local. Vamos o usar o que vem com o [Python](https://docs.python.org/3/library/http.server.html#http.server.CGIHTTPRequestHandler).
 
@@ -31,7 +31,6 @@ Ao fazer isso, o output esperado é algo do género:
 ![Servidor HTTP do python](./assets/0100-python-server.png)
 
 Este código tem que ficar a correr enquanto querem ter acesso ao script `.cgi`, ou seja, vão ter que deixar a “janela aberta”.
-
 Se escreverem [`localhost:8000`](http://localhost:8000) no browser vão ver algo do género:
 
 ![Directory Listing pelo HTTP server](./assets/0100-directory-listing.png)
