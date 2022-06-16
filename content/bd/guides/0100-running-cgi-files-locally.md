@@ -1,20 +1,16 @@
-# Correr .cgi localmente
-
-
 ---
-title: Correr .cgi localmente
+title: Correr .cgi Localmente
 description: >-
- Guia de como correr um script .cgi numa máquina local
-path: /bd/Recrusos/Correr-CGI-localmente
-type: content
+  Guia de como correr um script .cgi numa máquina local
+path: /bd/guides/running-cgi-files-locally
+type: guides
 ---
 
-# SQL
+# Correr .cgi Localmente
 
 ```toc
 
 ```
-
 
 Olá! :D
 
@@ -50,7 +46,7 @@ Ao fazer isso, o output esperado é algo do género:
 
 ![Untitled](../assets/0100-pythonServer.png)
 
-Este código tem que ficar a correr enquanto querem ter acesso ao script .cgi, ou seja, vão ter que deixar a “janela aberta”. 
+Este código tem que ficar a correr enquanto querem ter acesso ao script .cgi, ou seja, vão ter que deixar a “janela aberta”.
 
 Se escreverem [`localhost](http://localhost):8000` no browser vão ver algo do género:
 
