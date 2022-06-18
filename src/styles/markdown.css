@@ -20,6 +20,17 @@ body {
   }
 }
 
+.content a {
+  text-decoration: underline;
+  font-weight: 600;
+  /* TODO make css var */
+  color: #c4d2d6;
+}
+
+.content a:hover {
+  text-decoration: none;
+}
+
 .content img {
   max-width: 100%;
   /* center images */
