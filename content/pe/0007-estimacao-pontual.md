@@ -194,7 +194,7 @@ Sendo assim, temos que o estimador $T_1(\underline{X})$ é mais eficiente que $T
 
 ## Método da Máxima Verosimilhança
 
-O [**método da máxima verosimilhança**](color:yellow) ([MV](color:yellow)) consiste num método para obtero valor mais plausível/verosímel para um parâmetro desconhecido, de entre todos os valores possíveis para o mesmo, tendo em conta uma amostra.
+O [**método da máxima verosimilhança**](color:yellow) ([MV](color:yellow)) consiste num método para obter o valor mais plausível/verosímel para um parâmetro desconhecido, de entre todos os valores possíveis para o mesmo, tendo em conta uma amostra.
 
 Definimos a [**função verosimilhança**](color:orange) como a função $L(\theta | \underline{x} ) : \Theta \to \R$ tal que:
 
