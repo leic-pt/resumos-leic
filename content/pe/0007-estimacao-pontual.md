@@ -241,7 +241,7 @@ Exemplos:
 - $F_{X_{(1)}}(x) = 1 - (1 - F_X(x))^n$
 - $F_{X_{(n)}}(x) = (F_X(x))^n$
 
-A média está de modo geral relacionada com o estimador de MV do valor esperado, pelo que é paraticularmente interessar estudar a sua distribuição amostral.
+A média está de modo geral relacionada com o estimador de MV do valor esperado, pelo que é paraticularmente interessante estudar a sua distribuição amostral.
 Como já vimos no capítulo anterior:
 
 $$
