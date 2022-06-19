@@ -287,6 +287,7 @@ Sendo assim, a região de rejeição é exatamente
 Neste caso estamos interessados em determinar a zona de rejeição para uma hipótese paramétrica em relação ao parâmetro de uma Prova de Bernoulli.
 
 Consideramos então a [hipótese nula](color:blue) $H_0: p = p_0$.
+
 Como $X \sim Bernoulli(p)$ temos segundo o TLC que para $n>>$
 
 $$
