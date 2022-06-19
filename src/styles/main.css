@@ -10,7 +10,8 @@ body {
   --textColor: #2c3e50;
   --borderColor: #eaecef;
   --lighten20TextColor: #476582;
-  --miniCodeBgColor: rgba(27, 31, 35, 0.05);
+  /* --miniCodeBgColor: rgba(27, 31, 35, 0.05); */
+  --miniCodeBgColor: #e8ebeb;
   --scrollbarColor: rgba(0, 0, 0, 0.4);
   --tableStripeBgColor: #f6f8faaa;
 
@@ -26,7 +27,8 @@ body {
     --textColor: #e2e2e2;
     --borderColor: #4e4e4e;
     --lighten20TextColor: #e8e8e8;
-    --miniCodeBgColor: hsla(0, 0%, 100%, 0.1);
+    /* --miniCodeBgColor: hsla(0, 0%, 100%, 0.1); */
+    --miniCodeBgColor: #3b3d40;
     --scrollbarColor: hsla(0, 0%, 100%, 0.4);
     --tableStripeBgColor: #444444aa;
   }
@@ -90,8 +92,9 @@ code:not(code[class*='language-']) {
 }
 
 a code:not(code[class*='language-']) {
-  color: var(--accentColor);
   text-decoration: underline;
+  text-decoration-color: var(--accentColor);
+  text-decoration-thickness: 2px;
 }
 
 hr {
@@ -313,6 +316,7 @@ h2 {
 
 .anchor.before {
   fill: var(--accentColor);
+  box-shadow: none;
 }
 
 kbd {
