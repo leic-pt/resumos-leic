@@ -21,14 +21,17 @@ body {
 }
 
 .content a {
-  text-decoration: underline;
-  font-weight: 600;
-  /* TODO make css var */
-  color: #c4d2d6;
+  transition: filter 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: inset 0 -2px var(--accentColor);
+  color: var(--textColor);
 }
 
 .content a:hover {
-  text-decoration: none;
+  filter: brightness(80%);
+}
+
+body.dark-mode .content a:hover {
+  filter: brightness(120%);
 }
 
 .content img {

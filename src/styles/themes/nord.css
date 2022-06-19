@@ -7,7 +7,7 @@ body.theme-nord {
   --textColor: #4c566a;
   --borderColor: #87a2c269;
   --lighten20TextColor: #7b88a1;
-  --miniCodeBgColor: rgba(27, 31, 35, 0.05);
+  --miniCodeBgColor: #f3f4f4;
   --scrollbarColor: #2e344088;
   --tableStripeBgColor: #d8dee933;
 

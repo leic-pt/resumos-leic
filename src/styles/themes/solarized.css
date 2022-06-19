@@ -7,7 +7,7 @@ body.theme-solarized {
   --textColor: #2c3e50;
   --borderColor: #c3beb0;
   --lighten20TextColor: #476582;
-  --miniCodeBgColor: rgba(27, 31, 35, 0.05);
+  --miniCodeBgColor: #e3decc;
   --scrollbarColor: rgba(0, 0, 0, 0.4);
   --tableStripeBgColor: #f6f8faaa;
 
@@ -38,7 +38,7 @@ body.theme-solarized {
     --textColor: #e2e2e2;
     --borderColor: #045266;
     --lighten20TextColor: #e8e8e8;
-    --miniCodeBgColor: hsla(0, 0%, 100%, 0.1);
+    --miniCodeBgColor: #1a414a;
     --scrollbarColor: hsla(0, 0%, 100%, 0.4);
     --tableStripeBgColor: #024859aa;
   }
