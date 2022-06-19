@@ -194,7 +194,7 @@ Sendo assim, temos que o estimador $T_1(\underline{X})$ é mais eficiente que $T
 
 ## Método da Máxima Verosimilhança
 
-O [**método da máxima verosimilhança**](color:yellow) ([MV](color:yellow)) consiste num método para obtero valor mais plausível/verosímel para um parâmetro desconhecido, de entre todos os valores possíveis para o mesmo, tendo em conta uma amostra.
+O [**método da máxima verosimilhança**](color:yellow) ([MV](color:yellow)) consiste num método para obter o valor mais plausível/verosímel para um parâmetro desconhecido, de entre todos os valores possíveis para o mesmo, tendo em conta uma amostra.
 
 Definimos a [**função verosimilhança**](color:orange) como a função $L(\theta | \underline{x} ) : \Theta \to \R$ tal que:
 
@@ -241,7 +241,7 @@ Exemplos:
 - $F_{X_{(1)}}(x) = 1 - (1 - F_X(x))^n$
 - $F_{X_{(n)}}(x) = (F_X(x))^n$
 
-A média está de modo geral relacionada com o estimador de MV do valor esperado, pelo que é paraticularmente interessar estudar a sua distribuição amostral.
+A média está de modo geral relacionada com o estimador de MV do valor esperado, pelo que é paraticularmente interessante estudar a sua distribuição amostral.
 Como já vimos no capítulo anterior:
 
 $$
