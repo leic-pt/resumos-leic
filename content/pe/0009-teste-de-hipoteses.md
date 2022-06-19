@@ -96,7 +96,7 @@ Mais uma vez relembra-se que aceitação não significa que $H_0$ seja verdadeir
 Podemos no entanto concluir, em caso de aceitação da hipótese nula, que a probabilidade de um erro destes acontecer é inferior ao [nível de significância](color:brown) $\alpha_0$.
 Desta forma, quanto menor $\alpha_0$, maior o conjunto de valores rejeitados.
 
-Observamos ainda que se $H_0$ for uma hipótese nula $H_0: \theta = \theta_0$ com alternativa bilateral $H_1: \theta \neq \theta_0$ averigar $H_0$ con n.s. $\alpha_0$ equivale a averiguar se o valor $\theta_0$ proposto por $H_0$ pertence ao intervalo de confiança $1-\alpha_0$.
+Observamos ainda que se $H_0$ for uma hipótese nula $H_0: \theta = \theta_0$ com alternativa bilateral $H_1: \theta \neq \theta_0$ averiguar $H_0$ com n.s. $\alpha_0$ equivale a averiguar se o valor $\theta_0$ proposto por $H_0$ pertence ao intervalo de confiança $1-\alpha_0$.
 Temos então que $\theta_0 \in IC_{1-\alpha_0}(\theta)$ leva à aceitação de $\theta_0$ com n.s. $\alpha_0$ e $\theta_0 \not\in IC_{1-\alpha_0}(\theta)$ leva à rejeição com esse mesmo n.s.
 
 ## Procedimentos para Testar uma Hipótese
@@ -107,7 +107,7 @@ Para testar uma hipótese seguimos então o seguinde procedimento:
 2. Identificamos a **situação**: qual a distribuição de $X$, o parâmetro em questão, outros parâmetros em causa, etc;
 3. Especificamos as **hipóteses**: [nula](color:blue) ($H_0$) e [alternativa](color:green) ($H_1$);
 4. Escolhemos o [**nível de significância**](color:brown) $\alpha_0$;
-5. Escolemos a [**estatística de teste**](color:yellow) $T$ e identificamos a sua distribuição sob a validade de $H_0$;
+5. Escolhemos a [**estatística de teste**](color:yellow) $T$ e identificamos a sua distribuição sob a validade de $H_0$;
 6. Obtemos a [**região de rejeição**](color:red) $\omega$
 7. Calculamos o valor observado $t$ da estatística $T$ e **decidimos** pela rejeição ou não de $H_0$ com n.s. $\alpha_0$.
 
@@ -278,13 +278,15 @@ $$
 
 Sendo assim, a região de rejeição é exatamente
 
-- $\omega = ]-\infty, -{\chi_{(n-1)}^2}^{-1}(1-\frac{\alpha}{2})[ \cup ]{\chi_{(n-1)}^2}^{-1}(1-\frac{\alpha}{2}), \infty[$ para uma [hipótese alternativa](color:green) bilateral $H_1: \mu \neq \mu_0$;
-- $\omega = ]{\chi_{(n-1)}^2}^{-1}(1-\alpha), \infty[$ para uma [hipótese alternativa](color:green) unilateral superior $H_1: \mu > \mu_0$;
-- $\omega = ]-\infty, -{\chi_{(n-1)}^2}^{-1}(1-\alpha)[$ para uma [hipótese alternativa](color:green) unilateral inferior $H_1: \mu < \mu_0$;
+- $\omega = ]-\infty, -{\chi_{(n-1)}^2}^{-1}(1-\frac{\alpha}{2})[ \cup ]{\chi_{(n-1)}^2}^{-1}(1-\frac{\alpha}{2}), \infty[$ para uma [hipótese alternativa](color:green) bilateral $H_1: \sigma^2 \neq \sigma_0^2$;
+- $\omega = ]{\chi_{(n-1)}^2}^{-1}(1-\alpha), \infty[$ para uma [hipótese alternativa](color:green) unilateral superior $H_1: \sigma^2 > \sigma_0^2$;
+- $\omega = ]-\infty, -{\chi_{(n-1)}^2}^{-1}(1-\alpha)[$ para uma [hipótese alternativa](color:green) unilateral inferior $H_1: \sigma^2 < \sigma_0^2$;
 
 ### Determinação de $p$ numa Prova de Bernoulli
 
 Neste caso estamos interessados em determinar a zona de rejeição para uma hipótese paramétrica em relação ao parâmetro de uma Prova de Bernoulli.
+
+Consideramos então a [hipótese nula](color:blue) $H_0: p = p_0$.
 
 Como $X \sim Bernoulli(p)$ temos segundo o TLC que para $n>>$
 
@@ -294,9 +296,9 @@ $$
 
 Sendo assim, a região de rejeição é aproximadamente
 
-- $\omega = ]-\infty, -\Phi^{-1}(1-\frac{\alpha}{2})[ \cup ]\Phi^{-1}(1-\frac{\alpha}{2}), \infty[$ para uma [hipótese alternativa](color:green) bilateral $H_1: \mu \neq \mu_0$;
-- $\omega = ]\Phi^{-1}(1-\alpha), \infty[$ para uma [hipótese alternativa](color:green) unilateral superior $H_1: \mu > \mu_0$;
-- $\omega = ]-\infty, -\Phi^{-1}(1-\alpha)[$ para uma [hipótese alternativa](color:green) unilateral inferior $H_1: \mu < \mu_0$;
+- $\omega = ]-\infty, -\Phi^{-1}(1-\frac{\alpha}{2})[ \cup ]\Phi^{-1}(1-\frac{\alpha}{2}), \infty[$ para uma [hipótese alternativa](color:green) bilateral $H_1: p \neq p_0$;
+- $\omega = ]\Phi^{-1}(1-\alpha), \infty[$ para uma [hipótese alternativa](color:green) unilateral superior $H_1: p > p_0$;
+- $\omega = ]-\infty, -\Phi^{-1}(1-\alpha)[$ para uma [hipótese alternativa](color:green) unilateral inferior $H_1: p < p_0$;
 
 ### Exemplos
 
