@@ -278,9 +278,9 @@ $$
 
 Sendo assim, a região de rejeição é exatamente
 
-- $\omega = ]-\infty, -{\chi_{(n-1)}^2}^{-1}(1-\frac{\alpha}{2})[ \cup ]{\chi_{(n-1)}^2}^{-1}(1-\frac{\alpha}{2}), \infty[$ para uma [hipótese alternativa](color:green) bilateral $H_1: \sigma^2 \neq \sigma_0^2$$;
-- $\omega = ]{\chi_{(n-1)}^2}^{-1}(1-\alpha), \infty[$ para uma [hipótese alternativa](color:green) unilateral superior $H_1: \sigma^2 > \sigma_0^2$$;
-- $\omega = ]-\infty, -{\chi_{(n-1)}^2}^{-1}(1-\alpha)[$ para uma [hipótese alternativa](color:green) unilateral inferior $H_1: \sigma^2 < \sigma_0^2$$;
+- $\omega = ]-\infty, -{\chi_{(n-1)}^2}^{-1}(1-\frac{\alpha}{2})[ \cup ]{\chi_{(n-1)}^2}^{-1}(1-\frac{\alpha}{2}), \infty[$ para uma [hipótese alternativa](color:green) bilateral $H_1: \sigma^2 \neq \sigma_0^2$;
+- $\omega = ]{\chi_{(n-1)}^2}^{-1}(1-\alpha), \infty[$ para uma [hipótese alternativa](color:green) unilateral superior $H_1: \sigma^2 > \sigma_0^2$;
+- $\omega = ]-\infty, -{\chi_{(n-1)}^2}^{-1}(1-\alpha)[$ para uma [hipótese alternativa](color:green) unilateral inferior $H_1: \sigma^2 < \sigma_0^2$;
 
 ### Determinação de $p$ numa Prova de Bernoulli
 
@@ -295,7 +295,7 @@ $$
 
 Sendo assim, a região de rejeição é aproximadamente
 
-- $\omega = ]-\infty, -\Phi^{-1}(1-\frac{\alpha}{2})[ \cup ]\Phi^{-1}(1-\frac{\alpha}{2}), \infty[$ para uma [hipótese alternativa](color:green) bilateral $H_1: p \neq \p_0$;
+- $\omega = ]-\infty, -\Phi^{-1}(1-\frac{\alpha}{2})[ \cup ]\Phi^{-1}(1-\frac{\alpha}{2}), \infty[$ para uma [hipótese alternativa](color:green) bilateral $H_1: p \neq p_0$;
 - $\omega = ]\Phi^{-1}(1-\alpha), \infty[$ para uma [hipótese alternativa](color:green) unilateral superior $H_1: p > p_0$;
 - $\omega = ]-\infty, -\Phi^{-1}(1-\alpha)[$ para uma [hipótese alternativa](color:green) unilateral inferior $H_1: p < p_0$;
 
