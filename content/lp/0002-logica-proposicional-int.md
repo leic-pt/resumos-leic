@@ -162,29 +162,29 @@ $$
 #### Regras associadas à conjunção
 
 :::tip[Introdução da Conjunção]
-  Diz-nos como introduzir (ou como construir) uma _fbf_ cujo símbolo lógico principal
-  é uma conjunção - aqui, uma conjunção de _fbfs_. Abreviada por $I\wedge, (n, m)$,
-  onde $n$ e $m$ representam, respetivamente, as linhas onde as primeira e segunda
-  _fbfs_ foram introduzidas.
+Diz-nos como introduzir (ou como construir) uma _fbf_ cujo símbolo lógico principal
+é uma conjunção - aqui, uma conjunção de _fbfs_. Abreviada por $I\wedge, (n, m)$,
+onde $n$ e $m$ representam, respetivamente, as linhas onde as primeira e segunda
+_fbfs_ foram introduzidas.
 
-  É importante reter que as _fbfs_ têm de ter sido introduzidas **por ordem**,
-  caso contrário não podemos aplicar diretamente a regra, tendo de usar a regra da repetição.
-  Há professores que são particularmente rígidos com esta formalidade (apesar de
-  não haver qualquer "impacto" no quão correta a prova está), pelo que [**em contexto
-  de avaliação será importante ter este aspeto em conta**](color:green).
+É importante reter que as _fbfs_ têm de ter sido introduzidas **por ordem**,
+caso contrário não podemos aplicar diretamente a regra, tendo de usar a regra da repetição.
+Há professores que são particularmente rígidos com esta formalidade (apesar de
+não haver qualquer "impacto" no quão correta a prova está), pelo que [**em contexto
+de avaliação será importante ter este aspeto em conta**](color:green).
 
-  A introdução da conjunção deverá, então, ter um aspeto deste género:
+A introdução da conjunção deverá, então, ter um aspeto deste género:
 
-  $$
-  \def\arraystretch{1.5}
-  \begin{array}{lll}
-    n & \alpha\\
-    \vdots & \vdots\\
-    m & \beta\\
-    \vdots & \vdots\\
-    k & \alpha\wedge\beta & I\wedge, (n,m)
-  \end{array}
-  $$
+$$
+\def\arraystretch{1.5}
+\begin{array}{lll}
+  n & \alpha\\
+  \vdots & \vdots\\
+  m & \beta\\
+  \vdots & \vdots\\
+  k & \alpha\wedge\beta & I\wedge, (n,m)
+\end{array}
+$$
 
 :::
 
