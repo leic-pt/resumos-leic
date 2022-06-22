@@ -80,7 +80,7 @@ F_{X|Y=y} = P(X \leq x | Y=y) = \sum_{x' \leq x} P(X=x', Y=y)
 $$
 
 $$
-E(X|Y=y) = \sum_x xP(X=x, Y=y)
+E(X|Y=y) = \sum_x xP(X=x| Y=y)
 $$
 
 $$
@@ -113,7 +113,7 @@ $$
 $$
 
 $$
-f_{X,Y}(x,y) \leq 0, \forall_{(X,Y) \in \R^2}
+f_{X,Y}(x,y) \geq 0, \forall_{(X,Y) \in \R^2}
 $$
 
 $$

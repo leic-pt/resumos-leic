@@ -202,6 +202,78 @@
     {
       "source": "/iaed/algorimos-elementares-ordenacao-2",
       "destination": "/iaed/algoritmos-elementares-ordenacao-2"
-    }
+    },
+    { "source": "/md", "destination": "/emd" },
+    { "source": "/md/perturbacoes", "destination": "/emd/archive/perturbacoes" },
+    {
+      "source": "/md/introducao-calculo-finito",
+      "destination": "/emd/archive/introducao-calculo-finito"
+    },
+    {
+      "source": "/md/formulas-fechadas-somatorios",
+      "destination": "/emd/archive/formulas-fechadas-somatorios"
+    },
+    { "source": "/md/serie-harmonica", "destination": "/emd/archive/serie-harmonica" },
+    { "source": "/md/inducao-matematica", "destination": "/emd/inducao-matematica" },
+    { "source": "/md/formula-de-abel", "destination": "/emd/archive/formula-de-abel" },
+    { "source": "/md/funcoes-geradoras", "destination": "/emd/funcoes-geradoras" },
+    { "source": "/md/teorema-de-newton", "destination": "/emd/archive/teorema-de-newton" },
+    { "source": "/md/calculo-combinatorio", "destination": "/emd/archive/calculo-combinatorio" },
+    {
+      "source": "/md/equacoes-diferencas-finitas",
+      "destination": "/emd/equacoes-diferencas-finitas"
+    },
+    { "source": "/md/fft", "destination": "/emd/fft" },
+    { "source": "/md/mdc-eq-diofantinas", "destination": "/emd/mdc-eq-diofantinas" },
+    { "source": "/md/calendario", "destination": "/emd/archive/calendario" },
+    { "source": "/md/pascoa", "destination": "/emd/archive/pascoa" },
+    { "source": "/md/congruencias", "destination": "/emd/congruencias" },
+    { "source": "/md/teorema-chines-restos", "destination": "/emd/teorema-chines-restos" },
+    { "source": "/md/rsa", "destination": "/emd/rsa" },
+    { "source": "/md/grafos", "destination": "/emd/grafos" },
+    { "source": "/md/principio-pombal", "destination": "/emd/principio-pombal" },
+    { "source": "/md/labirintos", "destination": "/emd/archive/labirintos" },
+    {
+      "source": "/md/relacionamentos-gale-shapley",
+      "destination": "/emd/archive/relacionamentos-gale-shapley"
+    },
+    { "source": "/md/kruskal-dijkstra", "destination": "/emd/kruskal-dijkstra" },
+    { "source": "/md/teoria-fluxo", "destination": "/emd/archive/teoria-fluxo" },
+    { "source": "/md/grafos-planares", "destination": "/emd/archive/grafos-planares" },
+    { "source": "/md/algoritmo-kuratowski", "destination": "/emd/archive/algoritmo-kuratowski" },
+    { "source": "/md/automatos-finitos", "destination": "/emd/archive/automatos-finitos" },
+    {
+      "source": "/md/cheatsheet/calculo-finito",
+      "destination": "/emd/archive/cheatsheets/calculo-finito"
+    },
+    {
+      "source": "/md/cheatsheet/funcoes-geradoras",
+      "destination": "/emd/archive/cheatsheets/funcoes-geradoras"
+    },
+    {
+      "source": "/md/cheatsheet/calendarios",
+      "destination": "/emd/archive/cheatsheets/calendarios"
+    },
+    {
+      "source": "/md/cheatsheet/mdc-equacoes-diofantinas",
+      "destination": "/emd/cheatsheets/mdc-equacoes-diofantinas"
+    },
+    { "source": "/md/cheatsheet/rsa", "destination": "/emd/cheatsheets/rsa" },
+    { "source": "/md/cheatsheet/grafos", "destination": "/emd/cheatsheets/grafos" },
+    {
+      "source": "/md/exercicios/fichas-aulas-praticas",
+      "destination": "/emd/exercicios/fichas-2020-2021"
+    },
+    { "source": "/md/tools/fft-calculator", "destination": "/emd/tools/fft-calculator" },
+    { "source": "/md/tools/calendar-calculator", "destination": "/emd/tools/calendar-calculator" },
+    {
+      "source": "/md/tools/mdc-bezout-calculator",
+      "destination": "/emd/tools/mdc-bezout-calculator"
+    },
+    {
+      "source": "/md/tools/teorema-chines-restos-table-calculator",
+      "destination": "/emd/tools/teorema-chines-restos-table-calculator"
+    },
+    { "source": "/md/tools/rsa-calculator", "destination": "/emd/tools/rsa-calculator" }
   ]
 }
