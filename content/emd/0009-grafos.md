@@ -169,7 +169,7 @@ Um grafo diz-se completo quando cada par de vértices constitui uma aresta (est�
 
 ### Rede
 
-É um terno $N = (V,E,\operatorname{f})$, onde $g=(V,E)$ é um grafo subjacente à `Rede` e $\operatorname{f}: E \rightarrow \R$ uma aplicação (todos os elemtos de $E$ têm correspondência).
+É um terno $N = (V,E,\operatorname{f})$, onde $g=(V,E)$ é um grafo subjacente à `Rede` e $\operatorname{f}: E \rightarrow \R$ uma aplicação (todos os elementos de $E$ têm correspondência).
 
 **Em suma**, uma `Rede` é um grafo onde as arestas têm valores reais associados.
 
