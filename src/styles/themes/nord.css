@@ -1,0 +1,63 @@
+/* Nord Light */
+
+body.theme-nord {
+  --accentColor: #5e81ac;
+  --bgColor: #ffffff;
+  --cardColor: #f2f4f8;
+  --textColor: #4c566a;
+  --borderColor: #87a2c269;
+  --lighten20TextColor: #7b88a1;
+  --miniCodeBgColor: #f3f4f4;
+  --scrollbarColor: #2e344088;
+  --tableStripeBgColor: #d8dee933;
+
+  --infoBorder: #5e81ac;
+  --tipBorder: #a3be8c;
+  --warningBorder: #ebcb8b;
+  --warningBorderTable: #ebcb8b88;
+  --warningBackground: #ebcb8b1a;
+  --dangerBorder: #da5961;
+  --dangerBackground: #ffe6e6;
+
+  --colorRed: #e03e3e;
+  --colorGreen: #0f7b6c;
+  --colorBlue: #0b6e99;
+  --colorPink: #ad1a72;
+  --colorPurple: #6940a5;
+  --colorYellow: #dfab01;
+  --colorOrange: #d9730d;
+  --colorBrown: #64473a;
+}
+
+/* Nord Dark */
+
+@media not print {
+  body.dark-mode.theme-nord {
+    --accentColor: #88c0d0;
+    --bgColor: #242933;
+    --cardColor: #2e3440;
+    --textColor: #eceff4;
+    --borderColor: #3b4252;
+    --lighten20TextColor: #abb9cf;
+    --miniCodeBgColor: #3b4252;
+    --scrollbarColor: #4c566a88;
+    --tableStripeBgColor: #3b425288;
+
+    --infoBorder: #5e81ac;
+    --tipBorder: #a3be8c;
+    --warningBorder: #ebcb8b;
+    --warningBorderTable: #ebcb8b55;
+    --warningBackground: #ebcb8b1a;
+    --dangerBorder: #c87981;
+    --dangerBackground: #c879811a;
+
+    --colorRed: #c87981;
+    --colorGreen: #a3be8c;
+    --colorBlue: #5e81ac;
+    --colorPink: #fec3ee;
+    --colorPurple: #b48ead;
+    --colorYellow: #ebcb8b;
+    --colorOrange: #d08770;
+    --colorBrown: #bc854b;
+  }
+}
