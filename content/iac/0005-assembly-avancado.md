@@ -19,50 +19,62 @@ Assim, para começarmos a programar com esta linguagem temos que primeiro que tu
 
 Em C, nós estabelecemos **variáveis** fazendo
 
-            a = 2;
-            b = a;
+```c
+a = 2;
+b = a;
+```
 
 e o nosso compilador é que [escolhe se as coloca em registos ou na memória](color:orange). Contudo, não funciona da mesma forma em Assembly. Nesta linguagem temos dois processos diferentes para registos e para memória. Em termos de [registos](color:pink) temos que fazer
 
-            MOV     R1, 2
-            MOV     R2, R1
+```armasm
+        MOV     R1, 2
+        MOV     R2, R1
+```
 
 Atribuindo, desta forma, primeiro o valor de 2 a R1 (equivalente a _a_) e de seguida fazemos a atribuição do valor de R1 a R2 (equivalente a atribuir o valor de _a_ a _b_).
 
 Em termos de [memória](color:pink), teremos que fazer os seguintes comandos:
 
-            MOV     R1, 2
-            MOV     [A], R1
-            MOV     R1, [A]
-            MOV     [B], R1
+```armasm
+        MOV     R1, 2
+        MOV     [A], R1
+        MOV     R1, [A]
+        MOV     [B], R1
+```
 
 Em escrita corrente, essencialmente o que estamos a fazer é atribuir o valor de 2 a _a_ e colocando A como o endereço da variável _a_. Depois, lemos _a_ da memória para um registo e colocamos B como o endereço da variável B, obtendo o nosso $b=a$.
 
 Assim, conseguimos, de forma similar, obter vetores na nossa linguagem de baixo nível. Como é sabido, podemos [inicializar vetores](color:pink) em C da seguinte forma:
 
-            int x[5];
-            x[3] = x[3] + 4;
+```c
+int x[5];
+x[3] = x[3] + 4;
+```
 
 Passando para Assembly, [vetores](color:pink), são obtidos através de:
 
-            MOV     R1, X       ; endereço de base de x
-            MOV     R2, [R1+6]  ; x[3]
-            ADD     R2, 4       ; x[3] + 4
-            MOV     [R1+6], R2  ; x[3] = x[3] + 4
+```armasm
+        MOV     R1, X       ; endereço de base de x
+        MOV     R2, [R1+6]  ; x[3]
+        ADD     R2, 4       ; x[3] + 4
+        MOV     [R1+6], R2  ; x[3] = x[3] + 4
+```
 
 ![Vetores](./assets/0005-vetores.png#dark=3)
 
 Contudo, a questão coloca-se: como é que tratamos de vetores com índice variável?
 
-                MOV R1, X       ; endereço de base de x
-                MOV R3, 0       ; inicializa índice i
-        L1:     MOV R2, [R1+R3] ; x[i]
-                ADD R2, 4       ; x[i] + 4
-                MOV [R1+R3], R2 ; x[i] = x[i] + 4
-                ADD R3, 2       ; i++ (i+=2 para usar o i como índice)
-                MOV R4, 10      ; 5*2 (5 elementos, mas há 10 bytes)
-                CMP R3, R4      ; i != 5 (10 em endereço)
-                JNZ L1          ; volta para trás enquanto i != 5 instruções a seguir ao for
+```armasm
+        MOV R1, X       ; endereço de base de x
+        MOV R3, 0       ; inicializa índice i
+L1:     MOV R2, [R1+R3] ; x[i]
+        ADD R2, 4       ; x[i] + 4
+        MOV [R1+R3], R2 ; x[i] = x[i] + 4
+        ADD R3, 2       ; i++ (i+=2 para usar o i como índice)
+        MOV R4, 10      ; 5*2 (5 elementos, mas há 10 bytes)
+        CMP R3, R4      ; i != 5 (10 em endereço)
+        JNZ L1          ; volta para trás enquanto i != 5 instruções a seguir ao for
+```
 
 ### Instrução _if_
 
@@ -70,10 +82,12 @@ A instrução _if_ em qualquer linguagem de alto nível dá-nos a opção de obt
 
 Este comando funciona calculando uma [expressão que afeta o bit de estado Z](color:orange), se a expressão booleana for falsa, o programa não irá executar as instruções seguintes e em vez disso salta para outra porção do código, como podemos ver no exemplo seguinte:
 
-                ...
-                JZ OUT
-                instruções
-        OUT:    ...
+```armasm
+        ...
+        JZ OUT
+        instruções
+OUT:    ...
+```
 
 ### Instrução _if-else_
 
@@ -81,21 +95,25 @@ Também conseguimos, em qualquer programa, forçar a percorrer dois caminhos já
 
 Como já sabemos, em C podemos implementar esta instrução através de:
 
-            if {expressão-booleana}
-                {instruções 1}
-            else
-                {instruções 2}
+```c
+if {expressão-booleana}
+    {instruções 1}
+else
+    {instruções 2}
+```
 
 Da mesma forma como já vimos acima, podemos fazer esta instrução em Assembly atrravés das mesmas instruções utilizadas na instrução _if_ mas com apenas mais alguns detalhes, como podemos ver abaixo.
 
-                expressão       ; calcula expressão (afeta bit de estado Z)
-                JZ ALT          ; se expressão booleana for falsa, salta
-                instruções 1    ; código das instruções dentro do if
-                JMP OUT         ; não pode executar instruções 2
+```armasm
+        expressão       ; calcula expressão (afeta bit de estado Z)
+        JZ ALT          ; se expressão booleana for falsa, salta
+        instruções 1    ; código das instruções dentro do if
+        JMP OUT         ; não pode executar instruções 2
 
-        ALT:    instruções 2   ; código das instruções da cláusula else
+ALT:    instruções 2   ; código das instruções da cláusula else
 
-        OUT:    ...            ; instrução a seguir ao if
+OUT:    ...            ; instrução a seguir ao if
+```
 
 ### Expressões booleanas no _if_
 
@@ -103,11 +121,13 @@ Agora que já sabemos como podemos realizar a instrução _if_ ou _if-else_ em A
 
 Uma das principais expressões que podemos usar é em termos de expressões booleanas. Isto é, fazemos comparações entre os nossos valores e vemos se cumpre ou não os nossos requisitos. O PEPE tem instruções para [suportar os vários casos relacionais possíveis](color:pink), por exemplo, <, <=, >, >=, =. Esta comparação entre os valores é dada pela instrução [CMP](color:orange), que pode ser utilizada como descrito em baixo:
 
-                CMP Ra, Rb      ; afeta bit de estado N
-                JGE OUT         ; se a>=b, bit de estado N estará a 0
-                            ; ou então: JNN OUT
-                instruções      ; código das instruções dentro do if
-        OUT:    ...            ; instruções a seguir ao if
+```armasm
+        CMP Ra, Rb      ; afeta bit de estado N
+        JGE OUT         ; se a>=b, bit de estado N estará a 0
+                        ; ou então: JNN OUT
+        instruções      ; código das instruções dentro do if
+OUT:    ...             ; instruções a seguir ao if
+```
 
 ### Ciclos
 
@@ -115,36 +135,42 @@ Como já sabemos, é possível gerar casos diferentes em Assembly, assim, eviden
 
 Para o caso de **ciclos incondicionais (_for_)**, podemos representá-los em _assembly_ da seguinte forma:
 
-                MOV R1, 0
-        LOOP:   MOV R2, N
-                CMP R1, R2
-                JGE OUT
-                instruções
-                ADD R1, 1
-                JMP LOOP
+```armasm
+        MOV R1, 0
+LOOP:   MOV R2, N
+        CMP R1, R2
+        JGE OUT
+        instruções
+        ADD R1, 1
+        JMP LOOP
 
-        OUT:    ...
+OUT:    ...
+```
 
 Essencialmente, o que estamos a fazer neste ciclo é inicializar a variável de índice (i=0), de seguida vemos se i é menor que N, se i for maior ou igual, então já terminámos o nosso ciclo e saímos do nosso ciclo, se não, executamos umas instruções, incrementamos o valor de R1, e voltamos a executar o loop.
 
 Para o caso de **ciclos condicionais (_while_)**, o código em _assembly_ é relativamente parecida, com a única diferença que não vamos fazendo comparações para ver se já chegamos ao número de iterações que pretendíamos. Assim, para executar estes ciclos, teremos que implementar as seguintes instruções:
 
-        LOOP:   expressão
-                JZ OUT
-                instruções
-                JMP LOOP
+```armasm
+LOOP:   expressão
+        JZ OUT
+        instruções
+        JMP LOOP
 
-        OUT:    ...
+OUT:    ...
+```
 
 Como podemos ver acima, o que estamos a fazer é ter um código para calcular a expressão, se esta for falsa então saimos do ciclo, caso contrário, percorremos o código de instruções dentro do while e voltamos a percorrer o ciclo desde o começo.
 
 Da mesma forma, para **ciclos condicionais (_do-while_)**, vamos implementar um código extremamente parecido com o de ciclos _while_:
 
-        LOOP:   instruções
-                expressão
-                JNZ LOOP
+```armasm
+LOOP:   instruções
+        expressão
+        JNZ LOOP
 
-        OUT:    ...
+OUT:    ...
+```
 
 A única diferença destes ciclos para os de cima é que mantemos sempre uma expressão em mente, se esta expressão for verdadeira continuamos o nosso ciclo, caso contrário passamos a instrução a seguir ao _do-while_.
 
@@ -164,14 +190,18 @@ Ao programarmos em linguagens de baixo nível temos que nos focar em conceitos d
 
 Visto que rotinas não savem de onde são chamadas, temos que usar o par CALL-RET para podermos passar de uma parte do nosso código a uma rotina automaticamente. A pilha memoriza o enderço que está a seguir ao CALL (valor do PC), ficamos assim com:
 
-        SP <- SP - 2
-        M[SP] <- PC
-        PC <- endereço da rotina
+```
+SP <- SP - 2
+M[SP] <- PC
+PC <- endereço da rotina
+```
 
 Ao retornarmos ficamos com:
 
-        PC <- M[SP]
-        SP <- SP + 2
+```
+PC <- M[SP]
+SP <- SP + 2
+```
 
 ![Chamada de rotinas](./assets/0005-chamada-rotinas.png#dark=3)
 
@@ -183,8 +213,10 @@ Antes de guardar quaisquer valores na pilha temos que ter em atenção que é ne
 
 Ao colocarmos seja o que for numa pilha, o nosso SP aponta para a última posição ocupada da pilha, ou seja no topo da pilha, isto é, fazemos:
 
+```armasm
         PUSH Ri     ; SP <- SP-2 , M[SP] <- Ri
         POP Ri      ; Ri <- m[SP] , SP <- SP + 2
+```
 
 ![Pilha](./assets/0005-pilha.png#dark=3)
 
@@ -271,19 +303,23 @@ A programação concorrente, tal como o nome nos indica, refere-se a um processa
 
 Um dos principais problemas que temos com a programação concorrente é a [espera bloqueante](color:pink). Um exemplo de uma rotina com **espera bloqueante**, como pode ser o exemplo em que estamos à espera em que o nosso utilizador carregue numa tecla para inicar o programa. Ou seja, temos um programa do género:
 
-        espera:     lê a posição de memória ou periférico
-                    CMP valor pretendido    ;vê se o valor é o esperado
-                    JNZ espera              ; se ainda não é, vai tentar de novo
-                    ...                     ; faz algo caso o valor seja o esperado
-                    RET                     ; acabou, regressa
+```armasm
+espera:                         ; lê a posição de memória ou periférico
+        CMP valor pretendido    ; vê se o valor é o esperado
+        JNZ espera              ; se ainda não é, vai tentar de novo
+        ...                     ; faz algo caso o valor seja o esperado
+        RET                     ; acabou, regressa
+```
 
 Contudo, o que se deve fazer [sem suporte](color:pink) para processos é o seguinte:
 
-        espera:     lê a posição de memória ou periférico
-                    CMP valor pretendido    ; vê se o valor é o esperado
-                    JNZ sai                 ; se ainda não é, há de tentar de novo
-                    ...                     ; faz algo caso o valor seja o esperado
-        sai:        RET                     ; iteração do ciclo principal
+```armasm
+espera:                         ; lê a posição de memória ou periférico
+        CMP valor pretendido    ; vê se o valor é o esperado
+        JNZ sai                 ; se ainda não é, há de tentar de novo
+        ...                     ; faz algo caso o valor seja o esperado
+sai:    RET                     ; iteração do ciclo principal
+```
 
 Ou seja, o nosso programa principal deve ter um **ciclo que chama repetidamente as rotinas** de todos os processos. A nossa espera à rotina deve ser [externa](color:pink) e não interna. Se nenhuma espera tiver ciclos bloqueantes, então todas correm à vez.
 
@@ -291,12 +327,14 @@ Ou seja, o nosso programa principal deve ter um **ciclo que chama repetidamente 
 
 Já que já vimos a espera bloqueante, temos agora que ver exemplos de [espera não bloqueante](color:pink). Começamos por analisar uma rotina com espera bloqueante **com suporte** para processos cooperativos, neste caso vemos uma mudança é controlada pelo programador:
 
-        espera:     indica ao sistema que aqui pode mudar para outro processo
-                    lê posição de memória ou periférico
-                    CMP valor pretendido    ; vê se valor é o esperado
-                    JNZ espera              ; se ainda não é, vai tentar de novo
-                    ...                     ; faz algo caso o valor seja o esperado
-                    RET                     ; acabou, regressa
+```armasm
+espera:     ; indica ao sistema que aqui pode mudar para outro processo
+                                ; lê posição de memória ou periférico
+        CMP valor pretendido    ; vê se valor é o esperado
+        JNZ espera              ; se ainda não é, vai tentar de novo
+        ...                     ; faz algo caso o valor seja o esperado
+        RET                     ; acabou, regressa
+```
 
 Embora a espera seja bloqueante, tem sempre um [ponto de fuga](color:pink), ou seja há uma mudança de processo, caos haja outros processos. Isto permite ao programador programar como se **houvesse um sistema operativo** que fizesse a mudança automática de processos. Contudo o programador controla o ponto de mudança de processo, se não indicar, fica numa espera bloqueante.
 
@@ -368,15 +406,17 @@ Por último, a nossa útlima opção é [processos "verdadeiro"](color:pink). Es
 
 No simulador do PEPE, é possível usar-se a **diretiva PROCESS** antes de uma rotina, indicando o endereço após a pilha, para inicializar o SP.
 
-        algures:    ...                    ; instruções algures no programa
-                    CALL rotina            ; não invoca a rotina, cria o processo
-                    ...                    ; mais instruções algures no programa
-                    STACK 100H             ; declara pilha a usar pelo processo
-        pilha_rotina:                      ; endereço inicial para o SP do processo
+```armasm
+algures:    ...                    ; instruções algures no programa
+            CALL rotina            ; não invoca a rotina, cria o processo
+            ...                    ; mais instruções algures no programa
+            STACK 100H             ; declara pilha a usar pelo processo
+pilha_rotina:                      ; endereço inicial para o SP do processo
 
-        PROCESS pilha_rotina               ; endereço para incializar o SP
-        rotina:     ...                    ; instruções do processo (com YIELD, pode ter loops bloqueantes)
-                    RET                    ; se chegar aqui, termina o processo
+PROCESS pilha_rotina               ; endereço para incializar o SP
+rotina:     ...                    ; instruções do processo (com YIELD, pode ter loops bloqueantes)
+            RET                    ; se chegar aqui, termina o processo
+```
 
 O **CALL** à rotina não a invoca, cria o processo, incializa o seu SP e coloca-o executável. O **RET** não retorna, termina o processo. Cada processo tem de ter a sua própria pilha, independente das restantes, que deve ser declarada com a [diretiva STACK](color:pink). A diretiva PROCESS [deve preceder o label](color:pink) da rotina que implementa o processo. A diretiva PROCESS precisa que se indique qual o valor com que o **SP** deste processo deve ser inicializado, o que é feito **automaticamente**. Cada processo fica com uma [cópia independente dos registos](color:pink), a "rotina" do processo não precisa de fazer PUSH nem POP. Dentro da rotina que implementa o processo pode ser colocada a [diretiva YIELD](color:pink), que indica que o simulador pode comutar para outro processo nesse ponto, tipicamente usa-se dentro de ciclos potencialmente bloqueantes.
 
