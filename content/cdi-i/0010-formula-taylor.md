@@ -72,12 +72,12 @@ A demonstração por indução da derivada de ordem $n$ da função exponencial 
 Sejam $f$ e $g$ duas funções com derivada até à ordem $n$ numa vizinhança do ponto $x_0$. Então, o produto $f\cdot g$ é $n$ vezes diferenciável numa vizinhança de $x_0$ e:
 
 $$
-(f\cdot g)^{(n)}(x_0)=\sum_{k=0}^n\bigg[\textcolor{#e76f51}{\begin{pmatrix}n\\k
-\end{pmatrix}}\textcolor{#F29040}{f^{(n-k)}(x_0)}\textcolor{#e2b33c}{g^{(k)}(x_0)}\bigg]
+(f\cdot g)^{(n)}(x_0)=\sum_{k=0}^n\bigg[\smartcolor{orange}{\begin{pmatrix}n\\k
+\end{pmatrix}}\smartcolor{green}{f^{(n-k)}(x_0)}\smartcolor{pink}{g^{(k)}(x_0)}\bigg]
 $$
 
 $$
-\textcolor{#e76f51}{\begin{pmatrix}n\\k
+\smartcolor{orange}{\begin{pmatrix}n\\k
 \end{pmatrix}}={^n}C_k=\frac{n!}{(n-k)!\cdot k!}
 $$
 
@@ -85,19 +85,19 @@ Então, se por exemplo, considerarmos a função $h(x)=x^2e^{ax}$, temos:
 
 $$
 f(x)=e^{ax}\quad g(x)=x^2\\
-\textcolor{#F29040}{f^{(n)}(x)=a^ne^{ax}}\\
-\textcolor{#E2B33C}{g^{(0)}(x)=g(x)=x^2\quad g^{(1)}(x)=g'(x)=2x\quad g^{(2)}(x)=g''(x)=2}\\
+\smartcolor{green}{f^{(n)}(x)=a^ne^{ax}}\\
+\smartcolor{pink}{g^{(0)}(x)=g(x)=x^2\quad g^{(1)}(x)=g'(x)=2x\quad g^{(2)}(x)=g''(x)=2}\\
 \tag{a}g^{(k)}(x)=0, \forall k>2
 $$
 
 Logo, pela Fórmula de Leibnitz, obtém-se o seguinte resultado para a derivada de ordem $n$ de $h$, visto que apenas os três primeiros termos são não nulos, por $(a)$.
 
 $$
-\big(x^2e^{ax}\big)^{(n)}=\textcolor{#e76f51}{\begin{pmatrix}n\\0
-\end{pmatrix}}\textcolor{#F29040}{f^{(n)}(x)}\textcolor{#e2b33c}{g(x)}+\textcolor{#e76f51}{\begin{pmatrix}n\\1
-\end{pmatrix}}\textcolor{#F29040}{f^{(n-1)}(x)}\textcolor{#e2b33c}{g'(x)}+\textcolor{#e76f51}{\begin{pmatrix}n\\2
-\end{pmatrix}}\textcolor{#F29040}{f^{(n-2)}(x)}\textcolor{#e2b33c}{g''(x)}=\\=
-\textcolor{#e76f51}{1}\cdot\textcolor{#F29040}{a^ne^{ax}}\textcolor{#e2b33c}{x^2}+\textcolor{#e76f51}{n}\textcolor{#F29040}{a^{n-1}e^{ax}}\cdot\textcolor{#e2b33c}{2x}+\textcolor{#e76f51}{\frac{n(n-1)}{\cancel{2!}}}\textcolor{#F29040}{a^{(n-2)}e^{ax}}\cdot\textcolor{#e2b33c}{\cancel2}
+\big(x^2e^{ax}\big)^{(n)}=\smartcolor{orange}{\begin{pmatrix}n\\0
+\end{pmatrix}}\smartcolor{green}{f^{(n)}(x)}\smartcolor{pink}{g(x)}+\smartcolor{orange}{\begin{pmatrix}n\\1
+\end{pmatrix}}\smartcolor{green}{f^{(n-1)}(x)}\smartcolor{pink}{g'(x)}+\smartcolor{orange}{\begin{pmatrix}n\\2
+\end{pmatrix}}\smartcolor{green}{f^{(n-2)}(x)}\smartcolor{pink}{g''(x)}=\\=
+\smartcolor{orange}{1}\cdot\smartcolor{green}{a^ne^{ax}}\smartcolor{pink}{x^2}+\smartcolor{orange}{n}\smartcolor{green}{a^{n-1}e^{ax}}\cdot\smartcolor{pink}{2x}+\smartcolor{orange}{\frac{n(n-1)}{\cancel{2!}}}\smartcolor{green}{a^{(n-2)}e^{ax}}\cdot\smartcolor{pink}{\cancel2}
 $$
 
 ## Contacto de ordem $n$ entre duas funções

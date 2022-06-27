@@ -169,6 +169,30 @@ int knapsack(std::vector<int> values,
 
 Este algoritmo corre exatamente $n \cdot W$ vezes - $\Theta (n \cdot W)$ - já que não temos nenhum `break` a meio do loops nem nenhuma chamada recursiva a meio. É, portanto, uma abordagem muito melhor do que a exponencial anterior.
 
+:::details[Nota - Complexidade]
+
+O algoritmo diz-se **pseudo-polinomial**, não **polinomial**. Ao analisar a complexidade temporal de um algoritmo, optamos por norma por escrevê-la em função de uma variável (que usualmente está diretamente ligada ao tamanho do _input_). Neste caso encontramos uma exceção: $\Theta(n \cdot W)$ depende de **duas** variáveis, $n$ e $W$, sendo que esta última não tem qualquer correlação com o _input_.
+
+Podemos então levantar uma questão: **qual é o [tamanho](color:purple) de $W$**? Bem, o seu [**valor**](color:pink), claro está, é o próprio número associado a $W$ - se $W = 35$, o seu **valor** é $35$. O seu **tamanho**, contudo, seria $2$ - corresponde ao número de digitos necessários para o escrever. Mais ainda, a **relação** entre o tamanho de um número e o seu valor é **exponencial** - se estivermos a falar de números representados em base decimal, temos:
+
+$$
+\text{Tamanho de W} = \lfloor \log_{10} (\text{Valor de W}) \rfloor + 1
+$$
+
+$$
+\text{Valor de W} \approx 10^{\text{Tamanho de W}}
+$$
+
+Ora, podemos então afirmar que ter $\Theta(n \cdot W)$ será equivalente a ter $\Theta(n \cdot 10^{\text{Tamanho de W}})$. Escrito em base binária, seria o equivalente a ter $\Theta(n \cdot 2^{\text{Bits de W}})$. O algoritmo é, então, polinomial no **valor do input** mas **exponencial** no seu **tamanho**: diz-se [**pseudo-polinomial**](color:green).
+
+Tanto o vídeo abaixo como [esta _thread_](https://cs.stackexchange.com/questions/52763/why-is-the-dynamic-programming-algorithm-of-the-knapsack-problem-not-polynomial) podem clarificar alguma confusão quanto a esta nota:
+
+::youtube{#BPATA-gLVgI}
+
+Resta realçar que esta propriedade também se aplica, como se vai poder ver a seguir, ao **problema da mochila sem repetição**.
+
+:::
+
 ### Problema da Mochila sem Repetição
 
 O problema da mochila sem repetição permite-nos olhar para o problema de uma maneira diferente - aqui, vamos, na recursão, procurar o valor máximo que se consegue transportar na mochila _até a um certo índice $i$_ - no problema com repetição não podiamos fazê-lo, dado que um mesmo objeto podia ser contado duas vezes. Podemos, então, definir a quantidade recursiva como
@@ -536,7 +560,7 @@ $$
 \Sigma = \{a, b, c\}.
 $$
 
-O nosso objetivo passará por tentar transformar cada um dos elementos do alfabeto num código binário. [**Cada código não pode ser prefixo de nenhum dos outros códigos**](color:yellow). Podemos criar códigos binários de duas maneiras - códigos de tamanho **fixo** ou **variável**. Optaremos, aqui, por criar códigos de tamanho [**variável**](color:orange), visto que podem ser otimizados bastante facilmente - os caracteres que aparecem mais frequentemente ocupam menos bits.
+O nosso objetivo passará por tentar transformar cada um dos elementos do alfabeto num código binário. [**Cada código não pode ser prefixo de nenhum dos outros códigos**](color:yellow), isto é, devem ser **livres de prefixo**. Podemos criar códigos binários de duas maneiras - códigos de tamanho **fixo** ou **variável**. Optaremos, aqui, por criar códigos de tamanho [**variável**](color:orange), visto que podem ser otimizados bastante facilmente - os caracteres que aparecem mais frequentemente ocupam menos bits.
 
 :::
 
@@ -688,10 +712,6 @@ Chegámos, portanto, a um produto com duas partes - temos, claro, que $f(b) - f(
 :::
 
 ---
-
-- [Slides Aulas 4 e 5](https://drive.google.com/file/d/1cY9AGDpyjc0ogfU_SN5b_axYxNv9zHdZ/view?usp=sharing)
-
-- [Slides Aula 6](https://drive.google.com/file/d/1548Oouxdmfh0DbYhSh6q_eMUKTLYs1Vv/view?usp=sharing)
 
 - [Notas da Aula 4 - Prof. José Fragoso](https://drive.google.com/file/d/1raxKYC4ve-qrO8Xgc1qxcI9UxpYCryrK/view?usp=sharing)
 

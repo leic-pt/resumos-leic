@@ -1,5 +1,5 @@
 ---
-title: Exercícios Resolvidos Prof. Pavão
+title: Exercícios Resolvidos (2020-2021)
 description: Exercícios do Prof. João Pavão Martins resolvidos (2020-2021)
 path: /fp/exercises/exercicios-pavao
 type: exercises
@@ -9,11 +9,11 @@ type: exercises
 
 :::info[Resoluções Incorretas?]
 Caso encontres incorreções nas resoluções abaixo, por favor
-[reporta-as](https://github.com/diogotcorreia/resumos-leic/issues/new?assignees=&labels=incorrect+solution&template=incorrect_solution.yml&title=%5BIncorrect+Solution%5D+)
+[reporta-as](https://github.com/leic-pt/resumos-leic/issues/new/choose)
 para serem corrigidas.
 :::
 
-- [Enunciado](https://drive.google.com/file/d/1objOD3KNb_uGYHAXg8q0byaz_HX_O6cA/view?usp=sharing)
+Por razões de direitos de autor, não é possível disponibilizar o enunciado publicamente.
 
 # Resolução
 

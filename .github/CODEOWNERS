@@ -1,74 +1,97 @@
 # Global owner
-
 * @diogotcorreia
 
 # AL - Main maintainer Diogo Correia
-content/al/** @diogotcorreia [al]
+content/al/** @diogotcorreia
+
+# AMS - Main maintainer Diogo Correia
+content/ams/** @diogotcorreia
+
+# Apre - Main maintainer Diogo Correia
+content/apre/** @diogotcorreia
 
 # ASA - Main maintainer Diogo Gaspar
-content/asa/** @randomicecube [asa]
+content/asa/** @randomicecube
 
 # BD - Main maintainer Diogo Correia
-content/bd/** @diogotcorreia [bd]
+content/bd/** @diogotcorreia
 
 # CDI-I - Main maintainer Diogo Correia
-content/cdi-i/** @diogotcorreia [cdi-i]
+content/cdi-i/** @diogotcorreia
 
 # CDI-II - Main maintainer Diogo Correia
-content/cdi-ii/** @diogotcorreia [cdi-ii]
+content/cdi-ii/** @diogotcorreia
 
 # CDI-III - Main maintainer Diogo Correia
-content/cdi-iii/** @diogotcorreia [cdi-iii]
+content/cdi-iii/** @diogotcorreia
+
+# CG - Main maintainer Diogo Correia
+content/cg/** @diogotcorreia
+
+# Comp - Main maintainer Diogo Correia
+content/comp/** @diogotcorreia
+
+# ES - Main maintainer Diogo Correia
+content/es/** @diogotcorreia
 
 # Fis-I - Main maintainer Diogo Correia
-content/fis-i/** @diogotcorreia [fis-i]
+content/fis-i/** @diogotcorreia
 
 # Fis-II - Main maintainer Tomás Esteves
-content/fis-ii/** @Pesteves2002 [fis-ii]
-content/fis-ii/cheatsheets @Pesteves2002 [fis-ii]
+content/fis-ii/** @Pesteves2002
+content/fis-ii/cheatsheets @Pesteves2002
 
 # FP - Main maintainer Diogo Correia
-content/fp/** @diogotcorreia [fp]
+content/fp/** @diogotcorreia
 
 # Ges - Main maintainer Diogo Correia
-content/ges/** @trvds @diogotcorreia [ges]
-content/ges/exercicios/** @diogotcorreia [ges]
+content/ges/** @diogotcorreia
+content/ges/exercicios/** @diogotcorreia
 
-# IA - Main maintainer Diogo Correia
-content/ia/** @diogotcorreia [ia]
+# IA - Main maintainer Diogo Gaspar
+content/ia/** @randomicecube
 
 # IAC - Main maintainer Diogo Correia
-content/iac/** @diogotcorreia [iac]
+content/iac/** @diogotcorreia
 
-# IAED - Main maintainer Tomás Esteves
-content/iaed/** @Pesteves2002 [iaed]
-content/iaed/labs/* @diogotcorreia @Pesteves2002 [iaed]
-content/iaed/meta/* @diogotcorreia [iaed]
+# IAED - Main maintainer Tomás Esteves / Diogo Gaspar
+content/iaed/** @Pesteves2002 @randomicecube
+content/iaed/meta/* @diogotcorreia
 
 # IEI - Main maintainer Diogo Correia
-content/iei/** @diogotcorreia [iei]
+content/iei/** @diogotcorreia
 
 # IPM - Main maintainer Diogo Correia
-content/ipm/** @diogotcorreia [ipm]
+content/ipm/** @diogotcorreia
 
 # LP - Main maintainer Diogo Gaspar
-content/lp/** @randomicecube [lp]
+content/lp/** @randomicecube
 
-# MD - Main maintainer João Fonseca
-content/md/* @jmseca [md]
-content/md/imgs/* @jmseca [md]
-content/md/exercicios/* @diogotcorreia [md]
-content/md/tools/* @diogotcorreia [md]
+# MD - Main maintainer Diogo Correia
+content/md/* @diogotcorreia
+content/md/imgs/* @diogotcorreia
+content/md/exercicios/* @diogotcorreia
+content/md/tools/* @diogotcorreia
 
-# PE - Main maintainer Diogo Correia
-content/pe/** @diogotcorreia [pe]
+# OC - Main maintainer Diogo Correia
+content/oc/** @diogotcorreia
+
+# PE - Main maintainer Tomás Esteves
+content/pe/** @Pesteves2002
+content/pe/guides/** @diogotcorreia
 
 # PO - Main maintainer Diogo Correia
-content/po/** @diogotcorreia [po]
-content/po/guides/** @diogotcorreia [po]
+content/po/** @diogotcorreia
+content/po/guides/** @diogotcorreia
+
+# RC - Main maintainer Diogo Correia
+content/rc/** @diogotcorreia
+
+# SD - Main maintainer Diogo Correia
+content/sd/** @diogotcorreia
 
 # SO - Main maintainer Tomás Esteves
-content/so/** @Pesteves2002 [so]
+content/so/** @Pesteves2002
 
-# TC - Main maintainer Diogo Correia
-content/tc/** @diogotcorreia [tc]
+# TC - Main maintainer João Rocha
+content/tc/** @Calhau18

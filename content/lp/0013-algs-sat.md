@@ -1,6 +1,10 @@
 ---
 title: Algoritmos de SAT
-description: Algoritmos de SAT, Algoritmo baseado em propagação de marcas, Algoritmo de teste de nós.
+description: >-
+  Algoritmos de SAT.
+  Algoritmo baseado em propagação de marcas
+  Algoritmo de teste de nós.
+  Algoritmos baseados em DP.
 path: /lp/algoritmos-sat
 type: content
 ---
@@ -54,7 +58,7 @@ Ora, este processo é sucessivamente aplicado até termos a árvore da _fbf_, cu
 
 Bem, para isto não ser só uma parede infindável de texto, vamos introduzir uma imagem-exemplo, com a _fbf_ $(P \wedge \neg (P \wedge \neg Q))$:
 
-![Propagação de Marcas 1](./assets/0013-pm-dag.png#dark=1)
+![Propagação de Marcas: 1](./assets/0013-pm-dag.svg#dark=1)
 
 À esquerda temos a primeira fase do processo, onde temos a raiz "principal" com rótulo $\wedge$, com arcos para P e para o "lado" de $\neg (P \wedge \neg Q)$. Ora, neste último, temos que a árvore tem raiz com rótulo $\neg$, que terá caminho para $P \wedge \neg Q$. Aqui voltamos a pegar no operador, $\wedge$, fazendo dele a raiz e criando um caminho para $P$ e para $\neg Q$. Resta ainda terminar o caminho de $\neg Q$, criando uma árvore com raiz de rótulo $\neg$ com arco para $Q$. Temos, portanto, a árvore terminada.
 
@@ -66,13 +70,11 @@ Chegámos agora à próxima fase do algoritmo, a propagação de marcas (V ou F)
 
 - Tendo um nó de rótulo $\neg$ marcado, o algoritmo propaga a marca "contrária" para os seus arcos; podemos ainda analisar o processo ao contrário - se temos um nó com rótulo marcado com arco "para cima" que leva a uma raiz com rótulo $\neg$, então, a raiz com $\neg$ tem a marca oposta.
 
-![Regra da Negação](./assets/0013-reg-neg.png#dark=1)
+![Regra Negação](./assets/0013-reg-neg.svg#dark=4)
 
 - Tendo um nó de raiz $\wedge$ marcada com V, a marca V é também propagada pelos respetivos arcos; podemos também fazer o processo inverso - se dois nós com marca V tiverem arcos para o mesmo nó com rótulo $\wedge$, esse nó tem marca V. Por outro lado, basta um dos nós ter F para a conjunção ser falsa. Além disso, se um dos nós tiver marca V mas a raiz tiver marca F, podemos admitir que o outro nó tem marca F.
 
-![Regra da conjunção 1](./assets/0013-reg-conj1.png#dark=1)
-![Regra da conjunção 2](./assets/0013-reg-conj2.png#dark=1)
-![Regra da conjunção 3](./assets/0013-reg-conj3.png#dark=1)
+![Regra da conjunção](./assets/0013-reg-conj.svg#dark=4)
 
 Se repararem, acima mencionei algumas vezes o "processo inverso/ascendente" - isto porque, caso apenas ocorra a propagação de marcas no sentido descendente, temos de verificar, começando nas folhas, se a propagação inversa também faz sentido (e é igual à descendente). Se for, encontrámos uma interpretação que satisfaz a _fbf_; caso contrário, a _fbf_ não é satisfazível.
 
@@ -80,17 +82,17 @@ Se repararem, acima mencionei algumas vezes o "processo inverso/ascendente" - is
 
 A propagação de marcas relativas à _fbf_ $P \wedge \neg (P \wedge \neg Q)$ tem um aspeto deste género:
 
-![Propagação de Marcas, Exemplo 1](./assets/0013-prop1.png#dark=1)
+![Propagação de Marcas, Exemplo 1](./assets/0013-prop1.svg#dark=4)
 
 Se tentarmos realizar a propagação de marcas no sentido ascendente obtemos as mesmas marcas que no sentido descendente, pelo que a _fbf_ é provada satisfazível, e encontrámos uma _testemunha_, interpretação que satisfaz a _fbf_. Contudo, talvez a explicação deste exemplo não seja suficiente para que esta verificação faça sentido - porque é que a propagação havia de ser diferente em sentidos diferentes? Bem, vejamos o exemplo abaixo, da _fbf_ $(P \wedge \neg (P \wedge \neg Q))\wedge \neg Q$:
 
-![Propagação de Marcas, Exemplo 2](./assets/0013-prop2.png#dark=1)
+![Propagação de Marcas, Exemplo 2](./assets/0013-prop2.svg#dark=4)
 
-Aqui, a propagação no sentido ascendente leva a marcas diferentes das propagadas no sentido descendente, pelo que a _fbf_ não é satisfazível. Podemos ver isso tendo que, olhando para a raiz, é uma conjunção, pelo que ambas as raizes com arcos ligados pela conjunção terão marca V, ficando com Q assim propagado como F, por via da negação ser verdadeira. Contudo, e olhando para o outro lado do DAG, temos que a nova conjunção também tem marca V, pelo que tanto P como a negação vão ser V. A conjunção que segue a negação é falsa, portanto, mas tendo que P é verdadeira a negação à direita tem de ser falsa (para a conjunção ser falsa) - sendo a negação falsa, Q teria de ser verdadeira. Temos aqui um problema - logo no início marcámos Q como falsa, e agora marcámo-la como verdadeira? Não pode ser, é uma contradição! Assim sendo, a _fbf_ é obrigatoriamente contraditória, e portanto não satisfazível.
+Aqui, a propagação no sentido ascendente leva a marcas diferentes das propagadas no sentido descendente, pelo que a _fbf_ não é satisfazível. Podemos ver isso tendo que, olhando para a raiz, é uma conjunção, pelo que ambas as raizes com arcos ligados pela conjunção terão marca $V$, ficando com $Q$ assim propagado como $F$, por via da negação ser verdadeira. Contudo, e olhando para o outro lado do DAG, temos que a nova conjunção também tem marca $V$, pelo que tanto $P$ como a negação vão ser $V$. A conjunção que segue a negação é falsa, portanto, mas tendo que $P$ é verdadeira a negação à direita tem de ser falsa (para a conjunção ser falsa) - sendo a negação falsa, $Q$ teria de ser verdadeira. Temos aqui um problema - logo no início marcámos $Q$ como falsa, e agora marcámo-la como verdadeira? Não pode ser, é uma contradição! Assim sendo, a _fbf_ é obrigatoriamente contraditória, e portanto não satisfazível.
 
 Foi referido acima que o algoritmo de propagação de marcas não é completo, isto é, podemos não conseguir atribuir marcas a todos os nós do grafo. Ora vejamos o exemplo de $(P \to Q) \wedge (P \to \neg Q) \wedge (P \vee R)$:
 
-![Propagação de Marcas, Exemplo 3](./assets/0013-prop3.png#dark=1)
+![Propagação de Marcas, Exemplo 3](./assets/0013-prop3.svg#dark=4)
 
 Como podemos observar, ocorre (mais que uma vez até) chegarmos a situações em que a conjunção é falsa, mas não temos informação concreta sobre os "filhos", impossibilitando-nos portanto de aferir a marca de alguns símbolos de proposição. O resultado é, portanto, inconclusivo.
 
@@ -98,17 +100,17 @@ Como podemos observar, ocorre (mais que uma vez até) chegarmos a situações em
 
 Para nos ajudar (até um certo ponto) a marcar mais algumas marcas que restem temos o **algoritmo de testes de nós**.
 
-Este algoritmo recebe um nó e um grafo. Marca temporariamente esse nó com V e verifica se a propagação de marcas origina agora outras marcas consistentes (não contraditórias). Caso aconteça, fantástico, encontrámos uma testemunha da _fbf_ com marcas corretas. Caso ocorra uma contradição, marcamos o nó que estávamos a testar com F (permanentemente), removemos as marcas temporárias que criámos a testar este nó e testamos com outro nó. Caso não ocorra uma contradição mas ainda fiquem nós por marcar, apagamos as marcas temporárias e voltamos a testar o mesmo nó, desta vez com a marca F. Caso nenhum dos testes seja conclusivo, não havendo contradição mas restando ainda marcas por propagar, fazemos a interseção das marcas temporárias em comum entre os dois testes e marcamo-las permanentemente, procurando agora testar um nó diferente.
+Este algoritmo recebe um nó e um grafo. Marca temporariamente esse nó com $V$ e verifica se a propagação de marcas origina agora outras marcas consistentes (não contraditórias). Caso aconteça, fantástico, encontrámos uma testemunha da _fbf_ com marcas corretas. Caso ocorra uma contradição, marcamos o nó que estávamos a testar com $F$ (permanentemente), removemos as marcas temporárias que criámos a testar este nó e testamos com outro nó. Caso não ocorra uma contradição mas ainda fiquem nós por marcar, apagamos as marcas temporárias e voltamos a testar o mesmo nó, desta vez com a marca $F$. Caso nenhum dos testes seja conclusivo, não havendo contradição mas restando ainda marcas por propagar, fazemos a interseção das marcas temporárias em comum entre os dois testes e marcamo-las permanentemente, procurando agora testar um nó diferente.
 
 Ora, peguemos na _fbf_ do último exemplo, $(P \to Q) \wedge (P \to \neg Q) \wedge (P \vee R)$:
 
-![Teste Nós 1](./assets/0013-teste-nos1.png#dark=1)
+![Teste Nós - 1](./assets/0013-teste-nos1.svg#dark=4)
 
-Aqui, testamos marcar $P$ com V. Ora, do exemplo anterior, tínhamos que ambas as conjunções a que estava ligado eram falsas, o que levaria a que, simultaneamente, $Q$ e $\neg Q$ fossem falsas, o que é claramente contraditório. Marcamos, portanto, P permanentemente com F. Ora, com esta marca permanente podemos aferir alguns resultados, via propagação de marcas:
+Aqui, testamos marcar $P$ com $V$. Ora, do exemplo anterior, tínhamos que ambas as conjunções a que estava ligado eram falsas, o que levaria a que, simultaneamente, $Q$ e $\neg Q$ fossem falsas, o que é claramente contraditório. Marcamos, portanto, $P$ permanentemente com $F$. Ora, com esta marca permanente podemos aferir alguns resultados, via propagação de marcas:
 
-![Teste Nós 2](./assets/0013-teste-nos2.png#dark=1)
+![Teste Nós - 2](./assets/0013-teste-nos2.svg#dark=4)
 
-Falta apenas marcar Q, mas aqui qualquer rotulação gera uma _fbf_ satisfazível.
+Falta apenas marcar $Q$, mas aqui qualquer rotulação gera uma _fbf_ satisfazível.
 
 Resta, por fim, notar que este algoritmo continua a não ser completo - continua a haver casos em que, mesmo suportados pelo algoritmo do teste de nós, não conseguimos resolver todos os casos.
 
@@ -116,11 +118,11 @@ A grande vantagem destes algoritmos em relação aos algoritmos de DP é em rela
 
 ## Algoritmos baseados em DP
 
-Utilizam regras que transformam conjuntos de cláusulas em conjuntos de cláusulas. Têm como principal vantagem em relação ao algoritmo estudado acima o facto de ser **completo**, terminando sempre com uma resposta. São, contudo, menos eficientes, apresentando crescimento exponencial.
+Utilizam regras que transformam conjuntos de cláusulas em outros conjuntos de cláusulas. Têm como principal vantagem em relação ao algoritmo estudado acima o facto de ser **completo**, terminando sempre com uma resposta. São, contudo, menos eficientes, apresentando crescimento exponencial.
 
 :::tip[DEFINIÇÃO]
 
-(talvez reler na diagonal a secção sobre a [resolução](/lp/logica-primeira-ordem-sc#resolução) possa ajudar a relembrar conceitos esquecidos)
+(talvez reler na diagonal a secção sobre a [resolução](/lp/logica-primeira-ordem-sc#resolução) possa ajudar a relembrar conceitos já esquecidos)
 
 Sendo $\Delta$ um conjunto de cláusulas e $P_{i}$ um símbolo de proposição, o **conjunto de cláusulas obtido de $\Delta$ por eliminação de $P_{i}$**, $\exists P_{i} (\Delta)$, é obtido tal que:
 
@@ -150,7 +152,7 @@ Chegamos **sempre** a um destes dois resultados, sendo esta a principal vantagem
 
 $\Delta = \{\{P, Q\}, \{\neg P, Q\}, \{\neg Q, R\}, \{\neg R\}\}$
 
-Realizando eliminações sucessivas de P, Q e R, chegamos à cláusula vazia (não confundir com conjunto vazio de cláusulas), pelo que podemos concluir que a _fbf_ não é satisfazível:
+Realizando eliminações sucessivas de $P$, $Q$ e $R$, chegamos à cláusula vazia (não confundir com conjunto vazio de cláusulas), pelo que podemos concluir que a _fbf_ não é satisfazível:
 
 $\exists P(\Delta) = \{\{Q\}, \{\neg Q, R\}, \{\neg R\}\}$  
 $\exists Q(\exists P(\Delta)) = \{\{R\}, \{\neg R\}\}$  
@@ -160,17 +162,17 @@ $\exists R(\exists Q(\exists P(\Delta))) = \{\{\}\}$
 
 $\Delta = \{\{P, Q\}, \{\neg P, Q\}, \{\neg Q, R\}\}$
 
-Realizando eliminações sucessivas de P, Q e R, chegamos a um conjunto vazio de cláusulas, podendo concluir que a _fbf_ é satisfazível:
+Realizando eliminações sucessivas de $P$, $Q$ e $R$, chegamos a um conjunto vazio de cláusulas, podendo concluir que a _fbf_ é satisfazível:
 
 $\exists P(\Delta) = \{\{Q\}, \{\neg Q, R\}\}$  
 $\exists Q(\exists P(\Delta)) = \{\{R\}\}$  
 $\exists R(\exists Q(\exists P(\Delta))) = \{\}$
 
-Pode notar-se que na penúltima linha não são gerados resolventes-R, mas qualquer clausula que contenha R é removida, pelo que ficamos apenas com um conjunto vazio de cláusulas.
+Pode notar-se que na penúltima linha não são gerados resolventes-$R$, mas qualquer clausula que contenha $R$ é removida, pelo que ficamos apenas com um conjunto vazio de cláusulas.
 
 :::
 
-Uma maneira de implementar o algoritmo DP consiste em utilizar o conceito de **balde** (não confundir com [balde](https://cdn.discordapp.com/attachments/832358053264621588/834539505565958204/2021-04-21_222139_162507283.png)), um conjunto de cláusulas. O algoritmo consiste em:
+Uma maneira de implementar o algoritmo DP consiste em utilizar o conceito de **balde**, um conjunto de cláusulas. O algoritmo consiste em:
 
 - **Criar e preencher baldes**
 
@@ -186,29 +188,53 @@ Uma maneira de implementar o algoritmo DP consiste em utilizar o conceito de **b
 
 :::details[Exemplo - Aplicação do método dos baldes]
 
-Ora, peguemos na _fbf_ tal que $\Delta = \{\{P, Q, \neg R\}, \{\neg P, S, T, R\}, \{\neg P, Q, S\}, \{\neg Q, \neg R\}, \{S\}\}$. Podemos ainda estabelecer uma relação de ordem total arbitrária - seja ela $P \prec Q \prec R \prec S \prec T$. A primeira fase, criar e preencher os baldes, dá-se tal que:
+Ora, peguemos na _fbf_ tal que
 
-$b_{P}: \{P, Q, \neg R\}, \{\neg P, S, T, R\}, \{\neg P, Q, S\}$  
-$b_{Q}: \{\neg Q, \neg R\}$  
-$b_{R}:$  
-$b_{S}: \{S\}$  
-$b_{T}:$
+$$
+\Delta = \{\{P, Q, \neg R\}, \{\neg P, S, T, R\}, \{\neg P, Q, S\}, \{\neg Q, \neg R\}, \{S\}\}.
+$$
+
+Podemos ainda estabelecer uma relação de ordem total arbitrária - seja ela:
+
+$$
+P \prec Q \prec R \prec S \prec T.
+$$
+
+A primeira fase, criar e preencher os baldes, dá-se tal que:
+
+$$
+\begin{aligned}
+b_{P}: &  \{P, Q, \neg R\}, \{\neg P, S, T, R\}, \{\neg P, Q, S\}\\
+b_{Q}: &  \{\neg Q, \neg R\}\\
+b_{R}: & \\
+b_{S}: &  \{S\}\\
+b_{T}: & \\
+\end{aligned}
+$$
 
 Processar o balde $b_{P}$ origina 2 novas cláusulas, nenhuma delas vazia, pelo que o algoritmo ainda não acabou (aqui uma das cláusulas está "contida" noutra, pelo que só queremos a menor):
 
-$b_{P}: \{P, Q, \neg R\}, \{\neg P, S, T, R\}, \{\neg P, Q, S\}$  
-$b_{Q}: \{\neg Q, \neg R\}, \qquad \qquad \qquad \qquad \qquad \qquad  \{Q, \neg R, S\}$  
-$b_{R}:$  
-$b_{S}: \{S\}$  
-$b_{T}:$
+$$
+\begin{aligned}
+b_{P}: & \{P, Q, \neg R\}, \{\neg P, S, T, R\}, \{\neg P, Q, S\}\\
+b_{Q}: & \{\neg Q, \neg R\}, \qquad \qquad \qquad \qquad \qquad \qquad  \{Q, \neg R, S\}\\
+b_{R}: &\\
+b_{S}: & \{S\}\\
+b_{T}: &\\
+\end{aligned}
+$$
 
 Processar o balde $b_{Q}$ origina uma nova cláusula, não vazia:
 
-$b_{P}: \{P, Q, \neg R\}, \{\neg P, S, T, R\}, \{\neg P, Q, S\}$  
-$b_{Q}: \{\neg Q, \neg R\}, \qquad \qquad \qquad \qquad \qquad \qquad  \{Q, \neg R, S\}$  
-$b_{R}: \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \{\neg R, S\}$  
-$b_{S}: \{S\}$  
-$b_{T}:$
+$$
+\begin{aligned}
+b_{P}: & \{P, Q, \neg R\}, \{\neg P, S, T, R\}, \{\neg P, Q, S\}\\
+b_{Q}: & \{\neg Q, \neg R\}, \qquad \qquad \qquad \qquad \qquad \qquad  \{Q, \neg R, S\}\\
+b_{R}: & \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \{\neg R, S\}\\
+b_{S}: & \{S\}\\
+b_{T}: &
+\end{aligned}
+$$
 
 Processar os próximos baldes não gera mais nenhuma cláusula, podendo, então, afirmar que _fbf_ é satisfazível.
 
@@ -241,5 +267,3 @@ $b_{Q}:$
 $b_{T}:$
 
 A escolha desta ordem levou a menos processamento do que a escolha da ordem anterior, pelo que esta escolha teria sido bastante melhor (e mais simples).
-
-[Slides (do 25 para a frente)](https://drive.google.com/file/d/1ZuegnTFgn5SmM4qh2zPu2wpbbNDi5KaP/view?usp=sharing)

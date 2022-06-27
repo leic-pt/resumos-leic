@@ -1,6 +1,8 @@
 ---
 title: Lógica Proposicional - Sistema Semântico
-description: Lógica Proposicional, Sistema Semântico, Funções de Valoração, Correção e Completude, Satisfação.
+description: >-
+  Lógica Proposicional - Sistema Semântico.
+  Funções de Valoração, Correção e Completude, Satisfação.
 path: /lp/logica-proposicional-semantico
 type: content
 ---
@@ -19,12 +21,16 @@ Se no sistema dedutivo abordámos as regras de inferência, que _falam sobre_ as
 
 Uma **função de valoração** é uma função $v$ que atribui valores lógicos (verdadeiro ou falso) a um conjunto de símbolos de proposição.
 
-$$v: P \mapsto \{V, F\}$$
+$$
+v: P \mapsto \{V, F\}
+$$
 
 Uma função de valoração pode ser tal que:
 
-$$v(P) = V.$$  
-$$v(Q) = F.$$
+$$
+v(P) = V,\\
+v(Q) = F.
+$$
 
 Isto é, a proposição P tem **valor verdadeiro**, enquanto que a proposição Q tem **valor falso** (segundo esta função).
 :::
@@ -34,7 +40,11 @@ Associada ao conceito de função de valoração temos a _interpretação_:
 :::tip[DEFINIÇÃO]
 
 Dada uma função de valoração $v$, uma **interpretação** é uma função $I_{v}$ que atribui valores lógicos a um conjunto de _fbfs_.
-$$I_{v}:\mathcal{L}_{LP} \mapsto \{V, F\}$$
+
+$$
+I_{v}:\mathcal{L}_{LP} \mapsto \{V, F\}
+$$
+
 A interpretação é tal que:
 
 - Caso $\alpha$ seja uma _fbf_ atómica, $I_{v}(\alpha) = v(\alpha)$;
@@ -85,7 +95,7 @@ A tabela de verdade abaixo mostra que a _fbf_ $(P \wedge (P \to Q)) \to Q$ é ta
 | F   | V   | V         | F                    | V                            |
 | F   | F   | V         | F                    | V                            |
 
-![Diagrama Tautologias](./assets/0011-venn.png#dark=1)
+![Diagrama Tautologias](./assets/0011-venn.svg#dark=1)
 
 Podemos ainda aplicar estas lógicas a **conjuntos de _fbfs_**.
 
@@ -146,6 +156,4 @@ A lógica proposicional é **correta e completa**.
 
 Podemos, então, voltar a olhar para a relação entre os sistemas dedutivo e semântico:
 
-![Dedutivo vs Semântico](./assets/0011-dedsem.png#dark=1)
-
-[Slides](https://drive.google.com/file/d/1mZ9-lO4AyAcMKgfXnf1O2zkXpkZojLNY/view?usp=sharing)
+![Dedutivo vs Semântico](./assets/0011-dedsem.svg#dark=1)

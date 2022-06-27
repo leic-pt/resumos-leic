@@ -1,4 +1,7 @@
 import { useEffect, useState } from 'react';
+import '../styles/themes/black.css';
+import '../styles/themes/nord.css';
+import '../styles/themes/solarized.css';
 
 // Custom hook
 export function useFontSettings() {
@@ -10,6 +13,22 @@ export function useFontSettings() {
     const element = window.document.body;
     element.style.fontFamily = font || null;
   }, [font, setFont]);
+}
+
+export function useThemeSettings() {
+  const [theme, setTheme] = useLocalStorage('theme-name');
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const element = window.document.body;
+    [...element.classList]
+      .filter((c) => c.startsWith('theme-'))
+      .forEach((c) => element.classList.remove(c));
+    element.classList.add(`theme-${theme || 'default'}`);
+  });
+
+  return { theme, setTheme };
 }
 
 // Source: https://usehooks.com/useLocalStorage/

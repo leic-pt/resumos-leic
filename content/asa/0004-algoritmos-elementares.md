@@ -20,7 +20,7 @@ Vamos procurar rever e aprofundar conceitos previamente abordados em IAED, tais 
 
 ## DFS - _Depth First Search_
 
-Consiste num algoritmo recursivo que utiliza a noção de _backtracking_. Procura esgotar todos os caminhos possíveis em frente, voltando para trás quando já não há mais possibilidades de seguir em frente. Foi [abordado em IAED](/iaed/grafos#procura-em-profundidade-primeiro-dfs), e será aprofundado nesta secção.
+Consiste num algoritmo recursivo que utiliza a noção de _backtracking_. Procura esgotar todos os caminhos possíveis em frente, voltando para trás quando já não há mais possibilidades de seguir em frente.
 
 :::details[Exemplo simples da execução do algoritmo]
 
@@ -253,7 +253,7 @@ Se $G(V, E)$ é um DAG (grafo acíclico dirigido) e $(u, v) \in E$, então $v$ �
 
 :::
 
-Uma ordenação topológica pode, então, ser dada pela **ordem decrescente de tempos de fecho** de uma DFS a um dado grafo. Por exemplo, dado o grafo abaixo e respetiva DFS a começar em A:
+Uma ordenação topológica pode, então, ser dada pela **ordem decrescente de tempos de fecho** de uma DFS a um dado grafo. Por exemplo, dado o grafo abaixo e respetiva DFS a começar em $A$:
 
 ![DFS - Ordenação Topológica](./assets/0004-top-order-exemplo.png#dark=1)
 
@@ -430,9 +430,6 @@ As "distâncias" (os tempos indicados na BFS) correspondem a **níveis** da árv
 
 ---
 
-- [Slides DFS (geral)](https://drive.google.com/file/d/13GOYSkvAidqUVJozY1Fwu6cg96Xuma-S/view?usp=sharing)
-- [Slides DFS (Ordenação Topológica + SCCs)](https://drive.google.com/file/d/1HTYOS2p7ysnRLuX4gvaqRw9L9ijioFE9/view?usp=sharing)
-- [Slides BFS](https://drive.google.com/file/d/1HTYOS2p7ysnRLuX4gvaqRw9L9ijioFE9/view?usp=sharing)
 - [Notas DFS - Prof. José Fragoso](https://drive.google.com/file/d/1oqrsRIFE72_zZ7-1URzRsPrz8gXY_NWR/view?usp=sharing)
 - [Notas SCCs e BFS - Prof. José Fragoso](https://drive.google.com/file/d/1Fa14Veb5Q9sKgouVtpSClVmMxoGRgRGW/view?usp=sharing)
 - [Notas sobre DFS - Universidade de Edimburgo](https://www.inf.ed.ac.uk/teaching/courses/inf2b/algnotes/note10.pdf)

@@ -13,138 +13,54 @@ type: content
 
 ## Análise de Algoritmos
 
-### Algoritmo
+:::info[]
+Por algoritmo depreendemos um **procedimento computacional bem definido**, que aceita uma dada entrada e produz uma dada saída. Corresponde, portanto, a uma ferramente que permite resolver um problema computacional bem definido, seja ele calcular uma média, ordenar um vector, entre outros.
+:::
 
-- Procedimento computacional bem definido que aceita
-  uma dada entrada e produz uma dada saída
-  - Ferramenta para resolver um problema computacional bem
-    definido
-    - Cálcular a média de um conjunto de valores
-    - Ordenação de sequências de valores
-    - Caminhos mais curtos em grafos orientados
-    - etc
+Uma das principais preocupações que vamos ter em IAED (para passar os malfadados testes com [_time limit exceeded_](color:yellow)) é **como reduzir o _runtime_ do nosso programa**. Durante esta secção, vamos procurar arranjar maneiras de defini-lo (usando **notação assintótica**) em função do tamanho do _input_ que usamos. Ainda assim, e antes de começar com definições mais teóricas, podemos pensar em pontos fracos habituais de programas que podemos melhorar.
 
-`embed:assets/0008-masc.c`
+Observemos o trecho de código abaixo: temos duas funções que fazem exatamente o mesmo: transformam toda uma cadeia de caracteres na sua versão _lower case_. Diferem na **condição de ciclo do seu loop**. Na função de acima, `strlen(s)` é calculada em todas as iteraçõses: sendo que a implementação da mesma consiste em [**iterar pela string até ao fim**](color:red), podemos perceber como tal poderá levar a maiores tempos de execução da mesma. A função de baixa é inegavelmente mais eficiente (podem experimentar correr ambos os trechos localmente para testarem vocês mesmos), e a única diferença é guardar o comprimento da string numa variável, efetivamente eliminando cálculos desnecessários!
 
-### Eficiência
+`embed:assets/0008-maiusculas-minusculas.c`
 
-- Medidas de eficiência & complexidade
+:::tip[Eficiência]
 
-  - TEMPO
-  - ESPAÇO
+Podemos medir a eficiência/complexidade dos nossos programas em relação ao [**tempo**](color:green) e ao [**espaço**](color:orange) que gastam: nem todos os algoritmos têm a mesma rapidez temporal, e nem todos os algoritmos usam a mesma "_quantidade espacial_" de memória!
 
-  Nem todos os algoritmos têm a mesma rapidez e usam o mesmo espaço.
-
-  E não existe o "melhor" algoritmo.
-
-  Existem algoritmos melhores para ordenar quantidades grandes de elementos, mas que são piores para ordenar pequenas quantidades de elementos.
+:::
 
 ## Crescimento de Funções
 
-### Padrões tipícos:
+A **complexidade** de um algoritmo, seja ela temporal ou espacial, está associada a um _crescimento_ da função que a define (em função do seu input). As funções de crescimento com que mais tipicamente nos vamos deparar serão:
 
-$$ 1 $$
-Se o número de instruções de um programa for
-executado um número limitado/constante de vezes
+[**$1$**](color:red) - O número de instruções de um programa/o espaço ocupado por um programa é um número constante e/ou limitado.
 
-$$ log{} N $$
-Tempo de execução é logarítmico quando se divide
-continuamente o input ao meio (e.g. binary search)
+[**$\log{n}$**](color:red) - O número de instruções de um programa/o espaço ocupado por um programa é logarítmico: dividimos continuamente o input ao meio (como na pesquisa binária, por exemplo).
 
-$$ N $$
-Tempo de execução de um programa é linear
-quando existe algum processamento para
-cada elemento de entrada
+[**$n$**](color:red) - O número de instruções de um programa/o espaço ocupado por um programa é linear: existe algum tipo de processamento para cada elemento de entrada.
 
-$$ N log{} N $$
-Tipicamente, quando um problema é resolvido através
-da resolução de um conjunto de sub-problemas, e
-combinando posteriormente as suas soluções
+[**$n\log{n}$**](color:red) - O número de instruções de um programa/o espaço ocupado por um programa está associado, tipicamente, à resolução de um conjunto de sub-problemas. As sub-soluções são por norma posteriormente combinadas (temos o exemplo do _merge sort_, que vamos abordar no futuro, como exemplo clássico).
 
-$$ N^2 $$
-Tempo de execução de um programa é quadrático;
-quando a dimensão da entrada duplica, o tempo
-aumenta 4x
+[**$n^2$**](color:red) - O número de instruções de um programa/o espaço ocupado por um programa é quadrático. Quando a dimensão da entrada duplica, o tempo aumenta em 4 vezes.
 
-$$ 2^N $$
+[**$2^n$**](color:red) - O número de instruções de um programa/o espaço ocupado por um programa é exponencial. Quando a dimensão da entrada duplica, o tempo aumenta para o quadrado!
 
-Tempo de execução de um programa é exponencial;
-quando a dimensão da entrada duplica, o tempo
-aumenta para o quadrado!
+Pegando novamento no exemplo indicado mais acima, podemos finalmente perceber (em termos mais formais) o que está a acontecer: o trecho de cima tem complexidade temporal quadrática, já que `strlen(s)`, uma operação linear, é executada uma vez por cada iteração do `for`, linear também. O trecho de baixo é, claro, linear!
 
-### Exemplo
+`embed:assets/0008-maiusculas-minusculas.c`
 
-Assim vemos que a primeira função é quadrática porque executa `strlen(s)` todas as vezes que lê a condição e executa o corpo do `for`
-
-E vemos que a segunda função é linear porque executa apenas o corpo do `for`
-
-`embed:assets/0008-masc.c`
-
-### Análise de Algoritmos
-
-- O Pior Caso
-
-  - Representa um limite superior no tempo de execução
-    - Ocorre numerosas vezes
-  - O valor médio é muitas vezes próximo do pior caso
-  - É, geralmente, mais fácil de calcular
-  - Evita surpresas!
-
-- O Melhor Caso
-
-- O Caso Médio
-
-  - Importante em algoritmos probabilísticos
-  - É necessário saber a distribuição dos problemas
+:::info[Análise de Algoritmos]
+Ao analisar algoritmos, costumamos sempre pensar no **pior caso** dos mesmos: deste modo, pensamos no [**limite superior**](color:red) do tempo de execução dos mesmos, o que nos vai permitir evitar surpresas desagradáveis no futuro. Podemos, contudo, calcular o **melhor caso** e o **caso médio** de problemas, que também têm a sua utilidade em diversas situações.
+:::
 
 ## Notação Assimptótica
 
-- A notação assimptótica permite estabelecer taxas de
-  crescimento dos tempo de execução dos algoritmos
-  em função dos tamanhos das entradas
+A notação assimptótica permite estabelecer taxas de crescimento dos tempo de execução dos algoritmos em função dos tamanhos das entradas (_input_). Aqui, as constantes multiplicativas e aditivas são irrelevantes: tanto um algoritmo que leva $n$ a correr como um que leva $4n$ a correr são lineares - perde-se o rigor, mas este acaba por não ser relevante para determinar o comportamento assimptótico do algoritmo.
 
-- Constantes multiplicativas e aditivas tornam-se
-  irrelevantes
-  - E.g. tempo de execução de cada instrução não é essencial
-    para o comportamento assimptótico de um algoritmo
+- A notação $O$ (Ó grande) corresponde ao [**limite assimptótico superior**](color:purple). Permite aferir a complexidade no pior caso.
+- A notação $\Omega$ (Ómega) corresponde ao [**limite assimptótico inferior**](color:orange). Permite aferir a complexidade no melhor caso.
+- A notação $\Theta$ (Téta) corresponde ao [**limite assimptótico apertado**](color:green). Corresponde às situações em que os melhor e pior casos têm a mesma complexidade.
 
-### Limite Assimptótico Superior (O)
+Transpondo estas definições para exemplos práticos, podemos pensar nos problemas de pesquisa de elementos num vetor vs imprimir todos os valores presentes num vetor.
 
-- Notação O (Ó grande): Limite Assimptótico Superior
-- Permite aferir a complexidade no pior caso
-
-### Limite Assimptótico Inferior (Ω)
-
-- Notação Ω (ómega): Limite Assimptótico Inferior
-- Permite aferir a complexidade no melhor caso
-
-Podemos encontrar o melhor caso na primeira entrada, ou o pior no caso de ser a última. \
-No exemplo de procurar um vetor, Ω (1) e O(N).
-
-### Limite Assimptótico Apertado (Θ)
-
-- Notação Θ: Limite Assimptótico Apertado
-- Uma função f (n) diz-se Θ(g(n)) se e só se f (n) for O(g(n)) e Ω(g(n))
-
-Por outras palavras é quando o melhor caso e o pior caso têm a mesma complexidade.\
-Para lermos todas as entradas de um vetor, o melhor caso e o pior caso são os mesmos. Θ(N)
-
-### Exercícios
-
-- Se um algoritmo é $O(N^2)$ então também é $O(N^3)$.\
-  Verdadeiro
-
-- Se o tempo de execução de um algoritmo, no pior caso,
-  escala com $3O(N^2)$ então é $O(N^2)$ .\
-  Verdadeiro
-
-- O tempo de execução do algoritmo G, escala com $2N^3+N$
-  no pior caso e, no melhor caso, apenas com $N^3$.\
-  Logo, G é Θ($N^3$).\
-  Verdadeiro
-
-Existem exemplos de exercícos de exame que se encontram no final do slide desta aula!
-
-Slides:
-
-- [Aula 8](https://drive.google.com/file/d/1ETqWl7mll9ljHI_8ix1Il30VKcIXGsmX/view?usp=sharing)
+O primeiro problema tem melhor caso $1$, constante, caso o valor a procurar se encontre logo na primeira posição/o vetor esteja vazio: $\Omega(1)$. Tem, por outro lado, $O(n)$ como pior caso, já que pode ser preciso percorrer o vetor todo para o fazer. O segundo problema, contudo, tem melhor e pior casos com igual número de operações, linear: não podemos imprimir todos os valores de um vetor sem o percorrer completamente, $\Theta(n)$.

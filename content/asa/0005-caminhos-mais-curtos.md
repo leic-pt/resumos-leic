@@ -221,7 +221,7 @@ Aqui, claro, o invariante não se verifica - $d(w) > \delta(s, w)$.
 
 O algoritmo de Bellman-Ford resolve o caso geral do problema dos caminhos mais curtos de fonte única, onde os arcos podem ter peso negativo. Indica, no fim, a existência (ou não) de ciclos negativos, sendo que, caso não existam, pode produzir ainda o caminho mais curto e os custos associados a cada vértice.
 
-O algoritmo em si tem um aspeto bastante mais simples que o de Dijkstra: trata-se de operações de relaxação sucessivas, passando por todas as arestas do grafo $V$ vezes, com vista a atualizar gradualmente a estimativa de custo associado a cada vértice. Findas as relaxações, todas as arestas são percorridas, de modo a verificar se há algum ciclo negativo. O pseudocódigo é tal que:
+O algoritmo em si tem um aspeto bastante mais simples que o de Dijkstra: trata-se de operações de relaxação sucessivas, passando por todas as arestas do grafo $V - 1$ vezes, com vista a atualizar gradualmente a estimativa de custo associado a cada vértice. Findas as relaxações, todas as arestas são percorridas, de modo a verificar se há algum ciclo negativo. O pseudocódigo é tal que:
 
 ```rust
 BellmanFord(G, w, s)
@@ -429,7 +429,7 @@ Por fim, aplicamos Dijkstra a cada um dos vértices do grafo (não mostrado aqui
 
 A repesagem de Johnson assenta em dois pilares:
 
-- $G$ contém um ciclo negativo se e só se $G^\wedge$ contém um ciclo negativo;
+- $G$ contém um ciclo negativo se e só se $\overset{\wedge}{G}$ contém um ciclo negativo;
 
 - Se $p$ é um caminho mais curto de $u$ a $v$ em $G$, então também o é em $\overset{\wedge}{G}$.
 
@@ -473,12 +473,12 @@ Ora, chegámos então a $w(p') < w(p)$. Tínhamos, contudo, começado por afirma
 
 :::
 
+Depois da repesagem de Johnson, o grafo já não apresenta arcos negativos. Podemos, então, **proceder à aplicação do algoritmo de Dijkstra em cada vértice** para determinar os caminhos mais curtos entre todos os pares de vértices.
+
 Resta, então, notar que a complexidade temporal do algoritmo é $O(V (V + E) \log V)$, predominando, portanto, a complexidade de Dijkstra pelos $|V|$ vértices.
 
 ---
 
-- [Slides Dijkstra/DAG SP/Bellman-Ford](https://drive.google.com/file/d/10QzxNY5Z2dHZLaYdyhG2S3-jTQwFjjgv/view?usp=sharing)
-- [Slides Johnson](https://drive.google.com/file/d/1dIMIW3ThdJv2bFsRL7fyKJDkl9SKmB-Z/view?usp=sharing)
 - [Notas Dijkstra - Prof. José Fragoso](https://drive.google.com/file/d/17ZHiH-78uT031iApOqSUN5XIH38WXXwD/view?usp=sharing)
 - [Notas DAG Shortest Paths/Bellman-Ford - Prof. José Fragoso](https://drive.google.com/file/d/1tw3RwjiLK8Y0EOw-IRQKZ9vXqfI9h8A1/view?usp=sharing)
 - [Notas Johnson - Prof. José Fragoso](https://drive.google.com/file/d/1ljYGTXrxBskLaY3WKEsr6fPY4kDpTRgo/view?usp=sharing)
