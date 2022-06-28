@@ -219,4 +219,4 @@ A [correlação](color:orange) desfruta das seguintes propriedades:
 A [correlação](color:orange) deve ser interpretada da seguinte forma:
 
 - $|corr(X,Y)| \simeq 1$ então $X$ e $Y$ têm associação quase linear;
-- $corr(X,Y)>0$ indica uma correlação linear **positiva** (i.e, se uma VA aumenta a outra tende a aumentar também) e $corr(X,Y)<0$ indica uma correlação linear **negativa** (i.e, se uma VA aumenta a outra tende a aumentar também)
+- $corr(X,Y)>0$ indica uma correlação linear **positiva** (i.e, se uma VA aumenta a outra tende a aumentar também) e $corr(X,Y)<0$ indica uma correlação linear **negativa** (i.e, se uma VA aumenta a outra tende a diminuir)
