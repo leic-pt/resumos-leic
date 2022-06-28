@@ -78,7 +78,7 @@ module.exports = {
               strict: `ignore`,
               macros: {
                 '\\d': '\\mathop{}\\!\\mathrm d',
-                '\\1': '1\\!\\!1',
+                '\\1': '1\\kern-0.25em\\text{l}',
                 '\\Q': '\\mathbb{Q}',
                 '\\C': '\\mathbb{C}',
                 '\\car': '\\operatorname{car}',
