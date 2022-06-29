@@ -182,7 +182,7 @@ qualquer dificuldade que possa aparecer associada a este princípio.
 Considerando as cláusulas $\{\neg P, Q, S\}$ e $\{P, \neg Q\}$:
 
 - O seu [**resolvente-P**](color:orange) é $\{Q, S, \neg Q\}$. Vamos, aqui, remover
-  os literais $P$ e $\neg P$ em conflito.  
+  os literais $P$ e $\neg P$ em conflito.
 - O seu [**resolvente-Q**](color:orange) é $\{\neg P, S, P\}$. Nesta situação, vamos
   procurar remover os literais $Q$ e $\neg Q$ em conflito.
 
@@ -282,6 +282,7 @@ pensar que a conjunção de qualquer coisa com algo que vai ser sempre verdade
 depende sempre do valor dessa coisa, e nunca do que é sempre verdade.
 
 Posto de forma formal, eliminamos teoremas porque:
+
 $$
 \Delta \cup {\tau} \vdash \gamma \implies \Delta \vdash \gamma
 $$
