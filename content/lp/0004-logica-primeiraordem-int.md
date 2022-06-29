@@ -1,7 +1,9 @@
 ---
 title: Lógica de Primeira Ordem - Introdução
 description: >-
-  Lógica de primeira ordem quantificadores, regras de inferência.
+  Lógica de primeira ordem.
+  Quantificadores.
+  Regras de inferência para quantificadores.
 path: /lp/logica-primeira-ordem-int
 type: content
 ---
@@ -12,25 +14,48 @@ type: content
 
 ```
 
-Lógica cuja linguagem nos permite considerar o "interior" (ao qual não podemos aceder) das proposições, isto é, as proposições elementares deixam de ser um todo e passam a ter uma estrutura, na qual podem existir constantes, variáveis e funções.
-Contém dois símbolos adicionais em relação à lógica proposicional, os **quantificadores existencial e universal**.
+Lógica cuja linguagem nos permite considerar o "interior" (ao qual não podemos aceder)
+das proposições. As proposições elementares deixam de ser um todo e passam
+a ter uma estrutura, na qual podem existir constantes, variáveis e funções.
+Contém dois símbolos adicionais em relação à lógica proposicional, os **quantificadores
+existencial e universal**, que já conhecemos da matemática: $\exists$ e $\forall$, respetivamente.
 
 ## Componentes da linguagem
 
-### Variáveis
+A linguagem abordada nesta secção é constituída por algumas componentes novas,
+diferentes das da lógica proposicional.
 
-Símbolos que desempenham o papel de designações (sem ser propriamente designações). A noção de variável está associada ao conceito de função à frente apresentado, mais concretamente ao seu domínio - uma variável pode tomar todos os valores do domínio de uma dada função, no contexto dessa função. Só por si não correspondem a entidades.
+:::tip[Variáveis]
 
-### Funções
+Símbolos que desempenham o papel de designações (sem ser propriamente designações).
+A noção de variável está associada ao conceito de função à frente apresentado, mais
+concretamente ao seu domínio - uma variável pode tomar todos os valores do domínio
+de uma dada função, no contexto dessa função. Só por si não correspondem a entidades.
 
-No contexto estudado, corresponde a um conjunto de pares ordenados, potencialmente infinito, que não contém dois pares distintos com o mesmo primeiro elemento (um pouco como a noção de dicionários e chaves em Python). Tal como na matemática, as funções têm um domínio (conjunto de todos os primeiros elementos dos pares) e um contradomínio (segundos elementos dos pares). Recebem um elemento do domínio, o _argumento_ da função, e calculam o elemento correspondente do contradomínio, o _valor_ da função.
-Sendo que correspondem a transformações, podemos utilizar funções para descrever entidades.
+:::
 
-A **aridade** de uma função é a quantidade de argumentos que esta recebe. Uma função de aridade 0 é considerada uma **constante**.
+:::info[Funções]
 
-Apesar de usualmente irmos estudar funções que recebem um argumento - que formam pares ordenados - é importante realçar que essa não é a única aridade possível de uma função. De um modo geral, em vez de consideramos que funções são conjuntos de _pares ordenados_, consideramo-las sim conjuntos de _tuplos ordenados_. Uma função que recebe $n$ argumentos é um conjunto de tuplos ordenados que não contém 2 tuplos com os mesmos n primeiros elementos.
+No contexto estudado, corresponde a um conjunto de pares ordenados, potencialmente infinito,
+que não contém dois pares distintos com o mesmo primeiro elemento - não existe aqui
+"não determinismo", mapear uma função a um dado valor corresponde sempre ao mesmo resultado.
+Tal como na matemática, as funções têm um domínio (conjunto de todos os primeiros
+elementos dos pares) e um contradomínio (segundos elementos dos pares). Recebem
+um elemento do domínio, o _argumento_ da função, e calculam o elemento correspondente
+do contradomínio, o _valor_ da função. Sendo que correspondem a transformações,
+podemos utilizar funções para descrever entidades.
 
-:::details[Exemplo - Função]
+A [**aridade**](color:orange) de uma função corresponde à quantidade de argumentos que esta recebe.
+Uma função de aridade 0 diz-se uma [**constante**](color:green), claro.
+
+Apesar de usualmente irmos estudar funções que recebem um argumento - que formam
+pares ordenados - é importante realçar que essa não é a única aridade possível de
+uma função. De um modo geral, em vez de consideramos que funções são conjuntos de
+_pares ordenados_, consideramo-las sim conjuntos de _tuplos ordenados_. Uma função
+que recebe $n$ argumentos é um conjunto de tuplos ordenados que não contém 2
+tuplos com os mesmos $n$ primeiros elementos!
+
+:::
 
 A expressão designatória de uma função pode ser, por exemplo:
 
@@ -40,32 +65,37 @@ n(x)=\text{o ano de nascimento de }x\\
 s(x) = x + 1
 $$
 
-Sendo que os conjuntos de pares ordenados têm, por norma, este aspeto:
+Exemplos de conjuntos de pares ordenados que correspondem a "aplicações" das
+funções acima são, respetivamente:
 
 $$
-\{(Portugal, Lisboa), (Franca, Paris), (Espanha, Madrid),\dots\}\\
-\{(Augustus\_De\_Morgan, 1806), (Alonzo\_Church, 1903),\dots\}\\
+\{(\text{Portugal}, \text{Lisboa}), (\text{França}, \text{Paris}), (\text{Espanha}, \text{Madrid}),\dots\}\\
+\{(\text{Augustus\_De\_Morgan}, 1806), (\text{Alonzo\_Church}, 1903),\dots\}\\
 \{(1,2),(2,3),(3,4),\dots\}
 $$
 
-:::
+:::tip[Relações]
 
-### Relações
-
-Palavra utilizada para representar qualquer relação entre elementos de conjuntos. Não são funções, visto que um primeiro elemento pode estar associado a mais que um segundo elemento. É usualmente definida através da especificação dos conjuntos aos quais os primeiro e segundo elementos pertencem, juntamente com uma expressão proposicional que faz uma afirmação sobre a sua relação.
+Servem para representar qualquer relação (passo a redundância) entre elementos de conjuntos.
+[**Não são funções**](color:red), visto que um primeiro elemento pode estar associado a mais que um
+segundo elemento. É usualmente definida através da especificação dos conjuntos aos
+quais os primeiro e segundo elementos pertencem, juntamente com uma expressão proposicional
+que faz uma afirmação sobre a sua relação.
 Relações com apenas um argumento também se chamam **classes** ou **propriedades**.
 
 :::details[Exemplo - Relação]
 
-Relação correspondendo ao conjunto dos países que partilham fronteira terrestre:
+A relação correspondendo ao conjunto dos países que partilham fronteira terrestre
+podia ter, por exemplo:
 
 $$
 \{(Portugal, Espanha), (Espanha, Portugal), (Espanha, Franca),\dots\}
 $$
 
-Como podemos observar, Espanha é primeiro elemento duas vezes, pelo que não pode ser uma função!
+Como podemos observar, Espanha é primeiro elemento duas vezes, pelo que não podemos estar
+na presença de uma função!
 
-A relação pode ser definida tal que:
+Esta relação pode ser definida tal que:
 
 $$
 Tem\_fronteira(x,y)=x\text{ tem fronteira terrestre com }y
@@ -88,25 +118,33 @@ onde _tem fronteira terrestre com_ é a tal **expressão designatória**.
   - $\exists$, que corresponde ao **quantificador existencial**.
   - $\forall$ que corresponde ao **quantificador universal**.
 
-- $f^{n}_{i}$, para $n \geq 0, i \geq 1$ - funções de aridade $n$. Funções com aridade 0 ($n = 0$) são constantes. A i-gésima função diz-se com _n argumentos_. Começam com letra minúscula.
+- $f^{n}_{i}$, para $n \geq 0, i \geq 1$ - funções de aridade $n$. Funções com aridade
+  $0$ ($n = 0$, portanto) são constantes. A i-gésima função diz-se com $n$ _argumentos_. Começam com letra minúscula.
 
-- $P^{n}_{i}$, para $n \geq 0, i \geq 1$ - letras de predicado com aridade $n$. Uma letra de predicado com $n$ argumentos representa uma relação _n-ária_ (por exemplo, a relação de fronteira entre 2 países é uma relação binária). Começam com letra maiúscula.
+- $P^{n}_{i}$, para $n \geq 0, i \geq 1$ - letras de predicado com aridade $n$.
+  Uma letra de predicado com $n$ argumentos representa uma relação $n$_-ária_ (por exemplo,
+  a relação de fronteira entre 2 países é uma relação binária). Começam com letra maiúscula.
 
 - Variáveis individuais, $x_{i}$, como as usuais $x, y, z$.
 
-### Termos
+---
 
-Correspondem às entidades sobre as quais queremos falar, o menor conjunto definido recursivamente através das seguintes regras de formação:
+Depois de apresentadas as principais componentes da linguagem da LPO, podemos então
+começar a falar dos seus termos, das suas _fbfs_, e daí prosseguir.
 
-- cada letra de constante é um termo;
+:::info[Termos]
 
-- cada variável é um termo;
+Correspondem às entidades sobre as quais queremos falar.
 
-- se $t_{1}, \dots, t_{n}$ são termos, então a função que aceita esses argumentos também é um termo.
+- cada **letra de constante** é um termo;
 
-Um **termo fechado/chão** é um termo que não contém variáveis.
+- cada **variável** é um termo;
 
-De seguida apresenta-se um conjunto de termos (os cinco primeiros são **fechados**):
+- se $t_{1}, \dots, t_{n}$ são termos, então a função que aceita esses argumentos é também um termo.
+
+Um [**termo fechado/chão**](color:yellow) é um termo que não contém variáveis.
+
+Exemplos de termos fechados seriam, por exemplo:
 
 $$
 \begin{array}{c}
@@ -114,41 +152,52 @@ Portugal\\
 Augustus\_De\_Morgan\\
 capital(Portugal)\\
 pai(Augustus\_De\_Morgan)\\
-pai(pai(pai(Augustus\_De\_Morgan)))\\
+pai(pai(pai(Augustus\_De\_Morgan)))
+\end{array}
+$$
+
+Enquanto que termos que aceitam variáveis poderiam ser:
+
+$$
+\begin{array}{c}
 x\\
 capital(x)\\
 pai(x)
 \end{array}
 $$
 
-### Fórmulas bem formadas
+:::
+
+:::tip[Fórmulas bem formadas]
 
 O conceito de fórmula bem formada, _fbf_, é redefinido para a lógica de primeira ordem.
 Corresponde ao menor conjunto definido através das seguintes regras de formação:
 
-- se $t_{1}, \dots, t_{n}$ são termos, então o predicado que aceita esses argumentos é uma _fbf_, sendo que esta _fbf_ é **atómica**;
+- se $t_{1}, \dots, t_{n}$ são termos, então o predicado que aceita esses argumentos
+  é uma _fbf_, sendo que esta _fbf_ é **atómica**;
 
-- Se $\alpha$ é uma _fbf_, $\neg\alpha$ é também uma _fbf_; a conjunção, disjunção e implicação de _fbfs_ é também uma _fbf_;
+- Se $\alpha$ é uma _fbf_, $\neg\alpha$ é também uma _fbf_; a conjunção, disjunção e
+  implicação de _fbfs_ é também uma _fbf_;
 
 - Se $\alpha$ é uma _fbf_, então $\forall x[\alpha]$ e $\exists x[\alpha]$ são também _fbfs_.
 
-Uma _fbf_ sem variáveis é uma _formula chã_.
+Dizemos que uma _fbf_ sem variáveis é [**chã**](color:orange).
 
-Resta notar que, sempre que possível, tentamos abreviar uma sequência de quantificadores do mesmo tipo numa só ocorrência do mesmo - por exemplo, $\forall x[\forall y[\dots]]$ é igual a $\forall x, y[\dots]$.
+:::
+
+Resta notar que, sempre que possível, tentamos abreviar uma sequência de quantificadores
+do mesmo tipo numa só ocorrência do mesmo - por exemplo, $\forall x[\forall y[\dots]]$
+é igual a $\forall x, y[\dots]$.
 
 :::details[Exemplo - Fórmulas bem formadas]
 
-Em relação ao seguinte exemplo, é relevante relembrar que o que começar por **letras minúsculas** corresponde a funções e por **maiúsculas** a relações.
+Apresenta-se, de seguida, um conjunto de fórmulas bem formadas.
+Note-se que os terceiro e quartos exemplos correspondem a [**fórmulas chãs**](color:orange)!
 
 $$
 \neg P (a,g(a,b,c))\\
 P(a,b)\rightarrow \neg Q(f(d))\\
-R \wedge S
-$$
-
-No próximo exemplo, a primeira _fbf_ é uma formula chã, visto que não tem variáveis, mas sim termos concretos.
-
-$$
+R \wedge S\\
 Tem\_fronteira(Portugal, Espanha)\\
 Tem\_fronteira(x,y)\\
 \forall x\ [\forall y\ [Tem\_fronteira(x,y) \rightarrow \exists g\ [Travaram\_guerra(g,x,y)]]]\\
@@ -157,70 +206,106 @@ $$
 
 :::
 
-Nas _fbfs_ $\forall x[\alpha]$ e $\exists x[\alpha]$, $\alpha$ é o **domínio do quantificador**. Diz-se que o quantificador **liga** a variável $x$.  
-Uma ocorrência da variável $x$ diz-se _ligada_ numa _fbf_ caso esta ocorrência apareça dentro do domínio do quantificador que a introduz. Caso contrário, a variável diz-se _livre_. Uma _fbf_ sem variáveis livres diz-se _fechada_ - basta uma livre para não o ser. Caso não ocorram quantificadores no âmbito da variável em questão (caso falemos de uma relação, por exemplo), a variável é livre.
+Nas _fbfs_ $\forall x[\alpha]$ e $\exists x[\alpha]$, $\alpha$ é o **domínio do quantificador**.
+Diz-se que o quantificador **liga** a variável $x$.  
+Uma ocorrência da variável $x$ diz-se _ligada_ numa _fbf_ caso esta ocorrência apareça
+dentro do domínio do quantificador que a introduz. Caso contrário, a variável diz-se
+_livre_. Uma _fbf_ sem variáveis livres diz-se _fechada_ - basta uma livre para não o ser.
+Caso não ocorram quantificadores no âmbito da variável em questão (caso falemos de uma
+relação, por exemplo), a variável é livre.
 
-A título de exemplo, podemos dizer que a $fbf$ $P(x) \rightarrow \exists x [Q(x)]$ contém uma ocorrência livre de $x$ em $P(x)$, e uma ocorrência ligada de $x$ em $Q(x)$.
+A título de exemplo, podemos dizer que a $fbf$ $P(x) \rightarrow \exists x [Q(x)]$
+contém uma ocorrência livre de $x$, em $P(x)$, e uma ocorrência ligada de $x$, em $Q(x)$.
 
 ### Substituição
 
-Conjunto finito de pares ordenados $\{t_{1}/x_{1}, \dots, t_{n}/x_{n}\}$, em que cada $x_{i}$ é uma variável individual e cada $t_{i}$ é um termo. Numa substituição, **todas as variáveis individuais são diferentes** e **nenhuma variável individual é igual ao termo correspondente**. Cada um dos pares $t_{i}, x_{i}$ é uma **ligação**.
+Conjunto finito de pares ordenados $\{t_{1}/x_{1}, \dots, t_{n}/x_{n}\}$, em que
+cada $x_{i}$ é uma variável individual e cada $t_{i}$ é um termo. Numa substituição,
+[**todas as variáveis individuais são diferentes**](color:red), e [**nenhuma variável individual
+é igual ao termo correspondente**](color:red). Cada um dos pares $t_{i}, x_{i}$ é uma **ligação**.
 
-:::details[Exemplo - Substituição]
+Podem ser consideradas substituições, visto que todas as variáveis individuais são
+diferentes e não há termos iguais à variável associada:
 
-Podem ser consideradas substituições, visto que todas as variáveis individuais são diferentes e não há termos iguais à variável associada:
-
-$\{f(x)/x, z/y\}$  
-$\{a/x, g(y)/y, f(g(h(b)))/z\}$
+$$
+\{f(x)/x,\hspace{0.1cm} z/y\}\\
+\{a/x,\hspace{0.1cm} g(y)/y,\hspace{0.1cm} f(g(h(b)))/z\}
+$$
 
 Por outro lado, não podem ser substituições:
 
-$\{x/x, z/y\}$  
-(visto que o termo $x$ está ligado à variável $x$ - iguais, não representando portanto uma substituição)  
-$\{a/x, g(y)/y, b/x\}$  
-(visto que a variável individual $x$ aparece 2 vezes).
+$$
+\{x/x,\hspace{0.1cm} z/y\}
+$$
 
-:::
+(visto que o termo $x$ está ligado à variável $x$ - iguais, não representando portanto uma substituição)
+
+$$
+\{a/x,\hspace{0.1cm} g(y)/y,\hspace{0.1cm} b/x\}
+$$
+
+(visto que a variável individual $x$ aparece 2 vezes).
 
 Existem dois casos especiais de substituições:
 
-- **Substituição chã** - substituição na qual nenhum dos termos contém variáveis.
+- [**Substituição chã**](color:orange), caso nenhum dos termos contenha variáveis.
 
-- **Substituição vazia** - substituição que corresponde ao conjunto vazio. Representada por $\epsilon$.
+- [**Substituição vazia**](color:yellow), correspondendo ao conjunto vazio. Representada por $\epsilon$.
 
-A ideia subjacente ao conceito de substituição é que cada variável individual será substituída pelo termo que lhe está associado. É aplicada substituindo todas as **ocorrências livres** de variáveis individuais pelo termo a elas associado. Qualquer ocorrência ligada de uma variável não pode ser substituída.
+A ideia subjacente ao conceito de substituição é que cada variável individual será
+substituída (lá está) pelo termo que lhe está associado. É aplicada substituindo todas as
+**ocorrências livres** de variáveis individuais pelo termo a elas associado. [**Qualquer
+ocorrência ligada de uma variável não pode ser substituída**](color:yellow)!
 
-Escrevemos $\alpha(x_{1}, \dots, x_{n})$ para indicar que a _fbf_ $\alpha$ tem $x_{1}, \dots, x_{n}$ como variáveis livres.
+Escrevemos $\alpha(x_{1}, \dots, x_{n})$ para indicar que a _fbf_ $\alpha$ tem
+$x_{1}, \dots, x_{n}$ como variáveis livres.
 
-:::details[Exemplo - Aplicação da Substituição]
+:::details[Exemplo - Aplicar uma substituição]
 
-$P(x, f(a, y)) \cdot \{a/x, f(a, b)/y\} = P(a, f(a, f(a, b))).$
+Consideremos:
 
-Como podemos observar, as ocorrências das variáveis individuais $x$ e $y$ são substituídos pelos termos a que estão ligados, sendo que todas as ocorrências dessas variáveis são ambas livres.
+$$
+P(x, f(a, y)) \cdot \{a/x,\hspace{0.1cm} f(a, b)/y\} = P(a, f(a, f(a, b)))
+$$
 
-$(A(x) \to \exists x[B(x)]) \cdot \{a/x, f(a,b)/y\} = A(a) \to \exists x[B(x)].$
+Como podemos observar, as ocorrências das variáveis individuais $x$ e $y$ são substituídas
+pelos termos a que estão ligados, sendo que todas as ocorrências dessas variáveis são ambas livres.
 
-Aqui, só uma das ocorrências da variável $x$ é livre, e só nessa é que pode ocorrer substituição. Ora, não ocorrer substituição em todas as ocorrências pode originar problemas futuros, abordados à frente.
+$$
+(A(x) \to \exists x[B(x)]) \cdot \{a/x, f(a,b)/y\} = A(a) \to \exists x[B(x)]
+$$
+
+Aqui, só uma das ocorrências da variável $x$ é livre, e só nessa é que ocorre
+substituição. Ora, o facto da substituição não ocorrer sempre pode originar
+problemas futuros, abordados mais à frente.
 
 :::
 
-- **Termo livre para uma variável** - se $\alpha$ for uma _fbf_ e $t$ um termo, dizemos que $t$ é _livre_ para $x$ em $\alpha$ caso nenhuma ocorrência livre de $x$ em $\alpha$ ocorrer dentro do domínio de um quantificador em ordem $y$, onde $y$ é uma variável em $t$. Um termo sem variáveis é sempre livre para qualquer variável em qualquer _fbf_.
-
-:::details[Exemplo - Termo livre para uma variável]
-
-O termo $g(y, f(b))$ é livre para $x$ na _fbf_ $P(x, y)$, mas não o é na _fbf_ $\forall y[P(x, y)]$.
-
-:::
+Dizemos, finalmente, que temos em mãos um [**termo livre $t$ para uma variável $x$ numa _fbf_ $\alpha$**](color:orange)
+caso nenhuma ocorrência livre de $x$ em $\alpha$ ocorra dentro do domínio de um
+quantificador em ordem $y$ (onde $y$ é uma variável em $t$). Um termo sem variáveis
+é, claro, sempre livre para qualquer variável em qualquer _fbf_. O termo $g(y, f(b))$
+é livre para $x$ na _fbf_ $P(x, y)$, por exemplo, mas não o é na _fbf_ $\forall y[P(x, y)]$.
 
 ## Sistema dedutivo
 
-O sistema dedutivo da Lógica de Primeira Ordem difere do da Lógica Proposicional no que às regras de inferência diz respeito. Todas as regras de inferência introduzidas anteriormente (conjunção, disjunção, negação, implicação) são aqui aplicáveis, contudo iremos adicionar mais algumas.
+O sistema dedutivo da Lógica de Primeira Ordem difere do da Lógica Proposicional
+no que às regras de inferência diz respeito. Todas as regras de inferência introduzidas
+anteriormente (conjunção, disjunção, negação, implicação) são aqui aplicáveis - iremos
+apenas adicionar regras de inferência adicionais, sobre os quantificadores introduzidos
+pela LPO.
 
 ### Regras para o quantificador universal
 
 :::tip[Introdução do quantificador universal]
 
-Abreviada por $I\forall$, pode ser utilizada quando uma propriedade arbitrária, $\alpha(t)$, for provada para $t$. Utilizamos, para tal, uma técnica semelhante à regra da introdução da implicação, criando um novo "contexto" no qual aparece um novo termo, que nunca apareceu na prova, e tentamos provar que esse termo tem essa propriedade. A regra afirma, portanto, que se numa prova iniciada pela introdução da variável $x_{0}$ pudermos derivar a _fbf_ $\alpha (x_{0})$, então podemos escrever $\forall x[\alpha(x)]$.
+Abreviada por $I\forall$, pode ser utilizada quando uma propriedade arbitrária,
+$\alpha(t)$, for provada para $t.$ Utilizamos, para tal, uma técnica semelhante
+à **regra da introdução da implicação**, criando um novo "contexto" no qual aparece
+um novo termo, que nunca apareceu na prova, e tentamos provar que esse termo arbitrário tem
+essa propriedade. A regra afirma, portanto, que se numa prova iniciada pela introdução
+da variável $x_{0}$ pudermos derivar a _fbf_ $\alpha (x_{0})$, então podemos escrever $\forall x[\alpha(x)]$,
+[**precisamente porque o termo introduzido é arbitrário**](color:green)!
 
 $$
 \def\arraystretch{1.5}
@@ -232,13 +317,17 @@ $$
 \end{array}
 $$
 
-Resta notar que aqui não estamos a trabalhar diretamente com as usuais provas hipotéticas, mas com um contexto iniciado por um qualquer termo (podemos, contudo, iniciar provas hipotéticas dentro desse contexto sem qualquer problema). A sua apresentação é também diferente, tal como pode ser observado acima.
+Resta notar que aqui não estamos a trabalhar diretamente com as usuais provas
+hipotéticas, mas com um contexto iniciado por um qualquer termo (podemos, contudo,
+iniciar provas hipotéticas dentro desse contexto sem qualquer problema). A sua
+apresentação é também diferente, tal como pode ser observado acima.
 
 :::
 
 :::tip[Eliminação do quantificador Universal]
 
-Abreviada por $E\forall$, indica que a partir de $\forall x[\alpha(x)]$ podemos inferir $\alpha(t)$, onde $t$ é qualquer termo.
+Abreviada por $E\forall$, indica que a partir de $\forall x[\alpha(x)]$ podemos
+inferir $\alpha(t)$, onde $t$ é qualquer termo.
 
 $$
 \def\arraystretch{1.5}
@@ -251,9 +340,13 @@ $$
 
 :::
 
-:::details[Exemplo - Introdução/Eliminação do quantificador universal]
+Recorrendo às duas regras descritas acima, conseguimos agora provar o argumento
 
-Prova do argumento $({\forall x[P(x) \to Q(x)], \forall x[Q(x) \to R(x)]}, \forall x[P(x) \to R(x)])$ (de notar que há mais que uma maneira de fazer esta prova):
+$$
+({\forall x[P(x) \to Q(x)], \forall x[Q(x) \to R(x)]}, \forall x[P(x) \to R(x)]).
+$$
+
+Note-se que há mais que uma maneira de fazer esta prova!
 
 $$
 \def\arraystretch{1.5}
@@ -272,13 +365,13 @@ $$
 \end{array}
 $$
 
-:::
-
 ### Regras para o quantificador existencial
 
 :::tip[Introdução do quantificador existencial]
 
-Abreviada por $I\exists$, afirma que a partir de uma propriedade arbitrária $\alpha(t)$, podemos inferir $\exists x[\alpha(x)]$.
+Abreviada por $I\exists$, afirma que a partir de uma propriedade arbitrária $\alpha(t)$,
+podemos inferir $\exists x[\alpha(x)]$ - se provámos a propriedade para um termo,
+provámos que existe pelo menos um termo para a qual esta se aplica.
 
 $$
 \def\arraystretch{1.5}
@@ -293,7 +386,13 @@ $$
 
 :::tip[Eliminação do quantificador existencial]
 
-Abreviada por $E\exists$, é, porventura, a mais complicada das quatro regras introduzidas. Temos, a partir de $\exists x[\alpha(t)]$ que existe pelo menos uma entidade que satisfaz a propriedade $\alpha$ - só não sabemos qual. Como não sabemos nada sobre essa entidade, nada podemos afirmar sobre ela, para além de $\alpha(t)$. Na prova, o objetivo será criar um "contexto" em que surge uma entidade nunca mencionada anteriormente; se dentro desse contexto formos capazes de derivar uma _fbf_ $\beta$, que não menciona $t$, então $\beta$ verificar-se-á independentemente de $t$.
+Abreviada por $E\exists$, é, porventura, a mais complicada das quatro regras introduzidas.
+Temos, a partir de $\exists x[\alpha(t)]$, que existe pelo menos uma entidade que satisfaz
+a propriedade $\alpha$ - só não sabemos qual. Como não sabemos nada sobre essa entidade,
+nada podemos afirmar sobre ela, para além de $\alpha(t)$. Na prova, o objetivo será criar
+um "contexto" em que surge uma entidade nunca mencionada anteriormente; se dentro
+desse contexto formos capazes de derivar uma _fbf_ $\beta$, que não menciona $t$,
+então $\beta$ verificar-se-á independentemente de $t$.
 
 $$
 \def\arraystretch{1.5}
@@ -308,9 +407,7 @@ $$
 
 :::
 
-:::details[Exemplo - Introdução/Eliminação do quantificador existencial]
-
-Prova de $\exists x[P(x)] \to \neg\forall x[\neg P(x)]$:
+A prova de $\exists x[P(x)] \to \neg\forall x[\neg P(x)]$ passa por algo deste género:
 
 $$
 \def\arraystretch{1.5}
@@ -325,5 +422,3 @@ $$
   8 & \exists x[P(x)] \to \neg\forall x[\neg P(x)] && I\to, (1, 7)
 \end{array}
 $$
-
-:::
