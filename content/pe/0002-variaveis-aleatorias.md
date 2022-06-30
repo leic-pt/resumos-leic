@@ -84,7 +84,7 @@ $$
 
 :::tip[Nota]
 
-Em todos os exemplos podiamos ter definido qualquer outra VA que nos apetecesse.  
+Em todos os exemplos podíamos ter definido qualquer outra VA que nos apetecesse.  
 Nos primeiros dois exemplos não fazia sentido definir qualquer VA que não as que foram definidas - estas são as que nos fazem mais sentido.
 De facto, nesses casos as variáveis aleatórias são tão pouco "originais" que é fácil confundir o input (o evento) com o output (um valor numérico).  
 No entanto, no terceiro exemplo já é mais notável qual o objetivo da VA.
@@ -107,7 +107,7 @@ Dizemos que uma VA $X$ unidimensional tem uma [**condição de mensurabilidade**
 
 :::
 
-Para analisar probabilidades, atribuimos a VA's $X$ uma função de probabilidade $P: \Omega \to [0,1]$ definida por
+Para analisar probabilidades, atribuímos a VA's $X$ uma função de probabilidade $P: \Omega \to [0,1]$ definida por
 
 $$
 P(X = x) = P( \{ \omega \in \Omega : X(\omega) = x \} )
@@ -145,7 +145,7 @@ $$
 
 As VA's discretas satisfazem as seguintes propriedades:
 
-- $F_X$ é monótona crescente, contínua à direita e tem $\#\R_X$ pontos de descontínuidade. Consequentemente, o gráfica da fd de uma VA discreta é algo parecido a:
+- $F_X$ é monótona crescente, contínua à direita e tem $\#\R_X$ pontos de descontinuidade. Consequentemente, o gráfica da fd de uma VA discreta é algo parecido a:
 
 ![Gráfico da fd de um VA dicsreta](./imgs/0002/discrete_fd_graph.png#dark=3)
 
@@ -221,7 +221,7 @@ As funções mais que relevantes que nos dão informação sobre VA's são:
   E(aX+b) = aE(X) + b
   $$
 
-  Esta funçao é a medida de centralidade principal de uma VA.
+  Esta função é a medida de centralidade principal de uma VA.
 
 - [**Variância**](color:orange): [**$Var(X)$**](color:orange), [**$V(X)$**](color:orange), [**$\sigma^2$**](color:orange) ou [**$\sigma^2_x$**](color:orange)  
   É definido como

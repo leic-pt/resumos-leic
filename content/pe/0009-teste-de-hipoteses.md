@@ -3,7 +3,7 @@ title: Teste de Hipóteses
 description: >-
   Inferência Estatística. Conceitos base de estatística.
   Amostragem Aleatória.
-  Estimadores. Enviasamento e Erro Quadrático Médio.
+  Estimadores. Enviesamento e Erro Quadrático Médio.
   Método da Máxima Verosimilhança.
   Distribuições amostrais.
 path: /pe/teste-de-hipoteses
@@ -34,7 +34,7 @@ Normalmente isto é feito através da confrontação de duas [hipóteses paramé
     H_0: \mu = \mu_0 \text{ e } H_1: \mu \neq \mu_0
     $$
 
-Uma [hipótese paramétrica](color:orange) diz-se ainda [**simples**](color:purple) se espicificar um único valor para o parâmetro em caso, dizendo-se [**composta**](color:pink) caso contrário.
+Uma [hipótese paramétrica](color:orange) diz-se ainda [**simples**](color:purple) se especificar um único valor para o parâmetro em caso, dizendo-se [**composta**](color:pink) caso contrário.
 
 :::details[Exemplo]
 
@@ -58,7 +58,7 @@ Temos que a [hipótese nula](color:blue) $H_0: \mu \geq 1,70$:
 
 > A média das alturas dos portugueses é no mínimo 1,70m
 
-Tem uma [hipotese alternativa unilateral inferior](color:green): $H_1: \mu < 1,70$.
+Tem uma [hipótese alternativa unilateral inferior](color:green): $H_1: \mu < 1,70$.
 
 Deve agora ser fácil imaginar uma [hipótese nula](color:blue) cuja [hipótese alternativa](color:green) seja [unilateral superior](color:green).
 
@@ -81,7 +81,7 @@ Esta estatística:
 
 - reflete a discrepância entre o estimador de $\theta$ e o valor conjeturado para o mesmo em $H_0$ ($\theta_0$);
 - têm distribuição (exata ou aproximada) conhecida, sob a validade de $H_0$;
-- obtem-se, normalmente, à custa de uma certa VA fulcral, substituindo $\theta$ por $\theta_0$ na sua expressão.
+- obtém-se, normalmente, à custa de uma certa VA fulcral, substituindo $\theta$ por $\theta_0$ na sua expressão.
 
 A partir desta estatística $T$, fica então a faltar definir o conjunto de valores que deverão levar à rejeição de $H_0$.
 A estes valores damos o nome de [**valores críticos**](color:red) e a este conjunto [**região de rejeição**](color:red) ou [**rejeição crítica**](color:red) de $H_0$.
@@ -101,7 +101,7 @@ Temos então que $\theta_0 \in IC_{1-\alpha_0}(\theta)$ leva à aceitação de $
 
 ## Procedimentos para Testar uma Hipótese
 
-Para testar uma hipótese seguimos então o seguinde procedimento:
+Para testar uma hipótese seguimos então o seguinte procedimento:
 
 1. Escolhemos a **VA de interesse** $X$;
 2. Identificamos a **situação**: qual a distribuição de $X$, o parâmetro em questão, outros parâmetros em causa, etc;
@@ -113,7 +113,7 @@ Para testar uma hipótese seguimos então o seguinde procedimento:
 
 ## Função Potência
 
-Por vezes, além da probabilidade de rejeiçao para uma hipótese verdadeira, podemos querer essa probabilidade para uma hipótese falsa.
+Por vezes, além da probabilidade de rejeição para uma hipótese verdadeira, podemos querer essa probabilidade para uma hipótese falsa.
 Definimos a [**função potência**](color:pink) de um teste como a probabilidade de rejeição da hipótese nula.
 Temos que
 
@@ -174,7 +174,7 @@ e portanto podemos obter as mesmas regiões de rejeição indicadas acima, desta
 
 :::danger[]
 
-Esta determinação não é leccionada no programa de 2021/22.
+Esta determinação não é lecionada no programa de 2021/22.
 
 :::
 
@@ -234,7 +234,7 @@ e portanto podemos obter as mesmas regiões de rejeição indicadas acima, desta
 
 :::danger[]
 
-Esta determinação não é leccionada no programa de 2021/22.
+Esta determinação não é lecionada no programa de 2021/22.
 
 :::
 

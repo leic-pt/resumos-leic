@@ -144,7 +144,7 @@ $$
 f_{X|Y=y}(x) = \frac{f_{X,Y}(x,y)}{f_Y(y)} \quad \quad f_{Y|X=x}(y) = \frac{f_{X,Y}(x,y)}{f_X(x)}
 $$
 
-Outa vez, esta condicionalidade define duas VA unidimensionais $X|Y$ e $Y|X$ pelo que podemos calcular as suas fd, valor esperado, variância e outros:
+Outra vez, esta condicionalidade define duas VA unidimensionais $X|Y$ e $Y|X$ pelo que podemos calcular as suas fd, valor esperado, variância e outros:
 
 $$
 F_{X|Y=y}(x) = \frac{f_{X,Y}(x,y)}{f_Y(y)}
@@ -186,7 +186,7 @@ $$
 A [covariância](color:yellow) desfruta das seguintes propriedades:
 
 - $X \indep Y \Rightarrow cov(X,Y) = 0$ e equivalentemente $cov(X,Y) \neq 0 \Rightarrow X \not\indep Y$
-- A implicãção contrária não é necessariamente verdade! $cov(X,Y) = 0 \not\Rightarrow X \indep Y$
+- A implicação contrária não é necessariamente verdade! $cov(X,Y) = 0 \not\Rightarrow X \indep Y$
 - $cov(X,X) = V(X)$
 - $cov(X,Y) = cov(Y,X)$
 - $cov(aX+b, Y) = a \cdot cov(X, Y)$
@@ -194,7 +194,7 @@ A [covariância](color:yellow) desfruta das seguintes propriedades:
 - $cov(\sum_{i=1}^n X_i, \sum_{i=1}^n Y_i) = \sum_{i=1}^n \sum_{j=1}^n cov(X_i, Y_j)$
 - $cov(\sum_{i=1}^n X_i, \sum_{i=1}^n X_i) = \sum_{i=1}^n V(X_i) + 2 \sum_{i=1}^n \sum_{j=i+1}^n cov(X_i, X_j)$
 
-A [covariância](color:yellow) tem a devantagem de não ser adimensional.
+A [covariância](color:yellow) tem a desvantagem de não ser adimensional.
 Ou seja, um escalonamento da VA (multiplicação por um escalar) altera o valor da covariância.
 Isto é um problema, por exemplo, quando queremos mudar a escala (por exemplo, de kg para g) - a covariância não se mantém!
 
@@ -209,7 +209,7 @@ $X$ e $Y$ dizem-se **correlacionadas** se $corr(X,Y) \neq 0$ e não correlaciona
 A [correlação](color:orange) desfruta das seguintes propriedades:
 
 - $X \indep Y \Rightarrow corr(X,Y) = 0$ e equivalentemente $corr(X,Y) \neq 0 \Rightarrow X \not\indep Y$
-- A implicãção contrária não é necessariamente verdade! $corr(X,Y) = 0 \not\Rightarrow X \indep Y$
+- A implicação contrária não é necessariamente verdade! $corr(X,Y) = 0 \not\Rightarrow X \indep Y$
 - $corr(X,X) = 1$
 - $corr(X,Y) = corr(Y,X)$
 - $corr(aX+b,Y) = corr(X,Y)$

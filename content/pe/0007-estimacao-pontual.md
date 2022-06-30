@@ -3,7 +3,7 @@ title: Estimação Pontual
 description: >-
   Inferência Estatística. Conceitos base de estatística.
   Amostragem Aleatória.
-  Estimadores. Enviasamento e Erro Quadrático Médio.
+  Estimadores. Enviesamento e Erro Quadrático Médio.
   Método da Máxima Verosimilhança.
   Distribuições amostrais.
 path: /pe/estimacao-pontual
@@ -35,14 +35,14 @@ Vamos introduzir alguns conceitos base da estatística:
 - [**amostra**](color:yellow) - subconjunto de uma população que se julga representativo da mesma;
 - [**dado estatístico**](color:purple) - resultado observado em relação a uma característica de interesse e respeitante a cada unidade estatística duma amostra;
 - [**amostragem**](color:orange) - conjunto de procedimentos estatísticos com objetivo de obter amostras;
-- [**estatística descritiva**](color:brown) - conjunto de métodos que permitem tornar a informação retirada diretamente de uma amostra (caótica) num conjunto de inforrmações sumárias e mais relevantes;
+- [**estatística descritiva**](color:brown) - conjunto de métodos que permitem tornar a informação retirada diretamente de uma amostra (caótica) num conjunto de informações sumárias e mais relevantes;
 - [**inferência estatística**](color:pink) - compreende um conjunto de métodos com o objetivo de usar a informação (dados/amostra) de modo a responder a questões sobre a população. Consiste então num método para tirar conclusões sobre uma população (geral) a partir de uma amostra (particular).
 
 Na **estatística** estamos interessados em fazer afirmações sobre uma [característica de interesse](color:red) de uma dada [população](color:blue).
 Contudo é frequente ser impossível analisar essa característica em todos os elementos da [população](color:blue) (em estatística, dá-se o nome de [unidade estatística](color:green) a cada elemento da [população](color:blue)).
-É então relevante que sejamos capazes de selecionar uma porção da [população](color:blue) tal que, para essa porção já seja possível fazer a análise da tal característca.
+É então relevante que sejamos capazes de selecionar uma porção da [população](color:blue) tal que, para essa porção já seja possível fazer a análise da tal característica.
 A esta porção damos o nome de [amostra](color:yellow) e ao processo de seleção dá-se o nome de [amostragem](color:orange).
-Em relação à amostra, já é possível fazer observações e apartir destas obter [dados estatísticos](color:purple)
+Em relação à amostra, já é possível fazer observações e a partir destas obter [dados estatísticos](color:purple)
 A partir das observações, é agora importante ser capaz de obter informação sobre a população em geral.
 Isto é feito através de uma [inferência estatística](color:pink).
 
@@ -53,13 +53,13 @@ Isto é feito através de uma [inferência estatística](color:pink).
 Admita-se que queremos fazer um estudo sobre a altura da população portuguesa.
 Nesse caso, a característica que está em estudo - a [característica de interesse](color:red) é a altura, sendo a [população](color:blue) em estudo o conjunto dos portugueses.
 Um exemplo de uma [unidade estatística](color:green) é o Cristiano Ronaldo, uma vez que este pertence ao conjunto dos portugueses.  
-Como seria muito despendioso ir verificar a altura dos portugueses um a um, é importante obter um subconjunto desta população que se considere representativo da mesma - uma [amostra](color:yellow).
+Como seria muito dispendioso ir verificar a altura dos portugueses um a um, é importante obter um subconjunto desta população que se considere representativo da mesma - uma [amostra](color:yellow).
 Um exemplo de uma [amostra](color:yellow) seria (Cristiano Ronaldo, João Pavão Martins, Quim Barreiros, Luís Humberto, Marco Almeida).
-O processo para seleção desta [amostra](color:yellow) denomina-se de [amostragem](color:orange) (claro que a [amostragem](color:orange) que levou à [amostra](color:yellow) acim não teve nada de aleatório).
+O processo para seleção desta [amostra](color:yellow) denomina-se de [amostragem](color:orange) (claro que a [amostragem](color:orange) que levou à [amostra](color:yellow) assim não teve nada de aleatório).
 Em relação à amostra selecionada, podemos fazer a seguinte observação - a que damos o nome de [dados estatísticos](color:purple) - (1.87, 1.73, 1.54, 2.14, 1,82) corresponde às alturas dos elementos da amostra selecionada.  
 Esta amostra é pequena, pelo que analisá-la não é demasiado difícil.
 No entanto, para [amostras](color:yellow) maiores, processar toda a informação pode chegar a ser impossível.
-É então importante tirar conclusões apartir do [dado estatístico](color:purple).
+É então importante tirar conclusões a partir do [dado estatístico](color:purple).
 Isto é feito através de um conjunto de métodos enquadrados na [estatística descritiva](color:brown).
 Um exemplo de algo que seria feito neste passo seria calcular a média dos valores observados.
 No nosso exemplo verificamos que a média das alturas na nossa amostra é 1.82m.  
@@ -141,22 +141,22 @@ Nesse exemplo, obtivemos como [estimativa](color:blue) o valor de 1,82m.
 
 :::
 
-### Enviasamento
+### Enviesamento
 
 :::danger[]
 
-A definição de enviasamento não é leccionada no programa de 2021/22.
+A definição de enviesamento não é lecionada no programa de 2021/22.
 
 :::
 
-Damos o nome de [**enviasamento**](color:green) de um estimador $T$ de $\theta$ ao valor
+Damos o nome de [**enviesamento**](color:green) de um estimador $T$ de $\theta$ ao valor
 
 $$
 bias_\theta[T(\underline{X})] = E(T(\underline{X})) - \theta
 $$
 
-Um estimador diz-se **centrado** se tiver enviasamento nulo e **enviasado** caso contrário.  
-Um estimador será tanto melhor quanto menor o seu enviasamento.
+Um estimador diz-se **centrado** se tiver enviesamento nulo e **enviesado** caso contrário.  
+Um estimador será tanto melhor quanto menor o seu enviesamento.
 
 :::tip[Nota]
 
@@ -169,7 +169,7 @@ A variância corrigida é centrada, ao contrário da não corrigida.
 
 :::danger[]
 
-A definição de erro quadrático médio não é leccionada no programa de 2021/22.
+A definição de erro quadrático médio não é lecionada no programa de 2021/22.
 
 :::
 
@@ -194,7 +194,7 @@ Sendo assim, temos que o estimador $T_1(\underline{X})$ é mais eficiente que $T
 
 ## Método da Máxima Verosimilhança
 
-O [**método da máxima verosimilhança**](color:yellow) ([MV](color:yellow)) consiste num método para obter o valor mais plausível/verosímel para um parâmetro desconhecido, de entre todos os valores possíveis para o mesmo, tendo em conta uma amostra.
+O [**método da máxima verosimilhança**](color:yellow) ([MV](color:yellow)) consiste num método para obter o valor mais plausível/verosímil para um parâmetro desconhecido, de entre todos os valores possíveis para o mesmo, tendo em conta uma amostra.
 
 Definimos a [**função verosimilhança**](color:orange) como a função $L(\theta | \underline{x} ) : \Theta \to \R$ tal que:
 
@@ -241,7 +241,7 @@ Exemplos:
 - $F_{X_{(1)}}(x) = 1 - (1 - F_X(x))^n$
 - $F_{X_{(n)}}(x) = (F_X(x))^n$
 
-A média está de modo geral relacionada com o estimador de MV do valor esperado, pelo que é paraticularmente interessante estudar a sua distribuição amostral.
+A média está de modo geral relacionada com o estimador de MV do valor esperado, pelo que é particularmente interessante estudar a sua distribuição amostral.
 Como já vimos no capítulo anterior:
 
 $$
