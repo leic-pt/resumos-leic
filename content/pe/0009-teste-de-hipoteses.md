@@ -3,7 +3,7 @@ title: Teste de Hipóteses
 description: >-
   Inferência Estatística. Conceitos base de estatística.
   Amostragem Aleatória.
-  Estimadores. Enviasamento e Erro Quadrático Médio.
+  Estimadores. Enviesamento e Erro Quadrático Médio.
   Método da Máxima Verosimilhança.
   Distribuições amostrais.
 path: /pe/teste-de-hipoteses
@@ -18,7 +18,7 @@ type: content
 
 ## Hipóteses
 
-Damos o nome de [**hipótese estatística**](color:yellow) a qualquer conjetura sobre um dado estatístico, como por exemplo a distribuição de um VA de interesse, um parâmetro desconhecido, ou outro.
+Damos o nome de [**hipótese estatística**](color:yellow) a qualquer conjetura sobre um dado estatístico, como por exemplo a distribuição de uma VA de interesse, um parâmetro desconhecido, ou outro.
 A uma conjetura sobre um parâmetro damos o nome de [**hipótese paramétrica**](color:orange).  
 Este capítulo centra-se no estuda da confiança que podemos dar a uma [hipótese paramétrica](color:orange).  
 Normalmente isto é feito através da confrontação de duas [hipóteses paramétricas](color:orange):
@@ -34,7 +34,7 @@ Normalmente isto é feito através da confrontação de duas [hipóteses paramé
     H_0: \mu = \mu_0 \text{ e } H_1: \mu \neq \mu_0
     $$
 
-Uma [hipótese paramétrica](color:orange) diz-se ainda [**simples**](color:purple) se espicificar um único valor para o parâmetro em caso, dizendo-se [**composta**](color:pink) caso contrário.
+Uma [hipótese paramétrica](color:orange) diz-se ainda [**simples**](color:purple) se especificar um único valor para o parâmetro em caso, dizendo-se [**composta**](color:pink) caso contrário.
 
 :::details[Exemplo]
 
@@ -45,20 +45,20 @@ Seja este parâmetro $\mu$.
 
 Um exemplo de uma [hipótese paramétrica](color:orange) é:
 
-> A média das alturas dos portugueses é 1,75m.
+> A média das alturas dos portugueses é $1,75m$.
 
 Esta [hipótese paramétrica](color:orange) é [simples](color:purple) pois especifica um só valor para o parâmetro desconhecido.
 Uma [hipótese paramétrica](color:orange) [composta](color:pink) seria, por exemplo:
 
-> A média das alturas dos portugueses está algures entre 1,70m e 1,80m.
+> A média das alturas dos portugueses está algures entre $1,70m$ e $1,80m$.
 
 Se considerarmos a primeira hipótese apresentada como a [hipótese nula](color:blue) - $H_0: \mu = 1,70$ - temos que a [hipótese alternativa](color:green) é [bilateral](color:green) - $H_1: \mu \neq 1,70$.
 
 Temos que a [hipótese nula](color:blue) $H_0: \mu \geq 1,70$:
 
-> A média das alturas dos portugueses é no mínimo 1,70m
+> A média das alturas dos portugueses é no mínimo $1,70m$.
 
-Tem uma [hipotese alternativa unilateral inferior](color:green): $H_1: \mu < 1,70$.
+Tem uma [hipótese alternativa unilateral inferior](color:green): $H_1: \mu < 1,70$.
 
 Deve agora ser fácil imaginar uma [hipótese nula](color:blue) cuja [hipótese alternativa](color:green) seja [unilateral superior](color:green).
 
@@ -80,8 +80,8 @@ Para calcular a probabilidade de erro, definimos uma [**estatística de teste**]
 Esta estatística:
 
 - reflete a discrepância entre o estimador de $\theta$ e o valor conjeturado para o mesmo em $H_0$ ($\theta_0$);
-- têm distribuição (exata ou aproximada) conhecida, sob a validade de $H_0$;
-- obtem-se, normalmente, à custa de uma certa VA fulcral, substituindo $\theta$ por $\theta_0$ na sua expressão.
+- tem distribuição (exata ou aproximada) conhecida, sob a validade de $H_0$;
+- obtém-se, normalmente, à custa de uma certa VA fulcral, substituindo $\theta$ por $\theta_0$ na sua expressão.
 
 A partir desta estatística $T$, fica então a faltar definir o conjunto de valores que deverão levar à rejeição de $H_0$.
 A estes valores damos o nome de [**valores críticos**](color:red) e a este conjunto [**região de rejeição**](color:red) ou [**rejeição crítica**](color:red) de $H_0$.
@@ -96,12 +96,12 @@ Mais uma vez relembra-se que aceitação não significa que $H_0$ seja verdadeir
 Podemos no entanto concluir, em caso de aceitação da hipótese nula, que a probabilidade de um erro destes acontecer é inferior ao [nível de significância](color:brown) $\alpha_0$.
 Desta forma, quanto menor $\alpha_0$, maior o conjunto de valores rejeitados.
 
-Observamos ainda que se $H_0$ for uma hipótese nula $H_0: \theta = \theta_0$ com alternativa bilateral $H_1: \theta \neq \theta_0$ averiguar $H_0$ com n.s. $\alpha_0$ equivale a averiguar se o valor $\theta_0$ proposto por $H_0$ pertence ao intervalo de confiança $1-\alpha_0$.
+Observamos ainda que, se $H_0$ for uma hipótese nula $H_0: \theta = \theta_0$ com alternativa bilateral $H_1: \theta \neq \theta_0$, averiguar $H_0$ com n.s. $\alpha_0$ equivale a averiguar se o valor $\theta_0$ proposto por $H_0$ pertence ao intervalo de confiança $1-\alpha_0$.
 Temos então que $\theta_0 \in IC_{1-\alpha_0}(\theta)$ leva à aceitação de $\theta_0$ com n.s. $\alpha_0$ e $\theta_0 \not\in IC_{1-\alpha_0}(\theta)$ leva à rejeição com esse mesmo n.s.
 
 ## Procedimentos para Testar uma Hipótese
 
-Para testar uma hipótese seguimos então o seguinde procedimento:
+Para testar uma hipótese seguimos então o seguinte procedimento:
 
 1. Escolhemos a **VA de interesse** $X$;
 2. Identificamos a **situação**: qual a distribuição de $X$, o parâmetro em questão, outros parâmetros em causa, etc;
@@ -113,7 +113,7 @@ Para testar uma hipótese seguimos então o seguinde procedimento:
 
 ## Função Potência
 
-Por vezes, além da probabilidade de rejeiçao para uma hipótese verdadeira, podemos querer essa probabilidade para uma hipótese falsa.
+Por vezes, além da probabilidade de rejeição para uma hipótese verdadeira, podemos querer essa probabilidade para uma hipótese falsa.
 Definimos a [**função potência**](color:pink) de um teste como a probabilidade de rejeição da hipótese nula.
 Temos que
 
@@ -174,7 +174,7 @@ e portanto podemos obter as mesmas regiões de rejeição indicadas acima, desta
 
 :::danger[]
 
-Esta determinação não é leccionada no programa de 2021/22.
+Esta determinação não é lecionada no programa de 2021/22.
 
 :::
 
@@ -234,7 +234,7 @@ e portanto podemos obter as mesmas regiões de rejeição indicadas acima, desta
 
 :::danger[]
 
-Esta determinação não é leccionada no programa de 2021/22.
+Esta determinação não é lecionada no programa de 2021/22.
 
 :::
 

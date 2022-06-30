@@ -167,7 +167,7 @@ $$
   $$
   Y \sim \op{exponencial}(p)
   $$
-- **Processo de Poisson**: Damos o nome de Processo de Poisson a uma coleçao de VA's $\{ N_t: t \in \R^+ \}$ que registam o número de ocorrências de um certo evento no intervalo $]0,1]$ tal que:
+- **Processo de Poisson**: Damos o nome de Processo de Poisson a uma coleção de VA's $\{ N_t: t \in \R^+ \}$ que registam o número de ocorrências de um certo evento no intervalo $]0,1]$ tal que:
   - O número de ocorrências em intervalos disjuntos são VA independentes;
   - O número de ocorrências em intervalos de amplitude igual satisfazem a mesma distribuição;
   - $N_t \sim \op{Poisson}(\lambda t)$
@@ -212,7 +212,7 @@ Uma VA $X$ com [distribuição normal](color:yellow) tem:
 :::details[Exemplo]
 
 Considere-se a VA $X$ que regista a altura de um português aleatório.
-Assumindo a altura dos portugueses satisfaz uma distribuição normal com valor esperado 1.75m e variancia 30cm temos que:
+Assumindo a altura dos portugueses satisfaz uma distribuição normal com valor esperado 1.75m e variância 30cm temos que:
 
 $$
 X~\sim~\text{normal}(1.75, 0.3)
@@ -243,7 +243,7 @@ e o seu valor esperado e variância são 1.75m e 0.3m.
 
 :::details[Como obter $F_X(x)$ através da tabela]
 
-Para uma distriubição $X \sim \op{normal}(23,{0.1}^{2})$ queremos saber o valor de $P(X \leq 23.045)$.
+Para uma distribuição $X \sim \op{normal}(23,{0.1}^{2})$ queremos saber o valor de $P(X \leq 23.045)$.
 
 Sabendo que $X \sim \op{normal}(\mu, \sigma^2) \Leftrightarrow Z = \frac{X-\mu}{\sigma} \sim \op{normal}(0,1)$ e que os valores da função
 
