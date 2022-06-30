@@ -39,10 +39,10 @@ Vamos introduzir alguns conceitos base da estatística:
 - [**inferência estatística**](color:pink) - compreende um conjunto de métodos com o objetivo de usar a informação (dados/amostra) de modo a responder a questões sobre a população. Consiste então num método para tirar conclusões sobre uma população (geral) a partir de uma amostra (particular).
 
 Na **estatística** estamos interessados em fazer afirmações sobre uma [característica de interesse](color:red) de uma dada [população](color:blue).
-Contudo é frequente ser impossível analisar essa característica em todos os elementos da [população](color:blue) (em estatística, dá-se o nome de [unidade estatística](color:green) a cada elemento da [população](color:blue)).
-É então relevante que sejamos capazes de selecionar uma porção da [população](color:blue) tal que, para essa porção já seja possível fazer a análise da tal característica.
+Contudo, é frequente ser impossível analisar essa característica em todos os elementos da [população](color:blue) (em estatística, dá-se o nome de [unidade estatística](color:green) a cada elemento da [população](color:blue)).
+É então relevante que sejamos capazes de selecionar uma porção da [população](color:blue), tal que, para essa porção, já seja possível fazer a análise da tal característica.
 A esta porção damos o nome de [amostra](color:yellow) e ao processo de seleção dá-se o nome de [amostragem](color:orange).
-Em relação à amostra, já é possível fazer observações e a partir destas obter [dados estatísticos](color:purple)
+Em relação à amostra, já é possível fazer observações (e a partir destas obter [dados estatísticos](color:purple)).
 A partir das observações, é agora importante ser capaz de obter informação sobre a população em geral.
 Isto é feito através de uma [inferência estatística](color:pink).
 
@@ -56,7 +56,7 @@ Um exemplo de uma [unidade estatística](color:green) é o Cristiano Ronaldo, um
 Como seria muito dispendioso ir verificar a altura dos portugueses um a um, é importante obter um subconjunto desta população que se considere representativo da mesma - uma [amostra](color:yellow).
 Um exemplo de uma [amostra](color:yellow) seria (Cristiano Ronaldo, João Pavão Martins, Quim Barreiros, Luís Humberto, Marco Almeida).
 O processo para seleção desta [amostra](color:yellow) denomina-se de [amostragem](color:orange) (claro que a [amostragem](color:orange) que levou à [amostra](color:yellow) assim não teve nada de aleatório).
-Em relação à amostra selecionada, podemos fazer a seguinte observação - a que damos o nome de [dados estatísticos](color:purple) - (1.87, 1.73, 1.54, 2.14, 1,82) corresponde às alturas dos elementos da amostra selecionada.  
+Em relação à amostra selecionada, podemos fazer a seguinte observação - a que damos o nome de [dados estatísticos](color:purple) - $(1.87, 1.73, 1.54, 2.14, 1,82)$ corresponde às alturas dos elementos da amostra selecionada.  
 Esta amostra é pequena, pelo que analisá-la não é demasiado difícil.
 No entanto, para [amostras](color:yellow) maiores, processar toda a informação pode chegar a ser impossível.
 É então importante tirar conclusões a partir do [dado estatístico](color:purple).
@@ -70,9 +70,10 @@ Podemos, por exemplo, sentir-nos tentados a concluir que, em média, os portugue
 
 :::tip[Amostragem Aleatória]
 
-De forma que as inferências tenham a maior precisão possível, exigimos que haja aleatoriedade (parcial ou total) no processo de amostragem.
+Por forma a que as inferências tenham a maior precisão possível, exigimos que haja aleatoriedade (parcial ou total) no processo de amostragem.
 
-- [**Amostra Aleatória (AA)**](color:orange) - Para um VA de interesse $X$ e VA's $X_1, X_2, \cdots, X_n$ i.i.d a $X$, dizemos que o vetor aleatório $\underline{X} = (X_1, X_2, \cdots, X_n)$ diz-se uma [amostra aleatória](color:orange) ([AA](color:orange)) de dimensão $n$, da VA/população $X$;
+- [**Amostra Aleatória (AA)**](color:orange) - Para uma VA de interesse $X$ e VA's $X_1, X_2, \cdots, X_n$ i.i.d a $X$, dizemos que o vetor aleatório $\underline{X} = (X_1, X_2, \cdots, X_n)$ diz-se uma [amostra aleatória](color:orange) ([AA](color:orange)) de dimensão $n$, da VA/população $X$;
+
 - [**Amostra**](color:yellow) - A uma observação particular de uma AA $\underline{X} = (X_1, X_2, \cdots, X_n)$ dá-se o nome de amostra e representa-se por $\underline{x} = (x_1, x_2, \cdots, x_n)$.  
   Temos que
   $$
@@ -87,6 +88,7 @@ De forma que as inferências tenham a maior precisão possível, exigimos que ha
   \prod_{i=1}^n f_X(x_i)
   $$
   para $X$ contínua.
+
 - [**Estatística**](color:red) - medida descritiva de uma AA com o objetivo de sumariar alguma informação sobre a mesma.
   Eis alguns exemplos:
   - Mínimo: $X_{(1)} = \min_{i = 1, \cdots, n} X_i$
@@ -107,7 +109,7 @@ Nomeadamente, na nossa amostragem, a média pode estar algo puxada para cima vis
 :::
 
 Atente-se na distinção entre [amostra](color:yellow) e [amostra aleatória](color:orange).
-Pode-se pensar na [amostra](color:yellow) como num subconjunto da [população](color:blue), sendo a [amostra aleatória](color:orange) um conjunto de "_place holders_" para uma amostra.
+Pode-se pensar na [amostra](color:yellow) como num subconjunto da [população](color:blue), sendo a [amostra aleatória](color:orange) um conjunto de "_placeholders_" para uma amostra.
 Pensando no sentido contrário, podemos pensar na [amostra aleatória](color:yellow) como um conjunto de seleções aleatórias sobre a [população](color:blue), sendo uma [amostra](color:yellow) uma concretização dessa seleção.
 
 ## Estimadores
@@ -115,9 +117,9 @@ Pensando no sentido contrário, podemos pensar na [amostra aleatória](color:yel
 O objetivo principal da estatística é efetuar inferências sobre características de uma VA com base numa amostra.
 Considera-se no geral que a distribuição de $X$ é:
 
-- [parcialmente desconhecida](color:brown) se é conhecido o tipo de distribuição mas um ou mais parâmetros são desconhecidos.
+- [parcialmente desconhecida](color:brown), se é conhecido o tipo de distribuição mas um ou mais parâmetros são desconhecidos.
   Inferências sobre este tipo de VA's dizem-se do tipo **paramétrico**.
-- [totalmente desconhecida](color:pink) se nem a distribuição se conhece.
+- [totalmente desconhecida](color:pink), se nem a distribuição se conhece.
   Neste caso, as inferências dizem-se **não paramétricas**.
 
 Um **parâmetro desconhecido** representa-se normalmente por $\mathbf{\theta}$ no caso unidimensional e por $\mathbf{\underline{\theta}}$ no caso multidimensional.
@@ -132,12 +134,12 @@ Ao valor observado de um estimador $T$ dá-se o nome de [**estimativa**](color:b
 
 À partida, podemos dizer que a distribuição da altura dos portugueses é [totalmente desconhecida](color:pink) uma vez que não sabemos qual a distribuição que segue.
 Se assumirmos, no entanto, que a altura dos portugueses segue uma distribuição normal, passamos a ter uma VA [parcialmente desconhecida](color:brown), já que sabemos a distribuição, mas não sabemos os seus parâmetros ($\mu$ e $\sigma^2$).  
-Se tivermos interessados em determinar o valor esperado da altura de um português, $\mu$ passa a ser o nosso parâmetro desconhecido.
+Se estivermos interessados em determinar o valor esperado da altura de um português, $\mu$ passa a ser o nosso parâmetro desconhecido.
 O [espaço paramétrico](color:orange) é o conjunto de valores que o parâmetro pode tomar.
-Neste caso, $\Theta = \R^+$, uma vez que uma pessoa pode tomar qualquer altura positiva (mais ou menos).
+Neste caso, $\Theta = \R^+$, uma vez que uma pessoa pode tomar qualquer altura positiva (bem, mais ou menos).
 O [modelo paramétrico](color:red) vai então ser o conjunto de todas as distribuições (com parâmetro especificado) que a altura dos portugueses pode seguir.  
 Um [estimador](color:yellow) para o valor esperado é por exemplo, o que usamos no exemplo inicial: a média $\underline{X} = \frac{1}{n}\sum_{i=1}^n X_i$.
-Nesse exemplo, obtivemos como [estimativa](color:blue) o valor de 1,82m.
+Nesse exemplo, obtivemos como [estimativa](color:blue) o valor de $1,82m$.
 
 :::
 
@@ -205,7 +207,7 @@ Ou seja, a [função verosimilhança](color:orange) define a probabilidade de ob
 
 Damos o nome de **estimativa de máxima verosimilhança** ao valor $\theta \in \Theta$ que maximiza $L(\theta | \underline{x})$ para a amostra $\underline{x}$.
 
-Frequentemente é mais fácil encontrar máximos da função $\ln \left[ L(\theta | \underline{x}) \right]$ pois esta trabalha com somas ao invés de produtos.
+Frequentemente, é mais fácil encontrar máximos da função $\ln \left[ L(\theta | \underline{x}) \right]$, já que esta trabalha com somas (ao invés de produtos).
 A esta função dá-se o nome de [**log-verosimilhança**](color:red).
 
 O máximo da função [verosimilhança](color:orange)/[log-verosimilhança](color:red) é obtido:
