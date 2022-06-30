@@ -175,7 +175,7 @@ Funciona de igual forma à lógica proposicional.
 
 :::
 
-:::tip[Redução do domínio de $\neg$] 
+:::tip[Redução do domínio de $\neg$]
 
 Igual à lógica proposicional, tendo ainda a adição das [**segundas leis de De Morgan**](color:orange).
 
@@ -404,8 +404,8 @@ Existe ainda a noção de [**Unificador mais geral**](color:orange): dado um con
 de _fbfs_ atómicas, o unificador mais geral do conjunto, **_mgu_**, é um unificador
 $s$ com a seguinte propriedade:
 
-  - se $s_{1}$ for um unificador da _fbf_ da qual $s$ é o _mgu_, então existe uma
-    substituição $s_{2}$ tal que $s_{1} = s \circ s_{2}$.
+- se $s_{1}$ for um unificador da _fbf_ da qual $s$ é o _mgu_, então existe uma
+  substituição $s_{2}$ tal que $s_{1} = s \circ s_{2}$.
 
 [**O _mgu_ é único**](color:yellow), exceto para variantes alfabéticas de variáveis.
 
