@@ -76,17 +76,21 @@ Por forma a que as inferências tenham a maior precisão possível, exigimos que
 
 - [**Amostra**](color:yellow) - A uma observação particular de uma AA $\underline{X} = (X_1, X_2, \cdots, X_n)$ dá-se o nome de amostra e representa-se por $\underline{x} = (x_1, x_2, \cdots, x_n)$.  
   Temos que
+
   $$
   P(\underline{X} = \underline{x}) =
   \prod_{i=1}^n P(X_i = x_i) =
   \prod_{i=1}^n P(X = x_i)
   $$
+
   para $X$ discreta e
+
   $$
   f_{\underline{X}}(\underline{x}) =
   \prod_{i=1}^n f_{X_i}(x_i) =
   \prod_{i=1}^n f_X(x_i)
   $$
+
   para $X$ contínua.
 
 - [**Estatística**](color:red) - medida descritiva de uma AA com o objetivo de sumariar alguma informação sobre a mesma.
