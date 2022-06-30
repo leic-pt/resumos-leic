@@ -23,7 +23,7 @@ P(\theta < a_\alpha) = P(\theta > b_\alpha) = \frac{\alpha}{2} \\
 \Rightarrow P(a_\alpha \leq \theta \leq b_\alpha) = 1 - \alpha
 $$
 
-O valor $1-\alpha$ designa-se de **grau de confiança** - temos $(1-\alpha) \times 100 \%$ de confiança que o parâmetro que queremos descobrir está no intervalo dado.
+O valor $1-\alpha$ designa-se **grau de confiança** - temos $(1-\alpha) \times 100 \%$ de confiança que o parâmetro que queremos descobrir está no intervalo dado.
 
 :::
 
@@ -32,7 +32,7 @@ O valor $1-\alpha$ designa-se de **grau de confiança** - temos $(1-\alpha) \tim
 O [**método da VA fulcral**](color:purple) é um método que permite definir um IC com grau de confiança $1-\alpha$ (exato ou aproximado).
 Para isto, é primeiro necessário identificar o **parâmetro desconhecido** $\theta$, a **VA de interesse** X bem como a sua distribuição que pode ou não depender de outros parâmetros (conhecidos ou desconhecidos).
 
-1. **Seleção da VA fulcral** - O primeiro passo corresponde à identificação de uma VA (fulcral) $Z = Z(\underline{X}, \theta)$ cuja distribuição seja independente de $\theta$. Note-se como esta VA depende da amostra aleatória $\underline{X}$. A seleção desta VA fulcral depende da distribuição de $X$, do parâmetro que queremos determinar e dos restantes parâmetros da distribuição $X$, conhecidos ou não (vamos ver como selecionar esta VA mais à frente);
+1. **Seleção da VA fulcral** - O primeiro passo corresponde à identificação de uma VA (fulcral) $Z = Z(\underline{X}, \theta)$, cuja distribuição seja independente de $\theta$. Note-se como esta VA depende da amostra aleatória $\underline{X}$. A seleção desta VA fulcral depende da distribuição de $X$, do parâmetro que queremos determinar e dos restantes parâmetros da distribuição $X$, conhecidos ou não (vamos ver como selecionar esta VA mais à frente);
 2. **Obtenção dos quantis** - De seguida, temos de determinar $a_\alpha, b_\alpha$ tais que $P(Z < a_\alpha) = P(Z > b_\alpha) = \frac{\alpha}{2}$, ou seja
    $$
    a_\alpha = F_Z^{-1}\left(\frac{\alpha}{2}\right) \quad \quad \quad

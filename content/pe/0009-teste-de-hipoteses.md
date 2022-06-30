@@ -18,7 +18,7 @@ type: content
 
 ## Hipóteses
 
-Damos o nome de [**hipótese estatística**](color:yellow) a qualquer conjetura sobre um dado estatístico, como por exemplo a distribuição de um VA de interesse, um parâmetro desconhecido, ou outro.
+Damos o nome de [**hipótese estatística**](color:yellow) a qualquer conjetura sobre um dado estatístico, como por exemplo a distribuição de uma VA de interesse, um parâmetro desconhecido, ou outro.
 A uma conjetura sobre um parâmetro damos o nome de [**hipótese paramétrica**](color:orange).  
 Este capítulo centra-se no estuda da confiança que podemos dar a uma [hipótese paramétrica](color:orange).  
 Normalmente isto é feito através da confrontação de duas [hipóteses paramétricas](color:orange):
@@ -45,18 +45,18 @@ Seja este parâmetro $\mu$.
 
 Um exemplo de uma [hipótese paramétrica](color:orange) é:
 
-> A média das alturas dos portugueses é 1,75m.
+> A média das alturas dos portugueses é $1,75m$.
 
 Esta [hipótese paramétrica](color:orange) é [simples](color:purple) pois especifica um só valor para o parâmetro desconhecido.
 Uma [hipótese paramétrica](color:orange) [composta](color:pink) seria, por exemplo:
 
-> A média das alturas dos portugueses está algures entre 1,70m e 1,80m.
+> A média das alturas dos portugueses está algures entre $1,70m$ e $1,80m$.
 
 Se considerarmos a primeira hipótese apresentada como a [hipótese nula](color:blue) - $H_0: \mu = 1,70$ - temos que a [hipótese alternativa](color:green) é [bilateral](color:green) - $H_1: \mu \neq 1,70$.
 
 Temos que a [hipótese nula](color:blue) $H_0: \mu \geq 1,70$:
 
-> A média das alturas dos portugueses é no mínimo 1,70m
+> A média das alturas dos portugueses é no mínimo $1,70m$.
 
 Tem uma [hipótese alternativa unilateral inferior](color:green): $H_1: \mu < 1,70$.
 
@@ -80,7 +80,7 @@ Para calcular a probabilidade de erro, definimos uma [**estatística de teste**]
 Esta estatística:
 
 - reflete a discrepância entre o estimador de $\theta$ e o valor conjeturado para o mesmo em $H_0$ ($\theta_0$);
-- têm distribuição (exata ou aproximada) conhecida, sob a validade de $H_0$;
+- tem distribuição (exata ou aproximada) conhecida, sob a validade de $H_0$;
 - obtém-se, normalmente, à custa de uma certa VA fulcral, substituindo $\theta$ por $\theta_0$ na sua expressão.
 
 A partir desta estatística $T$, fica então a faltar definir o conjunto de valores que deverão levar à rejeição de $H_0$.
@@ -96,7 +96,7 @@ Mais uma vez relembra-se que aceitação não significa que $H_0$ seja verdadeir
 Podemos no entanto concluir, em caso de aceitação da hipótese nula, que a probabilidade de um erro destes acontecer é inferior ao [nível de significância](color:brown) $\alpha_0$.
 Desta forma, quanto menor $\alpha_0$, maior o conjunto de valores rejeitados.
 
-Observamos ainda que se $H_0$ for uma hipótese nula $H_0: \theta = \theta_0$ com alternativa bilateral $H_1: \theta \neq \theta_0$ averiguar $H_0$ com n.s. $\alpha_0$ equivale a averiguar se o valor $\theta_0$ proposto por $H_0$ pertence ao intervalo de confiança $1-\alpha_0$.
+Observamos ainda que, se $H_0$ for uma hipótese nula $H_0: \theta = \theta_0$ com alternativa bilateral $H_1: \theta \neq \theta_0$, averiguar $H_0$ com n.s. $\alpha_0$ equivale a averiguar se o valor $\theta_0$ proposto por $H_0$ pertence ao intervalo de confiança $1-\alpha_0$.
 Temos então que $\theta_0 \in IC_{1-\alpha_0}(\theta)$ leva à aceitação de $\theta_0$ com n.s. $\alpha_0$ e $\theta_0 \not\in IC_{1-\alpha_0}(\theta)$ leva à rejeição com esse mesmo n.s.
 
 ## Procedimentos para Testar uma Hipótese
