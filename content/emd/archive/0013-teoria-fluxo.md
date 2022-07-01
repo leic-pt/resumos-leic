@@ -162,7 +162,7 @@ uma Quasi-trajetória, pode existir uma aresta $a_i$ (\*com $1<i<k$) que está d
 
 ![Quase](./assets/0013-Quasi.png#dark=3)
 
-Ambas respresentam `Quasi-Trajetórias`, mesmo que a [vermelha](color:red) não tenho arestas negativas
+Ambas representam `Quasi-Trajetórias`, mesmo que a [vermelha](color:red) não tenho arestas negativas
 
 :::
 
@@ -235,7 +235,7 @@ QED
 
 :::
 
-:::details[Aviso do Professoor]
+:::details[Aviso do Professor]
 Isto só se verifica numa `Rede Capacitada` com números **Racionais**. Há situações com números **Reais** onde não podemos concluir nada.  
 Contudo, esta exceção não deve ser avaliada.
 :::
@@ -248,7 +248,7 @@ Numa Rede capacitada $N=(V,E,s,t,\operatorname{cap})$, permite-nos encontrar o `
 ![Pseudo Ford](./assets/0013-pseudoFord.png#dark=3)
 :::
 
-### Decrição Informal
+### Descrição Informal
 
 Sempre que houver uma `Quasi-Trajetória` $Q$ com `Frouxidão mínima` **positiva**, aumentamos o fluxo de $Q$.  
 Quando já não houver termina o algoritmo (pelo [Teorema 2](#teorema-2)), e teremos uma `Rede Capacitada` com [Fluxo máximo](#fluxo-maximo).

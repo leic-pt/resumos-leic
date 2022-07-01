@@ -195,7 +195,7 @@ Resta realçar que esta propriedade também se aplica, como se vai poder ver a s
 
 ### Problema da Mochila sem Repetição
 
-O problema da mochila sem repetição permite-nos olhar para o problema de uma maneira diferente - aqui, vamos, na recursão, procurar o valor máximo que se consegue transportar na mochila _até a um certo índice $i$_ - no problema com repetição não podiamos fazê-lo, dado que um mesmo objeto podia ser contado duas vezes. Podemos, então, definir a quantidade recursiva como
+O problema da mochila sem repetição permite-nos olhar para o problema de uma maneira diferente - aqui, vamos, na recursão, procurar o valor máximo que se consegue transportar na mochila _até a um certo índice $i$_ - no problema com repetição não podíamos fazê-lo, dado que um mesmo objeto podia ser contado duas vezes. Podemos, então, definir a quantidade recursiva como
 
 $$
 k(w, i) = \begin{cases}
@@ -346,7 +346,7 @@ Podemos observar a matriz resultante de resolver o problema da LCS das sequênci
 | A   | 0   | 1   | 2   | 2   | 3   | 3   | 4   |
 | B   | 0   | 1   | 2   | 2   | 3   | 4   | 4   |
 
-Aqui, não podemos escolher preencher a matriz só recorrendo à última coluna (como no último problema que tinhamos visto), pelo que a complexidade especial passa, necessariamente, por $\Theta(nm)$. Olhando para cada entrada da matriz, podemos ainda observar que o algoritmo é respeitado - caso estejamos na presença de 2 letras iguais, a entrada cresce em 1 sem depender dos elementos à sua esquerda/acima dela; caso contrário, está diretamente dependente do máximo entre esses dois elementos.
+Aqui, não podemos escolher preencher a matriz só recorrendo à última coluna (como no último problema que tínhamos visto), pelo que a complexidade especial passa, necessariamente, por $\Theta(nm)$. Olhando para cada entrada da matriz, podemos ainda observar que o algoritmo é respeitado - caso estejamos na presença de 2 letras iguais, a entrada cresce em 1 sem depender dos elementos à sua esquerda/acima dela; caso contrário, está diretamente dependente do máximo entre esses dois elementos.
 
 ### Multiplicação de Cadeias de Matrizes
 
@@ -689,7 +689,7 @@ onde $T^\wedge$ é a árvore que resulta da troca de $b$ com $c$.
 
 ![Árvore T chapéu](./assets/0003-prova-t-chapeu.png#dark=1)
 
-A prova dá-se da seguite maneira:
+A prova dá-se da seguinte maneira:
 
 $$
 B(T^* - T^\wedge) \geq 0\\

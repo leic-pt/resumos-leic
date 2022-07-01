@@ -62,7 +62,7 @@ Relembrar que queríamos ver se a palavra tinha um número par de $0$'s e ímpar
 
 :::details[Exemplo 2]
 
-Queremos verificar se uma palavra consituída por elementos de $\Sigma=\{x,y,z\}$ acaba em $yz$
+Queremos verificar se uma palavra constituída por elementos de $\Sigma=\{x,y,z\}$ acaba em $yz$
 
 ![Auto 2](./assets/0016-auto2.png#dark=3)
 
@@ -128,7 +128,7 @@ Há casos onde isto não acontece, e aí estamos perante um `Autómato Não Comp
 
 ::::details[Exemplo Importante - ANC]
 
-Queremos um autómato que recebe uma palavra de $0$'s e $1$'s e verifica se a palavra é consituída primeiro por um número par de $0$'s e depois por um número par de $1$'s. Por exemplo, $00111$ é aceite, mas $01011$ não é.
+Queremos um autómato que recebe uma palavra de $0$'s e $1$'s e verifica se a palavra é constituída primeiro por um número par de $0$'s e depois por um número par de $1$'s. Por exemplo, $00111$ é aceite, mas $01011$ não é.
 
 ![Auto ANC](./assets/0016-autoNC1.png#dark=3)
 
@@ -270,7 +270,7 @@ Segue-se a representação final, com um pequeno exemplo de uma parte da execuç
 2. Quando estamos em $q_0$ ou $q_2$ e recebemos $b$, vamos sempre para $q_1$. Se recebermos $a$, tanto podemos ir para $q_0$ ou para $q_1$, **por causa** da transição $\epsilon$.
 3. Quando estamos em $q_2$ e recebemos $a$, vamos para $q_0$, **mas** por causa da transição $\epsilon$, podemos voltar a $q_2$. Por isso, se recebermos $a$ em $\{q_0,q_2\}$ continuamos no mesmo estado.
 
-Repare-se que os estandos inúteis ([**vermelho**](color:red)), nunca são atingidos desde o Ei.
+Repare-se que os estados inúteis ([**vermelho**](color:red)), nunca são atingidos desde o Ei.
 
 :::
 
@@ -309,7 +309,7 @@ Primeira faz-se o autómato da soma da direita para esquerda
 ![Troca 11](./assets/0016-troca11.png#dark=3)
 
 Os estados $0$ e $1$ simbolizam os restos.  
-$q_0 = 0$ e $F = \{0\}$ ($0$ é o estado inicila e o de aceitação).
+$q_0 = 0$ e $F = \{0\}$ ($0$ é o estado inicial e o de aceitação).
 
 Agora trocamos os estados de aceitação e inicial (como é o mesmo, não trocamos), por isso apenas se trocam as transições entre estados.
 
@@ -392,7 +392,7 @@ Sejam $A_1$ e $A_2$ dois autómatos diferentes, cuja representação, omitindo a
 
 ![União 1](./assets/0016-uniao1.png#dark=3)
 
-Seja $L_1 = L(A_1)$ e $L_2 = L(A_2)$, (**relembrar** que $L(B)$ é a [lingaugem de aceitação](#linguagem-reconhecida) do autómato $B$)
+Seja $L_1 = L(A_1)$ e $L_2 = L(A_2)$, (**relembrar** que $L(B)$ é a [linguagem de aceitação](#linguagem-reconhecida) do autómato $B$)
 
 $$
 L_1 \cup L_2 = L(?)
@@ -540,6 +540,6 @@ Dividindo $s$ em $3$ subpalavras $(s=xyz)$, pelas condições do `Lema de Pumpin
 Segundo o `Lema de Pumping`, $|y|>0$ e $xyyz \in L$, assim, $y$ terá de ser uma palavra constituída por $0$'s, **MAS** quando se repete em $xyyz$ o número de $0$'s será maior que o número de $1$'s, ou seja $xyyz \notin L$.  
 Chegamos assim a uma Contradição.
 
-Com esta contradição podemos concluir que a linguaguem especificada **não é** regular.
+Com esta contradição podemos concluir que a linguagem especificada **não é** regular.
 
 :::
