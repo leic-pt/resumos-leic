@@ -29,7 +29,7 @@ Esta propriedade advém, claro, do facto de C ser uma linguagem tipificada - em 
 
 Para [**aceder**](color:orange) ao valor da tabela na posicao `i`, devemos usar a notação `tab[i]`. Já para [**atribuir**](color:green) um valor à posição `i` da tabela, devemos usar a notação `tab[i] = n`.
 
-Tal como em Python, as tabelas são **indexadas a partir de 0**. Assim sendo, o primeiro indíce é o `0` e o último índice é o `DIM - 1`.
+Tal como em Python, as tabelas são **indexadas a partir de 0**. Assim sendo, o primeiro índice é o `0` e o último índice é o `DIM - 1`.
 
 :::danger[AVISO]
 Quando a tabela é criada, os valores que esta guarda não são inicializadas a 0, têm valores pseudo-aleatórios.

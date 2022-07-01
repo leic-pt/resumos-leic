@@ -166,7 +166,7 @@ c_1 \cdot n + c_2 &\text{caso contrário}
 \end{cases}
 $$
 
-O ramo de cima é igual ao da implementação anterior. O de baixo, contudo, é bastante diferente - não estamos dependentes de chamadas recursivas. Temos uma componente $c_1 \cdot n$, correspondente às operações realizadas durante o loop principal, e uma $c_2$ corrrespondente às outras operações da função, todas realizadas em tempo constante.
+O ramo de cima é igual ao da implementação anterior. O de baixo, contudo, é bastante diferente - não estamos dependentes de chamadas recursivas. Temos uma componente $c_1 \cdot n$, correspondente às operações realizadas durante o loop principal, e uma $c_2$ correspondente às outras operações da função, todas realizadas em tempo constante.
 
 Esta implementação tem, ainda, um pormenor que pode ser melhorado - a complexidade no [**espaço**](color:yellow) é linear ($S(n) \in O(n)$), já que precisamos de criar um vetor com $n$ entradas. Podemos, no entanto, melhorar este aspeto.
 

@@ -69,7 +69,7 @@ Obrigatório justificar no teste que existe solução única
 
 Se os módulos forem primos entre si 2 a 2, há sempre solução única
 
-Se não, temos de fazer o MDC de 2 módulos successivos e ver se a diferença dos $r_i$ respetivos, divide o tal MDC calculado.
+Se não, temos de fazer o MDC de 2 módulos sucessivos e ver se a diferença dos $r_i$ respetivos, divide o tal MDC calculado.
 
 $$
 \begin{cases}
