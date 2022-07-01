@@ -252,6 +252,13 @@ Caso haja **mais que uma resposta** a um dado objetivo dado um programa, podemos
 continuar a premir `;` até o Prolog esgotar os ramos bem sucedidos (nessa situação
 responderá `false.` e encerrará).
 
+:::tip
+
+Podem escrever `trace.` na prompt e escrever de seguida o objetivo pretendido. Ao carregar `Enter`
+repetidamente, podemos observar a recursão a acontecer!
+
+:::
+
 ## Listas
 
 Em Prolog, listas são tipos estruturados de informação pré-definidos. Tal como em Python,
