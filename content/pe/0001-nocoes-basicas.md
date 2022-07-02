@@ -70,7 +70,7 @@ O estudo de **Probabilidade** prende-se então com a atribuição de valores que
 Esta atribuição de valores de probabilidade pode ser feita de várias formas, tendo cada uma as suas vantagens e desvantagens.
 As mais comuns e simples são as seguintes:
 
-- **Probabilidade Clássica de Laplace**: Se $\Omega$ for finito e construído por eventos elementares (eventos que correspondem a conjuntos com um só elemento) e equiprováveis, então
+- **Probabilidade Clássica de Laplace**: Se $\Omega$ for finito e constituído por eventos elementares (eventos que correspondem a conjuntos com um só elemento) e equiprováveis, então
 
   $$
   P(A) = \frac{\#A}{\#\Omega}
@@ -112,7 +112,7 @@ Dá-se o nome de [**$\sigma$-álgebra**](color:yellow) (sigma-álgebra) a uma co
    \mathcal{C} \subset \mathcal{A} \Rightarrow \bigcap_{i=1}^{\infty} A_i \in \mathcal{A}
    $$
 
-Se pensarmos na aplicação desta noção ao estudo de probabilidade esta definição garante-nos que $\mathcal{A}$ é um conjunto de eventos possíveis tais que:
+Se pensarmos na aplicação desta noção ao estudo de probabilidade, esta definição garante-nos que $\mathcal{A}$ é um conjunto de eventos possíveis tais que:
 
 - $\Omega \in \mathcal{A}$ - ou seja, é sempre possível que aconteça algo no espaço de resultados (de facto, como vamos ver, é sempre _certo_ que aconteça algo no espaço de resultados).
 - $A \in \mathcal{A} \Rightarrow \overline{A} \in \mathcal{A}$ - ou seja, se um evento é possível, então é possível que esse evento não aconteça.
@@ -130,7 +130,7 @@ Para uma certa $\sigma$-álgebra $\mathcal{A}$ definimos uma **função de proba
 2. $0 \leq P(A) \leq 1 \, \forall {A \in \mathcal{A}}$
 3. $P\left( \bigcup_{i=1}^{\infty} A_i \right) = \sum_{i=1}^{\infty} P(A_i)$ para qualquer coleção $\{ A_1, A_2, \cdots \} \subset \mathcal{A}$ tal que $A_i \cap A_j = \emptyset, \forall{i, j \in \mathbb{N}}$
 
-Intuitivamente o que isto nos diz é que:
+Intuitivamente, o que isto nos diz é que:
 
 - para qualquer EA, é sempre certo que o resultado esteja contido no espaço de resultados;
 - a probabilidade é sempre um valor entre $0$ e $1$;
@@ -138,7 +138,7 @@ Intuitivamente o que isto nos diz é que:
 
 :::
 
-A partir da definição a cima podemos inferir as seguintes probabilidades:
+A partir da definição acima, podemos inferir as seguintes probabilidades:
 
 1. $ P(\emptyset) = 0$
 2. $ P(\overline{A}) = 1 - P(A) $
@@ -149,10 +149,10 @@ A partir da definição a cima podemos inferir as seguintes probabilidades:
 :::details[Prova]
 
 1. Segue diretamente de 2.
-2. Como $A \cap \overline{A} = \emptyset$, temos segundo o axioma 3. que $P(A) + P(\overline{A}) = P(A \cup \overline{A}) = P(\Omega) = 1$
+2. Como $A \cap \overline{A} = \emptyset$, temos, segundo o axioma 3., que $P(A) + P(\overline{A}) = P(A \cup \overline{A}) = P(\Omega) = 1$
 3. Temos que $(B \backslash A) \cap (B \cap A) = \emptyset$, pelo que, segundo o axioma 3., $P(B \backslash A) + P(B \cap A) = P((B \backslash A) \cup (B \cap A)) = P(B)$
-4. Como $A \cap (B \backslash A) = \emptyset$ temos segundo o axioma 3. que $P(A) + P(B \backslash A) = P(A \cup (B \backslash A)) = P(A \cup B)$. Somando então $P(A)$ a ambos os lados da equação na propriedade 3., obtemos o resultado pretendido.
-5. Se $A \subset B$, então $A \cup B = A$. Segundo 3. temos então que $P(A) = P(B) - P(B \backslash A) \leq P(B)$ já que $P(B \backslash A) \geq 0$ devido ao axioma 2.
+4. Como $A \cap (B \backslash A) = \emptyset$, temos, segundo o axioma 3., que $P(A) + P(B \backslash A) = P(A \cup (B \backslash A)) = P(A \cup B)$. Somando, então, $P(A)$ a ambos os lados da equação na propriedade 3., obtemos o resultado pretendido.
+5. Se $A \subset B$, então $A \cup B = A$. Segundo 3., temos então que $P(A) = P(B) - P(B \backslash A) \leq P(B)$ já que $P(B \backslash A) \geq 0$ devido ao axioma 2.
 
 :::
 
@@ -168,7 +168,7 @@ Vamos agora introduzir mais umas definições e proposições que facilitam o es
 
 :::tip[Probabilidade Condicionada]
 
-Dada uma função de probabilidade $P$ sobre um espaço de resultados $\Sigma$ definimos **probabilidade condicionada** de A por B como
+Dada uma função de probabilidade $P$ sobre um espaço de resultados $\Sigma$, definimos **probabilidade condicionada** de A por B como
 
 $$
 P(A | B) = \frac{P(A \cap B)}{P(B)}, \forall_{A,B \in \Omega}
