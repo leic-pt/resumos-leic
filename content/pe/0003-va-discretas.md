@@ -17,7 +17,7 @@ type: content
 
 :::danger[]
 
-Esta distribuição não é lecionada no programa de 2021/22 mas pode ser importante para perceber alguns conceitos.
+Esta distribuição não é lecionada no programa de 2021/22, mas pode ser importante para perceber alguns conceitos.
 
 :::
 
@@ -27,7 +27,7 @@ Esta distribuição é normalmente usada em situações em que todos os eventos 
 
 :::
 
-Dizemos que uma VA discreta $X$ têm uma [**distribuição uniforme discreta**](color:green) e representamos $X~\sim~\op{uniforme \, discreta}(S)$ se, dados os **parâmetros**:
+Dizemos que uma VA discreta $X$ tem uma [**distribuição uniforme discreta**](color:green) e representamos $X~\sim~\op{uniforme \, discreta}(S)$ se, dados os **parâmetros**:
 
 - $S = \{ x_1, x_2, \cdots, x_n \}$ para $n \in \N$ e $x_i \in \R, \forall_{i \in \{ 1, 2, \cdots, n \}}$
 
@@ -90,7 +90,7 @@ Esta distribuição é usada para, dada uma prova de Bernoulli que é executada 
 
 :::
 
-Dizemos que uma VA discreta $X$ têm uma [**distribuição binomial**](color:yellow) e representamos $X~\sim~\op{binomial}(n,p)$ se, dados os **parâmetros**:
+Dizemos que uma VA discreta $X$ tem uma [**distribuição binomial**](color:yellow) e representamos $X~\sim~\op{binomial}(n,p)$ se, dados os **parâmetros**:
 
 - $n$: número de provas de Bernoulli executadas ($n \in \N$);
 - $p$: probabilidade de sucesso da prova de Bernoulli ($p \in [0,1]$).
@@ -116,7 +116,7 @@ Uma VA $X$ com [distribuição binomial](color:yellow) tem:
 :::details[Exemplo]
 
 Aproveitando a prova de Bernoulli que vimos no exemplo acima, temos que um exemplo de uma VA com distribuição binomial é a VA $X$ que regista o número de coroas em 10 lançamentos de uma moeda ao ar.
-Para realçar a diferença entre um sucesso e insucesso, vamos no entanto usar uma moeda enviesada, cuja probabilidade de sucesso é $p=0.6$.
+Para realçar a diferença entre um sucesso e insucesso, vamos, no entanto, usar uma moeda enviesada, cuja probabilidade de sucesso é $p=0.6$.
 Temos que:
 
 $$
@@ -161,7 +161,7 @@ Esta distribuição é usada para, dada uma prova de Bernoulli, medir a probabil
 
 :::
 
-Dizemos que uma VA discreta $X$ têm uma [**distribuição geométrica**](color:orange) e representamos $X~\sim~\op{geométrica}(p)$ se, dados os **parâmetros**:
+Dizemos que uma VA discreta $X$ tem uma [**distribuição geométrica**](color:orange) e representamos $X~\sim~\op{geométrica}(p)$ se, dados os **parâmetros**:
 
 - $p$: probabilidade de sucesso da prova de Bernoulli ($p \in [0,1]$).
 
@@ -189,7 +189,7 @@ Continuando com o lançamento da moeda enviesada, queremos agora contar quantas 
 Temos que a VA $X$ que regista esse valor satisfaz:
 
 $$
-X~\sim~\text{exponencial}(0.6)
+X~\sim~\text{geométrica}(0.6)
 $$
 
 A função de probabilidade desta VA é
@@ -205,7 +205,7 @@ $$
 e o seu valor esperado e variância são
 
 $$
-E(X) = \frac{1}{0.6} = 1.67 \quad \quad V(X) = \frac{0.4}{0.6^2} = 1.11
+E(X) = \frac{1}{0.6} ≈ 1.67 \quad \quad V(X) = \frac{0.4}{0.6^2} ≈ 1.11
 $$
 
 :::
@@ -233,15 +233,15 @@ $$
 
 :::tip[]
 
-A [distribuição de Poisson](color:purple) mede o número de ocorrência de uma EA num dado intervalo.  
-Para que isto seja possível é necessário assumirmos que:
+A [distribuição de Poisson](color:purple) mede o número de ocorrências de uma EA num dado intervalo.  
+Para que isto seja possível, é necessário assumirmos que:
 
 - existe um intervalo pequeno suficiente tal que podemos considerar que é impossível o evento acontecer duas vezes nesse intervalo;
 - a ocorrência do evento num intervalo é independente da ocorrência noutros intervalos, bem de como qual é o intervalo em questão.
 
 :::
 
-Dizemos então que uma VA discreta $X$ têm uma [**distribuição de Poisson**](color:purple) e representamos $X~\sim~\op{Poisson}(\lambda)$ se, dados os **parâmetros**:
+Dizemos, então, que uma VA discreta $X$ tem uma [**distribuição de Poisson**](color:purple) e representamos $X~\sim~\op{Poisson}(\lambda)$ se, dados os **parâmetros**:
 
 - $\lambda$: valor esperado de ocorrências do evento num intervalo base ($\lambda \in \R^+$)
 
@@ -266,7 +266,7 @@ Uma VA $X$ com [distribuição de Poisson](color:purple) tem:
 :::details[Exemplo]
 
 Considere-se a VA $X$ que regista o número de remates que há num dado intervalo de um jogo de futebol.
-Se assumirmos que o valor esperado de remates num minuto é $\lambda = 0.08$ temos que o número de remates que acontecem em qualquer intervalo de um minuto do jogo satisfaz
+Se assumirmos que o valor esperado de remates num minuto é $\lambda = 0.08$, temos que o número de remates que acontecem em qualquer intervalo de um minuto do jogo satisfaz
 
 $$
 X~\sim~\text{Poisson}(0.08)
@@ -322,11 +322,11 @@ Damos o nome de **prova de Bernoulli** a qualquer experiência aleatória cujo e
 Enquanto que estamos habituados a associar sucesso a coisas boas e insucesso a coisas más, neste caso, o sucesso deve ser entendido apenas como **aquilo que queremos modelar**.  
 Sendo assim, por exemplo, se considerarmos a EA que verifica se o ecrã de um telemóvel se parte no primeiro ano de uso, o sucesso será "o ecrã partiu-se".  
 Claro que dada uma Prova de Bernoulli $A$, podemos sempre considerar a experiência aleatória contrária $B$, e, nesse caso, o sucesso de $B$ será o insucesso de $A$ e vice-versa.
-Podemos aproveitar-nos disto à vontade desde que tenhamos em atenção que o sucesso da prova de Bernoulli e o que queremos medir com a VA sejam coerentes.
+Podemos aproveitar-nos disto à vontade, desde que tenhamos em atenção que o sucesso da prova de Bernoulli e o que queremos medir com a VA sejam coerentes.
 
 :::
 
-Dizemos que uma VA discreta $X$ têm uma [**distribuição de Bernoulli**](color:blue) e representamos $X~\sim~\op{Bernoulli}(p)$ se, dados os **parâmetros**:
+Dizemos que uma VA discreta $X$ tem uma [**distribuição de Bernoulli**](color:blue) e representamos $X~\sim~\op{Bernoulli}(p)$ se, dados os **parâmetros**:
 
 - $p = P(\op{Sucesso})$, $p \in [0,1]$
 
@@ -395,7 +395,7 @@ Tal como a distribuição binomial, esta distribuição tem a ver com o número 
 
 :::
 
-Dizemos que uma VA discreta $X$ têm uma [**distribuição hipergeométrica**](color:red) e representamos $X~\sim~\op{hipergeométrica}(N, M, n)$ se, dados os **parâmetros**:
+Dizemos que uma VA discreta $X$ tem uma [**distribuição hipergeométrica**](color:red) e representamos $X~\sim~\op{hipergeométrica}(N, M, n)$ se, dados os **parâmetros**:
 
 - $N$: tamanho da população ($n \in \Z^+$);
 - $M$: tamanho da população sucesso ($m \in \Z^+$);
