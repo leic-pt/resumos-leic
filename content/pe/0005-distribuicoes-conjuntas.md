@@ -14,7 +14,7 @@ Definimos um [**par aleatório**](color:blue) como uma função $(X,Y) : \Omega 
 
 :::details[Condição de mensurabilidade]
 
-Diz-se que uma funçao $F$ com contradomínio em $\R^2$ satisfaz uma condição de mensurabilidade se qualquer região da forma $]-\infty, x] \times ]-\infty, y]$ tiver imagem inversa segundo $F$ na $\sigma$-álgebra $\mathcal{A}$ sobre $\Omega$.
+Diz-se que uma funçao $F$ com contradomínio em $\R^2$ satisfaz uma condição de mensurabilidade, se qualquer região da forma $]-\infty, x] \times ]-\infty, y]$ tiver imagem inversa segundo $F$ na $\sigma$-álgebra $\mathcal{A}$ sobre $\Omega$.
 
 :::
 
@@ -32,7 +32,7 @@ $$
 P(X = x, Y = y) > 0, \forall_{(X,Y) \in \R_{X,Y}}
 $$
 
-A função de probabilidade conjunta costuma ser representada por uma tabela de duas entradas como mostrado abaixo:
+A função de probabilidade conjunta costuma ser representada por uma tabela de duas entradas, como mostrado abaixo:
 
 | $X \backslash Y$ |       $y_1$       |       $y_2$       | $\cdots$ |       $y_m$       |
 | :--------------: | :---------------: | :---------------: | :------: | :---------------: |
@@ -47,13 +47,13 @@ $$
 F_{X,Y}(x,y) = P(X \leq x, Y \leq y) = \sum_{x' \leq x, y' \leq y} P(X = x', Y = y')
 $$
 
-Às funções que nos dão uma das VA de um par aleatório para todos os valores da outra dá-se o nome de [**funções de probabilidade marginais**](color:orange). As funções marginais de X e Y são então, respetivamente, dadas por
+Às funções que nos dão uma das VA de um par aleatório para todos os valores da outra, dá-se o nome de [**funções de probabilidade marginais**](color:orange). As funções marginais de X e Y são então, respetivamente, dadas por
 
 $$
 P(X=x) = \sum_y P(X=x, Y=y) \quad P(Y=y) = \sum_x P(X=x, Y=y)
 $$
 
-A partir destas funções definem-se as [**funções distribuição marginais**](color:red)
+A partir destas funções, definem-se as [**funções de distribuição marginais**](color:red)
 
 $$
 F_X(x) = P(X \leq x) = \sum_{x' \leq x} P(X = x') = \sum_{x' \leq x} \sum_y P(X = x', Y = y)
@@ -73,10 +73,10 @@ $$
 P(Y = y | X = x) = \frac{P(Y=y, X=x)}{P(X=x)}
 $$
 
-Esta condicionalidade permite-nos definir duas VA unidimensionais $X|Y$ e $Y|X$ pelo que podemos calcular as suas fd, valor esperado, variância e outros:
+Esta condicionalidade permite-nos definir duas VA unidimensionais $X|Y$ e $Y|X$, pelo que podemos calcular as suas fd, valor esperado, variância e outros:
 
 $$
-F_{X|Y=y} = P(X \leq x | Y=y) = \sum_{x' \leq x} P(X=x', Y=y)
+F_{X|Y=y} = P(X \leq x | Y=y) = \sum_{x' \leq x} \frac{P(X=x', Y=y)}{P(Y=y)}
 $$
 
 $$
@@ -89,7 +89,7 @@ $$
 
 com definições análogas para $Y|X$.
 
-As VA de um par aleatório dizem-se independentes ($X \indep Y$) se para todo o $(x,y) \in \R^2$
+As VA de um par aleatório discreto dizem-se independentes ($X \indep Y$) se, para todo o $(x,y) \in \R^2$,
 
 $$
 \begin{aligned}
@@ -126,25 +126,25 @@ $$
 F_{X,Y}(x,y) = P(X \leq x, Y \leq y) = \int_{-\infty}^x \int_{-\infty}^y f_{X,Y}(x,y) \, dx \, dy
 $$
 
-Às funções que nos dão uma das VA de um par aleatório para todos os valores da outra dá-se o nome de [**funções de densidade de probabilidade marginais**](color:orange). As funções marginais de X e Y são então, respetivamente, dadas por
+Às funções que nos dão uma das VA de um par aleatório para todos os valores da outra dá-se o nome de [**funções de densidade de probabilidade marginais**](color:orange). As funções marginais de X e Y são, então, respetivamente, dadas por
 
 $$
 f_X(x) = \int_{-\infty}^\infty f_{X,Y}(x,y) \, dy \quad \quad f_Y(y) = \int_{-\infty}^\infty f_{X,Y}(x,y) \, dx
 $$
 
-A partir destas funções definem-se as [**funções distribuição marginais**](color:red)
+A partir destas funções, definem-se as [**funções de distribuição marginais**](color:red)
 
 $$
 F_X(x) = P(X \leq x) = \int_{-\infty}^x f_X(u) \, du \quad \quad F_Y(y) = P(Y \leq y) = \int_{-\infty}^y f_Y(u) \, du
 $$
 
-Tal como no caso discreto podemos averiguar a influência que as VA's têm uma sobre a outra através das [**funções de densidade de probabilidade condicionais**](color:purple):
+Tal como no caso discreto, podemos averiguar a influência que as VA's têm uma sobre a outra através das [**funções de densidade de probabilidade condicionais**](color:purple):
 
 $$
 f_{X|Y=y}(x) = \frac{f_{X,Y}(x,y)}{f_Y(y)} \quad \quad f_{Y|X=x}(y) = \frac{f_{X,Y}(x,y)}{f_X(x)}
 $$
 
-Outra vez, esta condicionalidade define duas VA unidimensionais $X|Y$ e $Y|X$ pelo que podemos calcular as suas fd, valor esperado, variância e outros:
+Outra vez, esta condicionalidade define duas VA unidimensionais, $X|Y$ e $Y|X$, pelo que podemos calcular as suas fd, valor esperado, variância e outros:
 
 $$
 F_{X|Y=y}(x) = \frac{f_{X,Y}(x,y)}{f_Y(y)}
@@ -160,7 +160,7 @@ $$
 
 com definições análogas para $Y|X$.
 
-As VA de um par aleatório dizem-se independentes ($X \indep Y$) se para todo o $(x,y) \in \R^2$
+As VA de um par aleatório contínuo dizem-se independentes ($X \indep Y$) se para todo o $(x,y) \in \R^2$
 
 $$
 \begin{aligned}
