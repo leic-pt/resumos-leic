@@ -149,10 +149,10 @@ A partir da definição acima, podemos inferir as seguintes probabilidades:
 :::details[Prova]
 
 1. Segue diretamente de 2.
-2. Como $A \cap \overline{A} = \emptyset$, temos, segundo o axioma 3., que $P(A) + P(\overline{A}) = P(A \cup \overline{A}) = P(\Omega) = 1$
-3. Temos que $(B \backslash A) \cap (B \cap A) = \emptyset$, pelo que, segundo o axioma 3., $P(B \backslash A) + P(B \cap A) = P((B \backslash A) \cup (B \cap A)) = P(B)$
-4. Como $A \cap (B \backslash A) = \emptyset$, temos, segundo o axioma 3., que $P(A) + P(B \backslash A) = P(A \cup (B \backslash A)) = P(A \cup B)$. Somando, então, $P(A)$ a ambos os lados da equação na propriedade 3., obtemos o resultado pretendido.
-5. Se $A \subset B$, então $A \cup B = A$. Segundo 3., temos então que $P(A) = P(B) - P(B \backslash A) \leq P(B)$ já que $P(B \backslash A) \geq 0$ devido ao axioma 2.
+2. Como $A \cap \overline{A} = \emptyset$, temos, segundo o axioma 3, que $P(A) + P(\overline{A}) = P(A \cup \overline{A}) = P(\Omega) = 1$
+3. Temos que $(B \backslash A) \cap (B \cap A) = \emptyset$, pelo que, segundo o axioma 3, $P(B \backslash A) + P(B \cap A) = P((B \backslash A) \cup (B \cap A)) = P(B)$
+4. Como $A \cap (B \backslash A) = \emptyset$, temos, segundo o axioma 3, que $P(A) + P(B \backslash A) = P(A \cup (B \backslash A)) = P(A \cup B)$. Somando, então, $P(A)$ a ambos os lados da equação na propriedade 3, obtemos o resultado pretendido.
+5. Se $A \subset B$, então $A \cup B = A$. Segundo 3, temos então que $P(A) = P(B) - P(B \backslash A) \leq P(B)$ já que $P(B \backslash A) \geq 0$ devido ao axioma 2.
 
 :::
 
