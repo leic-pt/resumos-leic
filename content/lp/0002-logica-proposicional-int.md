@@ -6,7 +6,7 @@ description: >-
   Sistema dedutivo.
   Prova, Regras de inferência.
   Como construir uma Prova.
-path: /lp/logica-proposicional-int
+path: /lp/logica-proposicional-intro
 type: content
 ---
 

@@ -5,7 +5,7 @@ description: >-
   Tipos.
   Mecanismos de Controlo.
   Predicados Dinâmicos.
-path: /lp/prolog-linguagem-programacao
+path: /lp/prolog-linguagem
 type: content
 ---
 

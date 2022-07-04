@@ -5,7 +5,7 @@ description: >-
   Resolução e Provas.
   Representação do Conhecimento, Agentes Cognitivos.
   Hipóteses.
-path: /lp/logica-primeira-ordem-sc
+path: /lp/logica-primeira-ordem-ii
 type: content
 ---
 

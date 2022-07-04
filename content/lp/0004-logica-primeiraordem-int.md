@@ -4,7 +4,7 @@ description: >-
   Lógica de primeira ordem.
   Quantificadores.
   Regras de inferência para quantificadores.
-path: /lp/logica-primeira-ordem-int
+path: /lp/logica-primeira-ordem-intro
 type: content
 ---
 

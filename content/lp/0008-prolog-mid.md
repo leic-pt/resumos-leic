@@ -4,7 +4,7 @@ description: >-
   Meta-predicados. 
   Aritmética, Instruções de Escrita e Leitura.
   Estruturas.
-path: /lp/prolog-mid
+path: /lp/prolog-meta
 type: content
 ---
 

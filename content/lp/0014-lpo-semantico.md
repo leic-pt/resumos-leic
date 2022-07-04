@@ -63,7 +63,7 @@ O exercício em questão é:
 > exemplo, sabemos que a relação $P$ é sempre falsa, logo $P(a)$ será falso.
 > Sabemos também que a relação representada por $S$ é verdadeira apenas para
 > um quadrado. Como neste caso a representa o nosso losango, $S(a)$ será falso.
-> Pela tabela de verdade da implificação (que por esta fase espero que saibas
+> Pela tabela de verdade da implicação (que por esta fase espero que saibas
 > mais que de cor que só é falsa quando o antecedente é verdadeiro e o consequente
 > falso) podes então concluir que a interpretação desta fbf é verdadeira
 > (bastava até notar que o antecedente é falso para tirar esta conclusão).

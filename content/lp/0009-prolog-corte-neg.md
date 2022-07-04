@@ -4,7 +4,7 @@ description: >-
   Operador de Corte.
   Negação.
   Paragem/Execução Forçada.
-path: /lp/prolog-corte-neg
+path: /lp/prolog-negacao
 type: content
 ---
 

@@ -4,7 +4,7 @@ description: >-
   Lógica Proposicional aplicada a sistemas computacionais.
   Resolução e Princípio da Resolução.
   Estratégias em resolução.
-path: /lp/logica-proposicional-sc
+path: /lp/logica-proposicional-ii
 type: content
 ---
 
