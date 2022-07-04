@@ -190,7 +190,7 @@ $$
 
 Um estimador será tanto melhor quanto menor o seu erro quadrático médio.  
 Dizemos que um estimador $T_1$ é **mais eficiente** que outro $T_2$, se $EQM_\theta(T_1(\underline{X})) < EQM_\theta(T_2(\underline{X}))$.
-Definimos a **eficiência relativa** de um estimador $T_1(\underline{X})$ em relação a um estimador $T_2(\underline{X})$ de parâmetro desconhecido $\theta$ como
+Definimos a **eficiência relativa** de um estimador $T_1(\underline{X})$ em relação a um estimador $T_2(\underline{X})$ de parâmetro desconhecido $\theta$ como:
 
 $$
 e_\theta(T_1(\underline{X}), T_2(\underline{X})) = \frac{EQM_\theta(T_2(\underline{X}))}{EQM_\theta(T_1(\underline{X}))}
