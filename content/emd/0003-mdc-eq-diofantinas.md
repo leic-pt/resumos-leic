@@ -322,7 +322,7 @@ $$
 
 Vamos agora tentar chegar a $d$ e $m$, apenas a partir de $c$.
 
-1. Algoritmo de Euclides (extendido)
+1. Algoritmo de Euclides (estendido)
 
 $$
 \begin{array}{c|c|c|c|}

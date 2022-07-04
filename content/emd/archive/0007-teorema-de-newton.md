@@ -94,6 +94,6 @@ O exercício 3 seria resolvido de uma maneira análoga a estes últimos dois, co
 
 Abaixo segue outro exemplo importante, de um exercício tipo para testes feito pelo professor José.
 
-![Exercicio final](./assets/0007-final1.png#dark=3)
+![Exercício final](./assets/0007-final1.png#dark=3)
 
-![Exercicio final 2](./assets/0007-final2.png#dark=3)
+![Exercício final 2](./assets/0007-final2.png#dark=3)

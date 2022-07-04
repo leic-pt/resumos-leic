@@ -78,7 +78,7 @@ module.exports = {
               strict: `ignore`,
               macros: {
                 '\\d': '\\mathop{}\\!\\mathrm d',
-                '\\1': '1\\!\\!1',
+                '\\1': '1\\kern-0.25em\\text{l}',
                 '\\Q': '\\mathbb{Q}',
                 '\\C': '\\mathbb{C}',
                 '\\car': '\\operatorname{car}',
@@ -136,7 +136,7 @@ module.exports = {
       resolve: `gatsby-plugin-umami`,
       options: {
         websiteId: '711c662a-45bd-41e0-bf82-302096490211',
-        srcUrl: 'https://umami.diogotc.com/umami.js',
+        srcUrl: 'https://umami.diogotc.com/script.js',
         includeInDevelopment: false,
         autoTrack: true,
         respectDoNotTrack: true,

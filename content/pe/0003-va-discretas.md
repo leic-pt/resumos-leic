@@ -17,7 +17,7 @@ type: content
 
 :::danger[]
 
-Esta distribuição não é leccionada no programa de 2021/22 mas pode ser importante para perceber alguns conceitos.
+Esta distribuição não é lecionada no programa de 2021/22 mas pode ser importante para perceber alguns conceitos.
 
 :::
 
@@ -385,7 +385,7 @@ $$
 
 :::warning[]
 
-Esta distribuição não faz parte da matéria leccionada no programa de 2021/22.
+Esta distribuição não faz parte da matéria lecionada no programa de 2021/22.
 
 :::
 

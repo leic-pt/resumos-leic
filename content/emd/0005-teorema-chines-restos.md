@@ -76,7 +76,7 @@ $$
 (7\times k_0) + (8 \times k_1) = 1,\quad k_0?
 $$
 
-Pelo Algoritmo de Euclides (extendido)
+Pelo Algoritmo de Euclides (estendido)
 
 $$
 \begin{array}{c|c|c|c|}
@@ -226,7 +226,7 @@ x-2 \equiv_4  1\\
 x \equiv_4 3 \quad \checkmark
 $$
 
-Para aprender a calcular inversos mais dificeis, consultar [Cálculo de Inversos](#inverso)
+Para aprender a calcular inversos mais difíceis, consultar [Cálculo de Inversos](#inverso)
 
 $$
 \left\{ \begin{aligned}
@@ -260,7 +260,7 @@ $$
 \end{aligned} \right.\\
 $$
 
-4. Caclular os inversos de $n_i$ módulo $m_i$ ($ñ_i$)
+4. Calcular os inversos de $n_i$ módulo $m_i$ ($ñ_i$)
 
 $$
 36ñ_1 \equiv_7 1, \quad 36 \frown 7 = 1
@@ -334,7 +334,7 @@ Onde,
   (com o exemplo fica claro)
 - $c_1,\dots,c_k$ são primos 2 a 2.
 - $n_i = c_1\times\dots\times c_{i-1} \times c_{i+1}\times \dots \times c_k = \frac M {c_i}$
-- $ñ_i$ é o inveros de $n_i$, módulo $c_i$
+- $ñ_i$ é o inverso de $n_i$, módulo $c_i$
 
 :::details[Exemplo]
 

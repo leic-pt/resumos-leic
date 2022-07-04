@@ -2,7 +2,7 @@
 title: Combinações Lineares de VA
 description: >-
   Valor Esperado e Variância de Combinações Lineares de Variáveis Aleatórias.
-  Distribuições de Combinações Lineares de Variáveis Aleatórias: Binomais, Poisson's, Normais e Exponenciais.
+  Distribuições de Combinações Lineares de Variáveis Aleatórias: Binomiais, Poisson's, Normais e Exponenciais.
   Teorema do Limite Central
   Aproximações de Distribuições.
   Correção de Continuidade.
@@ -153,7 +153,7 @@ Vamos ver agora aproximações distribuições, algumas que seguem do TLC, outra
 
 :::danger[]
 
-Estas aproximações não são leccionadas no programa de 2021/22.
+Estas aproximações não são lecionadas no programa de 2021/22.
 
 :::
 Uma VA $X \sim \op{hipergeométrica}(N, M, n)$ pode ser aproximada por
@@ -164,7 +164,7 @@ $$
 
 para $n < 0.1 N$
 
-A lógica por trás desta aproximação é que se a população for muito maior que a amostra (isto é, o número de individuos analisados), a não-reposição torna-se negligenciável.
+A lógica por trás desta aproximação é que se a população for muito maior que a amostra (isto é, o número de indivíduos analisados), a não-reposição torna-se negligenciável.
 
 :::tip[]
 

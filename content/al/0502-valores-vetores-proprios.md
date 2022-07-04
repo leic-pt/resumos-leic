@@ -31,7 +31,7 @@ $$
 \det (A - \lambda I)
 $$
 
-em que $I$ é a matriz indentidade e $\lambda$ um escalar.
+em que $I$ é a matriz identidade e $\lambda$ um escalar.
 
 :::
 

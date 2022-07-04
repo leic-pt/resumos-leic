@@ -169,7 +169,7 @@ Um grafo diz-se completo quando cada par de vértices constitui uma aresta (est�
 
 ### Rede
 
-É um terno $N = (V,E,\operatorname{f})$, onde $g=(V,E)$ é um grafo subjacente à `Rede` e $\operatorname{f}: E \rightarrow \R$ uma aplicação (todos os elemtos de $E$ têm correspondência).
+É um terno $N = (V,E,\operatorname{f})$, onde $g=(V,E)$ é um grafo subjacente à `Rede` e $\operatorname{f}: E \rightarrow \R$ uma aplicação (todos os elementos de $E$ têm correspondência).
 
 **Em suma**, uma `Rede` é um grafo onde as arestas têm valores reais associados.
 
@@ -331,7 +331,7 @@ A primeira inequação está provada $\checkmark$.
 
 Como estamos a tentar provar que o número de arestas tem um limite máximo, vamos ter em conta sempre os casos "máximos".
 
-Seja $k'$ uma componente do grafo em estudo. Se essa compontente tem $p'$ vértices, tem no máximo $\frac{p'(p'-1)}{2}$ arestas.
+Seja $k'$ uma componente do grafo em estudo. Se essa componente tem $p'$ vértices, tem no máximo $\frac{p'(p'-1)}{2}$ arestas.
 
 Se o grafo tem $k$ componentes, o que acontecerá se transferirmos um vértices de uma componente para outra?  
 Seja $h_1$ e $h_2$ duas componentes com $p_1, q_1$ e $p_2,q_2$, respetivamente **e** $p_1 \leq p_2$ (o que é verdade para quaisquer duas componentes, haverá com mais vértices, ou têm as duas o mesmo número).  
