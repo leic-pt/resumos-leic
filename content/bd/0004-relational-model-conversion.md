@@ -390,7 +390,7 @@ da entidade de multiplicidade 1 e obrigatória.
 
 ![Diagrama do Modelo E-A de uma associação one-to-many com participação obrigatória](./assets/0004-association-one-to-many-mandatory.svg#dark=3)
 
-> department(<u>department_acronym</u>, deparment_name)
+> department(<u>department_acronym</u>, department_name)
 >
 > teacher(<u>ist_id</u>, name, department_acronym, join_date)
 >

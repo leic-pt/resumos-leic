@@ -53,7 +53,7 @@ a Azure Cloud.
 
 ## Vantagens e Desvantagens de SGBDs
 
-[**Vantagens**](color:green)
+### [**Vantagens**](color:green)
 
 Já referenciámos algumas das vantagens de SGBDs, no entanto existem muitas mais.
 
@@ -114,7 +114,7 @@ Já referenciámos algumas das vantagens de SGBDs, no entanto existem muitas mai
   Estas linguagens dão uma interface de alto nível para os dados, que, tal como já
   vimos, permitem criar várias abstrações que simplificam o desenvolvimento de aplicações.
 
-[**Desvantagens**](color:red)
+### [**Desvantagens**](color:red)
 
 Embora sejam muitas as vantagens dos SGBDs, existem algumas desvantagens a ter em conta:
 
@@ -148,7 +148,7 @@ O aparecimento do [modelo ANSI-SPARC](https://en.wikipedia.org/wiki/ANSI-SPARC_A
 um passo importante na criação dos SGBDs relacionais que conhecemos hoje em dia, visto
 que propôs a separação da base de dados em 3 níveis.
 
-- **Nível Externo (_views_)**: Uma _view_ descreve como os utilizadores vêem os dados.
+- **Nível Externo (_views_)**: Uma _view_ descreve como os utilizadores veem os dados.
   Cada utilizador pode ter _views_ diferentes, particulares a si mesmo, sendo
   reflexões dos dados que lhe são úteis e a que simultaneamente tem acesso.
   Cada _view_ pode ser partilhada por vários utilizadores e cada utilizador
