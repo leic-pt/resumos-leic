@@ -205,7 +205,7 @@ $$
 e o seu valor esperado e variância são
 
 $$
-E(X) = \frac{1}{0.6} ≈ 1.67 \quad \quad V(X) = \frac{0.4}{0.6^2} ≈ 1.11
+E(X) = \frac{1}{0.6} \approx 1.67 \quad \quad V(X) = \frac{0.4}{0.6^2} \approx 1.11
 $$
 
 :::
