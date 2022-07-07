@@ -135,13 +135,13 @@ Com o seguinte conjunto de dependências:
 O fecho de $AG$, $(AG)^+$, pode ser computado tal que:
 
 - começamos com um fecho que corresponde ao próprio $AG$;
-- pegando em $A \to B$ (porque $A$ \subset $AG$), podemos adicionar $B$ ao fecho,
+- pegando em $A \to B$ (porque $A \subset AG$), podemos adicionar $B$ ao fecho,
   ficando então com o fecho $ABG$;
-- pegando em $A \to C$ (porque $A$ \subset $AG$), podemos adicionar $C$ ao fecho,
+- pegando em $A \to C$ (porque $A \subset AG$), podemos adicionar $C$ ao fecho,
   ficando então com o fecho $ABCG$;
-- pegando em $CG \to H$ (porque $G$ \subset $AG$), podemos adicionar $H$ ao fecho,
+- pegando em $CG \to H$ (porque $G \subset AG$), podemos adicionar $H$ ao fecho,
   ficando então com o fecho $ABCGH$;
-- pegando em $CG \to I$ (porque $G$ \subset $AG$), podemos adicionar $I$ ao fecho,
+- pegando em $CG \to I$ (porque $G \subset AG$), podemos adicionar $I$ ao fecho,
   ficando então com o fecho $ABCGHI$.
 
 Chegámos agora a um ponto em que todos os atributos da relação estão no fecho
