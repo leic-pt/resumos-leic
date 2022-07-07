@@ -19,191 +19,227 @@ type: content
 
 ```
 
+<!-- TODO: FALTAM BUÉ EXEMPLOS, DEPOIS NO RECURSO ADICIONAM-SE -->
+
 ## Motivação: anomalias
 
 Por vezes, ao desenhar uma base de dados, as relações são definidas de maneira tal que a informação
 é guardada de maneira redundante. Vejamos o seguinte exemplo:
 
-Dada a relação: info_conta(num_conta, saldo, nome_cliente, cidade_cliente, nome_agencia, cidade_agencia)
+Dada a relação:
+
+> info_conta(num_conta, saldo, nome_cliente, cidade_cliente, nome_agencia, cidade_agencia)
 
 Podemos construir a seguinte tabela de exemplo:
 
-| num_conta | saldo | nome_cliente | cidade_cliente | nome_agencia | cidade_agencia |
-| --------- | ----- | ------------ | -------------- | ------------ | -------------- |
-| A-101     | 500   | Hayes        | Harrison       | Downtown     | Brooklyn       |
-| A-101     | 500   | Johnson      | Palo Alto      | Downtown     | Brooklyn       |
-| A-201     | 900   | Johnson      | Palo Alto      | Perryridge   | Horseneck      |
-| A-215     | 700   | Smith        | Rye            | Mianus       | Horseneck      |
-| A-444     | 625   | Smith        | Rye            | North Town   | Rye            |
+| `num_conta` | `saldo` | `nome_cliente` | `cidade_cliente` | `nome_agencia` | `cidade_agencia` |
+| ----------- | ------- | -------------- | ---------------- | -------------- | ---------------- |
+| A-101       | 500     | Hayes          | Harrison         | Downtown       | Brooklyn         |
+| A-101       | 500     | Johnson        | Palo Alto        | Downtown       | Brooklyn         |
+| A-201       | 900     | Johnson        | Palo Alto        | Perryridge     | Horseneck        |
+| A-215       | 700     | Smith          | Rye              | Mianus         | Horseneck        |
+| A-444       | 625     | Smith          | Rye              | North Town     | Rye              |
 
 Rapidamente percebemos que há informação repetida:
 
-- a informação (num_conta, saldo) está repetida para cada cliente que participa nessa conta
-- a informação (nome_cliente, cidade_cliente) está repetida em cada conta em que ele participa
-- a informação (nome_agencia, cidade_agencia) está repetida para cada conta registada nessa agencia
+- a informação (num_conta, saldo) está repetida para cada cliente que participa nessa conta.
+- a informação (nome_cliente, cidade_cliente) está repetida em cada conta em que ele participa.
+- a informação (nome_agencia, cidade_agencia) está repetida para cada conta registada nessa agencia.
 
 Esta repetição da mesma informação é propensa a erros, como iremos ver.
 
 ### Tipos de anomalias
 
-As anomalias podem-se enquadrar em vários tipos:
+Podemos enquadrar as anomalias em vários tipos:
 
-- **Anomalias de inserção**
+- [**Anomalias de inserção**](color:green), quando para inserir um novo item na
+  base de dados temos que inserir outros items, que não deviam estar relacionados.
 
-  Quando para inserir um novo item na base de dados temos que inserir outros items, que não deviam estar relacionados.
+- [**Anomalias de atualização**](color:pink), quando para atualizar um item temos
+  de atualizar outros items, que não deviam estar relacionados.
 
-- **Anomalias de actualização**
+- [**Anomalias de remoção**](color:yellow), quando para remover um item temos que
+  remover outros itens que não deviam estar relacionados.
 
-  Quando para actualizar um item temos actualizar outros items, que não deviam estar relacionados.
-
-- **Anomalias de remoção**
-
-  Quando para remover um item temos que remover outros items, que não deviam estar relacionados.
-
-- **Anomalias de consulta**
-
-  Operações mais demoradas que o suposto, maior consumo de largura de banda, maior memória gasta.
+- [**Anomalias de consulta**](color:blue): para operações mais demoradas que o suposto,
+  vamos ter maior consumo de largura de banda e mais memória gasta.
 
 :::details[Exemplo]
+
 No caso do exemplo anterior, podemos ver que existem as seguintes anomalias:
 
-- quando se quer inserir uma conta para um cliente existente, temos que voltar a inserir a cidade do cliente
-- quando se quer alterar o saldo da conta A-101 tem que se actualizar em várias linhas
-- quando se quer apagar a conta A-101, também se vai estar a apagar o cliente Hayes (o que pode não ser desejado)
-  :::
+- quando se quer inserir uma conta para um cliente existente, temos que voltar a inserir a cidade do cliente.
+- quando se quer alterar o saldo da conta A-101 tem que se atualizar em várias linhas.
+- quando se quer apagar a conta A-101, também se vai estar a apagar o cliente Hayes (o que pode não ser desejado).
+
+:::
 
 Estas anomalias são causadas pela redundância de informação na base de dados, que advém de falhas
-no seu desenho. A base de dados [**não está normalizada**](color:orange).
+no seu desenho: a base de dados [**não está normalizada**](color:red), portanto.
 
-## Teoria da Normalização
+:::info[Teoria da Normalização]
 
-Os objectivos da normalização consistem em:
+Os objetivos da normalização da informação passam por:
 
-- reduzir a redundância de informação (não ter a informação repetida da base de dados)
-- guardar dados independentes de maneira independente (i.e. não criar dependências desnecessárias nem apagar dependências que fazem sentido)
-- garantir que os dados podem ser facilmente consultados (a complexidade é reduzida ao mínimo)
+- **reduzir a redundância** de informação, evitando ter informação repetida na base de dados.
+- guardar dados independentes de maneira independente, procurando não criar dependências
+  desnecessárias nem apagar dependências que fazem sentido.
+- garantir que os dados podem ser facilmente consultados, reduzindo a complexidade é reduzida ao mínimo.
 
-Nesta disciplina, são abordados vários conceitos da Teoria da Normalização:
+Vamos abordar, entre outros conceitos da Teoria da Normalização, as [**dependências funcionais**](color:blue),
+as [**formas normais**](color:green), e a [**decomposição de relações**](color:pink).
 
-- dependências funcionais
-- formas normais
-- decomposição de relações
+:::
 
 ## Dependências funcionais (FD)
 
-Dada uma relação r(XY), em que X e Y são subconjuntos de atributos, diz-se que
-X determina Y, ou que Y é dependente de X, se cada valor de X está associado a
-[**um único**](color:orange) valor de Y.
-
-Neste caso dizemos que X ⇒ Y
+Dada uma relação $r(XY)$, em que $X$ e $Y$ são subconjuntos de atributos, diz-se que
+$X$ determina Y, ou que $Y$ é dependente de $X$, se cada valor de $X$ está associado a
+[**um único**](color:orange) valor de $Y$. Neste caso, dizemos que $X \to Y$!
 
 ### Propriedades das dependências
 
-As dependências funcionais obedecem às seguintes propriedades:
+As dependências funcionais obedecem às propriedades esperadas:
 
-- se Y ⊆ X, então X ⇒ Y
-- se X ⇒ Y, então XZ ⇒ XY
-- se X ⇒ Y e Y ⇒ Z, então X ⇒ Z
+- [**Refletividade**](color:blue): se $Y \subseteq X$, então $X \to Y$.
+- [**Aumentação**](color:yellow): se $X \to Y$, então $XZ \to YZ, \forall{Z}$.
+- [**Transitividade**](color:green): se $X \to Y$ e $Y \to Z$, então $X \to Z$.
 
-Destes axiomas podemos derivar mais propriedades:
+Destes axiomas, podemos ainda derivar mais propriedades:
 
-- X ⇒ X
-- se X ⇒ YZ, então X ⇒ Y e X ⇒ Z
-- se X ⇒ Y e X ⇒ Z, então X ⇒ YZ
-- se X ⇒ Y e A ⇒ B, então XA ⇒ YB
+- $X \to X$ é, claro, universal.
+- [**Decomposição**](color:pink): se $X \to YZ$, então $X \to Y$ e $X \to Z$.
+- [**União**](color:purple): se $X \to Y$ e $X \to Z$, então $X \to YZ$.
+- [**Composição**](color:red): se $X \to Y$ e $A \to B$, então $XA \to YB$.
 
-### Chaves
+:::info[Fecho de Atributos]
 
-Tipos de chaves:
+O fecho, $\alpha^+$, de um conjunto de atributos $\alpha$, corresponde ao
+conjunto de atributos $\beta$ que dependem de $\alpha$ - isto é, $\alpha \to \beta$.
 
-- **Super chave**
+Caso o fecho de $\alpha$ inclua todos os elementos da relação, dizemos que
+$\alpha$ é uma [**super-chave**](color:orange) da mesma.
 
-  Qualquer conjunto de atributos que identifica unicamente os tuplos de uma relação (pode ter mais
-  atributos que o necessário).
+$\alpha^+$ pode ser computado iterativamente, como mostrado abaixo:
 
-- **Chave candidata**
+:::details[Exemplo]
 
-  Qualquer conjunto mínimo de atributos que identifica unicamente os tuplos de uma relação.
+A título de exemplo, considerando a seguinte relação:
 
-- **Chave primária**
+> r(A, B, C, G, H, I)
 
-  É uma das chaves candidatas (escolhida para servir de chave na tabela da base de dados).
+Com o seguinte conjunto de dependências:
 
-### Chaves e dependências funcionais
+> $A \to B$, $A \to C$, $CG \to H$, $CG \to I$, $B \to H$
 
-Dada uma relação r(R) e um subconjunto de atributos K ⊂ R, podemos dizer que:
+O fecho de $AG$, $(AG)^+$, pode ser computado tal que:
 
-- K é uma super chave de r(R) se K ⇒ R
-- K é uma chave candidata de r(R) se e só se K ⇒ R e ∄(α ⊂ K): α → R, ou seja, nenhum subconjunto de K pode derivar R
+- começamos com um fecho que corresponde ao próprio $AG$;
+- pegando em $A \to B$ (porque $A$ \subset $AG$), podemos adicionar $B$ ao fecho,
+  ficando então com o fecho $ABG$;
+- pegando em $A \to C$ (porque $A$ \subset $AG$), podemos adicionar $C$ ao fecho,
+  ficando então com o fecho $ABCG$;
+- pegando em $CG \to H$ (porque $G$ \subset $AG$), podemos adicionar $H$ ao fecho,
+  ficando então com o fecho $ABCGH$;
+- pegando em $CG \to I$ (porque $G$ \subset $AG$), podemos adicionar $I$ ao fecho,
+  ficando então com o fecho $ABCGHI$.
 
-### Dependência total
+Chegámos agora a um ponto em que todos os atributos da relação estão no fecho
+do conjunto inicial, pelo que podemos afirmar que $AG$ é uma [**super-chave**](color:orange).
 
-Sejam X e Y conjuntos de atributos tais que X ⇒ Y. Diz-se que Y depende totalmente de X se
-não há nenhum subconjunto de X que determine Y (por oposição a depender apenas parcialmente).
+:::
 
-Formalmente: ∄(S ⊂ X): S → Y
+É ainda interessante definir [**dependência total**](color:orange): dizemos que um
+conjunto de atributos $Y$ é [**totalmente dependente**](color:orange) de outro
+conjunto $X$ caso $X \to Y$ [**e**](color:red) não haja nenhum subconjunto
+de $X$ que também determine $Y$. Isto é:
 
-## 1ª Forma Normal
+$$
+\nexists_{S \subset X}: S \to Y
+$$
 
-Diz-se que uma relação está na 1ª FN quando:
+Por fim, podemos agora definir [**chave candidata**](color:green): corresponde a uma
+chave em que nenhum dos seus subconjuntos é uma chave - isto é, um subconjunto de
+atributos $X$ de uma relação $R$ tal que $X \to R - X$.
+Podendo haver mais que uma chave candidata, damos o nome de [**chave
+primária**](color:red) à chave candidata escolhida pelo designer da BD para identificar unicamente tuplos numa relação.
 
-- todos os atributos são valores atómicos
+## Formas Normais
 
-Isto é, cada linha só pode conter [**um valor por coluna**](color:orange), não dá para ter uma lista de números, por exemplo.
+Correspondem a formas estandardizadas de representar a informação na base de dados,
+por forma a evitar (tanto quanto possível) a redundância da mesma, procurando ainda
+manter a coerência dos dados. Baseiam-se na noção de **dependência funcional**
+explorada mais acima.
 
-## 2ª Forma Normal
+### 1ª Forma Normal
 
-Diz-se que uma relação está na 2ª FN quando:
+Dizemos que uma relação está na 1ª Forma Normal quando todos os atributos são valores atómicos: isto é,
+cada atributo da relação pode ter apenas um valor por tuplo. Esta é, aliás,
+uma das definições necessárias para estarmos na presença de uma relação, já
+que precisamos que o nosso modelo seja consultável.
 
-- está na 1ª FN
-- cada atributo não-chave depende de [**todos os atributos-chave**](color:orange)
+![1ª Forma Normal](assets/0007-1fn.svg#dark=2)
 
-:::info[Exemplo]
-Se tivermos a relação: maquina(<u>modelo, id</u>, voltagem)
+Esta forma normal é a mais simples, e portanto também bastante limitada: não
+faz qualquer verificação quanto à (in)dependência dos atributos, por exemplo.
+É aqui que entra a 2ª forma normal.
+
+### 2ª Forma Normal
+
+Dizemos que uma relação está na 2ª Forma Normal caso esteja na 1ª Forma Normal, e
+cada atributo não-chave dependa de [**todos os atributos-chave**](color:orange)
+da relação em que se encontra.
+
+Se tivermos a relação:
+
+> maquina(<u>modelo, id</u>, voltagem)
 
 Com as seguintes dependências:
 
-- id ⇒ modelo
-- modelo ⇒ voltagem
+> $id \to modelo$, $modelo \to voltagem$
 
 Como a voltagem depende totalmente do modelo (não é preciso id para se saber qual o seu valor),
 então não está a respeitar a 2ª FN.
-
 Essa informação deveria estar representada noutra tabela.
+
+Temos, contudo, que esta FN continua sem evitar por completo a redundância, dado
+que pode haver dependências entre atributos não chave. É aqui que entra
+a utilidade da 3ª Forma Normal.
+
+### 3ª Forma Normal
+
+Diz-se que uma relação está na 3ª Forma Normal quando está na 2ª Forma Normal,
+todos os atributos não-chave são [**independentes entre si**](color:orange).
+
+:::details[Exemplo]
+Se alterarmos o exemplo anterior e passarmos a ter:
+
+> maquina(<u>id</u>, modelo, voltagem)
+
+Com as mesmas dependências:
+
+> $id \to modelo$, $modelo \to voltagem$
+
+Neste caso já respeita a 2ª FN, pois tanto $id \to modelo$ como $id \to voltagem$, e portanto, por transitividade, $id \to modelo \to voltagem$ -
+temos, assim, todos os atributos não-chave a depender de atributos chave.
+
+No entanto, a voltagem não é independente do modelo ($modelo \to voltagem$), pelo que esta relação não respeita a 3ª FN.
 :::
 
-## 3ª Forma Normal
+### Forma Normal de Boyce-Codd
 
-Diz-se que uma relação está na 3ª FN quando:
-
-- está na 2ª FN
-- todos os atributos não-chave são [**independentes entre si**](color:orange)
-
-  :::info[Exemplo]
-  Se alterarmos o exemplo anterior e passarmos a ter: maquina(<u>id</u>, modelo, voltagem)
-
-  Com as mesmas dependências:
-
-  - id ⇒ modelo
-  - modelo ⇒ voltagem
-
-  Neste caso já respeita a 2ª FN, pois tanto id ⇒ modelo como id ⇒ voltagem (pois id ⇒ modelo ⇒ voltagem).
-
-  No entanto, a voltagem não é independente do modelo (modelo ⇒ voltagem), pelo que esta relação não respeita a 3ª FN.
-  :::
-
-## Forma Normal de Boyce-Codd
-
-Diz-se que uma relação está na FNBC quando:
-
-- está na 3ª FN
-- [**todos os atributos**](color:orange) (independentemente de serem ou não chaves) são totalmente dependentes de uma [chave candidata](/bd/normalization#chaves)
+Chegámos, finalmente, a uma forma normal que evita qualquer tipo de redundâncias,
+a [**forma normal de Boyce-Codd**](color:orange). Diz-se que uma relação está na FNBC quando
+está na 3ª Forma Normal e [**todos os atributos**](color:orange)
+(independentemente de serem ou não chaves) são totalmente dependentes de uma chave candidata.
 
 :::details[Exemplo]
 Vamos considerar o caso de querermos guardar informação sobre alunos, disciplinas e professores.
 Neste caso, cada professor só pode estar associado a uma única disciplina.
 
-Temos a relação: aula(<u>aluno, disciplina</u>, professor)
+Temos a relação:
+
+> aula(<u>aluno, disciplina</u>, professor)
 
 As chaves candidatas são:
 
@@ -212,19 +248,17 @@ As chaves candidatas são:
 
 Temos ainda as seguintes dependências:
 
-- (aluno, professor) ⇒ disciplina
-- (aluno, disciplina) ⇒ professor
-- (professor) ⇒ disciplina
+> $(aluno, professor) \to disciplina$, $(aluno, disciplina) \to professor$, $(professor) \to disciplina$
 
 Esta relação está na 3ª FN, pois só há um atributo não-chave, e esse atributo depende de ambos os atributos-chave.
-No entanto, não está na FNBC, uma vez que disciplina é totalmente dependente de professor, e professor não é uma [chave candidata](/bd/normalization#chaves).
+No entanto, não está na FNBC, uma vez que disciplina é totalmente dependente de professor, e professor não é uma chave candidata.
 
 :::
 
 A FNBC é diferente da 3ª FN sempre que:
 
-- há mais que uma [chave candidata](/bd/normalization#chaves)
-- as chaves são formadas por múltiplos atributos
+- há mais que uma chave candidata;
+- as chaves são formadas por múltiplos atributos.
 
 A FNBC já garante que [**não há redundância de informação**](color:orange), logo previne anomalias.
 
@@ -233,22 +267,20 @@ A FNBC já garante que [**não há redundância de informação**](color:orange)
 O objectivo da decomposição de relações é pegar numa ou várias relações que não estão na FNBC e
 subdividir noutras relações de maneira a que estas já estejam.
 
-No entanto, decomposição de relações, se não for bem feita, pode gerar os seguintes problemas:
+No entanto, decomposição de relações, se não for bem feita, pode gerar
+perda de informação e/ou de dependências.
+Dizemos que a decomposição de uma relação é [**_lossless_**](color:yellow) (sem
+perdas) quando a relação original consegue ser obtida através do
+`NATURAL JOIN` das relações resultantes da decomposição.
 
-- perda de informação
-- perda de dependências
+:::info[Teorema de Heath]
 
-A decomposição de uma relação diz-se lossless (sem perdas) quando a relação original consegue ser obtida
-através do NATURAL JOIN das relações resultantes da decomposição.
+Dada uma relação $r(XYZ)$, em que $X$, $Y$, $Z$ são conjuntos de atributos, a
+decomposição de $r$ em $r_1(XY)$ e $r_2(XZ)$ diz-se _lossless_ caso $X \to Y$ ou $X \to Z$.
 
-### Teorema de Heath
+:::
 
-Dada uma relação r(XYZ), em que X, Y, Z são conjuntos de atributos, a decomposição de r em r1(XY) e
-r2(XZ) é lossless se X ⇒ Y ou X ⇒ Z.
+Podemos, caso se verifique o teorema de Heath, e dada uma relação $r(XYZ)$ onde $X \to Y$ é uma dependência que viola a FNBC, então, fazer o seguinte:
 
-### Decomposição em FNBC
-
-Dada uma relação r(XYZ), onde X -> Y é uma dependência que viola a FNBC, então:
-
-1. decompomos r(XYZ) em r1(XY) e r2(XZ)
-2. verificamos se r1 e r2 estão na FNBC, repetir recursivamente até estarem
+1. Decompor $r(XYZ)$ em $r_1(XY)$ e $r_2(XZ)$;
+2. Verificar se $r_1$ e $r_2$ estão na FNBC, e repetir o processo recursivamente até todas as "sub-relações" criadas estarem na FNBC.
