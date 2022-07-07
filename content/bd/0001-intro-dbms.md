@@ -57,7 +57,7 @@ a Azure Cloud.
 
 Já referenciámos algumas das vantagens de SGBDs, no entanto existem muitas mais.
 
-- **Independência dos dados**
+- **Independência dos Dados**
 
   Existe uma camada de abstração entre a representação dos dados quando são armazenados
   e aquilo a que as aplicações têm acesso. Uma aplicação não tem de saber (nem sabe)
@@ -80,8 +80,8 @@ Já referenciámos algumas das vantagens de SGBDs, no entanto existem muitas mai
   de obedecer para assegurar que os dados são válidos. Este processo é denominado por
   garantia da integridade dos dados, e é algo que os SGBDs fazem por nós.  
   Por exemplo, no Técnico queremos garantir que um aluno não está a fazer mais
-  de 42 ECTS por semestre. Podemos dar esta regra ao nosso SGBD e não temos
-  de nos preocupar com esta restrição no desenvolvimento da aplicação.
+  de 42 ECTS por semestre. Podemos dar esta regra ao nosso SGBD e não nos temos
+  de preocupar com esta restrição no desenvolvimento da aplicação.
 
   Ao contrário de outras formas de armazenamento de dados, como ficheiros, os SGBDs
   dão-nos uma granularidade de permissões muitíssimo elevada de forma a controlar
