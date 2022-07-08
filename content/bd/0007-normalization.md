@@ -7,7 +7,7 @@ description: >-
   1ª Forma Normal.
   2ª Forma Normal.
   3ª Forma Normal.
-  Forma Normal Boyce-Codd.
+  Forma Normal de Boyce-Codd.
   Decomposição de relações.
 path: /bd/normalization
 type: content
@@ -24,7 +24,7 @@ type: content
 ## Motivação: anomalias
 
 Por vezes, ao desenhar uma base de dados, as relações são definidas de maneira tal que a informação
-é guardada de maneira redundante. Vejamos o seguinte exemplo:
+é guardada de maneira redundante. Vejamos o seguinte exemplo.
 
 Dada a relação:
 
@@ -43,22 +43,22 @@ Podemos construir a seguinte tabela de exemplo:
 Rapidamente percebemos que há informação repetida:
 
 - a informação (num_conta, saldo) está repetida para cada cliente que participa nessa conta.
-- a informação (nome_cliente, cidade_cliente) está repetida em cada conta em que ele participa.
-- a informação (nome_agencia, cidade_agencia) está repetida para cada conta registada nessa agencia.
+- a informação (nome_cliente, cidade_cliente) está repetida para cada conta em que ele participa.
+- a informação (nome_agencia, cidade_agencia) está repetida para cada conta registada nessa agência.
 
-Esta repetição da mesma informação é propensa a erros, como iremos ver.
+Esta repetição de informação é propensa a erros, como iremos ver.
 
 ### Tipos de anomalias
 
 Podemos enquadrar as anomalias em vários tipos:
 
-- [**Anomalias de inserção**](color:green), quando para inserir um novo item na
-  base de dados temos que inserir outros items, que não deviam estar relacionados.
+- [**Anomalias de inserção**](color:green), quando, para inserir um novo item na
+  base de dados, temos que inserir outros items, que não deviam estar relacionados.
 
-- [**Anomalias de atualização**](color:pink), quando para atualizar um item temos
-  de atualizar outros items, que não deviam estar relacionados.
+- [**Anomalias de atualização**](color:pink), quando, para atualizar um item, temos
+  de atualizar outros items que não deviam estar relacionados.
 
-- [**Anomalias de remoção**](color:yellow), quando para remover um item temos que
+- [**Anomalias de remoção**](color:yellow), quando, para remover um item, temos que
   remover outros itens que não deviam estar relacionados.
 
 - [**Anomalias de consulta**](color:blue): para operações mais demoradas que o suposto,
@@ -69,7 +69,7 @@ Podemos enquadrar as anomalias em vários tipos:
 No caso do exemplo anterior, podemos ver que existem as seguintes anomalias:
 
 - quando se quer inserir uma conta para um cliente existente, temos que voltar a inserir a cidade do cliente.
-- quando se quer alterar o saldo da conta A-101 tem que se atualizar em várias linhas.
+- quando se quer alterar o saldo da conta A-101, tem que se atualizar em várias linhas.
 - quando se quer apagar a conta A-101, também se vai estar a apagar o cliente Hayes (o que pode não ser desejado).
 
 :::
@@ -82,20 +82,20 @@ no seu desenho: a base de dados [**não está normalizada**](color:red), portant
 Os objetivos da normalização da informação passam por:
 
 - **reduzir a redundância** de informação, evitando ter informação repetida na base de dados.
-- guardar dados independentes de maneira independente, procurando não criar dependências
+- **guardar dados independentes de forma independente**, procurando não criar dependências
   desnecessárias nem apagar dependências que fazem sentido.
-- garantir que os dados podem ser facilmente consultados, reduzindo a complexidade é reduzida ao mínimo.
+- **garantir que os dados podem ser facilmente consultados**, reduzindo a complexidade ao mínimo.
 
 Vamos abordar, entre outros conceitos da Teoria da Normalização, as [**dependências funcionais**](color:blue),
-as [**formas normais**](color:green), e a [**decomposição de relações**](color:pink).
+as [**formas normais**](color:green) e a [**decomposição de relações**](color:pink).
 
 :::
 
 ## Dependências funcionais (FD)
 
 Dada uma relação $r(XY)$, em que $X$ e $Y$ são subconjuntos de atributos, diz-se que
-$X$ determina Y, ou que $Y$ é dependente de $X$, se cada valor de $X$ está associado a
-[**um único**](color:orange) valor de $Y$. Neste caso, dizemos que $X \to Y$!
+$X$ determina $Y$ ou que $Y$ é dependente de $X$, se cada valor de $X$ está associado a
+[**um único**](color:orange) valor de $Y$. Neste caso, dizemos que $X \to Y$.
 
 ### Propriedades das dependências
 
@@ -161,8 +161,8 @@ $$
 Por fim, podemos agora definir [**chave candidata**](color:green): corresponde a uma
 chave em que nenhum dos seus subconjuntos é uma chave - isto é, um subconjunto de
 atributos $X$ de uma relação $R$ tal que $X \to R - X$.
-Podendo haver mais que uma chave candidata, damos o nome de [**chave
-primária**](color:red) à chave candidata escolhida pelo designer da BD para identificar unicamente tuplos numa relação.
+Podendo haver mais do que uma chave candidata, damos o nome de [**chave
+primária**](color:red) à chave candidata escolhida para identificar unicamente tuplos numa relação de uma base de dados.
 
 ## Formas Normais
 
@@ -173,8 +173,8 @@ explorada mais acima.
 
 ### 1ª Forma Normal
 
-Dizemos que uma relação está na 1ª Forma Normal quando todos os atributos são valores atómicos: isto é,
-cada atributo da relação pode ter apenas um valor por tuplo. Esta é, aliás,
+Dizemos que uma relação está na 1ª Forma Normal, quando todos os atributos são valores atómicos: isto é,
+cada atributo da relação tem apenas um valor por tuplo. Esta é, aliás,
 uma das definições necessárias para estarmos na presença de uma relação, já
 que precisamos que o nosso modelo seja consultável.
 
@@ -182,11 +182,11 @@ que precisamos que o nosso modelo seja consultável.
 
 Esta forma normal é a mais simples, e portanto também bastante limitada: não
 faz qualquer verificação quanto à (in)dependência dos atributos, por exemplo.
-É aqui que entra a 2ª forma normal.
+É aqui que entra a 2ª Forma Normal.
 
 ### 2ª Forma Normal
 
-Dizemos que uma relação está na 2ª Forma Normal caso esteja na 1ª Forma Normal, e
+Dizemos que uma relação está na 2ª Forma Normal, caso esteja na 1ª Forma Normal e
 cada atributo não-chave dependa de [**todos os atributos-chave**](color:orange)
 da relação em que se encontra.
 
@@ -198,7 +198,7 @@ Com as seguintes dependências:
 
 > $id \to modelo$, $modelo \to voltagem$
 
-Como a voltagem depende totalmente do modelo (não é preciso id para se saber qual o seu valor),
+Como a voltagem depende totalmente do modelo (não é preciso _id_ para se saber qual o seu valor),
 então não está a respeitar a 2ª FN.
 Essa informação deveria estar representada noutra tabela.
 
@@ -208,7 +208,7 @@ a utilidade da 3ª Forma Normal.
 
 ### 3ª Forma Normal
 
-Diz-se que uma relação está na 3ª Forma Normal quando está na 2ª Forma Normal,
+Diz-se que uma relação está na 3ª Forma Normal, quando está na 2ª Forma Normal e
 todos os atributos não-chave são [**independentes entre si**](color:orange).
 
 :::details[Exemplo]
@@ -220,8 +220,8 @@ Com as mesmas dependências:
 
 > $id \to modelo$, $modelo \to voltagem$
 
-Neste caso já respeita a 2ª FN, pois tanto $id \to modelo$ como $id \to voltagem$, e portanto, por transitividade, $id \to modelo \to voltagem$ -
-temos, assim, todos os atributos não-chave a depender de atributos chave.
+Neste caso, a relação já respeita a 2ª FN, pois tanto $id \to modelo$ como $modelo \to voltagem$, e portanto, por transitividade, $id \to modelo \to voltagem$.
+Temos, assim, todos os atributos não-chave a depender de atributos chave.
 
 No entanto, a voltagem não é independente do modelo ($modelo \to voltagem$), pelo que esta relação não respeita a 3ª FN.
 :::
@@ -229,7 +229,7 @@ No entanto, a voltagem não é independente do modelo ($modelo \to voltagem$), p
 ### Forma Normal de Boyce-Codd
 
 Chegámos, finalmente, a uma forma normal que evita qualquer tipo de redundâncias,
-a [**forma normal de Boyce-Codd**](color:orange). Diz-se que uma relação está na FNBC quando
+a [**Forma Normal de Boyce-Codd**](color:orange). Diz-se que uma relação está na FNBC, quando
 está na 3ª Forma Normal e [**todos os atributos**](color:orange)
 (independentemente de serem ou não chaves) são totalmente dependentes de uma chave candidata.
 
@@ -250,24 +250,24 @@ Temos ainda as seguintes dependências:
 
 > $(aluno, professor) \to disciplina$, $(aluno, disciplina) \to professor$, $(professor) \to disciplina$
 
-Esta relação está na 3ª FN, pois só há um atributo não-chave, e esse atributo depende de ambos os atributos-chave.
-No entanto, não está na FNBC, uma vez que disciplina é totalmente dependente de professor, e professor não é uma chave candidata.
+Esta relação está na 3ª FN, pois só há um atributo não-chave e esse atributo depende de ambos os atributos-chave.
+No entanto, não está na FNBC, uma vez que disciplina é totalmente dependente de professor, que não é uma chave candidata.
 
 :::
 
 A FNBC é diferente da 3ª FN sempre que:
 
-- há mais que uma chave candidata;
+- há mais do que uma chave candidata;
 - as chaves são formadas por múltiplos atributos.
 
 A FNBC já garante que [**não há redundância de informação**](color:orange), logo previne anomalias.
 
 ## Decomposição de relações
 
-O objectivo da decomposição de relações é pegar numa ou várias relações que não estão na FNBC e
+O objetivo da decomposição de relações é pegar numa ou várias relações que não estão na FNBC e
 subdividir noutras relações de maneira a que estas já estejam.
 
-No entanto, decomposição de relações, se não for bem feita, pode gerar
+No entanto, a decomposição de relações, se não for bem feita, pode gerar
 perda de informação e/ou de dependências.
 Dizemos que a decomposição de uma relação é [**_lossless_**](color:yellow) (sem
 perdas) quando a relação original consegue ser obtida através do
@@ -275,12 +275,12 @@ perdas) quando a relação original consegue ser obtida através do
 
 :::info[Teorema de Heath]
 
-Dada uma relação $r(XYZ)$, em que $X$, $Y$, $Z$ são conjuntos de atributos, a
+Dada uma relação $r(XYZ)$, em que $X$, $Y$ e $Z$ são conjuntos de atributos, a
 decomposição de $r$ em $r_1(XY)$ e $r_2(XZ)$ diz-se _lossless_ caso $X \to Y$ ou $X \to Z$.
 
 :::
 
-Podemos, caso se verifique o teorema de Heath, e dada uma relação $r(XYZ)$ onde $X \to Y$ é uma dependência que viola a FNBC, então, fazer o seguinte:
+Podemos, caso se verifique o Teorema de Heath e tivermos uma relação $r(XYZ)$ onde $X \to Y$ é uma dependência que viola a FNBC, fazer o seguinte:
 
 1. Decompor $r(XYZ)$ em $r_1(XY)$ e $r_2(XZ)$;
-2. Verificar se $r_1$ e $r_2$ estão na FNBC, e repetir o processo recursivamente até todas as "sub-relações" criadas estarem na FNBC.
+2. Verificar se $r_1$ e $r_2$ estão na FNBC, repetindo o processo recursivamente até todas as "sub-relações" criadas estarem na FNBC.
