@@ -61,7 +61,7 @@ Podemos enquadrar as anomalias em vários tipos:
 - [**Anomalias de remoção**](color:yellow), quando para remover um item temos que
   remover outros itens que não deviam estar relacionados.
 
-- [**Anomalias de consulta**](color:blue): para operações mais demoradas que o suposto,
+- [**Anomalias de consulta**](color:blue), para operações mais demoradas que o suposto,
   vamos ter maior consumo de largura de banda e mais memória gasta.
 
 :::details[Exemplo]
@@ -208,7 +208,7 @@ a utilidade da 3ª Forma Normal.
 
 ### 3ª Forma Normal
 
-Diz-se que uma relação está na 3ª Forma Normal quando está na 2ª Forma Normal,
+Diz-se que uma relação está na 3ª Forma Normal quando está na 2ª Forma Normal e
 todos os atributos não-chave são [**independentes entre si**](color:orange).
 
 :::details[Exemplo]
@@ -260,7 +260,8 @@ A FNBC é diferente da 3ª FN sempre que:
 - há mais que uma chave candidata;
 - as chaves são formadas por múltiplos atributos.
 
-A FNBC já garante que [**não há redundância de informação**](color:orange), logo previne anomalias.
+A FNBC já garante que [**não há redundância de informação**](color:orange) detetáveis por dependências
+funcionais, logo previne anomalias.
 
 ## Decomposição de relações
 
