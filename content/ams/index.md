@@ -9,7 +9,7 @@ type: topLevelPage
 > Entender e relacionar os principais aspetos relacionados com o processo de engenharia de requisitos,
 > e a sua aplicação no âmbito de projetos concretos.  
 > Conceber e modelar sistemas de informação, com base nas linguagens de modelação ArchiMate, BPMN, UML e SysML,
-> segundo múltiplas perspectivas, mas principalmente as perspectivas da arquitetura empresarial, de processos de negócio,
+> segundo múltiplas perspetivas, mas principalmente as perspetivas da arquitetura empresarial, de processos de negócio,
 > e da análise de sistemas de informação.  
 > Definir e produzir documentos de especificações de requisitos de sistemas de informação,
 > integrando especificações textuais com modelos visuais que as complementem.  

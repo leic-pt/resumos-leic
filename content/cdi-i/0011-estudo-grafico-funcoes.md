@@ -1,7 +1,7 @@
 ---
 title: Estudo Gráfico de Funções
 description: >-
-  Assíntotas.
+  Assintotas.
   Paridade.
   Periodicidade.
   Estudo completo de uma função.
@@ -15,19 +15,19 @@ type: content
 
 ```
 
-## Assíntotas
+## Assintotas
 
-### Assíntotas Verticais
+### Assintotas Verticais
 
-Diz-se que a reta de equação $x=x_0$ é uma assíntota:
+Diz-se que a reta de equação $x=x_0$ é uma assintota:
 
 - vertical [à esquerda](color:orange) para $f$ se $f$ está definida em $]x_0 − r, x_0[$, para algum $r\in\R^+$, e $f(x_0^-)=\pm \infin.$
 - vertical [à direita](color:orange) para $f$ se $f$ está definida em $]x_0, x_0+r[$, para algum $r\in\R^+$, e $f(x_0^+)=~\pm \infin.$
-- [bi-lateral](color:green) para $f$ se é simultaneamente uma [assíntota à esquerda](color:orange) e uma [assíntota à direita](color:orange).
+- [bi-lateral](color:green) para $f$ se é simultaneamente uma [assintota à esquerda](color:orange) e uma [assintota à direita](color:orange).
 
-👉 Só é preciso estudar a existência de assíntotas verticais nos pontos em que a função não é contínua.
+👉 Só é preciso estudar a existência de assintotas verticais nos pontos em que a função não é contínua.
 
-Podem existir infinitas assíntotas verticais numa função, tal como é o caso da função $f(x)=\tg x.$
+Podem existir infinitas assintotas verticais numa função, tal como é o caso da função $f(x)=\tg x.$
 
 :::details[Exemplos]
 
@@ -35,9 +35,9 @@ Podem existir infinitas assíntotas verticais numa função, tal como é o caso 
 
 Função $f:\R\backslash \{0\}\to \R\quad,\quad f(x)=\frac 1x$
 
-Tem uma assíntota bi-lateral de equação $x=0$.
+Tem uma assintota bi-lateral de equação $x=0$.
 
-![Assíntota Bilateral, Exemplo 1](./assets/0011-ex1-bilateral.png)
+![Assintota Bilateral, Exemplo 1](./assets/0011-ex1-bilateral.png)
 
 [**Exemplo 2**](color:orange)
 
@@ -48,37 +48,37 @@ e^{\frac 1x} &\text{se }x\ne 0\\
 \end{cases}
 $$
 
-Tem uma assíntota à direita de equação $x=0$. É de salientar que esta função está definida na origem, sendo mesmo contínua à esquerda. Mesmo assim, tem uma assíntota neste ponto.
+Tem uma assintota à direita de equação $x=0$. É de salientar que esta função está definida na origem, sendo mesmo contínua à esquerda. Mesmo assim, tem uma assintota neste ponto.
 
-![Assíntota, Exemplo 2](./assets/0011-ex2-assintota.png)
+![Assintota, Exemplo 2](./assets/0011-ex2-assintota.png)
 
 :::
 
-### Assíntotas Não Verticais
+### Assintotas Não Verticais
 
 Seja $f$ uma função que está definida em $V_r(+\infin)$, para algum $r\in\R^+$.
 
-Diz-se que a reta ${y=m_+x+b_+}$ é uma [assíntota não vertical](color:orange) [à direita](color:yellow) de $f$ se
+Diz-se que a reta ${y=m_+x+b_+}$ é uma [assintota não vertical](color:orange) [à direita](color:yellow) de $f$ se
 
 $$
 \lim_{x\to+\infin}\frac{f(x)}x=m_+\in\R\quad,\quad\lim_{x\to+\infin}\big[f(x)-mx\big]=b_+\in\R
 $$
 
-Também se diz, nesse caso, que a reta descreve o comportamente assintótico de $f$ quando ${x\to+\infin}$.
+Também se diz, nesse caso, que a reta descreve o comportamento assintótico de $f$ quando ${x\to+\infin}$.
 
-Define-se de modo equivalente uma [assíntota não vertical](color:orange) [à esquerda](color:green) de $f$, ${y=m_{-}x+b_{-}}$.
+Define-se de modo equivalente uma [assintota não vertical](color:orange) [à esquerda](color:green) de $f$, ${y=m_{-}x+b_{-}}$.
 
-👉 Caso $m$ ou $b$ não pertençam a $\R$, não existe [assíntota não vertical](color:orange) (no "lado" que estiverem a verificar).
+👉 Caso $m$ ou $b$ não pertençam a $\R$, não existe [assintota não vertical](color:orange) (no "lado" que estiverem a verificar).
 
-Pela unicidade do limite, existe **no máximo**, uma [assíntota não vertical](color:orange) [à esquerda](color:green) e uma [assíntota não vertical](color:orange) [à direita](color:yellow).
+Pela unicidade do limite, existe **no máximo**, uma [assintota não vertical](color:orange) [à esquerda](color:green) e uma [assintota não vertical](color:orange) [à direita](color:yellow).
 
-### Assíntotas Não Retílineas
+### Assintotas Não Retilíneas
 
 :::warning
-Este tipo de assíntotas é conhecimento extra que não será avaliado.
+Este tipo de assintotas é conhecimento extra que não será avaliado.
 :::
 
-A explicação de como determinar assíntotas não retilíneas (não verticais) encontra-se nas páginas 3 e 4 do PDF da aula 19. Entre outros, exemplos destas assíntotas são assíntotas quadráticas e assíntotas exponenciais.
+A explicação de como determinar assintotas não retilíneas (não verticais) encontra-se nas páginas 3 e 4 do PDF da aula 19. Entre outros, exemplos destas assintotas são assintotas quadráticas e assintotas exponenciais.
 
 ## Paridade de funções
 
@@ -131,7 +131,7 @@ $$
 f'_d(2) = \lim_{x\to 2^+} \frac{f(x) − f(2)}{x - 2} = \lim_{x \to 2^+} \frac{\sqrt{x(x-2)}}{x-2} = \lim_{x \to 2^+} \sqrt{\frac{x}{x-2}} = +\infty.
 $$
 
-Para calcular $f'_e$ usando a definição ter-se-ia que fazer algo semelhante mas tendo cuidado com o passar $x$ para dentro da raiz que daria origem ao aparecimento de um sinal negativo no exterior da raíz,
+Para calcular $f'_e$ usando a definição ter-se-ia que fazer algo semelhante mas tendo cuidado com o passar $x$ para dentro da raiz que daria origem ao aparecimento de um sinal negativo no exterior da raiz,
 
 $$
 f'_e(0) = \lim_{x\to 0^-} \frac{f(x) - f(0)}{x - 0} = \lim_{x \to 0^-} \frac{\sqrt{x(x-2)}}{x} = \lim_{x \to 0^-} - \sqrt{\frac{x-2}{x}} = - \infty.
@@ -177,7 +177,7 @@ Define-se o período principal positivo de uma função não constante e periód
 O estudo completo de uma função consiste nos seguintes passos:
 
 1. Domínio, simetria e periodicidade. Neste ponto podem ainda incluir-se as interseções com os eixos. Caso haja simetria ou periodicidade, esse facto deverá afetar o estudo seguinte, simplificando-o.
-2. Continuidade e assíntotas. Aqui deve incluir-se o estudo da existência e prolongamento contínuo aos pontos de $\overline{D_F}\backslash D_F$. Caso exista prolongamento contínuo em algum desses pontos o restante estudo deve incidir sobre esse prolongamento.
+2. Continuidade e assintotas. Aqui deve incluir-se o estudo da existência e prolongamento contínuo aos pontos de $\overline{D_F}\backslash D_F$. Caso exista prolongamento contínuo em algum desses pontos o restante estudo deve incidir sobre esse prolongamento.
 3. Diferenciabilidade, monotonia e extremos.
 4. Diferenciabilidade da derivada, concavidade e inflexões. Aqui é útil incluir a determinação do declive da tangente nos pontos de inflexão.
 5. Gráfico e contradomínio. Aqui é útil começar por elaborar um quadro resumo de todo

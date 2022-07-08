@@ -31,7 +31,7 @@ $h$ - Constante de Planck $= 6.626\times10^{-34} J s$ (Joules Segundo)
 
 Unidade $eV$ (eletrão-Volt) $= 1.6\times10^{-19 }J $ (Joules)
 
-O eletrão-Volt corresponde à energia ganha por 1 eletrão quando se desloca de 1 pólo positivo para 1 pólo negativo na distância de 1 metro.
+O eletrão-Volt corresponde à energia ganha por 1 eletrão quando se desloca de 1 polo positivo para 1 polo negativo na distância de 1 metro.
 
 $\epsilon_0$- Permitividade Elétrica do Espaço Livre $= 8.85 \times 10^{-12}\ C^2 \ N ^{-1} \ m^{-2} $
 
@@ -311,7 +311,7 @@ $
 \vec P = \chi \epsilon_0 \vec E
 $
 
-$P$ - Momento dipolar por unidade de Volume $\ \ \chi$ - Constante de Susceptibilidade Elétrica do Dielétrico
+$P$ - Momento dipolar por unidade de Volume $\ \ \chi$ - Constante de Suscetibilidade Elétrica do Dielétrico
 
 $
 E = \cfrac{\sigma_{pc}}{\epsilon_0} \cfrac{1}{1+ \chi}
@@ -371,7 +371,7 @@ $
 
 $vec B (\vec r)$ - Campo Magnético $\ \ \vec I$ - Corrente Elétrica $\ \ r$ - Distância a um Ponto
 
-### Lei de Ampère
+### Lei de Ampere
 
 $\vec \nabla \times \vec B = \mu_{0} \vec J$
 
@@ -401,7 +401,7 @@ $
 \oint \vec E \cdot d\vec s = - \cfrac {d \phi_B }{dt}
 $
 
-### Lei de Ampère-Maxwell
+### Lei de Ampere-Maxwell
 
 $
 \oint \vec B \cdot d \vec s = \mu_{0} \epsilon_0 \cfrac {d \phi_B }{dt} + \mu_{0} I

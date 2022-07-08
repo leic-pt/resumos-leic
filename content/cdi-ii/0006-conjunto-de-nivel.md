@@ -44,7 +44,7 @@ estas considerações são válidas para cada uma das $f_i$'s.
 :::details[Exemplo]
 
 Seja $f(x,y) = x^2+xy$.
-Obtendo o gradiente da função, podemos descobrir qual a direção a seguir para maximixar a variação da mesma.
+Obtendo o gradiente da função, podemos descobrir qual a direção a seguir para maximizar a variação da mesma.
 
 $$
 \begin{darray}{c}
@@ -136,7 +136,7 @@ O vetor $c'(t)$ diz-se o **vetor tangente** à linha $\Gamma$ no ponto $c(t)$.
 :::
 
 Se considerarmos cada função componente de $c$, a função $c_i: \R \to \R$, podemos derivar
-indidualmente cada uma destas componentes, de forma a obter o vetor tangente, $c'(t)$, à curva $\Gamma$ em $c(t)$.
+individualmente cada uma destas componentes, de forma a obter o vetor tangente, $c'(t)$, à curva $\Gamma$ em $c(t)$.
 
 :::details[Exemplos]
 

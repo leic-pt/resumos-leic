@@ -21,7 +21,7 @@ No quotidiano de uma empresa, os gestores são confrontados com opções a tomar
 
 Da mesma forma, um partido político pode ter de escolher entre "secções estratégicas" a incluir no seu programa eleitoral - cada uma destas secções pode agradar a uma parte do eleitorado e ser pior aceite por outra parte, tendo então de haver uma escolha baseada nos efeitos esperados da inclusão de cada secção no programa.
 
-A programação linear procura desconstruir e chegar a uma resposta concreta para estes problemas, maximizando o ganho consosante um dado conjunto de restrições.
+A programação linear procura desconstruir e chegar a uma resposta concreta para estes problemas, maximizando o ganho consoante um dado conjunto de restrições.
 
 :::
 
@@ -181,7 +181,7 @@ $$
 \sum_{i=1}^{n} a_{ij}x_j \leq b_i
 $$
 
-convertê-la-iamos para a forma Slack tal que:
+convertê-la-íamos para a forma Slack tal que:
 
 $$
 s = b_i - \sum_{i=1}^{n} a_{ij}x_j\\
@@ -281,7 +281,7 @@ Podemos então notar que, de forma sucinta:
 - As linhas de $A$ correspondem às variáveis básicas, $B$;
 - As entradas de $A$ correspondem aos coeficientes de cada variável não básica na equação associada a cada variável básica do conjunto de restrições;
 
-Mais ainda, as linhas da matriz vertical $b$ correspodem à variável de slack de cada igualdade do conjunto de restrições associada a cada variável básica. Para além disso, $c_3, c_5, c_6$ em $c$ correspondem aos coeficientes de cada variável não básica na função objetivo.
+Mais ainda, as linhas da matriz vertical $b$ correspondem à variável de slack de cada igualdade do conjunto de restrições associada a cada variável básica. Para além disso, $c_3, c_5, c_6$ em $c$ correspondem aos coeficientes de cada variável não básica na função objetivo.
 
 :::
 
@@ -325,7 +325,7 @@ x_5 &= 6 - \frac{3x_2}{2} - 4x_3 + \frac{x_6}{2}
 \end{aligned}
 $$
 
-De realçar que as duas últimas restrições e o objetivo foram obtidos substituíndo $x_1$ pelo lado direito da nova igualdade que envolve $x_1$ como variável básica: $9 - \frac{x_2}{4} - \frac{x_3}{2} - \frac{x_6}{4}$.
+De realçar que as duas últimas restrições e o objetivo foram obtidos substituindo $x_1$ pelo lado direito da nova igualdade que envolve $x_1$ como variável básica: $9 - \frac{x_2}{4} - \frac{x_3}{2} - \frac{x_6}{4}$.
 
 A operação que foi agora realizada, esta troca entre uma variável básica e uma não-básica, é a [**Operação Pivot**](color:yellow). Numa pivotagem, consideramos a variável não-básica $x_1$ a **variável de entrada** (vai entrar no conjunto das variáveis básicas), e a variável básica $x_6$ a **variável de saída** (vai sair do conjunto de variáveis básicas). O algoritmo Simplex procura, então, realizar pivotagens sucessivas até não haver mais soluções básicas exequíveis - [**até todos os coeficientes das variáveis não-básicas na função objetivo serem negativos**](color:pink).
 
@@ -384,7 +384,7 @@ Temos assim que $L$ só é exequível caso o valor ótimo para o objetivo de $L_
 
 :::
 
-Começemos com o programa linear inicial abaixo:
+Comecemos com o programa linear inicial abaixo:
 
 - Objetivo: Maximizar $2x_1 - x_2$;
 - Restrições:
@@ -435,7 +435,7 @@ $$
 
 Teríamos, então, uma solução tal que $(0, \frac{4}{5}, \frac{14}{5}, 0)$.
 
-Para resolver o problema inicial, substituíriamos o objetivo $z = x_0$ pelo original (substituíndo $x_2$ no objetivo pela restrição $x_2$ acima), e mantendo o conjunto de restrições praticamente intacto, com exceção da remoção de qualquer referência a $x_0$ nas mesmas. Procuraríamos, então, resolver:
+Para resolver o problema inicial, substituiríamos o objetivo $z = x_0$ pelo original (substituindo $x_2$ no objetivo pela restrição $x_2$ acima), e mantendo o conjunto de restrições praticamente intacto, com exceção da remoção de qualquer referência a $x_0$ nas mesmas. Procuraríamos, então, resolver:
 
 $$
 \begin{aligned}
@@ -489,7 +489,7 @@ s.a: \quad&x \leq 200\\
 \end{aligned}
 $$
 
-Chamemos a este programa o programa [**Primal**](color:pink). A aplicação do algoritmo Simplex neste programa levaria a uma solução ótima com $x = 100 \wedge y = 300 \implies z = 1900$. Podemos, contudo, tentar perceber de maneira diferente no problema: e se o nosso objetivo for _minimizar_ as horas de produção dispendidas, tendo em conta certas margens de lucro que queremos ter? A dualidade entra precisamente aqui: vamos procurar construir um outro programa, o respetivo programa [**Dual**](color:orange), que procurará representar esse mesmo espelho de restrições:
+Chamemos a este programa o programa [**Primal**](color:pink). A aplicação do algoritmo Simplex neste programa levaria a uma solução ótima com $x = 100 \wedge y = 300 \implies z = 1900$. Podemos, contudo, tentar perceber de maneira diferente no problema: e se o nosso objetivo for _minimizar_ as horas de produção despendidas, tendo em conta certas margens de lucro que queremos ter? A dualidade entra precisamente aqui: vamos procurar construir um outro programa, o respetivo programa [**Dual**](color:orange), que procurará representar esse mesmo espelho de restrições:
 
 $$
 \begin{aligned}

@@ -24,7 +24,7 @@ de [todos os episódios sobre este tema](https://www.youtube.com/playlist?list=P
 A Série de Fourier é uma ferramenta muito útil que nos irá permitir reescrever funções como
 uma soma (infinita) de senos e cossenos.
 
-A Série de Fourier é periódica, ou seja, podemos limitar-nos a definir a função num intervalo (extendendo essa definição por periodicidade ao resto do domínio).
+A Série de Fourier é periódica, ou seja, podemos limitar-nos a definir a função num intervalo (estendendo essa definição por periodicidade ao resto do domínio).
 Note-se que isto significa que funções não periódicas não podem ser representadas por uma série de Fourier, mas qualquer restrição de uma função a um intervalo pode.
 Geralmente, as funções com que trabalharemos são então do tipo $f: [-L, L] \to \R$, em que $L$ corresponde a metade do período da função.
 

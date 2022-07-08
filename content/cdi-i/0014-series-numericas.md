@@ -133,7 +133,7 @@ Como o termo geral tende para $0$ (infinitésimo), nada se pode concluir pelo cr
 
 ### Resto de Ordem $n$
 
-Seja $(u_n)$ uma sucessão de números reais somável. Chama-se resto de ordem $n$ da série de termo geral $u_n$ à sucessão cujo termo de ordem $n$ é dado por
+Seja $(u_n)$ uma sucessão de números reais somáveis. Chama-se resto de ordem $n$ da série de termo geral $u_n$ à sucessão cujo termo de ordem $n$ é dado por
 
 $$
 r_n=\sum^\infin_{k=n+1}u_k

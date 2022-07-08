@@ -264,7 +264,7 @@ A FNBC já garante que [**não há redundância de informação**](color:orange)
 
 ## Decomposição de relações
 
-O objectivo da decomposição de relações é pegar numa ou várias relações que não estão na FNBC e
+O objetivo da decomposição de relações é pegar numa ou várias relações que não estão na FNBC e
 subdividir noutras relações de maneira a que estas já estejam.
 
 No entanto, decomposição de relações, se não for bem feita, pode gerar

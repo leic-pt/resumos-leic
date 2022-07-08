@@ -63,7 +63,7 @@ Tanto a super-fonte como o super-sumidouro limitam-se a fornecer tanto fluxo qua
 
 ## [Método de Ford-Fulkerson](color:green)
 
-O **método de Ford-Fulkerson** transcende uma implementação de algoritmo especifíca - corresponde a uma combinação de ideias e implementações de outros algoritmos: redes residuais, caminhos de aumento e cortes. Será, contudo, abordada uma implementação para um algoritmo génerico de Ford-Fulkerson mais abaixo.
+O **método de Ford-Fulkerson** transcende uma implementação de algoritmo especifica - corresponde a uma combinação de ideias e implementações de outros algoritmos: redes residuais, caminhos de aumento e cortes. Será, contudo, abordada uma implementação para um algoritmo genérico de Ford-Fulkerson mais abaixo.
 
 O método baseia-se na seguinte lógica:
 
@@ -233,7 +233,7 @@ A equivalência das três afirmações pode ser provada através de uma **implic
 
 - Existe um arco $(u, v)$ tal que $c_f(u, v) > 0$; caso tal acontecesse, esse arco estaria na rede residual, pelo que não pode ser verdade.
 
-- Existe um arco de refluxo; contudo, se tal acontesse seria possível chegar a $u$ a partir de $t$, o que também não pode acontecer.
+- Existe um arco de refluxo; contudo, se tal acontecesse seria possível chegar a $u$ a partir de $t$, o que também não pode acontecer.
 
 A proposição fica então provada.
 
@@ -270,7 +270,7 @@ Consideremos uma rede $G$, inicialmente vazia, com capacidades tais que:
 
 ![Capacidades da rede](./assets/0007-ff-capacidade.png#dark=1)
 
-O primeiro caminho de aumento encontrado é o que se segue. Podemos notar que neste primeiro instante não se vêem arestas com sentido contrário, já que todas têm fluxo $0$ atualmente:
+O primeiro caminho de aumento encontrado é o que se segue. Podemos notar que neste primeiro instante não se veem arestas com sentido contrário, já que todas têm fluxo $0$ atualmente:
 
 ![Caminho de aumento - 1](./assets/0007-ff-caminho-1.png#dark=1)
 
@@ -326,7 +326,7 @@ Abaixo segue um exemplo bastante simples do decorrer do algoritmo sobre uma rede
 
 :::details[Exemplo da aplicação do Algoritmo]
 
-Começemos com uma rede que inicialmente se encontra assim:
+Comecemos com uma rede que inicialmente se encontra assim:
 
 ![Rede inicial](./assets/0007-ek-inicial.png#dark=1)
 
@@ -412,7 +412,7 @@ já que no pior caso todas as máquinas podem realizar uma tarefa. Nesse caso, p
 
 ## Algoritmos baseados em Pré-Fluxo
 
-Até aqui observámos algoritmos para o fluxo máximo baseados em caminhos de aumento. Estes algoritmos têm, contudo, a particularidade menos agradável de possuírem operações **pouco localizadas** - as procuras por caminhos de aumento iniciam-se sempre em $s$, mesmo que percorrer a rede desde aí se possa tornar pouco eficiente. Abaixo encontra-se um exemplo de uma situação onde os algoritmos baseados em caminhos de aumento se podem tornar mais morosos do que podiam/deviam ser idealmente:
+Até aqui observámos algoritmos para o fluxo máximo baseados em caminhos de aumento. Estes algoritmos têm, contudo, a particularidade menos agradável de possuírem operações **pouco localizadas** - as procuras por caminhos de aumento iniciam-se sempre em $s$, mesmo que percorrer a rede desde aí se possa tornar pouco eficiente. Abaixo encontra-se um exemplo de uma situação onde os algoritmos baseados em caminhos de aumento se podem tornar mais demorosos do que podiam/deviam ser idealmente:
 
 ![Exemplo desagradável - caminhos de aumento](./assets/0007-pre-fluxo-desagradaveis.png#dark=1)
 
@@ -448,7 +448,7 @@ De seguida, é importante ter em conta que cada vértice tem uma [**altura**](co
 
 Poderemos, no decorrer do algoritmo, encontrar situações em que queremos expulsar fluxo de um vértice, mas todos os arcos que dele saem estão ou saturados ou com as respetivas adjacências à mesma altura/acima dele. Quando isso acontece, efetuamos a operação _**relabel**_, explorada mais à frente, que atualiza a sua altura (permitindo então que o fluxo caia).
 
-No final do algoritmo, nenhum dos vértices (exceto $s$ e $t$) tem excesso de fluxo no seu resevervatório.
+No final do algoritmo, nenhum dos vértices (exceto $s$ e $t$) tem excesso de fluxo no seu reservatório.
 
 :::tip[Função de Alturas]
 
@@ -529,7 +529,7 @@ InitializePreFlow(G, s)
 
 ### [Método Push-Relabel](color:orange)
 
-O pseudocódigo génerico do método de _push-relabel_ é:
+O pseudocódigo genérico do método de _push-relabel_ é:
 
 ```rust
 PushRelabel(G)
@@ -548,7 +548,7 @@ Dois pontos interessantes a retirar do método (e de todos os algoritmos que o i
 
 - todos os outros vértices devem, no final, apresentar excesso $0$.
 
-Tal como o método de Ford-Fulkerson, _push-relabel_ não é considerado um algoritmo - não nos dá, de forma determínistica, uma opção a escolher. Pode, contudo, parecer algo "básico", pelo que será interessante provar a sua correção (e que de facto resolve o problema do fluxo máximo)[**\***](color:yellow). A complexidade temporal do algoritmo é $O(V^2 \cdot E)$, já melhor que a de Edmonds-Karp.
+Tal como o método de Ford-Fulkerson, _push-relabel_ não é considerado um algoritmo - não nos dá, de forma determinística, uma opção a escolher. Pode, contudo, parecer algo "básico", pelo que será interessante provar a sua correção (e que de facto resolve o problema do fluxo máximo)[**\***](color:yellow). A complexidade temporal do algoritmo é $O(V^2 \cdot E)$, já melhor que a de Edmonds-Karp.
 
 [**\***](color:yellow) As provas serão adicionadas assim que possível. Por agora apenas é mencionado o método em si, já que apenas é avaliado o algoritmo abaixo (e esse tem exemplo associado, incluindo uma abordagem mais aprofundada).
 
@@ -597,11 +597,11 @@ RelabelToFront(G, s, t)
     u = u.next // next -> proximo vertice de L
 ```
 
-A aplicação do algoritmo é trivial, porém é bastante fácil enganarmo-nos num passo intermédio (costumam ser uns quantos, e é fácil haver detalhes a passar despercebidos). Abaixo encontramos um exemplo do decorrer do mesmo (retirado dos slides):
+A aplicação do algoritmo é trivial, porém é bastante fácil enganámo-nos num passo intermédio (costumam ser uns quantos, e é fácil haver detalhes a passar despercebidos). Abaixo encontramos um exemplo do decorrer do mesmo (retirado dos slides):
 
 :::details[Exemplo da Aplicação do Algoritmo]
 
-Começemos com uma rede tal que:
+Comecemos com uma rede tal que:
 
 ![Rede inicial - R2F](./assets/0007-r2f-initial-network.png#dark=1)
 

@@ -297,7 +297,7 @@ $$
 u\left(0, x\right) = f\left(x\right)
 $$
 
-como uma série de senos e cosenos:
+como uma série de senos e cossenos:
 
 $$
 f\left(x\right) = \sum_{n = 0}^{\infty} \left(a_n \cos \frac{2\pi n x}{L} + b_n \sin \frac{2\pi n x}{L}\right)

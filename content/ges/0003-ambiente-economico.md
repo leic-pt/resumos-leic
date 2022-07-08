@@ -33,7 +33,7 @@ A economia subdivide-se em duas grandes áreas:
 
 Como o próprio nome indica, a **Macroeconomia** retrata o grande cenário - o Estado, a Economia Nacional
 e as relações económicas internacionais - recorrendo a indicadores, como o PIB, a Taxa de Desemprego, a Inflação, etc.
-A **Microeconomia** foca-se no pequeno, no detalhe, nos individuos e nas suas ações, nas empresas e no seu processamento produtivo.
+A **Microeconomia** foca-se no pequeno, no detalhe, nos indivíduos e nas suas ações, nas empresas e no seu processamento produtivo.
 
 ## Macroeconomia
 
@@ -89,7 +89,7 @@ $$
 A inflação pode ser definida como o aumento generalizado dos preços.
 Quando há inflação (positiva) o mesmo valor em euros, compra no futuro menos bens do que no presente.
 Na realidade, a inflação não é algo completamente mau.
-É saúdavel para uma economia ter uma determinada taxa de inflação.
+É saudável para uma economia ter uma determinada taxa de inflação.
 No entanto, quando esta atinge níveis extremamente elevados torna-se algo problemático.
 
 :::info[Exemplo]
@@ -158,7 +158,7 @@ ou seja, segundo esta curva, o aumento do preço implica uma diminuição da pro
 
 ## Fatores que Determinam a Procura
 
-- **Preço**: Normalmente, quando o preço aumenta, a quantidade procurada diminui, com a excepção dos bens de luxo.
+- **Preço**: Normalmente, quando o preço aumenta, a quantidade procurada diminui, com a exceção dos bens de luxo.
   A variação da quantidade de procura depende da elasticidade da procura relativamente ao preço.
 
   :::info[Exemplo]
@@ -248,7 +248,7 @@ De acordo com a curva do **Demand(D)**, quando a quantidade de procura aumenta, 
 
 :::info[Exemplo]
 
-Com a pandemia o preço das mascáras aumentou bastante porque, o **Demand** era maior.
+Com a pandemia o preço das mascaras aumentou bastante porque, o **Demand** era maior.
 
 ![Aumento da Procura](./assets/0003-aumento-procura.png#dark=2)
 
@@ -272,7 +272,7 @@ Em contrapartida, uma deslocação para a esquerda implica uma contração do me
 Define-se como preço de equilíbrio, o preço referente à interseção das curvas de procura e oferta.
 Este ponto marca a região de equilíbrio entre excesso e a escassez.
 
-**Nota:** Basta uma das curvas variar, para o ponto de equilibrio se deslocar.
+**Nota:** Basta uma das curvas variar, para o ponto de equilíbrio se deslocar.
 
 :::
 
@@ -331,7 +331,7 @@ A intervenção do estado é necessária em duas situações:
 1. **Corrigir Falhas de Mercado** $\rightsquigarrow$ quando o mercado falha na afetação eficiente de recursos, por exemplo.
 
    - Corrigir externalidades, isto é, quando as ações de um agente prejudicam ou beneficiam terceiros
-   - Regular a atividade de determinados setores que são monópolios naturais (p.ex.: água) $\rightsquigarrow$ Oligopólios
+   - Regular a atividade de determinados setores que são monopólios naturais (p.ex.: água) $\rightsquigarrow$ Oligopólios
    - Fornecer bens que o setor privado não está interessado em produzir (ex: defesa nacional)
 
 2. **Promover a Equidade** $\rightsquigarrow$ correção de desigualdades sociais inaceitáveis, por exemplo.

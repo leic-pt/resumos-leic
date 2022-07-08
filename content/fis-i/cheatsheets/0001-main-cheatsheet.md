@@ -269,7 +269,7 @@ $$
 pV = nRT
 $$
 
-onde $p$ é a pressão ($\op{Pa}$), $V$ é o volume ($\op{m^3}$), $n$ é a quantidade de matéria $(\op{mol})$, $R$ é a constante dos gáses perfeitos e $T$ é a temperatura ($\op{K}$).
+onde $p$ é a pressão ($\op{Pa}$), $V$ é o volume ($\op{m^3}$), $n$ é a quantidade de matéria $(\op{mol})$, $R$ é a constante dos gases perfeitos e $T$ é a temperatura ($\op{K}$).
 
 $$
 R = 8.314 \op{J} \op{K}^{-1} \op{mol}^{-1}
