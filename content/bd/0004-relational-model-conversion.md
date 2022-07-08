@@ -289,7 +289,7 @@ de ser explicitadas textualmente.
 > - student: FK(student.ist_id)
 > - course_name, year: FK(course.course_name, course.year)
 > - IC-1: Students can only be enrolled in courses belonging to the same degree
-> they signed up for.
+>   they signed up for.
 
 ## Conversão a partir do Modelo E-A
 
