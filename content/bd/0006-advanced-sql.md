@@ -169,7 +169,7 @@ para [pelos menos um](color:yellow) valor de `<set>`.
 
 :::tip[Relação com `IN` e `NOT IN`]
 Podemos intuitivamente reparar que `IN` é equivalente a `= ANY` e que
-`NOT IN` é equivalente a `<> ANY`: um elemento só pertence a um conjunto
+`NOT IN` é equivalente a `<> ALL`: um elemento só pertence a um conjunto
 se for igual a algum elemento do mesmo, e não pertence a um conjunto
 se for diferente de todos os seus elementos.
 :::

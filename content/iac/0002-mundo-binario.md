@@ -140,8 +140,8 @@ As portas AND fazem uma comparação entre os dois valores fazendo uma comparaç
 | [**X**](color:pink) | [**Y**](color:pink) | [**AND**](color:orange) |
 | ------------------- | ------------------- | ----------------------- |
 | 0                   | 0                   | 0                       |
-| 0                   | 1                   | 1                       |
-| 1                   | 0                   | 1                       |
+| 0                   | 1                   | 0                       |
+| 1                   | 0                   | 0                       |
 | 1                   | 1                   | 1                       |
 
 ### Portas OR
@@ -151,8 +151,8 @@ As portas AND fazem uma comparação entre os dois valores fazendo uma comparaç
 | [**X**](color:pink) | [**Y**](color:pink) | [**OR**](color:orange) |
 | ------------------- | ------------------- | ---------------------- |
 | 0                   | 0                   | 0                      |
-| 0                   | 1                   | 0                      |
-| 1                   | 0                   | 0                      |
+| 0                   | 1                   | 1                      |
+| 1                   | 0                   | 1                      |
 | 1                   | 1                   | 1                      |
 
 ### Portas NAND
@@ -164,8 +164,8 @@ Resumidamente, invertem só os valores das portas AND.
 | [**X**](color:pink) | [**Y**](color:pink) | [**NAND**](color:orange) |
 | ------------------- | ------------------- | ------------------------ |
 | 0                   | 0                   | 1                        |
-| 0                   | 1                   | 0                        |
-| 1                   | 0                   | 0                        |
+| 0                   | 1                   | 1                        |
+| 1                   | 0                   | 1                        |
 | 1                   | 1                   | 0                        |
 
 ### Portas NOR
@@ -177,13 +177,13 @@ Resumidamente, invertem só os valores das portas OR.
 | [**X**](color:pink) | [**Y**](color:pink) | [**NOR**](color:orange) |
 | ------------------- | ------------------- | ----------------------- |
 | 0                   | 0                   | 1                       |
-| 0                   | 1                   | 1                       |
-| 1                   | 0                   | 1                       |
+| 0                   | 1                   | 0                       |
+| 1                   | 0                   | 0                       |
 | 1                   | 1                   | 0                       |
 
 ### Portas xOR
 
-![Portas NOR](./assets/0002-portas-xor.png#dark=3)
+![Portas XOR](./assets/0002-portas-xor.png#dark=3)
 
 Resumidamente, se os valores forem iguais, o final será 0, mas se os valores forem diferentes, o final será 1.
 
