@@ -46,7 +46,7 @@ Em relação à amostra, já é possível fazer observações (e a partir destas
 A partir das observações, é agora importante ser capaz de obter informação sobre a população em geral.
 Isto é feito através de uma [inferência estatística](color:pink).
 
-![Amostragem e Inferência Estatística](./imgs/0007/populacao-amostra.svg#dark=2)
+![Amostragem e Inferência Estatística](./assets/0007-populacao-amostra.svg#dark=2)
 
 :::details[Exemplo]
 

@@ -147,7 +147,7 @@ As VA's discretas satisfazem as seguintes propriedades:
 
 - $F_X$ é monótona crescente, contínua à direita e tem $\#\R_X$ pontos de descontinuidade. Consequentemente, o gráfico da fd de uma VA discreta é algo parecido a:
 
-![Gráfico da fd de um VA dicsreta](./imgs/0002/discrete_fd_graph.png#dark=3)
+![Gráfico da fd de um VA discreta](./assets/0002-discrete-fd-graph.png#dark=3)
 
 - $F_X(-\infty) = \lim_{x \to -\infty} F_X(x) = 0$;
 - $F_X(+\infty) = \lim_{x \to +\infty} F_X(x) = 1$;
@@ -181,7 +181,7 @@ As VA's contínuas têm as seguintes propriedades:
 
 - Um gráfico vagamente semelhante ao representado abaixo, devido à continuidade e monotonicidade lata:
 
-![Gráfico da fd de um VA contínua](./imgs/0002/continuous_fd_graph.png#dark=3)
+![Gráfico da fd de um VA contínua](./assets/0002-continuous-fd-graph.png#dark=3)
 
 - $f_X(x) = \frac{\delta F_X(x)}{\delta x}$
 - $F_X(-\infty) = 0$, $F_X(+\infty) = 1$ e, consequentemente, $0 \leq F_X(x) \leq 1$ para qualquer $x \in \R$;

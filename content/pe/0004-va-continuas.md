@@ -257,7 +257,7 @@ Temos que $P(X \leq 23.045) = P (\frac{X - 23}{{0.1}} \equiv \frac{X-\mu}{\sigma
 
 Indo ver à tabela, concluímos que $\Phi(0.45) = 0.6736$, pelo que $P(X \leq 23.045) = 0.6736$.
 
-![table](./imgs/0004/table.png#dark=1)
+![table](./assets/0004-table.png#dark=1)
 
 Observe-se que a tabela não permite consultar a função $\Phi$ em valores negativos.
 Nesse caso, basta aproveitarmo-nos do facto que $\Phi(-x) = 1 - \Phi(x)$ e depois consultar a tabela.
