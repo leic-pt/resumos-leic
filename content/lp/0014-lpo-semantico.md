@@ -16,16 +16,33 @@ Esta secção não tem resumos feitos, se alguém quiser contribuir podem fazer 
 
 :::
 
-Abaixo está um e-mail do prof. Quintas com explicação geral de um dos exercícios desta matéria que pode sair em exame:
+Abaixo encontra-se a resposta elaborada pelo prof. Quintas (2020/2021), com uma
+explicação geral de um dos exercícios desta matéria que pode sair em exame:
 
-:::details[Explicação Ex. Exame]
+:::info[Explicação Ex. Exame]
 
-O exercício em questão é:
+Considere a interpretação $I: \{a, b, P, S\} \mapsto D \cup F \cup R$, tal que:
 
-![Exercício Exame](./assets/0014-ex-exame.png)
+$$
+\begin{aligned}
+  I(a) &= \diamondsuit\\
+  I(b) &= \square\\
+  I(P) &= \{\}\\
+  I(S) &= \{(\square)\}\\
+\end{aligned}
+$$
 
-> E a explicação dada pelo professor é:
->
+Para cada uma das _fbfs_ na tabela abaixo, indique o seu valor segundo a interpretação $I$.
+
+| $\alpha$                | $I(\alpha)$ |
+| ----------------------- | ----------- |
+| $P(a) \to S(a)$         |             |
+| $P(b) \vee S(b)$        |             |
+| $S(b) \wedge \neg P(a)$ |             |
+| $S(b) \to P(b)$         |             |
+
+A explicação dada pelo professor para o exercício em questão é a seguinte:
+
 > Uma conceptualização é algo necessário quando queremos avaliar
 > proposições em LPO em relação ao mundo real (ou qualquer outro
 > mundo imaginário, como o mundo de quadrados e losangos que
@@ -70,5 +87,14 @@ O exercício em questão é:
 >
 > As restantes entradas na tabela terão um raciocínio semelhante, simplesmente
 > usando outras relações e operadores.
+
+A solução seria:
+
+| $\alpha$                | $I(\alpha)$ |
+| ----------------------- | ----------- |
+| $P(a) \to S(a)$         | $V$         |
+| $P(b) \vee S(b)$        | $V$         |
+| $S(b) \wedge \neg P(a)$ | $V$         |
+| $S(b) \to P(b)$         | $F$         |
 
 :::
