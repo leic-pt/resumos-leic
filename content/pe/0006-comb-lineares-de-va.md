@@ -48,6 +48,13 @@ V \left( \sum_{i=1}^n c_i X_i \right) =
 \sum_{i=1}^n c_i^2 V(X_i)
 $$
 
+Podemos ainda realçar as duas relações mais simples, e afirmar que
+
+$$
+V(X + Y) = V(X) + V(Y) + 2 \cdot cov(X, Y)\\
+V(X - Y) = V(X) + V(Y) - 2 \cdot cov(X, Y)
+$$
+
 :::
 
 Dizemos que duas variáveis $X$ e $Y$ são [**independentes e identicamente distribuídas**](color:green) se $X \indep Y$ e tiverem a mesma distribuição (_com os mesmos parâmetros_).

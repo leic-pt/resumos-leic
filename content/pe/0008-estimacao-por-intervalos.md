@@ -232,6 +232,12 @@ com grau de confiança **exatamente** $1-\alpha$.
 
 ### Determinação de $p$ numa Prova de Bernoulli
 
+:::warning[]
+
+A expressão relativa a este cenário não se encontra no formulário: é preciso decorá-la!
+
+:::
+
 **Parâmetro desconhecido**: $p$  
 **VA de interesse**: Uma VA com distribuição de Bernoulli $X$
 
@@ -291,6 +297,74 @@ Num exercício é importante perceber se procuramos o IC **exato** ou **aproxima
 
 :::details[Exemplo]
 
-// TODO
+(Exemplo retirado do [Teste 2C de 2016/2017 de PE](https://fenix.tecnico.ulisboa.pt/homepage/ist13114/2o-semestre-2016-17))
+
+A quantidade de minutos ($X$ , em centenas de minutos) de um jogador _two-way_ na NBA
+possui **distribuição normal**, sendo os respetivos valor
+esperado e variância desconhecidos. Sabendo que a concretização $(x_1, ..., x_n)$ de uma amostra
+proveniente da população $X$ conduziu a $\sum_{i=1}^{10} x_i = 293$ e $\sum_{i=1}^{10} x_i^2 = 8745$.
+
+Caso queiramos construir um intervalo de confiança a $90\%$ para o desvio padrão
+de um jogador do tipo referido, devemos:
+
+1. [**Selecionar a VA Fulcral**](color:green)
+
+$\mu$ e $\sigma^2$ são desconhecidos. Querendo um intervalo de confiança para $\sigma$,
+faz sentido escolher a VA:
+
+$$
+Z = \frac{(n-1)S^2}{\sigma^2} \sim \chi_{(n-1)}^2
+$$
+
+2. [**Obter os quantis de probabilidade**](color:orange)
+
+Temos que $n=10$ e $(1 - \alpha) = 0.9$, pelo que:
+
+$$
+\begin{aligned}
+   (a_\alpha, b_\alpha): &\begin{cases}
+      P(a_\alpha \leq Z \leq b_\alpha) = 1 - \alpha \\
+      P(Z < a_\alpha) = P(Z > b_\alpha) = \frac{\alpha}{2}
+   \end{cases}\\
+   &\begin{cases}
+      a_\alpha = F_{\chi_{(n-1)}^2}^{-1} (\frac{\alpha}{2}) = F^{-1}_{\chi_{(n-1)}^2} (0.05) \overset{\text{tabela}}{=} 3.325 \\
+      b_\alpha = F_{\chi_{(n-1)}^2}^{-1} (1 - \frac{\alpha}{2}) = F^{-1}_{\chi_{(n-1)}^2} (0.95) \overset{\text{tabela}}{=} 16.92
+   \end{cases}
+\end{aligned}
+$$
+
+3. [**Inverter a desigualdade $a_\alpha \leq Z \leq b_\alpha$**](color:yellow)
+
+$$
+\begin{aligned}
+   & P(a_\alpha \leq Z \leq b_\alpha) = 1 - \alpha \\
+   & P\biggl[a_\alpha \leq \frac{(n-1)S^2}{\sigma^2} \leq b_\alpha \biggr] = 1 - \alpha \\
+   & P\biggl[\frac{1}{b_\alpha} \leq \frac{\sigma^2}{(n-1)S^2} \leq \frac{1}{a_\alpha} \biggr] = 1 - \alpha \\
+   & P\biggl[\frac{(n-1)S^2}{b_\alpha} \leq \sigma^2 \leq \frac{(n-1)S^2}{a_\alpha} \biggr] = 1 - \alpha \\
+   & P\biggl[\sqrt{\frac{(n-1)S^2}{b_\alpha}} \leq \sigma \leq \sqrt{\frac{(n-1)S^2}{a_\alpha}} \biggr] = 1 - \alpha \\
+\end{aligned}
+$$
+
+4. [**Concretizar**](color:red)
+
+Vamos ter, para os dados do enunciado, que:
+
+$$
+\begin{aligned}
+   s^2 &= \frac{1}{n - 1}\biggl[\sum_{i=1}^{n}{x_i}^2 - n (\overline{x})^2 \biggr] \\
+   &= \frac{1}{10 - 1}(8745 - 10 \cdot 29.3^2) \\
+   &= 17.7(8)
+\end{aligned}
+$$
+
+Fazendo as devidas substituições, vamos ter um intervalo de confiança para o desvio padrão tal que:
+
+$$
+\begin{aligned}
+IC_{90\%}(\sigma) &= \biggl[\sqrt{\frac{(n-1)S^2}{b_\alpha}}, \sqrt{\frac{(n-1)S^2}{a_\alpha}} \biggr] \\
+&= \biggl[\sqrt{\frac{(10 - 1)\cdot 17.7(8)}{16.92}}, \sqrt{\frac{(10 - 1)\cdot 17.7(8)}{3.325}} \biggr] \\
+&= [3.0762, 6.9389] \\
+\end{aligned}
+$$
 
 :::

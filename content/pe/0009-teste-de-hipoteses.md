@@ -322,6 +322,65 @@ Sendo assim, a região de rejeição é aproximadamente
 
 :::details[Exemplo]
 
-// TODO
+(Exemplo retirado do [Teste 2B de 2017/2018 de PE](https://fenix.tecnico.ulisboa.pt/homepage/ist13114/1o-semestre-2017-18))
+
+O diâmetro ($X$ , em cm) dos tapetes de rato produzidos por determinada fábrica possui
+distribuição normal com parâmetros desconhecidos $\mu$ e $\sigma^2$ . A concretização de uma amostra aleatória
+de dimensão 10 conduziu aos seguintes resultados: $\sum_{i=1}^{10} x_i = 846$ e $\sum_{i=1}^{10} x_i^2 = 71607$.
+
+Caso queiramos testar as seguintes hipóteses (decidindo com base no valor-p)
+
+$$
+\begin{aligned}
+  H_0&: \sigma^2 = \sigma_0^2 = 4\\
+  H_1&: \sigma^2 > 4
+\end{aligned}
+$$
+
+Devemos, em primeiro lugar, escolher a nossa estatística de teste: sendo que estamos
+a testar $\sigma^2$ de uma população normal, com $\mu$ desconhecido, faz sentido escolher:
+
+$$
+T = \frac{(n - 1)S^2}{\sigma_0^2} \sim_{H_0} \chi_{(n - 1)}^2
+$$
+
+Devemos, ainda, definir inicialmente a região de rejeição de $H_0$: tratando-se
+de um teste unilateral superior (com $H_1: \sigma^2 > 4$), dizemos que a região
+de rejeição de $H_0$ é dada por $W = (c, +\infty)$.
+
+O valor observado, tendo em conta a estatística de teste, é dado por:
+
+$$
+\begin{aligned}
+t &= \frac{(n - 1)s^2}{\sigma_0^2} \\
+&= \frac{(10 - 1) \cdot 3.9(3)^{\smartcolor{orange}{*}}}{4} \\
+&= 8.85
+\end{aligned}
+$$
+
+Sendo a região de rejeição um intervalo à direita, vamos ter:
+
+$$
+\begin{aligned}
+  \text{valor-p} &= P(T > t | H_0)\\
+  &= 1 - F_{\chi^2_{(n-1)}}(t) \\
+  &= 1 - F_{\chi^2_{(9)}}(8.85)
+\end{aligned}
+$$
+
+Ora, não existe tabela que nos possibilite encontrar o valor específico de $F_{\chi^2_{(9)}}(8.85)$.
+Conseguimos, contudo, enquadrar o valor-p, tal que:
+
+$$
+\begin{aligned}
+F_{\chi^2_{(9)}}^{-1}(0.50) &= 8.343 < t = 8.85 < 9.414 = F_{\chi^2_{(9)}}^{-1}(0.60) \\
+0.50 &< F_{\chi^2_{(9)}}(8.85) < 0.60\\
+0.40 &< \text{valor-p} < 0.50
+\end{aligned}
+$$
+
+Podemos, assim, recorrendo ao valor-p, afirmar que devemos rejeitar $H_0$ a qualquer
+nível de significância superior a $50\%$, e não devemos rejeitar $H_0$ a qualquer nível de
+significância igual ou inferior a $40\%$.
 
 :::

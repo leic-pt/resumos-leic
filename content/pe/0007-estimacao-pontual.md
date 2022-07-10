@@ -219,12 +219,6 @@ O máximo da função [verosimilhança](color:orange)/[log-verosimilhança](colo
 - por análise pontual, quando $\Theta$ é finito;
 - recorrendo às ferramentas do cálculo, quando $\Theta$ é um conjunto que o permita (por exemplo, um intervalo nos reais).
 
-:::details[Exemplo]
-
-// TODO
-
-:::
-
 Este método dá-nos, em função de uma amostra $\underline{x}$, uma expressão para uma **estimativa de máxima verosimilhança**.
 Substituindo uma amostra particular $\underline{x}$ por uma amostra aleatória $\underline{X}$ permite-nos obter um **estimador de máxima verosimilhança** para $\theta$ (que não depende de nenhuma amostra em particular).
 
@@ -233,6 +227,74 @@ Os estimadores de MV satisfazem as seguintes propriedades:
 - **Invariância** - Se $EMV(\theta)$ é o estimador de MV de $\theta$ e $h$ uma função bijetiva, então $EMV(h(\theta)) = h(EMV(\theta))$;
 - **Suficiência** - As estimativas de MV condensam toda a informação relevante, contida na amostra, sobre o parâmetro;
 - **Consistência** - À medida que o tamanho da AA aumenta, o $EMV(\theta)$ dispersa-se cada vez menos do verdadeiro valor de $\theta$.
+
+:::details[Exemplo]
+
+(Exemplo retirado do [Teste 2C de 2016/2017 de PE](https://fenix.tecnico.ulisboa.pt/homepage/ist13114/2o-semestre-2016-17))
+
+Admita que a proporção de zinco no corpo de um jogador da NBA é representada pela
+variável aleatória $X$ com função de densidade de probabilidade
+
+$$
+f_X(x) = \begin{cases}
+  \theta x^{\theta - 1}, & 0 < x < 1 \\
+  0, & \text{caso contrário}
+\end{cases}
+$$
+
+onde $\theta$ é um parâmetro positivo desconhecido.
+
+Caso queiramos chegar ao estimador de máxima verosimilhança de $\theta$, tendo em conta uma amostra qualquer
+amostra aleatória $(X_1, ..., X_n)$ proveniente da população $X$, devemos:
+
+1. [**Chegar ao valor da função de verosimilhança**](color:green).
+
+$$
+\begin{aligned}
+  L(\theta | \underline{x}) &= f_{\underline{x}}(\underline{x})\\
+  &= \prod_{i=1}^n f_{X_i}(x_i) \\
+  &= \prod_{i=1}^n f_{X}(x_i) \\
+  &= \prod_{i=1}^n \biggl[ \theta x_i^{\theta - 1} \biggr] \\
+  &= \theta^n \biggl[\prod_{i=1}^n x_i \biggr]^{\theta - 1}
+\end{aligned}
+$$
+
+2. [**Chegar ao valor da função de log-verosimilhança**](color:red).
+
+$$
+\ln L(\theta | \underline{x})= n \ln(\theta) + (\theta - 1) \sum_{i=1}^n \ln x_i
+$$
+
+(Note-se que é muito mais simpático derivar esta função)
+
+3. [**Maximização**](color:orange).
+
+A estimativa de MV de $\theta$, $\hat{\theta}$, será tal que:
+
+$$
+\begin{aligned}
+\hat{\theta}: &\begin{cases}
+  \frac{d}{d\theta} \ln L(\theta | \underline{x}) &= 0 \qquad \text{(ponto de estacioneridade)} \\
+  \frac{d^2}{d\theta^2} \ln L(\theta | \underline{x}) &< 0 \qquad \text{(ponto de máximo)} \\
+\end{cases} \\
+&\begin{cases}
+  \frac{n}{\theta} + \sum_{i=1}^n \ln(x_i) = 0 \\
+  -\frac{n}{\theta^2} < 0 \\
+\end{cases} \\
+&\begin{cases}
+  \hat{\theta} = - \frac{n}{\sum_{i=1}^n \ln(x_i)} \\
+  - \frac{[\sum_{i=1}^n \ln(x_i)]^2}{n} < 0 \qquad \text{(sempre verdade)}\\
+\end{cases}
+\end{aligned}
+$$
+
+Temos, por fim, que:
+
+$$
+EMV(\theta) = \hat{\theta} = - \frac{n}{\sum_{i=1}^n \ln(x_i)}
+$$
+
+:::
 
 ## Distribuições Amostrais
 
@@ -251,6 +313,9 @@ A média está de modo geral relacionada com o estimador de MV do valor esperado
 Como já vimos no capítulo anterior:
 
 $$
+
 X \sim \op{normal}(\mu, \sigma^2) \Rightarrow \overline{X} \sim \op{normal}(\mu, \frac{\sigma^2}{n}) \\
 X \text{ com qualquer distribuição } \Rightarrow \overline{X} \sim \op{normal}(\mu, \frac{\sigma^2}{n}) \text{ para } n>> \text{ (segundo o TLC)}
+
+
 $$
