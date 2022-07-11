@@ -403,7 +403,7 @@ $$
 
 ## Distribuição Hipergeométrica
 
-:::warning[]
+:::danger[]
 
 Esta distribuição não faz parte da matéria lecionada no programa de 2021/22.
 
