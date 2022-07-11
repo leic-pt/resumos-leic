@@ -348,6 +348,17 @@ Devemos, ainda, definir inicialmente a região de rejeição de $H_0$: tratando-
 de um teste unilateral superior (com $H_1: \sigma^2 > 4$), dizemos que a região
 de rejeição de $H_0$ é dada por $W = (c, +\infty)$.
 
+Note-se que, para a amostra considerada, tem-se:
+
+$$
+\begin{aligned}
+  s^2 &= \frac{1}{n - 1} \sum_{i=1}^{n} (x_i - \overline{x})^2 \\
+  &= \frac{1}{n - 1} \sum_{i=1}^{n} x_i^2 - n \overline{x}^2 \\
+  &= \frac{1}{9}\biggl(71607 - \frac{846^2}{10}\biggr)\\
+  &= 3.9(3)^{\smartcolor{orange}{*}}
+\end{aligned}
+$$
+
 O valor observado, tendo em conta a estatística de teste, é dado por:
 
 $$
