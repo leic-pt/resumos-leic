@@ -177,7 +177,7 @@ Define-se o período principal positivo de uma função não constante e periód
 O estudo completo de uma função consiste nos seguintes passos:
 
 1. Domínio, simetria e periodicidade. Neste ponto podem ainda incluir-se as interseções com os eixos. Caso haja simetria ou periodicidade, esse facto deverá afetar o estudo seguinte, simplificando-o.
-2. Continuidade e assintotas. Aqui deve incluir-se o estudo da existência e prolongamento contínuo aos pontos de $\overline{D_F}\backslash D_F$. Caso exista prolongamento contínuo em algum desses pontos o restante estudo deve incidir sobre esse prolongamento.
+2. Continuidade e assíntotas. Aqui deve incluir-se o estudo da existência e prolongamento contínuo aos pontos de $\overline{D_F}\backslash D_F$. Caso exista prolongamento contínuo em algum desses pontos o restante estudo deve incidir sobre esse prolongamento.
 3. Diferenciabilidade, monotonia e extremos.
 4. Diferenciabilidade da derivada, concavidade e inflexões. Aqui é útil incluir a determinação do declive da tangente nos pontos de inflexão.
 5. Gráfico e contradomínio. Aqui é útil começar por elaborar um quadro resumo de todo
