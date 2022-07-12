@@ -248,7 +248,7 @@ De acordo com a curva do **Demand(D)**, quando a quantidade de procura aumenta, 
 
 :::info[Exemplo]
 
-Com a pandemia o preço das mascaras aumentou bastante porque, o **Demand** era maior.
+Com a pandemia o preço das máscaras aumentou bastante porque, o **Demand** era maior.
 
 ![Aumento da Procura](./assets/0003-aumento-procura.png#dark=2)
 

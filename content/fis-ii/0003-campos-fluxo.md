@@ -69,7 +69,7 @@ $\vec e_r = \cfrac{(\vec r - \vec r \ ')}{|\vec r -\vec r \ '|}$
 Esta força só é atrativa se as cargas tiverem sinais diferentes.
 :::
 
-Juntando a Lei de Coulomb e o Principio da Sobreposição:
+Juntando a Lei de Coulomb e o Princípio da Sobreposição:
 
 $$
 \vec F = \cfrac{Q}{4\pi \epsilon_0}\ \sum\limits_{i =1}^{n} \cfrac{q_i}{|\vec r - \vec r_i'|^2}\ \vec e_{r_i} = Q \vec E (\vec r)

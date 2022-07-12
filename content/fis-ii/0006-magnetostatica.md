@@ -205,7 +205,7 @@ Só iremos estudar correntes estacionárias que produzem campos magnéticos cons
 
 Uma única carga elétrica em movimento não é uma corrente estacionária.
 
-## A Experiência de Ampere
+## A Experiência de Ampère
 
 ![Experiência](./imgs/0006-exp.png#dark=1)
 
@@ -215,7 +215,7 @@ Se colocarmos 2 fios condutores em paralelo com uma certa corrente podemos obser
 
 - Quando a corrente nos dois fios tem a direção oposta os fios repelem-se
 
-Ampere concluiu assim que este fenómenos eram explicados pela Força Magnética.
+Ampère concluiu assim que este fenómenos eram explicados pela Força Magnética.
 
 Enquanto que uma carga parada produz um Campo Elétrico $\vec E$, uma carga em movimento produz um Campo Elétrico e um Campo Magnético $\vec B$
 
@@ -315,9 +315,9 @@ Usa-se mais a unidade Gausss od sistema CGS: 1 Tesla $=10^4$ Gauss
 Para temos de comparação, o Campo Magnético terrestre é igual a 0.5 Gauss.
 No Cern foi possível existe um íman com o valor de 3.8 Tesla
 
-## Lei de Ampere
+## Lei de Ampère
 
-:::warning[Dedução da Lei de Ampere]
+:::warning[Dedução da Lei de Ampère]
 Existem nos slides uma explicação de como se chegou a estas Leis
 :::
 

@@ -1,7 +1,7 @@
 ---
 title: Estudo Gráfico de Funções
 description: >-
-  Assintotas.
+  Assíntotas.
   Paridade.
   Periodicidade.
   Estudo completo de uma função.

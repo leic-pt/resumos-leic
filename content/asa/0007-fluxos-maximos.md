@@ -63,7 +63,7 @@ Tanto a super-fonte como o super-sumidouro limitam-se a fornecer tanto fluxo qua
 
 ## [Método de Ford-Fulkerson](color:green)
 
-O **método de Ford-Fulkerson** transcende uma implementação de algoritmo especifica - corresponde a uma combinação de ideias e implementações de outros algoritmos: redes residuais, caminhos de aumento e cortes. Será, contudo, abordada uma implementação para um algoritmo genérico de Ford-Fulkerson mais abaixo.
+O **método de Ford-Fulkerson** transcende uma implementação de algoritmo específica - corresponde a uma combinação de ideias e implementações de outros algoritmos: redes residuais, caminhos de aumento e cortes. Será, contudo, abordada uma implementação para um algoritmo genérico de Ford-Fulkerson mais abaixo.
 
 O método baseia-se na seguinte lógica:
 
@@ -412,7 +412,7 @@ já que no pior caso todas as máquinas podem realizar uma tarefa. Nesse caso, p
 
 ## Algoritmos baseados em Pré-Fluxo
 
-Até aqui observámos algoritmos para o fluxo máximo baseados em caminhos de aumento. Estes algoritmos têm, contudo, a particularidade menos agradável de possuírem operações **pouco localizadas** - as procuras por caminhos de aumento iniciam-se sempre em $s$, mesmo que percorrer a rede desde aí se possa tornar pouco eficiente. Abaixo encontra-se um exemplo de uma situação onde os algoritmos baseados em caminhos de aumento se podem tornar mais demorosos do que podiam/deviam ser idealmente:
+Até aqui observámos algoritmos para o fluxo máximo baseados em caminhos de aumento. Estes algoritmos têm, contudo, a particularidade menos agradável de possuírem operações **pouco localizadas** - as procuras por caminhos de aumento iniciam-se sempre em $s$, mesmo que percorrer a rede desde aí se possa tornar pouco eficiente. Abaixo encontra-se um exemplo de uma situação onde os algoritmos baseados em caminhos de aumento se podem tornar mais morosos do que podiam/deviam ser idealmente:
 
 ![Exemplo desagradável - caminhos de aumento](./assets/0007-pre-fluxo-desagradaveis.png#dark=1)
 
@@ -597,7 +597,7 @@ RelabelToFront(G, s, t)
     u = u.next // next -> proximo vertice de L
 ```
 
-A aplicação do algoritmo é trivial, porém é bastante fácil enganámo-nos num passo intermédio (costumam ser uns quantos, e é fácil haver detalhes a passar despercebidos). Abaixo encontramos um exemplo do decorrer do mesmo (retirado dos slides):
+A aplicação do algoritmo é trivial, porém é bastante fácil enganarmo-nos num passo intermédio (costumam ser uns quantos, e é fácil haver detalhes a passar despercebidos). Abaixo encontramos um exemplo do decorrer do mesmo (retirado dos slides):
 
 :::details[Exemplo da Aplicação do Algoritmo]
 
