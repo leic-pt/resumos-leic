@@ -15,19 +15,19 @@ type: content
 
 ```
 
-## Assintotas
+## Assíntotas
 
-### Assintotas Verticais
+### Assíntotas Verticais
 
-Diz-se que a reta de equação $x=x_0$ é uma assintota:
+Diz-se que a reta de equação $x=x_0$ é uma assíntota:
 
 - vertical [à esquerda](color:orange) para $f$ se $f$ está definida em $]x_0 − r, x_0[$, para algum $r\in\R^+$, e $f(x_0^-)=\pm \infin.$
 - vertical [à direita](color:orange) para $f$ se $f$ está definida em $]x_0, x_0+r[$, para algum $r\in\R^+$, e $f(x_0^+)=~\pm \infin.$
-- [bi-lateral](color:green) para $f$ se é simultaneamente uma [assintota à esquerda](color:orange) e uma [assintota à direita](color:orange).
+- [bi-lateral](color:green) para $f$ se é simultaneamente uma [assíntota à esquerda](color:orange) e uma [assíntota à direita](color:orange).
 
-👉 Só é preciso estudar a existência de assintotas verticais nos pontos em que a função não é contínua.
+👉 Só é preciso estudar a existência de assíntotas verticais nos pontos em que a função não é contínua.
 
-Podem existir infinitas assintotas verticais numa função, tal como é o caso da função $f(x)=\tg x.$
+Podem existir infinitas assíntotas verticais numa função, tal como é o caso da função $f(x)=\tg x.$
 
 :::details[Exemplos]
 
