@@ -173,7 +173,7 @@ Este algoritmo corre exatamente $n \cdot W$ vezes - $\Theta (n \cdot W)$ - já q
 
 O algoritmo diz-se **pseudo-polinomial**, não **polinomial**. Ao analisar a complexidade temporal de um algoritmo, optamos por norma por escrevê-la em função de uma variável (que usualmente está diretamente ligada ao tamanho do _input_). Neste caso encontramos uma exceção: $\Theta(n \cdot W)$ depende de **duas** variáveis, $n$ e $W$, sendo que esta última não tem qualquer correlação com o _input_.
 
-Podemos então levantar uma questão: **qual é o [tamanho](color:purple) de $W$**? Bem, o seu [**valor**](color:pink), claro está, é o próprio número associado a $W$ - se $W = 35$, o seu **valor** é $35$. O seu **tamanho**, contudo, seria $2$ - corresponde ao número de digitos necessários para o escrever. Mais ainda, a **relação** entre o tamanho de um número e o seu valor é **exponencial** - se estivermos a falar de números representados em base decimal, temos:
+Podemos então levantar uma questão: **qual é o [tamanho](color:purple) de $W$**? Bem, o seu [**valor**](color:pink), claro está, é o próprio número associado a $W$ - se $W = 35$, o seu **valor** é $35$. O seu **tamanho**, contudo, seria $2$ - corresponde ao número de dígitos necessários para o escrever. Mais ainda, a **relação** entre o tamanho de um número e o seu valor é **exponencial** - se estivermos a falar de números representados em base decimal, temos:
 
 $$
 \text{Tamanho de W} = \lfloor \log_{10} (\text{Valor de W}) \rfloor + 1
@@ -613,7 +613,7 @@ Aqui, $d_T$ corresponde à profundidade de $i$ na árvore binária.
 
 :::
 
-Temos, portanto, que o algoritmo de Huffman quererá **minimizar** o custo do código binário. O produto de um caracter muito frequente deve, num modelo ótimo, ser realizado com uma profundidade menor.
+Temos, portanto, que o algoritmo de Huffman quererá **minimizar** o custo do código binário. O produto de um carácter muito frequente deve, num modelo ótimo, ser realizado com uma profundidade menor.
 
 O algoritmo em si passa por, inicialmente, considerar todos os caracteres como nós, com valor $=$ frequência. Cria-se uma **min priority queue** (com prioridade $=$ valor), e inserem-se os nós na mesma. De seguida, extraem-se os dois nós com valor menor e somam-se os respetivos valores, criando um novo nó com valor igual a essa soma. Este nó é inserido na queue, e assim sucessivamente $|\Sigma| - 1$ vezes, onde $|\Sigma|$ corresponde ao tamanho do alfabeto. O pseudocódigo é o seguinte:
 
@@ -679,7 +679,7 @@ Tenhamos, pegando neste último caso, o exemplo seguinte (onde $a$ e $b$ não s�
 
 ![Árvore T estrela](./assets/0003-prova-t-estrela.png#dark=1)
 
-Temos, a partir daqui, que provar que, ao trocar $b$ com $c$ ($c$ é um qualquer caracter com frequência superior à de $a$ e $b$), a árvore continua a ser ótima, ou seja, que:
+Temos, a partir daqui, que provar que, ao trocar $b$ com $c$ ($c$ é um qualquer carácter com frequência superior à de $a$ e $b$), a árvore continua a ser ótima, ou seja, que:
 
 $$
 B(T^*) \geq B(T^\wedge)

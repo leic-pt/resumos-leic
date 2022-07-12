@@ -6,7 +6,7 @@ type: topLevelPage
 
 # Computação Gráfica
 
-> Conhecimentos básicos sobre computação gráfica interactiva.  
+> Conhecimentos básicos sobre computação gráfica interativa.  
 > Fundamentos da representação e criação de imagens sintéticas a partir de cenas tri-dimensionais.  
 > Transformações geométricas elementares e funcionamento do pipeline de visualização 3D e dos seus andares principais.
 

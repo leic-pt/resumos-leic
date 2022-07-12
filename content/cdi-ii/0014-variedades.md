@@ -20,7 +20,7 @@ $M \subset \R^n$ é uma variedade diferenciável de dimensão $m$ se $\forall a 
 uma vizinhança na qual $M$ é o gráfico de uma função $f: U\subset \R^m \to \R^{n - m}$ de classe $C^1$.
 :::
 
-Tomando como exemplo os seguintes conjnutos:
+Tomando como exemplo os seguintes conjuntos:
 
 1. $M= \{(x,y) \in \R^2: x^2+y^2=1\}$
 
@@ -366,7 +366,7 @@ que se sabe ser uma variedade de $\dim 1$.
 Podemos substituir $y$ por $x$, obtendo assim a equação
 $2x^2+z^2=1 \Leftrightarrow (\sqrt{2} x)^2+z^2 = 1$, correspondente a uma elipse.
 
-Podemos agora aplicar coordenadas cilindricas modificadas:
+Podemos agora aplicar coordenadas cilíndricas modificadas:
 
 $$
 \begin{cases}
@@ -470,7 +470,7 @@ $$
 Será que é variedade? Se sim, qual a sua dimensão?
 Qual o espaço tangente e normal no ponto $(1,2,3)$?
 
-Começemos por escrever o conjunto na forma de conjunto de nível:
+Comecemos por escrever o conjunto na forma de conjunto de nível:
 
 $$
 \begin{array}{c}
@@ -564,7 +564,7 @@ $$
 P = \{(x,y,z) \in \R^3: z = x^2+y^2, z < 1\}
 $$
 
-Escrevendo a sua parametrização, recorrendo às coordenadas cilindricas:
+Escrevendo a sua parametrização, recorrendo às coordenadas cilíndricas:
 
 $$
 g(\rho, \theta) = (\rho \cos \theta, \rho \sin \theta, \rho^2)

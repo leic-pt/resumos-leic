@@ -207,7 +207,7 @@ Em termos de tempos de descoberta, para cada tipo de aresta, temos que (tendo do
 
 - temos um cross edge de $u$ para $v$ caso $d(v) < f(v) < d(u) < f(u)$.
 
-Antes de abordar a ordenação topológica e os componentes formemente ligados, é relevante enunciar o **Teorema do Caminho Branco**.
+Antes de abordar a ordenação topológica e os componentes fortemente ligados, é relevante enunciar o **Teorema do Caminho Branco**.
 
 :::info[Teorema do Caminho Branco]
 
@@ -328,7 +328,7 @@ A propriedade 2 fica, então, provada.
 O algoritmo para chegar aos SCCs de um grafo é bastante simples:
 
 - Fazer uma DFS normal, guardando uma lista com os vértices ordenada de modo decrescente pelos respetivos tempos de fim.
-- Transpôr o grafo - alterar o sentido de todos os seus arcos.
+- Transpor o grafo - alterar o sentido de todos os seus arcos.
 - Fazer outra DFS (ao grafo transposto), seguindo desta vez a ordem decrescente que guardámos no primeiro passo. A ordem decrescente é relevante ao escolher a raiz do caminho, mas aquando da exploração do caminho em si, não importa - podemos escolher qualquer vértice.
 
 [**Cada árvore da floresta DFS do grafo transposto corresponderá a um SCC do grafo original**](color:orange).
