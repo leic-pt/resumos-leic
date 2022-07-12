@@ -27,7 +27,7 @@ Recapitulando algumas das funções que existem:
 
 | Função                  | Descrição                                                   |
 | ----------------------- | ----------------------------------------------------------- |
-| `COUNT(*)`              | Número de linhas                                            |
+| `COUNT(*)` / `COUNT(1)` | Número de linhas                                            |
 | `COUNT([DISTINCT] col)` | Número de linhas com valores [distintos] não nulos de `col` |
 | `SUM([DISTINCT] col)`   | Soma dos valores [distintos] não nulos de `col`             |
 | `AVG([DISTINCT] col)`   | Média dos valores [distintos] não nulos de `col`            |
