@@ -1,8 +1,10 @@
 ---
 title: Operador de Corte, Negação, Paragem/Execução Forçada
 description: >-
-  Operador de Corte, Negação, Paragem/Execução Forçada.
-path: /lp/prolog-corte-neg
+  Operador de Corte.
+  Negação.
+  Paragem/Execução Forçada.
+path: /lp/prolog-negacao
 type: content
 ---
 
@@ -14,7 +16,13 @@ type: content
 
 ## Operador de Corte
 
-O **operador de corte**, `!`, é utilizado para indicar que, num programa onde um dado ramo produz soluções, devemos seguir esse ramo (algo do género "se já sabes que o que fizeste está bem, segue em frente."). Tal como o `break` de outras linguagens, só deve ser utilizado quando estritamente necessário (e, quando utilizado, devidamente comentado), visto que pode alterar inadvertidamente a semântica declarativa do programa. Cria, portanto, uma "barreira" no ramo da árvore SLD durante o retrocesso. **Tem sempre sucesso**, quando chamado.
+O **operador de corte**, `!`, é utilizado para indicar que, num programa onde um
+dado ramo produz soluções, devemos seguir esse ramo (algo do género "se já sabes
+que o que fizeste está bem, segue em frente."). Tal como o `break` de outras linguagens,
+só deve ser utilizado quando estritamente necessário (e, quando utilizado, devidamente
+comentado), visto que pode alterar inadvertidamente a semântica declarativa do programa.
+Cria, portanto, uma "barreira" no ramo da árvore SLD durante o retrocesso.
+[**Tem sempre sucesso**, quando chamado](color:green).
 
 Exemplo de um programa a utilizar o operador de corte:
 
@@ -35,9 +43,11 @@ remove_repetidos([P|R], [P|L]) :- remove_repetidos(R, L).
 L = [a,b,c].
 ```
 
-De notar que não é por não avançar para a próxima cláusula que a atual é "ignorada" - a atual é levada até ao fim, com ou sem sucesso.
+De notar que não é por não avançar para a próxima cláusula que a atual é "ignorada" -
+a atual é levada até ao fim, com ou sem sucesso.
 
-Abaixo podemos observar duas versões diferentes de um programa que faz exatamente o mesmo, com diferentes colocações do operador de corte:
+Abaixo podemos observar duas versões diferentes de um programa que faz exatamente
+o mesmo, com diferentes colocações do operador de corte:
 
 ```prolog
 % parte(L, N, L1, L2)
@@ -69,14 +79,24 @@ parte([P|R], N, L1, [P|R2]) :-
   parte(R, N, L1, R2).
 ```
 
-Note-se o posicionamento do operador de corte na versão 2 deste programa, que talvez possa fazer menos sentido à primeira vista. Visto que no retrocesso o terceiro argumento começa por ser a lista vazia, e a lista vazia não é do tipo `[P|R1]` (não tem primeiro elemento), não iria haver unificação com a cabeça da primeira regra, mesmo que fosse o que fizesse sentido. Assim sendo, temos de adicionar um corte à 2ª regra.
+Note-se o posicionamento do operador de corte na versão 2 deste programa, que
+talvez possa fazer menos sentido à primeira vista. Visto que no retrocesso o
+terceiro argumento começa por ser a lista vazia, e a lista vazia não é do tipo
+`[P|R1]` (não tem primeiro elemento), não iria haver unificação com a cabeça da
+primeira regra, mesmo que fosse o que fizesse sentido. Assim sendo, temos de
+adicionar um corte à 2ª regra.
 
-Podem testar esta diferença (presença/ausência do corte na 2ª regra) com o input `parte([4,8,1,10], 7, [], [4,8,1,10])`. Na versão correta, a resposta é `false`, visto que L1 devia ser `[4,1]` e L2 `[8,10]`; na versão errada, esta interação devolveria `true`.
+Podem testar esta diferença (presença/ausência do corte na 2ª regra) com o input
+`parte([4,8,1,10], 7, [], [4,8,1,10])`. Na versão correta, a resposta é `false`,
+visto que L1 devia ser `[4,1]` e L2 `[8,10]`; na versão errada, esta interação devolveria `true`.
 
 :::details[Quick Sort]
 
-Fazendo a ponte com IAED, podemos ainda utilizar o programa definido acima, em conjunto com o `append`, para implementar um Quick Sort.
-A implementação passará por considerar um pivô, por ordenar, e dividir os restantes elementos em 2 grupos, menores e maiores ou iguais que ele (usando o `parte`); chamar o programa de novo até ordenar os dois grupos e colocar, por fim, o pivô entre os grupos, utilizando o `append`.
+Fazendo a ponte com IAED, podemos ainda utilizar o programa definido acima, em conjunto
+com o `append`, para implementar um Quick Sort.
+A implementação passará por considerar um pivô, por ordenar, e dividir os restantes
+elementos em 2 grupos, menores e maiores ou iguais que ele (usando o `parte`); chamar
+o programa de novo até ordenar os dois grupos e colocar, por fim, o pivô entre os grupos, utilizando o `append`.
 
 ```prolog
 % quicksort(L1, L2) - L1 desordenada, L2 ordenada
@@ -98,7 +118,8 @@ L = [1, 2, 3, 4, 5, 6, 7, 8].
 
 :::details[Junção de Listas Ordenadas]
 
-É possível realizar a junção de duas listas ordenadas sem o operador de corte. Contudo, por uma questão de eficiência, é usual aparecer o operador de corte nalguma posição da cláusula. Por exemplo:
+É possível realizar a junção de duas listas ordenadas sem o operador de corte. Contudo,
+por uma questão de eficiência, é usual aparecer o operador de corte nalguma posição da cláusula. Por exemplo:
 
 ```prolog
 % junta_ord(L1, L2, Res)
@@ -123,9 +144,12 @@ junta_ord([P1|R1], [P2|R2], [P2|R]) :-
 
 :::
 
-Ora, dadas as suas semelhanças com o **break** de outras linguagens, devemos também ser relembrados dos **perigos inerentes ao operador de corte**, pelo uso indevido que lhe podemos dar.
+Ora, dadas as suas semelhanças com o `break` de outras linguagens, devemos também
+ser relembrados dos [**perigos inerentes ao operador de corte**](color:red),
+pelo uso indevido que lhe podemos dar.
 
-Peguemos num programa, `menor`, que nos dá o menor de dois números. Podemos defini-lo, sem recorrer ao corte, através de:
+Peguemos num programa, `menor`, que nos dá o menor de dois números. Podemos defini-lo,
+sem recorrer ao corte, através de:
 
 ```prolog
 % menor(X, Y, Z) - Z é o menor entre X e Y
@@ -144,11 +168,15 @@ menor(X, Y, Y) :- X > Y.
 Podíamos, contudo, tentar (mal) sintetizar ainda mais este programa, tal que:
 
 ```prolog
-menor(X, Y, X) :- X =< Y, !. %
-menor(_, Y, Y).
+menor(X, Y, X) :- X =< Y, !.
+menor(_, Y, Y). % ups
 ```
 
-Este programa apresenta, no entanto, comportamentos errados. Na interação `menor(5, 10, 10)`, por exemplo, devolveria `true`, quando claramente deveria devolver `false`. Isto acontece porque a unificação de `menor(5, 10, 10)` com `menor(X, Y, X)` falha, vendo-nos, portanto, forçados a alterar o nosso programa se quisermos manter esta estrutura que utiliza a variável anónima:
+Este programa apresenta, no entanto, comportamentos errados. Na interação `menor(5, 10, 10)`,
+por exemplo, devolveria `true`, quando claramente deveria devolver `false`. Isto
+acontece porque a unificação de `menor(5, 10, 10)` com `menor(X, Y, X)` falha,
+vendo-nos, portanto, forçados a alterar o nosso programa se quisermos manter esta
+estrutura que utiliza a variável anónima:
 
 ```prolog
 menor(X, Y, Z) :-
@@ -160,9 +188,12 @@ menor(_, Y, Y).
 
 ## Falhanço Forçado
 
-O predicado `fail/0` tem duas utilidades principais, sendo que apenas uma delas é vulgarmente utilizada. O seu propósito é **criar um nó falhado propositadamente**.
+O predicado `fail/0` tem duas utilidades principais, sendo que apenas uma delas é
+vulgarmente utilizada. O seu propósito é **criar um nó falhado propositadamente**.
 
-O primeiro propósito, menos usual, é para obter todas as respostas a um objetivo de uma vez, em vez de ter de utilizar o `;` para verificar todas as respostas. Podemos observar uma interação deste género abaixo:
+O primeiro propósito, menos usual, é para obter todas as respostas a um objetivo de
+uma vez, em vez de ter de utilizar o `;` para verificar todas as respostas. Podemos
+observar uma interação deste género abaixo:
 
 ```prolog
 ?- membro(X,[1,2,3]), writeln(membro(X,[1,2,3])), fail.
@@ -174,8 +205,12 @@ false.
 % o próprio ; também não aparece
 ```
 
-O segundo propósito, mais utilizado e bastante poderoso, é **utilizar o** `fail` **em conjunto com o operador de corte**.
-Um exemplo bastante simples para ilustrar a sua utilidade é o de verificar se duas listas são disjuntas - duas listas são disjuntas quando não têm nenhum membro em comum, pelo que basta haver um para o objetivo retornar `false`. Assim sendo, é interessante combinar um operador de corte com um `fail`, tal que:
+O segundo propósito, mais utilizado e bastante poderoso, é **utilizar o** `fail`
+**em conjunto com o operador de corte**.
+Um exemplo bastante simples para ilustrar a sua utilidade é o de verificar se duas
+listas são disjuntas - duas listas são disjuntas quando não têm nenhum membro em
+comum, pelo que basta haver um para o objetivo retornar `false`. Assim sendo, é
+interessante combinar um operador de corte com um `fail`, tal que:
 
 ```prolog
 % disjuntas(L1, L2)
@@ -193,7 +228,10 @@ disjuntas([_|R1], L2) :- disjuntas(R1, L2).
 
 ## Negação
 
-A combinação mencionada acima, combinar o `fail` com o corte, permite definir a **negação por falhanço**, diferente da negação lógica. Esta negação é baseada na hipótese do mundo fechado, mencionada na introdução ao Prolog. Se o Prolog não consegue derivar algo, assume que é falso.
+A combinação mencionada acima, combinar o `fail` com o corte, permite definir a
+**negação por falhanço**, diferente da negação lógica. Esta negação é baseada na
+hipótese do mundo fechado, mencionada na introdução ao Prolog. Se o Prolog não
+consegue derivar algo, assume que é falso.
 
 Em Prolog, este tipo de negação é utilizado através de um meta-predicado, `\+`, aplicado a literais.
 
@@ -207,7 +245,8 @@ Observemos o exemplo:
 \+(P).
 ```
 
-Este programa pode ser lido tal que "para responder ao objetivo `\+(P)`, tente-se provar P. Caso não seja possível, o objetivo é satisfeito; caso contrário, retorne-se `false`".
+Este programa pode ser lido tal que "para responder ao objetivo `\+(P)`, tente-se
+provar P. Caso não seja possível, o objetivo é satisfeito; caso contrário, retorne-se `false`".
 
 Em relação a um exemplo concreto:
 
@@ -232,16 +271,22 @@ false.
 
 A interação acima pode ser ilustrada por:
 
-![Piupiu Gelido](./assets/0009-piupiu.png#dark=1)
+![Piupiu Gelido](./assets/0009-piupiu.svg#dark=2)
 
-A negação por falhanço não funciona, contudo, corretamente para objetivos não chãos (ou seja para objetivos com variáveis).
+A negação por falhanço não funciona, contudo, corretamente para objetivos não chãos
+(ou seja, para objetivos com variáveis).
 
 ## Execução Forçada
 
 Apesar de teoricamente uma regra ter o formato `<literal> :- <literais>`,
-podemos supor a hipótese de `literal` ser "nada". A regra ficaria, então, com um aspeto do género `:- <literais>`, algo do género "para provar "nada", prove os literais a seguir a `:-`". Pode ser bastante útil em casos de tentar fazer debug (i.e `:- writeln('Este é o passo <n> do programa')`), ou até mesmo para definir certos acontecimentos que acontecem _sempre_ ao carregar um certo ficheiro no Prolog.
+podemos supor a hipótese de `literal` ser "nada". A regra ficaria, então, com um
+aspeto do género `:- <literais>`, algo do género "para provar "nada", prove os
+literais a seguir a `:-`". Pode ser bastante útil em casos de tentar fazer debug
+(i.e `:- writeln('Este é o passo <n> do programa')`), ou até mesmo para definir
+certos acontecimentos que acontecem _sempre_ ao carregar um certo ficheiro no Prolog.
 
-Por exemplo, se utilizarem o SWI-Prolog, podem ir às definições e ao `user init file` e escrever alguns comandos que serão forçosamente executados, como por exemplo:
+Por exemplo, se utilizarem a GUI do SWI-Prolog, podem ir às definições e ao `user init file`
+e escrever alguns comandos que serão forçosamente executados, como por exemplo:
 
 ```prolog
 % dark mode
