@@ -35,9 +35,9 @@ Podem existir infinitas assíntotas verticais numa função, tal como é o caso 
 
 Função $f:\R\backslash \{0\}\to \R\quad,\quad f(x)=\frac 1x$
 
-Tem uma assintota bi-lateral de equação $x=0$.
+Tem uma assíntota bi-lateral de equação $x=0$.
 
-![Assintota Bilateral, Exemplo 1](./assets/0011-ex1-bilateral.png)
+![Assíntota Bilateral, Exemplo 1](./assets/0011-ex1-bilateral.png)
 
 [**Exemplo 2**](color:orange)
 
@@ -48,17 +48,17 @@ e^{\frac 1x} &\text{se }x\ne 0\\
 \end{cases}
 $$
 
-Tem uma assintota à direita de equação $x=0$. É de salientar que esta função está definida na origem, sendo mesmo contínua à esquerda. Mesmo assim, tem uma assintota neste ponto.
+Tem uma assíntota à direita de equação $x=0$. É de salientar que esta função está definida na origem, sendo mesmo contínua à esquerda. Mesmo assim, tem uma assíntota neste ponto.
 
-![Assintota, Exemplo 2](./assets/0011-ex2-assintota.png)
+![Assíntota, Exemplo 2](./assets/0011-ex2-assintota.png)
 
 :::
 
-### Assintotas Não Verticais
+### Assíntotas Não Verticais
 
 Seja $f$ uma função que está definida em $V_r(+\infin)$, para algum $r\in\R^+$.
 
-Diz-se que a reta ${y=m_+x+b_+}$ é uma [assintota não vertical](color:orange) [à direita](color:yellow) de $f$ se
+Diz-se que a reta ${y=m_+x+b_+}$ é uma [assíntota não vertical](color:orange) [à direita](color:yellow) de $f$ se
 
 $$
 \lim_{x\to+\infin}\frac{f(x)}x=m_+\in\R\quad,\quad\lim_{x\to+\infin}\big[f(x)-mx\big]=b_+\in\R
@@ -66,19 +66,19 @@ $$
 
 Também se diz, nesse caso, que a reta descreve o comportamento assintótico de $f$ quando ${x\to+\infin}$.
 
-Define-se de modo equivalente uma [assintota não vertical](color:orange) [à esquerda](color:green) de $f$, ${y=m_{-}x+b_{-}}$.
+Define-se de modo equivalente uma [assíntota não vertical](color:orange) [à esquerda](color:green) de $f$, ${y=m_{-}x+b_{-}}$.
 
-👉 Caso $m$ ou $b$ não pertençam a $\R$, não existe [assintota não vertical](color:orange) (no "lado" que estiverem a verificar).
+👉 Caso $m$ ou $b$ não pertençam a $\R$, não existe [assíntota não vertical](color:orange) (no "lado" que estiverem a verificar).
 
-Pela unicidade do limite, existe **no máximo**, uma [assintota não vertical](color:orange) [à esquerda](color:green) e uma [assintota não vertical](color:orange) [à direita](color:yellow).
+Pela unicidade do limite, existe **no máximo**, uma [assíntota não vertical](color:orange) [à esquerda](color:green) e uma [assíntota não vertical](color:orange) [à direita](color:yellow).
 
-### Assintotas Não Retilíneas
+### Assíntotas Não Retilíneas
 
 :::warning
-Este tipo de assintotas é conhecimento extra que não será avaliado.
+Este tipo de assíntotas é conhecimento extra que não será avaliado.
 :::
 
-A explicação de como determinar assintotas não retilíneas (não verticais) encontra-se nas páginas 3 e 4 do PDF da aula 19. Entre outros, exemplos destas assintotas são assintotas quadráticas e assintotas exponenciais.
+A explicação de como determinar assíntotas não retilíneas (não verticais) encontra-se nas páginas 3 e 4 do PDF da aula 19. Entre outros, exemplos destas assíntotas são assíntotas quadráticas e assíntotas exponenciais.
 
 ## Paridade de funções
 
