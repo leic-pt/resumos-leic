@@ -401,7 +401,7 @@ $
 \oint \vec E \cdot d\vec s = - \cfrac {d \phi_B }{dt}
 $
 
-### Lei de Ampere-Maxwell
+### Lei de Ampère-Maxwell
 
 $
 \oint \vec B \cdot d \vec s = \mu_{0} \epsilon_0 \cfrac {d \phi_B }{dt} + \mu_{0} I
