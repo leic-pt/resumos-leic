@@ -29,7 +29,7 @@ A perspetiva seguida na cadeira é a última apresentada, focando-se no estudo d
 
 A definição de **agente** está intrinsecamente ligada ao ambiente que o envolve - um [**agente**](color:orange) é tudo o que capta o ambiente que o envolve, através de **sensores**, e que consegue atuar sobre o mesmo (através de **atuadores**). Podemos pensar, por exemplo, nos **humanos** como agentes: os seus recetores são, entre outros, os olhos e o nariz, atuando através das mãos, pés e por aí fora. Um **robô**, por outro lado, teria câmaras e/ou infravermelhos como recetores, atuando através das respetivas partes motoras.
 
-![Diagrama - Agentes e Ambientes](https://developmentalsystems.org/sensorimotor-lenia/public/mechanistic.svg#dark=3)
+![Diagrama - Agentes e Ambientes](imgs/0001-mechanistic-view.svg#dark=4)
 
 Todo o agente tem uma **sequência de perceções**: o histórico de perceções associadas ao agente. De um modo geral, agentes fazem escolhas baseadas nas suas perceções passadas, não em acontecimentos que ainda não ocorreram, daí a importância de guardar o respetivo histórico de perceções. Podemos até pensar na sequência de perceções como na **base de dados** de um programa em lógica: o programa tem um dado conjunto de coisas que conhece e pode fazer inferências sobre as mesmas, da mesma maneira que um agente tem um histórico de perceções e depois toma ações consoante as mesmas.
 
@@ -49,7 +49,7 @@ A função agente mapeia uma _sequência de perceções_ [(não apenas uma únic
 
 O exemplo clássico (presente tanto no livro que acompanha a cadeira como nas aulas teóricas) utilizado para demonstrar funções agente é o do **aspirador**, um agente autónomo com um "mundo" e conjunto de ações finito (e pequeno).
 
-![Aspirador - Localizações](imgs/0001-aspirador.png#dark=2)
+![Aspirador - Localizações](imgs/0001-vacuum-cleaner.svg#dark=3)
 
 Aqui, consideramos que a localização $B$ está mesmo à direita da $A$ (e vice-versa), havendo portanto duas posições possíveis para o robô estar, e que cada localização pode estar atualmente limpa ou suja. Mais ainda, consideramos que este só pode executar três ações: (1) mover-se para a direita, (2) mover-se para a esquerda ou (3) aspirar. Abaixo, temos uma possível sequência de perceções, com a respetiva ação tomada pelo agente associada.
 
@@ -70,7 +70,7 @@ Note-se que esta tabela corresponde à tabulação de uma função agente relati
 
 Agentes racionais procuram sempre realizar as ações que, segundo a informação que lhes é dada e os conhecimentos que têm, resultarão idealmente em cenários mais desejáveis/numa **maior expectativa de sucesso**, segundo um conjunto de medidas objetivas de desempenho (_performance_) - entra aqui a noção de fazer a [**escolha certa**](color:green). Em relação ao exemplo do aspirador, poderíamos introduzir medidas de desempenho ao agente: tempo gasto, quantidade de sujidade aspirada, entre outras.
 
-![Diagrama - Agentes Racionais](imgs/0001-agentes-racionais.png#dark=3)
+![Diagrama - Agentes Racionais](imgs/0001-rational-agents.svg#dark=4)
 
 Existe aqui, mais que uma função agente quase direta (tenho isto, faço aquilo, sem considerar contexto nem nada do género), um raciocínio por detrás da escolha a tomar, que pode nem sempre ser o óbvio.
 
