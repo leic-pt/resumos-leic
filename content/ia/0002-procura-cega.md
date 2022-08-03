@@ -80,7 +80,7 @@ end
 
 O jogo das oito rainhas consiste em tentar colocar 8 rainhas num tabuleiro de xadrez 8x8, de forma a não se atacarem entre si. Temos, claro, que uma rainha pode atacar outra caso partilhem linha, coluna ou diagonal.
 
-![Oito Rainhas](./imgs/0002-eight-queens.png#dark=2)
+![Oito Rainhas](./imgs/0002-eight-queens.svg#dark=2)
 
 Uma estratégia possível seria adicionar sempre uma rainha na coluna mais à esquerda sem rainha colocada - sendo um tabuleiro 8x8, havendo 8 rainhas, terão todas de estar em linhas e colunas diferentes, pelo que podemos preencher o tabuleiro coluna a coluna, certificando-nos que estamos a colocar numa linha e diagonal que não interfira com outras rainhas.
 
