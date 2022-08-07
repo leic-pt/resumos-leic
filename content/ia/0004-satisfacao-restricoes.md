@@ -243,7 +243,7 @@ vamos precisar de métodos adicionais para resolver os problemas em questão.
 
 Considere-se o seguinte tabuleiro de Sudoku:
 
-![Sudoku - Tabuleiro Inicial (AC-3)](imgs/0004-sudoku-grid-ac3.png#dark=3)
+![Sudoku - Tabuleiro Inicial (AC-3)](imgs/0004-sudoku-grid-ac3.svg#dark=1)
 
 Se quisermos modelar "preencher o tabuleiro" como um CSP, vamos ter:
 
@@ -280,7 +280,7 @@ de 2 variáveis.
 Podíamos, realizando os vários passos a que $\text{AC-3}$ nos levaria, resolver de
 uma assentada o problema, sem recorrer a procuras adicionais. O resultado final seria o seguinte:
 
-![Sudoku - Tabuleiro Resolvido (AC-3)](imgs/0004-sudoku-grid-solved-ac3.png#dark=3)
+![Sudoku - Tabuleiro Resolvido (AC-3)](imgs/0004-sudoku-grid-solved-ac3.svg#dark=1)
 
 Como referido anteriormente, há situações em que o algoritmo $\text{AC-3}$ não resolve
 sozinho o problema - nem todos os tabuleiros Sudoku conseguem ser completados seguindo

@@ -29,7 +29,7 @@ A perspetiva seguida na cadeira é a última apresentada, focando-se no estudo d
 
 A definição de **agente** está intrinsecamente ligada ao ambiente que o envolve - um [**agente**](color:orange) é tudo o que capta o ambiente que o envolve, através de **sensores**, e que consegue atuar sobre o mesmo (através de **atuadores**). Podemos pensar, por exemplo, nos **humanos** como agentes: os seus recetores são, entre outros, os olhos e o nariz, atuando através das mãos, pés e por aí fora. Um **robô**, por outro lado, teria câmaras e/ou infravermelhos como recetores, atuando através das respetivas partes motoras.
 
-![Diagrama - Agentes e Ambientes](https://developmentalsystems.org/sensorimotor-lenia/public/mechanistic.svg#dark=3)
+![Diagrama - Agentes e Ambientes](imgs/0001-mechanistic-view.svg#dark=4)
 
 Todo o agente tem uma **sequência de perceções**: o histórico de perceções associadas ao agente. De um modo geral, agentes fazem escolhas baseadas nas suas perceções passadas, não em acontecimentos que ainda não ocorreram, daí a importância de guardar o respetivo histórico de perceções. Podemos até pensar na sequência de perceções como na **base de dados** de um programa em lógica: o programa tem um dado conjunto de coisas que conhece e pode fazer inferências sobre as mesmas, da mesma maneira que um agente tem um histórico de perceções e depois toma ações consoante as mesmas.
 
@@ -49,7 +49,7 @@ A função agente mapeia uma _sequência de perceções_ [(não apenas uma únic
 
 O exemplo clássico (presente tanto no livro que acompanha a cadeira como nas aulas teóricas) utilizado para demonstrar funções agente é o do **aspirador**, um agente autónomo com um "mundo" e conjunto de ações finito (e pequeno).
 
-![Aspirador - Localizações](imgs/0001-aspirador.png#dark=2)
+![Aspirador - Localizações](imgs/0001-vacuum-cleaner.svg#dark=1)
 
 Aqui, consideramos que a localização $B$ está mesmo à direita da $A$ (e vice-versa), havendo portanto duas posições possíveis para o robô estar, e que cada localização pode estar atualmente limpa ou suja. Mais ainda, consideramos que este só pode executar três ações: (1) mover-se para a direita, (2) mover-se para a esquerda ou (3) aspirar. Abaixo, temos uma possível sequência de perceções, com a respetiva ação tomada pelo agente associada.
 
@@ -70,7 +70,7 @@ Note-se que esta tabela corresponde à tabulação de uma função agente relati
 
 Agentes racionais procuram sempre realizar as ações que, segundo a informação que lhes é dada e os conhecimentos que têm, resultarão idealmente em cenários mais desejáveis/numa **maior expectativa de sucesso**, segundo um conjunto de medidas objetivas de desempenho (_performance_) - entra aqui a noção de fazer a [**escolha certa**](color:green). Em relação ao exemplo do aspirador, poderíamos introduzir medidas de desempenho ao agente: tempo gasto, quantidade de sujidade aspirada, entre outras.
 
-![Diagrama - Agentes Racionais](imgs/0001-agentes-racionais.png#dark=3)
+![Diagrama - Agentes Racionais](imgs/0001-rational-agents.svg#dark=4)
 
 Existe aqui, mais que uma função agente quase direta (tenho isto, faço aquilo, sem considerar contexto nem nada do género), um raciocínio por detrás da escolha a tomar, que pode nem sempre ser o óbvio.
 
@@ -148,7 +148,7 @@ Corresponde ao tipo de agente mais elementar, escolhendo a ação a tomar tendo 
 :::details[Programa Agente associado ao Aspirador]
 
 ```bash
-function vaccum_agent([location, status])
+function vacuum_agent([location, status])
   if status = Dirty then
     return SUCK
   else if location = A then
@@ -163,7 +163,7 @@ Realça-se novamente que, tendo este programa, **não precisamos de qualquer no�
 
 :::
 
-![Diagrama -  Agentes de Reflexos Simples](./imgs/0001-simple-reflex-agent.png#dark=2)
+![Diagrama -  Agentes de Reflexos Simples](./imgs/0001-simple-reflex-agent.svg#dark=4)
 
 O diagrama acima representa o _core_ do funcionamento de um agente de reflexos simples. A noção de [**regras condições-ações**](color:purple), _condition-action rules_, referida no mesmo está relacionada com o funcionamento base de qualquer agente, por mais complexo que seja - nós próprios funcionamos assim!
 Se estivermos a conduzir e o carro à nossa frente travar, fazemos internamente uma "conexão" causada pela condição `o-carro-está-a-travar` e procuramos também travar, já que chocar com ele não seria ideal.
@@ -188,7 +188,7 @@ Em ambientes parcialmente observáveis, o agente vai, por norma, precisar de man
 Esta distinção é bastante útil, já que há problemas onde os agentes de reflexos simples não conseguem realizar as tarefas pedidas, casos em que nem sempre temos tudo o que precisamos no estado atual e precisamos de mais que um conjunto de regras para nos orientarmos.
 Ainda assim, a sua complexidade não altera de forma drástica - é uma alteração relativamente suave, até - daí um outro nome para este tipo de agentes, **agentes de reflexos simples com estado interno**, ser tão próximo do último modelo.
 
-![Diagrama - Agentes de Reflexos baseados em Modelos](./imgs/0001-model-based-reflex-agent.png#dark=2)
+![Diagrama - Agentes de Reflexos baseados em Modelos](./imgs/0001-model-based-reflex-agent.svg#dark=4)
 
 Aqui, existe uma combinação da perceção atual com o estado interno anterior, que em conjunto geram uma nova noção do estado atual.
 
@@ -211,7 +211,7 @@ end
 
 Nem sempre conseguimos fazer um programa abstrato que consegue sempre saber as ações que devemos tomar, qualquer que seja a situação - nem sempre temos um objetivo constante (como é o caso do aspirador, onde queremos sempre ter o chão limpo). É aqui que entra a noção de **agentes baseados em objetivos**, agentes aos quais podemos arbitrariamente dar um objetivo, e utilizando uma lógica semelhante à dos agentes baseados em modelos (guardando estado interno, etc.) conseguimos obter ações que nos colocam mais próximos de atingir o objetivo.
 
-![Diagrama - Agentes baseados em objetivos](./imgs/0001-goal-based-agent.png#dark=2)
+![Diagrama - Agentes baseados em objetivos](./imgs/0001-goal-based-agent.svg#dark=4)
 
 Além do exposto acima, temos também de notar que este tipo de agente distingue-se dos últimos dois porque deixa de ser **baseado em reflexos** - não há um conjunto de condições-ação definido inicialmente que possamos usar sempre, já que teria de ser adaptado consoante o objetivo: tem de ser definido de forma dinâmica, através de considerações do agente quanto ao futuro ("o que é que acontece se fizer isto?", entre outros).
 
@@ -221,7 +221,7 @@ Assim, o agente opera tendo por base a **maximização do desempenho**, racional
 
 Bastante semelhantes aos explicados acima, adicionando aos mesmos uma **função de utilidade** - uma "medida" que nos permite diferenciar ações a tomar numa mesma situação (que levariam ao mesmo objetivo) consoante um conjunto de preferências estabelecido inicialmente. Se quisermos pensar num robô taxista, por exemplo, podemos definir um conjunto de preferências que inclui tempo e lucro como parâmetros a ter em conta na decisão da ação a tomar.
 
-![Diagrama - Agentes baseados em utilidade](./imgs/0001-utility-based-agent.png#dark=2)
+![Diagrama - Agentes baseados em utilidade](./imgs/0001-utility-based-agent.svg#dark=4)
 
 ### Agentes com Aprendizagem
 
@@ -234,7 +234,7 @@ Por fim, abordamos os agentes com aprendizagem (_learning agents_), que correspo
 
 O diagrama associado a estes agentes tem este aspeto:
 
-![Diagrama - Agentes com aprendizagem](./imgs/0001-learning-agent.png#dark=1)
+![Diagrama - Agentes com aprendizagem](./imgs/0001-learning-agent.svg#dark=4)
 
 ---
 
