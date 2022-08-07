@@ -131,7 +131,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-use-dark-mode`,
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-umami`,
       options: {
