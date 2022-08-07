@@ -1,6 +1,6 @@
 ---
 title: Alocação Dinâmica de Memória
-description: Alocação Estática.  Funções. Ponteiros para Estruturas.
+description: Alocação Estática. Funções. Ponteiros para Estruturas.
 path: /iaed/alocacao-dinamica-memoria
 type: content
 ---

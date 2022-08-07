@@ -94,7 +94,7 @@ Existe um [tutorial](https://www.jetbrains.com/help/clion/how-to-use-wsl-develop
 
 Pode acontecer o compilador de C não ser detetado automaticamente. Caso isso aconteca, coloquem `/usr/bin/gcc` na definições do CLion, como na imagem abaixo. O Make e o C++ compiler não são importantes para a programação em C.
 
-![Compilador de C não é detetado](./linux-setup-1.png)
+![Compilador de C não é detetado](./0001-c-compiler-clion-wsl.png)
 
 #### VSCode
 
