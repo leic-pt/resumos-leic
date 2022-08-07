@@ -291,7 +291,7 @@ Podemos, assim, depreender que, numa heurística consistente, $f$ nunca decresce
 
 Voltemos, então, a olhar para a imagem-exemplo anterior:
 
-![Procura em Grafo - Não Ótima (2)](imgs/0003-procura-grafo-nao-otima.svg#dark=3)
+![Procura em Grafo - Não Ótima (2)](imgs/0003-graph-search-not-optimal.svg#dark=3)
 
 Ora, notando que não é ótima, resta tentar perceber porque é que não é consistente (já que
 caso contrário a questão nem se colocaria). Pegando na nossa proposição inicial,
