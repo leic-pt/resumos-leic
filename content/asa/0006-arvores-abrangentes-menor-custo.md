@@ -314,7 +314,7 @@ conjuntos corresponde a uma árvore _n-ária_. A raiz de cada árvore tem-se a s
 como pai, e corresponde ao representante do conjunto em que está. Abaixo encontram-se
 exemplos de árvores que podem representar conjuntos disjuntos nesta implementação:
 
-![Conjuntos Disjuntos - Exemplo Árvores](./assets/0007-conjuntos-disjuntos-arvores.svg#dark=3)
+![Conjuntos Disjuntos - Exemplo Árvores](./assets/0006-conjuntos-disjuntos-arvores.svg#dark=3)
 
 À esquerda, podemos observar duas árvores de um hipotético conjunto $S$; à direita, o
 resultado da união dos dois conjuntos. Parece então correto introduzir agora a
@@ -338,7 +338,7 @@ se encontra, o `rank`. Aquando da união de duas árvores, a raiz da árvore mai
 pequena passa a apontar para a raíz da maior, levando assim a uma complexidade temporal
 $O(\log n)$ para `findSet`:
 
-![FindSet Logarítmico](./assets/0007-findset-log.svg#dark=3)
+![FindSet Logarítmico](./assets/0006-findset-log.svg#dark=3)
 
 Temos, claro, que aquando de `makeSet` o `rank` é inicializado a zero, e que a cada
 união o `rank` da árvore maior pode ser aumentado (caso aumente com a introdução da
@@ -352,7 +352,7 @@ nova sub-árvore). Já que `findSet` corresponde a, na pior das hipóteses, subi
 Cada operação `findSet` achata a árvore de procura que está a explorar, colocando
 cada nó a apontar diretamente para o representante do conjunto.
 
-![Findset - Compressão](./assets/0007-findset-compressao.svg#dark=3)
+![Findset - Compressão](./assets/0006-findset-compressao.svg#dark=3)
 
 Podemos na imagem acima observar o antes e depois do efeito que a operação `findSet(a)`
 tem na árvore - todas as procuras seguintes serão efetivamente realizadas em tempo constante.
@@ -397,22 +397,22 @@ a complexidade seria $O(m \cdot \log n)$, já assim bastante melhor que a origin
 
 Tenhamos que inicialmente $S$ encontra-se assim:
 
-![Conjuntos Disjuntos - Exemplo Início](./assets/0007-union-inicio.svg#dark=4)
+![Conjuntos Disjuntos - Exemplo Início](./assets/0006-union-inicio.svg#dark=4)
 
 Chamar sucessivamente `union(A, B)`, `union(B, C)`, `union(D, E)` e `union(F, G)` produzirá os seguintes resultados:
 
-![Conjuntos Disjuntos - Exemplo Básico](./assets/0007-union-basico.svg#dark=4)
+![Conjuntos Disjuntos - Exemplo Básico](./assets/0006-union-basico.svg#dark=4)
 
 De seguida, é chamado `union(D, F)`. Para achatar a árvore, temos de chamar de novo `findSet`
 com um dos nós para ver o efeito a ser produzido (numa possível chamada futura de
 `union` um efeito semelhante seria observado).
 
-![Conjuntos Disjuntos - Exemplo Intermédio](./assets/0007-union-intermedio.svg#dark=4)
+![Conjuntos Disjuntos - Exemplo Intermédio](./assets/0006-union-intermedio.svg#dark=4)
 
 Finalizamos ao unir as duas árvores finais, e a observar o achatamento (não completo)
 da árvore resultante com uma chamada `findSet`:
 
-![Conjuntos Disjuntos - Exemplo Final](./assets/0007-union-end.svg#dark=4)
+![Conjuntos Disjuntos - Exemplo Final](./assets/0006-union-end.svg#dark=4)
 
 :::
 
