@@ -17,7 +17,7 @@ type: content
 
 ```
 
-## Sistemas de Equações Lineares
+## Sistemas de Equações Lineares (SEL)
 
 :::info[Equação Linear]
 
@@ -41,10 +41,10 @@ Podemos, claro está, criar um sistema com um número arbitrário de equações 
 $$
 \begin{aligned}
 \begin{cases}
-a_{11} x_1 + a_{12} x_2 + \ldots + a_{1n} x_n = b_1, \\
-a_{21} x_1 + a_{22} x_2 + \ldots + a_{2n} x_n = b_2, \\
-\vdots \\
-a_{m1} x_1 + a_{n2} x_2 + \ldots + a_{mn} x_n = b_m
+  a_{11} x_1 + a_{12} x_2 + \ldots + a_{1n} x_n = b_1, \\
+  a_{21} x_1 + a_{22} x_2 + \ldots + a_{2n} x_n = b_2, \\
+  \vdots \\
+  a_{m1} x_1 + a_{m2} x_2 + \ldots + a_{mn} x_n = b_m
 \end{cases}
 \end{aligned}
 $$
@@ -59,8 +59,8 @@ Consideremos o sistema de equações lineares seguinte:
 $$
 \begin{aligned}
 \begin{cases}
-x - y = -5, \\
-2x - y = -2 \\
+  x - y = -5, \\
+  2x - y = -2 \\
 \end{cases}
 \end{aligned}
 $$
@@ -70,8 +70,8 @@ Uma solução possível para o sistema apresentado é $(3, 8)$, visto que:
 $$
 \begin{aligned}
 \begin{cases}
-3 - 8 = -5, \\
-2 \cdot 3 - 8 = -2
+  3 - 8 = -5, \\
+  2 \cdot 3 - 8 = -2
 \end{cases}
 \end{aligned}
 $$
@@ -94,10 +94,10 @@ Considerando o exemplo-base de SEL,
 $$
 \begin{aligned}
 \begin{cases}
-a_{11} x_1 + a_{12} x_2 + \ldots + a_{1n} x_n = b_1, \\
-a_{21} x_1 + a_{22} x_2 + \ldots + a_{2n} x_n = b_2, \\
-\vdots \\
-a_{m1} x_1 + a_{n2} x_2 + \ldots + a_{mn} x_n = b_m
+  a_{11} x_1 + a_{12} x_2 + \ldots + a_{1n} x_n = b_1, \\
+  a_{21} x_1 + a_{22} x_2 + \ldots + a_{2n} x_n = b_2, \\
+  \vdots \\
+  a_{m1} x_1 + a_{m2} x_2 + \ldots + a_{mn} x_n = b_m
 \end{cases}
 \end{aligned}
 $$
@@ -106,10 +106,10 @@ podemos definir a respetiva **matriz do sistema** da seguinte forma:
 
 $$
 A = \begin{bmatrix}
-a_{11} & a_{12} & \ldots & a_{1n} \\
-a_{21} & a_{22} & \ldots & a_{2n} \\
-\ldots & \ldots & \ldots & \ldots \\
-a_{m1} & a_{n2} & \ldots & a_{mn}
+  a_{11} & a_{12} & \ldots & a_{1n} \\
+  a_{21} & a_{22} & \ldots & a_{2n} \\
+  \ldots & \ldots & \ldots & \ldots \\
+  a_{m1} & a_{m2} & \ldots & a_{mn}
 \end{bmatrix}
 $$
 
@@ -118,16 +118,16 @@ do lado direito das equações (os $b_i$). Representamo-la de forma igualmente s
 
 $$
 A|b = \begin{bmatrix}
-a_{11} & a_{12} & \ldots & a_{1n} & b_1 \\
-a_{21} & a_{22} & \ldots & a_{2n} & b_2 \\
-\ldots & \ldots & \ldots & \ldots & \ldots \\
-a_{m1} & a_{n2} & \ldots & a_{mn} & b_m
+  a_{11} & a_{12} & \ldots & a_{1n} & b_1 \\
+  a_{21} & a_{22} & \ldots & a_{2n} & b_2 \\
+  \ldots & \ldots & \ldots & \ldots & \ldots \\
+  a_{m1} & a_{m2} & \ldots & a_{mn} & b_m
 \end{bmatrix}
 $$
 
 ## Matriz em Escada de Linhas
 
-É natural que se tentem encontrar formas de resolver SELs da forma mais eficiente possível:
+É natural que se tentem encontrar formas de resolver SEL da forma mais eficiente possível:
 é um problema extremamente frequente em várias áreas da matemática e engenharia!
 Ora, quanto mais simples for a matriz aumentada, mais simples será resolver o problema, claro.
 A simplicidade da matriz, aqui, prende-se quanto à sua forma: temos que é muito mais simples
@@ -153,17 +153,17 @@ assim que a matriz não está em escada de linhas.
 $$
 \begin{aligned}
 \begin{bmatrix}
-1 & 2 & 3 & 4 \\
-0 & 1 & 2 & 3 \\
-0 & 0 & 1 & 2 \\
-0 & 0 & 0 & 1
+  1 & 2 & 3 & 4 \\
+  0 & 1 & 2 & 3 \\
+  0 & 0 & 1 & 2 \\
+  0 & 0 & 0 & 1
 \end{bmatrix}
 \qquad
 \begin{bmatrix}
-1 & 2 & 3 & 4 \\
-0 & 0 & 1 & 2 \\
-0 & 1 & 2 & 3 \\
-0 & 0 & 0 & 1
+  1 & 2 & 3 & 4 \\
+  0 & 0 & 1 & 2 \\
+  0 & 1 & 2 & 3 \\
+  0 & 0 & 0 & 1
 \end{bmatrix}
 \end{aligned}
 $$
@@ -179,8 +179,8 @@ Atentemos na seguinte matriz:
 
 $$
 A|b = \begin{bmatrix}
-\boxed{1} & 1 & -1 & 2 \\
-0 & \boxed{1} & -1 & 3
+  \boxed{1} & 1 & -1 & 2 \\
+  0 & \boxed{1} & -1 & 3
 \end{bmatrix}
 $$
 
@@ -213,7 +213,7 @@ que podemos aplicar às linhas de uma matriz.
 - Podemos **multiplicar uma linha por um número**, sem que tal altere o conjunto-solução do sistema:
   estamos apenas a multiplicar todos os coeficientes (e $b_i$) da linha pelo mesmo número, pelo que
   a solução será a mesma, já que ter $2x + y = 1$ é equivalente a ter $4x + 2y = 2$ (por exemplo).
-  Podemos denotar esta operação através de $\alpha L_i$, onde $\alpha$ é o tal número pelo qual estamos a multiplicar a linha.
+  Podemos denotar esta operação através de $\alpha L_i$, onde $\alpha = 2$ é o tal número pelo qual estamos a multiplicar a linha.
 - Podemos **substituir uma linha pela sua soma com o múltiplo de outra linha**, sem que tal altere o conjunto-solução do sistema:
   colocando a questão de forma mais simples, se $A = B$ e $C = D$, então podemos afirmar que $A + C = B + D$.
   Podemos denotar esta operação através de $L_i + \alpha L_j$.
@@ -237,15 +237,15 @@ Considerando o seguinte SEL e respetiva matriz aumentada:
 $$
 \begin{aligned}
 \begin{cases}
-x_1 + x_2 = 1 \\
-2x_1 + 2x_2 + x_3 = 0 \\
-3x_1 + x_3 = 1
+  x_1 + x_2 = 1 \\
+  2x_1 + 2x_2 + x_3 = 0 \\
+  3x_1 + x_3 = 1
 \end{cases}
 \qquad \qquad
 \begin{bmatrix}
-1 & 1 & 0 & 1 \\
-2 & 2 & 1 & 0 \\
-3 & 0 & 1 & 1
+  1 & 1 & 0 & 1 \\
+  2 & 2 & 1 & 0 \\
+  3 & 0 & 1 & 1
 \end{bmatrix}
 \end{aligned}
 $$
@@ -255,29 +255,29 @@ Teremos, por eliminação de Gauss:
 $$
 \begin{aligned}
 \begin{bmatrix}
-1 & 1 & 0 & 1 \\
-2 & 2 & 1 & 0 \\
-3 & 0 & 1 & 1
+  1 & 1 & 0 & 1 \\
+  2 & 2 & 1 & 0 \\
+  3 & 0 & 1 & 1
 \end{bmatrix}
 \underrightarrow{L_2 - 2L_1}
 \begin{bmatrix}
-1 & 1 & 0 & 1 \\
-0 & 0 & 1 & -2 \\
-3 & 0 & 1 & 1
+  1 & 1 & 0 & 1 \\
+  0 & 0 & 1 & -2 \\
+  3 & 0 & 1 & 1
 \end{bmatrix}
 \underrightarrow{L_3 - 3L_1}
 \begin{bmatrix}
-1 & 1 & 0 & 1 \\
-0 & 0 & 1 & -2 \\
-0 & -3 & 1 & -2
+  1 & 1 & 0 & 1 \\
+  0 & 0 & 1 & -2 \\
+  0 & -3 & 1 & -2
 \end{bmatrix}
 \end{aligned}
 \\
 \underrightarrow{L_2 \leftrightarrow L_3}
 \begin{bmatrix}
-\boxed{1} & 1 & 0 & 1 \\
-0 & \boxed{-3} & 1 & -2 \\
-0 & 0 & \boxed{1} & -2
+  \boxed{1} & 1 & 0 & 1 \\
+  0 & \boxed{-3} & 1 & -2 \\
+  0 & 0 & \boxed{1} & -2
 \end{bmatrix}
 $$
 
@@ -286,21 +286,21 @@ A matriz está, assim, em escada de linhas, e o sistema é possível e determina
 $$
 \begin{aligned}
 \begin{cases}
-x_1 + x_2 = 1 \\
-2x_1 + 2x_2 + x_3 = 0 \\
-3x_1 + x_3 = 1
+  x_1 + x_2 = 1 \\
+  2x_1 + 2x_2 + x_3 = 0 \\
+  3x_1 + x_3 = 1
 \end{cases}
 \leftrightarrow
 \begin{cases}
-x_1 + x_2 = 1 \\
--3x_2 + x_3 = -2 \\
-x_3 = -2
+  x_1 + x_2 = 1 \\
+  -3x_2 + x_3 = -2 \\
+  x_3 = -2
 \end{cases}
 \leftrightarrow
 \begin{cases}
-x_1 = 1 \\
-x_2 = 0 \\
-x_3 = -2
+  x_1 = 1 \\
+  x_2 = 0 \\
+  x_3 = -2
 \end{cases}
 \end{aligned}
 $$
@@ -314,15 +314,15 @@ Podem ainda surgir problemas com coeficientes desconhecidos. Consideremos o segu
 $$
 \begin{aligned}
 \begin{cases}
-x_1 + \alpha x_3 = 1 \\
-2x_1 + 2x_2 + x_3 = 0 \\
-3x_1 + x_3 = \beta
+  x_1 + \alpha x_3 = 1 \\
+  2x_1 + 2x_2 + x_3 = 0 \\
+  3x_1 + x_3 = \beta
 \end{cases}
 \qquad \qquad
 \begin{bmatrix}
-1 & 0 & \alpha & 1 \\
-2 & 2 & 1 & 0 \\
-3 & 0 & 1 & \beta
+  1 & 0 & \alpha & 1 \\
+  2 & 2 & 1 & 0 \\
+  3 & 0 & 1 & \beta
 \end{bmatrix}
 \end{aligned}
 $$
@@ -333,25 +333,35 @@ Por eliminação de Gauss, temos:
 $$
 \begin{aligned}
 \begin{bmatrix}
-1 & 0 & \alpha & 1 \\
-2 & 2 & 1 & 0 \\
-3 & 0 & 1 & \beta
+  1 & 0 & \alpha & 1 \\
+  2 & 2 & 1 & 0 \\
+  3 & 0 & 1 & \beta
 \end{bmatrix}
 \underrightarrow{L_2 - 2L_1}
 \begin{bmatrix}
-1 & 0 & \alpha & 1 \\
-0 & 2 & 1 - \alpha & -2 \\
-3 & 0 & 1 & \beta
+  1 & 0 & \alpha & 1 \\
+  0 & 2 & 1 - 2\alpha & -2 \\
+  3 & 0 & 1 & \beta
 \end{bmatrix}
 \underrightarrow{L_3 - 3L_1}
 \begin{bmatrix}
-1 & 0 & \alpha & 1 \\
-0 & 2 & 1 - \alpha & -2 \\
-0 & 0 & 1 - 3\alpha & \beta - 3
+  1 & 0 & \alpha & 1 \\
+  0 & 2 & 1 - 2\alpha & -2 \\
+  0 & 0 & 1 - 3\alpha & \beta - 3
 \end{bmatrix}
 \end{aligned}
 $$
 
-Podemos, daqui, retirar que o sistema só apresenta estas características para $\alpha = \frac{1}{3}$ e $\beta = 3$.
+Podemos, daqui, retirar que:
+
+$$
+\begin{aligned}
+\begin{cases}
+  x_1 + \alpha x_3 = 1 \\
+  2x_2 + (1 - 2\alpha)x_3 = -2 \\
+  (1 - 3\alpha)x_3 = \beta - 3
+\end{cases}
+\end{aligned}
+$$
 
 :::
