@@ -295,3 +295,82 @@ e à esquerda $L$, a matriz equivalente a $A$ sob a forma de escada de linhas.
 
 Por fim, resta realçar que, dada uma matriz $L$ em escada de linhas, existe uma sequência
 de matrizes elementares $E_k \cdots E_1$ tal que $E_k \cdots E_1 L = I$.
+
+## Matrizes Invertíveis
+
+:::info[Definição]
+
+Uma matriz [**quadrada**](color:orange) $A$ diz-se invertível caso exista uma matriz $B$ tal que $AB = BA = I$.  
+$B$ será, caso exista, [**única**](color:red) para $A$, designando-se inversa de $A$, $A^{-1}$.
+
+:::
+
+Note-se que a matriz nula é o caso mais simples de uma matriz não invertível, já que o seu produto
+por qualquer outra matriz será necessariamente a matriz nula - nunca a matriz identidade.
+Mais ainda, qualquer matriz com uma linha ou coluna nula será também não invertível,
+já que o seu produto por qualquer outra matriz terá uma linha ou coluna também nula,
+impossibilitando assim a obtenção da matriz identidade. A inversa da matriz identidade é a própria matriz identidade.
+
+:::tip[Propriedades]
+
+A matriz inversa de uma qualquer matriz elementar $E$ é a matriz elementar correspondente à
+transformação elementar "oposta" à que leva a $E$. Seguem-se alguns exemplos:
+
+$$
+\begin{bmatrix}
+  1 & 0 & 0 \\
+  0 & 3 & 0 \\
+  0 & 0 & 1
+\end{bmatrix}^{-1} =
+\begin{bmatrix}
+  1 & 0 & 0 \\
+  0 & \frac{1}{3} & 0 \\
+  0 & 0 & 1
+\end{bmatrix}; \qquad
+\begin{bmatrix}
+  1 & 0 & 0 \\
+  0 & 1 & 0 \\
+  2 & 0 & 1
+\end{bmatrix}^{-1} =
+\begin{bmatrix}
+  1 & 0 & 0 \\
+  0 & 1 & 0 \\
+  -2 & 0 & 1
+\end{bmatrix}
+$$
+
+A inversa da inversa é a própria matriz: $(A^{-1})^{-1} = A$. Sabemos, por definição, que
+$A^{-1} A = A A^{-1} = I$, pelo que tanto temos $A^{-1}$ sendo a inversa de $A$ como o contrário.
+
+Por fim, $(AB)^{-1} = B^{-1} A^{-1}$ é outra propriedade com que vamos contactar bastante
+durante a cadeira. Podemos prová-lo da seguinte forma (recorrendo à [**propriedade associativa**](color:green)):
+
+$$
+\begin{aligned}
+(B^{-1} A^{-1}) (AB) &= B^{-1} (A^{-1} A)B \\
+&= B^{-1} I B \\
+&= (B^{-1} I) B \\
+&= B^{-1} B \\
+&= I
+\end{aligned}
+$$
+
+Generalizando, e utilizando uma prova semelhante, podemos afirmar que:
+
+$$
+(A_1 A_2 \cdots A_k)^{-1} = A_k^{-1} \cdots A_2^{-1} A_1^{-1}
+$$
+
+:::
+
+### Algoritmo de Gauss-Jordan
+
+Abordámos acima a invertibilidade matricial. Não vimos, contudo, como podemos chegar (algoritmicamente)
+à inversa de uma matriz. O algoritmo de Gauss-Jordan vai ajudar-nos nisso mesmo.
+
+:::tip
+
+Caso queiram confirmar os resultados que obtiveram a fazer exercícios, quer seja na inversão de uma matriz
+como em outras operações, o site [matrixCalc](https://matrixcalc.org/) é uma ferramenta muito útil para o efeito.
+
+:::
