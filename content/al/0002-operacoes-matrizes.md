@@ -125,7 +125,7 @@ $$
 [AB]_{ij} = \sum_{k=1}^n a_{ik} b_{kj}
 $$
 
-O exceto apresentado de seguida poderá ajudar a compreender melhor o que está de facto a acontecer:
+O excerto apresentado de seguida poderá ajudar a compreender melhor o que está de facto a acontecer:
 
 ![Exemplo - Multiplicação Matricial](https://thumbs.gfycat.com/AjarSelfassuredGoldfish-size_restricted.gif)
 
@@ -152,6 +152,10 @@ O produto de matrizes goza das propriedades associativa e distributiva:
 
 Note-se, como foi referido anteriormente, que [**não goza da propriedade comutativa**](color:red).
 
+Por fim, é relevante realçar que a lei do anulamento do produto, presente nos reais, não se aplica aqui:
+tendo o produto matricial $AB$, não é obrigatório que pelo menos uma das matrizes corresponda à matriz nula
+para o produto também o ser.
+
 ## Matriz Identidade
 
 Foi referido anteriormente o [**elemento neutro**](color:green) da soma de matrizes, a **matriz nula**.
@@ -176,23 +180,118 @@ Sendo o elemento neutro do produto de matrizes, temos, claro, que $I_m \times A 
 Foi referida anteriormente a noção de [transformação elementar](./introducao#matriz-em-escada-de-linhas),
 que nos permitia obter matrizes equivalentes através de pequenas operações intermédias.
 O nome "elementar" advém das [**matrizes elementares**](color:green), matrizes obtidas
-através de uma única operação, as tais transformações elementares. São exemplos as seguintes matrizes:
+através de uma única operação, as tais **transformações elementares**. São exemplos as seguintes matrizes:
 
 $$
-% 3 side by side matrices, each with a bottom label
 \begin{array}{ccc}
   \begin{bmatrix}
     1 & 0 & 0 \\
-    0 & 1 & 0 \\
+    \smartcolor{orange}{1} & 1 & 0 \\
     0 & 0 & 1
-  \end{bmatrix} & \begin{bmatrix}
+  \end{bmatrix}, & \begin{bmatrix}
     1 & 0 & 0 \\
-    0 & 0 & 1 \\
-    0 & 1 & 0
-  \end{bmatrix} & \begin{bmatrix}
+    0 & 0 & \smartcolor{green}{1} \\
+    0 & \smartcolor{green}{1} & 0
+  \end{bmatrix}, & \begin{bmatrix}
     1 & 0 & 0 \\
     0 & 1 & 0 \\
-    0 & 0 & -1
+    0 & 0 & \smartcolor{blue}{-1}
   \end{bmatrix}
+  \\
+  L_2 + L_1 & L_2 \leftrightarrow L_3 & -L_3
 \end{array}
 $$
+
+Temos ainda que, dadas uma matriz elementar $E$ e uma qualquer matriz $A$, a matriz $EA$ corresponde
+precisamente à aplicação da transformação elementar correspondente a $E$ à matriz $A$:
+
+$$
+\begin{bmatrix}
+  1 & 0 & 0 \\
+  \smartcolor{orange}{1} & 1 & 0 \\
+  0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+  a_{11} & a_{12} & \cdots & a_{1n} \\
+  a_{21} & a_{22} & \cdots & a_{2n} \\
+  a_{31} & a_{32} & \cdots & a_{3n}
+\end{bmatrix} =
+\begin{bmatrix}
+  a_{11} & a_{12} & \cdots & a_{1n} \\
+  a_{11} + a_{21} & a_{12} + a_{22} & \cdots & a_{1n} + a_{2n} \\
+  a_{31} & a_{32} & \cdots & a_{3n}
+\end{bmatrix}
+$$
+
+$$
+\begin{bmatrix}
+  1 & 0 & 0 \\
+  0 & 0 & \smartcolor{green}{1} \\
+  0 & \smartcolor{green}{1} & 0
+\end{bmatrix}
+\begin{bmatrix}
+  a_{11} & a_{12} & \cdots & a_{1n} \\
+  a_{21} & a_{22} & \cdots & a_{2n} \\
+  a_{31} & a_{32} & \cdots & a_{3n}
+\end{bmatrix} =
+\begin{bmatrix}
+  a_{11} & a_{12} & \cdots & a_{1n} \\
+  a_{31} & a_{32} & \cdots & a_{3n} \\
+  a_{21} & a_{22} & \cdots & a_{2n}
+\end{bmatrix}
+$$
+
+$$
+\begin{bmatrix}
+  1 & 0 & 0 \\
+  0 & 1 & 0 \\
+  0 & 0 & \smartcolor{blue}{-1}
+\end{bmatrix}
+\begin{bmatrix}
+  a_{11} & a_{12} & \cdots & a_{1n} \\
+  a_{21} & a_{22} & \cdots & a_{2n} \\
+  a_{31} & a_{32} & \cdots & a_{3n}
+\end{bmatrix} =
+\begin{bmatrix}
+  a_{11} & a_{12} & \cdots & a_{1n} \\
+  a_{21} & a_{22} & \cdots & a_{2n} \\
+  -a_{31} & -a_{32} & \cdots & -a_{3n}
+\end{bmatrix}
+$$
+
+Podemos daqui retirar que, sendo $EA$ o resultado de aplicar a transformação elementar correspondente a $E$ à matriz $A$,
+$E_k \cdots E_1 A = L$ corresponderá a uma possível sequência de $k$ transformações elementares aplicadas a $A$,
+com resultado $L$ - é isso, aliás, que acontece quando tentamos colocar $A$ sob a forma de escada de linhas!
+
+:::details[Exemplo]
+
+É frequentemente pedido em exercícios que, dada uma matriz $A$, cheguemos a uma matriz em escada de linhas
+equivalente, $L$, e que indiquemos a sequência de transformações elementares, $B = E_k \cdots E_1$, que
+permitiram obter $L$. Temos, claro, que a sequência $E_k \cdots E_1$ terá início na matriz identidade, $I$,
+pelo que podemos resolver o exercício da seguinte forma:
+
+$$
+\underbrace{\left[\begin{array}{ccc|ccc}
+  0 & 2 & 2 & 1 & 0 & 0 \\
+  1 & 1 & 3 & 0 & 1 & 0 \\
+  0 & 2 & 2 & 0 & 0 & 1
+\end{array}\right]}_{A|I} \underrightarrow{L_1 \leftrightarrow L_2}
+\underbrace{\left[\begin{array}{ccc|ccc}
+  1 & 1 & 3 & 0 & 1 & 0 \\
+  0 & 2 & 2 & 1 & 0 & 0 \\
+  0 & 2 & 2 & 0 & 0 & 1
+\end{array}\right]}_{E_1 A|E_1 I} \underrightarrow{L_3 - L_2}
+\underbrace{\left[\begin{array}{ccc|ccc}
+  1 & 1 & 3 & 0 & 1 & 0 \\
+  0 & 2 & 2 & 1 & 0 & 0 \\
+  0 & 0 & 0 & -1 & 0 & 1
+\end{array}\right]}_{E_2 E_1 A|E_2 E_1}
+$$
+
+Note-se que à direita vamos formando $B$, a matriz correspondente à sequência de transformações elementares,
+e à esquerda $L$, a matriz equivalente a $A$ sob a forma de escada de linhas.
+
+:::
+
+Por fim, resta realçar que, dada uma matriz $L$ em escada de linhas, existe uma sequência
+de matrizes elementares $E_k \cdots E_1$ tal que $E_k \cdots E_1 L = I$.
