@@ -8,6 +8,7 @@ description: >-
   Matrizes Elementares.
   Inversa de uma matriz.
   Algoritmo de Gauss-Jordan.
+  Equações Matriciais.
 path: /al/operacoes-matrizes
 type: content
 ---
@@ -436,6 +437,69 @@ que $A^{-1} = E_4 E_3 E_2 E_1$!
 
 Podemos ainda, partindo daqui (existe uma prova adicional), afirmar
 que toda a matriz invertível corresponde ao produto de matrizes elementares.
+
+## Equações Matriciais
+
+Resolver equações do tipo $AX=B$ corresponde, com efeito, a um simples produto matricial:
+
+- $X = A^{-1}B$, para $AX=B$
+- $X = BA^{-1}$, para $XA=B$.
+
+Estamos, assim, a resolver equações matriciais (com incógnita $X$) através de um produto de matrizes!
+
+Note-se que $A$ e $B$ terão de ter forçosamente:
+
+- igual número de linhas para o primeiro caso, já que o produto matricial $AX$ terá necessariamente
+  o mesmo número de linhas de $A$;
+- igual número de colunas para o segundo caso, já que o produto matricial $XA$ terá necessariamente
+  o mesmo número de colunas de $A$.
+
+:::details[Exemplo]
+
+Tendo as seguintes matrizes:
+
+$$
+A = \begin{bmatrix}
+  3 & 2 \\
+  1 & 0
+\end{bmatrix}
+\text{ e }
+B = \begin{bmatrix}
+  6 & 3 \\
+  7 & -1
+\end{bmatrix}
+$$
+
+Podemos facilmente chegar a $X$, para $XA = B$:
+
+$$
+\begin{aligned}
+  XA &= B\\
+  X &= BA^{-1}\\
+  &= \begin{bmatrix}
+    6 & 3 \\
+    7 & -1
+  \end{bmatrix}
+  \begin{bmatrix}
+    3 & 2 \\
+    1 & 0
+  \end{bmatrix}^{-1}\\
+  &= \begin{bmatrix}
+    6 & 3 \\
+    7 & -1
+  \end{bmatrix}
+  \begin{bmatrix}
+    0 & 1 \\
+    \frac{1}{2} & \frac{-3}{2}
+  \end{bmatrix}\\
+  &= \begin{bmatrix}
+    \frac{3}{2} & \frac{3}{2} \\
+    \frac{-1}{2} & \frac{17}{2}
+  \end{bmatrix}
+\end{aligned}
+$$
+
+:::
 
 ---
 
