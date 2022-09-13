@@ -368,6 +368,77 @@ $$
 Abordámos acima a invertibilidade matricial. Não vimos, contudo, como podemos chegar (algoritmicamente)
 à inversa de uma matriz. O algoritmo de Gauss-Jordan vai ajudar-nos nisso mesmo.
 
+O algoritmo de Gauss-Jordan assenta em duas proposições fundamentais:
+
+:::info[Proposições]
+
+Dada uma matriz $A$, $m \times m$, caso exista uma sequência de matrizes elementares
+$E_1, \cdots, E_k$ e uma matriz $L$ em escada de linhas com menos de $k$ pivôs tal que
+
+$$
+E_k \cdots E_2 E_1 A = L,
+$$
+
+podemos afirmar que $A$ não é invertível. Ora, isto acaba por ser claro considerando
+a proposição seguinte: se existir uma sequência $E_1, \cdots, E_k$ tal que
+
+$$
+E_k \cdots E_2 E_1 A = I,
+$$
+
+$A$ será invertível, com a respetiva inversa a corresponder precisamente ao produto
+$E_k \cdots E_2 E_1$.
+
+:::
+
+O algoritmo de Gauss-Jordan será, portanto, parecido ao algoritmo apresentado no exemplo mais acima
+(onde foi demonstrada a transformação de uma matriz $A$ numa matriz $L$ equivalente em escada de linhas):
+aqui, contudo, em vez de querermos transformar $A$ em $L$ arbitrário, vamos querer transformá-la na
+**matriz identidade**: desta forma, à direita vamos obter $A^{-1}$, seguindo a mesma lógica
+apresentada anteriormente.
+
+Procuremos então consultar o seguinte exemplo:
+
+$$
+\underbrace{\left[\begin{array}{ccc|ccc}
+  1 & 1 & 0 & 1 & 0 & 0 \\
+  0 & 1 & 0 & 0 & 1 & 0 \\
+  1 & -1 & 2 & 0 & 0 & 1
+\end{array}\right]}_{A|I} \underrightarrow{L_3 + L_1}
+\underbrace{\left[\begin{array}{ccc|ccc}
+  1 & 1 & 0 & 1 & 0 & 0 \\
+  0 & 1 & 0 & 0 & 1 & 0 \\
+  0 & -1 & 2 & 1 & 0 & 1
+\end{array}\right]}_{E_1 A|E_1} \underrightarrow{L_3 + L_2}
+\underbrace{\left[\begin{array}{ccc|ccc}
+  1 & 1 & 0 & 1 & 0 & 0 \\
+  0 & 1 & 0 & 0 & 1 & 0 \\
+  0 & 0 & 2 & 1 & 1 & 1
+\end{array}\right]}_{E_2 E_1 A|E_2 E_1}
+$$
+
+$$
+\underrightarrow{\frac{1}{2}L_3}
+\underbrace{\left[\begin{array}{ccc|ccc}
+  1 & 1 & 0 & 1 & 0 & 0 \\
+  0 & 1 & 0 & 0 & 1 & 0 \\
+  0 & 0 & 1 & \frac{1}{2} & \frac{1}{2} & \frac{1}{2}
+\end{array}\right]}_{E_3 E_2 E_1 A|E_3 E_2 E_1} \underrightarrow{L_1 - L_2}
+\underbrace{\left[\begin{array}{ccc|ccc}
+  1 & 0 & 0 & 1 & -1 & 0 \\
+  0 & 1 & 0 & 0 & 1 & 0 \\
+  0 & 0 & 1 & \frac{1}{2} & \frac{1}{2} & \frac{1}{2}
+\end{array}\right]}_{E_4 E_3 E_2 E_1 A|E_4 E_3 E_2 E_1}
+$$
+
+Temos, assim que $E_4 E_3 E_2 E_1 A$ corresponde à matriz identidade, tendo portanto
+que $A^{-1} = E_4 E_3 E_2 E_1$!
+
+Podemos ainda, partindo daqui (existe uma prova adicional), afirmar
+que toda a matriz invertível corresponde ao produto de matrizes elementares.
+
+---
+
 :::tip
 
 Caso queiram confirmar os resultados que obtiveram a fazer exercícios, quer seja na inversão de uma matriz
