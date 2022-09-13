@@ -20,3 +20,7 @@ type: topLevelPage
 De momento não existem resumos de AMS.  
 Procuram-se contribuidores.
 :::
+
+## Recursos
+
+- [Página da Cadeira - Fénix](https://fenix.tecnico.ulisboa.pt/disciplinas/Mod/2022-2023/1-semestre)

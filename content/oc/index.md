@@ -13,3 +13,7 @@ type: topLevelPage
 De momento não existem resumos de OC.  
 Procuram-se contribuidores.
 :::
+
+## Recursos
+
+- [Página da Cadeira - Fénix](https://fenix.tecnico.ulisboa.pt/disciplinas/OC-2/2022-2023/1-semestre)
