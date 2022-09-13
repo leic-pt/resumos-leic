@@ -15,3 +15,8 @@ type: topLevelPage
 De momento não existem resumos de ES.  
 Procuram-se contribuidores.
 :::
+
+
+## Recursos
+
+- [Página da Cadeira - Fénix](https://fenix.tecnico.ulisboa.pt/disciplinas/ESof2/2022-2023/2-semestre)

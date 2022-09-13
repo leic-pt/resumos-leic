@@ -15,3 +15,7 @@ type: topLevelPage
 De momento não existem resumos de Comp.  
 Procuram-se contribuidores.
 :::
+
+## Recursos
+
+- [Página da Cadeira - Fénix](https://fenix.tecnico.ulisboa.pt/disciplinas/Com/2022-2023/2-semestre)
