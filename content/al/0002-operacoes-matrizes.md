@@ -340,8 +340,13 @@ $$
 \end{bmatrix}
 $$
 
-A inversa da inversa é a própria matriz: $(A^{-1})^{-1} = A$. Sabemos, por definição, que
-$A^{-1} A = A A^{-1} = I$, pelo que tanto temos $A^{-1}$ sendo a inversa de $A$ como o contrário.
+A inversa da inversa é a própria matriz: $(A^{-1})^{-1} = A$: sabemos, por definição, que
+
+$$
+A^{-1} A = A A^{-1} = I,
+$$
+
+pelo que tanto temos $A^{-1}$ sendo a inversa de $A$ como o contrário.
 
 Por fim, $(AB)^{-1} = B^{-1} A^{-1}$ é outra propriedade com que vamos contactar bastante
 durante a cadeira. Podemos prová-lo da seguinte forma (recorrendo à [**propriedade associativa**](color:green)):
@@ -404,7 +409,7 @@ $$
 \underbrace{\left[\begin{array}{ccc|ccc}
   1 & 1 & 0 & 1 & 0 & 0 \\
   0 & 1 & 0 & 0 & 1 & 0 \\
-  1 & -1 & 2 & 0 & 0 & 1
+  -1 & -2 & 2 & 0 & 0 & 1
 \end{array}\right]}_{A|I} \underrightarrow{L_3 + L_1}
 \underbrace{\left[\begin{array}{ccc|ccc}
   1 & 1 & 0 & 1 & 0 & 0 \\

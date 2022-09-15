@@ -74,7 +74,7 @@ $$
 A^T_{ij} = A_{ji}, \forall i, j \in \{1, \dots, n\}.
 $$
 
-Colocado em linguagem corrente, a matriz transposta obtém-se trocando as coluna e linha de cada entrada
+Colocado em linguagem corrente, a matriz transposta obtém-se trocando colunas e linhas de cada entrada
 da matriz original. Segue-se um exemplo abaixo:
 
 $$
@@ -91,7 +91,7 @@ A^T = \begin{bmatrix}
 \end{bmatrix}
 $$
 
-Uma matriz dir-se-á simétrica, claro, caso $A = A^T$. A matrizes identidade e nula são exemplos
+Uma matriz dir-se-á simétrica, claro, caso $A = A^T$. As matrizes identidade e nula são exemplos
 de matrizes simétricas!
 
 Voltando à questão do traço, temos que para toda a matriz quadrada $A$, $\op{tr}(A) = \op{tr}(A^T)$.
