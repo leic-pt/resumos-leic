@@ -330,7 +330,7 @@ $$
    **curto prazo (1.5%) + o prémio de risco de 6.5%, qual será o CMPC?**
 
    $$
-   CMPC = r_CP \times CP% + r_D \times (1 - t) \times D% = 8% \times 65% + 5% \times 35% \times (1 - 25%) = 6,5%
+   CMPC = r_CP \times CP\% + r_D \times (1 - t) \times D\% = 8\% \times 65\% + 5\% \times 35\% \times (1 - 25\%) = 6.5\%
    $$
 
 :::
