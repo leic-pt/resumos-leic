@@ -324,5 +324,35 @@ $$
 
 Ora, empiricamente conseguimos perceber que quantas mais entradas nulas tiver a linha/coluna que
 escolhermos, mais rapidamente calculamos o valor pretendido (já que podemos só afirmar que o produto tem valor $0$).
-É, assim, da maior importância que façamos uma escolha criteriosa da linha/coluna que vamos fixar,
+É, assim, [**da maior importância que façamos uma escolha criteriosa da linha/coluna que vamos fixar**](color:yellow),
 por forma a minimizar o trabalho que temos pela frente.
+
+### Matriz dos Cofatores
+
+Pegando no conceito de cofator abordado mais acima, podemos introduzir a noção de **matriz dos cofatores**:
+dada uma matriz $A$, $n \times n$, a respetiva matriz dos cofatores é uma matriz de dimensões iguais, tal que
+a respetiva entrada $ij$ é dada por $C_{ij}$. Note-se, claro, que a soma de qualquer linha/coluna desta matriz
+é igual ao determinante da matriz $A$.
+
+Dada a matriz dos cofatores, podemos calcular a inversa de uma matriz $A$ da seguinte forma:
+
+$$
+A^{-1} = \frac{1}{\op{det}(A)} \cdot \op{cof}(A)^T
+$$
+
+Recorrendo a esta fórmula, temos agora uma maneira bastante simples de calcular a inversa de uma matriz $2 \times 2$:
+
+$$
+\begin{bmatrix}
+  \smartcolor{red}{a} & \smartcolor{orange}{b} \\
+  \smartcolor{orange}{c} & \smartcolor{red}{d}
+\end{bmatrix}^{-1} = \frac{1}{ad - bc} \cdot \begin{bmatrix}
+  \smartcolor{red}{d} & \smartcolor{green}{-}\smartcolor{orange}{b} \\
+  \smartcolor{green}{-}\smartcolor{orange}{c} & \smartcolor{red}{a}
+\end{bmatrix}
+$$
+
+Note-se que o determinante de uma matriz $2 \times 2$ é dado por $ad - bc$, pelo
+que o lado esquerdo do produto é relativamente óbvio. É igualmente trivial demonstrar
+que a transposta da matriz dos cofatores de uma matriz $2 \times 2$ corresponde precisamente
+à matriz à direita.
