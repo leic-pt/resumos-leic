@@ -14,4 +14,7 @@ type: topLevelPage
 Alguns dos exemplos apresentados nesta página são da autoria e/ou adaptados de
 conteúdos fornecidos pelo professor [João Ferreira Alves](https://fenix.tecnico.ulisboa.pt/homepage/ist12907) via Fénix.
 
+Adiciona-se ainda que os conteúdos estão bastante incompletos atualmente, pelo que
+todas as contribuições são bem-vindas!
+
 :::
