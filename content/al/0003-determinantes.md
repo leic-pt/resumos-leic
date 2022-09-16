@@ -107,8 +107,6 @@ A matriz transposta possui ainda algumas propriedades relevantes:
 
 A prova para a terceira propriedade pode ser encontrada [aqui](https://proofwiki.org/wiki/Transpose_of_Matrix_Product).
 
-<!-- TODO: add Markov Matrix content -->
-
 ## Determinante de uma Matriz
 
 Essencialmente, o [**determinante de uma matriz**](color:green) permite-nos verificar
@@ -356,3 +354,102 @@ Note-se que o determinante de uma matriz $2 \times 2$ é dado por $ad - bc$, pel
 que o lado esquerdo do produto é relativamente óbvio. É igualmente trivial demonstrar
 que a transposta da matriz dos cofatores de uma matriz $2 \times 2$ corresponde precisamente
 à matriz à direita.
+
+### Regra de Cramer
+
+A regra de Cramer vai permitir-nos resolver sistemas de equações lineares recorrendo a uma
+**fórmula**, em vez de ter de usar o método de Gauss-Jordan, iterativo. **Funciona exclusivamente
+para matrizes $A$ invertíveis**, retornando, em caso afirmativo, a única solução possível para o sistema.
+Para tal, utiliza a igualdade referida acima, $A^{-1} = \frac{1}{\op{det}(A)} \cdot \op{cof}(A)^T$:
+
+$$
+\begin{aligned}
+Ax &= b\\
+x &= A^{-1}b\\
+x &= \frac{1}{\op{det}(A)} \cdot \op{cof}(A)^T b
+\end{aligned}
+$$
+
+Esta fórmula permite-nos afirmar que cada uma das entradas de $x$, $x_k$, serão dadas
+pela seguinte expressão (com a respetiva demonstração abaixo):
+
+$$
+x_k = \frac{\op{det}(\text{matriz obtida de $A$ substituindo a coluna $k$ por $b$})}{\op{det}(A)}
+$$
+
+:::details[Demonstração]
+
+Ora, temos que:
+
+$$
+\op{cof}(A)^T \begin{bmatrix}
+  b_1 \\
+  \vdots \\
+  b_n
+\end{bmatrix} = \begin{bmatrix}
+  c_{11} b_1 + c_{21} b_2 + \cdots + c_{n1} b_n \\
+  \vdots \\
+  c_{1n} b_1 + c_{2n} b_2 + \cdots + c_{nn} b_n
+\end{bmatrix}
+$$
+
+Assim sendo, podemos afirmar que cada entrada de $x$, $x_k$, será dada por:
+
+$$
+x_k = \frac{c_{1k} b_1 + c_{2k} b_2 + \cdots + c_{nk} b_n}{\op{det}(A)}
+$$
+
+É possível demonstrar (embora, por questões de brevidade, não seja feito aqui) que o numerador
+do quociente acima é equivalente ao [**determinante da matriz obtida de $A$ substituindo a coluna $k$ por $b$**](color:pink):
+
+$$
+\begin{vmatrix}
+  a_{11} & \cdots & a_{1 k - 1} & b_1 & a_{1 k + 1} & \cdots & a_{1n} \\
+  a_{21} & \cdots & a_{2 k - 1} & b_2 & a_{2 k + 1} & \cdots & a_{2n} \\
+  \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+  a_{n1} & \cdots & a_{n k - 1} & b_n & a_{n k + 1} & \cdots & a_{nn}
+\end{vmatrix}
+$$
+
+:::
+
+Obtida esta fórmula, podemos resolver facilmente um sistema como o seguinte:
+
+$$
+\begin{cases}
+2x_1 + 3x_2 &= 1 \\
+3x_1 + 4x_2 &= 1
+\end{cases}
+$$
+
+:::details[Exemplo - Resolução]
+
+Aqui, temos que:
+
+$$
+A = \begin{bmatrix}
+2 & 3 \\
+3 & 4
+\end{bmatrix}, \quad
+b = \begin{bmatrix}
+\smartcolor{orange}{1} \\
+\smartcolor{orange}{1}
+\end{bmatrix}
+$$
+
+Note-se que o determinante de $A$ é $-1$, pelo que podemos aplicar a regra de Cramer para
+obter a solução do sistema:
+
+$$
+x_1 = \frac{\begin{vmatrix}\smartcolor{orange}{1} & 3 \\\smartcolor{orange}{1} & 4\end{vmatrix}}{-1} = -1, \quad
+x_2 = \frac{\begin{vmatrix}2 & \smartcolor{orange}{1} \\3 & \smartcolor{orange}{1}\end{vmatrix}}{-1} = 1
+$$
+
+$$
+x = \begin{bmatrix}
+-1 \\
+1
+\end{bmatrix}
+$$
+
+:::
