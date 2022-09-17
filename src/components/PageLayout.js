@@ -30,7 +30,6 @@ export default function Template({ data }) {
       <div className={`page-container ${sidebarOpen ? `sidebar-open` : ``}`}>
         {/* eslint-disable jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
         <div className='sidebar-mask' onClick={toggleSidebar} />
-        <PageMetadata title={page.frontmatter.title} description={page.frontmatter.description} />
         <Navbar toggleSidebar={toggleSidebar} />
         <Sidebar paths={sidebarPaths} sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
         <div className='main-container'>
@@ -77,3 +76,8 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export const Head = ({ data }) => {
+  const { markdownRemark: page } = data;
+  return <PageMetadata title={page.frontmatter.title} description={page.frontmatter.description} />;
+};

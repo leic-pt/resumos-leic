@@ -279,7 +279,7 @@ $$
 
 queremos determinar o limite desta sucessão.
 
-Para tal, começemos por construir o enquadramento da sucessão. Para tal, vamos utilizar a expressão no interior do somatório. Dado que, para qualquer $k\in\mathbb N^+$ tal que $1\le k \le n$, se tem:
+Para tal, comecemos por construir o enquadramento da sucessão. Para tal, vamos utilizar a expressão no interior do somatório. Dado que, para qualquer $k\in\mathbb N^+$ tal que $1\le k \le n$, se tem:
 
 $$
 \frac {\overbrace{1^2+1}^{\text{Substituir }k\text{ por }1}} {\underbrace{n^4+4n^4}_{\text{Substituir }k\text{ por }n}}\le\frac{k^2+1}{n^4+4k^4}\le\frac{\overbrace{n^2+1}^{\text{Substituir }k\text{ por }n}}{\underbrace{n^4+4\times 1^4}_{\text{Substituir }k\text{ por }1}}\Leftrightarrow\\\Leftrightarrow
@@ -318,7 +318,7 @@ Seja ($u_n$) uma sucessão de números reais, diz-se que ($u_n$) é uma sucessã
 $|u_n-u_m|<r$ para $n,m>>$.
 :::
 
-Por outras palavras, isto significa que, para uma ordem $n$ e $m$ inifinitivamente grandes, o módulo da diferença entre os termos $u_n$ e $u_m$ deverá ser arbitrariamente pequena.
+Por outras palavras, isto significa que, para uma ordem $n$ e $m$ infinitamente grandes, o módulo da diferença entre os termos $u_n$ e $u_m$ deverá ser arbitrariamente pequena.
 
 :::tip[Teorema]
 **Convergência das sucessões de Cauchy**  

@@ -43,10 +43,10 @@ $$
 
 :::
 
-Tanto as fontes como as cargas estão sempre em movimento e o campo depende da posição, da velocidade e acelaração de todas as cargas.\
+Tanto as fontes como as cargas estão sempre em movimento e o campo depende da posição, da velocidade e aceleração de todas as cargas.\
 Além disso, o campo propaga-se à velocidade da luz ($c = 3 \times 10^8\ m/s$)
 
-:::warning[Eletroestática]
+:::warning[Eletrostática]
 Nesta parte da matéria assumimos que todas as fontes estão estacionárias,\
  no entanto a carga de prova pode se encontrar em movimento.
 :::
@@ -69,7 +69,7 @@ $\vec e_r = \cfrac{(\vec r - \vec r \ ')}{|\vec r -\vec r \ '|}$
 Esta força só é atrativa se as cargas tiverem sinais diferentes.
 :::
 
-Juntando a Lei de Coulomb e o Principío da Sobreposição:
+Juntando a Lei de Coulomb e o Princípio da Sobreposição:
 
 $$
 \vec F = \cfrac{Q}{4\pi \epsilon_0}\ \sum\limits_{i =1}^{n} \cfrac{q_i}{|\vec r - \vec r_i'|^2}\ \vec e_{r_i} = Q \vec E (\vec r)
@@ -126,10 +126,10 @@ $$
 	\oint \vec E \ d \vec S = \cfrac{q}{4\pi \epsilon_0} \oint \cfrac{\vec e_r}{r^2} \ (r^2 \sin(\theta)\  d\theta \  d \phi\  \vec e_r) = \cfrac{q}{\epsilon_0}
 $$
 
-Podemos reparar que o fluxo total não depende do raio da esfera e é proporiconal à carga.\
-Isto é verdade para todas as superfíces fechadas e não precisa de estar centrada na carga.
+Podemos reparar que o fluxo total não depende do raio da esfera e é proporcional à carga.\
+Isto é verdade para todas as superfícies fechadas e não precisa de estar centrada na carga.
 
-Se forem $N$ cargas $q_i$ o Princípio da Sobreposiçao permite escrever $ \vec E =$ $\sum\limits_{i=1}^{N}$ $ \vec E_i $ e
+Se forem $N$ cargas $q_i$ o Princípio da Sobreposição permite escrever $ \vec E =$ $\sum\limits_{i=1}^{N}$ $ \vec E_i $ e
 
 $$
  \oint \vec E \ d \vec S = \sum\limits_{i=1}^{N} \oint \vec E_i \ d\vec S = \cfrac{Q_{inc}}{\epsilon_0}
@@ -174,9 +174,9 @@ $$
 
 ### Campo de uma Esfera Uniformemente Carregada
 
-Para usar a Lei de Gauss devemos procurar usar para nossa vantajem a simetria do sistema.
+Para usar a Lei de Gauss devemos procurar usar para nossa vantagem a simetria do sistema.
 
-Se tivermos uma superfície esférica de raio $R$ com uma densidade superfícial de carga $\sigma$ uniforme,\
+Se tivermos uma superfície esférica de raio $R$ com uma densidade superficial de carga $\sigma$ uniforme,\
  como será o campo no exterior da esfera?
 
 ![Esfera](./imgs/0003-esfera.png#dark=1)
@@ -191,7 +191,7 @@ Que forma de Lei de Gauss devemos usar para calcular o campo?
 
 Através da Lei de Gauss na versão integral.
 
-![exemple](./imgs/0003-ex.png#dark=1)
+![example](./imgs/0003-ex.png#dark=1)
 
 Consideremos uma superfície esférica
 $S$ de raio $r > R$ centrada na esfera carregada.\
@@ -219,7 +219,7 @@ $$
 O campo fora da esfera é igual ao de uma carga pontual igual
 à da esfera centrada na origem.
 
-Além das superfícies esféricas, as superfíces cilíndricas e superfícies planas apresentam simetrias.
+Além das superfícies esféricas, as superfícies cilíndricas e superfícies planas apresentam simetrias.
 
 ![types](./imgs/0003-types.png)
 
@@ -271,4 +271,4 @@ Slides:
 
 - [Slides Módulo 2](https://drive.google.com/file/d/1g24-Be9s2j9LaQyaibxGor4YToR5jFqi/view?usp=sharing)
 
-- [Resolução mais Detelhada](https://drive.google.com/file/d/1lj2dFVGepDHGlc_xPwfTN20CqQ3wG4E_/view?usp=sharing)
+- [Resolução mais Detalhada](https://drive.google.com/file/d/1lj2dFVGepDHGlc_xPwfTN20CqQ3wG4E_/view?usp=sharing)

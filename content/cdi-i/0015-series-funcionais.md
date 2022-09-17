@@ -111,7 +111,7 @@ Podemos assim retirar algumas observações:
 
 - O raio de convergência existe sempre, para qualquer série de potências. Como é um limite pode ser 0, um número real positivo ou $+\infin$.
 - A fórmula simplificada para o raio, que funciona a maior parte das vezes, pode gerar alguma confusão na mente desprevenida pois é, formalmente, o inverso algébrico do limite que é necessário calcular para aplicar o critério de D’Alembert.
-- O raio de convergência e o centro permitem caracterizar o domínio de convergência, com possível excepção de dois pontos.
+- O raio de convergência e o centro permitem caracterizar o domínio de convergência, com possível exceção de dois pontos.
 
 :::details[Exemplos]
 
@@ -340,7 +340,7 @@ $$
 Obtém-se, assim, a expressão dos coeficientes da série dados por:
 
 $$
-\begin{cases}a_{\frac{n}{2}} & \text{se} & n\text{ é par}\\0 & \text{se} & n\text{ é impar}\end{cases}
+\begin{cases}a_{\frac{n}{2}} & \text{se} & n\text{ é par}\\0 & \text{se} & n\text{ é ímpar}\end{cases}
 $$
 
 No entanto, para estes coeficientes não se pode aplicar a fórmula simplificada do raio de convergência. Então:

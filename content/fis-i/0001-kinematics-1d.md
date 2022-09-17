@@ -24,7 +24,7 @@ com a análise das suas causas.
 
 ## Redução de um Corpo a um Ponto
 
-Quando estivermos a analizar o movimento de um corpo, podemos, no geral, reduzi-lo a apenas um ponto, simplificando o problema.
+Quando estivermos a analisar o movimento de um corpo, podemos, no geral, reduzi-lo a apenas um ponto, simplificando o problema.
 
 Isto deve-se ao facto de que todas as partes do corpo descrevem o mesmo movimento:
 se tivermos um carro em movimento, tanto as portas, os bancos, o volante e mesmo o condutor movimentam-se à mesma
@@ -35,7 +35,7 @@ Ao ponto que resulta desta redução, chamamos [**ponto material**](color:green)
 
 :::warning[Atenção!]
 **Atenção que nem sempre podemos efetuar esta redução.**  
-Por exemplo, se estivermos a estudar o movimento rotacional de um berlide, não podemos reduzir o berlinde a um ponto.
+Por exemplo, se estivermos a estudar o movimento rotacional de um berlinde, não podemos reduzir o berlinde a um ponto.
 :::
 
 ## Posição

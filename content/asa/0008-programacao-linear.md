@@ -181,7 +181,7 @@ $$
 \sum_{i=1}^{n} a_{ij}x_j \leq b_i
 $$
 
-convertê-la-iamos para a forma Slack tal que:
+convertê-la-íamos para a forma Slack tal que:
 
 $$
 s = b_i - \sum_{i=1}^{n} a_{ij}x_j\\
@@ -325,7 +325,7 @@ x_5 &= 6 - \frac{3x_2}{2} - 4x_3 + \frac{x_6}{2}
 \end{aligned}
 $$
 
-De realçar que as duas últimas restrições e o objetivo foram obtidos substituíndo $x_1$ pelo lado direito da nova igualdade que envolve $x_1$ como variável básica: $9 - \frac{x_2}{4} - \frac{x_3}{2} - \frac{x_6}{4}$.
+De realçar que as duas últimas restrições e o objetivo foram obtidos substituindo $x_1$ pelo lado direito da nova igualdade que envolve $x_1$ como variável básica: $9 - \frac{x_2}{4} - \frac{x_3}{2} - \frac{x_6}{4}$.
 
 A operação que foi agora realizada, esta troca entre uma variável básica e uma não-básica, é a [**Operação Pivot**](color:yellow). Numa pivotagem, consideramos a variável não-básica $x_1$ a **variável de entrada** (vai entrar no conjunto das variáveis básicas), e a variável básica $x_6$ a **variável de saída** (vai sair do conjunto de variáveis básicas). O algoritmo Simplex procura, então, realizar pivotagens sucessivas até não haver mais soluções básicas exequíveis - [**até todos os coeficientes das variáveis não-básicas na função objetivo serem negativos**](color:pink).
 
@@ -384,7 +384,7 @@ Temos assim que $L$ só é exequível caso o valor ótimo para o objetivo de $L_
 
 :::
 
-Começemos com o programa linear inicial abaixo:
+Comecemos com o programa linear inicial abaixo:
 
 - Objetivo: Maximizar $2x_1 - x_2$;
 - Restrições:

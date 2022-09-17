@@ -45,7 +45,7 @@ Durante um passeio em Lisboa:
 
 ## Filosofias das Organizações na Abordagem ao Mercado
 
-- **Conceito de Produção**: Os consumidores privilegiam produtos largamente disponiveis.\
+- **Conceito de Produção**: Os consumidores privilegiam produtos largamente disponíveis.\
   $\to$ Eficiência, custos baratos, produção em massa.
 
 - **Conceito de Produto**: Os consumidores preferem produtos com melhor qualidade desempenho e inovação.\
@@ -77,7 +77,7 @@ O processo de decisão do comprador (consumidores individuais) passa essencialme
 1. **Reconhecimento do Problema ou Necessidade**: Motivação desencadeada por Estímulos Internos (por exemplo, fome) e/ou Estímulos Externos (por
    exemplo, o anúncio de um novo hambúrguer Atlanta)
 
-2. **Pesquisa de Informação**: Fontes: Pessoais, Comerciais, Públicas, Experienciais
+2. **Pesquisa de Informação**: Fontes: Pessoais, Comerciais, Públicas, Experiências
 
 3. **Avaliação de Alternativas**: Atributos e seu grau de importância: Procedimento de Avaliação (por exemplo, comparando os produtos com
    base nos atributos, e na importância que damos a cada um daqueles)
@@ -225,7 +225,7 @@ os serviços partilham (mas com diferentes graus) características que condicion
 - Intangibilidade
 - Inseparabilidade (Simultaneidade)
 - Variabilidade (Heterogeneidade)
-- Perecibilidade
+- Percetibilidade
 
 :::info[Exemplo]
 

@@ -46,7 +46,7 @@ Dizemos que $f$ é uma **função de redução**, com respetivo **algoritmo de r
 
 ![Redução - Intuição](./assets/0009-np-reducao.svg#dark=2)
 
-Acima podemos ver o exemplo de como a lógica funciona - pegamos numa instância de um problema, reduzimo-la numa instância de outro problema através de um algoritmo de redução que leva **necessariamente** tempo polinomial, tendo que a resposta ao problema reescrito terá de ser a mesma que a do problema original!
+Acima podemos ver o exemplo de como a lógica funciona - pegamos numa instância de um problema, reduzimos-la numa instância de outro problema através de um algoritmo de redução que leva **necessariamente** tempo polinomial, tendo que a resposta ao problema reescrito terá de ser a mesma que a do problema original!
 
 Intuitivamente, se podemos reduzir um problema $X$ a outro $Y$ em tempo polinomial, então $X$ não deverá ser "mais difícil" de resolver que $Y$.
 
@@ -218,7 +218,7 @@ O professor disse nas aulas teóricas que uma pergunta-exemplo semelhante a algo
 
 :::info[Clique]
 
-Seja $G$ um grafo não dirigido. $V'$ diz-se um **clique** de $G$ caso $\forall_{x, y \in V'}, (x, y) \in E$ - todos os vértices de $V'$ "vêem" todos os outros, têm uma aresta direta para todos os outros que também pertencem a $V'$. Corresponde, portanto, a um **subgrafo completo** de $G$.
+Seja $G$ um grafo não dirigido. $V'$ diz-se um **clique** de $G$ caso $\forall_{x, y \in V'}, (x, y) \in E$ - todos os vértices de $V'$ "veem" todos os outros, têm uma aresta direta para todos os outros que também pertencem a $V'$. Corresponde, portanto, a um **subgrafo completo** de $G$.
 
 Abaixo podemos observar um clique de tamanho 3:
 

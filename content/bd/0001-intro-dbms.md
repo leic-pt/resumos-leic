@@ -57,7 +57,7 @@ a Azure Cloud.
 
 Já referenciámos algumas das vantagens de SGBDs, no entanto existem muitas mais.
 
-- **Independência dos dados**
+- **Independência dos Dados**
 
   Existe uma camada de abstração entre a representação dos dados quando são armazenados
   e aquilo a que as aplicações têm acesso. Uma aplicação não tem de saber (nem sabe)
@@ -80,8 +80,8 @@ Já referenciámos algumas das vantagens de SGBDs, no entanto existem muitas mai
   de obedecer para assegurar que os dados são válidos. Este processo é denominado por
   garantia da integridade dos dados, e é algo que os SGBDs fazem por nós.  
   Por exemplo, no Técnico queremos garantir que um aluno não está a fazer mais
-  de 42 ECTS por semestre. Podemos dar esta regra ao nosso SGBD e não temos
-  de nos preocupar com esta restrição no desenvolvimento da aplicação.
+  de 42 ECTS por semestre. Podemos dar esta regra ao nosso SGBD e não nos temos
+  de preocupar com esta restrição no desenvolvimento da aplicação.
 
   Ao contrário de outras formas de armazenamento de dados, como ficheiros, os SGBDs
   dão-nos uma granularidade de permissões muitíssimo elevada de forma a controlar
@@ -148,7 +148,7 @@ O aparecimento do [modelo ANSI-SPARC](https://en.wikipedia.org/wiki/ANSI-SPARC_A
 um passo importante na criação dos SGBDs relacionais que conhecemos hoje em dia, visto
 que propôs a separação da base de dados em 3 níveis.
 
-- **Nível Externo (_views_)**: Uma _view_ descreve como os utilizadores vêem os dados.
+- **Nível Externo (_views_)**: Uma _view_ descreve como os utilizadores veem os dados.
   Cada utilizador pode ter _views_ diferentes, particulares a si mesmo, sendo
   reflexões dos dados que lhe são úteis e a que simultaneamente tem acesso.
   Cada _view_ pode ser partilhada por vários utilizadores e cada utilizador

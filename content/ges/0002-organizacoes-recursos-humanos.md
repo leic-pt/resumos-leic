@@ -22,7 +22,7 @@ Cada empresa/organização é influenciada por:
 
 - **Elementos Externos**: A forma como um local condiciona ou permite a atividade de uma empresa.
 
-- **Elementos Internos**: Capacidade de se adptar às alterações decorrentes da influência externa.
+- **Elementos Internos**: Capacidade de se adaptar às alterações decorrentes da influência externa.
   Envolvem nomeadamente a cultura da organização, a sua estrutura organizativa, os trabalhadores e a gestão.
 
 ## Cultura Organizacional, Ética e Responsabilidade Social
@@ -133,7 +133,7 @@ Presidente da República > Primeiro Ministro > Ministros > Secretários > Tu.
 
 ## Gestão de Recursos Humanos
 
-A gestão de recursos humanos inclui a concepção e implementação de sistemas formais que permitam
+A gestão de recursos humanos inclui a conceção e implementação de sistemas formais que permitam
 a utilização do talento e capacidades das pessoas, de forma eficiente e eficaz, para atingir as metas da organização.  
 A estratégia da gestão de recursos humanos passa pelas seguintes etapas:
 
@@ -155,7 +155,7 @@ Na etapa de atração de pessoal competente podemos distinguir vários processos
 
 3. **Recrutamento**: Este pode ser **Interno**, quando se promove os trabalhadores da próxima organização para cargos mais elevados, ou **Externo**,
    quando se convida pessoas externas à organização para ocupar cargos.
-   Cada tipo de recrutamento tem as suas vantangens e desvantagens.
+   Cada tipo de recrutamento tem as suas vantagens e desvantagens.
 
 ### Recrutamento Interno
 
@@ -187,6 +187,6 @@ Na etapa de desenvolvimento dos recursos humanos distingue-se:
 - **Formação Interna/Externa**: A existência de aprendizagem em aulas, formação dos trabalhadores de modo a que estes possam evoluir na sua carreira.
 
 - **Avaliação de Desempenho**: O processo de observação e valorização do desempenho dos empregados; registo do desempenho;
-  informação dos avaliados e aos gestores responsáveis na tomade de decisões com base nos desempenhos dos indivíduos.  
-  Os sistemas de avaliação devem ser objetivos/claros, adaptados às mudanças das condições e dos requisitos para o exercicio de tarefas.  
+  informação dos avaliados e aos gestores responsáveis na tomada de decisões com base nos desempenhos dos indivíduos.  
+  Os sistemas de avaliação devem ser objetivos/claros, adaptados às mudanças das condições e dos requisitos para o exercício de tarefas.  
   A avaliação deve refletir bem o desempenho de um empregado de forma a que este seja motivado por ela nunca desmotivado.

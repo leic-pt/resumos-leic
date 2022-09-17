@@ -6,14 +6,14 @@ type: topLevelPage
 
 # Programação com Objetos
 
-> Esta cadeira tem como objetivo dar a conhecer o paradigma de programação com objectos, as suas vantagens,
-> inconvenientes e limitações; assim como o paradigma dos padrões de desenho, tanto no desenvolvimento, como na refactorização de aplicações.
+> Esta cadeira tem como objetivo dar a conhecer o paradigma de programação com objetos, as suas vantagens,
+> inconvenientes e limitações; assim como o paradigma dos padrões de desenho, tanto no desenvolvimento, como na refatorização de aplicações.
 
 ## Recursos Adicionais
 
 :::info[Resumos de PO]
 
-A cadeira de Programação com Objectos está resumida de forma excelente pelo professor David Matos na wiki de PO, mantida pelo mesmo. Não achamos que faça sentido criar resumos nossos, visto que a UC já tem um material de apoio extremamente completo, pelo que nesta secção serão apenas mantidos links e recursos úteis para a cadeira, e não resumos da matéria em si.
+A cadeira de Programação com Objetos está resumida de forma excelente pelo professor David Matos na wiki de PO, mantida pelo mesmo. Não achamos que faça sentido criar resumos nossos, visto que a UC já tem um material de apoio extremamente completo, pelo que nesta secção serão apenas mantidos links e recursos úteis para a cadeira, e não resumos da matéria em si.
 
 :::
 
