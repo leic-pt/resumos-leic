@@ -351,11 +351,7 @@ Foi encontrado mais um caminho de aumento, e agora já podemos notar as tais "ar
 
 Os passos seguintes seguem todos a mesma lógica, até que não existam mais caminhos de aumento.
 
-![Caminho de aumento - 3](./assets/0007-ff-caminho-3.png#dark=1)
-
-![Caminho de aumento - 4](./assets/0007-ff-caminho-4.png#dark=1)
-
-![Caminho de aumento - 5](./assets/0007-ff-caminho-5.png#dark=1)
+![Caminho de aumento - 3](./assets/0007-ff-caminho-3.svg#dark=2)
 
 Chegámos, por fim, a uma rede sem caminhos de aumento restantes. O valor do corte
 mínimo corresponde, então, ao valor do fluxo máximo da rede: $23$.
@@ -365,7 +361,7 @@ Os arcos que cruzam o corte têm necessariamente de estar saturados (ou seja, o 
 deles é igual à capacidade máxima do arco). Mais ainda, **a soma do fluxo que atravessa
 o corte é igual ao valor do fluxo**. Abaixo podemos observar o corte mínimo na rede:
 
-![Corte Mínimo](./assets/0007-ff-corte-minimo.png#dark=1)
+![Corte Mínimo](./assets/0007-ff-corte-minimo.svg#dark=2)
 
 :::
 
@@ -384,7 +380,7 @@ a complexidade temporal do algoritmo $O(|f^{*}|E)$. A razão para ter de ser exe
 até $|f^{*}|$ vezes, da maneira que está construído atualmente, pode ficar mais
 aparente ao olhar para o exemplo seguinte:
 
-![Complexidade Ford-Fulkerson](./assets/0007-ff-complexidade.png#dark=1)
+![Complexidade Ford-Fulkerson](./assets/0007-ff-complexidade.svg#dark=2)
 
 Considerando uma rede como a que está acima, temos que $|f^{*}|$ = $2000000$.
 Na pior das hipóteses, teremos de realizar igual quantidade de caminhos que passem
@@ -420,9 +416,9 @@ Abaixo segue um exemplo bastante simples do decorrer do algoritmo sobre uma rede
 
 :::details[Exemplo da aplicação do Algoritmo]
 
-Comecemos com uma rede que inicialmente se encontra assim:
+Comecemos com uma rede que se encontra inicialmente da seguinte forma:
 
-![Rede inicial](./assets/0007-ek-inicial.png#dark=1)
+![Rede inicial](./assets/0007-ek-inicial.svg#dark=2)
 
 Podemos notar que inicialmente o fluxo que passa por todas as arestas é 0, e que
 portanto a respetiva capacidade residual é igual à capacidade máxima do arco.
@@ -433,19 +429,19 @@ desde $s$ até ao vértice em questão. Podemos, nesta primeira procura, notar q
 e, ao escolhê-lo, verificamos que a capacidade residual mínima de entre as arestas
 do caminho é $4$ - o fluxo em todos os arcos é incrementado em $4$ unidades.
 
-![BFS 1](./assets/0007-ek-passo-1.png#dark=1)
+![BFS 1](./assets/0007-ek-passo-1.svg#dark=2)
 
 De seguida, vamos ao outro caminho de aumento com 3 unidades (descoberto anteriormente),
 $s \to a \to b \to t$. Aqui, a menor capacidade residual dos seus arcos é $12$, e
 o fluxo em todos os arcos é incrementado em $12$.
 
-![BFS 2](./assets/0007-ek-passo-2.png#dark=1)
+![BFS 2](./assets/0007-ek-passo-2.svg#dark=2)
 
 Explorados todos os caminhos de aumento de tamanho $3$, a BFS seguinte encontra um
 caminho de tamanho $4$. A menor capacidade residual de um dos seus arcos é $7$, e
 o fluxo em todos os arcos é incrementado em $7$.
 
-![BFS 3](./assets/0007-ek-passo-3.png#dark=1)
+![BFS 3](./assets/0007-ek-passo-3.svg#dark=2)
 
 A partir daqui não existe uma procura que encontre um caminho de aumento para a rede, pelo que o algoritmo termina.
 
@@ -453,7 +449,7 @@ Temos que o fluxo máximo encontrado é igual à soma dos fluxos que saem da fon
 que é igual à soma dos fluxos que chegam ao sumidouro e à soma dos fluxos que atravessam
 o corte mínimo da rede, $23$:
 
-![Corte](./assets/0007-ek-corte.png#dark=1)
+![Corte](./assets/0007-ek-corte.svg#dark=2)
 
 Podemos notar que todos os arcos que atravessam o corte no sentido "positivo", da
 partição de $s$ para a de $t$ estão saturados. Mais ainda, e apesar de não ser aqui
@@ -471,7 +467,7 @@ Podemos notar que as distâncias de Edmonds-Karp podem variar entre $1, ..., |V|
 um caminho de aumento pode ter no mínimo 1 aresta (se o grafo ligar diretamente $s$ a $t$),
 e no máximo $|V| - 1$ arcos (tal como o exemplo de seguida demonstra):
 
-![Distância de Edmonds-Karp](./assets/0007-ek-max-arcos.png#dark=1)
+![Distância de Edmonds-Karp](./assets/0007-ek-max-arcos.svg#dark=2)
 
 Ora, temos ainda que podemos ter $|E|$ caminhos de aumento até $\delta_f(s, t)$ aumenta
 (podemos ter um caminho que contenha todas as arestas, onde uma aresta vai ficando
@@ -516,7 +512,7 @@ O nosso objetivo passará então por procurar o melhor emparelhamento possível 
 que há um valor ótimo de "arestas ativas" - máquinas a realizar tarefas, portanto.
 $J$ pode ser representado por um grafo, claro:
 
-![Exemplo - EBM](./assets/0007-max-bip-example.png#dark=1)
+![Exemplo - EBM](./assets/0007-max-bip-example.svg#dark=2)
 
 Como podemos notar, o grafo que corresponde a $J$ diz-se um **grafo bipartido** -
 um grafo onde $V$ pode ser separado em $V_1$ e $V_2$, em que não existem arestas
@@ -545,7 +541,7 @@ o sumidouro ligado à partição das "tarefas". Atribuímos então fluxo unitár
 arco, de modo a que uma máquina possa apenas realizar uma tarefa ao mesmo tempo.
 Pegando no grafo acima, podemos verificar como ficaria depois destas alterações:
 
-![Exemplo - EBM Fluxo Unitário](./assets/0007-max-bip-fluxo-unitario.png#dark=1)
+![Exemplo - EBM Fluxo Unitário](./assets/0007-max-bip-fluxo-unitario.svg#dark=2)
 
 O fluxo máximo nunca poderá, claro, exceder $\min{\{f_s, f_t\}}$, ou seja nunca
 poderá haver uma máquina a realizar múltiplas tarefas, nem poderá haver tarefas a
@@ -572,7 +568,7 @@ mesmo que percorrer a rede desde aí se possa tornar pouco eficiente. Abaixo enc
 um exemplo de uma situação onde os algoritmos baseados em caminhos de aumento se
 podem tornar mais morosos do que podiam/deviam ser idealmente:
 
-![Exemplo desagradável - caminhos de aumento](./assets/0007-pre-fluxo-desagradaveis.png#dark=1)
+![Exemplo desagradável - caminhos de aumento](./assets/0007-pre-fluxo-desagradaveis.svg#dark=2)
 
 Ao olhar para este exemplo, podemos até pensar no porquê de não levarmos só o fluxo
 $k$ todo até $v_k$ e depois verificar os caminhos a partir daí, escusando de percorrer
@@ -818,101 +814,15 @@ RelabelToFront(G, s, t)
 
 A aplicação do algoritmo é trivial, porém é bastante fácil enganarmo-nos num passo
 intermédio (costumam ser uns quantos, e é fácil haver detalhes a passar despercebidos).
-Abaixo encontramos um exemplo do decorrer do mesmo (retirado dos slides):
+Nos slides encontram-se exemplos da execução do algoritmo.
 
-:::details[Exemplo da Aplicação do Algoritmo]
-
-Comecemos com uma rede tal que:
-
-![Rede inicial - R2F](./assets/0007-r2f-initial-network.png#dark=1)
-
-No canto superior direito podemos observar como $L$ se encontra inicialmente: $L = (v_1, v_2, v_3, v_4)$,
-sendo esta a ordem pela qual os vértices serão visitados inicialmente.
-
-O primeiro passo é, claro, saturar todos os arcos que saem de $s$ (os arcos são,
-respetivamente, $(s, v_1)$ e $(s, v_2)$). A altura do vértice $s$ é, claro, $|V| = 6$
-e fica com excesso associado $-29$:
-
-![Passo 1 - R2F](./assets/0007-r2f-passo-1.png#dark=1)
-
-Podemos notar que acima os excessos de $v_1$ e $v_2$ foram também atualizados.
-A iteração sobre $v_1$ gera descargas para dois vértices distintos, $v_2$ e $v_3$.
-Mais ainda, a primeira descarga leva a uma alteração na altura do vértice (para o
-fluxo poder descer a colina). Como $v_1$ já era o primeiro elemento da lista, a ordem da mesma não é alterada:
-
-![Passo 2 - R2F](./assets/0007-r2f-passo-2.png#dark=1)
-
-Vejamos agora $v_2$. Num primeiro momento, consegue lançar parte do seu fluxo para $v_4$
-(como demonstrado na imagem imediatamente abaixo). Contudo, continua com excesso!
-Tem um arco da rede para $v_1$, o que o obrigará a incrementar a sua altura para $2$,
-para o resto do fluxo poder então descer para $v_1$ (observável na segunda imagem abaixo).
-Visto que a altura do vértice foi alterada, a ordem da lista $L$ também foi: agora, $L = (v_2, v_1, v_3, v_4)$.
-
-![Passo 3 - R2F](./assets/0007-r2f-passo-3.png#dark=1)
-![Passo 4 - R2F](./assets/0007-r2f-passo-4.png#dark=1)
-
-Com a ordem da lista alterada, voltamos então a observar $v_1$. Com excesso por expulsar,
-e com arco para $v_3$ saturado, sobe a altura para $3$, podendo assim enviar fluxo colina
-abaixo até $v_2$, tal como a imagem abaixo sugere. A lista é mais uma vez alterada,
-agora para as posições iniciais: $L = (v_1, v_2, v_3, v_4)$.
-
-![Passo 5 - R2F](./assets/0007-r2f-passo-5.png#dark=1)
-
-Ora, levanta-se uma questão - parece que ficamos infinitamente a atirar fluxo $3$ colina abaixo entre $v_1$ e $v_2$.
-
-De facto parece, mas eventualmente as operações levam a que $v_1$ atinja altura $7$,
-superior ao número de vértices da rede (e portanto à altura de $s$). $v_1$ poderá agora,
-via refluxo, enviar fluxo de volta para $s$ (os tais $3$ que precisava), eliminando
-assim este ciclo que parecia quasi-infinito!
-
-(De notar que foram omitidos alguns passos intermédios, visto que seriam algo
-repetitivos e desinteressantes - para retirar quaisquer dúvidas que possam surgir
-devido à ausência dos mesmos, aconselha-se a consulta dos slides, por volta do slide 45).
-
-![Passo 6 - R2F](./assets/0007-r2f-passo-6.png#dark=1)
-
-Podemos finalmente passar o Cabo das Tormentas que $v_1$ e $v_2$ estavam a apresentar
-e visitar finalmente $v_3$. Aqui as descargas são bastante pacíficas: a altura do
-vértice é aumentada para $1$, e o excesso é enviado para $v_4$ e $t$. $v_3$ é inserido
-no início da lista. A passagem por $v_1$ e $v_2$ ocorrerá sem qualquer descarga, já
-que ambos encontram-se atualmente sem excesso associado (estes 2 passos foram, portanto, omitidos).
-
-![Passo 7 - R2F](./assets/0007-r2f-passo-7.png#dark=1)
-
-Chegámos, por fim, a $v_4$. Infelizmente o algoritmo não termina aqui - apenas conseguimos
-enviar $4$ dos $14$ de excesso que tínhamos no vértice, pelo que temos de alterar a
-altura (2 vezes!) para o conseguir fazer, e a lista é novamente reordenada: $L = (v_4, v_3, v_1, v_2)$.
-
-![Passo 8 - R2F](./assets/0007-r2f-passo-8.png#dark=1)
-![Passo 9 - R2F](./assets/0007-r2f-passo-9.png#dark=1)
-![Passo 10 - R2F](./assets/0007-r2f-passo-10.png#dark=1)
-
-A descarga de $v_3$ é pacífica - limitamo-nos a enviar os $7$ de excesso acumulado
-para $t$. A altura do vértice não é aumentada, pelo que a lista não é alterada, podendo
-então continuar a percorrê-la. $v_1$ não tem excesso associado, sendo ignorado, e
-passamos por fim a $v_2$. O excesso de $v_2$ pode ser enviado para $s$ (via refluxo)
-ao aumentar a sua altura. A ordem da lista é novamente alterada, mas agora, sem nenhum
-dos membros da mesma a apresentar excesso de fluxo, podemos dar o algoritmo por terminado!
-
-![Passo 11 - R2F](./assets/0007-r2f-passo-11.png#dark=1)
-![Passo 12 - R2F](./assets/0007-r2f-passo-12.png#dark=1)
-
-O fluxo máximo é, então igual a $23$! Podemos verificar, como esperado, que o excesso
-de fluxo da fonte é simétrico ao do sumidouro!
-
-:::
-
-A complexidade temporal do algoritmo é, então, $O(V^3)$. Podemos trivialmente provar
+Por fim, podemos afirmar que a complexidade temporal do algoritmo é $O(V^3)$. Podemos trivialmente provar
 que, por vértice, podemos realizar no máximo $V$ operações de _relabel_ (começando
 da altura base, podemos encontrar todos os vértices em escada, subindo a altura de
 $1$ em $1$ até V). Havendo $V$ vértices, podemos afirmar que no máximo ocorrerão $V^2$
 operações de _relabel_ durante _relabel-to-front_. Por fim, temos que cada iteração
 pode ter até $V$ descargas (atirando fluxo para todos os vértices), e havendo no
 máximo $V^2$ _relabels_, podemos claramente majorar a complexidade temporal da execução do algoritmo em $O(V^3)$.
-
-<!-- TODO ADICIONAR PROVAS E NOTAS SOBRE COMPLEXIDADES (WHENEVER TIVER TEMPO) -->
-
-<!-- TODO MENCIONAR ARCOS ADMISSÍVEIS E CENAS -->
 
 ---
 
