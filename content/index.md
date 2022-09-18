@@ -168,6 +168,20 @@ years:
             link: '/cg'
             image: assets/cg.svg
             color: '#3f51b5'
+  - name: 'HACS'
+    semesters:
+      - name: ''
+        courses:
+          - name: IEco
+            description: P1/P2
+            link: '/ieco'
+            image: assets/ieco.svg
+            color: '#00766c'
+          - name: DER
+            description: P1
+            link: '/der'
+            image: assets/der.svg
+            color: '#b61827'
 ---
 
 ## Links úteis
