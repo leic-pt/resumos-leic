@@ -2,9 +2,9 @@
 title: Machine Learning
 description: >-
   O que é Machine Learning?
-  Symbolical Learning
-  Statistical Machine Learning
-  Supervised e Unsupervised Machine Learning
+  Symbolical Learning.
+  Statistical Machine Learning.
+  Supervised e Unsupervised Machine Learning.
 path: /apre/machine-learning
 type: content
 ---
@@ -37,7 +37,7 @@ positivos e negativos de um conceito.
 ## Statistical Machine Learning
 
 Ao contrário da vertente anterior, esta abordagem opta por representar os
-objetos diretamente. Ánalogo à biologia, onde os orgãos perceptores capturam
+objetos diretamente. Análogo à biologia, onde os órgãos perceptores capturam
 informação através de recetores, optamos por criar vetores, onde cada
 **dimensão** representa um certo valor. Podemos também pensar nas várias
 dimensões como **atributos**. Por exemplo, podemos comparar dois peixes pelos
@@ -46,7 +46,7 @@ duas entidades medindo a **distância euclidiana** entre os dois vetores que a
 representam. O processo de escolher os atributos a representar chama-se
 **extração de atributos**.
 
-O objetivo poderá ser, então, descriminar os peixes em dois conjuntos,
+O objetivo poderá ser, então, discriminar os peixes em dois conjuntos,
 consoante as dimensões analisadas. Vários algoritmos de _machine learning_
 realizam esta divisão, de maneiras diferentes. O algoritmo _perceptron_ tenta
 determinar a linha que separa os dois tipos de peixes, neste exemplo.
@@ -55,14 +55,14 @@ Estes algoritmos operam sobre uma amostra estatística. Ao utilizá-lo para
 classificar um outro peixe, não há garantias de que a classificação seja de
 facto correta, problema conhecido como _overfitting_. Este pode ser também
 resultado de _outliers_ estatísticos, em que, por exemplo, um salmão pode ter
-atributos muito semelhantes a um peixe de outro espécie, distorcendo a linha de
+atributos muito semelhantes a um peixe de outra espécie, distorcendo a linha de
 separação entre as duas espécies. Este fenómeno ocorre devido a uma **pequena
 amostra de treino**.
 
 Uma amostra reduzida não é representativa da população. Uma solução poderia ser
 aumentar esta amostra, mas muitas vezes é impossível. Faz-se então um
 **compromisso**, dando espaço a um pequeno erro. Este compromisso é descrito
-pelo presuposto de que a curva de distinção **terá de ser suave**, de acordo
+pelo pressuposto de que a curva de distinção **terá de ser suave**, de acordo
 com a **teoria da regularização**.
 
 ## Supervised e Unsupervised Machine Learning
