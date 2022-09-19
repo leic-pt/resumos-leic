@@ -78,11 +78,11 @@ $$
 
 Temos que a aplicação destas restrições resulta num gráfico tal que:
 
-![Região Exequível - Gráfico inicial](./assets/0008-regiao-exequivel-inicio.png#dark=1)
+![Região Exequível - Gráfico inicial](./assets/0008-regiao-exequivel-inicio.svg#dark=2)
 
 Ora, a interseção de todas estas restrições resulta num conjunto convexo como o que se apresenta na figura:
 
-![Região Exequível - Região Convexa](./assets/0008-regiao-exequivel-regiao.png#dark=1)
+![Região Exequível - Região Convexa](./assets/0008-regiao-exequivel-regiao.svg#dark=2)
 
 Tenhamos ainda que a função objetivo é $f(x_1, x_2) = x_1 + x_2$.
 
@@ -90,7 +90,7 @@ Visto que temos que a maximizar, vamos considerar aqui várias linhas tal que $x
 
 Observemos a imagem abaixo:
 
-![Região Exequível - Linha](./assets/0008-regiao-exequivel-linha.png#dark=1)
+![Região Exequível - Linha](./assets/0008-regiao-exequivel-linha.svg#dark=2)
 
 Aqui, o valor máximo de $z$ tal que a interseção da linha com o conjunto convexo apresentado acima não é vazio é $8$: todas as retas "abaixo" dela têm valores menores, que não maximizam o objetivo, e nenhuma "acima" tem interseção não vazia com o conjunto convexo. Assim sendo, encontrámos a solução ótima: $x_1 = 2$ e $x_2 = 6$, com objetivo maximizado $x_1 + x_2 = 8$.
 
@@ -461,7 +461,7 @@ Pegando num qualquer programa linear na forma standard, este tem três possibili
 
 Abaixo encontra-se o gráfico correspondente a um programa linear _unbounded_. Podemos notar que há infinitas retas que maximizam o valor objetivo, cada uma com $z$ arbitrariamente maior que a anterior, e todas elas cuja interseção com a região exequível é não vazia:
 
-![Região Exequível - Unbounded](./assets/0008-regiao-exequivel-unbounded.png#dark=1)
+![Região Exequível - Unbounded](./assets/0008-regiao-exequivel-unbounded.svg#dark=2)
 
 Como nota final, resta afirmar que caso após $\binom{n + m}{n}$ iterações o algoritmo ainda não tenha terminado, podemos admitir que este está [**em ciclo**](color:orange). Há, ao todo, $n + m$ variáveis e $m$ formas de escolher $B$, pelo que há $\binom{n + m}{n}$ formas de slack únicas - mais que isso e o algoritmo está em ciclo. São raros, mas existem, e para os eliminar recorre-se à [**Regra de Bland**](color:yellow): em caso de empate na escolha de variáveis, escolhe-se sempre a variável com menor índice.
 
@@ -533,7 +533,7 @@ $$
 
 Podemos olhar para o que está a acontecer através de um esboço das hipotéticas regiões exequíveis de um programa Primal e respetivo Dual:
 
-![Primal vs Dual (Gráfico)](./assets/0008-primal-dual-graph.png#dark=1)
+![Primal vs Dual (Gráfico)](./assets/0008-primal-dual-graph.svg#dark=2)
 
 Fica então aparente que os programas são em tudo semelhantes (em espelho): um deles procura minimizar um dado objetivo, o Dual, e vai minimizá-lo tanto quanto possível, até um ponto em que coincide com a solução ótima do programa Primal.
 
