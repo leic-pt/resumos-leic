@@ -21,7 +21,7 @@ Para iniciarmos esta cadeira, temos que ter bem presentes alguns conceitos, send
 
 Aprender é um conceito fundamental quando quantificamos _inteligência_. Para o ser humano, aprender está na base de tudo pois ninguém nasce ensinado. O mesmo aplica-se a qualquer máquina, daí ter sido criado o conceito [_Machine Learning_](color:pink). Partindo da **psicologia** e **biologia** o principal objetivo desta área de estudo é mimicar o modelo de pensamento humano.
 
-> "Learning is any process by which a system improves performance from experience"  - Herbert Simon
+> "Learning is any process by which a system improves performance from experience" - Herbert Simon
 
 Mas como é que é possível pôr uma máquina e racicionar como um ser humano? Temos que começar com [Inteligência Artificial](color:pink). Tal como já tinha sido referido na cadeira, as nossas ações têm várias componentes diferentes por detrás. Todo o nosso raciocínio antes de realizarmos o que quer que seja tem três etapas que são dadas às máquinas para começarem a agir como o ser humano:
 
@@ -53,11 +53,11 @@ Entre muitos outros. É através destes sistemas, tal como já foi referido acim
 
 ## _Machine Learning_
 
-| [**_Machine Learning_**](color:pink) | [**Data Science**](color:orange) |
-| ------------------------------------- | ---------------------------------------- |
-| serve para **melhorar** as decisões tomadas a partir dos dados adquiridos | serve para **descobrir** o que não sabemos a partir dos dados adquiridos          |
-| conjunto de conceitos, princípios e métodos computacionais|  extração não trivial de conhecimentos implícitos, importantes e anteriormente não sabidos|
-| parte de estatística, álgebra, matemática e algoritmos| parte de _Machine Learning_   |
+| [**_Machine Learning_**](color:pink)                                      | [**Data Science**](color:orange)                                                          |
+| ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| serve para **melhorar** as decisões tomadas a partir dos dados adquiridos | serve para **descobrir** o que não sabemos a partir dos dados adquiridos                  |
+| conjunto de conceitos, princípios e métodos computacionais                | extração não trivial de conhecimentos implícitos, importantes e anteriormente não sabidos |
+| parte de estatística, álgebra, matemática e algoritmos                    | parte de _Machine Learning_                                                               |
 
 Depois de vermos as diferenças entre _Machine Learning_ e Data Science, temos que comparar este primeiro a Inteligência Artificial. De facto, ambos são parecidos, contudo, enquanto em Inteligência Artificial é dado como input **dados e uma heurística** de procura de modo a termos um output determinado, em _Machine Learning_ temos que fornecer ao nosso computador **dados e um output prévio** de modo a termos um programa como output.
 
@@ -67,9 +67,9 @@ Depois de vermos as diferenças entre _Machine Learning_ e Data Science, temos q
 
 Contudo, de que forma é que estas máquinas podem aprender? Existem três formas diferentes:
 
-  - [Aprendizagem supervisionada](color:orange): com um professor ou através de dados de treino e outputs desejados, isto é, etiquetas, quantidades ou estruturas;
-  - [Aprendizagem não supervisionada](color:orange): sem um professor e através de dados de treino sem outputs desejados;
-  - [Aprendizagem com reenforço](color:orange): sem um porfessor designado para dar exemplos negativos ou positivos, através de prémios e penalidades observadas através da sequência de ações dentro de um ambiente específico.
+- [Aprendizagem supervisionada](color:orange): com um professor ou através de dados de treino e outputs desejados, isto é, etiquetas, quantidades ou estruturas;
+- [Aprendizagem não supervisionada](color:orange): sem um professor e através de dados de treino sem outputs desejados;
+- [Aprendizagem com reenforço](color:orange): sem um porfessor designado para dar exemplos negativos ou positivos, através de prémios e penalidades observadas através da sequência de ações dentro de um ambiente específico.
 
 O processo de aprendizagem também se caracteriza por ser feito em diferentes etapas. A primeira etapa, [pre-processamento de dados](color:pink), refere-se a aquisição de dados e integração, limpeza dos mesmo, isto é, duplicar e remover o _outlier_, e transformar os dados, isto é, normalização, redução de dimensão e amostragem; de seguida passamos a uma etapa de [mineração de dados](color:pink) recorrente em _Machine Learning_ que se retrata por, através de uns dados, ter que enocntrar associações locais, padrões, que satisfaçam critérios estatísticos significantes (número mínimo de observações de modo a contrariar expectativas) e poder descriminatório de alvos qualitativos ou correlação entre critérios; por fim temos uma fase de [pós-processamente de dados](color:pink) que serve para extrair a informação e conhecimento (**_descriptive stance_**) assim como os modelos aprendidos (**_predictive stance_**), podendo desta forma interpretar e validar os resultados e consolidar os conhecimentos descobertos.
 
@@ -79,10 +79,9 @@ Dentro das várias vertentes existentes em _Machine Learning_, uma das principai
 
 ![Symbolical Learning](./assets/0001-symbolic-learning.png#dark=2)
 
-
 ## Statistical Machine Learning
 
- A segunda vertente mais relevante é [**statistical machine learning**](color:pink) contendo conceitos como regressões lineares, _clustering_ e redes neuronais. Estes dois tipos de _Machine Learning_ diferem principalmente no método através do qual a informação é apresentada: através de **símbolos** e **vetores**, respetivamente.
+A segunda vertente mais relevante é [**statistical machine learning**](color:pink) contendo conceitos como regressões lineares, _clustering_ e redes neuronais. Estes dois tipos de _Machine Learning_ diferem principalmente no método através do qual a informação é apresentada: através de **símbolos** e **vetores**, respetivamente.
 
 Ao contrário da vertente anterior, esta abordagem opta por representar os objetos diretamente. Análogo à biologia, onde os órgãos perceptores capturam informação através de recetores, optamos por criar vetores, onde cada **dimensão** representa um certo valor. Podemos também pensar nas várias dimensões como **atributos**. Por exemplo, podemos comparar dois peixes pelos seus peso e tamanho. Ao representar objetos desta maneira podemos comparar duas entidades medindo a [distância euclidiana](color:pink) entre os dois vetores que a representam. O processo de escolher os atributos a representar chama-se [extração de atributos](color:pink).
 
