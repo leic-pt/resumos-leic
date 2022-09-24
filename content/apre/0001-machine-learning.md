@@ -97,6 +97,12 @@ Aprender através de uma base de dados é obter **relações de dados** relevant
 
 Quandos as nossas variáveis visualizadas são numéricas, um espaço destacado representa um **vetor espaço**, por exemplo o espaço de Euclides, e as observações representão pontos dos dados.
 
-![Espaços destacados](./assets/0001-espaços.png#dark=3)
+$$
+x = \{v_1, \dots, v_m\} \in \R^m
+$$
+
+$$
+||a - b|| = \sqrt{\sum_{i=1}^m (a_i - b_i)^2}
+$$
 
 :::
