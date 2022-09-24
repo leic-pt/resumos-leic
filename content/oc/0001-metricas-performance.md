@@ -28,9 +28,9 @@ que consegue uma maior viagem sem reabastecer...
 Tal como a performance de um avião, podemos definir a performance de um
 computador de diferentes maneiras. Para dois computadores a correr um programa,
 podemos dizer que o mais rápido é aquele que termina primeiro, aquele que têm
-menor **tempo de resposta**. Entre dois sistema bancários, podemos dizer que o
-melhor é aquele que realiza mais operações por segundo, aquele que tem maior
-**throughput**.
+menor [**tempo de resposta**](color:orange). Entre dois sistema bancários,
+podemos dizer que o melhor é aquele que realiza mais operações por segundo,
+aquele que tem maior [**throughput**](color:yellow).
 
 Ao definir a performance de computadores, vamos ter em conta o tempo de
 resposta. Intuitivamente, de modo a maximizar a performance, teremos de
@@ -41,8 +41,8 @@ $$
 \text{Performance}_X = \frac{1}{\text{Tempo de Execução}_X}
 $$
 
-Por vezes, dizemos que o computador `X` é `n` vezes mais rápido do que o
-computador `Y`. Este conceito corresponde à noção de performance relativa.
+Por vezes, dizemos que o computador $X$ é $n$ vezes mais rápido do que o
+computador $Y$. Este conceito corresponde à noção de performance relativa.
 Definimos performance relativa, ou _speedup_ como o rácio de duas performances.
 
 $$
@@ -72,7 +72,7 @@ Embora para nós humanos, enquanto utilizadores de computadores, o tempo seja
 uma métrica importante, poderá ser apropriado pensar numa métrica que se
 aproprie do funcionamento básico do hardware.
 
-Tal métrica é o número de ciclos de relógio. O relógio coordenado os eventos
+Tal métrica é o número de ciclos de relógio. O relógio coordena os eventos
 que ocorrem no hardware. A cada intervalo de tempo destes dá-se o nome de
 [**períodos de relógio**](color:green) ou _clock period_. A frequência dos ciclos de relógio é
 chamada a [**frequência de relógio**](color:blue) ou _clock frequency_.
@@ -98,6 +98,8 @@ computador demora a executá-lo depende desse número de instruções.
 
 Define-se o **número médio de ciclos por instrução** ou [**CPI**](color:purple)
 (_average cycles per instruction_) como:
+
+<!-- TODO needs more information about "clock cycles" in the formula below -->
 
 $$
 \smartcolor{purple}{\op{CPI}} = \frac{\#\text{Clock Cycles}}{\#\text{Instructions}}
