@@ -33,9 +33,7 @@ categorias de componentes:
 - a [_Control Unit_](color:purple) que trata de sequenciar o datapath,
   a memória, entre outros.
 
-<!-- Replace with SVG -->
-
-![CPU](./assets/0001-cpu.png#dark=3)
+![Datapath and Control Unit](./assets/0001-datapath-control-unit.svg#dark=3)
 
 ### Debaixo do Nosso Programa
 
@@ -69,7 +67,7 @@ Finalmente, existe o [**assembler**](color:yellow) que codifica o assembly
 (ou gerado pelo compilador ou feito à mão pelo programador) em código máquina,
 isto é, 0s e 1s, que finalmente pode ser executado pelo hardware.
 
-<!-- TODO insert diagram -->
+![Levels of Program Code](./assets/0001-levels-program-code.svg#dark=3)
 
 Dependendo da arquitetura do processador, o [compilador](color:orange) irá produzir
 um resultado diferente, o que pode influenciar o tempo de execução, como veremos abaixo.
@@ -87,7 +85,7 @@ pelo que, por vezes, precisamos de fazer _trade-offs_ entre as opções que disp
 
 Avaliando quatro aviões diferentes, será possível dizer, objetivamente qual deles é o melhor?
 
-![Definir performance](./assets/0001-avioes.png#dark=3)
+![Comparação entre aviões](./assets/0001-planes-example.svg#dark=3)
 
 [**Não!**](color:red) Como podemos ver, cada avião tem características
 muito diferentes e, enquanto pode ser melhor numa área, tambem é pior noutra.
