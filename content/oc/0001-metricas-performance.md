@@ -214,7 +214,7 @@ T_{\text{CPU}} = \#\text{Clock Cycles} \times \smartcolor{green}{T_{\text{clock}
 $$
 
 Podemos constatar que podemos aumentar a performance de um computador reduzindo
-o número de ciclos relógio necessários para um programa ou aumentar a
+o número de ciclos de relógio necessários para um programa ou aumentar a
 frequência do relógio.
 
 ### Instruções
@@ -415,7 +415,7 @@ T_{\text{improved}} &= \frac{T_{\text{affected}}}{\text{improvement factor}} + T
 $$
 
 $$
-\op{speedup} = \frac{T_{\text{original}}}{T_{\text{improved}}} = \frac{1}{\frac{f}{\text{improvement factor}} + (1-f)}
+\op{SpeedUp} = \frac{T_{\text{original}}}{T_{\text{improved}}} = \frac{1}{\frac{f}{\text{improvement factor}} + (1-f)}
 $$
 
 em que $f$ representa a fração do trabalho realizado pela componente melhorada, em relação à componente original.
