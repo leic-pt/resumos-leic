@@ -4,6 +4,10 @@ description: >-
   Fundamentos da Arquitetura de um Computador.
   Performance.
   Medir Performance.
+  Ciclos de Relógio.
+  Comparação de Performance.
+  Millions of Instructions per Second (MIPS).
+  Lei de Amdahl.
 path: /oc/metricas-performance
 type: content
 ---
