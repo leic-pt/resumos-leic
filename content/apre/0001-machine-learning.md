@@ -119,12 +119,12 @@ Contudo, de que forma é que estas máquinas podem aprender? Bem, existem três 
 O processo de aprendizagem também se caracteriza por ser feito em diferentes etapas.
 A primeira etapa, [pré-processamento de dados](color:pink), refere-se a aquisição de
 dados, integração e limpeza dos mesmos: isto é, deteção de _outliers_,
-normalização dos dados, redução de dimensão, entre outros tratamentos.\
+normalização dos dados, redução de dimensão, entre outros tratamentos.  
 De seguida, passamos à etapa de [mineração de dados](color:pink), recorrente em _Machine Learning_.
 Aqui, procura-se observar um _dataset_, encontrando associações locais ou padrões
 que satisfaçam critérios estatísticos significativos (número mínimo de observações de
 modo a contrariar expectativas, para remoção de _outliers_), e poder discriminatório
-de alvos qualitativos ou correlação entre critérios.\
+de alvos qualitativos ou correlação entre critérios.  
 Por fim, temos uma fase de [pós-processamento de dados](color:pink),
 que serve para extrair a informação e conhecimento (**_descriptive stance_**) assim
 como os modelos aprendidos (**_predictive stance_**), podendo desta forma interpretar
