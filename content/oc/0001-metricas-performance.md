@@ -415,7 +415,7 @@ T_{\text{improved}} &= \frac{T_{\text{affected}}}{\text{improvement factor}} + T
 $$
 
 $$
-\op{Speedup} = \frac{T_{\text{original}}}{T_{\text{improved}}} = \frac{1}{\frac{f}{\text{improvement factor}} + (1-f)}
+\op{SpeedUp} = \frac{T_{\text{original}}}{T_{\text{improved}}} = \frac{1}{\frac{f}{\text{improvement factor}} + (1-f)}
 $$
 
 em que $f$ representa a fração do trabalho realizado pela componente melhorada, em relação à componente original.
