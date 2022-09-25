@@ -46,7 +46,7 @@ computador $Y$. Este conceito corresponde à noção de performance relativa.
 Definimos performance relativa, ou _speedup_ como o rácio de duas performances.
 
 $$
-\op{speedup} = \frac{\text{Performance}_X}{\text{Performance}_Y} = \frac{\text{Tempo de Execução}_Y}{\text{Tempo de Execução}_X}
+\op{Speedup} = \frac{\text{Performance}_X}{\text{Performance}_Y} = \frac{\text{Tempo de Execução}_Y}{\text{Tempo de Execução}_X}
 $$
 
 ## Medir Performance
@@ -87,7 +87,7 @@ T_{\text{CPU}} = \#\text{Clock Cycles} \times \smartcolor{green}{T_{\text{clock}
 $$
 
 Podemos constatar que podemos aumentar a performance de um computador reduzindo
-o número de ciclos relógio necessários para um programa ou aumentar a
+o número de ciclos de relógio necessários para um programa ou aumentar a
 frequência do relógio.
 
 ### Instruções
@@ -158,7 +158,7 @@ T_{\text{improved}} = \frac{T_{\text{affected}}}{\text{improvement factor}} + T_
 $$
 
 $$
-\op{speedup} = \frac{T_{\text{original}}}{T_{\text{improved}}} = \frac{1}{\frac{f}{\text{improvement factor}} + (1-f)}
+\op{Speedup} = \frac{T_{\text{original}}}{T_{\text{improved}}} = \frac{1}{\frac{f}{\text{improvement factor}} + (1-f)}
 $$
 
 em que $f$ representa a fração do trabalho realizado pela componente melhorada, em relação à componente original.
