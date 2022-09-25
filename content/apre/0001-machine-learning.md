@@ -63,15 +63,15 @@ comum, influenciado pelo seu meio (caso seja aberto, claro). Um sistema é descr
 
 Estes sistemas estão em todo o lado, e podem ser sistemas:
 
-- [biológicos](color:orange);
-- [ecológicos](color:orange);
-- [societários](color:orange);
-- [mecânicos](color:orange);
-- [digitais](color:orange);
-- [quantum](color:orange);
-- [híbridos](color:orange);
-- [astrofísicos](color:orange);
-- [urbanos](color:orange);
+- [Biológicos](color:orange);
+- [Ecológicos](color:orange);
+- [Societários](color:orange);
+- [Mecânicos](color:orange);
+- [Digitais](color:orange);
+- [Quantum](color:orange);
+- [Híbridos](color:orange);
+- [Astrofísicos](color:orange);
+- [Urbanos](color:orange);
 - Entre muitos outros!
 
 É através destes sistemas, tal como já foi referido acima, que as nossas máquinas **aprendem**:
@@ -87,9 +87,9 @@ Procuremos distingui-los:
 
 | [**_Machine Learning_**](color:pink)                                      | [**Data Science**](color:orange)                                                          |
 | ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| serve para **melhorar** as decisões tomadas a partir dos dados adquiridos | serve para **descobrir** o que não sabemos a partir dos dados adquiridos                  |
-| conjunto de conceitos, princípios e métodos computacionais                | extração não trivial de conhecimentos implícitos, importantes e anteriormente não sabidos |
-| parte de estatística, álgebra, matemática e algoritmos                    | parte de _Machine Learning_                                                               |
+| Serve para **melhorar** as decisões tomadas a partir dos dados adquiridos | Serve para **descobrir** o que não sabemos a partir dos dados adquiridos                  |
+| Conjunto de conceitos, princípios e métodos computacionais                | Extração não trivial de conhecimentos implícitos, importantes e anteriormente não sabidos |
+| Parte de estatística, álgebra, matemática e algoritmos                    | Parte de _Machine Learning_                                                               |
 
 Olhando agora para a distinção entre _Machine Learning_ e a área da Inteligência Artificial,
 a principal diferença está nos _inputs_ e _outputs_ dos respetivos programas:
@@ -112,19 +112,19 @@ Contudo, de que forma é que estas máquinas podem aprender? Bem, existem três 
 - [Aprendizagem não supervisionada](color:orange): sem um professor e através de
   dados de treino sem outputs desejados, procura-se "agrupar" os dados em diferentes
   categorias, conseguindo assim receber uma dada instância e dizer "esta instância deve pertencer àquela categoria";
-- [Aprendizagem com reenforço](color:orange): sem um professor designado para dar exemplos
+- [Aprendizagem por reforço](color:orange): sem um professor designado para dar exemplos
   negativos ou positivos, através de prémios e penalidades observadas através da sequência
   de ações dentro de um ambiente específico.
 
 O processo de aprendizagem também se caracteriza por ser feito em diferentes etapas.
 A primeira etapa, [pré-processamento de dados](color:pink), refere-se a aquisição de
 dados, integração e limpeza dos mesmos: isto é, deteção de _outliers_,
-normalização dos dados, redução de dimensão, entre outros tratamentos.
+normalização dos dados, redução de dimensão, entre outros tratamentos.\
 De seguida, passamos à etapa de [mineração de dados](color:pink), recorrente em _Machine Learning_.
 Aqui, procura-se observar um _dataset_, encontrando associações locais ou padrões
 que satisfaçam critérios estatísticos significativos (número mínimo de observações de
 modo a contrariar expectativas, para remoção de _outliers_), e poder discriminatório
-de alvos qualitativos ou correlação entre critérios.
+de alvos qualitativos ou correlação entre critérios.\
 Por fim, temos uma fase de [pós-processamento de dados](color:pink),
 que serve para extrair a informação e conhecimento (**_descriptive stance_**) assim
 como os modelos aprendidos (**_predictive stance_**), podendo desta forma interpretar
