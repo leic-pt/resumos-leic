@@ -32,16 +32,16 @@ periféricos, que, quando unidos, dão-nos um dispositivo funcional.
 Dentro do **processador** (CPU), conseguimos identificar duas
 categorias de componentes:
 
-- o [_Datapath_](color:pink) que realiza as operações com dados, e, por isso,
+- o [_Datapath_](color:pink), que realiza as operações com dados, e, por isso,
   contém a ALU, Register File, Program Counter, etc.
-- a [_Control Unit_](color:purple) que trata de sequenciar o datapath,
+- a [_Control Unit_](color:purple), que trata de sequenciar o datapath,
   a memória, entre outros.
 
 ![Datapath and Control Unit](./assets/0001-datapath-control-unit.svg#dark=3)
 
 ### Debaixo do Nosso Programa
 
-Já que já visualizamos o que está na parte de hardware dos nossos
+Agora que já visualizamos o que está na parte de hardware dos nossos
 computadores, temos que também ver o que se passa ao corrermos um programa.  
 Existem três camadas diferentes:
 
@@ -78,41 +78,41 @@ um resultado diferente, o que pode influenciar o tempo de execução, como verem
 
 ## Performance
 
-Existem diferentes maneiras de definir performance. Ao falarmos de um avião
+Existem diferentes maneiras de definir performance. Ao falarmos de um avião,
 podemos argumentar que um bom critério de performance é a sua velocidade
 máxima. Poderá também ser o número de passageiros que pode levar... ou aquele
-que consegue uma maior viagem sem reabastecer...
+que consegue realizar uma maior viagem sem ter que reabastecer...
 O que é melhor depende das nossas necessidades e da situação em que nos encontramos,
-pelo que, por vezes, precisamos de fazer _trade-offs_ entre as opções que dispomos.
+pelo que, por vezes, precisamos de fazer _trade-offs_ entre as opções que temos.
 
 :::info[Exemplo]
 
-Avaliando quatro aviões diferentes, será possível dizer, objetivamente qual deles é o melhor?
+Avaliando quatro aviões diferentes, será possível dizer, objetivamente, qual deles é o melhor?
 
 ![Comparação entre aviões](./assets/0001-planes-example.svg#dark=3)
 
 [**Não!**](color:red) Como podemos ver, cada avião tem características
-muito diferentes e, enquanto pode ser melhor numa área, tambem é pior noutra.
+muito diferentes e, enquanto pode ser melhor numa área, é, por outro lado, pior noutra.
 Logo, dependendo da situação em que nos encontrarmos e para o que queremos
 usar o nosso avião, a melhor escolha vai ser diferente.
 
 Adaptando à nossa experiência enquanto programadores, precisamos
-de avaliar o que o cliente [precisa](color:green), não o que ele quer.
+de avaliar o que o cliente [precisa](color:green) ao invés daquilo que ele quer.
 
 :::
 
 Tal como a performance de um avião, podemos definir a performance de um
-computador de diferentes maneiras. Para dois computadores a correr um programa,
-podemos dizer que o mais rápido é aquele que termina primeiro, isto é, aquele que têm
-menor [**tempo de resposta**](color:orange). Entre dois sistema bancários,
+computador de diferentes maneiras. Para dois computadores a correr o mesmo programa,
+podemos dizer que o mais rápido é aquele que termina primeiro, isto é, aquele que tem
+menor [**tempo de resposta**](color:orange). Entre dois sistemas bancários,
 podemos dizer que o melhor é aquele que realiza mais operações por segundo,
 isto é, aquele que tem maior [**throughput**](color:yellow).
 
 Mas, a questão surge: como é que estes dois são afetados ao substituir um
-processador por um mais rápido?
+processador por outro mais rápido?
 E ao adicionar mais processadores para tarefas separadas?
 No primeiro caso, [ambos melhoram](color:green). Contudo, no segundo caso,
-apenas o [throughout aumenta](color:yellow).
+apenas o [throughput aumenta](color:yellow).
 
 Ao definir a performance de computadores, vamos ter em conta o [tempo de resposta](color:orange).
 Intuitivamente, de modo a maximizar a performance, teremos de
@@ -125,7 +125,7 @@ $$
 
 Por vezes, dizemos que o computador $X$ é $n$ vezes **mais rápido** do que o
 computador $Y$. Este conceito corresponde à noção de performance relativa.
-Definimos performance relativa, ou _speedup_ como o rácio de duas performances.
+Definimos performance relativa, ou [**_speedup_**](color:pink), como o rácio entre duas performances.
 
 $$
 \op{SpeedUp} = \frac{\text{Performance}_X}{\text{Performance}_Y}
@@ -135,18 +135,18 @@ $$
 :::tip[Dica]
 
 Para não confundir qual dos valores é o $X$ ou o $Y$, basta relembrar que o
-_speed up_ tem de ser sempre $\geq 1$.
+_speedup_ deve ser sempre $\geq 1$.
 
 :::
 
 :::info[Exemplo]
 
-Se tivermos um processador A que corre um programa em 10 segundos e
-um processador B que corre o mesmo programa em 15 segundos,
-concluimos que o processador A é melhor que o B,
+Se tivermos um processador $A$ que corre um programa em 10 segundos e
+um processador $B$ que corre o mesmo programa em 15 segundos,
+concluimos que o processador $A$ é melhor que o $B$,
 já que tem um tempo de execução **menor**.
 
-Mas quão mais rápido é? Para isso, podemos calcular o speed up:
+Mas quão mais rápido é? Para isso, podemos calcular o _speedup_:
 
 $$
 \op{SpeedUp}
@@ -155,7 +155,7 @@ $$
 = 1.5
 $$
 
-Assim, sabemos que o processador A é 1.5 vezes mais rápido que o processador B.
+Assim, sabemos que o processador $A$ é 1.5 vezes mais rápido que o processador $B$.
 
 :::
 
@@ -181,9 +181,9 @@ O tempo de CPU pode ser também distinguido entre _user CPU time_ e _system CPU 
 Se estivermos a analisar o tempo que se demorou a construir uma casa
 e chegarmos à conclusão de que desde o início da construção até à sua
 conclusão passaram 3 anos ([_elapsed time_](color:orange)),
-podemos avaliar mais promonorizadamente para discriminar quanto desse
+podemos avaliar mais pormenorizadamente para discriminar quanto desse
 tempo é que de facto corresponde à construção da casa em si.
-Podemos vir a descobrir que apesar de terem passado 3 anos, apenas 1 desses anos
+Podemos vir a descobrir que, apesar de terem passado 3 anos, apenas 1 desses anos
 foi passado a construir a casa em si ([_CPU time_](color:yellow)), enquanto
 o resto foi gasto a arranjar material e em planeamento.
 
@@ -214,7 +214,7 @@ T_{\text{CPU}} = \#\text{Clock Cycles} \times \smartcolor{green}{T_{\text{clock}
 $$
 
 Podemos constatar que podemos aumentar a performance de um computador reduzindo
-o número de ciclos de relógio necessários para um programa ou aumentar a
+o número de ciclos de relógio necessários para um programa ou aumentando a
 frequência do relógio.
 
 ### Instruções
@@ -226,8 +226,8 @@ Além disso, cada instrução pode necessitar de um diferente número de ciclos 
 Ao número de ciclos que uma instrução necessita chama-se [**CPI**](color:pink)
 (_cycles per instruction_).
 
-Podemos determinar quantos ciclos é que um programa demora a executar, ao
-juntar o número de instruções com os respetivos [CPIs](color:pink):
+Podemos determinar quantos ciclos é que um programa executa, ao
+multiplicar o número de instruções pelos respetivos [CPIs](color:pink):
 
 $$
 \#\text{Clock Cycles} = \sum_{i=1}^n \left(\smartcolor{pink}{\op{CPI}_i} \times \#\text{Instructions}_i\right)
@@ -236,7 +236,7 @@ $$
 :::info[Exemplo]
 
 Considere-se um programa que executa as seguintes instruções,
-assim como o respetivo [CPI](color:pink) num determinado processador:
+com os respetivos [CPIs](color:pink), num determinado processador:
 
 |                      |  A  |  B  |  C  |  D  |
 | -------------------: | :-: | :-: | :-: | :-: |
@@ -293,20 +293,20 @@ $$
 
 :::info[Exemplo]
 
-Considerando um [processador A](color:pink) com _clock rate_ de 2GHz, e que
+Consideremos um [processador $A$](color:pink) com _clock rate_ de 2GHz, e que
 demora [10 segundos](color:orange) de tempo de CPU a executar um certo programa.  
-Queremos desenhar um [processador B](color:purple) que demore
+Queremos desenhar um [processador $B$](color:purple) que demore
 [6 segundos](color:orange) de tempo de CPU a executar o mesmo programa,
-mas que necessita de [1.2 vezes mais ciclos de relógio para executar o programa](color:orange).
-**Qual será o _clock rate_ do [processador B](color:purple)?**
+mas que necessite de [1.2 vezes mais ciclos de relógio](color:yellow).
+**Qual será o _clock rate_ do [processador $B$](color:purple)?**
 
-Começando por escrever a expressão do _clock rate_ de [B](color:purple), temos:
+Começando por escrever a expressão da _clock rate_ de [$B$](color:purple), temos:
 
 $$
 \text{Clock Rate}_B = \frac{\#\text{Clock Cycles}_B}{\text{CPU Time}_B} = \frac{1.2 \times \text{Clock Cycles}_A}{6 \op{s}}
 $$
 
-No entanto, precisamos de descobrir quantos ciclos efetua o [processador A](color:pink)
+No entanto, precisamos de descobrir quantos ciclos efetua o [processador $A$](color:pink)
 ao executar este programa:
 
 $$
@@ -329,26 +329,26 @@ frequência de relógio.
 
 :::info[Exemplo]
 
-Se nos questionarmos qual operação mais rápida, entre **`AND`** ou uma **multiplicação**,
+Se nos questionarmos sobre qual operação é a mais rápida entre **`AND`** e a **multiplicação**,
 a resposta é que **depende do processador**.
 
 Imaginemos que cada processador demora os seguintes ciclos de relógio a efetuar
 cada uma destas operações:
 
-|                               | Operação `AND` | Multiplicação |
-| ----------------------------: | :------------: | :-----------: |
-|   [Processador A](color:pink) |       1        |       1       |
-| [Processador B](color:purple) |       1        |       5       |
+|                                 | Operação `AND` | Multiplicação |
+| ------------------------------: | :------------: | :-----------: |
+|   [Processador $A$](color:pink) |       1        |       1       |
+| [Processador $B$](color:purple) |       1        |       5       |
 
-Conseguimos claramente ver que, no [processador A](color:pink), ambas as operações demoram
-o mesmo tempo a ser executadas, enquando no [processador B](color:purple) é evidente que a operação
+Conseguimos claramente ver que, no [processador $A$](color:pink), ambas as operações demoram
+o mesmo tempo a ser executadas, enquanto no [processador $B$](color:purple) é evidente que a operação
 mais rápida é o `AND`.
 
 **Mas entre estes dois, qual será o mais rápido a efetuar multiplicações?**
-Não é possível concluir nada, visto que depende do _clock rate_ de cada processador.  
-Pode acontecer o [processador B](color:purple) ter um _clock rate_ suficientemente superior ao do
-[processador A](color:pink), de forma a que execute os 5 ciclos de relógio em menos tempo
-que o [processador A](color:pink) executa um único ciclo de relógio.
+Não é possível concluir nada, visto que depende da _clock rate_ de cada processador.  
+Pode acontecer que o [processador $B$](color:purple) tenha uma _clock rate_ suficientemente superior ao do
+[processador $A$](color:pink), de forma a que execute os 5 ciclos de relógio em menos tempo
+que este executa um único ciclo de relógio.
 
 :::
 
@@ -356,21 +356,21 @@ que o [processador A](color:pink) executa um único ciclo de relógio.
 
 Conclui-se que a performance depende do:
 
-- [**Algoritmo**](color:orange): Afeta número de instruções, e possivelmente o CPI. Se um
+- [**Algoritmo**](color:orange): Afeta o número de instruções e possivelmente o CPI. Se um
   algoritmo utilizar muitas instruções de divisão, notáveis por serem
   instruções lentas, o CPI será maior.
 
-- [**Linguagem de Programação**](color:yellow): Afeta número de instruções e CPI. Uma linguagem
-  com bastantes abstrações, como _Java_, utiliza muitas _indirect calls_, o que
+- [**Linguagem de Programação**](color:yellow): Afeta o número de instruções e o CPI. Uma linguagem
+  com bastantes abstrações, como o _Java_, utiliza muitas _indirect calls_, o que
   aumenta o CPI.
 
-- [**Compilador**](color:green): Afeta número de instruções e CPI. O compilador determina a
+- [**Compilador**](color:green): Afeta o número de instruções e o CPI. O compilador determina a
   tradução do código fonte para instruções hardware. Pode-se dizer que tem,
-  portanto, um trabalho muito complexo que pode afetar o CPI de várias
+  portanto, um trabalho muito complexo, que pode afetar o CPI de várias
   maneiras.
 
 - [**ISA**](color:red) (_Instruction Set Architecture_):
-  Afeta número de instruções, CPI e período de relógio. A arquitetura
+  Afeta o número de instruções, o CPI e o período de relógio. A arquitetura
   afeta os três aspetos da performance, pois condiciona as instruções
   necessárias, o custo de cada instrução e a frequência de relógio do
   processador.
@@ -379,13 +379,13 @@ Conclui-se que a performance depende do:
 
 :::danger[Não Confundir]
 
-É importante não confudir o MIPS, _Millions of Instructions per Second_,
-(métrica de performance) com o MIPS, _Microprocessor without Interlocked Pipelined Stages_,
+É importante não confudir o MIPS, _Millions of Instructions per Second_
+(métrica de performance), com o MIPS, _Microprocessor without Interlocked Pipelined Stages_
 (arquitetura de CPUs), que iremos abordar mais à frente nesta disciplina.
 
 :::
 
-O [**MIPS**](color:orange), _Millions of Instructions per Second_, é métrica de performance
+O [**MIPS**](color:orange), _Millions of Instructions per Second_, é uma métrica
 que pode ser usada para classificar a performance de um processador.  
 No entanto, esta não considera as diferenças entre os diferentes ISAs nem
 a diferença entre a complexidade das instruções (i.e. o CPI).
@@ -402,8 +402,8 @@ $$
 A Lei de Amdahl defende que devemos tornar mais rápidas as operações mais
 comuns.
 
-Um erro é comum é pensar que um melhoramento a um aspeto do computador, nos
-traz um crescimento linear na sua performance, o que não é verdade.
+Um erro comum é pensar que uma melhoria de um aspeto do computador nos
+traz um crescimento linear da sua performance, o que nem sempre é verdade.
 
 :::tip[Lei de Amdahl]
 
