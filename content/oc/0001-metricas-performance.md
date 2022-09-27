@@ -141,9 +141,9 @@ _speedup_ deve ser sempre $\geq 1$.
 
 :::info[Exemplo]
 
-Se tivermos um processador $$A$$ que corre um programa em 10 segundos e
-um processador $$B$$ que corre o mesmo programa em 15 segundos,
-concluimos que o processador $$A$$ é melhor que o $$B$$,
+Se tivermos um processador $A$ que corre um programa em 10 segundos e
+um processador $B$ que corre o mesmo programa em 15 segundos,
+concluimos que o processador $A$ é melhor que o $B$,
 já que tem um tempo de execução **menor**.
 
 Mas quão mais rápido é? Para isso, podemos calcular o _speedup_:
@@ -155,7 +155,7 @@ $$
 = 1.5
 $$
 
-Assim, sabemos que o processador $$A$$ é 1.5 vezes mais rápido que o processador $$B$$.
+Assim, sabemos que o processador $A$ é 1.5 vezes mais rápido que o processador $B$.
 
 :::
 
@@ -227,7 +227,7 @@ Ao número de ciclos que uma instrução necessita chama-se [**CPI**](color:pink
 (_cycles per instruction_).
 
 Podemos determinar quantos ciclos é que um programa executa, ao
-multiplicar o número de instruções com os respetivos [CPIs](color:pink):
+multiplicar o número de instruções pelos respetivos [CPIs](color:pink):
 
 $$
 \#\text{Clock Cycles} = \sum_{i=1}^n \left(\smartcolor{pink}{\op{CPI}_i} \times \#\text{Instructions}_i\right)
@@ -293,20 +293,20 @@ $$
 
 :::info[Exemplo]
 
-Consideremos um processador $$A$$ com _clock rate_ de 2GHz, e que
+Consideremos um [processador $A$](color:pink) com _clock rate_ de 2GHz, e que
 demora [10 segundos](color:orange) de tempo de CPU a executar um certo programa.  
-Queremos desenhar um processador $$B$$ que demore
+Queremos desenhar um [processador $B$](color:purple) que demore
 [6 segundos](color:orange) de tempo de CPU a executar o mesmo programa,
 mas que necessite de [1.2 vezes mais ciclos de relógio](color:yellow).
-**Qual será o _clock rate_ do processador $$B$$?**
+**Qual será o _clock rate_ do [processador $B$](color:purple)?**
 
-Começando por escrever a expressão da _clock rate_ de $$B$$, temos:
+Começando por escrever a expressão da _clock rate_ de [$B$](color:purple), temos:
 
 $$
 \text{Clock Rate}_B = \frac{\#\text{Clock Cycles}_B}{\text{CPU Time}_B} = \frac{1.2 \times \text{Clock Cycles}_A}{6 \op{s}}
 $$
 
-No entanto, precisamos de descobrir quantos ciclos efetua o processador $$A$$
+No entanto, precisamos de descobrir quantos ciclos efetua o [processador $A$](color:pink)
 ao executar este programa:
 
 $$
@@ -335,19 +335,19 @@ a resposta é que **depende do processador**.
 Imaginemos que cada processador demora os seguintes ciclos de relógio a efetuar
 cada uma destas operações:
 
-|                               | Operação `AND` | Multiplicação |
-| ----------------------------: | :------------: | :-----------: |
-|   [Processador A](color:pink) |       1        |       1       |
-| [Processador B](color:purple) |       1        |       5       |
+|                                 | Operação `AND` | Multiplicação |
+| ------------------------------: | :------------: | :-----------: |
+|   [Processador $A$](color:pink) |       1        |       1       |
+| [Processador $B$](color:purple) |       1        |       5       |
 
-Conseguimos claramente ver que, no [processador A](color:pink), ambas as operações demoram
-o mesmo tempo a ser executadas, enquanto no [processador B](color:purple) é evidente que a operação
+Conseguimos claramente ver que, no [processador $A$](color:pink), ambas as operações demoram
+o mesmo tempo a ser executadas, enquanto no [processador $B$](color:purple) é evidente que a operação
 mais rápida é o `AND`.
 
 **Mas entre estes dois, qual será o mais rápido a efetuar multiplicações?**
 Não é possível concluir nada, visto que depende da _clock rate_ de cada processador.  
-Pode acontecer que o [processador B](color:purple) tenha uma _clock rate_ suficientemente superior ao do
-[processador A](color:pink), de forma a que execute os 5 ciclos de relógio em menos tempo
+Pode acontecer que o [processador $B$](color:purple) tenha uma _clock rate_ suficientemente superior ao do
+[processador $A$](color:pink), de forma a que execute os 5 ciclos de relógio em menos tempo
 que este executa um único ciclo de relógio.
 
 :::
@@ -380,7 +380,7 @@ Conclui-se que a performance depende do:
 :::danger[Não Confundir]
 
 É importante não confudir o MIPS, _Millions of Instructions per Second_
-(métrica de performance), com o MIPS, _Microprocessor without Interlocked Pipelined Stages_,
+(métrica de performance), com o MIPS, _Microprocessor without Interlocked Pipelined Stages_
 (arquitetura de CPUs), que iremos abordar mais à frente nesta disciplina.
 
 :::
