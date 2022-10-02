@@ -396,6 +396,12 @@ $$
 &= \frac{\text{Clock Rate}}{\op{CPI} \times 10^6}
 \end{aligned}
 $$
+### Floating Point Operations per Second
+O [**FLOPS**](color:orange), _Floating Point Operations per Second_, é outra métrica
+utilizada na avaliação da performance de um processador.
+Enquanto que o MIPS refere-se a qualquer instrução, o FLOPS refere-se apenas a instruções
+dos registos de vírgula flutuante e faz a distinção entre instruções de 64, 32 e 16 bits,
+sendo por isso uma métrica mais precisa.
 
 ### Lei de Amdahl
 
@@ -422,4 +428,14 @@ em que $f$ representa a fração do trabalho realizado pela componente melhorada
 
 :::
 
-<!-- TODO add example -->
+:::info[Exemplo]
+Tomando como exemplo um programa com duas instruções arbitrárias A e B, tal que T$_{A}$ = 0.5s, N$_{A}$ = 10, T$_{B}$ = 1.5s e N$_{B}$ = 2.
+
+Note-se que N$_A$T$_A$ [5s] > N$_B$T$_B$ [3s]
+
+Assim se tornarmos a instrução B 3 vezes mais rápida o tempo total de execução do programa é 6 segundos.
+
+Contudo se tornarmos A 1.8 vezes mais rápida o tempo total de execução do programa é 5.7 segundos! 
+
+
+:::
