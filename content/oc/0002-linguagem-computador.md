@@ -1,7 +1,7 @@
 ---
-title: Instruções- linguagem de um computador
+title: Instruções - Linguagem do Computador
 description: >-
-  ISA- Instruction Set Arquitecture
+  ISA - Instruction Set Arquitecture
   MIPS-32 ISA
   Operações aritméticas em Assembly
   MIPS - registos
@@ -12,47 +12,47 @@ path: /oc/linguagem-computador
 type: content
 ---
 
-# Instruções- linguagem de um computador
+# Instruções - Linguagem do Computador
 
 ```toc
 
 ```
 
-## ISA- _Instruction Set Arquitecture_
+## ISA - _Instruction Set Arquitecture_
 
-Como já tinhamos visto anteriormente, os computadores funcionam através de sets de instruções e diferentes computadores têm diferentes sets de instruções, contudo estes sets têm muitos aspetos em comum. Assim, temos que introduzir o conceito de [ISA- _Instruction Set Arquitecture_](color:pink) que se refere à interface abstrata entre o _hardware_ e o _software_ de nível mais baixo, que engloba toda a informação necessária para escrever um programa em linguagem de máquina. Para haver uma maior **universalização** entre os diferentes computadores, temos o ISA que nos ajuda a, através do mesmo set de instruções como _input_ obtemos o mesmo _output_ mas processado de maneiras diferentes, ou seja, temos o mesmo código de máquina e o que varia é a nossa [arquitetura](color:pink).
+Como já tinhamos visto anteriormente, os computadores funcionam através de sets de instruções e diferentes computadores têm diferentes sets de instruções, contudo estes sets têm muitos aspetos em comum. Assim, temos que introduzir o conceito de [ISA-_Instruction Set Arquitecture_](color:pink) que se refere à interface abstrata entre o _hardware_ e o _software_ de nível mais baixo, que engloba toda a informação necessária para escrever um programa em linguagem máquina.
 
 ### CISC vs RISC
 
-Contudo, para os diferentes computadores também precisamos de diferentes arquiteturas, então como é que as podemos distinguir, qual delas é a mais favóravel ao nosso objetivo final? Existem duas arquiteturas nas quais nos vamos focar nesta cadeira: [CISC](color:pink), _Complex Instruction-Set Computer_, e [RISC](color:pink), _Reduced Instruction-Set Computer_. Nos dias de hoje, **RISC** está nos cern das nossas arquiteturas, apesar de termos uma mistura entre os dois sets de intruções que são [regularizados através de uma pipeline](color:orange).
+Contudo, para os diferentes computadores também precisamos de diferentes arquiteturas, então como é que as podemos distinguir, qual delas é a mais favóravel ao nosso objetivo final? Existem duas arquiteturas nas quais nos vamos focar nesta cadeira: [CISC](color:pink), _Complex Instruction-Set Computer_, e [RISC](color:pink), _Reduced Instruction-Set Computer_. Nos dias de hoje, nas arquiteturas mais recentes o ISA é uma mistura dos dois sets de intruções que são [regularizados através de uma pipeline](color:orange).
 
-Mas o que diferencia estas duas?
+Mas o que diferencia estas duas arquiteturas?
 
 - [Número](color:yellow) de instruções;
 - [Complexidade](color:orange) das operações que são implementadas por uma única instrução;
 - [Número de operandos](color:red);
-- [Modes de endereçamento](color:pink);
-- [Acesso de memória](color:purple).
+- [Modos de endereçamento](color:pink);
+- [Acesso à memória](color:purple).
 
 ## MIPS-32 ISA
 
-Nesta cadeira vamos usar o [**processador** MIPS](https://en.wikipedia.org/wiki/MIPS_architecture) como o principal exemplo de um processador. Este processador foi desenvolvido por parte do programa de investigação VLSI em _Standford University_ no início da década de 80. O objetivo do MIPS era ter uma processador cuja arquitetura pudesse representar como se baixava o compilador para o nível do _hardware_ em vez de se elevar o _hardware_ ao nível do _software_. Assim, este processador implementa um _set_ de instruções mais pequeno e mais simples que, através de [_pipelining_](color:pink) produzem um processo mais eficiente de instruções.
+Nesta cadeira vamos usar o [**processador** MIPS](https://en.wikipedia.org/wiki/MIPS_architecture) como o principal exemplo de um processador. Este processador foi desenvolvido por parte do programa de investigação VLSI em _Standford University_ no início da década de 80. O objetivo do MIPS era ter um processador cuja arquitetura pudesse representar como se baixava o compilador para o nível do _hardware_ em vez de se elevar o _hardware_ ao nível do _software_. Assim, este processador implementa um _set_ de instruções mais pequeno e mais simples que, através de [_pipelining_](color:pink) produzem um processo mais eficiente de instruções.
 
 Assim, conseguimos obter um processador que:
 
-- [favorece simplicidade a regularidade](color:purple) através de um tamanho definido de instruções, um número pequeno de formato de instruções e um _opcode_ sempre definido nos pirmeiros 6 _bits_;
+- [Favorece simplicidade](color:purple) através de um tamanho definido de instruções, um número pequeno de formato de instruções e um _opcode_ sempre definido nos pirmeiros 6 _bits_;
 
-- [acredita que mais pequeno é mais rápido](color:purple) através de um _set_ limitado de instruções, número limitado de registo no ficheiro de registos e número limitado de modos de endereçamento;
+- [Acredita que mais pequeno é mais rápido](color:purple) através de um _set_ limitado de instruções, número limitado de registos no ficheiro de registos e número limitado de modos de endereçamento;
 
-- [bom _design_ implica bons compromissos](color:purple) visto que temos três formatos de instruções
+- [Bom _design_ implica bons compromissos](color:purple) visto que temos três formatos de instruções (Instruções R, I, J)
 
 - [_Make the common case fast_](color:purple) já que as nossas operações aritméticas estão no ficheiro de registos (_load-store machine_) e permite que as instruções contenham um operando imediato;
 
-Este último já tinha sido referido ao ser dada a [**lei de Amdahl**](https://resumos.leic.pt/oc/metricas-performance#lei-de-amdahl) e um bom exemplo de termos este princípio em mente é se, por exemplo, fizermos mais somas. então temos que otimizar essas operações, visto que a maior fração das nossas instruções é aquilo que nós otimizamos, Porém, se tivermos uma multiplicação que corre num tempo muito desfavorável podemos pensar que nos rende otimizarmos estas operações em vez da nossa soma, mas estaríamos errados. Isto porque se fazemos mais somas que multiplicações e digamos que as nossas multiplicações ocupam 10% dos nossos cálculos enquanto as somas 80%, não vale apena estarmos a otimizar um cálculo que não efetuamos assim tantas vezes para nos estar a causar um efeito adverso importante.
+Este último já tinha sido referido ao ser dada a [**Lei de Amdahl**](https://resumos.leic.pt/oc/metricas-performance#lei-de-amdahl) e um bom exemplo de termos este princípio em mente é se, por exemplo, num programa fizermos mais somas.Como grande parte da execução do programa é passada a somar valores, devemo otimizar estas operações. Porém, se tivermos apenas uma multiplicação que corre num tempo muito maior a comparar com as somas, podemos pensar que nos rende otimizarmos estas operações em vez da nossa soma, mas estaríamos errados. Isto porque se fazemos mais somas que multiplicações e digamos que as nossas multiplicações ocupam 3% dos nossos cálculos enquanto as somas 97%, não vale apena estarmos a otimizar a multiplicação, sabendo que otimizar a operação de soma seria muito mais vantajoso.
 
 ### Categorias de Instruções
 
-Tal como já tinha sido visto em IAC e com o Assembly, temos diferentes categorias de instruções para conseguirmos escrever código:
+Tal como já tinha sido visto em [IAC](https://resumos.leic.pt/iac) e com o Assembly, temos diferentes categorias de instruções para conseguirmos escrever código:
 
 - Computacional;
 - _Load/Store_;
@@ -61,47 +61,26 @@ Tal como já tinha sido visto em IAC e com o Assembly, temos diferentes categori
 - _Memory Management_
 - Especial.
 
-:::tip[Jump e Branch]
-
-Apesar de um _Branch_ e um _Jump_ fazerem sensivelmente a mesma coisa, um _Jump_ refere-se a um [salto incondicional](color:pink) enquanto um Branch é um [salto condicional](color:pink). Para além disso, não podemos fazer saltos **muito longos**, por isso teremos que usar um branch até um máximo de $$ 2¹⁵$$ e, de seguida, temos que usar um Branch.
-
-Se queremos fazer um _branch_ para L1 mas este está muito longe:
-
-```
-beq $s0, $s1, L1
-```
-
-Temos que fazer:
-
-```
-bne $s0, $s1, L2`
-j L1
-L2: ...
-```
-
-:::
-
-![Registos](./assets/0002-registos.png#dark=3)
-
-O [PC](color:purple) refere-se a **Program Counter** que é incrementado sempre de quatro em quatro, como já tinhamos visto anteriormente.
-
 ![Formato das instruções](./assets/0002-formato-instrucoes.png#dark=3)
 
-Como podemos ver acima, existem três tipos de instruções que têm cada uma um formato diferente, seja [op](color:pink) o nome da operação que estamos a realizar; [rs, rt e rd](color:pink) registos com valores que vamos usar e/ou guardar valores em e [_immediate_](color:pink) uma constante.
+Como podemos ver acima, existem três tipos de instruções que têm cada uma um formato diferente.
+Algumas dos conceito que se devem saber são:
 
-### Linguagem _Assembly_ do MIPS
+- [op](color:pink) como nome da operação que estamos a realizar;
+- [rs, rt e rd](color:pink) registos (source, t (letra seguinte a s), destination) com valores que vamos usar;
+- [rs, rt e rd](color:pink) função auxiliar a alguns opcodes;
+- [immediate](color:pink) uma constante.
+- [jump target](color:pink) endereço para qual queremos saltar.
 
-![Linguagem _Assembly_ do MIPS](./assets/0002-linguagem-assembly.png#dark=3)
+O [PC](color:purple) refere-se a **Program Counter** que indica o endereço de memória no qual o processador está a ler a intrução atual. Este é incrementado sempre de quatro em quatro Bytes (por uma instrução ocupar $2^5$ bits).
 
-O [registo zero](color:pink) vale sempre zero; o [registo um](color:pink) não é suposto ser usado visto que é sempre usado pelo compilador; os [registos 28-30](color:pink) são utilizados pelo compilador quando uma pilha é implementada para guardar os valores; o [registo 31](color:pink) pode ser usado normalmente a não ser que haja um _Jump and link_, visto que é neste registo que o valor do PC é guardado.
-
-## Operações aritméticas em Assembly
+## Operações Aritméticas em Assembly
 
 Tal como já tínhamos visto em IAC, há várias operações que podemos fazer no nosso programa.
 
-### Adição e subtração
+### Adição e Subtração
 
-Para fazermos estas duas operações aritméticas temos que usar [três operandos](color:purple), dois que nos inidcam os valores e um onde vamos guardar o valor final. Todas as [operações aritméticas](color:pink) têm esta forma:
+Para fazermos estas duas operações aritméticas temos que usar [três operandos](color:purple), dois que nos indicam os valores e um onde vamos guardar o valor final. Todas as [operações aritméticas](color:pink) têm esta forma:
 
 `a = b + c;` → `add a, b, c` a recebe b + c
 
@@ -109,51 +88,36 @@ Para fazermos estas duas operações aritméticas temos que usar [três operando
 
 ### Tarefa complexa em C
 
-[C:](color:pink)
-
 ```c
+# C code
 f = (g + h) - (i + j);
+
+
+# Assembly code
+add t0, g, h   # variável temporária t0 contém g + h
+add t1, i, j   # variável temporária t1 contém i + j
+sub t2, t0, t1 # t2 recebe t0 - t1
 ```
 
-[Assembly:](color:purple)
+## MIPS - Registos
 
-```
-add t0, g, h #variavel temporária t0 contem g + h
-add t1, i, j #variavel temporária t1 contem i + j
-sub f, t0, t1 #f recebe t0 - t1
-```
+![Registos](./assets/0002-registos.png#dark=3)
 
-### Tarefa complexa em C (com registos)
+O MIPS tem [32 registos](color:red), [2 portas de leitura](color:pink), [1 porta de escrita](color:purple) e cada um armazena uma palavra. Estes registos:
 
-[C:](color:pink)
-
-```c
-f = (g + h) - (i + j);
-```
-
-[Assembly:](color:purple)
-
-```
-add t0, g, h #variavel temporária t0 contem g + h
-add t1, i, j #variavel temporária t1 contem i + j
-sub f, t0, t1 #f recebe t0 - t1
-```
-
-## MIPS - registos
-
-O MIPS tem [32 registos](color:red), [2 portas de leitura](color:pink), [1 porta de escrita](color:purple) e cada um armazena uma palavra. Estes registos são:
-
-- mais rápidos que a memória principal
-  - mas registos com mais localizações são mais lento
+- São mais rápidos que a memória principal
+  - mas registos com mais localizações são mais lentos
     - ex: um ficheiro com 64 palavras pode ser 50% mais lento que um de 32 palavras
   - porta de leitura/escrita aumenta velocidade à quarta.
-- densidade de código melhora
+- Melhoram a densidade de código
   - registos tem nomes com menos bits que uma localização de memória;
   - fazer operações com dados em memória precisa de loads e stores.
 
+O [registo zero](color:pink) vale sempre zero; o [registo um](color:pink) não é suposto ser usado visto que é sempre usado pelo compilador; os [registos 28-30](color:pink) são utilizados pelo compilador quando uma pilha é implementada para guardar os valores; o [registo 31](color:pink) pode ser usado normalmente a não ser que haja um _Jump and link_, visto que é neste registo que o valor do PC é guardado.
+
 ![Ficheiro de registos](./assets/0002-ficheiro-registos.jpg#dark=3)
 
-### Instruções com formato R
+### Instruções com Formato R
 
 ![Instruções com formato R](./assets/0002-formato-r.png#dark=3)
 
@@ -176,11 +140,11 @@ Assim, obtemos o nosso valor final 02324020 em base hexadecimal.
 
 :::
 
-### Operandos imediatos
+### Operandos Imediatos
 
 ![Instruções com formato I](./assets/0002-formato-i.png#dark=3)
 
-Sempre que temos uma constante estamos perante um operando [I- imediato](color:pink). Porém não existe subtração imediata por isso temos que usar uma [constante negativa](color:purple). Temos é que sempre ter a certeza que a constante é mantida dentro da prórpia instrução, seja o formato imediato com 16 bits para constante, ou seja, de $$-2¹⁵$$ até $$2¹⁵$$
+Sempre que temos uma constante estamos perante um operando [I-imediato](color:pink). Porém não existe subtração imediata por isso temos que usar uma [constante negativa](color:purple). Temos é que sempre ter a certeza que a constante é mantida dentro da própria instrução, seja o formato imediato com 16 bits para constante, ou seja, de $$-2¹⁵$$ até $$2¹⁵$$
 
 Exemplos:
 
@@ -190,9 +154,9 @@ Com constante negativa: `addi $s2, $s1, -1`
 
 ![Exemplo I](./assets/0002-exemplo-i.png#dark=3)
 
-### Dar load de constantes maiores
+### Load de Constantes de 32 bits
 
-Apesar de, supostamente, só conseguirmos dar load de constantes mais pequenas, é possível usarmos constantes. Para dar load de uma constante de 32 bits serão necessárias duas instruções:
+Para dar load de uma constante de 32 bits serão necessárias duas instruções:
 
 - _load upper immediate_
   - `lui $t0, 1010101010101010`
@@ -205,11 +169,11 @@ Apesar de, supostamente, só conseguirmos dar load de constantes mais pequenas, 
 
 :::warning[Números binários]
 
-Nesta cadeira, tal como em IAC, vamos ver números binários. Para tal, é recomendado ver [essa matéria](https://resumos.leic.pt/iac/mundo-binario#bases-de-numera%C3%A7%C3%A3o) na _tab_ dos resumos de Introdução à Arquitetura de Computadores. Contudo, ao contrário do que foi visto em IAC, para realizarmos uma operação sem complemento para 2 temos que adicionar um u no final da operação da seguinte forma: `addu`.
+Nesta cadeira, tal como em IAC, vamos ver números binários. Para tal, é recomendado ver [essa matéria](https://resumos.leic.pt/iac/mundo-binario#bases-de-numera%C3%A7%C3%A3o) na _tab_ dos resumos de Introdução à Arquitetura de Computadores. Contudo, ao contrário do que foi visto em IAC, para realizarmos uma operação sem complemento para 2 temos que adicionar um u (unsigned) no final da operação da seguinte forma: `addu`.
 
 :::
 
-## Operações lógicas
+## Operações Lógicas
 
 ![Operações lógicas](./assets/0002-operacoes-logicas.png#dark=3)
 
@@ -221,19 +185,21 @@ Estas operações são usadas para a manipulação dos _bits_ e são úteis para
 
 É importante referir que o bit [_shamt_](color:purple) refere-se ao número de posições que pretendemos avançar ou recuar. O [_shift left_](color:purple) ajuda-nos a fazer multiplicações de $$2^i$$ pois avança i casas para a esquerda e adiciona os 0 que faltam; o [_shift right_](color:purple) ajuda-nos a fazer divisões de $$2^i$$ pois avança i casas para a direita e adiciona os 0 que faltam.
 
-## Instruções de Acesso a memória
+## Instruções de Acesso a Memória
 
 O MIPS tem duas instruções básicas de transferir dados para aceder a memória:
 
-`lw $t0, 4($s3)` #load word from memory
+```
+lw $t0, 4($s3) # load word from memory
 
-`sw $t0, 8($s3)` #store word to memory
+sw $t0, 8($s3) # store word to memory
+```
 
 O nosso número no segundo registo pode ser negativo ou positivo desde que tenha $$2¹⁵$$ bits. Para além disso, o _offset_ diz-nos quantos bits podemos ir tanto para a esquerda como para a direita.
 
 ![Acesso a memória](./assets/0002-acesso-memoria.png#dark=3)
 
-### Operandos de memória
+### Operandos de Memória
 
 A memória principal é usada para a [composição de dados](color:pink), nomeadamente _arrays_, estruturas e dados dinâmicos. Para efetuar operações aritméticas temos que dar [_load_ dos valores da memória](color:pink) para os registos e no final temos que dar [_store_ do resultado do registo](color:pink) para a memória. A memória é [endereçada em bytes](color:pink) e cada endereço é identificado por um valor de 8 bits; as palavras são alinhadas em memória com um endereço que seja um [múltiplo de quatro](color:pink).
 
@@ -285,6 +251,26 @@ Ao fazermos um _branch_. o nosso endereço vai sempre para o $$PC + offset*4$$, 
 
 ![Sumário](./assets/0002-sumario1.png#dark=3)
 ![Sumário](./assets/0002-sumario2.png#dark=3)
+
+:::tip[Jump e Branch]
+
+Apesar de um _Branch_ e um _Jump_ fazerem sensivelmente a mesma coisa, um _Jump_ refere-se a um [salto incondicional](color:pink) enquanto um Branch é um [salto condicional](color:pink). Para além disso, não podemos fazer saltos **muito longos**, pois faltam-nos bits para indicar a instrução para qual saltar. Assim no MIPS apenas podemos fazer _Jump_ no quadrante de código onde estamos, em alternativa podemos usar um _Branch_.
+
+Se queremos fazer um _branch_ para L1 mas este está muito longe:
+
+```
+beq $s0, $s0, L1
+```
+
+Temos que fazer:
+
+```
+bne $s0, $s1, L2
+j L1
+L2: ...
+```
+
+:::
 
 ## Compilar em Assembly
 
