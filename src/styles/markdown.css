@@ -34,7 +34,8 @@ body.dark-mode .content a:hover {
   filter: brightness(120%);
 }
 
-.content img {
+.content img,
+.content object {
   max-width: 100%;
   /* center images */
   display: block;

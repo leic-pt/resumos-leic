@@ -4,7 +4,7 @@ const onImageVisit = (node) => {
   const data = node.data || (node.data = {});
   const hProperties = data.hProperties || (data.hProperties = {});
 
-  if (hProperties.preImageDataAlreadyVisited) {
+  if (data.preImageDataAlreadyVisited) {
     return;
   }
 
@@ -23,7 +23,7 @@ const onImageVisit = (node) => {
     // SVGs don't get their captions set automatically, so manually create them
     const isSvg = splits[0].endsWith('.svg');
     if (isSvg && node.title) {
-      hProperties.preImageDataAlreadyVisited = true;
+      data.preImageDataAlreadyVisited = true;
       const nodeCopy = { ...node };
       node.type = 'figure';
       node.data = {
