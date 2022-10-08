@@ -77,19 +77,19 @@ Processo formal de identificar, medir e comunicar a informação sobre o patrim�
 
 ## O Balanço e a Demonstração de Resultados
 
-O balanço é uma fotografia num dado momento da situação patrimonial da empresa. Conta com 3 grandes rúbricas, que depois podem ser distinguidos em subpartes:
+O balanço é uma fotografia num dado momento da situação patrimonial da empresa. Conta com 3 grandes rubricas, que depois podem ser distinguidos em subpartes:
 
 - **Ativo**: Bens e direitos que a empresa possui ou tem direito a receber:
 
   - **Ativos Fixos Tangíveis**: Edifícios, equipamentos,...
   - **Ativos Fixos Intangíveis**: Marcas, patentes,...
   - **Inventários**: Produtos fabricados, em vias de fabricação ou matéria prima
-  - **Valores Monetários**: Dinheiro, depósitos e titúlos financeiros
+  - **Valores Monetários**: Dinheiro, depósitos e títulos financeiros
   - Dívidas de clientes
 
 - **Passivo**: Responsabilidades da empresa perante terceiros
 
-- **Capital próprio**: Capital realizado e lucros do período ou de períodos anteriores retidos na empresa. (não distribuido aos sócios ou acionistas)
+- **Capital próprio**: Capital realizado e lucros do período ou de períodos anteriores retidos na empresa. (não distribuído aos sócios ou acionistas)
   - **Capital Subscrito**: Dinheiro investido formalmente pelos sócios para suportar as necessidades financeiras da empresa
 
 :::tip

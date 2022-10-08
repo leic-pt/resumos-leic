@@ -86,7 +86,7 @@ Apesar de gráficos serem importantes, relacionando-se com o que queremos comuni
 
 Marketing foca-se em dados demográficos, não sabendo o **comportamento humano**. Existe uma grande distinção entre **o que os utilizadores dizem e o que fazem**, sendo portanto relevante a diferença entre questionários e a observação.
 
-> "If I had asked people what they wanted, they would have sair faster horses..." **- Henry Ford**
+> "If I had asked people what they wanted, they would have said faster horses..." **- Henry Ford**
 
 ### 3. Bom _design_ é senso comum ❌
 

@@ -1,0 +1,26 @@
+name: Conteúdo Incorreto
+description: Encontraste conteúdo incorreto (typos, incorreções formais, formatação, etc)?
+title: "[Incorrect Content] "
+labels: ["incorrect content"]
+body:
+  - type: markdown
+    attributes:
+      value: Preenche os campos abaixo para podermos corrigir a resolução do mais depressa possível!
+  - type: input
+    id: page_link
+    attributes:
+      label: Qual a página que tem o conteúdo incorreto?
+      description: Coloca o link da página em questão
+      placeholder: "https://resumos.leic.pt/..."
+    validations:
+      required: true
+  - type: textarea
+    id: error_description
+    attributes:
+      label: O que está incorreto e como ficaria correto?
+      description: Aqui podes (e deves!) colocar screenshots do erro e explicar porque achas que o conteúdo está incorreto, e, se possível, indicar como ficaria correto!
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: Obrigado por reportares esta incorreção.

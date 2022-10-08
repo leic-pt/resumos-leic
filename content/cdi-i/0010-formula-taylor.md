@@ -11,7 +11,7 @@ description: >-
   Majorar erros.
   Teorema de Taylor para os Extremos.
   Concavidade.
-  Teeorema de Taylor para as Concavidades.
+  Teorema de Taylor para as Concavidades.
 path: /cdi-i/formula-taylor
 type: content
 ---
@@ -168,7 +168,7 @@ Então, $\displaystyle P_4(x)=x-\frac{x^3}6$.
 
 👉 Podem-se tirar duas conclusões ao analisar este exemplo:
 
-- A construção do polinómio é uma tarefa mecânia, muito simples.
+- A construção do polinómio é uma tarefa mecânica, muito simples.
 - Sem a indicação da ordem do polinómio, ser-se-ia levado a acreditar que se tratava de um polinómio de terceira ordem, visto que os polinómios de terceira e quarta ordem coincidem, pois ambos têm grau 3.
 
 :::
@@ -242,7 +242,7 @@ Para escrever a fórmula de MacLaurin para $f(x)=\sh(ax)$, com resto de ordem 4,
 $$
 \big(\sh(ax)\big)^{(n)}=\begin{cases}
 a^n\sh(ax)&\text{se }n\text{ é par}\\
-a^n\ch(ax)&\text{se }n\text{ é impar}
+a^n\ch(ax)&\text{se }n\text{ é ímpar}
 \end{cases}
 $$
 
@@ -334,7 +334,7 @@ Então, pode-se concluir o seguinte:
 - Se $n$ é par:
   - Se $f^{(n)}(x_0)>0$, $x_0$ é minimizante local
   - Se $f^{(n)}(x_0)<0$, $x_0$ é maximizante local
-- Se $n$ é impar:
+- Se $n$ é ímpar:
   - Se $f^{(n)}(x_0)>0$, $f$ é crescente numa vizinhança de $x_0$
   - Se $f^{(n)}(x_0)<0$, $f$ é decrescente numa vizinhança de $x_0$
 
@@ -369,7 +369,7 @@ Então:
 - Se $n$ é par
   - Se $f^{(n)}(x_0)>0$, $f$ é convexa em $x_0$
   - Se $f^{(n)}(x_0)<0$, $f$ é côncava em $x_0$
-- Se $n$ é impar, $f$ tem um ponto de inflexão em $x_0$
+- Se $n$ é ímpar, $f$ tem um ponto de inflexão em $x_0$
 
 ::youtube{#kHdRwzxIk8c}
 

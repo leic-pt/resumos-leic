@@ -24,6 +24,11 @@ cg:
   - content/cg/**/*
 comp:
   - content/comp/**/*
+der: # HACS
+  - content/der/**/*
+emd:
+  - content/emd/**/*
+  - content/md/**/*
 es:
   - content/es/**/*
 fis-i:
@@ -34,18 +39,20 @@ fp:
   - content/fp/**/*
 ges:
   - content/ges/**/*
+ia:
+  - content/ia/**/*
 iac:
   - content/iac/**/*
 iaed:
   - content/iaed/**/*
+ieco: # HACS
+  - content/ieco/**/*
 iei:
   - content/iei/**/*
 ipm:
   - content/ipm/**/*
 lp:
   - content/lp/**/*
-md:
-  - content/md/**/*
 oc:
   - content/oc/**/*
 pe:

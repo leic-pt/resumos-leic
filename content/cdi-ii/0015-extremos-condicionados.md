@@ -413,7 +413,7 @@ $$
 **Sabe-se que a densidade de massa deste segmento é dada por $z^2$.**
 **Qual a massa do segmento?**
 
-Começemos por parametrizar o segmento, que podemos fazer
+Comecemos por parametrizar o segmento, que podemos fazer
 através de da expressão vetorial de uma reta.
 
 $$
@@ -470,7 +470,7 @@ $$
 
 :::details[Exemplo]
 
-**Considerando a variedade $P$, correspondente a um parabolóide:**
+**Considerando a variedade $P$, correspondente a um paraboloide:**
 
 $$
 P = \{(x,y,z) \in \R^3: x^2+y^2=z, z < 1\}
@@ -593,7 +593,7 @@ Sabe-se que a densidade de massa é $\phi (x,y,z) = \frac{1}{\sqrt{2z^2+1}}$
 
 A massa é dada por $\int_S \phi$
 
-Começamos por parametrizar $S$, usando coordenadas cilindricas:
+Começamos por parametrizar $S$, usando coordenadas cilíndricas:
 
 $$
 \begin{cases}
@@ -654,10 +654,10 @@ $$
 
 :::
 
-### Centroíde e Momento de Inércia
+### Centroide e Momento de Inércia
 
 Tal como referido em [Aplicações do Integral](/cdi-ii/aplicacoes-integral),
-é possível calcular o centroíde e momento de inércia de um sólido através do
+é possível calcular o centroide e momento de inércia de um sólido através do
 cálculo de um integral.
 
 Esses cálculos são também aplicáveis em campos escalares, pelo que voltamos a ter a mesma definição:
@@ -679,7 +679,7 @@ $$
 M = \{ y = x^2, x \in ]-1, 1[\}
 $$
 
-**Qual o centroíde de $M$?**
+**Qual o centroide de $M$?**
 
 Começamos por fazer a sua parametrização:
 
@@ -712,7 +712,7 @@ $$
 M = \{ x^2 +y^2 = 1, y > 0\}
 $$
 
-**Determine o seu centroíde**
+**Determine o seu centroide**
 
 Começamos por parametrizar a variedade:
 
@@ -724,9 +724,9 @@ g'(t) = (-\sin t, \cos t) & || g'(t) || = 1
 $$
 
 Esta variedade representa um semi-círculo de raio 1.  
-De seguida, calculamos o centroíde, sabendo já que $\int_M 1 = \pi$, visto que corresponde ao comprimento do semi-círculo.
+De seguida, calculamos o centroide, sabendo já que $\int_M 1 = \pi$, visto que corresponde ao comprimento do semi-círculo.
 
-Centroíde de $M$: $(\overline x, \overline y)$
+Centroide de $M$: $(\overline x, \overline y)$
 
 $$
 \overline x = \frac{\int_M x}{\int_M 1} = \frac{1}{\pi} \int_M x \d \gamma = \frac{1}{\pi} \int^{\pi}_0 \cos t \cdot 1 \d t =
@@ -738,7 +738,7 @@ $$
 \frac{1}{\pi} \left[-\cos t\right]^{\pi}_0 = \frac{2}{\pi}
 $$
 
-Centroíde: $\left(0, \frac{2}{\pi}\right)$
+Centroide: $\left(0, \frac{2}{\pi}\right)$
 
 :::
 

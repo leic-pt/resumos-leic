@@ -63,7 +63,7 @@ v(t) = \int_0^t \frac{\d v}{\d t} \d t = \int_0^t 0.1 \d t = 0.1t + c
 \end{darray}
 $$
 
-Como sabemos que $v(0) = 3$, temos que $v(t) = 3 + 0.1t$, o que já tínhamos concluido de uma forma mais simples.
+Como sabemos que $v(0) = 3$, temos que $v(t) = 3 + 0.1t$, o que já tínhamos concluído de uma forma mais simples.
 
 **No entanto, o que acontece agora se alterarmos a razão para $\frac{t}{100}$?**
 
@@ -101,7 +101,7 @@ $$
 v(t) = \int_0^t \frac{\d v}{\d s} \d s = \int_0^t \frac{s}{100} - \frac{v}{100} \d s = \frac{t^2}{200} - \frac{vt}{100}
 $$
 
-Poderiamos isolar $v(t)$, atendendo ao domínio, mas o exemplo até agora demonstra a importância de saber resolver EDOs.
+Poderíamos isolar $v(t)$, atendendo ao domínio, mas o exemplo até agora demonstra a importância de saber resolver EDOs.
 Mais à frente veremos como podemos resolver equações deste tipo.
 
 :::
@@ -180,7 +180,7 @@ $$
 x' = a(t)x \Leftrightarrow \frac{x'}{x} = a(t) \Leftrightarrow \ln |x| = \int a(s) ds + C \Leftrightarrow x = \pm e^C e^{\int a(s) ds}
 $$
 
-para algum valor de $C \in \R$. Por continuidade de $x$ (note-se que $x$ é diferenciável), temos que $C$ tem o mesmo valor em podos os pontos do domínio, pelo que a solução toma forma
+para algum valor de $C \in \R$. Por continuidade de $x$ (note-se que $x$ é diferenciável), temos que $C$ tem o mesmo valor em todos os pontos do domínio, pelo que a solução toma forma
 
 $$
 x(t) = K e^{\int a(t) \d t}
@@ -210,7 +210,7 @@ $$
 \frac{\d x}{\d t} + a(t) x = b(t)
 $$
 
-Para resolver este tipo de equações, utilizamos uma função auxiliar, denomidada [**fator de integração**](color:orange).\
+Para resolver este tipo de equações, utilizamos uma função auxiliar, denominada [**fator de integração**](color:orange).\
 O fator integrante é uma função $\mu : \R \to \R$ (normalmente representada pela [letra grega "mu"](<https://en.wikipedia.org/wiki/Mu_(letter)#Mathematics>)), tal que $\mu' = a(t)\mu$.\
 Esta função permite-nos reduzir o caso geral aos casos mais simples que já sabemos resolver:
 
@@ -358,7 +358,7 @@ f(y)y' = g(t) \Leftrightarrow F[y(t)] = \int g(t) dt + C
 $$
 
 em que $F$ é uma primitiva da função $f$. Note-se que este resultado não oferece uma
-solução explı́cita para y, mas uma solução implı́cita. Contudo, como $F'(y_0) = f(y_0) \neq 0$, podemos aplicar o Teorema da função implícita para afirmar que a equação a cima tem uma solução única numa vizinhança de $y_0$.
+solução explícita para y, mas uma solução implícita. Contudo, como $F'(y_0) = f(y_0) \neq 0$, podemos aplicar o Teorema da função implícita para afirmar que a equação acima tem uma solução única numa vizinhança de $y_0$.
 
 Como $y(t_0)=y_0$, podemos especificar que a equação
 

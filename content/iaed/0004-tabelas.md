@@ -23,43 +23,64 @@ tab[ 0] & tab[ 1] & ... & tab[ DIM\ -1]\\
 \end{array}
 $$
 
-Uma tabela permite guardar vários elementos do mesmo tipo.
+Uma tabela permite guardar vários elementos **do mesmo tipo** - é aceite qualquer tipo de dados que seja reconhecido, mas não podemos misturar tipos de dados na mesma tabela. `int tab[DIM];`, por exemplo, cria uma tabela `tab` de tamanho `DIM` que armazena inteiros (**apenas** inteiros).
 
-- Inteiros, reais, caracteres
+Esta propriedade advém, claro, do facto de C ser uma linguagem tipificada - em Python, por exemplo, a não ser que _tipifiquemos_ explicitamente uma lista, esta pode armazenar tipos de dados diferentes.
 
-`int tab[DIM];` cria uma tabela `tab` de tamanho `DIM` que armazena inteiros.
+Para [**aceder**](color:orange) ao valor da tabela na posicao `i`, devemos usar a notação `tab[i]`. Já para [**atribuir**](color:green) um valor à posição `i` da tabela, devemos usar a notação `tab[i] = n`.
 
-Para acesar o valor da tabela na posicao `i`
+Tal como em Python, as tabelas são **indexadas a partir de 0**. Assim sendo, o primeiro índice é o `0` e o último índice é o `DIM - 1`.
 
-- `tab[i]`
-
-Para atribuir um valor à tabela na posição `i`
-
-- `tab[i] = 10;`
-
-O primeiro indíce é o `0` e o último índice é o `DIM - 1`
-
-:::warning[AVISO]
+:::danger[AVISO]
 Quando a tabela é criada, os valores que esta guarda não são inicializadas a 0, têm valores pseudo-aleatórios.
-Para defini-las a 0, faz-se um loop atribuindo a cada posição da tabela o valor 0.
+Para defini-las a 0, podemos fazer um loop atribuindo a cada posição da tabela o valor 0.
 :::
 
-`embed:assets/0004-vect.c`
+```c
+#include <stdio.h>
+
+int main () {
+    int i;
+    int tab[10];
+
+    // Inicializa uma tabela cujos
+    // valores são o dobro dos índices
+    // e.g. [0, 2, 4, 6, ...]
+    for (i = 0; i < 10; i++) {
+        tab[i] = 2 * i;
+    }
+
+    for (i = 0; i < 10; i++) {
+        printf("%d\n", tab[i]);
+    }
+
+    return 0;
+}
+```
+
+:::details[Output do programa acima]
+
+```
+0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+```
+
+:::
 
 ### Tabelas Bidimensionais (Matrizes)
 
-Uma tabela permite guardar vários elementos do mesmo tipo.
-Assim também podemos guardar tabelas dentro de tabelas.
+Uma tabela permite guardar vários elementos do mesmo tipo. Podemos, claro, guardar tabelas dentro de tabelas! `char tab[DIM1][DIM2];` cria uma tabela `tab` de tamanho `DIM1` que armazena tabelas de tamanho `DIM2` que armazena caracteres.
 
-`char tab[DIM1][DIM2];` cria uma tabela `tab` de tamanho `DIM1` que armazena tabelas de tamanho `DIM2` que armazena caracteres.
-
-Para acessar o valor da tabela `i` na posição `j`
-
-- `tab[i][j]`
-
-Para atribuir um valor à tabela `i` na posição `j`
-
-- `tab[i][j] = 10;`
+Para aceder ao valor da posição `j` na tabela indexada por `i`, devemos escrever `tab[i][j]`. Por outro lado, para atribuir um valor à posição `j` na tabela `i`, devemos escrever `tab[i][j] = n`.
 
 ## Strings (Cadeias de Caracteres)
 
@@ -75,33 +96,62 @@ $$
 \end{array}
 $$
 
-Em C uma cadeia de caracteres acaba com `\0` .
-
-Cadeia de caracteres "hello\n" tem caracteres
-`h`, `e`, `l`, `l`, `o`, `\n` e `\0`
-
-A função `printf` espera strings neste formato.
-
-Para se ler ou escrever strings usa-se `%s`
+Em C, qualquer cadeia de caracteres que se preze acaba com `\0`: a cadeia de caracteres "hello\n", por exemplo, é composta pelos caracteres `h`, `e`, `l`, `l`, `o`, `\n` e `\0`.  
+O `\0` indica **o fim da cadeia de caracteres**, e a função `printf` espera strings neste formato (podemos _printar_ cadeias de caracteres usando `%s`).
 
 Os Vetores são copiados posição a posição!
 
-`embed:assets/0004-copia-str.c`
+```c
+#include <stdio.h>
+
+#define DIM 100
+
+int main() {
+    int c, i;
+    char origem[DIM], destino[DIM];
+
+    for (i = 0; i < DIM - 1 && (c = getchar()) != EOF && c != '\n'; i++) {
+        origem[i] = c;
+    }
+
+    origem[i] = '\0';
+    i = 0;
+
+    while ((destino[i] = origem[i]) != '\0') {
+        i++;
+    }
+
+    printf("Origem: %s\nDestino: %s\n", origem, destino);
+
+    return 0;
+}
+```
 
 ### Leitura de Strings com o Scanf
 
-`embed:assets/0004-scanf.c`
+```c
+#include <stdio.h>
 
-O scanf permite ler uma string através da formatação `%s`
-A leitura é feita até encontrar um "whitespace" (`" "`, `\n`, `\t`, etc)
-O scanf automaticamente insere `\0` no final da leitura.
-O comando `fgets` permite ler linhas inteiras.
+#define DIM 100
+
+int main() {
+    char palavra[DIM];
+    scanf("%s", palavra);
+
+    printf("%s", palavra);
+
+    return 0;
+}
+```
+
+O `scanf` permite ler uma string através da formatação `%s`. A leitura é feita até encontrar um "whitespace" (`" "`, `\n`, `\t`, etc) - não podemos, com um único `scanf("%s", ...)`, ler toda uma cadeia com várias palavras. Mais ainda, o `scanf` automaticamente insere `\0` no final da leitura da cadeia.
+
+Será, contudo, de grande utilidade poder ler linhas inteiras (ou, pelo menos, mais que uma palavra de cada vez) - a função `fgets` entra aqui em cena, permitindo ler linhas inteiras!
 
 ### String.h
 
-Ao escrever `#include <string.h>` passamos a ter acesso a um conjunto razoável de funções para
-manipulação de strings.
-Exemplos úteis:
+Ao escrever `#include <string.h>`, estamos a adicionar ao nosso programa uma biblioteca equipada com um conjunto bastante razoável de funções para manipulação de strings.
+Exemplos úteis (que vão certamente ser-vos úteis nos vossos projetos) incluem:
 
 - `strcmp` (compara strings)
 - `strcpy` (copia strings)
@@ -110,5 +160,5 @@ Exemplos úteis:
 - entre outros.
 
 :::tip
-O Comando `man` permite ver o que as funções fazem.
+Escrever `man <nome da função>` no terminal permite ver o que as funções fazem. Caso não tenham um sistema onde _manpages_ estejam à vossa disposição, [as _manpages_ online](https://man7.org/linux/man-pages/dir_section_3.html) podem ser-vos particularmente útil.
 :::

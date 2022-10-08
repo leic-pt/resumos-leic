@@ -100,7 +100,7 @@ Num sistema de ficheiros FAT, a partição contém três secções distintas:
   dimensão, para conter os dados dos ficheiros
 
 A identificação dos blocos de um certo ficheiro é feita da seguinte forma:  
-O Diretório contém o nome do ficheiro e um inteiro que corresponde a um indíce da tabela de alocação.  
+O Diretório contém o nome do ficheiro e um inteiro que corresponde a um índice da tabela de alocação.  
 As entradas da FAT:
 
 - com o valor zero indicam que o bloco com o mesmo índice está livre;
@@ -110,7 +110,7 @@ As entradas da FAT:
 
 :::tip[Exemplo]
 
-Por exemplo, na imagem a cima:
+Por exemplo, na imagem acima:
 
 O FichA tem dados nos blocos:
 

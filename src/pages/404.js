@@ -7,7 +7,6 @@ import PageMetadata from '../components/PageMetadata';
 const NotFoundPage = () => {
   return (
     <div>
-      <PageMetadata title='Página Não Encontrada' />
       <Navbar />
       <div className='main-container'>
         <h1>404</h1>
@@ -22,3 +21,5 @@ const NotFoundPage = () => {
 };
 
 export default NotFoundPage;
+
+export const Head = () => <PageMetadata title='Página Não Encontrada' />;

@@ -95,9 +95,9 @@ Então, temos que $\int_C F \cdot \d g$ é o trabalho realizado por $F$.
 ### Segmento que une dois pontos
 
 Por vezes, precisamos de considerar um caminho que une dois pontos.
-Para isso, podemos considerar a seguinte parameterização.
+Para isso, podemos considerar a seguinte parametrização.
 
-Sejam, por exemplo, $(1,2,3)$ e $(4,5,6)$ os pontos que queremos considerar, a parameterização
+Sejam, por exemplo, $(1,2,3)$ e $(4,5,6)$ os pontos que queremos considerar, a parametrização
 será:
 
 $$
