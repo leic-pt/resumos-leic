@@ -9,7 +9,7 @@ type: exercises
 
 :::info[Resoluções Incorretas?]
 Caso encontres incorreções nas resoluções abaixo, por favor
-[reporta-as](https://github.com/diogotcorreia/resumos-leic/issues/new/choose)
+[reporta-as](https://github.com/leic-pt/resumos-leic/issues/new/choose)
 para serem corrigidas.
 :::
 
@@ -167,9 +167,9 @@ Para além dos exercícios das aulas práticas, o livro de exercícios indicado 
 
 - Semana 8: Prolog - Listas $II$
 
-  Nota importante: Os exercícios desta secção devem ser realizados com predicados de ordem superior (sem recursão, portanto). A secção dos meta-predicados sobre listas poderá ser útil para este propósito.
-
-  Se esgotarem estes exercícios e quiserem fazer mais, [este site](https://www.ic.unicamp.br/~meidanis/courses/mc336/2009s2/prolog/problemas/) tem imensos exercícios de Prolog que podem querer fazer (ty Gonçalo Nunes 😄).
+  Nota importante: Os exercícios desta secção devem ser realizados com predicados de
+  ordem superior (sem recursão, portanto). A secção dos meta-predicados sobre
+  listas poderá ser útil para este propósito.
 
   :::details[Resolução]
   Exercício 1
@@ -250,7 +250,7 @@ Para além dos exercícios das aulas práticas, o livro de exercícios indicado 
 
 - Semana 9: Prolog - Aritmética, I/O
 
-- Aritmética
+  - Aritmética
 
   :::details[Resolução]
 
@@ -259,13 +259,13 @@ Para além dos exercícios das aulas práticas, o livro de exercícios indicado 
   (Tentem fazer primeiro vocês próprios e verifiquem as respostas no fim)
 
   a) X = 3+2.  
-  b) X = 5.  
-  c) true.  
-  d) false.  
-  e) Erro - argumentos não suficientemente instanciados.  
-  f) X = 3, Y = 8.  
-  g) false.  
-  h) true.
+   b) X = 5.  
+   c) true.  
+   d) false.  
+   e) Erro - argumentos não suficientemente instanciados.  
+   f) X = 3, Y = 8.  
+   g) false.  
+   h) true.
 
   Exercício 2
 
@@ -384,7 +384,7 @@ Para além dos exercícios das aulas práticas, o livro de exercícios indicado 
 
   :::
 
-- Instruções de Leitura e Escrita
+  - Instruções de Leitura e Escrita
 
   :::details[Resolução]
 

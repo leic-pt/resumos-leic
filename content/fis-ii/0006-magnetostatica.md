@@ -32,7 +32,7 @@ $$
 
 A Densidade de Corrente $\vec J$ é a quantidade de carga que passa através de um elemento de superfície perpendicular à corrente das cargas em movimento por unidade de tempo
 
-![Definicao](./imgs/0006-def.png#dark=0)
+![Definição](./imgs/0006-def.png#dark=0)
 
 A Densidade de Corrente está relacionada com a velocidade média do fluxo das cargas.
 
@@ -57,7 +57,7 @@ $$
 I = \int_{S} \vec J \ d \vec S
 $$
 
-- Mede-se em Ampère $\ 1A = 1 C s^{-1}$
+- Mede-se em Ampere $\ 1A = 1 C s^{-1}$
 - Representa a taxa a que a carga deixa um volume delimitado por uma superfície $S$
 
 A Carga Elétrica é indestrutível, isto é, é conservada, não se pode criar nem destruir.
@@ -165,7 +165,7 @@ $$
 R = \cfrac{V}I \ , \ \ \ \ \ \ R = \cfrac{\rho L}{A}
 $$
 
-$R$ é a Resitência, expressa-se em ohms $(\Omega)$
+$R$ é a Resistência, expressa-se em ohms $(\Omega)$
 
 $1 \Omega = 1 V A^{-1}$
 
@@ -207,19 +207,19 @@ Uma única carga elétrica em movimento não é uma corrente estacionária.
 
 ## A Experiência de Ampère
 
-![Experiencia](./imgs/0006-exp.png#dark=1)
+![Experiência](./imgs/0006-exp.png#dark=1)
 
-Se colocarmos 2 fios condutores em paralelo com uma certa corrente podemos observar certos fenónemos:
+Se colocarmos 2 fios condutores em paralelo com uma certa corrente podemos observar certos fenómenos:
 
 - Quando a corrente nos dois fios tem a mesma direção os fios atraem-se
 
 - Quando a corrente nos dois fios tem a direção oposta os fios repelem-se
 
-Ampère concluiu assim que este fenónemos eram explicados pela Força Magnética.
+Ampère concluiu assim que este fenómenos eram explicados pela Força Magnética.
 
 Enquanto que uma carga parada produz um Campo Elétrico $\vec E$, uma carga em movimento produz um Campo Elétrico e um Campo Magnético $\vec B$
 
-![Bussola](./imgs/0006-bussola.png#dark=1)
+![Bússola](./imgs/0006-bussola.png#dark=1)
 
 Ørsted verificou isso usando uma bússola e vendo que esta mudava a direção perto dos fios, sobre o efeito de corrente.
 
@@ -246,7 +246,7 @@ $$
 dW = \vec F \ d \vec l = Q (\vec v \times \vec B) \ \vec v \ dt = Q(\vec v \times \vec v) \ \vec B \ dt = 0
 $$
 
-Esta Força apenas pode mudar a trajetória de uma partícula mas nunca pode acelará-la
+Esta Força apenas pode mudar a trajetória de uma partícula mas nunca pode acelerá-la
 
 Assim a Força por unidade de volume é
 
@@ -309,7 +309,7 @@ A integração é feita segundo a direção da corrente.
 
 $\mu_{0} = 4 \pi \times 10^{-7} N \ A^{-2}$ é a Permeabilidade do Espaço Livre
 
-Este número é exato e não uma constante empírica. Serve para definir o Ampère, que define o Coulomb. As unidades foram definidas de forma a que $\vec B$ seja expresso em Newton por Ampère-metro ou Tesla (T) $\ 1 T =  1 N A^{-1} \ m ^{-1}$
+Este número é exato e não uma constante empírica. Serve para definir o Ampere, que define o Coulomb. As unidades foram definidas de forma a que $\vec B$ seja expresso em Newton por Ampere-metro ou Tesla (T) $\ 1 T =  1 N A^{-1} \ m ^{-1}$
 Usa-se mais a unidade Gausss od sistema CGS: 1 Tesla $=10^4$ Gauss
 
 Para temos de comparação, o Campo Magnético terrestre é igual a 0.5 Gauss.

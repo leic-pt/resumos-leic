@@ -394,7 +394,7 @@ $$
 
 ### Propriedades de limites num ponto, em $\overline\R$
 
-Algumas das [propriedades anteriormente vistas para limites num ponto](#propriedades-de-limites-num-ponto) também se extendem para limites em $\overline\R$:
+Algumas das [propriedades anteriormente vistas para limites num ponto](#propriedades-de-limites-num-ponto) também se estendem para limites em $\overline\R$:
 
 - Se $x_0 \in \overline {D_f}\cap\overline {D_g}$, $f(x)\le g(x)$ para todo o $x\in V_r(x_0)\cap D_f\cap D_g$ para algum $r\in\R^+$, então, se existirem $a,b, \in \overline\R$ tais que $\lim_{x\rightarrow x_0} f(x)=a$ e $\lim_{x\rightarrow x_0} g(x)=b$, tem-se que $a\le b$.
 - A propriedade anterior também se verifica para $f(x) <g(x)$.
@@ -412,12 +412,12 @@ $$
 
 ### Operações algébricas, em $\overline\R$
 
-Tal [como aconteceu nas sucessões](/cdi-i/limites-sucessoes#operações-algébricas), as [operações algébricas entre funções](/cdi-i/funcoes#operações-algébricas-entre-funções) são facilmente extendidas a $\overline\R$.
+Tal [como aconteceu nas sucessões](/cdi-i/limites-sucessoes#operações-algébricas), as [operações algébricas entre funções](/cdi-i/funcoes#operações-algébricas-entre-funções) são facilmente estendidas a $\overline\R$.
 Apenas é preciso ter atenção à existência de limite para todas as funções intervenientes e de (não haver) indeterminações.
 
 ### Limite em $\overline\R$ de uma função num ponto relativo a um conjunto
 
-Este [teorema anteriormente definido](#limite-de-uma-função-num-ponto-relativo-a-um-conjunto), também se extende para $\overline\R$.
+Este [teorema anteriormente definido](#limite-de-uma-função-num-ponto-relativo-a-um-conjunto), também se estende para $\overline\R$.
 
 Através desta extensão do teorema, verifica-se imediatamente que os limites em $\pm\infin$ são, por definição, limites laterais.
 
@@ -431,7 +431,7 @@ Através desta extensão do teorema, verifica-se imediatamente que os limites em
 
 Em geral, as técnicas utilizadas para levantar indeterminações nas sucessões podem ser utilizadas no cálculo de limites de funções.
 
-Apresentam-se algumas excessões:
+Apresentam-se algumas exceções:
 
 - Todas as técnicas que utilizam, nas sucessões, o cálculo de limites que incluem $u_{n+1}$ e $u_n$ não têm equivalente direto para as funções.
 - Surgem as técnicas de fatorização para levantar indeterminações do tipo $\frac 0 0$ quando o ponto onde se calcula o limite é finito.

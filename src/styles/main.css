@@ -10,9 +10,13 @@ body {
   --textColor: #2c3e50;
   --borderColor: #eaecef;
   --lighten20TextColor: #476582;
-  --miniCodeBgColor: rgba(27, 31, 35, 0.05);
+  /* --miniCodeBgColor: rgba(27, 31, 35, 0.05); */
+  --miniCodeBgColor: #e8ebeb;
   --scrollbarColor: rgba(0, 0, 0, 0.4);
-  --tableStripeBgColor: #f6f8fa;
+  --tableStripeBgColor: #f6f8faaa;
+
+  --scrollbarWidth: 6px;
+  --scrollbarHeight: 8px;
 }
 
 @media not print {
@@ -23,16 +27,17 @@ body {
     --textColor: #e2e2e2;
     --borderColor: #4e4e4e;
     --lighten20TextColor: #e8e8e8;
-    --miniCodeBgColor: hsla(0, 0%, 100%, 0.1);
+    /* --miniCodeBgColor: hsla(0, 0%, 100%, 0.1); */
+    --miniCodeBgColor: #3b3d40;
     --scrollbarColor: hsla(0, 0%, 100%, 0.4);
-    --tableStripeBgColor: #444;
+    --tableStripeBgColor: #444444aa;
   }
 }
 
 @media (min-width: 719px) {
   ::-webkit-scrollbar {
-    max-width: 6px;
-    max-height: 8px;
+    max-width: var(--scrollbarWidth);
+    max-height: var(--scrollbarHeight);
   }
 
   ::-webkit-scrollbar-thumb {
@@ -84,6 +89,12 @@ code:not(code[class*='language-']) {
   margin: 0;
   font-size: 0.85em;
   border-radius: 3px;
+}
+
+a code:not(code[class*='language-']) {
+  text-decoration: underline;
+  text-decoration-color: var(--accentColor);
+  text-decoration-thickness: 2px;
 }
 
 hr {
@@ -270,6 +281,10 @@ h2 {
   max-width: 740px;
   margin: 3.6rem auto 0 auto;
   padding: 2rem 2.5rem;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 85vh;
 }
 
 @media (max-width: 959px) {
@@ -301,4 +316,13 @@ h2 {
 
 .anchor.before {
   fill: var(--accentColor);
+  box-shadow: none;
+}
+
+kbd {
+  background-color: var(--bgColor);
+  border-radius: 0.3em;
+  border: 1px solid var(--borderColor);
+
+  padding: 0.1em 0.3em;
 }

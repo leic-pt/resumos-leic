@@ -9,7 +9,7 @@ type: exercises
 
 :::info[Resoluções Incorretas?]
 Caso encontres incorreções nas resoluções abaixo, por favor
-[reporta-as](https://github.com/diogotcorreia/resumos-leic/issues/new/choose)
+[reporta-as](https://github.com/leic-pt/resumos-leic/issues/new/choose)
 para serem corrigidas.
 :::
 
@@ -21,7 +21,7 @@ Por razões de direitos de autor, não é possível disponibilizar o enunciado p
 
 ```
 
-[EdSwordsmith/ExerciciosFP](https://github.com/EdSwordsmith/ExerciciosFP) - Resolução alternativa dos exercícios pelo Eduardo Espadeiro
+[EdSwordsmith/ExerciciosFP](https://github.com/EdSwordsmith/ExerciciosFP) - Resolução alternativa dos exercícios por um aluno de LEIC-A
 
 ## Capítulo 1: Computadores, Algoritmos e Programas
 

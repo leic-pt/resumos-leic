@@ -45,7 +45,7 @@ Seja $g: \underset{(u,v)}{D} \to S$ uma parametrização, então
 - $T_x S = \mathcal{L} \{ \text{colunas de}\ Dg \} = \mathcal{L} \left\{ \frac{\partial g}{\partial u} , \frac{\partial g}{\partial v} \right\}$
 - $\frac{\partial g}{\partial u} \times \frac{\partial g}{\partial v}$ é ortogonal a $\frac{\partial g}{\partial u} \text{e} \frac{\partial g}{\partial v} \implies \frac{\partial g}{\partial u} \times \frac{\partial g}{\partial v} \in (T_x S)^{\perp}$
 
-Logo, $\displaystyle \vec n (x) = \frac{\frac{\partial g}{\partial u} \times \frac{\partial g}{\partial v}}{|| \frac{\partial g}{\partial u} \times \frac{\partial g}{\partial v} ||}$ tem norma $1$ e safisfaz as condições do campo da superfície orientável.
+Logo, $\displaystyle \vec n (x) = \frac{\frac{\partial g}{\partial u} \times \frac{\partial g}{\partial v}}{|| \frac{\partial g}{\partial u} \times \frac{\partial g}{\partial v} ||}$ tem norma $1$ e satisfaz as condições do campo da superfície orientável.
 
 :::
 
@@ -90,7 +90,7 @@ $$
 
 **Qual o fluxo de $F$ através de $S$?**
 
-![Superficie S](./assets/0018-exemplo-fluxo-1.svg#dark=1)
+![Superfície S](./assets/0018-exemplo-fluxo-1.svg#dark=1)
 
 Começamos por representar $S$ através de uma parametrização, em que usamos coordenadas esféricas:
 
@@ -219,7 +219,7 @@ $$
 D = \{ x^2+y^2 \leq 1 + 2 z^2, 0 \leq z \leq 1 \}
 $$
 
-$\partial D =$ hiperbolóide $(S)$ + tampa de cima $(T_1, z=1)$ + tampa de baixo $(T_0, z=0)$
+$\partial D =$ hiperboloide $(S)$ + tampa de cima $(T_1, z=1)$ + tampa de baixo $(T_0, z=0)$
 
 Pelo teorema da divergência:
 

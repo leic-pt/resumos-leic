@@ -23,7 +23,7 @@ Uma [operação binária](https://pt.wikipedia.org/wiki/Opera%C3%A7%C3%A3o_bin%C
 - Axioma do fecho da adição
   $$\forall x,y\in\mathbb{U}, x+ y\in\mathbb{U}$$
 
-A qualquer operação que tenha a propriedade anteiormente estabelecida chama-se uma operação fechada em $\mathbb{U}$.
+A qualquer operação que tenha a propriedade anteriormente estabelecida chama-se uma operação fechada em $\mathbb{U}$.
 
 - Axioma da associatividade da adição
   $$\forall x,y,z\in \mathbb{U}, x+(y+z)=(x+y)+z$$

@@ -16,7 +16,7 @@ type: content
 
 O potencial elétrico é a capacidade que uma carga tem de realizar trabalho, neste caso, atrair ou repelir outras cargas elétricas.
 
-- $V(\vec r) = \sum_{i=1}^N V_i(\vec r)$ respeita o principío de sobreposição
+- $V(\vec r) = \sum_{i=1}^N V_i(\vec r)$ respeita o princípio de sobreposição
 
 - A função potencial é definida a menos de uma constante; essa constante corresponde a mudar o ponto de referência para o caminho escolhido
 
@@ -45,7 +45,7 @@ $$
 \cfrac{\delta E_1}{\delta x_2} =  \cfrac{\delta E_2}{\delta x_1} \ ,  \ \cfrac{\delta E_3}{\delta x_2} =  \cfrac{\delta E_2}{\delta x_2} \ , \  \cfrac{\delta E_1}{\delta x_3} =  \cfrac{\delta E_3}{\delta x_1}
 $$
 
-Assim a escolha do ponto de referência é arbitrária e induz ambiguidade mas não tem consequências fisícas.
+Assim a escolha do ponto de referência é arbitrária e induz ambiguidade mas não tem consequências físicas.
 
 ### Potencial da Esfera
 
@@ -116,7 +116,7 @@ $$
 
 ![Work](./imgs/0004-work.png#dark=1)
 
-Para calcular o trabalho minímo para uma carga $Q$ se mover de $A$ para $B$ sabendo que existe um campo sabemos que existe sempre uma força ($\vec F = Q \vec E$)
+Para calcular o trabalho mínimo para uma carga $Q$ se mover de $A$ para $B$ sabendo que existe um campo sabemos que existe sempre uma força ($\vec F = Q \vec E$)
 
 $$
 W = - Q \int_A^B \vec E \cdot d \vec l = Q \int_A^B (\vec \nabla V)  \cdot d \vec l = Q[V(B) - V(A)]\\

@@ -13,6 +13,7 @@ module.exports = {
       { key: 'exercises', name: '✏️ Exercícios' },
       { key: 'tools', name: '🛠 Ferramentas' },
       { key: 'guides', name: '📚 Guias' },
+      { key: 'archive', name: '📥 Arquivo' },
     ],
     navbar: {
       siteTitle: 'Resumos LEIC-A',
@@ -23,9 +24,19 @@ module.exports = {
         },
         {
           title: 'GitHub',
-          href: 'https://github.com/diogotcorreia/resumos-leic',
+          href: 'https://github.com/leic-pt/resumos-leic',
         },
       ],
+    },
+    footer: {
+      owner: {
+        name: 'Diogo Correia',
+        website: 'https://diogotc.com',
+      },
+      githubLink: 'https://github.com/leic-pt/resumos-leic',
+      contributionGuideLink: 'https://leic-pt.github.io/docs',
+      contributorsLink: 'https://github.com/leic-pt/resumos-leic/graphs/contributors',
+      vercelLink: 'https://vercel.com/?utm_source=leic-pt&utm_campaign=oss',
     },
   },
   plugins: [
@@ -67,7 +78,7 @@ module.exports = {
               strict: `ignore`,
               macros: {
                 '\\d': '\\mathop{}\\!\\mathrm d',
-                '\\1': '1\\!\\!1',
+                '\\1': '1\\kern-0.25em\\text{l}',
                 '\\Q': '\\mathbb{Q}',
                 '\\C': '\\mathbb{C}',
                 '\\car': '\\operatorname{car}',
@@ -78,6 +89,9 @@ module.exports = {
                 '\\lapt': '\\mathcal{L}\\left\\{#1\\right\\}', // Laplace Transfomation
                 '\\smartcolor': '\\htmlClass{md-color--#1}{#2}', // Handle colors on light/dark mode
                 '\\op': '\\operatorname{#1}',
+                '\\indep': '\\perp \\!\\!\\! \\perp',
+                '\\iid': '\\stackrel{iid}{\\sim}',
+                '\\sima': '\\stackrel{a}{\\sim}',
               },
               throwOnError: false,
               trust: (context) =>
@@ -117,12 +131,11 @@ module.exports = {
       },
     },
     `gatsby-plugin-use-dark-mode`,
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-umami`,
       options: {
         websiteId: '711c662a-45bd-41e0-bf82-302096490211',
-        srcUrl: 'https://umami.diogotc.com/umami.js',
+        srcUrl: 'https://umami.diogotc.com/script.js',
         includeInDevelopment: false,
         autoTrack: true,
         respectDoNotTrack: true,

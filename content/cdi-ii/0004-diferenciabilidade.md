@@ -269,7 +269,7 @@ $$
  & =\lim _{t\rightarrow 0}\frac{f( 1+t,1+2t) -1^{2} \cdot 1}{t}\\
  & =\lim _{t\rightarrow 0}\frac{( 1+t)^{2}( 1+2t) -1}{t}\\
  & =\lim _{t\rightarrow 0}\frac{1+2t+2t+4t^{2} +t^{2} +2t^{3} -1}{t}\\
- & =\lim _{t\rightarrow 0} t\frac{4+5t+2t^{2}}{t}\\
+ & =\lim _{t\rightarrow 0} \frac{t \left(4+5t+2t^{2}\right)}{t}\\
  & =\lim _{t\rightarrow 0}\left( 4+5t+2t^{2}\right)\\
  & =4+0+0\\
  & =4
