@@ -4,10 +4,10 @@ const onImageVisit = (node) => {
   const data = node.data || {};
 
   if (data.remarkPreImages) {
-    if (node.value.startsWith('<span\n      class="gatsby-resp-image-wrapper"')) {
+    if (node.value.includes('class="gatsby-resp-image-wrapper"')) {
       node.value = node.value.replace(
-        '<span',
-        `<span ${Object.entries(data.hProperties)
+        'class="gatsby-resp-image-wrapper"',
+        `class="gatsby-resp-image-wrapper" ${Object.entries(data.hProperties)
           .map(([k, v]) => `${k}="${v.replace(/"/g, `\\"`)}"`)
           .join(' ')}`
       );
