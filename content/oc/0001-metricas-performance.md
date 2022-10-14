@@ -143,7 +143,7 @@ _speedup_ deve ser sempre $\geq 1$.
 
 Se tivermos um processador $A$ que corre um programa em 10 segundos e
 um processador $B$ que corre o mesmo programa em 15 segundos,
-concluimos que o processador $A$ é melhor que o $B$,
+concluímos que o processador $A$ é melhor que o $B$,
 já que tem um tempo de execução **menor**.
 
 Mas quão mais rápido é? Para isso, podemos calcular o _speedup_:
@@ -379,7 +379,7 @@ Conclui-se que a performance depende do:
 
 :::danger[Não Confundir]
 
-É importante não confudir o MIPS, _Millions of Instructions per Second_
+É importante não confundir o MIPS, _Millions of Instructions per Second_
 (métrica de performance), com o MIPS, _Microprocessor without Interlocked Pipelined Stages_
 (arquitetura de CPUs), que iremos abordar mais à frente nesta disciplina.
 
