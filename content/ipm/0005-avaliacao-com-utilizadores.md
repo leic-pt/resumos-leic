@@ -33,7 +33,7 @@ Nestes testes pretendemos ter dois objetivos: [**avaliar**](color:orange) e [**i
 
 ## Métodos de Avaliação
 
-Contudo, para fazer estes testes temos que nos focar em dois métodos para, como foi referido acima, obtermos as melhores avaliações possiveis e as críticas que geram mais confiança possível. Por isso, realizamos [**testes analíticos**](color:pink) e [**testes empíricos**](color:pink).
+Contudo, para fazer estes testes temos que nos focar em dois métodos para, como foi referido acima, obtermos as melhores avaliações possíveis e as críticas que geram mais confiança possível. Por isso, realizamos [**testes analíticos**](color:pink) e [**testes empíricos**](color:pink).
 
 ### Testes Analíticos
 
@@ -217,7 +217,7 @@ Uma das maneiras mais comuns de testar a usabilidade de um produto é através d
 
 :::tip
 
-Para o segundo bake-off, é muito recomendado fazer estes testes A/B em que apenas fazemos uma alteração ao projeto, para nos facilitar qual o aspeto que temos que mudar. Tal não era recomendado para o primeiro bake-off, em que tinhamos que fazer mais alterações.
+Para o segundo bake-off, é muito recomendado fazer estes testes A/B em que apenas fazemos uma alteração ao projeto, para nos facilitar qual o aspeto que temos que mudar. Tal não era recomendado para o primeiro bake-off, em que tínhamos que fazer mais alterações.
 
 :::
 
@@ -330,17 +330,17 @@ Associar recompensa a desempenho aumentou o foco mas restringe a criatividade, �
 
 ## Ética avaliação com utilizadores
 
-Assumimos logo à pardtida que a ética provém de senso comum e que os cientistas são boas pessoas que nunca nos irão pôr numa posição descomfortável ou contra o nosso ser e as nossas crenças, contudo [a História conta algo bastante diferente](color:pink).
+Assumimos logo à partida que a ética provém de senso comum e que os cientistas são boas pessoas que nunca nos irão pôr numa posição desconfortável ou contra o nosso ser e as nossas crenças, contudo [a História conta algo bastante diferente](color:pink).
 
-Existem vários casos em que, apesar dos cientistas estarem bem intencionados, as suas experiências acabam não só por prejudicar mas como mesmo traumatizar os participantes. Um grande exemplo de tal é a [Stanford Experiment](color:pink), em que um grupo de investigadores pretendia investigar o comportamento humano numa sociedade na qual os indivíduos são definidos somente pelo grupo em que se encontram. Assim, dividiram os participantes em dois grupos, uns que representavam os polícias e outro que representavam os prisoneiros. Contudo, ao fim de muito pouco tempo, os policias, com o poder que lhes subiu à cabeça, já estavam a maltratar a nível não só emocional mas também físico, os prisioneiros. Esta experiência ficou tão conhecida que em 2015 saiu [um filme](https://www.youtube.com/watch?v=3XN2X72jrFk&ab_channel=ZeroMedia) sobre a mesma.
+Existem vários casos em que, apesar dos cientistas estarem bem intencionados, as suas experiências acabam não só por prejudicar mas como mesmo traumatizar os participantes. Um grande exemplo de tal é a [Stanford Experiment](color:pink), em que um grupo de investigadores pretendia investigar o comportamento humano numa sociedade na qual os indivíduos são definidos somente pelo grupo em que se encontram. Assim, dividiram os participantes em dois grupos, uns que representavam os polícias e outro que representavam os prisioneiros. Contudo, ao fim de muito pouco tempo, os policias, com o poder que lhes subiu à cabeça, já estavam a maltratar a nível não só emocional mas também físico, os prisioneiros. Esta experiência ficou tão conhecida que em 2015 saiu [um filme](https://www.youtube.com/watch?v=3XN2X72jrFk&ab_channel=ZeroMedia) sobre a mesma.
 
-Contudo existem muitos outros exemplos de experiẽncias que acabaram de uma forma não muito favorável para os participantes, como é o caso de [Tuskegee syphilis study](https://www.britannica.com/event/Tuskegee-syphilis-study) ou até mesmo [Milgram experiment](https://www.simplypsychology.org/milgram.html).
+Contudo existem muitos outros exemplos de experiências que acabaram de uma forma não muito favorável para os participantes, como é o caso de [Tuskegee syphilis study](https://www.britannica.com/event/Tuskegee-syphilis-study) ou até mesmo [Milgram experiment](https://www.simplypsychology.org/milgram.html).
 
 Por isso, ao começarmos a testar o nosso projeto com participantes é necessário ter em conta algumas [considerações éticas](color:orange).
 
 ### Considerações éticas
 
-Temos que sempre manter em consideração que os testes podem causar stress, desconforto, entre outros sintomas aos nossos participantes e por isso é da responsabilidade de quem está a realizar o teste de **anticipar e aliviar** esses sintomas.
+Temos que sempre manter em consideração que os testes podem causar stress, desconforto, entre outros sintomas aos nossos participantes e por isso é da responsabilidade de quem está a realizar o teste de **antecipar e aliviar** esses sintomas.
 
 Os participantes são **voluntários**, por isso **consentimento** para o que quer que seja é de extrema importância; é necessário **evitar pressão** para participar, não obrigando ninguém a tal; informar os participantes que **podem termninar a qualquer momento**; realçar que quem **está a ser testado é o sistema, NUNCA os utilizadores**; e tornar os **dados anónimos/proteger dados**.
 
@@ -359,7 +359,7 @@ Resumidamente, existem três princípios muito importantes ao fazer investigaç�
 - É necessário proteger os mais vulneráveis
 - [É necessário usar consentimento informado](color:orange)
 
-2. [Beneficiência _(fazer o bem)_](color:pink):
+2. [Beneficência _(fazer o bem)_](color:pink):
 
 - Obrigação de fazer o bem
 - Obrigação de não prejudicar

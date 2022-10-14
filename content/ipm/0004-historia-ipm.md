@@ -33,7 +33,7 @@ Nessa altura, uma boa interface significava apenas ser mais rápido, já que o c
 
 - Computador eletro-mecânico
 - Desenvolvida pela IBM
-- Contagem de pârametros/padrões
+- Contagem de parâmetros/padrões
   - máquina mais rápida que os humanos
 - Utilizada no Censos 1890 (USA) algo que levaria 13 anos manualmente.
 
@@ -53,7 +53,7 @@ O progresso nos Computadores Eletro-mecânicos levou-nos aos Computadores Digita
 
 A 2ª Guerra Mundial gerou muitos dados e surgiu a dúvida do que fazer com eles...
 Durante a mesma, **Vannevar Bush** foi o diretor do Office of Scientific Research and Development (1941), depois NSF (1941-1947) e do Projeto Manhattan (1942-1946).
-O seu ensaio _**"As we may think"**_, de 1945, influenciou gerações de engenheiros através das suas ideias "fora da caixa" (tais como uma super secretária com reconhecimento de fala, uma câmera miniatura com foco universal, ou até mesmo ver os nossos pensamentos) são lembradas até hoje.
+O seu ensaio _**"As we may think"**_, de 1945, influenciou gerações de engenheiros através das suas ideias "fora da caixa" (tais como uma super secretária com reconhecimento de fala, uma câmara miniatura com foco universal, ou até mesmo ver os nossos pensamentos) são lembradas até hoje.
 
 ![As we may think](./assets/0004-as-we-think-1.jpg)
 
@@ -75,7 +75,7 @@ Bush ficará na história devido aos seus ideais:
 - "Man-Computer Symbiosis" (1960)
 - Os computadores existem para aumentar a cognição
 
-### Alguns mecânismos
+### Alguns mecanismos
 
 - Joysticks (1908, 1920s)
   - usados em aviões em 1908
@@ -191,7 +191,7 @@ Diferentes Sistemas Operativos tinham metáforas diferentes, tal como o MacOs e 
 
 > "Any technology that is going to have significant impact in the next 10 years is at least 10 years old." - Bill Buxton
 
-### Príncipio Básicos de Inovação
+### Princípios Básicos de Inovação
 
 - Design para as pessoas
 - Geração de ideias

@@ -44,16 +44,16 @@ O resto do disco irá conter informação, que pode ser organizada de várias fo
 
 ### Alternativa 2
 
-Consiste em ter duas Listas, uma delas com os meta-dados (Nome, Dimensão, Pointeiro para os Dados) e outra com os Dados em si.
+Consiste em ter duas Listas, uma delas com os meta-dados (Nome, Dimensão, Ponteiro para os Dados) e outra com os Dados em si.
 
 ![Organização em duas listas](./imgs/0003/0003-list-pointers.png#dark=1)
 
 [**Prós:**](color:green)
 
 - Resolve a primeira desvantagem da alternativa 1:
-  - criando um directório único onde todos os nomes dos ficheiros estão juntos
+  - criando um diretório único onde todos os nomes dos ficheiros estão juntos
   - os nomes dos ficheiros ficam perto uns dos outros no disco
-  - aumenta a eficência da procura de um ficheiro dado o seu nome
+  - aumenta a eficiência da procura de um ficheiro dado o seu nome
 
 [**Contras:**](color:red)
 
@@ -64,7 +64,7 @@ O sistema de ficheiros do CP/M (um dos primeiros para PCs, 1977) utilizava uma e
 
 ## Sistema de Ficheiros do CP/M
 
-Estrutura de uma entrada do directório do sistema de ficheiros do CP/M:
+Estrutura de uma entrada do diretório do sistema de ficheiros do CP/M:
 
 ![block](./imgs/0003/0003-block.png#dark=1)
 
@@ -104,7 +104,7 @@ O Diretório contém o nome do ficheiro e um inteiro que corresponde a um índic
 As entradas da FAT:
 
 - com o valor zero indicam que o bloco com o mesmo índice está livre;
-- com valores diferentes de zero indicam que o respectivo bloco faz parte de um ficheiro:
+- com valores diferentes de zero indicam que o respetivo bloco faz parte de um ficheiro:
   - se o valor for $max$, significa que este é o último bloco relativo ao ficheiro;
   - se o valor não for $x \neq max$, significa que o bloco $x$ é o próximo bloco com dados relativos a este ficheiro.
 
@@ -114,13 +114,13 @@ Por exemplo, na imagem acima:
 
 O FichA tem dados nos blocos:
 
-- 0 (índice no diretorio);
+- 0 (índice no diretório);
 - 2 (índice para que o índice 0 na FAT aponta);
 - como a entrada 2 na FAT é max, o Bloco 2 é o último com dados do FichA.
 
 O FichB tem dados nos blocos:
 
-- 1 (índice no diretorio);
+- 1 (índice no diretório);
 - 5 (índice apontado pela entrada 1 da FAT);
 - mais nenhum bloco, pois a entrada 5 da FAT contém max.
 
@@ -161,12 +161,12 @@ A FAT é dimensionada para:
 
 - Um ficheiro é univocamente identificado, dentro de cada partição, pelo número de i-node (muitas vezes
   chamado i-number)
-- Os directórios só têm que efetuar a ligação entre um nome do ficheiro e o número do seu descritor
+- Os diretórios só têm que efetuar a ligação entre um nome do ficheiro e o número do seu descritor
   ![tab5](./imgs/0003/0003-tab5.png#dark=1)
 
 ### Percorrer a árvore de diretórios
 
-1. Começar pelo diretório raíz
+1. Começar pelo diretório raiz
    - _i-number_ da raiz tem valor pré-conhecido (e.g., _i-num_ = 2)
 2. Dado o _i-number_, obter o _i-node_ do diretório
    - Na cache de _i-nodes_ (em RAM) ou na tabela de _i-nodes_ (em disco)
@@ -237,7 +237,7 @@ A referência indireta é usada em sistemas como o ext3. Esse sistema de ficheir
 
 - Índice dos blocos do ficheiro é mantido num vetor `i_block` do _i-node_, com 15 posições
   - As primeiras 12 entradas são diretas (i.e, correspondem diretamente a um bloco com dados do ficheiro);
-  - As restantes entradas contêm referências indiretas para outros blocos, com nível de inderação um (para a entrada 13), dois (para a 14) e três (para a 15).
+  - As restantes entradas contêm referências indiretas para outros blocos, com nível de indireção um (para a entrada 13), dois (para a 14) e três (para a 15).
 - Só se usam as entradas (e blocos de índices) necessários
 
 ![ext3](./imgs/0003/0003-ext3.png#dark=1)
@@ -269,7 +269,7 @@ Objetivos:
 
 ![Estruturas de Suporte à Utilização dos Ficheiros](./imgs/0003/0003-aux.png)
 
-- Quando existe uma operação sobre um ficheiro já aberto, o identificador do ficheiro permite identificar na estrutura de descritores de ficheiros abertos do processo o ponteiro para o objecto que descreve o ficheiro na estrutura de ficheiros abertos global [(passo 1)](color:yellow).
+- Quando existe uma operação sobre um ficheiro já aberto, o identificador do ficheiro permite identificar na estrutura de descritores de ficheiros abertos do processo o ponteiro para o objeto que descreve o ficheiro na estrutura de ficheiros abertos global [(passo 1)](color:yellow).
 - De seguida é perguntado ao gestor de cache se o pedido pode ser satisfeito pela cache [(passo 2)](color:yellow).
 - Se não puder então é invocada a função correspondente à operação desejada do sistema de
   ficheiros, dando-lhe como parâmetro o descritor de ficheiro correspondente [(passo 3)](color:yellow).

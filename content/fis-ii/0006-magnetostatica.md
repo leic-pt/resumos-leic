@@ -82,7 +82,7 @@ Se as cargas positivas e negativas se movimentarem no fio $I = \lambda_{+} v_{+}
 
 ### Lei de Kirchhoff
 
-:::danger[Não sai no 2ºTeste]
+:::danger[Não sai no 2º Teste (2021/2022)]
 As Leis de Kirchhoff não serão avaliadas no segundo teste
 :::
 

@@ -335,7 +335,7 @@ Podemos, claro, melhorá-la, e vamos fazê-lo seguindo um par de heurísticas:
 
 O representante de cada árvore mantém um majorante para o tamanho da árvore em que
 se encontra, o `rank`. Aquando da união de duas árvores, a raiz da árvore mais
-pequena passa a apontar para a raíz da maior, levando assim a uma complexidade temporal
+pequena passa a apontar para a raiz da maior, levando assim a uma complexidade temporal
 $O(\log n)$ para `findSet`:
 
 ![FindSet Logarítmico](./assets/0006-findset-log.svg#dark=3)

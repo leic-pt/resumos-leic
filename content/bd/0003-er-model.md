@@ -37,7 +37,7 @@ Com este modelo conseguimos exprimir:
 
 Por vezes, o modelo não é suficiente para representar todos os requisitos da nossa
 aplicação. Podemos, assim, recorrer também a [**Restrições de Integridade**](color:yellow)
-(_Integrity Contraints_), quando necessário.
+(_Integrity Constraints_), quando necessário.
 
 ## Entidades e Atributos
 
