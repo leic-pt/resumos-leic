@@ -17,11 +17,11 @@ type: content
 
 ## Programação do computador
 
-Para escrevermos um programa começamos com a nossa linguagem narural para descrever o nosso objetivo seguido da sua tradução para linguagem de programação. Estes dois passos são obtidos pelos programadores. Assim que temos o nosso programa escrito, o compilador traduz para linguagem _assembly_ e, por último, o assemblador traduz tudo para código máquina.
+Para escrevermos um programa começamos com a nossa linguagem natural para descrever o nosso objetivo seguido da sua tradução para linguagem de programação. Estes dois passos são obtidos pelos programadores. Assim que temos o nosso programa escrito, o compilador traduz para linguagem _assembly_ e, por último, o assemblador traduz tudo para código máquina.
 
 ![Traduções das linguagens](./assets/0004-traducoes.png#dark=3)
 
-Mas como funciona a linguagem _assembly_? Começamos por ter uma instrução por linha, cada instrução tem uma formatação rígida, alguns comentários escritos logo durante o processo de transcrição para linguagem _assembly_ e intruções que [refletem diretamente](color:pink) os recursos do processador.
+Mas como funciona a linguagem _assembly_? Começamos por ter uma instrução por linha, cada instrução tem uma formatação rígida, alguns comentários escritos logo durante o processo de transcrição para linguagem _assembly_ e instruções que [refletem diretamente](color:pink) os recursos do processador.
 
 Se tivermos por exemplo
 
@@ -31,7 +31,7 @@ Sabemos que **conta** representa a nossa [etiqueta](color:orange), **ADD** a [mn
 
 ### Comentários
 
-Cada comentário no nosso programa deve ser iniciado pelo carácter **";"** eo comentário que se segue até ao final da linha. [Praticamente todas as linhas](color:pink) de _assembly_ devem ter um comnetário a indicar o que está a ser feito, se não, o código torna-se praticamente impossível de ser entendido, visto que é uma linguagem de baixo nível.
+Cada comentário no nosso programa deve ser iniciado pelo carácter **";"** eo comentário que se segue até ao final da linha. [Praticamente todas as linhas](color:pink) de _assembly_ devem ter um comentário a indicar o que está a ser feito, se não, o código torna-se praticamente impossível de ser entendido, visto que é uma linguagem de baixo nível.
 
 ![Sem comentários](./assets/0004-comentarios.png#dark=3)
 
@@ -57,9 +57,9 @@ Podemos ter 4 tipos de _flags_ diferentes:
 - **[(V)](color:pink) Overflow, excesso**: fica a 1 se o resultado de uma operação **não couber na palavra do processador**;
 - **[(N)](color:pink) Negativo**: fica a 1 se o resultado de uma operação **for negativo**
 
-### Classe de intruções
+### Classe de instruções
 
-Podemos classificar cada intrução dentro de 5 classes diferentes: intruções **aritméticas**, intruções **lógicas**, intruções de **deslocamento**, instruções de **transferência de dados** e intruções de **controlo de fluxo**.
+Podemos classificar cada instrução dentro de 5 classes diferentes: instruções **aritméticas**, instruções **lógicas**, instruções de **deslocamento**, instruções de **transferência de dados** e instruções de **controlo de fluxo**.
 
 As [instruções aritméticas](color:orange) são todas as instruções que lidam com números em complemento para 2, nomeadamente ADD, SUB, CMP, MUL e DIV.
 
@@ -73,7 +73,7 @@ Por último, as [instruções de controlo de fluxo](color:orange) são as que co
 
 Para além disso, podemos referir-mo-nos a instruções com as lógicas e de deslocamento como [instruções de bit](color:purple). Nestas instruções, os registos são apenas um **conjunto de bits individuais**.
 
-Ao representarmos números em _assembly_ temos que ter em atenção que nas intruções aritméticas, os valores estão em **complemento para 2**, ou seja representam qualquer valor entre 8000H e 7FFFH.
+Ao representarmos números em _assembly_ temos que ter em atenção que nas instruções aritméticas, os valores estão em **complemento para 2**, ou seja representam qualquer valor entre 8000H e 7FFFH.
 
 ## Instruções aritméticas, lógicas e de deslocamento
 
@@ -81,7 +81,7 @@ Exemplo de instruções que implementam **operações aritméticas**:
 
 ![Operações aritméticas](./assets/0004-aritmeticas.png#dark=3)
 
-Podemos também ter operações de **deslocamento**, como já foi referido acima. Estas instruções apenas [multiplicam](color:pink) (SHL) ou [dividem](color:pink) (SHR) por $2^n$, seja n o número dado na instrução. Estas oeprações efetuam-se da seguinte forma:
+Podemos também ter operações de **deslocamento**, como já foi referido acima. Estas instruções apenas [multiplicam](color:pink) (SHL) ou [dividem](color:pink) (SHR) por $2^n$, seja n o número dado na instrução. Estas operações efetuam-se da seguinte forma:
 
             SHL     a, n
             SHR     a, n
@@ -95,15 +95,15 @@ Também podemos usar as instruções ROL ou ROR quando fazemos uma multiplicaç�
 
 ### Transferências de dados (16 bits)
 
-![Transferênicas de dados](./assets/0004-trans1.png#dark=3)
+![Transferências de dados](./assets/0004-trans1.png#dark=3)
 
 ### Acesso à memória em 8 bits
 
-![Transferênicas de dados](./assets/0004-trans2.png#dark=3)
+![Transferências de dados](./assets/0004-trans2.png#dark=3)
 
 ### Swap
 
-![Transferênicas de dados](./assets/0004-trans3.png#dark=3)
+![Transferências de dados](./assets/0004-trans3.png#dark=3)
 
 ## Instruções de controlo de fluxo
 
@@ -122,7 +122,7 @@ Quando nos referimos a aspetos importantes de _assembly_ é necessário falar so
 
 ### EQU
 
-A primeira diretiva a ser discutida é EQU. Esta diretiva, que não gera código, serve somente para definir o [valor de constantes](color:pink) simbólicas. Ou seja, esta diretiva perminte-nos atribuir o valor que nos pretendemos às constantes que vamos usando ao longo do nosso programa.
+A primeira diretiva a ser discutida é EQU. Esta diretiva, que não gera código, serve somente para definir o [valor de constantes](color:pink) simbólicas. Ou seja, esta diretiva permite-nos atribuir o valor que nos pretendemos às constantes que vamos usando ao longo do nosso programa.
 
             NOME    EQU   constante-literal
 
@@ -132,12 +132,12 @@ Exemplo:
 
 ### PLACE
 
-A diretiva PLACE ajuda o assembler a indicar o endereço a partir do qual as instruções ou variáveis seguintes devem ficar localizadas. Assim, até aparecer um PLACE, considera-se que há um [PLACE 0 implícito](color:pink), desde o inicío do programa.
+A diretiva PLACE ajuda o assembler a indicar o endereço a partir do qual as instruções ou variáveis seguintes devem ficar localizadas. Assim, até aparecer um PLACE, considera-se que há um [PLACE 0 implícito](color:pink), desde o inicio do programa.
 
             PLACE   endereço
 
 :::tip
-Após o _reset_, o PEPE incializa o PC com o valor 0000H, por isso, tem de haver um PLACE 0000H algures no nosso programa, não sendo obrigatório estar logo no início do ficheiro.
+Após o _reset_, o PEPE inicializai o PC com o valor 0000H, por isso, tem de haver um PLACE 0000H algures no nosso programa, não sendo obrigatório estar logo no início do ficheiro.
 :::
 
 ### WORD
