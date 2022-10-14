@@ -1,6 +1,6 @@
 ---
 title: Introdução aos Sistemas Operativos
-description: 'Breve introudução da UC'
+description: 'Breve introdução da UC'
 path: /so/introducao
 type: content
 ---
@@ -28,7 +28,7 @@ O Sistema Operativo cria uma máquina virtual totalmente independente do hardwar
   - O SO cria uma máquina virtual segura, fiável e otimizada
 - Os sistemas disponibilizam uma interface que permite a qualquer programador estender o seu ambiente de programação permitindo-lhe criar aplicações muito sofisticadas, que beneficiam de:
   - Paralelismo
-  - Optimização da memória
+  - Otimização da memória
   - Persistência
   - Comunicação entre processos, local ou distribuída
   - Tratamento de erros
@@ -74,10 +74,10 @@ Para um sistema operativo ser útil e ser considerado de qualidade, necessita de
   - Isolamento dos Utilizadores
   - Permitir partilha segura de recursos lógicos
 - **Fiabilidade e Disponibilidade**
-  - Detectar um conjunto de faltas
+  - Detetar um conjunto de faltas
   - Tolerar um conjunto de erros
 - **Interface de programação completa e simples**
-  - Facilitar a concepção das aplicações, a sua manutenção e portabilidade
+  - Facilitar a conceção das aplicações, a sua manutenção e portabilidade
 - **Interface de operação e gestão dos recursos lógicos fácil de utilizar**
 - **Portabilidade**
   - Das aplicações e do próprio SO

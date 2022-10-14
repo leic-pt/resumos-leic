@@ -105,7 +105,7 @@ Alguns identificadores estão pré atribuídos, nomeadamente:
 
 Os processos relacionam-se de forma hierárquica.
 Sempre que é criado um processo, este herda grande parte do contexto do processo pai.
-Quando um processo termina a sua execução, todos os subprocessos que lhe estão associados continuam a executar-se, sendo adoptados pelo processo de inicialização.
+Quando um processo termina a sua execução, todos os subprocessos que lhe estão associados continuam a executar-se, sendo adotados pelo processo de inicialização.
 
 ![Hierarquia de processos](./imgs/0004/0004-priority.png#dark=1)
 
@@ -539,9 +539,9 @@ mov AX, SALDO ; carrega conteúdo da posição de memória
 mov BX, VALOR ; carrega conteúdo da posição de memória
               ; VALOR para registo geral BX
 
-sub AX, BX    ; efectua subtracção AX = AX - BX
+sub AX, BX    ; efetua subtração AX = AX - BX
 
-mov SALDO, AX ; escreve resultado da subtracção na
+mov SALDO, AX ; escreve resultado da subtração na
               ; posição de memória SALDO
 ```
 
