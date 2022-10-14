@@ -77,7 +77,7 @@ Para passarmos de um número de binário para hexadecimal temos que dividir em c
 
 Por último passar de hexadecimal para binário é apenas fazer o inverso, isto é, a cada algarismo que temos, escrevemos os quatro algarismos correspondentes em binário:
 
-![Hexadecimal para binario](./assets/0002-hexadecimal-binario.png#dark=3)
+![Hexadecimal para binário](./assets/0002-hexadecimal-binario.png#dark=3)
 
 ### Gama de números
 
@@ -115,7 +115,7 @@ A solução é bastante simples! Temos apenas que aumentar o nosso número de bi
 
 ## Portas lógicas
 
-As portas lógicas são os cicuitos que permitem executar as [operações básicas de álgebra booleana](color:pink).
+As portas lógicas são os circuitos que permitem executar as [operações básicas de álgebra booleana](color:pink).
 Para vermos quais são os valores de saída para cada uma das combinações dos sinais à entrada temos que usar uma **tabela de verdade**.
 
 ### Portas NOT
@@ -196,11 +196,11 @@ Resumidamente, se os valores forem iguais, o final será 0, mas se os valores fo
 
 ## Circuitos combinatórios
 
-Um circuito combinatório representa um circuito digital sem ralimentação, isto é, um circuito em que [nenhuma entrada lógica depende de nenhuma saída lógica](color:pink). Para a mesma combinação de valores das variáveis de entrada, os valores de saída serão sempre os mesmos, independentemente da evolução passada dos sinais de entrada. Podemos assim dizer que [o circuito não tem estado interno](color:pink).
+Um circuito combinatório representa um circuito digital sem re-alimentação, isto é, um circuito em que [nenhuma entrada lógica depende de nenhuma saída lógica](color:pink). Para a mesma combinação de valores das variáveis de entrada, os valores de saída serão sempre os mesmos, independentemente da evolução passada dos sinais de entrada. Podemos assim dizer que [o circuito não tem estado interno](color:pink).
 
 ### Multiplexer
 
-Os multiplexers são circuitos que permitem escolher entre uma das várias entradas e transportar o ser valor para uma das sáidas da seguinte forma:
+Os multiplexers são circuitos que permitem escolher entre uma das várias entradas e transportar o ser valor para uma das saídas da seguinte forma:
 
 ![Multiplexer](./assets/0002-multiplexer.png#dark=3)
 

@@ -110,7 +110,7 @@ Existe também um [tutorial oficial](https://code.visualstudio.com/docs/cpp/conf
 Os docentes de IAED não recomendam esta opção.
 :::
 
-O MSYS2 trata-se de uma coleção de ferramentas e bibliotecas com o objetivo de permitirem desnvolvedores produzirem código nativo para Windows num ambiente amigável.
+O MSYS2 trata-se de uma coleção de ferramentas e bibliotecas com o objetivo de permitirem desenvolvedores produzirem código nativo para Windows num ambiente amigável.
 O terminal do MSYS2 utiliza o mintty, um emulador do terminal bash para Windows. É baseado no CygWin apesar de o tentar minimizar para permitir produção de código UNIX
 com uma camada de compatibilidade para o Windows. Os repositórios do MSYS têm várias bibliotecas notáveis e utensílios disponíveis e, para o utilizador os instalar,
 deverá recorrer ao comando `pacman`. Para instalação do ambiente MSYS2, ver o [website do MSYS2](https://www.msys2.org/).
@@ -250,7 +250,7 @@ Os passos da instalação são muito semelhantes aos da Virtual Machine.
 
 É necessário uma pen de 4GB para instalar o Linux.
 
-O Ubuntu tem um [tutorial de como fazer uma pen botável através da ISO](https://ubuntu.com/tutorials/create-a-usb-stick-on-ubuntu#1-overview).
+O Ubuntu tem um [tutorial de como fazer uma pen bootável através da ISO](https://ubuntu.com/tutorials/create-a-usb-stick-on-ubuntu#1-overview).
 
 ### Passo 2 - Fazer boot da pen
 

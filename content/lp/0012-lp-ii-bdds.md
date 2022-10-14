@@ -117,7 +117,7 @@ um identificador a cada OBDD tal que:
 
   - caso contrário, atribuímos um novo identificador.
 
-Só teoricamente este algoritmo pode ser díficil de entender à primeira, pelo que
+Só teoricamente este algoritmo pode ser difícil de entender à primeira, pelo que
 talvez o exemplo seguinte (e a sua explicação) ajudem a entender:
 
 :::details[Exemplo - Algoritmo Reduz]

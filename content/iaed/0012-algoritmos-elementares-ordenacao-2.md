@@ -33,7 +33,7 @@ void counting_sort(int vec[], int left, int right) {
     int i, count[DISTINCT_ELEMENTS + 1];
 
     /* Vetor auxiliar onde vamos guardar o vetor ordenado */
-    /* Mais à frente iremos ver como alocar dinâmicamente
+    /* Mais à frente iremos ver como alocar dinamicamente
        o espaço a ser alocado pelo mesmo (com malloc) */
     int sorted_vec[MAX_SIZE];
 
@@ -49,7 +49,7 @@ void counting_sort(int vec[], int left, int right) {
     /* Para o exemplo da imagem, iremos obter o vetor: */
     /* count = [0, 0, 1, 2, 2, 1, 0, 0, 0, 1] */
 
-    /* Passar a contagem de elementos para uma contagem comulativa */
+    /* Passar a contagem de elementos para uma contagem cumulativa */
     for (i = 1; i < DISTINCT_ELEMENTS + 2; i++) {
         count[i] += count[i - 1];
     }

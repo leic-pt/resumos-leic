@@ -35,7 +35,7 @@ Um `multigrafo atravessável` é um multigrafo que tem um `atalho euleriano aber
 ## Representar um Labirinto com Grafo
 
 Seja uma encruzilhada um sítio no labirinto, onde se pode escolher vários caminhos.  
-Podemos representar um `Labirinto` através de um grafo, onde todas as entradas, saídas, centros, encruzilhadas e becos sem sáida do labirinto são vértices e as arestas são os caminhos que existem entre cada vértice.
+Podemos representar um `Labirinto` através de um grafo, onde todas as entradas, saídas, centros, encruzilhadas e becos sem saída do labirinto são vértices e as arestas são os caminhos que existem entre cada vértice.
 
 :::details[Exemplos]
 
@@ -54,7 +54,7 @@ Um multigrafo é euleriano se e só se é conexo e todo o seu vértice é par.
 
 :::warning[AVISO]
 
-No próximo teste haverá uma `Demontração`, segundo o professor, que também disse que a `Demonstração` seguinte é **Muito Importante**. Se esta não ficar clara, poderá ficar mais fácil assistir à `Prova` feita pelo professor em aula, uma vez que são usados vários desenhos explicativos. Esta pode ser encontrada [aqui](https://www.youtube.com/watch?v=-yBPgkOCJhE&list=PL1L11sDP8FKHvZYbgh7FdItSfBxsHyU0z&index=43) e começa em `47:10` e acaba em `1:04:20`.
+No próximo teste haverá uma `Demonstração`, segundo o professor, que também disse que a `Demonstração` seguinte é **Muito Importante**. Se esta não ficar clara, poderá ficar mais fácil assistir à `Prova` feita pelo professor em aula, uma vez que são usados vários desenhos explicativos. Esta pode ser encontrada [aqui](https://www.youtube.com/watch?v=-yBPgkOCJhE&list=PL1L11sDP8FKHvZYbgh7FdItSfBxsHyU0z&index=43) e começa em `47:10` e acaba em `1:04:20`.
 
 :::
 

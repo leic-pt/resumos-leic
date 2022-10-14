@@ -145,7 +145,7 @@ Bem, por esta altura já devemos conhecer a grande maioria dos operadores em C:
 - Operadores Lógicos:
   `! && ||`
 
-As suas precedências, contudo, podem não ser triviais. Em C, temos que a precedẽncia de operadores é tal que:
+As suas precedências, contudo, podem não ser triviais. Em C, temos que a precedência de operadores é tal que:
 
 $$
 \text{!} >>> \text{Aritméticos} >>> \text{Relacionais} >>> \text{Lógicos}
@@ -155,7 +155,7 @@ Em relação aos **valores de verdade** em C, temos que _true_ corresponde ao in
 
 ## Operadores Bit a Bit
 
-Em C, é possível efectuar operações sobre a representação binária de um número, manipulando-os bit a bit:
+Em C, é possível efetuar operações sobre a representação binária de um número, manipulando-os bit a bit:
 
 - `&` `AND` bit a bit
 - `|` `OR` bit a bit

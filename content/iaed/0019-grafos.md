@@ -15,7 +15,7 @@ type: content
 
 ![Grafo](./assets/0018-grafo.png#dark=2)
 
-Um grafo corresponde a uma estrutura de dados $G = (V, E)$, com $V$ e $E$ sendo respectivamente os seus conjuntos de vértices e arestas. Trivialmente, uma aresta (ou arco) liga 2 vértices, e um vértice pode estar ligado a qualquer número de outros vértices. Dizemos que **o número de ligações de um vértice** é o seu [**grau**](color:orange), ou **degree**. Na imagem abaixo podemos observar o grau de cada vértice, $d$:
+Um grafo corresponde a uma estrutura de dados $G = (V, E)$, com $V$ e $E$ sendo respetivamente os seus conjuntos de vértices e arestas. Trivialmente, uma aresta (ou arco) liga 2 vértices, e um vértice pode estar ligado a qualquer número de outros vértices. Dizemos que **o número de ligações de um vértice** é o seu [**grau**](color:orange), ou **degree**. Na imagem abaixo podemos observar o grau de cada vértice, $d$:
 
 ![Grafo - Grau de Vértices](./assets/0018-grafov.png#dark=2)
 
