@@ -137,7 +137,7 @@ A diretiva PLACE ajuda o assembler a indicar o endereço a partir do qual as ins
             PLACE   endereço
 
 :::tip
-Após o _reset_, o PEPE inicializai o PC com o valor 0000H, por isso, tem de haver um PLACE 0000H algures no nosso programa, não sendo obrigatório estar logo no início do ficheiro.
+Após o _reset_, o PEPE inicializa o PC com o valor 0000H, por isso, tem de haver um PLACE 0000H algures no nosso programa, não sendo obrigatório estar logo no início do ficheiro.
 :::
 
 ### WORD
