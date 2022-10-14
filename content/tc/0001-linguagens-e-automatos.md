@@ -13,7 +13,7 @@ type: content
 
 ## Alfabetos, Palavras e Linguagens
 
-Definimos um [**alfabeto**](color:orange) como um conjunto finito não-vazio (de símbolos). Um alfabeto costuma ser representado pela gregra letra $\Sigma$.
+Definimos um [**alfabeto**](color:orange) como um conjunto finito não-vazio (de símbolos). Um alfabeto costuma ser representado pela letra grega $\Sigma$.
 
 :::info[Exemplo de Alfabeto]
 
@@ -99,13 +99,13 @@ $(\Sigma, Q, q_{in}, F, \delta)$ tal que
 - $F \subset Q$ é um conjunto de **estados finais**;
 - $\delta: Q \times \Sigma \to Q$ é uma **função de transição**.
 
-Cada AFD define uma liguagem sobre o seu alfabeto $\Sigma$.
+Cada AFD define uma linguagem sobre o seu alfabeto $\Sigma$.
 
 Dizemos que um autómato é **total** se a função de transição estiver definida para todo o elemento em $Q \times \Sigma$, isto é, se a função de transição em cada estado estiver definida para todas as letras.  
 Um autómato não total pode ser convertido num autómato total da seguinte forma:
 
 - adiciona-se um estado não final $q'$;
-- extende-se a função de transição tal que $\delta(q, a) = q'$ para todo o par $(q, a) \in Q \times \Sigma$ tal que a função de transição não fosse definida;
+- estende-se a função de transição tal que $\delta(q, a) = q'$ para todo o par $(q, a) \in Q \times \Sigma$ tal que a função de transição não fosse definida;
 - define-se $\delta(q', a) = q'$, para todo o $a \in \Sigma$.
   É conveniente pensar neste estado $q'$ como um "estado lixo".
 
@@ -126,7 +126,7 @@ Ao conjunto das palavras aceites por um AFD $D$, $L(D) = \{w \in \Sigma^* : \del
 
 :::tip[Grafos de AFD's]
 
-Estas entidades são normalmente representadas e entendidas de acordo com grafos como o que mostramos abaixo. Para caractirizar rigorosamente esta linguagem é útil considerar a extensão a $\Sigma^*$ da função de transição do AFD.
+Estas entidades são normalmente representadas e entendidas de acordo com grafos como o que mostramos abaixo. Para caracterizar rigorosamente esta linguagem é útil considerar a extensão a $\Sigma^*$ da função de transição do AFD.
 
 ![Grafo de um AFD](./imgs/0001/AFD_graph.png#dark=1)
 
@@ -244,7 +244,7 @@ Ora, procurando seguir os passos descritos na descrição acima:
   Ora, temos então dois conjuntos em mãos:
 
 $$
-\text{Estados Acessiveis} = \{q_{in}, q_1, q_2, q_4, q_5\}\\
+\text{Estados Acessíveis} = \{q_{in}, q_1, q_2, q_4, q_5\}\\
 \text{Estados Produtivos} = \{q_{in}, q_1, q_2, q_3, q_4, q_5, q_6\}
 $$
 
@@ -370,7 +370,7 @@ Entramos aqui na secção porventura mais desagradável: percorrer **todos os pa
 
 Ora, procuremos então percorrer$\Delta$:
 
-- todos os estados que incluem $p$ não adicionam pares a $\Delta$, já que não há qualquer estado a **transicionar** para $p$ sequer. A tabela fica, então:
+- todos os estados que incluem $p$ não adicionam pares a $\Delta$, já que não há qualquer estado a **transitar** para $p$ sequer. A tabela fica, então:
 
 | $s$ | $\textcircled\times$ | $\times$     |              | $\backslash$ |
 | --- | -------------------- | ------------ | ------------ | ------------ |
@@ -379,7 +379,7 @@ Ora, procuremos então percorrer$\Delta$:
 | $p$ | $\backslash$         | $\backslash$ | $\backslash$ | $\backslash$ |
 |     | $p$                  | $q$          | $r$          | $s$          |
 
-- olhando para o estado $[q, r]$, podemos notar que não há qualquer par de estados que não esteja em $\Delta$ e em que, segundo o mesmo símbolo, leve ao estado $[q, r]$. Não existe qualquer estado segundo $a$ a transicionar para $r$, nem nenhum estado que segundo $b$ ou $c$ transicione para $q$, pelo que o estado dá-se por explorado sem adicionar nada de novo à tabela (sem ser circular a cruz respetiva a $[q, r]$).
+- olhando para o estado $[q, r]$, podemos notar que não há qualquer par de estados que não esteja em $\Delta$ e em que, segundo o mesmo símbolo, leve ao estado $[q, r]$. Não existe qualquer estado segundo $a$ a transitar para $r$, nem nenhum estado que segundo $b$ ou $c$ transite para $q$, pelo que o estado dá-se por explorado sem adicionar nada de novo à tabela (sem ser circular a cruz respetiva a $[q, r]$).
 
 | $s$ | $\textcircled\times$ | $\times$             |              | $\backslash$ |
 | --- | -------------------- | -------------------- | ------------ | ------------ |
@@ -388,7 +388,7 @@ Ora, procuremos então percorrer$\Delta$:
 | $p$ | $\backslash$         | $\backslash$         | $\backslash$ | $\backslash$ |
 |     | $p$                  | $q$                  | $r$          | $s$          |
 
-- por fim, resta explorar $[q, s]$. Não existe qualquer estado segundo $a$ a transicionar para $s$, nem nenhum estado que segundo $b$ ou $c$ transicione para $q$, pelo que o estado dá-se por explorado sem adicionar nada de novo à tabela (sem ser circular a cruz respetiva a $[q, s]$).
+- por fim, resta explorar $[q, s]$. Não existe qualquer estado segundo $a$ a transitar para $s$, nem nenhum estado que segundo $b$ ou $c$ transite para $q$, pelo que o estado dá-se por explorado sem adicionar nada de novo à tabela (sem ser circular a cruz respetiva a $[q, s]$).
 
 | $s$ | $\textcircled\times$ | $\textcircled\times$ |              | $\backslash$ |
 | --- | -------------------- | -------------------- | ------------ | ------------ |
@@ -535,9 +535,9 @@ A tabela final tem, portanto, **dois pares de estados equivalentes**: $[q_1, q_2
 
 Pode agora ser mais claro o porquê de considerarmos dois estados equivalentes/distinguíveis: os estados equivalentes têm, no autómato original, transições equivalentes (segundo o mesmo símbolo vão sempre para um estado num "grupo de estados equivalentes"). No caso de $q_1, q_2$, por exemplo, temos que:
 
-- através de $a$ transicionam para o próprio estado em ambas as situações;
-- através de $b$ transicionam, em ambos os casos, para $q_0$;
-- através de $c$ transicionam, em ambos os casos, para um estado dentro do "par equivalente" $[q_4, q_5]$ - $q_1$ para $q_4$ e $q_2$ para $q_5$.
+- através de $a$ transitam para o próprio estado em ambas as situações;
+- através de $b$ transitam, em ambos os casos, para $q_0$;
+- através de $c$ transitam, em ambos os casos, para um estado dentro do "par equivalente" $[q_4, q_5]$ - $q_1$ para $q_4$ e $q_2$ para $q_5$.
 
 :::
 
@@ -735,7 +735,7 @@ $$
 
 em que em cima consideramos o fecho-$\epsilon$ de $q$ em $A'$, mas em baixo consideramos o fecho-$\epsilon$ de $q$ em $A$.
 
-Ou seja, a função de transição estendida de $A'$ é tal que, dada uma letra $a \in \Sigma$ e um estado $q \in Q$, podemos alcançar todos os estados que podiamos em $A$ com essa letra (e possivelmente com movimentos-$\epsilon$).  
+Ou seja, a função de transição estendida de $A'$ é tal que, dada uma letra $a \in \Sigma$ e um estado $q \in Q$, podemos alcançar todos os estados que podíamos em $A$ com essa letra (e possivelmente com movimentos-$\epsilon$).  
 Indutivamente, se dermos uma palavra $\omega \in \Sigma^*$ a $A'$, obtemos o mesmo conjunto de estados que obtiamos em $A$.
 Consequentemente, uma palavra é aceite em $A'$ se e só se for aceite em $A$.
 
@@ -748,7 +748,7 @@ Ora, isto equivale a $q$ ser um estado final em $A'$, pelo que $\epsilon$ també
 
 :::details[Exemplo da remoção de movimentos-$\epsilon$]
 
-Em relaçao à imagem mostrada acima, vamos construir um AFND equivalente sem movimentos-$\epsilon$ que vamos denominar $A'$.
+Em relação à imagem mostrada acima, vamos construir um AFND equivalente sem movimentos-$\epsilon$ que vamos denominar $A'$.
 
 Começamos por ver que a partir de $q_{in}$ podemos:
 
@@ -756,7 +756,7 @@ Começamos por ver que a partir de $q_{in}$ podemos:
 - usando $b$ chegar a $\{ q_1, q_3, q_4 \}$ (como vimos acima).
 - usando $c$ chegar a $\{ q_1, q_3, q_4, q_5 \}$.
 
-O processo de remoção dos movimentos-$\epsilon$ não passa de identificar estes conjuntos para todos os estados e assinalar as tranisções correspondentes no novo autómato $A'$.
+O processo de remoção dos movimentos-$\epsilon$ não passa de identificar estes conjuntos para todos os estados e assinalar as transições correspondentes no novo autómato $A'$.
 Desta forma, vamos então obter o autómato apresentado abaixo.
 
 ![AFND depois de remover movimentos-epsilon](./imgs/0001/AFND-sem-movimentos-epsilon.png#dark=3)
@@ -810,7 +810,7 @@ Então, se $q$ for final em $A$, temos que $C \cap F \neq \emptyset$ e $C$ é fi
 
 :::details[Exemplo da passagem de AFND para AFD]
 
-Como foi sugerido acima, a passagem para o determinsmo é feita através da identificação dos estados do AFD $D$ com conjuntos de estados do AFND $N$.
+Como foi sugerido acima, a passagem para o determinismo é feita através da identificação dos estados do AFD $D$ com conjuntos de estados do AFND $N$.
 
 Voltando ao exemplo que temos visto, depois da remoção dos movimentos-$\epsilon$ ficámos com o AFND
 
@@ -981,7 +981,7 @@ Duas [expressões regulares](color:green) dizem-se equivalentes ($\alpha_1 = \al
 
 :::tip[Proposições para expressões regulares]
 
-Sobre expressões regulares, verificam-se as segunites propriedades:
+Sobre expressões regulares, verificam-se as seguintes propriedades:
 
 - $\alpha + \beta = \beta + \alpha$;
 - $\alpha + (\beta + \gamma) = (\alpha + \beta) + \gamma$;
@@ -1013,7 +1013,7 @@ Uma linguagem $L$ é regular se e só se houver uma expressão regular $\alpha$ 
 :::details[Prova]
 
 Que a linguagem denotada por uma expressão regular é também regular é imediato a partir da definição de expressão regular, de linguagem denotada por expressão regular, e das propriedades em relação a operações sobre expressões regulares.  
-Para qualquer AFD, é possível reescrevê-lo como um sitema de equações lineares, que podemos resolver como vamos ver a seguir.
+Para qualquer AFD, é possível reescrevê-lo como um sistema de equações lineares, que podemos resolver como vamos ver a seguir.
 
 :::
 

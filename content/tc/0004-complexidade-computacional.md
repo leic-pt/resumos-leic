@@ -40,7 +40,7 @@ Agrupamos problemas, de acordo com a sua dificuldade relativa, em classes de com
 
 :::tip[Definição]
 
-Seja $f : \mathbb{N} \to \mathbb{R}_0^+$ uma funçao. Definem-se as seguintes classes de linguagens:
+Seja $f : \mathbb{N} \to \mathbb{R}_0^+$ uma função. Definem-se as seguintes classes de linguagens:
 
 - $\mathbf{TIME}(f(n)) = \{ L : \text{ existe uma máquina } M \text{ que decide } L \text{ com } \\ \op{time}_M(n) = O(f(n)) \}$;
 - $\mathbf{SPACE}(f(n)) = \{ L : \text{ existe uma máquina } M \text{ que decide } L \text{ com } \\ \op{space}_M(n) = O(f(n)) \}$;
@@ -148,9 +148,9 @@ Toda a máquina bidirecional $M$ é equivalente a uma máquina unidirecional $T$
 :::details[Prova]
 
 Vamos basear-nos na prova de equivalência apresentada no [capítulo de Máquinas de Turing](/tc/maquinas-de-turing#m%C3%A1quinas-bidirecionais).  
-A computaçao de $T$ começa por balizar o input com os símbolos $I$ e $F$, fazendo $2n + 3$ passos.  
+A computação de $T$ começa por balizar o input com os símbolos $I$ e $F$, fazendo $2n + 3$ passos.  
 O resto da computação é idêntica a $M$, exceto nos casos em que é necessário introduzir espaçamento.
-Para introduzir espaço à direita precisamos apenas de 3 movimentos, enquando que à esquerda precisamos de copiar a palavra toda, o que implica $O(\op{space}_M(n))$ passos.  
+Para introduzir espaço à direita precisamos apenas de 3 movimentos, enquanto que à esquerda precisamos de copiar a palavra toda, o que implica $O(\op{space}_M(n))$ passos.  
 No final há que apagar o delimitador $F$, o que demora $O(\op{space}_M(n))$.
 Na pior das hipóteses, temos que é preciso abrir espaço à esquerda em cada passo, pelo que:
 
@@ -184,8 +184,8 @@ Toda a máquina de Turing multifita $M$ é equivalente a uma máquina com apenas
 
 Atente-se na máquina $T$ construída a partir de $M$ tal como no capítulo de Máquinas de Turing.  
 A computação de $T$ começa por inicializar a fita de memória, balizando o input com os símbolos $I$ e $F$, e demarcando o espaço de cada uma das $k$ fitas da máquina $T$, num número de passos da ordem de $O(n + k)$, onde $n$ é o tamanho do input e $k$ o número de fitas.  
-De seguida simula cada uma das transições de $M$, percorrendo a fita da esquerda para a direita de forma a ler os símbolos marcados, e depois da direita para a esquerda actualizando as marcações, visitando um número de células da ordem de $O(\op{space}_M(n))$.
-Pode ter de efectuar um máximo de $k$ espaçamentos, 1 em cada fita, visitando assim um número máximo de células da ordem de $k \cdot O(\op{space}_M(n))$.  
+De seguida simula cada uma das transições de $M$, percorrendo a fita da esquerda para a direita de forma a ler os símbolos marcados, e depois da direita para a esquerda atualizando as marcações, visitando um número de células da ordem de $O(\op{space}_M(n))$.
+Pode ter de efetuar um máximo de $k$ espaçamentos, 1 em cada fita, visitando assim um número máximo de células da ordem de $k \cdot O(\op{space}_M(n))$.  
 Finalmente, após a aceitação por $M$, os símbolos marcados são adequadamente substituídos, e o símbolo $F$ é removido, o que de novo implica que um número de células da ordem de $O(\op{space}_M(n))$ seja visitado.  
 Assim, temos:
 
@@ -223,7 +223,7 @@ Tal como para as máquinas deterministas, definimos as classes de tempo e espaç
 
 :::tip[Definição]
 
-Seja $f : \mathbb{N} \to \mathbb{R}_0^+$ uma funçao. Definiem-se as seguintes classes de linguagens:
+Seja $f : \mathbb{N} \to \mathbb{R}_0^+$ uma função. Definem-se as seguintes classes de linguagens:
 
 - $\mathbf{NTIME}(f(n)) = \{ L : \text{ existe uma máquina não-determinista } \\ M \text{ que decide } L \text{ com } \op{ntime}_M(n) = O(f(n)) \}$;
 - $\mathbf{NSPACE}(f(n)) = \{ L : \text{ existe uma máquina não-determinista } \\ M \text{ que decide } L \text{ com } \op{nspace}_M(n) = O(f(n)) \}$;
@@ -272,7 +272,7 @@ Para uma máquina não-determinista classificadora $M$, tem-se que $\op{ntime}_M
 
 :::details[Prova]
 
-Idêntica à para máquinas deterministas, quando considerado um ramo específico da computaçao não determinista.
+Idêntica à para máquinas deterministas, quando considerado um ramo específico da computação não determinista.
 
 :::
 
@@ -349,7 +349,7 @@ Se $\mathcal{C} \neq \mathbf{NP}$ e $\mathcal{C} \neq \mathbf{NEXPTIME}$, então
 É evidente que $\emptyset$ e $\Sigma^*$ podem ser decididas em $O(1)$, pelo que estão contidas nas classes enumeradas.
 
 Quanto as proposições 3 e 4, usamos as máquinas $M$ como definidas nas [prova que $L_1 \cap L_2$ e $L_1 \cup L_2$ são decidíveis](./tc/teoria-da-computabilidade#propriedades), para $L_1$ e $L_2$ decidíveis.  
-Usamos o caso da disjunção como exemplo, mas a conjução é análoga.
+Usamos o caso da disjunção como exemplo, mas a conjunção é análoga.
 Se $M_1$ é computada em $O(f(x))$ e $M_2$ é computada em $O(g(x))$, então a máquina $M$ que decide $L_1 \cup L_2$ computa em $O(f(x) + g(x))$, o que é suficiente para provar ambas proposições ([não em teste!](color:red)).
 
 A quinta proposição fica como exercício (agradecem-se contribuições).
@@ -374,7 +374,7 @@ Obviamente, se $L_1 \leq_P L_2$, então $L_1 \leq L_2$.
 
 :::tip[Proposição]
 
-Sejam $L_1$ e $L_2$ linguages sobre alfabetos $\Sigma_1$ e $\Sigma_2$, respetivamente.
+Sejam $L_1$ e $L_2$ linguagens sobre alfabetos $\Sigma_1$ e $\Sigma_2$, respetivamente.
 Seja $\mathcal{C}$ uma das classes de complexidade $\mathbf{P}$, $\mathbf{NP}$, $\mathbf{PSPACE}$, $\mathbf{NPSPACE}$, $\mathbf{EXPTIME}$, $\mathbf{NEXPTIME}$, $\mathbf{EXPSPACE}$, $\mathbf{NEXPSPACE}$.
 Se $L_1 \leq_P L_2$ e $L_2 \in \mathcal{C}$, então $L_1 \in \mathcal{C}$.
 
