@@ -140,7 +140,7 @@ em que $x_0$ é a posição inicial e $v$ a velocidade (constante) do corpo.
 ### Movimento Uniformemente Acelerado e Retardado
 
 Por outro lado, um [**movimento uniformemente acelerado**](color:yellow) é aquele que tem aceleração constante (maior que zero).
-Corpos que estejam sujeitos a acelarações constantes, dizemos que têm uma aceleração linear.
+Corpos que estejam sujeitos a acelerações constantes, dizemos que têm uma aceleração linear.
 Como exemplo, podemos pensar num corpo em queda livre (ignorando a resistência do ar). A única força a atuar no mesmo é a força gravítica, na direção do movimento. A sua velocidade aumenta linearmente ao longo da queda.
 
 Este movimento pode ser descrito por uma equação do tipo:
@@ -151,7 +151,7 @@ $$
 
 em que $x_0$ é a posição inicial, $v_0$ é a velocidade inicial e $a$ a aceleração do corpo.
 
-No caso da acelaração ser constante e menor que zero, o corpo apresenta [**movimento uniformemente retardado**](color:orange).
+No caso da aceleração ser constante e menor que zero, o corpo apresenta [**movimento uniformemente retardado**](color:orange).
 
 ### Equações do Movimento
 
@@ -183,8 +183,8 @@ v(t) &= 1.5 - 9.8 t
 \end{aligned}
 $$
 
-Podemos notar que a acelaração se encontra negativa.
-Isto deve-se à acelaração gravítica ter sentido contrário ao nosso referencial.
+Podemos notar que a aceleração se encontra negativa.
+Isto deve-se à aceleração gravítica ter sentido contrário ao nosso referencial.
 
 b) **Qual é a altura máxima que a bola atinge?**
 
