@@ -379,7 +379,7 @@ Conclui-se que a performance depende do:
 
 :::danger[Não Confundir]
 
-É importante não confudir o MIPS, _Millions of Instructions per Second_
+É importante não confundir o MIPS, _Millions of Instructions per Second_
 (métrica de performance), com o MIPS, _Microprocessor without Interlocked Pipelined Stages_
 (arquitetura de CPUs), que iremos abordar mais à frente nesta disciplina.
 
