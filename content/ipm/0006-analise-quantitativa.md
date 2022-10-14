@@ -23,7 +23,7 @@ Para tal temos que avaliar as variáveis.
 
 ### Variáveis
 
-Antes de fazermos inferências sobre os dados, é essencial examinar as variáveis. Mas porquê? Se recrutamos _e-athletes_ e pessoas sem grande experiência para testar um vídeojogo, é normal que os _e-athletes_ tenham mais sucesso do que as outras pessoas. Caso contrário, há algum _bug_ no nosso jogo.
+Antes de fazermos inferências sobre os dados, é essencial examinar as variáveis. Mas porquê? Se recrutamos _e-athletes_ e pessoas sem grande experiência para testar um videojogo, é normal que os _e-athletes_ tenham mais sucesso do que as outras pessoas. Caso contrário, há algum _bug_ no nosso jogo.
 
 Assim, avaliar as variáveis ajuda a:
 
@@ -48,7 +48,7 @@ Existem três tipos de **escalas de medida**:
 2. **Ordinal** (a relação entre os pontos não é comparável)
 
    - Leve, médio, pesado
-   - Satisfeito, neutro, insastisfeito
+   - Satisfeito, neutro, insatisfeito
 
 3. **Contínua** (mais usado em IPM)
 
@@ -173,7 +173,7 @@ Então quais são os testes mais viáveis que podemos utilizar?
 
 Existe um certo procedimento ao qual devemos recorrer de modo a que os nossos testes corram da melhor forma possível.
 
-O primeiro passo refere-se à [Escolha da amostra representativa](color:pink), isto é, temos que escolher um grupo de pessoas que possam representar o nosso público-alvo, como vimos na útima aula. Este grupo tem que ser relevante para o nosso produto.
+O primeiro passo refere-se à [Escolha da amostra representativa](color:pink), isto é, temos que escolher um grupo de pessoas que possam representar o nosso público-alvo, como vimos na última aula. Este grupo tem que ser relevante para o nosso produto.
 
 O segundo passo refere-se à [Formulação da hipótese nula ($H_0$)](color:pink). A hipótese nula retrata um caso onde não há diferenças nenhumas, nada muda, por exemplo a mudança de menus não afeta o desempenho. Após a hipótese nula, temos que avaliar a **hipótese experimental, $H_1$**, ou seja, diz o que queremos verificar, por exemplo, os novos menus melhoram o desempenho.
 

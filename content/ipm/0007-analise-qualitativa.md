@@ -64,7 +64,7 @@ Ao falarmos de análise temática, também temos que ter em consideração outro
 2. [Estruturada](color:orange) (_framework analysis_)
    São códigos definidos logo à partida, por exemplo a partir de uma lista de conceitos chave.
 
-Para além disso, os códigos podem ser em termos de **codificação descritiva**, ou seja codificação literal dos conceitos, por exemplo, "eu não confio na privacidade" que se traduz para **códigos: confiança, privacidade**; e os temas podem ser em termos de **codificação temática**, isto é, grupos, mutualmente exclusivos, de códigos.
+Para além disso, os códigos podem ser em termos de **codificação descritiva**, ou seja codificação literal dos conceitos, por exemplo, "eu não confio na privacidade" que se traduz para **códigos: confiança, privacidade**; e os temas podem ser em termos de **codificação temática**, isto é, grupos, mutuamente exclusivos, de códigos.
 
 ### Diagramas de Afinidade
 
