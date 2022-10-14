@@ -1,7 +1,7 @@
 ---
 title: Programação Paralela
 description: Programação Paralela
-path: /so/paralel
+path: /so/parallel
 type: content
 ---
 
