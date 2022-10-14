@@ -166,7 +166,7 @@ A FAT é dimensionada para:
 
 ### Percorrer a árvore de diretórios
 
-1. Começar pelo diretório raíz
+1. Começar pelo diretório raiz
    - _i-number_ da raiz tem valor pré-conhecido (e.g., _i-num_ = 2)
 2. Dado o _i-number_, obter o _i-node_ do diretório
    - Na cache de _i-nodes_ (em RAM) ou na tabela de _i-nodes_ (em disco)

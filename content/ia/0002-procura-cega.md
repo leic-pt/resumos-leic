@@ -191,7 +191,7 @@ Note-se que aqui definimos as complexidades temporal e espacial em função do _
 
 Temos, claro, que cada ação/ramo custa pelo menos $\varepsilon$, como referido anteriormente. Como pior caso, assuma-se que todos os nós têm $b$ filhos (ou seja que o fator de ramificação se verifica para qualquer nó) - neste caso, existem:
 
-- $1$ nó no nível $0$, a raíz;
+- $1$ nó no nível $0$, a raiz;
 - $b$ nós no nível $1$;
 - $b^2$ nós no nível $2$;
 - $\cdots$
