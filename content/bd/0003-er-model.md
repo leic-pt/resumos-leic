@@ -91,7 +91,7 @@ Representamos uma associação com atributos das seguinte forma:
 
 Nada nos impede de criar associações entre três ou mais entidades.
 Atenção que estas podem, por vezes, ser pouco explícitas. Alternativamente, podemos
-criar uma [agregação](#agregações), que, para além de ser mais explícita, nos dá maior
+criar uma [agregação](#agregações) que, para além de ser mais explícita, nos dá maior
 flexibilidade a definir [restrições](#restrições).
 
 Voltando ao exemplo da _Compra_ e do _Produto_, tomemos outra entidade, _Cliente_,

@@ -307,4 +307,4 @@ Grafo dirigido, todas as arestas têm orientação.\
 Um digrafo-$s$-$t$ é um digrafo com `fonte` $s$
 e `semidouro` $t$
 
-![ponteeuclidiana](./assets/0003-euc.png#dark=3)
+![ponte euclidiana](./assets/0003-euc.png#dark=3)

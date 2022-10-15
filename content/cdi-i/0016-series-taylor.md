@@ -46,7 +46,7 @@ $$
 
 para algum $r\in\R^+$.
 
-Como esta condição é, por vezes, dificil de se verificar, usa-se frequentemente a condição abaixo, embora apenas seja suficiente e não necessária.
+Como esta condição é, por vezes, difícil de se verificar, usa-se frequentemente a condição abaixo, embora apenas seja suficiente e não necessária.
 
 ## Condição suficiente de analiticidade de uma função
 
@@ -493,7 +493,7 @@ $$
 \left[\sum ^{\infty }_{n=2}\frac{x^{n-1}}{n-1}\right]^{'} =\sum ^{\infty }_{n=2}\frac{\smartcolor{yellow}{( n-1)} \cdot x^{n-2}}{\smartcolor{yellow}{n-1}} =\sum ^{\infty }_{n=\smartcolor{orange}{2}} x^{n\smartcolor{orange}{-2}} =\sum ^{\infty }_{n=\smartcolor{orange}{0}} x^{n} =\frac{1}{1-x} \quad ,\quad |x|< 1
 $$
 
-De forma semelhante ao exemplo anterior, temos de primitivar duas vezes o resultado, determinando a constante $K$ em cada uma das primitivivações. Obtemos assim:
+De forma semelhante ao exemplo anterior, temos de primitivar duas vezes o resultado, determinando a constante $K$ em cada uma das primitivações. Obtemos assim:
 
 $$
 \sum ^{\infty }_{n=2}\frac{x^{n}}{n^{2} -n} =\smartcolor{blue}{( 1-x)\log( 1-x) +x} \quad ,\quad |x|< 1

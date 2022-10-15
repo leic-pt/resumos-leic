@@ -3,7 +3,7 @@ title: Introdução
 description: Diferentes maneiras de calcular os números de Fibonacci.
   Memorização.
   Invariantes de loops.
-  Introdução à notação assintótica.
+  Introdução à notação assimptótica.
 path: /asa/introducao
 type: content
 ---
@@ -14,7 +14,10 @@ type: content
 
 ```
 
-A cadeira é perfeitamente acompanhável recorrendo apenas aos slides (que podem ser encontrados na página da UC), [notas do professor](https://web.ist.utl.pt/jose.fragoso/#teaching), coletânea de exercícios e a estes resumos. Contudo, e segundo o professor regente da UC, alunos que queiram aprofundar conhecimento podem (e devem) fazê-lo recorrendo a alguns livros indicados na bibliografia:
+A cadeira é perfeitamente acompanhável recorrendo apenas às aulas teóricas (cujos
+slides podem ser encontrados na página da UC), [notas do professor](https://web.ist.utl.pt/jose.fragoso/#teaching),
+coletânea de exercícios e a estes resumos. Contudo, e segundo o professor Fragoso,
+alunos que queiram aprofundar conhecimento podem (e devem) fazê-lo recorrendo a alguns livros indicados na bibliografia:
 
 - [Introduction to Algorithms](https://mitpress.mit.edu/books/introduction-algorithms-third-edition), de Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest e Clifford Stein (MIT Press)
 
@@ -22,7 +25,9 @@ A cadeira é perfeitamente acompanhável recorrendo apenas aos slides (que podem
 
 ## Cálculo dos Números de Fibonacci
 
-Um dos exemplos clássicos de algoritmos introdutórios é o [**cálculo de números de Fibonacci**](color:orange) - por um lado por ser relativamente fácil de compreender, e por outro por ser igualmente fácil melhorá-lo (em relação à sua complexidade temporal).
+Um dos exemplos clássicos de algoritmos introdutórios é o [**cálculo de números de Fibonacci**](color:orange) -
+por um lado por ser relativamente fácil de compreender, e por outro por ser igualmente
+fácil melhorá-lo (em relação à sua complexidade temporal).
 
 Sabemos, claro, que para calcular o $n$-ésimo elemento da sequência de Fibonacci, temos:
 
@@ -47,13 +52,20 @@ int Fib(int n) {
 }
 ```
 
-Esta implementação tem, contudo, um problema - apesar de ser fácil de escrever, é extremamente ineficiente, podendo calcular números mais do que uma vez - este problema até pode não parecer fazer grande diferença ao calcular números de Fibonacci pequenos, mas quando se pretender calcular, por exemplo, $Fib(400)$, a tarefa tornar-se-á profundamente mais desagradável.
+Esta implementação tem, contudo, um problema - apesar de ser fácil de escrever, é
+extremamente ineficiente, podendo calcular números mais do que uma vez. Este problema
+até pode não parecer fazer grande diferença ao calcular números de Fibonacci pequenos,
+mas quando se pretender calcular, por exemplo, $Fib(400)$, a tarefa tornar-se-á profundamente mais desagradável.
 
-Abaixo podemos observar a [**árvore dos subproblemas**](color:orange) de uma chamada $Fib(4)$, onde os dois filhos de um nó são as duas chamadas recursivas realizadas nesse nó. Podemos ver que, mesmo num problema "pequeno", calculamos o mesmo número várias vezes.
+Abaixo podemos observar a [**árvore dos subproblemas**](color:orange) de uma chamada
+$Fib(4)$, onde os dois filhos de um nó são as duas chamadas recursivas realizadas nesse nó.
+Podemos ver que, mesmo considerando um problema "pequeno", calculamos o mesmo valor várias vezes.
 
-![Grafo dos Problemas](./assets/0001-fibonacci-arvore.png)
+![Grafo dos Problemas](./assets/0001-fibonacci-arvore.svg#dark=2)
 
-Podemos, para avaliar melhor a complexidade temporal desta solução, definir uma função $T(n)$ - uma função que, neste caso, corresponderá a "quanto tempo" (vulgo quantidade de operações) é necessário para calcular um dado $Fib(n)$.
+Podemos, para avaliar melhor a complexidade temporal desta solução, definir uma função
+$T(n)$ - uma função que, neste caso, corresponderá a "quanto tempo" (vulgo quantidade
+de operações) é necessário para calcular um dado $Fib(n)$.
 
 Ora, olhando para o corpo da função, podemos admitir que:
 
@@ -64,8 +76,11 @@ T(n - 1) + T(n - 2) + c_1 &\text{caso contrário}
 \end{cases}
 $$
 
-O ramo de cima corresponde aos casos base - há um número **constante**, constante essa $c_0$ de operações a realizar caso estejamos na presença do caso base.  
-O ramo de baixo acontece caso os casos base não se verifiquem - terá de ocorrer uma chamada recursiva a $Fib(n-1)$ e a $Fib(n-2)$ (tendo, portanto, de adicionar o "tempo" que essas 2 chamadas levarem), e temos também um número constante de operações requeridas (`if`, soma, por exemplo), $c_1$.  
+O ramo de cima corresponde aos casos base - há um número **constante**, $c_0$,
+de operações a realizar caso estejamos na presença do caso base.  
+O ramo de baixo ocorre quando os casos base não se verifiquem - terá de ocorrer uma
+chamada recursiva a $Fib(n-1)$ e a $Fib(n-2)$ (tendo, portanto, de adicionar o "tempo"
+que essas 2 chamadas levarem), e temos também um número constante de operações requeridas (e.g `if`'s, somas): $c_1$.  
 Temos que $c_0, c_1 \geq 2$.
 
 Podemos, ainda, provar que $T(n) > fibo(n)$ (a função matemática, não a nossa implementação da mesma):
@@ -107,11 +122,15 @@ provado nas notas do professor (no fim desta página).
 
 ### Implementação 2 (Memoization e Programação Dinâmica)
 
-Ora, o nosso objetivo, para tornar o algoritmo mais eficiente, passará então por arranjar uma maneira de ir guardando os números já calculados, de modo a não ter de os calcular novamente. Uma das técnicas que nos pode ajudar a fazê-lo é a [**memoization**](color:yellow).
+Ora, o nosso objetivo, para tornar o algoritmo mais eficiente, passará então por
+arranjar uma maneira de ir guardando os números já calculados, de modo a não ter
+de os calcular novamente. Uma das técnicas que nos pode ajudar a fazê-lo é a [**memoization**](color:yellow).
 
 :::tip[Memoization]
 
-Técnica que garante que um método não calcula os mesmos valores mais do que uma vez, guardando os valores já calculados numa estrutura de dados (por ex. um mapa, um vetor, etc).
+Técnica que garante que um método não calcula os mesmos valores mais do que uma vez,
+guardando os valores já calculados numa estrutura de dados (por ex. um mapa, um vetor, etc),
+funcionando como uma cache.
 
 :::
 
@@ -137,7 +156,8 @@ int FibAux(int n, std::vector<int> &v) {
 }
 ```
 
-Podemos ainda ter uma implementação em [programação dinâmica normal](./tecnicas-algoritmos#programação-dinâmica), com a diferença de na memoization se passar necessariamente a tabela como argumento.
+Podemos ainda ter uma implementação em [programação dinâmica normal](./tecnicas-algoritmos#programação-dinâmica),
+com a diferença de na memoization se passar necessariamente a tabela como argumento.
 
 ```cpp
 int Fib(int n) {
@@ -155,7 +175,10 @@ int Fib(int n) {
 }
 ```
 
-Foi, então, inicializado um vetor de $n + 1$ elementos, onde os primeiros dois elementos correspondem aos **casos base**. A partir daí, podemos ir juntando novos valores ao vetor, partindo de valores previamente calculados, evitando cálculos desnecessários - aqui, **cada número de Fibonacci é calculado apenas uma vez**.
+Foi, então, inicializado um vetor de $n + 1$ elementos, onde os primeiros dois elementos
+correspondem aos **casos base**. A partir daí, podemos ir juntando novos valores ao vetor,
+partindo de valores previamente calculados, evitando cálculos desnecessários - aqui,
+**cada número de Fibonacci é calculado apenas uma vez**.
 
 Em relação a esta implementação, temos:
 
@@ -166,13 +189,21 @@ c_1 \cdot n + c_2 &\text{caso contrário}
 \end{cases}
 $$
 
-O ramo de cima é igual ao da implementação anterior. O de baixo, contudo, é bastante diferente - não estamos dependentes de chamadas recursivas. Temos uma componente $c_1 \cdot n$, correspondente às operações realizadas durante o loop principal, e uma $c_2$ correspondente às outras operações da função, todas realizadas em tempo constante.
+O ramo de cima é igual ao da implementação anterior. O de baixo, contudo, é bastante
+diferente - não estamos dependentes de chamadas recursivas. Temos uma componente
+$c_1 \cdot n$, correspondente às operações realizadas durante o loop principal, e
+uma $c_2$ correspondente às outras operações da função, todas realizadas em tempo constante.
 
-Esta implementação tem, ainda, um pormenor que pode ser melhorado - a complexidade no [**espaço**](color:yellow) é linear ($S(n) \in O(n)$), já que precisamos de criar um vetor com $n$ entradas. Podemos, no entanto, melhorar este aspeto.
+Esta implementação tem, ainda, um pormenor que pode ser melhorado - a complexidade
+no [**espaço**](color:yellow) é linear ($S(n) \in O(n)$), já que precisamos de criar
+um vetor com $n$ entradas. Podemos, no entanto, melhorar este aspeto.
 
 ### Implementação 3 (Constantes Auxiliares)
 
-O algoritmo seguinte é bastante semelhante ao anterior, recorrendo, no entanto, a **constantes auxiliares** temporárias ao invés de uma estrutura de dados adicional. Evita, na mesma, os cálculos repetidos desnecessários, mas sem o "incómodo" da complexidade no espaço ser linear - é $O(1)$.  
+O algoritmo seguinte é bastante semelhante ao anterior, recorrendo, no entanto, a
+**constantes auxiliares** temporárias ao invés de uma estrutura de dados adicional.
+Evita, na mesma, os cálculos repetidos desnecessários, mas sem o "incómodo" da
+complexidade no espaço ser linear - é $O(1)$.  
 Em C++, corresponderia a qualquer coisa como:
 
 ```cpp
@@ -196,11 +227,13 @@ De realçar que a complexidade temporal continua igual à anterior, $T(n) \in O(
 
 ## Invariante de um Loop
 
-Resta, por fim, definir o **invariante de um loop**.
+Resta, por fim, definir o **invariante de um loop**, noção que nos vai acompanhar
+durante o decorrer da cadeira.
 
-:::tip[Invariante de um Loop]
+:::info[Invariante de um Loop]
 
-Corresponde a uma **propriedade que o algoritmo mantém** durante todo o loop. Colapsa no final do loop.
+Corresponde a uma [**propriedade que o algoritmo mantém**](color:green) durante
+todo o loop. Colapsa no final do loop.
 
 :::
 
@@ -222,7 +255,8 @@ $$
 \operatorname{sum} = \sum^{i - 1}_{k = 0}\operatorname{arr} [k]
 $$
 
-onde `i` é a variável do ciclo que vai sendo incrementada. Podemos verificar, a qualquer momento do loop, que `sum` corresponde, de facto, ao valor daquele somatório.
+onde `i` é a variável do ciclo que vai sendo incrementada. Podemos verificar, a qualquer
+momento do loop, que `sum` corresponde, de facto, ao valor daquele somatório.
 
 ---
 

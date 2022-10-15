@@ -23,12 +23,12 @@ Formalmente, uma [**máquina de Turing**](color:red) é um tuplo $(\Gamma, \Sigm
 Uma [máquina de Turing](color:red) deve ser entendida da seguinte forma:  
 Temos uma fita com posições que "guardam" símbolos num alfabeto $\Sigma$ - o alfabeto de entrada/saída.
 Esta fita é infinita para a direita.  
-À medida que vamos fazer a nossa computação, podemos subsituir os símbolos na fita com símbolos num alfabeto $\Gamma$ - o nosso alfabeto de trabalho.
+À medida que vamos fazer a nossa computação, podemos substituir os símbolos na fita com símbolos num alfabeto $\Gamma$ - o nosso alfabeto de trabalho.
 O símbolo $\square$ representa uma posição na fita vazia.
 Note-se que $\Sigma \subset \Gamma$, ou seja, o alfabeto de trabalho pode ter símbolos que não estão no alfabeto de entrada de saída. Então, podemos usar símbolos à nossa vontade para representar posições que nos sejam convenientes.  
 Temos um conjunto de estados de controlo $Q$. Tal como nos AFD's e AFND's, este será o nosso mecanismo principal de **memória**. Isto vai ser mais claro à frente.
 O estado $q_{in}$ é, como nos autómatos, o estado em $Q$ em que começamos as transições.  
-Os estados de aceitação e rejeitação indicam se a nossa computação foi sucedida ou não.
+Os estados de aceitação e rejeição indicam se a nossa computação foi sucedida ou não.
 Isto é, se criarmos uma máquina de Turing para resolver um dado problema, o nosso problema tem resposta afirmativa se chegar a um estado aceitação, e negativa se chegar a um estado de rejeição.
 Em ambos os casos, a computação termina nesse momento.
 Para uma computação terminar, não necessita de ler todos os símbolos que estavam inicialmente na fita - basta apenas que a computação leve a um estado terminação.  
@@ -38,7 +38,7 @@ A função $\delta$ atua sobre a fita, e sobre o conjunto de estados:
   - lemos um símbolo, que podemos substituir por outro símbolo em $\Gamma$;
   - andamos para a esquerda ($L$) ou direita ($R$).
 - no conjunto de estados:
-  - transitamos tal como faziamos nos autómatos.
+  - transitamos tal como fazíamos nos autómatos.
 
 Este mecanismo é um modelo computacional que nos permite fazer vários tipos de computação, nomeadamente:
 
@@ -127,7 +127,7 @@ Se a computação não terminar, diz-se **divergente**.
 
 Uma palavra $\omega \in \Sigma^*$ diz-se **aceite** por $M$ se a computação que lhe é associada termina num estado de aceitação, e diz-se **rejeitada** se terminar no estado de rejeição.
 Usamos $L_{ac}(M), L_{rj}(M) \subset \Sigma^*$, respetivamente, para denotar as linguagens aceite e rejeitada pela máquina de Turing $M$.  
-Caso $\omega$ seja aceite por $M$ tal que $(u, q_{ac}, v)$ é a configuração atingida pela computação, se $v = x.y$ com $x \in \Sigma^*$ e $y \in \{ \square \}^*$, dizemos que $x$ é o **output** da computação e denotamos $\phi_M(\omega) = x$. A função $\phi_M : \Sigma^* \to \Sigma^*$ demonia-se de **função calculada** por $M$.
+Caso $\omega$ seja aceite por $M$ tal que $(u, q_{ac}, v)$ é a configuração atingida pela computação, se $v = x.y$ com $x \in \Sigma^*$ e $y \in \{ \square \}^*$, dizemos que $x$ é o **output** da computação e denotamos $\phi_M(\omega) = x$. A função $\phi_M : \Sigma^* \to \Sigma^*$ denomina-se de **função calculada** por $M$.
 
 Dizemos que duas máquinas de Turing são [**equivalentes**](color:orange) (representa-se [$M_1 \equiv M_2$](color:orange)) se se verificarem 3 coisas:
 
@@ -316,7 +316,7 @@ Há na verdade várias representações em base binária para os números natura
 Se fizermos por exemplo a correspondência entre cada algarismo $0,1,\cdots,9$ para uma palavra binária, obtemos uma representação binária diferente da tradicional.  
 Mais genericamente, é possível definir uma tradução para binário semelhante à explicada a cima para qualquer alfabeto.  
 Mais ainda, é possível definir uma representação binária para uma Máquina de Turing.
-Abaixo vemos os detalhes destas representações, tanto de uma representaçao de um alfabeto em binário como uma representação para Máquinas de Turing, a que damos o nome de [**representação canónica**](color:orange).
+Abaixo vemos os detalhes destas representações, tanto de uma representação de um alfabeto em binário como uma representação para Máquinas de Turing, a que damos o nome de [**representação canónica**](color:orange).
 
 :::details[Representação Canónica]
 
@@ -435,8 +435,8 @@ Nesta fase, $U$ faz os seguintes passos repetidamente até $M$ abortar/terminar.
 
 - lê o símbolo onde está posicionado a cabeça de leitura/escrita da fita 6;
 - lê o estado atual de $M$ na fita 5;
-- percorre a fita 3 à procura da transição de $M$ para este símbolo e estado. Se não encontrar transição, $U$ aborta. Se encontrar, $U$ altera o estado de $M$ na fita 5, o símbolo na fita 6 e a posiçao da cabeça de leitura/escrita conforme indicado na transição encontrada;
-- Se o passo anterior levar a um estado de terminação de $M$, $U$ termina em acordância com $M$.
+- percorre a fita 3 à procura da transição de $M$ para este símbolo e estado. Se não encontrar transição, $U$ aborta. Se encontrar, $U$ altera o estado de $M$ na fita 5, o símbolo na fita 6 e a posição da cabeça de leitura/escrita conforme indicado na transição encontrada;
+- Se o passo anterior levar a um estado de terminação de $M$, $U$ termina em concordância com $M$.
 
 :::
 

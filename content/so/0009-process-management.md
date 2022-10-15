@@ -118,7 +118,7 @@ Quando o CPU comuta de um processo em modo utilizador tem de:
 - mudar o espaço de endereçamento do processo utilizador para o espaço de endereçamento do núcleo;
 - mudar da pilha do utilizador para a pilha núcleo do processo. Esta pilha é utilizada a partir do momento em que o processo muda de modo utilizador para modo núcleo e está sempre vazia antes disso.
 
-O uso de pilhas distintas para execução em modo núcleo e em modo utilizador é uma medida de segurança que impede que processos tenham acesso a informação priveligiada do núcleo.  
+O uso de pilhas distintas para execução em modo núcleo e em modo utilizador é uma medida de segurança que impede que processos tenham acesso a informação privilegiada do núcleo.  
 Considere-se a seguinte situação (assumindo que há uma pilha por processo):  
 Num processo multi-tarefa, uma tarefa faz uma chamada sistema.
 Quando a rotina núcleo se executa, coloca variáveis locais das funções núcleo na pilha do processo.
@@ -250,7 +250,7 @@ Em Unix há dois tipos de prioridades:
 
 As prioridades do utilizador seguem o seguinte algoritmo:
 
-- o CPU é sempre atribuido ao processo mais prioritário durante um _quantum_ de 100ms (5 "ticks" do relógio);
+- o CPU é sempre atribuído ao processo mais prioritário durante um _quantum_ de 100ms (5 "ticks" do relógio);
 - _Round-Robin_ entre os processos mais prioritários;
 - A cada segundo (50 "ticks") as prioridades são recalculadas de acordo com a seguinte fórmula:
 
@@ -277,7 +277,7 @@ O Gestor de Processos em Unix recalcula a prioridade de todos os processos a cad
 
 O Gestor de Processos em Linux tenta resolver o problema encontrado no Gestor de Processos do Unix.  
 Para isso, divide o tempo em épocas.
-Uma época acaba quando todos os processos usaram o seu _quantum_ disponível ou estão bloqueados. No início de cada época, é atribuido a cada processo um _quantum_ e uma prioridade da seguinte forma:
+Uma época acaba quando todos os processos usaram o seu _quantum_ disponível ou estão bloqueados. No início de cada época, é atribuído a cada processo um _quantum_ e uma prioridade da seguinte forma:
 
 $$
 \begin{darray}{l}
@@ -324,7 +324,7 @@ Basicamente o núcleo varre ocasionalmente as páginas no sistema, se vir que ex
 **exit()**  
 A operação `exit()` termina um processo, executando as funções registadas pelo `atexit` (esta não precisa de ajuda do núcleo para ser executada), libertando todos os recursos (ficheiro, diretoria corrente, regiões de memória).  
 De seguida actualiza o ficheiro que regista a utilização do processador, memória e I/O.  
-Finalmente, envia signal death of child (SIGCHILD) ao processo pai (que por omissão é ignorado) e mantem o filho no estado zombie, até que o pai o encontre (obtendo informação sobre a terminação do filho).
+Finalmente, envia signal death of child (SIGCHILD) ao processo pai (que por omissão é ignorado) e mantém o filho no estado zombie, até que o pai o encontre (obtendo informação sobre a terminação do filho).
 
 **wait()**  
 O operação `wait()` procura por filhos _zombie_:

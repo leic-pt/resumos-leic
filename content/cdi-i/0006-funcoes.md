@@ -71,7 +71,7 @@ $$
 f:[-2,2[\rightarrow \R \qquad f(x)=(x-1)^2-1\\g:\R^+_0\rightarrow \R\qquad g(x)=x+1
 $$
 
-Começemos por descobrir o domínio da composta $g\circ f$:
+Comecemos por descobrir o domínio da composta $g\circ f$:
 
 $$
 f^{-1}(\R^+_0)=\big\{x\in[-2,2[:f(x)\ge 0\big\}=\big\{x\in[-2, 2[:|x-1|\ge 1\big\}=[-2,0]
@@ -222,7 +222,7 @@ O seu gráfico é uma reta horizontal de ordenada $a_0$, isto é, $y=a_0$.
 
 ### Funções polinomiais de grau 1
 
-Não são limitadas. São extritamente monótonas, sendo crescentes se $a_1>0$ e decrescentes se $a_1<0$.  
+Não são limitadas. São estritamente monótonas, sendo crescentes se $a_1>0$ e decrescentes se $a_1<0$.  
 O seu contradomínio é $f(\R)=\R$.  
 O seu gráfico é uma reta de declive $a_1$ e ordenada na origem $a_0$, isto é, $y=a_1x+a_0$.  
 Tem apenas um zero, no ponto $x=-\frac{a_0}{a_1}$.  
@@ -311,7 +311,7 @@ Assim, obtemos a função logaritmo de base $a$.
 
 :::tip[Definição]
 **Função logaritmo de base $a\in\R^+\backslash\{1\}$**  
-É a inversa da função exponencial de base $a$ tomando para conjunto de chegadadessa função $\R^+$
+É a inversa da função exponencial de base $a$ tomando para conjunto de chegada dessa função $\R^+$
 :::
 
 Assim, dado $a\in\R^+\backslash\{1\}$ a função logaritmo de base $a$ é a função definida por
@@ -324,7 +324,7 @@ $$
 
 ### Propriedades do logaritmo
 
-Atentendo à definição da função logaritmo e às propriedades aritméticas das funções, podemos escrever as seguintes propriedades dos logaritmos, seja $a,b,c\in\R^+$:
+Atendendo à definição da função logaritmo e às propriedades aritméticas das funções, podemos escrever as seguintes propriedades dos logaritmos, seja $a,b,c\in\R^+$:
 
 - $\log(a\cdot b)=\log a + \log b$
 - $\log\frac a b = \log a-\log b$
@@ -428,7 +428,7 @@ $$
 
 ### Seno hiperbólico
 
-Função estritamente crescente, impar e bijetiva.
+Função estritamente crescente, ímpar e bijetiva.
 
 Para $x>>$ cresce como uma exponencial positiva.
 
@@ -496,7 +496,7 @@ $$
 
 ## Funções hiperbólicas inversas
 
-Definem-se as funções argumento seno hiperbólico, argumento co-seno hiperbólico e argumento tangente hiperbólica como sendo as inversas do seno hiperbólico, da restrição do co-seno hiperbólico a $\R^+_0$ e da tangente hiperbólica, respectivamente. É fácil definir um argumento cotangente hiperbólica mas é uma função que muito raramente é usada.
+Definem-se as funções argumento seno hiperbólico, argumento co-seno hiperbólico e argumento tangente hiperbólica como sendo as inversas do seno hiperbólico, da restrição do co-seno hiperbólico a $\R^+_0$ e da tangente hiperbólica, respetivamente. É fácil definir um argumento cotangente hiperbólica mas é uma função que muito raramente é usada.
 
 Assim, definem-se as funções:
 

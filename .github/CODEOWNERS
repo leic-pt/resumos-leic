@@ -7,8 +7,8 @@ content/al/** @diogotcorreia
 # AMS - Main maintainer Diogo Correia
 content/ams/** @diogotcorreia
 
-# Apre - Main maintainer Diogo Correia
-content/apre/** @diogotcorreia
+# Apre - Main maintainer Diogo Gaspar
+content/apre/** @randomicecube
 
 # ASA - Main maintainer Diogo Gaspar
 content/asa/** @randomicecube
@@ -30,6 +30,9 @@ content/cg/** @diogotcorreia
 
 # Comp - Main maintainer Diogo Correia
 content/comp/** @diogotcorreia
+
+# DER (HACS) - Main maintainer Diogo Correia
+content/der/** @diogotcorreia
 
 # ES - Main maintainer Diogo Correia
 content/es/** @diogotcorreia
@@ -57,6 +60,9 @@ content/iac/** @diogotcorreia
 # IAED - Main maintainer Tomás Esteves / Diogo Gaspar
 content/iaed/** @Pesteves2002 @randomicecube
 content/iaed/meta/* @diogotcorreia
+
+# IEco (HACS) - Main maintainer Diogo Correia
+content/ieco/** @diogotcorreia
 
 # IEI - Main maintainer Diogo Correia
 content/iei/** @diogotcorreia

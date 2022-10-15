@@ -69,6 +69,7 @@ module.exports = {
               quality: 80,
             },
           },
+          `gatsby-remark-copy-linked-files`,
           `gatsby-remark-post-image-data`,
           `gatsby-remark-directive`,
           {
@@ -112,7 +113,6 @@ module.exports = {
               noInlineHighlight: true,
             },
           },
-          `gatsby-remark-copy-linked-files`,
           `gatsby-remark-autolink-headers`,
           `gatsby-remark-external-links`,
         ],
@@ -131,7 +131,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-use-dark-mode`,
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-umami`,
       options: {

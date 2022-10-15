@@ -29,7 +29,7 @@ Alguns autores consideram os naturais como a interseção de todos os conjuntos 
 
 :::
 
-É bom de relembrar, que nem todos os conjuntos indutivos que contenham 0 são o conjunto dos números naturais. O conjunto $C=\{0, \frac{1}{2}, 1, \frac{3}{2}, 2, ...\}$ é indutivo, pois obdece à condição acima, mas não corresponde ao conjunto dos números naturais. Por isso é que o definimos como a interseção de **todos** estes conjuntos que contenham $0$.
+É bom de relembrar, que nem todos os conjuntos indutivos que contenham 0 são o conjunto dos números naturais. O conjunto $C=\{0, \frac{1}{2}, 1, \frac{3}{2}, 2, ...\}$ é indutivo, pois obedece à condição acima, mas não corresponde ao conjunto dos números naturais. Por isso é que o definimos como a interseção de **todos** estes conjuntos que contenham $0$.
 
 Esta definição de conjunto dos naturais não inclui os números inteiros negativos, pois como é a interseção de todos os conjuntos indutivos que contenham $0$, existe um conjunto como $C$ definido acima.
 

@@ -13,7 +13,6 @@ const HomePageLayout = ({ data }) => {
   const { markdownRemark: page } = data;
   return (
     <div className='home-page-container'>
-      <PageMetadata title={page.frontmatter.title} description={page.frontmatter.description} />
       <Navbar />
       <div className='hero'>
         <img src={IstLogo} alt='Instituto Superior Técnico' width={150} />
@@ -83,3 +82,8 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export const Head = ({ data }) => {
+  const { markdownRemark: page } = data;
+  return <PageMetadata title={page.frontmatter.title} description={page.frontmatter.description} />;
+};

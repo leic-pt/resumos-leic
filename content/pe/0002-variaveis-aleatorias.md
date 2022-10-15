@@ -49,7 +49,7 @@ Agora já temos uma tradução da nossa experiência em números, pelo que podem
 
 :::details[Exemplo 2]
 
-Considere-se a experiência aleatória que consiste em lançar um objeto ao ar e medir quantos tempo ele demora a cair no chão.
+Considere-se a experiência aleatória que consiste em lançar um objeto ao ar e medir quanto tempo ele demora a cair ao chão.
 O espaço de resultados desta EA é
 
 $$
@@ -84,9 +84,9 @@ $$
 
 :::tip[Nota]
 
-Em todos os exemplos podíamos ter definido qualquer outra VA que nos apetecesse.  
-Nos primeiros dois exemplos não fazia sentido definir qualquer VA que não as que foram definidas - estas são as que nos fazem mais sentido.
-De facto, nesses casos as variáveis aleatórias são tão pouco "originais" que é fácil confundir o input (o evento) com o output (um valor numérico).  
+Em todos os exemplos, podíamos ter definido qualquer outra VA que nos apetecesse.  
+Nos primeiros dois exemplos, não fazia sentido definir qualquer VA que não as que foram definidas - estas são as que nos fazem mais sentido.
+De facto, nesses casos, as variáveis aleatórias são tão pouco "originais" que é fácil confundir o input (o evento) com o output (um valor numérico).  
 No entanto, no terceiro exemplo já é mais notável qual o objetivo da VA.
 Na verdade, a VA não passa exatamente de um formalismo que transforma eventos em valores numéricos.
 Desta forma, podemos definir qualquer VA desde que consigamos trabalhar com ela.
@@ -122,7 +122,7 @@ $$
 Dependendo se a VA é discreta ou contínua, esta função tem restrições e propriedades diferentes (apesar de análogas).
 Nomeadamente, para VA's discretas é possível usar somatórios, já que $\Omega$ é contável.
 Para VA's contínuas, por contraste, teremos de trabalhar com integrais.  
-Está então na altura de analisar cada caso em separado.
+Está, então, na altura de analisar cada caso em separado.
 
 :::tip[Nota]
 
@@ -132,12 +132,12 @@ A relevância da [função de distribuição](color:purple) é proveniente da fo
 
 ## Variáveis Aleatórias Discretas
 
-A funçao de probabilidade de uma VA discreta deve ser tal que:
+A função de probabilidade de uma VA discreta deve ser tal que:
 
 - $P(X = x) > 0, \forall_{x \in \R_X}$
 - $\sum_{x \in \R_X} P(X = x) = 1$
 
-Para VA's contínuas é evidente que a função de distribuição pode ser dada por
+Para VA's discretas é evidente que a função de distribuição pode ser dada por
 
 $$
 F_X(x) = P(X \leq x) = \sum_{y \in \R_X, y \leq x} P(X = y)
@@ -145,9 +145,9 @@ $$
 
 As VA's discretas satisfazem as seguintes propriedades:
 
-- $F_X$ é monótona crescente, contínua à direita e tem $\#\R_X$ pontos de descontinuidade. Consequentemente, o gráfica da fd de uma VA discreta é algo parecido a:
+- $F_X$ é monótona crescente, contínua à direita e tem $\#\R_X$ pontos de descontinuidade. Consequentemente, o gráfico da fd de uma VA discreta é algo parecido a:
 
-![Gráfico da fd de um VA dicsreta](./imgs/0002/discrete_fd_graph.png#dark=3)
+![Gráfico da fd de um VA discreta](./imgs/0002/discrete_fd_graph.png#dark=3)
 
 - $F_X(-\infty) = \lim_{x \to -\infty} F_X(x) = 0$;
 - $F_X(+\infty) = \lim_{x \to +\infty} F_X(x) = 1$;
@@ -168,9 +168,9 @@ P(X = x) = 0, \forall_{x \in \R}
 $$
 
 Então, a melhor forma de caracterizar VA's contínuas é através da sua função de distribuição.  
-Dizemos entao que uma VA $X$ é contínua se e só se:
+Dizemos, então, que uma VA $X$ é contínua se e só se:
 
-- Possuir uma função distribuição $F_X(x)$ contínua e crescente (em sentido lato) em $\R$;
+- Possuir uma função de distribuição $F_X(x)$ contínua e crescente (em sentido lato) em $\R$;
 - Existir uma função $f_X(x): \R \to \R_0^+$ tal que
   $$
   F_X(x) = \int_{-\infty}^x f_X(t) \, dt
@@ -179,7 +179,7 @@ Dizemos entao que uma VA $X$ é contínua se e só se:
 
 As VA's contínuas têm as seguintes propriedades:
 
-- Um gráfico vagamente semelhante ao representado abaixo, devido à continuidade e monotonicidade lata:
+- Um gráfico vagamente semelhante ao representado abaixo, devido à continuidade e monotonia lata:
 
 ![Gráfico da fd de um VA contínua](./imgs/0002/continuous_fd_graph.png#dark=3)
 
@@ -192,8 +192,8 @@ As VA's contínuas têm as seguintes propriedades:
 
 ## Valor Esperado e Variância
 
-Por vezes é relevante condensar informação sobre uma VA num só número.
-As funções mais que relevantes que nos dão informação sobre VA's são:
+Por vezes, é relevante condensar informação sobre uma VA num só número.
+As funções mais que relevantes que nos dão informações sobre VA's são:
 
 - [**Valor Esperado**](color:yellow): [**$E(X)$**](color:yellow), [**$\mu$**](color:yellow) ou [**$\mu_x$**](color:yellow)  
   É dado por:
@@ -224,7 +224,7 @@ As funções mais que relevantes que nos dão informação sobre VA's são:
   Esta função é a medida de centralidade principal de uma VA.
 
 - [**Variância**](color:orange): [**$Var(X)$**](color:orange), [**$V(X)$**](color:orange), [**$\sigma^2$**](color:orange) ou [**$\sigma^2_x$**](color:orange)  
-  É definido como
+  É definida como:
 
   $$
   V(X) = E\left( (X - E(X))^2 \right) = E(X^2) - E(X)^2
@@ -239,7 +239,7 @@ As funções mais que relevantes que nos dão informação sobre VA's são:
   Esta função dá-nos uma medida de divergência em relação ao valor esperado (ao centro).
 
 - [**Desvio Padrão**](color:red): [**$DP(X)$**](color:red), [**$\sigma$**](color:red) ou [**$\sigma_X$**](color:red)  
-  É definido por
+  É definido por:
 
   $$
   DP(X) = \sqrt{V(X)}

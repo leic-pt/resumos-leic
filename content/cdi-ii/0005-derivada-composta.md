@@ -180,7 +180,7 @@ $$
 \left[\frac{\partial g_k}{\partial x_j}(a)\right]_{k = 1,\dots, m;\\ j = 1,\dots, n}
 $$
 
-Atentendo ao produto matricial, podemos obter uma expressão mais simples:
+Atendendo ao produto matricial, podemos obter uma expressão mais simples:
 
 :::tip[DEFINIÇÃO]
 

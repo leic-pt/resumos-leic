@@ -27,7 +27,7 @@ $$
 \frac{f'(c)}{g'(c)}=\frac{f(a)-f(b)}{g(a)-g(b)}
 $$
 
-É de notar que este teorema se obtem a partir do [Teorema de Lagrange](/cdi-i/diferenciabilidade#teorema-de-lagrange), visto que, se considerarmos $g(x)=x$ obtemos:
+É de notar que este teorema se obtém a partir do [Teorema de Lagrange](/cdi-i/diferenciabilidade#teorema-de-lagrange), visto que, se considerarmos $g(x)=x$ obtemos:
 
 $$
 \frac{f'(c)}{(c)'}=\frac{f(a)-f(b)}{a-b}\iff f'(c)=\frac{f(a)-f(b)}{a-b}

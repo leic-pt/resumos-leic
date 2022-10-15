@@ -211,7 +211,7 @@ Como tal, $F$ é fechado, mas não é gradiente.
 Assim, se considerarmos uma curva $C_2$ homotópica a $C$, sabemos que
 $\int_C F \d \vec g = \int_{C_2} F \d \vec g$.
 
-Visto que $F$ é um vórtice, pode-se simplificar os cálculos escolhendo uma cirfunferência de raio $1$ centrada em $(0,1)$.
+Visto que $F$ é um vórtice, pode-se simplificar os cálculos escolhendo uma circunferência de raio $1$ centrada em $(0,1)$.
 
 ![Representação Quadrado e Circunferência](./assets/0017-quadrado-circ.svg#dark=1)
 

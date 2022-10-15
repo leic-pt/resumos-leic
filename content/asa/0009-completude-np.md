@@ -30,9 +30,9 @@ Temos, então, duas principais classes de problemas:
 
 - os problemas [$P$](color:orange), para os quais podemos encontrar uma solução de forma eficiente, em tempo polinomial.
 
-- os problemas [$NP$](color:yellow), "Não-Determínisticos Polinomiais", que possuem solução (conhecida) superpolinomial, mas que são **verificáveis** em tempo polinomial: dado um [**certificado**](color:green), é possível verificar em tempo eficiente se o mesmo corresponde a uma solução para o problema. Aqui, dizemos que um certificado corresponde a uma potencial solução para o problema: no caso de um programa que procura descobrir o caminho mais longo de um grafo, um _certificado-exemplo_ corresponderia a um qualquer caminho que fosse fornecido como input. Podemos afirmar que $P \subseteq NP$: todos os problemas com solução em tempo polinomial também são, claro, verificáveis em tempo polinomial (basta procurar a solução, que é feita em tempo polinomial).
+- os problemas [$NP$](color:yellow), "Não-Determinísticos Polinomiais", que possuem solução (conhecida) superpolinomial, mas que são **verificáveis** em tempo polinomial: dado um [**certificado**](color:green), é possível verificar em tempo eficiente se o mesmo corresponde a uma solução para o problema. Aqui, dizemos que um certificado corresponde a uma potencial solução para o problema: no caso de um programa que procura descobrir o caminho mais longo de um grafo, um _certificado-exemplo_ corresponderia a um qualquer caminho que fosse fornecido como input. Podemos afirmar que $P \subseteq NP$: todos os problemas com solução em tempo polinomial também são, claro, verificáveis em tempo polinomial (basta procurar a solução, que é feita em tempo polinomial).
 
-Até agora, o nosso objetivo ao analisar algoritmos sempre foi procurar encontrar uma majoração, notação $O$, para a complexidade temporal que um dado algoritmo pode ter - um pior caso. Nos problemas $NPC$, vamos procurar fazer precisamente o oposto: tentar demonstrar que um dado problema é "pelo menos tão difícil" como outro que já sabemos ser díficil, algo semelhante à noção de $\Omega$, minorante da complexidade temporal.
+Até agora, o nosso objetivo ao analisar algoritmos sempre foi procurar encontrar uma majoração, notação $O$, para a complexidade temporal que um dado algoritmo pode ter - um pior caso. Nos problemas $NPC$, vamos procurar fazer precisamente o oposto: tentar demonstrar que um dado problema é "pelo menos tão difícil" como outro que já sabemos ser difícil, algo semelhante à noção de $\Omega$, minorante da complexidade temporal.
 
 ## Redutibilidade de um Problema
 
@@ -44,13 +44,13 @@ $$
 
 Dizemos que $f$ é uma **função de redução**, com respetivo **algoritmo de redução** associado $F$.
 
-![Redução - Intuição](./assets/0009-np-reducao.png)
+![Redução - Intuição](./assets/0009-np-reducao.svg#dark=2)
 
-Acima podemos ver o exemplo de como a lógica funciona - pegamos numa instância de um problema, reduzimo-la numa instância de outro problema através de um algoritmo de redução que leva **necessariamente** tempo polinomial, tendo que a resposta ao problema reescrito terá de ser a mesma que a do problema original!
+Acima podemos ver o exemplo de como a lógica funciona - pegamos numa instância de um problema, reduzimos-la numa instância de outro problema através de um algoritmo de redução que leva **necessariamente** tempo polinomial, tendo que a resposta ao problema reescrito terá de ser a mesma que a do problema original!
 
 Intuitivamente, se podemos reduzir um problema $X$ a outro $Y$ em tempo polinomial, então $X$ não deverá ser "mais difícil" de resolver que $Y$.
 
-Um problema $x$ diz-se **$NP$-Díficil** ($NPH$, de $NP$_-hard_) caso possamos reduzir qualquer problema $NP$ a $x$ em tempo polinomial - nenhum dos outros será "mais díficil" que $x$. Não têm necessariamente de ser problemas em $NP$ - o _halting problem_ é $NP$-Díficil, mas nem sequer tem solução (nem polinomial nem superpolinomial), não fazendo portanto parte de $NP$.
+Um problema $x$ diz-se **$NP$-Difícil** ($NPH$, de $NP$_-hard_) caso possamos reduzir qualquer problema $NP$ a $x$ em tempo polinomial - nenhum dos outros será "mais difícil" que $x$. Não têm necessariamente de ser problemas em $NP$ - o _halting problem_ é $NP$-Difícil, mas nem sequer tem solução (nem polinomial nem superpolinomial), não fazendo portanto parte de $NP$.
 
 Aos problemas que são tanto $NP$ como $NP$-difíceis, damos o nome de **$NP$-completos** ($NPC$). Estes são portanto, problemas cuja solução pode ser verificada em tempo polinomial, que são no máximo tão difíceis como qualquer problema $NP$ (isto é, a solução eficiente para qualquer problema $NP$ implica solução eficiente para este problema).
 
@@ -66,7 +66,7 @@ Considerando a definição que oferecemos para problemas $NPH$, concluímos que 
 
 Podemos, agora, ter uma noção melhor das relações entre estas várias classes de problemas:
 
-![Classes de problemas](./assets/0009-venn-np.png#dark=1)
+![Classes de problemas](./assets/0009-venn-np.svg#dark=2)
 
 Por fim, podemos afirmar que:
 
@@ -74,7 +74,7 @@ $$
 X \in NP \wedge Y \in NPC \wedge Y \leq_p X \implies X \in NPC
 $$
 
-Isto é, se houver um problema que é $NP$-Completo (e, portanto, $NP$-Díficil), todos os problemas em $NP$ para os quais o podemos reduzir serão também $NP$-Completos, já que terão de ser _pelo menos tão difíceis_ quanto $Y$, que já é, por definição, $NP$-Díficil.
+Isto é, se houver um problema que é $NP$-Completo (e, portanto, $NP$-Difícil), todos os problemas em $NP$ para os quais o podemos reduzir serão também $NP$-Completos, já que terão de ser _pelo menos tão difíceis_ quanto $Y$, que já é, por definição, $NP$-Difícil.
 
 ### Teorema de Cook-Levin
 
@@ -118,7 +118,7 @@ já que a composição de reduções continua a custar tempo polinomial (corresp
 
 Há um conjunto de reduções clássicas entre vários problemas $NPC$, problemas estes abordados nas aulas teóricas e que são úteis ter em mente:
 
-![Reduções Clássicas](./assets/0009-reducoes-classicas.png#dark=1)
+![Reduções Clássicas](./assets/0009-reducoes-classicas.svg#dark=2)
 
 Todos os problemas acima mencionados são $NPC$. Nesta secção vão ser abordadas algumas destas reduções clássicas.
 
@@ -141,7 +141,7 @@ Para reescrever uma cláusula de CNF-SAT para 3CNF-SAT, teremos então de consid
 - a cláusula contém 1 literal;
 - a cláusula contém 2 literais;
 - a cláusula contém 3 literais;
-- a cláusula contém 4 ou mais liteirais.
+- a cláusula contém 4 ou mais literais.
 
 O algoritmo irá funcionar **cláusula-a-cláusula**, em vez de olhar logo para o conjunto de todas as cláusulas e procurar reescrever outro equivalente.
 
@@ -218,17 +218,17 @@ O professor disse nas aulas teóricas que uma pergunta-exemplo semelhante a algo
 
 :::info[Clique]
 
-Seja $G$ um grafo não dirigido. $V'$ diz-se um **clique** de $G$ caso $\forall_{x, y \in V'}, (x, y) \in E$ - todos os vértices de $V'$ "vêem" todos os outros, têm uma aresta direta para todos os outros que também pertencem a $V'$. Corresponde, portanto, a um **subgrafo completo** de $G$.
+Seja $G$ um grafo não dirigido. $V'$ diz-se um **clique** de $G$ caso $\forall_{x, y \in V'}, (x, y) \in E$ - todos os vértices de $V'$ "veem" todos os outros, têm uma aresta direta para todos os outros que também pertencem a $V'$. Corresponde, portanto, a um **subgrafo completo** de $G$.
 
 Abaixo podemos observar um clique de tamanho 3:
 
-![Clique - Exemplo 1](./assets/0009-clique-exemplo-1.png#dark=1)
+![Clique - Exemplo 1](./assets/0009-clique-exemplo-1.svg#dark=2)
 
 O clique corresponde a $V' = \{A, B, C\} = V$, e $|V'| = 3$ - todos os vértices têm arestas que os ligam aos outros em $V'$.
 
 De seguida apresenta-se outro exemplo, onde aqui há dois cliques de tamanho máximo (3):
 
-![Clique - Exemplo 2](./assets/0009-clique-exemplo-2.png#dark=1)
+![Clique - Exemplo 2](./assets/0009-clique-exemplo-2.svg#dark=2)
 
 Os dois cliques são, então, $V' = \{A, B, C\}$ e $V' = \{B, C, D\}$, ambos com tamanho 3.
 
@@ -250,7 +250,7 @@ $$
 
 A construção do grafo tripartido equivalente levaria a:
 
-![Clique - Grafo Tripartido](./assets/0009-clique-tripartido.png#dark=1)
+![Clique - Grafo Tripartido](./assets/0009-clique-tripartido.svg#dark=2)
 
 Um clique possível seria, aqui, tornar $\neg x_2$ e $x_3$ verdadeiros, e podemos reparar que independentemente do valor lógico de $x_1$, a fórmula é satisfazível. **Uma fórmula na forma 3CNF-SAT é satisfazível apenas se houver um clique no grafo $n$-partido correspondente.**
 
@@ -270,7 +270,7 @@ O problema associado a esta noção prende-se precisamente na existência (ou n�
 
 Abaixo encontram-se dois exemplos de duas coberturas diferentes em grafos diferentes:
 
-![Cobertura de Vértices - Exemplo](./assets/0009-vcover-example.png#dark=1)
+![Cobertura de Vértices - Exemplo](./assets/0009-vcover-example.svg#dark=2)
 
 O objetivo será aqui provar, sabendo que Clique é $NP$-Completo, que a cobertura de vértices também o é.
 
@@ -278,7 +278,7 @@ Num primeiro momento, teremos de provar que o problema está em NP, prova essa t
 
 Pretendemos então reduzir o problema Clique ao problema Cobertura de Vértices. Para tal, vamos recorrer à noção de **grafo complementar**: dado um grafo $G = (V, E)$, o seu complementar, $\overline{G} = (V, \overline{E})$ corresponde a um grafo tal que todas as ligações presentes em $E$ são removidas e todas as ligações não presentes são adicionadas. Encontra-se abaixo o exemplo de um grafo e respetivo complementar:
 
-![Grafo Complementar - Exemplo](./assets/0009-complementar-example.png#dark=1)
+![Grafo Complementar - Exemplo](./assets/0009-complementar-example.svg#dark=2)
 
 A redução inicia-se precisamente com a criação de um grafo complementar ao grafo dado, facilmente realizável em tempo polinomial (verificam-se todos os pares de vértices e criam-se arestas caso estas não existam no grafo original, $O(V^2)$). Afirmamos então que um grafo só tem um clique de tamanho $k$ se o grafo complementar tiver uma cobertura de vértices de tamanho $|V| - k$.
 
@@ -290,7 +290,7 @@ Para o provar, consideremos que $A$ corresponde a um clique de tamanho $k$ em $G
 
 O exemplo abaixo torna esta ideia mais aparente:
 
-![VCover - Exemplo Pós-Teoria](./assets/0009-vcover-graph.png#dark=1)
+![VCover - Exemplo Pós-Teoria](./assets/0009-vcover-graph.svg#dark=2)
 
 Pegando em todos os arcos do grafo complementar, podemos verificar que pelo menos um dos seus elementos não está no clique de tamanho $4$ do grafo original.
 

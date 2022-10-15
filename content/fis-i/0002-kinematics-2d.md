@@ -22,12 +22,12 @@ como o lançamento de projéteis, movimentos circulares, etc.
 Para introduzir o estudo da cinemática a 2 dimensões, vamos estudar o lançamento de projéteis
 (i.e. bala disparada de um canhão, chuto de uma bola que faz um "balão", etc).
 
-Na sua geralidade, neste tipo de movimentos temos uma velocidade inicial, oblíqua a ambos os eixos ($x$ e $y$).
+Na sua generalidade, neste tipo de movimentos temos uma velocidade inicial, oblíqua a ambos os eixos ($x$ e $y$).
 A única força a atuar no corpo é a força gravítica, atuando apenas na componente vertical da velocidade.  
 Podem existir variações deste tipo de exercícios em que seja necessário considerar outras forças,
 mas não é difícil fazer a adaptação do raciocínio abaixo.
 
-Mas o que é isto de componente vertical e componentente horizontal? Bem, agora que estamos a trabalhar a mais que uma dimensão,
+Mas o que é isto de componente vertical e componente horizontal? Bem, agora que estamos a trabalhar a mais que uma dimensão,
 passamos a ter de definir o movimento do corpo segundo dois eixos, $x$ e $y$:
 
 $$
@@ -77,7 +77,7 @@ Vejamos um exemplo, que ilustra melhor este conceito.
 **a) a altura máxima atingida**
 
 O primeiro passo é [decompor a velocidade inicial](/fis-i/guides/recap-highschool#decomposição-de-vetores) na componente horizontal e vertical.
-Através de trignometria, obtemos o seguinte:
+Através de trigonometria, obtemos o seguinte:
 
 ![Decomposição do vetor velocidade](./assets/0002-projectile-launch-velocity-vector-decomposition.svg#dark=2)
 
@@ -167,7 +167,7 @@ $$
 
 :::
 
-## Cordenadas Polares
+## Coordenadas Polares
 
 Por vezes, especialmente quando estamos a estudar movimentos circulares, pode dar mais jeito usar outro
 tipo de coordenadas, as [**coordenadas polares**](color:green).
