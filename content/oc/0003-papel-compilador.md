@@ -132,7 +132,7 @@ $$
 = \frac{\text{Hits}}{\text{Accesses}}
 $$
 
-Da mesma forma, se pretendemos aceder a dados não existentes temos um [_**miss**_](color:purple), o bloco é copiado para um nível mais baixo e os dados acedidos são fornecidos de um nível superior. Temos, portanto mais tempo perdido visto que temos uma penalidade para repôr o bloco nesse nível com o bloco de nível inferior correspondente. Logo, podemos calcular o [̣***miss ratio***](color:purple) através da seguinte fórmula:
+Da mesma forma, se pretendemos aceder a dados não existentes temos um [_**miss**_](color:purple), o bloco é copiado para um nível mais baixo e os dados acedidos são fornecidos de um nível superior. Temos, portanto mais tempo perdido visto que temos uma penalidade para repôr o bloco nesse nível com o bloco de nível inferior correspondente. Logo, podemos calcular o [̣**_miss ratio_**](color:purple) através da seguinte fórmula:
 
 $$
 \op{\text{Miss Ratio}}
