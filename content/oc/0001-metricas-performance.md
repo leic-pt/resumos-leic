@@ -396,7 +396,9 @@ $$
 &= \frac{\text{Clock Rate}}{\op{CPI} \times 10^6}
 \end{aligned}
 $$
+
 ### Floating Point Operations per Second
+
 O [**FLOPS**](color:orange), _Floating Point Operations per Second_, é outra métrica
 utilizada na avaliação da performance de um processador.
 Enquanto que o MIPS refere-se a qualquer instrução, o FLOPS refere-se apenas a instruções
@@ -435,7 +437,6 @@ Note-se que N$_A$T$_A$ [5s] > N$_B$T$_B$ [3s]
 
 Assim se tornarmos a instrução B 3 vezes mais rápida o tempo total de execução do programa é 6 segundos.
 
-Contudo se tornarmos A 1.8 vezes mais rápida o tempo total de execução do programa é 5.7 segundos! 
-
+Contudo se tornarmos A 1.8 vezes mais rápida o tempo total de execução do programa é 5.7 segundos!
 
 :::
