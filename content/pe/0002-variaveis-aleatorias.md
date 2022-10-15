@@ -179,7 +179,7 @@ Dizemos, então, que uma VA $X$ é contínua se e só se:
 
 As VA's contínuas têm as seguintes propriedades:
 
-- Um gráfico vagamente semelhante ao representado abaixo, devido à continuidade e monotonicidade lata:
+- Um gráfico vagamente semelhante ao representado abaixo, devido à continuidade e monotonia lata:
 
 ![Gráfico da fd de um VA contínua](./imgs/0002/continuous_fd_graph.png#dark=3)
 
