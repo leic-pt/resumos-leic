@@ -17,7 +17,7 @@ para serem corrigidas.
 
 :::tip
 
-Para além dos exercícios das aulas práticas, o livro de exercícios indicado abaixo tem uma coleção de exercícios bastante vasta. Se quiserem treinar e estar ainda melhor preparados, aconselho vivamente a que dêem uma vista de olhos!
+Para além dos exercícios das aulas práticas, o livro de exercícios indicado abaixo tem uma coleção de exercícios bastante vasta. Se quiserem treinar e estar ainda melhor preparados, aconselho vivamente a que deem uma vista de olhos!
 
 :::
 
@@ -188,7 +188,7 @@ Para além dos exercícios das aulas práticas, o livro de exercícios indicado 
   ```prolog
   % junta_novo_aleatorio(L1, LI, LS, L2)
 
-  % o predicado subtract retira todas as instancias de um ou mais elementos
+  % o predicado subtract retira todas as instâncias de um ou mais elementos
   % da lista argumento - subtract(L1, L_E, L2); o(s) elementos(s) a verificar
   % têm de vir sob a forma de lista
 

@@ -132,7 +132,7 @@ $$
 Esta implementação segue o esquema acima definido, um filósofo deve escolher sempre pela ordem.
 Se o filósofo quiser o garfo 3 e 4, deve escolher primeiro o 3 e só depois o 4.
 
-Isto abre um problema, no caso do filósofo número 4, este escolhe primeiro o 4 e depois o 0, indo contra o príncipio definido em cima.
+Isto abre um problema, no caso do filósofo número 4, este escolhe primeiro o 4 e depois o 0, indo contra o princípio definido em cima.
 
 Temos assim de arranjar uma solução para esse caso.
 
@@ -174,7 +174,7 @@ filosofo(int id) {
       if (lock(garfo[id])) {
         if (try_lock(garfo[(id + 1) % 5])) {
           garfos = TRUE;
-        } else { // adquisição 2º trinco falhou
+        } else { // aquisição 2º trinco falhou
           unlock(garfo[id]); // abre 1º trinco e tenta outra vez
           sleep(random([0, MAX]));
         }
@@ -256,7 +256,7 @@ Para otimizar a eficiência de situações deste tipo usamos variáveis de condi
 ## Variáveis de Condição
 
 As **variáveis de condição** permitem a uma tarefa esperar por uma condição que depende da ação de outra tarefa.
-A condição é um boleano determinado em função do estado de variáveis partilhadas.
+A condição é um booleano determinado em função do estado de variáveis partilhadas.
 Uma variável de condição está sempre associada a um trinco, que protege as secções críticas com acessos às variáveis partilhadas que definem a condição da espera.
 Pode haver mais que uma variável de condição associada ao mesmo trinco.  
 O conjunto trinco + variáveis de condição é normalmente chamado um **monitor**.
@@ -354,7 +354,7 @@ Mais exemplos nos slides em baixo
 ### Cuidados a ter
 
 Quando uma tarefa chama `wait`, esta liberta o trinco e entra na fila de espera **atomicamente**.
-Consequencemente, caso a condição mude e haja `signal`, pelo menos uma tarefa na fila será desbloqueada.
+Consequentemente, caso a condição mude e haja `signal`, pelo menos uma tarefa na fila será desbloqueada.
 A tarefa que é desbloqueada por `signal/broadcast` não corre imediatamente - simplesmente é tornada executável - uma vez tem de re-adquirir o trinco para que o `wait` retorne.
 Como a tarefa pode não correr imediatamente a seguir a se tornar executável o valor da condição pode ser alterado de volta, podendo gerar problemas graves.
 

@@ -142,7 +142,7 @@ Podemos intuitivamente perceber que $u_n>v_n,\forall n\in \mathbb N^+$. No entan
 
 :::tip[TEOREMA]
 **Convergência das sub-sucessões das sucessões convergentes**  
-Seja ($u_n$) uma sucessão convergente, então qualquer sub-subcessão de ($u_n$) é convergente para $\lim u_n$.
+Seja ($u_n$) uma sucessão convergente, então qualquer sub-sucessão de ($u_n$) é convergente para $\lim u_n$.
 :::
 
 :::tip[DEFINIÇÃO]

@@ -1,6 +1,6 @@
 ---
 title: Axiomática
-description: Definição das operações básicas. Inequações de somas/substrações.
+description: Definição das operações básicas. Inequações de somas/subtrações.
 path: /cdi-i/axiomatica
 type: content
 ---
