@@ -397,10 +397,17 @@ $$
 \end{aligned}
 $$
 
+### Floating Point Operations per Second
+
+O [**FLOPS**](color:orange), _Floating Point Operations per Second_, é outra métrica
+utilizada na avaliação da performance de um processador.
+Enquanto que o [MIPS](#millions-of-instructions-per-second) se refere a qualquer instrução,
+o FLOPS refere-se apenas a instruções dos registos de vírgula flutuante e faz a
+distinção entre instruções de 64, 32 e 16 bits, sendo por isso uma métrica mais precisa.
+
 ### Lei de Amdahl
 
-A Lei de Amdahl defende que devemos tornar mais rápidas as operações mais
-comuns.
+A Lei de Amdahl defende que [**devemos tornar mais rápidas as operações mais comuns**](color:green).
 
 Um erro comum é pensar que uma melhoria de um aspeto do computador nos
 traz um crescimento linear da sua performance, o que nem sempre é verdade.
@@ -422,4 +429,26 @@ em que $f$ representa a fração do trabalho realizado pela componente melhorada
 
 :::
 
-<!-- TODO add example -->
+:::info[Exemplo]
+Tomando como exemplo um programa com duas instruções arbitrárias A e B,
+tal que $T_{A} = 0.5\op{s}$, $N_{A} = 10$, $T_{B} = 1.5\op{s}$ e $N_{B} = 2$.
+
+Note-se que $N_A \cdot T_A = 5\op{s} > N_B \cdot T_B = 3\op{s}$.
+
+Assim se tornarmos a instrução B 3 vezes mais rápida,
+
+$$
+T_{\text{improvement}} = \frac{3}{3} + {5} = 6 \op{s}
+$$
+
+o tempo total de execução do programa é 6 segundos.
+
+Contudo, se tornarmos a instrução A 1.8 vezes mais rápida,
+
+$$
+T_{\text{improvement}} = \frac{5}{1.8} + 3 = 5.78 \op{s}
+$$
+
+o tempo total de execução do programa é 5.78 segundos!
+
+:::
