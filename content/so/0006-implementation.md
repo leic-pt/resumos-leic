@@ -231,7 +231,7 @@ Abrir_hard:
 
 - Oferecem os mecanismos básicos para a
   implementação da exclusão mútua
-- Algumas não podem ser usadas directamente por programas em modo utilizador
+- Algumas não podem ser usadas diretamente por programas em modo utilizador
   - e.g., inibição de interrupções
 - Outras só contemplam espera ativa
   - e.g., `exchange`, `test-and-set`
@@ -278,7 +278,7 @@ Abrir(trinco_t t) {
 
 - Núcleo não dá tempo de execução a tarefas na fila de espera
 - Elimina-se espera ativa
-  - Exceptuando durante curtos períodos, caso haja chamadas concorrentes a `fechar()`
+  - Excetuando durante curtos períodos, caso haja chamadas concorrentes a `fechar()`
 
 Em que categoria está o
 `pthread_mutex`?

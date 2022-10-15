@@ -164,7 +164,7 @@ $$
 :::tip[Leis de Kepler]
 
 1. [**Todos os planetas movem-se em orbitas elípticas com o Sol num dos focos.**](color:yellow)
-2. [**O vetor raio do Sol a um planeta varre áreas iguais em intervais de tempo iguais.**](color:yellow)
+2. [**O vetor raio do Sol a um planeta varre áreas iguais em intervalos de tempo iguais.**](color:yellow)
 
 A força gravítica entre o planeta e o Sol tem a mesma direção que o vetor raio, logo $\vec{\tau} = \vec{r} \times \vec{F} = 0$. Como $\vec{\tau} = \frac{d\vec{L}}{d\vec{t}} = 0$, conclui-se que o momento angular $\vec{L}$ do planeta é constante.
 

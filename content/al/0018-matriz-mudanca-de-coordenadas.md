@@ -72,7 +72,7 @@ $$
 \augmatrix{cc|c}{1 & 3 & 1\\ 2 & 4 & -1} \to \augmatrix{cc|c}{1 & 0 & -\frac{7}{2}\\ 0 & 1 & \frac{3}{2}}
 $$
 
-Como $\alpha = -\frac{7}{2} \land \beta = \frac{3}{2}$ concluimos que $[(1, -1)]_{B_2} = (-\frac{7}{2}, \frac{3}{2})$,
+Como $\alpha = -\frac{7}{2} \land \beta = \frac{3}{2}$, concluímos que $[(1, -1)]_{B_2} = (-\frac{7}{2}, \frac{3}{2})$,
 isto é, o vetor $(1, -1)$ tem coordenadas $(-\frac{7}{2}, \frac{3}{2})$ na base $B_2$.
 
 Repetindo o processo para o segundo vetor de $B_1$ obtemos $[(1,1)]_{B_2} = (-\frac{1}{2}, \frac{1}{2})$.
