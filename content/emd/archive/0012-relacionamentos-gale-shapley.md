@@ -135,7 +135,7 @@ Como nenhum rapaz se pode propor $2$ vezes à mesma Rapariga, o número máximo 
 Se o Rapaz acabou por não ficar relacionado com uma rapariga $m$, que preferia em relação à com quem ficou $\operatorname{L}(h)$, então é porque $m$ o rejeitou.  
 Se $m$ o rejeitou foi porque tinha recebido uma proposta de um pretendente que preferia, não havendo assim `Bloqueio`.
 
-Deste modo, será impossível encontrar `Bloqueios` na Lista final que resulta d eaplicar o Algoritmo.
+Deste modo, será impossível encontrar `Bloqueios` na Lista final que resulta de aplicar o Algoritmo.
 
 QED
 :::

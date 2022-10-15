@@ -42,7 +42,7 @@ Os dois grafos separados pela linha [**vermelha**](color:red) são isomorfos, ma
 
 ### Representação Grafo Planar
 
-Um grafo é planar, se e só se conseguirmos representá-lo numa superfície esférica, tal que os seus vértices não se instersetem.
+Um grafo é planar, se e só se conseguirmos representá-lo numa superfície esférica, tal que os seus vértices não se intersetem.
 
 As projetarmos o desenho num plano, ficamos com uma representação do grafo planar.  
 Se rodarmos a esfera e projetarmos outra vez, teremos um desenho de um novo grafo planar, **equivalente** ao inicial.

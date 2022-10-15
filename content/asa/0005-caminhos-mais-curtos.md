@@ -486,7 +486,7 @@ que a ordem de passagem pelos vértices é $A, B, C, D, E$. As arestas serão, e
 relaxado, vértice a vértice**. Estando ordenados topologicamente, será impossível
 que o custo de um dado vértice possa, depois de explorado, vir a ser menor no futuro -
 os arcos estão de trás para a frente, é impossível voltar atrás.
-ontudo, nem todas as iterações têm de relaxar necessariamente uma aresta que faça
+Contudo, nem todas as iterações têm de relaxar necessariamente uma aresta que faça
 parte do caminho mais curto - se tivéssemos, por exemplo, um vértice $X$ que viesse
 antes de $A$ na ordenação topológica, mas continuássemos a considerar $A$ como a fonte,
 a iteração que explorava as arestas que saíam de $X$ não contribuiria para o caminho mais curto,

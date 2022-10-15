@@ -40,7 +40,7 @@ $$
 p+r = q+2
 $$
 
-Sustituindo $q$ por $q+1$ temos $2$ casos:
+Substituindo $q$ por $q+1$ temos $2$ casos:
 
 1. Grafo é uma árvore  
    Se é uma árvore, sabemos que terá $q+1$ arestas e apenas tem $1$ região, logo, por hipótese de Indução:
@@ -69,7 +69,7 @@ Num grafo conexo planar de $p \geq 3$ vértices, tem-se que $q \leq 3p-6$
 
 :::details[Demonstração]
 
-Sabe-se que a menor região num grafo planar é limitada por $3$ vértices/arestar (um triângulo, que pode ser "torto" (exemplo no fim)).  
+Sabe-se que a menor região num grafo planar é limitada por $3$ vértices/arestas (um triângulo, que pode ser "torto" (exemplo no fim)).  
 Deste modo, seja $N_i$ o número de arestas na fronteira da região $i$, $r$ o número de regiões e $q$ o número de arestas, no mínimo teremos só regiões formadas por triângulos e a soma de regiões será no máximo $2q$ (repetimos cada aresta $2$ vezes)
 
 $$

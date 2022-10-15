@@ -117,7 +117,7 @@ um identificador a cada OBDD tal que:
 
   - caso contrário, atribuímos um novo identificador.
 
-Só teoricamente este algoritmo pode ser díficil de entender à primeira, pelo que
+Só teoricamente este algoritmo pode ser difícil de entender à primeira, pelo que
 talvez o exemplo seguinte (e a sua explicação) ajudem a entender:
 
 :::details[Exemplo - Algoritmo Reduz]
@@ -164,7 +164,7 @@ associados tal como demonstrados abaixo (o OBDD à esquerda é o resultado final
 
 ![Lista associativa - Compacta](./assets/0012-compacta-lista.svg#dark=4)
 
-Note-se que, começando pela raiz, P tem sub-OBDDs 3 e 2, com raizes Q e R, respetivamente;
+Note-se que, começando pela raiz, P tem sub-OBDDs 3 e 2, com raízes Q e R, respetivamente;
 Q está ligado a R e a falso, R ligado a falso e a verdadeiro, originando o OBDD compactado tal como o temos à direita.
 
 **Cada _fbf_ $\alpha$ tem um único OBDD reduzido que segue uma dada ordem de relação**.

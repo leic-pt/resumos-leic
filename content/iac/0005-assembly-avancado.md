@@ -102,7 +102,7 @@ else
     {instruções 2}
 ```
 
-Da mesma forma como já vimos acima, podemos fazer esta instrução em Assembly atrravés das mesmas instruções utilizadas na instrução _if_ mas com apenas mais alguns detalhes, como podemos ver abaixo.
+Da mesma forma como já vimos acima, podemos fazer esta instrução em Assembly através das mesmas instruções utilizadas na instrução _if_ mas com apenas mais alguns detalhes, como podemos ver abaixo.
 
 ```armasm
         expressão       ; calcula expressão (afeta bit de estado Z)
@@ -160,7 +160,7 @@ LOOP:   expressão
 OUT:    ...
 ```
 
-Como podemos ver acima, o que estamos a fazer é ter um código para calcular a expressão, se esta for falsa então saimos do ciclo, caso contrário, percorremos o código de instruções dentro do while e voltamos a percorrer o ciclo desde o começo.
+Como podemos ver acima, o que estamos a fazer é ter um código para calcular a expressão, se esta for falsa então saímos do ciclo, caso contrário, percorremos o código de instruções dentro do while e voltamos a percorrer o ciclo desde o começo.
 
 Da mesma forma, para **ciclos condicionais (_do-while_)**, vamos implementar um código extremamente parecido com o de ciclos _while_:
 
@@ -188,7 +188,7 @@ Assim, podemos admitir que estas abstrações introduzem muitas vezes um custo a
 
 Ao programarmos em linguagens de baixo nível temos que nos focar em conceitos de extrema importância, nomeadamente rotinas. Para tal. temos que começar por nos questionar como podemos chamar ou retornar de uma rotina.
 
-Visto que rotinas não savem de onde são chamadas, temos que usar o par CALL-RET para podermos passar de uma parte do nosso código a uma rotina automaticamente. A pilha memoriza o enderço que está a seguir ao CALL (valor do PC), ficamos assim com:
+Visto que rotinas não sabem de onde são chamadas, temos que usar o par CALL-RET para podermos passar de uma parte do nosso código a uma rotina automaticamente. A pilha memoriza o endereço que está a seguir ao CALL (valor do PC), ficamos assim com:
 
 ```
 SP <- SP - 2
@@ -205,7 +205,7 @@ SP <- SP + 2
 
 ![Chamada de rotinas](./assets/0005-chamada-rotinas.png#dark=3)
 
-Já que já chamamos a nossa rotina, podemos agora questionar-mos-nos como é que evitamos que a rotina "estrague" os valores dos registos no programa principal? Visto que uma rotina nunca sabe aonde é que é chamada, se usamos registos temos que, primeiro, salválos na pilha antes de os usar, e, de seguida, restaurá-los pela ordem inversa antes de retornar ao código principal.
+Já que já chamamos a nossa rotina, podemos agora questionar-mos-nos como é que evitamos que a rotina "estrague" os valores dos registos no programa principal? Visto que uma rotina nunca sabe aonde é que é chamada, se usamos registos temos que, primeiro, salvá-los na pilha antes de os usar, e, de seguida, restaurá-los pela ordem inversa antes de retornar ao código principal.
 
 Antes de guardar quaisquer valores na pilha temos que ter em atenção que é necessário verificar o tamanho máximo previsível para a pilha e [reservar espaço suficiente](color:pink), geralmente 100H palavras é suficiente; também é necessário inicializar o SP com o endereço seguinte à área reservada para a pilha.
 
@@ -244,7 +244,7 @@ A última questão que nos falta responder é como é que podemos passar parâme
 
 ## Exceções e interrupções
 
-Uma [exceção](color:pink) corresponde a um qualquer evento que pode ocorrer de **forma inesperada** para o programa que está a correr; são situações que não são práticas de se estar sempre a testar se algo tiver acontecido e nem sempre podemos saber como reagir ou tratar o evento logo que este ocorra. Para além disto a origem de uma exceção pode ser causada por vários fatores diferentes, nomeadamente pleo próprio programa (são **síncronas** em relação ao programa), ou pela ativação de um pino extremo (interrupções, são **assíncronas** face ao programa, sendo imprevisível a instrução em que ocorrem).
+Uma [exceção](color:pink) corresponde a um qualquer evento que pode ocorrer de **forma inesperada** para o programa que está a correr; são situações que não são práticas de se estar sempre a testar se algo tiver acontecido e nem sempre podemos saber como reagir ou tratar o evento logo que este ocorra. Para além disto a origem de uma exceção pode ser causada por vários fatores diferentes, nomeadamente pelo próprio programa (são **síncronas** em relação ao programa), ou pela ativação de um pino extremo (interrupções, são **assíncronas** face ao programa, sendo imprevisível a instrução em que ocorrem).
 
 A solução é implementar [interrupções](color:pink). Ao interromper o programa normal e invocar uma rotina de tratamento da exceção.
 
@@ -281,7 +281,7 @@ A própria rotina de interrupção pode ser crítica e não permitir interrupç�
 
 ### Fluxograma
 
-Os fluxogramas são uma notação gráfica usada para especificar o comportamento de uma rotina, tendo como construções fundamentais as seguintas figuras:
+Os fluxogramas são uma notação gráfica usada para especificar o comportamento de uma rotina, tendo como construções fundamentais as seguintes figuras:
 
 ![Fluxograma](./assets/0005-fluxo.png#dark=3)
 
@@ -301,7 +301,7 @@ A programação concorrente, tal como o nome nos indica, refere-se a um processa
 
 ### Espera bloqueante
 
-Um dos principais problemas que temos com a programação concorrente é a [espera bloqueante](color:pink). Um exemplo de uma rotina com **espera bloqueante**, como pode ser o exemplo em que estamos à espera em que o nosso utilizador carregue numa tecla para inicar o programa. Ou seja, temos um programa do género:
+Um dos principais problemas que temos com a programação concorrente é a [espera bloqueante](color:pink). Um exemplo de uma rotina com **espera bloqueante**, como pode ser o exemplo em que estamos à espera em que o nosso utilizador carregue numa tecla para iniciar o programa. Ou seja, temos um programa do género:
 
 ```armasm
 espera:                         ; lê a posição de memória ou periférico
@@ -350,14 +350,14 @@ Existem duas formas de concretizar processos. A primeira opção é [concorrênc
 
 [Desvantagens:](color:red)
 
-- Coloca mecanismos de \*\*baixo nível, interrupções, a executar tarefas de alto nível, atividades da apicação;
+- Coloca mecanismos de \*\*baixo nível, interrupções, a executar tarefas de alto nível, atividades da aplicação;
 - O número de pinos de interrupção **limita** o número de programas concorrentes;
 - Estas rotinas **não podem ter ciclos bloqueantes**, potencialmente infinitos, pois não permitiriam que as restantes rotinas fossem também executadas;
 - **Difícil** de programar.
 
 ![Opção 1](./assets/0005-1.png#dark=3)
 
-A segunda opção é [rotinas cooperativas](color:pink). Nesta abordagem, cada **rotina deve apenas assinalar o que occoreu**, por exemplo, alterando uma variável em memória.
+A segunda opção é [rotinas cooperativas](color:pink). Nesta abordagem, cada **rotina deve apenas assinalar o que ocorreu**, por exemplo, alterando uma variável em memória.
 
 [Vantagens:](color:green)
 
@@ -377,7 +377,7 @@ A terceira opção é [processos cooperativos](color:pink). Nesta abordagem o si
 
 - Permite correr **múltiplos programas** de forma concorrente;
 - Todo o controlo é **feito em software**, isto é, não depende de mecanismos de baixo nível, como as interrupções;
-- Já **podem ter ciclos bloqueantes**, potencialmente infintos.
+- Já **podem ter ciclos bloqueantes**, potencialmente infinitos.
 
 [Desvantagens:](color:red)
 
@@ -386,7 +386,7 @@ A terceira opção é [processos cooperativos](color:pink). Nesta abordagem o si
 
 ![Opção 3](./assets/0005-3.png#dark=3)
 
-Por último, a nossa útlima opção é [processos "verdadeiro"](color:pink). Este processo não é possível no PEPE. Um sistema operativo muda automaticamente de processo quando chegar ao fim a sua fita de tempo de execução, o que pode ocorrer em qualquer ponto do conjunto das suas instruções. Um processo **não tem indicar** nenhum ponto onde a comutação de processo possa ocorrer e pode ser programado assumindo que tem o processador inteiramente para si.
+Por último, a nossa última opção é [processos "verdadeiro"](color:pink). Este processo não é possível no PEPE. Um sistema operativo muda automaticamente de processo quando chegar ao fim a sua fita de tempo de execução, o que pode ocorrer em qualquer ponto do conjunto das suas instruções. Um processo **não tem indicar** nenhum ponto onde a comutação de processo possa ocorrer e pode ser programado assumindo que tem o processador inteiramente para si.
 
 [Vantagens:](color:green)
 
@@ -413,12 +413,12 @@ algures:    ...                    ; instruções algures no programa
             STACK 100H             ; declara pilha a usar pelo processo
 pilha_rotina:                      ; endereço inicial para o SP do processo
 
-PROCESS pilha_rotina               ; endereço para incializar o SP
+PROCESS pilha_rotina               ; endereço para inicializar o SP
 rotina:     ...                    ; instruções do processo (com YIELD, pode ter loops bloqueantes)
             RET                    ; se chegar aqui, termina o processo
 ```
 
-O **CALL** à rotina não a invoca, cria o processo, incializa o seu SP e coloca-o executável. O **RET** não retorna, termina o processo. Cada processo tem de ter a sua própria pilha, independente das restantes, que deve ser declarada com a [diretiva STACK](color:pink). A diretiva PROCESS [deve preceder o label](color:pink) da rotina que implementa o processo. A diretiva PROCESS precisa que se indique qual o valor com que o **SP** deste processo deve ser inicializado, o que é feito **automaticamente**. Cada processo fica com uma [cópia independente dos registos](color:pink), a "rotina" do processo não precisa de fazer PUSH nem POP. Dentro da rotina que implementa o processo pode ser colocada a [diretiva YIELD](color:pink), que indica que o simulador pode comutar para outro processo nesse ponto, tipicamente usa-se dentro de ciclos potencialmente bloqueantes.
+O **CALL** à rotina não a invoca, cria o processo, inicializa o seu SP e coloca-o executável. O **RET** não retorna, termina o processo. Cada processo tem de ter a sua própria pilha, independente das restantes, que deve ser declarada com a [diretiva STACK](color:pink). A diretiva PROCESS [deve preceder o label](color:pink) da rotina que implementa o processo. A diretiva PROCESS precisa que se indique qual o valor com que o **SP** deste processo deve ser inicializado, o que é feito **automaticamente**. Cada processo fica com uma [cópia independente dos registos](color:pink), a "rotina" do processo não precisa de fazer PUSH nem POP. Dentro da rotina que implementa o processo pode ser colocada a [diretiva YIELD](color:pink), que indica que o simulador pode comutar para outro processo nesse ponto, tipicamente usa-se dentro de ciclos potencialmente bloqueantes.
 
 ### Contexto dos processos
 
@@ -430,7 +430,7 @@ Para [comutar de processo](color:pink), o simulador **guarda internamente todo o
 
 Os processos **só podem comunicar através de variáveis**, um pode escrever numa WORD (ou BYTE) e outro ler essa word, isto quer dizer que há uma comunicação, mas não sincronização, pode dar origem a bugs complicados de detetar ou resolver.
 
-A solução é simples: usar [variávies LOCK](color:pink). São idênticas a WORD, exceto que se um processo **ler** um LOCK, **bloqueia** e se um processo **escrever** num LOCK, **desbloqueia** todos os processos bloqueados, e a leitura nesses processos devolve o valor escrito. Este mecanismo serve assi, para [sincronização e comunicação](color:orange).
+A solução é simples: usar [variáveis LOCK](color:pink). São idênticas a WORD, exceto que se um processo **ler** um LOCK, **bloqueia** e se um processo **escrever** num LOCK, **desbloqueia** todos os processos bloqueados, e a leitura nesses processos devolve o valor escrito. Este mecanismo serve, assim, para [sincronização e comunicação](color:orange).
 
 Exemplo:
 
@@ -444,6 +444,6 @@ Devem ser os [processos, alto nível, a ter semântica](color:pink) da aplicaç�
 
 ## Otimização de polling
 
-Mesmo assim, o processo teclado está **continuamente** a varrer o teclado ([polling](color:pink)), mesmo que nunguém esteja a carregar numa tecla. Os sistemas operativos têm mecanismos **para evitar** isto e funcionar **por eventos** (ocorrências). O simulador tem algo correspondente, embora muito mais simples: a diretiva [WAIT](color:orange).
+Mesmo assim, o processo teclado está **continuamente** a varrer o teclado ([polling](color:pink)), mesmo que ninguém esteja a carregar numa tecla. Os sistemas operativos têm mecanismos **para evitar** isto e funcionar **por eventos** (ocorrências). O simulador tem algo correspondente, embora muito mais simples: a diretiva [WAIT](color:orange).
 
 É semelhante ao YIELD, a diferença é que faz o processador adormecer se não houver mais processos executáveis, e acorda com algum evento no sistema. Assim, o processador **só corre quando há eventos** e no resto do tempo fica em WAITING.

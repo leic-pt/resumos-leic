@@ -25,7 +25,7 @@ Como podemos ver pelo esquema acima, existem várias componentes num computador 
 
 ![Processador e Memória](./assets/0003-processador-mem.png#dark=3)
 
-Começamos por falar sobre o [processador e a memória](color:pink). Um **processador** serve para controlar tudo dentro de um computador, daí ser composto por uma [unidade de controlo](color:orange) e uma [unidade de dados](color:orange). Dentro da unidade de controlo podemos observar a [memória de intruções](color:orange) que, tal como o nome indica, avalia as intruções do programa que estamos a correr, isto é, as regras que têm que ser cumpridas. Por outro lado, dentro da unidade de dados, conseguimos observar a [memória de dados e periféricos (entradas/saídas)](color:orange); a memória de dados avalia os dados que vamos processar, enquanto os periféricos avaliam a entrada e a saída dos mesmos, por outras palavras, funcionam como uma espécie de células de memória cujos bits ligam ao **mundo exterior**.
+Começamos por falar sobre o [processador e a memória](color:pink). Um **processador** serve para controlar tudo dentro de um computador, daí ser composto por uma [unidade de controlo](color:orange) e uma [unidade de dados](color:orange). Dentro da unidade de controlo podemos observar a [memória de instruções](color:orange) que, tal como o nome indica, avalia as instruções do programa que estamos a correr, isto é, as regras que têm que ser cumpridas. Por outro lado, dentro da unidade de dados, conseguimos observar a [memória de dados e periféricos (entradas/saídas)](color:orange); a memória de dados avalia os dados que vamos processar, enquanto os periféricos avaliam a entrada e a saída dos mesmos, por outras palavras, funcionam como uma espécie de células de memória cujos bits ligam ao **mundo exterior**.
 
 ## Memória de dados
 
@@ -37,7 +37,7 @@ Para um computador funcionar decentemente, obviamente temos que ter uma memória
 
 ![Memória](./assets/0003-memoria.png#dark=3)
 
-Acima, conseguimos ver um esquema de como atualmente se encontra compartementada a memória em computadores. O objetivo destas tabelas de acesso é termos um determinado número de células com um certo tamanho. Por exemplo, se temos **4 bits** para guardar a nossa informação, vamos ter 16 células, isto e $2^4$ células. A memória também é composta por diferentes componentes:
+Acima, conseguimos ver um esquema de como atualmente se encontra compartimentada a memória em computadores. O objetivo destas tabelas de acesso é termos um determinado número de células com um certo tamanho. Por exemplo, se temos **4 bits** para guardar a nossa informação, vamos ter 16 células, isto e $2^4$ células. A memória também é composta por diferentes componentes:
 
 - [Largura](color:pink): representa o número de bits de cada célula ou registo;
 - [Tamanho](color:pink): indica-nos o número de células existentes (N);
@@ -64,7 +64,7 @@ Já tendo conhecimento dos nossos objetivos, tratamos de um esquema para a nossa
 
 ![Primeira Versão](./assets/0003-1a.png#dark=3)
 
-Logo à partida percebemos que esta não pode ser a nossa versão final visto que o nosso somador tem duas entradas mas só uma saída. Para resolver esse probelma temos que criar um [registo](color:orange) que memoriza um dos operandos.
+Logo à partida percebemos que esta não pode ser a nossa versão final visto que o nosso somador tem duas entradas mas só uma saída. Para resolver esse problema temos que criar um [registo](color:orange) que memoriza um dos operandos.
 
 Assim, temos como controlo um sinal **WR** inativo e um sinal **ESCR_A** ativo para escrita no registo e desativo durante a operação de soma, visto estar só a ser lido.
 
@@ -108,13 +108,13 @@ Já temos uma versão mais próxima da correta, contudo a nossa quinta versão a
 
 ![Sexta Versão](./assets/0003-6a.png#dark=3)
 
-Já tendo uma ALU, temos agora que nos focar em como especificar o valor dos sinais que controlam o circuito. Isto pode ser completando se, a cada intrução, ou seja o conteúdo de uma célula na memória de intruções, deve [especificar todos os sinais](color:orange) necessários para se executar.
+Já tendo uma ALU, temos agora que nos focar em como especificar o valor dos sinais que controlam o circuito. Isto pode ser completando se, a cada instrução, ou seja o conteúdo de uma célula na memória de instruções, deve [especificar todos os sinais](color:orange) necessários para se executar.
 
 ### Sétima versão
 
 ![Sétima Versão](./assets/0003-7a.png#dark=3)
 
-Por fim só nos falta indicar quais as intruções e o seu sequenciamento que se pretende executar num dado programa. Para tal precisamos de utilizar um [registo (_program counter_)](color:orange) que nos indica quais das intruções da memória de instruções da memória de intruções está em execução e um **mecanismo** que indique **qual a instrução seguinte**.
+Por fim só nos falta indicar quais as instruções e o seu sequenciamento que se pretende executar num dado programa. Para tal precisamos de utilizar um [registo (_program counter_)](color:orange) que nos indica quais das instruções da memória de instruções da memória de instruções está em execução e um **mecanismo** que indique **qual a instrução seguinte**.
 
 ### Primeiro programa!
 
@@ -186,7 +186,7 @@ No esquema apresentado conseguimos identificar que a nossa **constante** também
 
 O programa pode saltar em três situações diferentes:
 
-- **01** representa um salto incondicionado, ou seja salta sempre para endereço na constante, como é no caso de PC $\gets$ 7;
+- **01** representa um salto incondicional, ou seja salta sempre para endereço na constante, como é no caso de PC $\gets$ 7;
 - **10** representa um salto apenas quando A=0, ou seja é um salto condicionado;
 - **11** representa outro salto condicionado quando A<0, ou seja, quando é negativo
 
