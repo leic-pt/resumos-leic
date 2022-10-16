@@ -53,7 +53,7 @@ a Azure Cloud.
 
 ## Vantagens e Desvantagens de SGBDs
 
-[**Vantagens**](color:green)
+### [**Vantagens**](color:green)
 
 Já referenciámos algumas das vantagens de SGBDs, no entanto existem muitas mais.
 
@@ -114,7 +114,7 @@ Já referenciámos algumas das vantagens de SGBDs, no entanto existem muitas mai
   Estas linguagens dão uma interface de alto nível para os dados, que, tal como já
   vimos, permitem criar várias abstrações que simplificam o desenvolvimento de aplicações.
 
-[**Desvantagens**](color:red)
+### [**Desvantagens**](color:red)
 
 Embora sejam muitas as vantagens dos SGBDs, existem algumas desvantagens a ter em conta:
 
