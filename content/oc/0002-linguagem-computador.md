@@ -21,8 +21,8 @@ type: content
 ## ISA: _Instruction Set Architecture_
 
 Como já tinhamos visto anteriormente, os computadores funcionam através de sets
-de instruções e diferentes computadores têm diferentes sets de instruções,
-contudo estes sets têm muitos aspetos em comum.
+de instruções e diferentes computadores têm diferentes conjuntos de instruções.
+Contudo estes conjuntos têm muitos aspetos em comum.
 Assim, temos que introduzir o conceito de [ISA (_Instruction Set Architecture_)](color:pink)
 que se refere à interface abstrata entre o _hardware_ e o _software_ de nível mais baixo,
 que engloba toda a informação necessária para escrever um programa em linguagem máquina.
@@ -31,12 +31,14 @@ que engloba toda a informação necessária para escrever um programa em linguag
 
 Contudo, para os diferentes computadores também precisamos de diferentes arquiteturas,
 então como é que as podemos distinguir, qual delas é a mais favóravel ao nosso objetivo final?
-Existem duas arquiteturas nas quais nos vamos focar nesta cadeira: [CISC](color:pink),
+Existem duas arquiteturas nos quais nos vamos focar nesta cadeira: [CISC](color:pink),
 _Complex Instruction-Set Computer_, e [RISC](color:pink), _Reduced Instruction-Set Computer_.
-Nos dias de hoje, nas arquiteturas mais recentes o ISA é uma mistura dos dois sets de
-intruções que são [regularizados através de uma pipeline](color:orange).
+Nas arquiteturas mais recentes, o ISA é uma mistura das duas,
+que são [regularizadas através de uma pipeline](color:orange).
 
 Mas o que diferencia estas duas arquiteturas?
+
+<!-- TODO compare the two according to the properties below -->
 
 - [Número](color:yellow) de instruções;
 - [Complexidade](color:orange) das operações que são implementadas por uma única instrução;
@@ -81,7 +83,7 @@ devemos otimizar estas operações.
 Porém, se tivermos apenas uma multiplicação que corre num tempo muito maior a
 comparar com as somas, podemos pensar que nos rende otimizarmos estas operações
 em vez da nossa soma, mas estaríamos errados.
-Isto porque se fazemos mais somas que multiplicações e digamos que as nossas multiplicações
+Isto porque se fazemos mais somas que multiplicações, digamos que as nossas multiplicações
 ocupam 3% dos nossos cálculos enquanto as somas 97%, não vale a pena estarmos a otimizar
 a multiplicação, sabendo que otimizar a operação de soma seria muito mais vantajoso.
 
@@ -97,22 +99,27 @@ temos diferentes categorias de instruções para conseguirmos escrever código:
 - _Memory Management_;
 - Especial.
 
+<!-- TODO replace with SVG -->
+
 ![Formato das instruções](./assets/0002-formato-instrucoes.png#dark=3)
 
 Como podemos ver acima, existem três tipos de instruções que têm cada uma um formato diferente.
 Algumas dos conceito que se devem saber são:
 
-- [op](color:pink) como nome da operação que estamos a realizar;
-- [rs, rt e rd](color:pink) registos (source, t (letra seguinte a s), destination) com valores que vamos usar;
-- [rs, rt e rd](color:pink) função auxiliar a alguns opcodes;
-- [immediate](color:pink) uma constante.
-- [jump target](color:pink) endereço para qual queremos saltar.
+- [op](color:pink), operação que estamos a realizar;
+- [rs, rt e rd](color:pink), registos (source, t (letra seguinte a s), destination) com valores que vamos usar;
+- [funct](color:pink), função auxiliar a alguns opcodes;
+- [immediate](color:pink), uma constante.
+- [jump target](color:pink), endereço para qual queremos saltar.
 
-O [PC](color:purple) refere-se a **Program Counter** que indica o endereço de memória no qual o processador está a ler a intrução atual. Este é incrementado sempre de quatro em quatro Bytes (por uma instrução ocupar $2^5$ bits).
+O [PC](color:purple) refere-se a **Program Counter** que indica o endereço de
+memória no qual o processador está a ler a intrução atual.
+Este é incrementado sempre de 4 em 4 bytes (por uma instrução ocupar $2^5 = 32$ bits).
 
 ## Operações Aritméticas em Assembly
 
-Tal como já tínhamos visto em IAC, há várias operações que podemos fazer no nosso programa.
+Tal [como já tínhamos visto em IAC](/iac/programacao-em-assembly),
+há várias operações que podemos fazer no nosso programa.
 
 ### Adição e Subtração
 
@@ -140,40 +147,60 @@ sub t2, t0, t1 ; t2 recebe t0 - t1
 
 ## MIPS - Registos
 
+<!-- TODO replace with SVG -->
+
 ![Registos](./assets/0002-registos.png#dark=3)
 
-O MIPS tem [32 registos](color:red), [2 portas de leitura](color:pink),
-[1 porta de escrita](color:purple) e cada um armazena uma palavra.
-Estes registos:
+O MIPS tem [32 registos](color:red).
+O banco de registos tem [2 portas de leitura](color:pink) e
+[1 porta de escrita](color:purple), o que nos permite ler valores de dois registos
+e, simultaneamente, escrever um valor num registo.
+Cada registo armazena uma palavra de 32-bits, isto é, 4 bytes.
 
-- São mais rápidos que a memória principal
-  - mas registos com mais localizações são mais lentos
-    - ex: um ficheiro com 64 palavras pode ser 50% mais lento que um de 32 palavras
-  - porta de leitura/escrita aumenta velocidade à quarta.
-- Melhoram a densidade de código
-  - registos tem nomes com menos bits que uma localização de memória;
-  - fazer operações com dados em memória precisa de loads e stores.
+Uma grande vantagem dos registos é a sua velocidade de acesso, que é muito superior
+à da memória princial, ou mesmo às caches (como veremos mais à frente).
+No entanto, é preciso efetuar _trade-offs_ quanto ao número de registos, pois
+o tempo de acesso aumenta com o número de registos.
+Por exemplo, num banco de registos que guarda 64 registos
+[pode ser até 50% mais lento](color:red) que um que guarde apenas 32.
+O mesmo se aplica à quantidade de portas de leitura e escrita, dado que adicionar
+mais portas aumentaria o tempo de acesso de forma quadrática.
 
-O [registo zero](color:pink) vale sempre zero;
-o [registo um](color:pink) não é suposto ser usado visto que
-é sempre usado pelo compilador;
-os [registos 28-30](color:pink) são utilizados pelo compilador quando uma
-pilha é implementada para guardar os valores;
-o [registo 31](color:pink) pode ser usado normalmente a não ser que
-haja um _Jump and link_, visto que é neste registo que o valor do PC é guardado.
+Outra vantagem dos registos é o seu pequeno endereço.
+Como existe um número muito reduzido de registos, são necessários poucos
+bits para os endereçar (num banco de 32 registos, são necessários $\log_2(32) = 5$ bits).
+Isto reduz o tamanho das instruções e aumenta a densidade do código, dado que
+também não é necessário efetuar `LOAD` e `STORE` como na memória.
 
 ![Ficheiro de registos](./assets/0002-ficheiro-registos.jpg#dark=3)
+
+No MIPS existe a seguinte convenção de registos:
+
+| Nome          | Número do Registo | Descrição                                | Preservado num JAL/interrupção? |
+| ------------- | ----------------- | ---------------------------------------- | ------------------------------- |
+| `$zero`       | 0                 | é uma constante, vale sempre zero        | n.a.                            |
+| `$at`         | 1                 | reservado para o _assembler_             | n.a.                            |
+| `$v0` a `$v1` | 2 a 3             | valores de retorno                       | [no](color:red)                 |
+| `$a0` a `$a3` | 4 a 7             | argumentos de funções                    | [yes](color:green)              |
+| `$t0` a `$t7` | 8 a 15            | registos temporários                     | [no](color:red)                 |
+| `$s0` a `$s7` | 16 a 23           | valores a guardar                        | [yes](color:green)              |
+| `$t0` a `$t9` | 24 a 25           | valores temporários                      | [no](color:red)                 |
+| `$k0` a `$k1` | 26 a 27           | reservados para tratamento de exceções   | [no](color:red)                 |
+| `$gp`         | 28                | ponteiro global (_global pointer_)       | [yes](color:green)              |
+| `$sp`         | 28                | ponteiro da pilha (_stack pointer_)      | [yes](color:green)              |
+| `$fp`         | 28                | [_frame pointer_][frame-pointer-explain] | [yes](color:green)              |
+| `$ra`         | 28                | endereço de retorno                      | [yes](color:green)              |
 
 ### Instruções com Formato R
 
 ![Instruções com formato R](./assets/0002-formato-r.png#dark=3)
 
-- op: código de operação - opcode
-- rs: primeiro número de registo
-- rt: segundo número de registo
-- rd: número de registo de destino
-- shamt: quantidade de shift (00000 por agora)
-- funct: código de função - extensão do opcode
+- `op`: código de operação - opcode
+- `rs`: primeiro número de registo
+- `rt`: segundo número de registo
+- `rd`: número de registo de destino
+- `shamt`: quantidade de shift (00000 por agora)
+- `funct`: código de função - extensão do opcode
 
 :::info[Exemplo]
 
@@ -182,9 +209,11 @@ haja um _Jump and link_, visto que é neste registo que o valor do PC é guardad
 Olhando para a imagem acima, podemos fazer a soma dos dois registos,
 guardando o valor em t0, através do comando:
 
-`add $t0, $s1, $s2`
+```asmatmel
+add $t0, $s1, $s2
+```
 
-Assim, obtemos o nosso valor final 02324020 em base hexadecimal.
+Assim, obtemos a nossa instrução em código máquina, 02324020 em base hexadecimal.
 
 :::
 
@@ -192,60 +221,98 @@ Assim, obtemos o nosso valor final 02324020 em base hexadecimal.
 
 ![Instruções com formato I](./assets/0002-formato-i.png#dark=3)
 
-Sempre que temos uma constante estamos perante um operando [I-imediato](color:pink).
-Porém não existe subtração imediata por isso temos que usar uma [constante negativa](color:purple).
-Temos é que sempre ter a certeza que a constante é mantida dentro da própria instrução,
-seja o formato imediato com 16 bits para constante, ou seja, de $-2^{15}$ até $2^{15}$.
+Sempre que temos uma constante estamos perante um operando [I (imediato)](color:pink).
+Como indica o formato da instrução, a constante é guardada mesmo na instrução.
+Isto resulta num tamanho máximo de 16 bits, ou seja, de $-2^{15}$ até $2^{15}$ (quando signed).
 
-Exemplos:
+:::info[Exemplos]
 
-Operando imediato normal: `addi $s3, $s3, 4`
-
-Com constante negativa: `addi $s2, $s1, -1`
+```asmatmel
+addi $s3, $s3, 4 ; adiciona 4 ao registo $s3
+```
 
 ![Exemplo I](./assets/0002-exemplo-i.png#dark=3)
+:::
+
+:::tip[Subtração Imediata]
+Não existe subtração imediata, pelo que temos que usar uma adição imediata
+com uma [constante negativa](color:purple).
+
+```asmatmel
+addi $s2, $s1, -1 ; guarda em $s2 o valor de $s1 - 1
+```
+
+:::
 
 ### Load de Constantes de 32 bits
 
-Para dar load de uma constante de 32 bits serão necessárias duas instruções:
+Como as instruções de tipo I (_immediate_) apenas suportam constantes de
+16-bits, necessitamos de duas instruções para carregar valores de 32-bits.
 
-- _load upper immediate_
-  - `lui $t0, 1010101010101010`
+1. Carregamos os bits de ordem superior (16 a 31) primeiro, com a instrução _load upper immediate_.
 
-| 16  | 0   | 8   | 1010101010101010_2 |
-| --- | --- | --- | ------------------ |
+   ```asmatmel
+   lui $t0, 1010101010101010
+   ```
 
-- _load the lower order bits_
-  - `ori $t0, $t0, 1010101010101010`
+   Neste momento, temos `$t0 = 1010 1010 1010 1010 0000 0000 0000 0000`.
+
+2. Carregamos os bits de ordem inferior (0 a 15) em segundo lugar, com a instrução _or immediate_.
+
+   ```asmatmel
+   ori $t0, $t0, 0101010101010101
+   ```
+
+   Ficamos assim com `$t0 = 1010 1010 1010 1010 0101 0101 0101 0101`.
 
 :::warning[Números binários]
 
 Nesta cadeira, tal como em IAC, vamos ver números binários.
-Para tal, é recomendado ver [essa matéria](/iac/mundo-binario#bases-de-numera%C3%A7%C3%A3o)
+Para tal, é recomendado rever [essa matéria](/iac/mundo-binario#bases-de-numera%C3%A7%C3%A3o)
 na _tab_ dos resumos de Introdução à Arquitetura de Computadores.
-Contudo, ao contrário do que foi visto em IAC, para realizarmos uma operação sem
-complemento para 2 temos que adicionar um u (unsigned) no final da operação
-da seguinte forma: `addu`.
+
+Para realizarmos uma operação sem complemento para 2,
+temos que adicionar um u (unsigned) ao nome da operação.  
+São exemplos disto `addu`, `addiu`, `subu`, etc...
 
 :::
 
 ## Operações Lógicas
 
-![Operações lógicas](./assets/0002-operacoes-logicas.png#dark=3)
+| Operação    | C       | Java    | MIPS         |
+| ----------- | ------- | ------- | ------------ |
+| Shift left  | `<<`    | `<<`    | `sll`        |
+| Shift right | `>>`    | `>>>`   | `srl`        |
+| Bitwise AND | `&`     | `&`     | `and`,`andi` |
+| Bitwise OR  | `\|`    | `\|`    | `or`, `ori`  |
+| Bitwise NOR | `~(\|)` | `~(\|)` | `nor`        |
 
-Estas operações são usadas para a manipulação dos _bits_
+Estas operações são usadas na manipulação de _bits_
 e são úteis para extrair ou inserir grupos de _bits_ numa palavra.
 
-### _Shift Operations_
+## Operações de Deslocamento
 
 ![Operações _shift_](./assets/0002-shift-operations.png#dark=3)
 
-É importante referir que o bit [_shamt_](color:purple) refere-se ao número de
+É importante referir que o [_shamt_](color:purple) corresponde ao número de
 posições que pretendemos avançar ou recuar.
+
 O [_shift left_](color:purple) ajuda-nos a fazer multiplicações de $2^i$
 pois avança $i$ casas para a esquerda e adiciona os 0 que faltam;
 o [_shift right_](color:purple) ajuda-nos a fazer divisões de $2^i$
 pois avança $i$ casas para a direita e adiciona os 0 que faltam.
+
+:::info[Exemplo]
+
+Imaginemos que queremos multiplicar um valor por 8 ($2^3$).
+
+Então, podemos fazer o seguinte shift:
+
+```asmatmel
+sll $t0, $t0, 3
+```
+
+:::
 
 ## Instruções de Acesso a Memória
 
@@ -422,3 +489,5 @@ Um compilador identifica blocos básicos para otimização e um
 execução de blocos básicos.
 
 ![Blocos básicos](./assets/0002-blocos.png#dark=3)
+
+[frame-pointer-explain]: https://softwareengineering.stackexchange.com/questions/194339/frame-pointer-explanation#194341
