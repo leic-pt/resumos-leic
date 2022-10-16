@@ -316,45 +316,68 @@ sll $t0, $t0, 3
 
 ## Instruções de Acesso a Memória
 
-O MIPS tem duas instruções básicas de transferir dados para aceder a memória:
+A memória principal é usada para guardar tanto dados simples (e.g. inteiros,
+bytes, etc) como [dados compostos](color:orange),
+tais como _arrays_, estruturas e dados dinâmicos.
 
-```
+A memória do MIPS é [endereçada em bytes](color:pink), ou seja, cada
+endereço identifica 8 bits.
+É muito importante que as palavras [estejam alinhadas em memória][memory-alignment]
+com um endereço que seja um [múltiplo de quatro](color:pink), de forma a preservar
+a eficiência do processador e evitar _bugs_.
+Usualmente, o compilador trata disto por nós.
+
+<!-- TODO convert to SVG -->
+
+![Alinhamento de Memória](./assets/0002-alinhamento-memoria.png#dark=3 'Alinhamento de memória: double-words, words, half-words, bytes')
+
+O MIPS é uma arquitetura [Big Endian](https://en.wikipedia.org/wiki/Endianness),
+isto é, em memória e registos, o **byte** mais significativo está no endereço mais baixo de uma palavra.  
+Pelo contrário, uma arquitetura [Little Endian](color:red) teria, em memória e registos,
+o **byte** menos significativo no endereço mais baixo.
+
+Para efetuar operações aritméticas precisamos de colocar valores em registos,
+visto que não é possível efetuar operações sobre valores em memória.
+Existem instruções tanto para [carregar (_load_) os valores da memória para registos](color:green)
+como para [guardar (_store_) os valores de registos em memória](color:blue).
+
+O MIPS tem duas instruções básicas de transferência de dados para aceder a memória:
+
+```mips-asm
 lw $t0, 4($s3) # load word from memory
 
 sw $t0, 8($s3) # store word to memory
 ```
 
-O nosso número no segundo registo pode ser negativo ou positivo desde que tenha $2^{15}$ bits.
-Para além disso, o _offset_ diz-nos quantos bits podemos ir tanto
-para a esquerda como para a direita.
+O número junto ao segundo registo corresponde ao _offset_.
+É particularmente útil quando queremos aceder a posições consecutivas de memória,
+pois evitamos ter de incrementar/decrementar o valor do registo que aponta para
+o endereço na memória.
+Devido ao tipo de instrução (I, _immediate_), o valor do _offset_ é um inteiro
+_signed_ de 16-bits.
 
-![Acesso a memória](./assets/0002-acesso-memoria.png#dark=3)
+:::info[Exemplo]
 
-### Operandos de Memória
+Imaginemos que queremos carregar três palavras de memória, que estão em endereços
+consecutivos. Sabemos que a palavra do meio tem o endereço `0x4f`.
+Como cada palavra tem 4 bytes, vamos ter o seguinte código.
 
-A memória principal é usada para a [composição de dados](color:pink),
-nomeadamente _arrays_, estruturas e dados dinâmicos.
-Para efetuar operações aritméticas temos que dar
-[_load_ dos valores da memória](color:pink) para os registos e no final
-temos que dar [_store_ do resultado do registo](color:pink) para a memória.
-A memória é [endereçada em bytes](color:pink) e cada endereço é identificado
-por um valor de 8 bits;
-as palavras são alinhadas em memória com um endereço que seja um [múltiplo de quatro](color:pink).
+```mips-asm
+ori  $t0, $zero, 0x4f  # carregar o valor 0x4f para $t0
+lw   $s0, -4($t0)      # endereço 0x4b
+lw   $s0,  0($t0)      # endereço 0x4f
+lw   $s0,  4($t0)      # endereço 0x53
+```
 
-O MIPS é um [Big Endian](color:purple), isto quer dizer que o byte mais
-significativo está no endereço mais baixo de uma palavra.
-Da mesma forma, [Little Endian](color:purple) significa que o byte menos
-significativo está no endereço mais baixo.
+:::
 
-Assim, ficamos com:
+Além disso, existem varias variações destas instruções, que nos permitem carregar/guardar
+_half-words_ e _bytes_, tais como _load byte_, _load byte unsigned_, _load half-word_,
+_load half-word unsigned_, _store byte_ e _store half-word_.
 
-`lb rt, offset(rs)` `lh rt, offset(rs)` : sinal extendido para 32 bits em rt
-
-`lbu rt, offset(rs)` `lhu rt, offset(rs)` : zero extendido para 32 bits em rt
-
-`sb rt, offset(rs)` `sh rt, offset(rs)` : \_store\_\_ no ponto mais à direita de um byte
-
-![Acesso a memória](./assets/0002-memoria.png#dark=3)
+- `lb rt, offset(rs)` e `lh rt, offset(rs)`, em que o sinal é extendido para 32 bits em `rt`
+- `lbu rt, offset(rs)` e `lhu rt, offset(rs)`, em que o zero é extendido para 32 bits em `rt`
+- `sb rt, offset(rs)` e `sh rt, offset(rs)`, que guardam os 1 e 2, respetivamente, bytes menos significativos do registo
 
 ## Instruções de Controlo
 
@@ -491,3 +514,4 @@ execução de blocos básicos.
 ![Blocos básicos](./assets/0002-blocos.png#dark=3)
 
 [frame-pointer-explain]: https://softwareengineering.stackexchange.com/questions/194339/frame-pointer-explanation#194341
+[memory-alignment]: https://stackoverflow.com/questions/381244/purpose-of-memory-alignment
