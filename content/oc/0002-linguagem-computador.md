@@ -180,12 +180,12 @@ No MIPS existe a seguinte convenção de registos:
 | ------------- | ----------------- | ---------------------------------------- | ------------------------------- |
 | `$zero`       | 0                 | é uma constante, vale sempre zero        | n.a.                            |
 | `$at`         | 1                 | reservado para o _assembler_             | n.a.                            |
-| `$v0` a `$v1` | 2 a 3             | valores de retorno                       | [no](color:red)                 |
+| `$v0` a `$v1` | 2 e 3             | valores de retorno                       | [no](color:red)                 |
 | `$a0` a `$a3` | 4 a 7             | argumentos de funções                    | [yes](color:green)              |
-| `$t0` a `$t7` | 8 a 15            | registos temporários                     | [no](color:red)                 |
+| `$t0` a `$t7` | 8 a 15            | valores temporários                      | [no](color:red)                 |
 | `$s0` a `$s7` | 16 a 23           | valores a guardar                        | [yes](color:green)              |
-| `$t0` a `$t9` | 24 a 25           | valores temporários                      | [no](color:red)                 |
-| `$k0` a `$k1` | 26 a 27           | reservados para tratamento de exceções   | [no](color:red)                 |
+| `$t8` a `$t9` | 24 e 25           | (mais) valores temporários               | [no](color:red)                 |
+| `$k0` a `$k1` | 26 e 27           | reservados para tratamento de exceções   | [no](color:red)                 |
 | `$gp`         | 28                | ponteiro global (_global pointer_)       | [yes](color:green)              |
 | `$sp`         | 28                | ponteiro da pilha (_stack pointer_)      | [yes](color:green)              |
 | `$fp`         | 28                | [_frame pointer_][frame-pointer-explain] | [yes](color:green)              |
@@ -384,67 +384,98 @@ _load half-word unsigned_, _store byte_ e _store half-word_.
 Como já vimos acima com as operações lógicas e aritméticas,
 também temos que ver as [instruções de controlo](color:pink).
 
-![Jump](./assets/0002-jump.png#dark=3)
+![Formato instruções J](./assets/0002-jump.png#dark=3)
 
-Começando por avaliar a função _Jump_ ([j ou jal](color:purple)).
-Salta para um endereço direto.
-Um _Jump register_ ([jr](color:purple)) copia o registo para o PC.
+Exemplos deste tipo de intruções são:
 
-### Operações condicionais
+- Jump (`j`): Salta para um endereço em qualquer[\*](color:yellow) parte do programa;
+- Jump Register (`jr`): Salta para o endereço que está no valor de um registo;
+- Jump and Link (`jal`): Igual ao Jump, mas guarda no registo `$ra` o valor de `PC + 4`.
+  É normalmente usado para chamadas a funções.
 
-As operações condicionais [não têm _flags_](color:pink).
+[\*](color:yellow): dado que a instrução só suporta um endereço de 26 bits, só conseguimos
+saltar na mesma "secção" do programa.
+Conseguimos recuperar 2 bits dado que cada instrução tem 4 bytes,
+pelo que os 2 bits menos significativos são sempre zero.
+No entanto, ficamos com 4 bits (os mais significativos) que não conseguimos controlar,
+pelo que estes são derivados do PC atual. Daí, só conseguimos saltar dentro de uma certa
+região do programa (embora esta seja muito grande).
+
+:::info[Exemplo]
+
+Imaginando que estamos no $\op{PC} = \smartcolor{orange}{0101}~1011~0110~1101~0101~1010~1010~0110$.
+
+Se efetuarmos um Jump para a instrução $\smartcolor{blue}{0101~0011~0101~0010~0001~0000~01}$,
+vamos acabar no endereço $\smartcolor{orange}{0101}~\smartcolor{blue}{0101~0011~0101~0010~0001~0000~01}\smartcolor{yellow}{00}$.
+
+:::
+
+### Operações Condicionais
+
+Ao contrário das instruções de Jump, as instruções de Branch são saltos relativos.
+São instruções de tipo I (_immediate_), pelo que têm um _offset_ de 16-bits.
+
+As operações condicionais não têm [_state flags_][state-flags], pelo que todos os valores
+têm de ser guardados em registos próprios.
+
 Um _branch_ salta para uma instrução se a condição for verdadeira,
 caso contrário continua sequencialmente.
 
-_branch if equal_: `beq rs, rt, L1`
+Existem apenas duas instruções de _branch_, uma para igualdade e outra para
+desigualdade:
 
-_branch if not equal_: `bne rs, rt, L1`
+- _branch if equal_: `beq rs, rt, L1`
+- _branch if not equal_: `bne rs, rt, L1`
 
-_if (rs < rt) rd = 1; else rd = 0_: `slt rd, rs, rt`
+Se quisermos efetuar outro tipo de condições, como maior e menor, temos de usar
+as instruções _set if less than_ ou _set if less than immediate_.  
+É de realçar que [não](color:red) existem em instruções no hardware para efetuar
+saltos com comparações `>`, `<`, `>=`, `<=`, etc.
 
-_if (rs < constant) rt = 1; else rt = 0_: `slti rt, rs, constant`
+- _set if less than_: `slt rd, rs, rt`  
+  Funciona como `_if (rs < rt) rd = 1; else rd = 0_`
+- _set if less than immediate_: `slti rd, rs, constant`  
+  Funciona como `_if (rs < constant) rd = 1; else rd = 0_`
 
-_less than_ `blt $s1, $s2, Label`
+Existem, no entanto, [pseudo-instruções](color:green), que o _assembler_ desdobra
+em duas, um `set if less than (immediate)` e um `branch if (not) equal`.
+É para isto que serve o [registo reservado `$at`](#mips---registos).
 
-_less than or equal to_ `ble $s1, $s2, Label`
+- _less than_: `blt $s1, $s2, Label`
+- _less than or equal to_: `ble $s1, $s2, Label`
+- _greater than_: `bgt $s1, $s2, Label`
+- _great than or equal to_: `bge $s1, $s2, Label`
 
-_greater than_ `bgt $s1, $s2, Label`
-
-_great than or equal to_ `bge $s1, $s2, Label`
-
-Um _branch_ é sempre específicado por um _opcode_, dois registos e um
-endereço para o qual queremos ir.
+As instruções de Branch são do tipo I (_immediate_).
 
 ![Branch](./assets/0002-branch.png#dark=3)
 
-Ao fazermos um _branch_. o nosso endereço vai sempre para o $$PC + offset*4$$,
-visto que o Pc é sempre incrementado 4 valores de cada vez.
-
-![Sumário](./assets/0002-sumario1.png#dark=3)
-![Sumário](./assets/0002-sumario2.png#dark=3)
+Ao fazermos um _branch_, o endereço de destino é dado por $PC + \text{offset}\times 4$,
+visto que o PC é sempre incrementado em múltiplos de 4.
 
 :::tip[Jump e Branch]
 
 Apesar de um _Branch_ e um _Jump_ fazerem sensivelmente a mesma coisa,
-um _Jump_ refere-se a um [salto incondicional](color:pink) enquanto um Branch
-é um [salto condicional](color:pink).
-Para além disso, não podemos fazer saltos **muito longos**, pois faltam-nos bits
-para indicar a instrução para qual saltar.
-Assim no MIPS apenas podemos fazer _Jump_ no quadrante de código onde estamos,
-em alternativa podemos usar um _Branch_.
+um _Jump_ refere-se a um [salto absoluto e incondicional](color:pink) enquanto um Branch
+é um [salto relativo e condicional](color:pink).
+Para além disso, podemos não conseguir fazer saltos **muito longos**: num _jump_
+temos 26 bits enquanto num _branch_ temos 16 bits, ambos inferiores aos 30 bits
+necessários para endereçar todas as instruções possíveis.
 
-Se queremos fazer um _branch_ para L1 mas este está muito longe:
+Caso tentemos fazer um _branch_ para uma instrução que está demasiado longe,
+o _assembler_ vai reescrever o nosso código com um jump:
 
+```mips-asm
+beq $s0, $s0, L1  # L1 está muito longe!
 ```
-beq $s0, $s0, L1
-```
 
-Temos que fazer:
+O _assembler_ vai inverter a condição e inserir um _jump_:
 
-```
-bne $s0, $s1, L2
-j L1
-L2: ...
+```mips-asm
+    bne $s0, $s1, L2  # A condição é invertida para que
+    j L1              # a instrução seguinte seja o salto.
+L2: ...               # L2 aponta para as instruções
+                      # que se seguiam ao beq.
 ```
 
 :::
@@ -513,5 +544,11 @@ execução de blocos básicos.
 
 ![Blocos básicos](./assets/0002-blocos.png#dark=3)
 
+## Resumo Instruções MIPS
+
+![Sumário](./assets/0002-sumario1.png#dark=3)
+![Sumário](./assets/0002-sumario2.png#dark=3)
+
 [frame-pointer-explain]: https://softwareengineering.stackexchange.com/questions/194339/frame-pointer-explanation#194341
 [memory-alignment]: https://stackoverflow.com/questions/381244/purpose-of-memory-alignment
+[state-flags]: /iac/programacao-em-assembly#bits-de-estado-flags
