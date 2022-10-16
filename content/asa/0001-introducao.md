@@ -34,9 +34,9 @@ Fib(n-1) + Fib(n-2) &\text{ caso contrário}
 \end{cases}
 $$
 
-### Implementação 1 (Naive)
+### Implementação 1 (Naïve)
 
-A implementação _naive_ numa linguagem de programação (e.g C++, como abaixo), passaria por algo como:
+A implementação _naïve_ numa linguagem de programação (e.g C++, como abaixo), passaria por algo como:
 
 ```cpp
 int Fib(int n) {

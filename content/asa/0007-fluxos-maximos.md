@@ -63,7 +63,7 @@ Tanto a super-fonte como o super-sumidouro limitam-se a fornecer tanto fluxo qua
 
 ## [Método de Ford-Fulkerson](color:green)
 
-O **método de Ford-Fulkerson** transcende uma implementação de algoritmo especifíca - corresponde a uma combinação de ideias e implementações de outros algoritmos: redes residuais, caminhos de aumento e cortes. Será, contudo, abordada uma implementação para um algoritmo génerico de Ford-Fulkerson mais abaixo.
+O **método de Ford-Fulkerson** transcende uma implementação de algoritmo especifíca - corresponde a uma combinação de ideias e implementações de outros algoritmos: redes residuais, caminhos de aumento e cortes. Será, contudo, abordada uma implementação para um algoritmo genérico de Ford-Fulkerson mais abaixo.
 
 O método baseia-se na seguinte lógica:
 
@@ -326,7 +326,7 @@ Abaixo segue um exemplo bastante simples do decorrer do algoritmo sobre uma rede
 
 :::details[Exemplo da aplicação do Algoritmo]
 
-Começemos com uma rede que inicialmente se encontra assim:
+Comecemos com uma rede que inicialmente se encontra assim:
 
 ![Rede inicial](./assets/0007-ek-inicial.png#dark=1)
 
@@ -529,7 +529,7 @@ InitializePreFlow(G, s)
 
 ### [Método Push-Relabel](color:orange)
 
-O pseudocódigo génerico do método de _push-relabel_ é:
+O pseudocódigo genérico do método de _push-relabel_ é:
 
 ```rust
 PushRelabel(G)
@@ -548,7 +548,7 @@ Dois pontos interessantes a retirar do método (e de todos os algoritmos que o i
 
 - todos os outros vértices devem, no final, apresentar excesso $0$.
 
-Tal como o método de Ford-Fulkerson, _push-relabel_ não é considerado um algoritmo - não nos dá, de forma determínistica, uma opção a escolher. Pode, contudo, parecer algo "básico", pelo que será interessante provar a sua correção (e que de facto resolve o problema do fluxo máximo)[**\***](color:yellow). A complexidade temporal do algoritmo é $O(V^2 \cdot E)$, já melhor que a de Edmonds-Karp.
+Tal como o método de Ford-Fulkerson, _push-relabel_ não é considerado um algoritmo - não nos dá, de forma determinística, uma opção a escolher. Pode, contudo, parecer algo "básico", pelo que será interessante provar a sua correção (e que de facto resolve o problema do fluxo máximo)[**\***](color:yellow). A complexidade temporal do algoritmo é $O(V^2 \cdot E)$, já melhor que a de Edmonds-Karp.
 
 [**\***](color:yellow) As provas serão adicionadas assim que possível. Por agora apenas é mencionado o método em si, já que apenas é avaliado o algoritmo abaixo (e esse tem exemplo associado, incluindo uma abordagem mais aprofundada).
 
@@ -601,7 +601,7 @@ A aplicação do algoritmo é trivial, porém é bastante fácil enganarmo-nos n
 
 :::details[Exemplo da Aplicação do Algoritmo]
 
-Começemos com uma rede tal que:
+Comecemos com uma rede tal que:
 
 ![Rede inicial - R2F](./assets/0007-r2f-initial-network.png#dark=1)
 

@@ -96,7 +96,7 @@ Podemos, decompondo um caminho, voltar a definir uma recorrência para o seu pes
 
 Podemos, por fim, afirmar que $\delta(s, v) \leq \delta(s, u) + w(u, v)$. Escrevemos $\leq$ em vez de $=$ porque pode haver um sub-caminho mais barato de $s$ a $v$ que não inclua necessariamente o arco $(u, v)$, como no exemplo abaixo:
 
-![Sub-Caminho mais Barato](./assets/0005-sub-caminhos-mais-curtos.png#dark=1)
+![Subcaminho mais Barato](./assets/0005-sub-caminhos-mais-curtos.png#dark=1)
 
 ### [**Relaxação**](color:yellow)
 
@@ -123,7 +123,7 @@ Abaixo encontramos exemplos de relaxação de arestas:
 
 ![Caminhos mais Curtos - Relaxação de Arestas](./assets/0005-caminhos-mais-curtos-relaxacao-arestas.png#dark=1)
 
-No caso $(a)$, tinhamos que $d[u]$ tinha estimativa atual $5$ e que $d[v]$ tinha estimativa atual $9$. Assim, como a aresta que estávamos a ver tinha peso 2, atualizamos a estimativa de $v$ para $7$ e o pai de $v$ para $u$, já que deste modo temos uma estimativa mais barata em $v$. Por outro lado, em $(b)$, $d[u]$ tinha estimativa atual $5$ e $d[v]$ tinha estimativa atual $6$. Com uma aresta de custo 2, não faz sentido atualizar agora a estimativa de $v$ para $7$, pelo que nada acontece.
+No caso $(a)$, tínhamos que $d[u]$ tinha estimativa atual $5$ e que $d[v]$ tinha estimativa atual $9$. Assim, como a aresta que estávamos a ver tinha peso 2, atualizamos a estimativa de $v$ para $7$ e o pai de $v$ para $u$, já que deste modo temos uma estimativa mais barata em $v$. Por outro lado, em $(b)$, $d[u]$ tinha estimativa atual $5$ e $d[v]$ tinha estimativa atual $6$. Com uma aresta de custo 2, não faz sentido atualizar agora a estimativa de $v$ para $7$, pelo que nada acontece.
 
 :::info[Propriedades da Relaxação]
 
@@ -201,7 +201,7 @@ Temos, como invariante do algoritmo de Dijkstra, que $d[u] = \delta(s, u)$ quand
 
 Vamos então assumir que existe um qualquer vértice $u$ tal que $d[u] = \delta(s, u)$ não é verdade - isto é, que aquando da inserção de $u$ em $s$, a sua estimativa atual de custo não é a menor possível. Temos, claro, que esse vértice $u$ nunca poderá ser $s$ (pois $s$ é o vértice inicial, e o seu custo é invariavelmente zero, dado que estamos a trabalhar apenas com arestas não negativas). Além disso, no momento em que $u$ é adicionado a $S$, $S$ não está vazio, visto que se $s \neq u$ e $s$ é o primeiro elemento a ser adicionado a $S$, então este não se pode encontrar vazio aquando da inserção de $u$. Por fim, claro, existe necessariamente um qualquer caminho mais curto de $s$ a $u$, caso contrário teríamos que $d[u] = \delta(s, u) = +\infty$.
 
-Vamos, então, supor que $u$ é o primeiro vértice tal que $d[u] \neq \delta(s, u)$ aquando da sua inserção em $S$. Além disso, tenhamos que $p = (s, ..., x, y, ..., u)$ é o caminho mais curto de $s$ a $u$. Para $d[u] \neq \delta(s, u)$, tem que existir um vértice de $p$ que ainda não tenha sido inserido em $S$, caso contrário eríamos obrigatoriamente $d[u] = \delta(s, u)$, já que o caminho mais curto teria sido completamente explorado, não havendo margem para dúvida.
+Vamos, então, supor que $u$ é o primeiro vértice tal que $d[u] \neq \delta(s, u)$ aquando da sua inserção em $S$. Além disso, tenhamos que $p = (s, ..., x, y, ..., u)$ é o caminho mais curto de $s$ a $u$. Para $d[u] \neq \delta(s, u)$, tem que existir um vértice de $p$ que ainda não tenha sido inserido em $S$, caso contrário teríamos obrigatoriamente $d[u] = \delta(s, u)$, já que o caminho mais curto teria sido completamente explorado, não havendo margem para dúvida.
 
 Consideremos, então, o arco $(x, y)$ - um arco que liga dois vértices de $p$, com $x \in S \wedge y \notin S$. Como admitimos anteriormente que $u$ é o primeiro vértice em que $d[u] \neq \delta(s, u)$, temos que $d[x] = \delta(s, x)$. Além disso, temos que $d[y] = \delta(s, y)$, já que $(x, y)$ foi relaxado assim que $x$ foi adicionado a $S$. Temos ainda, necessariamente, que $\delta(s, y) \leq \delta(s, u)$, visto que $y$ precede $u$ em $p$.
 
@@ -241,7 +241,7 @@ A complexidade temporal do algoritmo é $\Theta(V) + \Theta(VE) + O(E) = \Theta(
 
 Seja $G = (V, E)$ um grafo pesado dirigido, com fonte $s$ e função de pesos $w$. Assumindo que não há ciclos negativos, após as $V$ iterações do primeiro loop do algoritmo de Bellman-Ford, temos que $d[v] = \delta(s, v), \forall_{v \in V}$ tal que $v$ é atingível a partir de $s$.
 
-A prova baseia-se, claro, nas propriedades da relaxação. Começemos por considerar qualquer vértice atingível a partir de $s$, com $p = (v_0, v_1, ..., v_k)$ (com $v_0 = s \wedge v_k = v$) o caminho mais curto de $s$ a $v$ em $G$. Temos que $p$ é simples - tem, no máximo, $|V| - 1$ arcos, já que um caminho mais curto não passará por um vértice mais que uma vez, caso contrário estaríamos necessariamente na presença de um ciclo negativo. Cada arco é relaxado $|V|$ vezes. Temos, então, de procurar provar que $d[v_i] = \delta(s, v_i), \forall_{v_i \in V}$, após a iteração $i$ do primeiro loop de Bellman-Ford sobre os arcos de $G$, e que nunca se altera.
+A prova baseia-se, claro, nas propriedades da relaxação. Comecemos por considerar qualquer vértice atingível a partir de $s$, com $p = (v_0, v_1, ..., v_k)$ (com $v_0 = s \wedge v_k = v$) o caminho mais curto de $s$ a $v$ em $G$. Temos que $p$ é simples - tem, no máximo, $|V| - 1$ arcos, já que um caminho mais curto não passará por um vértice mais que uma vez, caso contrário estaríamos necessariamente na presença de um ciclo negativo. Cada arco é relaxado $|V|$ vezes. Temos, então, de procurar provar que $d[v_i] = \delta(s, v_i), \forall_{v_i \in V}$, após a iteração $i$ do primeiro loop de Bellman-Ford sobre os arcos de $G$, e que nunca se altera.
 
 Provando por indução:
 
@@ -269,13 +269,13 @@ Podemos, por fim, notar que o algoritmo devolve `true`, já que não ocorrem cic
 
 :::info[Segundo Lema]
 
-Se $G = (V, E)$ não contém ciclos negativos, o algoritmo retorna `true`, e `false` caso contrário. A primeira parte da afirmação é fácil de provar - caso não existam ciclos negativos, então é impossível que, no fim do algoritmo, $d[u] + w(u, v)$ seja menor que $d[v]$, visto que caso isso acontecesse o caminho não seria o mais curto. A segunda parte, contudo, pode parecer mais díficil à primeira vista. Procuremos uma prova por contradição, ou seja, admitir que o algoritmo retorna `true` mesmo havendo ciclos negativos. Ora, temos que Bellman-Ford só retorna `true` caso, $\forall (u, v) \in E, d[u] + w(u, v) \geq d[v]$. Dado que todas estas desigualdades são verificadas no último loop do algoritmo, podemos afirmar que as desigualdades [**ao longo do ciclo negativo**](color:yellow) (não confundir com durante todo o grafo) são dadas por:
+Se $G = (V, E)$ não contém ciclos negativos, o algoritmo retorna `true`, e `false` caso contrário. A primeira parte da afirmação é fácil de provar - caso não existam ciclos negativos, então é impossível que, no fim do algoritmo, $d[u] + w(u, v)$ seja menor que $d[v]$, visto que caso isso acontecesse o caminho não seria o mais curto. A segunda parte, contudo, pode parecer mais difícil à primeira vista. Procuremos uma prova por contradição, ou seja, admitir que o algoritmo retorna `true` mesmo havendo ciclos negativos. Ora, temos que Bellman-Ford só retorna `true` caso, $\forall (u, v) \in E, d[u] + w(u, v) \geq d[v]$. Dado que todas estas desigualdades são verificadas no último loop do algoritmo, podemos afirmar que as desigualdades [**ao longo do ciclo negativo**](color:yellow) (não confundir com durante todo o grafo) são dadas por:
 
 $$
 \sum_{i = 0}^k{d[v_i]} \leq \sum_{i = 0}^k{d[v_{i-1}]} + \sum_{i = 0}^k{w(v_{i-1}, v_i)}
 $$
 
-Ora, estando perante um ciclo, teremos que $\sum_{i = 0}^k{d[v_{i-1}]} = \sum_{i = 0}^k{d[v_i]}$ (cada vértice ocorre apenas uma vez em cada um dos somatórios). Este último ponto pode ser díficil de passar por escrito, por isso abaixo encontra-se uma imagem que pode ajudar a compreender esta afirmação:
+Ora, estando perante um ciclo, teremos que $\sum_{i = 0}^k{d[v_{i-1}]} = \sum_{i = 0}^k{d[v_i]}$ (cada vértice ocorre apenas uma vez em cada um dos somatórios). Este último ponto pode ser difícil de passar por escrito, por isso abaixo encontra-se uma imagem que pode ajudar a compreender esta afirmação:
 
 ![Ciclos Negativos Bellman-Ford](./assets/0005-ciclos-negativos-bellman-ford.png#dark=1)
 
@@ -326,7 +326,7 @@ Temos que na figura acima foi já aplicado `InitializeSingleSource`. Consideremo
 
 :::
 
-**Podemos, no exemplo acima, reparar que o caminho mais curto vai sendo gradualmente relaxado, vértice a vértice**. Estando ordenados topologicamente, será impossível que o custo de um dado vértice possa, depois de explorado, vir a ser menor no futuro - os arcos estão de trás para a frente, é impossível voltar atrás. Contudo, nem todas as iterações têm de relaxar necessariamente uma aresta que faça parte do caminho mais curto - se tivéssemos, por exemplo, um vértice $X$ que viesse antes de $A$ na ordenação topológica, mas continuássemos a considerar $A$ como a fonte, a iteração que explorava as arestas que saíam de $X$ não contribuíria para o caminho mais curto, já que este vértice não é atingível a partir da fonte. Para provar que $\forall_{v \in V} d[v]  = \delta(s, v)$ no final do algoritmo, observemos o seguinte:
+**Podemos, no exemplo acima, reparar que o caminho mais curto vai sendo gradualmente relaxado, vértice a vértice**. Estando ordenados topologicamente, será impossível que o custo de um dado vértice possa, depois de explorado, vir a ser menor no futuro - os arcos estão de trás para a frente, é impossível voltar atrás. Contudo, nem todas as iterações têm de relaxar necessariamente uma aresta que faça parte do caminho mais curto - se tivéssemos, por exemplo, um vértice $X$ que viesse antes de $A$ na ordenação topológica, mas continuássemos a considerar $A$ como a fonte, a iteração que explorava as arestas que saíam de $X$ não contribuiria para o caminho mais curto, já que este vértice não é atingível a partir da fonte. Para provar que $\forall_{v \in V} d[v]  = \delta(s, v)$ no final do algoritmo, observemos o seguinte:
 
 :::info[Prova da correção do Algoritmo]
 
@@ -345,17 +345,17 @@ O caminho mais longo pode ser particularmente útil para, entre outros, calcular
 
 :::tip[Nota]
 
-Esta secção tem a co-autoria do [João Rocha](https://github.com/calhau18).
+Esta secção tem a coautoria do [João Rocha](https://github.com/calhau18).
 
 :::
 
 Os algoritmos de Dijkstra e Bellman-Ford, abordados acima, permitem-nos encontrar caminhos mais curtos **de fonte única**. Conhecendo-os, a nossa primeira intuição para descobrir os caminhos mais curtos entre **todos os pares** de vértices de um grafo poderá apenas passar por aplicar o algoritmo de Dijkstra $|V|$ vezes, com vértice-fonte a alterar para cada aplicação. [**A ideia não está errada**](color:yellow), claro: funciona! Temos, contudo, um problema em mãos - continuamos a ter a limitação estudada acima (Dijkstra requer a ausência de arcos negativos). Será, então, interessante procurar uma solução alternativa que a remova, e é aqui que entra o algoritmo de Johnson, que curiosamente combina os algoritmos de Dijkstra e Bellman-Ford para chegar a este fim.
 
-### Algoritmo de Jonhson
+### Algoritmo de Johnson
 
 O algoritmo de Johnson permite-nos justamente remover a limitação acima mencionada. Para tal, usa uma estratégia: a [**repesagem de Johnson**](color:orange), baseada em Bellman-Ford, e acaba na aplicação de Dijkstra, usando todos os vértices como fonte. De realçar que a repesagem só é requerida caso haja pelo menos um arco negativo.
 
-Durante o decorrer do algoritmo, são calculadas duas matrizes bi-dimensionais (onde cada dimensão tem tamanho $|V|$):
+Durante o decorrer do algoritmo, são calculadas duas matrizes bidimensionais (onde cada dimensão tem tamanho $|V|$):
 
 - $D$, onde $D(i, j)$ corresponde ao peso do caminho mais curto de $i$ a $j$;
 
@@ -365,17 +365,17 @@ Vamos por partes:
 
 :::info[Repesagem de Johnson]
 
-Tendo um grafo $G = (V, E)$, a repesagem de Jonhson devolve um grafo $\overset{\wedge}{G} = (V, \overset{\wedge}{E})$, onde $\overset{\wedge}{E}$ corresponde a arcos "equivalentes" aos de $E$, porém sem arcos negativos. Queremos, claro, que os caminhos mais curtos em $\overset{\wedge}{G}$ sejam os mesmos que os de $G$.
+Tendo um grafo $G = (V, E)$, a repesagem de Johnson devolve um grafo $\overset{\wedge}{G} = (V, \overset{\wedge}{E})$, onde $\overset{\wedge}{E}$ corresponde a arcos "equivalentes" aos de $E$, porém sem arcos negativos. Queremos, claro, que os caminhos mais curtos em $\overset{\wedge}{G}$ sejam os mesmos que os de $G$.
 
-A intuição poderá levar-nos a pensar que uma maneira possível de chegar a $\overset{\wedge}{G}$ é encontrar a aresta com peso mais negativo, pegar no seu módulo e somá-lo ao peso de todas os arcos de $G$. A estratégia, contudo, não funciona para todos os casos - temos um contra-exemplo abaixo:
+A intuição poderá levar-nos a pensar que uma maneira possível de chegar a $\overset{\wedge}{G}$ é encontrar a aresta com peso mais negativo, pegar no seu módulo e somá-lo ao peso de todas os arcos de $G$. A estratégia, contudo, não funciona para todos os casos - temos um contraexemplo abaixo:
 
-![Repesagem de Jonhson - abordagem errada](assets/0005-johnson-errado.png#dark=1)
+![Repesagem de Johnson - abordagem errada](assets/0005-johnson-errado.png#dark=1)
 
 Podemos observar, então, que esta abordagem acaba por **penalizar caminhos mais curtos com mais arcos**.
 
 A [**abordagem correta**](color:orange) passa, então, por adicionar um novo vértice, $s$, ao grafo, e conectá-lo com arcos $(s, v)$ de peso 0 a todo o vértice $v$ de $G$. De seguida, aplicar o algoritmo de Bellman-Ford ao grafo para descobrir as **alturas de Johnson, $h$, de cada vértice** - correspondem ao peso do caminho mais curto de $s$ a cada vértice.
 
-Obtidas as alturas de Jonhson, temos que o peso de cada arco em $\overset{\wedge}{G}$, $\overset{\wedge}{w}$, é dado por[**\***](color:yellow):
+Obtidas as alturas de Johnson, temos que o peso de cada arco em $\overset{\wedge}{G}$, $\overset{\wedge}{w}$, é dado por[**\***](color:yellow):
 
 $$
 \overset{\wedge}{w}(i, j) = w(i, j) + h(i) - h(j).
@@ -386,21 +386,21 @@ No fim, ao remover o vértice $s$ e respetivos arcos, ficamos com $\overset{\wed
 [**\***](color:yellow) A razão pela qual a repesagem funciona não é trivial à primeira vista. A prova da sua correção encontra-se mais abaixo, pelo que podem preferir ler a mesma antes de ver o exemplo seguinte.
 :::
 
-:::details[Exemplo da Repesagem de Jonhson]
+:::details[Exemplo da Repesagem de Johnson]
 
 Consideremos o grafo $G$ abaixo:
 
-![Repesagem de Jonhson - exemplo](assets/0005-johnson-exemplo.png#dark=1)
+![Repesagem de Johnson - exemplo](assets/0005-johnson-exemplo.png#dark=1)
 
 Após adicionar o vértice $s$ (e respetivas arestas), o grafo fica assim:
 
-![Repesagem de Jonhson - exemplo - adicionado](assets/0005-johnson-exemplo-2.png#dark=1)
+![Repesagem de Johnson - exemplo - adicionado](assets/0005-johnson-exemplo-2.png#dark=1)
 
 Tenhamos, ainda, uma ordem arbitrária de relaxação de arcos, por exemplo $(S, X), (S, U), (S, T), (S, V), (X, U), (U, V), (U, T), (V, X), (V, T)$.
 
 A primeira iteração de Bellman-Ford dará:
 
-![Repesagem de Jonhson - exemplo - relaxação](assets/0005-johnson-exemplo-3.png#dark=1)
+![Repesagem de Johnson - exemplo - relaxação](assets/0005-johnson-exemplo-3.png#dark=1)
 
 A próxima iteração resulta num grafo igual, pelo que o algoritmo de Bellman-Ford termina aqui. Temos, então, que as alturas de Johnson dos vértices do grafo são:
 
@@ -419,7 +419,7 @@ Assim sendo, os novos pesos dos arcos de $G$ são:
 
 Assim, temos que $\overset{\wedge}{G}$ é tal que:
 
-![Repesagem de Jonhson - exemplo - resultado](assets/0005-johnson-exemplo-4.png#dark=1)
+![Repesagem de Johnson - exemplo - resultado](assets/0005-johnson-exemplo-4.png#dark=1)
 
 De realçar que nenhum arco tem agora peso negativo!
 
@@ -450,7 +450,7 @@ Ou seja, o peso de qualquer ciclo em $G$ é igual ao peso de qualquer ciclo em $
 
 :::details[Prova do segundo ponto]
 
-Resta agora provar o segundo ponto acima proposto. Começemos por notar que, com $p = (v_0, ..., v_n)$, um caminho mais curto em $G$, temos que:
+Resta agora provar o segundo ponto acima proposto. Comecemos por notar que, com $p = (v_0, ..., v_n)$, um caminho mais curto em $G$, temos que:
 
 $$
 \overset{\wedge}{w} (p) = \sum_{i = 0}^{n-1} \overset{\wedge}{w}(v_i, v_{i+1})\\

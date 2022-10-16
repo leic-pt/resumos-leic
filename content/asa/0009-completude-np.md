@@ -30,9 +30,9 @@ Temos, então, duas principais classes de problemas:
 
 - os problemas [$P$](color:orange), para os quais podemos encontrar uma solução de forma eficiente, em tempo polinomial.
 
-- os problemas [$NP$](color:yellow), "Não-Determínisticos Polinomiais", que possuem solução (conhecida) superpolinomial, mas que são **verificáveis** em tempo polinomial: dado um [**certificado**](color:green), é possível verificar em tempo eficiente se o mesmo corresponde a uma solução para o problema. Aqui, dizemos que um certificado corresponde a uma potencial solução para o problema: no caso de um programa que procura descobrir o caminho mais longo de um grafo, um _certificado-exemplo_ corresponderia a um qualquer caminho que fosse fornecido como input. Podemos afirmar que $P \subseteq NP$: todos os problemas com solução em tempo polinomial também são, claro, verificáveis em tempo polinomial (basta procurar a solução, que é feita em tempo polinomial).
+- os problemas [$NP$](color:yellow), "Não-Determinísticos Polinomiais", que possuem solução (conhecida) superpolinomial, mas que são **verificáveis** em tempo polinomial: dado um [**certificado**](color:green), é possível verificar em tempo eficiente se o mesmo corresponde a uma solução para o problema. Aqui, dizemos que um certificado corresponde a uma potencial solução para o problema: no caso de um programa que procura descobrir o caminho mais longo de um grafo, um _certificado-exemplo_ corresponderia a um qualquer caminho que fosse fornecido como input. Podemos afirmar que $P \subseteq NP$: todos os problemas com solução em tempo polinomial também são, claro, verificáveis em tempo polinomial (basta procurar a solução, que é feita em tempo polinomial).
 
-Até agora, o nosso objetivo ao analisar algoritmos sempre foi procurar encontrar uma majoração, notação $O$, para a complexidade temporal que um dado algoritmo pode ter - um pior caso. Nos problemas $NPC$, vamos procurar fazer precisamente o oposto: tentar demonstrar que um dado problema é "pelo menos tão difícil" como outro que já sabemos ser díficil, algo semelhante à noção de $\Omega$, minorante da complexidade temporal.
+Até agora, o nosso objetivo ao analisar algoritmos sempre foi procurar encontrar uma majoração, notação $O$, para a complexidade temporal que um dado algoritmo pode ter - um pior caso. Nos problemas $NPC$, vamos procurar fazer precisamente o oposto: tentar demonstrar que um dado problema é "pelo menos tão difícil" como outro que já sabemos ser difícil, algo semelhante à noção de $\Omega$, minorante da complexidade temporal.
 
 ## Redutibilidade de um Problema
 
@@ -50,7 +50,7 @@ Acima podemos ver o exemplo de como a lógica funciona - pegamos numa instância
 
 Intuitivamente, se podemos reduzir um problema $X$ a outro $Y$ em tempo polinomial, então $X$ não deverá ser "mais difícil" de resolver que $Y$.
 
-Um problema $x$ diz-se **$NP$-Díficil** ($NPH$, de $NP$_-hard_) caso possamos reduzir qualquer problema $NP$ a $x$ em tempo polinomial - nenhum dos outros será "mais díficil" que $x$. Não têm necessariamente de ser problemas em $NP$ - o _halting problem_ é $NP$-Díficil, mas nem sequer tem solução (nem polinomial nem superpolinomial), não fazendo portanto parte de $NP$.
+Um problema $x$ diz-se **$NP$-Difícil** ($NPH$, de $NP$_-hard_) caso possamos reduzir qualquer problema $NP$ a $x$ em tempo polinomial - nenhum dos outros será "mais difícil" que $x$. Não têm necessariamente de ser problemas em $NP$ - o _halting problem_ é $NP$-Difícil, mas nem sequer tem solução (nem polinomial nem superpolinomial), não fazendo portanto parte de $NP$.
 
 Aos problemas que são tanto $NP$ como $NP$-difíceis, damos o nome de **$NP$-completos** ($NPC$). Estes são portanto, problemas cuja solução pode ser verificada em tempo polinomial, que são no máximo tão difíceis como qualquer problema $NP$ (isto é, a solução eficiente para qualquer problema $NP$ implica solução eficiente para este problema).
 
@@ -74,13 +74,13 @@ $$
 X \in NP \wedge Y \in NPC \wedge Y \leq_p X \implies X \in NPC
 $$
 
-Isto é, se houver um problema que é $NP$-Completo (e, portanto, $NP$-Díficil), todos os problemas em $NP$ para os quais o podemos reduzir serão também $NP$-Completos, já que terão de ser _pelo menos tão difíceis_ quanto $Y$, que já é, por definição, $NP$-Díficil.
+Isto é, se houver um problema que é $NP$-Completo (e, portanto, $NP$-Difícil), todos os problemas em $NP$ para os quais o podemos reduzir serão também $NP$-Completos, já que terão de ser _pelo menos tão difíceis_ quanto $Y$, que já é, por definição, $NP$-Difícil.
 
 ### Teorema de Cook-Levin
 
 Ora, precisamos então de ter um problema raiz que seja $NP$-Completo para, a partir desse, conseguir extrair todos os outros. Assim, provar a conjetura $P$ vs $NP$, por exemplo, reduz-se a provar que esse algoritmo é ou não é de classe $P$.
 
-O **teorema de Cook-Levin** diz-nos, de forma muito sucinta, que o [problema de SAT](../lp/algoritmos-sat), abordado em LP, é $NP$-Completo. A prova é bastante extensa, pelo que não será apresentada aqui. Contudo, tanto as notas do prof. Fragoso como o vídeo abaixo contêm excelentes explicações do mesmo!
+O **teorema de Cook-Levin** diz-nos, de forma muito sucinta, que o [problema de SAT](../lp/algoritmos-sat), abordado em LP, é $NP$-Completo. A prova é bastante extensa, pelo que não será apresentada aqui. Contudo, tanto as notas do Prof. Fragoso como o vídeo abaixo contêm excelentes explicações do mesmo!
 
 ::youtube{#LW_37i96htQ}
 
