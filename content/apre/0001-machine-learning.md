@@ -152,7 +152,7 @@ de _Machine Learning_ diferem principalmente no método através do qual a infor
 é apresentada: através de **símbolos** e **vetores**, respetivamente.
 
 Ao contrário da vertente anterior, esta abordagem opta por representar os objetos diretamente.
-Análogo à biologia, onde os órgãos perceptores capturam informação através de recetores,
+Análogo à biologia, onde os órgãos percetores capturam informação através de recetores,
 optamos por criar vetores, onde cada **dimensão** representa um certo valor. Podemos
 também pensar nas várias dimensões como **atributos**. Por exemplo, podemos comparar
 dois peixes pelos seus peso e tamanho. Ao representar objetos desta maneira podemos

@@ -18,7 +18,7 @@ type: content
 
 Podemo-nos perguntar quantas coisas temos na nossa posse. A resposta não será sempre 100% exata mas é evidente que temos várias coisas. E se nos focarmos em diferentes grupos, por exemplo, quantos [**acessórios e ferramentas do dia-a-dia**](color:orange) temos? E o número de [**consumíveis**](color:orange) ou [**itens de cozinha**](color:orange), [**dispositivos eletrónicos**](color:orange), [**mobília**](color:orange) ou [**roupa**](color:orange)? E se agora modificarmos a pergunta: [**São donos de que coisas que custam mais de 50€ ou são dispositivos eletrónicos?**](color:pink)
 
-A verdade é que, na maior parte dos casos, as coisas que nós temos que são mais caras ou são roupa ou dispositivos eletrónicos. Mas e se conseguissemos juntar os dois? Em 2017, a Levi's hipotetisou isto mesmo. Através do [**Projeto Jacquard**](color:pink), podíamos ter um telemóvel incorporado no nosso casaco, evitando ter que tirar e pôr o telemóvel constantemente no bolso, especialmente quando estamos na rua, a andar de bicileta, conduzir ou somente com as mãos cheias.
+A verdade é que, na maior parte dos casos, as coisas que nós temos que são mais caras ou são roupa ou dispositivos eletrónicos. Mas e se conseguíssemos juntar os dois? Em 2017, a Levi's hipotetisou isto mesmo. Através do [**Projeto Jacquard**](color:pink), podíamos ter um telemóvel incorporado no nosso casaco, evitando ter que tirar e pôr o telemóvel constantemente no bolso, especialmente quando estamos na rua, a andar de bicicleta, conduzir ou somente com as mãos cheias.
 
 Contudo em [**em quantas coisas tocamos**](color:orange)? Todos os dias temos de tocar em diversos objetos, para [**comer**](color:pink), [**brincar**](color:pink), [**comunicar com outras pessoas**](color:pink), [**construir**](color:pink), [**nadar**](color:pink), [**tomar conta da nossa higiene pessoal**](color:pink), [**pagar**](color:pink), entre outros.
 
@@ -32,7 +32,7 @@ Mas de que forma podemos relacionar estas questões com IPM?
 
 ![Gestos Universais](./assets/0008-gestos-universais.png#dark=3)
 
-Introduzindo o conceito de [**computação ubiqua**](color:pink). Definido por Mark Weiser em 1991, este diz-nos que
+Introduzindo o conceito de [**computação ubíqua**](color:pink). Definido por Mark Weiser em 1991, este diz-nos que
 
 > _**"The most profound technologies are those [**that disappear**](color:orange). They weave themselves into the fabric of everyday life until they are indistinguishable from it."**_
 
@@ -44,7 +44,7 @@ A PARC, [**Palo Alto Research Company**](color:pink) é uma companhia de Open In
 
 ### Protótipos
 
-Existem diferentes formas de descrevermos os nossos dispsoitivos, eletrónicos. Podemos usar [**Tabs (polegada)**](color:orange), [**Pads (feet)**](color:orange), [**Boards (yard)**](color:orange).
+Existem diferentes formas de descrevermos os nossos dispositivos, eletrónicos. Podemos usar [**Tabs (polegada)**](color:orange), [**Pads (feet)**](color:orange), [**Boards (yard)**](color:orange).
 
 > _**"The computer today is isolated from the overall situation (...) and fails to get out of the way of the work (...) [**rather than being a tool through which we work**](color:pink), and thus disappearing from our awareness, [**the computer too often remains the focus of attention**](color:pink)."**_
 
@@ -53,9 +53,9 @@ Se nos questionarmos que itens poderão ter a capacidade de comunicação [**(ne
 - Luzes;
 - Frigorífico;
 - Micro-ondas;
-- Termóestato;
+- Termóstato;
 
-Podemos juntar a estes aparelhos assistentes de voz que facilitam o nosso dia-a-dia. Podem ser ferramentas poderosas, contudo a [**falta de contexto do utilixador torna a utilização penosa**](color:orange).
+Podemos juntar a estes aparelhos assistentes de voz que facilitam o nosso dia-a-dia. Podem ser ferramentas poderosas, contudo a [**falta de contexto do utilizador torna a utilização penosa**](color:orange).
 
 ## Contexto em Sistemas Interativos
 
@@ -74,9 +74,9 @@ Ao interagir com uma máquina, o utlizador tem que inserir um input [**implícit
 
 ### Contexto
 
-Contudo, apenas temos que ter esta informação embebida [**onde**](color:pink) e [**quando**](color:pink) for mais necessário; é necessário embeber informação de uma forma [**não disruptiva**](color:pink) à atividade ou atenção do utilizador; a informação embebida [**não deve requerir interação**](color:pink).
+Contudo, apenas temos que ter esta informação embebida [**onde**](color:pink) e [**quando**](color:pink) for mais necessário; é necessário embeber informação de uma forma [**não disruptiva**](color:pink) à atividade ou atenção do utilizador; a informação embebida [**não deve requerer interação**](color:pink).
 
-O uso de contexto serve para [**adpatar**](color:pink):
+O uso de contexto serve para [**adaptar**](color:pink):
 
 - a aplicação
 - o conteúdo
@@ -100,13 +100,13 @@ Alguns tipos de informação contextual:
 
 ### Exemplo:
 
-Ao utilizarmos um programa com controlo de voz, temos que ter consciencia que estes programas contêm uma extração e seleção de features como volume. Através de [**machine learning**](color:pink), emsemble-based decision trees ([**Random Forest**](color:pink)) entre outros, estes programas são capazes de produzir melhores resultados e resultados mais direcionados e especializados para o utilizador. Um bom exemplo do mesmo são os teclados que, ao inicializar o nosso dispositivo, estes [**não têm bordas**](color:pink). Em vez disso, à medida que o utilizador vai usando, o teclado vai-se habituando ao seu input.
+Ao utilizarmos um programa com controlo de voz, temos que ter consciência que estes programas contêm uma extração e seleção de features como volume. Através de [**machine learning**](color:pink), ensemble-based decision trees ([**Random Forest**](color:pink)) entre outros, estes programas são capazes de produzir melhores resultados e resultados mais direcionados e especializados para o utilizador. Um bom exemplo do mesmo são os teclados que, ao inicializar o nosso dispositivo, estes [**não têm bordas**](color:pink). Em vez disso, à medida que o utilizador vai usando, o teclado vai-se habituando ao seu input.
 
 ![Teclado](./assets/0008-teclado.png#dark=3)
 
 É por esta razão que, ao utilizarmos o teclado de outra pessoa, por vezes, temos dificuldade em escrever nele sem cometer uma grande quantidade de erros.
 
-### Convulutional Neural Network (CNN)
+### Convolutional Neural Network (CNN)
 
 A [**convolutional neural network (CNN)**](color:pink) serve de forma a classificar se o utilizador está a usar o seu dedo ou polegar. Um grande exemplo disto é em tablets, existe uma [**rejeição à palma da mão quando estamos a escrever**](color:orange) neles com uma caneta. Também serve para reconhecer a atividade do seu utilizador, postura corporal, direção do olhar, etc.
 

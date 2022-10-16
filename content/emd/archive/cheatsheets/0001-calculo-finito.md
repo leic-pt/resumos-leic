@@ -1,6 +1,6 @@
 ---
 title: Cálculo Finito (Cheat Sheet)
-description: Fórmulas;  Números de Stirling ; Método das Pertubações; Indução Matemática;
+description: Fórmulas;  Números de Stirling ; Método das Perturbações; Indução Matemática;
 path: /emd/archive/cheatsheets/calculo-finito
 type: archive
 ---
@@ -146,7 +146,7 @@ $$
 \end{array}
 $$
 
-## Método das Pertubações
+## Método das Perturbações
 
 ### Perturbação Direta
 

@@ -14,7 +14,7 @@ Definimos um [**par aleatório**](color:blue) como uma função $(X,Y) : \Omega 
 
 :::details[Condição de mensurabilidade]
 
-Diz-se que uma funçao $F$ com contradomínio em $\R^2$ satisfaz uma condição de mensurabilidade, se qualquer região da forma $]-\infty, x] \times ]-\infty, y]$ tiver imagem inversa segundo $F$ na $\sigma$-álgebra $\mathcal{A}$ sobre $\Omega$.
+Diz-se que uma função $F$ com contradomínio em $\R^2$ satisfaz uma condição de mensurabilidade, se qualquer região da forma $]-\infty, x] \times ]-\infty, y]$ tiver imagem inversa segundo $F$ na $\sigma$-álgebra $\mathcal{A}$ sobre $\Omega$.
 
 :::
 

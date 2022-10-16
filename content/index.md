@@ -189,7 +189,6 @@ years:
 - [LEIC-A no Fénix](https://fenix.tecnico.ulisboa.pt/cursos/leic-a) - Página oficial do curso (Alameda)
 - [Discord IST Hub](https://isthub.pt) - Discord para toda a comunidade IST
 - [IST Space Finder](https://spaces.leic.pt) - Find your way around the IST campi - Offline Web App made by Diogo Correia
-- [Fónix Mails](https://s.rafael.ovh/fonixmails) - Receber anúncios do Fénix por e-mail
 - [Criador de Horários (Daniel Gonçalves)](https://horarios.dang.pt/)
 - [Gerador de Horários (Joana Sesinando)](https://web.tecnico.ulisboa.pt/joanasesinando/gerador-horarios/)
 - [Reencaminhar emails do Técnico para o Gmail](https://www.notion.so/diogocorreia/Reenchaminhar-emails-do-T-cnico-para-Gmail-2975d496a1d3447a84b0d0cf163dd65f)
@@ -211,7 +210,7 @@ Quero agradecer a [todos os que contribuíram](https://github.com/leic-pt/resumo
 - [Constança Cunha](https://github.com/leic-pt/resumos-leic/commits?author=constancadcunha) (**IAC**, **IPM**, **Apre**, **OC**, Fis-I)
 - [Rúben Nobre](https://github.com/leic-pt/resumos-leic/commits?author=RubenNobre123) (**MD**, CDI-III)
 - [João Fonseca](https://github.com/leic-pt/resumos-leic/commits?author=jmseca) (**MD**)
-- [Rafael Oliveira](https://github.com/leic-pt/resumos-leic/commits?author=RafDevX) (CDI-II, CDI-III, Fis-I, Fis-II, LP, IAED, MD, PO, Ges, SO, ASA, IPM, TC, BD, IA, PE)
+- [Rafael Oliveira](https://github.com/leic-pt/resumos-leic/commits?author=RafDevX) (CDI-II, EMD, LP, CDI-III, ASA, TC, IAED, GES, IPM, SO, IA, Fis-I, PO, Fis-II, PE, CDI-I, AL, IAC, OC, Apre)
 - [José João Ferreira](https://github.com/leic-pt/resumos-leic/commits?author=jjasferreira) (SO, BD, IA, IPM)
 - [Eduardo Espadeiro](https://github.com/leic-pt/resumos-leic/commits?author=EdSwordsmith) (IA)
 - [Rafaela Rodrigues](https://github.com/leic-pt/resumos-leic/commits?author=Rafa10PT) (IAED, CDI-II, MD, CDI-III)

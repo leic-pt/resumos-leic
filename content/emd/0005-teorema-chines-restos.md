@@ -129,7 +129,7 @@ $$
 
 ### Teorema 2
 
-$a_1, \dots, a_k \in \Z$ e $m_1,\dots,m_k \in \N_1$, com estes útlimos **não** necessariamente primos entre si.  
+$a_1, \dots, a_k \in \Z$ e $m_1,\dots,m_k \in \N_1$, com estes últimos **não** necessariamente primos entre si.  
 O problema,
 
 $$
