@@ -239,7 +239,7 @@ Quero agradecer a [todos os que contribuíram](https://github.com/leic-pt/resumo
 - [Rita Mendes](https://github.com/leic-pt/resumos-leic/commits?author=SparklingRita) (Imagens CDI-II)
 - [André Teodósio](https://github.com/leic-pt/resumos-leic/commits?author=TioDosio) (CDI-II)
 - [Rafaela Oliveira](https://github.com/leic-pt/resumos-leic/commits?author=rafaelacorreiaoliveira) (CDI-II)
-- [João Rodrigues](https://github.com/leic-pt/resumos-leic/commits?author=Joao-Ex-MAchina) (OC)
+- [João Rodrigues](https://github.com/leic-pt/resumos-leic/commits?author=Joao-Ex-Machina) (OC)
 
 ---
 
