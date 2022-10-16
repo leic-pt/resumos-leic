@@ -482,29 +482,33 @@ L2: ...               # L2 aponta para as instruções
 
 ## Compilar em Assembly
 
-Tal como vimos nas outras linguagens de programação, existem vários códigos
-simples que conseguimos recriar em Assembly mesmo sem as palavras específicas.
+Tal como vimos nas outras linguagens de programação, existem várias operações
+simples que conseguimos recriar em Assembly mesmo sem as instruções específicas,
+através da composição de instruções.
 
 ### _If statements_
 
-![If statement](./assets/0002-if.jpg#dark=3)
-
-Código em C seria:
+Considere-se o seguinte código em C.
 
 ```c
-if (i==j)
-    f = g+h;
-else
-    f = g-h;
-
+if (i == j) {
+    f = g + h;
+} else {
+    f = g - h;
+}
 ```
 
-Como não existe _if_ em Assembly temos que fazer:
+Em assembly, teríamos de considerar a seguinte lógica.
 
-```
-bne $s3, $s4, Else
-add $s0, $s1, $s2
-j Exit
+![Flowchart de um if/else em assembly](./assets/0002-if.jpg#dark=3 'Flowchart de um if/else em assembly')
+
+Invertemos a condição para saltar diretamente para o _else_ caso a condição falhe,
+caso contrário continuamos a execução, que corresponderia ao corpo do `if`.
+
+```mips-asm
+      bne $s3, $s4, Else
+      add $s0, $s1, $s2
+      j Exit
 Else: sub $s0, $s1, $s2
 Exit: ...
 
@@ -512,23 +516,29 @@ Exit: ...
 
 ### _Loop statements_
 
-Código em C seria:
+Considere-se o seguinte código em C.
 
 ```c
-while (save[i] == k)
+while (save[i] == k) {
     i += 1;
-
+}
 ```
+
+Sabe-se que:
+
+- `i` está guardado em `$s3`
+- endereço de `save` está guardado em `$s6`
+- `k` está guardado em `$s5`
 
 Como não existe _while_ em Assembly temos que fazer:
 
-```
-Loop: sll $t1, $s3, 2
-add $t1, $t1, $s6
-lw $t0, 0($t1)
-bne $t0, $s5, Exit
-addi $s3, $s3, 1
-j Loop
+```mips-asm
+Loop: sll $t1, $s3, 2    # cada elemento da array são 4 bytes
+      add $t1, $t1, $s6  # somar offset ao endereço de "save"
+      lw $t0, 0($t1)     # ler da memória
+      bne $t0, $s5, Exit # verificar condição de loop (invertida)
+      addi $s3, $s3, 1   # efetuar corpo do loop
+      j Loop             # voltar ao início do loop
 Exit: ...
 
 ```
@@ -536,11 +546,12 @@ Exit: ...
 ## Blocos básicos
 
 Um bloco básico é uma sequência de instruções que não têm nem
-[_branches_ embebidos](color:pink), exceto no final, nem
-[_target branches_](color:pink), exeto no início.
-Um compilador identifica blocos básicos para otimização e um
-[processador avançado](color:purple) consegue acelerar a
-execução de blocos básicos.
+[_branches_](color:pink), exceto no final, nem é
+[um destino para _branches_](color:pink), exeto no início.
+Por outras palavras, é um bloco de código que é executado **sempre** sequencialmente.
+
+O compilador identifica blocos básicos para otimização e um
+[processador avançado](color:purple) consegue acelerar a sua execução.
 
 ![Blocos básicos](./assets/0002-blocos.png#dark=3)
 
