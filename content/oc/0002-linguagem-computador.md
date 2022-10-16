@@ -138,11 +138,11 @@ Todas as [operações aritméticas](color:pink) têm esta forma:
 f = (g + h) - (i + j);
 ```
 
-```asmatmel
-; Assembly code
-add t0, g, h   ; variável temporária t0 contém g + h
-add t1, i, j   ; variável temporária t1 contém i + j
-sub t2, t0, t1 ; t2 recebe t0 - t1
+```mips-asm
+# Assembly code
+add $t0, $s0, $s1   # variável temporária t0 contém g + h
+add $t1, $s2, $s3   # variável temporária t1 contém i + j
+sub $t2, $t0, $t1   # t2 recebe t0 - t1
 ```
 
 ## MIPS - Registos
@@ -209,7 +209,7 @@ No MIPS existe a seguinte convenção de registos:
 Olhando para a imagem acima, podemos fazer a soma dos dois registos,
 guardando o valor em t0, através do comando:
 
-```asmatmel
+```mips-asm
 add $t0, $s1, $s2
 ```
 
@@ -227,8 +227,8 @@ Isto resulta num tamanho máximo de 16 bits, ou seja, de $-2^{15}$ até $2^{15}$
 
 :::info[Exemplos]
 
-```asmatmel
-addi $s3, $s3, 4 ; adiciona 4 ao registo $s3
+```mips-asm
+addi $s3, $s3, 4 # adiciona 4 ao registo $s3
 ```
 
 ![Exemplo I](./assets/0002-exemplo-i.png#dark=3)
@@ -238,8 +238,8 @@ addi $s3, $s3, 4 ; adiciona 4 ao registo $s3
 Não existe subtração imediata, pelo que temos que usar uma adição imediata
 com uma [constante negativa](color:purple).
 
-```asmatmel
-addi $s2, $s1, -1 ; guarda em $s2 o valor de $s1 - 1
+```mips-asm
+addi $s2, $s1, -1 # guarda em $s2 o valor de $s1 - 1
 ```
 
 :::
@@ -251,16 +251,16 @@ Como as instruções de tipo I (_immediate_) apenas suportam constantes de
 
 1. Carregamos os bits de ordem superior (16 a 31) primeiro, com a instrução _load upper immediate_.
 
-   ```asmatmel
-   lui $t0, 1010101010101010
+   ```mips-asm
+   lui $t0, 0b1010101010101010
    ```
 
    Neste momento, temos `$t0 = 1010 1010 1010 1010 0000 0000 0000 0000`.
 
 2. Carregamos os bits de ordem inferior (0 a 15) em segundo lugar, com a instrução _or immediate_.
 
-   ```asmatmel
-   ori $t0, $t0, 0101010101010101
+   ```mips-asm
+   ori $t0, $t0, 0b0101010101010101
    ```
 
    Ficamos assim com `$t0 = 1010 1010 1010 1010 0101 0101 0101 0101`.
@@ -308,7 +308,7 @@ Imaginemos que queremos multiplicar um valor por 8 ($2^3$).
 
 Então, podemos fazer o seguinte shift:
 
-```asmatmel
+```mips-asm
 sll $t0, $t0, 3
 ```
 
