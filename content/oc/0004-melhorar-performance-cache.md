@@ -281,7 +281,7 @@ Porém, nem sempre nos dá mais jeito termos associatividade de sets: esta escol
 podemos ver no gráfico a baixo, nem sempre quanto maior é a nossa associatividade menos
 _misses_ há!
 
-![Comparação](./assets/0004-comparacao.png#dark=3)
+![Comparação](./assets/0004-comparacao-associatividade.png#dark=3)
 
 ### Política de troca
 
