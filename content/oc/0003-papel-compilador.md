@@ -16,7 +16,7 @@ type: content
 
 ![Tradução e Startup](./assets/0003-traducao.png#dark=3)
 
-O compilador traduz o porgrama para instruções de máquina, dando informação para construir um programa completo através de peças soltas:
+O compilador traduz o programa para instruções de máquina, dando informação para construir um programa completo através de peças soltas:
 
 - [_Header_](color:yellow): descreve as componentes de um modelo de objeto;
 - [_Text segment_](color:orange): tradução das instruções;
@@ -61,11 +61,11 @@ O tamanho das variáveis que devem ser condificadas têm bytes postfix que espec
 
 São conjuntos complexos de instrução que tornam a sua implementação difícil visto que o hardware traduz instruções para micro-operações mais simples, ou seja [instruções simples](color:pink) do género 1-1, ou [instruções complexas](color:pink) do género 1-muitos; micromotor parecido com RISC; e mercado de partilha que turna isto economicamente viável.
 
-### Falácias
+### Equívocos Comuns
 
-Existem diversas falácias sobre o nosso compilador: A primeira é que [instruções mais poderosas implicam execuções melhores](color:pink). Isto está incorreto visto que muito poucas instrução são necessárias mas instruções mais complexas são mais difíceis de implementar visto que podem desacelerar todas as instruções, incluindo as mais simples. Para além disso, também é sabido que compiladores são bons a fazerem código rápido a partir de instruções simples.
+É fácil cair em conclusões precipitadas relativamente aos compiladores e processadores: A primeira é que [ter instruções mais complexas implica execuções mais rápidas](color:pink). Isto nem sempre é verdade visto que apesar de serem necessárias menos instruções, estas são mais complexas e difíceis de implementar, o que pode obrigar o processador a correr a uma frequência mais baixa, "atrasando" todas as instruções, incluindo as mais simples. Para além disso, os compiladores são extremamente bons a escrever código eficiente a partir de instruções simples.
 
-A segunda falácia é que [código Assembly é usado para execuções mais avançadas](color:purple). Contudo, compiladores modernos são melhores a lidar com processadores modernos e mais linhas de código implicam mais erros e menor produtividade.
+A segunda é que devemos [escrever trechos de código em Assembly](color:purple) se queremos que sejam mais eficientes. Contudo, os compiladores modernos são bem melhores que qualquer um de nós a escrever Assembly. O tempo desperdiçado a escrever 50 linhas de Assembly para uma função de 10 linhas em C é melhor utilizado a estudar para OC.
 
 :::warning[_Pitfalls_]
 
@@ -75,13 +75,14 @@ Sequências de palavras [não são](color:red) endereços sequenciados, incremen
 
 ## Memória
 
-Antes de começarmos temos que relembrar a [diferença entre o CPU e RAM](color:purple). O RAM é a memória, o processador faz os cálculos/computações. Basicamente se tivermos um carpinteiro atrabalhar num banco e tivermos uma caixa com ferramentas, em qualquer momento só um certo número de ferramentas é que está a ser usado para consertar o banco, estas ferramentas encontram-se em cima do banco, o resto está na caixa. Usar só as ferramentas que já estão em cima do banco é mais rápido do que tirar uma ferramenta da caixa e usá-la. Assim, aplicando esta analogia a um computador, o [carpinteiro é o CPU](color:red), as [ferramentas que estão no banco são a RAM](color:pink) e [as ferramentas que estão na caixa são o disco rígido](color:purple).
+Antes de falar de memória é importante distinguir a [diferença entre o CPU e RAM](color:purple). A RAM é a memória primária enquanto que o processador faz os cálculos/computações. Pegando num exemplo, se tivermos um carpinteiro a arranjar uma cadeira e este tiver uma caixa com ferramentas, num dado momento só um certo número de ferramentas é que está a ser usado para consertar a cadeira. Estas ferramentas encontrar-se-ão mais próximo do carpinteiro, por exemplo no seu cinto, enquanto o resto estará na caixa. Usar as ferramentas que estão no seu cinto é mais rápido do que tirar uma ferramenta da caixa e usá-la. Se o carpinteiro for esperto, irá ter no seu cinto as ferramentas que precisa mais frequentemente para a tarefa que está a fazer no momento e deixará na caixa as ferramentas menos utilizadas. Assim, aplicando esta analogia a um computador, o [carpinteiro é o CPU](color:red), as [ferramentas que estão no cinto são a RAM](color:pink) e [as ferramentas que estão na caixa são o disco rígido](color:purple).
 
-Sabemos que a disparidade de velocidade de um Processador vs DRAM cresce continuamente da seguinte forma:
+Nos últimos anos, a disparidade do aumento da velocidade dos processadores vs RAM tem vindo a aumentar, como se pode verificar na imagem seguinte:
 
 ![Processor vs DRAM](./assets/0003-processador-dram.png#dark=3)
 
-Isto significa que bom design de hierarquia de memória ([cache](color:pink)) é cada vez mais importante para o desempenho geral. Mas quais são os diferentes tipos de tecnologias de memória?
+Isto implica que o tempo de execução de um programa acaba por depender bastante mais na velocidade a que a RAM consegue enviar os dados para o CPU do que a velocidade do CPU. Portanto, mesmo que tenhas o computador mais rápido do mundo com o mais recente processador, a sua velocidade vai estar limitada pela velocidade da tua RAM.
+Isto significa que é necessário um bom design de hierarquia de memória e que este problema é cada vez mais importante. Mas quais são os diferentes tipos de tecnologias de memória?
 
 - [Static RAM (SRAM)](color:yellow), 0.5ns – 2.5ns, €1000 – €1000 per GB;
 - [Dynamic RAM (DRAM)](color:orange), 50ns – 70ns, €10 – €20 per GB;
