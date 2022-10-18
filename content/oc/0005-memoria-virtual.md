@@ -1,18 +1,21 @@
 ---
-title: Memória virtual
+title: Memória Virtual
 description: >-
-
+  Memória Virtual.
+  Tradução do Endereço.
+  Tabelas de Página (page tables).
+  Tabelas Invertidas (inverted tables).
+  Translation Lookaside Buffer (TLB).
+  Proteção de Memória.
 path: /oc/memoria-virtual
 type: content
 ---
 
-# Memória virtual
+# Memória Virtual
 
 ```toc
 
 ```
-
-## Memória virtual
 
 Usando a memória principal como uma ["cache" para o armazenamento secundário](color:pink)
 (no disco), esta tem que ser gerenciada juntamente pelo _hardware_ do CPU e pelo
@@ -31,7 +34,7 @@ quer seja na memória principal ou secundária, é contido na tabela de página 
 
 ![Memória virtual](./assets/0005-memoriavirtual.png#dark=3)
 
-### Tradução do endereço
+## Tradução do Endereço
 
 O [endereço virtual](color:pink) é traduzido num [endereço físico](color:purple)
 através de uma combinação de _hardware_ e _software_. Desta forma, cada pedido de
@@ -54,7 +57,7 @@ associatividade total.
 
 ![Tradução usando tabela de página](./assets/0005-traducao2.png#dark=3)
 
-## Tabelas de página
+## Tabelas de Página
 
 As [tabelas de página](color:pink) guardam o posicionamento da informação num array
 te entradas todas indexadas por um número de uma página virtual. A tabela de página
@@ -64,7 +67,7 @@ uma página [estiver presente em memória](color:orange),temos o PTE
 estado (_dity_, _referenced_, ...); caso contrário, o [PTE](color:pink) pode referir
 outra localização em troca de espaço no disco.
 
-### Trocas e escritas
+### Trocas e Escritas
 
 Tal como já tinhamos visto em memória física, ao fazermos uma
 [troca em memória virtual](color:pink), de modo a reduzirmos o número de _page faults_
@@ -100,7 +103,7 @@ realização da quinta ficha das aulas práticas ou ver a sua resolução.
 
 :::
 
-## Tabelas invertidas
+## Tabelas Invertidas
 
 A tradução de endereços é baseada em [_hash tables_](color:purple). Uma qualquer
 função has H(x) é aplicada ao endereço virtual de modo a encontrar uma fila
@@ -171,7 +174,7 @@ entradas na TLB o que podem dar origem a problemas de coerência. Para isto, é
 necessário atualizar todas as entradas da cache com o mesmo endereço físico ou a
 memória torna-se inconsistente.
 
-### Redução do tempo de tradução
+### Redução do Tempo de Tradução
 
 Sabendo a interpretação de endereços virtuais pela TLB é representada da seguinte forma:
 
@@ -206,7 +209,7 @@ Por isso, um dos seguintes cenários pode ocorrer:
 - [_Miss_ na TLB](color:red): é necessário esperar pela tradução, pela hierarquia ou
   pela tabela invertida, assim como não existe um ganho muito elevado no acesso à cache.
 
-## Proteção de memória
+## Proteção de Memória
 
 Como é evidente, diferentes tarefas podem partilhar partes dos seus espaços de
 endereçamento virtual, mas é necessário [proteger contrar acessos errantes](color:pink).
@@ -217,7 +220,7 @@ previlegiado, isto é, o [_kernel mode_](color:purple), instruções previlegiad
 tabelas de páginas e outros estados de informação que só podem ser acedidos com o modo
 supervisor e uma chamada de exceção do sistema.
 
-### Hierarquia de memória
+### Hierarquia de Memória
 
 Se tivermos a ver em termos de panorama geral, os princípios comuns aplicam-se a todos
 os níveis da hierarquia de memória, baseado nas noções de _caching_. Assim, a cada
