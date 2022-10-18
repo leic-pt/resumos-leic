@@ -1,18 +1,20 @@
 ---
-title: Papel de um compilador
+title: Papel de um Compilador
 description: >-
-
+  Produzir um Modelo de Objeto.
+  Dynamic Linking.
+  Instruction Encoding.
 path: /oc/papel-compilador
 type: content
 ---
 
-# Papel de um computador
+# Papel de um Compilador
 
 ```toc
 
 ```
 
-## Produzir um modelo de objeto
+## Produzir um Modelo de Objeto
 
 ![Tradução e Startup](./assets/0003-traducao.png#dark=3)
 
@@ -66,12 +68,6 @@ São conjuntos complexos de instrução que tornam a sua implementação difíci
 É fácil cair em conclusões precipitadas relativamente aos compiladores e processadores: A primeira é que [ter instruções mais complexas implica execuções mais rápidas](color:pink). Isto nem sempre é verdade visto que apesar de serem necessárias menos instruções, estas são mais complexas e difíceis de implementar, o que pode obrigar o processador a correr a uma frequência mais baixa, "atrasando" todas as instruções, incluindo as mais simples. Para além disso, os compiladores são extremamente bons a escrever código eficiente a partir de instruções simples.
 
 A segunda é que devemos [escrever trechos de código em Assembly](color:purple) se queremos que sejam mais eficientes. Contudo, os compiladores modernos são bem melhores que qualquer um de nós a escrever Assembly. O tempo desperdiçado a escrever 50 linhas de Assembly para uma função de 10 linhas em C é melhor utilizado a estudar para OC.
-
-:::warning[_Pitfalls_]
-
-Sequências de palavras [não são](color:red) endereços sequenciados, incrementamos sempre a 4 e não a 1! Manter o [ponteiro numa variável automática](color:red) a seguir a um procedimento retornar, por exemplo passar um ponteiro através de um argumento, visto que o ponteiro se torna inválido quando o stack é libertado.
-
-:::
 
 ## Memória
 
@@ -188,4 +184,7 @@ Podemos por isso concluir que blocos maiores [deviam reduzir](color:purple) o _m
 
 ![Comparação](./assets/0003-comparacao.png#dark=3)
 
-Como podemos ver no gráfico acima, o _miss rate_ sobe quando o tamanho do bloco se uma fração mais significativa do tamanho da cache visto que o número de bloco que pode ser contido no mesmo tamanho de cache é mais pequeno, o que significa que [aumenta a capacidade de falhas](color:pink).
+Como podemos ver no gráfico acima, a _miss rate_ sobe quando o tamanho do bloco
+ocupa uma fração mais significativa do tamanho da cache, visto que o número de
+blocos que pode ser contido simultaneamente na cache é menor.
+Isto resultará num aumento de [_capacity misses_](color:red).
