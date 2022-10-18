@@ -20,19 +20,18 @@ type: content
 
 ## ISA: _Instruction Set Architecture_
 
-Como já tínhamos visto anteriormente, os computadores funcionam através de sets
+Como já tínhamos visto anteriormente, os computadores funcionam através de _sets_
 de instruções e diferentes computadores têm diferentes conjuntos de instruções.
-Contudo estes conjuntos têm muitos aspetos em comum.
-Assim, temos que introduzir o conceito de [ISA (_Instruction Set Architecture_)](color:pink)
+Contudo, estes conjuntos têm muitos aspetos em comum.
+Assim, temos que introduzir o conceito de [ISA (_Instruction Set Architecture_)](color:pink),
 que se refere à interface abstrata entre o _hardware_ e o _software_ de nível mais baixo,
 que engloba toda a informação necessária para escrever um programa em linguagem máquina.
 
 ### CISC vs RISC
 
-Contudo, para os diferentes computadores também precisamos de diferentes arquiteturas,
-então como é que as podemos distinguir, qual delas é a mais favorável ao nosso objetivo final?
-Existem duas arquiteturas nas quais nos vamos focar nesta cadeira: [CISC](color:pink),
-_Complex Instruction-Set Computer_, e [RISC](color:pink), _Reduced Instruction-Set Computer_.
+Como é que podemos distinguir as diferentes arquiteturas de instruções que um computador pode ter e qual delas é a mais favorável ao nosso objetivo final?
+Existem duas arquiteturas nas quais nos vamos focar nesta cadeira: [CISC](color:pink)
+(_Complex Instruction-Set Computer_) e [RISC](color:pink) (_Reduced Instruction-Set Computer_).
 Nas arquiteturas mais recentes, o ISA é uma mistura das duas,
 que são [regularizadas através de uma pipeline](color:orange).
 
@@ -48,48 +47,46 @@ Mas o que diferencia estas duas arquiteturas?
 
 ## MIPS-32 ISA
 
-Nesta cadeira vamos usar o [**processador** MIPS](https://en.wikipedia.org/wiki/MIPS_architecture)
-como o principal exemplo de um processador.
-Este processador foi desenvolvido por parte do programa de investigação VLSI em
-_Standford University_ no início da década de 80.
+Nesta cadeira, vamos usar o [**processador** MIPS](https://en.wikipedia.org/wiki/MIPS_architecture)
+como principal exemplo de um processador.
+Este processador foi desenvolvido por parte do programa de investigação VLSI na
+_Stanford University_ no início da década de 80.
 O objetivo do MIPS era ter um processador cuja arquitetura pudesse representar
 como se baixava o compilador para o nível do _hardware_ em vez de se elevar
 o _hardware_ ao nível do _software_.
 Assim, este processador implementa um _set_ de instruções mais pequeno e mais simples que,
-através de [_pipelining_](color:pink) produzem um processo mais eficiente de instruções.
+através de [_pipelining_](color:pink), produzem um processo mais eficiente de instruções.
 
 Assim, conseguimos obter um processador que:
 
-- [Favorece simplicidade](color:purple) através de um tamanho
-  definido de instruções, um número pequeno de formato de instruções e
+- [Favorece a simplicidade](color:purple) através de um tamanho
+  pré-definido para as instruções, um número pequeno de formato de instruções e
   um _opcode_ sempre definido nos primeiros 6 _bits_;
 
 - [Acredita que mais pequeno é mais rápido](color:purple) através de um _set_
-  limitado de instruções, número limitado de registos no ficheiro de registos
-  e número limitado de modos de endereçamento;
+  limitado de instruções, um número limitado de registos no ficheiro de registos
+  e um número limitado de modos de endereçamento;
 
-- [Bom _design_ implica bons compromissos](color:purple) visto que temos três
-  formatos de instruções (Instruções R, I, J);
+- [Apresenta um bom _design_ com bons compromissos](color:purple), visto que temos três
+  formatos de instruções (instruções R, I, J);
 
-- [_Make the common case fast_](color:purple) já que as nossas operações
-  aritméticas estão no ficheiro de registos (_load-store machine_) e
-  permite que as instruções contenham um operando imediato;
+- [Torna o caso comum mais rápido](color:purple), já que as nossas operações
+  aritméticas estão no ficheiro de registos (_load-store machine_) e as instruções contêm um operando imediato;
 
 Este último já tinha sido referido ao ser dada a [**Lei de Amdahl**](/oc/metricas-performance#lei-de-amdahl)
 e um bom exemplo de termos este princípio em mente é se, por exemplo,
-num programa fizermos mais somas.
+num programa, fizermos mais somas que qualquer outra operação.
 Como grande parte da execução do programa é passada a somar valores,
 devemos otimizar estas operações.
-Porém, se tivermos apenas uma multiplicação que corre num tempo muito maior a
-comparar com as somas, podemos pensar que nos rende otimizarmos estas operações
+Se para além das somas tivéssemos apenas uma multiplicação que corresse num tempo muito maior em
+comparação com as somas, poderíamos pensar que vale a pena otimizarmos esta operação
 em vez da nossa soma, mas estaríamos errados.
-Isto porque se fazemos mais somas que multiplicações, digamos que as nossas multiplicações
-ocupam 3% dos nossos cálculos enquanto as somas 97%, não vale a pena estarmos a otimizar
+Isto porque se fazemos mais somas que multiplicações, por exemplo 97% em comparação com 3% respetivamente, não vale a pena estarmos a otimizar
 a multiplicação, sabendo que otimizar a operação de soma seria muito mais vantajoso.
 
 ### Categorias de Instruções
 
-Tal como já tinha sido visto em [IAC](/iac) e com o Assembly,
+Tal como já tinha sido visto em [IAC](/iac), quando falamos sobre Assembly,
 temos diferentes categorias de instruções para conseguirmos escrever código:
 
 - Computacional;
@@ -103,18 +100,20 @@ temos diferentes categorias de instruções para conseguirmos escrever código:
 
 ![Formato das instruções](./assets/0002-formato-instrucoes.png#dark=3)
 
-Como podemos ver acima, existem três tipos de instruções que têm cada uma um formato diferente.
-Algumas dos conceito que se devem saber são:
+Como podemos ver acima, existem três tipos de instruções, cada uma com um formato diferente.
+Alguns dos conceitos que se devem saber são:
 
-- [op](color:pink), operação que estamos a realizar;
-- [rs, rt e rd](color:pink), registos (source, t (letra seguinte a s), destination) com valores que vamos usar;
-- [funct](color:pink), função auxiliar a alguns opcodes;
-- [immediate](color:pink), uma constante.
-- [jump target](color:pink), endereço para qual queremos saltar.
+- [op](color:pink): operação que estamos a realizar;
+- [rs](color:pink), [rt](color:pink) e [rd](color:pink): registos com valores que vamos usar,
+  sendo que os dois primeiros são de origem (_source_, t (letra seguinte a s)) e o último de
+  destino (_destination_);
+- [funct](color:pink): função auxiliar a alguns opcodes;
+- [immediate](color:pink): uma constante;
+- [jump target](color:pink): endereço para o qual queremos saltar.
 
-O [PC](color:purple) refere-se a **Program Counter** que indica o endereço de
+O [PC](color:purple) refere-se a _Program Counter_, que indica o endereço de
 memória no qual o processador está a ler a instrução atual.
-Este é incrementado sempre de 4 em 4 bytes (por uma instrução ocupar $2^5 = 32$ bits).
+Este é incrementado sempre de 4 em 4 bytes (porque uma instrução ocupa $2^5 = 32$ bits e $1$ byte $= 8$ bits).
 
 ## Operações Aritméticas em Assembly
 
@@ -123,13 +122,13 @@ há várias operações que podemos fazer no nosso programa.
 
 ### Adição e Subtração
 
-Para fazermos estas duas operações aritméticas temos que usar [três operandos](color:purple),
-dois que nos indicam os valores e um onde vamos guardar o valor final.
+Para fazermos estas duas operações aritméticas, temos que usar [três operandos](color:purple),
+dois que nos indicam os valores a adicionar/subtrair e um onde vamos guardar o valor final.
 Todas as [operações aritméticas](color:pink) têm esta forma:
 
-`a = b + c;` → `add a, b, c` a recebe b + c
+`a = b + c;` → `add a, b, c` → a recebe b + c
 
-`d = a - e;` → `sub d, a, e` d recebe a - e
+`d = a - e;` → `sub d, a, e` → d recebe a - e
 
 ### Tarefa complexa em C
 
