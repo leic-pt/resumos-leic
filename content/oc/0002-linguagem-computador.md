@@ -81,7 +81,7 @@ devemos otimizar estas operações.
 Se para além das somas tivéssemos apenas uma multiplicação que corresse num tempo muito maior em
 comparação com as somas, poderíamos pensar que vale a pena otimizarmos esta operação
 em vez da nossa soma, mas estaríamos errados.
-Isto porque se fazemos mais somas que multiplicações, por exemplo 97% em comparação com 3% respetivamente, não vale a pena estarmos a otimizar
+Isto porque se fazemos mais somas que multiplicações, por exemplo $97\%$ em comparação com $3\%$ respetivamente, não vale a pena estarmos a otimizar
 a multiplicação, sabendo que otimizar a operação de soma seria muito mais vantajoso.
 
 ### Categorias de Instruções
@@ -113,7 +113,7 @@ Alguns dos conceitos que se devem saber são:
 
 O [PC](color:purple) refere-se a _Program Counter_, que indica o endereço de
 memória no qual o processador está a ler a instrução atual.
-Este é incrementado sempre de 4 em 4 bytes (porque uma instrução ocupa $2^5 = 32$ bits e $1$ byte $= 8$ bits).
+Este é incrementado sempre de $4$ em $4$ bytes (porque uma instrução ocupa $2^5 = 32$ bits e $1$ byte $= 8$ bits).
 
 ## Operações Aritméticas em Assembly
 
@@ -150,69 +150,69 @@ sub $t2, $t0, $t1   # t2 recebe t0 - t1
 
 ![Registos](./assets/0002-registos.png#dark=3)
 
-O MIPS tem [32 registos](color:red).
-O banco de registos tem [2 portas de leitura](color:pink) e
-[1 porta de escrita](color:purple), o que nos permite ler valores de dois registos
+O MIPS tem [$32$ registos](color:red).
+O banco de registos tem [$2$ portas de leitura](color:pink) e
+[$1$ porta de escrita](color:purple), o que nos permite ler valores de dois registos
 e, simultaneamente, escrever um valor num registo.
-Cada registo armazena uma palavra de 32-bits, isto é, 4 bytes.
+Cada registo armazena uma palavra de $32$ bits, isto é, $4$ bytes.
 
 Uma grande vantagem dos registos é a sua velocidade de acesso, que é muito superior
-à da memória principal, ou mesmo às caches (como veremos mais à frente).
+à da memória principal, ou mesmo à das caches (como veremos mais à frente).
 No entanto, é preciso efetuar _trade-offs_ quanto ao número de registos, pois
-o tempo de acesso aumenta com o número de registos.
-Por exemplo, num banco de registos que guarda 64 registos
-[pode ser até 50% mais lento](color:red) que um que guarde apenas 32.
+o tempo de acesso aumenta com o aumento número de registos.
+Por exemplo, um banco de registos que guarda $64$ registos
+[pode ser até $50\%$ mais lento](color:red) do que um que guarde apenas $32$.
 O mesmo se aplica à quantidade de portas de leitura e escrita, dado que adicionar
 mais portas aumentaria o tempo de acesso de forma quadrática.
 
 Outra vantagem dos registos é o seu pequeno endereço.
 Como existe um número muito reduzido de registos, são necessários poucos
-bits para os endereçar (num banco de 32 registos, são necessários $\log_2(32) = 5$ bits).
+bits para os endereçar (num banco de $32$ registos, são necessários $\log_2(32) = 5$ bits).
 Isto reduz o tamanho das instruções e aumenta a densidade do código, dado que
 também não é necessário efetuar `LOAD` e `STORE` como na memória.
 
 ![Ficheiro de registos](./assets/0002-ficheiro-registos.jpg#dark=3)
 
-No MIPS existe a seguinte convenção de registos:
+No MIPS, existe a seguinte convenção de registos:
 
 | Nome          | Número do Registo | Descrição                                | Preservado num JAL/interrupção? |
 | ------------- | ----------------- | ---------------------------------------- | ------------------------------- |
 | `$zero`       | 0                 | é uma constante, vale sempre zero        | n.a.                            |
 | `$at`         | 1                 | reservado para o _assembler_             | n.a.                            |
-| `$v0` a `$v1` | 2 e 3             | valores de retorno                       | [no](color:red)                 |
-| `$a0` a `$a3` | 4 a 7             | argumentos de funções                    | [yes](color:green)              |
-| `$t0` a `$t7` | 8 a 15            | valores temporários                      | [no](color:red)                 |
-| `$s0` a `$s7` | 16 a 23           | valores a guardar                        | [yes](color:green)              |
-| `$t8` a `$t9` | 24 e 25           | (mais) valores temporários               | [no](color:red)                 |
-| `$k0` a `$k1` | 26 e 27           | reservados para tratamento de exceções   | [no](color:red)                 |
-| `$gp`         | 28                | ponteiro global (_global pointer_)       | [yes](color:green)              |
-| `$sp`         | 28                | ponteiro da pilha (_stack pointer_)      | [yes](color:green)              |
-| `$fp`         | 28                | [_frame pointer_][frame-pointer-explain] | [yes](color:green)              |
-| `$ra`         | 28                | endereço de retorno                      | [yes](color:green)              |
+| `$v0` a `$v1` | 2 e 3             | valores de retorno                       | [não](color:red)                |
+| `$a0` a `$a3` | 4 a 7             | argumentos de funções                    | [sim](color:green)              |
+| `$t0` a `$t7` | 8 a 15            | valores temporários                      | [não](color:red)                |
+| `$s0` a `$s7` | 16 a 23           | valores a guardar                        | [sim](color:green)              |
+| `$t8` a `$t9` | 24 e 25           | (mais) valores temporários               | [não](color:red)                |
+| `$k0` a `$k1` | 26 e 27           | reservados para tratamento de exceções   | [não](color:red)                |
+| `$gp`         | 28                | ponteiro global (_global pointer_)       | [sim](color:green)              |
+| `$sp`         | 29                | ponteiro da pilha (_stack pointer_)      | [sim](color:green)              |
+| `$fp`         | 30                | [_frame pointer_][frame-pointer-explain] | [sim](color:green)              |
+| `$ra`         | 31                | endereço de retorno                      | [sim](color:green)              |
 
 ### Instruções com Formato R
 
 ![Instruções com formato R](./assets/0002-formato-r.png#dark=3)
 
 - `op`: código de operação - opcode
-- `rs`: primeiro número de registo
-- `rt`: segundo número de registo
-- `rd`: número de registo de destino
-- `shamt`: quantidade de shift (00000 por agora)
+- `rs`: número do primeiro registo
+- `rt`: número do segundo registo
+- `rd`: número do registo de destino
+- `shamt`: quantidade de shift ("00000", por agora)
 - `funct`: código de função - extensão do opcode
 
 :::info[Exemplo]
 
 ![Exemplo R](./assets/0002-exemplo-r.png#dark=3)
 
-Olhando para a imagem acima, podemos fazer a soma dos dois registos,
-guardando o valor em t0, através do comando:
+Olhando para a imagem acima, podemos fazer a soma dos valores dos dois registos,
+guardando o valor em $t0$, através do comando:
 
 ```mips-asm
 add $t0, $s1, $s2
 ```
 
-Assim, obtemos a nossa instrução em código máquina, 02324020 em base hexadecimal.
+Assim, obtemos a nossa instrução em código máquina, $02324020$ em base hexadecimal.
 
 :::
 
@@ -220,17 +220,25 @@ Assim, obtemos a nossa instrução em código máquina, 02324020 em base hexadec
 
 ![Instruções com formato I](./assets/0002-formato-i.png#dark=3)
 
-Sempre que temos uma constante estamos perante um operando [I (imediato)](color:pink).
+Sempre que temos uma constante, estamos perante um operando [I (imediato)](color:pink).
 Como indica o formato da instrução, a constante é guardada mesmo na instrução.
-Isto resulta num tamanho máximo de 16 bits, ou seja, de $-2^{15}$ até $2^{15}$ (quando signed).
+Isto resulta num tamanho máximo de $16$ bits, ou seja, de $-2^{15}$ até $2^{15}$ (quando a constante é signed).
 
-:::info[Exemplos]
+- `op`: código de operação - opcode
+- `rs`: número do registo de origem
+- `rt`: número do registo de destino
+- `immediate` : constante guardada
 
-```mips-asm
-addi $s3, $s3, 4 # adiciona 4 ao registo $s3
-```
+:::info[Exemplo]
 
 ![Exemplo I](./assets/0002-exemplo-i.png#dark=3)
+
+Olhando para a imagem acima, podemos fazer a soma do valor no registo $zero$, que é sempre $0$, com a constante, guardando o valor em $t0$, através do comando:
+
+```mips-asm
+addi $t0, $zero, 5
+```
+
 :::
 
 :::tip[Subtração Imediata]
@@ -246,9 +254,9 @@ addi $s2, $s1, -1 # guarda em $s2 o valor de $s1 - 1
 ### Load de Constantes de 32 bits
 
 Como as instruções de tipo I (_immediate_) apenas suportam constantes de
-16-bits, necessitamos de duas instruções para carregar valores de 32-bits.
+$16$ bits, necessitamos de duas instruções para carregar valores de $32$ bits.
 
-1. Carregamos os bits de ordem superior (16 a 31) primeiro, com a instrução _load upper immediate_.
+1. Carregamos os bits de ordem superior ($16$ a $31$) primeiro, com a instrução _load upper immediate_.
 
    ```mips-asm
    lui $t0, 0b1010101010101010
@@ -256,7 +264,7 @@ Como as instruções de tipo I (_immediate_) apenas suportam constantes de
 
    Neste momento, temos `$t0 = 1010 1010 1010 1010 0000 0000 0000 0000`.
 
-2. Carregamos os bits de ordem inferior (0 a 15) em segundo lugar, com a instrução _or immediate_.
+2. Carregamos os bits de ordem inferior ($0$ a $15$) em segundo lugar, com a instrução _or immediate_.
 
    ```mips-asm
    ori $t0, $t0, 0b0101010101010101
@@ -271,7 +279,7 @@ Para tal, é recomendado rever [essa matéria](/iac/mundo-binario#bases-de-numer
 na _tab_ dos resumos de Introdução à Arquitetura de Computadores.
 
 Para realizarmos uma operação sem complemento para 2,
-temos que adicionar um u (unsigned) ao nome da operação.  
+temos que adicionar um _u_ (_unsigned_) ao nome da operação.  
 São exemplos disto `addu`, `addiu`, `subu`, etc...
 
 :::
