@@ -13,7 +13,7 @@ type: content
 
 ## Ponteiros e Endereços
 
-:::info[Ponteiro são Enderenços de Memória]
+:::info[Ponteiro são Endereços de Memória]
 Na memória do computador, cada posição é referenciada por um [**endereço**](color:orange), atribuído de forma sequencial. Posições adjacentes têm, assim, endereços consecutivos. Um ponteiro corresponde a uma variável que contém um endereço de outra variável.
 :::
 
@@ -69,7 +69,7 @@ int main() {
     int *px;
 
     px = &x; /* px guarda o endereço de x */
-    y = *px; /* y toma o valor gurdado no endereco de memoria px */
+    y = *px; /* y toma o valor guardado no endereço de memoria px */
     *px = 0; /* alteramos o valor de x para 0 */
     printf("%d %d\n", x, y);
     /* output: 0 1 */

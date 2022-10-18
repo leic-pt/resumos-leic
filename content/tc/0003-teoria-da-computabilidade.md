@@ -241,7 +241,7 @@ Dado um alfabeto $\Sigma$ distinguimos as seguintes linguagens:
 - $\mathcal{L}_{te}^\Sigma = \mathcal{L}_{su}^\Sigma \cup \mathcal{L}_{ab}^\Sigma$ - o **problema da terminação**.
 
 De forma mais intuitiva, podemos pensar que a linguagem $\mathcal{L}_{ac}^\Sigma$ consiste nos pares $(M, \omega) \in \mathcal{M}^\Sigma \times \Sigma^*$ constituídos por uma máquina de Turing $M$ e uma palavra $\omega$ tais que $\omega \in L_{ac}(M)$, isto é, $\omega$ é aceite por $M$.  
-De forma a podermos representar estes pares por uma palavra, usamos a representaçao canónica de máquinas, separando esta representação da palavra input por um $\text{\textdollar}$.
+De forma a podermos representar estes pares por uma palavra, usamos a representação canónica de máquinas, separando esta representação da palavra input por um $\text{\textdollar}$.
 De forma semelhante, $\mathcal{L}_{rj}^\Sigma$ contém pares $(M, \omega) \in \mathcal{M}^\Sigma \times \Sigma^*$ tais que $\omega \in L_{rj}(M)$, $\mathcal{L}_{su}^\Sigma$ os pares tais que $\omega \in L_{ac}(M) \cup L_{rj}(M)$, e por aí em diante.
 
 :::tip[Proposição]
@@ -261,7 +261,7 @@ Nesse caso existe uma máquina de Turing $D$ que a decide.
 Construímos a seguinte máquina $T$.
 Para cada input $M$, $T$ começa por simular $D$ sobre $M \text{\textdollar} M$. Se $D$ aceitar, $T$ entra num ciclo infinito. Caso contrário, $T$ aceita.  
 Verificamos que $M$ é aceite por $T$ se e só se a computação de $M$ dado o input $M$ não termina.  
-Como isto se verifica para qualquer máquina de Turing $M$ temos que, em particular, se $M = T$, $T$ é aceite por $T$ se e só se a computaçao de $T$ dado o input $T$ não termina.
+Como isto se verifica para qualquer máquina de Turing $M$ temos que, em particular, se $M = T$, $T$ é aceite por $T$ se e só se a computação de $T$ dado o input $T$ não termina.
 Ou seja, $T$ dado o input termina se e só se $T$ dado o input $T$ não termina.  
 Como isto é uma contradição, conclui-se que a linguagem não é decidível.
 

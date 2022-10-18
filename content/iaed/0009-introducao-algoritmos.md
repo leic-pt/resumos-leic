@@ -14,12 +14,12 @@ type: content
 ## Análise de Algoritmos
 
 :::info[]
-Por algoritmo depreendemos um **procedimento computacional bem definido**, que aceita uma dada entrada e produz uma dada saída. Corresponde, portanto, a uma ferramente que permite resolver um problema computacional bem definido, seja ele calcular uma média, ordenar um vector, entre outros.
+Por algoritmo depreendemos um **procedimento computacional bem definido**, que aceita uma dada entrada e produz uma dada saída. Corresponde, portanto, a uma ferramenta que permite resolver um problema computacional bem definido, seja ele calcular uma média, ordenar um vector, entre outros.
 :::
 
 Uma das principais preocupações que vamos ter em IAED (para passar os malfadados testes com [_time limit exceeded_](color:yellow)) é **como reduzir o _runtime_ do nosso programa**. Durante esta secção, vamos procurar arranjar maneiras de defini-lo (usando **notação assintótica**) em função do tamanho do _input_ que usamos. Ainda assim, e antes de começar com definições mais teóricas, podemos pensar em pontos fracos habituais de programas que podemos melhorar.
 
-Observemos o trecho de código abaixo: temos duas funções que fazem exatamente o mesmo: transformam toda uma cadeia de caracteres na sua versão _lower case_. Diferem na **condição de ciclo do seu loop**. Na função de acima, `strlen(s)` é calculada em todas as iteraçõses: sendo que a implementação da mesma consiste em [**iterar pela string até ao fim**](color:red), podemos perceber como tal poderá levar a maiores tempos de execução da mesma. A função de baixa é inegavelmente mais eficiente (podem experimentar correr ambos os trechos localmente para testarem vocês mesmos), e a única diferença é guardar o comprimento da string numa variável, efetivamente eliminando cálculos desnecessários!
+Observemos o trecho de código abaixo: temos duas funções que fazem exatamente o mesmo: transformam toda uma cadeia de caracteres na sua versão _lower case_. Diferem na **condição de ciclo do seu loop**. Na função de acima, `strlen(s)` é calculada em todas as iterações: sendo que a implementação da mesma consiste em [**iterar pela string até ao fim**](color:red), podemos perceber como tal poderá levar a maiores tempos de execução da mesma. A função de baixa é inegavelmente mais eficiente (podem experimentar correr ambos os trechos localmente para testarem vocês mesmos), e a única diferença é guardar o comprimento da string numa variável, efetivamente eliminando cálculos desnecessários!
 
 `embed:assets/0008-maiusculas-minusculas.c`
 
@@ -45,7 +45,7 @@ A **complexidade** de um algoritmo, seja ela temporal ou espacial, está associa
 
 [**$2^n$**](color:red) - O número de instruções de um programa/o espaço ocupado por um programa é exponencial. Quando a dimensão da entrada duplica, o tempo aumenta para o quadrado!
 
-Pegando novamento no exemplo indicado mais acima, podemos finalmente perceber (em termos mais formais) o que está a acontecer: o trecho de cima tem complexidade temporal quadrática, já que `strlen(s)`, uma operação linear, é executada uma vez por cada iteração do `for`, linear também. O trecho de baixo é, claro, linear!
+Pegando novamente no exemplo indicado mais acima, podemos finalmente perceber (em termos mais formais) o que está a acontecer: o trecho de cima tem complexidade temporal quadrática, já que `strlen(s)`, uma operação linear, é executada uma vez por cada iteração do `for`, linear também. O trecho de baixo é, claro, linear!
 
 `embed:assets/0008-maiusculas-minusculas.c`
 

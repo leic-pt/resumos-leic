@@ -85,7 +85,7 @@ $$
 
 e então a função $D$ não é contínua em $x_0$.
 
-Conclui-se assim que a função de Dirichlet é descontínuia em todos os pontos de $\R$.
+Conclui-se assim que a função de Dirichlet é descontínua em todos os pontos de $\R$.
 
 ### Função Seno
 

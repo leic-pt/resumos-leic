@@ -14,7 +14,7 @@ type: archive
 :::danger
 Tenham EXTREMA atenção aos símbolos de divisão que se encontram nos resumos
 
-`/` ou `÷` - significa a divisão inteira sempre arrendonda para baixo
+`/` ou `÷` - significa a divisão inteira sempre arredonda para baixo
 
 `%` - significa a divisão pelo `mod`
 

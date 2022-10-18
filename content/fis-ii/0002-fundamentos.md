@@ -120,7 +120,7 @@ $$
 
 ## Linhas de Campo
 
-![Linhascampo](./imgs/0002-linhas-campo.jpg#dark=1)
+![Linhas de campo](./imgs/0002-linhas-campo.jpg#dark=1)
 
 Uma linha de campo é uma curva tal que em cada ponto o
 campo é tangente à curva.\
