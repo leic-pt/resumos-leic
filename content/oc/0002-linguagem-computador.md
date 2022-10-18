@@ -20,7 +20,7 @@ type: content
 
 ## ISA: _Instruction Set Architecture_
 
-Como já tinhamos visto anteriormente, os computadores funcionam através de sets
+Como já tínhamos visto anteriormente, os computadores funcionam através de sets
 de instruções e diferentes computadores têm diferentes conjuntos de instruções.
 Contudo estes conjuntos têm muitos aspetos em comum.
 Assim, temos que introduzir o conceito de [ISA (_Instruction Set Architecture_)](color:pink)
@@ -30,8 +30,8 @@ que engloba toda a informação necessária para escrever um programa em linguag
 ### CISC vs RISC
 
 Contudo, para os diferentes computadores também precisamos de diferentes arquiteturas,
-então como é que as podemos distinguir, qual delas é a mais favóravel ao nosso objetivo final?
-Existem duas arquiteturas nos quais nos vamos focar nesta cadeira: [CISC](color:pink),
+então como é que as podemos distinguir, qual delas é a mais favorável ao nosso objetivo final?
+Existem duas arquiteturas nas quais nos vamos focar nesta cadeira: [CISC](color:pink),
 _Complex Instruction-Set Computer_, e [RISC](color:pink), _Reduced Instruction-Set Computer_.
 Nas arquiteturas mais recentes, o ISA é uma mistura das duas,
 que são [regularizadas através de uma pipeline](color:orange).
@@ -62,7 +62,7 @@ Assim, conseguimos obter um processador que:
 
 - [Favorece simplicidade](color:purple) através de um tamanho
   definido de instruções, um número pequeno de formato de instruções e
-  um _opcode_ sempre definido nos pirmeiros 6 _bits_;
+  um _opcode_ sempre definido nos primeiros 6 _bits_;
 
 - [Acredita que mais pequeno é mais rápido](color:purple) através de um _set_
   limitado de instruções, número limitado de registos no ficheiro de registos
@@ -113,7 +113,7 @@ Algumas dos conceito que se devem saber são:
 - [jump target](color:pink), endereço para qual queremos saltar.
 
 O [PC](color:purple) refere-se a **Program Counter** que indica o endereço de
-memória no qual o processador está a ler a intrução atual.
+memória no qual o processador está a ler a instrução atual.
 Este é incrementado sempre de 4 em 4 bytes (por uma instrução ocupar $2^5 = 32$ bits).
 
 ## Operações Aritméticas em Assembly
@@ -158,7 +158,7 @@ e, simultaneamente, escrever um valor num registo.
 Cada registo armazena uma palavra de 32-bits, isto é, 4 bytes.
 
 Uma grande vantagem dos registos é a sua velocidade de acesso, que é muito superior
-à da memória princial, ou mesmo às caches (como veremos mais à frente).
+à da memória principal, ou mesmo às caches (como veremos mais à frente).
 No entanto, é preciso efetuar _trade-offs_ quanto ao número de registos, pois
 o tempo de acesso aumenta com o número de registos.
 Por exemplo, num banco de registos que guarda 64 registos
@@ -375,8 +375,8 @@ Além disso, existem varias variações destas instruções, que nos permitem ca
 _half-words_ e _bytes_, tais como _load byte_, _load byte unsigned_, _load half-word_,
 _load half-word unsigned_, _store byte_ e _store half-word_.
 
-- `lb rt, offset(rs)` e `lh rt, offset(rs)`, em que o sinal é extendido para 32 bits em `rt`
-- `lbu rt, offset(rs)` e `lhu rt, offset(rs)`, em que o zero é extendido para 32 bits em `rt`
+- `lb rt, offset(rs)` e `lh rt, offset(rs)`, em que o sinal é estendido para 32 bits em `rt`
+- `lbu rt, offset(rs)` e `lhu rt, offset(rs)`, em que o zero é estendido para 32 bits em `rt`
 - `sb rt, offset(rs)` e `sh rt, offset(rs)`, que guardam os 1 e 2, respetivamente, bytes menos significativos do registo
 
 ## Instruções de Controlo
@@ -429,7 +429,7 @@ desigualdade:
 
 Se quisermos efetuar outro tipo de condições, como maior e menor, temos de usar
 as instruções _set if less than_ ou _set if less than immediate_.  
-É de realçar que [não](color:red) existem em instruções no hardware para efetuar
+É de realçar que [não](color:red) existem instruções no hardware para efetuar
 saltos com comparações `>`, `<`, `>=`, `<=`, etc.
 
 - _set if less than_: `slt rd, rs, rt`  
@@ -547,7 +547,7 @@ Exit: ...
 
 Um bloco básico é uma sequência de instruções que não têm nem
 [_branches_](color:pink), exceto no final, nem é
-[um destino para _branches_](color:pink), exeto no início.
+[um destino para _branches_](color:pink), exceto no início.
 Por outras palavras, é um bloco de código que é executado **sempre** sequencialmente.
 
 O compilador identifica blocos básicos para otimização e um
