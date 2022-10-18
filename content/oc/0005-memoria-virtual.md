@@ -13,6 +13,15 @@ type: content
 
 # Memória Virtual
 
+:::danger[Conteúdo Não Revisto]
+
+O conteúdo abaixo não foi revisto e poderá conter erros.
+Agradecem-se [contribuições](https://leic-pt.github.io/docs/).
+
+Apenas foi aqui incluído devido à proximidade do MAP45 dia 2022/10/20.
+
+:::
+
 ```toc
 
 ```

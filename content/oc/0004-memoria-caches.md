@@ -249,13 +249,22 @@ Isto resultará num aumento de [_capacity misses_](color:red).
 
 ## Melhorar a Performance da Cache
 
+:::danger[Conteúdo Não Revisto]
+
+O conteúdo abaixo não foi revisto e poderá conter erros.
+Agradecem-se [contribuições](https://leic-pt.github.io/docs/).
+
+Apenas foi aqui incluído devido à proximidade do MAP45 dia 2022/10/20.
+
+:::
+
 Começamos por avaliar um exemplo: [_Intrinsity FastMATH_](color:pink), que corresponde
 a uma série de microprocessadores desenvolvidos pela [_Intrinsity_](https://en.wikichip.org/wiki/intrinsity)
 utilizando a tecnologia [_Fast14_](https://en.wikichip.org/wiki/intrinsity/fast14),
-isto é, processadores uqe usam a _domino logic dynamic_. Estes _chips_ incorporados no
+isto é, processadores que usam a _domino logic dynamic_. Estes _chips_ incorporados no
 núcleo do FastMIPS juntamente com uma matriz de performance muito elevada e um coprocessador de matemática vetorial.
 
-Vendo a um nível mais interior, sabemos que a _Intrinsity_ tem tem um processador MIPS
+Vendo a um nível mais interior, sabemos que a _Intrinsity_ tem um processador MIPS
 embebido com uma [pipeline de 12 estados](color:pink) e instruções assim como acesso a
 data em cada ciclo. Dentro da cache, temos uma [cache dividida](color:purple), separada
 em **cache I** e **cache D**, cada um tamanho de 16KB (256 blocks cada um com 16
@@ -289,7 +298,7 @@ Existem três tipos de [cache misses](color:pink):
   conter todos os blocos que são necessários para a execução do programa, a cache é
   obrigada a discartar estes blocos;
 
-- [COnflict](color:red): também conhecidos como [collision misses](color:purple) ou
+- [Conflict](color:red): também conhecidos como [collision misses](color:purple) ou
   [interference misses](color:purple), estes ocorrem quando um número elevado de blocos
   são mapeados para o mesmo set ou _block frame_, num set de associatividade ou até mesmo
   em posicionamento de blocos em mapeamento direto.
@@ -354,16 +363,16 @@ diferentes:
 - [_Non Blocking_](color:orange): tem um maior impacto nas caches onde o bloco
   carregado implica vários acessos a memória:
 
-      - [_Early restart_](color:red): vai buscar palavras em ordem normal, mas assim que
-      a palavra requisitada cehga ao bloco, é mandada para o processador e autoriza este
-      a continuar a sua execução;
+  - [_Early restart_](color:red): vai buscar palavras em ordem normal, mas assim que
+    a palavra requisitada cehga ao bloco, é mandada para o processador e autoriza este
+    a continuar a sua execução;
 
-      - [_Critical Word First_](color:red): a palavra em falta é requisitada primeiro em
-      memória e mandada para o processador assim que esta chega; isto deixa que o
-      processador continue a sua execução enquanto preenche o resto das palavras no
-      bloco.
+  - [_Critical Word First_](color:red): a palavra em falta é requisitada primeiro em
+    memória e mandada para o processador assim que esta chega; isto deixa que o
+    processador continue a sua execução enquanto preenche o resto das palavras no
+    bloco.
 
-## Medir a Performance da cache
+## Medir a Performance da Cache
 
 Antes de conseguimos perceber como é que conseguimos perceber se uma cache está a
 funcionar bem ou não, temos que saber os termos involvidos nestes cálculos:
@@ -395,13 +404,13 @@ $$
 
 $$
 
-Sabendo que o que está entre parêntesis corresponde ao $$ CPI*\text{stall} $$.
-Assumindo, também que os \_miss rates* de escrita e lida está juntos, podemos calcular a
+Sabendo que o que está entre parêntesis corresponde ao $$ CPI \times \text{stall} $$.
+Assumindo, também que os \_miss rates\* de escrita e lida está juntos, podemos calcular a
 [memory-stall cycles](color:pink) através da seguinte fórmula:
 
 $$
 
-\text{Memory-stall cycles} = \text{accesses/program} * \text{miss rate} * \text{miss penalty}
+\text{Memory-stall cycles} = \text{accesses/program} \times \text{miss rate} \times \text{miss penalty}
 
 
 $$
@@ -443,7 +452,7 @@ $$
 Por isso. o CPU ideal é $$5.44/2=2.72$$ vezes mais rápido
 :::
 
-### Ideias a reter
+### Ideias a Reter
 
 Desta forma, concluimos que quando a performance do CPU aumenta, o _miss penalty_
 [diminui](color:purple); uma diminuição baseada no CPI implica uma maior [proporção de tempo](color:purple)
@@ -451,7 +460,7 @@ gasto em atrasos na memória; e, um aumento de _clock rate_ significa que os atr
 memória contam para mais [ciclos de CPU](color:purple). Não podemos, evidentemente
 negligenciar o comportamneto da cache quando estamos a avaliar a perfomance do sistema.
 
-## Reduzir os _miss rates_ na cache
+## Reduzir os _Miss Rates_ na Cache
 
 Uma forma muito útil de evitarmos ter tantas falhas quando vamos à cache, é através de
 [caches associativas](color:pink). Estas dão uma maior liberdade ao posicionamento de
@@ -511,7 +520,7 @@ _misses_ há!
 
 ![Comparação](./assets/0004-comparacao-associatividade.png#dark=3)
 
-### Política de troca
+### Política de Troca
 
 Agora que já sabemos que há alturas em que temos que ir mudando os valores que estão
 nas nossas caches, como é que podemos escolher quais são os valores que eliminamos para
@@ -529,7 +538,7 @@ realização da quarta ficha das aulas práticas ou ver a sua resolução.
 
 :::
 
-### _Cache vítima_
+### Cache Vítima
 
 EM vez de descartar completamente cada bloco quando estão a ser repostos, podemos
 mantê-lo temporariamente num [_buffer_ vítima](color:pink), ou seja, quando o bloco saí
@@ -543,7 +552,7 @@ a 16 posições, [totalmente associativa](color:purple), e particularmente
 [eficiente](color:purple) para pequenos mapeamentos diretos a caches, mais de 25% de
 redução no número de _misses_ numa cache de 4kB.
 
-## Caches de níveis múltiplos
+## Caches de Níveis Múltiplos
 
 Outra forma de reduzir o _miss rate_ da cache é através de níveis múltiplos de cache.
 Com o avanço da tecnologia, temos mais espaço para ter uma [cache L1](color:pink)
@@ -615,7 +624,7 @@ $$
 Assim, podemos inferir que o nosso rácio de performance vai ser $9/3.4=2.6$ vezes maior com uma cache.
 :::
 
-## Otimização de código
+## Otimização de Código
 
 O objetivo principal é [reduzir o _miss rate_](color:pink) através da mudança de
 padrões de acesso a memória com técnicas de otimização de código. Para tal, temos que
@@ -636,7 +645,7 @@ Existem várias técnicas para otimização de acesso de dados:
 - Preenchimento de dados para alinhar as linhas da cache;
 - entre muitos outros...
 
-### Pré-busca e pré-carregamento
+### Pré-busca e Pré-carregamento
 
 Pré-busca, [_prefetching_](color:blue) em inglês, refere-se ao carregamento de um
 recurso antes que seja necessário de modo a diminuir o tempo de espera para esse recurso. Assim, um [_software prefetching_](color:pink) não pode ser feito nem
@@ -675,7 +684,7 @@ no esquema abaixo.
 
 ![Hot/cold Splitting](./assets/0004-hotcold2.png#dark=3)
 
-## _Merging arrays_
+## _Merging Arrays_
 
 Em 1989, McFarling [reduziu _cache misses_ por 75%](color:pink) em caches de mapeamento
 direto de 8 kB e blocos de 4 bytes em software. Para tal, foi necessário
