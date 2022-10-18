@@ -25,7 +25,7 @@ O utilizador típico de um computador não é um programador com conhecimento pr
   - O utilizador quer correr várias coisas, mas nem ele nem o programador se devem ter de preocupar com fazer isto funcionar - o SO abstrai a existência de outros processos a executar em concorrência e deixa o programador de aplicação usar o computador como se fosse o único processo a executar - todas as questões de sincronizar acessos a recursos partilhados são tratadas por SO.
 - Segurança
 
-  - O SO responsabiliza-se por controlar acessos aos vários recursos do computador (não deixa processos escrever na memória uns dos outros - excepto quando ambos concordam com shared memory, permissões do sistema de ficheiros).
+  - O SO responsabiliza-se por controlar acessos aos vários recursos do computador (não deixa processos escrever na memória uns dos outros - exceto quando ambos concordam com shared memory, permissões do sistema de ficheiros).
     Desta forma, permitir que o utilizador típico de um computador tivesse acesso a estes recursos podia ser bastante destrutivo para a "segurança do computador".
     Desta forma, o Sistema Operativo deve ser uma interface de proteção dos recursos essenciais do computador.
 
@@ -49,16 +49,16 @@ Quando um processo em modo utilizador pretende aceder a um recurso lógico, pede
 
 [**Modo núcleo**](color:red)
 
-Modo priveligiado em que o código do Sistema Operativo é executado, de forma a poder interagir diretamente com os recursos físicos.
+Modo privilegiado em que o código do Sistema Operativo é executado, de forma a poder interagir diretamente com os recursos físicos.
 Podemos dizer por poucas palavras que o modo núcleo funciona como executor de chamadas sistema.
 Permite assim aos processos que correm em [modo utilizador](color:green) uma biblioteca de funções sistema que lhes permitam aceder a recursos físicos de forma segura.  
-Só o código do SO pode correr neste modo (de outra forma, estariamos a dar privilégios a processos que não os deviam ter).
+Só o código do SO pode correr neste modo (de outra forma, estaríamos a dar privilégios a processos que não os deviam ter).
 
 Todas as atividades do modo núcleo são desencadeadas por [exceções](color:orange).
 Estas podem ser:
 
-- **Assíncronas**: provocadas por algo ortogonal ao programa em execução (exemplos: timer, falta de energia, etc). Estas excepções também são frequentemente designadas por **interrupções**;
-- **Síncronas**: provocadas por um acontecimento relacionado com o programa em execução (exemplos: divisão por zero, acesso a zona de memória proíbida, [chamada de sistema](color:purple), etc);
+- **Assíncronas**: provocadas por algo ortogonal ao programa em execução (exemplos: timer, falta de energia, etc). Estas exceções também são frequentemente designadas por **interrupções**;
+- **Síncronas**: provocadas por um acontecimento relacionado com o programa em execução (exemplos: divisão por zero, acesso a zona de memória proibida, [chamada de sistema](color:purple), etc);
 
 Quanto à origem, podemos classificar as interrupções como:
 
@@ -71,7 +71,7 @@ Quanto à origem, podemos classificar as interrupções como:
 
 :::warning[Informação Conflituosa]
 
-A informação nos últimos dois parágrafos contradiz-se mutualmente.
+A informação nos últimos dois parágrafos contradiz-se mutuamente.
 É assim que é apresentada num dos recursos da cadeira e estamos à espera de clarificação dos professores.
 
 :::
@@ -124,7 +124,7 @@ determina a localização do _bootloader_ (no limite definido estaticamente no f
 O _bootloader_, por sua vez, carrega o programa do núcleo em RAM e salta para a rotina de inicialização do núcleo.
 A inicialização do núcleo passa por:
 
-- incializar as suas estruturas de dados;
+- inicializar as suas estruturas de dados;
 - copiar rotinas de tratamento de cada interrupção para RAM;
 - preencher a tabela de interrupções em RAM;
 - lançar os processos inicias do sistema, incluindo o processo de login;
@@ -162,9 +162,9 @@ Abaixo vamos estudar organizações comuns em sistemas operativos que garantem e
 
 - Fácil modificar código de uma camada
 
-- Mecanismos de protecção $\rightarrow$ maior segurança e robustez
+- Mecanismos de proteção $\rightarrow$ maior segurança e robustez
 
-- Influenciou arquitecturas como Intel
+- Influenciou arquiteturas como Intel
 
 ### Micro-núcleo
 

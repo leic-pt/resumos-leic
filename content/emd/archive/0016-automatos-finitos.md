@@ -398,7 +398,7 @@ $$
 L_1 \cup L_2 = L(?)
 $$
 
-Para representar o autómato de `linguagem reconehcida` $L_1 \cup L_2$ basta adicionar um novo estado inicial que se liga aos estados inicias de $A_1$ e $A_2$ por transições $\epsilon$.
+Para representar o autómato de `linguagem reconhecida` $L_1 \cup L_2$ basta adicionar um novo estado inicial que se liga aos estados inicias de $A_1$ e $A_2$ por transições $\epsilon$.
 
 ![União 2](./assets/0016-uniao2.png#dark=3)
 
@@ -457,7 +457,7 @@ L_1^* = \{\epsilon\} \cup L_1 \cup (L_1 \circ L_1) \cup \dots\\
 L_1^n \rightarrow \text{União do L }n\text{ vezes}
 $$
 
-Para representar o autómato de `linguagem reconehcida` $L_1^*$ adicionamos um novo estado inicial, que também é de aceitação (para aceitar a palavra nula) e transições $\epsilon$ como representado abaixo.
+Para representar o autómato de `linguagem reconhecida` $L_1^*$ adicionamos um novo estado inicial, que também é de aceitação (para aceitar a palavra nula) e transições $\epsilon$ como representado abaixo.
 
 ![Star 2](./assets/0016-star1.png#dark=3)
 

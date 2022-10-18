@@ -222,7 +222,7 @@ Vamos definir um corte $(V_s,V_t)$ mínimo:
 3.  Se $u \in V_s$ e $\operatorname{f}(vu)>0$, então $v \in V_s$
 4.  $V_t = V - V_s$
 
-Face a estas restrições, $t$ (o sumidouro) terá de pertencer a $V_t$, pois, se não pertencesse haveria uma Quasi-Trajeória de aumento, que **não existe** como assumido no início da `Condição Necessária`.  
+Face a estas restrições, $t$ (o sumidouro) terá de pertencer a $V_t$, pois, se não pertencesse haveria uma Quasi-Trajetória de aumento, que **não existe** como assumido no início da `Condição Necessária`.  
 Logo, $(V_s,V_t)$ é um corte.
 
 O fluxo será máximo se for igual à capacidade do corte.  

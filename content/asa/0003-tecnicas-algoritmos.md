@@ -226,7 +226,7 @@ que esta última não tem qualquer correlação com o _input_.
 Podemos então levantar uma questão: **qual é o [tamanho](color:purple) de $W$**?
 Bem, o seu [**valor**](color:pink), claro está, é o próprio número associado a $W$ -
 se $W = 35$, o seu **valor** é $35$. O seu **tamanho**, contudo, seria $2$ -
-corresponde ao número de digitos necessários para o escrever. Mais ainda, a **relação**
+corresponde ao número de dígitos necessários para o escrever. Mais ainda, a **relação**
 entre o tamanho de um número e o seu valor é **exponencial** - se estivermos a falar de números representados em base decimal, temos:
 
 $$
