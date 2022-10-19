@@ -68,7 +68,7 @@ Assim, conseguimos obter um processador que:
   e um número limitado de modos de endereçamento;
 
 - [Apresenta um bom _design_ com bons compromissos](color:purple), visto que temos três
-  formatos de instruções (instruções R, I, J);
+  formatos de instruções (instruções $R$, $I$, $J$);
 
 - [Torna o caso comum mais rápido](color:purple), já que as nossas operações
   aritméticas estão no ficheiro de registos (_load-store machine_) e as instruções contêm um operando imediato;
@@ -190,7 +190,7 @@ No MIPS, existe a seguinte convenção de registos:
 | `$fp`         | 30                | [_frame pointer_][frame-pointer-explain] | [sim](color:green)              |
 | `$ra`         | 31                | endereço de retorno                      | [sim](color:green)              |
 
-### Instruções com Formato R
+### Instruções com Formato $R$
 
 ![Instruções com formato R](./assets/0002-formato-r.png#dark=3)
 
@@ -220,7 +220,7 @@ Assim, obtemos a nossa instrução em código máquina, $02324020$ em base hexad
 
 ![Instruções com formato I](./assets/0002-formato-i.png#dark=3)
 
-Sempre que temos uma constante, estamos perante um operando [I (imediato)](color:pink).
+Sempre que temos uma constante, estamos perante um operando [$I$ (imediato)](color:pink).
 Como indica o formato da instrução, a constante é guardada mesmo na instrução.
 Isto resulta num tamanho máximo de $16$ bits, ou seja, de $-2^{15}$ até $2^{15}$ (quando a constante é signed).
 
@@ -253,7 +253,7 @@ addi $s2, $s1, -1 # guarda em $s2 o valor de $s1 - 1
 
 ### Load de Constantes de 32 bits
 
-Como as instruções de tipo I (_immediate_) apenas suportam constantes de
+Como as instruções de tipo $I$ (_immediate_) apenas suportam constantes de
 $16$ bits, necessitamos de duas instruções para carregar valores de $32$ bits.
 
 1. Carregamos os bits de ordem superior ($16$ a $31$) primeiro, com a instrução _load upper immediate_.
@@ -305,15 +305,15 @@ e são úteis para extrair ou inserir grupos de _bits_ numa palavra.
 posições que pretendemos avançar ou recuar.
 
 O [_shift left_](color:purple) ajuda-nos a fazer multiplicações de $2^i$
-pois avança $i$ casas para a esquerda e adiciona os 0 que faltam;
-o [_shift right_](color:purple) ajuda-nos a fazer divisões de $2^i$
-pois avança $i$ casas para a direita e adiciona os 0 que faltam.
+pois avança $i$ casas para a esquerda e adiciona os zeros que faltam.
+O [_shift right_](color:purple) ajuda-nos a fazer divisões de $2^i$
+pois avança $i$ casas para a direita e adiciona os zeros que faltam.
 
 :::info[Exemplo]
 
-Imaginemos que queremos multiplicar um valor por 8 ($2^3$).
+Imaginemos que queremos multiplicar um valor por $8$ ($2^3$).
 
-Então, podemos fazer o seguinte shift:
+Então, podemos fazer o seguinte _shift_:
 
 ```mips-asm
 sll $t0, $t0, 3
@@ -339,11 +339,11 @@ Usualmente, o compilador trata disto por nós.
 ![Alinhamento de Memória](./assets/0002-alinhamento-memoria.png#dark=3 'Alinhamento de memória: double-words, words, half-words, bytes')
 
 O MIPS é uma arquitetura [Big Endian](https://en.wikipedia.org/wiki/Endianness),
-isto é, em memória e registos, o **byte** mais significativo está no endereço mais baixo de uma palavra.  
+isto é, em memória e registos, o **byte** mais significativo está no primeiro endereço de uma palavra.  
 Pelo contrário, uma arquitetura [Little Endian](color:red) teria, em memória e registos,
-o **byte** menos significativo no endereço mais baixo.
+o **byte** mais significativo no último endereço da palavra.
 
-Para efetuar operações aritméticas precisamos de colocar valores em registos,
+Para efetuar operações aritméticas, precisamos de colocar valores em registos,
 visto que não é possível efetuar operações sobre valores em memória.
 Existem instruções tanto para [carregar (_load_) os valores da memória para registos](color:green)
 como para [guardar (_store_) os valores de registos em memória](color:blue).
@@ -361,50 +361,50 @@ O número junto ao segundo registo corresponde ao _offset_.
 pois evitamos ter de incrementar/decrementar o valor do registo que aponta para
 o endereço na memória.
 Devido ao tipo de instrução (I, _immediate_), o valor do _offset_ é um inteiro
-_signed_ de 16-bits.
+_signed_ de $16$ bits.
 
 :::info[Exemplo]
 
-Imaginemos que queremos carregar três palavras de memória, que estão em endereços
+Imaginemos que queremos carregar três palavras da memória que estão em endereços
 consecutivos. Sabemos que a palavra do meio tem o endereço `0x4f`.
-Como cada palavra tem 4 bytes, vamos ter o seguinte código.
+Como cada palavra tem $4$ bytes, vamos ter o seguinte código.
 
 ```mips-asm
 ori  $t0, $zero, 0x4f  # carregar o valor 0x4f para $t0
 lw   $s0, -4($t0)      # endereço 0x4b
-lw   $s0,  0($t0)      # endereço 0x4f
-lw   $s0,  4($t0)      # endereço 0x53
+lw   $s1,  0($t0)      # endereço 0x4f
+lw   $s2,  4($t0)      # endereço 0x53
 ```
 
 :::
 
-Além disso, existem varias variações destas instruções, que nos permitem carregar/guardar
+Além disso, existem várias variações destas instruções, que nos permitem carregar/guardar
 _half-words_ e _bytes_, tais como _load byte_, _load byte unsigned_, _load half-word_,
 _load half-word unsigned_, _store byte_ e _store half-word_.
 
-- `lb rt, offset(rs)` e `lh rt, offset(rs)`, em que o sinal é estendido para 32 bits em `rt`
-- `lbu rt, offset(rs)` e `lhu rt, offset(rs)`, em que o zero é estendido para 32 bits em `rt`
-- `sb rt, offset(rs)` e `sh rt, offset(rs)`, que guardam os 1 e 2, respetivamente, bytes menos significativos do registo
+- `lb rt, offset(rs)` e `lh rt, offset(rs)`, em que o sinal é estendido para $32$ bits em `rt`
+- `lbu rt, offset(rs)` e `lhu rt, offset(rs)`, em que o zero é estendido para $32$ bits em `rt`
+- `sb rt, offset(rs)` e `sh rt, offset(rs)`, que guardam os $1$ e $2$, respetivamente, bytes menos significativos do registo
 
 ## Instruções de Controlo
 
 Como já vimos acima com as operações lógicas e aritméticas,
 também temos que ver as [instruções de controlo](color:pink).
 
-![Formato instruções J](./assets/0002-jump.png#dark=3)
+![Formato instruções $J$](./assets/0002-jump.png#dark=3)
 
 Exemplos deste tipo de intruções são:
 
-- Jump (`j`): Salta para um endereço em qualquer[\*](color:yellow) parte do programa;
-- Jump Register (`jr`): Salta para o endereço que está no valor de um registo;
-- Jump and Link (`jal`): Igual ao Jump, mas guarda no registo `$ra` o valor de `PC + 4`.
-  É normalmente usado para chamadas a funções.
+- _Jump_ (`j`): salta para um endereço em qualquer[\*](color:yellow) parte do programa;
+- _Jump Register_ (`jr`): salta para o endereço que está no valor de um registo;
+- _Jump and Link_ (`jal`): é igual ao _Jump_, mas guarda no registo `$ra` o valor de `PC + 4` e
+  é normalmente usado para chamadas a funções.
 
-[\*](color:yellow): dado que a instrução só suporta um endereço de 26 bits, só conseguimos
+[\*](color:yellow): dado que a instrução só suporta um endereço de $26$ bits, só conseguimos
 saltar na mesma "secção" do programa.
-Conseguimos recuperar 2 bits dado que cada instrução tem 4 bytes,
-pelo que os 2 bits menos significativos são sempre zero.
-No entanto, ficamos com 4 bits (os mais significativos) que não conseguimos controlar,
+Conseguimos recuperar $2$ bits, dado que cada instrução tem $4$ bytes,
+pelo que os $2$ bits menos significativos são sempre zero.
+No entanto, ficamos com $4$ bits (os mais significativos) que não conseguimos controlar,
 pelo que estes são derivados do PC atual. Daí, só conseguimos saltar dentro de uma certa
 região do programa (embora esta seja muito grande).
 
@@ -412,15 +412,15 @@ região do programa (embora esta seja muito grande).
 
 Imaginando que estamos no $\op{PC} = \smartcolor{orange}{0101}~1011~0110~1101~0101~1010~1010~0110$.
 
-Se efetuarmos um Jump para a instrução $\smartcolor{blue}{0101~0011~0101~0010~0001~0000~01}$,
+Se efetuarmos um _Jump_ para a instrução $\smartcolor{blue}{0101~0011~0101~0010~0001~0000~01}$,
 vamos acabar no endereço $\smartcolor{orange}{0101}~\smartcolor{blue}{0101~0011~0101~0010~0001~0000~01}\smartcolor{yellow}{00}$.
 
 :::
 
 ### Operações Condicionais
 
-Ao contrário das instruções de Jump, as instruções de Branch são saltos relativos.
-São instruções de tipo I (_immediate_), pelo que têm um _offset_ de 16-bits.
+Ao contrário das instruções de _Jump_, as instruções de _Branch_ são saltos relativos.
+São instruções de tipo $I$ (_immediate_), pelo que têm um _offset_ de $16$ bits.
 
 As operações condicionais não têm [_state flags_][state-flags], pelo que todos os valores
 têm de ser guardados em registos próprios.
@@ -432,7 +432,9 @@ Existem apenas duas instruções de _branch_, uma para igualdade e outra para
 desigualdade:
 
 - _branch if equal_: `beq rs, rt, L1`
+  Funciona como `if (rs == rt) branch to L1`
 - _branch if not equal_: `bne rs, rt, L1`
+  Funciona como `if (rs != rt) branch to L1`
 
 Se quisermos efetuar outro tipo de condições, como maior e menor, temos de usar
 as instruções _set if less than_ ou _set if less than immediate_.  
@@ -440,9 +442,9 @@ as instruções _set if less than_ ou _set if less than immediate_.
 saltos com comparações `>`, `<`, `>=`, `<=`, etc.
 
 - _set if less than_: `slt rd, rs, rt`  
-  Funciona como `_if (rs < rt) rd = 1; else rd = 0_`
+  Funciona como `if (rs < rt) rd = 1; else rd = 0`
 - _set if less than immediate_: `slti rd, rs, constant`  
-  Funciona como `_if (rs < constant) rd = 1; else rd = 0_`
+  Funciona como `if (rs < constant) rd = 1; else rd = 0`
 
 Existem, no entanto, [pseudo-instruções](color:green), que o _assembler_ desdobra
 em duas, um `set if less than (immediate)` e um `branch if (not) equal`.
@@ -453,24 +455,24 @@ em duas, um `set if less than (immediate)` e um `branch if (not) equal`.
 - _greater than_: `bgt $s1, $s2, Label`
 - _great than or equal to_: `bge $s1, $s2, Label`
 
-As instruções de Branch são do tipo I (_immediate_).
+As instruções de _Branch_ são do tipo $I$ (_immediate_).
 
 ![Branch](./assets/0002-branch.png#dark=3)
 
 Ao fazermos um _branch_, o endereço de destino é dado por $PC + \text{offset}\times 4$,
-visto que o PC é sempre incrementado em múltiplos de 4.
+visto que o PC é sempre incrementado em múltiplos de $4$.
 
 :::tip[Jump e Branch]
 
 Apesar de um _Branch_ e um _Jump_ fazerem sensivelmente a mesma coisa,
-um _Jump_ refere-se a um [salto absoluto e incondicional](color:pink) enquanto um Branch
+um _Jump_ refere-se a um [salto absoluto e incondicional](color:pink), enquanto que um Branch
 é um [salto relativo e condicional](color:pink).
-Para além disso, podemos não conseguir fazer saltos **muito longos**: num _jump_
-temos 26 bits enquanto num _branch_ temos 16 bits, ambos inferiores aos 30 bits
+Para além disso, podemos não conseguir fazer saltos **muito longos**: num _jump_,
+temos $26$ bits, enquanto que num _branch_ temos $16$ bits, ambos inferiores aos $30$ bits
 necessários para endereçar todas as instruções possíveis.
 
 Caso tentemos fazer um _branch_ para uma instrução que está demasiado longe,
-o _assembler_ vai reescrever o nosso código com um jump:
+o _assembler_ vai reescrever o nosso código com um _jump_:
 
 ```mips-asm
 beq $s0, $s0, L1  # L1 está muito longe!
@@ -505,12 +507,12 @@ if (i == j) {
 }
 ```
 
-Em assembly, teríamos de considerar a seguinte lógica.
+Em Assembly, teríamos de considerar a seguinte lógica.
 
 ![Flowchart de um if/else em assembly](./assets/0002-if.jpg#dark=3 'Flowchart de um if/else em assembly')
 
-Invertemos a condição para saltar diretamente para o _else_ caso a condição falhe,
-caso contrário continuamos a execução, que corresponderia ao corpo do `if`.
+Invertemos a condição para saltar diretamente para o `else` caso a condição falhe.
+Caso contrário continuamos a execução, que corresponderia ao corpo do `if`.
 
 ```mips-asm
       bne $s3, $s4, Else
@@ -537,7 +539,7 @@ Sabe-se que:
 - endereço de `save` está guardado em `$s6`
 - `k` está guardado em `$s5`
 
-Como não existe _while_ em Assembly temos que fazer:
+Como não existe `while` em Assembly, temos que fazer:
 
 ```mips-asm
 Loop: sll $t1, $s3, 2    # cada elemento da array são 4 bytes
@@ -552,9 +554,9 @@ Exit: ...
 
 ## Blocos básicos
 
-Um bloco básico é uma sequência de instruções que não têm nem
-[_branches_](color:pink), exceto no final, nem é
-[um destino para _branches_](color:pink), exceto no início.
+Um bloco básico é uma sequência de instruções que não têm
+[_branches_](color:pink), exceto no final, nem são
+[um destino de _branches_](color:pink), exceto no início.
 Por outras palavras, é um bloco de código que é executado **sempre** sequencialmente.
 
 O compilador identifica blocos básicos para otimização e um
