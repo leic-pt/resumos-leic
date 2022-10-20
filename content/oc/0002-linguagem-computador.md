@@ -159,7 +159,7 @@ Cada registo armazena uma palavra de $32$ bits, isto é, $4$ bytes.
 Uma grande vantagem dos registos é a sua velocidade de acesso, que é muito superior
 à da memória principal, ou mesmo à das caches (como veremos mais à frente).
 No entanto, é preciso efetuar _trade-offs_ quanto ao número de registos, pois
-o tempo de acesso aumenta com o aumento número de registos.
+o tempo de acesso aumenta com o aumento do número de registos.
 Por exemplo, um banco de registos que guarda $64$ registos
 [pode ser até $50\%$ mais lento](color:red) do que um que guarde apenas $32$.
 O mesmo se aplica à quantidade de portas de leitura e escrita, dado que adicionar
