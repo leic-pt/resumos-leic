@@ -18,7 +18,7 @@
     "format:content": "prettier -w 'content/**/*.md'",
     "format-win": "prettier -w 'src\\**\\*.{js,md,vue}'"
   },
-  "license": "MIT",
+  "license": "GPL-3.0",
   "devDependencies": {
     "prettier": "^2.7.1"
   },
