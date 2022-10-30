@@ -16,6 +16,4 @@ Os Slides que tipicamente acompanham a cadeira, bem como a coletânea de exercí
 
 :::
 
-- [Página da Cadeira - Fénix](https://fenix.tecnico.ulisboa.pt/disciplinas/ASA/2021-2022/1-semestre)
-
 - [Notas Teóricas - Professor José Fragoso](https://web.tecnico.ulisboa.pt/jose.fragoso/#teaching)
