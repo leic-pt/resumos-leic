@@ -13,15 +13,6 @@ type: content
 
 # Memória Virtual
 
-:::danger[Conteúdo Não Revisto]
-
-O conteúdo abaixo não foi revisto e poderá conter erros.
-Agradecem-se [contribuições](https://leic-pt.github.io/docs/).
-
-Apenas foi aqui incluído devido à proximidade do MAP45 dia 2022/10/20.
-
-:::
-
 ```toc
 
 ```
@@ -32,7 +23,7 @@ sistema operativo (OS). Assim, cada programa é compilado para o seu próprio es
 endereçamento, um [espaço de endereçamento virtual](color:purple). Nos programas que
 partilham a memória principal, cada um tem direito a um espaço de endereçamento físico
 privado que é frequentemente usado para código e dados, assim como é protegido dos
-outros programas. O CPU e o OS traduzem o endereço virtual para um enderço físico,
+outros programas. O CPU traduz o endereço virtual para um enderço físico,
 tendo, por isso, a VM um "bloco" que se chama [página](color:pink) e em vez de
 dizermos que houve um _"miss"_ dizemos que houve uma [_page fault_](color:pink).
 
@@ -57,24 +48,20 @@ Sempre que a cache acomoda um subcojunto de posições da memória principal, a 
 principal acomoda um subconjunto de posições da memória virtual. Cada
 [bloco corresponde a uma página](color:pink). A [dimensão](color:pink) é geralmente
 bastante elevada de modo a aumentar a eficiência quando o disco é acedido, e também
-reduz a dimensão da tabela de tradução; porém, quanto maior for, maior é a potencial
-perda de memória (em média, 50% da dimensão da página); valores típicos são entre 4K
-e 8K bytes.
+reduz a dimensão da tabela de tradução; porém, quanto maior for a página, maior é a potencial
+perda de memória (em média, 50% da dimensão da página); valores típicos de página são os 4
+ou 8 Kbytes.
 
-Um bloco pode ser posicionado em qualquer [espaço de memória](color:purple) visto ter
-associatividade total.
+Uma página pode ser posicionada em qualquer [espaço de memória](color:purple) visto a memória principal ter associatividade total.
 
 ![Tradução usando tabela de página](./assets/0005-traducao2.png#dark=3)
 
-## Tabelas de Página
+## Tabelas de Páginas
 
-As [tabelas de página](color:pink) guardam o posicionamento da informação num array
-te entradas todas indexadas por um número de uma página virtual. A tabela de página
-regista os pontos do CPU da tabela de página em [memória física](color:purple). Se
-uma página [estiver presente em memória](color:orange),temos o PTE
-(_Page Table Entry_) que guarda o número da página física assim como outros bits de
-estado (_dity_, _referenced_, ...); caso contrário, o [PTE](color:pink) pode referir
-outra localização em troca de espaço no disco.
+As [tabelas de páginas](color:pink) guardam o posicionamento da informação num array
+de entradas todas indexadas pelo número da página virtual. A tabela de páginas
+regista o endereço de memória física para onde aponta a página do endereço virtual além de outros bits de estado (_dity_, _referenced_, ...);
+caso contrário, o [PTE](color:pink) pode referir outra localização em troca de espaço no disco.
 
 ### Trocas e Escritas
 
@@ -94,8 +81,8 @@ quando a página é escrita.
 Um problema comum na paginação de sistemas é que a dimensão de uma tabela de página
 não é obrigada a traduzir os endereços: apenas precisa de alocar numa
 [região contida](color:pink) a memória física. Por exemplo, se temos um espaço virtual
-com $2^{32}$ bytes e páginas com 4 bytes, ou seja $2^{12}$, temos uma tabela com
-$2^{20}$ entradas visto que $32-12=20$, ou seja temos 4M bytes de entradas!
+com $2^{32}$ bytes e páginas com 4 kbytes, ou seja $2^{12}$ bytes, temos uma tabela com
+$2^{20}$ entradas visto que $32-12=20$, ou seja temos 1 milhão entradas!
 
 ### Hierarquia das Tabelas de Página
 
@@ -108,14 +95,14 @@ hierarquia da tradução das tabelas.
 :::tip[Exemplos]
 
 Para mais exemplos de cálculos com hierarquia de memória é recomendada a
-realização da quinta ficha das aulas práticas ou ver a sua resolução.
+realização da 5ª ficha das aulas práticas ou ver a sua resolução.
 
 :::
 
 ## Tabelas Invertidas
 
 A tradução de endereços é baseada em [_hash tables_](color:purple). Uma qualquer
-função has H(x) é aplicada ao endereço virtual de modo a encontrar uma fila
+função hash H(x) é aplicada ao endereço virtual de modo a encontrar uma fila
 particular de descriptores composta pelos pares [página virtual - página física](color:pink)
 , que correspondem a endereços virtuais dando origem ao mesmo valor da função hash H(x)
 em termos de colisões. Assim, o endereço físico necessário pode, ou não, estar presente
@@ -132,25 +119,17 @@ Assim, é necessária [memória extra](color:blue) para aceder a tradução de V
 Isto faz com que os acessos à memória sejam ainda mais caros, e a maneira de resolver
 o problema de _hardware_ é através de um [_Translation Lookaside Buffer_](color:pink)
 isto é, uma **TLB**, que corresponde a uma cache mais pequena que acompanha os endereços
-acedidos de modo a evitar ter que fazer uma tabela de página para os encontrar.
+acedidos de modo a evitar ter que recorrer à tabela de página para os encontrar.
 
 ## _Translation Lookaside Buffer_ ou TLB
 
 ![TLB](./assets/0005-TLB.png#dark=3)
 
 Tal como em qualquer outra cache, a TLB pode ser organizada de modo a ser totalmente
-associativa, ou diretamente mapeada. O tempo de acesso à TLB é tipicamente menor que
-o tempo de acesso à cache visto que as TLBs são muito menores!
+associativa, ou diretamente mapeada. O tempo de acesso à TLB é extremamente menor que
+o tempo de acesso à cache visto que as TLBs são muito menores e são desenhadas para ser rápidas!
 
 ![TLB](./assets/0005-TLBmem.png#dark=3)
-
-Se uma página é carregada para a memória principal, então o _miss_ na TLB pode ser
-tratado, tanto em _hardware_ como em _software_ se carregarmos a [tradução](color:pink)
-da informação da tabela de página para a TLB. Sabendo que demora dezenas de ciclos para
-econtrar e carregar a tradução da informação para a TLB, quando a página não se
-encontra na memória principal, demora milhares de ciclos, e temos, por isso, uma
-_true page fault_. É importante referir que os _misses_ são bastante mais comuns que
-as _true page faults_.
 
 Assim, quando ocorre um [TLB _miss_](color:pink), é necessário reconhecer como _miss_
 antes que o registo do destino seja sobrescrito, dando origem a uma exceção. Assim
