@@ -20,7 +20,6 @@ A cadeira de Programação com Objetos está resumida de forma excelente pelo pr
 - [Wiki do Prof. David Matos](https://web.tecnico.ulisboa.pt/~david.matos/w/pt/index.php/Programa%C3%A7%C3%A3o_com_Objectos)
 - [MermaidJS Live Editor](https://mermaid.live/) - Editor de gráficos UML
 - [Umbrello UML Modeller](https://umbrello.kde.org/) - Editor de gráficos UML
-- [Página da Cadeira - Fénix](https://fenix.tecnico.ulisboa.pt/disciplinas/PO3/2021-2022/1-semestre)
 
 ```mermaid
 classDiagram
