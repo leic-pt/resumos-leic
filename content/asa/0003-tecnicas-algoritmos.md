@@ -3,7 +3,7 @@ title: Técnicas de Síntese de Algoritmos
 description: Programação Dinâmica.
   Problema da Mochila com Repetição.
   Problema da Mochila sem Repetição.
-  Maior Sub-sequência Comum (LCS).
+  Maior Subsequência Comum (LCS).
   Multiplicação de Cadeias de Matrizes.
   Algoritmos Greedy.
   Problema da Mochila Fracionária sem Repetição.
@@ -36,7 +36,7 @@ bastante complexo em sequências de problemas mais simples (até, eventualmente,
 um caso base). O objetivo de estudar esta técnica passa por construir uma certa forma
 de olhar e analisar os problemas, com vista a encontrar padrões que nos ajudem a chegar a soluções ótimas para os mesmos.
 
-Procuramos evitar repetir operações e resolver cada sub-problema uma única vez, por
+Procuramos evitar repetir operações e resolver cada subproblema uma única vez, por
 uma ordem ótima, geralmente guardando os dados que vamos obtendo numa dada estrutura - por exemplo, numa tabela.
 
 :::
@@ -48,7 +48,7 @@ O problema sobre o qual nos vamos debruçar mais é o [**Problema da Mochila/Kna
 Trata-se de um problema clássico de introdução ao tema da programação dinâmica, dado que tem várias abordagens
 mais óbvias - e definitivamente não-ótimas - que são úteis de dissecar para perceber
 porque é que estão mal, e por onde podemos ir para obter uma abordagem melhor. Resta
-realçar que, nesta sub-secção, vamos apenas olhar para o problema da mochila **não
+realçar que, nesta subsecção, vamos apenas olhar para o problema da mochila **não
 fracionária**: não podemos colocar quantidades fracionárias de itens na mochila,
 ou se coloca o item todo ou não se coloca.
 
@@ -75,7 +75,7 @@ Tenhamos que a nossa mochila tem $W$ máximo 10, e 2 objetos:
 - um segundo objeto com 5kg e valor 5€.
 
 Numa tentativa inicial, podíamos pensar "bem, vamos adicionar os objetos por ordem
-decrescente do seu valor". Contudo, esta estratégia tem um contra-exemplo simples -
+decrescente do seu valor". Contudo, esta estratégia tem um contraexemplo simples -
 considerando os objetos acima, e seguindo este raciocínio, adicionaríamos o objeto
 que vale 8€ à mochila. O algoritmo parava aí, porque não poderíamos adicionar mais
 nada sem exceder $W$. Contudo, essa não é a solução correta - dado que estamos na
@@ -176,7 +176,7 @@ peso naturais), e daí podemos retirar a natureza exponencial do problema. A pri
 chamada pode correr $n$ vezes, mas cada uma das seguintes também pode correr $n$
 vezes, e assim sucessivamente, $w$ vezes.
 
-Ora, mas [**o número de sub-problemas distintos é $n \cdot W$**](color:yellow) (corresponde
+Ora, mas [**o número de subproblemas distintos é $n \cdot W$**](color:yellow) (corresponde
 ao número de entradas numa possível tabela de resolução do problema com DP). Assim
 sendo, podemos definitivamente obter uma solução mais eficiente para o problema,
 **sem fazer os mesmos cálculos mais do que uma vez**, coisa que acontece na implementação acima.
@@ -341,12 +341,12 @@ caso optássemos por passar a tabela como argumento da função e a fôssemos pr
 O trade-off seria que a memoization, apesar de só calcular o que realmente é necessário
 (que, no pior caso, é tudo), ocupa mais espaço $(\Theta(W) \text{ vs } \Theta(n))$.
 
-### Maior Sub-sequência Comum (LCS)
+### Maior Subsequência Comum (LCS)
 
 :::info[Definição do problema]
 
-Dadas duas sequências, $X$ e $Y$, encontrar a maior sub-sequência comum entre elas.
-**Não precisam de ser contíguas**, isto é, tendo "ABC" e "AC", a maior sub-sequência
+Dadas duas sequências, $X$ e $Y$, encontrar a maior subsequência comum entre elas.
+**Não precisam de ser contíguas**, isto é, tendo "ABC" e "AC", a maior subsequência
 comum entre ambas as sequências é "AC", apesar de "A" e "C" não aparecerem consecutivamente na primeira sequência.
 
 A solução para este problema é a chave para ferramentas como o [diff](https://www.man7.org/linux/man-pages/man1/diff.1.html),
@@ -354,8 +354,8 @@ A solução para este problema é a chave para ferramentas como o [diff](https:/
 
 :::
 
-Não podemos, obviamente, verificar literalmente todas as sub-sequências possíveis -
-cada sequência tem $2^{\text{length}}$ sub-sequências, tornando-se impraticável
+Não podemos, obviamente, verificar literalmente todas as subsequências possíveis -
+cada sequência tem $2^{\text{length}}$ subsequências, tornando-se impraticável
 fazer a comparação. Podemos, contudo, procurar tirar algumas conclusões sobre o problema:
 
 - se duas sequências têm o último elemento igual, então esse elemento faz [**necessariamente**](color:yellow)
@@ -363,9 +363,9 @@ fazer a comparação. Podemos, contudo, procurar tirar algumas conclusões sobre
 
 - caso o último elemento não seja igual, então das duas uma:
 
-  - procuramos a maior sub-sequência comum "cortando" o último elemento da primeira subsequência;
+  - procuramos a maior subsequência comum "cortando" o último elemento da primeira subsequência;
 
-  - procuramos a maior sub-sequência comum "cortando" o último elemento da segunda subsequência.
+  - procuramos a maior subsequência comum "cortando" o último elemento da segunda subsequência.
 
 Em ambos os casos, voltamos a repetir estes passos sucessivamente, até chegar ao caso base (onde já não podemos cortar mais elementos).
 
@@ -619,7 +619,7 @@ Podemos aqui fazer, também, uma escolha _greedy_:
   - $A_3$ começa à hora 3 e acaba à hora 4.
 
   Aqui, a suposta escolha ótima levaria a podermos ter apenas uma tarefa compatível,
-  quando na verdade existem duas - temos, portanto, um contra-exemplo que nos impossibilita de optar por esta escolha.
+  quando na verdade existem duas - temos, portanto, um contraexemplo que nos impossibilita de optar por esta escolha.
 
 - Não é escolher, a cada momento, a que ocupa menos tempo. Tendo, por exemplo, três atividades tais que:
 
@@ -630,7 +630,7 @@ Podemos aqui fazer, também, uma escolha _greedy_:
   - $A_3$ começa à hora 10 e acaba à hora 20.
 
   Mais uma vez, a escolha ótima levar-nos-ia a apenas uma tarefa compatível, quando
-  na verdade existem duas - mais uma vez, um contra-exemplo.
+  na verdade existem duas - mais uma vez, um contraexemplo.
 
 A **escolha _greedy_** é, aqui, [**optar sempre pela próxima atividade que acabar mais cedo**](color:orange).
 
