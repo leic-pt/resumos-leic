@@ -50,7 +50,7 @@ Usam-se várias "técnicas" para determinar a primitiva de uma função, explica
 
 ## Fórmula de Primitivação da Potência
 
-Se $u$ é uma funlão diferenciável em todo o seu domínio tal que $u^\alpha$ é diferenciável em todo o domínio de $u$, então:
+Se $u$ é uma função diferenciável em todo o seu domínio tal que $u^\alpha$ é diferenciável em todo o domínio de $u$, então:
 
 $$
 P(u'u^\alpha)=\begin{cases}
@@ -112,7 +112,7 @@ Seja $f$ uma função definida num intervalo aberto e $F$ e $G$ duas primitivas 
 
 :::
 
-No entanto, isto já não é verdade caso a função esteja definina num **conjunto aberto que não é um intervalo**. Por exemplo:
+No entanto, isto já não é verdade caso a função esteja definida num **conjunto aberto que não é um intervalo**. Por exemplo:
 
 $$
 f:\R\backslash \Z\to\R\quad,\quad f(x)=\cos x
@@ -311,7 +311,7 @@ Abaixo estão os passos para efetuar a primitivação de uma **função racional
 
   :::
 
-- Decompor os fatores em frações simples, determinando os coeficientes da decomposição, quer pelo mótodo dos coeficientes indeterminados, quer usando métodos expeditos.
+- Decompor os fatores em frações simples, determinando os coeficientes da decomposição, quer pelo método dos coeficientes indeterminados, quer usando métodos expeditos.
 - Primitivar cada uma das frações simples obtidas, podendo-se recorrer a outras regras aprendidas anteriormente.
 
 ### Decomposição em Frações Simples
@@ -334,7 +334,7 @@ $$
 \frac{A_1}{x-\alpha}+\frac{A_2}{(x-\alpha)^2}+\frac{A_3}{(x-\alpha)^3}+\dots+\frac{A_m}{(x-\alpha)^m}
 $$
 
-Para cada par de raizes complexas conjungadas $p\pm qi$ com multiplicidade $m$ adicionam-se $m$ frações da forma [(irrelevante em CDI-I)](color:orange):
+Para cada par de raízes complexas conjungadas $p\pm qi$ com multiplicidade $m$ adicionam-se $m$ frações da forma [(irrelevante em CDI-I)](color:orange):
 
 $$
 \frac{B_{1} x+C_{1}}{(x-p)^{2}+q^{2}}+\frac{B_{2} x+C_{2}}{\left((x-p)^{2}+q^{2}\right)^{2}}+\cdots+\frac{B_{m} x+C_{m}}{\left((x-p)^{2}+q^{2}\right)^{m}}
@@ -353,7 +353,7 @@ Como $0$ é uma raiz de multiplicidade $2$ (aparece duas vezes na forma fatoriza
 
 $$
 x^5+2x^3+x=x(x^4+2x^2+1)=x(x^2+1)^2\\
-\text{As raizes são: }0 \text{ e} \pm i\\
+\text{As raízes são: }0 \text{ e} \pm i\\
 \tag{raiz complexa}((x-0)^2+1^2)^2=(x^2+1)^2
 $$
 
@@ -389,7 +389,7 @@ Após obtermos a identidade polinomial, usamos os dois métodos abaixo, por orde
 
 - Métodos Expeditos
 
-  Neste método, substitui-se $x$ por cada uma das raizes reais, de forma a obter alguns (ou todos) os coeficientes.
+  Neste método, substitui-se $x$ por cada uma das raízes reais, de forma a obter alguns (ou todos) os coeficientes.
 
   Continuando com o exemplo anterior, no qual as raízes de $Q(x)$ são $-4$ e $-3$.
 
@@ -414,7 +414,7 @@ Após obtermos a identidade polinomial, usamos os dois métodos abaixo, por orde
 
   Assim, para os coeficientes que restam, escolhe-se uma das potências de $x$ associadas a esse coeficiente.
 
-  Para simplificar os cálculos, normalmente **começa-se pela maior potência** ou pelo termo costante, se tal for possível.
+  Para simplificar os cálculos, normalmente **começa-se pela maior potência** ou pelo termo constante, se tal for possível.
 
   Tomando como **exemplo** a identidade polinomial,
 
@@ -504,7 +504,7 @@ Trata-se de um método geral de primitivação, que deve ser usado apenas quando
 
 ### Fórmula da primitivação por substituição - versão 1
 
-Sejam $I,J\subset \R$ dois intervalos abertos e $\varphi:J\to I$ uma função bijetiva e diferenciável com derivada não nula em $J$. Seja, ainda, $f:I\to\R$ uma função em $I$. Então, se $(f\circ \varphi)\cdot \varphi'$ é uma função primitável em $J$, $f$ é primitável em $I$ e
+Sejam $I,J\subset \R$ dois intervalos abertos e $\varphi:J\to I$ uma função bijetiva e diferenciável com derivada não nula em $J$. Seja, ainda, $f:I\to\R$ uma função em $I$. Então, se $(f\circ \varphi)\cdot \varphi'$ é uma função primitivável em $J$, $f$ é primitivável em $I$ e
 
 $$
 P(f)=\bigg[P\bigg((f\circ\varphi)\cdot\varphi'\bigg)\bigg]\circ\varphi^{-1}
@@ -514,7 +514,7 @@ $$
 
 ### Fórmula da primitivação por substituição - versão 2
 
-Sejam $I,J\subset \R$ dois intervalos abertos e $\varphi:J\to I$ uma função bijetiva e diferenciável. Seja, ainda, $f:I\to\R$ uma função primitável em $I$. Então, $(f\circ \varphi)\cdot \varphi'$ é uma função primitável em $J$ e
+Sejam $I,J\subset \R$ dois intervalos abertos e $\varphi:J\to I$ uma função bijetiva e diferenciável. Seja, ainda, $f:I\to\R$ uma função primitivável em $I$. Então, $(f\circ \varphi)\cdot \varphi'$ é uma função primitivável em $J$ e
 
 $$
 P(f)=\bigg[P\bigg((f\circ\varphi)\cdot\varphi'\bigg)\bigg]\circ\varphi^{-1}
@@ -604,7 +604,7 @@ $$
 
 A escolha da substituição que contém o cosseno hiperbólico requer o conhecimento da fórmula da bisseção do cosseno hiperbólico.
 
-### Primitivas de raízes de polinomio do segundo grau
+### Primitivas de raízes de polinómio do segundo grau
 
 É, ainda, possível determinar primitivas de raízes de polinómios do segundo grau usando substituições meramente racionais e que transformam a primitiva dada numa primitiva de uma função racional.
 
@@ -635,7 +635,7 @@ $$
 \int\sqrt{\frac{x+1}x}\d x
 $$
 
-Considerando o seguinte (atendento às condições da fórmula):
+Considerando o seguinte (atendendo às condições da fórmula):
 
 $$
 t^2=\frac{x+1}x\quad t>0
@@ -684,7 +684,7 @@ $$
 
 [**Exemplo 2**](color:orange)
 
-No caso abaixo, pertende-se obter uma função racional por substituição, e, por isso, faz-se a substituição por $x=t^m$ onde $m$ é o [**mínimo múltiplo comum**](color:green) dos índices das raízes, com $t>0$, se $m$ é par, para ter injetividade.
+No caso abaixo, pretende-se obter uma função racional por substituição, e, por isso, faz-se a substituição por $x=t^m$ onde $m$ é o [**mínimo múltiplo comum**](color:green) dos índices das raízes, com $t>0$, se $m$ é par, para ter injetividade.
 
 $$
 \def\d{\mathop{}\!\mathrm d}

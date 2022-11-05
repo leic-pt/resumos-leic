@@ -50,7 +50,7 @@ aproximações que fazemos, [idealmente por defeito](/ia/procura-informada#quand
 
 :::
 
-![Heurística - Exemplo Árvore](imgs/0003-heuristica-arvore.svg#dark=3)
+![Heurística - Exemplo Árvore](imgs/0003-tree-heuristic.svg#dark=3)
 
 Funções heurísticas ajudam-nos, portanto, a decidir que caminho tomar (ou seja, que nó escolher),
 procurando minimizar os custos até ao objetivo.
@@ -118,7 +118,7 @@ a distância real! É apenas uma estimativa, utilizada aqui como heurística.
 Seguindo uma abordagem _greedy_, partindo de Arad e procurando atingir Bucareste,
 a árvore de procura resultante iria evoluir como se mostra abaixo:
 
-![Árvore de Procura Procura Gananciosa Arad-Bucareste](imgs/0003-greedy-arad-bucareste.svg#dark=3)
+![Árvore de Procura Procura Gananciosa Arad-Bucareste](imgs/0003-greedy-arad-bucharest.svg#dark=3)
 
 A procura gananciosa não nos deu a solução ótima - em vez de seguir por Fagaras e depois para Bucareste,
 o caminho ótimo passaria por Rimnicu Vilcea, Pitesti e só depois por Bucareste. Esta procura
@@ -188,7 +188,7 @@ uma árvore de procura como a seguinte:
 Note-se que os valores indicados ao lado de cada estado na árvore correspondem a $f$, sendo
 a soma de $g$ (o caminho até agora percorrido) e $h$ (a estimativa do caminho por percorrer).
 
-![Árvore de Procura Procura $A^*$ Arad-Bucareste](imgs/0003-a-estrela-arad-bucareste.svg#dark=3)
+![Árvore de Procura Procura $A^*$ Arad-Bucareste](imgs/0003-a-star-arad-bucharest.svg#dark=3)
 
 Podemos notar algo relevante: estados a representar a mesma cidade podem ser adicionados mais do que
 uma vez à fronteira (temos, por exemplo, Sibiu e Bucareste a ser adicionadas duas vezes).
@@ -201,7 +201,7 @@ da procura; como vamos ver à frente, [**a procura $A^*$ não é ótima**](color
 Infelizmente, não podemos garantir a otimalidade da procura $A^*$. Como contra-exemplo,
 observe-se a seguinte árvore de procura (onde $D$ e $G$ são ambos estados objetivo):
 
-![Árvore de Procura - Procura $A^*$ não é ótima](imgs/0003-a-estrela-nao-otima.svg#dark=3)
+![Árvore de Procura - Procura $A^*$ não é ótima](imgs/0003-a-star-not-optimal.svg#dark=3)
 
 Aqui, $G$ é o objetivo ótimo, com custo caminho igual a $7$. Temos, contudo, que o seu pai
 ($C$) nunca é explorado, já que $B$ tem menor valor de $f$, $8$, e depois um dos seus filhos
@@ -246,7 +246,7 @@ na procura em árvore: na **procura em grafo**, não adicionamos à fronteira es
 já passámos, pelo que podemos eventualmente perder o caminho mais curto até ao objetivo.
 De seguida, encontra-se um exemplo de uma situação onde podemos verificar isso mesmo:
 
-![Procura em Grafo - Não Ótima](imgs/0003-procura-grafo-nao-otima.svg#dark=3)
+![Procura em Grafo - Não Ótima](imgs/0003-graph-search-not-optimal.svg#dark=3)
 
 A admissibilidade da heurística não garante, portanto, que $A^*$ seja ótima na procura em grafo,
 visto que um nó pode ser descartado se já estiver sido explorado no passado - estamos
@@ -266,7 +266,7 @@ $$
 
 onde $c(n, a, n')$ corresponde ao custo associado a realizar a ação $a$ de $n$ para $n'$.
 
-![Desigualdade Triangular](imgs/0003-desigualdade-triangular.svg#dark=3)
+![Desigualdade Triangular](imgs/0003-triangle-inequality.svg#dark=3)
 
 De forma mais simples, uma heurística diz-se consistente se, para todo o $n$, para todos os
 seus sucessores $n'$ gerados por ações $a$, o custo estimado de ir de $n$ ao objetivo
@@ -291,7 +291,7 @@ Podemos, assim, depreender que, numa heurística consistente, $f$ nunca decresce
 
 Voltemos, então, a olhar para a imagem-exemplo anterior:
 
-![Procura em Grafo - Não Ótima (2)](imgs/0003-procura-grafo-nao-otima.svg#dark=3)
+![Procura em Grafo - Não Ótima (2)](imgs/0003-graph-search-not-optimal.svg#dark=3)
 
 Ora, notando que não é ótima, resta tentar perceber porque é que não é consistente (já que
 caso contrário a questão nem se colocaria). Pegando na nossa proposição inicial,
@@ -338,7 +338,7 @@ apenas para decidir se este é cortado - a decisão de qual o nó a expandir é 
 
 O exemplo seguinte pode ajudar a consolidar ideias:
 
-![Exemplo IDA*](imgs/0003-ida-estrela.svg#dark=3)
+![Exemplo IDA*](imgs/0003-ida-star.svg#dark=3)
 
 A procura $IDA^*$ partilha a completude e a complexidade temporal ($O(b^m)$) com $A^*$, sendo
 igualmente ótima para heurísticas admissíveis. Difere, contudo, quanto à complexidade
@@ -366,7 +366,7 @@ $$
 
 Observe-se o exemplo seguinte:
 
-![Exemplo - RBFS Step 1](imgs/0003-rbfs-fase-1.svg#dark=3)
+![Exemplo - RBFS Step 1](imgs/0003-rbfs-step-1.svg#dark=3)
 
 Note-se a evolução da procura na imagem anterior:
 
@@ -381,7 +381,7 @@ Note-se a evolução da procura na imagem anterior:
   façamos, poderemos estar a ignorar um caminho melhor (e ainda por cima sabemos que ele existe,
   não faria sentido não ir lá).
 
-![Exemplo RBFS Step 2](imgs/0003-rbfs-fase-2.svg#dark=3)
+![Exemplo RBFS Step 2](imgs/0003-rbfs-step-2.svg#dark=3)
 
 Após o _backtracking_, atualizamos o valor de $f$ em Rimnicu Vilcea (para o menor valor dos
 seus filhos - sabemos mais sobre o custo de caminhos que partem dali, logo porque não
@@ -391,7 +391,7 @@ Bucareste, com $f = 450$, é o seu filho com menor valor de $f$, sendo este valo
 o caminho alternativo guardado anteriormente. Vamos, portanto, voltar a andar para trás
 e seguir em frente em Pitesti:
 
-![Exemplo - RBFS Step 3](imgs/0003-rbfs-fase-3.svg#dark=3)
+![Exemplo - RBFS Step 3](imgs/0003-rbfs-step-3.svg#dark=3)
 
 Note-se como, desta vez, o caminho alternativo guardado é o de Timisoara - conseguimos, recursivamente,
 voltar lá, ao **melhor caminho alternativo por visitar**, se for preciso. O próximo
@@ -420,7 +420,7 @@ exponencial: $O(b^d)$.
 Considere-se o problema 8-Puzzle, onde, dada uma configuração inicial de peças, o objetivo
 passa por movê-las horizontal ou verticalmente até atingir a configuração-objetivo.
 
-![8 Puzzle - Exemplo](imgs/0003-8-puzzle-exemplo.svg#dark=3)
+![8 Puzzle - Exemplo](imgs/0003-eight-puzzle-example.svg#dark=3)
 _Custo Ótimo = 26 passos_
 
 Temos, como propriedades calculadas _à priori_ do problema, que a profundidade média
@@ -489,7 +489,7 @@ O livro que acompanha a cadeira apresenta uma tabela que ajuda a comparar o núm
 nós gerados e o $b^*$ entre $A^*$ com cada uma das heurísticas e a DFS iterativa (esta
 última uma procura cega, sem heurísticas).
 
-![Tabela, Comparação Heurísticas](imgs/0003-tabela-comparacao.svg#dark=4)
+![Tabela, Comparação Heurísticas](imgs/0003-comparison-table.svg#dark=4)
 
 Como podemos observar, a procura cega torna-se rapidamente incomportável. Para além disso, apesar
 de $h_1$ não ser horrível, não traz qualquer benefício em comparação com $h_2$ e existe
@@ -524,7 +524,7 @@ Considere-se um agente GPS. Um condutor fez uma _query_, em que pediu ao GPS o m
 caminho para ir de Pombal a Vale de Cambra. Tenhamos em atenção o gráfico abaixo, que
 apresenta o comportamento de três heurísticas em relação ao mesmo problema:
 
-![Heurísticas Não Admissíveis?](imgs/0003-grafico-nao-admissiveis.svg#dark=2)
+![Heurísticas Não Admissíveis?](imgs/0003-graph-not-admissible.svg#dark=2)
 
 Ora, a primeira coisa em que reparamos ao olhar para $h_3$ é, provavelmente, de duas uma:
 

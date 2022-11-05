@@ -1,7 +1,7 @@
 ---
 title: Variáveis Aleatórias Discretas
 description: >-
-  Variáveis Aleatóricas Discretas:
+  Variáveis Aleatórias Discretas:
   Distribuição Uniforme Discreta, de Bernoulli, Binomial, Geométrica, Hipergeométrica e de Poisson.
 path: /pe/va-discretas
 type: content

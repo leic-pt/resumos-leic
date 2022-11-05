@@ -288,9 +288,8 @@ de ser explicitadas textualmente.
 >
 > - student: FK(student.ist_id)
 > - course_name, year: FK(course.course_name, course.year)
->
-> IC-1: Students can only be enrolled in courses belonging to the same degree
-> they signed up for.
+> - IC-1: Students can only be enrolled in courses belonging to the same degree
+>   they signed up for.
 
 ## Conversão a partir do Modelo E-A
 
@@ -390,7 +389,7 @@ da entidade de multiplicidade 1 e obrigatória.
 
 ![Diagrama do Modelo E-A de uma associação one-to-many com participação obrigatória](./assets/0004-association-one-to-many-mandatory.svg#dark=3)
 
-> department(<u>department_acronym</u>, deparment_name)
+> department(<u>department_acronym</u>, department_name)
 >
 > teacher(<u>ist_id</u>, name, department_acronym, join_date)
 >
@@ -513,7 +512,7 @@ e a um [armazém](color:orange) que não contém esse [armário](color:green).
 
 Note-se que, na [prateleira](color:yellow), o atributo _address_ é uma
 _foreign key_ referente ao [armário](color:green) e não ao
-[armazém](color:orange), visto que a relação da [prateleira[(color:yellow)
+[armazém](color:orange), visto que a relação da [prateleira](color:yellow)
 é exclusivamente com o [armário](color:green) e não com o
 [armazém](color:orange), apesar de ser este que tem _address_
 como atributo "originalmente".

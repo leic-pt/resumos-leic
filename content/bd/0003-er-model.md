@@ -37,7 +37,7 @@ Com este modelo conseguimos exprimir:
 
 Por vezes, o modelo não é suficiente para representar todos os requisitos da nossa
 aplicação. Podemos, assim, recorrer também a [**Restrições de Integridade**](color:yellow)
-(_Integrity Contraints_), quando necessário.
+(_Integrity Constraints_), quando necessário.
 
 ## Entidades e Atributos
 
@@ -69,8 +69,8 @@ Podemos representar esta associação com a seguinte notação:
 
 ![Exemplo de Associação (Compra-Produto) no Modelo E-A](./assets/0003-er-relationship.svg#dark=3)
 
-As associações têm normalmente um nome, único em todo o diagrama, que normalmente
-é um verbo.
+As associações têm normalmente um nome, único em todo o diagrama, **que normalmente
+é um verbo**.
 
 Para além disso, não têm direção, mas podemos utilizar os símbolos `>` e `<` para
 desambiguar alguns casos.
@@ -91,7 +91,7 @@ Representamos uma associação com atributos das seguinte forma:
 
 Nada nos impede de criar associações entre três ou mais entidades.
 Atenção que estas podem, por vezes, ser pouco explícitas. Alternativamente, podemos
-criar uma [agregação](#agregações), que, para além de ser mais explícita, nos dá maior
+criar uma [agregação](#agregações) que, para além de ser mais explícita, nos dá maior
 flexibilidade a definir [restrições](#restrições).
 
 Voltando ao exemplo da _Compra_ e do _Produto_, tomemos outra entidade, _Cliente_,
@@ -260,7 +260,7 @@ ou mesmo **limitar a profundidade máxima**.
 ## Entidades Fracas
 
 Nem sempre conseguimos identificar uma entidade, isto é, por vezes, a sua chave não é suficiente
-para a especificar de forma inequívoca no universo. Podemos ter, por exemplo, uma rua, um andar,
+para a especificar de forma unívoca no universo. Podemos ter, por exemplo, uma rua, um andar,
 etc. Cada um destes conceitos não pode existir sem outro (e.g. freguesia e prédio, respetivamente).
 
 Quando criamos uma entidade fraca, temos de indicar qual é a associação que passa a

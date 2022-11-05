@@ -223,8 +223,8 @@ Aplicando o método da VA fulcral à VA $Z$, obtemos o intervalo de confiança
 
 $$
 IC(\sigma^2) = \left[
-\frac{(n-1)s^2}{F_{\chi_{(n-1)}^2} \left(1-\frac{\alpha}{2}\right)}, \quad
-\frac{(n-1)s^2}{F_{\chi_{(n-1)}^2} \left(\frac{\alpha}{2}\right)}
+\frac{(n-1)s^2}{F^{-1}_{\chi_{(n-1)}^2} \left(1-\frac{\alpha}{2}\right)}, \quad
+\frac{(n-1)s^2}{F^{-1}_{\chi_{(n-1)}^2} \left(\frac{\alpha}{2}\right)}
 \right]
 $$
 

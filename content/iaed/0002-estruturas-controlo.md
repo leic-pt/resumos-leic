@@ -129,7 +129,7 @@ Com o `scanf()` é possível ler o input introduzido no terminal, como podes ver
 ```c
 #include <stdio.h>
 /*
- * Objectivo: vamos pedir um inteiro ao utilizador e devolver o
+ * Objetivo: vamos pedir um inteiro ao utilizador e devolver o
  * quadrado desse numero
  */
 int main () {

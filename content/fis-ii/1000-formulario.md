@@ -31,7 +31,7 @@ $h$ - Constante de Planck $= 6.626\times10^{-34} J s$ (Joules Segundo)
 
 Unidade $eV$ (eletrão-Volt) $= 1.6\times10^{-19 }J $ (Joules)
 
-O eletrão-Volt corresponde à energia ganha por 1 eletrão quando se desloca de 1 pólo positivo para 1 pólo negativo na distância de 1 metro.
+O eletrão-Volt corresponde à energia ganha por 1 eletrão quando se desloca de 1 polo positivo para 1 polo negativo na distância de 1 metro.
 
 $\epsilon_0$- Permitividade Elétrica do Espaço Livre $= 8.85 \times 10^{-12}\ C^2 \ N ^{-1} \ m^{-2} $
 
@@ -311,7 +311,7 @@ $
 \vec P = \chi \epsilon_0 \vec E
 $
 
-$P$ - Momento dipolar por unidade de Volume $\ \ \chi$ - Constante de Susceptibilidade Elétrica do Dielétrico
+$P$ - Momento dipolar por unidade de Volume $\ \ \chi$ - Constante de Suscetibilidade Elétrica do Dielétrico
 
 $
 E = \cfrac{\sigma_{pc}}{\epsilon_0} \cfrac{1}{1+ \chi}

@@ -23,11 +23,11 @@ type: content
 
 ## O Modelo de processamento humano de Card
 
-Nos anos 80, Stuart Card e alguns colegas aplicaram psicologia cognitiva a experiências com computadores - isto é, queriam resumir o comportamento humano a uma máquina, máquina essa que acabou por originar um livro fundamental: [The Psychology of Human-Computer Interaction](https://books.google.pt/books/about/The_Psychology_of_Human_Computer_Interac.html?id=iUtaDwAAQBAJ). A ideia principal deste livro era definir o cérebro humano como uma máquina de três sentidos: **visão, audição e toque** (sistema motor), ou seja definir o cérebro humano como um sistema de percepção.
+Nos anos 80, Stuart Card e alguns colegas aplicaram psicologia cognitiva a experiências com computadores - isto é, queriam resumir o comportamento humano a uma máquina, máquina essa que acabou por originar um livro fundamental: [The Psychology of Human-Computer Interaction](https://books.google.pt/books/about/The_Psychology_of_Human_Computer_Interac.html?id=iUtaDwAAQBAJ). A ideia principal deste livro era definir o cérebro humano como uma máquina de três sentidos: **visão, audição e toque** (sistema motor), ou seja definir o cérebro humano como um sistema de perceção.
 
 ![Visão, Audição e Toque](./assets/0003-visao-audicao-toque.svg#dark=3)
 
-É possível descrever o ser humano como um [humúnculo sensorial](https://i0.wp.com/static.flickr.com/47/189666992_7053137df6_m.jpg?resize=215%2C240), já que os nosso sentidos não são todos iguais. Somos mais sensíveis nas mãos e no paladar do que nas costas ou braços. Em termos de movimento, não podemos dizer que o ser humano é uma máquina sequencial de movimento: é uma **"máquina de previsão do futuro"** (acreditamos que tudo o que vamos fazer vai acontecer), visto que os nossos sentidos estão todos interligados. É por essa razão que conseguimos mudar o que estamos a ouvir, apesar do áudio não mudar, meramente porque o [movimento da boca de alguém também mudou](https://www.youtube.com/watch?v=G-lN8vWm3m0); na mesma linha, é também mais díficil identificar uma cor, dado o seu nome, se esse nome estiver escrito com uma cor diferente (como observável abaixo).
+É possível descrever o ser humano como um [humúnculo sensorial](https://i0.wp.com/static.flickr.com/47/189666992_7053137df6_m.jpg?resize=215%2C240), já que os nosso sentidos não são todos iguais. Somos mais sensíveis nas mãos e no paladar do que nas costas ou braços. Em termos de movimento, não podemos dizer que o ser humano é uma máquina sequencial de movimento: é uma **"máquina de previsão do futuro"** (acreditamos que tudo o que vamos fazer vai acontecer), visto que os nossos sentidos estão todos interligados. É por essa razão que conseguimos mudar o que estamos a ouvir, apesar do áudio não mudar, meramente porque o [movimento da boca de alguém também mudou](https://www.youtube.com/watch?v=G-lN8vWm3m0); na mesma linha, é também mais difícil identificar uma cor, dado o seu nome, se esse nome estiver escrito com uma cor diferente (como observável abaixo).
 
 ![Nomes das cores, mas coloridos com a cor errada](./assets/0003-colored-words.png#dark=2)
 
@@ -168,15 +168,15 @@ Por exemplo, é considerado mais produtivo utilizar o sistema MacOS, visto que o
 :::details[Pergunta de Exame]
 **Considere uma interface do tipo "point-and-click". Considere que tem de posicionar um alvo de dimensão 1 pixel. À luz da Lei de Fitts, diga quais são as cinco melhores posições para o alvo. Justifique.**
 
-Neste caso cado um dos quatro cantos da página é mais fácil de interagir com do que qualquer outro ponto na página, tirando o ponto onde já nos encontramos.
+Neste caso caso um dos quatro cantos da página é mais fácil de interagir com do que qualquer outro ponto na página, tirando o ponto onde já nos encontramos.
 :::
 
 ## Lei de Hick
 
-Sermos deparados com muitas escolhas pode parecer apelativo. Influencia, contudo, o nosso tempo de escolha de forma não negligenciável - é por esta razão, aliás, que os menus em restaurantes não tẽm muitas escolhas, estando divididos em entradas, prato principal e sobremesas (tal como o prato principal pode estar dividio em pratos de carne, peixe, etc.).
+Sermos deparados com muitas escolhas pode parecer apelativo. Influencia, contudo, o nosso tempo de escolha de forma não negligenciável - é por esta razão, aliás, que os menus em restaurantes não tẽm muitas escolhas, estando divididos em entradas, prato principal e sobremesas (tal como o prato principal pode estar dividido em pratos de carne, peixe, etc.).
 
 :::tip[Lei de Hick]
-Desta necessidade de haver escolha (mas em quantidades _corretas_) vem a **Lei de Hick**. Esta lei premite-nos prever o tempo para tomar uma decisão entre várias opções igualmente prováveis:
+Desta necessidade de haver escolha (mas em quantidades _corretas_) vem a **Lei de Hick**. Esta lei permite-nos prever o tempo para tomar uma decisão entre várias opções igualmente prováveis:
 
 $$
 T_{\text{decisão}} = b \times \log_{2}(n+1)
@@ -224,7 +224,7 @@ O nosso cérebro, por mais complexo que seja, precisa de organização para se o
 
 ## Lei de Weber
 
-A nossa capacidade de distinguir diferenças está relacionada de forma proporcional à intensidade do estímulo. Assim sendo, podemos calcular a diferença mínima perceptível (**_JND - just noticeable difference_** em inglês), através da seguinta fórmula:
+A nossa capacidade de distinguir diferenças está relacionada de forma proporcional à intensidade do estímulo. Assim sendo, podemos calcular a diferença mínima percetível (**_JND - just noticeable difference_** em inglês), através da seguinte fórmula:
 
 $$
 \frac{\Delta I}{I} = k
@@ -241,7 +241,7 @@ Podemos, portanto, inferir que vamos notar variações de peso iguais ou superio
 
 Ora, mas como é que a Lei de Weber se relaciona com IPM?
 
-Bem, a Lei de Weber está intrinsecamente relacionada com as **implicações de desenho** de uma aplicação - temos que ter muito cuidado com as atualiações que vamos realizando à nossa aplicação, sejam elas realçar elementos da interface (variação de tamanho, cor, entre outras) como o re-desenho de interfaces populares (incrementos menor que a constante de Weber). Não queremos que as alterações sejam um [**choque**](color:red) para o utilizador - este sente-se confortável com a aplicação, e alterações bruscas levam a uma nova aprendizagem da mesma, aprendizagem essa que pode não ser do interesse do utilizador. Temos como exemplo principal disso o _SnapChat_, que acabou por ser ultrapassado pelo _Instagram_ quando fez alterações repentinas (uma espécie de _overhaul_ à UI) que levou a que muitos utilizadores deixassem a aplicação.
+Bem, a Lei de Weber está intrinsecamente relacionada com as **implicações de desenho** de uma aplicação - temos que ter muito cuidado com as atualizações que vamos realizando à nossa aplicação, sejam elas realçar elementos da interface (variação de tamanho, cor, entre outras) como o re-desenho de interfaces populares (incrementos menor que a constante de Weber). Não queremos que as alterações sejam um [**choque**](color:red) para o utilizador - este sente-se confortável com a aplicação, e alterações bruscas levam a uma nova aprendizagem da mesma, aprendizagem essa que pode não ser do interesse do utilizador. Temos como exemplo principal disso o _SnapChat_, que acabou por ser ultrapassado pelo _Instagram_ quando fez alterações repentinas (uma espécie de _overhaul_ à UI) que levou a que muitos utilizadores deixassem a aplicação.
 
 ## Lei de Miller
 
@@ -277,8 +277,8 @@ Contudo, tal como em tudo, algo demasiado estético pode causar problemas visto 
 
 ## Regra do "Pico Final"
 
-É normal os utilizadores julgarem uma experiência com base no que sentiram no seu **"pico"** e no **final**, ao invés da totalidade da experiência, ou média de todos os momentos. Assim sendo, é necessário encarar os erros no sistema como uma oportunidade de tornar a experiência mais positiva, através de [**mensagens positivas**](color:green) e [**desenhos animados**](color:orange) que atraiam os utlizadores.
+É normal os utilizadores julgarem uma experiência com base no que sentiram no seu **"pico"** e no **final**, ao invés da totalidade da experiência, ou média de todos os momentos. Assim sendo, é necessário encarar os erros no sistema como uma oportunidade de tornar a experiência mais positiva, através de [**mensagens positivas**](color:green) e [**desenhos animados**](color:orange) que atraiam os utilizadores.
 
 ![Success screen](./assets/0003-success.png)
 
-Visto que os utilizadores recordam momentos negativos mais facilmente do que os momentos positivos, precisamos de identificar momentos em que o produto é mais útil ou apelativo e desenhar esses momentos de forma a _deliciar_ o utilizador. Temos, por exemplo, o som do _"Whoosh"_ ao enviar um email que funciona quase como um _high-five_ a dar os parabéns ao utilizador por ter termindado a sua tarefa.
+Visto que os utilizadores recordam momentos negativos mais facilmente do que os momentos positivos, precisamos de identificar momentos em que o produto é mais útil ou apelativo e desenhar esses momentos de forma a _deliciar_ o utilizador. Temos, por exemplo, o som do _"Whoosh"_ ao enviar um email que funciona quase como um _high-five_ a dar os parabéns ao utilizador por ter terminado a sua tarefa.

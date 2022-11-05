@@ -14,3 +14,7 @@ type: topLevelPage
 De momento não existem resumos de SD.  
 Procuram-se contribuidores.
 :::
+
+## Recursos
+
+- [Página da Cadeira - Fénix](https://fenix.tecnico.ulisboa.pt/disciplinas/SDis2/2022-2023/2-semestre)

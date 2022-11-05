@@ -69,7 +69,7 @@ f(x,y) = (e^x \cos y, e^x \sin y) & x,y \in \R & f:\R^2 \to \R^2 & C^1
 \end{array}
 $$
 
-Será que $f$ é inversível numa vizinhança de $(1,0)$?
+Será que $f$ é invertível numa vizinhança de $(1,0)$?
 
 Começamos então por calcular a Jacobiana de $f$, e ver se esta é nula em $(1,0)$.
 
@@ -93,7 +93,7 @@ $$
 \det Df(1,0) = e^2 \ne 0
 $$
 
-Então, pelo [**Teorema da Função Inversa**](color:green), $f$ é inversível numa vizinhança de $(1,0)$ e
+Então, pelo [**Teorema da Função Inversa**](color:green), $f$ é invertível numa vizinhança de $(1,0)$ e
 
 $$
 Df^{-1}(u,v) = \left(Df \left(f^{-1}(u,v) \right) \right)^{-1}

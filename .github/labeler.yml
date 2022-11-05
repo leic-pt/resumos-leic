@@ -24,6 +24,8 @@ cg:
   - content/cg/**/*
 comp:
   - content/comp/**/*
+der: # HACS
+  - content/der/**/*
 emd:
   - content/emd/**/*
   - content/md/**/*
@@ -43,6 +45,8 @@ iac:
   - content/iac/**/*
 iaed:
   - content/iaed/**/*
+ieco: # HACS
+  - content/ieco/**/*
 iei:
   - content/iei/**/*
 ipm:
