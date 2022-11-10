@@ -57,6 +57,8 @@ representada por um ponto em $\mathbb{R}^{n}$, e o hiperplano da regressão. As
 linhas vermelhas na figura abaixo correspondem à função de resíduos, dada pela
 diferença $|\hat{z}_i - z_i|$.
 
+<!-- TODO change to SVG -->
+
 ![Função de Resíduos](./assets/0008-residuals.png)
 
 Definimos a função do erro quadrático médio como
@@ -87,14 +89,14 @@ X =
 \begin{pmatrix}
     x_1^T \\
     x_2^T \\
-	\vdots \\
+    \vdots \\
     x_n^T \\
 \end{pmatrix}
 =
 \begin{pmatrix}
     x_{10} & x_{11} & x_{12} & \cdots & x_{1m}\\
     x_{20} & x_{21} & x_{22} & \cdots & x_{2m}\\
-	\vdots & \vdots & \vdots & \vdots & \vdots \\
+    \vdots & \vdots & \vdots & \vdots & \vdots \\
     x_{30} & x_{n1} & x_{n2} & \cdots & x_{nm}\\
 \end{pmatrix}
 \quad
@@ -102,7 +104,7 @@ z =
 \begin{pmatrix}
     z_1 \\
     z_2 \\
-	\vdots \\
+    \vdots \\
     z_n \\
 \end{pmatrix}
 $$
@@ -112,25 +114,25 @@ Assim, a regressão utiliza os pesos de modo a mapear as entradas em saídas.
 $$
 \begin{pmatrix}
     \hat{z}_1 \\
-	\vdots \\
+    \vdots \\
     \hat{z}_k \\
-	\vdots \\
+    \vdots \\
     \hat{z}_n \\
 \end{pmatrix}
 =
 \begin{pmatrix}
     1 & x_{11} & x_{12} & \cdots & x_{1m}\\
     1 & x_{21} & x_{22} & \cdots & x_{2m}\\
-	\vdots & \vdots & \vdots & \vdots & \vdots \\
+    \vdots & \vdots & \vdots & \vdots & \vdots \\
     1 & x_{n1} & x_{n2} & \cdots & x_{nm}\\
 \end{pmatrix}
 \cdot
 \begin{pmatrix}
     w_0 \\
     w_1 \\
-	\vdots \\
-	w_k \\
-	\vdots \\
+    \vdots \\
+    w_k \\
+    \vdots \\
     w_n \\
 \end{pmatrix}
 $$
@@ -148,7 +150,12 @@ igualando-o a 0. Definido a matriz $X$ como a _design matrix_, chegamos a uma
 solução fechada para o vetor de pesos, $w$.
 
 $$
-\nabla E[w] = \nabla \left(\frac{1}{2} \cdot \| z - \hat{z} \|^2\right) = \nabla \left(\frac{1}{2} \cdot \|z - X \cdot w\|^2\right) = \nabla \left(\frac{1}{2} \cdot (z - X \cdot w)^T \cdot (z - X \cdot w)\right) = 0
+\begin{aligned}
+\nabla E[w] &= \nabla \left(\frac{1}{2} \cdot \| z - \hat{z} \|^2\right)\\
+& = \nabla \left(\frac{1}{2} \cdot \|z - X \cdot w\|^2\right)\\
+& = \nabla \left(\frac{1}{2} \cdot (z - X \cdot w)^T \cdot (z - X \cdot w)\right)\\
+& = 0
+\end{aligned}
 $$
 
 $$
@@ -185,25 +192,25 @@ Assim, realizamos a regressão com a nova _design matrix_.
 $$
 \begin{pmatrix}
     \hat{z}_1 \\
-	\vdots \\
+    \vdots \\
     \hat{z}_k \\
-	\vdots \\
+    \vdots \\
     \hat{z}_n \\
 \end{pmatrix}
 =
 \begin{pmatrix}
     \phi_{11} & \phi_{12} & \cdots & \phi_{1m}\\
     \phi_{21} & \phi_{22} & \cdots & \phi_{2m}\\
-	\vdots & \vdots & \vdots & \vdots \\
+    \vdots & \vdots & \vdots & \vdots \\
     \phi_{n1} & \phi_{n2} & \cdots & \phi_{nm}\\
 \end{pmatrix}
 \cdot
 \begin{pmatrix}
     w_0 \\
     w_1 \\
-	\vdots \\
-	w_k \\
-	\vdots \\
+    \vdots \\
+    w_k \\
+    \vdots \\
     w_n \\
 \end{pmatrix}
 $$
@@ -317,6 +324,8 @@ O termo de regularização $\lambda$ descreve o quociente de duas variâncias.
 $$
 \lambda = \frac{\sigma_\text{posterior}^2}{\sigma_\text{prior}^2}
 $$
+
+<!-- TODO change to SVG -->
 
 ![Comparação de Modelos com e sem Regularização](./assets/0008-regularization.png)
 
