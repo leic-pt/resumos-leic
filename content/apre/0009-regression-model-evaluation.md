@@ -27,17 +27,24 @@ função de erro, também conhecida por _loss function_. Estas funções de erro
 calculadas no conjunto de teste, e é computada a sua média e desvio padrão em
 cada um dos _folds_, no caso de se utilizar validação cruzada.
 
-Algumas medidas de erro são
+Algumas medidas de erro são:
 
-$$
-\text{MAE}(\hat{z}, z) = \frac{1}{n} \sum_{i=1}^{n} |z_i - \hat{z}_i| \quad \text{ mean absolute error}\\
-\text{RMSE}(\hat{z}, z) = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (z_i - \hat{z}_i)^2} \quad \text{ root mean square error}\\
-\text{MAPE}(\hat{z}, z) = \frac{1}{n} \sum_{i=1}^{n} \left|\frac{z_i - \hat{z}_i}{zi}\right| \quad \text{ mean absolute percentage error}
-$$
+- _Mean Absolute Error_ (MAE)
+  $$
+  \text{MAE}(\hat{z}, z) = \frac{1}{n} \sum_{i=1}^{n} |z_i - \hat{z}_i|
+  $$
+- _Root Mean Square Error_ (RMSE)
+  $$
+  \text{RMSE}(\hat{z}, z) = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (z_i - \hat{z}_i)^2}
+  $$
+- _Mean Absolute Percentage Error_ (MAPE)
+  $$
+  \text{MAPE}(\hat{z}, z) = \frac{1}{n} \sum_{i=1}^{n} \left|\frac{z_i - \hat{z}_i}{zi}\right|
+  $$
 
 ## Análise de Resíduos
 
-À quantidade $z_i - \hat{z}_i$ dá-se o nome de resíduo. A sua análise,
+À quantidade $z_i - \hat{z}_i$ dá-se o nome de resíduo (_residue_). A sua análise,
 tipicamente através de um _scatter plot_ por cada um dos atributos, pode ser
 útil para identificar a presença de _learning biases_, onde existe uma
 tendência para um padrão ou comportamento particular.
@@ -80,6 +87,8 @@ expressivo suficiente. É considerado um erro de aproximação.
 A segunda componente, a variância, é descrita pela inadequação da informação
 presente nos dados de treino sobre a função geradora. É considerado um erro de
 estimação.
+
+<!-- TODO change to SVG -->
 
 ![Bias e Variância](./assets/0009-bias-variance.png)
 
