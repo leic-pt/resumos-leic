@@ -99,7 +99,7 @@ vezes apenas podemos escolher um. Mas qual escolher? Este é problema da
 modelos em questão, com o objetivo de encontrar aquele que, de facto, melhor se
 adapta aos dados.
 
-### Matriz de Confusão
+### Matriz de Confusão (_Confusion Matrix_)
 
 Considere-se um modelo de classificação $M: A \mapsto C$, como uma função que
 mapeia um conjunto de variáveis a um rótulo ou classe.
@@ -111,6 +111,8 @@ representada numa matriz de confusão. Cada linha da matriz representa as
 colunas da matriz representam as **classes atribuídas pelo modelo**, durante o
 processo de classificação.
 
+<!-- TODO Replace with SVG -->
+
 ![Matriz de Confusão](./assets/0004-confusion-matrix.png)
 
 ### Exatidão e Erro
@@ -119,12 +121,15 @@ A partir da informação representada na matriz de confusão, podemos definir
 algumas medidas importantes.
 
 $$
-\text{Accuracy} = \frac{\text{TP} + \text{TN}}{\text{TP} + \text{FP} + \text{TN} + \text{FN}} \\
+\text{Accuracy} = \frac{\text{TP} + \text{TN}}{\text{TP} + \text{FP} + \text{TN} + \text{FN}}
+$$
+
+$$
 \text{Error} = 1 - \text{accuracy} = \frac{\text{FP} + \text{FN}}{\text{TP} + \text{FP} + \text{TN} + \text{FN}}
 $$
 
 A análise destas métricas, sem outros dados, constitui alguns problemas. A
-exatidão **não** indica qual o tipo de erro mais frequente (falsos positivos ou
+exatidão (_accuracy_) **não** indica qual o tipo de erro mais frequente (falsos positivos ou
 falsos negativos), que em muitos domínios precisam de ser diferenciados. Além
 disso, a exatidão é enviesada para um valor maior se o conjunto de treino for
 constituído maioritariamente por observações pertences a uma das classes.
@@ -134,16 +139,23 @@ constituído maioritariamente por observações pertences a uma das classes.
 De modo a solucionar os problemas descritos acima, introduzem-se mais medidas.
 
 $$
-\text{Recall} = \frac{\text{TP}}{\text{TP} + \text{FN}} \\
-\text{Specificity} = \frac{\text{TN}}{\text{TN} + \text{FP}} \\
-\text{Precision} = \frac{\text{TP}}{\text{TP} + \text{FP}}
+\smartcolor{orange}{\text{Recall}} = \frac{\text{TP}}{\text{TP} + \text{FN}}
 $$
 
-O _recall_ ou _sensitivity_ indica a **percentagem de observações positivas
-classificadas como positivas**. O _fallout_ ou _specificity_ indica a
-**percentagem de observações negativas classificadas como negativas**. A
-_precision_ indica a **percentagem de observações positivas entre as
-observações classificadas como positivas**.
+$$
+\smartcolor{yellow}{\text{Specificity}} = \frac{\text{TN}}{\text{TN} + \text{FP}}
+$$
+
+$$
+\smartcolor{green}{\text{Precision}} = \frac{\text{TP}}{\text{TP} + \text{FP}}
+$$
+
+O [_recall_](color:orange) ou [_sensitivity_](color:orange) indica a
+**percentagem de observações positivas classificadas como positivas**.  
+O [_fallout_](color:yellow) ou [_specificity_](color:yellow) indica a
+**percentagem de observações negativas classificadas como negativas**.  
+A [_precision_](color:green) indica a
+**percentagem de observações positivas entre as observações classificadas como positivas**.
 
 Um elevado valor de _recall_ sem uma boa _precision_ não nos dá confiança
 acerca da qualidade da classificação. É possível obter um elevado valor de
@@ -169,6 +181,8 @@ $$
 Na maior parte das tarefas de classificação, existem mais do que duas classes.
 Nesses casos, podemos extender o conceito da matriz de confusão para
 classificações não binárias.
+
+<!-- TODO Replace with SVG -->
 
 ![Matriz de Confusão Não Binária](./assets/0004-confusion-matrix-non-binary.png)
 
