@@ -19,7 +19,7 @@ type: content
 
 ## O que são Árvores de Decisão?
 
-As árvores de decisão são um modelo de decisão original do _machine learning_
+As árvores de decisão (_decision trees_) são um modelo de decisão original do _machine learning_
 simbólico. Estas são representadas por um **grafo sem ciclos**, onde um nó
 representa um **teste a um valor assumido por uma variável**. Assim, cada nó
 corresponde a uma proposição lógica. Cada nó tem tantas arestas, ou ramos,
@@ -27,6 +27,8 @@ quantos os valores a variável pode assumir. Os nós terminais são **folhas** e
 representam os valores assumidos pela variável de destino, a classe. Cada ramo
 pode ser visto como uma conjunção de proposições, daí a sua origem no _machine
 learning_ simbolista.
+
+<!-- TODO Replace with SVG -->
 
 ![Árvore de Decisão](./assets/0005-decision-tree.png)
 
@@ -103,7 +105,7 @@ $$
 I(x) = \sum_{x \in X} p(x) \times I_x = - \sum_{x \in X} p(x) \times \log_2{(p(x))}
 $$
 
-### Ganho de Informação
+### Ganho de Informação (_Information Gain_)
 
 O ganho de informação permite-nos escolher qual a próxima variável a considerar
 na construção de uma árvore de decisão.
