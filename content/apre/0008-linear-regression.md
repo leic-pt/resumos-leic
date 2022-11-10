@@ -59,7 +59,7 @@ diferença $|\hat{z}_i - z_i|$.
 
 <!-- TODO change to SVG -->
 
-![Função de Resíduos](./assets/0008-residuals.png)
+![Função de Resíduos](./assets/0008-residuals.png#dark=3)
 
 Definimos a função do erro quadrático médio como
 
@@ -234,7 +234,9 @@ com menor poder expressivo, limitado, consegue lidar melhor com a presença de
 _outliers_. Assim a escolha de um polinómio com a complexidade certa (não muito
 baixa, nem demasiado alta) é essencial para evitar o problema de _overfitting_.
 
-![Escolha da Complexidade do Modelo](./assets/0008-model-selection.png)
+<!-- TODO change to SVG -->
+
+![Escolha da Complexidade do Modelo](./assets/0008-model-selection.png#dark=3)
 
 ## Regressão Bayesiana
 
@@ -327,7 +329,7 @@ $$
 
 <!-- TODO change to SVG -->
 
-![Comparação de Modelos com e sem Regularização](./assets/0008-regularization.png)
+![Comparação de Modelos com e sem Regularização](./assets/0008-regularization.png#dark=3)
 
 ### Regressão de Lasso
 

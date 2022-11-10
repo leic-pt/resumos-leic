@@ -90,7 +90,7 @@ estimação.
 
 <!-- TODO change to SVG -->
 
-![Bias e Variância](./assets/0009-bias-variance.png)
+![Bias e Variância](./assets/0009-bias-variance.png#dark=3)
 
 Os bons modelos conseguem um balanço entre estas duas componentes. Um modelo
 com elevado poder expressivo mas com uma amostra de treino limitada consegue um

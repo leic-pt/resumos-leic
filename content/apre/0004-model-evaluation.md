@@ -113,7 +113,7 @@ processo de classificação.
 
 <!-- TODO Replace with SVG -->
 
-![Matriz de Confusão](./assets/0004-confusion-matrix.png)
+![Matriz de Confusão](./assets/0004-confusion-matrix.png#dark=4)
 
 ### Exatidão e Erro
 
@@ -184,7 +184,7 @@ classificações não binárias.
 
 <!-- TODO Replace with SVG -->
 
-![Matriz de Confusão Não Binária](./assets/0004-confusion-matrix-non-binary.png)
+![Matriz de Confusão Não Binária](./assets/0004-confusion-matrix-non-binary.png#dark=4)
 
 As medidas tomam agora valores por classe: a classe principal é vista como
 positiva, enquanto que as restantes são vistas como negativas.
