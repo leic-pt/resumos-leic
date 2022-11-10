@@ -22,7 +22,7 @@ memorizar o conjunto das observações, daí o termo _lazy learning_.
 
 ## Classificador K-Nearest Neighbors
 
-Este classificador, também conhecido for KNN, perante um novo objeto, começa
+Este classificador, também conhecido por KNN, perante um novo objeto, começa
 por procurar os $k$ registos mais semelhantes a este novo objeto, entre os
 objetos já conhecidos. Analisando os rótulos desses $k$ objetos, o novo objeto
 seria classificado com o rótulo apresentado pela maioria dos objetos
@@ -140,6 +140,8 @@ acima da diferença de idades. Para tal, normalizam-se os dados de modo a tornar
 estas diferenças mais próximas. O salário poderia ser representado então pelo
 número de milhares de unidades monetárias por ano.
 
+<!-- TODO change to SVG -->
+
 ![Diferentes Escalas](./assets/0007-different-scales.png)
 
 ### Variáveis Redundantes
@@ -149,6 +151,8 @@ outras. No exemplo abaixo, as variáveis _income_ e _job_, depois de
 normalizadas, apresentam a mesma informação. A presença de variáveis
 redundantes atribui mais peso a essas mesmas variáveis do que às outras,
 dificultando a discriminação entre os objetos.
+
+<!-- TODO change to SVG -->
 
 ![Variáveis Redundantes](./assets/0007-redundant-variables.png)
 
