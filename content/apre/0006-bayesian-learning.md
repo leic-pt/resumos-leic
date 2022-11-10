@@ -33,10 +33,10 @@ P(A \mid B) = \frac{P(B \mid A) \times P(A)}{P(B)}
 $$
 
 Damos a $A$ o nome de **crença** e a $B$ o nome de **evidência**. A
-probabilidade de A é denominada _prior_, pois se refere à probabilidade antes
+probabilidade de $A$ é denominada [_prior_](color:yellow), pois se refere à probabilidade antes
 da evidência ser obtida, e a probabilidade condicionada $P(A \mid B)$
-denomina-se _posterior_, pois é obtida depois da evidência se confirmar. À
-probabilidade $P(B \mid A)$ dá-se o nome de _likelihood_.
+denomina-se [_posterior_](color:green), pois é obtida depois da evidência se confirmar. À
+probabilidade $P(B \mid A)$ dá-se o nome de [_likelihood_](color:blue).
 
 ## Lei da Probabilidade Total
 
