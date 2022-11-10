@@ -53,7 +53,7 @@ Para tal, calculam-se os valores próprios da matriz de covariância, $\Sigma$
 ($k$ por $k$), através da equação abaixo.
 
 $$
-det(\Sigma - \lambda I) = 0
+\op{det}(\Sigma - \lambda I) = 0
 $$
 
 Obtidos os $k$ valores próprios da matriz $\Sigma$, procede-se ao cálculo dos
@@ -102,7 +102,9 @@ contando com o primeiro vetor. Este padrão continua para os $N$ vetores
 próprios. É de notar que os valores próprios são todos perpendiculares entre
 si.
 
-![Variância explicada pelos vetores próprios](./assets/0012-variance.png)
+<!-- TODO change to SVG -->
+
+![Variância explicada pelos vetores próprios](./assets/0012-variance.png#dark=3)
 
 As componentes principais correspondem aos vetores próprios normalizados. A
 i-ésima componente principal corresponde ao vetor próprio normalizado, cujo
@@ -118,7 +120,9 @@ tipicamente $\geq 85\%$. A partir desse valor, são mantidas as componentes
 principais necessárias para explicar esse valor de variância. Muitas vezes, uma
 grande parte da variância é explicada por um pequeno número de componentes.
 
-![Poucas componentes explicam grande parte da variância](./assets/0012-components.png)
+<!-- TODO change to SVG -->
+
+![Poucas componentes explicam grande parte da variância](./assets/0012-components.png#dark=3)
 
 ### Critério de Kaiser
 
