@@ -159,7 +159,7 @@ através do parâmetro $\gamma_{ki}$.
 $$
 N_k = \sum_{i=1}^{N} \gamma_{ki} \\
 \mu_k = \frac{1}{N_k} \sum_{i=1}^{N} \gamma_{ki} \cdot x_i \\
-\Sigma_k = \frac{1}{N_k} \sum_{i=1}^{N} (\gamma_{ki} \cdot (x_i - \mu_k) \cdot (x_i - \mu_k)^T ) \\
+\Sigma_k = \frac{1}{N_k} \sum_{i=1}^{N} \left(\gamma_{ki} \cdot (x_i - \mu_k) \cdot (x_i - \mu_k)^T \right) \\
 \pi_k = P(c_k) = \frac{N_k}{N}
 $$
 
