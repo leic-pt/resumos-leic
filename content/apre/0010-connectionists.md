@@ -25,7 +25,9 @@ e transmitindo os resultados a outros neurónios através do amónio. Contudo, o
 sinal só é transmitido se os estímulos recebidos ultrapassarem um determinado
 valor mínimo.
 
-![Neurónio](./assets/0010-neuron.png)
+<!-- TODO remove background -->
+
+![Neurónio](./assets/0010-neuron.png#dark=3)
 
 ## Perceptron
 
@@ -86,7 +88,7 @@ equilibrar estes dois conflitos.
 1. Inicializar os pesos com valores arbitrários.
 2. Escolher um registo $x_k$.
 3. Calcular o valor de net.
-4. Calcular o valor do output = f(net), em que f é a função de ativação.
+4. Calcular o valor do output = $f$(net), em que $f$ é a função de ativação.
 5. Calcular $\Delta w$ e atualizar os pesos.
 6. Repetir a partir de 2. até não ser realizada nenhuma atualização aos pesos.
 
@@ -98,23 +100,34 @@ exemplo, este é incapaz de aprender a operação de ou exclusivo (_XOR_), pois
 não há uma linha no plano que separe as classes correspondentes aos valores
 lógicos V e F.
 
-![Perceptron de Operações Lógicas](./assets/0010-logical-operations-perceptron.png)
+<!-- TODO change to SVG -->
+
+![Perceptron de Operações Lógicas](./assets/0010-logical-operations-perceptron.png#dark=3)
 
 ### Funções de Ativação
 
 Existem várias funções de ativação. As mais relevantes encontram-se listadas a
 seguir.
 
-$$
-\text{Sign Function:} \quad
-f(x) = \begin{cases}
-    1 & \text{se } x \geq 0 \\
-    0 & \text{se } x < 0
-\end{cases} \\
-\text{Sigmoid Function:} \quad f(x) = \frac{1}{1 + e^{-ax}} \\
-\text{Hyperbolic Tangent:} \quad f(x) = \frac{1 - e^{-2x}}{1 + e^{-2x}} \\
-\text{Softmax:} \quad f(x_i) = \frac{e^{x_i}}{\sum\limits_{j=1}^{N} e^{x_j}}
-$$
+- _Sign Function_
+  $$
+  f(x) = \begin{cases}
+      1 & \text{se } x \geq 0 \\
+      0 & \text{se } x < 0
+  \end{cases}
+  $$
+- _Sigmoid Function_
+  $$
+  f(x) = \frac{1}{1 + e^{-ax}}
+  $$
+- _Hyperbolic Tangent_
+  $$
+  f(x) = \frac{1 - e^{-2x}}{1 + e^{-2x}}
+  $$
+- _Softmax_
+  $$
+  f(x_i) = \frac{e^{x_i}}{\sum\limits_{j=1}^{N} e^{x_j}}
+  $$
 
 ### Cross-Entropy
 
@@ -194,7 +207,9 @@ classes) e regressão.
 O objetivo passa por estimar um matrizes de pesos, $w$, de modo a minimizar uma
 função de erro $E[w]$.
 
-![Perceptron Multi Camada](./assets/0010-multi-layer-perceptron.png)
+<!-- TODO change to SVG -->
+
+![Perceptron Multi Camada](./assets/0010-multi-layer-perceptron.png#dark=3)
 
 ### Notação
 
@@ -218,7 +233,9 @@ de output, $a^{[n]}$, da camada $n$.
 Os valores de _bias_ são representados separadamente, por razões práticas, em
 vetores $b^{[n]}$, onde $n$ corresponde ao número da camada.
 
-![Notação Multi Camada](./assets/0010-multi-layer-notation.png)
+<!-- TODO change to SVG -->
+
+![Notação Multi Camada](./assets/0010-multi-layer-notation.png#dark=3)
 
 ### Forward Propagation
 
