@@ -70,19 +70,19 @@ d(x, y) \leq d(x, z) + d(z, y)
 $$
 
 As funções de distância mais utilizadas são casos particulares da chamada
-_distância de Minkowski_.
+[_distância de Minkowski_](https://en.wikipedia.org/wiki/Minkowski_distance).
 
 $$
-d(x, y) = \sqrt[n]{|x_1 - y_1|^n + |x_2 - y_2|^n + ... + |x_n - y_n|^n}
+d(x, y) = \sqrt[p]{|x_1 - y_1|^p + |x_2 - y_2|^p + ... + |x_n - y_n|^p}
 $$
 
-A distância euclidiana corresponde ao caso particular quando $n = 2$.
+A distância euclidiana corresponde ao caso particular quando $p = 2$.
 
 $$
 d(x, y) = \sqrt{|x_1 - y_1|^2 + |x_2 - y_2|^2 + ... + |x_n - y_n|^2}
 $$
 
-A distância de Manhattan corresponde ao caso particular quando $n = 1$.
+A distância de Manhattan corresponde ao caso particular quando $p = 1$.
 
 $$
 d(x, y) = |x_1 - y_1| + |x_2 - y_2| + ... + |x_n - y_n|
