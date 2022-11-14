@@ -10,11 +10,9 @@ type: content
 
 # PIB e Crescimento Económico, Inovação e Progresso Tecnológico
 
-<!--
 ```toc
 
 ```
--->
 
 :::danger[PÁGINA INCOMPLETA]
 Os conteúdos abaixo encontram-se incompletos e, possivelmente, com alguns erros.  
