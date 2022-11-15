@@ -83,8 +83,11 @@ A **quantidade de equilíbrio** é a quantidade correspondente ao preço de equi
 
 <!-- TODO Excedentes do Consumidor e Produtor -->
 
-A curva da oferta e da procura [expandem](color:green) quando se deslocam para a
-[direita](color:green) e [contraem](color:red) quando se deslocam para a [esquerda](color:red).
+A curva da oferta e da procura [expandem](color:green) quando, para um mesmo preço,
+[aumentam a quantidade](color:green) e [contraem](color:red) quando, para um mesmo
+preço, [diminuem a quantidade](color:red).
+
+<!-- TODO add gráfico bonito -->
 
 <!-- TODO Deadweight Loss (Carga Excedente) - Impostos -->
 
