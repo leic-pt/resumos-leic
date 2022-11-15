@@ -27,7 +27,7 @@ Procuram-se contribuidores.
 
 - [**Variável Fluxo**](color:pink): É uma medida ao longo de um período.  
   Um exemplo é o **rendimento**.
-- [**Variável Stock**](color:purple): É medida num instante de tempo e correspondem
+- [**Variável Stock**](color:purple): É medida num instante de tempo e corresponde
   à acumulação de variáveis fluxo.  
   Um exemplo é a **riqueza**.
 
@@ -46,6 +46,8 @@ de comprar bens e serviços ao longo do tempo.
 
 - **Taxa de juro ($r$)**: Preço de adiantar algum poder de compra no tempo.
   Quanto mais alto for $r$, mais consumo futuro temos de abdicar.
+
+<!-- TODO add discount rate, impatience -->
 
 ## Bancos
 

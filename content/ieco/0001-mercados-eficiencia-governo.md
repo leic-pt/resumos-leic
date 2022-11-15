@@ -79,9 +79,9 @@ da oferta e da procura onde as curvas da oferta e da procura
 se intercetam (tomam o mesmo valor).
 :::
 
-A **quantidade de equilíbrio** é à quantidade correspondente ao preço de equilíbrio.
+A **quantidade de equilíbrio** é a quantidade correspondente ao preço de equilíbrio.
 
-<!-- TODO Excedentes do Comsumidor e Produtor -->
+<!-- TODO Excedentes do Consumidor e Produtor -->
 
 A curva da oferta e da procura [expandem](color:green) quando se deslocam para a
 [direita](color:green) e [contraem](color:red) quando se deslocam para a [esquerda](color:red).

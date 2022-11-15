@@ -30,7 +30,7 @@ que o dinheiro já não era um fator limitante para o seu consumo.
 
 <!-- TODO efeito multiplicador -->
 
-## Propensão Marginal a Aumentar
+## Propensão Marginal a Importar
 
 De forma semelhante ao PMC, a **propensão marginal a importar** (PMI) é
 a fração de cada unidade adicional de rendimento que é gasta em importações.

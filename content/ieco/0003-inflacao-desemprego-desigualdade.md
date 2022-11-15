@@ -38,7 +38,7 @@ Corresponde ao nível de preços para a produção doméstica e pode ser calcula
 através de:
 
 $$
-\text{Deflator do PIB} = \frac{\text{PIB Nominal}}{\text{PIB Real}}
+\text{Deflator do PIB} = \frac{\text{PIB Nominal}}{\text{PIB Real}} \times 100
 $$
 
 Conceitos-chave:
