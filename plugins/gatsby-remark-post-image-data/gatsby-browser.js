@@ -1,6 +1,8 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', swapAlreadyLoadedObjects);
+
+const swapAlreadyLoadedObjects = () => {
   document.querySelectorAll(`object[type="image/svg+xml"]`).forEach(swapObjectByInlineSvg);
-});
+};
 
 /**
  * Chromium did not want to correctly load MathJax inside the draw.io SVGs
@@ -33,4 +35,5 @@ const swapObjectByInlineSvg = async (el) => {
   el.parentElement.removeChild(el);
 };
 
+swapAlreadyLoadedObjects();
 window.swapObjectByInlineSvg = swapObjectByInlineSvg;
