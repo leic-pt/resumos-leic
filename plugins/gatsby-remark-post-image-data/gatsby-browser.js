@@ -1,5 +1,3 @@
-document.addEventListener('DOMContentLoaded', swapAlreadyLoadedObjects);
-
 const swapAlreadyLoadedObjects = () => {
   document.querySelectorAll(`object[type="image/svg+xml"]`).forEach(swapObjectByInlineSvg);
 };
@@ -35,5 +33,6 @@ const swapObjectByInlineSvg = async (el) => {
   el.parentElement.removeChild(el);
 };
 
+document.addEventListener('DOMContentLoaded', swapAlreadyLoadedObjects);
 swapAlreadyLoadedObjects();
 window.swapObjectByInlineSvg = swapObjectByInlineSvg;
