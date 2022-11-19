@@ -197,7 +197,7 @@ years:
 ## Como Contribuir?
 
 Se estás a pensar contribuir para os Resumos LEIC, fizemos um guia passo a passo só para ti!
-Vai à [nossa documentação para aprenderes tudo o que precisas](https://leic-pt.github.io/docs/).
+Vai à [nossa documentação para aprenderes tudo o que precisas](https://docs.leic.pt/).
 
 ### Contribuidores
 
@@ -250,7 +250,7 @@ Todo o conteúdo escrito disponível neste site é dado por contribuidores (list
 Alguns anexos podem ter sido cedidos por professores, após obter a respetiva permissão.  
 Visto que algum do conteúdo pode estar incorreto, incompleto e/ou desatualizado,
 usa este site _at your own risk_.  
-Como sempre, se encontrares algum erro, podes e deves [contribuir](https://leic-pt.github.io/docs)!
+Como sempre, se encontrares algum erro, podes e deves [contribuir](https://docs.leic.pt)!
 
 Questões relacionadas com _copyright_ deverão ser encaminhadas para [resumos@leic.pt](mailto:resumos@leic.pt).
 :::

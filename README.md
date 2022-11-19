@@ -6,7 +6,7 @@ do curso de LEIC-A no Instituto Superior Técnico. Qualquer contribuição é be
 ## Como contribuir?
 
 Se estás a pensar contribuir para os Resumos LEIC, fizemos um guia passo a passo só para ti!
-Vai à [nossa documentação para aprenderes tudo o que precisas](https://leic-pt.github.io/docs/).
+Vai à [nossa documentação para aprenderes tudo o que precisas](https://docs.leic.pt/).
 
 Se já percebes do assunto e apenas queres instruções rápidas, segue os passos abaixo.
 
