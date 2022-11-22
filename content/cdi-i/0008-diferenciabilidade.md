@@ -416,7 +416,7 @@ $$
 f'(x_0)=\bigg(\prod^n_{k=1}f_k\bigg)'(x_0)=\sum_{k=1}^n\bigg(f'_k(x_0)\prod_{j=1,j\ne k}^n f_j(x_0)\bigg)
 $$
 
-Resumidamente, o que a expressão acima simboliza é que, a derivada de um produto com $n$ factores é uma soma de $n$ termos em que em cada um deles se deriva só um dos factores, mantendo os restantes inalterados.
+Resumidamente, o que a expressão acima simboliza é que, a derivada de um produto com $n$ fatores é uma soma de $n$ termos em que em cada um deles se deriva só um dos fatores, mantendo os restantes inalterados.
 
 $$
 (f\cdot g\cdot h)'(x_0)=f'(x_0)\cdot g(x_0)\cdot h(x_0)+f(x_0)\cdot g'(x_0)\cdot h(x_0)+f(x_0)\cdot g(x_0)\cdot h'(x_0)
@@ -477,7 +477,7 @@ Neste exemplo usou-se a regra de derivação da potência.
 
 [**Exemplo 2**](color:orange)
 
-Apresenta-se, agora, um exemplo em que é necessário aplicar directamente o teorema da composta. Seja $g$ uma função diferenciável na origem e $f$ a função definida numa vizinhança do ponto 1 por
+Apresenta-se, agora, um exemplo em que é necessário aplicar diretamente o teorema da composta. Seja $g$ uma função diferenciável na origem e $f$ a função definida numa vizinhança do ponto 1 por
 
 $$
 f(x) = g(x^3 − 2x + 1).
@@ -635,7 +635,7 @@ Seja $f$ uma função regular num intervalo $[a,b]$ tal que $f(a)=f(b)$. Então,
 
 ![Teorema de Rolle](./assets/0008-rolle.png)
 
-Este teorema garante que existe pelo menos um ponto c, no entanto, se a função for constante, por exemplo, existem infinitos pontos que satifazem esta condição.
+Este teorema garante que existe pelo menos um ponto c, no entanto, se a função for constante, por exemplo, existem infinitos pontos que satisfazem esta condição.
 
 Este teorema pode ser usado para algo bastante mais útil: podemos afirmar que, entre dois zeros consecutivos de $f'$, existe, no máximo, um zero de $f$.
 
@@ -654,14 +654,14 @@ $$
 f'(x) = 6x^2 + 30x + 36 = 6(x^2 + 5x + 6)
 $$
 
-Recorrendo à factorização do polinómio do segundo grau conclui-se que $f'$ tem exactamente dois zeros, nos pontos −2 e −3. Como $f(- \infty) = −\infty , f(−3) < 0 , f(−2) < 0 \text{ e } f(+\infty) = +\infty$ , a aplicação do Teorema de Rolle diz que existem:
+Recorrendo à fatorização do polinómio do segundo grau conclui-se que $f'$ tem exatamente dois zeros, nos pontos −2 e −3. Como $f(- \infty) = −\infty , f(−3) < 0 , f(−2) < 0 \text{ e } f(+\infty) = +\infty$ , a aplicação do Teorema de Rolle diz que existem:
 
 - no máximo, um zero no intervalo $] − \infty, −3[$;
 - no máximo, um zero no intervalo $] − 3, −2[$;
 - no máximo, um zero no intervalo $] − 2, +\infty[$.  
   Usando, agora, o TVI em conjunto com o Teorema de Rolle verifica-se que, para uma função que tem no máximo um zero num intervalo, esse zero existe se e só se a função troca de sinal nos extremos do intervalo. Conclui-se, então, que não existe nenhum zero nos dois primeiros intervalos pelo que a função só tem um zero e ele se encontra no intervalo $] − 2, + \infty[$.
 
-Como é evidente que $f(0) > 0$, pode até afirmar-se que o único zero de $f$ se encontra no intervalo $] − 2, 0[$, usando exactamente o mesmo raciocínio. Se fosse necessário mais precisão na colocação do zero poder-se-ia aplicar o método da bissecção, já apresentado, para diminuir o comprimento do intervalo onde ele se encontra.  
+Como é evidente que $f(0) > 0$, pode até afirmar-se que o único zero de $f$ se encontra no intervalo $] − 2, 0[$, usando exatamente o mesmo raciocínio. Se fosse necessário mais precisão na colocação do zero poder-se-ia aplicar o método da bissecção, já apresentado, para diminuir o comprimento do intervalo onde ele se encontra.  
 Verificou-se, assim, que o Teorema de Rolle pode revelar-se uma ferramenta crucial na determinação do número de zeros de uma função, bem como na localização desses zeros.
 
 :::
@@ -747,7 +747,7 @@ O que é uma aproximação bastante boa, visto que o valor de $\sqrt{102}\approx
 - Se $f$ é contínua em $[a,a+r[$ e diferenciável em $]a,a+r[$ para algum $r\in\R^+$, e, para além disso, existe $f'(a^+)$, então existe $f'_d(a)$.
   No entanto, pode existir $f'_d(a)$ sem existir $f'(a^+)$.
   O mesmo se aplica para a derivada lateral à esquerda.
-- Se $f$ é contínua num intevalo $]a,b[\ni c$ e diferenciável em $]a,b[\backslash\{c\}$, se existir o limite de $f'$ quando $x\rightarrow c$ por valores $x \ne c$ então $f$ é diferenciável em $c$ e $f'$ é contínua em $c$.
+- Se $f$ é contínua num intervalo $]a,b[\ni c$ e diferenciável em $]a,b[\backslash\{c\}$, se existir o limite de $f'$ quando $x\rightarrow c$ por valores $x \ne c$ então $f$ é diferenciável em $c$ e $f'$ é contínua em $c$.
 - Se $f$ é diferenciável numa vizinhança de $x_0$ e
   $$
   \lim_{x\rightarrow x_0}\frac{f'(x)}{(x-x_0)^n}=0

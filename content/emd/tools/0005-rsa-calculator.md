@@ -16,5 +16,5 @@ Qualquer uso desta ferramenta em testes, exames ou outro tipo de avaliações é
 Abaixo encontra-se uma calculadora passo a passo para encriptação e desencriptação RSA.
 
 A calculadora usa sempre $M$ como o valor conhecido e $R$ como o valor a descobrir.  
-No entando, no processo de desencriptação deve-se trocar, isto é, o $M$ deveria ser o valor
+No entanto, no processo de desencriptação deve-se trocar, isto é, o $M$ deveria ser o valor
 a descobrir e o $R$ o valor conhecido.

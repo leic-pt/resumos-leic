@@ -64,7 +64,7 @@ $$
 \lim_{x\to+\infin}\frac{f(x)}x=m_+\in\R\quad,\quad\lim_{x\to+\infin}\big[f(x)-mx\big]=b_+\in\R
 $$
 
-Também se diz, nesse caso, que a reta descreve o comportamente assintótico de $f$ quando ${x\to+\infin}$.
+Também se diz, nesse caso, que a reta descreve o comportamento assintótico de $f$ quando ${x\to+\infin}$.
 
 Define-se de modo equivalente uma [assíntota não vertical](color:orange) [à esquerda](color:green) de $f$, ${y=m_{-}x+b_{-}}$.
 
@@ -72,7 +72,7 @@ Define-se de modo equivalente uma [assíntota não vertical](color:orange) [à e
 
 Pela unicidade do limite, existe **no máximo**, uma [assíntota não vertical](color:orange) [à esquerda](color:green) e uma [assíntota não vertical](color:orange) [à direita](color:yellow).
 
-### Assíntotas Não Retílineas
+### Assíntotas Não Retilíneas
 
 :::warning
 Este tipo de assíntotas é conhecimento extra que não será avaliado.
@@ -131,7 +131,7 @@ $$
 f'_d(2) = \lim_{x\to 2^+} \frac{f(x) − f(2)}{x - 2} = \lim_{x \to 2^+} \frac{\sqrt{x(x-2)}}{x-2} = \lim_{x \to 2^+} \sqrt{\frac{x}{x-2}} = +\infty.
 $$
 
-Para calcular $f'_e$ usando a definição ter-se-ia que fazer algo semelhante mas tendo cuidado com o passar $x$ para dentro da raiz que daria origem ao aparecimento de um sinal negativo no exterior da raíz,
+Para calcular $f'_e$ usando a definição ter-se-ia que fazer algo semelhante mas tendo cuidado com o passar $x$ para dentro da raiz que daria origem ao aparecimento de um sinal negativo no exterior da raiz,
 
 $$
 f'_e(0) = \lim_{x\to 0^-} \frac{f(x) - f(0)}{x - 0} = \lim_{x \to 0^-} \frac{\sqrt{x(x-2)}}{x} = \lim_{x \to 0^-} - \sqrt{\frac{x-2}{x}} = - \infty.

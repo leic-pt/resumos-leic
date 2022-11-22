@@ -34,7 +34,7 @@ module.exports = {
         website: 'https://diogotc.com',
       },
       githubLink: 'https://github.com/leic-pt/resumos-leic',
-      contributionGuideLink: 'https://leic-pt.github.io/docs',
+      contributionGuideLink: 'https://docs.leic.pt',
       contributorsLink: 'https://github.com/leic-pt/resumos-leic/graphs/contributors',
       vercelLink: 'https://vercel.com/?utm_source=leic-pt&utm_campaign=oss',
     },
@@ -69,6 +69,7 @@ module.exports = {
               quality: 80,
             },
           },
+          `gatsby-remark-copy-linked-files`,
           `gatsby-remark-post-image-data`,
           `gatsby-remark-directive`,
           {
@@ -78,7 +79,7 @@ module.exports = {
               strict: `ignore`,
               macros: {
                 '\\d': '\\mathop{}\\!\\mathrm d',
-                '\\1': '1\\!\\!1',
+                '\\1': '1\\kern-0.25em\\text{l}',
                 '\\Q': '\\mathbb{Q}',
                 '\\C': '\\mathbb{C}',
                 '\\car': '\\operatorname{car}',
@@ -110,9 +111,48 @@ module.exports = {
             resolve: `gatsby-remark-prismjs`,
             options: {
               noInlineHighlight: true,
+              languageExtensions: [
+                {
+                  language: 'mips-asm',
+                  definition: {
+                    comment: {
+                      pattern: /#.*$/m,
+                      greedy: true,
+                    },
+                    string: {
+                      pattern: /(["'`])(?:\\.|(?!\1)[^\\\r\n])*\1/,
+                      greedy: true,
+                    },
+                    register: {
+                      pattern:
+                        /([\s\(]|^)(?:\$(?:zero|at|v[01]|a[0123]|t\d|s[01234567]|k[01]|[gsf]p|ra))\b/i,
+                      lookbehind: true,
+                      alias: ['variable'],
+                    },
+                    instruction: {
+                      pattern:
+                        /\b(?:addi?|sub|[ls]w|l[hb]u?|s[hb]|ll|sc|lui|andi?|ori?|nor|s[rl]l|beq|bne|slti?u?|jr?|jal)\b/i,
+                      alias: ['keyword'],
+                    },
+                    number: {
+                      pattern: /(^|[^\w-])(?:0b[01]+|0x[a-f0-9]+|-?\d+)\b/,
+                      lookbehind: true,
+                    },
+                    label: {
+                      pattern: /(^\s*)[A-Za-z._?$][\w.?$@~#]*:/m,
+                      lookbehind: true,
+                      alias: ['function'],
+                    },
+                    directive: {
+                      pattern: /\b[A-Za-z._?$][\w.?$@~#]*\b/,
+                      alias: ['property'],
+                    },
+                    punctuation: /[(),:]/,
+                  },
+                },
+              ],
             },
           },
-          `gatsby-remark-copy-linked-files`,
           `gatsby-remark-autolink-headers`,
           `gatsby-remark-external-links`,
         ],
@@ -131,12 +171,11 @@ module.exports = {
       },
     },
     `gatsby-plugin-use-dark-mode`,
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-umami`,
       options: {
         websiteId: '711c662a-45bd-41e0-bf82-302096490211',
-        srcUrl: 'https://umami.diogotc.com/umami.js',
+        srcUrl: 'https://umami.diogotc.com/script.js',
         includeInDevelopment: false,
         autoTrack: true,
         respectDoNotTrack: true,

@@ -24,15 +24,15 @@ Alguns exemplos muito comuns de empresas que usam dark patterns são a **Amazon*
 
 > "It's like a roach motel, very easy to get into, very hard to get out of."
 
-## Especifidades dos dispositivos móveis
+## Especificidades dos dispositivos móveis
 
 :::tip[Dispositivo móvel]
 
-Corresponde a um computador de bolso habitualmente equipado com um ecrã (_ouput_) e um teclado de letras ou numérico em miniatura (_input_). Estes dispositivos possuem um sistema operacional e são capazes de suportar aplicações móveis, podendo comunicar sem fios com outros dipositivos ou pela internet.
+Corresponde a um computador de bolso habitualmente equipado com um ecrã (_output_) e um teclado de letras ou numérico em miniatura (_input_). Estes dispositivos possuem um sistema operacional e são capazes de suportar aplicações móveis, podendo comunicar sem fios com outros dispositivos ou pela internet.
 
 :::
 
-Nos dias de hoje quando nos referimos a dispositivos móveis não estamos só a falar de telemóveis. Desde de smartwatched, a _tablets_ e a _e-readers_ estamos rodeados de dipositivos com que interagimos no dia a dia e fazem parte da nossa vida.
+Nos dias de hoje quando nos referimos a dispositivos móveis não estamos só a falar de telemóveis. Desde de _smartwatches_, a _tablets_ e a _e-readers_ estamos rodeados de dispositivos com que interagimos no dia a dia e fazem parte da nossa vida.
 
 ### Diferenças de IPM para Desktop
 
@@ -40,12 +40,12 @@ Nos dias de hoje quando nos referimos a dispositivos móveis não estamos só a 
    Vendo só a diferença entre computadores e telemóveis, a diferença entre ambos já e bastante significativa. Com a junção de _smartwatches_ e _fitness bands_ entre outros dispositivos _handheld_ podemos trabalhar com tecnologias de muito menor tamanho e mais práticos.
 
 2. **Modalidades de Interação**
-   Quando olhamos para os nossos dispositivos hoje em dia conseguimos facilmente identificar diferentes maneiras de interagir com os mesmos. Sendo o toque (através do _touchscreen_) a forma de interação mais comum, também podemos adicionar à lista butões, comandos de voz, entre outros. Cada dispositivo tem uma grande incorporação destas modalidades, nunca somente uma.
+   Quando olhamos para os nossos dispositivos hoje em dia conseguimos facilmente identificar diferentes maneiras de interagir com os mesmos. Sendo o toque (através do _touchscreen_) a forma de interação mais comum, também podemos adicionar à lista botões, comandos de voz, entre outros. Cada dispositivo tem uma grande incorporação destas modalidades, nunca somente uma.
 
 :::tip[Hidden Markov Model]
 
 **Hidden Markov Models (HMMs)** representam uma classe de modelos de probabilidades gráficas que nos permitem prever uma sequência desconhecida (escondida) de variáveis a partir de um padrão de variáveis observadas.
-Este modelo pode ser utilizaado em diferentes modalidades de interação, especificamente com comandos de voz para que um dispositivo reconheça apenas a voz do seu utilizador e, caso esteja em público, ser apenas ativado pelo seu próprio utilizador.
+Este modelo pode ser utilizando em diferentes modalidades de interação, especificamente com comandos de voz para que um dispositivo reconheça apenas a voz do seu utilizador e, caso esteja em público, ser apenas ativado pelo seu próprio utilizador.
 
 :::
 
@@ -55,7 +55,7 @@ Em termos de modalidades de interações, os dispositivos móveis permitem poder
    Em relação à diferença entre UI (_User Interface_) e UX (_User Experience_), a usabilidade do utilizador e a experiência da pessoa têm um impacto muito elevado e marcam uma diferença muito acentuada entre IPM e Desktop.
 
 4. **Contexto de Utilização**
-   Um dos maiores benefícios de dispositivos móveis refere-se à sua praticidade. Podemos levar connosco estes aparelhos para locais variados, dando uma maior abertura a uma atenção dividida, visto que podemos responder logo às notificacões a partir do momento em que as recebemos, entre outros; contudo temos que ter cuidado com as restrições sociais que estes dispositivos trazem e não só.
+   Um dos maiores benefícios de dispositivos móveis refere-se à sua praticidade. Podemos levar connosco estes aparelhos para locais variados, dando uma maior abertura a uma atenção dividida, visto que podemos responder logo às notificações a partir do momento em que as recebemos, entre outros; contudo temos que ter cuidado com as restrições sociais que estes dispositivos trazem e não só.
 
 5. **Interações breves**
    Visto podermos andar com os nossos dispositivos o dia todo, não precisamos de fazer tudo o que pretendemos um aparelho tecnológico de uma só vez, e, em vez disso, podemos ter interações curtas e muito mais regulares sempre que pretendemos concluir uma tarefa.
@@ -66,11 +66,11 @@ Com os dispositivos móveis, o nosso principal objetivo não é ter uma versão 
 
 ## Interação em dispositivos móveis
 
-Em termos de dispositivos móveis, visto que a maior parte das pessoas usam apenas o polegar em _touchscreen_, a interação com o dispositivo tem que ser facilitada para tal. Visto ser difícil de alcançar com o polegar ou apenas uma mão a parte superior do ecrã, é comum entre os browsers ter a barra de pesquisa na parte superirior de modo a não estar a estrovar a experiência do utilizador (**_Reachibility_**).
+Em termos de dispositivos móveis, visto que a maior parte das pessoas usam apenas o polegar em _touchscreen_, a interação com o dispositivo tem que ser facilitada para tal. Visto ser difícil de alcançar com o polegar ou apenas uma mão a parte superior do ecrã, é comum entre os browsers ter a barra de pesquisa na parte superior de modo a não estar a estorvar a experiência do utilizador (**_Reachability_**).
 
 ### Fat Finger Problem
 
-O _Fat Finger Problem_ pode ser definido com a dificuldade que uma pessoa possa ter ao utilizar um website num ecrã táctil visto que os botões e as seccões são demasiado pequenas para a largura dos dedos. Algumas das soluções encontradas para resolver este problema referem-se a:
+O _Fat Finger Problem_ pode ser definido com a dificuldade que uma pessoa possa ter ao utilizar um website num ecrã táctil visto que os botões e as secções são demasiado pequenas para a largura dos dedos. Algumas das soluções encontradas para resolver este problema referem-se a:
 
 1. _Detached Overlay_;
 2. _Autocorrect_;
@@ -95,7 +95,7 @@ Existe um tamanho e espaçamento específico para cada dispositivo (Android, IOS
 
 Não só com dispositivos eletrónicos mas com todos os tipos de dispositivos precisamos sempre de os ir adaptando de modo a tornarem-se o mais práticos possível. Por exemplo, a invenção do relógio de pulso deveu-se aos pilotos queixarem-se da dificuldade de verem as horas ao pilotarem daí a Cartier ter inventado uma maneira mais simples de poderem ver as horas sem tirarem as mãos dos controlos.
 
-Desta mesma forma, os dispositivos móveis também se vão sempre modificando de modo a tornarem-se mais práticos de se poderem interagir com. Um dos novos métodos mais utilizados atualmente e mais focados é na possibilidade de interagir com dispositivos sem ter que okhar para eles, ou seja, poder interagir com os dispositivos **_eyes-free_**. Isto facilitaria no _multitask_ ou na falta de retorno tátil. Ao interagir com um dispositivo _eyes-free_ poderiamos ainda estar em contacto com os nossos dispositivos móveis e responder a notificações enquanto estávamos a conduzir, entre outros exemplos.
+Desta mesma forma, os dispositivos móveis também se vão sempre modificando de modo a tornarem-se mais práticos de se poderem interagir com. Um dos novos métodos mais utilizados atualmente e mais focados é na possibilidade de interagir com dispositivos sem ter que olhar para eles, ou seja, poder interagir com os dispositivos **_eyes-free_**. Isto facilitaria no _multitask_ ou na falta de retorno tátil. Ao interagir com um dispositivo _eyes-free_ poderíamos ainda estar em contacto com os nossos dispositivos móveis e responder a notificações enquanto estávamos a conduzir, entre outros exemplos.
 
 ## O Futuro
 
@@ -137,7 +137,7 @@ A quarta heurística refere-se a minimizar o fator de surpresa ou seja palavras,
 
 ### H5: Evitar erros
 
-Para um boa aplicação funcionar tem que ser difícil de cometer erros que possam ser prejudiciais, visto que melhor do que uma boa mensagem de erros. Por exemplo, o utilizador deve ser alertado se de facto quer fazer uma encomenda de 5000 livros, ou seja tem um espécie de _feeback_ para que não ocorra erros.
+Para um boa aplicação funcionar tem que ser difícil de cometer erros que possam ser prejudiciais, visto que melhor do que uma boa mensagem de erros. Por exemplo, o utilizador deve ser alertado se de facto quer fazer uma encomenda de 5000 livros, ou seja tem um espécie de _feedback_ para que não ocorra erros.
 
 ### H6: Reconhecimento em vez de lembrança
 

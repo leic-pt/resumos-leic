@@ -19,7 +19,7 @@ type: content
 
 ![Barramento](./assets/0006-perifericos.png#dark=3)
 
-Como podemos ver na imagem acima, temos um [barramento (bus)](color:pink) de daddos e de endereços que estão conectados com o processador. Este barramento represemta um meio físico de **interligação** dos vários dispositivos.
+Como podemos ver na imagem acima, temos um [barramento (bus)](color:pink) de dados e de endereços que estão conectados com o processador. Este barramento representa um meio físico de **interligação** dos vários dispositivos.
 
 A questão que se coloca é que correspondência é que faa, ou seja, liga o os processadores ao quê? Os barramentos estabelecem um acesso ao **exterior do processador**, isto visto que o processador especifica um endereço mas não sabe se é memória ou periférico.
 
@@ -31,11 +31,11 @@ Visto que as memórias e os periféricos coexistem no mesmo espaço de endereço
 
 :::details[Exercício]
 
-Supondo que temos um processador de 8 bits como o mapa de enderços abaixo, responda às seguintes questões:
+Supondo que temos um processador de 8 bits como o mapa de endereços abaixo, responda às seguintes questões:
 
 ![Exercício](./assets/0006-exercicio.png#dark=3)
 
-1. **Quantos bits deve ter no mínio o bus de endereços?**
+1. **Quantos bits deve ter no mínimo o bus de endereços?**
 
    No mínimo deve ter 24 bits.
 
@@ -51,7 +51,7 @@ Supondo que temos um processador de 8 bits como o mapa de enderços abaixo, resp
 
    Tem 8 MiB de capacidade.
 
-5. **Qual o espaço reservdo para periféricos?**
+5. **Qual o espaço reservado para periféricos?**
 
    Tem 4 KiB de espaço reservado.
 
@@ -107,7 +107,7 @@ Um computador tem normalmente vários periféricos e pode **misturar os vários 
 
 ## Periféricos de comunicação: barramentos
 
-Começamos com um exemplo: [barramentos série assíncrono](color:pink). A comunicação é **orientada ao byte**, que é serializado. O barramento está normalmente em repouso (1), quando o **emissor decide transmitir** coloca a linha a 0 durante um bit (_start bit_), envia os 8 bits do byte em sequência, envia um bit de paridade (para deteção de erros), envia de 1 a 2 _stop bits_ a 1 (para sincronização). A cadência de transmição dos bits (_[baud-rate](color:pink)_) tem de ser **aproximadamente** a mesma em todos os dispositivos no barramento (não tem de ser exatamente igual).
+Começamos com um exemplo: [barramentos série assíncrono](color:pink). A comunicação é **orientada ao byte**, que é serializado. O barramento está normalmente em repouso (1), quando o **emissor decide transmitir** coloca a linha a 0 durante um bit (_start bit_), envia os 8 bits do byte em sequência, envia um bit de paridade (para deteção de erros), envia de 1 a 2 _stop bits_ a 1 (para sincronização). A cadência de transmissão dos bits (_[baud-rate](color:pink)_) tem de ser **aproximadamente** a mesma em todos os dispositivos no barramento (não tem de ser exatamente igual).
 
 Assim, o assincronismo deriva do tempo arbitrário entre bytes. Usa-se em aplicações de [baixo ritmo de transmissão](color:pink) (sistema de controlo, por exemplo).
 

@@ -42,7 +42,7 @@ Uma das responsabilidades primárias dos gestores é definir **objetivos** que a
   nos produtos e serviços oferecidos atualmente, na área geográfica onde a empresa atua,
   nas necessidades dos clientes que estão a ser servidas e nas capacidades que a empresa possui.
 
-- [**Objetivos**](color:orange): Convertem a visão em alvos de desempenho específicos e permitem monitorar o desempenho da organização.
+- [**Objetivos**](color:orange): Convertem a visão em alvos de desempenho específicos e permitem monitorizar o desempenho da organização.
   São necessários objetivos para todos os níveis da organização, devem ser definidos através de um processo _top-down_,
   com colaboração entre níveis, de modo a garantir que os objetivos estabelecidos para níveis inferiores apoiam os objetivos dos níveis superiores.
 
@@ -122,7 +122,7 @@ Segundo este modelo, a intensidade da competição numa indústria, assim como o
    - Forte (4)
    - Muito Forte (5)
 
-3. O somatário das 5 forças (S) indica se o setor é atrativo ou não:
+3. O somatório das 5 forças (S) indica se o setor é atrativo ou não:
    - S $\approx$ 25 $\to$ Setor Não Atrativo
    - S $\approx$ 5 $\to$ Setor Atrativo
 
@@ -151,7 +151,7 @@ As atividades desenvolvidas podem ser:
 
 Uma vez feita a análise externa e interna e recolhidas as principais forças (_strengths_, S),
 fraquezas (_weaknesses_, W), oportunidades (_opportunities_, O) e ameaças (_threats_, T)
-podemos reuní-las numa matriz SWOT que serve de base à formulação de estratégias:
+podemos reuni-las numa matriz SWOT que serve de base à formulação de estratégias:
 
 ![Matriz SWOT](./assets/0006-matriz-swot.png#dark=3)
 
@@ -181,7 +181,7 @@ A matriz **BCG** pode ajudar a decidir uma estratégia possível. Esta matriz aj
 
 :::tip[Matriz BCG]
 
-- **Cash-Cow**: Setor que já não está em crescimento, mas o produto fabricado é o mais vendido (lider de mercado).
+- **Cash-Cow**: Setor que já não está em crescimento, mas o produto fabricado é o mais vendido (líder de mercado).
 
 - **Stars**: O setor está em crescimento e o seu produto é o mais vendido.
 
@@ -218,12 +218,12 @@ As opções estratégicas possíveis de internacionalização podem ser:
 
 - **Estratégia de Globalização**: Atua num mercado global, isto é, não adapta o seu produto consoante o país. Por exemplo, a _Coca-Cola_.
 
-- **Estratégia de Exportação**: Atua no mercado que não é local (exporta o produto) e o seu produto é altamente costumizado para o mercado onde vai ser vendido.
+- **Estratégia de Exportação**: Atua no mercado que não é local (exporta o produto) e o seu produto é altamente customizado para o mercado onde vai ser vendido.
 
 - **Estratégia Transnacional**: Atua no mercado global, mas adapta o seu produto consoante o país.
   Por exemplo o _McDonalds_, consoante o país, tem menus específicos para a empresa conseguir o maior lucro em cada local (Ex: McBifana em Portugal).
 
-- **Estratégia Multi-doméstica**: O mercado para cada país é único e o produto é costumizado.
+- **Estratégia Multi-doméstica**: O mercado para cada país é único e o produto é customizado.
 
 ### Estratégia ao Nível do Negócio
 

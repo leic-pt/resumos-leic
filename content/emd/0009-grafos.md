@@ -93,7 +93,7 @@ $$
 
 QED
 
-$\sum_{v \in V} \operatorname{I}(i,e)$ é 2, pois cada aresta $e$ está associada a 2 vérices.
+$\sum_{v \in V} \operatorname{I}(i,e)$ é 2, pois cada aresta $e$ está associada a 2 vértices.
 
 :::
 
@@ -331,7 +331,7 @@ A primeira inequação está provada $\checkmark$.
 
 Como estamos a tentar provar que o número de arestas tem um limite máximo, vamos ter em conta sempre os casos "máximos".
 
-Seja $k'$ uma componente do grafo em estudo. Se essa compontente tem $p'$ vértices, tem no máximo $\frac{p'(p'-1)}{2}$ arestas.
+Seja $k'$ uma componente do grafo em estudo. Se essa componente tem $p'$ vértices, tem no máximo $\frac{p'(p'-1)}{2}$ arestas.
 
 Se o grafo tem $k$ componentes, o que acontecerá se transferirmos um vértices de uma componente para outra?  
 Seja $h_1$ e $h_2$ duas componentes com $p_1, q_1$ e $p_2,q_2$, respetivamente **e** $p_1 \leq p_2$ (o que é verdade para quaisquer duas componentes, haverá com mais vértices, ou têm as duas o mesmo número).  

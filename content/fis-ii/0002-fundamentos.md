@@ -120,7 +120,7 @@ $$
 
 ## Linhas de Campo
 
-![Linhascampo](./imgs/0002-linhas-campo.jpg#dark=1)
+![Linhas de campo](./imgs/0002-linhas-campo.jpg#dark=1)
 
 Uma linha de campo é uma curva tal que em cada ponto o
 campo é tangente à curva.\
@@ -180,7 +180,7 @@ $\vec \phi = \vec\nabla \times \vec A$
 
 Onde $\vec A$ é o potencial vetorial.
 
-Assim, $\int \vec \phi \d\vec S $ para superfícies fechadas com a mesma fronteira e numa superfíce fechada o valor é sempre 0.
+Assim, $\int \vec \phi \d\vec S $ para superfícies fechadas com a mesma fronteira e numa superfície fechada o valor é sempre 0.
 
 Qualquer campo pode ser escrito na forma $\vec \phi = - \vec\nabla V + \vec\nabla \times \vec A$
 

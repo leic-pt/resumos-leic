@@ -178,7 +178,7 @@ para $x_1, x_2, \cdots, x_m \in \mathbb{N}^+$ é dado pelo coeficiente binomial 
 
 **Caso importante:** As variáveis têm domínio em $\mathbb{N}_0$ e não em $\mathbb{N}^+$.  
 Recuperemos o caso em que queremos distribuir as 10 bolas por 3 caixas, mas queremos que haja a possibilidade de haver caixas vazias.  
-Vamos usar um clever big brain trick para transformar este problema no que tinhamos anteriormente:
+Vamos usar um clever big brain trick para transformar este problema no que tínhamos anteriormente:
 Adicionamos 3 bolas ao nosso conjunto de bolas e resolvermos o nosso problema como anteriormente.
 
 $$
@@ -213,7 +213,7 @@ Conjugando estas duas técnicas acima, ficamos capazes de resolver qualquer tipo
 
 Se o que acabaste de ler te deixa confuso de alguma forma, das duas uma:
 
-1. apaga completamente esta informação da tua cabeça. O objetivo deste texto é dar intuição para este tipo de problemas que podem aparecear no teste mas não é de todo necessário saber isto. Pessoalmente isto ajuda-me a identificar a resposta mais rápido mas só vai piorar a tua situação se te deixar confuso;
+1. apaga completamente esta informação da tua cabeça. O objetivo deste texto é dar intuição para este tipo de problemas que podem aparecer no teste mas não é de todo necessário saber isto. Pessoalmente isto ajuda-me a identificar a resposta mais rápido mas só vai piorar a tua situação se te deixar confuso;
 2. se achares que há alguma coisa que podia estar melhor explicada, ou encontrares algum erro, fala comigo e eu tento melhorar isso.
 
 Caso contrário fico feliz por ajudar :)
@@ -252,7 +252,7 @@ $$
 
 ### Funções Geradoras com mais do que uma variável
 
-Pode ser algo overkill para aprender mas reparem que não há nehuma razão para uma função geradora ser só numa variável.
+Pode ser algo overkill para aprender mas reparem que não há nenhuma razão para uma função geradora ser só numa variável.
 
 Não há muito que eu posso dizer sobre isto na teoria, portanto vou só dar um exemplo:  
 No [exercício 2.2.17 da série 1](/md/exercicios/fichas-aulas-praticas),

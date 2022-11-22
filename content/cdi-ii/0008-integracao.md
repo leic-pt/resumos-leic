@@ -17,9 +17,9 @@ Um intervalo aberto de $\R^n$ é um conjunto de fatores
 
 $$I = ]a_1, b_1[ \times ]a_2, b_2[ \times \dots \times ]a_n, b_n[$$
 
-Por exemplo, em $\R^2$ são retângulos abertos, enquanto em $\R^3$ são paralelipípedos abertos
+Por exemplo, em $\R^2$ são retângulos abertos, enquanto em $\R^3$ são paralelepípedos abertos
 
-Podemos também calcular o comprimeiro, área, volume, etc através de um intervalo.
+Podemos também calcular o comprimento, área, volume, etc através de um intervalo.
 
 $$|I| = (b_1-a_1) \times (b_2-a_2)\times \dots \times (b_n-a_n)$$
 

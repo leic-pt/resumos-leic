@@ -246,7 +246,7 @@ $$
 :::
 
 Esta proposição irá ser útil porque se repararmos, isto significa que se tivermos uma matriz diagonal $J$,
-ou seja, $A$ for diagonizável, podemos facilmente descobrir o exponencial de $A$ devido às seguinte duas propriedades:
+ou seja, $A$ for diagonalizável, podemos facilmente descobrir o exponencial de $A$ devido às seguinte duas propriedades:
 
 $$
 \begin{darray}{cc}
@@ -474,7 +474,7 @@ $$
 
 #### Matrizes por Blocos
 
-Por vezes as matrizes não são diagonizáveis. Vamos ver mais à frente como podemos usar
+Por vezes as matrizes não são diagonalizável. Vamos ver mais à frente como podemos usar
 matrizes divididas em blocos para determinar as exponenciais destas matrizes.
 
 Uma matriz está dividida em blocos, se tiver blocos $n \times n$ na sua diagonal, em que todos os outros valores fora da diagonal são $0$.

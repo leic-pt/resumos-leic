@@ -36,7 +36,7 @@ Como é uma bijeção, também podemos ter a relação inversa $\operatorname{W}
 
 Usando o exemplo do `Relacionamento` entre Rapazes e Raparigas, diz-se que o par $(h,m)$, $h \in M, m \in M$, é um `Bloqueio` na lista de relacionamentos, se não pertence à lista de relacionamentos, mas $h$ preferia estar com $m$ do que com $\operatorname{L}(h)$ e $m$ preferia estar com $h$ do que com $\operatorname{W}(m)$.
 
-Uma Lista de Relacionamentos diz-se `Estável` se não existirem pares de bloqeuio em $\operatorname{L}$.
+Uma Lista de Relacionamentos diz-se `Estável` se não existirem pares de bloqueio em $\operatorname{L}$.
 
 ### Lista de Preferências
 
@@ -82,7 +82,7 @@ $$
 
 Serve para verificar se uma `Lista de Relacionamentos` é estável ou instável.
 
-O Algorimto é descrito pelo seguinte pseudo-código.
+O Algoritmo é descrito pelo seguinte pseudo-código.
 
 ![Estabilidade Pseudo](./assets/0012-pseudoEst.png#dark=3)
 
@@ -99,7 +99,7 @@ O Algorimto é descrito pelo seguinte pseudo-código.
 5. Quando um Rapariga livre recebe uma proposta, aceita e fica comprometida
 6. Quando uma Rapariga comprometida recebe nova proposta, compara o novo pretende com o namorado e escolhe ficar com o que lhe favorece mais
 7. Cada Rapaz pede namora às Raparigas seguindo a sua ordem de preferência
-8. Assim que um Rapaz é rejeitado, propõe-se imdiatamente à Rapariga seguinte na sua Lista de Preferências.
+8. Assim que um Rapaz é rejeitado, propõe-se imediatamente à Rapariga seguinte na sua Lista de Preferências.
 
 #### Pseudo-Código
 
@@ -135,14 +135,14 @@ Como nenhum rapaz se pode propor $2$ vezes à mesma Rapariga, o número máximo 
 Se o Rapaz acabou por não ficar relacionado com uma rapariga $m$, que preferia em relação à com quem ficou $\operatorname{L}(h)$, então é porque $m$ o rejeitou.  
 Se $m$ o rejeitou foi porque tinha recebido uma proposta de um pretendente que preferia, não havendo assim `Bloqueio`.
 
-Deste modo, será impossível encontrar `Bloqueios` na Lista final que resulta d eaplicar o Algoritmo.
+Deste modo, será impossível encontrar `Bloqueios` na Lista final que resulta de aplicar o Algoritmo.
 
 QED
 :::
 
 ### Exemplos da Emulação do Algoritmo
 
-No teste só poderems usar $2$ Maneiras, ambas exemplificadas abaixo.
+No teste só poderemos usar $2$ Maneiras, ambas exemplificadas abaixo.
 
 :::details[Maneira 1]
 
@@ -223,7 +223,7 @@ Todas as possíveis execuções do algoritmo de Gale-Shapley (tendo os rapazes c
 
 Sendo um `parceiro estável` de $h_0/m_0$, um $m_1/h_1$ par com $h_0/m_0$ numa dada Lista Estável.
 
-Supondo que uma certa execução $E$ do [Algoritmo de Gale-Shapley](#algoritmo-de-gale-shapley) produz um Relacionamente estável $R_0$ que inclui o par $(h,m)$.  
+Supondo que uma certa execução $E$ do [Algoritmo de Gale-Shapley](#algoritmo-de-gale-shapley) produz um Relacionamento estável $R_0$ que inclui o par $(h,m)$.  
 Imaginemos que $R_0$ não é o Relacionamento estável que mais beneficia $h$, porque existe outro Relacionamento estável $R_1 \neq R_0$, onde $h$ está relacionado com $m'$, que prefere a $m$.  
 Pelo Algoritmo, conclui-se que, numa dada iteração de $E$, $m'$ teve de rejeitar $h$ (Relembrar que os Rapazes vão se propondo às Raparigas segundo a sua preferência).  
 Supondo que essa rejeição (de $m'$ face a $h$), foi a primeira vez em que uma rapariga rejeito um `parceiro estável`, pois $m'$ preferia outro Rapaz $h'$ a $h$.

@@ -106,7 +106,7 @@ Seja $X$ o conjunto de pombos e $Y$ o conjunto de pombais. Atribuímos cada pomb
 
 :::details[Exemplo 1 - Alunos de EMD dos Slides]
 
-Prove que se selecionar 151 alunos de EMD de numeros compreendidos entre $ist199001$ e $ist199300$, inclusive, pelo menos dois alunos têm
+Prove que se selecionar 151 alunos de EMD de números compreendidos entre $ist199001$ e $ist199300$, inclusive, pelo menos dois alunos têm
 números consecutivos.
 
 ---
@@ -177,7 +177,7 @@ Sendo $k$ o número mínimo de _T_SHIRTS_ a retirar, como existem $3$ cores poss
 **(b)-5**
 
 Neste caso não podemos aplicar diretamente a [Terceira Forma do Princípio de Pombal](#terceira-forma-do-principio-do-pombal), pois o número de _T-SHIRTS_ brancas é $4$, o que significa que é impossível retirar $5$ _T-SHIRTS_ brancas do cesto.  
-Para ter a certeza que retirams $5$ _T-SHIRTS_ iguais do cesto é necessário retirar todas as $4$ _T-SHIRTS_ brancas.
+Para ter a certeza que retiramos $5$ _T-SHIRTS_ iguais do cesto é necessário retirar todas as $4$ _T-SHIRTS_ brancas.
 
 Depois de retiradas as $4$ brancas já se pode aplicar diretamente a [Terceira Forma do Princípio de Pombal](#terceira-forma-do-principio-do-pombal).  
 Das $16$ restantes queremos retirar o mínimo de _T-SHIRTS_ $k$ tal que pelo menos $5$ têm a mesma cor. Como só existem 2 cores no cesto $5 = \lceil\frac{k}{2}\rceil$, $k=9$.  

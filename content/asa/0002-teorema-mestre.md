@@ -17,7 +17,9 @@ type: content
 
 ## Notação Assimptótica
 
-A secção de IAED dos resumos sobre [esta matéria](../iaed/introducao-algoritmos#notação-assimptótica) já cobre os aspetos relevantes a abordar, ainda que relativamente superficialmente. Tentando relembrar estes conceitos de uma forma sucinta:
+A secção de IAED dos resumos sobre [esta matéria](../iaed/introducao-algoritmos#notação-assimptótica)
+já cobre os aspetos relevantes a abordar, ainda que relativamente superficialmente.
+Tentando relembrar estes conceitos de uma forma sucinta:
 
 - Majorante assimptótico:
 
@@ -27,11 +29,7 @@ A secção de IAED dos resumos sobre [esta matéria](../iaed/introducao-algoritm
 
   É o **limite assimptótico superior**, com notação $O$ - afere a complexidade no pior caso.
 
-  :::details[**Limite assimptótico superior**]
-
-  ![Limite Assimptótico Superior](./assets/0002-maj-asympt.png)
-
-  :::
+  ![Limite Assimptótico Superior](./assets/0002-maj-asympt.svg#dark=2)
 
 - Minorante assimptótico:
 
@@ -41,6 +39,8 @@ A secção de IAED dos resumos sobre [esta matéria](../iaed/introducao-algoritm
 
   É o **limite assimptótico inferior**, com notação $\Omega$ - afere a complexidade no melhor caso.
 
+  ![Limite Assimptótico Inferior](./assets/0002-min-asympt.svg#dark=2)
+
 - _Tight-band_:
 
   $$
@@ -49,13 +49,10 @@ A secção de IAED dos resumos sobre [esta matéria](../iaed/introducao-algoritm
 
   É o **limite assimptótico apertado**, com notação $\Theta$ - quando o melhor e o pior caso têm a mesma complexidade.
 
-  :::details[**Limite Assimptótico Apertado**]
+  ![Limite Assimptótico Apertado](./assets/0002-tight-asympt.svg#dark=2)
 
-  ![Limite Assimptótico Apertado](./assets/0002-tight-asympt.png)
-
-  :::
-
-Houve ainda dois [**lemas**](color:yellow) associados à notação assimptótica abordados em aula, um deles diretamente relacionado com o limite acima:
+Houve ainda dois [**lemas**](color:yellow) associados à notação assimptótica abordados
+em aula, um deles diretamente relacionado com o limite acima:
 
 :::info[Lema 1]
 
@@ -77,19 +74,20 @@ $$
 
 ---
 
-Muitas vezes, uma abordagem que permite diminuir significativamente o tempo assimptótico em que é possível resolver um problema é usar uma abordagem de [**Dividir e Conquistar**](color:orange).
+Muitas vezes, uma abordagem que permite diminuir significativamente o tempo assimptótico
+em que é possível resolver um problema é usar uma abordagem de [**Dividir e Conquistar**](color:orange).
 
 :::info[Dividir para Conquistar]
 
 Metodologia:
 
-- [**D**](color:orange)ividir o problema a resolver num conjunto de subproblemas.
+- [**D**](color:red)ividir o problema a resolver num conjunto de subproblemas.
 
-- [**R**](color:yellow)esolver (recursivamente) cada um dos subproblemas.
+- [**R**](color:green)esolver (recursivamente) cada um dos subproblemas.
 
-- [**C**](color:red)ombinar as soluções dos subproblemas para obter a solução do problema original.
+- [**C**](color:purple)ombinar as soluções dos subproblemas para obter a solução do problema original.
 
-![Dividir e Conquistar](./assets/0002-divide-conquer.png)
+![Dividir e Conquistar](./assets/0002-divide-conquer.svg)
 
 :::
 
@@ -97,7 +95,9 @@ Exemplos de problemas que têm soluções deste tipo são
 
 - Procura de um elemento numa array ordenada com [Binary Search](https://en.wikipedia.org/wiki/Binary_search_algorithm)
 - Travessia de uma árvore binária
-- Ordenação de uma array com [Merge Sort](../iaed/algoritmos-eficientes-ordenacao#merge-sort) (pode ser útil rever, foi abordado em aula). As notas do professor abordam também a complexidade temporal de cada método do Merge Sort (e a sua complexidade total)
+- Ordenação de uma array com [Merge Sort](../iaed/algoritmos-eficientes-ordenacao#merge-sort)
+  (pode ser útil rever, foi abordado em aula). As notas do professor abordam também
+  a complexidade temporal de cada método do Merge Sort (e a sua complexidade total)
 
 O Teorema Mestre oferece um método para calcular o crescimento assimptótico deste tipo de problemas.
 
@@ -124,7 +124,8 @@ $$
 As constantes $a, b$ e $d$ devem ser pensadas da seguinte forma:
 
 - Nesta solução de D&C, cada problema de tamanho $n$ divide-se em $\mathbb{a}$ problemas de tamanho $\mathbb{n/b}$;
-- $\mathbf{n^d}$ corresponde ao custo nesta solução para gerar os subproblemas, e, no fim, juntar os seus resultados (em relação a um problema de tamanho $n$).
+- $\mathbf{n^d}$ corresponde ao custo nesta solução para gerar os subproblemas, e,
+  no fim, juntar os seus resultados (em relação a um problema de tamanho $n$).
 
 :::tip[Prova]
 
@@ -140,10 +141,14 @@ No terceiro nível, dividimos cada problema em $a$ subproblemas, obtendo então 
 Cada um destes subproblemas terá dimensão $n/b^2$, pois dividimos cada problema no nível 2 $b$ vezes.
 Então, cada problema tem custo $O(\frac{n}{b^2}^d)$, pelo que a complexidade do nível todo é $a^2 O(\frac{n}{b^2}^d)$.
 
-Fica então fácil de generalizar que no nível $k$ teremos $a^k$ problemas de tamanho $\frac{n}{b^k}$ com custo pontual $O(\frac{n}{b^k}^d)$.
+Fica então fácil de generalizar que no nível $k$ teremos $a^k$ problemas de tamanho
+$\frac{n}{b^k}$ com custo pontual $O(\frac{n}{b^k}^d)$.
 
-Calcular a complexidade da nossa solução corresponde então a somar a complexidade de cada nível, até um nível da árvore em que o custo pontual é constante (neste caso assumimos que isso acontece apenas quando $n=1$).
-Para isso precisamos de saber quantas divisões temos de fazer até chegar a esse nível. A resposta é o valor $k$ tal que $\frac{n}{b^k} = 1 \Leftrightarrow k = \log_b n$.
+Calcular a complexidade da nossa solução corresponde então a somar a complexidade
+de cada nível, até um nível da árvore em que o custo pontual é constante (neste
+caso assumimos que isso acontece apenas quando $n=1$).
+Para isso precisamos de saber quantas divisões temos de fazer até chegar a esse nível.
+A resposta é o valor $k$ tal que $\frac{n}{b^k} = 1 \Leftrightarrow k = \log_b n$.
 
 Ficamos então com o somatório:
 
@@ -163,7 +168,8 @@ Analisemos agora caso a caso:
   $$
 - No caso 2, ficamos com
   $$ O \left( n^d (log_b n + 1) \right) = O \left( n^d \log n \right) $$
-- No caso 3, o somatório é majorado por uma série que converge (uma vez que $d > \log_b a \Leftrightarrow b^d > a \Leftrightarrow \frac{a}{b^d} < 1$) pelo que
+- No caso 3, o somatório é majorado por uma série que converge (uma vez que
+  $d > \log_b a \Leftrightarrow b^d > a \Leftrightarrow \frac{a}{b^d} < 1$) pelo que
   $$ O \left( n^d \right) $$
 
 :::
@@ -221,9 +227,13 @@ Podemos procurar ver como o ciclo se comporta (e qual é a sua condição de par
 | ... | ...  | ... |
 | $k$ | $2k$ | $k$ |
 
-Onde $k$ é a variável de controlo do loop (conta o número de iterações), e $i$ e $j$ são variáveis que vão sendo atualizadas durante o mesmo. Podemos notar que $k = 0$ corresponde ao momento exatamente antes do loop.
+Onde $k$ é a variável de controlo do loop (conta o número de iterações), e $i$ e $j$
+são variáveis que vão sendo atualizadas durante o mesmo. Podemos notar que $k = 0$
+corresponde ao momento exatamente antes do loop.
 
-Ora, podemos perceber que $i$ vai crescendo com aspeto $2k$ - isto é, vai sempre sendo igual ao dobro do número de iterações atual do ciclo. Além disso, através da tabela, podemos também observar que, no fim do ciclo, $j = k$.
+Ora, podemos perceber que $i$ vai crescendo com aspeto $2k$ - isto é, vai sempre
+sendo igual ao dobro do número de iterações atual do ciclo. Além disso, através da
+tabela, podemos também observar que, no fim do ciclo, $j = k$.
 
 Temos que o ciclo para com $i \geq n$ - ou seja, quando
 
@@ -233,7 +243,10 @@ $$
 
 Podemos, então, dizer que o ciclo corre $\frac{n}{2}$ vezes, e que a sua complexidade temporal é $O(n)$.
 
-Como observado, $j = k$ no fim do ciclo, pelo que a chamada recursiva da função (dentro do bloco `if`) é realizada com [$j = \frac{n}{2}$](color:orange) [**duas vezes**](color:yellow) (a função recursiva é chamada duas vezes), pelo que podemos admitir que essa secção leva $2\cdot T(\frac{n}{2})$. A função $T(n)$ total da função corresponde, portanto, a
+Como observado, $j = k$ no fim do ciclo, pelo que a chamada recursiva da função
+(dentro do bloco `if`) é realizada com [$j = \frac{n}{2}$](color:orange) [**duas vezes**](color:yellow)
+(a função recursiva é chamada duas vezes), pelo que podemos admitir que essa secção
+leva $2\cdot T(\frac{n}{2})$. A função $T(n)$ total da função corresponde, portanto, a
 
 $$
 T(n) = \smartcolor{yellow}{2}\cdot T\left(\smartcolor{orange}{\frac{n}{2}}\right) + O(n).
@@ -289,7 +302,9 @@ $$
 
 A complexidade do loop é, portanto, $O(\sqrt{n})$.
 
-Além disso, a chamada recursiva dentro do bloco `if` é realizada três vezes, desta vez sem recorrer a "variáveis auxiliares" - a chamada é sempre feita com $\frac{n}{4}$. Temos, então, que
+Além disso, a chamada recursiva dentro do bloco `if` é realizada três vezes, desta
+vez sem recorrer a "variáveis auxiliares" - a chamada é sempre feita com $\frac{n}{4}$.
+Temos, então, que
 
 $$
 T(n) = 3 \cdot T(\frac{n}{4}) + O(\sqrt{n})
@@ -333,7 +348,8 @@ int f(int n) {
 }
 ```
 
-Neste caso temos [**dois loops**](color:green), pelo que a complexidade de ambos será relevante para resolver o problema.
+Neste caso temos [**dois loops**](color:green), pelo que a complexidade de ambos
+será relevante para resolver o problema.
 
 Fazendo a tabela para o primeiro loop:
 
@@ -353,7 +369,13 @@ $$
 
 pelo que a sua complexidade será $O(\frac{n^2}{2}) = O(n^2)$.
 
-Olhando já para o segundo loop (já voltamos ao `if` no meio), podemos observar que o número de iterações é exatamente o mesmo do primeiro - no primeiro, $j$ era igual ao número de iterações do mesmo. Aqui, decrescemos $j$ até chegar a 0: $\frac{n^2}{2}$ iterações, tal como em cima. A complexidade será, claro $O(n^2)$. A soma das suas complexidades corresponderá a $2 \cdot O(n^2)$. Contudo, a constante $2$ é irrelevante para o cálculo da complexidade, pelo que podemos só admitir que a complexidade conjunta dos ciclos será do tipo $O(n^2)$.
+Olhando já para o segundo loop (já voltamos ao `if` no meio), podemos observar que
+o número de iterações é exatamente o mesmo do primeiro - no primeiro, $j$ era igual
+ao número de iterações do mesmo. Aqui, decrescemos $j$ até chegar a 0: $\frac{n^2}{2}$
+iterações, tal como em cima. A complexidade será, claro $O(n^2)$. A soma das suas
+complexidades corresponderá a $2 \cdot O(n^2)$. Contudo, a constante $2$ é irrelevante
+para o cálculo da complexidade, pelo que podemos só admitir que a complexidade conjunta
+dos ciclos será do tipo $O(n^2)$.
 
 A chamada recursiva é realizada 4 vezes, dentro do `if`, sempre recorrendo a $\frac{n}{2}$, pelo que vamos ter
 
@@ -390,18 +412,23 @@ T(n) = \begin{cases}
 \end{cases}
 $$
 
-O primeiro caso precisa de uma _condição de regularidade_ - pode ser encontrada nos slides e nas notas do professor, mas em ASA não é necessária.
+O primeiro caso precisa de uma _condição de regularidade_ - pode ser encontrada nos
+slides e nas notas do professor, mas em ASA não é necessária.
 
 Tal como no caso simples, devemos pensar nestas fórmulas da seguinte forma:
 
-- Nesta solução de D&C, cada problema de tamanho $n$ divide-se em $\mathbb{a}$ problemas de tamanho $\mathbb{\frac{n}{b}}$;
-- $\mathbf{f(n)}$ corresponde ao custo nesta solução para gerar os subproblemas, e, no fim, juntar os seus resultados (em relação a um problema de tamanho $n$).
+- Nesta solução de D&C, cada problema de tamanho $n$ divide-se em $\mathbb{a}$
+  problemas de tamanho $\mathbb{\frac{n}{b}}$;
+- $\mathbf{f(n)}$ corresponde ao custo nesta solução para gerar os subproblemas, e,
+  no fim, juntar os seus resultados (em relação a um problema de tamanho $n$).
 
-O segundo caso tem ainda mais uma generalização, que não vamos indicar aqui mas pode ser encontrada na [Wikipedia](<https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)#Generic_form>).
+O segundo caso tem ainda mais uma generalização, que não vamos indicar aqui mas pode
+ser encontrada na [Wikipedia](<https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)#Generic_form>).
 
 :::tip[Prova]
 
-O professor disse que a prova do teorema generalizado era muito complicada e que seria preciso bastante tempo para o explicar.
+O professor disse que a prova do teorema generalizado era muito complicada e que
+seria preciso bastante tempo para o explicar.
 A prova não foi dada em aula pelo que também não a vamos fazer aqui.  
 Pode no entanto ser encontrada no livro [Introduction to Algorithms](https://edutechlearners.com/download/Introduction_to_algorithms-3rd%20Edition.pdf), incluído na bibliografia da cadeira.
 
@@ -455,9 +482,11 @@ $$
 
 $\log_{2}{n}$ iterações, ou seja o loop tem complexidade $O(\log n)$.
 
-O segundo loop corre em tempo constante (exatamente 4 vezes), e contém a chamada recursiva da função, que é chamada com $\frac{n}{2}$.
+O segundo loop corre em tempo constante (exatamente 4 vezes), e contém a chamada
+recursiva da função, que é chamada com $\frac{n}{2}$.
 
-O terceiro loop corre também em tempo logarítmico ($i = k$no final do primeiro loop, e neste estamos a decrementar $i$ 1 a 1 até chegar a 0).
+O terceiro loop corre também em tempo logarítmico ($i = k$no final do primeiro loop,
+e neste estamos a decrementar $i$ 1 a 1 até chegar a 0).
 
 Podemos, assim, dizer que
 
@@ -465,7 +494,8 @@ $$
 T(n) = 4 \cdot T\left(\frac{n}{2}\right) + O(\log n)
 $$
 
-Ora, aqui não podemos aplicar o Teorema Mestre simplificado (não temos algo do tipo $O(n^d)$, mas sim $O(\log n)$). Teremos, então, de recorrer ao Teorema Mestre generalizado.
+Ora, aqui não podemos aplicar o Teorema Mestre simplificado (não temos algo do tipo
+$O(n^d)$, mas sim $O(\log n)$). Teremos, então, de recorrer ao Teorema Mestre generalizado.
 Aqui, consideramos $f(n)$ == $\log n$, e temos, claro, que
 
 $$
@@ -485,7 +515,9 @@ $$
 
 ## Heaps e Heap Sort
 
-Na terceira aula foram também abordados os conceitos de Heap e Heap Sort. Estes conteúdos já estão disponíveis na [secção de resumos de IAED](../iaed/algoritmos-eficientes-ordenacao#heap-sort-enquadramento), pelo que não os abordaremos a fundo aqui. As notas do professor também explicam muito bem esta parte!
+Na terceira aula foram também abordados os conceitos de Heap e Heap Sort. Estes
+conteúdos já estão disponíveis na [secção de resumos de IAED](../iaed/algoritmos-eficientes-ordenacao#heap-sort-enquadramento),
+pelo que não os abordaremos a fundo aqui. As notas do professor também explicam muito bem esta parte!
 
 De qualquer maneira, para ter aqui algumas noções-chave:
 
@@ -493,15 +525,15 @@ De qualquer maneira, para ter aqui algumas noções-chave:
 Um array $A[1, ..., n]$ diz-se um [**heap**](color:green) se:
 
 $$
-\forall_{1 < i \leq n}, \quad A[\operatorname{parent}(i)] \geq A[i],
+\forall_{1 < i \leq n}, \quad A[\op{parent}(i)] \geq A[i],
 $$
 
 com
 
 $$
-\operatorname{parent}(i) = \left\lfloor{\frac{i}{2}}\right\rfloor\\
-\operatorname{left}(i) = 2i\\
-\operatorname{right}(i) = 2i + 1
+\op{parent}(i) = \left\lfloor{\frac{i}{2}}\right\rfloor\\
+\op{left}(i) = 2i\\
+\op{right}(i) = 2i + 1
 $$
 
 :::
@@ -510,17 +542,27 @@ $$
 - A altura máxima de um heap com $n$ elementos é $\log n$.
 - Do ponto acima sai que podemos, no máximo, invocar recursivamente a função `maxHeapify` $\log n$ vezes.
 - A construção de um heap é feita de baixo para cima, da direita para a esquerda.
-- O índice pelo qual queremos começar a construção, o **índice do primeiro nó com filhos**, é dado por $\left\lfloor\frac{n}{2}\right\rfloor$. A prova está nas notas do professor. Abaixo podemos encontrar 2 exemplos que ilustram esta proposição (aqui, $i$ é o índice do primeiro nó com filhos).
+- O índice pelo qual queremos começar a construção, o **índice do primeiro nó com filhos**,
+  é dado por $\left\lfloor\frac{n}{2}\right\rfloor$. A prova está nas notas do professor.
+  Abaixo podemos encontrar 2 exemplos que ilustram esta proposição (aqui, $i$ é o índice do primeiro nó com filhos).
 
-![Índice do primeiro nó com filhos](./assets/0002-heap-example.png)
+![Índice do primeiro nó com filhos](./assets/0002-heap-example.svg#dark=3)
 
 De realçar que aqui consideramos um array indexado a partir de 1 (e não 0), daí $i$ ser, respetivamente, 2 e 4, e não 1 e 3.
 
 ### Priority queues
 
-Priority queues, ou [**filas de prioridade**](color:orange) em português, são estruturas de dados cuja implementação corresponde, tipicamente, a heaps - há, tal como _max Heaps_ e _min Heaps_ (sendo o heap ordenado de modo decrescente ou crescente, respetivamente), _max Priority Queues_ e _min Priority Queues_ (heaps ordenados pela sua prioridade, portanto). Funcionam como uma "fila de supermercado" - cada pessoa pode ter um valor de prioridade, e o seu lugar é ditado por essa ordem.
+Priority queues, ou [**filas de prioridade**](color:orange) em português, são estruturas
+de dados cuja implementação corresponde, tipicamente, a heaps - há, tal como _max Heaps_
+e _min Heaps_ (sendo o heap ordenado de modo decrescente ou crescente, respetivamente),
+_max Priority Queues_ e _min Priority Queues_ (heaps ordenados pela sua prioridade, portanto).
+Funcionam como uma "fila de supermercado" - cada pessoa pode ter um valor de prioridade,
+e o seu lugar é ditado por essa ordem.
 
-São normalmente implementados desta maneira por ser uma maneira particularmente eficiente de organizar este tipo de informação. O **elemento com mais prioridade**, por exemplo, pode ser obtido em tempo constante ($O(1)$), a operação de obter qualquer valor (consoante, claro, a sua prioridade) realizada em $O(\log{n})$, e a inserção e remoção de elementos também.
+São normalmente implementados desta maneira por ser uma maneira particularmente eficiente
+de organizar este tipo de informação. O **elemento com mais prioridade**, por exemplo,
+pode ser obtido em tempo constante ($O(1)$), a operação de obter qualquer valor (consoante,
+claro, a sua prioridade) realizada em $O(\log{n})$, e a inserção e remoção de elementos também.
 
 ---
 

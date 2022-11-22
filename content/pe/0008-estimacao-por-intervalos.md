@@ -11,8 +11,8 @@ type: content
 
 ```
 
-No capítulo anterior, além de introduzirmos o estudo da estatística, vimos métodos para indicar um valor mais provável para um certo parâmetro.
-Neste capítulo vamos procurar formas de indicar não um valor exato para o parâmetro mas um intervalo em que tenhamos um certo grau de confiança que o parâmetro está nesse intervalo.
+No capítulo anterior, além de introduzirmos o estudo da estatística, vimos métodos para indicar o valor mais provável para um certo parâmetro.
+Neste capítulo, em vez de procurarmos formas de indicar o valor exato de um parâmetro, vamos procurar descobrir um intervalo no qual tenhamos um certo grau de confiança que o parâmetro esteja incluído.
 
 :::tip[Intervalo de Confiança (IC)]
 
@@ -23,31 +23,31 @@ P(\theta < a_\alpha) = P(\theta > b_\alpha) = \frac{\alpha}{2} \\
 \Rightarrow P(a_\alpha \leq \theta \leq b_\alpha) = 1 - \alpha
 $$
 
-O valor $1-\alpha$ disgina-se de **grau de confiança** - temos $(1-\alpha) \times 100 \%$ de confiança que o parâmetro que queremos descobrir está no intervalo dado.
+O valor $1-\alpha$ designa-se **grau de confiança** - temos $(1-\alpha) \times 100 \%$ de confiança que o parâmetro que queremos descobrir está no intervalo dado.
 
 :::
 
 ## Método da VA fulcral
 
 O [**método da VA fulcral**](color:purple) é um método que permite definir um IC com grau de confiança $1-\alpha$ (exato ou aproximado).
-Para isto, é primeiro necessário identificar o **parâmetro desconhecido** $\theta$, a **VA de interesse** X bem como a sua distribuição que pode ou não depender de outros parâmetros (conhecidos ou desconhecidos).
+Para isto, é primeiro necessário identificar o **parâmetro desconhecido** $\theta$, a **VA de interesse** $X$, bem como a sua distribuição que pode ou não depender de outros parâmetros (conhecidos ou desconhecidos).
 
-1. **Seleção da VA fulcral** - O primeiro passo corresponde à identificação de uma VA (fulcral) $Z = Z(\underline{X}, \theta)$ cuja distribuição seja independente de $\theta$. Note-se como esta VA depende da amostra aleatória $\underline{X}$. A seleção desta VA fulcral depende da distribuição de $X$, do parâmetro que queremos determinar e dos restantes parâmetros da distribuição $X$, conhecidos ou não (vamos ver como selecionar esta VA mais à frente);
-2. **Obtenção dos quantis** - De seguida, temos de determiar $a_\alpha, b_\alpha$ tais que $P(Z < a_\alpha) = P(Z > b_\alpha) = \frac{\alpha}{2}$, ou seja
+1. **Seleção da VA fulcral** - O primeiro passo corresponde à identificação de uma VA (fulcral) $Z = Z(\underline{X}, \theta)$, cuja distribuição seja independente de $\theta$. Note-se como esta VA depende da amostra aleatória $\underline{X}$. A seleção desta VA fulcral depende da distribuição de $X$, do parâmetro que queremos determinar e dos restantes parâmetros da distribuição $X$, conhecidos ou não (vamos ver como selecionar esta VA mais à frente);
+2. **Obtenção dos quantis** - De seguida, temos de determinar $a_\alpha, b_\alpha$ tais que $P(Z < a_\alpha) = P(Z > b_\alpha) = \frac{\alpha}{2}$, ou seja
    $$
    a_\alpha = F_Z^{-1}\left(\frac{\alpha}{2}\right) \quad \quad \quad
    b_\alpha = F_Z^{-1}\left(1-\frac{\alpha}{2}\right)
    $$
 3. **Obtenção dos extremos aleatórios** - Manuseamos as expressões acima para obter $T_1(\underline{X})$, $T_2(\underline{X})$ tais que $P(\theta \leq T_1(\underline{X})) = P(T_2(\underline{X}) \leq \theta) = \frac{\alpha}{2}$
-4. **Concretização** - Finalmente, substituimos $\underline{X}$ por $\underline{x}$ de forma a obter $IC(\theta) = [T_1(\underline{x}), T_2(\underline{x})]$, com grau de confiança $1-\alpha$.
+4. **Concretização** - Finalmente, substituímos $\underline{X}$ por $\underline{x}$ de forma a obter $IC(\theta) = [T_1(\underline{x}), T_2(\underline{x})]$, com grau de confiança $1-\alpha$.
 
-Abaixo vamos ver que VA fulcral usar em diversos cenários.
+Abaixo, vamos ver que VA fulcral usar em diversos cenários.
 Estas expressões podem ser encontradas no formulário pelo que não é preciso decorá-las, mas é relevante praticar e perceber em que situação se usa cada fórmula.  
-No fim deste capítulo encontram-se alguns exemplos para perceber melhor este método.
+No fim deste capítulo, encontram-se alguns exemplos para perceber melhor este método.
 
 ### Determinação de $\mu$ para $\sigma^2$ conhecido
 
-Neste caso estamos interessados em descobrir o valor do parâmetro $\mu$ (valor esperado) de uma VA arbitrária $X$ cuja variância já conhecemos.
+Neste caso, estamos interessados em descobrir o valor do parâmetro $\mu$ (valor esperado) de uma VA arbitrária $X$ cuja variância já conhecemos.
 
 **Parâmetro desconhecido**: $\mu$  
 **VA de interesse**: Uma VA qualquer a que vamos chamar $X$  
@@ -67,7 +67,7 @@ $$
 
 com grau de confiança **exatamente** $1-\alpha$.
 
-Se $X$ não seguir uma distribuição normal, invocamos o TLC para obter que
+Se $X$ não seguir uma distribuição normal, invocamos o TLC para obter
 
 $$
 Z = \frac{\overline{X} - \mu}{\frac{\sigma}{\sqrt{n}}} \sima \op{normal}(0,1)
@@ -85,11 +85,11 @@ com grau de confiança **aproximadamente** $1-\alpha$.
 
 :::danger[]
 
-Esta determinação não é leccionada no programa de 2021/22.
+Esta determinação não é lecionada no programa de 2021/22.
 
 :::
 
-Neste caso estamos interessados em descobrir o valor do parâmetro $\mu_1 - \mu_2$ (diferença entre os valores esperados) para duas VA arbitrárias $X_1, X_2$ independentes entre si ($X_1 \indep X_2$) cuja variância já conhecemos.
+Neste caso, estamos interessados em descobrir o valor do parâmetro $\mu_1 - \mu_2$ (diferença entre os valores esperados) para duas VA arbitrárias $X_1, X_2$ independentes entre si ($X_1 \indep X_2$) cuja variância já conhecemos.
 
 **Parâmetro desconhecido**: $\mu_1 - \mu_2$  
 **VA de interesse**: Duas VA quaisquer a que vamos chamar $X_1, X_2$, $X_1 \indep X_2$  
@@ -109,7 +109,7 @@ $$
 
 com grau de confiança **exatamente** $1-\alpha$.
 
-Se $X_1$ e $X_2$ não seguirem uma distribuição normal, invocamos o TLC para obter que
+Se $X_1$ e $X_2$ não seguirem uma distribuição normal, invocamos o TLC para obter
 
 $$
 Z = \frac{(\overline{X_1} - \overline{X_2}) - (\mu_1 - \mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}} \sima \op{normal}(0,1)
@@ -125,7 +125,7 @@ com grau de confiança **aproximadamente** $1-\alpha$.
 
 ### Determinação de $\mu$ para $\sigma^2$ desconhecido
 
-Neste caso estamos interessados em descobrir o valor do parâmetro $\mu$ (valor esperado) de uma VA arbitrária $X$ cuja variância não conhecemos (portanto vamos ter de a estimar também).
+Neste caso, estamos interessados em descobrir o valor do parâmetro $\mu$ (valor esperado) de uma VA arbitrária $X$ cuja variância não conhecemos (portanto vamos ter de a estimar também).
 
 **Parâmetro desconhecido**: $\mu$  
 **VA de interesse**: Uma VA qualquer a que vamos chamar $X$  
@@ -146,7 +146,7 @@ $$
 
 com grau de confiança **exatamente** $1-\alpha$.
 
-Se $X$ não seguir uma distribuição normal, invocamos o TLC para obter que
+Se $X$ não seguir uma distribuição normal, invocamos o TLC para obter
 
 $$
 Z = \frac{\overline{X} - \mu}{\frac{s}{\sqrt{n}}} \sima \op{normal}(0,1)
@@ -164,11 +164,11 @@ com grau de confiança **aproximadamente** $1-\alpha$.
 
 :::danger[]
 
-Esta determinação não é leccionada no programa de 2021/22.
+Esta determinação não é lecionada no programa de 2021/22.
 
 :::
 
-Neste caso estamos interessados em descobrir o valor do parâmetro $\mu_1 - \mu_2$ (diferença entre os valores esperados) para duas VA arbitrárias $X_1, X_2$ independentes entre si ($X_1 \indep X_2$) cuja variância não conhecemos.
+Neste caso, estamos interessados em descobrir o valor do parâmetro $\mu_1 - \mu_2$ (diferença entre os valores esperados) para duas VA arbitrárias $X_1, X_2$ independentes entre si ($X_1 \indep X_2$) cuja variância não conhecemos.
 
 **Parâmetro desconhecido**: $\mu_1 - \mu_2$  
 **VA de interesse**: Duas VA quaisquer a que vamos chamar $X_1, X_2$, $X_1 \indep X_2$  
@@ -191,7 +191,7 @@ $$
 
 com grau de confiança **exatamente** $1-\alpha$.
 
-Se $X_1$ e $X_2$ não seguirem uma distribuição normal, invocamos o TLC para obter que
+Se $X_1$ e $X_2$ não seguirem uma distribuição normal, invocamos o TLC para obter
 
 $$
 Z = \frac{(\overline{X_1} - \overline{X_2}) - (\mu_1 - \mu_2)}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}} \sima \op{normal}(0,1)
@@ -207,7 +207,7 @@ com grau de confiança **aproximadamente** $1-\alpha$.
 
 ### Determinação de $\sigma^2$ para $\mu$ desconhecido
 
-Neste caso estamos interessados em descobrir o valor do parâmetro $\sigma^2$ (variância) de uma VA $X$ cujo valor esperado não conhecemos.
+Neste caso, estamos interessados em descobrir o valor do parâmetro $\sigma^2$ (variância) de uma VA $X$ cujo valor esperado não conhecemos.
 
 **Parâmetro desconhecido**: $\sigma^2$  
 **VA de interesse**: Uma VA qualquer que vamos chamar $X$  
@@ -223,8 +223,8 @@ Aplicando o método da VA fulcral à VA $Z$, obtemos o intervalo de confiança
 
 $$
 IC(\sigma^2) = \left[
-\frac{(n-1)s^2}{F_{\chi_{(n-1)}^2} \left(1-\frac{\alpha}{2}\right)}, \quad
-\frac{(n-1)s^2}{F_{\chi_{(n-1)}^2} \left(\frac{\alpha}{2}\right)}
+\frac{(n-1)s^2}{F^{-1}_{\chi_{(n-1)}^2} \left(1-\frac{\alpha}{2}\right)}, \quad
+\frac{(n-1)s^2}{F^{-1}_{\chi_{(n-1)}^2} \left(\frac{\alpha}{2}\right)}
 \right]
 $$
 
@@ -235,7 +235,7 @@ com grau de confiança **exatamente** $1-\alpha$.
 **Parâmetro desconhecido**: $p$  
 **VA de interesse**: Uma VA com distribuição de Bernoulli $X$
 
-Se $X \sim Bernoulli(p)$ temos segundo o TLC que para $n>>$
+Se $X \sim Bernoulli(p)$, temos, segundo o TLC, que para $n>>$
 
 $$
 \frac{\overline{X} - p}{\sqrt{\frac{\overline{X}(1-\overline{X})}{n}}} \sima \op{normal}(0,1)
@@ -256,14 +256,14 @@ com grau de confiança **aproximadamente** $1-\alpha$.
 
 :::danger[]
 
-Esta determinação não é leccionada no programa de 2021/22.
+Esta determinação não é lecionada no programa de 2021/22.
 
 :::
 
 **Parâmetro desconhecido**: $\lambda$  
 **VA de interesse**: Uma VA com distribuição de Poisson $X$
 
-Se $X \sim Possion(\lambda)$ temos segundo o TLC que para $n>>$
+Se $X \sim Poisson(\lambda)$, temos, segundo o TLC, que para $n>>$
 
 $$
 \frac{\overline{X} - \lambda}{\sqrt{\frac{\overline{X}}{n}}} \sima \op{normal}(0,1)

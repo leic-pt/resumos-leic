@@ -27,7 +27,7 @@ Num condutor as cargas elétricas podem mover-se livremente no material.
 ![Condutor](./imgs/0005-condutor.png#dark=1)
 
 Quando aplicamos um campo $\vec E$ num condutor isolado, as cargas negativas (induzidas) movem-se na direção oposta ao campo $\vec E$, separando assim as cargas positivas das negativas.\
-Essas cargas induzidas criam 1 segundo campo $\vec E \ '$ que é contrário ao campo $\vec E$, estes campos anulam-se e assim concluimos que o Campo Elétrico dentro do condutor é nulo.
+Essas cargas induzidas criam 1 segundo campo $\vec E \ '$ que é contrário ao campo $\vec E$, estes campos anulam-se e assim concluímos que o Campo Elétrico dentro do condutor é nulo.
 
 $$
 \vec E_{total} = 0
@@ -45,7 +45,7 @@ Isto é equivalente a dizer que existe o mesmo número de cargas positivas $(+)$
 
 - Qualquer carga remanescente situa-se na superfície do condutor
 
-  - Isto significa que nehuma carga pode sair do condutor e quando interagida por um campo elétrico as cargas deslocam-se para as extremidades do condutor. Basta pensar que as cargas se deslocam para as tampas de uma caixa de Pringles
+  - Isto significa que nenhuma carga pode sair do condutor e quando interagida por um campo elétrico as cargas deslocam-se para as extremidades do condutor. Basta pensar que as cargas se deslocam para as tampas de uma caixa de Pringles
 
   - O Campo Elétrico $\vec E \perp \ $Superfície do Condutor
 
@@ -224,7 +224,7 @@ O $\vec P$ pode mudar de ponto para ponto mas em cada ponto $\vec P \propto \vec
 
 Consideremos uma superfície dipolar com um certo momento dipolar por unidade de volume. Haverá uma densidade de carga produzida por ela? Não se $\vec P$ for uniforme.
 
-Se as cargas que foram deslocadas têm a memsa densidade média não teremos uma carga líquida no volume.
+Se as cargas que foram deslocadas têm a mesma densidade média não teremos uma carga líquida no volume.
 
 Se $\vec P$ fosse maior num lugar do que noutro então mais carga seria movida para dentro de 1 determinada região do que noutra e teríamos uma densidade de carga no volume.
 
@@ -264,7 +264,7 @@ $$
 \vec P = \chi \epsilon_0 \vec E
 $$
 
-$\chi$ é a constante de susceptibilidade elétrica do dielétrico
+$\chi$ é a constante de suscetibilidade elétrica do dielétrico
 
 $$
 E = \cfrac{\sigma_{pc}}{\epsilon_0} \cfrac{1}{1+ \chi}
@@ -377,7 +377,7 @@ D_{+}^{\perp} - D_{-}^{\perp} = \rho_{livre}\\
 D_{+}^{\parallel} - D_{-}^{\parallel} = P_{+}^{\parallel} - P_{-}^{\parallel}
 $$
 
-$+$ e $-$ indica acima e abaixo da superfíce respetivamente.
+$+$ e $-$ indica acima e abaixo da superfície respetivamente.
 
 Num dielétrico linear homogéneo a densidade (volumétrica) de cargas de polarização $\rho_{pol}$ é proporcional à densidade (volumétrica) de cargas livres $\rho_{livre}$
 
