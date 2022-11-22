@@ -61,19 +61,17 @@ Uso mínimo ou inexistente de servidores dedicados, como por exemplo o Skype e o
 
 ### Circuit Switching
 
-Os recursos da rede (ex: largura de banda) encontram-se divididos em partes alocadas. Não há partilha de recursos, ou seja se eu não estiver a utilizar a minha parte, ninguém a está a utilizar.
+Os recursos da rede (e.g. largura de banda) encontram-se divididos em partes alocadas. Não há partilha de recursos, ou seja se eu não estiver a utilizar a minha parte, ninguém a está a utilizar.
 
 A largura de banda pode ser dividida por frequências (Frequency division, FDM) ou ao longo do tempo (Time division, TDM).
 
-**FDM**
-![FDM](./assets/0001_fdm.png#dark=1)
+![FDM](./assets/0001_fdm.png#dark=2 'Frequency Division (FDM)')
 
-**TDM**
-![TDM](./assets/0001_tdm.png#dark=1)
+![TDM](./assets/0001_tdm.png#dark=2 'Time Division (TDM)')
 
 ### Packet Switching
 
-Em vez de dividir os recursos da rede, estes são partilhados e a comunicação é dividida em pactoes. Cada pacote utiliza o tamanho total da largura de banda e os recursos são utilizados à medida que é necessário.
+Em vez de dividir os recursos da rede, estes são partilhados e a comunicação é dividida em pacotes. Cada pacote utiliza o tamanho total da largura de banda e os recursos são utilizados à medida que é necessário.
 
 Contensão:
 
@@ -91,7 +89,7 @@ O tempo de transmissão é calculado a partir da velocidade de transmissão e do
 
 Cada camada fornece um serviço às camadas que se encontram acima.
 
-#### Modelo Internet (Pilha de protocolos da Internet)
+#### Modelo Internet (Pilha de Protocolos da Internet)
 
 - Aplicação:
   - Suporta aplicações de rede
@@ -104,7 +102,7 @@ Cada camada fornece um serviço às camadas que se encontram acima.
   - Exemplos: IP, protocolos de encaminhamento
 - Ligação:
   - Transferência de dados entre elementos da rede vizinhos
-  - Exemplos: Ethernet, Wi-Fi, PPP, ...
+  - Exemplos: Ethernet, Wi-Fi, P2P, ...
 - Física:
   - Bits "no cabo"
 
