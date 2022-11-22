@@ -27,7 +27,7 @@ Recapitulando algumas das funções que existem:
 
 | Função                  | Descrição                                                   |
 | ----------------------- | ----------------------------------------------------------- |
-| `COUNT(*)`              | Número de linhas                                            |
+| `COUNT(*)` / `COUNT(1)` | Número de linhas                                            |
 | `COUNT([DISTINCT] col)` | Número de linhas com valores [distintos] não nulos de `col` |
 | `SUM([DISTINCT] col)`   | Soma dos valores [distintos] não nulos de `col`             |
 | `AVG([DISTINCT] col)`   | Média dos valores [distintos] não nulos de `col`            |
@@ -169,7 +169,7 @@ para [pelos menos um](color:yellow) valor de `<set>`.
 
 :::tip[Relação com `IN` e `NOT IN`]
 Podemos intuitivamente reparar que `IN` é equivalente a `= ANY` e que
-`NOT IN` é equivalente a `<> ANY`: um elemento só pertence a um conjunto
+`NOT IN` é equivalente a `<> ALL`: um elemento só pertence a um conjunto
 se for igual a algum elemento do mesmo, e não pertence a um conjunto
 se for diferente de todos os seus elementos.
 :::

@@ -55,13 +55,13 @@ $$
 
 - [M.D.C. no WolframAlpha](https://www.wolframalpha.com/input/?i=ExtendedGCD%5B108%2C75%5D)
 
-- [Diofantinas no WolframAplha](https://www.wolframalpha.com/input/?i=solve+108x%2B75y+%3D+6+over+the+integers)
+- [Diofantinas no WolframAlpha](https://www.wolframalpha.com/input/?i=solve+108x%2B75y+%3D+6+over+the+integers)
 
 ## Congruências
 
 $16x {\equiv_{12}}10 \iff 16x - 12y = 10$ (Resolver por diofantinas para $x$)
 
-- [Congruências no WolframAplha](https://www.wolframalpha.com/input/?i=%2816x+mod+29%29+%3D+27)
+- [Congruências no WolframAlpha](https://www.wolframalpha.com/input/?i=%2816x+mod+29%29+%3D+27)
 
 :::warning
 Obrigatório justificar no teste que existe solução única
@@ -69,7 +69,7 @@ Obrigatório justificar no teste que existe solução única
 
 Se os módulos forem primos entre si 2 a 2, há sempre solução única
 
-Se não, temos de fazer o MDC de 2 módulos successivos e ver se a diferença dos $r_i$ respetivos, divide o tal MDC calculado.
+Se não, temos de fazer o MDC de 2 módulos sucessivos e ver se a diferença dos $r_i$ respetivos, divide o tal MDC calculado.
 
 $$
 \begin{cases}
@@ -126,7 +126,7 @@ Resposta $= x_0 +Mt$
 No caso de os módulos não serem primos entre si
 
 Temos de achar o m.m.c. deles\
-E dispôr nas suas filas respetivas onde o módulo tem de dividir o $c_i$
+E dispor nas suas filas respetivas onde o módulo tem de dividir o $c_i$
 :::
 
 - [Sistemas de Congruências no WolframAplha](https://www.wolframalpha.com/input/?i=%283+x+%2B+1%29+mod+7+%3D+6%2C+x+mod+9+%3D+2%2C+%28x+-+2%29+mod+4+%3D+1)

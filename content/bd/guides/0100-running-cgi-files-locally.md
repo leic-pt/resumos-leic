@@ -14,11 +14,11 @@ type: guides
 
 Olá! \:D
 
-Esta página é um tutorial de como correr os ficheiros `.cgi` no vosso computador, de forma a conseguirem fazer debug e serem mais eficientes a fazer a aplicação web de BD.
+Esta página é um tutorial de como correr os ficheiros `.cgi` no vosso computador, de forma a conseguirem fazer _debug_ e serem mais eficientes a fazer a aplicação web de BD.
 
 ## Servidor Local
 
-Precisam de um servidor local. Vamos o usar o que vem com o [Python](https://docs.python.org/3/library/http.server.html#http.server.CGIHTTPRequestHandler).
+Precisam de um servidor local. Vamos usar o que vem com o [Python](https://docs.python.org/3/library/http.server.html#http.server.CGIHTTPRequestHandler).
 
 Para isso, corram este código numa shell de Linux (se usarem Windows, podem fazer por WSL):
 
@@ -30,8 +30,11 @@ Ao fazer isso, o output esperado é algo do género:
 
 ![Servidor HTTP do python](./assets/0100-python-server.png)
 
-Este código tem que ficar a correr enquanto querem ter acesso ao script `.cgi`, ou seja, vão ter que deixar a “janela aberta”.
-Se escreverem [`localhost:8000`](http://localhost:8000) no browser vão ver algo do género:
+
+Este código tem que ficar a correr enquanto querem ter acesso ao script `.cgi`, ou seja, vão ter de deixar a “janela aberta”.
+
+Se escreverem [`localhost:8000`](http://localhost:8000) no browser, vão ver algo do género:
+
 
 ![Directory Listing pelo HTTP server](./assets/0100-directory-listing.png)
 
@@ -46,8 +49,8 @@ mkdir cgi-bin
 ```
 
 :::tip[Criar um symlink]
-Pode não nos dar jeito colocar os ficheiros dentro desta pasta ou ter a pasta com outro nome.
-**Alternativamente** a criar a pasta acima, podemos criar um symlink, como se fosse um "atalho":
+Pode acontecer que não nos dê jeito colocar os ficheiros dentro desta pasta ou preferir que a pasta tenha outro nome.
+**Alternativamente** a criar a pasta acima, podemos criar um _symlink_, como se fosse um "atalho":
 
 ```bash
 ln -s ./web cgi-bin # ./web é o caminho para a pasta original
@@ -57,9 +60,9 @@ Obviamente, pode-se substituir `./web` pelo caminho adequado para a pasta onde s
 
 :::
 
-Este diretório é reconhecido pelo código que correram no 1º passo para correr os ficheiros que lá estão dentro.
+Este diretório é reconhecido pelo código que correram no 1º passo para correr os ficheiros que estão lá dentro.
 
-Coloquem neste diretório o ficheiro `.cgi` que querem que seja corrido juntamente com o diretório `templates` com os ficheiros `.html` que querem que corra (podem colocar o ficheiro do **lab9** que serve como template e vão mudando as cenas):
+Coloquem neste diretório o ficheiro `.cgi` que querem que seja corrido, juntamente com o diretório `templates` contendo os ficheiros `.html` que querem que corra (podem colocar o ficheiro do **lab9** que serve como template e vão mudando as cenas):
 
 ![Untitled](./assets/0100-ls.png)
 
@@ -90,6 +93,6 @@ sudo apt-get install libpq-dev
 
 ## Aceder ao Ficheiro
 
-Finalmente, basta aceder ao link [`http://localhost:8000/cgi-bin/test.cgi/`](http://localhost:8000/cgi-bin/test.cgi/) que o vosso código flask irá ser corrido!
+Finalmente, basta aceder ao link [`http://localhost:8000/cgi-bin/test.cgi/`](http://localhost:8000/cgi-bin/test.cgi/) para que o vosso código flask seja corrido!
 
 ![Resultado do script .cgi](./assets/0100-first-table.png)

@@ -110,7 +110,7 @@ em que:
 
 As soluções $y_1, \dots, y_n$ podem ser calculadas da seguinte forma:
 
-1. Obter o polinómio caracteristico $P(D)$ da equação.
+1. Obter o polinómio característico $P(D)$ da equação.
 2. Fatorizar o polinómio obtido, na forma
 
    $$
@@ -121,7 +121,7 @@ As soluções $y_1, \dots, y_n$ podem ser calculadas da seguinte forma:
 
 3. Cada uma das soluções de $P(D) y = 0$ admitirá $m_j$ ($j = 1, \dots, k$) soluções linearmente independentes, obtidas do seguinte modo:
 
-   - se $\lambda_j$ é uma [**raíz real**](color:green) de multiplicidade $m_j$ de $P(D)$, então a equação
+   - se $\lambda_j$ é uma [**raiz real**](color:green) de multiplicidade $m_j$ de $P(D)$, então a equação
 
      $$
      (D - \lambda_j) ^{m_j} y = 0
@@ -133,7 +133,7 @@ As soluções $y_1, \dots, y_n$ podem ser calculadas da seguinte forma:
      e^{\lambda_j t} , te^{\lambda_j t}, \dots, t^{m_j - 1} e^{\lambda_j t}
      $$
 
-   - se $\lambda_j = a_j + ib_j$ é uma [**raíz complexa**](color:pink) de multiplicidade $m_j$ de $P(D)$, então a equação
+   - se $\lambda_j = a_j + ib_j$ é uma [**raiz complexa**](color:pink) de multiplicidade $m_j$ de $P(D)$, então a equação
 
      $$
      (D - a_j - ib_j)^{m_j} (D - a_j + i b_j)^{m_j} y = 0

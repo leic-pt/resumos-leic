@@ -150,7 +150,7 @@ Para definirmos as noções topológicas em $\R^n$, precisamos do conceito de [n
 Pode ser também relevante relembrar as [noções topológicas a CDI-I](https://www.notion.so/diogocorreia/No-es-topol-gicas-Sucess-es-c3a4dddbe9bc49228e8e90eef244ae73).
 
 Tomando como exemplo o conjunto $K=\left\{(x,y)\in\R^2:0\leq x \leq 1 \land 0\leq y < 1\right\}$,
-representado na figura, podemos tirar as seguites conclusões.
+representado na figura, podemos tirar as seguintes conclusões.
 
 ![Conjunto K](./assets/0002-topologia.svg#dark=1)
 

@@ -18,7 +18,7 @@ type: content
 
 ## Conceitos Fundamentais sobre Gestão
 
-Gestão é o processo que visa atingir as metas e os objetivos de uma organização de forma eficiente e eficaz (menor custo possivel).
+Gestão é o processo que visa atingir as metas e os objetivos de uma organização de forma eficiente e eficaz (menor custo possível).
 
 ### **Eficácia** ${=}\mathllap{/\,}$ **Eficiência**
 

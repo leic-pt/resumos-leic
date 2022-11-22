@@ -9,7 +9,12 @@ type: topLevelPage
 > A cadeira tem como objetivos o domínio do cálculo matricial e de métodos para resolver sistemas de equações lineares, bem como de espaços vetoriais e de transformações lineares.  
 > Pretende-se estudar formas canónicas de matrizes, valores e vetores próprios e valores singular.
 
-:::warning[PÁGINA EM CONSTRUÇÃO]
-De momento não existem resumos de AL.  
-Procuram-se contribuidores.
+:::warning[Disclaimer]
+
+Alguns dos exemplos apresentados nesta página são da autoria e/ou adaptados de
+conteúdos fornecidos pelo professor [João Ferreira Alves](https://fenix.tecnico.ulisboa.pt/homepage/ist12907) via Fénix.
+
+Adiciona-se ainda que os conteúdos estão bastante incompletos atualmente, pelo que
+todas as contribuições são bem-vindas!
+
 :::

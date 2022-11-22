@@ -22,7 +22,7 @@ type: content
 
 :::warning
 Esta primeira parte não é particularmente útil para a maioria dos exercícios, mas pode dar jeito
-para deduzir algumas expressões não frequementemente utilizadas e em exercícios mais complicados.
+para deduzir algumas expressões não frequentemente utilizadas e em exercícios mais complicados.
 :::
 
 Seja $f: [0, +\infty[ \to \R$. Define-se a [**Transformada de Laplace**](color:green) de $f$ como sendo a função de variável complexa
@@ -39,7 +39,7 @@ $$
 |f(t)| \leq M e^{\alpha t} \quad,\quad \forall t \geq 0
 $$
 
-para certas contanstes $M >0$ e $\alpha \in \R$, então a transformada de Laplace de $f$ está
+para certas constantes $M >0$ e $\alpha \in \R$, então a transformada de Laplace de $f$ está
 bem definida no semi-plano complexo $\operatorname{Re} s > \alpha$.
 
 :::details[Demonstração]
@@ -260,7 +260,7 @@ $$
 F(s) = \frac{1}{s(s+1)^2} = \frac{1}{s} - \frac{1}{s+1} - \frac{1}{(s+1)^2}
 $$
 
-Assim, identificamos as transfomadas de $1$, $e^{at}$ e $t^n e^{at}$, pelo que:
+Assim, identificamos as transformadas de $1$, $e^{at}$ e $t^n e^{at}$, pelo que:
 
 $$
 \begin{aligned}
@@ -337,7 +337,7 @@ $$
    \lapt{y''} - 2\lapt{y'} + \lapt{y} = \lapt{t^5 e^t}
    $$
 
-2. Queremos agora decobrir $Y(s) = \lapt{y}$, pelo que continuamos a desenvolver a expressão acima,
+2. Queremos agora descobrir $Y(s) = \lapt{y}$, pelo que continuamos a desenvolver a expressão acima,
    até isolarmos o termo $Y(s)$.
 
    $$
@@ -403,7 +403,7 @@ $$
    \lapt{y''} -2 \lapt{y'} + \lapt{y} = \lapt{e^t} - 2 \lapt{e^t H(t-1)}
    $$
 
-2. Queremos agora decobrir $Y(s) = \lapt{y}$, pelo que continuamos a desenvolver a expressão acima,
+2. Queremos agora descobrir $Y(s) = \lapt{y}$, pelo que continuamos a desenvolver a expressão acima,
    até isolarmos o termo $Y(s)$.
 
 $$
@@ -504,7 +504,7 @@ $$
    \lapt{y''+2y'+y} = \lapt{2\delta(t - 2)}
    $$
 
-2. Queremos agora decobrir $Y(s) = \lapt{y}$, pelo que continuamos a desenvolver a expressão acima,
+2. Queremos agora descobrir $Y(s) = \lapt{y}$, pelo que continuamos a desenvolver a expressão acima,
    até isolarmos o termo $Y(s)$.
 
    $$

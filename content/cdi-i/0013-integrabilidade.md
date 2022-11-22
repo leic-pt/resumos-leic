@@ -45,7 +45,7 @@ Pode verificar-se o seguinte:
   - [Terem alturas tão grandes quanto possível, sem sair fora da região em causa](color:orange). Obtém-se uma área total [**menor**](color:orange) que a área que se pretende definir.
   - [Terem alturas tão pequenas quanto possível, contendo a região toda](color:green). Obtém-se uma área total [**maior**](color:green) que a área que se pretende definir.
 - A base de cada retângulo (e o número de retângulos) pode ser definida através dos vértices desse retângulo que se encontram sobre o eixo das abcissas.
-- A altura de cada retângulo é definida pelos valores que a função toma (tendo enconta as duas formas de escolher os retângulos, mencionadas acima).
+- A altura de cada retângulo é definida pelos valores que a função toma (tendo em conta as duas formas de escolher os retângulos, mencionadas acima).
 
 Chega-se assim à ideia de escolher um conjunto finito de pontos do intervalo $[a,b]$, os quais serão os vértices dos retângulos, e definir a altura de cada retângulo como sendo o [**maior**](color:green) ou [**menor**](color:orange) valor que a função toma no intervalo correspondente à base do retângulo.
 
@@ -179,7 +179,7 @@ Graficamente conseguimos obter o valor de 4 para o integral $(1\times1+1\times3)
 
 Considerando uma partição qualquer do intervalo $[1,3]$, $d$.
 
-Caso $2\notin d$, considera-se a partição mais fina $d\cup \{2\}$. Tem-se também de condiderar partições que tenham pelo menos um ponto inferior a 2 e um ponto superior a 2.
+Caso $2\notin d$, considera-se a partição mais fina $d\cup \{2\}$. Tem-se também de considerar partições que tenham pelo menos um ponto inferior a 2 e um ponto superior a 2.
 
 Logo, $d$ é uma partição de $[1,3]$ constituída pelos pontos
 
@@ -484,7 +484,7 @@ $$
 
 Seja $f$ uma função seccionalmente contínua num intervalo $I$ não degenerado (intervalo degenerado é um intervalo que só contém um único valor).
 
-Então, o intergral indefinido de $f$ com origem em $x_0\in\overline I$,
+Então, o integral indefinido de $f$ com origem em $x_0\in\overline I$,
 
 $$
 \def\d{\mathop{}\!\mathrm d}
@@ -583,7 +583,7 @@ $$
 \int^b_af(x)\d x=\int^{t_1}_{t_0}f(\varphi(t))\cdot\varphi'(t)\d t
 $$
 
-A fórmula da integração por substituição é bastante superior à da Primitivação por substituição, pelo simples facto de não ser ter de desfazer a substiuição. A outra diferença é que a integração por substituição não necessita de injetividade.
+A fórmula da integração por substituição é bastante superior à da Primitivação por substituição, pelo simples facto de não ser ter de desfazer a substituição. A outra diferença é que a integração por substituição não necessita de injetividade.
 
 Algumas observações sobre a fórmula de integração por substituição:
 

@@ -2,7 +2,7 @@
 title: Combinações Lineares de VA
 description: >-
   Valor Esperado e Variância de Combinações Lineares de Variáveis Aleatórias.
-  Distribuições de Combinações Lineares de Variáveis Aleatórias: Binomais, Poisson's, Normais e Exponenciais.
+  Distribuições de Combinações Lineares de Variáveis Aleatórias: Binomiais, Poisson's, Normais e Exponenciais.
   Teorema do Limite Central
   Aproximações de Distribuições.
   Correção de Continuidade.
@@ -16,7 +16,7 @@ type: content
 
 ```
 
-Para VA $X_1, X_2, \cdots, X_n$ e $c_1, c_2, \cdots, c_n \in \R$ dizemos que a VA
+Para VA $X_1, X_2, \cdots, X_n$ e $c_1, c_2, \cdots, c_n \in \R$, dizemos que a VA
 
 $$
 Y = \sum_{i=1}^n c_i X_i
@@ -24,7 +24,7 @@ $$
 
 é uma combinação linear de $X_1, \cdots, X_n$.
 
-Muitas vezes é interessante estudar combinações lineares de VA's pelo que os seguintes resultados são muito importantes.
+Muitas vezes é interessante estudar combinações lineares de VA's, pelo que os seguintes resultados são muito importantes.
 
 :::tip[Valor Esperado de Comb. Lineares de VA's]
 
@@ -41,7 +41,7 @@ V \left( \sum_{i=1}^n c_i X_i \right) =
 \sum_{i=1}^n c_i^2 V(X_i) + 2 \sum_{i=1}^n \sum_{j=i+1}^n c_ic_jcov(X_i, X_j)
 $$
 
-Nomeadamente, para VA's independentes duas a duas ($X_i \indep X_j, \forall_{i,j \in \{0,1,\cdots,n\}, i \neq j}$) temos que
+Nomeadamente, para VA's independentes duas a duas ($X_i \indep X_j, \forall_{i,j \in \{0,1,\cdots,n\}, i \neq j}$), temos que
 
 $$
 V \left( \sum_{i=1}^n c_i X_i \right) =
@@ -134,7 +134,7 @@ $$
 = \Phi(z)
 $$
 
-Por outras palavras, temos que para $n$ suficientemente grande
+Por outras palavras, temos que, para $n$ suficientemente grande,
 
 $$
 \frac{S_n - n\mu}{\sqrt{n\sigma^2}} \sima \op{normal}(0,1)
@@ -144,16 +144,16 @@ $$
 \frac{\overline{X_n} - \mu}{\sqrt{\frac{\sigma^2}{n}}} \sima \op{normal}(0,1)
 $$
 
-por observação empírica verificou-se que esta aproximação fica razoável para valores de $n$ superiores a **30**.
+Por observação empírica, verificou-se que esta aproximação fica razoável para valores de $n$ superiores a **30**.
 
 Este teorema permite-nos obter várias aproximações para distribuições.
-Vamos ver agora aproximações distribuições, algumas que seguem do TLC, outras não.
+Vamos ver, agora, aproximações de distribuições, algumas das quais seguem do TLC.
 
 ## Aproximações de Distribuições
 
 :::danger[]
 
-Estas aproximações não são leccionadas no programa de 2021/22.
+Estas aproximações não são lecionadas no programa de 2021/22.
 
 :::
 Uma VA $X \sim \op{hipergeométrica}(N, M, n)$ pode ser aproximada por
@@ -164,7 +164,7 @@ $$
 
 para $n < 0.1 N$
 
-A lógica por trás desta aproximação é que se a população for muito maior que a amostra (isto é, o número de individuos analisados), a não-reposição torna-se negligenciável.
+A lógica por trás desta aproximação é que se a população for muito maior que a amostra (isto é, o número de indivíduos analisados), a não-reposição torna-se negligenciável.
 
 :::tip[]
 
@@ -208,7 +208,7 @@ Isto é uma consequência do TLC.
 
 ### Correção de Continuidade
 
-Quando aproximamos VA discretas por VA contínuas, normalmente fazemos uma pequena correção para melhor a aproximação:
+Quando aproximamos VA discretas por VA contínuas, normalmente fazemos uma pequena correção para melhorar a aproximação:
 
 $$
 P(X=x) \simeq P\left(x -\frac{1}{2} < \tilde X \leq x + \frac{1}{2}\right)

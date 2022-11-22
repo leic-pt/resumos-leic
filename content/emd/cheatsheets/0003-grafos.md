@@ -11,7 +11,7 @@ type: cheatsheets
 
 ```
 
-Informação mais detalhada sobre o [Principío de Pombal](./0019-pombal)\
+Informação mais detalhada sobre o [Princípio de Pombal](./0019-pombal)\
 Informação mais detalhada sobre [Relacionamentos Estáveis](./0021-galeshapley)\
 Informação mais detalhada sobre [Grafos Planares](./0024-grafoplanares)\
 Informação mais detalhada sobre o [Algoritmo de Kuratowski](./0025-teoremakuratowski)\
@@ -192,7 +192,7 @@ Com este Algoritmo consegue-se percorrer um **atalho euleriano fechado** num **m
 
 #### Algoritmo Fleury - Multigrafo Atravessável
 
-O **Algoritmo de Fleury** foi concebido para **multigrados eulerianos**.  
+O **Algoritmo de Fleury** foi concebido para **multigrafos eulerianos**.  
 Mas, também o podemos aplicar, **informalmente**, em **multigrafos atravessáveis**.
 
 Para isso, basta **começar num vértice ímpar**, é a única mudança no Algoritmo.\
@@ -307,4 +307,4 @@ Grafo dirigido, todas as arestas têm orientação.\
 Um digrafo-$s$-$t$ é um digrafo com `fonte` $s$
 e `semidouro` $t$
 
-![ponteeuclidiana](./assets/0003-euc.png#dark=3)
+![ponte euclidiana](./assets/0003-euc.png#dark=3)

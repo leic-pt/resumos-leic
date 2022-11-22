@@ -3,7 +3,7 @@
 De forma a facilitar as contribuições, é mantido um guia passo a passo com instruções
 para novos membros.
 
-Este [guia encontra-se disponível na nossa documentação](https://leic-pt.github.io/docs/).
+Este [guia encontra-se disponível na nossa documentação](https://docs.leic.pt/).
 
 ## Conteúdos Não Desejados
 
