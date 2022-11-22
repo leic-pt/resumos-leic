@@ -1,6 +1,11 @@
 ---
 title: Introdução
-description: Introdução a Redes
+description: >
+  Introdução a Redes.
+  A Internet.
+  Protocolos.
+  Extremidade da Rede.
+  Modelo OSI.
 path: /rc/introducao
 type: content
 ---
