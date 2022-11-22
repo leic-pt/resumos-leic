@@ -30,11 +30,9 @@ Ao fazer isso, o output esperado é algo do género:
 
 ![Servidor HTTP do python](./assets/0100-python-server.png)
 
-
 Este código tem que ficar a correr enquanto querem ter acesso ao script `.cgi`, ou seja, vão ter de deixar a “janela aberta”.
 
 Se escreverem [`localhost:8000`](http://localhost:8000) no browser, vão ver algo do género:
-
 
 ![Directory Listing pelo HTTP server](./assets/0100-directory-listing.png)
 
