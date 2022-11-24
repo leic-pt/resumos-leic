@@ -63,7 +63,6 @@ sequenceDiagram
     S->>C: [ficheiro]
 ```
 
-
 ## Grupos de redes
 
 Podemos considerar que existem vários grupos de rede:
@@ -79,12 +78,9 @@ Os dispositivos ligam-se então a essa "caixinha", tanto por cabo ou principalme
 A rede em Universidades, Empresas, etc. considera-se uma LAN (Local Area Network), onde existe um mix de rede cablada e sem fios.  
 Nestes espaços é normal existirem switches e routers para melhor gerir o tráfego.
 
-
 ### Redes de Data Center
 
-Ligações com bandwidth bastante elevada (entre 10Gbps e 100Gbps) que conectam centenas ou milhares de servidores entre si e à internet. 
-
-
+Ligações com bandwidth bastante elevada (entre 10Gbps e 100Gbps) que conectam centenas ou milhares de servidores entre si e à internet.
 
 ## Meios de transmissão
 
@@ -94,11 +90,11 @@ Existem vários tipos:
 - Por cabo;
 - Por fibra ótica;
 - Wireless;
-- Etc.  
+- Etc.
 
 Que se dividem em dois meios:
- 
- ### Meio Físico
+
+### Meio Físico
 
 - Fios de cobre - Normalmente [cabos RJ-45](./terminology#cabo-rj-45):
   - Dos mais comuns;
@@ -127,7 +123,6 @@ Apesar de parecer ideal apenas ser usada comunicação Wireless (substituindo os
 
 - **Interferência** - Outros dispositivos que também emitem sinais (Ex. Um Micro-ondas, um rádio, outras antenas, ...) podem causar interferências com o sinal original.
 
-
 ## Extremidade da Rede
 
 É o nível mais baixo da hierarquia, composto por computadores, servidores,
@@ -155,7 +150,7 @@ Na prática, é usada uma mistura dos dois:
 
 ### FDM (Frequency division multiplexer)
 
-A divisão é feita na frequência.   
+A divisão é feita na frequência.  
 São usados vários canais/frequências e colocados sobre a mesma fibra óptica/cabo. Cada utilizador usa uma das frequências.
 
 ![FDM](./assets/0001_fdm.png#dark=2 'Frequency Division (FDM)')
@@ -167,20 +162,20 @@ Cada host pode usar a fibra óptica/cabo durante um intervalo específico de tem
 
 ![TDM](./assets/0001_tdm.png#dark=2 'Time Division (TDM)')
 
-
 :::info[Exercício de comutação de circuitos]
-**Quanto tempo demora enviar um ficheiro de 640.000 bits do *host* A para o *host* B a partir de uma *network* baseada em comutação de circuitos?**   
+**Quanto tempo demora enviar um ficheiro de 640.000 bits do _host_ A para o _host_ B a partir de uma _network_ baseada em comutação de circuitos?**
 
-**A *bit rate* de *links* disponíveis é 2048 MBps;**  
-**Cada *link* é partilhado usando *TDM*, havendo 32 *slots*/linha;**  
-**São precisos 500ms para estabelecer um circuito *end-to-end***  
+**A _bit rate_ de _links_ disponíveis é 2048 MBps;**  
+**Cada _link_ é partilhado usando _TDM_, havendo 32 _slots_/linha;**  
+**São precisos 500ms para estabelecer um circuito _end-to-end_**
 
-Seja $L$ o tamanho do ficheiro e $R$ a *rate* de transferência.   
-Simplificando $L$, tem-se que $L = 640 \times 10^3 \ bits = 2^6 \times 10^4 \ bits$.     
+Seja $L$ o tamanho do ficheiro e $R$ a _rate_ de transferência.  
+Simplificando $L$, tem-se que $L = 640 \times 10^3 \ bits = 2^6 \times 10^4 \ bits$.
 
-$R$ é a *rate* de transferência, ou seja, a quantidade de bits que é possível passar pelo cabo por segundo. Como cada ligação é dividida em 32 slots, tem-se que dividir a *bit rate* dada, ou seja, calcula-se $R = \frac{bit\ rate\ total}{Nº\ de\ slots} = \frac{2048\ MBps}{32} = \frac{2^{11} \times 10^3}{2^5} = 64\ Kbits/s$.  
+$R$ é a _rate_ de transferência, ou seja, a quantidade de bits que é possível passar pelo cabo por segundo. Como cada ligação é dividida em 32 slots, tem-se que dividir a _bit rate_ dada, ou seja, calcula-se $R = \frac{bit\ rate\ total}{Nº\ de\ slots} = \frac{2048\ MBps}{32} = \frac{2^{11} \times 10^3}{2^5} = 64\ Kbits/s$.
 
-O tempo total é dado então por:  
+O tempo total é dado então por:
+
 $$
 \begin{aligned}
 t_{total} &= t_{setup} + t_{transferir}\\
@@ -195,8 +190,9 @@ $$
 
 #### Desvantagens
 
-Esta estratégia tem alguns problemas:  
-- O aluguer de um canal exclusivo é muito caro e nada prático (Por exemplo, é feito por emissores de Televisão quando querem garantir a consistência da ligação); 
+Esta estratégia tem alguns problemas:
+
+- O aluguer de um canal exclusivo é muito caro e nada prático (Por exemplo, é feito por emissores de Televisão quando querem garantir a consistência da ligação);
 - É um canal pequeno e não tem a performance que a outra estratégia pode oferecer:
 
 ### Packet Switching
@@ -204,7 +200,7 @@ Esta estratégia tem alguns problemas:
 Em vez de dividir os recursos da rede, estes são partilhados e a comunicação
 é dividida em pacotes.
 Cada pacote utiliza o tamanho total da largura de banda e os recursos são
-utilizados à medida que é necessário, ou seja, um host consegue ter o canal todo para ele caso não existam outros hosts - **Statistical Multiplexing**.   
+utilizados à medida que é necessário, ou seja, um host consegue ter o canal todo para ele caso não existam outros hosts - **Statistical Multiplexing**.
 
 O sistema de encaminhamento na internet é feito de forma a que cada pacote possa ser enviado por caminhos diferentes (depende da congestão de um certo caminho).
 
@@ -212,8 +208,7 @@ Esta estratégia também tem problemas:
 
 - A procura pode exceder os recursos disponíveis;
 - Podem haver atrasos com pacotes à espera na fila ou perdas (Congestion);
-- (**Store and forward**) - Cada pacote tem de ser recebido na totalidade antes de ser encaminhado.  
-
+- (**Store and forward**) - Cada pacote tem de ser recebido na totalidade antes de ser encaminhado.
 
 #### _Store and forward_
 
@@ -221,9 +216,10 @@ Em cada link, o pacote tem que chegar por inteiro ao router antes de ser transmi
 
 ![Store and Forward example](./assets/0001_storeAndForwarding-TEMP.png 'Processo de Store and Forward')
 
-O router precisa de receber o pacote todo: 
-- para verificar se houve algum erro na transmissão. Se o pacote ficou corrompido, não faz sentido continuar a propagá-lo; 
-- Para calcular o melhor caminho por onde o reencaminhar, visto que certos caminhos podem estar congestionados ou bloqueados. 
+O router precisa de receber o pacote todo:
+
+- para verificar se houve algum erro na transmissão. Se o pacote ficou corrompido, não faz sentido continuar a propagá-lo;
+- Para calcular o melhor caminho por onde o reencaminhar, visto que certos caminhos podem estar congestionados ou bloqueados.
 
 Para calcular o tempo que um pacote demora a chegar ao seu destino tem que se
 somar duas partes: o tempo de propagação e o tempo de transmissão.
