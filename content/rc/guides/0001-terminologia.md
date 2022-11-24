@@ -27,6 +27,15 @@ O cabo de ethernet que toda a gente conhece. É usada a nomenclatura RJ-45 por m
 Por exemplo,
 ![Cabo de rede](./assets/0001-RJ45cable.png)
 
+### Access Point
+
+Um Access Point (leia-se AP) é o dispositivo que fornece Wifi.  
+Não confundir um AP com o "Router lá de casa". Esse "Router" é, tipicamente, na verdade uma "caixinha" que serve de Modem, Router e AP.  
+A única função de um AP é transformar rede cablada em rede WiFi.
+Por exemplo,
+![Cisco AP](./assets/0001-CiscoAP.png) 
+
+
 ### Protocolo
 
 Um protocolo estabelece um conjunto de regras que permite vários sistemas computacionais comunicarem entre si.  
