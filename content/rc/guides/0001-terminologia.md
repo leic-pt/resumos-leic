@@ -33,8 +33,7 @@ Um Access Point (leia-se AP) é o dispositivo que fornece Wifi.
 Não confundir um AP com o "Router lá de casa". Esse "Router" é, tipicamente, na verdade uma "caixinha" que serve de Modem, Router e AP.  
 A única função de um AP é transformar rede cablada em rede WiFi.
 Por exemplo,
-![Cisco AP](./assets/0001-CiscoAP.png) 
-
+![Cisco AP](./assets/0001-CiscoAP.png)
 
 ### Protocolo
 
