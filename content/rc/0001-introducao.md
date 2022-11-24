@@ -63,6 +63,71 @@ sequenceDiagram
     S->>C: [ficheiro]
 ```
 
+
+## Grupos de redes
+
+Podemos considerar que existem vários grupos de rede:
+
+### Redes residenciais
+
+Em casa, devido a não existirem muitos dispositivos que precisem de rede e os que precisam ligarem-se normalmente apenas à internet, a rede é simples.  
+Tipicamente em cada casa existe um Modem, um Router e um AP, tudo na mesma "caixinha".  
+Os dispositivos ligam-se então a essa "caixinha", tanto por cabo ou principalmente por WiFi ao AP embutido.
+
+### Redes locais
+
+A rede em Universidades, Empresas, etc. considera-se uma LAN (Local Area Network), onde existe um mix de rede cablada e sem fios.  
+Nestes espaços é normal existirem switches e routers para melhor gerir o tráfego.
+
+
+### Redes de Data Center
+
+Ligações com bandwidth bastante elevada (entre 10Gbps e 100Gbps) que conectam centenas ou milhares de servidores entre si e à internet. 
+
+
+
+## Meios de transmissão
+
+De forma a nos ligarmos a uma rede, precisamos de algum meio de acesso.
+Existem vários tipos:
+
+- Por cabo;
+- Por fibra ótica;
+- Wireless;
+- Etc.  
+
+Que se dividem em dois meios:
+ 
+ ### Meio Físico
+
+- Fios de cobre - Normalmente [cabos RJ-45](./terminology#cabo-rj-45):
+  - Dos mais comuns;
+  - Estes cabos têm diferentes categorias e diferentes tipos:
+    - Categoria 3: Cabos de telefone e cabos de rede de até 10Mbps;
+    - Categoria 5: Até 100Mbps;
+    - Categoria 6: Até 1 Gbps;
+    - Categoria 7: até 10 Gbps ou 100 Gbps se a distância for menor que 15 metros.
+- Cabos coaxiais
+  - Cabos bastante isolados, ideáis para para evitar interferências eletromagnéticas.
+- Fibra ótica
+  - É usada ótica (ou seja, luz) para transferir informação;
+  - Alta velocidade;
+  - Não é afetada por interferências de frequências;
+  - Bastante frágil.
+
+### Meio Wireless
+
+Este meio de transmissão é bidirecional e usa antenas para comunicar entre dois dispositivos. Normalmente são usados [APs (Access Points)](./terminology#access-point) para transmitir o sinal de rede.
+
+Apesar de parecer ideal apenas ser usada comunicação Wireless (substituindo os cabos), este esquema tem alguns problemas específicos:
+
+- **Reflexão** - O Sinal é enviado em múltiplos sentidos e, através de reflexão, mais que um sinal pode ir parar ao mesmo sítio que outro. Esta sobreposição faz com que exista ruído ou até mesmo que os sinais se cancelem;
+
+- **Obstrução por objetos** - Alguns objetos, especialmente os metálicos, absorvem parte do sinal, fazendo com que a sua potência diminua;
+
+- **Interferência** - Outros dispositivos que também emitem sinais (Ex. Um Micro-ondas, um rádio, outras antenas, ...) podem causar interferências com o sinal original.
+
+
 ## Extremidade da Rede
 
 É o nível mais baixo da hierarquia, composto por computadores, servidores,
@@ -80,31 +145,85 @@ Uso mínimo ou inexistente de servidores dedicados, como por exemplo o Skype e o
 
 ### Circuit Switching
 
-Os recursos da rede (e.g. largura de banda) encontram-se divididos em partes alocadas.
+Os recursos da rede (e.g. largura de banda) encontram-se divididos em partes alocadas, sendo estabelecido um canal exclusivo para cada host.
 Não há partilha de recursos, ou seja se eu não estiver a utilizar a minha parte,
 ninguém a está a utilizar.
 
 A largura de banda pode ser dividida por frequências (Frequency division, FDM)
-ou ao longo do tempo (Time division, TDM).
+ou ao longo do tempo (Time division, TDM).  
+Na prática, é usada uma mistura dos dois:
+
+### FDM (Frequency division multiplexer)
+
+A divisão é feita na frequência.   
+São usados vários canais/frequências e colocados sobre a mesma fibra óptica/cabo. Cada utilizador usa uma das frequências.
 
 ![FDM](./assets/0001_fdm.png#dark=2 'Frequency Division (FDM)')
 
+### TDM (Time division multiplexer)
+
+A divisão é feita no tempo.  
+Cada host pode usar a fibra óptica/cabo durante um intervalo específico de tempo.
+
 ![TDM](./assets/0001_tdm.png#dark=2 'Time Division (TDM)')
+
+
+:::info[Exercício de comutação de circuitos]
+**Quanto tempo demora enviar um ficheiro de 640.000 bits do *host* A para o *host* B a partir de uma *network* baseada em comutação de circuitos?**   
+
+**A *bit rate* de *links* disponíveis é 2048 MBps;**  
+**Cada *link* é partilhado usando *TDM*, havendo 32 *slots*/linha;**  
+**São precisos 500ms para estabelecer um circuito *end-to-end***  
+
+Seja $L$ o tamanho do ficheiro e $R$ a *rate* de transferência.   
+Simplificando $L$, tem-se que $L = 640 \times 10^3 \ bits = 2^6 \times 10^4 \ bits$.     
+
+$R$ é a *rate* de transferência, ou seja, a quantidade de bits que é possível passar pelo cabo por segundo. Como cada ligação é dividida em 32 slots, tem-se que dividir a *bit rate* dada, ou seja, calcula-se $R = \frac{bit\ rate\ total}{Nº\ de\ slots} = \frac{2048\ MBps}{32} = \frac{2^{11} \times 10^3}{2^5} = 64\ Kbits/s$.  
+
+O tempo total é dado então por:  
+$$
+\begin{aligned}
+t_{total} &= t_{setup} + t_{transferir}\\
+          &= 0.5\ s + \frac{L}{R}\\
+          &= 0.5\ s + \frac{640\ kbits}{64\ kbits/s}\\
+          &= 0.5 + 10\\
+          &= 10.5
+\end{aligned}
+$$
+
+:::
+
+#### Desvantagens
+
+Esta estratégia tem alguns problemas:  
+- O aluguer de um canal exclusivo é muito caro e nada prático (Por exemplo, é feito por emissores de Televisão quando querem garantir a consistência da ligação); 
+- É um canal pequeno e não tem a performance que a outra estratégia pode oferecer:
 
 ### Packet Switching
 
 Em vez de dividir os recursos da rede, estes são partilhados e a comunicação
 é dividida em pacotes.
 Cada pacote utiliza o tamanho total da largura de banda e os recursos são
-utilizados à medida que é necessário.
+utilizados à medida que é necessário, ou seja, um host consegue ter o canal todo para ele caso não existam outros hosts - **Statistical Multiplexing**.   
 
-Contensão:
+O sistema de encaminhamento na internet é feito de forma a que cada pacote possa ser enviado por caminhos diferentes (depende da congestão de um certo caminho).
 
-- A procura pode exceder os recursos disponíveis
-- Podem haver atrasos com pacotes à espera na fila ou perdas (Congestion)
-- (**Store and forward**) Cada pacote tem de ser recebido na totalidade antes de ser encaminhado
+Esta estratégia também tem problemas:
+
+- A procura pode exceder os recursos disponíveis;
+- Podem haver atrasos com pacotes à espera na fila ou perdas (Congestion);
+- (**Store and forward**) - Cada pacote tem de ser recebido na totalidade antes de ser encaminhado.  
+
 
 #### _Store and forward_
+
+Em cada link, o pacote tem que chegar por inteiro ao router antes de ser transmitido para o próximo link. Ou seja,
+
+![Store and Forward example](./assets/0001_storeAndForwarding-TEMP.png 'Processo de Store and Forward')
+
+O router precisa de receber o pacote todo: 
+- para verificar se houve algum erro na transmissão. Se o pacote ficou corrompido, não faz sentido continuar a propagá-lo; 
+- Para calcular o melhor caminho por onde o reencaminhar, visto que certos caminhos podem estar congestionados ou bloqueados. 
 
 Para calcular o tempo que um pacote demora a chegar ao seu destino tem que se
 somar duas partes: o tempo de propagação e o tempo de transmissão.
