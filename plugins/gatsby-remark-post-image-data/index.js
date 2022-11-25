@@ -25,6 +25,7 @@ const onImageVisit = (node) => {
     data.hName = 'object';
     hProperties.data = node.url;
     hProperties.type = 'image/svg+xml';
+    hProperties.onload = 'window.swapObjectByInlineSvg?.(this);';
     node.type = 'object';
   }
 };

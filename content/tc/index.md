@@ -11,6 +11,5 @@ type: topLevelPage
 
 ## Recursos
 
-- [Página da Cadeira - Fénix](https://fenix.tecnico.ulisboa.pt/disciplinas/TCom2/2021-2022/2-semestre)
 - [Emulador - Autómatos](https://automatonsimulator.com/)
 - [Emulador - Máquinas de Turing](https://github.com/kiriloman/Multitape-Non-Deterministic-Turing-Machine)

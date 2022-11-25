@@ -80,7 +80,7 @@ Isto é, se houver um problema que é $NP$-Completo (e, portanto, $NP$-Difícil)
 
 Ora, precisamos então de ter um problema raiz que seja $NP$-Completo para, a partir desse, conseguir extrair todos os outros. Assim, provar a conjetura $P$ vs $NP$, por exemplo, reduz-se a provar que esse algoritmo é ou não é de classe $P$.
 
-O **teorema de Cook-Levin** diz-nos, de forma muito sucinta, que o [problema de SAT](../lp/algoritmos-sat), abordado em LP, é $NP$-Completo. A prova é bastante extensa, pelo que não será apresentada aqui. Contudo, tanto as notas do prof. Fragoso como o vídeo abaixo contêm excelentes explicações do mesmo!
+O **teorema de Cook-Levin** diz-nos, de forma muito sucinta, que o [problema de SAT](../lp/algoritmos-sat), abordado em LP, é $NP$-Completo. A prova é bastante extensa, pelo que não será apresentada aqui. Contudo, tanto as notas do Prof. Fragoso como o vídeo abaixo contêm excelentes explicações do mesmo!
 
 ::youtube{#LW_37i96htQ}
 

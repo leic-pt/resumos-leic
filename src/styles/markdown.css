@@ -35,7 +35,8 @@ body.dark-mode .content a:hover {
 }
 
 .content img,
-.content object {
+.content object,
+.content .object-svg-inline svg {
   max-width: 100%;
   /* center images */
   display: block;

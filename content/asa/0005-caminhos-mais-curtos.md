@@ -132,7 +132,7 @@ Podemos, por fim, afirmar que $\delta(s, v) \leq \delta(s, u) + w(u, v)$.
 Escrevemos $\leq$ em vez de $=$ porque pode haver um sub-caminho mais barato de $s$
 a $v$ que não inclua necessariamente o arco $(u, v)$, como no exemplo abaixo:
 
-![Sub-Caminho mais Barato](./assets/0005-sub-caminhos-mais-curtos.svg#dark=4)
+![Subcaminho mais Barato](./assets/0005-sub-caminhos-mais-curtos.svg#dark=4)
 
 ### [**Relaxação**](color:yellow)
 
@@ -523,7 +523,7 @@ o nome pelo qual também é conhecido, **caminho crítico**.
 
 :::tip[Nota]
 
-Esta secção tem a co-autoria do [João Rocha](https://github.com/calhau18).
+Esta secção tem a coautoria do [João Rocha](https://github.com/calhau18).
 
 :::
 
@@ -544,7 +544,7 @@ Para tal, usa uma estratégia: a [**repesagem de Johnson**](color:orange), basea
 e acaba na aplicação de Dijkstra, usando todos os vértices como fonte.
 De realçar que a repesagem só é requerida caso haja pelo menos um arco negativo.
 
-Durante o decorrer do algoritmo, são calculadas duas matrizes bi-dimensionais
+Durante o decorrer do algoritmo, são calculadas duas matrizes bidimensionais
 (onde cada dimensão tem tamanho $|V|$):
 
 - $D$, onde $D(i, j)$ corresponde ao peso do caminho mais curto de $i$ a $j$;
@@ -561,7 +561,7 @@ Queremos, claro, que os caminhos mais curtos em $\hat{G}$ sejam os mesmos que os
 
 A intuição poderá levar-nos a pensar que uma maneira possível de chegar a $\hat{G}$
 é encontrar a aresta com peso mais negativo, pegar no seu módulo e somá-lo ao peso
-de todas os arcos de $G$. A estratégia, contudo, não funciona para todos os casos - temos um contra-exemplo abaixo:
+de todas os arcos de $G$. A estratégia, contudo, não funciona para todos os casos - temos um contraexemplo abaixo:
 
 ![Repesagem de Johnson - abordagem errada](assets/0005-johnson-errado.svg#dark=4)
 

@@ -6,7 +6,7 @@ do curso de LEIC-A no Instituto Superior Técnico. Qualquer contribuição é be
 ## Como contribuir?
 
 Se estás a pensar contribuir para os Resumos LEIC, fizemos um guia passo a passo só para ti!
-Vai à [nossa documentação para aprenderes tudo o que precisas](https://leic-pt.github.io/docs/).
+Vai à [nossa documentação para aprenderes tudo o que precisas](https://docs.leic.pt/).
 
 Se já percebes do assunto e apenas queres instruções rápidas, segue os passos abaixo.
 
@@ -21,7 +21,7 @@ Abaixo encontram-se instruções para instalação em Windows e Linux.
 2. Fazer [download do `node`](https://nodejs.org/en/) e instalar a última versão LTS (à data, 16.X LTS).
 3. Instalar o `yarn` através da **PowerShell**, correndo o comando `npm i -g yarn`.
 
-#### Linux
+#### Linux/macOS
 
 1. Instalar o `git` e o `node` pelo package manager da distribuição. Atenção que o `node` em Debian/Ubuntu/etc está desatualizado.
    Recomendo seguir [este tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04#option-3-installing-node-using-the-node-version-manager) para ter o Node 16 LTS.

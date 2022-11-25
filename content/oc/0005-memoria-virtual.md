@@ -16,7 +16,7 @@ type: content
 :::danger[Conteúdo Não Revisto]
 
 O conteúdo abaixo não foi revisto e poderá conter erros.
-Agradecem-se [contribuições](https://leic-pt.github.io/docs/).
+Agradecem-se [contribuições](https://docs.leic.pt/).
 
 Apenas foi aqui incluído devido à proximidade do MAP45 dia 2022/10/20.
 
