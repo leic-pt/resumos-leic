@@ -20,7 +20,7 @@ body {
   }
 }
 
-.content a {
+.content a:not(.gatsby-resp-image-link, .anchor.before) {
   transition: filter 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   box-shadow: inset 0 -2px var(--accentColor);
   color: var(--textColor);
