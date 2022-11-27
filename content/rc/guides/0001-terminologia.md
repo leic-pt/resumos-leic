@@ -1,7 +1,7 @@
 ---
 title: Terminologia de Redes
 description: Terminologia usada em Redes, com imagens.
-path: /rc/terminology
+path: /rc/guides/terminology
 type: guides
 ---
 
