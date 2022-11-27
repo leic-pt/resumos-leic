@@ -164,14 +164,14 @@ Na prática, é usada uma mistura dos dois:
 A divisão é feita na frequência.  
 São usados vários canais/frequências e colocados sobre a mesma fibra óptica/cabo. Cada utilizador usa uma das frequências.
 
-![FDM](./assets/0001_fdm.png#dark=2 'Frequency Division (FDM)')
+![FDM](./assets/0001-fdm.svg#dark=3 'Frequency Division (FDM)')
 
 ### TDM (Time division multiplexer)
 
 A divisão é feita no tempo.  
 Cada host pode usar a fibra óptica/cabo durante um intervalo específico de tempo.
 
-![TDM](./assets/0001_tdm.png#dark=2 'Time Division (TDM)')
+![TDM](./assets/0001-tdm.svg#dark=3 'Time Division (TDM)')
 
 :::info[Exercício de comutação de circuitos]
 **Quanto tempo demora enviar um ficheiro de 640.000 bits do _host_ A para o
@@ -237,9 +237,7 @@ Esta estratégia também tem problemas:
 
 Em cada link, o pacote tem que chegar por inteiro ao router antes de ser transmitido para o próximo link. Ou seja,
 
-<!-- TODO replace with SVG -->
-
-![Store and Forward example](./assets/0001_storeAndForwarding-TEMP.png#dark=2 'Processo de Store and Forward')
+![Store and Forward example](./assets/0001-store-and-forwarding.svg#dark=3 'Processo de Store and Forward')
 
 O router precisa de receber o pacote todo:
 
