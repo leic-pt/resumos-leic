@@ -69,18 +69,22 @@ Podemos considerar que existem vários grupos de rede:
 
 ### Redes residenciais
 
-Em casa, devido a não existirem muitos dispositivos que precisem de rede e os que precisam ligarem-se normalmente apenas à internet, a rede é simples.  
+Em casa, devido a não existirem muitos dispositivos que precisem de rede e os
+que precisam ligarem-se normalmente apenas à internet, a rede é simples.  
 Tipicamente em cada casa existe um Modem, um Router e um AP, tudo na mesma "caixinha".  
-Os dispositivos ligam-se então a essa "caixinha", tanto por cabo ou principalmente por WiFi ao AP embutido.
+Os dispositivos ligam-se então a essa "caixinha", tanto por cabo ou,
+usualmente, por WiFi ao AP embutido.
 
 ### Redes locais
 
-A rede em Universidades, Empresas, etc. considera-se uma LAN (Local Area Network), onde existe um mix de rede cablada e sem fios.  
+A rede em Universidades, Empresas, etc. considera-se uma LAN (Local Area Network),
+onde existe um mix de rede cablada e sem fios.  
 Nestes espaços é normal existirem switches e routers para melhor gerir o tráfego.
 
 ### Redes de Data Center
 
-Ligações com bandwidth bastante elevada (entre 10Gbps e 100Gbps) que conectam centenas ou milhares de servidores entre si e à internet.
+Ligações com bandwidth bastante elevada (entre 10Gbps e 100Gbps) que conectam
+centenas ou milhares de servidores entre si e à Internet.
 
 ## Meios de transmissão
 
@@ -90,7 +94,7 @@ Existem vários tipos:
 - Por cabo;
 - Por fibra ótica;
 - Wireless;
-- Etc.
+- etc.
 
 Que se dividem em dois meios:
 
@@ -115,13 +119,19 @@ Que se dividem em dois meios:
 
 Este meio de transmissão é bidirecional e usa antenas para comunicar entre dois dispositivos. Normalmente são usados [APs (Access Points)](./terminology#access-point) para transmitir o sinal de rede.
 
-Apesar de parecer ideal apenas ser usada comunicação Wireless (substituindo os cabos), este esquema tem alguns problemas específicos:
+Apesar de parecer ideal apenas ser usada comunicação wireless, termos
+de conveniência e substituindo os cabos, este esquema tem alguns problemas específicos:
 
-- **Reflexão** - O Sinal é enviado em múltiplos sentidos e, através de reflexão, mais que um sinal pode ir parar ao mesmo sítio que outro. Esta sobreposição faz com que exista ruído ou até mesmo que os sinais se cancelem;
+- **Reflexão** - O sinal é enviado em múltiplos sentidos e, através de reflexão,
+  mais que um sinal pode ir parar ao mesmo sítio que outro.
+  Esta sobreposição faz com que exista ruído ou até mesmo que os sinais se cancelem;
 
-- **Obstrução por objetos** - Alguns objetos, especialmente os metálicos, absorvem parte do sinal, fazendo com que a sua potência diminua;
+- **Obstrução por objetos** - Alguns objetos, especialmente os metálicos,
+  absorvem parte do sinal, fazendo com que a sua potência diminua;
 
-- **Interferência** - Outros dispositivos que também emitem sinais (Ex. Um Micro-ondas, um rádio, outras antenas, ...) podem causar interferências com o sinal original.
+- **Interferência** - Outros dispositivos que também emitem sinais
+  (e.g. um micro-ondas, um rádio, outras antenas, etc.) podem causar interferências
+  com o sinal original.
 
 ## Extremidade da Rede
 
@@ -140,7 +150,8 @@ Uso mínimo ou inexistente de servidores dedicados, como por exemplo o Skype e o
 
 ### Circuit Switching
 
-Os recursos da rede (e.g. largura de banda) encontram-se divididos em partes alocadas, sendo estabelecido um canal exclusivo para cada host.
+Os recursos da rede (e.g. largura de banda) encontram-se divididos em partes alocadas,
+sendo estabelecido um canal exclusivo para cada host.
 Não há partilha de recursos, ou seja se eu não estiver a utilizar a minha parte,
 ninguém a está a utilizar.
 
@@ -163,24 +174,32 @@ Cada host pode usar a fibra óptica/cabo durante um intervalo específico de tem
 ![TDM](./assets/0001_tdm.png#dark=2 'Time Division (TDM)')
 
 :::info[Exercício de comutação de circuitos]
-**Quanto tempo demora enviar um ficheiro de 640.000 bits do _host_ A para o _host_ B a partir de uma _network_ baseada em comutação de circuitos?**
+**Quanto tempo demora enviar um ficheiro de 640.000 bits do _host_ A para o
+_host_ B a partir de uma _network_ baseada em comutação de circuitos (_circuit switching_)?**
 
 **A _bit rate_ de _links_ disponíveis é 2048 MBps;**  
 **Cada _link_ é partilhado usando _TDM_, havendo 32 _slots_/linha;**  
 **São precisos 500ms para estabelecer um circuito _end-to-end_**
 
 Seja $L$ o tamanho do ficheiro e $R$ a _rate_ de transferência.  
-Simplificando $L$, tem-se que $L = 640 \times 10^3 \ bits = 2^6 \times 10^4 \ bits$.
+Simplificando $L$, tem-se que $L = 640 \times 10^3 \op{bits} = 2^6 \times 10^4 \op{bits}$.
 
-$R$ é a _rate_ de transferência, ou seja, a quantidade de bits que é possível passar pelo cabo por segundo. Como cada ligação é dividida em 32 slots, tem-se que dividir a _bit rate_ dada, ou seja, calcula-se $R = \frac{bit\ rate\ total}{Nº\ de\ slots} = \frac{2048\ MBps}{32} = \frac{2^{11} \times 10^3}{2^5} = 64\ Kbits/s$.
+$R$ é a _rate_ de transferência, ou seja, a quantidade de bits que é possível
+passar pelo cabo por segundo.
+Como cada ligação é dividida em 32 slots, tem-se que dividir a _bit rate_ dada,
+ou seja, calcula-se,
+
+$$
+R = \frac{\text{bit rate total}}{\text{Nº de slots}} = \frac{2048 \op{Mbps}}{32} = \frac{2^{11} \times 10^3}{2^5} = 64 \op{Kbits/s}
+$$
 
 O tempo total é dado então por:
 
 $$
 \begin{aligned}
-t_{total} &= t_{setup} + t_{transferir}\\
-          &= 0.5\ s + \frac{L}{R}\\
-          &= 0.5\ s + \frac{640\ kbits}{64\ kbits/s}\\
+t_{\text{total}} &= t_{\text{setup}} + t_{\text{transferir}}\\
+          &= 0.5 \op{s} + \frac{L}{R}\\
+          &= 0.5 \op{s} + \frac{640 \op{Kbits}}{64 \op{Kbits/s}}\\
           &= 0.5 + 10\\
           &= 10.5
 \end{aligned}
@@ -192,17 +211,21 @@ $$
 
 Esta estratégia tem alguns problemas:
 
-- O aluguer de um canal exclusivo é muito caro e nada prático (Por exemplo, é feito por emissores de Televisão quando querem garantir a consistência da ligação);
-- É um canal pequeno e não tem a performance que a outra estratégia pode oferecer:
+- O aluguer de um canal exclusivo é muito caro e nada prático (e.g., é usado
+  por emissores de televisão quando querem garantir a consistência da ligação);
+- É um canal pequeno e não tem a performance que outras estratégias, como _packet switching_
+  podem oferecer.
 
 ### Packet Switching
 
 Em vez de dividir os recursos da rede, estes são partilhados e a comunicação
 é dividida em pacotes.
 Cada pacote utiliza o tamanho total da largura de banda e os recursos são
-utilizados à medida que é necessário, ou seja, um host consegue ter o canal todo para ele caso não existam outros hosts - **Statistical Multiplexing**.
+utilizados à medida que é necessário, ou seja, um host consegue ter o canal todo
+para ele caso não existam outros hosts - **Statistical Multiplexing**.
 
-O sistema de encaminhamento na internet é feito de forma a que cada pacote possa ser enviado por caminhos diferentes (depende da congestão de um certo caminho).
+O sistema de encaminhamento na internet é feito de forma a que cada pacote possa
+ser enviado por caminhos diferentes (dependendo da congestão de um certo caminho).
 
 Esta estratégia também tem problemas:
 
@@ -214,12 +237,16 @@ Esta estratégia também tem problemas:
 
 Em cada link, o pacote tem que chegar por inteiro ao router antes de ser transmitido para o próximo link. Ou seja,
 
-![Store and Forward example](./assets/0001_storeAndForwarding-TEMP.png 'Processo de Store and Forward')
+<!-- TODO replace with SVG -->
+
+![Store and Forward example](./assets/0001_storeAndForwarding-TEMP.png#dark=2 'Processo de Store and Forward')
 
 O router precisa de receber o pacote todo:
 
-- para verificar se houve algum erro na transmissão. Se o pacote ficou corrompido, não faz sentido continuar a propagá-lo;
-- Para calcular o melhor caminho por onde o reencaminhar, visto que certos caminhos podem estar congestionados ou bloqueados.
+- para verificar se houve algum erro na transmissão. Se o pacote ficou
+  corrompido, não faz sentido continuar a propagá-lo;
+- para calcular o melhor caminho por onde o reencaminhar, visto que certos
+  caminhos podem estar congestionados ou bloqueados.
 
 Para calcular o tempo que um pacote demora a chegar ao seu destino tem que se
 somar duas partes: o tempo de propagação e o tempo de transmissão.
@@ -238,7 +265,10 @@ Cada camada fornece um serviço às camadas que se encontram acima.
 
 - Aplicação:
   - Suporta aplicações de rede
-  - Exemplos: HTTP, SMTP, SSH, FTP, ...
+  - Exemplos: [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol),
+    [SMTP](https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol),
+    [SSH](https://en.wikipedia.org/wiki/Secure_Shell),
+    [FTP](https://en.wikipedia.org/wiki/File_Transfer_Protocol), ...
 - Transporte:
   - Transferência de dados entre processos
   - Exemplos: TCP, UDP, ...
@@ -247,7 +277,7 @@ Cada camada fornece um serviço às camadas que se encontram acima.
   - Exemplos: IP, protocolos de encaminhamento
 - Ligação:
   - Transferência de dados entre elementos da rede vizinhos
-  - Exemplos: Ethernet, Wi-Fi, P2P, ...
+  - Exemplos: Ethernet, Wi-Fi, [PPP](https://en.wikipedia.org/wiki/Point-to-Point_Protocol), ...
 - Física:
   - Bits "no cabo"
 
