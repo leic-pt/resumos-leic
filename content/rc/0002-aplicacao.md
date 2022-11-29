@@ -14,6 +14,34 @@ type: content
 ```toc
 
 ```
+## Arquiteturas de Aplicações de Rede
+
+- Cliente-Servidor
+- Peer-to-peer (P2P)
+- Híbrido
+
+### Arquitetura Cliente-Servidor
+
+**Servidor**: Sempre ligado, com endereço IP permanente e escalável com _server farms_.
+
+**Clientes**: Comunicam com o servidor, não precisam de estar conectados continuamente,
+podem utilizar IPs dinâmicos e não comunicam diretamente entre eles.
+
+### Arquitetura Peer-to-peer
+
+Não há servidor sempre ligado, _peers_ comunicam entre si diretamente.
+_Peers_ não precisam de estar conectados continuamente e podem mudar de IP.
+Bastante escalável, mas díficil de gerir.
+
+### Híbrido
+
+Exemplo do Skype: Servidor dá aos clientes os endereços, mas chamadas voz são
+feitas diretamente entre os clientes utilizando uma aplicação _Voice-over-IP_ P2P.
+
+## API de sockets
+
+Um processo envia ou recebe mensagens a partir do seu socket.
+A API permite escolher o protocolo de transporte e definir alguns parâmetros.  
 
 ## As camadas de rede
 Como apresentado brevemente na página anterior, existem várias camadas de rede.  
@@ -82,6 +110,13 @@ Alguns métodos são:
 
 Com este conhecimento, podemos agora falar da Camada de Aplicação.  
 
+O protocolo da Camada de Aplicação define:  
+- o tipo de mensagens trocadas (por exemplo, se é um pedido ou uma resposta);
+- a sintaxe das mensagens;  
+- a semântica e regras para quando e como os processos de aplicação enviam a respondem a mensagens.  
+
+Existem protocolos de domínio público (definidos em [RFCs](https://pt.wikipedia.org/wiki/Request_for_Comments)), como o HTTP e o SMTP, bem como protocolos proprietários/comerciais, como o Skype.
+
 Para qualquer camada, esta precisa de garantias da camada inferior.   
 No caso da Camada de Aplicação, a Camada de Transporte tem que garantir:
 
@@ -96,15 +131,15 @@ No caso da Camada de Aplicação, a Camada de Transporte tem que garantir:
 Então, cada programador da Camada de Aplicação deve decidir que protocolo usar (Ex. TCP vs UDP):  
 O programador não precisa de saber a implementação de cada um; Apenas se tem que preocupar com as vantagens e desvantagens de cada protocolo consoante o seu objetivo.
 
-### Protocolo HTTP
+## Protocolo HTTP
 
 É o protocolo da Camada de Aplicação usado na WWW (World Wide Web), usando o protocolo TCP da Camada de Transporte. Existem várias versões:
 
-#### HTTP 1.0  
+### HTTP 1.0  
 Versão não persistente.  
 Cada objeto transferido exige a criação e uma sessão de TCP diferente.
 
-#### HTTP 1.1  
+### HTTP 1.1  
 Versão persistente, permitindo a transferência de vários objetos na mesma sessão de TCP.  
 Isto permite pipelining - Se existem referências a um dado objeto numa dada transferência, o servidor pode ordenar o seu envio imediatamente, não sendo necessário o utilizador pedir esses ficheiros.
 
@@ -189,51 +224,59 @@ Isto é conseguido através de cookies - pedaços de texto que o Browser guarda 
 As Cookies são definidas de forma tal que os websites consigam interpretá-las e associar um estado ou função a cada uma.  
 Por exemplo, para um dado website, a Cookie `awdjopvioawd` pode significar que o utilizador que a detém é um administrador.   
 
+### Outras versões de HTTP
+Novas versões do HTTP vão aparecendo ao longo do tempo, onde são acrescentadas novas funcionalidades e o desempenho é melhorado.  
+As versões são compatíveis com as anteriores.
+
+#### HTTP 2.0
+Os destaques destas versão são:
+- a redução dos overheads dos cabeçalhos (são usados códigos para representar o conteúdo dos pedidos e respostas);
+- permitir que várias tabs de um dado browser partilhem a mesma ligação TCP;
+- **Push de servidor** - O servidor analisa o HTML e vê que outros ficheiros são necessários (e consequentemente, serão pedidos) e envia-os assim que possível, não sendo necessário um pedido por parte do utilizador;  
+- **Mitigação de HOL blocking** - Os objetos são divididos em pacotes e a transferência é intercalada, de forma a transmitir os ficheiros mais pequenos primeiro:
+
+![Sem Mitigação de HOL blocking](./assets/0002-blockingHOL-before.svg 'Sem Mitigação de HOL blocking')  
+
+<br>
+
+![Com Mitigação de HOL blocking](./assets/0002-blockingHOL-after.svg 'Com Mitigação de HOL blocking')
+
+#### HTTP 3.0
+Invés do protocolo de comunicação, usa-se o protocolo QUIC - mistura do protocolo UDP com algumas diferenças e com encriptação.
+
+## E-mail
+Existe desde 1982, sendo um dos protocolos mais antigos.  
+
+Os clientes compõem mensagens de e-mail que são transmitidas usando o protocolo SMTP para o servidor que hospeda os e-mails.  
+Depois, ainda através do protocolo SMTP, os e-mails são transmitidos pela internet até chegarem ao servidor que hospeda o endereço de destino.  
+Finalmente, este servidor entrega o e-mail usando o protocolo *Mail Access*.
+
+### Protocolo SMTP  
+Este protocolo é muito simples, apenas contendo 5 comandos:  
+- `HELO` ou `EHLO` - serve para dois servidores SMTP estabelecerem uma ligação entre sí;  
+- `MAIL FROM` - indica quem é o remetente (quem envia) do e-mail;  
+- `RCPT TO` - indica o destinatário do e-mail;  
+- `DATA` - indica os dados que se pretendem enviar;  
+- `QUIT` - fecha a ligação;    
+
+O protocolo apenas olha para o cabeçalho e apenas aceita caracteres ASCII de 7 bits.
+
+### SMTP vs HTTP
+A diferença crucial entre estes protocolos é que o HTTP funciona à base de pedidos e respostas, enquanto que o SMTP funciona apenas à base de envio de informação sem esta ser pedida.
+
+
+
+
+
+
+
+
+
+
+
 <!--
-## Arquiteturas de Aplicações de Rede
 
-- Cliente-Servidor
-- Peer-to-peer (P2P)
-- Híbrido
-
-### Arquitetura Cliente-Servidor
-
-**Servidor**: Sempre ligado, com endereço IP permanente e escalável com _server farms_.
-
-**Clientes**: Comunicam com o servidor, não precisam de estar conectados continuamente,
-podem utilizar IPs dinâmicos e não comunicam diretamente entre eles.
-
-### Arquitetura Peer-to-peer
-
-Não há servidor sempre ligado, _peers_ comunicam entre si diretamente.
-_Peers_ não precisam de estar conectados continuamente e podem mudar de IP.
-Bastante escalável, mas díficil de gerir.
-
-### Híbrido
-
-Exemplo do Skype: Servidor dá aos clientes os endereços, mas chamadas voz são
-feitas diretamente entre os clientes utilizando uma aplicação _Voice-over-IP_ P2P.
-
-## API de sockets
-
-Um processo envia ou recebe mensagens a partir do seu socket.
-A API permite escolher o protocolo de transporte e definir alguns parâmetros.
-
-### Endereçar um processo
-
-Para um processo receber mensagens precisa de ter um identificador.
-Cada _host_ tem um endereço IPv4 (32 bits) e/ou IPv6 (128 bits) único.
-
-Como cada _host_ pode correr vários processos, este endereço não é suficiente
-para identificar um processo, por isso o identificador incluí também um
-número de um porto associado ao processo.
-
-Exemplos de números de portos:
-
-- Servidor HTTP: 80
-- Servidor e-mail: 25
-
-### Protocolo da camada de aplicação
+### Protcolo da camada de aplicação
 
 O protocolo da camada de aplicação define o tipo de mensagens trocadas
 (por exemplo, se é um pedido ou uma resposta), a sintaxe das mensagens,
