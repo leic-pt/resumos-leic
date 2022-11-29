@@ -288,36 +288,3 @@ O protocolo apenas olha para o cabeçalho e apenas aceita caracteres ASCII de 7 
 ### SMTP vs HTTP
 
 A diferença crucial entre estes protocolos é que o HTTP funciona à base de pedidos e respostas, enquanto que o SMTP funciona apenas à base de envio de informação sem esta ser pedida.
-
-<!--
-
-### Protcolo da camada de aplicação
-
-O protocolo da camada de aplicação define o tipo de mensagens trocadas
-(por exemplo, se é um pedido ou uma resposta), a sintaxe das mensagens,
-a semântica e regras para quando e como os processos de aplicação enviam e
-respondem a mensagens.
-
-Procolos de domínio público (definidos em RFCs):
-
-- Exemplos: HTTP, SMTP
-
-Procolos de proprietários:
-
-- Exemplo: Skype
-
-#### Utilização da camada de transporte
-
-Diferentes aplicações diferem naquilo que necessitam da camada de transporte.
-
-**Perda de dados**: Algumas aplicações toleram alguma perda de dados
-(e.g. chamadas de áudio, canais de televisão), enquanto outras aplicações precisam
-de um transferência de dados completamente fiável (e.g. multibanco).
-
-_**Throughput**_: Algumas aplicações precisam de um valor mínimo de
-_throughput_ para funcionarem de forma eficiente.
-
-**Segurança**: Encriptação, integridade de dados, ...
-
-**Atraso** (_latency_): Aplicações de chamadas áudio precisam de um atraso mínimo para funcionar bem.
--->
