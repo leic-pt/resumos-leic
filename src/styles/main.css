@@ -60,6 +60,10 @@ a {
   font-weight: 500;
 }
 
+strong a {
+  font-weight: inherit;
+}
+
 @media not print {
   body.dark-mode .gatsby-resp-image-wrapper[data-dark='1'],
   body.dark-mode object[data-dark='1'],
