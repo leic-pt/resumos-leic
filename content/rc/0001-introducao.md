@@ -164,7 +164,7 @@ Na prática, é usada uma mistura dos dois:
 A divisão é feita na frequência.  
 São usados vários canais/frequências e colocados sobre a mesma fibra óptica/cabo. Cada utilizador usa uma das frequências.
 
-lFDM](./assets/0001-fdm.svg#dark=3 'Frequency Division (FDM)')
+![FDM](./assets/0001-fdm.svg#dark=3 'Frequency Division (FDM)')
 
 ### TDM (Time division multiplexer)
 
