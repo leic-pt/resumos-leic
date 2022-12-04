@@ -35,12 +35,16 @@ body.dark-mode .content a:hover {
 }
 
 .content img,
-.content object,
-.content .object-svg-inline svg {
+.content object {
   max-width: 100%;
   /* center images */
   display: block;
   margin: 0 auto;
+}
+
+.content .object-svg-inline {
+  display: flex;
+  justify-content: center;
 }
 
 .custom-container {
