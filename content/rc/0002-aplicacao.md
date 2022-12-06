@@ -288,3 +288,44 @@ O protocolo apenas olha para o cabeçalho e apenas aceita caracteres ASCII de 7 
 ### SMTP vs HTTP
 
 A diferença crucial entre estes protocolos é que o HTTP funciona à base de pedidos e respostas, enquanto que o SMTP funciona apenas à base de envio de informação sem esta ser pedida.
+
+## DNS - Domain Name System
+
+Para acedermos a um *website* na internet, normalmente usamos um *hostname* - um nome que representa a máquina a que nos queremos ligar.  
+Por exemplo, se nos quisermos ligar a `website.com` e escrevermos esse *hostname* na barra de pesquisa, estaremos a ligar-nos a uma máquina cujo IP está mapeado para esse *hostname* (Recordar que um endereço IP identifica um *host* na internet).
+
+A este mapeamento entre *hostnames* e IPs chama-se **DNS** - Domain Name System.  
+
+### Características do DNS
+
+O objetivo do DNS é fazer a tradução/resolução de um *hostname* para um ou mais endereços IP.  Note-se que:  
+- Cada máquina (ou seja, cada IP) pode ter vários *hostnames* associados.    
+  Por exemplo, os hostnames `website.com` e `website.pt` podem ambos mapear para o endereço `123.123.123.123`;
+  Neste caso, existem as seguintes notações:  
+  - **Nome Canónico** - *hostname* oficial associado à máquina;
+  - **Nomes de Alias** - outros *hostnames* que traduzem para a mesma máquina.   
+  
+  
+- Cada *hostname* pode ter vários IPs associados.  
+  Por exemplo, `website.com`, por ser um website muito usado, pode precisar de muitas máquinas. Então, associa-se ao *hostname* `website.com` os IPs `123.123.123.123` e `111.111.111.111`, por exemplo.   
+  
+
+O DNS é uma base de dados distribuída que está implementada numa hierarquia de **servidores de nome** - servidores que guardam o mapeamento entre endereços IP e `hostnames` ou outros servidores de nome.  
+Seria problemático ser uma base de dados centralizada pois:  
+- Existiria um único ponto de falha possível;
+- Haveria muito tráfego;
+- Os `hosts` geograficamente afastados teriam problemas em se conectar, quer em rapidez como em falta de cobertura;
+- Não é escalável.
+
+O serviço de DNS numa máquina corre no porto 53, por defeito, usando o UDP para comunicar.
+
+### Distribuição do DNS  
+
+Como mencionado anteriormente, o DNS usa uma estrutura de nomes hierárquica:  
+1. Começa em servidores **raiz** (*root*), que guardam informação sobre os servidores mais altos na hierarquia;
+2. Seguem-se os servidores de DNS **TLD** - Top Level Domain. Estes guardam informação sobre o domínio dos `hostnames`, ou seja, a parte final do `hostname`. Por exemplo: `.com`, `.pt`, `.edu`, `.org`, ...  
+3. De seguida vêm os servidores de DNS **Autoritários**. Estes guardam informação sobre o primeiro sub-domínio dos hostnames, ou seja, a parte que antecede o domínio. Por exemplo: `website.com`, `organização.org`, etc.
+4. Os servidores de DNS **Autoritários** também guardam informação sobre os sub-domínios dos sub-domínios, recursivamente. Por exemplo, `loja.website.com`, `pandas.organização.org`, etc.  
+
+Pode-se visualizar um esquema visual que exemplifica melhor a estrutura hierárquica:
+![Hierárquia DNS](./assets/0003-DNSHierarchy.svg)
