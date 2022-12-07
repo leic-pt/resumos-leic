@@ -360,12 +360,11 @@ Este protocolo é muito simples, apenas contendo 5 comandos:
 - `QUIT` - fecha a ligação;
 
 O protocolo apenas olha para o cabeçalho e apenas aceita caracteres ASCII de 7 bits.
-A diferença crucial entre estes protocolos é que o HTTP funciona à base de pedidos
-e respostas, enquanto que o SMTP funciona apenas à base de envio de informação sem esta ser pedida.
 
 ### SMTP vs HTTP
 
-A diferença crucial entre estes protocolos é que o HTTP funciona à base de pedidos e respostas, enquanto que o SMTP funciona apenas à base de envio de informação sem esta ser pedida.
+A diferença crucial entre estes protocolos é que o HTTP funciona à base de pedidos
+e respostas, enquanto que o SMTP funciona apenas à base de envio de informação sem esta ser pedida.
 
 ## DNS - Domain Name System
 
