@@ -364,31 +364,31 @@ A diferença crucial entre estes protocolos é que o HTTP funciona à base de pe
 e respostas, enquanto que o SMTP funciona apenas à base de envio de informação sem esta ser pedida.
 
 ### SMTP vs HTTP
+
 A diferença crucial entre estes protocolos é que o HTTP funciona à base de pedidos e respostas, enquanto que o SMTP funciona apenas à base de envio de informação sem esta ser pedida.
 
 ## DNS - Domain Name System
 
-Para acedermos a um *website* na internet, normalmente usamos um *hostname* - um nome que representa a máquina a que nos queremos ligar.  
-Por exemplo, se nos quisermos ligar a `website.com` e escrevermos esse *hostname* na barra de pesquisa, estaremos a ligar-nos a uma máquina cujo IP está mapeado para esse *hostname* (Recordar que um endereço IP identifica um *host* na internet).
+Para acedermos a um _website_ na internet, normalmente usamos um _hostname_ - um nome que representa a máquina a que nos queremos ligar.  
+Por exemplo, se nos quisermos ligar a `website.com` e escrevermos esse _hostname_ na barra de pesquisa, estaremos a ligar-nos a uma máquina cujo IP está mapeado para esse _hostname_ (Recordar que um endereço IP identifica um _host_ na internet).
 
-A este mapeamento entre *hostnames* e IPs chama-se **DNS** - Domain Name System.  
+A este mapeamento entre _hostnames_ e IPs chama-se **DNS** - Domain Name System.
 
 ### Características do DNS
 
-O objetivo do DNS é fazer a tradução/resolução de um *hostname* para um ou mais endereços IP.  Note-se que:  
-- Cada máquina (ou seja, cada IP) pode ter vários *hostnames* associados.    
+O objetivo do DNS é fazer a tradução/resolução de um _hostname_ para um ou mais endereços IP. Note-se que:
+
+- Cada máquina (ou seja, cada IP) pode ter vários _hostnames_ associados.  
   Por exemplo, os hostnames `website.com` e `website.pt` podem ambos mapear para o endereço `123.123.123.123`;
-  Neste caso, existem as seguintes notações:  
-  - **Nome Canónico** - *hostname* oficial associado à máquina;
-  - **Nomes de Alias** - outros *hostnames* que traduzem para a mesma máquina.   
-  
-  
-- Cada *hostname* pode ter vários IPs associados.  
-  Por exemplo, `website.com`, por ser um website muito usado, pode precisar de muitas máquinas. Então, associa-se ao *hostname* `website.com` os IPs `123.123.123.123` e `111.111.111.111`, por exemplo.   
-  
+  Neste caso, existem as seguintes notações:
+  - **Nome Canónico** - _hostname_ oficial associado à máquina;
+  - **Nomes de Alias** - outros _hostnames_ que traduzem para a mesma máquina.
+- Cada _hostname_ pode ter vários IPs associados.  
+  Por exemplo, `website.com`, por ser um website muito usado, pode precisar de muitas máquinas. Então, associa-se ao _hostname_ `website.com` os IPs `123.123.123.123` e `111.111.111.111`, por exemplo.
 
 O DNS é uma base de dados distribuída que está implementada numa hierarquia de **servidores de nome** - servidores que guardam o mapeamento entre endereços IP e `hostnames` ou outros servidores de nome.  
-Seria problemático ser uma base de dados centralizada pois:  
+Seria problemático ser uma base de dados centralizada pois:
+
 - Existiria um único ponto de falha possível;
 - Haveria muito tráfego;
 - Os `hosts` geograficamente afastados teriam problemas em se conectar, quer em rapidez como em falta de cobertura;
@@ -396,90 +396,98 @@ Seria problemático ser uma base de dados centralizada pois:
 
 O serviço de DNS numa máquina corre no porto 53, por defeito, usando o UDP para comunicar.
 
-### Distribuição do DNS  
+### Distribuição do DNS
 
-Como mencionado anteriormente, o DNS usa uma estrutura de nomes hierárquica:  
-1. Começa em servidores **raiz** (*root*), que guardam informação sobre os servidores mais altos na hierarquia;
-2. Seguem-se os servidores de DNS **TLD** - Top Level Domain. Estes guardam informação sobre o domínio dos `hostnames`, ou seja, a parte final do `hostname`. Por exemplo: `.com`, `.pt`, `.edu`, `.org`, ...  
+Como mencionado anteriormente, o DNS usa uma estrutura de nomes hierárquica:
+
+1. Começa em servidores **raiz** (_root_), que guardam informação sobre os servidores mais altos na hierarquia;
+2. Seguem-se os servidores de DNS **TLD** - Top Level Domain. Estes guardam informação sobre o domínio dos `hostnames`, ou seja, a parte final do `hostname`. Por exemplo: `.com`, `.pt`, `.edu`, `.org`, ...
 3. De seguida vêm os servidores de DNS **Autoritários**. Estes guardam informação sobre o primeiro sub-domínio dos hostnames, ou seja, a parte que antecede o domínio. Por exemplo: `website.com`, `organização.org`, etc.
-4. Os servidores de DNS **Autoritários** também guardam informação sobre os sub-domínios dos sub-domínios, recursivamente. Por exemplo, `loja.website.com`, `pandas.organização.org`, etc.  
+4. Os servidores de DNS **Autoritários** também guardam informação sobre os sub-domínios dos sub-domínios, recursivamente. Por exemplo, `loja.website.com`, `pandas.organização.org`, etc.
 
 Pode-se visualizar um esquema visual que exemplifica melhor a estrutura hierárquica:
 ![Hierarquia DNS](./assets/0003-DNSHierarchy.svg#dark=3 'Hierarquia DNS')
 
 ### Resolver um Hostname
 
-Assim que uma máquina é ligada, esta procura pelo servidor de DNS mais local que encontrar, sendo o seu IP guardado pela máquina.    
+Assim que uma máquina é ligada, esta procura pelo servidor de DNS mais local que encontrar, sendo o seu IP guardado pela máquina.
 
-Sempre que seja preciso resolver um *hostname* por DNS, o servidor local é que se vai encarregar disso.  
-Vai acontecer o seguinte processo, assumindo-se que se quer resolver o *hostname* `admin.website.com`:
-  
-1. Pergunta-se ao servidor local qual o endereço IP do *hostname* `admin.website.com`;
+Sempre que seja preciso resolver um _hostname_ por DNS, o servidor local é que se vai encarregar disso.  
+Vai acontecer o seguinte processo, assumindo-se que se quer resolver o _hostname_ `admin.website.com`:
+
+1. Pergunta-se ao servidor local qual o endereço IP do _hostname_ `admin.website.com`;
 2. Se ele souber, responde com o IP.  
-   Se não souber, pergunta a um servidor *root* pelo endereço.  
-3. O servidor *root* vai responder que não sabe, mas conhece o servidor de nome que guarda informação sobre os domínios `.com` (sendo então um servidor TLD) e dá o seu endereço ao servidor local;
-4. O servidor local pergunta ao servidor dos nomes `.com` se conhece o *hostname* `admin.website.com`. 
+   Se não souber, pergunta a um servidor _root_ pelo endereço.
+3. O servidor _root_ vai responder que não sabe, mas conhece o servidor de nome que guarda informação sobre os domínios `.com` (sendo então um servidor TLD) e dá o seu endereço ao servidor local;
+4. O servidor local pergunta ao servidor dos nomes `.com` se conhece o _hostname_ `admin.website.com`.
 5. Este responde que não sabe mas conhece o servidor que guarda os nomes de `website.com`, novamente dando o seu endereço IP;
-6. O servidor local então pergunta a `website.com` pelo endereço `admin.website.com`; 
+6. O servidor local então pergunta a `website.com` pelo endereço `admin.website.com`;
 7. Este responde-lhe com o endereço IP desejado;
 8. O servidor de DNS local dá ao computador o endereço desejado.
 
 Este exemplo pode ser visualizado da seguinte forma:
 ![Resolver um Hostname](./assets/0003-ResolveHostname.svg#dark=3 'Resolver um Hostname')
 
-### Servidores *Root* Conhecidos
+### Servidores _Root_ Conhecidos
 
-Existem [13 servidores *root* conhecidos](https://www.iana.org/domains/root/servers), os quais têm várias cópias espalhadas pelo mundo que, por sua vez, têm os seus mecanismos de redundância.  
+Existem [13 servidores _root_ conhecidos](https://www.iana.org/domains/root/servers), os quais têm várias cópias espalhadas pelo mundo que, por sua vez, têm os seus mecanismos de redundância.
 
-Em Portugal, existem [5 cópias de servidores *root*](https://root-servers.org/).
+Em Portugal, existem [5 cópias de servidores _root_](https://root-servers.org/).
 
 ### DNS Caching
-Visto que o processo para resolver um hostname apresentado envolve imensa comunicação entre vários servidores espalhados por diversos sítios e muito distantes, quer-se evitar ao máximo que isso seja feito. Para tal, podem-se guardar os mapeamentos em Cache - **DNS Caching**.  
 
-Quando um servidor de nome aprende um mapeamento, ele guarda-o em cache.   
-Esta entrada dura algum tempo (normalmente 2 dias), sendo depois apagada, visto que, por um lado, o armazenamento disponível é limitado, e por outro lado, se existirem alterações no mapeamento, estas não são propagadas para os servidores de nome (seria impraticável uma mudança ser anunciada para todos os servidores de nome).  
+Visto que o processo para resolver um hostname apresentado envolve imensa comunicação entre vários servidores espalhados por diversos sítios e muito distantes, quer-se evitar ao máximo que isso seja feito. Para tal, podem-se guardar os mapeamentos em Cache - **DNS Caching**.
 
-Para além de mapeamentos, os servidores de TLD também são normalmente mantidos em Cache, o que faz com que os servidores *root* não sejam visitados com frequência.
+Quando um servidor de nome aprende um mapeamento, ele guarda-o em cache.  
+Esta entrada dura algum tempo (normalmente 2 dias), sendo depois apagada, visto que, por um lado, o armazenamento disponível é limitado, e por outro lado, se existirem alterações no mapeamento, estas não são propagadas para os servidores de nome (seria impraticável uma mudança ser anunciada para todos os servidores de nome).
+
+Para além de mapeamentos, os servidores de TLD também são normalmente mantidos em Cache, o que faz com que os servidores _root_ não sejam visitados com frequência.
 
 ### DNS Record
+
 Uma entrada de DNS - **DNS Record** - tem o seguinte formato:  
-`(nome, valor, tipo, TTL)`, onde: 
+`(nome, valor, tipo, TTL)`, onde:
 
 - `TTL` significa "Time To Live" - diz durante quanto tempo é que a entrada é válida;
 - `nome` e `valor` dependem do `tipo`:
-  - Se `tipo` = A, `nome` = *hostname* e `valor` = endereço IP;
-  - Se `tipo` = NS, `nome` = domínio (ex. `foo.com`) e `valor` = *hostname* do servidor de nome associado;
+  - Se `tipo` = A, `nome` = _hostname_ e `valor` = endereço IP;
+  - Se `tipo` = NS, `nome` = domínio (ex. `foo.com`) e `valor` = _hostname_ do servidor de nome associado;
   - Se `tipo` = CNAME, `nome` = alias para o nome canónico/real (ex. `website.com` é na verdade `server123.backup1.outro.website.com`) e `valor` = nome canónico;
   - Se `tipo` = MX, `nome` = endereço de e-mail e `valor` = nome do servidor de mail associado (ex. enviar um e-mail para `contacto@website.com` vai comunicar com o servidor de mail em `mail.website.com`);
-  
-### Ferramentas  
-Para fazer pedidos de DNS, podem ser usadas as seguintes ferramentas Linux:  
+
+### Ferramentas
+
+Para fazer pedidos de DNS, podem ser usadas as seguintes ferramentas Linux:
+
 - `nslookup *hostname*` ou `nslookup *ip*` (Ex. `nslookup website.com`);
 - `dig *hostname*` (Ex. `dig website.com`);
 - `host *hostname*` ou `host *ip*` (Ex. `host website.com`).
 
 ### DDNS - Dynamic DNS
+
 Os Routers "lá de casa" têm um IP que não é fixo, sendo trocado de alguns dias em alguns dias.  
-Isto é problemático caso queiramos ter um servidor a correr na nossa casa.  
+Isto é problemático caso queiramos ter um servidor a correr na nossa casa.
 
 Para resolver isso, uma solução é comprar um IP fixo à operadora de rede.  
-Outra solução, mais interessante, é o **DDNS** - Dynamic DNS.  
+Outra solução, mais interessante, é o **DDNS** - Dynamic DNS.
 
 O DDNS permite notificar um servidor de DNS que existiram alterações e pedir para alterar as suas configurações (ou seja, alterar o endereço IP associado a um `hostname`) imediatamente.  
 Para isso, é necessário habilitar a opção de DDNS no Router "lá de casa" e fazer a configuração para um servidor de DDNS.
 
 ### Segurança de DNS
-Existem vários tipos de ataques possíveis a DNS:  
-- Ataques **DDoS** - Distributed Denial of Service - a servidores *root* de DNS, fazendo com que fiquem fora do ar.  
-  Este ataque até hoje não funcionou, visto que existe filtro de tráfego e os servidores *root* são raramente acedidos.
+
+Existem vários tipos de ataques possíveis a DNS:
+
+- Ataques **DDoS** - Distributed Denial of Service - a servidores _root_ de DNS, fazendo com que fiquem fora do ar.  
+  Este ataque até hoje não funcionou, visto que existe filtro de tráfego e os servidores _root_ são raramente acedidos.
 - Ataques **DDoS** a servidores TLD. Mais perigosos.
-- Ataques de *Spoofing*, ou seja, uma máquina maliciosa faz-se passar por um servidor de DNS e redireciona os utilizadores para website errados.
+- Ataques de _Spoofing_, ou seja, uma máquina maliciosa faz-se passar por um servidor de DNS e redireciona os utilizadores para website errados.
 
 ## P2P - Peer to Peer
 
 Esta é uma arquitetura que se opõe à arquitetura Cliente-Servidor.
 
-Na arquitetura P2P, não há um servidor sempre ligado, pois os _peers_ comunicam entre si diretamente. Os _peers_ não precisam de estar conectados continuamente e podem mudar de IP.  
+Na arquitetura P2P, não há um servidor sempre ligado, pois os _peers_ comunicam entre si diretamente. Os _peers_ não precisam de estar conectados continuamente e podem mudar de IP.
 
 É uma arquitetura bastante escalável, mas difícil de gerir.
 
@@ -492,23 +500,23 @@ Ou seja, se três clientes pedem um ficheiro, o servidor terá que enviar o mesm
 Já na arquitetura P2P, o que acontece é o seguinte:
 
 ![Arquitetura P2P](./assets/0003-p2p.svg#dark=3 'Arquitetura P2P')
- 
- 
-Ou seja, os clientes (_peers_) partilham a informação entre sí. 
+
+Ou seja, os clientes (_peers_) partilham a informação entre sí.
 
 ### Tempo de distribuição para N clientes
 
 Podemos comparar o tempo de distribuição de ficheiros para N clientes entre as duas arquiteturas.  
-Nas contas seguintes, considera-se que o tempo do tráfego passar pela internet é nulo, ou seja, é como se todos os hosts estivessem lado a lado. 
+Nas contas seguintes, considera-se que o tempo do tráfego passar pela internet é nulo, ou seja, é como se todos os hosts estivessem lado a lado.
 
 Seja,
-- $$N$$ o número de clientes;  
-- $$L$$ o tamanho de um ficheiro;  
-- $$u_s$$ a velocidade de upload do servidor;  
-- $$u_i$$ a velocidade de umload de um host;  
-- $$d_i$$ a velocidade de download de um host.  
 
-#### Cliente-Servidor  
+- $$N$$ o número de clientes;
+- $$L$$ o tamanho de um ficheiro;
+- $$u_s$$ a velocidade de upload do servidor;
+- $$u_i$$ a velocidade de umload de um host;
+- $$d_i$$ a velocidade de download de um host.
+
+#### Cliente-Servidor
 
 Do lado do servidor,
 
@@ -516,13 +524,13 @@ Do lado do servidor,
 - O tempo de envio de um ficheiro é o tamanho a dividir pelo tempo de upload, $$\frac{L}{u_s}$$;
 - O tempo total de envio do servidor é então $$N \times \frac{L}{u_s}$$.
 
-Do lado do cliente, 
+Do lado do cliente,
 
 - O tempo de download de um ficheiro para um dado cliente $$i$$ é $$\frac{L}{d_i}$$;
 - Como queremos considerar o pior caso, temos que ter em conta o cliente com a velocidade de download menor, ou seja, $$min(d_i)$$;
 - Portanto, o pior cliente demora $$\frac{L}{min(d_i)}$$.
 
-Como queremos considerar o pior caso, temos que escolher o tempo mais lento entre os dois: O servidor fazer upload dos ficheiros todos e o cliente mais lento fazer download do ficheiro.  
+Como queremos considerar o pior caso, temos que escolher o tempo mais lento entre os dois: O servidor fazer upload dos ficheiros todos e o cliente mais lento fazer download do ficheiro.
 
 A equação do tempo é então $$max(N \times \frac{L}{u_s}, \frac{L}{min(d_i)})$$.
 
@@ -535,12 +543,13 @@ Do lado do servidor,
 Do lado do cliente,
 
 - Para fazer download de um ficheiro, o cliente i continua com a velocidade $$\frac{L}{d_i}$$ portanto, no pior caso, a velocidade é $$\frac{L}{min(d_i)}$$;
-- Contudo, agora cada cliente tem que enviar a sua parte para todos os outros clientes e receber as partes restantes!  
-- No total, tem que ser feito o download de $$N \times L$$ bits, pois existem $$N$$ _peers_ e cada um tem que baixar o ficheiro todo (vindo em vários pacotes), que corresponde a $$L$$.  
-- A velocidade a que é feito esse download depende das velocidades de upload do servidor, $$u_s$$ (para enviar o ficheiro repartido para os hosts) e das velocidades juntas de upload de cada host, $$\sum{u_i}$$, no melhor caso.  
+- Contudo, agora cada cliente tem que enviar a sua parte para todos os outros clientes e receber as partes restantes!
+- No total, tem que ser feito o download de $$N \times L$$ bits, pois existem $$N$$ _peers_ e cada um tem que baixar o ficheiro todo (vindo em vários pacotes), que corresponde a $$L$$.
+- A velocidade a que é feito esse download depende das velocidades de upload do servidor, $$u_s$$ (para enviar o ficheiro repartido para os hosts) e das velocidades juntas de upload de cada host, $$\sum{u_i}$$, no melhor caso.
 
 Novamente, o objetivo é considerar o pior caso, ou seja, o caso que demora mais tempo.  
-Temos que comparar: 
+Temos que comparar:
+
 1. O servidor fazer upload do ficheiro;
 2. O cliente mais lento fazer download do ficheiro;
 3. As partes do ficheiro serem todas enviadas para os clientes.
