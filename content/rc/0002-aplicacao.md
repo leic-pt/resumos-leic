@@ -442,5 +442,107 @@ Esta entrada dura algum tempo (normalmente 2 dias), sendo depois apagada, visto 
 Para além de mapeamentos, os servidores de TLD também são normalmente mantidos em Cache, o que faz com que os servidores *root* não sejam visitados com frequência.
 
 ### DNS Record
-Uma entrada de DNS - **DNS Record** - tem o seguinte formato:
-- `(nome, valor, tipo TTL)`
+Uma entrada de DNS - **DNS Record** - tem o seguinte formato:  
+`(nome, valor, tipo, TTL)`, onde: 
+
+- `TTL` significa "Time To Live" - diz durante quanto tempo é que a entrada é válida;
+- `nome` e `valor` dependem do `tipo`:
+  - Se `tipo` = A, `nome` = *hostname* e `valor` = endereço IP;
+  - Se `tipo` = NS, `nome` = domínio (ex. `foo.com`) e `valor` = *hostname* do servidor de nome associado;
+  - Se `tipo` = CNAME, `nome` = alias para o nome canónico/real (ex. `website.com` é na verdade `server123.backup1.outro.website.com`) e `valor` = nome canónico;
+  - Se `tipo` = MX, `nome` = endereço de e-mail e `valor` = nome do servidor de mail associado (ex. enviar um e-mail para `contacto@website.com` vai comunicar com o servidor de mail em `mail.website.com`);
+  
+### Ferramentas  
+Para fazer pedidos de DNS, podem ser usadas as seguintes ferramentas Linux:  
+- `nslookup *hostname*` ou `nslookup *ip*` (Ex. `nslookup website.com`);
+- `dig *hostname*` (Ex. `dig website.com`);
+- `host *hostname*` ou `host *ip*` (Ex. `host website.com`).
+
+### DDNS - Dynamic DNS
+Os Routers "lá de casa" têm um IP que não é fixo, sendo trocado de alguns dias em alguns dias.  
+Isto é problemático caso queiramos ter um servidor a correr na nossa casa.  
+
+Para resolver isso, uma solução é comprar um IP fixo à operadora de rede.  
+Outra solução, mais interessante, é o **DDNS** - Dynamic DNS.  
+
+O DDNS permite notificar um servidor de DNS que existiram alterações e pedir para alterar as suas configurações (ou seja, alterar o endereço IP associado a um `hostname`) imediatamente.  
+Para isso, é necessário habilitar a opção de DDNS no Router "lá de casa" e fazer a configuração para um servidor de DDNS.
+
+### Segurança de DNS
+Existem vários tipos de ataques possíveis a DNS:  
+- Ataques **DDoS** - Distributed Denial of Service - a servidores *root* de DNS, fazendo com que fiquem fora do ar.  
+  Este ataque até hoje não funcionou, visto que existe filtro de tráfego e os servidores *root* são raramente acedidos.
+- Ataques **DDoS** a servidores TLD. Mais perigosos.
+- Ataques de *Spoofing*, ou seja, uma máquina maliciosa faz-se passar por um servidor de DNS e redireciona os utilizadores para website errados.
+
+## P2P - Peer to Peer
+
+Esta é uma arquitetura que se opõe à arquitetura Cliente-Servidor.
+
+Na arquitetura P2P, não há um servidor sempre ligado, pois os _peers_ comunicam entre si diretamente. Os _peers_ não precisam de estar conectados continuamente e podem mudar de IP.  
+
+É uma arquitetura bastante escalável, mas difícil de gerir.
+
+Na arquitetura Cliente-Servidor, a comunicação é feita da seguinte forma:
+
+![Arquitetura Cliente-Servidor](./assets/0003-clientServer.svg#dark=3 'Arquitetura Cliente-Servidor')
+
+Ou seja, se três clientes pedem um ficheiro, o servidor terá que enviar o mesmo ficheiro três vezes.
+
+Já na arquitetura P2P, o que acontece é o seguinte:
+
+![Arquitetura P2P](./assets/0003-p2p.svg#dark=3 'Arquitetura P2P')
+ 
+ 
+Ou seja, os clientes (_peers_) partilham a informação entre sí. 
+
+### Tempo de distribuição para N clientes
+
+Podemos comparar o tempo de distribuição de ficheiros para N clientes entre as duas arquiteturas.  
+Nas contas seguintes, considera-se que o tempo do tráfego passar pela internet é nulo, ou seja, é como se todos os hosts estivessem lado a lado. 
+
+Seja,
+- $$N$$ o número de clientes;  
+- $$L$$ o tamanho de um ficheiro;  
+- $$u_s$$ a velocidade de upload do servidor;  
+- $$u_i$$ a velocidade de umload de um host;  
+- $$d_i$$ a velocidade de download de um host.  
+
+#### Cliente-Servidor  
+
+Do lado do servidor,
+
+- O servidor tem que enviar $$N$$ cópias do ficheiro;
+- O tempo de envio de um ficheiro é o tamanho a dividir pelo tempo de upload, $$\frac{L}{u_s}$$;
+- O tempo total de envio do servidor é então $$N \times \frac{L}{u_s}$$.
+
+Do lado do cliente, 
+
+- O tempo de download de um ficheiro para um dado cliente $$i$$ é $$\frac{L}{d_i}$$;
+- Como queremos considerar o pior caso, temos que ter em conta o cliente com a velocidade de download menor, ou seja, $$min(d_i)$$;
+- Portanto, o pior cliente demora $$\frac{L}{min(d_i)}$$.
+
+Como queremos considerar o pior caso, temos que escolher o tempo mais lento entre os dois: O servidor fazer upload dos ficheiros todos e o cliente mais lento fazer download do ficheiro.  
+
+A equação do tempo é então $$max(N \times \frac{L}{u_s}, \frac{L}{min(d_i)})$$.
+
+#### P2P
+
+Do lado do servidor,
+
+- Nesta arquitetura, o servidor só tem que enviar uma cópia, logo $$\frac{L}{u_s}$$;
+
+Do lado do cliente,
+
+- Para fazer download de um ficheiro, o cliente i continua com a velocidade $$\frac{L}{d_i}$$ portanto, no pior caso, a velocidade é $$\frac{L}{min(d_i)}$$;
+- Contudo, agora cada cliente tem que enviar a sua parte para todos os outros clientes e receber as partes restantes!  
+- No total, tem que ser feito o download de $$N \times L$$ bits, pois existem $$N$$ _peers_ e cada um tem que baixar o ficheiro todo (vindo em vários pacotes), que corresponde a $$L$$.  
+- A velocidade a que é feito esse download depende das velocidades de upload do servidor, $$u_s$$ (para enviar o ficheiro repartido para os hosts) e das velocidades juntas de upload de cada host, $$\sum{u_i}$$, no melhor caso.  
+
+Novamente, o objetivo é considerar o pior caso, ou seja, o caso que demora mais tempo.  
+Temos que comparar: 
+1. O servidor fazer upload do ficheiro;
+2. O cliente mais lento fazer download do ficheiro;
+3. As partes do ficheiro serem todas enviadas para os clientes.
+
+A equação do tempo é então $$max(\frac{L}{u_s}, \frac{L}{min(d_i)}, \frac{N \times L}{u_s + \sum{u_i}})$$.
