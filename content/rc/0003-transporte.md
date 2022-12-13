@@ -140,7 +140,7 @@ Se o pacote estava apenas com um delay grande, a retransmissão será então dup
 Seguem-se exemplos deste protocolo:
 
 ![Caso 1 - Sem perdas](./assets/0003-rdt3_0-eg1.svg#dark=3 'Caso 1 - Sem perdas') <br/>
-![Caso 2 - Pacote Perdido](./assets/0003-rdt3_0-eg2.svg#dark=3 'Caso 1 - Pacote Perdido') <br/>
+![Caso 2 - Pacote Perdido](./assets/0003-rdt3_0-eg2.svg#dark=3 'Caso 2 - Pacote Perdido') <br/>
 ![Caso 3 - ACK perdido](./assets/0003-rdt3_0-eg3.svg#dark=3 'Caso 3 - ACK perdido') <br/>
 ![Caso 4 - Timeout prematuro](./assets/0003-rdt3_0-eg4.svg#dark=3 'Caso 4 - Timeout prematuro') <br/>
 
