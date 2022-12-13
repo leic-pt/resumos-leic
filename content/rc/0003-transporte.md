@@ -214,13 +214,13 @@ Contudo, se o pacote perdido for um ACK, este algoritmo tem em conta isso:
 
 Sejam,
 
-- $$ N_w $$ o Tamanho da janela;
-- $$ N_{pkts} $$ a quantidade de números usados para numerar os pacotes (ambos o emissor e o receptor
+- $$N_w$$ o Tamanho da janela;
+- $$N_{pkts}$$ a quantidade de números usados para numerar os pacotes (ambos o emissor e o receptor
   têm que manter a mesma numeração de pacotes, de forma a saberem quais já foram enviados e quais são
   necessários receber).
 
 Ambos têm que respeitar a seguinte condição:
-$$ N\w <= N\{ptks} - 1 $$
+$$N_w \leq N_{ptks} - 1$$
 
 #### Selective Repeat
 
@@ -248,4 +248,4 @@ Para se entender melhor, considere-se o seguinte exemplo, com $$ N = 5 $$:
    ![Reenvio de falhas e novos pacotes](./assets/0003-SelectiveRepeat-5.png#dark=3) <br/>
 
 Neste caso, a seguinte condição tem que ser respeitada:
-$$ N_w <= \frac{N_{ptks}}{2} $$
+$N_w \leq \frac{N_{ptks}}{2}$
