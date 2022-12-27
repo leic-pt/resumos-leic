@@ -25,14 +25,14 @@ Esta camada oferece diferentes serviços:
 
 **_Framing_ e acesso a Links**:
 
-- Encapsula o datagrama em uma **trama** - nome dado a um pacote nesta camada, adicionando cabeçalho e trailer;
+- Encapsula o datagrama numa **trama** - nome dado a um pacote nesta camada, adicionando cabeçalho e trailer;
 - Protocolo **MAC** - Medium Access Control - para acessar o meio compartilhado;
   São usados endereços MAC nos cabeçalhos de tramas para identificar a origem e o destino, apenas dentro da mesma rede.
 
 **Entrega confiável entre nós adjacentes:**
 
 - Soluções semelhantes às adotadas na camada de transporte;
-- Raramente usado em links com baixa taxa de erros de bits (Ex. fibra óptica) Já os links sem fio (Ex. WiFi), têm taxas de erro altas.
+- Raramente usado em links com baixa taxa de erros de bits (e.g. fibra óptica). Já os links sem fio (e.g. WiFi), têm taxas de erro altas.
 
 **Deteção de erros:**
 
@@ -72,10 +72,10 @@ cada host, que liga diretamente aos _buses_ de hardware.
 Nesta camada, são usados endereços MAC. Um exemplo de um endereço MAC é o
 seguinte: `A1:B2:C3:24:55:F1`.  
 Cada placa de rede tem um endereço MAC associado, que é como se fosse um
-identificador específico do dispositivo (Como, por exemplo, o número de Cartão
+identificador específico do dispositivo (como, por exemplo, o número de Cartão
 de Cidadão é para as pessoas).
 
-Estes endereços têm propósitos diferentes dos endereços IP: Os endereços MAC têm
+Estes endereços têm propósitos diferentes dos endereços IP: os endereços MAC têm
 um propósito mais local enquanto que os endereços IP têm um contexto mais
 geográfico.  
 O que cria esta distinção é o facto de os endereços MAC serem intrínsecos das
@@ -100,7 +100,8 @@ Cidadão e a morada atual de uma pessoa:
   3. Dentro de Lisboa, algures na Rua João Pedro;
   4. Dentro nessa rua, algures no prédio 14;
   5. Dentro desse prédio, na casa do lado direito do 4º Andar.
-     :::
+
+:::
 
 Para um dado endereço MAC, os três primeiros bytes identificam o fabricante
 enquanto que os os três últimos bytes identificam o equipamento.
@@ -196,7 +197,7 @@ Este algoritmo é facilmente implementado em hardware, usando registos de desvio
 
 ## Colisões de broadcast
 
-Quando é feito um broadcast FF:FF:FF:FF:FF:FF, este é partilhado por todos os
+Quando é feito um broadcast `FF:FF:FF:FF:FF:FF`, este é partilhado por todos os
 membros da rede.  
 Isto implica que o canal possa sofrer colisões muito facilmente, bastando que um
 nó receba dois ou mais sinais ao mesmo tempo.
@@ -231,13 +232,13 @@ Neste tipo de particionamento, o espectro de canal é dividido em faixas de
 frequência. Assim, é atribuída a cada estação uma faixa de frequência fixa mas o
 tempo de transmissão não utilizado nas faixas de frequência não é aproveitado.
 
-Similar à FDM de [_Circuit Switching_](/content/rc/0001-introducao.md#fdm-frequency-division-multiplexer).
+Similar à [FDM de _Circuit Switching_](/content/rc/0001-introducao.md#fdm-frequency-division-multiplexer).
 
 #### TDMA – Time Division Multiple Access
 
 O acesso ao canal é feito em rondas. É atribuído a cada host uma fatia temporal em cada ronda. Também aqui, o tempo não utilizado não é aproveitado.
 
-Similar à TDM de [_Circuit Switching_](/content/rc/0001-introducao.md#tdm-time-division-multiplexer).
+Similar à [TDM de _Circuit Switching_](/content/rc/0001-introducao.md#tdm-time-division-multiplexer).
 
 #### CDMA – Code Division Multiple Access
 
@@ -339,4 +340,4 @@ Existem várias topologias de rede:
 
 ![Topologia Estrela](./assets/0005-starTopology.svg#dark=3 'Topologia Estrela')
 
-![Switch](./assets/0005-juniperEX2300.png#dark=3 'Switch')
+![Switch](./assets/0005-juniperEX2300.png 'Switch')
