@@ -100,7 +100,7 @@ Que se dividem em dois meios:
 
 ### Meio Físico
 
-- Fios de cobre - Normalmente [cabos RJ-45](./terminology#cabo-rj-45):
+- Fios de cobre - Normalmente [cabos RJ-45](/rc/guides/terminology#cabo-rj-45):
   - Dos mais comuns;
   - Estes cabos têm diferentes categorias e diferentes tipos:
     - Categoria 3: Cabos de telefone e cabos de rede de até 10Mbps;
@@ -108,7 +108,7 @@ Que se dividem em dois meios:
     - Categoria 6: Até 1 Gbps;
     - Categoria 7: até 10 Gbps ou 100 Gbps se a distância for menor que 15 metros.
 - Cabos coaxiais
-  - Cabos bastante isolados, ideáis para para evitar interferências eletromagnéticas.
+  - Cabos bastante isolados, ideais para evitar interferências eletromagnéticas.
 - Fibra ótica
   - É usada ótica (ou seja, luz) para transferir informação;
   - Alta velocidade;
@@ -117,9 +117,10 @@ Que se dividem em dois meios:
 
 ### Meio Wireless
 
-Este meio de transmissão é bidirecional e usa antenas para comunicar entre dois dispositivos. Normalmente são usados [APs (Access Points)](./terminology#access-point) para transmitir o sinal de rede.
+Este meio de transmissão é bidirecional e usa antenas para comunicar entre dois dispositivos.
+Normalmente são usados [APs (Access Points)](/rc/guides/terminology#access-point) para transmitir o sinal de rede.
 
-Apesar de parecer ideal apenas ser usada comunicação wireless, termos
+Apesar de parecer ideal apenas ser usada comunicação wireless, em termos
 de conveniência e substituindo os cabos, este esquema tem alguns problemas específicos:
 
 - **Reflexão** - O sinal é enviado em múltiplos sentidos e, através de reflexão,

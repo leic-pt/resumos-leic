@@ -69,7 +69,7 @@ antes disso, eis uma breve descrição de cada camada:
 - **Link Layer** - Define as regras de como é feita a **ligação**. Diz respeito
   aos problemas locais e às ligações diretas, por exemplo,
 
-  - Num [AP](./terminology#access-point), como é que as antenas se devem
+  - Num [AP](/rc/guides/terminology#access-point), como é que as antenas se devem
     comportar para não existir sobreposição de canais.
   - Num cabo partilhado, de que forma é que ele é partilhado.
 
