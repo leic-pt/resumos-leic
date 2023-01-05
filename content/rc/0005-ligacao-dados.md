@@ -318,7 +318,7 @@ abortadas, reduzindo a ocupação do canal.
 - Eficientes em carga baixa: um único nó pode utilizar unicamente o canal;
 - Carga alta: sobrecarga de colisão.
 
-### IEEE 802.3 - Ethernet
+## IEEE 802.3 - Ethernet
 
 O IEEE 802.3 é um standard que introduz a tecnologia de LAN cablada chamada Ethernet.  
 Existem várias topologias de rede:
@@ -336,8 +336,185 @@ Existem várias topologias de rede:
   Inicialmente usavam-se hubs, dispositivos que apenas repetem o sinal para
   todas as portas (basicamente, fazem broadcast);  
   Depois, surgiram os switches/bridges, que encaminham o tráfego para a porta
-  certa.
+  certa (são "inteligentes").
 
 ![Topologia Estrela](./assets/0005-starTopology.svg#dark=3 'Topologia Estrela')
 
 ![Switch](./assets/0005-juniperEX2300.png 'Switch')
+
+### Frames de rede
+Na camada de Ligação de Dados (layer 2), os pacotes são chamados de ***Frames*/Tramas** e têm o 
+seguinte formato:
+
+TODO: meter diagrama 105
+
+Onde, 
+- Preâmbulo - Usado para sincronizar as _clock rates_ dos emissor e recetor;
+- Endereços - Endereços MAC do emissor e do receptor;
+- Tipo - Indica o protocolo da camada superior (Ex. IP);
+- Data - Dados a serem transmitidos;
+- CRC - checks para correção de erros.
+
+## Algoritmos de comunicação
+
+A ethernet básica tem alguns problemas:
+- ***Connectionless*** - Não existe o conceito de conexão, como visto anteriormente 
+  [com o paradigma **Datagram**](./0004-rede.md#datagram);
+- **Instável** - A [NIC](#endereços-mac) de recebimento não envia ACKs ou NACKs 
+  para a [NIC](#endereços-mac) de envio, o que implica que um fluxo de 
+  datagramas transmitidos pela camada de rede pode ter lacunas (datagramas 
+  perdidos). Contudo, se a aplicação estiver a usar o TCP, as lacunas serão 
+  preenchidas.
+  
+Para colmatar isso, foi criado o seguinte algoritmo:
+
+### Algoritmo CSMA/CD - Carrier Sense Multiple Access (with Collision Detection)
+1. A NIC recebe o datagrama da camada de rede e cria uma trama;
+2. Se o canal estiver livre (esperam-se 96 tempos de bit), a NIC inicia a transmissão da trama;  
+    Se o canal estiver ocupado, aguarda até que o canal esteja livre e logo de seguida, transmite;
+3. Se o NIC transmitir a trama inteira sem detetar outra transmissão: **sucesso**;  
+4. Se o NIC detetar outra transmissão enquanto estiver transmitindo, houve uma
+   colisão:
+    - aborta e envia um sinal de interferência, avisando todos que houve uma colisão;
+5. Depois de abortar, o NIC entra em retrocesso exponencial:
+    - Depois da m-ésima colisão, a NIC escolhe um número $K$ aleatoriamente em $\{0,1,2,…,2^m-1\}$;
+    - A NIC aguarda $K \times 512$ tempos de bit de transmissão; Depois, retorna ao Passo 2.
+    
+Este algoritmo procura, através de deteção de colisões, minimizar as colisões 
+seguintes, pois todos os intervenientes são avisados que houve uma colisão e 
+"ordenados" a parar, "reestabelecendo a ordem".   
+Contudo, quando existe muito tráfego, existem de qualquer forma muitas colisões. 
+
+## Switches  
+Ao contrário dos hubs, apresentados [anteriormente](#topologias-de-rede), os 
+switches são inteligentes - se um host A falar com um host B, o switch aprende a 
+sua localização, ou seja, fica a saber que o host A está na sua porta X.   
+
+Desta forma, são permitidas várias ligações em simultâneo e as colisões mencionadas anteriormente são reduzidas.
+
+Para isso, o switch tem uma ***Switching table*/Switching table** - Sempre que existir uma 
+nova transmissão, o switch constrói uma Switching table onde regista um 
+mapeamento de quem transmitiu e de onde (de que interface) veio essa transmissão.  
+(Não confundir com uma [Forwarding table](./0004-rede.md#forwarding-table))
+
+São guardadas entradas do tipo: 
+```(Endereço MAC, interface do switch, TTL)```  
+
+Onde TTL representa o tempo até esta entrada deixar de ser válida.
+
+Sempre que o switch quer enviar para um host, verifica primeiro se existe uma 
+entrada válida na tabela com o endereço de destino:  
+- Se estiver, envia para a interface associada.
+- Se não estiver, faz ***flooding*** - a mensagem é repetida em todas as 
+   interfaces (à exceção da que enviou a trama) - neste caso, funciona como um 
+   Hub.  
+
+### Interligar switches
+
+É possível interligar switches, ou seja, a um switch estar ligado outro switch, 
+que por sua vez está ligado a um terceiro switch, and so on.  
+Por exemplo,
+(TODO: esquema disso tipo 127)
+
+Ou seja, numa interface de um switch podem existir várias interfaces (correspondentes às interfaces dos switches "filho").  
+
+Considerado o flooding apresentado anteriormente, eis um exemplo de uma transmissão onde o switch ainda não tem nenhuma entrada na Switching table:  
+
+TODO: meter exemplo de C para I
+<!-- 
+1. C envia
+2. S1 flood
+3. S4 aprende
+3. S4 flood
+4. S3 aprende 
+5. S3 flood
+6. S3 todos recebem a mensagem, inclusive o destinatário
+
+I envia
+1. I envia
+2. S3 aprende
+3. Destino é o C, conhecido, então envia para S4
+4. S4 aprende
+4. Destino é o C, conhecido, então envia para o S1
+...
+Nesta situação, apenas o C recebeu a mensagem
+ -->
+
+#### Falta de redundância
+E se alguém corta-se a ligação entre dois dos switches?  
+Os hosts todos ligados ao switch filho ficam desconectados.
+Para resolver isso, pode-se introduzir alguma **redundância**!  
+
+Considerando a interligação mostrada anteriormente, uma forma de adicionar seria 
+a seguinte: 
+
+TODO: 127 mas com redundância
+
+Porém, adicionar redundância trás um problema grave - quando é feito flooding, é 
+criado um loop na rede. Mais grave ainda, devido a não existir forma de 
+identificar se uma trama é uma repetição ou uma trama nova, este loop fica na rede para sempre!
+
+Por exemplo, considerando uma Switching table vazia,
+- Se S4 fizer flooding, irá enviar uma trama para S1, S2 e S3;
+- Por conseguinte, S1, S2 e S3 irão fazer flooding para S2, S1 e S3, e S2, respetivamente;  
+- Os switches que já receberam a trama não conseguiram o distinguir e portanto, voltam a fazer flooding, incluindo os switches que já o fizeram...
+
+Para resolver isto, a redundância necessita de estar desligada logicamente, ou seja, a ligação física (o cabo), está ligado, mas o switch desativa a porta até esta ser necessária.  
+
+Para decidirem quais os melhores caminhos a usar e que interfaces desligar, os switches precisam de um algoritmo para os descobrir.  
+Como o esboço da rede final é, pensando em grafos, uma árvore (cada nó só está ligado uma vez), é lhe dado o nome de **STP - Spanning Tree Protocol**.
+
+#### STP - Spanning Tree Protocol
+
+##### Ideias Gerais
+É necessário então identificar uma árvore na topologia - as interfaces que constituem essa árvore ficam ligadas enquanto que as outras desligadas (até ser necessário).  
+
+Para este algoritmo, são necessárias as seguintes ideias:
+- **Bridge ID** - Cada switch é identificado por um endereço constituído por 2 
+   bytes que representam a prioridade e 6 bytes que são o endereço MAC do switch. 
+   Por exemplo, `8000.AA:BB:CC:DD:EE:FF` é o ID do switch com endereço MAC 
+   `AA:BB:CC:DD:EE:FF` e com uma prioridade de 8000.
+- **Root Bridge** - Switch que é o nó inicial da árvore. É o switch com o menor _Bridge ID_ (ou 
+   seja, a prioridade serve para "forçar" um switch a ser o _root bridge_ e os seus sucessores).
+- **Root Port** - Porta que, num dado switch, é responsável pela receção de frames para/do _root bridge_ - são o caminho em direção ao _Root bridge_ (daí **Root Port**, "porta para o _root_").
+- **Designated Bridge** - Switch que, num dado segmento de rede, é responsável por enviar/receber as tramas da rede para/da a _root bridge_.
+- **Designated Port** - Porta do _Designated Bridge_ por onde passa o tráfego para/da _root bridge_.
+
+Vale notar que:
+- **Root Port** não está relacionado com o _root bridge_. 
+- Para um dado segmento de rede, onde podem estar computadores, impressoras, etc., estes enviam tráfego para o switch, sendo essa porta a **Designated Port**. O switch por sua vez, envia o tráfego pela **Root Port**, que aponta na direção da _root bridge_. Ou seja, o tráfego "flui" de **Designated Ports** para **Root Ports**.  
+- Cada rede terá um _root bridge_, cada switch (exceto o _root bridge_) terá apenas uma **Root Port**, cada segmento de rede terá apenas uma **Designated Port** e as restantes portas ficarão inativas.
+- Cada switch tem um custo para chegar ao _root bridge_, que é igual à soma dos custos de todas as portas que transmitem em direção à _root bridge_ (**Root Ports**).
+- As restantes portas que não são usadas são as portas que são desativadas, ou seja, a árvore é definida pelas portas não bloqueadas.  
+
+
+
+##### BPDUs - Bridge Protocol Data Units
+
+Para ser possível identificar todos os elementos mencionados anteriormente, os switches têm que de alguma forma comunicar entre sí.  
+Para o fazerem, e para trocarem a informação necessária, os switches enviam **BPDUs - Bridge Protocol Data Units**, que contém a seguinte informação,
+
+``` 
+(BridgeID do Root Bridge, Custo para chegar ao Root Bridge, BridgeID de quem enviou o BPDU, ID da porta que originou o BPDU)
+```
+
+Estes BPDUs são enviados, em norma, em intervalos de 2 segundos.
+
+Quando um switch é ligado, o algoritmo STP é usado para identificar a _root bridge_, sendo enviados BPDUs com o BridgeID do novo switch.  
+Este, até receber BPDUs, assume ser o _root bridge_. Porém, quando receber um BPDU, este verá o BridgeID do _root bridge_:  
+- Se esse BridgeID for menor que o dele, o switch aceita que esse BridgeID é o _root bridge_ e deixa de assumir ser ele o _root bridge_;
+- Se esse BridgeID for maior que o dele, então ele continua a assumir ser o _root bridge_. Quando os outros switches receberem o seu BridgeID, estes verão que é menor que os deles, então atualizam o seu _root bridge_.
+
+##### Algoritmo
+
+Devido à complexidade e nuances do algoritmo, este será explicado com um exemplo:
+
+TODO: exemplo tablet
+
+##### Ciclos temporários e perda de conectividade  
+
+Quando existir uma mudança na topologia de rede (por ex., um switch é removido ou um novo _root bridge_ é introduzido), poderá: 
+- existir uma perca temporária de conectividade, pois uma porta anteriormente bloqueada e que deve ser ativa pode ainda não ter passado a ativa;
+- existirem ciclos temporários, pois uma porta anteriormente ativa e que deve ser bloqueada por ainda não ter passado a bloqueada.  
+
+Para minimizar a probabilidade de ciclos temporários, os switches devem esperar algum tempo antes de trocarem uma porta de um estado bloqueado para um estado ativo.
