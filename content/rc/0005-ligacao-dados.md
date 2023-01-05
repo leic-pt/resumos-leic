@@ -518,3 +518,89 @@ Quando existir uma mudança na topologia de rede (por ex., um switch é removido
 - existirem ciclos temporários, pois uma porta anteriormente ativa e que deve ser bloqueada por ainda não ter passado a bloqueada.  
 
 Para minimizar a probabilidade de ciclos temporários, os switches devem esperar algum tempo antes de trocarem uma porta de um estado bloqueado para um estado ativo.
+
+### VLANs - Virtual LANs
+
+Existem switches que suportam o uso de **VLANs - Virtual LANs**, ou seja, permitem configurar uma redes virtuais para as suas portas.
+
+:::info[Analogia]
+Considere-se que uma empresa tem dois departamentos: o departamento Financeiro e o departamento de Marketing.  
+
+Ambos os departamentos estão em edifícios diferentes e têm redes diferentes (pois é mais seguro e existem serviços específicos a cada departamento a correr nas redes separadas).   
+
+Imagina-se agora que chegou um estagiário de finanças à empresa. O dep. Financeiro não tem mais lugares para o sentar, portanto é enviado para o dep. de Marketing.  
+
+Não sendo usadas VLANs, o estagiário nunca teria acesso à rede do seu departamento.  
+
+Para colmatar isso, podem-se criar duas redes virtuais (duas VLANs) que representam o dep. Financeiro e o dep. de Marketing, sendo-lhes atribuídas os IDs de VLANs 50 e 60, respetivamente.  
+
+Então, 
+- em todas as portas dos switches do dep. Financeiro, é colocada a VLAN 50;
+- em todas as portas dos switches do dep. de Marketing, é colocada a VLAN 60, à exceção da porta onde o estagiário se vai ligar, sendo colocada a VLAN 50.
+
+No Router, as VLANs serão posteriormente configuradas.
+
+Assim, apesar de estarem em redes físicas diferentes, virtualmente o estagiário está na rede do dep. Financeiro e por conseguinte tem acesso a tudo o que teria se lá estivesse presencialmente.
+:::
+
+As VLANs têm algumas vantagens: 
+- dividem a rede em partes, reduzindo o domínio de broadcast o que, consequentemente, reduz a bandwidth pois as mensagens não são enviadas para portas desnecessárias;
+- adicionam segurança, pois hosts em diferentes VLANs não conseguem comunicar entre si diretamente;
+
+Para as VLANs comunicarem entre si, isso é feito através de routing (pelos Routers).
+
+## Redes Wireless
+Falemos agora de redes **Wireless - sem fios** - Estas redes usam antenas para efetuar a comunicação entre hosts.
+
+- **Hosts Wireless** - São tablets, telemóveis, computadores portáteis, etc. Estes dispositivos correm aplicações e podem estar fixos ou em movimento (ex. telemóvel a andar num corredor).
+- **Base Station** - Uma estação que é responsável por emitir pacotes de forma sem fios para hosts, fazendo a ligação com o resto da rede. Pode estar ligada por cabo (Ex. Access Point) ou pode transmitir para o resto da rede de uma forma wireless também.
+
+Num sistema móvel, devido a frequências muito baixas, não conseguimos detetar colisões, e portanto não conseguimos usar os algoritmos CNCA/CD vistos anteriormente. Por isso, são usados outros algoritmos.
+
+**Handoff** - Se um host estiver em movimento e passar de um AP para outro, a comunicação consegue continuar, fazendo com o que o 1º AP passe (faça handover) da conexão para o outro AP. 
+
+Apesar de ter várias vantagens, como:
+- Permitir comunicação em movimento;
+- Permitir comunicação em sítios que é complicado ter rede cablada;
+- Permitir fazer broadcasting;
+- Ser mais conveniente para os utilizadores;
+- Ter menos cabos e ser esteticamente mais bonito;
+- ...
+
+Estes sistemas têm várias desvantagens que influenciam a qualidade do sinal, como:
+- Ambiente menos controlado, sendo mais subjetivo a interferências e ruído (frequências estandardizadas, usadas por outros hosts, bem como ruído de motores, microondas, ...);
+- Velocidades de transmissão menores;
+- Propagação em diferentes caminhos, chegando ao destino em _timestamps_ diferentes. 
+
+Para além desses problemas, existe um mais grave: **o problema do terminal escondido**.  
+Considere a seguinte situação:
+TODO: slide 214 
+Nesse caso, os dispositivos A e C desconhecem a existência um do outro, ou seja, os algoritmos de colisão de deteção apresentados não podem ser aplicados, pois esses dois dispositivos não se conseguem "ouvir" um ao outro para saberem que estão a emitir ao mesmo tempo.   
+
+Existem dois algoritmos que ajudam a resolver estes problemas:
+
+### CSMA/CA - Carrier sense multiple access (with collision avoidance)
+
+Este algoritmo é bastante similar ao básico [CSMA](#csma---carrier-sense-multiple-access). 
+O que difere dele é que, para além de esperar que o canal fique livre, ainda espera um tempo aleatório depois do canal se libertar.  
+Assim, o  "sortudo" que teve o tempo menor começa a transmitir e os outros voltam a ficar à espera que o canal fique livre.
+
+Depois de uma transmissão, o AP devolve um ACK para confirmar o sucesso da transmissão. 
+Isto ajuda a resolver o problema do terminal escondido - porém não o resolve de todo, pois podem
+haver tempos em que o inicio das transmissões coincidam.  
+
+Para resolver isto, surgiu a variante com RTS-CTS.
+
+### CSMA/CA com RTS-CTS (Request-To-Send e Clear-To-Send)
+Esta variante consiste numa reserva do canal - o emissor, no lugar de começar a sua transmissão imediatamente, envia antes um pedido de reserva do canal.  
+Desta forma, o AP irá-lhe reservar o canal e dar-lhe um OK, fazendo broadcast de um CTS com a informação de quem vai emitir.  
+Assim, um outro host que não oiça o emissor, ouvirá certamente o AP e não irá transmitir.   
+
+Se tiver existido uma colisão nesse pedido, esta terá um impacto muito reduzido, pois foi apenas transmitido um pacote.
+
+### Exemplos dos algoritmos
+De forma a explicar os algoritmos, seguem os seguintes exemplos:
+
+TODO: exemplos tablet
+
+TODO: exercício de outra coisa do tablet
