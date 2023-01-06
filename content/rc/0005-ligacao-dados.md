@@ -346,7 +346,8 @@ Existem várias topologias de rede:
 Na camada de Ligação de Dados (layer 2), os pacotes são chamados de ***Frames*/Tramas** e têm o 
 seguinte formato:
 
-TODO: meter diagrama 105
+![Trama de Ethernet](./assets/0005-ethernetFrameStructure.svg 'Trama de Ethernet')
+
 
 Onde, 
 - Preâmbulo - Usado para sincronizar as _clock rates_ dos emissor e recetor;
@@ -414,31 +415,41 @@ entrada válida na tabela com o endereço de destino:
 É possível interligar switches, ou seja, a um switch estar ligado outro switch, 
 que por sua vez está ligado a um terceiro switch, and so on.  
 Por exemplo,
-(TODO: esquema disso tipo 127)
+![Switches interligados](./assets/0005-hierarchicalSwitching.svg 'Switches interligados')
+
 
 Ou seja, numa interface de um switch podem existir várias interfaces (correspondentes às interfaces dos switches "filho").  
 
 Considerado o flooding apresentado anteriormente, eis um exemplo de uma transmissão onde o switch ainda não tem nenhuma entrada na Switching table:  
 
-TODO: meter exemplo de C para I
-<!-- 
-1. C envia
-2. S1 flood
-3. S4 aprende
-3. S4 flood
-4. S3 aprende 
-5. S3 flood
-6. S3 todos recebem a mensagem, inclusive o destinatário
+:::info[Exemplo]
+Considere-se que o host C quer enviar um pacote para o host I.
+Primeiro, considera-se o envio do host C:
+1. C envia o pacote para S1;
+2. S1 aprende o MAC address de C. 
+3. Como não sabe onde está endereço MAC de destino, faz flood;
+4. S4 aprende que o MAC address de C está em S1. 
+5. Como não sabe onde está o endereço MAC de destino, faz flood;
+6. S2 e S3 aprendem que o MAC address de C está em S4.
+7. Como nenhum sabe onde está o endereço MAC de destino, ambos fazem flood; 
+8. O pacote eventualmente chega a I, por S3.
 
-I envia
-1. I envia
-2. S3 aprende
-3. Destino é o C, conhecido, então envia para S4
-4. S4 aprende
-4. Destino é o C, conhecido, então envia para o S1
-...
-Nesta situação, apenas o C recebeu a mensagem
- -->
+Nesta situação, todos recebem a mensagem, inclusive o destinatário.
+
+Visualmente,
+![C envia o pacote](./assets/0005-hierarchicalSwitchingExampleSendingC.svg)
+
+Depois, a resposta do host I:
+1. I envia o pacote para S3;
+2. S3 sabe em que porta está o endereço MAC - está em S4, então envia apenas para S4;
+3. S4 sabe em que porta está o endereço MAC - está em S1, então envia apenas para S1;
+4. S1 sabe em que porta está o endereço MAC - é o host C, então envia apenas para C;
+
+Nesta situação, apenas o C recebeu a mensagem.
+Visualmente,
+
+![I envia o pacote](./assets/0005-hierarchicalSwitchingExampleSendingI.svg)
+:::
 
 #### Falta de redundância
 E se alguém corta-se a ligação entre dois dos switches?  
@@ -448,7 +459,7 @@ Para resolver isso, pode-se introduzir alguma **redundância**!
 Considerando a interligação mostrada anteriormente, uma forma de adicionar seria 
 a seguinte: 
 
-TODO: 127 mas com redundância
+![Switches interligados com redundância](./assets/0005-hierarchicalSwitchingWithRedundancy.svg 'Switches interligados com redundância')
 
 Porém, adicionar redundância trás um problema grave - quando é feito flooding, é 
 criado um loop na rede. Mais grave ainda, devido a não existir forma de 
@@ -509,7 +520,142 @@ Este, até receber BPDUs, assume ser o _root bridge_. Porém, quando receber um 
 
 Devido à complexidade e nuances do algoritmo, este será explicado com um exemplo:
 
-TODO: exemplo tablet
+:::info[Exercício]
+> Considere a seguinte figura, onde mostra uma rede composta por:
+> - cinco switches: V, W, X, Y, Z; 
+> - um hub;
+> - e quatro estações: A, B, C, D. 
+> Considera-se que o identificador (BridgeID) de cada switch é igual ao menor dos endereços MAC das suas interfaces, que estão indicados, de uma forma simplificada, junto a cada ligação.  
+> Por exemplo, o BridgeID do switch W será 10.  
+> Todas as ligações têm custo unitário e as tabelas estão inicialmente vazias.
+
+![Parte 1 do exercício](./assets/0005-STPExercisePt1.svg)
+
+> a) Usando o algoritmo STP, classifique as interfaces de cada um dos switches em raiz, designada, 
+> ou bloqueada, e indique as BPDUs enviadas por cada switch em cada uma das suas interfaces quando 
+> em regime estacionário.
+
+Primeiro, calcula-se o BridgeID de cada switch, que corresponde ao mínimo dos MAC addresses das interfaces. Olhando para o mínimo BridgeID, determina-se que o switch V é o _bridge root_:
+
+![Parte 2 do exercício](./assets/0005-STPExercisePt2.svg)
+
+Aproveita-se para determinar as BPDUs enviadas por cada switch.  
+As BPDUs são da forma
+```
+(ID do Root Bridge, Custo até Root Bridge, ID de quem enviou o BPDU, ID da porta que originou o BPDU)
+```
+Então, assumindo que um BPDU é enviado do switch X pela porta com ID 22, ele terá os valores
+```
+(20, 2, 20, 22)
+```
+
+Depois, determinam-se as **Root Ports** - em todos os outros switches, vê-se a interface que leva ao caminho com menor custo para a raiz.  
+Como todas as ligações têm custo unitário, as interfaces dos switches vizinhos ao _bridge root_ são triviais (é apenas a interface que aponta para ele).  
+As interfaces em que não existe empate de custo também são triviais - a interface com MAC 20 do switch X é trivial pois é apenas através dela que o custo consegue ser mínimo (2):
+
+![Parte 3 do exercício](./assets/0005-STPExercisePt3.svg)
+
+Quando existe um empate, no caso do Z, é necessário olhar para todos os BPDUs que podem ser recebidos no switch, escolhendo aquele quem tem as colunas menores.
+No caso do Z, este apenas está ligado a 4 switches, logo os BPDUs possíveis são:
+```
+(5, 2, 20, 22), sw X
+(5, 1, 30, 31), sw Y
+(5, 1, 10, 12), sw W
+(5, 1, 10, 13), sw W
+```
+A primeira coluna é `5` para todos, logo não é possível excluir nenhum;
+A segunda coluna é `2` para um switch e `1` para todos, logo exclui-se o primeiro BPDU, ficando-se com:
+```
+(-, -, 30, 31), sw Y
+(-, -, 10, 12), sw W
+(-, -, 10, 13), sw W
+```
+Da terceira coluna, só sobram os últimos dois BPDUs:
+```
+(-, -, -, 12), sw W
+(-, -, -, 13), sw W
+```
+E finalmente o com valor menor é o primeiro BPDU (terceiro da lista inicial).  
+Ou seja, a **Root Port** de Z será a interface 42, que leva à porta que emitiu esse BPDU:
+
+![Parte 4 do exercício](./assets/0005-STPExercisePt4.svg)
+
+Agora, determinam-se as **Designated Ports**, ou seja, para cada segmento de rede (rodeados por uma nuvem), determina-se o melhor caminho para a raiz: 
+
+![Parte 5 do exercício](./assets/0005-STPExercisePt5.svg)
+
+Novamente, pelas mesmas razões anteriores, alguns casos são triviais (única interface livre no segmento de rede, interfaces do _root bridge_):
+
+![Parte 6 do exercício](./assets/0005-STPExercisePt6.svg)
+
+Nos outros casos, deve-se novamente olhar para os BPDUs.  
+Olhando, por exemplo, para o segmento do canto inferior direito (entre os switches com ID 20 e 40), os BPDUs possíveis para esse segmento são:
+```
+20: (5, 5, 20, 22)
+40: (5, 2, 40, 43)
+```
+Aplicando a mesma lógica de à pouco, considera-se então a _designated port_ como a interface que vem do switch 20.
+Usando a mesma ideia para os outros segmentos ainda sem _designated port_, fica-se com:
+
+![Parte 7 do exercício](./assets/0005-STPExercisePt7.svg)
+
+Todas as outras portas que não têm designação, ficarão sem uso e serão então bloqueadas.
+O resultado final é o seguinte:
+
+![Parte 8 do exercício](./assets/0005-STPExercisePt8.svg)
+
+
+> b) Para a sequência de envio de tramas: (A→B, C→D, C→A, B→A, D→C), indique as interfaces sobre
+> as quais são transmitidas cópias das tramas respetivas e qual o estado das tabelas de expedição de
+> cada switch no final das várias transmissões.
+
+Tendo em conta o diagrama anterior, sabemos agora o mapa da desta rede.
+Considera-se agora cada envio de tramas (cada entrada da tabela diz, para um dado switch, por qual interface foi transmitida a trama enviada ):
+
+- A → B
+
+Como as tabelas estão vazias, nenhum switch conhece o host A e por conseguinte, irá haver um flood total da rede:
+
+|       | V (5) | W (10) | X (20) | Y (30) | Z (40) |
+| ----- | ----- | ------ | ------ | ------ | ------ |
+| A → B | A, 5 | A, 10 | A, 20 | A, 30 | A, 42 |
+
+- C → D
+
+Pela mesma razão, irá haver um flood total da rede:
+
+|       | V (5) | W (10) | X (20) | Y (30) | Z (40) |
+| ----- | ----- | ------ | ------ | ------ | ------ |
+| A → B | A, 5 | A, 10 | A, 20 | A, 30 | A, 42 |
+| C → D | C, 6 | C, 12 | C, 20 | C, 30 | C, 44 |
+
+- C → A
+
+Neste caso, o host A já é conhecido em alguns switches, e então o pacote faz o percurso Z → W → V.  Portanto, a tabela fica:
+
+|       | V (5) | W (10) | X (20) | Y (30) | Z (40) |
+| ----- | ----- | ------ | ------ | ------ | ------ |
+| A → B | A, 5 | A, 10 | A, 20 | A, 30 | A, 42 |
+| C → D | C, 6 | C, 12 | C, 20 | C, 30 | C, 44 |
+| C → A | C, 6 | C, 12 | - | - | C, 44 |
+
+- B → A
+
+Aqui, tanto o B como A estão por trás do mesmo hub. O hub irá fazer broadcast do pacote e chegará 
+tanto ao A como ao switch V. Como o switch V também recebeu o pacote, este irá o enviar de volta para o hub, que por sua vez fará broadcast para as outras interfaces (A incluído).
+Logo, a tabela fica,
+
+|       | V (5) | W (10) | X (20) | Y (30) | Z (40) |
+| ----- | ----- | ------ | ------ | ------ | ------ |
+| A → B | A, 5 | A, 10 | A, 20 | A, 30 | A, 42 |
+| C → D | C, 6 | C, 12 | C, 20 | C, 30 | C, 44 |
+| C → A | C, 6 | C, 12 | - | - | C, 44 |
+| B → A | B, 5 | - | - | - | - |
+
+- D → C
+
+Desafio ao leitor <!-- São 1h30, tenho sono e estou farto disto :kekw: -->
+:::
 
 ##### Ciclos temporários e perda de conectividade  
 
@@ -574,7 +720,10 @@ Estes sistemas têm várias desvantagens que influenciam a qualidade do sinal, c
 
 Para além desses problemas, existe um mais grave: **o problema do terminal escondido**.  
 Considere a seguinte situação:
-TODO: slide 214 
+
+![Problema do terminal escondido](./assets/0005-hiddenTerminalProblem.svg 'Problema do terminal escondido')
+
+
 Nesse caso, os dispositivos A e C desconhecem a existência um do outro, ou seja, os algoritmos de colisão de deteção apresentados não podem ser aplicados, pois esses dois dispositivos não se conseguem "ouvir" um ao outro para saberem que estão a emitir ao mesmo tempo.   
 
 Existem dois algoritmos que ajudam a resolver estes problemas:
@@ -603,4 +752,4 @@ De forma a explicar os algoritmos, seguem os seguintes exemplos:
 
 TODO: exemplos tablet
 
-TODO: exercício de outra coisa do tablet
+TODO: meter espaços em tudo
