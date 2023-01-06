@@ -748,8 +748,56 @@ Assim, um outro host que não oiça o emissor, ouvirá certamente o AP e não ir
 Se tiver existido uma colisão nesse pedido, esta terá um impacto muito reduzido, pois foi apenas transmitido um pacote.
 
 ### Exemplos dos algoritmos
-De forma a explicar os algoritmos, seguem os seguintes exemplos:
+De forma a explicar os algoritmos, seguem os seguintes exercícios:
+
+:::info[Exercício]
+
+> O diagrama da figura mostra uma rede Wi-Fi em que X é o ponto de acesso e A, B e C são estações a ele
+> associadas. Os círculos grandes centrados em cada uma das estações representam a sua área de cobertura, isto é,
+> o alcance do seu sinal eletromagnético. A área de cobertura do ponto de acesso X não está representada, mas
+> subentende-se que cobre as três estações. O protocolo de acesso ao meio é CSMA/CA. Suponha que X está a
+> transmitir uma trama no instante 0 μs que acabará de ser transmitida no instante 100 μs. Suponha ainda o
+> seguinte:
+>
+> | Estação | Instante em que tem trama para transmitir (μs) | Duração de transmissão da trama (μs) | Tempo de Backoff (μs) |
+> | ------- | ---------------------------------------------- | ------------------------------------ | --------------------- |
+> | A | 50 | 100 | 70 |
+> | A | 70 | 200 | 200 |
+> | A | 90 | 150 | 150 |
+
+![Parte 1 do exercício](./assets/0005-CSMACAExercisePt1.svg)
+
+> a) Para cada estação, em que instante de tempo é que cada começa a transmitir a sua trama pela primeira vez? Considere que é usado o protocolo CSMA/CA (sem RTS-CTS).
+
+Podemos representar a situação num diagrama espacial e temporal - a dimensão espacial na horizontal (as estações e o AP) e a dimensão temporal na vertical:
+![Parte 2 do exercício](./assets/0005-CSMACAExercisePt2.svg)
+
+X transmite durante 100 microsegundos. Enquanto isso, as estações estavam prontas a enviar mas, por haver uma transmissão no ar, entraram no período de Backoff:
+
+![Parte 3 do exercício](./assets/0005-CSMACAExercisePt3.svg)
+
+Quando X acabou a transmissão, o tempo de backoff de cada estação começou a contar.  
+Como a estação A tem o tempo de backoff mais pequeno, é a primeira a transmitir depois dele acabar:
+
+![Parte 4 do exercício](./assets/0005-CSMACAExercisePt4.svg)
+
+A estação C ouviu o A a transmitir e por isso ficou em standby (fez pausa no seu contador, até o A deixar de transmitir).  
+Depois do A acabar, o AP envia-lhe um ACK e o C continua a contagem e quando chega ao fim, inicia a sua transmissão:
+
+![Parte 5 do exercício](./assets/0005-CSMACAExercisePt5.svg)
+
+Contudo, do ponto de vista do B, ele não conhece nem ouve os outros e, por isso, conta o seu backoff sem interrupções:
+
+![Parte 6 do exercício](./assets/0005-CSMACAExercisePt6.svg)
+
+Isto causou uma colisão e fez com que ambos B e C não recebessem um ACK por parte do AP.
+
+> b) Considere agora que é usado CSMA/CA com RTS-CTS. O que muda?
+
+
 
 TODO: exemplos tablet
+
+:::
 
 TODO: meter espaços em tudo
