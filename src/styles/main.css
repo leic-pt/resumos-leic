@@ -289,6 +289,13 @@ h2 {
   }
 }
 
+.edit-link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: max-content;
+}
+
 .main-container {
   max-width: 740px;
   margin: 3.6rem auto 0 auto;

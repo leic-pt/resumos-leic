@@ -6,6 +6,7 @@ import '../styles/main.css';
 import '../styles/markdown.css';
 import { customComponents } from '../utils/customComponents';
 import Footer from './Footer';
+import Edit from './icons/Edit';
 import Navbar from './Navbar';
 import PageMetadata from './PageMetadata';
 import Sidebar from './Sidebar';
@@ -25,6 +26,9 @@ export default function Template({ data }) {
     (page) => page.node.childMarkdownRemark.frontmatter.type === 'topLevelPage'
   )?.node.childMarkdownRemark.frontmatter.title;
 
+  const relativePath = page.fileAbsolutePath.split('/').slice(-2).join('/');
+  const githubLink = `https://github.com/leic-pt/resumos-leic/edit/master/content/${relativePath}`;
+
   return (
     <CurrentSectionProvider value={currentSection}>
       <div className={`page-container ${sidebarOpen ? `sidebar-open` : ``}`}>
@@ -33,6 +37,9 @@ export default function Template({ data }) {
         <Navbar toggleSidebar={toggleSidebar} />
         <Sidebar paths={sidebarPaths} sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
         <div className='main-container'>
+          <a href={githubLink} className='edit-link'>
+            <Edit /> Edit page
+          </a>
           <div className='content' dangerouslySetInnerHTML={{ __html: page.html }} />
           {components?.map((Component, i) => (
             <Component key={i} />
@@ -49,6 +56,7 @@ export const pageQuery = graphql`
   query PageByPath($path: String!, $pathRegex: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
+      fileAbsolutePath
       frontmatter {
         title
         description
