@@ -26,8 +26,10 @@ export default function Template({ data }) {
     (page) => page.node.childMarkdownRemark.frontmatter.type === 'topLevelPage'
   )?.node.childMarkdownRemark.frontmatter.title;
 
-  const relativePath = page.fileAbsolutePath.split('/').slice(-2).join('/');
-  const githubLink = `https://github.com/leic-pt/resumos-leic/edit/master/content/${relativePath}`;
+  const { relativePath } = page.parent;
+  const githubLink = relativePath
+    ? `${data.site.siteMetadata.footer.githubLink}/edit/master/content/${relativePath}`
+    : null;
 
   return (
     <CurrentSectionProvider value={currentSection}>
@@ -37,9 +39,11 @@ export default function Template({ data }) {
         <Navbar toggleSidebar={toggleSidebar} />
         <Sidebar paths={sidebarPaths} sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
         <div className='main-container'>
-          <a href={githubLink} className='edit-link'>
-            <Edit /> Edit page
-          </a>
+          {githubLink && (
+            <a href={githubLink} className='edit-link'>
+              <Edit /> Edit page
+            </a>
+          )}
           <div className='content' dangerouslySetInnerHTML={{ __html: page.html }} />
           {components?.map((Component, i) => (
             <Component key={i} />
@@ -56,11 +60,15 @@ export const pageQuery = graphql`
   query PageByPath($path: String!, $pathRegex: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
-      fileAbsolutePath
       frontmatter {
         title
         description
         components
+      }
+      parent {
+        ... on File {
+          relativePath
+        }
       }
     }
     allFile(
@@ -79,6 +87,13 @@ export const pageQuery = graphql`
               type
             }
           }
+        }
+      }
+    }
+    site {
+      siteMetadata {
+        footer {
+          githubLink
         }
       }
     }
