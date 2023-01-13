@@ -289,6 +289,22 @@ h2 {
   }
 }
 
+.edit-link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: flex-end;
+  color: var(--textColor);
+  opacity: 60%;
+  transition: color 1s cubic-bezier(0.075, 0.82, 0.165, 1),
+    opacity 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.edit-link:hover {
+  color: var(--accentColor);
+  opacity: 100%;
+}
+
 .main-container {
   max-width: 740px;
   margin: 3.6rem auto 0 auto;
