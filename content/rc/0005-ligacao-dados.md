@@ -347,7 +347,7 @@ Existem várias topologias de rede:
 Na camada de Ligação de Dados (layer 2), os pacotes são chamados de **_Frames_/Tramas** e têm o
 seguinte formato:
 
-![Trama de Ethernet](./assets/0005-ethernetFrameStructure.svg 'Trama de Ethernet')
+![Trama de Ethernet](./assets/0005-ethernetFrameStructure.svg#dark=3 'Trama de Ethernet')
 
 Onde,
 
@@ -362,7 +362,7 @@ Onde,
 A ethernet básica tem alguns problemas:
 
 - **_Connectionless_** - Não existe o conceito de conexão, como visto anteriormente
-  [com o paradigma **Datagram**](./0004-rede.md#datagram);
+  [com o paradigma **Datagram**](/rc/rede#datagram);
 - **Instável** - A [NIC](#endereços-mac) de recebimento não envia ACKs ou NACKs
   para a [NIC](#endereços-mac) de envio, o que implica que um fluxo de
   datagramas transmitidos pela camada de rede pode ter lacunas (datagramas
@@ -392,15 +392,15 @@ Contudo, quando existe muito tráfego, existem de qualquer forma muitas colisõe
 ## Switches
 
 Ao contrário dos hubs, apresentados [anteriormente](#topologias-de-rede), os
-switches são inteligentes - se um host A falar com um host B, o switch aprende a
-sua localização, ou seja, fica a saber que o host A está na sua porta X.
+switches são inteligentes - se um _host A_ falar com um _host B_, o switch aprende a
+sua localização, ou seja, fica a saber que o _host A_ está na sua _porta X_.
 
 Desta forma, são permitidas várias ligações em simultâneo e as colisões mencionadas anteriormente são reduzidas.
 
-Para isso, o switch tem uma **_Switching table_/Switching table** - Sempre que existir uma
+Para isso, o switch tem uma **_Switching table_** - Sempre que existir uma
 nova transmissão, o switch constrói uma Switching table onde regista um
 mapeamento de quem transmitiu e de onde (de que interface) veio essa transmissão.  
-(Não confundir com uma [Forwarding table](./0004-rede.md#forwarding-table))
+(Não confundir com uma [Forwarding table](/rc/rede#forwarding-table))
 
 São guardadas entradas do tipo:
 `(Endereço MAC, interface do switch, TTL)`
@@ -420,7 +420,7 @@ entrada válida na tabela com o endereço de destino:
 É possível interligar switches, ou seja, a um switch estar ligado outro switch,
 que por sua vez está ligado a um terceiro switch, and so on.  
 Por exemplo,
-![Switches interligados](./assets/0005-hierarchicalSwitching.svg 'Switches interligados')
+![Switches interligados](./assets/0005-hierarchicalSwitching.svg#dark=3 'Switches interligados')
 
 Ou seja, numa interface de um switch podem existir várias interfaces (correspondentes às interfaces
 dos switches "filho").
@@ -444,7 +444,7 @@ Primeiro, considera-se o envio do host C:
 Nesta situação, todos recebem a mensagem, inclusive o destinatário.
 
 Visualmente,
-![C envia o pacote](./assets/0005-hierarchicalSwitchingExampleSendingC.svg)
+![C envia o pacote](./assets/0005-hierarchicalSwitchingExampleSendingC.svg#dark=3)
 
 Depois, a resposta do host I:
 
@@ -456,7 +456,7 @@ Depois, a resposta do host I:
 Nesta situação, apenas o C recebeu a mensagem.
 Visualmente,
 
-![I envia o pacote](./assets/0005-hierarchicalSwitchingExampleSendingI.svg)
+![I envia o pacote](./assets/0005-hierarchicalSwitchingExampleSendingI.svg#dark=3)
 :::
 
 #### Falta de redundância
@@ -501,7 +501,7 @@ Para este algoritmo, são necessárias as seguintes ideias:
 - **Bridge ID** - Cada switch é identificado por um endereço constituído por 2
   bytes que representam a prioridade e 6 bytes que são o endereço MAC do switch.
   Por exemplo, `8000.AA:BB:CC:DD:EE:FF` é o ID do switch com endereço MAC
-  `AA:BB:CC:DD:EE:FF` e com uma prioridade de 8000.
+  `AA:BB:CC:DD:EE:FF` e com uma prioridade de 0x8000.
 - **Root Bridge** - Switch que é o nó inicial da árvore. É o switch com o menor _Bridge ID_ (ou
   seja, a prioridade serve para "forçar" um switch a ser o _root bridge_ e os seus sucessores).
 - **Root Port** - Porta que, num dado switch, é responsável pela receção de frames para/do _root bridge_ -
@@ -517,7 +517,7 @@ Vale notar que:
   tráfego para o switch, sendo essa porta a **Designated Port**. O switch por sua vez, envia o
   tráfego pela **Root Port**, que aponta na direção da _root bridge_. Ou seja, o tráfego "flui"
   de **Designated Ports** para **Root Ports**.
-- Cada rede terá um _root bridge_, cada switch (exceto o _root bridge_) terá apenas uma
+- Cada rede terá um _root bridge_, cada switch (exceto o _root bridge_, que não tem nenhuma) terá apenas uma
   **Root Port**, cada segmento de rede terá apenas uma **Designated Port** e as restantes portas ficarão inativas.
 - Cada switch tem um custo para chegar ao _root bridge_, que é igual à soma dos custos de todas as
   portas que transmitem em direção à _root bridge_ (**Root Ports**).
@@ -563,7 +563,7 @@ Devido à complexidade e nuances do algoritmo, este será explicado com um exemp
 >   Por exemplo, o BridgeID do switch W será 10.  
 >   Todas as ligações têm custo unitário e as tabelas estão inicialmente vazias.
 
-![Parte 1 do exercício](./assets/0005-STPExercisePt1.svg)
+![Parte 1 do exercício](./assets/0005-STPExercisePt1.svg#dark=3)
 
 > a) Usando o algoritmo STP, classifique as interfaces de cada um dos switches em raiz, designada,
 > ou bloqueada, e indique as BPDUs enviadas por cada switch em cada uma das suas interfaces quando
@@ -572,7 +572,7 @@ Devido à complexidade e nuances do algoritmo, este será explicado com um exemp
 Primeiro, calcula-se o BridgeID de cada switch, que corresponde ao mínimo dos MAC addresses das
 interfaces. Olhando para o mínimo BridgeID, determina-se que o switch V é o _bridge root_:
 
-![Parte 2 do exercício](./assets/0005-STPExercisePt2.svg)
+![Parte 2 do exercício](./assets/0005-STPExercisePt2.svg#dark=3)
 
 Aproveita-se para determinar as BPDUs enviadas por cada switch.  
 As BPDUs são da forma
@@ -581,7 +581,7 @@ As BPDUs são da forma
 (ID do Root Bridge, Custo até Root Bridge, ID de quem enviou o BPDU, ID da porta que originou o BPDU)
 ```
 
-Então, assumindo que um BPDU é enviado do switch X pela porta com ID 22, ele terá os valores
+Então, assumindo que um BPDU é enviado do switch X pela porta com ID 22, este terá os valores
 
 ```
 (20, 2, 20, 22)
@@ -594,7 +594,7 @@ triviais (é apenas a interface que aponta para ele).
 As interfaces em que não existe empate de custo também são triviais - a interface com MAC 20 do
 switch X é trivial pois é apenas através dela que o custo consegue ser mínimo (2):
 
-![Parte 3 do exercício](./assets/0005-STPExercisePt3.svg)
+![Parte 3 do exercício](./assets/0005-STPExercisePt3.svg#dark=3)
 
 Quando existe um empate, no caso do Z, é necessário olhar para todos os BPDUs que podem ser
 recebidos no switch, escolhendo aquele quem tem as colunas menores.
@@ -626,17 +626,17 @@ Da terceira coluna, só sobram os últimos dois BPDUs:
 E finalmente o com valor menor é o primeiro BPDU (terceiro da lista inicial).  
 Ou seja, a **Root Port** de Z será a interface 42, que leva à porta que emitiu esse BPDU:
 
-![Parte 4 do exercício](./assets/0005-STPExercisePt4.svg)
+![Parte 4 do exercício](./assets/0005-STPExercisePt4.svg#dark=3)
 
 Agora, determinam-se as **Designated Ports**, ou seja, para cada segmento de rede (rodeados por uma
 nuvem), determina-se o melhor caminho para a raiz:
 
-![Parte 5 do exercício](./assets/0005-STPExercisePt5.svg)
+![Parte 5 do exercício](./assets/0005-STPExercisePt5.svg#dark=3)
 
 Novamente, pelas mesmas razões anteriores, alguns casos são triviais (única interface livre no
 segmento de rede, interfaces do _root bridge_):
 
-![Parte 6 do exercício](./assets/0005-STPExercisePt6.svg)
+![Parte 6 do exercício](./assets/0005-STPExercisePt6.svg#dark=3)
 
 Nos outros casos, deve-se novamente olhar para os BPDUs.  
 Olhando, por exemplo, para o segmento do canto inferior direito (entre os switches com ID 20 e 40),
@@ -647,15 +647,15 @@ os BPDUs possíveis para esse segmento são:
 40: (5, 2, 40, 43)
 ```
 
-Aplicando a mesma lógica de à pouco, considera-se então a _designated port_ como a interface que vem do switch 20.
+Aplicando a mesma lógica de há pouco, considera-se então a _designated port_ como a interface que vem do switch 20.
 Usando a mesma ideia para os outros segmentos ainda sem _designated port_, fica-se com:
 
-![Parte 7 do exercício](./assets/0005-STPExercisePt7.svg)
+![Parte 7 do exercício](./assets/0005-STPExercisePt7.svg#dark=3)
 
 Todas as outras portas que não têm designação, ficarão sem uso e serão então bloqueadas.
 O resultado final é o seguinte:
 
-![Parte 8 do exercício](./assets/0005-STPExercisePt8.svg)
+![Parte 8 do exercício](./assets/0005-STPExercisePt8.svg#dark=3)
 
 > b) Para a sequência de envio de tramas: (A→B, C→D, C→A, B→A, D→C), indique as interfaces sobre
 > as quais são transmitidas cópias das tramas respetivas e qual o estado das tabelas de expedição de
@@ -663,7 +663,7 @@ O resultado final é o seguinte:
 
 Tendo em conta o diagrama anterior, sabemos agora o mapa da desta rede.
 Considera-se agora cada envio de tramas (cada entrada da tabela diz, para um dado switch, por qual
-interface foi transmitida a trama enviada ):
+interface foi transmitida a trama enviada):
 
 - A → B
 
@@ -708,7 +708,7 @@ Logo, a tabela fica,
 
 - D → C
 
-Desafio ao leitor <!-- São 1h30, tenho sono e estou farto disto :kekw: -->
+Desafio ao leitor (agradecem-se PRs) <!-- TODO São 1h30, tenho sono e estou farto disto :kekw: -->
 :::
 
 ##### Ciclos temporários e perda de conectividade
@@ -765,9 +765,9 @@ Para as VLANs comunicarem entre si, isso é feito através de routing (pelos Rou
 Falemos agora de redes **Wireless - sem fios** - Estas redes usam antenas para efetuar a comunicação entre hosts.
 
 - **Hosts Wireless** - São tablets, telemóveis, computadores portáteis, etc. Estes dispositivos correm
-  aplicações e podem estar fixos ou em movimento (ex. telemóvel a andar num corredor).
+  aplicações e podem estar fixos ou em movimento (e.g. telemóvel a andar num corredor).
 - **Base Station** - Uma estação que é responsável por emitir pacotes de forma sem fios para hosts,
-  fazendo a ligação com o resto da rede. Pode estar ligada por cabo (Ex. Access Point) ou pode
+  fazendo a ligação com o resto da rede. Pode estar ligada por cabo (e.g. Access Point) ou pode
   transmitir para o resto da rede de uma forma wireless também.
 
 Num sistema móvel, devido a frequências muito baixas, não conseguimos detetar colisões, e portanto não
@@ -795,7 +795,7 @@ Estes sistemas têm várias desvantagens que influenciam a qualidade do sinal, c
 Para além desses problemas, existe um mais grave: **o problema do terminal escondido**.  
 Considere a seguinte situação:
 
-![Problema do terminal escondido](./assets/0005-hiddenTerminalProblem.svg 'Problema do terminal escondido')
+![Problema do terminal escondido](./assets/0005-hiddenTerminalProblem.svg#dark=3 'Problema do terminal escondido')
 
 Nesse caso, os dispositivos A e C desconhecem a existência um do outro, ou seja, os algoritmos de
 colisão de deteção apresentados não podem ser aplicados, pois esses dois dispositivos não se
@@ -844,32 +844,33 @@ De forma a explicar os algoritmos, seguem os seguintes exercícios:
 > | A       | 70                                             | 200                                  | 200                   |
 > | A       | 90                                             | 150                                  | 150                   |
 
-![Parte 1 do exercício](./assets/0005-CSMACAExercisePt1.svg)
+![Parte 1 do exercício](./assets/0005-CSMACAExercisePt1.svg#dark=3)
 
 > a) Para cada estação, em que instante de tempo é que cada começa a transmitir a sua trama pela primeira vez? Considere que é usado o protocolo CSMA/CA (sem RTS-CTS).
 
 Podemos representar a situação num diagrama espacial e temporal - a dimensão espacial na
 horizontal (as estações e o AP) e a dimensão temporal na vertical:
-![Parte 2 do exercício](./assets/0005-CSMACAExercisePt2.svg)
+
+![Parte 2 do exercício](./assets/0005-CSMACAExercisePt2.svg#dark=3)
 
 X transmite durante 100μs. Enquanto isso, as estações estavam prontas a enviar mas, por haver uma
 transmissão no ar, entraram no período de Backoff:
 
-![Parte 3 do exercício](./assets/0005-CSMACAExercisePt3.svg)
+![Parte 3 do exercício](./assets/0005-CSMACAExercisePt3.svg#dark=3)
 
 Quando X acabou a transmissão, o tempo de backoff de cada estação começou a contar.  
 Como a estação A tem o tempo de backoff mais pequeno, é a primeira a transmitir depois dele acabar:
 
-![Parte 4 do exercício](./assets/0005-CSMACAExercisePt4.svg)
+![Parte 4 do exercício](./assets/0005-CSMACAExercisePt4.svg#dark=3)
 
 A estação C ouviu o A a transmitir e por isso ficou em standby (fez pausa no seu contador, até o A deixar de transmitir).  
 Depois do A acabar, o AP envia-lhe um ACK e o C continua a contagem e quando chega ao fim, inicia a sua transmissão:
 
-![Parte 5 do exercício](./assets/0005-CSMACAExercisePt5.svg)
+![Parte 5 do exercício](./assets/0005-CSMACAExercisePt5.svg#dark=3)
 
 Contudo, do ponto de vista do B, ele não conhece nem ouve os outros e, por isso, conta o seu backoff sem interrupções:
 
-![Parte 6 do exercício](./assets/0005-CSMACAExercisePt6.svg)
+![Parte 6 do exercício](./assets/0005-CSMACAExercisePt6.svg#dark=3)
 
 Isto causou uma colisão e fez com que ambos B e C não recebessem um ACK por parte do AP.
 
@@ -878,16 +879,16 @@ Isto causou uma colisão e fez com que ambos B e C não recebessem um ACK por pa
 O início será igual, porém antes de A começar a transmitir, este fará um pedido de reserva de canal
 (RTS) e o AP responderá que pode transmitir (CTS):
 
-![Parte 7 do exercício](./assets/0005-CSMACAExercisePt7.svg)
+![Parte 7 do exercício](./assets/0005-CSMACAExercisePt7.svg#dark=3)
 
 Desta forma, as estações C e B foram informadas que uma transmissão iria começar nos instantes
 seguintes e, portanto, agora o tempo de backoff da estação B também fica em standby.  
 À semelhança do anterior, o C começa a transmitir quando a sua contagem chega ao fim:
 
-![Parte 8 do exercício](./assets/0005-CSMACAExercisePt8.svg)
+![Parte 8 do exercício](./assets/0005-CSMACAExercisePt8.svg#dark=3)
 
 Finalmente, como B voltou a pausar o tempo de backoff (porque foi informado que uma transmissão
 iria ocorrer), B consegue agora transmitir depois do tempo do seu backoff chegar a 0:
 
-![Parte 9 do exercício](./assets/0005-CSMACAExercisePt9.svg)
+![Parte 9 do exercício](./assets/0005-CSMACAExercisePt9.svg#dark=3)
 :::
