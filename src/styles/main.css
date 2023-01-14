@@ -60,6 +60,10 @@ a {
   font-weight: 500;
 }
 
+strong a {
+  font-weight: inherit;
+}
+
 @media not print {
   body.dark-mode .gatsby-resp-image-wrapper[data-dark='1'],
   body.dark-mode object[data-dark='1'],
@@ -283,6 +287,22 @@ h2 {
   .page-container {
     padding-left: 0;
   }
+}
+
+.edit-link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: flex-end;
+  color: var(--textColor);
+  opacity: 60%;
+  transition: color 1s cubic-bezier(0.075, 0.82, 0.165, 1),
+    opacity 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.edit-link:hover {
+  color: var(--accentColor);
+  opacity: 100%;
 }
 
 .main-container {
