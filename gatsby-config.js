@@ -112,6 +112,7 @@ module.exports = {
               launchOptions: {
                 executablePath: puppeteer.executablePath(),
               },
+              svgo: false, // it doesn't like lines breaks in diagram text boxes
             },
           },
           `gatsby-remark-embed-snippet`,
