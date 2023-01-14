@@ -81,6 +81,13 @@ Antes de fazer um commit, é recomendado executar o `prettier` (se usarem um edi
 yarn format
 ```
 
+### Configurações Avançadas
+
+Quando se está a configurar o _deployment_, de forma a incluir o browser nas pastas
+que ficam em cache, pode ser necessário definir
+a _environment variable_ `PUPPETEER_IN_PROJECT_DIRECTORY`, que guarda o browser
+do Puppeteer na pasta do projeto em vez de na _home directory_.
+
 ## Parceiros
 
 [![Powered by Vercel](./src/images/powered-by-vercel.svg)](https://vercel.com/?utm_source=leic-pt&utm_campaign=oss)
