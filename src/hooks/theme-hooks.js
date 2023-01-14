@@ -85,7 +85,8 @@ export function useLocalStorage(key, initialValue) {
 }
 
 function usePrefersDarkMode() {
-  const mediaQuery = window?.matchMedia('(prefers-color-scheme: dark)');
+  const w = typeof window === 'undefined' ? null : window;
+  const mediaQuery = w?.matchMedia('(prefers-color-scheme: dark)');
 
   const [dark, setDark] = useState(mediaQuery?.matches || false);
 
