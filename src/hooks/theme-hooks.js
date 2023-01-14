@@ -16,7 +16,7 @@ export function useFontSettings() {
 }
 
 export function useThemeSettings() {
-  const [theme, setTheme] = useLocalStorage('theme-name');
+  const [theme, setTheme] = useLocalStorage('themeName');
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
