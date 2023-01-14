@@ -5,7 +5,9 @@ import { CurrentSectionProvider } from '../hooks/useCurrentSection';
 import '../styles/main.css';
 import '../styles/markdown.css';
 import { customComponents } from '../utils/customComponents';
+import ExternalLink from './ExternalLink';
 import Footer from './Footer';
+import Edit from './icons/Edit';
 import Navbar from './Navbar';
 import PageMetadata from './PageMetadata';
 import Sidebar from './Sidebar';
@@ -25,6 +27,11 @@ export default function Template({ data }) {
     (page) => page.node.childMarkdownRemark.frontmatter.type === 'topLevelPage'
   )?.node.childMarkdownRemark.frontmatter.title;
 
+  const { relativePath } = page.parent;
+  const githubLink = relativePath
+    ? `${data.site.siteMetadata.footer.githubLink}/edit/master/content/${relativePath}`
+    : null;
+
   return (
     <CurrentSectionProvider value={currentSection}>
       <div className={`page-container ${sidebarOpen ? `sidebar-open` : ``}`}>
@@ -33,6 +40,11 @@ export default function Template({ data }) {
         <Navbar toggleSidebar={toggleSidebar} />
         <Sidebar paths={sidebarPaths} sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
         <div className='main-container'>
+          {githubLink && (
+            <ExternalLink href={githubLink} className='edit-link'>
+              <Edit /> Edit page
+            </ExternalLink>
+          )}
           <div className='content' dangerouslySetInnerHTML={{ __html: page.html }} />
           {components?.map((Component, i) => (
             <Component key={i} />
@@ -46,13 +58,18 @@ export default function Template({ data }) {
 }
 
 export const pageQuery = graphql`
-  query PageByPath($path: String!, $pathRegex: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+  query PageByPath($markdownRemarkId: String!, $pathRegex: String!) {
+    markdownRemark(id: { eq: $markdownRemarkId }) {
       html
       frontmatter {
         title
         description
         components
+      }
+      parent {
+        ... on File {
+          relativePath
+        }
       }
     }
     allFile(
@@ -60,7 +77,7 @@ export const pageQuery = graphql`
         childMarkdownRemark: { frontmatter: { path: { regex: $pathRegex } } }
         extension: { eq: "md" }
       }
-      sort: { fields: relativePath }
+      sort: { relativePath: ASC }
     ) {
       edges {
         node {
@@ -71,6 +88,13 @@ export const pageQuery = graphql`
               type
             }
           }
+        }
+      }
+    }
+    site {
+      siteMetadata {
+        footer {
+          githubLink
         }
       }
     }

@@ -26,7 +26,7 @@ Esta camada oferece diferentes serviços:
 **_Framing_ e acesso a Links**:
 
 - Encapsula o datagrama numa **trama** - nome dado a um pacote nesta camada, adicionando cabeçalho e trailer;
-- Protocolo **MAC** - Medium Access Control - para acessar o meio compartilhado;
+- Protocolo **MAC** - Medium Access Control - para aceder ao meio compartilhado;
   São usados endereços MAC nos cabeçalhos de tramas para identificar a origem e o destino, apenas dentro da mesma rede.
 
 **Entrega confiável entre nós adjacentes:**
@@ -43,7 +43,7 @@ Esta camada oferece diferentes serviços:
 
 - Para além de detetar, o receptor pode identificar e corrigir erro(s) de bits sem recorrer ao reenvio.
 
-**Controle de fluxo:**
+**Controlo de fluxo:**
 
 - Ajustar o ritmo entre os nós adjacentes que enviam e recebem.
 
@@ -252,7 +252,7 @@ regras de ordenação dos hosts.
 
 #### Poll / Select
 
-Um computador central central controla a atividade dos outros.
+Um computador central controla a atividade dos outros.
 
 #### Token Passing
 
@@ -318,7 +318,7 @@ abortadas, reduzindo a ocupação do canal.
 - Eficientes em carga baixa: um único nó pode utilizar unicamente o canal;
 - Carga alta: sobrecarga de colisão.
 
-## IEEE 802.3 - Ethernet
+### IEEE 802.3 - Ethernet
 
 O IEEE 802.3 é um standard que introduz a tecnologia de LAN cablada chamada Ethernet.  
 Existem várias topologias de rede:
