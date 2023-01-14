@@ -5,6 +5,7 @@ import { CurrentSectionProvider } from '../hooks/useCurrentSection';
 import '../styles/main.css';
 import '../styles/markdown.css';
 import { customComponents } from '../utils/customComponents';
+import ExternalLink from './ExternalLink';
 import Footer from './Footer';
 import Edit from './icons/Edit';
 import Navbar from './Navbar';
@@ -40,9 +41,9 @@ export default function Template({ data }) {
         <Sidebar paths={sidebarPaths} sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
         <div className='main-container'>
           {githubLink && (
-            <a href={githubLink} className='edit-link'>
+            <ExternalLink href={githubLink} className='edit-link'>
               <Edit /> Edit page
-            </a>
+            </ExternalLink>
           )}
           <div className='content' dangerouslySetInnerHTML={{ __html: page.html }} />
           {components?.map((Component, i) => (
