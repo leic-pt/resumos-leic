@@ -18,13 +18,13 @@ Abaixo encontram-se instruções para instalação em Windows e Linux.
 #### Windows
 
 1. Fazer [download do `git`](http://git-scm.com/) e instalar o executável.
-2. Fazer [download do `node`](https://nodejs.org/en/) e instalar a última versão LTS (à data, 16.X LTS).
+2. Fazer [download do `node`](https://nodejs.org/en/) e instalar a última versão LTS (18.X ou superior).
 3. Instalar o `yarn` através da **PowerShell**, correndo o comando `npm i -g yarn`.
 
 #### Linux/macOS
 
 1. Instalar o `git` e o `node` pelo package manager da distribuição. Atenção que o `node` em Debian/Ubuntu/etc está desatualizado.
-   Recomendo seguir [este tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04#option-3-installing-node-using-the-node-version-manager) para ter o Node 16 LTS.
+   Recomendo seguir [este tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04#option-3-installing-node-using-the-node-version-manager) para ter o Node 18 LTS.
 2. Instalar o `yarn` através do terminal, correndo o comando `npm i -g yarn`.
 
 ### Obter os ficheiros necessários

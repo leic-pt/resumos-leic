@@ -57,8 +57,8 @@ export default function Template({ data }) {
 }
 
 export const pageQuery = graphql`
-  query PageByPath($path: String!, $pathRegex: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+  query PageByPath($markdownRemarkId: String!, $pathRegex: String!) {
+    markdownRemark(id: { eq: $markdownRemarkId }) {
       html
       frontmatter {
         title
@@ -76,7 +76,7 @@ export const pageQuery = graphql`
         childMarkdownRemark: { frontmatter: { path: { regex: $pathRegex } } }
         extension: { eq: "md" }
       }
-      sort: { fields: relativePath }
+      sort: { relativePath: ASC }
     ) {
       edges {
         node {
