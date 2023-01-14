@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import '../styles/themes/black.css';
 import '../styles/themes/nord.css';
 import '../styles/themes/solarized.css';
@@ -16,7 +16,7 @@ export function useFontSettings() {
 }
 
 export function useThemeSettings() {
-  const [theme, setTheme] = useLocalStorage('theme-name');
+  const [theme, setTheme] = useLocalStorage('themeName');
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -29,6 +29,30 @@ export function useThemeSettings() {
   });
 
   return { theme, setTheme };
+}
+
+export function useDarkMode() {
+  const [darkModeStored, setDarkModeStored] = useLocalStorage('darkMode', null);
+  const prefersDarkMode = usePrefersDarkMode();
+
+  const darkMode = darkModeStored ?? prefersDarkMode;
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return null;
+
+    const element = window.document.body;
+    if (darkMode) {
+      element.classList.add('dark-mode');
+      element.classList.remove('light-mode');
+    } else {
+      element.classList.add('light-mode');
+      element.classList.remove('dark-mode');
+    }
+  }, [darkMode]);
+
+  const toggle = useCallback(() => setDarkModeStored(!darkMode), [setDarkModeStored, darkMode]);
+
+  return { darkMode, toggle };
 }
 
 // Source: https://usehooks.com/useLocalStorage/
@@ -58,4 +82,23 @@ export function useLocalStorage(key, initialValue) {
   };
 
   return [storedValue, setValue];
+}
+
+function usePrefersDarkMode() {
+  const w = typeof window === 'undefined' ? null : window;
+  const mediaQuery = w?.matchMedia('(prefers-color-scheme: dark)');
+
+  const [dark, setDark] = useState(mediaQuery?.matches || false);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return null;
+
+    const handler = mediaQuery.addEventListener('change', (event) =>
+      setDark(event.matches || false)
+    );
+
+    return () => mediaQuery.removeEventListener('change', handler);
+  }, [mediaQuery]);
+
+  return dark;
 }
