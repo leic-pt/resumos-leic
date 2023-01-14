@@ -52,5 +52,8 @@
     "react-dom": "^18.2.0",
     "remark-directive": "^1.0.1",
     "use-dark-mode": "^2.3.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

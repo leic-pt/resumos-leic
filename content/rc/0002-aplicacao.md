@@ -423,7 +423,7 @@ Como mencionado anteriormente, o DNS usa uma estrutura de nomes hierárquica:
    Por exemplo, `loja.website.com`, `pandas.organização.org`, etc.
 
 Pode-se visualizar um esquema visual que exemplifica melhor a estrutura hierárquica:
-![Hierarquia DNS](./assets/0003-DNSHierarchy.svg#dark=3 'Hierarquia DNS')
+![Hierarquia DNS](./assets/0002-DNSHierarchy.svg#dark=3 'Hierarquia DNS')
 
 ### Resolver um Hostname
 
@@ -534,13 +534,13 @@ Os _peers_ não precisam de estar conectados continuamente e podem mudar de IP.
 
 Na arquitetura Cliente-Servidor, a comunicação é feita da seguinte forma:
 
-![Arquitetura Cliente-Servidor](./assets/0003-clientServer.svg#dark=3 'Arquitetura Cliente-Servidor')
+![Arquitetura Cliente-Servidor](./assets/0002-clientServer.svg#dark=3 'Arquitetura Cliente-Servidor')
 
 Ou seja, se três clientes pedem um ficheiro, o servidor terá que enviar o mesmo ficheiro três vezes.
 
 Já na arquitetura P2P, o que acontece é o seguinte:
 
-![Arquitetura P2P](./assets/0003-p2p.svg#dark=3 'Arquitetura P2P')
+![Arquitetura P2P](./assets/0002-p2p.svg#dark=3 'Arquitetura P2P')
 
 Ou seja, os clientes (_peers_) partilham a informação entre sí.
 

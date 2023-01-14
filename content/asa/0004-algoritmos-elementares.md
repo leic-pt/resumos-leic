@@ -152,13 +152,13 @@ Temos, abaixo, dois exemplos de grafos com respetivas florestas DFS:
 
 :::details[Exemplo 1 - Floresta com uma árvore]
 
-![Florestas DFS - Exemplo 1](./assets/0004-floresta-ex1.svg#dark=4)
+![Florestas DFS - Exemplo 1](./assets/0004-floresta-ex1.svg#dark=2)
 
 :::
 
 :::details[Exemplo 2 - Floresta com mais do que uma árvore]
 
-![Florestas DFS - Exemplo 2](./assets/0004-floresta-ex2.svg#dark=4)
+![Florestas DFS - Exemplo 2](./assets/0004-floresta-ex2.svg#dark=2)
 
 :::
 
@@ -167,7 +167,7 @@ Temos, abaixo, dois exemplos de grafos com respetivas florestas DFS:
 Podemos, ainda demonstrar que há mais do que uma floresta possível para um dado grafo.
 Pegando no grafo do exemplo anterior, e fazendo uma DFS diferente (começando, por exemplo, em C):
 
-![Florestas DFS - Exemplo 3](./assets/0004-floresta-ex3.svg#dark=4)
+![Florestas DFS - Exemplo 3](./assets/0004-floresta-ex3.svg#dark=2)
 
 :::
 
@@ -188,7 +188,7 @@ representam arcos do próprio grafo):
 
 Pegando no grafo do Exemplo 1 acima:
 
-![Grafo Exemplo](./assets/0004-floresta-exemplo-arcos.svg#dark=4)
+![Grafo Exemplo](./assets/0004-floresta-exemplo-arcos.svg#dark=2)
 
 [**Nem todas as arestas do grafo estão representadas**](color:red) nesta árvore DFS -
 estão apenas representadas as arestas "normais" da árvore - **tree edges**.
@@ -202,7 +202,7 @@ As restantes arestas são, respetivamente (olhando para o grafo original):
 
 Poderiam ser representadas tal que:
 
-![Floresta Exemplo - Arestas colocadas](./assets/0004-exemplo-tipo-arcos.svg#dark=4)
+![Floresta Exemplo - Arestas colocadas](./assets/0004-exemplo-tipo-arcos.svg#dark=3)
 
 :::
 
@@ -336,11 +336,11 @@ sentido contrário) são necessariamente iguais.
 
 Dado o grafo abaixo:
 
-![Grafo dos Componentes - Exemplo](./assets/0004-sccs-exemplo-graph.svg#dark=4)
+![Grafo dos Componentes - Exemplo](./assets/0004-sccs-exemplo-graph.svg#dark=3)
 
 O grafo dos componentes correspondente é dado por:
 
-![Grafo dos Componentes - Componentes](./assets/0004-sccs-graph-components.svg#dark=4)
+![Grafo dos Componentes - Componentes](./assets/0004-sccs-graph-components.svg#dark=3)
 
 :::
 
@@ -395,25 +395,25 @@ lista de adjacências). Assim, a complexidade temporal do algoritmo como um todo
 
 Tenhamos o grafo abaixo (com DFS inicial já realizada, respetivos tempos de descoberta e de fecho indicados):
 
-![Exemplo - Grafo inicial](./assets/0004-sccs-exemplo-graph-dfs.svg#dark=4)
+![Exemplo - Grafo inicial](./assets/0004-sccs-exemplo-graph-dfs.svg#dark=2)
 
 Os vértices, por ordem decrescente de tempo de fim, serão então $GIJLKHDCFBEA$.
 
 O respetivo grafo transposto será o seguinte:
 
-![Exemplo - Grafo transposto](./assets/0004-sccs-exemplo-graph-transposed.svg#dark=4)
+![Exemplo - Grafo transposto](./assets/0004-sccs-exemplo-graph-transposed.svg#dark=2)
 
 Por fim, a DFS realizada por ordem decrescente dos tempos de fim da DFS inicial é tal que:
 
-![Exemplo - Grafo final](./assets/0004-sccs-exemplo-graph-final.svg#dark=4)
+![Exemplo - Grafo final](./assets/0004-sccs-exemplo-graph-final.svg#dark=2)
 
 Assim sendo, a floresta DFS final é:
 
-![Exemplo - Floresta final](./assets/0004-sccs-exemplo-final-forest.svg#dark=4)
+![Exemplo - Floresta final](./assets/0004-sccs-exemplo-final-forest.svg#dark=2)
 
 Temos 5 árvores na floresta DFS, pelo que temos 5 SCCs. O grafo dos componentes correspondente é, então:
 
-![Exemplo - Grafo dos Componentes](./assets/0004-sccs-exemplo-graph-components.svg#dark=4)
+![Exemplo - Grafo dos Componentes](./assets/0004-sccs-exemplo-graph-components.svg#dark=2)
 
 :::
 
@@ -458,7 +458,7 @@ BFS(G, v) // v é o vértice-raiz da procura
 
 Vamos utilizar um grafo não dirigido, como o seguinte:
 
-![Exemplo BFS - Grafo](./assets/0004-exemplo-graph-bfs.svg#dark=4)
+![Exemplo BFS - Grafo](./assets/0004-exemplo-graph-bfs.svg#dark=2)
 
 O decorrer do algoritmo é:
 
@@ -495,11 +495,11 @@ cada vértice na procura é que podem ser diferentes.
 
 Por exemplo, para a BFS:
 
-![Exemplo Árvore BFS - Grafo](./assets/0004-exemplo-graph-bfs.svg#dark=4)
+![Exemplo Árvore BFS - Grafo](./assets/0004-exemplo-graph-bfs.svg#dark=2)
 
 A árvore BF correspondente é a abaixo:
 
-![Exemplo BFS - Fila](./assets/0004-exemplo-graph-bfs-tree.svg#dark=4)
+![Exemplo BFS - Fila](./assets/0004-exemplo-graph-bfs-tree.svg#dark=2)
 
 As "distâncias" (os tempos indicados na BFS) correspondem a **níveis** da árvore (como se pode ver acima).
 

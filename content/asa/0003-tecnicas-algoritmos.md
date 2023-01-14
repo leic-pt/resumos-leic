@@ -813,7 +813,7 @@ O decorrer do algoritmo será:
 
 O algoritmo acaba aqui, e podemos agora verificar que a árvore binária é tal que:
 
-![Árvore binária - exemplo](./assets/0003-arvore-exemplo.svg#dark=3)
+![Árvore binária - exemplo](./assets/0003-arvore-exemplo.svg#dark=2)
 
 Temos, então, que o custo mínimo será obtido através de:
 
@@ -842,7 +842,7 @@ ainda $a$ e $b$ como sendo os dois caracteres menos frequentes (e $a$ o menos fr
 
 Tenhamos, pegando neste último caso, o exemplo seguinte (onde $a$ e $b$ não são irmãos):
 
-![Árvore T estrela](./assets/0003-prova-t-estrela.svg#dark=3)
+![Árvore T estrela](./assets/0003-prova-t-estrela.svg)
 
 Temos, a partir daqui, que provar que, ao trocar $b$ com $c$ ($c$ é um qualquer caracter
 com frequência superior à de $a$ e $b$), a árvore continua a ser ótima, ou seja, que:
@@ -853,7 +853,7 @@ $$
 
 onde $T^\wedge$ é a árvore que resulta da troca de $b$ com $c$.
 
-![Árvore T chapéu](./assets/0003-prova-t-chapeu.svg#dark=3)
+![Árvore T chapéu](./assets/0003-prova-t-chapeu.svg)
 
 A prova dá-se da seguinte maneira:
 
