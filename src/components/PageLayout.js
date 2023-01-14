@@ -12,6 +12,7 @@ import PageMetadata from './PageMetadata';
 import Sidebar from './Sidebar';
 
 export default function Template({ data }) {
+  console.log(data);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebar = useCallback(() => setSidebarOpen((open) => !open), [setSidebarOpen]);
@@ -57,8 +58,8 @@ export default function Template({ data }) {
 }
 
 export const pageQuery = graphql`
-  query PageByPath($path: String!, $pathRegex: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+  query PageByPath($markdownRemarkId: String!, $pathRegex: String!) {
+    markdownRemark(id: { eq: $markdownRemarkId }) {
       html
       frontmatter {
         title
