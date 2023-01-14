@@ -76,7 +76,7 @@ export const pageQuery = graphql`
         childMarkdownRemark: { frontmatter: { path: { regex: $pathRegex } } }
         extension: { eq: "md" }
       }
-      sort: { fields: relativePath }
+      sort: { relativePath: ASC }
     ) {
       edges {
         node {
