@@ -111,7 +111,7 @@ Podemos, claro, notar que os caminhos mais curtos não são necessariamente úni
 e, por consequência, nem as árvores de caminhos mais curtos o são.
 Abaixo temos um exemplo de duas árvores de caminhos mais curtos diferentes:
 
-![Caminhos Mais Curtos - Árvores diferentes](./assets/0005-caminhos-mais-curtos-arvores-diferentes.svg#dark=4)
+![Caminhos Mais Curtos - Árvores diferentes](./assets/0005-caminhos-mais-curtos-arvores-diferentes.svg#dark=3)
 
 Temos ainda que [**todo o sub-caminho de um caminho mais curto é também um caminho mais curto**](color:green).
 Tenhamos, por exemplo, o caminho $p = (s, v_1, v_2, ..., v_k)$.
@@ -132,7 +132,7 @@ Podemos, por fim, afirmar que $\delta(s, v) \leq \delta(s, u) + w(u, v)$.
 Escrevemos $\leq$ em vez de $=$ porque pode haver um sub-caminho mais barato de $s$
 a $v$ que não inclua necessariamente o arco $(u, v)$, como no exemplo abaixo:
 
-![Subcaminho mais Barato](./assets/0005-sub-caminhos-mais-curtos.svg#dark=4)
+![Subcaminho mais Barato](./assets/0005-sub-caminhos-mais-curtos.svg#dark=2)
 
 ### [**Relaxação**](color:yellow)
 
@@ -164,7 +164,7 @@ Relax(G, u, v, w) // ocorre em Theta(1) tempo
 
 Abaixo encontramos exemplos de relaxação de arestas:
 
-![Caminhos mais Curtos - Relaxação de Arestas](./assets/0005-caminhos-mais-curtos-relaxacao-arestas.svg#dark=4)
+![Caminhos mais Curtos - Relaxação de Arestas](./assets/0005-caminhos-mais-curtos-relaxacao-arestas.svg#dark=2)
 
 No caso $(a)$, tínhamos que $d[u]$ tinha estimativa atual $5$ e que $d[v]$ tinha
 estimativa atual $9$. Assim, como a aresta que estávamos a ver tinha peso 2, atualizamos
@@ -315,7 +315,7 @@ aquando da sua inserção em $S$, $d[v] = \delta(s, v)$!
 Finalmente, depois de apresentado o algoritmo, podemos mostrar porque é que, aqui,
 só podemos ter grafos sem arestas negativas:
 
-![Caminhos Mais Curtos - Dijkstra - Aresta Negativa](./assets/0005-caminhos-mais-curtos-dijkstra-aresta-negativa.svg#dark=4)
+![Caminhos Mais Curtos - Dijkstra - Aresta Negativa](./assets/0005-caminhos-mais-curtos-dijkstra-aresta-negativa.svg#dark=3)
 
 Aqui, claro, o invariante não se verifica, já que $d(w) > \delta(s, w)$.
 
@@ -389,7 +389,7 @@ Abaixo podemos observar um exemplo da execução completa do algoritmo de Bellma
 (passos de $a$ a $e$). A ordem de relaxação das arestas é, em cada iteração do loop,
 $(t, x), (t, y), (t, z), (x, t), (y, x), (y, z), (z, x), (z, s), (s, t), (s, y)$:
 
-![Exemplo da aplicação do algoritmo](./assets/0005-caminhos-mais-curtos-bellman-ford-exemplo-1.svg#dark=4)
+![Exemplo da aplicação do algoritmo](./assets/0005-caminhos-mais-curtos-bellman-ford-exemplo-1.svg#dark=2)
 
 Na primeira iteração, temos, claro, que as únicas arestas cuja relaxação provoca
 diferença nas estimativas são as que saem de $s$, já que são as únicas em que o
@@ -428,7 +428,7 @@ Ora, estando perante um ciclo, teremos que $\sum_{i = 0}^k{d[v_{i-1}]} = \sum_{i
 Este último ponto pode ser difícil de passar por escrito, por isso abaixo encontra-se
 uma imagem que pode ajudar a compreender esta afirmação:
 
-![Ciclos Negativos Bellman-Ford](./assets/0005-ciclos-negativos-bellman-ford.svg#dark=4)
+![Ciclos Negativos Bellman-Ford](./assets/0005-ciclos-negativos-bellman-ford.svg#dark=2)
 
 Sendo eles iguais, podemos afirmar que:
 
@@ -563,7 +563,7 @@ A intuição poderá levar-nos a pensar que uma maneira possível de chegar a $\
 é encontrar a aresta com peso mais negativo, pegar no seu módulo e somá-lo ao peso
 de todas os arcos de $G$. A estratégia, contudo, não funciona para todos os casos - temos um contraexemplo abaixo:
 
-![Repesagem de Johnson - abordagem errada](assets/0005-johnson-errado.svg#dark=4)
+![Repesagem de Johnson - abordagem errada](assets/0005-johnson-errado.svg#dark=3)
 
 Podemos observar, então, que esta abordagem acaba por **penalizar caminhos mais curtos com mais arcos**.
 
@@ -589,17 +589,17 @@ A prova da sua correção encontra-se mais abaixo, pelo que podem preferir ler a
 
 Consideremos o grafo $G$ abaixo:
 
-![Repesagem de Johnson - exemplo](assets/0005-johnson-exemplo.svg#dark=4)
+![Repesagem de Johnson - exemplo](assets/0005-johnson-exemplo.svg#dark=2)
 
 Após adicionar o vértice $s$ (e respetivas arestas), o grafo fica assim:
 
-![Repesagem de Johnson - exemplo - adicionado](assets/0005-johnson-exemplo-2.svg#dark=4)
+![Repesagem de Johnson - exemplo - adicionado](assets/0005-johnson-exemplo-2.svg#dark=2)
 
 Tenhamos, ainda, uma ordem arbitrária de relaxação de arcos, por exemplo $(S, X), (S, U), (S, T), (S, V), (X, U), (U, V), (U, T), (V, X), (V, T)$.
 
 A primeira iteração de Bellman-Ford dará:
 
-![Repesagem de Johnson - exemplo - relaxação](assets/0005-johnson-exemplo-3.svg#dark=4)
+![Repesagem de Johnson - exemplo - relaxação](assets/0005-johnson-exemplo-3.svg#dark=2)
 
 A próxima iteração resulta num grafo igual, pelo que o algoritmo de Bellman-Ford termina aqui.
 Temos, então, que as alturas de Johnson dos vértices do grafo são:
@@ -619,7 +619,7 @@ Assim sendo, os novos pesos dos arcos de $G$ são:
 
 Assim, temos que $\hat{G}$ é tal que:
 
-![Repesagem de Johnson - exemplo - resultado](assets/0005-johnson-exemplo-4.svg#dark=4)
+![Repesagem de Johnson - exemplo - resultado](assets/0005-johnson-exemplo-4.svg#dark=2)
 
 De realçar que nenhum arco tem agora peso negativo!
 

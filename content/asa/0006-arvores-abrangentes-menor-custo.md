@@ -397,22 +397,22 @@ a complexidade seria $O(m \cdot \log n)$, já assim bastante melhor que a origin
 
 Tenhamos que inicialmente $S$ encontra-se assim:
 
-![Conjuntos Disjuntos - Exemplo Início](./assets/0006-union-inicio.svg#dark=4)
+![Conjuntos Disjuntos - Exemplo Início](./assets/0006-union-inicio.svg#dark=2)
 
 Chamar sucessivamente `union(A, B)`, `union(B, C)`, `union(D, E)` e `union(F, G)` produzirá os seguintes resultados:
 
-![Conjuntos Disjuntos - Exemplo Básico](./assets/0006-union-basico.svg#dark=4)
+![Conjuntos Disjuntos - Exemplo Básico](./assets/0006-union-basico.svg#dark=2)
 
 De seguida, é chamado `union(D, F)`. Para achatar a árvore, temos de chamar de novo `findSet`
 com um dos nós para ver o efeito a ser produzido (numa possível chamada futura de
 `union` um efeito semelhante seria observado).
 
-![Conjuntos Disjuntos - Exemplo Intermédio](./assets/0006-union-intermedio.svg#dark=4)
+![Conjuntos Disjuntos - Exemplo Intermédio](./assets/0006-union-intermedio.svg#dark=2)
 
 Finalizamos ao unir as duas árvores finais, e a observar o achatamento (não completo)
 da árvore resultante com uma chamada `findSet`:
 
-![Conjuntos Disjuntos - Exemplo Final](./assets/0006-union-end.svg#dark=4)
+![Conjuntos Disjuntos - Exemplo Final](./assets/0006-union-end.svg#dark=2)
 
 :::
 
