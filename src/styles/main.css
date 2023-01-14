@@ -81,7 +81,7 @@ strong a {
   body.dark-mode img[data-dark='4'] {
     filter: invert(1);
   }
-  body.dark-mode div.mermaid {
+  body.dark-mode svg[id^='remark-mermaid-'] {
     filter: invert(1) hue-rotate(135deg);
   }
 }
