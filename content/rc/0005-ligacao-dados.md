@@ -468,7 +468,7 @@ Para resolver isso, pode-se introduzir alguma **redundância**!
 Considerando a interligação mostrada anteriormente, uma forma de adicionar seria
 a seguinte:
 
-![Switches interligados com redundância](./assets/0005-hierarchicalSwitchingWithRedundancy.svg 'Switches interligados com redundância')
+![Switches interligados com redundância](./assets/0005-hierarchicalSwitchingWithRedundancy.svg#dark=3 'Switches interligados com redundância')
 
 Porém, adicionar redundância trás um problema grave - quando é feito flooding, é
 criado um loop na rede. Mais grave ainda, devido a não existir forma de
