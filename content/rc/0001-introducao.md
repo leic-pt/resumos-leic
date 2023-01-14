@@ -175,11 +175,11 @@ Cada host pode usar a fibra óptica/cabo durante um intervalo específico de tem
 ![TDM](./assets/0001-tdm.svg#dark=3 'Time Division (TDM)')
 
 :::info[Exercício de comutação de circuitos]
-**Quanto tempo demora enviar um ficheiro de 640.000 bits do _host_ A para o
+**Quanto tempo demora enviar um ficheiro de $640~000 \op{bits}$ do _host_ A para o
 _host_ B a partir de uma _network_ baseada em comutação de circuitos (_circuit switching_)?**
 
-**A _bit rate_ de _links_ disponíveis é 2048 MBps;**  
-**Cada _link_ é partilhado usando _TDM_, havendo 32 _slots_/linha;**  
+**A _bit rate_ de _links_ disponíveis é $2.048 \op{Mbps}$;**  
+**Cada _link_ é partilhado usando _TDM_, havendo $32$ _slots_/linha;**  
 **São precisos 500ms para estabelecer um circuito _end-to-end_**
 
 Seja $L$ o tamanho do ficheiro e $R$ a _rate_ de transferência.  
@@ -187,11 +187,18 @@ Simplificando $L$, tem-se que $L = 640 \times 10^3 \op{bits} = 2^6 \times 10^4 \
 
 $R$ é a _rate_ de transferência, ou seja, a quantidade de bits que é possível
 passar pelo cabo por segundo.
-Como cada ligação é dividida em 32 slots, tem-se que dividir a _bit rate_ dada,
+Como cada ligação é dividida em $32$ slots, tem-se que dividir a _bit rate_ dada,
 ou seja, calcula-se,
 
 $$
-R = \frac{\text{bit rate total}}{\text{Nº de slots}} = \frac{2048 \op{Mbps}}{32} = \frac{2^{11} \times 10^3}{2^5} = 64 \op{Kbits/s}
+\begin{aligned}
+R &= \frac{\text{bit rate total}}{\text{Nº de slots}}
+ = \frac{2.048 \op{Mbps}}{32}
+ = \frac{2048 \op{Kbps}}{32}\\
+\\
+& = \frac{2^{11} \times 10^3 \op{bits/s}}{2^5}
+ = 64 \op{Kbits/s}
+\end{aligned}
 $$
 
 O tempo total é dado então por:
