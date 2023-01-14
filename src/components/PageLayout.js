@@ -12,7 +12,6 @@ import PageMetadata from './PageMetadata';
 import Sidebar from './Sidebar';
 
 export default function Template({ data }) {
-  console.log(data);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebar = useCallback(() => setSidebarOpen((open) => !open), [setSidebarOpen]);
