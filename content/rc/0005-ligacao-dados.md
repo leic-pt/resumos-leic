@@ -643,7 +643,7 @@ Olhando, por exemplo, para o segmento do canto inferior direito (entre os switch
 os BPDUs possíveis para esse segmento são:
 
 ```
-20: (5, 5, 20, 22)
+20: (5, 2, 20, 22)
 40: (5, 2, 40, 43)
 ```
 
