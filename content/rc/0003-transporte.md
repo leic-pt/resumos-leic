@@ -251,3 +251,255 @@ Para se entender melhor, considere-se o seguinte exemplo, com $N = 5$:
 
 Neste caso, a seguinte condição tem que ser respeitada:
 $N_w \leq \frac{N_{ptks}}{2}$
+
+## TCP - Transmission Control Protocol
+
+Criado com a ideologia do RDT em mente, veio o protocolo **TCP - Transmission Control Protocol**.
+Este protocolo tem as seguintes características:
+
+- **Point-to-Point** - Apenas um emissor e um receptor;
+- **Sliding Window** - Implementa a noção de Sliding Window, apresentada anteriormente;
+- **Dados Full Duplex** - Na mesma conexão, é permitido enviar dados nos dois sentidos;
+- **Orientado a conexão** - Implementa uma conexão, ou seja, dois hosts conhecem-se (vs. o UDP,
+  em que o receptor recebe informação de vários emissores sem estabelecer uma conexão).
+- **Controlo de Flow** - O emissor consegue controlar a quantidade de dados enviados, caso o
+  cliente não consiga processar tudo.
+
+### Estrutura de um segmento TCP
+
+De forma a conseguir implementar estas medidas, o TCP altera a estrutura do segmento apresentada
+anteriormente:
+
+![Divisão de um Segmento TCP](./assets/0003-TCPsegment.svg#dark=3 'Divisão de um Segmento TCP')
+
+Onde os campos que se destacam são,
+
+- **Número de sequência** - conta o número de bytes enviados, desde o inicio da conexão. É igual ao
+  n-ésimo byte enviado do cliente mais o primeiro byte enviado deste segmento;
+- **Número de ACK** - número de sequência do byte seguinte que se espera receber. Este indica que
+  foram recebidos os dados acumulados até este ACK (ou seja, todos os ACKs anteriores chegaram) e
+  que se pretende receber os dados associados a este ACK.
+- **Bit A** - diz se o segmento é um ACK;
+- **_len cab_** - tamanho do cabeçalho;
+- **Janela de Receção** - número de bytes que recetor consegue receber;
+- **Bit R, S, F** - diz se o segmento é um RST, SYN ou FIN;
+- **Bit E e Bit C** - notificação de congestão na rede.
+
+### Three Way Handshake - Estabelecer uma conexão
+
+Antes de serem transmitidos dados, o emissor e o receptor criam uma conexão, através do Three Way Handshake:
+
+1. O cliente envia um segmento **SYN** para o servidor, indicando o número de sequência inicial;
+2. O servidor responde com um **SYN ACK**, indicando o seu número de sequência inicial.
+   Aqui, o servidor aloca buffers.
+3. O cliente responde com um **ACK**, podendo já enviar dados com este segmento.
+
+Para terminar a conexão,
+
+1. O cliente envia um segmento **FIN** para o servidor;
+2. O servidor responde com um **ACK** e começa a fechar a conexão;
+3. O servidor, depois de fechar completamente a conexão, responde com um **FIN**;
+4. O cliente responde ao **FIN** recebido com um **ACK**.
+   Mesmo depois de receber o **FIN**, como os pacotes podem não chegar por ordem, o socket não é fechado imediatamente pois ainda podem chegar pacotes.
+5. o servidor recebe o **ACK**, que confirma que a conexão foi totalmente (dos dois lados) fechada.
+
+### Comparar números de segmento
+
+Considere o seguinte esquema, onde existe um servidor que faz "echo" do que os clientes enviam. O esquema mostra uma conexão já anteriormente inicializada e alguns dados trocados,
+
+![Exemplo de interação](./assets/0003-exemploSeqACK.svg#dark=3)
+
+1. O cliente envia a letra 'A'. O segmento contém o número de sequência 40 e o ACK 80.
+2. O servidor envia o segmento com o número de sequência 80 (visto que o ACK recebido representa
+   que todos os segmentos até ao 80 foram recebidos e que o número de sequência que se pretende
+   receber é o 80).  
+   O servidor envia o ACK 41, avisando que recebeu tudo até ao número de sequência 40 e que quer receber o 41.  
+   O servidor envia a letra 'A', pois está a fazer echo das mensagens recebidas.
+3. O cliente responde com o número de sequência e o ACK (não são enviados dados pois o
+   objetivo deste segmento é confirmar a receção do segmento anterior).
+   O cliente envia o número de segmento 41, pois é número do ACK que recebeu do servidor;  
+   O cliente envia o ACK 81, avisando que recebeu tudo até ao segmento 80 e quer o segmento 81.
+
+:::warning
+Em TCP, os "números de segmento" correspondem ao índice do byte na mensagem.
+Por exemplo, a mensagem "AA" iria aumentar o número de segmento por 2, dado que contém
+2 bytes.
+:::
+
+### Timeout
+
+Cada segmento tem que ter um dado tempo para, caso esse tempo seja passado e não seja obtida
+resposta, considerar o segmento como perdido. A esse tempo chama-se **timeout**.
+
+O tempo de timeout tem que ser maior que o RTT e portanto, é necessário saber o tempo de RTT.  
+É possível estimar este valor fazendo a diferença entre o tempo de emissão de um segmento e da
+receção do respetivo ACK. A este tempo chama-se $\op{SampleRTT}$ (visto ser uma amostra do tempo
+possível).
+
+Contudo, uma amostra do tempo não é suficiente, visto que a rede, nesse instante podia instável e
+não representar a realidade.  
+Então alternativamente calcula-se o $\op{EstimatedRTT}$, que é uma média de vários $\op{SampleRTT}$s.
+
+Alternativamente a esses tempos, pode-se ainda calcular o
+$\op{EstimateRTT} = (1-\alpha) \times \op{EstimatedRTT} + \alpha \times \op{SampleRTT}$
+(tipicamente, $\alpha = 0.125$). A esta fórmula chama-se
+**EWMA - Exponential Weighted Moving Average**,
+e com ela, a influência das amostras anteriores diminui exponencialmente.
+
+### Envio de um segmento
+
+O flow de envio de dados é o seguinte:
+
+1. criar um segmento;
+2. definir o número de sequência como o primeiro byte de dados deste segmento. Por exemplo,
+   - se for o primeiro segmento a ser enviado, o número de sequência será 1;
+   - se já tiverem sido enviados 1000 bytes, o número de sequência será 1001.
+3. Enviar o segmento e começar um _timer_.
+4. Se o _timer_ passar e não tiver sido recebida uma confirmação, reenvia-se o segmento que causou
+   o timeout. O tempo de espera é dobrado para evitar timeouts prematuros de segmentos seguintes.
+5. É recebido um ACK, confirmado todos os segmentos enviados até o valor do ACK.  
+   Se os segmentos ainda não estavam confirmados, são agora confirmados.
+   Recomeça o timer, se ainda existirem outros segmentos por confirmar.
+
+Apesar de existir o timeout, o período de espera é relativamente longo.
+Uma solução para isso é fazer uma **retransmissão rápida** - assume-se que se existirem 3 ACKs
+duplicados, deve-se retransmitir imediatamente.
+
+Note-se que, se algum segmento não tiver chegado, o servidor irá sempre responder com ACKs até esse
+segmento, pois o ACK representa que todos os segmentos até o seu número foram recebidos com sucesso.
+Por exemplo,
+
+1. O cliente envia um segmento com número = 1.
+2. O servidor responde com ACK = 2 (recebeu tudo até 2 e quer receber o 2).
+3. O cliente envia um segmento com número = 2.
+4. O servidor responde com ACK = 3.
+5. O cliente envia um segmento com número = 3. **O Pacote perde-se**.
+6. O cliente envia um segmento com número = 4.
+7. O servidor responde com ACK = 3 (Apesar de ter recebido o segmento 4, o servidor só pode
+   responder com 3 pois o ACK é acumulativo, ou seja, só recebeu tudo até ao 2).
+8. O cliente envia um segmento com número = 5.
+9. O servidor responde com ACK = 3.
+10. O cliente envia um segmento com número = 6.
+11. O servidor responde com ACK = 3.
+12. O cliente recebe 3 ACKs repetidos e então retransmite o segmento 3.
+13. O servidor responde com ACK = 7 (Recebeu todos os pacotes até ao 6 e pode receber o 7).
+
+### Controlo do fluxo
+
+Um dos objetivos do TCP é assegurar que a transmissão não é feita rápido de mais, ou seja, que o
+receptor consegue processar todos os dados de um segmento antes de receber o seguinte.
+
+O receptor tem um **buffer de receção** - buffer para onde vão os dados que vão sendo recebidos
+através de TCP.  
+Uma forma de controlar o fluxo é o receptor avisar o espaço livre que tem no buffer a cada ACK
+enviado para o emissor através do cabeçalho [Janela de Receção](#estrutura-de-um-segmento-tcp).
+Desta forma, é garantido que não existirá overflow de dados.
+
+### Controlo de congestão
+
+Outro problema que o TCP consegue antever é a congestão na rede.
+
+Poderá haver congestão na rede se não existirem sincronizações de tráfego, ou seja, se as múltiplas
+transmissões não souberem que as outras existem e portanto enviarem todas a uma velocidade maior
+que o suposto.  
+Para além disso, se existir tráfego em demasia e passar por um router,este pode não ter capacidade
+suficiente para segurar a informação toda e então descarta pacotes.  
+Isso implica que terá que ser feita uma nova transmissão e, consequentemente, causar ainda mais
+tráfego na rede.  
+Essa situação tem a agravante de, se existirem cadeias de routers, apesar do tráfego conseguir
+passar um dos routers, poder ser descartado mais tarde, causando ainda mais latência.
+
+Para conseguir controlar a congestão, existem duas soluções para o problema: **Controlo através da rede** e **Controlo end-end**:
+
+#### Controlo através da rede
+
+Nesta solução, os routers dão feedback direto aos hosts, informado quão congestionada a rede está.  
+O feedback é passado pelos vários routers até chegar ao host final e, com esse feedback, os
+emissores podem reduzir o seu ritmo.
+
+Esse feedback é passado [nos bits E e C do header de TCP](#estrutura-de-um-segmento-tcp).
+
+#### Controlo end-end - AIMD
+
+Nesta solução, não existe um feedback explicito da rede. Em vez disso, a congestão é inferida
+através do delay e das perdas de pacotes observadas.
+
+No caso do TCP, usa-se um algoritmo de **AIMD - Additive increase/multiplicative decrease**, onde
+os emissores começam com um ritmo base e vão aumentado esse ritmo aos poucos.  
+Se à medida que o ritmo vai aumentando, existir uma perda (o que significa que o canal está a ficar
+mais congestionado), então a velocidade é reduzida drasticamente.
+
+Detalhadamente, os aumentos são de dois tipos, baseados num _threshold_:
+
+- Se a velocidade estiver abaixo do _threshold_, os aumentos são exponenciais - duplicando a
+  velocidade a cada envio;
+- Se com um aumento a velocidade passar desse _threshold_, o aumento passa a ser constante, de 1
+  segmento extra por envio.
+
+Já os decréscimos:
+
+- são em metade de velocidade, caso seja detetado o [mesmo ACK três vezes](#controlo-do-fluxo);
+- São para o mínimo possível - **1 MSS - Maximum Segment Size**, caso seja detetada uma perda.
+
+O valor do _threshold_ é um valor fixo quando a transmissão começa mas, sempre que existe um
+decréscimo, o seu valor muda para metade da velocidade atual (antes desta ser reduzida).
+
+Resumidamente,
+
+- Quando uma conexão começa, a velocidade é a mais lenta possível - 1 MSS. A isto chama-se [**slow start**](color:green).
+- Contudo, como a velocidade é muito inferior ao threshold, esta irá crescer exponencialmente até
+  alcançar o threshold. Depois disso, entra na fase de [**congestion-avoidance**](color:orange), onde o
+  crescimento é linear.
+- Se o mesmo ACK for repetido três vezes, o _threshold_ é passado para metade da velocidade atual e
+  a velocidade para metade;
+- Se existir um timeout, o _threshold_ é passado para metade da velocidade atual e a velocidade 1
+  MSS.
+
+Olhando para um gráfico temporal que representa a velocidade de envio, este terá um aspeto de uma
+serra:
+
+![Grafico em serra](./assets/0003-graficoSerraAIMD.svg#dark=3)
+
+**Estado de Fast Recovery**
+Se forem detetados três ACKs duplicados antes da fase de **congestion-avoidance**, pode ser usado o
+estado de **Fast Recovery**, onde se tenta acelerar a recuperação enviando apenas os segmentos
+perdidos.
+
+Neste caso,a velocidade é incrementada em 1 por cada ACK duplicado recebido pelo segmento perdido
+que causou a entrada neste estado.
+
+Finalmente, depois do ACK que confirma a receção do segmento perdido, move-se para a fase de
+**congestion-avoidance**.
+
+##### Variações
+
+Existem variações de implementação do AIMD. Por exemplo, em Linux é usado **TCP CUBIC** onde, se
+assume que, quando é detetada uma congestão, esta não vai ser muito alterada.  
+Desta forma, pode-se aproximar mais rapidamente da velocidade que provocou a congestão anterior
+(visto que se assume que esta se manteve) e quando mais perto, aproximar-se mais lentamente.
+
+Comparando os dois tipos num gráfico, ambos teriam este aspeto:
+
+![TCP Normal vs CUBIC](./assets/0003-graficoSerraAIMD-CUBIC.svg#dark=3)
+
+### _Fairness_ de TCP
+
+Se existirem várias conexões a utilizar o mesmo meio, o TCP tenta o partilhar, de forma a tornar a
+ligação equitativa para todos.
+
+Com os mecanismos apresentados anteriormente, ao fim de certo tempo, a partilha tende a
+aproximar-se do mais justo, pois as velocidades tendem a equilibrar-se.
+
+Contudo, por exemplo, um browser pode gerar várias conexões por cada _tab_ aberta, o que faz com
+que estas (que representam uma ligação maior) ficam com uma grande parte do canal.
+
+Não existe forma de controlar isso no TCP.
+
+### QUIC - Quick UDP Internet Connections
+
+Como mencionado anteriormente [na camada de aplicação](./0002-aplicacao.md#http-30), recentemente
+foi criado o protocolo **QUIC - Quick UDP Internet Connections**, inventada pela Google.
+
+O QUIC implementa muitas das funcionalidades de TCP mas, como o nome indica, usa UDP e para além
+disso tem outras features adicionais como, por exemplo, implementar segurança (autenticação,
+encriptação) e estabelecimento de conexões (controlo de congestionamento diferente, fiabilidade).
