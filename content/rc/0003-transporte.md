@@ -258,8 +258,8 @@ Criado com a ideologia do RDT em mente, veio o protocolo **TCP - Transmission Co
 Este protocolo tem as seguintes características:
 
 - **Point-to-Point** - Apenas um emissor e um receptor;
-- **Sliding Window** - implementa a noção de Sliding Window, apresentada anteriormente;
-- **Dados Full Duplex** - na mesma conexão, é permitido enviar dados nos dois sentidos;
+- **Sliding Window** - Implementa a noção de Sliding Window, apresentada anteriormente;
+- **Dados Full Duplex** - Na mesma conexão, é permitido enviar dados nos dois sentidos;
 - **Orientado a conexão** - Implementa uma conexão, ou seja, dois hosts conhecem-se (vs. o UDP,
   em que o receptor recebe informação de vários emissores sem estabelecer uma conexão).
 - **Controlo de Flow** - O emissor consegue controlar a quantidade de dados enviados, caso o
@@ -320,6 +320,12 @@ Considere o seguinte esquema, onde existe um servidor que faz "echo" do que os c
    O cliente envia o número de segmento 41, pois é número do ACK que recebeu do servidor;  
    O cliente envia o ACK 81, avisando que recebeu tudo até ao segmento 80 e quer o segmento 81.
 
+:::warning
+Em TCP, os "números de segmento" correspondem ao índice do byte na mensagem.
+Por exemplo, a mensagem "AA" iria aumentar o número de segmento por 2, dado que contém
+2 bytes.
+:::
+
 ### Timeout
 
 Cada segmento tem que ter um dado tempo para, caso esse tempo seja passado e não seja obtida
@@ -327,15 +333,16 @@ resposta, considerar o segmento como perdido. A esse tempo chama-se **timeout**.
 
 O tempo de timeout tem que ser maior que o RTT e portanto, é necessário saber o tempo de RTT.  
 É possível estimar este valor fazendo a diferença entre o tempo de emissão de um segmento e da
-receção do respetivo ACK. A este tempo chama-se $SampleRTT$ (visto ser uma amostra do tempo
+receção do respetivo ACK. A este tempo chama-se $\op{SampleRTT}$ (visto ser uma amostra do tempo
 possível).
 
 Contudo, uma amostra do tempo não é suficiente, visto que a rede, nesse instante podia instável e
 não representar a realidade.  
-Então alternativamente calcula-se o $EstimatedRTT$, que é uma média de vários $SampleRTT$s.
+Então alternativamente calcula-se o $\op{EstimatedRTT}$, que é uma média de vários $\op{SampleRTT}$s.
 
-Alternativamente a esses tempos, pode-se ainda calcular o $EstimateRTT = (1-\alpha) \times 
-EstimatedRTT + \alpha * SampleRTT$ (tipicamente, $\alpha = 0.125$). A esta fórmula chama-se
+Alternativamente a esses tempos, pode-se ainda calcular o
+$\op{EstimateRTT} = (1-\alpha) \times \op{EstimatedRTT} + \alpha \times \op{SampleRTT}$
+(tipicamente, $\alpha = 0.125$). A esta fórmula chama-se
 **EWMA - Exponential Weighted Moving Average**,
 e com ela, a influência das amostras anteriores diminui exponencialmente.
 
@@ -439,9 +446,9 @@ decréscimo, o seu valor muda para metade da velocidade atual (antes desta ser r
 
 Resumidamente,
 
-- Quando uma conexão começa, a velocidade é a mais lenta possível - 1 MSS. A isto chama-se **slow start**.
+- Quando uma conexão começa, a velocidade é a mais lenta possível - 1 MSS. A isto chama-se [**slow start**](color:green).
 - Contudo, como a velocidade é muito inferior ao threshold, esta irá crescer exponencialmente até
-  alcançar o threshold. Depois disso, entra na fase de **congestion-avoidance**, onde o
+  alcançar o threshold. Depois disso, entra na fase de [**congestion-avoidance**](color:orange), onde o
   crescimento é linear.
 - Se o mesmo ACK for repetido três vezes, o _threshold_ é passado para metade da velocidade atual e
   a velocidade para metade;
