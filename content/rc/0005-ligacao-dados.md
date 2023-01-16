@@ -527,7 +527,7 @@ Vale notar que:
 ##### BPDUs - Bridge Protocol Data Units
 
 Para ser possível identificar todos os elementos mencionados anteriormente, os switches têm que de
-alguma forma comunicar entre sí.  
+alguma forma comunicar entre si.  
 Para o fazerem, e para trocarem a informação necessária, os switches enviam
 **BPDUs - Bridge Protocol Data Units**, que contém a seguinte informação,
 
@@ -661,7 +661,7 @@ O resultado final é o seguinte:
 > as quais são transmitidas cópias das tramas respetivas e qual o estado das tabelas de expedição de
 > cada switch no final das várias transmissões.
 
-Tendo em conta o diagrama anterior, sabemos agora o mapa da desta rede.
+Tendo em conta o diagrama anterior, sabemos agora o mapa desta rede.
 Considera-se agora cada envio de tramas (cada entrada da tabela diz, para um dado switch, por qual
 interface foi transmitida a trama enviada):
 
@@ -716,7 +716,7 @@ Desafio ao leitor (agradecem-se PRs) <!-- TODO São 1h30, tenho sono e estou far
 Quando existir uma mudança na topologia de rede (por ex., um switch é removido ou um novo _root bridge_ é introduzido), poderá:
 
 - existir uma perca temporária de conectividade, pois uma porta anteriormente bloqueada e que deve ser ativa pode ainda não ter passado a ativa;
-- existirem ciclos temporários, pois uma porta anteriormente ativa e que deve ser bloqueada por ainda não ter passado a bloqueada.
+- existir ciclos temporários, pois uma porta anteriormente ativa e que deve ser bloqueada ainda não ter passado a bloqueada.
 
 Para minimizar a probabilidade de ciclos temporários, os switches devem esperar algum tempo antes de
 trocarem uma porta de um estado bloqueado para um estado ativo.
@@ -811,8 +811,8 @@ aleatório depois do canal se libertar.
 Assim, o "sortudo" que teve o tempo menor começa a transmitir e os outros voltam a ficar à espera que o canal fique livre.
 
 Depois de uma transmissão, o AP devolve um ACK para confirmar o sucesso da transmissão.
-Isto ajuda a resolver o problema do terminal escondido - porém não o resolve de todo, pois podem
-haver tempos em que o inicio das transmissões coincidam.
+Isto ajuda a resolver o problema do terminal escondido - porém não o resolve de todo pois podem
+haver tempos em que o início das transmissões coincide.
 
 Para resolver isto, surgiu a variante com RTS-CTS.
 
@@ -841,8 +841,8 @@ De forma a explicar os algoritmos, seguem os seguintes exercícios:
 > | Estação | Instante em que tem trama para transmitir (μs) | Duração de transmissão da trama (μs) | Tempo de Backoff (μs) |
 > | ------- | ---------------------------------------------- | ------------------------------------ | --------------------- |
 > | A       | 50                                             | 100                                  | 70                    |
-> | A       | 70                                             | 200                                  | 200                   |
-> | A       | 90                                             | 150                                  | 150                   |
+> | B       | 70                                             | 200                                  | 200                   |
+> | C       | 90                                             | 150                                  | 150                   |
 
 ![Parte 1 do exercício](./assets/0005-CSMACAExercisePt1.svg#dark=3)
 
