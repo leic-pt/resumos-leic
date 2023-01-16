@@ -6,7 +6,7 @@ path: /rc/ligacao-dados
 type: content
 ---
 
-# Camada de Aplicação
+# Camada de Ligação de Dados
 
 ```toc
 
@@ -80,7 +80,7 @@ um propósito mais local enquanto que os endereços IP têm um contexto mais
 geográfico.  
 O que cria esta distinção é o facto de os endereços MAC serem intrínsecos das
 placas de rede, ou seja, são como uma _fingerprint_; Já os endereços IP podem
-ser alterados facilmente e é possível ser construido um sistema e uma divisão
+ser alterados facilmente e é possível ser construído um sistema e uma divisão
 hierárquica da sua distribuição, através das máscaras de rede.
 
 :::info[Analogia]
@@ -181,7 +181,7 @@ A computação do CRC é feita da seguinte forma:
 1. Calcula-se o dividendo $D(x) = x^n \times M(x)$, ou seja, faz-se um shift
    para a esquerda de $M(x)$ de $n$ unidades;
 2. O divisor é $G(x)$;
-3. Converte-se o dividendo e o divisor em bits (Por exemplo, se $G(x) = x^3 + x^2 + 1$, este passa a $1001$);
+3. Converte-se o dividendo e o divisor em bits (Por exemplo, se $G(x) = x^3 + x^2 + 1$, este passa a $1101$);
 4. Faz-se a divisão $D(x) \div G(x)$. A divisão é feita à mão, como se fosse uma
    divisão normal - a única diferença é que estão a ser usados bits, ou seja, é
    feita a diferença binária;
@@ -202,7 +202,7 @@ membros da rede.
 Isto implica que o canal possa sofrer colisões muito facilmente, bastando que um
 nó receba dois ou mais sinais ao mesmo tempo.
 
-Protocolos **Multiple Access Control** - algoritmos distribuídos que determina
+Protocolos **Multiple Access Control** - algoritmos distribuídos que determinam
 como é que os nós partilham um canal, ou seja, quando é que um dado nó pode
 transmitir.
 
@@ -250,6 +250,8 @@ São usados diferentes códigos para distinguir os utilizadores.
 Neste tipo de particionamento, o canal é fixo e é antes feita uma divisão por
 regras de ordenação dos hosts.
 
+### Alocação dinâmica
+
 #### Poll / Select
 
 Um computador central controla a atividade dos outros.
@@ -282,7 +284,7 @@ retransmissão para um instante futuro aleatório.
 
 Igual ao protocolo anterior, mas o tempo é dividido em slots temporais do mesmo
 tamanho.  
-Os nós só podem começar a transmitir no inicio de um slot.
+Os nós só podem começar a transmitir no início de um slot.
 
 #### CSMA - Carrier Sense Multiple Access
 
@@ -470,7 +472,7 @@ a seguinte:
 
 ![Switches interligados com redundância](./assets/0005-hierarchicalSwitchingWithRedundancy.svg#dark=3 'Switches interligados com redundância')
 
-Porém, adicionar redundância trás um problema grave - quando é feito flooding, é
+Porém, adicionar redundância traz um problema grave - quando é feito flooding, é
 criado um loop na rede. Mais grave ainda, devido a não existir forma de
 identificar se uma trama é uma repetição ou uma trama nova, este loop fica na rede para sempre!
 
@@ -482,7 +484,7 @@ Por exemplo, considerando uma Switching table vazia,
   incluindo os switches que já o fizeram...
 
 Para resolver isto, a redundância necessita de estar desligada logicamente, ou seja, a ligação física
-(o cabo), está ligado, mas o switch desativa a porta até esta ser necessária.
+(o cabo), está ligada, mas o switch desativa a porta até esta ser necessária.
 
 Para decidirem quais os melhores caminhos a usar e que interfaces desligar, os switches precisam de
 um algoritmo para os descobrir.  
