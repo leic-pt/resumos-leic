@@ -402,7 +402,7 @@ Outro problema que o TCP consegue antever é a congestão na rede.
 Poderá haver congestão na rede se não existirem sincronizações de tráfego, ou seja, se as múltiplas
 transmissões não souberem que as outras existem e portanto enviarem todas a uma velocidade maior
 que o suposto.  
-Para além disso, se existir tráfego em demasia e passar por um router,este pode não ter capacidade
+Para além disso, se existir tráfego em demasia e passar por um router, este pode não ter capacidade
 suficiente para segurar a informação toda e então descarta pacotes.  
 Isso implica que terá que ser feita uma nova transmissão e, consequentemente, causar ainda mais
 tráfego na rede.  
@@ -465,7 +465,7 @@ Se forem detetados três ACKs duplicados antes da fase de **congestion-avoidance
 estado de **Fast Recovery**, onde se tenta acelerar a recuperação enviando apenas os segmentos
 perdidos.
 
-Neste caso,a velocidade é incrementada em 1 por cada ACK duplicado recebido pelo segmento perdido
+Neste caso, a velocidade é incrementada em 1 por cada ACK duplicado recebido pelo segmento perdido
 que causou a entrada neste estado.
 
 Finalmente, depois do ACK que confirma a receção do segmento perdido, move-se para a fase de
