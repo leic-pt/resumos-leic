@@ -537,6 +537,8 @@ Para o fazerem, e para trocarem a informação necessária, os switches enviam
 (ID do Root Bridge, Custo até Root Bridge, ID de quem enviou o BPDU, ID da porta que originou o BPDU)
 ```
 
+Vale notar que o `Custo até Root Bridge` é igual à soma dos custos de todas as arestas que levam à Root Bridge.
+
 Estes BPDUs são enviados, em norma, em intervalos de 2 segundos.
 
 Quando um switch é ligado, o algoritmo STP é usado para identificar a _root bridge_, sendo enviados
@@ -583,10 +585,10 @@ As BPDUs são da forma
 (ID do Root Bridge, Custo até Root Bridge, ID de quem enviou o BPDU, ID da porta que originou o BPDU)
 ```
 
-Então, assumindo que um BPDU é enviado do switch X pela porta com ID 22, este terá os valores
+Então, com o Root Bridge já definido, assumindo que um BPDU é enviado do switch X pela porta com ID 22, este terá os valores
 
 ```
-(20, 2, 20, 22)
+(5, 2, 20, 22)
 ```
 
 Depois, determinam-se as **Root Ports** - em todos os outros switches, vê-se a interface que leva ao
@@ -773,7 +775,7 @@ Falemos agora de redes **Wireless - sem fios** - Estas redes usam antenas para e
   transmitir para o resto da rede de uma forma wireless também.
 
 Num sistema móvel, devido a frequências muito baixas, não conseguimos detetar colisões, e portanto não
-conseguimos usar os algoritmos CNCA/CD vistos anteriormente. Por isso, são usados outros algoritmos.
+conseguimos usar os algoritmos CSMA/CD vistos anteriormente. Por isso, são usados outros algoritmos.
 
 **Handoff** - Se um host estiver em movimento e passar de um AP para outro, a comunicação
 consegue continuar, fazendo com o que o 1º AP passe (faça handover) da conexão para o outro AP.
