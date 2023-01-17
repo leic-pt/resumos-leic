@@ -44,3 +44,15 @@ São exemplos de protocolos:
 - TCP / IP;
 - UDP;
 - HTTP / HTTPS.
+
+## Terminologia por camadas
+
+Pode-se fazer uma overview de cada camada, seguindo 
+
+| # da Layer | Nome da Layer | Protocolos | Unidade de dados | Forma de endereçamento |
+| ---------- | ------------- | --------- | ---------------- | ---------------------- |
+| 5 | Aplicação | HTTP, SMPTP, etc. | Mensagens | n/a |
+| 4 | Transporte | TCP/UDP | Segmentos/Datagramas | # da porta |
+| 3 | Rede | IP | Pacotes | Endereço IP |
+| 2 | Ligação de Dados | Ethernet, Wifi | Tramas | Endereço MAC |
+| 1 | Física | 10 Base T, 802.11 | Bits | n/a |
