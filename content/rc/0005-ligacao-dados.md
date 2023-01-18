@@ -811,7 +811,7 @@ Existem dois algoritmos que ajudam a resolver estes problemas:
 
 Este algoritmo é bastante similar ao básico [CSMA](#csma---carrier-sense-multiple-access).
 O que difere dele é que, para além de esperar que o canal fique livre, ainda espera um tempo
-aleatório depois do canal se libertar.  
+aleatório depois do canal se libertar, **e esse tempo só é descontado quando o canal está livre**.  
 Assim, o "sortudo" que teve o tempo menor começa a transmitir e os outros voltam a ficar à espera que o canal fique livre.
 
 Depois de uma transmissão, o AP devolve um ACK para confirmar o sucesso da transmissão.

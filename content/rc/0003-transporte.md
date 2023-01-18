@@ -250,7 +250,7 @@ Para se entender melhor, considere-se o seguinte exemplo, com $N = 5$:
    ![Reenvio de falhas e novos pacotes](./assets/0003-SelectiveRepeat-5.png#dark=3) <br/>
 
 Neste caso, a seguinte condição tem que ser respeitada:
-$N_w \leq \frac{N_{ptks}}{2}$
+$\frac{N_{ptks}}{2} \leq N_w$
 
 ## TCP - Transmission Control Protocol
 
