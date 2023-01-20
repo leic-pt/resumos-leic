@@ -555,7 +555,7 @@ Seja,
 - $N$ o número de clientes;
 - $L$ o tamanho de um ficheiro;
 - $u_s$ a velocidade de upload do servidor;
-- $u_i$ a velocidade de umload do host $0 \leq i < N$;
+- $u_i$ a velocidade de upload do host $0 \leq i < N$;
 - $d_i$ a velocidade de download do host $0 \leq i < N$.
 
 #### Cliente-Servidor
