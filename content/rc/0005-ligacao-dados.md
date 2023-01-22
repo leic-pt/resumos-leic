@@ -463,7 +463,7 @@ Visualmente,
 
 #### Falta de redundância
 
-E se alguém corta-se a ligação entre dois dos switches?  
+E se alguém corta a ligação entre dois dos switches?  
 Os hosts todos ligados ao switch filho ficam desconectados.
 Para resolver isso, pode-se introduzir alguma **redundância**!
 
@@ -529,7 +529,7 @@ Vale notar que:
 ##### BPDUs - Bridge Protocol Data Units
 
 Para ser possível identificar todos os elementos mencionados anteriormente, os switches têm que de
-alguma forma comunicar entre si.  
+alguma forma de comunicar entre si.  
 Para o fazerem, e para trocarem a informação necessária, os switches enviam
 **BPDUs - Bridge Protocol Data Units**, que contém a seguinte informação,
 
