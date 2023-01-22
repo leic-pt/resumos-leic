@@ -43,7 +43,7 @@ Tem vantagens e desvantagens:
 
 [**Desvantagens**](color:red)
 
-- Os segmentos podem se perder;
+- Os segmentos podem-se perder;
 - A entrega pode ser feita fora de ordem;
 - Não é feita uma conexão entre o emissor e o recetor.
 
@@ -222,7 +222,7 @@ Sejam,
   necessários receber).
 
 Ambos têm que respeitar a seguinte condição:
-$N_w \leq N_{ptks} - 1$
+$N_w \leq N_{pkts} - 1$
 
 #### Selective Repeat
 
@@ -250,7 +250,7 @@ Para se entender melhor, considere-se o seguinte exemplo, com $N = 5$:
    ![Reenvio de falhas e novos pacotes](./assets/0003-SelectiveRepeat-5.png#dark=3) <br/>
 
 Neste caso, a seguinte condição tem que ser respeitada:
-$\frac{N_{ptks}}{2} \leq N_w$
+$\frac{N_{pkts}}{2} \leq N_w$
 
 ## TCP - Transmission Control Protocol
 
@@ -357,7 +357,7 @@ O flow de envio de dados é o seguinte:
 3. Enviar o segmento e começar um _timer_.
 4. Se o _timer_ passar e não tiver sido recebida uma confirmação, reenvia-se o segmento que causou
    o timeout. O tempo de espera é dobrado para evitar timeouts prematuros de segmentos seguintes.
-5. É recebido um ACK, confirmado todos os segmentos enviados até o valor do ACK.  
+5. É recebido um ACK, confirmando todos os segmentos enviados até o valor do ACK.  
    Se os segmentos ainda não estavam confirmados, são agora confirmados.
    Recomeça o timer, se ainda existirem outros segmentos por confirmar.
 
@@ -460,7 +460,8 @@ serra:
 
 ![Grafico em serra](./assets/0003-graficoSerraAIMD.svg#dark=3)
 
-**Estado de Fast Recovery**
+##### Estado de Fast Recovery
+
 Se forem detetados três ACKs duplicados antes da fase de **congestion-avoidance**, pode ser usado o
 estado de **Fast Recovery**, onde se tenta acelerar a recuperação enviando apenas os segmentos
 perdidos.

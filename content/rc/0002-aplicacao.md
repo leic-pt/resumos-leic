@@ -91,7 +91,7 @@ antes disso, eis uma breve descrição de cada camada:
   os utilizadores. Por exemplo,
   - Protocolo HTTP - Uma aplicação deve enviar pedidos a outra e esta deve enviar
     uma resposta, usando certos Headers para identificar parâmetros.
-    Usado maioritariamente para interagir com website.
+    Usado maioritariamente para interagir com websites.
 
 ## Noções importantes
 
@@ -122,7 +122,7 @@ nos dias que correm e no futuro.
 Apesar de um endereço IP identificar um _host_ numa rede, não identifica qual
 é processo dessa máquina que se pretende comunicar.  
 Então, para resolver isso, criou-se a ideia de portos, número que sucede um endereço.  
-Por exemplo, se quisermos aceder ao porto 50 do _host_ com o ip `255.128.2.1`,
+Por exemplo, se quisermos aceder ao porto 50 do _host_ com o endereço `255.128.2.1`,
 a sua representação seria `255.128.2.1:50`.
 
 ### URL - Universal Resource Locator
@@ -154,7 +154,7 @@ O protocolo da Camada de Aplicação define:
   e respondem a mensagens.
 
 Existem protocolos de domínio público (definidos em [RFCs](https://en.wikipedia.org/wiki/Request_for_Comments)),
-como o HTTP e o SMTP, bem como protocolos proprietários/comerciais, como o Skype.
+como o HTTP e o SMTP, bem como protocolos proprietários/comerciais, como o usado pelo Skype.
 
 Para qualquer camada, esta precisa de garantias da camada inferior.  
 No caso da Camada de Aplicação, a Camada de Transporte tem que garantir:
@@ -191,8 +191,8 @@ Versão [persistente](https://en.wikipedia.org/wiki/HTTP_persistent_connection),
 permitindo a transferência de vários objetos na mesma sessão de TCP.  
 Isto permite [pipelining](https://en.wikipedia.org/wiki/HTTP_pipelining) - se
 existem referências a um dado objeto numa dada
-transferência, o servidor pode ordenar o seu envio imediatamente,
-não sendo necessário o utilizador pedir esses ficheiros.
+transferência, o cliente pode pedi-los imediatamente, em vez de ter
+de esperar pela resposta de um pedido antes de fazer o próximo.
 
 ## Interação por HTTP
 
@@ -485,7 +485,7 @@ Uma entrada de DNS - **DNS Record** - tem o seguinte formato:
   - Se `tipo` = CNAME, `nome` = alias para o nome canónico/real
     (e.g. `website.com` é na verdade `server123.backup1.outro.website.com`) e
     `valor` = nome canónico;
-  - Se `tipo` = MX, `nome` = endereço de e-mail e `valor` = nome do servidor de
+  - Se `tipo` = MX, `nome` = _hostname_ e `valor` = nome do servidor de
     mail associado (e.g. enviar um e-mail para `contacto@website.com` vai comunicar com
     o servidor de mail em `mail.website.com`);
 
@@ -555,8 +555,8 @@ Seja,
 - $N$ o número de clientes;
 - $L$ o tamanho de um ficheiro;
 - $u_s$ a velocidade de upload do servidor;
-- $u_i$ a velocidade de upload do host $0 \leq i < N$;
-- $d_i$ a velocidade de download do host $0 \leq i < N$.
+- $u_i$ a velocidade de upload do cliente $0 \leq i < N$;
+- $d_i$ a velocidade de download do cliente $0 \leq i < N$.
 
 #### Cliente-Servidor
 
