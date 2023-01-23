@@ -758,7 +758,7 @@ dep. Financeiro e por conseguinte tem acesso a tudo o que teria se lá estivesse
 
 As VLANs têm algumas vantagens:
 
-- dividem a rede em partes, reduzindo o domínio de broadcast o que, consequentemente, reduz a
+- dividem a rede em partes, reduzindo o domínio de broadcast o que, consequentemente, aumenta a
   bandwidth pois as mensagens não são enviadas para portas desnecessárias;
 - adicionam segurança, pois hosts em diferentes VLANs não conseguem comunicar entre si diretamente;
 
