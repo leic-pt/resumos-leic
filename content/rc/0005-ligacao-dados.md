@@ -712,7 +712,15 @@ Logo, a tabela fica,
 
 - D → C
 
-Desafio ao leitor (agradecem-se PRs) <!-- TODO São 1h30, tenho sono e estou farto disto :kekw: -->
+O C já é conhecido, portanto pode fazer o caminho X -> W -> Z. Então a tabela fica,
+
+|       | V (5) | W (10) | X (20) | Y (30) | Z (40) |
+| ----- | ----- | ------ | ------ | ------ | ------ |
+| A → B | A, 5  | A, 10  | A, 20  | A, 30  | A, 42  |
+| C → D | C, 6  | C, 12  | C, 20  | C, 30  | C, 44  |
+| C → A | C, 6  | C, 12  | -      | -      | C, 44  |
+| B → A | B, 5  | -      | -      | -      | -      |
+| D → C | -     | D, 11  | D, 21  | -      | D, 42  |
 :::
 
 ##### Ciclos temporários e perda de conectividade
