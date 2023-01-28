@@ -721,6 +721,7 @@ O C já é conhecido, portanto pode fazer o caminho X -> W -> Z. Então a tabela
 | C → A | C, 6  | C, 12  | -      | -      | C, 44  |
 | B → A | B, 5  | -      | -      | -      | -      |
 | D → C | -     | D, 11  | D, 21  | -      | D, 42  |
+
 :::
 
 ##### Ciclos temporários e perda de conectividade
