@@ -216,8 +216,7 @@ Existem vários protocolos que implementam o acesso de formas diferentes:
 
 - Os nós tomam a vez (mas os nós com mais dados para enviar podem transmitir com mais frequência);
 - _Poll_ / seleção;
-- Passagem de um _token_
-  .
+- Passagem de um _token_.
 
 **Acesso Aleatório**:
 

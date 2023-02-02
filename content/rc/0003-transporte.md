@@ -107,7 +107,7 @@ Para os resolver,
 
 - o recetor avisa o emissor que o pacote foi todo ele bem recebido, enviando um pacote
   ACK, ou que o pacote tinha erros, enviando um pacote NAK;
-- no caso do pacote não ter sido bem recebidO, o emissor reenvia o pacote, após ter recebido o NAK.
+- no caso do pacote não ter sido bem recebido, o emissor reenvia o pacote, após ter recebido o NAK.
 
 Para implementar isso, usa-se a lógica **Stop and Wait** - o emissor envia um pacote e fica à espera
 da resposta do recetor.
@@ -477,7 +477,7 @@ Finalmente, depois do ACK que confirma a receção do segmento perdido, move-se 
 Existem variações de implementação do AIMD. Por exemplo, em Linux, é usado **TCP CUBIC** onde se
 assume que, quando é detetada uma congestão, esta não vai ser muito alterada.  
 Desta forma, podemo-nos aproximar mais rapidamente da velocidade que provocou a congestão anterior
-(visto que se assume que esta se manteve) e quando mais perto estivermos, mais lentamente nos aproximamos.
+(visto que se assume que esta se manteve) e quanto mais perto estivermos, mais lentamente nos aproximamos.
 
 Comparando as duas implementações num só gráfico, teriam este aspeto:
 
@@ -499,7 +499,7 @@ Não existe forma de controlar isso no TCP.
 ### QUIC - Quick UDP Internet Connections
 
 Como mencionado anteriormente [na camada de Aplicação](./0002-aplicacao.md#http-30), recentemente
-foi criado o protocolo **QUIC** (_Quick UDP Internet Connections_), inventada pela Google.
+foi criado o protocolo **QUIC** (_Quick UDP Internet Connections_), inventado pela Google.
 
 O QUIC, como o nome indica, usa UDP. No entanto, implementa muitas das funcionalidades de TCP e ainda outras adicionais como, por exemplo, segurança (autenticação,
 encriptação) e estabelecimento de conexões (controlo de congestionamento diferente, fiabilidade).
