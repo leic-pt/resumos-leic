@@ -212,7 +212,7 @@ Quero agradecer a [todos os que contribuíram](https://github.com/leic-pt/resumo
 - [Rúben Nobre](https://github.com/leic-pt/resumos-leic/commits?author=RubenNobre123) (**MD**, CDI-III)
 - [João Fonseca](https://github.com/leic-pt/resumos-leic/commits?author=jmseca) (**MD**)
 - [Rafael Oliveira](https://github.com/leic-pt/resumos-leic/commits?author=RafDevX) (CDI-II, EMD, LP, CDI-III, ASA, TC, IAED, GES, IPM, SO, IA, Fis-I, PO, Fis-II, PE, CDI-I, AL, IAC, OC, Apre)
-- [José João Ferreira](https://github.com/leic-pt/resumos-leic/commits?author=jjasferreira) (SO, BD, IA, IPM)
+- [José João Ferreira](https://github.com/leic-pt/resumos-leic/commits?author=jjasferreira) (SO, BD, IA, IPM, RC)
 - [Eduardo Espadeiro](https://github.com/leic-pt/resumos-leic/commits?author=EdSwordsmith) (IA)
 - [Rafaela Rodrigues](https://github.com/leic-pt/resumos-leic/commits?author=Rafa10PT) (IAED, CDI-II, MD, CDI-III)
 - [Luís Fonseca](https://github.com/leic-pt/resumos-leic/commits?author=luishfonseca) (IAED, CDI-II, LP, AL)
