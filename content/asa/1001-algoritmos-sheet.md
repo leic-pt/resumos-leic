@@ -11,7 +11,7 @@ type: cheatsheets
 | :-------------------------------------------------: | :-----------------------------------------------------: |
 |                DFS[\*](color:green)                 |                       $O(V + E)$                        |
 |              SCCs (algoritmo abordado)              |                        $O(V+E)$                         |
-|                       BFS                           |                       $O(V + E)$                        |
+|                         BFS                         |                       $O(V + E)$                        |
 |                      Dijkstra                       |                    $O((V+E)\log V)$                     |
 |                    Bellman-Ford                     |                         $O(VE)$                         |
 | Johnson (Bellman-Ford + $V$ aplicações de Dijkstra) |     $O(VE + V(V + E)\log V) \in O(V(V + E)\log V)$      |
