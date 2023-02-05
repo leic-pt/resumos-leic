@@ -92,7 +92,15 @@ A tipica hashfunction utilizada resulta da aplicacao da [Regra de Horner](https:
 
 O KMP e um algoritmo semelhante ao naive approach, mas que evita comparacoes desnecessarias ao fazer um pre-processamento do padrao.
 
+Sao necessarias algumas nocoes basicas para compreender o funcionamento deste algoritmo, como prefixos e sufixos.
+Uma cadeia de caracteres de tamanho x diz-se prefixo de outra cadeia y (y > x) se os primeiros x caracteres da cadeia y coincidirem exatamente com a cadeia x.
+Um sufixo e quando esta cadeia x corresponde exatamente aos ultimos x caracteres da cadeia y.
+
+
 O pre-processamento consiste em analisar o padrao e ver que parte do padrao e que podem ser reutilizadas na proxima comparacao caso haja um mismatch de caracteres, o que evita comparacoes repitidas que ja se sabem dar match.
+
+A funcao de pre-processamento essencialmente preenche uma tabela com um numero associado a cada caracter do padrao. Este numero representa a posicao de onde podemos recomecar as comparacoes, devido as anteriores ja estarem corretamente comparadas.
+O algoritmo pode efetuar isto pois a forma de calcular estes numeros e encontrar o maior prefiso doo padrao, que tambem e sufixo.
 
 - O algoritmo consiste em:
 
