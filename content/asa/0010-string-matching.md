@@ -95,7 +95,6 @@ São necessárias algumas noções básicas para compreender o funcionamento des
 Uma cadeia de caracteres de tamanho x diz-se prefixo de outra cadeia y (y > x) se os primeiros x caracteres da cadeia y coincidirem exatamente com a cadeia x.
 Um sufixo é quando esta cadeia x corresponde exatamente aos últimos x caracteres da cadeia y.
 
-
 O pré-processamento consiste em analisar o padrão e ver que parte do padrão é que podem ser reutilizadas na próxima comparação caso haja um mismatch de caracteres, o que evita comparações repetidas que já se sabem dar match.
 
 A função de pré-processamento essencialmente preenche uma tabela com um número associado a cada caracter do padrão. Este número representa a posição de onde podemos recomeçar as comparações, devido às anteriores já estarem corretamente comparadas.
