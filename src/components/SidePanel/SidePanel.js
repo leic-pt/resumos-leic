@@ -23,6 +23,10 @@ const Dialog = ({ open, onClose, children }) => {
   useTrapFocus({ container: containerRef.current });
   useViewHeightCSS(open);
 
+  if (typeof window !== 'object') {
+    return null;
+  }
+
   return createPortal(
     <div className={`sidepanel-container${open ? ` sidepanel-container--open` : ``}`}>
       <div
