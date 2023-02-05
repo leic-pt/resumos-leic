@@ -2,7 +2,6 @@
 title: String Matching
 description: String Matching.
   Naive Approach.
-  Automatos finitos.
   Rabin Karp.
   Knuth Morris Pratt.
 path: /asa/string-matching
@@ -17,26 +16,26 @@ type: content
 
 :::tip[Motivação]
 
-- Identificacao de padroes dentro de um texto
-- Identificacao de sequencias de DNA semelhantes
-- Detecao de copias
+- Identificação de padrões dentro de um texto
+- Identificação de sequências de DNA semelhantes
+- Deteção de cópias
 - Filtros de spam
 
 :::
 
-:::tip[Definicao do Problema]
+:::tip[Definição do Problema]
 
-Dado um determinado texto de tamanho $$n$$ e um padrao de tamanho $$m$$, queremos encontrar uma ocorrencia do padrao dentro desse texto
+Dado um determinado texto de tamanho $$n$$ e um padrão de tamanho $$m$$, queremos encontrar uma ocorrência do padrão dentro desse texto.
 
 :::
 
 ## Naive Approach
 
-- A naive approach geralmente utilizada seria algo do genero:
+- A naive approach geralmente utilizada seria algo do género:
 
-  - Comparar o padrao com cada substring do texto e verificar se sao iguais
+  - Comparar o padrão com cada substring do texto e verificar se são iguais
 
-A implementacao deste algoritmo seria algo do genero:
+A implementação deste algoritmo seria algo do género:
 
 ```rust
 Naive(text, pattern)
@@ -55,17 +54,17 @@ Esta approach tem uma complexidade temporal de $$\Theta(nm)$$
 
 ## Rabin-Karp
 
-O algoritmo Rabin-Karp utiliza uma rolling hash function para fazer comparacoes eficientes entre padrao e substrings do texto.
+O algoritmo Rabin-Karp utiliza uma rolling hash function para fazer comparações eficientes entre padrão e substrings do texto.
 
-- Na sua essencia o algoritmo funciona da seguinte forma:
+- Na sua essência o algoritmo funciona da seguinte forma:
 
-  - Hash function: Dada uma hash function calculamos o hash value do padrao.
+  - Hash function: Dada uma hash function calculamos o hash value do padrão.
 
-  - A medida que se percorrem as substrings do texto, calcula-se o hash value da substring e compara-se com o do padrao.
+  - À medida que se percorrem as substrings do texto, calcula-se o hash value da substring e compara-se com o do padrão.
 
-  - Se derem match entao comparam-se os caracteres um a um para verificar se houve padrao encontrado, ou foi match espurio (match por acaso)
+  - Se derem match então comparam-se os caracteres um a um para verificar se houve padrão encontrado, ou foi match espúrio (match por acaso)
 
-Uma possivel implementacao deste algoritmo seria algo do genero:
+Uma possivel implementação deste algoritmo seria algo do género:
 
 ```rust
 RabinKarp(text, pattern)
@@ -82,30 +81,30 @@ RabinKarp(text, pattern)
 
 A complexidade do Rabin-Karp depende da qualidade da hash function.
 
-Uma ma hash function resulta em complexidade $$O(nm)$$, semelhante a approach naive.
+Uma má hash function resulta em complexidade $$O(nm)$$, semelhante a approach naive.
 
-Uma boa hash function resulta em complexidade $$O(n + m)$$, pois evita maior parte dos matches espurios.
+Uma boa hash function resulta em complexidade $$O(n + m)$$, pois evita maior parte dos matches espúrios.
 
-A tipica hashfunction utilizada resulta da aplicacao da [Regra de Horner](https://en.wikipedia.org/wiki/Horner%27s_method) em conjunto com o operador modulo (para evitar numeros demasiado grandes). O numero pelo qual a divisao e feita e geralmente um numero primo razoavelmente grande, mas que permita efetuar todas as operacoes em tempo essencialmente constante.
+A tipica hashfunction utilizada resulta da aplicação da [Regra de Horner](https://en.wikipedia.org/wiki/Horner%27s_method) em conjunto com o operador módulo (para evitar valores demasiado grandes). O número pelo qual a divisão é feita é geralmente um número primo razoavelmente grande, mas que permita efetuar todas as operacões em tempo essencialmente constante.
 
 ## Knuth-Morris-Pratt (KMP)
 
-O KMP e um algoritmo semelhante ao naive approach, mas que evita comparacoes desnecessarias ao fazer um pre-processamento do padrao.
+O KMP é um algoritmo semelhante ao naive approach, mas que evita comparações desnecessárias ao fazer um pré-processamento do padrão.
 
-Sao necessarias algumas nocoes basicas para compreender o funcionamento deste algoritmo, como prefixos e sufixos.
+São necessárias algumas noções básicas para compreender o funcionamento deste algoritmo, como prefixos e sufixos.
 Uma cadeia de caracteres de tamanho x diz-se prefixo de outra cadeia y (y > x) se os primeiros x caracteres da cadeia y coincidirem exatamente com a cadeia x.
-Um sufixo e quando esta cadeia x corresponde exatamente aos ultimos x caracteres da cadeia y.
+Um sufixo é quando esta cadeia x corresponde exatamente aos últimos x caracteres da cadeia y.
 
 
-O pre-processamento consiste em analisar o padrao e ver que parte do padrao e que podem ser reutilizadas na proxima comparacao caso haja um mismatch de caracteres, o que evita comparacoes repitidas que ja se sabem dar match.
+O pré-processamento consiste em analisar o padrão e ver que parte do padrão é que podem ser reutilizadas na próxima comparação caso haja um mismatch de caracteres, o que evita comparações repetidas que já se sabem dar match.
 
-A funcao de pre-processamento essencialmente preenche uma tabela com um numero associado a cada caracter do padrao. Este numero representa a posicao de onde podemos recomecar as comparacoes, devido as anteriores ja estarem corretamente comparadas.
-O algoritmo pode efetuar isto pois a forma de calcular estes numeros e encontrar o maior prefiso doo padrao, que tambem e sufixo.
+A função de pré-processamento essencialmente preenche uma tabela com um número associado a cada caracter do padrão. Este número representa a posição de onde podemos recomeçar as comparações, devido às anteriores já estarem corretamente comparadas.
+O algoritmo pode efetuar isto pois a forma de calcular estes números é encontrar o maior prefixo do padrão que também é sufixo.
 
 - O algoritmo consiste em:
 
-  - Pre-processamento, ao calcular a funcao de prefixos: $$O(m)$$.
+  - Pré-processamento, ao calcular a função de prefixos: $$O(m)$$.
 
-  - Aplicacao do KMP-Matcher: $$O(n + m)$$.
+  - Aplicação do KMP-Matcher: $$O(n + m)$$.
 
 Complexidade global: $$O(n + m)$$.
