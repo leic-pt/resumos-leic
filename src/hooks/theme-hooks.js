@@ -15,6 +15,23 @@ export function useFontSettings() {
   }, [font, setFont]);
 }
 
+export function useContentWidth() {
+  const [contentWidth, setContentWidth] = useLocalStorage('contentWidth', 'compact');
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const element = window.document.body;
+    if (contentWidth === 'full') {
+      element.classList.add('full-width');
+    } else {
+      element.classList.remove('full-width');
+    }
+  });
+
+  return { contentWidth, setContentWidth };
+}
+
 export function useThemeSettings() {
   const [theme, setTheme] = useLocalStorage('themeName');
 

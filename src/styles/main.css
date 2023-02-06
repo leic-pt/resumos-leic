@@ -315,6 +315,10 @@ h2 {
   min-height: 85vh;
 }
 
+body.full-width .main-container {
+  max-width: unset;
+}
+
 @media (max-width: 959px) {
   .main-container {
     padding: 2rem;

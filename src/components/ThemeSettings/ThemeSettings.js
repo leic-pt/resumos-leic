@@ -1,5 +1,10 @@
 import React, { useCallback, useState } from 'react';
-import { useDarkMode, useFontSettings, useThemeSettings } from '../../hooks/theme-hooks';
+import {
+  useContentWidth,
+  useDarkMode,
+  useFontSettings,
+  useThemeSettings,
+} from '../../hooks/theme-hooks';
 import Close from '../icons/Close';
 import DarkModeOff from '../icons/DarkModeOff';
 import DarkModeOn from '../icons/DarkModeOn';
@@ -15,6 +20,7 @@ const ThemeSettings = () => {
   const closePanel = useCallback(() => setPanelOpen(false), [setPanelOpen]);
   const togglePanel = useCallback(() => setPanelOpen((v) => !v), [setPanelOpen]);
   const { darkMode, setDarkModeStored } = useDarkMode();
+  const { contentWidth, setContentWidth } = useContentWidth();
   useFontSettings();
   useThemeSettings();
 
@@ -55,14 +61,14 @@ const ThemeSettings = () => {
         <Option name='Content Width'>
           <div className='button-group'>
             <button
-              className={false === false ? 'selected' : ''}
-              onClick={() => setDarkModeStored(false)}
+              className={contentWidth === 'compact' ? 'selected' : ''}
+              onClick={() => setContentWidth('compact')}
             >
               <WidthCompact size={16} /> Compact
             </button>
             <button
-              className={darkMode === true ? 'selected' : ''}
-              onClick={() => setDarkModeStored(true)}
+              className={contentWidth === 'full' ? 'selected' : ''}
+              onClick={() => setContentWidth('full')}
             >
               <WidthFull size={16} /> Full Width
             </button>
