@@ -3,12 +3,15 @@ import {
   useContentWidth,
   useDarkMode,
   useFontSettings,
+  useTextAlign,
   useThemeSettings,
 } from '../../hooks/theme-hooks';
 import Close from '../icons/Close';
 import DarkModeOff from '../icons/DarkModeOff';
 import DarkModeOn from '../icons/DarkModeOn';
 import DarkModeSystem from '../icons/DarkModeSystem';
+import TextAlignJustify from '../icons/TextAlignJustify';
+import TextAlignLeft from '../icons/TextAlignLeft';
 import WidthCompact from '../icons/WidthCompact';
 import WidthFull from '../icons/WidthFull';
 import SidePanel from '../SidePanel';
@@ -21,6 +24,7 @@ const ThemeSettings = () => {
   const togglePanel = useCallback(() => setPanelOpen((v) => !v), [setPanelOpen]);
   const { darkMode, setDarkModeStored } = useDarkMode();
   const { contentWidth, setContentWidth } = useContentWidth();
+  const { textAlign, setTextAlign } = useTextAlign();
   useFontSettings();
   useThemeSettings();
 
@@ -71,6 +75,22 @@ const ThemeSettings = () => {
               onClick={() => setContentWidth('full')}
             >
               <WidthFull size={16} /> Full Width
+            </button>
+          </div>
+        </Option>
+        <Option name='Text Align'>
+          <div className='button-group'>
+            <button
+              className={textAlign === 'left' ? 'selected' : ''}
+              onClick={() => setTextAlign('left')}
+            >
+              <TextAlignLeft size={16} /> Left
+            </button>
+            <button
+              className={textAlign === 'justify' ? 'selected' : ''}
+              onClick={() => setTextAlign('justify')}
+            >
+              <TextAlignJustify size={16} /> Justify
             </button>
           </div>
         </Option>

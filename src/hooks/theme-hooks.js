@@ -32,6 +32,23 @@ export function useContentWidth() {
   return { contentWidth, setContentWidth };
 }
 
+export function useTextAlign() {
+  const [textAlign, setTextAlign] = useLocalStorage('textAlign', 'left');
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const element = window.document.body;
+    if (textAlign === 'justify') {
+      element.classList.add('text-justify');
+    } else {
+      element.classList.remove('text-justify');
+    }
+  });
+
+  return { textAlign, setTextAlign };
+}
+
 export function useThemeSettings() {
   const [theme, setTheme] = useLocalStorage('themeName');
 

@@ -104,6 +104,10 @@ body.dark-mode .content a:hover {
   line-height: 1.7;
 }
 
+body.text-justify .content {
+  text-align: justify;
+}
+
 .content table {
   line-height: normal;
 }
