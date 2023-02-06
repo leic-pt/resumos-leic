@@ -12,6 +12,7 @@ import DarkModeOn from '../icons/DarkModeOn';
 import DarkModeSystem from '../icons/DarkModeSystem';
 import TextAlignJustify from '../icons/TextAlignJustify';
 import TextAlignLeft from '../icons/TextAlignLeft';
+import Theme from '../icons/Theme';
 import WidthCompact from '../icons/WidthCompact';
 import WidthFull from '../icons/WidthFull';
 import SidePanel from '../SidePanel';
@@ -30,8 +31,8 @@ const ThemeSettings = () => {
 
   return (
     <>
-      <button className='icon-btn' onClick={togglePanel}>
-        {darkMode ? <DarkModeOn /> : <DarkModeOff />}
+      <button className='icon-btn' onClick={togglePanel} style={{ alignSelf: 'center' }}>
+        <Theme />
       </button>
       <SidePanel open={panelOpen} onClose={closePanel} className='theme-settings'>
         <div className='theme-settings-header'>
