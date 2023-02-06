@@ -50,9 +50,7 @@ export function useDarkMode() {
     }
   }, [darkMode]);
 
-  const toggle = useCallback(() => setDarkModeStored(!darkMode), [setDarkModeStored, darkMode]);
-
-  return { darkMode, toggle };
+  return { darkMode: darkModeStored, setDarkModeStored };
 }
 
 // Source: https://usehooks.com/useLocalStorage/

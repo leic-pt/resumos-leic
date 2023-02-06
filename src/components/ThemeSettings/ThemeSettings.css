@@ -1,0 +1,79 @@
+.theme-settings .theme-settings-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0.5em 1em;
+  border-bottom: 1px solid var(--borderColor);
+
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.theme-settings .option-item {
+  margin-top: 1em;
+  padding: 0.5em 1em;
+}
+
+.theme-settings .option-name {
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  font-size: 0.65em;
+  opacity: 0.8;
+}
+
+.theme-settings .button-group {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.theme-settings .button-group button {
+  flex-grow: 1;
+
+  font-size: 0.9em;
+
+  border: 1px solid var(--borderColor);
+  color: var(--textColor);
+  background: none;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.1em 0.5em;
+
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.theme-settings .button-group button:hover {
+  background-color: var(--hoverBackground);
+}
+
+.theme-settings .button-group button.selected {
+  background-color: var(--selectedBackground);
+}
+
+.theme-settings .button-group button.selected:hover {
+  background-color: var(--hoverSelectedBackground);
+}
+
+.theme-settings .button-group button svg {
+  margin-right: 0.5em;
+}
+
+.theme-settings .button-group button:first-of-type {
+  border-radius: 1.5em 0 0 1.5em;
+}
+
+.theme-settings .button-group button:not(:first-of-type) {
+  border-left-color: transparent;
+  margin-left: -1px;
+}
+
+.theme-settings .button-group button:last-of-type {
+  border-radius: 0 1.5em 1.5em 0;
+}

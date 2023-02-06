@@ -6,7 +6,7 @@ import './SidePanel.css';
 
 const BODY_SIDEPANEL_OPEN_CLASSNAME = 'body--sidepanel-open';
 
-const Dialog = ({ open, onClose, children }) => {
+const Dialog = ({ open, onClose, className, children }) => {
   useEffect(() => {
     if (open) {
       document.body.classList.add(BODY_SIDEPANEL_OPEN_CLASSNAME);
@@ -40,7 +40,7 @@ const Dialog = ({ open, onClose, children }) => {
           }
         }}
       />
-      <div className='sidepanel-modal'>{children}</div>
+      <div className={`sidepanel-modal ${className}`}>{children}</div>
     </div>,
     document.body
   );

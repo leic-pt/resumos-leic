@@ -17,6 +17,10 @@ body {
 
   --scrollbarWidth: 6px;
   --scrollbarHeight: 8px;
+
+  --hoverBackground: rgba(0, 0, 0, 0.04);
+  --selectedBackground: rgba(0, 0, 0, 0.08);
+  --hoverSelectedBackground: rgba(0, 0, 0, 0.12);
 }
 
 @media not print {
@@ -31,6 +35,10 @@ body {
     --miniCodeBgColor: #3b3d40;
     --scrollbarColor: hsla(0, 0%, 100%, 0.4);
     --tableStripeBgColor: #444444aa;
+
+    --hoverBackground: rgba(226, 226, 226, 0.08);
+    --selectedBackground: rgba(226, 226, 226, 0.16);
+    --hoverSelectedBackground: rgba(226, 226, 226, 0.24);
   }
 }
 
@@ -326,12 +334,22 @@ h2 {
   }
 }
 
-.dark-mode-toggle {
+.icon-btn {
   border: none;
   color: var(--textColor);
   background: none;
   cursor: pointer;
   font-size: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 8px;
+}
+
+.icon-btn:hover {
+  background-color: var(--hoverBackground);
 }
 
 .anchor.before {
