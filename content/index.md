@@ -203,7 +203,7 @@ Vai à [nossa documentação para aprenderes tudo o que precisas](https://docs.l
 
 Quero agradecer a [todos os que contribuíram](https://github.com/leic-pt/resumos-leic/graphs/contributors) para os conteúdos deste site:
 
-- [Diogo Correia](https://github.com/leic-pt/resumos-leic/commits?author=diogotcorreia) (**Website**, **CDI-I**, **CDI-II**, **CDI-III**, **Fis-I**, **BD**, MD, IAED)
+- [Diogo Correia](https://github.com/leic-pt/resumos-leic/commits?author=diogotcorreia) (**Website**, **CDI-I**, **CDI-II**, **CDI-III**, **Fis-I**, **BD**, **IEco**, MD, IAED)
 - [Diogo Gaspar](https://github.com/leic-pt/resumos-leic/commits?author=randomicecube) (**LP**, **ASA**, **IAED**, **IA**, TC, CDI-I, CDI-III, PO)
 - [Tomás Esteves](https://github.com/leic-pt/resumos-leic/commits?author=Pesteves2002) (**IAED**, **Fis-II**, **SO**, Fis-I, MD, CDI-II, LP)
 - [João Rocha](https://github.com/leic-pt/resumos-leic/commits?author=Calhau18) (**SO**, **TC**, **PE**, CDI-I, CDI-II, MD, CDI-III, Fis-II, ASA)
@@ -211,7 +211,7 @@ Quero agradecer a [todos os que contribuíram](https://github.com/leic-pt/resumo
 - [Pedro Chaparro](https://github.com/leic-pt/resumos-leic/commits?author=PedroChaps) (**RC**, CDI-III, Fis-II)
 - [Rúben Nobre](https://github.com/leic-pt/resumos-leic/commits?author=RubenNobre123) (**MD**, CDI-III)
 - [João Fonseca](https://github.com/leic-pt/resumos-leic/commits?author=jmseca) (**MD**)
-- [Rafael Oliveira](https://github.com/leic-pt/resumos-leic/commits?author=RafDevX) (CDI-II, EMD, LP, CDI-III, ASA, TC, IAED, GES, IPM, SO, IA, Fis-I, PO, Fis-II, PE, CDI-I, AL, IAC, OC, Apre)
+- [Rafael Oliveira](https://github.com/leic-pt/resumos-leic/commits?author=RafDevX) (CDI-II, EMD, LP, CDI-III, ASA, TC, IAED, GES, IPM, SO, IA, Fis-I, PO, Fis-II, PE, CDI-I, AL, IAC, OC, Apre, IEco, RC)
 - [José João Ferreira](https://github.com/leic-pt/resumos-leic/commits?author=jjasferreira) (SO, BD, IA, IPM, RC)
 - [Eduardo Espadeiro](https://github.com/leic-pt/resumos-leic/commits?author=EdSwordsmith) (IA)
 - [Rafaela Rodrigues](https://github.com/leic-pt/resumos-leic/commits?author=Rafa10PT) (IAED, CDI-II, MD, CDI-III)

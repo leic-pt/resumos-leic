@@ -1,7 +1,7 @@
 ---
 title: Papel de um Compilador
 description: >-
-  Produzir um Modelo de Objeto.
+  Produzir um Object Module.
   Dynamic Linking.
   Instruction Encoding.
 path: /oc/papel-compilador
@@ -14,22 +14,22 @@ type: content
 
 ```
 
-## Produzir um Modelo de Objeto
+## Produzir um _Object Module_
 
 ![Tradução e Startup](./assets/0003-traducao.png#dark=3)
 
 O compilador traduz o programa para instruções de máquina, dando informação para construir um programa completo através de peças soltas:
 
-- [_Header_](color:yellow): descreve as componentes de um modelo de objeto;
+- [_Header_](color:yellow): descreve os componentes de um _object module_;
 - [_Text segment_](color:orange): tradução das instruções;
 - [_Static data segment_](color:red): dados alocados para dar vida ao programa;
 - [_Relocation info_](color:pink): para componentes que dependem da localização absoluta do _loaded program_;
 - [_Symbol table_](color:purple): definições globais e referências externas;
 - [_Debug info_](color:blue): para associação com o código fonte.
 
-### Ligar Objetos Modelos
+### Ligar _Object Modules_
 
-Ao fazermos [linking](color:pink) de objetos modelos
+Ao fazermos [linking](color:pink) de _object modules_
 [produzimos uma imagem executável](color:purple) que converge segmentos,
 resolve _labels_, que determinam o seu endereço, e corrigem a
 localização-dependente e referências externas.
@@ -54,11 +54,11 @@ Há seis passos diferentes:
 ### Dynamic Linking
 
 À medida que vamos precisando, [temos que ir dando _link/load_ da nossa biblioteca](color:pink).
-Para este processo é obrigatório que o código seja realocado de modo a que a
-evitar que as imagens inchem por causa da ligação estática de todas as
-bibliotecas referênciadas.
+Para este processo é obrigatório que o código seja realocado de modo a
+evitar que as imagens inchem por causa da ligação estática a todas as
+bibliotecas referenciadas.
 Assim, novas versões de bibliotecas são automaticamente apanhadas.
-Também podemos ter [_lazy linkage_](color:pink) é a ligação feita somente quando
+Também podemos ter [_lazy linkage_](color:pink): a ligação feita somente quando
 uma função é chamada, sabendo que só funções é que de facto podem ser ligadas.
 
 ![Lazy linkage](./assets/0003-lazy-linkage.png#dark=3)
@@ -88,6 +88,7 @@ e mercado de partilha que turna isto economicamente viável.
 ### Equívocos Comuns
 
 É fácil cair em conclusões precipitadas relativamente aos compiladores e processadores:
+
 A primeira é que [ter instruções mais complexas implica execuções mais rápidas](color:pink).
 Isto nem sempre é verdade visto que apesar de serem necessárias menos instruções,
 estas são mais complexas e difíceis de implementar,
@@ -98,6 +99,6 @@ eficiente a partir de instruções simples.
 
 A segunda é que devemos [escrever trechos de código em Assembly](color:purple)
 se queremos que sejam mais eficientes.
-Contudo, os compiladores modernos são bem melhores que qualquer um de nós a escrever Assembly.
+Pelo contrário, os compiladores modernos são bem melhores que qualquer um de nós a escrever Assembly.
 O tempo desperdiçado a escrever 50 linhas de Assembly para uma função de
 10 linhas em C é melhor utilizado a estudar para OC.
