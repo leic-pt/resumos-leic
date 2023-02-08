@@ -1,18 +1,52 @@
-import { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import '../styles/themes/black.css';
 import '../styles/themes/nord.css';
 import '../styles/themes/solarized.css';
 
-// Custom hook
+const fonts = {
+  roboto: {
+    cssFamily: 'Roboto, sans-serif',
+    url: 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap',
+  },
+  openSans: {
+    cssFamily: 'Open Sans, Roboto, sans-serif',
+    url: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap',
+  },
+  openDyslexic: {
+    cssFamily: 'OpenDyslexicRegular, Roboto, sans-serif',
+    url: 'https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/open-dyslexic-regular.min.css',
+  },
+  comicSans: {
+    cssFamily: 'Comic Neue, sans-serif',
+    url: 'https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap',
+  },
+  sansSerif: {
+    cssFamily: 'sans-serif',
+  },
+  serif: {
+    cssFamily: 'serif',
+  },
+};
+
 export function useFontSettings() {
-  const [font, setFont] = useLocalStorage('customFont');
+  const [font, setFont] = useLocalStorage('customFont', 'roboto');
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
     const element = window.document.body;
-    element.style.fontFamily = font || null;
-  }, [font, setFont]);
+    const selectedFont = fonts[font] || fonts.roboto;
+    element.style.fontFamily = selectedFont.cssFamily;
+  }, [font]);
+
+  const fontLoader = useMemo(() => {
+    const selectedFont = fonts[font] || fonts.roboto;
+    if (!selectedFont.url) return null;
+
+    return <link href={selectedFont.url} rel='stylesheet'></link>;
+  }, [font]);
+
+  return { fontLoader, font, setFont };
 }
 
 export function useContentWidth() {

@@ -28,7 +28,7 @@ const ThemeSettings = () => {
   const { darkMode, setDarkModeStored } = useDarkMode();
   const { contentWidth, setContentWidth } = useContentWidth();
   const { textAlign, setTextAlign } = useTextAlign();
-  useFontSettings();
+  const { fontLoader, font, setFont } = useFontSettings();
   const { theme, setTheme } = useThemeSettings();
 
   return (
@@ -66,7 +66,7 @@ const ThemeSettings = () => {
           </div>
         </Option>
         <Option name='Theme'>
-          <DropdownSelect value={theme} onChange={(v) => setTheme(v)}>
+          <DropdownSelect id='theme' value={theme} onChange={(v) => setTheme(v)}>
             <DropdownOption value='default'>Resumos LEIC</DropdownOption>
             <DropdownOption value='nord'>Nord</DropdownOption>
             <DropdownOption value='solarized'>Solarized</DropdownOption>
@@ -103,6 +103,17 @@ const ThemeSettings = () => {
               <TextAlignJustify size={16} /> Justify
             </button>
           </div>
+        </Option>
+        {fontLoader}
+        <Option name='Font'>
+          <DropdownSelect id='font' value={font} onChange={(v) => setFont(v)}>
+            <DropdownOption value='roboto'>Roboto (default)</DropdownOption>
+            <DropdownOption value='openSans'>OpenSans</DropdownOption>
+            <DropdownOption value='openDyslexic'>OpenDyslexic</DropdownOption>
+            <DropdownOption value='comicSans'>Comic Sans</DropdownOption>
+            <DropdownOption value='sansSerif'>sans-serif (system)</DropdownOption>
+            <DropdownOption value='serif'>serif (system)</DropdownOption>
+          </DropdownSelect>
         </Option>
       </SidePanel>
     </>

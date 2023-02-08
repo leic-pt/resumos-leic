@@ -1,5 +1,6 @@
 .theme-settings {
   padding-bottom: 2em;
+  overflow: auto;
 }
 
 .theme-settings .theme-settings-header {
@@ -12,6 +13,12 @@
 
   font-weight: bold;
   font-size: 1.1em;
+
+  position: sticky;
+  inset: 0;
+  z-index: 1800;
+  background-color: var(--cardColor);
+  border-radius: 1em 1em 0 0;
 }
 
 .theme-settings .option-item {

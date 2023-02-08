@@ -2,9 +2,9 @@ import React, { useCallback, useMemo, useState } from 'react';
 import DropdownArrow from '../../icons/DropdownArrow';
 import './DropdownSelect.css';
 
-const DropdownContext = React.createContext({ value: null, onChange: () => {} });
+const DropdownContext = React.createContext({ id: 'unknown', value: null, onChange: () => {} });
 
-const DropdownSelect = ({ value, onChange, children }) => {
+const DropdownSelect = ({ id = 'unknown', value, onChange, children }) => {
   const [open, setOpen] = useState(false);
   const toggleOpen = useCallback(() => setOpen((v) => !v), [setOpen]);
   const close = useCallback(() => setOpen(false), [setOpen]);
@@ -38,9 +38,9 @@ const DropdownSelect = ({ value, onChange, children }) => {
   return (
     <div
       className='dropdown-select'
-      onBlur={(e) => !e.relatedTarget?.classList?.contains('keep-focus') && close()}
+      onBlur={(e) => !e.relatedTarget?.classList?.contains(`keep-focus-${id}`) && close()}
     >
-      <button onClick={toggleOpen} className='keep-focus'>
+      <button onClick={toggleOpen} className={`keep-focus-${id}`}>
         <span>{selectedOption}</span>
         <DropdownArrow />
       </button>
@@ -57,6 +57,7 @@ const DropdownSelect = ({ value, onChange, children }) => {
           />
           <DropdownContext.Provider
             value={{
+              id,
               value,
               onChange: handleChange,
             }}
