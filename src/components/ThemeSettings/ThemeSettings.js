@@ -68,6 +68,8 @@ const ThemeSettings = () => {
         <Option name='Theme'>
           <DropdownSelect id='theme' value={theme} onChange={(v) => setTheme(v)}>
             <DropdownOption value='default'>Resumos LEIC</DropdownOption>
+            <DropdownOption value='black'>Black</DropdownOption>
+            <DropdownOption value='gruvbox'>Gruvbox</DropdownOption>
             <DropdownOption value='nord'>Nord</DropdownOption>
             <DropdownOption value='solarized'>Solarized</DropdownOption>
           </DropdownSelect>
