@@ -196,7 +196,7 @@ years:
 
 ## Como Contribuir?
 
-Se estás a pensar `contribuir` para os Resumos LEIC, fizemos um guia passo a passo só para ti!
+Se estás a pensar contribuir para os Resumos LEIC, fizemos um guia passo a passo só para ti!
 Vai à [nossa documentação para aprenderes tudo o que precisas](https://docs.leic.pt/).
 
 ### Contribuidores
@@ -247,19 +247,10 @@ Quero agradecer a [todos os que contribuíram](https://github.com/leic-pt/resumo
 Resumos LEIC não está afiliado ao
 [tecnico.ulisboa.pt](https://tecnico.ulisboa.pt) de forma alguma.
 Todo o conteúdo escrito disponível neste site é dado por contribuidores (listados acima).
-Alguns anexos `podem` ter sido cedidos por professores, após obter a respetiva permissão.  
+Alguns anexos podem ter sido cedidos por professores, após obter a respetiva permissão.  
 Visto que algum do conteúdo pode estar incorreto, incompleto e/ou desatualizado,
 usa este site _at your own risk_.  
 Como sempre, se encontrares algum erro, podes e deves [contribuir](https://docs.leic.pt)!
 
 Questões relacionadas com _copyright_ deverão ser encaminhadas para [resumos@leic.pt](mailto:resumos@leic.pt).
 :::
-
-- [red](color:red)
-- [green](color:green)
-- [blue](color:blue)
-- [pink](color:pink)
-- [purple](color:purple)
-- [yellow](color:yellow)
-- [orange](color:orange)
-- [brown](color:brown)
