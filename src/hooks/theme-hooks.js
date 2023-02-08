@@ -8,17 +8,31 @@ const fonts = {
     cssFamily: 'Roboto, sans-serif',
     url: 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap',
   },
-  openSans: {
-    cssFamily: 'Open Sans, Roboto, sans-serif',
-    url: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap',
+  comicNeue: {
+    cssFamily: 'Comic Neue, sans-serif',
+    url: 'https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap',
+  },
+  indieFlower: {
+    cssFamily: 'Indie Flower, cursive',
+    url: 'https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap',
+  },
+  nunito: {
+    cssFamily: 'Nunito, sans-serif',
+    url: 'https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap',
   },
   openDyslexic: {
     cssFamily: 'OpenDyslexicRegular, Roboto, sans-serif',
     url: 'https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/open-dyslexic-regular.min.css',
   },
-  comicSans: {
-    cssFamily: 'Comic Neue, sans-serif',
-    url: 'https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap',
+  openSans: {
+    cssFamily: 'Open Sans, Roboto, sans-serif',
+    url: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap',
+  },
+  cursive: {
+    cssFamily: 'cursive',
+  },
+  monospace: {
+    cssFamily: 'monospace',
   },
   sansSerif: {
     cssFamily: 'sans-serif',

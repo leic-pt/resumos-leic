@@ -108,9 +108,13 @@ const ThemeSettings = () => {
         <Option name='Font'>
           <DropdownSelect id='font' value={font} onChange={(v) => setFont(v)}>
             <DropdownOption value='roboto'>Roboto (default)</DropdownOption>
-            <DropdownOption value='openSans'>OpenSans</DropdownOption>
+            <DropdownOption value='comicNeue'>Comic Neue</DropdownOption>
+            <DropdownOption value='indieFlower'>Indie Flower</DropdownOption>
+            <DropdownOption value='nunito'>Nunito</DropdownOption>
             <DropdownOption value='openDyslexic'>OpenDyslexic</DropdownOption>
-            <DropdownOption value='comicSans'>Comic Sans</DropdownOption>
+            <DropdownOption value='openSans'>Open Sans</DropdownOption>
+            <DropdownOption value='cursive'>cursive (system)</DropdownOption>
+            <DropdownOption value='monospace'>monospace (system)</DropdownOption>
             <DropdownOption value='sansSerif'>sans-serif (system)</DropdownOption>
             <DropdownOption value='serif'>serif (system)</DropdownOption>
           </DropdownSelect>

@@ -19,6 +19,7 @@
   z-index: 1800;
   background-color: var(--cardColor);
   border-radius: 1em 1em 0 0;
+  transition: background-color 0.25s ease-in-out;
 }
 
 .theme-settings .option-item {
