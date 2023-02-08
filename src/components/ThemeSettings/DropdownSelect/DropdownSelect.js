@@ -55,15 +55,17 @@ const DropdownSelect = ({ id = 'unknown', value, onChange, children }) => {
               }
             }}
           />
-          <DropdownContext.Provider
-            value={{
-              id,
-              value,
-              onChange: handleChange,
-            }}
-          >
-            {children}
-          </DropdownContext.Provider>
+          <div className='options'>
+            <DropdownContext.Provider
+              value={{
+                id,
+                value,
+                onChange: handleChange,
+              }}
+            >
+              {children}
+            </DropdownContext.Provider>
+          </div>
         </div>
       </div>
     </div>

@@ -40,15 +40,7 @@
   top: 0;
   left: 0;
   right: 0;
-  box-shadow: rgb(0 0 0 / 20%) 0px 5px 5px -3px, rgb(0 0 0 / 14%) 0px 8px 10px 1px,
-    rgb(0 0 0 / 12%) 0px 3px 14px 2px;
-  background-color: var(--cardColor);
   z-index: 1700;
-
-  border-radius: 1.5em;
-
-  overflow: hidden auto;
-  padding: 0.6em 0;
 
   visibility: hidden;
   opacity: 0;
@@ -56,15 +48,18 @@
   transform: scaleY(0);
   transform-origin: top;
 
-  margin-bottom: 1em;
+  padding-bottom: 1em;
 }
 
-.dropdown-select .options-container:after {
-  position: absolute;
-  content: '';
-  bottom: -1em;
-  height: 1em;
-  width: 1px;
+.dropdown-select .options-container .options {
+  box-shadow: rgb(0 0 0 / 20%) 0px 5px 5px -3px, rgb(0 0 0 / 14%) 0px 8px 10px 1px,
+    rgb(0 0 0 / 12%) 0px 3px 14px 2px;
+  background-color: var(--cardColor);
+
+  border-radius: 1.5em;
+
+  overflow: hidden auto;
+  padding: 0.6em 0;
 }
 
 .dropdown-select .options-container.options-container--open {
