@@ -50,7 +50,7 @@ export function useTextAlign() {
 }
 
 export function useThemeSettings() {
-  const [theme, setTheme] = useLocalStorage('themeName');
+  const [theme, setTheme] = useLocalStorage('themeName', 'default');
 
   useEffect(() => {
     if (typeof window === 'undefined') return;

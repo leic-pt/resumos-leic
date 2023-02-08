@@ -151,7 +151,7 @@ h2 {
   color: var(--textColor);
   font-size: 1.3rem;
   font-weight: 600;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 .navbar .navbar-links a {

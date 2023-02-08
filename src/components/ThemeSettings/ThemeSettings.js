@@ -16,6 +16,8 @@ import Theme from '../icons/Theme';
 import WidthCompact from '../icons/WidthCompact';
 import WidthFull from '../icons/WidthFull';
 import SidePanel from '../SidePanel';
+import DropdownOption from './DropdownSelect/DropdownOption';
+import DropdownSelect from './DropdownSelect/DropdownSelect';
 import Option from './Option';
 import './ThemeSettings.css';
 
@@ -27,7 +29,7 @@ const ThemeSettings = () => {
   const { contentWidth, setContentWidth } = useContentWidth();
   const { textAlign, setTextAlign } = useTextAlign();
   useFontSettings();
-  useThemeSettings();
+  const { theme, setTheme } = useThemeSettings();
 
   return (
     <>
@@ -62,6 +64,13 @@ const ThemeSettings = () => {
               <DarkModeOn size={16} /> Dark
             </button>
           </div>
+        </Option>
+        <Option name='Theme'>
+          <DropdownSelect value={theme} onChange={(e) => setTheme(e.target.value)}>
+            <DropdownOption value='default'>Resumos LEIC</DropdownOption>
+            <DropdownOption value='nord'>Nord</DropdownOption>
+            <DropdownOption value='solarized'>Solarized</DropdownOption>
+          </DropdownSelect>
         </Option>
         <Option name='Content Width'>
           <div className='button-group'>
