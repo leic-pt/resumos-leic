@@ -66,7 +66,7 @@ const ThemeSettings = () => {
           </div>
         </Option>
         <Option name='Theme'>
-          <DropdownSelect value={theme} onChange={(e) => setTheme(e.target.value)}>
+          <DropdownSelect value={theme} onChange={(v) => setTheme(v)}>
             <DropdownOption value='default'>Resumos LEIC</DropdownOption>
             <DropdownOption value='nord'>Nord</DropdownOption>
             <DropdownOption value='solarized'>Solarized</DropdownOption>

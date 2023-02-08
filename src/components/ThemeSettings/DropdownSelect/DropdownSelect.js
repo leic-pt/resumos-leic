@@ -2,9 +2,12 @@ import React, { useCallback, useMemo, useState } from 'react';
 import DropdownArrow from '../../icons/DropdownArrow';
 import './DropdownSelect.css';
 
+const DropdownContext = React.createContext({ value: null, onChange: () => {} });
+
 const DropdownSelect = ({ value, onChange, children }) => {
   const [open, setOpen] = useState(false);
   const toggleOpen = useCallback(() => setOpen((v) => !v), [setOpen]);
+  const close = useCallback(() => setOpen(false), [setOpen]);
 
   const options = useMemo(() => {
     const opts = [];
@@ -21,12 +24,23 @@ const DropdownSelect = ({ value, onChange, children }) => {
 
   const selectedOption = useMemo(
     () => options.find((o) => o.value === value)?.label || '',
-    [value, children]
+    [value, options]
+  );
+
+  const handleChange = useCallback(
+    (value) => {
+      onChange(value);
+      close();
+    },
+    [onChange, close]
   );
 
   return (
-    <div className='dropdown-select'>
-      <button onClick={toggleOpen}>
+    <div
+      className='dropdown-select'
+      onBlur={(e) => !e.relatedTarget?.classList?.contains('keep-focus') && close()}
+    >
+      <button onClick={toggleOpen} className='keep-focus'>
         <span>{selectedOption}</span>
         <DropdownArrow />
       </button>
@@ -34,13 +48,21 @@ const DropdownSelect = ({ value, onChange, children }) => {
         <div className={`options-container${open ? ' options-container--open' : ''}`}>
           <div
             className='options-container-backdrop'
+            role='button'
             onMouseDown={(event) => {
               if (event.target === event.currentTarget) {
                 toggleOpen();
               }
             }}
           />
-          {children}
+          <DropdownContext.Provider
+            value={{
+              value,
+              onChange: handleChange,
+            }}
+          >
+            {children}
+          </DropdownContext.Provider>
         </div>
       </div>
     </div>
@@ -48,3 +70,5 @@ const DropdownSelect = ({ value, onChange, children }) => {
 };
 
 export default DropdownSelect;
+
+export { DropdownContext };
