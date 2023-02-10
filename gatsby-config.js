@@ -1,3 +1,5 @@
+const puppeteer = require('puppeteer');
+
 module.exports = {
   siteMetadata: {
     title: `Resumos LEIC-A`,
@@ -65,7 +67,6 @@ module.exports = {
               backgroundColor: 'transparent',
               withWebp: true,
               showCaptions: ['title'],
-              tracedSVG: true,
               quality: 80,
             },
           },
@@ -105,7 +106,15 @@ module.exports = {
               tight: true,
             },
           },
-          `gatsby-remark-mermaid`,
+          {
+            resolve: `gatsby-remark-mermaid`,
+            options: {
+              launchOptions: {
+                executablePath: puppeteer.executablePath(),
+              },
+              svgo: false, // it doesn't like lines breaks in diagram text boxes
+            },
+          },
           `gatsby-remark-embed-snippet`,
           {
             resolve: `gatsby-remark-prismjs`,
@@ -170,7 +179,7 @@ module.exports = {
         icon: `src/images/android-icon-192x192.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-use-dark-mode`,
+    `gatsby-plugin-use-dark-mode-custom`,
     {
       resolve: `gatsby-plugin-umami`,
       options: {

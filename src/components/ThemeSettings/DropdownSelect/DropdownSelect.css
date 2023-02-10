@@ -1,0 +1,104 @@
+.dropdown-select {
+  width: 100%;
+}
+
+.dropdown-select > button {
+  width: 100%;
+
+  font-size: 0.9em;
+
+  border: 1px solid var(--borderColor);
+  border-radius: 1.5em;
+  color: var(--textColor);
+  background: none;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1em 0.9em;
+
+  transition: all 0.1s ease-in-out;
+}
+
+.dropdown-select > button:hover,
+.dropdown-select > button:focus {
+  border: 1px solid var(--textColor);
+}
+
+.dropdown-select button span {
+  font-size: 1.2em;
+}
+
+.dropdown-select .position-helper {
+  position: relative;
+}
+
+.dropdown-select .options-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1700;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.1s ease-in-out;
+  transform: scaleY(0);
+  transform-origin: top;
+
+  padding-bottom: 1em;
+}
+
+.dropdown-select .options-container .options {
+  box-shadow: rgb(0 0 0 / 20%) 0px 5px 5px -3px, rgb(0 0 0 / 14%) 0px 8px 10px 1px,
+    rgb(0 0 0 / 12%) 0px 3px 14px 2px;
+  background-color: var(--cardColor);
+
+  border-radius: 1.5em;
+
+  overflow: hidden auto;
+  padding: 0.6em 0;
+}
+
+.dropdown-select .options-container.options-container--open {
+  visibility: visible;
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.dropdown-select .options-container-backdrop {
+  position: fixed;
+  inset: 0px;
+  background-color: transparent;
+  z-index: -1;
+}
+
+.dropdown-select .dropdown-option {
+  font-size: 1em;
+  padding: 0.5em 1.2em;
+
+  width: 100%;
+  border: none;
+  color: var(--textColor);
+  background: none;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dropdown-select .dropdown-option:hover {
+  background-color: var(--hoverBackground);
+}
+
+.dropdown-select .dropdown-option.selected {
+  background-color: var(--selectedBackground);
+}
+
+.dropdown-select .dropdown-option.selected:hover {
+  background-color: var(--hoverSelectedBackground);
+}

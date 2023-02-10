@@ -199,7 +199,7 @@ $$
 Os cash-flows durante a fase de exploração (passada a fase inicial de investimento) serão habitualmente positivos se o projeto for lucrativo.
 
 $$
-\text{CF Exploração} = \text{RAJI} \times (1 - \text{Taxa de Imposto}) - \text{Amortizações e Depreciações}
+\text{CF Exploração} = \text{RAJI} \times (1 - \text{Taxa de Imposto}) + \text{Amortizações e Depreciações}
 $$
 
 Em que RAJI corresponde ao resultado antes de juros e impostos, ou seja, o mesmo que EBIT, resultados operacionais.

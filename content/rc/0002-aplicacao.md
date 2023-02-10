@@ -63,7 +63,7 @@ antes disso, eis uma breve descrição de cada camada:
   transmitida, **fisicamente**. Por exemplo,
 
   - que tensão usar no cabo;
-  - Num cabo de rede RJ45, o que é passado em cada pino;
+  - Num cabo de rede RJ-45, o que é passado em cada pino;
   - qual a duração de um bit.
 
 - **Link Layer** - Define as regras de como é feita a **ligação**. Diz respeito
@@ -73,10 +73,10 @@ antes disso, eis uma breve descrição de cada camada:
     comportar para não existir sobreposição de canais.
   - Num cabo partilhado, de que forma é que ele é partilhado.
 
-- **Network Layer** - Preocupa-se como é que a informação é transmitida de um
+- **Network Layer** - Preocupa-se com a forma como a informação é transmitida de um
   ponto A para o ponto B, não num contexto local mas sim num contexto de uma
   **rede** de computadores e dispositivos de rede. Por exemplo,
-  - Como é que consigo comunicar com um _host_ em qualquer ponto na internet
+  - Como é que consigo comunicar com um _host_ em qualquer ponto na Internet
     (Protocolo IP - é atribuído um endereço a cada _host_).
 - **Transport Layer** - Conjunto de regras que definem como é que o **transporte**
   de dados deve ser feito sobre uma rede de computadores. Por exemplo,
@@ -84,14 +84,14 @@ antes disso, eis uma breve descrição de cada camada:
   - Protocolo UDP - Envia o ficheiro continuamente, não havendo verificação de
     falhas de envio;
   - Protocolo TCP - Parte o ficheiro em partes, enviando cada uma e verificando
-    se falta alguma (caso falte, volta a envia-la).
+    se falta alguma (caso falte, volta a enviá-la).
 
 - **Application Layer** - Conjunto de regras para uniformizar como as
-  **aplicações** enviam e recebem informação, bem como devem a apresentar para
+  **aplicações** enviam e recebem informação, bem como a devem apresentar para
   os utilizadores. Por exemplo,
   - Protocolo HTTP - Uma aplicação deve enviar pedidos a outra e esta deve enviar
-    uma resposta, usando certos Headers para identificar parâmetros.
-    Usado maioritariamente para interagir com website.
+    uma resposta, usando certos _headers_ para identificar parâmetros.
+    Usado maioritariamente para interagir com _websites_.
 
 ## Noções importantes
 
@@ -120,16 +120,16 @@ nos dias que correm e no futuro.
 ### Portos
 
 Apesar de um endereço IP identificar um _host_ numa rede, não identifica qual
-é processo dessa máquina que se pretende comunicar.  
-Então, para resolver isso, criou-se a ideia de portos, número que sucede um endereço.  
-Por exemplo, se quisermos aceder ao porto 50 do _host_ com o ip `255.128.2.1`,
+é o processo dessa máquina com o qual se pretende comunicar.  
+Então, para resolver isso, criou-se a ideia de portos, que são os números que sucedem um endereço.  
+Por exemplo, se quisermos aceder ao porto 50 do _host_ com o endereço `255.128.2.1`,
 a sua representação seria `255.128.2.1:50`.
 
 ### URL - Universal Resource Locator
 
-De forma a uniformizar a identificação do ficheiro que quero aceder, num dado
+De forma a uniformizar a identificação do ficheiro que se quer aceder, num dado
 processo a correr num dado host, através de um dado método, foi criado o
-**URL - Universal Resource Locator**, que é da seguinte forma:
+URL (_Universal Resource Locator_), que é da seguinte forma:
 ![URL](./assets/0002-URL.svg#dark=3 'URL - Universal Resource Locator')
 
 Alguns métodos são:
@@ -154,30 +154,30 @@ O protocolo da Camada de Aplicação define:
   e respondem a mensagens.
 
 Existem protocolos de domínio público (definidos em [RFCs](https://en.wikipedia.org/wiki/Request_for_Comments)),
-como o HTTP e o SMTP, bem como protocolos proprietários/comerciais, como o Skype.
+como o HTTP e o SMTP, bem como protocolos proprietários/comerciais, como o usado pelo Skype.
 
-Para qualquer camada, esta precisa de garantias da camada inferior.  
+Qualquer camada precisa de garantias da camada inferior.  
 No caso da Camada de Aplicação, a Camada de Transporte tem que garantir:
 
-- **Integridade de Informação**: Algumas aplicações podem perder alguns dados
-  (e.g. Audio e Video) enquanto que outras precisam de uma ligação
+- **Integridade de Informação** - Algumas aplicações podem perder alguns dados
+  (e.g. áudio e vídeo) enquanto que outras precisam de uma ligação
   garantida (e.g. transferência de ficheiros);
 
-- **Throughput** - Algumas aplicações precisam de um throughput mínimo para
+- **Throughput** - Algumas aplicações precisam de um _throughput_ mínimo para
   funcionar enquanto que outras precisam de conseguir usar o máximo disponível;
 
-- **Timing** - Algumas aplicações precisam de um delay (_latency_) mínimo para serem efetivas.
+- **Timing** - Algumas aplicações precisam de um atraso (_latency_) mínimo para serem efetivas.
 
-- **Segurança** - Os dados enviados têm que se seguros, através de encriptação,
+- **Segurança** - Os dados enviados têm que ser seguros, através de encriptação,
   e não podem ser alterados (integridade);
 
 Então, cada programador da Camada de Aplicação deve decidir que protocolo usar (Ex. TCP vs UDP):  
-O programador não precisa de saber a implementação de cada um; Apenas se
+O programador não precisa de saber a implementação de cada um, apenas se
 tem que preocupar com as vantagens e desvantagens de cada protocolo consoante o seu objetivo.
 
 ## Protocolo HTTP
 
-É o protocolo da Camada de Aplicação usado na WWW (World Wide Web),
+É o protocolo da Camada de Aplicação usado na WWW (_World Wide Web_),
 usando o protocolo TCP da Camada de Transporte. Existem várias versões:
 
 ### HTTP 1.0
@@ -191,30 +191,30 @@ Versão [persistente](https://en.wikipedia.org/wiki/HTTP_persistent_connection),
 permitindo a transferência de vários objetos na mesma sessão de TCP.  
 Isto permite [pipelining](https://en.wikipedia.org/wiki/HTTP_pipelining) - se
 existem referências a um dado objeto numa dada
-transferência, o servidor pode ordenar o seu envio imediatamente,
-não sendo necessário o utilizador pedir esses ficheiros.
+transferência, o cliente pode pedi-los imediatamente, em vez de ter
+de esperar pela resposta de um pedido antes de fazer o próximo.
 
 ## Interação por HTTP
 
-Existem vários passos para uma interação por HTTP, os quais vão ser descritos de seguida:
+Existem vários passos necessários para ser possível realizar uma interação por HTTP, os quais vão ser descritos de seguida:
 
 ### Ligação por TCP
 
-Inicialmente, é necessária estabelecer uma ligação TCP, conhecida como _3-way handshake_:
+Inicialmente, é necessário estabelecer uma ligação TCP, conhecida como _3-way handshake_:
 
-- O cliente envia ao servidor o comando `SYN` (Synchronize), onde informa o
+- O cliente envia ao servidor o comando `SYN` (_Synchronize_), onde informa o
   servidor que quer estabelecer uma ligação com ele, enviando também o seu setup
   (e.g. Aceita receber mensagens de X bytes divididas em Y segmentos onde os buffers têm tamanho máximo Z);
-- O servidor responde com os comandos `SYN` e `ACK` (Acknowledge), onde afirma
-  que aceita as condições do cliente e informa as suas condições;
+- O servidor responde com os comandos `SYN` e `ACK` (_Acknowledge_), informando as suas condições e afirmando
+  que aceita as condições do cliente, respetivamente;
 - O cliente responde com o comando `ACK`, informando que aceita as condições.
 
 Depois deste _handshake_, a ligação de TCP fica estabelecida e o cliente ou o servidor podem comunicar.  
-O tempo que um pacote demora a ir de um cliente para o servidor e voltar é chamado de **RTT** - Round Trip Time.
+O tempo que um pacote demora a ir de um cliente para o servidor e voltar é chamado de **RTT** (_Round Trip Time_).
 
 Nota-se que, caso a versão de HTTP não seja persistente, esta ligação tem que
 ser estabelecida para cada nova transferência de dados.  
-Segue-se um exemplo da interação numa versão persistente e não persistente,
+Segue-se um exemplo de interação numa versão persistente e não persistente,
 onde o cliente pede (`GET`) HTML e uma imagem:
 
 ![Transferência HTTP Não Persistente](./assets/0002-HTML-Transfer-NonPersistent.svg#dark=3 'Transferência HTTP Não Persistente')
@@ -243,9 +243,9 @@ dados dados dados dados
 ```
 
 - A primeira linha - **request line** - indica o protocolo e que tipo de pedido
-  (_método_) está a ser feito (No exemplo, um pedido `POST`, ou seja, um pedido para publicar algo);
+  (método) está a ser feito (neste caso, um pedido `POST`, ou seja, um pedido para publicar algo);
 - As linhas seguintes - **header lines** - indicam alguma informação ao servidor,
-  como se fossem flags (no exemplo, o `Header` _User-Agent_ indica o tipo de browser e sistema operativo que fez o pedido);
+  como se fossem flags (neste caso, o _header_ `User-Agent` indica o tipo de _browser_ e sistema operativo que fez o pedido);
 - A última linha - **message body** - indica o conteúdo da mensagem a ser submetida.
 
 É possível consultar, no site da Mozilla, os [métodos HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
@@ -266,10 +266,10 @@ Date: Tue, 29 Nov 2022 02:14:22 GMT
 ```
 
 - A primeira linha - **status line** - indica o protocolo e o código de resposta
-  do servidor (no exemplo, o código 200, que significa que o pedido teve sucesso);
+  do servidor (neste caso, o código `200`, que significa que o pedido teve sucesso);
 - As linhas seguintes - **header lines** - assemelham-se aos headers de um pedido.
 - A última linha - **message body** - indica o conteúdo da mensagem que o
-  servidor enviou (no exemplo, um ficheiro HTML).
+  servidor enviou (neste caso, um ficheiro HTML).
 
 Existem vários [códigos de resposta _(response status)_](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) que
 podem ser retornados pelo servidor.  
@@ -277,7 +277,7 @@ Alguns dos exemplos são:
 
 - `200 OK` - O pedido teve sucesso. O objeto pedido está no fim da mensagem;
 - `301 Moved Permanently` - O objeto pedido trocou de sítio. A sua nova
-  localização está no header `Location`;
+  localização está no _header_ `Location`;
 - `400 Bad Request` - O servidor não entendeu o pedido porque o pedido tem erros;
 - `404 Not Found` - O documento pedido não se encontra no servidor;
 
@@ -289,22 +289,22 @@ Mas e se os objetos forem atualizados?
 
 Para resolver esse problema,
 
-- o cliente inclui o Header [`If-Modified-Since: <data>`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-Modified-Since);
-- o servidor responde com `304 Not Modified` se o ficheiro não tiver sido
+- o cliente inclui o _header_ [`If-Modified-Since: <data>`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-Modified-Since);
+- o servidor responde com `304 Not Modified`, se o ficheiro não tiver sido
   alterado ou, caso contrário, com a resposta normal.
 
 ### Cookies
 
 Apesar de HTTP ser _stateless_ (ou seja, cada pedido é feito independentemente,
-sem qualquer conhecimento dos pedidos anteriores), as páginas web conseguem manter
+sem qualquer conhecimento dos pedidos anteriores), as páginas _web_ conseguem manter
 sessões com os seus utilizadores (por exemplo, um carrinho de compras ou um
 sistema de _login_).
 
-Isto é conseguido através de cookies - pedaços de texto que o Browser guarda
-e que envia para os websites quando são visitados.  
-As Cookies são definidas de forma tal que os websites consigam interpretá-las
+Isto é conseguido através de cookies - pedaços de texto que o _browser_ guarda
+e que envia para os _websites_ quando são visitados.  
+As _Cookies_ são definidas de forma tal que os _websites_ consigam interpretá-las
 e associar um estado ou função a cada uma.  
-Por exemplo, para um dado website, a Cookie `awdjopvioawd` pode significar que
+Por exemplo, para uma dada página _web_, a _Cookie_ `awdjopvioawd` pode significar que
 o utilizador que a detém está autenticada como um certo utilizador.
 
 ### Outras versões de HTTP
@@ -315,15 +315,15 @@ As versões são compatíveis com as anteriores.
 
 #### HTTP 2.0
 
-Os destaques destas versão são:
+Os destaques desta versão são:
 
-- a redução dos overheads dos cabeçalhos (são usados códigos para representar o
+- a redução dos _overheads_ dos cabeçalhos (são usados códigos para representar o
   conteúdo dos pedidos e respostas);
-- permitir que várias tabs de um dado browser partilhem a mesma ligação TCP;
-- **Push de servidor**: O servidor analisa o HTML e vê que outros ficheiros são
+- a funcionalidade de permitir que várias _tabs_ de um dado _browser_ partilhem a mesma ligação TCP;
+- **Push de servidor** - O servidor analisa o HTML e vê que outros ficheiros são
   necessários (e consequentemente, serão pedidos) e envia-os assim que possível,
   não sendo necessário um pedido por parte do utilizador;
-- **Mitigação de [HOL blocking](https://en.wikipedia.org/wiki/Head-of-line_blocking)**:
+- **Mitigação de [HOL blocking](https://en.wikipedia.org/wiki/Head-of-line_blocking)** -
   Os objetos são divididos em pacotes e a
   transferência é intercalada, de forma a transmitir os ficheiros
   mais pequenos primeiro:
@@ -336,8 +336,8 @@ Os destaques destas versão são:
 
 #### HTTP 3.0
 
-Invés do protocolo de comunicação, usa-se o protocolo QUIC - mistura do protocolo
-UDP com algumas diferenças e com encriptação.
+No lugar do protocolo de comunicação, usa-se o protocolo QUIC, que é uma mistura do protocolo
+UDP com algumas funcionalidades que se encontram no protocolo TCP e com encriptação.
 
 ## E-mail (SMTP)
 
@@ -345,16 +345,16 @@ Existe desde 1982, sendo um dos protocolos mais antigos.
 
 Os clientes compõem mensagens de e-mail que são transmitidas usando o protocolo
 SMTP para o servidor que hospeda os e-mails.  
-Depois, ainda através do protocolo SMTP, os e-mails são transmitidos pela internet
+Depois, ainda através do protocolo SMTP, os e-mails são transmitidos pela Internet
 até chegarem ao servidor que hospeda o endereço de destino.  
 Finalmente, este servidor entrega o e-mail usando o protocolo _Mail Access_.
 
 ### Protocolo SMTP
 
-Este protocolo é muito simples, apenas contendo 5 comandos:
+Este protocolo é muito simples e apenas contém 5 comandos:
 
-- `HELO` ou `EHLO` - serve para dois servidores SMTP estabelecerem uma ligação entre sí;
-- `MAIL FROM` - indica quem é o remetente (quem envia) do e-mail;
+- `HELO` ou `EHLO` - serve para dois servidores SMTP estabelecerem uma ligação entre si;
+- `MAIL FROM` - indica quem é o remetente do e-mail (quem envia);
 - `RCPT TO` - indica o destinatário do e-mail;
 - `DATA` - indica os dados que se pretendem enviar;
 - `QUIT` - fecha a ligação;
@@ -368,13 +368,13 @@ e respostas, enquanto que o SMTP funciona apenas à base de envio de informaçã
 
 ## DNS - Domain Name System
 
-Para acedermos a um _website_ na internet, normalmente usamos um _hostname_ - um
+Para acedermos a um _website_ na Internet, normalmente usamos um _hostname_ - um
 nome que representa a máquina a que nos queremos ligar.  
 Por exemplo, se nos quisermos ligar a `website.com` e escrevermos esse _hostname_
 na barra de pesquisa, estaremos a ligar-nos a uma máquina cujo IP está mapeado para
 esse _hostname_ (recordar que um endereço IP identifica um _host_ na internet).
 
-A este mapeamento entre _hostnames_ e IPs chama-se [**DNS** - Domain Name System](color:orange).
+A este mapeamento entre _hostnames_ e IPs chama-se [**DNS** (_Domain Name System_)](color:orange).
 
 ### Características do DNS
 
@@ -383,7 +383,7 @@ endereços IP. Note-se que:
 
 - Cada máquina (ou seja, cada IP) pode ter vários _hostnames_ associados.  
   Por exemplo, os hostnames `website.com` e `website.pt` podem ambos mapear para
-  o endereço `123.123.123.123`;
+  o endereço `123.123.123.123`.
   Neste caso, existem as seguintes notações:
   - **Nome Canónico** - _hostname_ oficial associado à máquina;
   - **Nomes de Alias** - outros _hostnames_ que traduzem para a mesma máquina.
@@ -400,11 +400,11 @@ Seria problemático ser uma base de dados centralizada pois:
 
 - Existiria um único ponto de falha possível;
 - Haveria muito tráfego;
-- Os `hosts` geograficamente afastados teriam problemas em se conectar, quer em
-  rapidez como em falta de cobertura;
+- Os `hosts` geograficamente afastados teriam problemas em se conectar, quer por questões de
+  rapidez como por falta de cobertura;
 - Não é escalável.
 
-O serviço de DNS numa máquina corre no porto 53, por defeito, usando o UDP para comunicar.
+O serviço de DNS numa máquina corre no porto 53, por defeito, usando o protocolo UDP para comunicar.
 
 ### Distribuição do DNS
 
@@ -412,18 +412,18 @@ Como mencionado anteriormente, o DNS usa uma estrutura de nomes hierárquica:
 
 1. Começa em servidores **raiz** (_root_), que guardam informação sobre os
    servidores mais altos na hierarquia;
-2. Seguem-se os servidores de DNS **TLD** - Top Level Domain.
-   Estes guardam informação sobre o domínio dos `hostnames`, ou seja, a parte
-   final do `hostname`. Por exemplo: `.com`, `.pt`, `.edu`, `.org`, ...
+2. Seguem-se os servidores de DNS **TLD** (_Top Level Domain_).
+   Estes guardam informação sobre o domínio dos _hostnames_, ou seja, a parte
+   final destes. Por exemplo: `.com`, `.pt`, `.edu`, `.org`, ...
 3. De seguida vêm os servidores de DNS **Autoritários**.
-   Estes guardam informação sobre o primeiro sub-domínio dos hostnames,
+   Estes guardam informação sobre o primeiro sub-domínio dos _hostnames_,
    ou seja, a parte que antecede o domínio. Por exemplo: `website.com`, `organização.org`, etc.
 4. Os servidores de DNS **Autoritários** também guardam informação sobre os sub-domínios
    dos sub-domínios, recursivamente.
    Por exemplo, `loja.website.com`, `pandas.organização.org`, etc.
 
 Pode-se visualizar um esquema visual que exemplifica melhor a estrutura hierárquica:
-![Hierarquia DNS](./assets/0003-DNSHierarchy.svg#dark=3 'Hierarquia DNS')
+![Hierarquia DNS](./assets/0002-DNSHierarchy.svg#dark=3 'Hierarquia DNS')
 
 ### Resolver um Hostname
 
@@ -440,7 +440,7 @@ Vai acontecer o seguinte processo, assumindo-se que se quer resolver o _hostname
    que guarda informação sobre os domínios `.com` (sendo então um servidor TLD) e
    dá o seu endereço ao servidor local;
 4. O servidor local pergunta ao servidor dos nomes `.com` se conhece o _hostname_ `admin.website.com`.
-5. Este responde que não sabe mas conhece o servidor que guarda os nomes de `website.com`,
+5. Este responde que não sabe, mas conhece o servidor que guarda os nomes de `website.com`,
    novamente dando o seu endereço IP;
 6. O servidor local então pergunta a `website.com` pelo endereço `admin.website.com`;
 7. Este responde-lhe com o endereço IP desejado;
@@ -458,10 +458,10 @@ Em Portugal, existem [5 cópias de servidores _root_](https://root-servers.org/)
 
 ### DNS Caching
 
-Visto que o processo para resolver um hostname apresentado envolve imensa
+Visto que o processo apresentado para resolver um _hostname_ envolve imensa
 comunicação entre vários servidores espalhados por diversos sítios e muito distantes,
 quer-se evitar ao máximo que isso seja feito. Para tal, podem-se guardar os
-mapeamentos em Cache - **DNS Caching**.
+mapeamentos em _Cache_ - **_DNS Caching_**.
 
 Quando um servidor de nome aprende um mapeamento, ele guarda-o em cache.  
 Esta entrada dura algum tempo (normalmente 2 dias), sendo depois apagada, visto que,
@@ -470,7 +470,7 @@ se existirem alterações no mapeamento, estas não são propagadas para os serv
 de nome (seria impraticável uma mudança ser anunciada para todos os servidores de nome).
 
 Para além de mapeamentos, os servidores de TLD também são normalmente mantidos em
-Cache, o que faz com que os servidores _root_ não sejam visitados com frequência.
+_Cache_, o que faz com que os servidores _root_ não sejam visitados com frequência.
 
 ### DNS Record
 
@@ -485,7 +485,7 @@ Uma entrada de DNS - **DNS Record** - tem o seguinte formato:
   - Se `tipo` = CNAME, `nome` = alias para o nome canónico/real
     (e.g. `website.com` é na verdade `server123.backup1.outro.website.com`) e
     `valor` = nome canónico;
-  - Se `tipo` = MX, `nome` = endereço de e-mail e `valor` = nome do servidor de
+  - Se `tipo` = MX, `nome` = _hostname_ e `valor` = nome do servidor de
     mail associado (e.g. enviar um e-mail para `contacto@website.com` vai comunicar com
     o servidor de mail em `mail.website.com`);
 
@@ -499,16 +499,16 @@ Para fazer pedidos de DNS, podem ser usadas as seguintes ferramentas Linux:
 
 ### DDNS - Dynamic DNS
 
-Os Routers "lá de casa" têm um IP que não é fixo, sendo trocado de alguns dias em alguns dias.  
+Os _routers_ "lá de casa" têm um IP que não é fixo, sendo trocado periodicamente.  
 Isto é problemático caso queiramos ter um servidor a correr na nossa casa.
 
-Para resolver isso, uma solução é comprar um IP fixo à operadora de rede.  
-Outra solução, mais interessante, é o **DDNS** - Dynamic DNS.
+Para resolver isso, uma solução é comprar um IP fixo à operadora de rede (ISP).  
+Outra solução, mais interessante, é o **DDNS** (_Dynamic DNS_).
 
 O DDNS permite notificar um servidor de DNS que existiram alterações e pedir
 para alterar as suas configurações (ou seja, alterar o endereço IP associado
-a um `hostname`) imediatamente.  
-Para isso, é necessário habilitar a opção de DDNS no Router "lá de casa" e
+a um _hostname_) imediatamente.  
+Para isso, é necessário habilitar a opção de DDNS no _router_ e
 fazer a configuração para um servidor de DDNS.
 
 ### Segurança de DNS
@@ -519,7 +519,7 @@ Existem vários tipos de ataques possíveis a DNS:
   fazendo com que fiquem fora do ar.  
   Este ataque até hoje não funcionou, visto que existe filtro de tráfego e
   os servidores _root_ são raramente acedidos.
-- Ataques **DDoS** a servidores TLD. Mais perigosos.
+- Ataques **DDoS** a servidores TLD. São mais perigosos.
 - Ataques de _Spoofing_, ou seja, uma máquina maliciosa faz-se passar por um
   servidor de DNS e redireciona os utilizadores para website errados.
 
@@ -534,29 +534,29 @@ Os _peers_ não precisam de estar conectados continuamente e podem mudar de IP.
 
 Na arquitetura Cliente-Servidor, a comunicação é feita da seguinte forma:
 
-![Arquitetura Cliente-Servidor](./assets/0003-clientServer.svg#dark=3 'Arquitetura Cliente-Servidor')
+![Arquitetura Cliente-Servidor](./assets/0002-clientServer.svg#dark=3 'Arquitetura Cliente-Servidor')
 
 Ou seja, se três clientes pedem um ficheiro, o servidor terá que enviar o mesmo ficheiro três vezes.
 
 Já na arquitetura P2P, o que acontece é o seguinte:
 
-![Arquitetura P2P](./assets/0003-p2p.svg#dark=3 'Arquitetura P2P')
+![Arquitetura P2P](./assets/0002-p2p.svg#dark=3 'Arquitetura P2P')
 
-Ou seja, os clientes (_peers_) partilham a informação entre sí.
+Ou seja, os clientes (_peers_) partilham a informação entre si.
 
 ### Tempo de distribuição para N clientes
 
 Podemos comparar o tempo de distribuição de ficheiros para N clientes entre as duas arquiteturas.  
-Nas contas seguintes, considera-se que o tempo do tráfego passar pela internet
-é nulo, ou seja, é como se todos os hosts estivessem lado a lado.
+Nas contas seguintes, considera-se que o tempo do tráfego passar pela Internet
+é nulo, ou seja, é como se todos os _hosts_ estivessem lado a lado.
 
 Seja,
 
 - $N$ o número de clientes;
 - $L$ o tamanho de um ficheiro;
 - $u_s$ a velocidade de upload do servidor;
-- $u_i$ a velocidade de umload do host $0 \leq i < N$;
-- $d_i$ a velocidade de download do host $0 \leq i < N$.
+- $u_i$ a velocidade de upload do cliente, $0 \leq i < N$;
+- $d_i$ a velocidade de download do cliente, $0 \leq i < N$.
 
 #### Cliente-Servidor
 
@@ -573,7 +573,7 @@ Do lado do cliente,
 - Portanto, o pior cliente demora $\frac{L}{\op{min}(d_i)}$.
 
 Como queremos considerar o pior caso, temos que escolher o tempo mais lento entre
-os dois: O servidor fazer upload dos ficheiros todos e o cliente mais lento fazer download do ficheiro.
+o servidor fazer upload dos ficheiros todos e o cliente mais lento fazer download do ficheiro.
 
 A equação do tempo é então:
 
@@ -592,12 +592,12 @@ Do lado do cliente,
 - Para fazer download de um ficheiro, o cliente $i$ continua com a velocidade
   $\frac{L}{d_i}$ portanto, no pior caso, a velocidade é $\frac{L}{\op{min}(d_i)}$;
 - Contudo, agora cada cliente tem que enviar a sua parte para todos os outros
-  clientes e receber as partes restantes!
+  clientes e receber as partes restantes;
 - No total, tem que ser feito o download de $N \times L$ bits, pois existem
-  $N$ _peers_ e cada um tem que baixar o ficheiro todo (vindo em vários pacotes), que corresponde a $L$.
+  $N$ _peers_ e cada um tem que baixar o ficheiro todo (vindo em vários pacotes), que corresponde a $L$;
 - A velocidade a que é feito esse download depende das velocidades de upload do servidor,
-  $u_s$ (para enviar o ficheiro repartido para os hosts) e das velocidades juntas
-  de upload de cada host, $\sum{u_i}$, no melhor caso.
+  $u_s$ (para enviar o ficheiro repartido para os _hosts_) e das velocidades juntas
+  de upload de cada _host_, $\sum{u_i}$, no melhor caso.
 
 Novamente, o objetivo é considerar o pior caso, ou seja, o caso que demora mais tempo.  
 Temos que comparar:

@@ -34,17 +34,11 @@ body.dark-mode .content a:hover {
   filter: brightness(120%);
 }
 
-.content img,
-.content object {
+.content img {
   max-width: 100%;
   /* center images */
   display: block;
   margin: 0 auto;
-}
-
-.content .object-svg-inline {
-  display: flex;
-  justify-content: center;
 }
 
 .custom-container {
@@ -108,6 +102,10 @@ body.dark-mode .content a:hover {
 .content p,
 .content ul {
   line-height: 1.7;
+}
+
+body.text-justify .content {
+  text-align: justify;
 }
 
 .content table {
