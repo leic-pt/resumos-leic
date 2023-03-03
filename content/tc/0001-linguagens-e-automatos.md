@@ -245,14 +245,14 @@ Ora, procurando seguir os passos descritos na descrição acima:
 
 $$
 \text{Estados Acessíveis} = \{q_{in}, q_1, q_2, q_4, q_5\}\\
-\text{Estados Produtivos} = \{q_{in}, q_1, q_2, q_3, q_4, q_5, q_6\}
+\text{Estados Produtivos} = \{q_{in}, q_1, q_2, q_3, q_4, q_6\}
 $$
 
 Pela definição da utilidade de um estado (um estado diz-se [útil](color:red) caso seja acessível e produtivo), podemos dizer que a interseção dos conjuntos acima corresponde ao conjunto dos estados úteis do autómato, e que portanto:
 
 $$
-\text{Estados Úteis} = Ac \cap Prd = \{q_{in}, q_1, q_2, q_4, q_5\}\\
-\text{Estados Inúteis} = Q \setminus Ut = \{q_3, q_6, q_7\}
+\text{Estados Úteis} = Ac \cap Prd = \{q_{in}, q_1, q_2, q_4\}\\
+\text{Estados Inúteis} = Q \setminus Ut = \{q_3, q_5, q_6, q_7\}
 $$
 
 :::
