@@ -41,7 +41,8 @@ Por exemplo, um serviço de ficheiros apresenta operações de _escrita_, _leitu
 Serviços restringirem o acesso a recursos através de um conjunto bem definido de operações, reflete a organização de sistemas distribuídos, em específico a comunicação por mensagens.
 É necessário que os recursos sejam geridos por um processo que esponha uma interface de comunicação.
 
-Um **Servidor** é um processo num computador numa rede que aceita pedidos de outros processos para cumprir um serviço e devolve uma resposta. Os processos que fazem pedidos são chamados **Clientes**, e podem estar em qualquer computador da rede.
+Um **Servidor** é um processo num computador numa rede que aceita pedidos de outros processos para cumprir um serviço e devolve uma resposta.
+Os processos que fazem pedidos são chamados **Clientes** e podem estar em qualquer computador da rede.
 
 ### Desafios
 
@@ -98,13 +99,15 @@ Outras considerações importantes para além das de desempenho:
 Cada computador num sistema distribuido tem o seu próprio relógio, que pode ser usado por processos para obter o tempo atual.
 No entanto, mesmo que dois processos em computadores diferentes obtenham valores para o tempo atual ao mesmo tempo, não é garantido que os valores sejam iguais.
 
-Isto é causado pelo facto de que os relógios, com o passar do tempo, se afastam do tempo real e a taxa a que este afastamento ocorre varia de computador para computador. Mesmo que inicialmente os relógios do sistema distribuido estejam sincronizados, eventualmente irão divergir.
+Isto é causado pelo facto de que os relógios, com o passar do tempo, se afastam do tempo real e a taxa a que este afastamento ocorre varia de computador para computador.
+Mesmo que inicialmente os relógios do sistema distribuido estejam sincronizados, eventualmente irão divergir.
 
 A **driva do relógio** é a taxa a que o relógio se afasta do tempo real.
 
 #### Duas Variantes do Modelo de Interação
 
-Na prática, é dificil colocar limites no tempo de execução de processos, latência ou na driva de relógios. Sendo assim, usamos os dois casos extremos para criar variantes simples do modelo.
+Na prática, é dificil colocar limites no tempo de execução de processos, latência ou na driva de relógios.
+Sendo assim, usamos os dois casos extremos para criar variantes simples do modelo.
 
 - **Sistema Distribuido Síncrono** - O tempo de execução de cada passo de um processo, a latência **e** a driva do relógio têm todos **limites superiores e inferiores conhecidos**. Simplificam os problemas a resolver, mas são pouco comuns na prática.
 - **Sistema Distribuido Assíncrono** - O tempo de execução do processo, a latência **ou** a driva do relógio são **arbitrários**. Na prática, a maioria dos sistemas distribuidos são deste tipo.
@@ -118,20 +121,20 @@ O modelo de faltas define os tipos de faltas que podem ocorrer de forma a permit
 
 #### Faltas Silenciosas (Omissão)
 
-Uma falha silenciosa ocorre quando um processo ou canal de comunicação deixa de realizar a sua tarefa. Podem afetar tanto processos como canais de comunicação.
+Uma falha silenciosa ocorre quando um componente do sistema distribuido deixa de realizar a sua função.
 
-#### Faltas Silenciosas de Processo
+As faltas silenciosas podem tanto ocorrer em processos como em canais de comunicação.
 
-Uma **falta silenciosa de processo** ocorre quando um processo pára e não responde a nenhum estímulo externo. Caso seja detetável por outros processos é designada por **fail-stop**, caso contrario é designada por **crash**.
+Uma **falta silenciosa de processo** ocorre quando um processo pára e não responde a nenhum estímulo externo. 
+Caso seja detetável por outros processos é designada por **fail-stop**, caso contrario é designada por **crash**.
 
 Num sistema distribuido **síncrono**, todas as faltas silenciosas de processo são **detetáveis** por _timeouts_ dado que é conhecido o limite superior do tempo de execução e da latência.
 Ou seja, são do tipo fail-stop.
 
 Por outro lado, num sistema distribuido **assíncrono**, é muito díficil distinguir se um processo falhou ou se apenas ocorreu um atraso (na execução ou na transmissão).
 
-#### Faltas Silenciosas de Comunicação
-
 Uma **falta silenciosa de comunicação** ocorre quando um canal de comunicação não transmite uma mensagem.
+Isto pode ocorrer em 3 etapas distintas do processo de comunicação, ilustrado na figura abaixo.
 
 ```mermaid
 flowchart LR
@@ -141,6 +144,34 @@ flowchart LR
     rcv[Processo Recetor]
     snd-->snd-b-->|Canal de comunicação|rcv-b-->rcv
 ```
+
+Caso a mensagem seja perdida antes de chegar ao buffer de emissão, é designada por **send-omission**.
+
+Caso seja perdida depois de chegar ao buffer de receção, mas antes de chegar ao processo recetor, é designada por **receive-omission**.
+
+Por fim, se for perdida no próprio canal de comunicação, trata-se de uma **channel-omission**.
+
+#### Faltas Arbitrárias (Bizantinas)
+
+As faltas préviamente abordadas são comuns e consideradas **benignas**, por outro lado, faltas arbitrárias são o pior cenário possível, em que qualquer erro pode ocorrer.
+
+Uma **falta arbitrária de processo** não responde ou responde de forma errada a um estímulo, ou quando um processo responde sem receber qualquer estímulo.
+Não é garantido que a falta ocorra de forma consistente, tornando a deteção destas faltas muito difícil.
+
+Uma **falta arbitrária de comunicação** ocorre quando um canal de comunicação altera os conteúdos de uma mensagem, quando uma mensagem é repetida, ou quando é entregue uma mensagem que não existe. Como será visto já de seguida, estas faltas são mais simples de mascarar do que as de processo.
+
+#### Mascarar Faltas
+
+Cada componente de um sistema distribuido é geralmente construído de um conjunto de outros componentes.
+É possível construir componentes confiáveis a partir de componentes que exibem faltas.
+
+Conhecendo as características das faltas de cada componente, permite que um novo serviço mascare as faltas dos componentes subjacentes.
+Define-se **mascarar** como esconder por completo a falta ou torná-la noutra falta mais aceitável.
+
+Alguns exemplos de serviços que mascaram faltas:
+
+- **Checksums** podem ser usadas para detetar corrupção de mensagens, e **números de sequência** para detetar repetição de mensagens. Mascarando assim faltas arbitrárias de comunicação.
+- O protocolo [**TCP**](/rc/transporte) mascara faltas silenciosas de comunicação, garantido que as mensagens são entregues através de retransmissões.
 
 ### Modelo de Segurança
 
