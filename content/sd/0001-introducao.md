@@ -125,7 +125,7 @@ Uma falha silenciosa ocorre quando um componente do sistema distribuido deixa de
 
 As faltas silenciosas podem tanto ocorrer em processos como em canais de comunicação.
 
-Uma **falta silenciosa de processo** ocorre quando um processo pára e não responde a nenhum estímulo externo. 
+Uma **falta silenciosa de processo** ocorre quando um processo pára e não responde a nenhum estímulo externo.
 Caso seja detetável por outros processos é designada por **fail-stop**, caso contrario é designada por **crash**.
 
 Num sistema distribuido **síncrono**, todas as faltas silenciosas de processo são **detetáveis** por _timeouts_ dado que é conhecido o limite superior do tempo de execução e da latência.
