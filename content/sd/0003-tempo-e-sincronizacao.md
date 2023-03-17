@@ -21,11 +21,11 @@ type: content
 Num sistema centralizado não existe ambiguidade quanto ao tempo.
 Quando um processo A pretende saber o tempo atual, pode consultar o relógio do
 sistema.
-Se momentos mais tarde o processo B obter o tempo, este será superior (ou
+Se momentos mais tarde o processo B obtiver o tempo, este será superior (ou
 possivelmente igual) ao tempo obtido pelo processo A.
 
 Num sistema distribuido o problema é mais complexo.
-Não existe tempo global, cada computador tem o seu próprio relógio, e o tempo
+Não existe tempo global, cada computador tem o seu próprio relógio e o tempo
 que estes relógios indicam pode ser diferente.
 
 ## Relógios Físicos
@@ -41,7 +41,7 @@ Como qualquer outra medição, existe uma incerteza associada à frequência do
 cristal, e por isso a frequência de ticks de relógio pode variar entre relógios.
 Mesmo para o mesmo relógio, a frequência pode variar com fatores externos como
 a temperatura. A variação é normalmente pequena, mas o erro acumulado pode levar
-a que dois relógios tenham uma diferença significativa no tempo que contam.
+a que dois relógios apresentem uma diferença significativa no tempo que contam.
 
 ### Tempo Universal Coordenado (UTC)
 
@@ -85,6 +85,16 @@ $$
 1-\rho \leq drift\_rate(p) \leq 1+\rho
 $$
 
+Diz-se que um relógio está **correto** quando o seu drift rate respeita a
+especificação do fabricante.
+Esta condição impede saltos no tempo, porém, tal nem sempre é desejável.
+Uma condição mais flexível é a de **monotonia**, que impede que o relógio
+retroceda no tempo:
+
+$$
+t' > t \Rightarrow C_p(t') > C_p(t)
+$$
+
 Para conjuntos de relógios, pode-se ainda falar de **precisão** e **exatidão**.
 
 ![Precisão e Exatidão](./assets/0003-precision-vs-accuracy.png#dark=2)
@@ -106,6 +116,201 @@ $$
 $$
 
 ### Sincronização de Relógios Físicos
+
+Num sistema distribuído em que uma das máquinas está instalada com um recetor de
+UTC, pode-se usar este relógio como referência para sincronizar os outros.
+Trata-se de **sincronização externa**, em que é usada uma referência externa para
+obter **exatidão** e **precisão** no sistema.
+
+Porém, a exatidão nem sempre é relevante, sendo mais importante a **precisão**
+para que todos os nós do sistema concordem sobre o tempo.
+Nestes casos usa-se **sincronização interna**, em que os relógios são
+sincronizados entre si.
+
+#### Algoritmo de Cristian
+
+O Algoritmo de Cristian é um algoritmo de **sincronização externa** que usa um
+servidor de tempo.
+
+O processo $p$ envia uma mensagem $m_1$ ao servidor de tempo $S$ e espera pela
+resposta $m_2$, que inclui $C_S(t_{S,m_2})$, com $t_{S,m_2}$ sendo o momento em
+que a resposta $m_2$ sai de $S$.
+
+```mermaid
+sequenceDiagram
+    p->>Servidor de tempo: m₁: What is the time?
+    Servidor de tempo->>p: m₂: My clock says this.
+```
+
+O processo $p$ não pode usar o tempo incluído na mensagem $m_2$, pois estaria a
+desprezar o tempo de transmissão. Assim, $p$ mede o $RTT$ e, assumindo que o
+tempo de transmissão de $p$ para $S$ é igual ao de $S$ para $p$, estima o tempo
+atual como:
+
+$$
+C_p(t) \leftarrow C_S(t_{S,m_2}) + \frac{RTT}{2}
+$$
+
+Caso o ajuste de tempo requira um avanço no tempo, ocorre diretamente.
+No entanto, se for necessário um retrocesso, de modo a não se violar a
+**monotonia** com um salto para trás, a frequência de clock ticks é reduzida,
+até o tempo estimado ser alcançado.
+
+É importanto notar que não é garantido simetria no tempo de transmissão, pelo
+que a estimativa do tempo tem alguma incerteza.
+No pior caso, em que uma das mensagens é enviada instantaneamente mas a resposta
+demora $RTT$, o tempo estimado estará errado por $\frac{RTT}{2}$.
+A precisão deste algoritmo é, portanto, $\frac{RTT}{2}$.
+
+Pode-se melhorar a precisão caso se conheça o tempo mínimo de transmissão,
+ficando $\frac{RTT - RTT_{min}}{2}$.
+
+Este algoritmo é simples, no entanto, tem um único ponto de falha. Se o
+servidor de tempo falhar, o sistema não consegue sincronizar os relógios.
+Cristian propõe que o pedido seja feito em _multicast_ a vários servidores de
+tempo, selecionando o que responder primeiro, resultando na melhor precisão.
+
+#### Algoritmo de Berkeley
+
+O Algoritmo de Berkeley é um algoritmo de **sincronização interna**.
+Por simplicidade, o exemplo será dado para um sistema com 3 processos, o
+processo coordenador $C$ e os processos $p$ e $q$, mas o algoritmo pode ser
+estendido a qualquer número de processos.
+
+Neste algoritmo, é eleito um coordenador $C$, responsável por periodicamente
+envir pedidos a todos os outros processos, que devem responder com o seu tempo.
+
+```mermaid
+sequenceDiagram
+    participant p
+    Coordenador->>p: m₁: What is the time?
+    p->>Coordenador: m₂: My clock says this.
+    Coordenador->>q: m₃: What is the time?
+    q->>Coordenador: m₄: My clock says this.
+    Coordenador->>p: m₅: Offset your clock by this.
+    Coordenador->>q: m₆: Offset your clock by this.
+```
+
+O coordenador recebe as respostas $m_2$ e $m_4$ e calcula a média dos
+tempos, incluindo o próprio:
+
+$$
+T_{avg} = \frac{C_p(t_{p,m_2}) + C_q(t_{q,m_4}) + C_C(t)}{3}
+$$
+
+O coordenador calcula a diferença entre o tempo médio e o tempo de cada
+processo e envia a diferença para que os processos ajustem o seu relógio.
+As diferenças podem ser positivas ou negativas e são calculadas da seguinte
+forma:
+
+$$
+\Delta t_{p} = T_{avg} - C_p(t_{p,m_2})
+$$
+
+$$
+\Delta t_{q} = T_{avg} - C_q(t_{q,m_4})
+$$
+
+$$
+\Delta t_{C} = T_{avg} - C_C(t)
+$$
+
+Cada processo ajusta o seu relógio, de acordo com a diferença recebida.
+
+O algoritmo apresentado foi simplificado, na versão real é tido em conta o
+tempo de transmissão, da forma como foi feito no Algoritmo de Cristian.
+
+Em caso de falha do coordenador, um novo coordenador é eleito. Falar-se-á de
+eleições na próxima publicação.
+
+#### Network Time Protocol (NTP)
+
+Tanto o Algoritmo de Cristian como o Algoritmo de Berkeley são algoritmos
+desenhados para operar em intranets. O NTP define um protocolo distribuir
+informação de tempo através da internet.
+
+Os objetivos de desenho do NTP são:
+
+- Prestar um serviço que permita que os clientes na Internet sejam sincronizados
+  com precisão com o UTC.
+- Prestar um serviço confiável que possa sobreviver a longos períodos de perda
+  de conectividade.
+- Permitir que os clientes se resincronizem com frequência suficiente para
+  compensar as taxas de desvio encontradas na maioria dos computadores.
+- Proteger contra interferências com o serviço de tempo, quer sejam intencionais
+  ou acidentais.
+
+O protocolo NTP baseia-se no Algoritmo de Cristian, mas em vez apenas medir o
+$RTT$, registam-se os valores reportados por $p$ para o envio de $m_1$ e
+recepção de $m_2$, $C_p(t_{p,m_1})$ e $C_p(t_{p,m_2})$, e os valores reportados
+por $q$ para a recepção de $m_1$ e envio de $m_2$, $C_q(t_{q,m_1})$ e
+$C_q(t_{q,m_2})$.
+
+```mermaid
+sequenceDiagram
+    p->>q: m₁: When do you receive this message?
+    q->>p: m₂: I got it then and am sending it now.
+```
+
+Calcula-se a diferença entre os tempos reportados entre o envio e recepção de
+cada mensagem:
+
+$$
+\delta_{m_1} = C_q(t_{q,m_1}) - C_p(t_{p,m_1})
+$$
+
+$$
+\delta_{m_2} = C_p(t_{p,m_2}) - C_q(t_{q,m_2})
+$$
+
+Podemos, por fim, calcular a diferença dos deltas para obter o **offset**
+$\theta$ e a média para obter o **delay** $\delta$:
+
+$$
+\theta = \frac{\delta_{m_1} - \delta_{m_2}}{2}
+\qquad
+\delta = \frac{\delta_{m_1} + \delta_{m_2}}{2}
+$$
+
+O _offset_ é uma estimativa do $skew(p,q)$ com incerteza de $\frac{\delta}{2}$.
+Quanto menor o _delay_, melhor a estimativa.
+O algoritmo armazena os últimos 8 pares $(\theta, \delta)$, escolhendo de entre
+estes o par com o menor $\delta$ de forma a obter o $\theta$ mais preciso.
+Este valor é então usado para ajustar o relógio de $p$:
+
+$$
+C_p(t) \leftarrow C_p(t) + \theta
+$$
+
+O protocolo NTP pode funcionar em 3 modos:
+
+- **Multicast**: O procedimento descrito anteriormente não se aplica e
+  simplesmente é enviado o tempo atual em multicast para todos os clientes.
+  Só se deve usar este modo em LANs de alta velocidade.
+- **Chamada a procedimento**: O protocolo decorre de acordo com o descrito
+  anteriormente.
+- **Simétrico**: O protocolo decorre de acordo com o descrito anteriormente,
+  mas a sincronização é feita em ambos os sentidos.
+
+Aplicar NTP de forma simétrica implica que não só $p$ afeta o relógio de $q$,
+como também $q$ afeta o relógio de $p$. Isto pode causar problemas, caso um dos
+relógios seja mais exato que o outro.
+Para resolver este problema, o NTP divide as máquinas em níveis (ou _strata_):
+
+- Uma máquina de nível 1 é um servidor com um relógio de referência, como é o
+  caso de um computador instalado com um receptor de UTC.
+- Uma máquina de nível 2 sincroniza com uma máquina de nível 1.
+- Uma máquina de nível 3 sincroniza com uma máquina de nível 2, etc...
+
+Uma máquina só ajusta o seu relógio com uma máquina de nível inferior.
+
+:::info[AJUDA AGRADECE-SE]
+Honestamente, não fiquei com grande intuição sobre como é que o NTP funciona.
+Se estás a ler isto e tens uma explicação melhor, que transmita intuição sobre
+o protocolo e não seja só debitar fórmulas, por favor, diz-me algo no discord.
+
+\- Luís
+:::
 
 ## Eventos e Relógios Lógicos
 
