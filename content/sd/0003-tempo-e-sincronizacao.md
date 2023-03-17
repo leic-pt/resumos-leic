@@ -71,7 +71,7 @@ $$
 skew(p,q) = C_p(t) - C_q(t)
 $$
 
-A **taxa de deriva** é a taxa a que um dado relógio se afasta do tempo de
+A **driva do relógio** é a taxa a que um dado relógio se afasta do tempo de
 referência:
 
 $$
