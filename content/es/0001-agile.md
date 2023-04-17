@@ -1,12 +1,17 @@
 ---
 title: Agile
 description: >-
-  TODO
+  Agile, Stories e Tasks.
+  Scrum.
 path: /es/agile
 type: content
 ---
 
 # Agile
+
+```toc
+
+```
 
 O método [**Agile**](color:green) contrasta com _plan-driven development_ por se focar
 na adição rápida e [**incremental**](color:yellow) de funcionalidade, ter uma rápida
