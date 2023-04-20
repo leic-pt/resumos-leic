@@ -136,11 +136,11 @@ O processo $p$ envia uma mensagem $m_1$ ao servidor de tempo $S$ e espera pela
 resposta $m_2$, que inclui $C_S(t_{S,m_2})$, com $t_{S,m_2}$ sendo o momento em
 que a resposta $m_2$ sai de $S$.
 
-```mermaid
+<!-- ```mermaid
 sequenceDiagram
     p->>Servidor de tempo: m₁: What is the time?
     Servidor de tempo->>p: m₂: My clock says this.
-```
+``` -->
 
 O processo $p$ não pode usar o tempo incluído na mensagem $m_2$, pois estaria a
 desprezar o tempo de transmissão. Assim, $p$ mede o $RTT$ e, assumindo que o
@@ -180,7 +180,7 @@ estendido a qualquer número de processos.
 Neste algoritmo, é eleito um coordenador $C$, responsável por periodicamente
 envir pedidos a todos os outros processos, que devem responder com o seu tempo.
 
-```mermaid
+<!-- ```mermaid
 sequenceDiagram
     participant p
     Coordenador->>p: m₁: What is the time?
@@ -189,7 +189,7 @@ sequenceDiagram
     q->>Coordenador: m₄: My clock says this.
     Coordenador->>p: m₅: Offset your clock by this.
     Coordenador->>q: m₆: Offset your clock by this.
-```
+``` -->
 
 O coordenador recebe as respostas $m_2$ e $m_4$ e calcula a média dos
 tempos, incluindo o próprio:
@@ -246,11 +246,11 @@ recepção de $m_2$, $C_p(t_{p,m_1})$ e $C_p(t_{p,m_2})$, e os valores reportado
 por $q$ para a recepção de $m_1$ e envio de $m_2$, $C_q(t_{q,m_1})$ e
 $C_q(t_{q,m_2})$.
 
-```mermaid
+<!-- ```mermaid
 sequenceDiagram
     p->>q: m₁: When do you receive this message?
     q->>p: m₂: I got it then and am sending it now.
-```
+``` -->
 
 Calcula-se a diferença entre os tempos reportados entre o envio e recepção de
 cada mensagem:
@@ -304,7 +304,7 @@ Para resolver este problema, o NTP divide as máquinas em níveis (ou _strata_):
 
 Uma máquina só ajusta o seu relógio com uma máquina de nível inferior.
 
-:::info[AJUDA AGRADECE-SE]
+:::details[help pls]
 Honestamente, não fiquei com grande intuição sobre como é que o NTP funciona.
 Se estás a ler isto e tens uma explicação melhor, que transmita intuição sobre
 o protocolo e não seja só debitar fórmulas, por favor, diz-me algo no discord.
@@ -314,11 +314,150 @@ o protocolo e não seja só debitar fórmulas, por favor, diz-me algo no discord
 
 ## Eventos e Relógios Lógicos
 
+Nem sempre é necessário contar o tempo de forma exata.
+Se dois processos não interagem, a falta de sincronização não pode ser
+observada, pelo que não poderá causar problemas.
+Para além disso, em muitos casos, o que realmente é relevante é a **ordem em que
+eventos ocorrem** e não o tempo absoluto.
+
+Trata-se de um **evento** qualquer operação que transforma o estado do processo.
+Para além de alterações de estado, a recepção $recv(m)$ e o envio $send(m)$ de
+qualquer mensagem $m$ também são eventos.
+
+Num só processo $p_i$, é trivial determinar a ordem em que eventos ocorrem.
+Diz-se que $e$ **antecede** $e'$ no processo $p_i$ se $e$ é obsevado por $p_i$
+antes de $e'$.
+Esta relação pode ser representada por $e \rightarrow_i e'$.
+
+:::details[Exemplo]
+![Eventos em Três Processos](./assets/0003-events-at-three-processes.png#dark=2)
+
+Algumas relações de antecedência em $p_i$ encontradas no diagrama:
+- $a \rightarrow_0 b$
+- $h \rightarrow_1 i$
+- $k \rightarrow_2 m$
+- $b \rightarrow_0 f$
+:::
+
+Em sistemas distribuídos, expande-se a definição de _happens-before_ para
+incluir transmissões de mensagens.
+Diz-se que $e$ **antecede** $e'$ se antecede em algum processo ou se
+correspondem ao envio e recepção de uma mesma mensagem. Para além disso,
+antecedência é transitiva.
+
+- **HB1**: Se $\exists{p_i}: e \rightarrow_i e'$, então $e \rightarrow e'$. 
+- **HB2**: Se $\exists{m}: e = send(m) \wedge e' = recv(m)$, então
+  $e \rightarrow e'$.
+- **HB3**: Se $e \rightarrow e' \wedge e' \rightarrow e''$, então
+  $e \rightarrow e''$.
+
+Com estas definições, observa-se que para uma sequência de eventos
+$e_i, i = 0..N$, se for possível aplicar HB1 ou HB2 a qualquer par de eventos
+$(e_i, e_{i+1})$, então, por HB3, $e_0 \rightarrow e_N$.
+
+Nem todos os eventos têm uma ordem de antecedência definida.
+Diz-se que eventos $e$, $e'$ são **concorrentes** sse
+$e \nrightarrow e' \wedge e' \nrightarrow e$. Esta relação é representada por
+$e \parallel e'$. Nada se pode dizer (nem necessita ser dito) sobre a ordem em
+que estes eventos ocorrem.
+
+:::details[Exemplo]
+![Eventos em Três Processos](./assets/0003-events-at-three-processes.png#dark=2)
+
+Algumas relações de antecedência encontradas no diagrama:
+- $a \rightarrow b$
+- $h \rightarrow c$
+- $b \rightarrow j$
+- $h \rightarrow m$
+Algumas relações de concorrência encontradas no diagrama:
+- $a \parallel l$
+- $b \parallel h$
+:::
+
+### Relógio Lógico de Lamport
+
+Leslie Lamport propôs um algoritmo simples para capturar a ordem de eventos num
+sistema distribuído.
+Cada processo $$p_i$$ mantém um relógio lógico **monótono** $$L_i$$ que pode ser
+usado para atribuir uma estampilha temporal $$L_i(e)$$ a cada evento $e$.
+Quando o processo em que se atribuiu a estampilha não é relevante, usa-se
+$$L(e)$$.
+
+Os relógios são atualizados de acordo com as seguintes regras:
+- **LC1**: $$L_i$$ é incrementado sempre que um evento é observado por $$p_i$$ tal que $$L_i \coloneqq L_i + 1$$.
+- **LC2**: Quando $$p_i$$ envia uma mensagem $$m$$, inclui na mensagem a estampilha $$t$$ com o valor de $$L_i$$ após executar **LC1**.
+- **LC3**: Quando $$p_i$$ recebe uma mensagem $$m$$, atualiza $$L_i$$ tal que $$L_i \coloneqq \max(L_i, t) + 1$$.
+
+Em **LC3**, o $$+1$$ resulta da aplicação de **LC1** ao evento de receção da
+mensagem.
+
+:::details[Exemplo]
+![Logical Clocks](./assets/0003-events-at-three-processes-lamport.png#dark=2)
+
+$$P_0$$, $$P_1$$ e $$P_2$$ mantêm, respetivamente, os relógios $$L_0$$, $$L_1$$
+e $$L_2$$.
+
+Quando $$P_1$$ envia a mensagem $$m_{h \rightarrow c}$$ inclui $$t = 1$$ na
+mensagem.
+Quando $$P_0$$ recebe a mensagem, compara $$L_0$$ com a estampilha recebida:
+
+$$
+L_0 \coloneqq \max(L_0, t) + 1 = \max(2, 1) + 1 = 3
+$$
+
+Quando $$P_0$$ envia a mensagem $$m_{d \rightarrow m}$$ inclui $$t = 4$$ na
+mensagem.
+Quando $$P_2$$ recebe a mensagem, compara $$L_2$$ com a estampilha recebida:
+
+$$
+L_2 \coloneqq \max(L_2, t) + 1 = \max(2, 4) + 1 = 5
+$$
+:::
+
+Relógios lógicos de Lamport garantem a seguinte propriedade:
+
+$$
+e \rightarrow e' \Rightarrow L(e) < L(e')
+$$
+
+No entanto, o inverso não é verdadeiro. Isto é, $$L(e) < L(e') \nRightarrow e \rightarrow e'$$.
+É possível encontrar um caso destes no exemplo anterior, onde $$L(k) < L(c)$$,
+no entanto, $$k \parallel c$$.
+
+:::details[Demonstração: $$e \rightarrow e' \Rightarrow L(e) < L(e')$$]
+
+**Hipótese de indução**: Se $e \rightarrow e'$, então $L(e) < L(e')$
+
+**Passo base (HB1)**: Se $e$ e $e'$ ocorrem no mesmo processo, é
+imediato por **LC1** que $L(e) < L(e')$
+
+**Passo base (HB2)**: Se existe uma mensagem $m$ tal que $e$ é o evento
+de envio e $e'$ é o evento de receção, então $L(e) < L(e')$ por **LC2** e
+**LC3**
+
+**Passo indutivo (HB3)**:  Se $e \rightarrow e'$ e $e' \rightarrow e''$,
+então $$L(e) < L(e')$$ e $$L(e') < L(e'')$$, por HI $$\square$$
+:::
+
+### _Vector Clocks_
+
+:::details[Exemplo]
+![Vector Clocks](./assets/0003-events-at-three-processes-vectors.png#dark=2)
+:::
+
+## Estado Global
+
+### Cortes Consistentes
+
 ## Referências
 
 - Coulouris et al - Distributed Systems: Concepts and Design (5th Edition)
-  - Secções 14.1, 14.2, 14.3 e 14.4
+  - Secções 14.1, 14.2, 14.3, 14.4 e 14.5
+- Coulouris et al - Distributed Systems: Concepts and Design (5th Edition) - Instructor's Manual
+  - Soluções dos exercícios 14.10, 14.11, 14.12 e 14.13
 - van Steen and Tanenbaum - [Distributed Systems](https://www.distributed-systems.net/index.php/books/ds4/)
   - Secções 5.1 e 5.2
 - Departamento de Engenharia Informática - Slides de Sistemas Distribuídos (2022/2023)
   - 3a Fundamentos: Tempo
+- Paul Krzyzanowski - [Assigning Lamport & Vector Timestamps](https://people.cs.rutgers.edu/~pxk/417/notes/clocks/index.html)
+  - Imagens dos exemplos de eventos e relógios lógicos
