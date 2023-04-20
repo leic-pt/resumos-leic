@@ -333,10 +333,12 @@ Esta relação pode ser representada por $e \rightarrow_i e'$.
 ![Eventos em Três Processos](./assets/0003-events-at-three-processes.png#dark=2)
 
 Algumas relações de antecedência em $p_i$ encontradas no diagrama:
+
 - $a \rightarrow_0 b$
 - $h \rightarrow_1 i$
 - $k \rightarrow_2 m$
 - $b \rightarrow_0 f$
+
 :::
 
 Em sistemas distribuídos, expande-se a definição de _happens-before_ para
@@ -345,7 +347,7 @@ Diz-se que $e$ **antecede** $e'$ se antecede em algum processo ou se
 correspondem ao envio e recepção de uma mesma mensagem. Para além disso,
 antecedência é transitiva.
 
-- **HB1**: Se $\exists{p_i}: e \rightarrow_i e'$, então $e \rightarrow e'$. 
+- **HB1**: Se $\exists{p_i}: e \rightarrow_i e'$, então $e \rightarrow e'$.
 - **HB2**: Se $\exists{m}: e = send(m) \wedge e' = recv(m)$, então
   $e \rightarrow e'$.
 - **HB3**: Se $e \rightarrow e' \wedge e' \rightarrow e''$, então
@@ -365,13 +367,17 @@ que estes eventos ocorrem.
 ![Eventos em Três Processos](./assets/0003-events-at-three-processes.png#dark=2)
 
 Algumas relações de antecedência encontradas no diagrama:
+
 - $a \rightarrow b$
 - $h \rightarrow c$
 - $b \rightarrow j$
 - $h \rightarrow m$
+
 Algumas relações de concorrência encontradas no diagrama:
+
 - $a \parallel l$
 - $b \parallel h$
+
 :::
 
 ### Relógio Lógico de Lamport
@@ -384,6 +390,7 @@ Quando o processo em que se atribuiu a estampilha não é relevante, usa-se
 $$L(e)$$.
 
 Os relógios são atualizados de acordo com as seguintes regras:
+
 - **LC1**: $$L_i$$ é incrementado sempre que um evento é observado por $$p_i$$ tal que $$L_i \coloneqq L_i + 1$$.
 - **LC2**: Quando $$p_i$$ envia uma mensagem $$m$$, inclui na mensagem a estampilha $$t$$ com o valor de $$L_i$$ após executar **LC1**.
 - **LC3**: Quando $$p_i$$ recebe uma mensagem $$m$$, atualiza $$L_i$$ tal que $$L_i \coloneqq \max(L_i, t) + 1$$.
@@ -412,6 +419,7 @@ Quando $$P_2$$ recebe a mensagem, compara $$L_2$$ com a estampilha recebida:
 $$
 L_2 \coloneqq \max(L_2, t) + 1 = \max(2, 4) + 1 = 5
 $$
+
 :::
 
 Relógios lógicos de Lamport garantem a seguinte propriedade:
@@ -435,7 +443,7 @@ imediato por **LC1** que $L(e) < L(e')$
 de envio e $e'$ é o evento de receção, então $L(e) < L(e')$ por **LC2** e
 **LC3**
 
-**Passo indutivo (HB3)**:  Se $e \rightarrow e'$ e $e' \rightarrow e''$,
+**Passo indutivo (HB3)**: Se $e \rightarrow e'$ e $e' \rightarrow e''$,
 então $$L(e) < L(e')$$ e $$L(e') < L(e'')$$, por HI $$\square$$
 :::
 
