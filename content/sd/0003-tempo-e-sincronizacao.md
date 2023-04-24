@@ -391,12 +391,9 @@ $$L(e)$$.
 
 Os relógios são atualizados de acordo com as seguintes regras:
 
-- **LC1**: $$L_i$$ é incrementado sempre que um evento é observado por $$p_i$$ tal que $$L_i \coloneqq L_i + 1$$.
+- **LC1**: $$L_i$$ é incrementado sempre que um evento é observado por $$p_i$$.
 - **LC2**: Quando $$p_i$$ envia uma mensagem $$m$$, inclui na mensagem a estampilha $$t$$ com o valor de $$L_i$$ após executar **LC1**.
-- **LC3**: Quando $$p_i$$ recebe uma mensagem $$m$$, atualiza $$L_i$$ tal que $$L_i \coloneqq \max(L_i, t) + 1$$.
-
-Em **LC3**, o $$+1$$ resulta da aplicação de **LC1** ao evento de receção da
-mensagem.
+- **LC3**: Quando $$p_i$$ recebe uma mensagem $$m$$, atualiza $$L_i$$ tal que $$L_i \coloneqq \max(L_i, t)$$ e depois executa **LC1**.
 
 :::details[Exemplo]
 ![Logical Clocks](./assets/0003-events-at-three-processes-lamport.png#dark=2)
@@ -429,8 +426,8 @@ e \rightarrow e' \Rightarrow L(e) < L(e')
 $$
 
 No entanto, o inverso não é verdadeiro. Isto é, $$L(e) < L(e') \nRightarrow e \rightarrow e'$$.
-É possível encontrar um caso destes no exemplo anterior, onde $$L(k) < L(c)$$,
-no entanto, $$k \parallel c$$.
+Pode-se encontrar um caso destes no exemplo anterior: $$L(k) < L(c)$$, mas
+$$k \parallel c$$.
 
 :::details[Demonstração: $$e \rightarrow e' \Rightarrow L(e) < L(e')$$]
 
@@ -449,8 +446,82 @@ então $$L(e) < L(e')$$ e $$L(e') < L(e'')$$, por HI $$\square$$
 
 ### _Vector Clocks_
 
+Para superar esta limitação, Mattern e Fridge desenvolveram o _Vector Clock_:
+uma alternativa em que garante também a implicação no sentido contrário.
+
+O _Vector Clock_ é um tuplo de $N$ inteiros, um para cada processo participante
+no sistema distribuido. À semelhança do relógio de Lamport, cada processo $p_i$
+mantém um _vector clock_ $V_i$ que pode ser usado para atribuir uma estampilha
+temporal $V_i(e)$ a cada evento $e$. Quando o processo em que se atribuiu a
+estampilha não é relevante, usa-se $V(e)$.
+
+- **VC1**: Inicialmente, $V_i[j] = 0$ para todo o $i, j = 1, 2, ..., N$.
+- **VC2**: $$V_i[i]$$ é incrementado sempre que um evento é observado por $$p_i$$.
+- **VC3**: Quando $$p_i$$ envia uma mensagem $$m$$, inclui na mensagem a estampilha $$t$$ com o valor de $$V_i$$ após executar **VC2**.
+- **VC4**: Quando $$p_i$$ recebe uma mensagem $$m$$, atualiza $V_i$ realizando um _merge_ com $t$ e depois executa **VC2**.
+
+A operação de _merge_ dos _vector clock_ $V_i$ e $t$ consiste em atualizar cada
+campo do _vector clock_ $V_i$ tal que $V_i[j] \coloneqq \max(V_i[j], t[j])$,
+para todo o $j = 1, 2, ..., N$.
+
+Uma possível intuição para estes valores é a seguinte:
+
+- $V_i[i]$ é o número de eventos que $p_i$ estampilhou.
+- $V_i[j]$ ($i \neq j$) é o número de eventos que $p_i$ já sabe que $p_j$ estampilhou.
+
 :::details[Exemplo]
 ![Vector Clocks](./assets/0003-events-at-three-processes-vectors.png#dark=2)
+
+$$P_0$$, $$P_1$$ e $$P_2$$ mantêm, respetivamente, os relógios $$V_0$$, $$V_1$$
+e $$V_2$$.
+
+Quando $$P_1$$ envia a mensagem $$m_{h \rightarrow c}$$ inclui $$t = (0,1,0)$$
+na mensagem.
+Quando $$P_0$$ recebe a mensagem, faz _merge_ de $$V_0$$ com a estampilha
+recebida:
+
+$$
+\begin{align}
+\nonumber V_0[0] &\coloneqq \max(V_0[0], t[0]) + 1 = \max(2, 0) + 1 = 3 \\
+\nonumber V_0[1] &\coloneqq \max(V_0[1], t[1]) = \max(0, 1) = 1 \\
+\nonumber V_0[2] &\coloneqq \max(V_0[2], t[2]) = \max(0, 0) = 0
+\end{align}
+$$
+
+Ou seja, $V_0 \coloneqq (3, 1, 0)$.
+
+Quando $$P_0$$ envia a mensagem $$m_{d \rightarrow m}$$ inclui $$t = (4, 1, 0)$$
+na mensagem.
+Quando $$P_2$$ recebe a mensagem, faz _merge_ de $$V_2$$ com a estampilha
+recebida:
+
+$$
+\begin{align}
+\nonumber V_2[0] &\coloneqq \max(V_0[0], t[0]) = \max(0, 4) = 4 \\
+\nonumber V_2[1] &\coloneqq \max(V_0[1], t[1]) = \max(0, 1) = 1 \\
+\nonumber V_2[2] &\coloneqq \max(V_0[2], t[2]) + 1 = \max(2, 0) + 1 = 3
+\end{align}
+$$
+
+Ou seja, $V_2 \coloneqq (4, 1, 3)$.
+:::
+
+Pode-se comparar _vector clocks_ da seguinte forma:
+
+- $V = V' \Leftrightarrow V[j] = V'[j]$, para todo o $j = 1, 2, ..., N$.
+- $V \leq V' \Leftrightarrow V[j] \leq V'[j]$, para todo o $j = 1, 2, ..., N$.
+- $V < V' \Leftrightarrow V \leq V' \wedge V \neq V'$
+
+Ou seja, temos que um _vector clock_ é menor quando nenhum dos seus valores é
+maior, mas não são iguais.
+Comparando deste modo, obtemos a seguinte propriedade (uma versão da propriedade
+do relógio de lamport mas com equivalência):
+
+$$
+e \rightarrow e' \Leftrightarrow V(e) < V(e')
+$$
+
+:::details[Demonstração: $$e \rightarrow e' \Leftrightarrow V(e) < V(e')$$]
 :::
 
 ## Estado Global
