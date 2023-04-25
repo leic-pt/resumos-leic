@@ -358,7 +358,7 @@ $e_i, i = 0..N$, se for possível aplicar HB1 ou HB2 a qualquer par de eventos
 $(e_i, e_{i+1})$, então, por HB3, $e_0 \rightarrow e_N$.
 
 Nem todos os eventos têm uma ordem de antecedência definida.
-Diz-se que eventos $e$, $e'$ são **concorrentes** sse
+Diz-se que eventos distintos $e$, $e'$ são **concorrentes** sse
 $e \nrightarrow e' \wedge e' \nrightarrow e$. Esta relação é representada por
 $e \parallel e'$. Nada se pode dizer (nem necessita ser dito) sobre a ordem em
 que estes eventos ocorrem.
@@ -522,16 +522,54 @@ e \rightarrow e' \Leftrightarrow V(e) < V(e')
 $$
 
 :::details[Demonstração: $$e \rightarrow e' \Leftrightarrow V(e) < V(e')$$]
+Começamos por mostrar que $$e \rightarrow e' \Rightarrow V(e) < V(e')$$
+
+**Hipótese de indução**: Se $e \rightarrow e'$, então $V(e) < V(e')$
+
+**Passo base (HB1)**: Se $e$ e $e'$ ocorrem no mesmo processo, é imediato por **VC2** que $V(e) < V(e')$
+
+**Passo base (HB2)**: Se existe uma mensagem $m$ tal que $e$ é o evento de envio e $e'$ é o evento de receção, então $V(e) < V(e')$ por **VC3** e **VC4**
+
+**Passo indutivo (HB3)**: Se $e \rightarrow e'$ e $e' \rightarrow e''$,
+então $V(e) < V(e')$ e $V(e') < V(e'')$, por HI
+
+De seguida, mostra-se que $V(e) < V(e') \Rightarrow e \rightarrow e'$
+
+Para isto, prova-se que para um par de eventos $e$ e $e'$:
+
+$$
+e \parallel e' \Rightarrow \neg(V(e) \leq V(e')) \wedge \neg(V(e') \leq V(e))
+$$
+
+Seja $e$ e $e'$ um par de eventos concorrentes tal que $e$ ocorre em $p_i$
+e $e'$ ocorre em $p_j$. Como os eventos são concorrentes, sabemos que nenhuma
+mensagem de $p_i$ durante ou após o evento $e$ propagou a sua estampilha para
+$p_j$ pelo momento em que ocorre $e'$, e vice versa.
+
+Como $e$ ocorreu em $p_i$ e $p_j$ ainda não foi "informado", é garantido que
+$V_i[i] > V_j[i]$. Temos também que $V_j[j] > V_i[j]$. Provando-se assim o lema
+e o seu contra-recíproco:
+
+$$
+V(e) \leq V(e') \lor V(e) \leq V(e') \Rightarrow \neg(e \parallel e')
+$$
+
+Se dois eventos não são concorrentes, então tem de existir uma relação de
+_happens-before_, é evidente que $V(e) < V(e') \Rightarrow e' \rightarrow e$
+é falso.
+
+Logo, $V(e) < V(e') \Rightarrow e \rightarrow e'$ e temos que:
+
+$$
+e \rightarrow e' \Leftrightarrow V(e) < V(e') \square
+$$
+
 :::
-
-## Estado Global
-
-### Cortes Consistentes
 
 ## Referências
 
 - Coulouris et al - Distributed Systems: Concepts and Design (5th Edition)
-  - Secções 14.1, 14.2, 14.3, 14.4 e 14.5
+  - Secções 14.1, 14.2, 14.3 e 14.4
 - Coulouris et al - Distributed Systems: Concepts and Design (5th Edition) - Instructor's Manual
   - Soluções dos exercícios 14.10, 14.11, 14.12 e 14.13
 - van Steen and Tanenbaum - [Distributed Systems](https://www.distributed-systems.net/index.php/books/ds4/)
