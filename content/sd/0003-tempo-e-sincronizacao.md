@@ -163,7 +163,7 @@ demora $RTT$, o tempo estimado estará errado por $\frac{RTT}{2}$.
 A precisão deste algoritmo é, portanto, $\frac{RTT}{2}$.
 
 Pode-se melhorar a precisão caso se conheça o tempo mínimo de transmissão,
-ficando $\frac{RTT - RTT_{min}}{2}$.
+ficando $\frac{RTT}{2} - RTT_{min}$.
 
 Este algoritmo é simples, no entanto, tem um único ponto de falha. Se o
 servidor de tempo falhar, o sistema não consegue sincronizar os relógios.
