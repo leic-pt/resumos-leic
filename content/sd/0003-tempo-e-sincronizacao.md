@@ -24,7 +24,7 @@ sistema.
 Se momentos mais tarde o processo B obtiver o tempo, este será superior (ou
 possivelmente igual) ao tempo obtido pelo processo A.
 
-Num sistema distribuido o problema é mais complexo.
+Num sistema distribuído o problema é mais complexo.
 Não existe tempo global, cada computador tem o seu próprio relógio e o tempo
 que estes relógios indicam pode ser diferente.
 
@@ -71,7 +71,7 @@ $$
 skew(p,q) = C_p(t) - C_q(t)
 $$
 
-A **driva do relógio** é a taxa a que um dado relógio se afasta do tempo de
+A **deriva do relógio** é a taxa a que um dado relógio se afasta do tempo de
 referência:
 
 $$
@@ -450,7 +450,7 @@ Para superar esta limitação, Mattern e Fridge desenvolveram o _Vector Clock_:
 uma alternativa em que garante também a implicação no sentido contrário.
 
 O _Vector Clock_ é um tuplo de $N$ inteiros, um para cada processo participante
-no sistema distribuido. À semelhança do relógio de Lamport, cada processo $p_i$
+no sistema distribuído. À semelhança do relógio de Lamport, cada processo $p_i$
 mantém um _vector clock_ $V_i$ que pode ser usado para atribuir uma estampilha
 temporal $V_i(e)$ a cada evento $e$. Quando o processo em que se atribuiu a
 estampilha não é relevante, usa-se $V(e)$.
@@ -515,7 +515,7 @@ Pode-se comparar _vector clocks_ da seguinte forma:
 Ou seja, temos que um _vector clock_ é menor quando nenhum dos seus valores é
 maior, mas não são iguais.
 Comparando deste modo, obtemos a seguinte propriedade (uma versão da propriedade
-do relógio de lamport mas com equivalência):
+do relógio de Lamport mas com equivalência):
 
 $$
 e \rightarrow e' \Leftrightarrow V(e) < V(e')

@@ -18,7 +18,7 @@ type: content
 
 ## Introdução a Sistemas Distribuídos
 
-Considera-se um **Sistema Distribuído** aquele em que componentes de hardware ou software localizados em computadores ligados em rede, comunicam e coordenam suas ações através de troca de mensagens.
+Considera-se um **Sistema Distribuído** aquele em que componentes de hardware ou software localizados em computadores ligados em rede, comunicam e coordenam as suas ações através de troca de mensagens.
 
 Computadores nesta rede podem estar separados por qualquer distância física, seja continental ou na mesma sala.
 
@@ -39,7 +39,7 @@ Usa-se o termo **Serviço** para designar uma parte distinta de um sistema compu
 Por exemplo, um serviço de ficheiros apresenta operações de _escrita_, _leitura_ e _remoção_ sobre um conjunto de ficheiros.
 
 Serviços restringirem o acesso a recursos através de um conjunto bem definido de operações, reflete a organização de sistemas distribuídos, em específico a comunicação por mensagens.
-É necessário que os recursos sejam geridos por um processo que esponha uma interface de comunicação.
+É necessário que os recursos sejam geridos por um processo que exponha uma interface de comunicação.
 
 Um **Servidor** é um processo num computador numa rede que aceita pedidos de outros processos para cumprir um serviço e devolve uma resposta.
 Os processos que fazem pedidos são chamados **Clientes** e podem estar em qualquer computador da rede.
@@ -48,11 +48,11 @@ Os processos que fazem pedidos são chamados **Clientes** e podem estar em qualq
 
 Conforme referido anteriormente, os sistemas distribuídos apresentam algumas características que os tornam mais complexos, resultando em desafios que devem ser enfrentados. Os principais sendo:
 
-- **Heterogeneidade** - Sistemas distribuídos são compostos por diferentes tipos de computadores, em redes diferentes, com diferentes arquiteturas, sistemas operativos e linguagens de programação. Protocolos Internet de comunicação são chave para esconder a diferença entre redes e middleware pode lidar com as diferenças restantes.
+- **Heterogeneidade** - Sistemas distribuídos são compostos por diferentes tipos de computadores, em redes diferentes, com diferentes arquiteturas, sistemas operativos e linguagens de programação. Protocolos Internet de comunicação são chave para esconder a diferença entre redes, e middleware pode lidar com as diferenças restantes.
 - **Abertura (Openness)** - Para uma dada definição de serviço podem existir várias implementações.
 - **Segurança** - Um sistema distribuído seguro requer confidencialidade (proteção contra acesso por indivíduos não autorizados), integridade (proteção contra alteração ou corrupção) e disponibilidade (proteção contra interferência com os meios de acesso aos recursos).
 - **Escalabilidade** - Um sistema distribuído escalável deve ser capaz de acompanhar o crescimento da sua utilização, sem que a sua performance se degrade ou que o seu custo aumente de forma exponencial.
-- **Tratamento de Faltas** - Qualquer processo, computador ou network pode falhar independentemente dos outros. Portanto cada componente deve conhecer as possíveis falhas dos componentes em que depende e ser capaz de lidar com cada uma dessas falhas apropriadamente.
+- **Tratamento de Faltas** - Qualquer processo, computador ou network pode falhar independentemente dos outros. Assim sendo, cada componente deve conhecer as possíveis falhas dos componentes em que depende e ser capaz de lidar com cada uma dessas falhas apropriadamente.
 - **Concorrência** - A presença de múltiplos utilizadores num sistema distribuído é uma fonte de pedidos concorrentes aos seus recursos. Cada recurso deve ser desenhado para ser seguro num ambiente concorrente.
 - **Transparência** - O objetivo da transparência é abstrair certos aspetos da distribuição, tornando desenvolvimento de aplicações mais simples.
 
@@ -60,18 +60,18 @@ Conforme referido anteriormente, os sistemas distribuídos apresentam algumas ca
 
 **Modelos Fundamentais** de um sistema destilam as características essenciais necessárias para compreender o sistema. Permitem:
 
-- Tornar explicitas todos os pressupostos relevantes sobre o sistema a ser modelado.
+- Tornar explicitos todos os pressupostos relevantes sobre o sistema a ser modelado; e
 - Generalizar o que é possível ou impossível, dados esses pressupostos. Estas generalizações podem ser a garantia de propriedades desejadas, demonstradas através de análise lógica ou provas matemáticas.
 
 Os aspetos do comportamento de sistemas distribuídos que são modelados são:
 
 - **Interação** - O modelo de interação reflete a forma como a comunicação entre processos é realizada.
-- **Faltas** - O modelo de faltas reflete a falibilidade dos componentes do sistema, definindo e classificando as faltas que podem ocorrer. Com base neste modelo, é possível analisar o potêncial impacto das faltas e definir como lidar com elas.
+- **Faltas** - O modelo de faltas reflete a falibilidade dos componentes do sistema, definindo e classificando as faltas que podem ocorrer. Com base neste modelo, é possível analisar o potencial impacto das faltas e definir como lidar com elas.
 - **Segurança** - O modelo de segurança reflete a susceptibilidade do sistema a ataques, definindo e classificando os ataques que podem ocorrer. Com base neste modelo, é possível encontrar os riscos que corre o sistema e definir como o defender de ataques.
 
 ### Modelo de Interação
 
-Processos interagem para realizar toda a atividade de um sistema distribuido.
+Processos interagem para realizar toda a atividade de um sistema distribuído.
 Cada processo tem o seu estado, constituído pelo conjunto de dados que pode aceder e atualizar.
 O estado de cada processo é completamente privado, ou seja, não pode ser acedido ou atualizado por outro processo.
 
@@ -96,42 +96,42 @@ Outras considerações importantes para além das de desempenho:
 
 #### Relógios
 
-Cada computador num sistema distribuido tem o seu próprio relógio, que pode ser usado por processos para obter o tempo atual.
+Cada computador num sistema distribuído tem o seu próprio relógio, que pode ser usado por processos para obter o tempo atual.
 No entanto, mesmo que dois processos em computadores diferentes obtenham valores para o tempo atual ao mesmo tempo, não é garantido que os valores sejam iguais.
 
 Isto é causado pelo facto de que os relógios, com o passar do tempo, se afastam do tempo real e a taxa a que este afastamento ocorre varia de computador para computador.
-Mesmo que inicialmente os relógios do sistema distribuido estejam sincronizados, eventualmente irão divergir.
+Mesmo que inicialmente os relógios do sistema distribuído estejam sincronizados, eventualmente irão divergir.
 
-A **driva do relógio** é a taxa a que o relógio se afasta do tempo real.
+A **deriva do relógio** é a taxa a que o relógio se afasta do tempo real.
 
 #### Duas Variantes do Modelo de Interação
 
-Na prática, é dificil colocar limites no tempo de execução de processos, latência ou na driva de relógios.
+Na prática, é dificil colocar limites no tempo de execução de processos, latência ou na deriva de relógios.
 Sendo assim, usamos os dois casos extremos para criar variantes simples do modelo.
 
-- **Sistema Distribuido Síncrono** - O tempo de execução de cada passo de um processo, a latência **e** a driva do relógio têm todos **limites superiores e inferiores conhecidos**. Simplificam os problemas a resolver, mas são pouco comuns na prática.
-- **Sistema Distribuido Assíncrono** - O tempo de execução do processo, a latência **ou** a driva do relógio são **arbitrários**. Na prática, a maioria dos sistemas distribuidos são deste tipo.
+- **Sistema Distribuído Síncrono** - O tempo de execução de cada passo de um processo, a latência **e** a deriva do relógio têm todos **limites superiores e inferiores conhecidos**. Simplificam os problemas a resolver, mas são pouco comuns na prática.
+- **Sistema Distribuído Assíncrono** - O tempo de execução do processo, a latência **ou** a deriva do relógio são **arbitrários**. Na prática, a maioria dos sistemas distribuídos são deste tipo.
 
 Se um sistema distribuído não é síncrono, então é assíncrono.
 
 ### Modelo de Faltas
 
-Em sistemas distribuidos, tanto os processos como os canais de comunicação podem falhar.
+Em sistemas distribuídos, tanto os processos como os canais de comunicação podem falhar.
 O modelo de faltas define os tipos de faltas que podem ocorrer de forma a permitir compreender os efeitos de cada.
 
 #### Faltas Silenciosas (Omissão)
 
-Uma falha silenciosa ocorre quando um componente do sistema distribuido deixa de realizar a sua função.
+Uma falha silenciosa ocorre quando um componente do sistema distribuído deixa de realizar a sua função.
 
 As faltas silenciosas podem tanto ocorrer em processos como em canais de comunicação.
 
 Uma **falta silenciosa de processo** ocorre quando um processo pára e não responde a nenhum estímulo externo.
 Caso seja detetável por outros processos é designada por **fail-stop**, caso contrario é designada por **crash**.
 
-Num sistema distribuido **síncrono**, todas as faltas silenciosas de processo são **detetáveis** por _timeouts_ dado que é conhecido o limite superior do tempo de execução e da latência.
+Num sistema distribuído **síncrono**, todas as faltas silenciosas de processo são **detetáveis** por _timeouts_ dado que é conhecido o limite superior do tempo de execução e da latência.
 Ou seja, são do tipo fail-stop.
 
-Por outro lado, num sistema distribuido **assíncrono**, é muito díficil distinguir se um processo falhou ou se apenas ocorreu um atraso (na execução ou na transmissão).
+Por outro lado, num sistema distribuído **assíncrono**, é muito díficil distinguir se um processo falhou ou se apenas ocorreu um atraso (na execução ou na transmissão).
 
 Uma **falta silenciosa de comunicação** ocorre quando um canal de comunicação não transmite uma mensagem.
 Isto pode ocorrer em 3 etapas distintas do processo de comunicação, ilustrado na figura abaixo.
@@ -162,7 +162,7 @@ Uma **falta arbitrária de comunicação** ocorre quando um canal de comunicaç�
 
 #### Mascarar Faltas
 
-Cada componente de um sistema distribuido é geralmente construído de um conjunto de outros componentes.
+Cada componente de um sistema distribuído é geralmente construído de um conjunto de outros componentes.
 É possível construir componentes confiáveis a partir de componentes que exibem faltas.
 
 Conhecendo as características das faltas de cada componente, permite que um novo serviço mascare as faltas dos componentes subjacentes.
