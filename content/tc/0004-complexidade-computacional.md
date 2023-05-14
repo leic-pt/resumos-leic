@@ -433,3 +433,54 @@ $$
 $\mathbf{PSPACE} = \mathbf{NPSPACE}$ e $\mathbf{EXPSPACE} = \mathbf{NEXPSPACE}$
 
 :::
+
+## Teoremas de Hierarquia
+
+:::tip[Definição]
+Uma função $f : \mathbb{N} \to \mathbb{N}$ diz-se construtível no espaço se $\log(n) = O(f(n))$ e
+se a função que mapeia palavras $1^n$ para a representação binária de $f(n)$ é
+computável em espaço $O(f(n))$.
+
+Todas as funções mais comuns que são pelo menos $O(\log(n))$, como, por
+exemplo, $\log(n)$, $n\log(n)$, $n$, $n^2$ e $2^n$, são construtíveis no espaço.
+:::
+
+:::tip[Definição]
+Uma função $t : \mathbb{N} \to \mathbb{N}$ diz-se construtível no tempo se $n\log(n) = O(t(n))$
+e se a função que mapeia palavras $1^n$ para a representação binária de $t(n)$ é
+computável em tempo $O(t(n))$.
+
+Todas as funções mais comuns que são pelo menos $O(n\log(n))$, como, por
+exemplo, $n\log(n)$, $n^2$ e $2^n$, são construtíveis no tempo.
+:::
+
+### Teorema da Hierarquia no Espaço
+
+Seja $f : \mathbb{N} \to \mathbb{N}$ uma função construtível no espaço. Então existe uma linguagem
+decidível em espaço $O(f(n))$ mas não em espaço $o(f(n))$.
+
+:::tip[Corolário]
+Sejam $f_1, f_2 : \mathbb{N} \to \mathbb{N}$ tais que $f_2(n)$ é construtível no espaço e $f_1(n) = o(f_2(n))$.
+Então
+$SPACE(f_1(n)) \subsetneq SPACE(f_2(n))$.
+:::
+
+### Teorema da Hierarquia no Tempo
+
+Seja $t : \mathbb{N} \to \mathbb{N}$ uma função construtível no tempo. Então existe uma linguagem
+decidível em tempo $O(t(n))$ mas não em tempo $o(t(n)\log(t(n)))$.
+Este resultado permite-nos separar classes de complexidade temporais.
+
+:::tip[Corolário]
+Sejam $t_1, t_2 : \mathbb{N} \to \mathbb{N}$ tais que $t_2(n)$ é construtível no tempo e $t_1(n) = o(\frac{t_2(n)}{\log(t_2(n))})$.
+Então
+$TIME(t_1(n)) \subsetneq TIME(t_2(n))$.
+:::
+
+## Dificuldade e Completude
+
+Seja $C$ uma classe de complexidade. Uma linguagem $A$ diz-se:
+
+- $C$-difícil se qualquer que seja $L \in C$ se tem $L \leq_P A$
+
+- $C$-completa se é $C$-difícil e $A \in C$
