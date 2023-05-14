@@ -477,11 +477,10 @@ Então
 $TIME(t_1(n)) \subsetneq TIME(t_2(n))$.
 :::
 
-
 ## Dificuldade e Completude
 
 Seja $C$ uma classe de complexidade. Uma linguagem $A$ diz-se:
 
-* $C$-difícil se qualquer que seja $L \in C$ se tem $L \leq_P A$
+- $C$-difícil se qualquer que seja $L \in C$ se tem $L \leq_P A$
 
-* $C$-completa se é $C$-difícil e $A \in C$
+- $C$-completa se é $C$-difícil e $A \in C$
