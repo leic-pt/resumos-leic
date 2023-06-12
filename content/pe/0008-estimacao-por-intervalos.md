@@ -300,46 +300,43 @@ a 95% para a variância populacional, $\sigma^{2}$.
 Queremos calcular $IC_{0.95}(\sigma^{2})$ com $\mu$ desconhecido.
 
 - **V.A de interesse**:
-$$
-X \sim N(\mu, \sigma^{2})
-$$
-<!-- trying to space this phrase inside the bullet point lol -->
-&nbsp; &nbsp; &nbsp; &nbsp;
-com $\mu$ e $\sigma$ desconhecidos.
+  $$
+  X \sim N(\mu, \sigma^{2})
+  $$
+  com $\mu$ e $\sigma$ desconhecidos.
 
 - **V.A fulcral**:
-$$
-T = \frac{(n - 1)S^{2}}{\sigma^{2}} = \frac{9S^{2}}{\sigma^{2}} \sim \chi_{9}^{2}
-$$
+  $$
+  T = \frac{(n - 1)S^{2}}{\sigma^{2}} = \frac{9S^{2}}{\sigma^{2}} \sim \chi_{9}^{2}
+  $$
 
 - **Quantis**:
-$$
-a = F_{\chi_{(9)}^{2}}^{-1}(0.025) = 2.70 \ \ \ \ 
-b = F_{\chi_{(9)}^{2}}^{-1}(0.975) = 19.02
-$$
+  $$
+  a = F_{\chi_{(9)}^{2}}^{-1}(0.025) = 2.70 \ \ \ \ 
+  b = F_{\chi_{(9)}^{2}}^{-1}(0.975) = 19.02
+  $$
 
 - **Cálculo de ICA**:
-$$
-P(a < T < b)
-$$
-$$
-a < \frac{(n-1)S^{2}}{\sigma^{2}} < b
-$$
-$$
-\frac{a}{9S^{2}} < \frac{1}{\sigma^{2}} < \frac{b}{9S^{2}}
-$$
-$$
-\frac{9S^{2}}{a} > \sigma^{2} > \frac{9S^2}{b}
-$$
-$$
-ICA_{0.95}(\sigma^{2}) = \left[\frac{9S^{2}}{b}, \frac{9S^2}{a}\right]
-$$
+  $$
+  P(a < T < b)
+  $$
+  $$
+  a < \frac{(n-1)S^{2}}{\sigma^{2}} < b
+  $$
+  $$
+  \frac{a}{9S^{2}} < \frac{1}{\sigma^{2}} < \frac{b}{9S^{2}}
+  $$
+  $$
+  \frac{9S^{2}}{a} > \sigma^{2} > \frac{9S^2}{b}
+  $$
+  $$
+  ICA_{0.95}(\sigma^{2}) = \left[\frac{9S^{2}}{b}, \frac{9S^2}{a}\right]
+  $$
 
 - **Cálculo de IC**:
-&nbsp; &nbsp; &nbsp; &nbsp;
-Substituindo pelos valores obtemos o **intervalo de confiança 95%**
-$$
-IC_{0.95}(\sigma^{2}) = \left[\frac{9 \times 4.8^2}{19.02}, \frac{9 \times 4.8^2}{2.07}\right] = \left[10.90, 76.8\right]
-$$
+  Substituindo pelos valores obtemos o **intervalo de confiança 95%**
+  $$
+  IC_{0.95}(\sigma^{2}) = \left[\frac{9 \times 4.8^2}{19.02}, \frac{9 \times 4.8^2} {2.07}\right] = \left[10.90, 76.8\right]
+  $$
 
 :::
