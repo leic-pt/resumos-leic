@@ -332,14 +332,14 @@ $$
 \frac{9S^{2}}{a} > \sigma^{2} > \frac{9S^2}{b}
 $$
 $$
-ICA_{0.95}\sigma = \left[\frac{9S^{2}}{b}, \frac{9S^2}{a}\right]
+ICA_{0.95}(\sigma^{2}) = \left[\frac{9S^{2}}{b}, \frac{9S^2}{a}\right]
 $$
 
 - **Cálculo de IC**:
 &nbsp; &nbsp; &nbsp; &nbsp;
 Substituindo pelos valores obtemos o **intervalo de confiança 95%**
 $$
-IC_{0.95}\sigma = \left[\frac{9 \times 4.8^2}{19.02}, \frac{9 \times 4.8^2}{2.07}\right] = \left[10.90, 76.8\right]
+IC_{0.95}(\sigma^{2}) = \left[\frac{9 \times 4.8^2}{19.02}, \frac{9 \times 4.8^2}{2.07}\right] = \left[10.90, 76.8\right]
 $$
 
 :::

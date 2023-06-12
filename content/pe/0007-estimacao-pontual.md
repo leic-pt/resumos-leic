@@ -235,31 +235,31 @@ $$
 - **Função de máxima verosimilhança de $\mu$**:
 
 $$ 
-L(\mu; \underline{x}) = \prod_{i = 0}^{n} \frac{e^{- \mu} \mu ^ {x_i}}{x_i !} = e^{-n \mu} \cdot \prod_{i = 0}^{n} \frac{\mu^{x_i}}{x_i !} = e^{-n \mu} \cdot \mu^{\sum_{i = 0}^{n} x_i} \cdot \prod_{i = 0}^{n}\frac{1}{x_i !}
+L(\mu; \underline{x}) = \prod_{i = 1}^{n} \frac{e^{- \mu} \mu ^ {x_i}}{x_i !} = e^{-n \mu} \cdot \prod_{i = 1}^{n} \frac{\mu^{x_i}}{x_i !} = e^{-n \mu} \cdot \mu^{\sum_{i = 1}^{n} x_i} \cdot \prod_{i = 1}^{n}\frac{1}{x_i !}
 $$
 
 - **Log Verosimilhança**
 $$
-ln \ L(\mu; \underline{x}) = ln (e^{-n\mu}) + ln (\mu^{\sum_{i = 1}^{n} x_i}) - ln(\prod_{i = 0}^{n} x_i !) =
+ln \ L(\mu; \underline{x}) = ln (e^{-n\mu}) + ln (\mu^{\sum_{i = 1}^{n} x_i}) - ln(\prod_{i = 1}^{n} x_i !) =
 $$
 
 
 $$
- = -n\mu + \sum_{i = 0}^{n}(x_i)\ ln(\mu) - ln(\prod_{i = 0}^{n} x_i !) = g(\mu)
+ = -n\mu + \sum_{i = 1}^{n}(x_i)\ ln(\mu) - ln(\prod_{i = 1}^{n} x_i !) = g(\mu)
 $$
 
 - **Derivadas de Log Verosimilhança (procurar máximos)**
 
 $$
-g'(\mu) = -n + \frac{\sum_{i = 0}^{n} x_i}{\mu}
+g'(\mu) = -n + \frac{\sum_{i = 1}^{n} x_i}{\mu}
 $$
 
 $$
-g'(\mu) = 0 \Leftrightarrow \mu = \frac{\sum_{i = 0}^{n} x_i}{n} \Leftrightarrow \mu = \bar{x}
+g'(\mu) = 0 \Leftrightarrow \mu = \frac{\sum_{i = 1}^{n} x_i}{n} \Leftrightarrow \mu = \bar{x}
 $$
 
 $$
-g''(\mu) = - \frac{\sum_{i = 0}^{n} x_i}{\mu^{2}} \lt 0, \ \ \forall \mu
+g''(\mu) = - \frac{\sum_{i = 1}^{n} x_i}{\mu^{2}} \lt 0, \ \ \forall \mu
 $$
 
 Logo, temos que uma **estimativa de máxima verosimilhança** de $\mu$ para a amostra $\underline{x}$ é 
