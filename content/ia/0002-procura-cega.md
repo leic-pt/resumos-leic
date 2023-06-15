@@ -261,7 +261,6 @@ Esta procura reduz a quantidade de exploração necessária, o que a torna basta
 
 Geralmente é usada quando o estado inicial e o estado objetivo são únicos e o fator de ramificação é igual em ambas as direções.
 
-
 - **Completa**: Sim.
 - **Complexidade Temporal**: $O(b^{d/2})$
 - **Complexidade Espacial**: $O(b^{d/2})$
