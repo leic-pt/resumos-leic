@@ -228,21 +228,21 @@ Consideremos uma variável aleatória de Poisson com valor esperado $\mu$ e uma 
 Queremos então determinar a **estimativa de máxima verosimilhança** para $\mu$.
 
 - **Função de probabilidade**
-$$
-P(X = x) = \frac{e^{-\mu} \mu ^{x}}{x!}
-$$
+
+  $$
+  P(X = x) = \frac{e^{-\mu} \mu ^{x}}{x!}
+  $$
 
 - **Função de máxima verosimilhança de $\mu$**:
 
-$$ 
+$$
 L(\mu; \underline{x}) = \prod_{i = 1}^{n} \frac{e^{- \mu} \mu ^ {x_i}}{x_i !} = e^{-n \mu} \cdot \prod_{i = 1}^{n} \frac{\mu^{x_i}}{x_i !} = e^{-n \mu} \cdot \mu^{\sum_{i = 1}^{n} x_i} \cdot \prod_{i = 1}^{n}\frac{1}{x_i !}
 $$
 
 - **Log Verosimilhança**
-$$
-ln \ L(\mu; \underline{x}) = ln (e^{-n\mu}) + ln (\mu^{\sum_{i = 1}^{n} x_i}) - ln(\prod_{i = 1}^{n} x_i !) =
-$$
-
+  $$
+  ln \ L(\mu; \underline{x}) = ln (e^{-n\mu}) + ln (\mu^{\sum_{i = 1}^{n} x_i}) - ln(\prod_{i = 1}^{n} x_i !) =
+  $$
 
 $$
  = -n\mu + \sum_{i = 1}^{n}(x_i)\ ln(\mu) - ln(\prod_{i = 1}^{n} x_i !) = g(\mu)
@@ -262,12 +262,14 @@ $$
 g''(\mu) = - \frac{\sum_{i = 1}^{n} x_i}{\mu^{2}} \lt 0, \ \ \forall \mu
 $$
 
-Logo, temos que uma **estimativa de máxima verosimilhança** de $\mu$ para a amostra $\underline{x}$ é 
+Logo, temos que uma **estimativa de máxima verosimilhança** de $\mu$ para a amostra $\underline{x}$ é
+
 $$
 emv(\mu) = \bar{x} = 0.5
 $$
 
 Temos também que um **estimador de máxima verosimilhança** para $\mu$ é
+
 $$
 EMV(\mu) = \bar{X}
 $$
@@ -277,7 +279,7 @@ $$
 **Nota 1**: Caso seja pedido, por exemplo, a estimativa da probabilidade de X > 5, basta utilizar a **estimativa de máxima verosimilhança** obtida para $\mu$ como se fosse o valor real de $\mu$ na função e calcular normalmente. (Propriedade da invariância)
 
 **Nota 2**:
-Neste exemplo foi dado o valor de $\bar{x}$ mas poderiam ter sido dadas as observações, i.e $x_1 = 0, x_2 = 1, x_3 = 0.5$ ou também ser dito "*observaram-se 10 eventos em 20 intervalos de tempo unitários*."<br>
+Neste exemplo foi dado o valor de $\bar{x}$ mas poderiam ter sido dadas as observações, i.e $x_1 = 0, x_2 = 1, x_3 = 0.5$ ou também ser dito "_observaram-se 10 eventos em 20 intervalos de tempo unitários_."<br>
 Para este tipo de exercícios variam os valores amostrais e as funções de probabilidade/densidade de probabilidade, logo, convém estar familiarizado com propriedades de produtórios e logaritmos e saber interpertar as $v.a$ dadas (caso sejam de Poisson, Binomiais, etc).
 
 :::
