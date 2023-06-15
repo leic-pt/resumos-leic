@@ -276,11 +276,18 @@ $$
 
 ---
 
-**Nota 1**: Caso seja pedido, por exemplo, a estimativa da probabilidade de X > 5, basta utilizar a **estimativa de máxima verosimilhança** obtida para $\mu$ como se fosse o valor real de $\mu$ na função e calcular normalmente. (Propriedade da invariância)
+**Nota 1**: Caso seja pedido, por exemplo, a estimativa da probabilidade de $X > 5$,
+basta utilizar a **estimativa de máxima verosimilhança** obtida para $\mu$ como se fosse
+o valor real de $\mu$ na função e calcular normalmente. (Propriedade da invariância)
 
 **Nota 2**:
-Neste exemplo foi dado o valor de $\bar{x}$ mas poderiam ter sido dadas as observações, i.e $x_1 = 0, x_2 = 1, x_3 = 0.5$ ou também ser dito "_observaram-se 10 eventos em 20 intervalos de tempo unitários_."<br>
-Para este tipo de exercícios variam os valores amostrais e as funções de probabilidade/densidade de probabilidade, logo, convém estar familiarizado com propriedades de produtórios e logaritmos e saber interpertar as $v.a$ dadas (caso sejam de Poisson, Binomiais, etc).
+Neste exemplo foi dado o valor de $\bar{x}$ mas poderiam ter sido dadas as observações,
+i.e $x_1 = 0, x_2 = 1, x_3 = 0.5$ ou também ser dito
+"_observaram-se 10 eventos em 20 intervalos de tempo unitários_."  
+Para este tipo de exercícios variam os valores amostrais e as funções de
+probabilidade/densidade de probabilidade, logo, convém estar familiarizado com
+propriedades de produtórios e logaritmos e saber interpertar as $v.a$ dadas
+(caso sejam de Poisson, Binomiais, etc).
 
 :::
 
