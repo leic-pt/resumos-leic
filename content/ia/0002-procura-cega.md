@@ -266,7 +266,7 @@ Geralmente é usada quando o estado inicial e o estado objetivo são únicos e o
 - **Complexidade Espacial**: $O(b^{d/2})$
 - **Ótima**: Sim.
 
-<!-- ![Procura Bi-Direcional](imgs/0002-bidirectional-search.svg#dark=1) TODO: make a proper svg, this is just a graphical example -->
+![Procura Bi-Direcional](imgs/0002-bidirectional-search.svg#dark=1)
 
 **Problema**: pode não ser conhecido o estado objetivo logo à partida. Existe também uma necessidade de calcular eficientemente os predecessores de um nó.
 
