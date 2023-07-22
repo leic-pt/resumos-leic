@@ -192,6 +192,8 @@ years:
 - [Criador de Horários (Daniel Gonçalves)](https://horarios.dang.pt/)
 - [Gerador de Horários (Joana Sesinando)](https://web.tecnico.ulisboa.pt/joanasesinando/gerador-horarios/)
 - [Reencaminhar emails do Técnico para o Gmail](https://www.notion.so/diogocorreia/Reenchaminhar-emails-do-T-cnico-para-Gmail-2975d496a1d3447a84b0d0cf163dd65f)
+- [Portfólio Projetos de Cadeiras - Diogo Correia](https://github.com/diogotcorreia/diogotcorreia/blob/master/ist.md) - (LEIC-A)
+- [Portfólio Projetos de Cadeiras - Rafael Oliveira](https://gist.github.com/RafDevX/46ddc5b68ea97c46b5ffd18854670042) - (LEIC-A)
 - [Caderno Rita Mendes](https://www.notion.so/IST-MEEC-0c22d514a81645eca3c2a58739e323e1) - (IST - MEEC)
 
 ## Como Contribuir?
