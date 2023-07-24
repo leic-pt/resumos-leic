@@ -52,14 +52,12 @@ A explicação dada pelo professor para o exercício em questão é a seguinte:
 > - $D$ é o universo de discurso, ou seja o conjunto de todas as
 >   entidades sobre as quais vais construir afirmações (neste
 >   exercício vamos fazer afirmações sobre um losango e um quadrado);
->
 > - $F$ é o conjunto de funções que podemos aplicar a estas entidades,
 >   sendo uma função um mapeamento de uma ou mais entidades para uma
 >   ou mais entidades (ou seja, uma função é algo que transforma entidades,
 >   estilo se estiveres a falar de alunos de LP, uma função poderia ser
 >   o que associa cada aluno à sua nota nas aulas práticas, neste
 >   exercício não consideramos nenhuma função por isso é o conjunto vazio);
->
 > - $R$ é o conjunto de relações que existem entre as entidades de $D$,
 >   normalmente definidas por conjuntos de grupos para os quais estas
 >   relações se verificam (no caso do exercício tens duas relações,
