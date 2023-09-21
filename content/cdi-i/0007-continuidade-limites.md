@@ -65,7 +65,7 @@ Estudando agora a continuidade em $x=\frac 1 2$, podemos concluir que, considera
 A função de Dirichlet é definida por:
 
 $$
-D:\R\rightarrow\R\quad,\quad H(x)=\begin{cases}
+D:\R\rightarrow\R\quad,\quad D(x)=\begin{cases}
 1 &\text{se}&x\in\R\backslash\mathbb Q\\
 0 &\text{se}&x\in \mathbb Q\\
 \end{cases}
