@@ -58,7 +58,7 @@ $$
 
 Começa-se por estudar a continuidade em $\R \backslash \{0\}$. Como a função é constante em $x>0$ e $x~<~0$, podemos assumir uma vizinhança de raio menor que o valor absoluto de $x_0$ (isto é, $r < |x_0|$). Desta forma, todos os valores na vizinhança vão ser iguais a $H(x_0)$ (isto é, de valor 1 para $x_0>0$ e valor 0 para $x < 0$). Logo, a função é contínua em $\R\backslash\{0\}$.
 
-Estudando agora a continuidade em $x=\frac 1 2$, podemos concluir que, considerando $R=\frac 1 2$, não existe nenhum ponto de $x\in\R\backslash\{0\}$ tal que $H(x)\in V_R(f(0))$, e portanto, não pode existir nenhum $r\in\R^+$ tal que $x\in V_r(0)\Rightarrow H(x)\in V_R(f(0))$. Concluímos assim que $H$ não é contínua em 0.
+Estudando agora a continuidade em $x=0$, podemos concluir que, considerando $R=\frac 1 2$, não existe nenhum ponto de $x\in\R\backslash\{0\}$ tal que $H(x)\in V_R(f(0))$, e portanto, não pode existir nenhum $r\in\R^+$ tal que $x\in V_r(0)\Rightarrow H(x)\in V_R(f(0))$. Concluímos assim que $H$ não é contínua em 0.
 
 ### Função de Dirichlet
 
