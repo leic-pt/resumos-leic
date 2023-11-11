@@ -74,7 +74,7 @@ da pipeline é responsável por detetar estes problemas e resolvê-los.
 ## Structural Hazards
 
 Quando há conflito no uso de um recurso. Por exemplo no caso da pipeline do MIPS com uma única
-memória: instruções _Load_/_Store_ acedem a dados, pelo que o fetch da instrução deveria 
+memória: instruções _Load_/_Store_ acedem a dados, pelo que o fetch da instrução deveria
 ter que usar um "stall" para esse ciclo.
 
 ## Data Hazards
