@@ -16,22 +16,30 @@ type: content
 
 ## Leis de Newton
 
-As [Leis de Newton](https://en.wikipedia.org/wiki/Newton%27s_laws_of_motion) descrevem relações entre o **movimento** de um objeto e as **forças** que atuam no mesmo.
+As [Leis de Newton](https://en.wikipedia.org/wiki/Newton%27s_laws_of_motion)
+descrevem relações entre o **movimento** de um objeto e as **forças** que atuam no mesmo.
 
 As Leis abaixo só se aplicam num referencial inercial. Mas o que é um referencial inercial?  
-É mais fácil com um exemplo. Consideremos um autocarro com um pêndulo. Se o autocarro estiver em repouso, o pêndulo também o está
+É mais fácil com um exemplo. Consideremos um autocarro com um pêndulo.
+Se o autocarro estiver em repouso, o pêndulo também o está
 e as únicas forças que atuam no mesmo são o peso e a tensão.
-No entanto, se o autocarro iniciar movimento com aceleração constante, o pêndulo irá ter força resultante não nula, pelo que, pela Primeira Lei,
+No entanto, se o autocarro iniciar movimento com aceleração constante,
+o pêndulo irá ter força resultante não nula, pelo que, pela Primeira Lei,
 terá de estar em movimento.
-Ora, se o nosso referencial for alguém dentro do autocarro, o pêndulo está em repouso ([**referencial não inercial**](color:red)).
-Se o referencial for algo exterior ao autocarro, por exemplo a estrada, o pêndulo irá estar em movimento, de acordo com a Primeira Lei ([**referencial inercial**](color:green)).
-
-TODO adicionar boneco a exemplificar
+Ora, se o nosso referencial for alguém dentro do autocarro,
+o pêndulo está em repouso ([**referencial não inercial**](color:red)).
+Se o referencial for algo exterior ao autocarro, por exemplo a estrada,
+o pêndulo irá estar em movimento, de acordo com a Primeira Lei ([**referencial inercial**](color:green)).
+Um [referencial é inercial](https://en.wikipedia.org/wiki/Inertial_frame_of_reference) quando não está sob
+aceleração.
 
 ### Primeira Lei
 
-Também chamada a "Lei da Inércia", esta lei diz que se a soma das forças das forças aplicadas num corpo for nula, a velocidade desse corpo não se altera.  
-Por outras palavras, um corpo em repouso permanece em repouso e um corpo em movimento permanece em movimento com velocidade constante, se e só se a soma das forças aplicadas no mesmo for nula.
+Também chamada a "Lei da Inércia", esta lei diz que se a soma das forças das forças
+aplicadas num corpo for nula, a velocidade desse corpo não se altera.  
+Por outras palavras, um corpo em repouso permanece em repouso e um corpo em movimento
+permanece em movimento com velocidade constante, se e só se a soma das forças
+aplicadas no mesmo for nula.
 
 Em termos matemáticos, podemos escrever a Lei da seguinte forma:
 
@@ -56,8 +64,6 @@ A terceira lei diz-nos que todas as forças entre dois objetos existem em pares,
 
 Já vimos algumas forças até agora, mas iremos aprofundar quais os tipos de forças que existem, quais são e quando existem.
 
-TODO adicionar bonecos das forças
-
 - [**Forças de Contacto**](color:yellow)
 
   - Normal (Reação Normal)
@@ -72,8 +78,8 @@ TODO adicionar bonecos das forças
 
   - Atrito Sólido-Sólido
 
-    Em repouso, $| \vec F_{\text{atrito}} \leq \mu_s \cdot |\vec N|$  
-    Em movimento, $| \vec F_{\text{atrito}} = \mu_k \cdot |\vec N|$
+    Em repouso, $\vec F_{\text{atrito}} \leq \mu_s \cdot |\vec N|$  
+    Em movimento, $\vec F_{\text{atrito}} = \mu_k \cdot |\vec N|$
 
   - Atrito Sólido-Fluido
 
@@ -113,25 +119,30 @@ Claro que como com qualquer lista de passos, não precisamos de os seguir à ris
 
 1. Isolar objetos
 2. Fazer o diagrama de forças
-3. Escolher o sistema de coordendas
+3. Escolher o sistema de coordenadas
 4. Escrever as equações do movimento ($\vec F = m \vec a$)
 5. Aplicar restrições (e.g. algumas variáveis serão constantes, outras nulas)
 6. Resolver as equações
 
 :::
 
-Tomemos como exemplo uma força a ser aplicada em dois blocos de massa $m_1$ e $m_2$ respetivamente, tal como representado na figura abaixo.
-Qual é a aceleração de ambos os blocos, e que força exerce o bloco 1 no bloco 2?
+Tomemos como exemplo uma força a ser aplicada em dois blocos de massa $m_1$ e $m_2$
+respetivamente, tal como representado na figura abaixo.
+Desprezando a força de atrito, qual é a aceleração de ambos os blocos,
+e que força exerce o bloco 1 no bloco 2?
 
-TODO figura
+![Bloco 1 e Bloco 2, com uma força F aplicada no bloco 1](./assets/0003-force-systems-blocks-with-force-f.svg#dark=3)
 
-1. Começemos por isolar os objetos. Claramente temos presentes dois blocos.
-   Não podemos considerar os dois blocos como um todo, visto que queremos estudar as interações entre eles ($\vec F_{1,2}$/$\vec F_{2,1}$).
+1. Comecemos por isolar os objetos. Claramente temos presentes dois blocos.
+   Não podemos considerar os dois blocos como um todo, visto que queremos estudar
+   as interações entre eles ($\vec F_{1,2}$/$\vec F_{2,1}$).
 2. Desenhamos então o diagrama de forças.  
-   No bloco 1, atuam a força exterior $\vec F$, o peso e a normal, e a força que o bloco 2 exerce no bloco 1 ($\vec F_{2,1}$).  
-   De forma semelhante, no bloco 2 atuam o peso e a normal, e a força que o bloco 1 exerce no bloco 2 ($\vec F_{1,2}$).
+   No bloco 1, atuam a força exterior $\vec F$, o peso e a normal, e a força que
+   o bloco 2 exerce no bloco 1 ($\vec F_{2,1}$).  
+   De forma semelhante, no bloco 2 atuam o peso e a normal, e a força que o
+   bloco 1 exerce no bloco 2 ($\vec F_{1,2}$).
 
-   TODO diagrama de forças
+   ![Diagrama de Forças](./assets/0003-force-systems-blocks-force-diagram.svg#dark=3)
 
 3. Claramente o sistema de coordenadas mais indicado para esta situação é o sistema de **coordenadas cartesianas**.
 4. Vamos agora escrever as equações que descrevem o sistema de forças.
