@@ -116,6 +116,8 @@ Isto é uma consequência direta de $E(cX) = cE(x)$ (relembre-se que o valor esp
 
 ## Teorema do Limite Central
 
+::youtube{#zeJD6dqJ5lo}
+
 Sejam $X_i, X_2, \cdots, X_n$ VA iid com valor esperado $\mu$ e variância $\sigma^2$.
 Consideremos as VA
 

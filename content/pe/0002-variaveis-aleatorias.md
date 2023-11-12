@@ -147,7 +147,7 @@ As VA's discretas satisfazem as seguintes propriedades:
 
 - $F_X$ é monótona crescente, contínua à direita e tem $\#\R_X$ pontos de descontinuidade. Consequentemente, o gráfico da fd de uma VA discreta é algo parecido a:
 
-![Gráfico da fd de um VA discreta](./assets/0002-discrete-fd-graph.svg#dark=3)
+![Gráfico da fd de uma VA discreta](./assets/0002-discrete-fd-graph.svg#dark=3)
 
 - $F_X(-\infty) = \lim_{x \to -\infty} F_X(x) = 0$;
 - $F_X(+\infty) = \lim_{x \to +\infty} F_X(x) = 1$;
@@ -179,7 +179,7 @@ Dizemos, então, que uma VA $X$ é contínua se e só se:
 
 As VA's contínuas têm as seguintes propriedades:
 
-- Um gráfico vagamente semelhante ao representado abaixo, devido à continuidade e monotonicidade lata:
+- Um gráfico vagamente semelhante ao representado abaixo, devido à continuidade e monotonia lata:
 
 ![Gráfico da fd de um VA contínua](./assets/0002-continuous-fd-graph.svg#dark=3)
 

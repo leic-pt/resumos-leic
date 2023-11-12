@@ -38,7 +38,7 @@ Vivemos numa era em que não interessa onde estamos pois haverá sempre computad
 
 ![Lei de Moore](./assets/0001-lei-de-moore.png#dark=3)
 
-Na década de 60, Moore preveu que a cada 18 meses, a cada área de silício, iamos duplicar o número de transistores. De facto durante 20 anos, este crescimento exponencial foi visível. Contudo, por volta de 2003 começou-se a notar um declínio. Nos últimos 50 anos, a Lei de Moore comandou os avanços tecnológicos em termos de melhorias de desempenho/energia sem ter de mudar o software, ou seja tinhamos um processador **2x** mais rápido ao mesmo custo.
+Na década de 60, Moore preveu que a cada 18 meses, a cada área de silício, íamos duplicar o número de transístores. De facto durante 20 anos, este crescimento exponencial foi visível. Contudo, por volta de 2003 começou-se a notar um declínio. Nos últimos 50 anos, a Lei de Moore comandou os avanços tecnológicos em termos de melhorias de desempenho/energia sem ter de mudar o software, ou seja tínhamos um processador **2x** mais rápido ao mesmo custo.
 
 Contudo, notamos alguns desafios perante este declínio, nomeadamente em termos de eficiência energética, o paralelismo de instruções, latência de memória, entre outros.
 
@@ -46,7 +46,7 @@ Assim a única solução é começarmos a investir em [muitos processadores](col
 
 ### Dennard Scaling
 
-Tal como na Lei de Moore, Dennard Scaling cria uma relação entre a energia que temos que dar ao sistema e o tamanho dos transistores. Resumidamente, esta lei diz-nos que à medida que os transistores vão diminuindo de tamanho, a sua potência por densidade mantém-se constante, de modo a que o uso desta potência mantenha-se proporcional à área. Contudo. atualmente, tal já não é visível, o que significa que cehgamos a uma estagnação da frequência dos relógios do CPU.
+Tal como na Lei de Moore, Dennard Scaling cria uma relação entre a energia que temos que dar ao sistema e o tamanho dos transístores. Resumidamente, esta lei diz-nos que à medida que os transístores vão diminuindo de tamanho, a sua potência por densidade mantém-se constante, de modo a que o uso desta potência mantenha-se proporcional à área. Contudo. atualmente, tal já não é visível, o que significa que chegamos a uma estagnação da frequência dos relógios do CPU.
 
 ![Dennard Scaling](./assets/0001-dennard-scaling.png#dark=3)
 

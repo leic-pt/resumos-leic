@@ -60,7 +60,7 @@ Exemplos de [eventos](color:blue) em relação a esta [EA](color:red) são:
 - O resultado da EA é no máximo $2$.
 
 Poderá ainda ser útil apresentar um exemplo de uma [EA](color:red) com um [espaço de resultados contínuo](color:green).
-Um tal exemplo é o tempo em milisegundos que o dado lançado demora a parar na superfície da mesa (sobre a qual é lançado).
+Um tal exemplo é o tempo em milissegundos que o dado lançado demora a parar na superfície da mesa (sobre a qual é lançado).
 Neste caso, o espaço de resultados é $\Omega = \R^+$, que é um conjunto não contável.
 
 :::
@@ -84,7 +84,7 @@ As mais comuns e simples são as seguintes:
   $$
   P(A) = \lim_{N \to +\infty} f_N(A)
   $$
-  Esta definição tem a desvantagem de requirir a realização repetida da experiência aleatória para aferir o valor de probabilidade de cada evento.
+  Esta definição tem a desvantagem de requerer a realização repetida da experiência aleatória para aferir o valor de probabilidade de cada evento.
   Ora, por vezes, não é fácil ou mesmo possível realizar uma dada experiência aleatória um número considerável de vezes, quer por impossibilidade física ou limitação de recursos (monetários, humanos ou outros).
 
 ## Axiomática Probabilística
@@ -152,7 +152,7 @@ A partir da definição acima, podemos inferir as seguintes probabilidades:
 2. Como $A \cap \overline{A} = \emptyset$, temos, segundo o axioma 3, que $P(A) + P(\overline{A}) = P(A \cup \overline{A}) = P(\Omega) = 1$
 3. Temos que $(B \backslash A) \cap (B \cap A) = \emptyset$, pelo que, segundo o axioma 3, $P(B \backslash A) + P(B \cap A) = P((B \backslash A) \cup (B \cap A)) = P(B)$
 4. Como $A \cap (B \backslash A) = \emptyset$, temos, segundo o axioma 3, que $P(A) + P(B \backslash A) = P(A \cup (B \backslash A)) = P(A \cup B)$. Somando, então, $P(A)$ a ambos os lados da equação na propriedade 3, obtemos o resultado pretendido.
-5. Se $A \subset B$, então $A \cup B = A$. Segundo 3, temos então que $P(A) = P(B) - P(B \backslash A) \leq P(B)$ já que $P(B \backslash A) \geq 0$ devido ao axioma 2.
+5. Se $A \subset B$, então $A \cap B = A$. Segundo 3, temos então que $P(A) = P(B) - P(B \backslash A) \leq P(B)$ já que $P(B \backslash A) \geq 0$ devido ao axioma 2.
 
 :::
 

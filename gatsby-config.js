@@ -1,3 +1,5 @@
+const puppeteer = require('puppeteer');
+
 module.exports = {
   siteMetadata: {
     title: `Resumos LEIC-A`,
@@ -34,7 +36,7 @@ module.exports = {
         website: 'https://diogotc.com',
       },
       githubLink: 'https://github.com/leic-pt/resumos-leic',
-      contributionGuideLink: 'https://leic-pt.github.io/docs',
+      contributionGuideLink: 'https://docs.leic.pt',
       contributorsLink: 'https://github.com/leic-pt/resumos-leic/graphs/contributors',
       vercelLink: 'https://vercel.com/?utm_source=leic-pt&utm_campaign=oss',
     },
@@ -65,10 +67,10 @@ module.exports = {
               backgroundColor: 'transparent',
               withWebp: true,
               showCaptions: ['title'],
-              tracedSVG: true,
               quality: 80,
             },
           },
+          `gatsby-remark-copy-linked-files`,
           `gatsby-remark-post-image-data`,
           `gatsby-remark-directive`,
           {
@@ -104,15 +106,62 @@ module.exports = {
               tight: true,
             },
           },
-          `gatsby-remark-mermaid`,
+          {
+            resolve: `gatsby-remark-mermaid`,
+            options: {
+              launchOptions: {
+                executablePath: puppeteer.executablePath(),
+              },
+              svgo: false, // it doesn't like lines breaks in diagram text boxes
+            },
+          },
           `gatsby-remark-embed-snippet`,
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
               noInlineHighlight: true,
+              languageExtensions: [
+                {
+                  language: 'mips-asm',
+                  definition: {
+                    comment: {
+                      pattern: /#.*$/m,
+                      greedy: true,
+                    },
+                    string: {
+                      pattern: /(["'`])(?:\\.|(?!\1)[^\\\r\n])*\1/,
+                      greedy: true,
+                    },
+                    register: {
+                      pattern:
+                        /([\s\(]|^)(?:\$(?:zero|at|v[01]|a[0123]|t\d|s[01234567]|k[01]|[gsf]p|ra))\b/i,
+                      lookbehind: true,
+                      alias: ['variable'],
+                    },
+                    instruction: {
+                      pattern:
+                        /\b(?:addi?|sub|[ls]w|l[hb]u?|s[hb]|ll|sc|lui|andi?|ori?|nor|s[rl]l|beq|bne|slti?u?|jr?|jal)\b/i,
+                      alias: ['keyword'],
+                    },
+                    number: {
+                      pattern: /(^|[^\w-])(?:0b[01]+|0x[a-f0-9]+|-?\d+)\b/,
+                      lookbehind: true,
+                    },
+                    label: {
+                      pattern: /(^\s*)[A-Za-z._?$][\w.?$@~#]*:/m,
+                      lookbehind: true,
+                      alias: ['function'],
+                    },
+                    directive: {
+                      pattern: /\b[A-Za-z._?$][\w.?$@~#]*\b/,
+                      alias: ['property'],
+                    },
+                    punctuation: /[(),:]/,
+                  },
+                },
+              ],
             },
           },
-          `gatsby-remark-copy-linked-files`,
           `gatsby-remark-autolink-headers`,
           `gatsby-remark-external-links`,
         ],
@@ -130,8 +179,7 @@ module.exports = {
         icon: `src/images/android-icon-192x192.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-use-dark-mode`,
-    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-use-dark-mode-custom`,
     {
       resolve: `gatsby-plugin-umami`,
       options: {

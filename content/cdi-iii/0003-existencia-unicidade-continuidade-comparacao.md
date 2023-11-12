@@ -26,7 +26,7 @@ Agradece-se contribuições.
 
 Nesta secção estamos interessados em determinar em que situações um determinado PVI tem solução.
 Como já vimos nos últimos capítulos, muitas vezes só podemos ambicionar soluções a nível de uma vizinhança do ponto inicial.
-Estaremos também interessados em saber em que circunstâncias esta solução pode ser extendida para todo o domínio de definição da
+Estaremos também interessados em saber em que circunstâncias esta solução pode ser estendida para todo o domínio de definição da
 EDO associada ao PVI e, mais genericamente, qual o intervalo máximo de definição da solução de um PVI.
 
 ## Teorema de Peano

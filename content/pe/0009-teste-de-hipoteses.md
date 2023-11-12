@@ -290,11 +290,11 @@ $$
 
 Sendo assim, a região de rejeição é exatamente
 
-- $\omega = \space]-\infty, -{\chi_{(n-1)}^2}^{-1}(1-\frac{\alpha}{2})[\space \cup \space]{\chi_{(n-1)}^2}^{-1}(1-\frac{\alpha}{2}), \infty[$  
+- $\omega = \space]-\infty, {\chi_{(n-1)}^2}^{-1}(\frac{\alpha}{2})[\space \cup \space]{\chi_{(n-1)}^2}^{-1}(1-\frac{\alpha}{2}), \infty[$  
   para uma [hipótese alternativa](color:green) bilateral $H_1: \sigma^2 \neq \sigma_0^2$;
 - $\omega = \space]{\chi_{(n-1)}^2}^{-1}(1-\alpha), \infty[$  
   para uma [hipótese alternativa](color:green) unilateral superior $H_1: \sigma^2 > \sigma_0^2$;
-- $\omega = \space]-\infty, -{\chi_{(n-1)}^2}^{-1}(1-\alpha)[$  
+- $\omega = \space]-\infty, {\chi_{(n-1)}^2}^{-1}(\alpha)[$  
   para uma [hipótese alternativa](color:green) unilateral inferior $H_1: \sigma^2 < \sigma_0^2$;
 
 ### Determinação de $p$ numa Prova de Bernoulli

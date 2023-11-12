@@ -80,7 +80,7 @@ end
 
 O jogo das oito rainhas consiste em tentar colocar 8 rainhas num tabuleiro de xadrez 8x8, de forma a não se atacarem entre si. Temos, claro, que uma rainha pode atacar outra caso partilhem linha, coluna ou diagonal.
 
-![Oito Rainhas](./imgs/0002-eight-queens.png#dark=2)
+![Oito Rainhas](./imgs/0002-eight-queens.svg#dark=2)
 
 Uma estratégia possível seria adicionar sempre uma rainha na coluna mais à esquerda sem rainha colocada - sendo um tabuleiro 8x8, havendo 8 rainhas, terão todas de estar em linhas e colunas diferentes, pelo que podemos preencher o tabuleiro coluna a coluna, certificando-nos que estamos a colocar numa linha e diagonal que não interfira com outras rainhas.
 
@@ -95,9 +95,9 @@ Temos, claro, que cada nó da árvore corresponde a um estado (com a raiz sendo 
 
 No caso Arad-Bucareste, por exemplo, podíamos ter uma árvore de procura deste tipo (note-se que está apenas parcialmente representada):
 
-![Árvore de procura Arad-Bucareste - Fase 1](imgs/0002-arvore-procura-arad-fase1.svg#dark=2)
-![Árvore de procura Arad-Bucareste - Fase 2](imgs/0002-arvore-procura-arad-fase2.svg#dark=2)
-![Árvore de procura Arad-Bucareste - Fase 3](imgs/0002-arvore-procura-arad-fase3.svg#dark=2)
+![Árvore de procura Arad-Bucareste - Fase 1](imgs/0002-search-tree-arad-step-1.svg#dark=2)
+![Árvore de procura Arad-Bucareste - Fase 2](imgs/0002-search-tree-arad-step-2.svg#dark=2)
+![Árvore de procura Arad-Bucareste - Fase 3](imgs/0002-search-tree-arad-step-3.svg#dark=2)
 
 **Nesta figura**, considera-se que todos os estados a tracejado se encontram **por gerar**, tal como ações a tracejado ainda não foram realizadas (ou seja, o _pai_ ainda não foi explorado). Estados a traço cheio já foram gerados, não explorados, e ações a traço cheio já foram testadas. Estados a azul já foram explorados.
 
@@ -154,11 +154,11 @@ A procura em largura primeiro expande o nó de menor profundidade na fronteira -
 
 [\*](color:yellow) note-se que caso tal não aconteça, podemos facilmente entrar em ciclos infinitos - se eu quiser ir de Arad a Sibiu e esse trajeto tiver um custo negativo (ou seja, ganho tempo/dinheiro), vou querer fazê-lo infinitamente, para ter a "solução ótima"!
 
-![BFS - Exemplo com o teste de Geração Errado](imgs/0002-bfs-exemplo.svg#dark=2)
+![BFS - Exemplo com o teste de Geração Errado](imgs/0002-bfs-example.svg#dark=2)
 
 Note-se que a BFS deve realizar o teste objetivo [**assim que o nó é gerado**](color:red), para evitar processamento desnecessário. Numa BFS, sabemos que no nó do primeiro teste objetivo passado com sucesso vamos ter a solução com menor profundidade, já que todos os nós que existem a uma profundidade menor - **com menor custo** - já foram exploradas e não passaram no teste. Com efeito, os exercícios associados à procura em largura primeiro apresentados na [plataforma de apoio à cadeira disponibilizada pela docência](https://aitutorsystem.herokuapp.com/) recorrem ao teste [**na geração**](color:yellow), sendo portanto relevante ter esta ideia em conta.
 
-![Teste Expansão vs Geração](imgs/0002-teste-expansao-vs-geracao.svg#dark=2)
+![Teste Expansão vs Geração](imgs/0002-expansion-vs-generation-test.svg#dark=2)
 
 É, aqui, clara a diferença temporal e espacial entre realizar o teste na geração e na expansão dos nós: com o teste na geração, exploramos completamente apenas 2 níveis da árvore (já que G ao ser gerado passa logo o teste objetivo e acabamos), poupando aí a expansão de todo um nível da árvore. Mais ainda, há seis nós que nunca precisamos de gerar, equivalendo a quase todo um nível da árvore que não precisamos de gerar, poupando memória. As complexidades temporal e espacial descem, portanto, de $O(b^{d + 1})$ para $O(b^d)$ (o que a escalas mais baixas pode não parecer fazer diferença, _but it adds up_ - principalmente em memória, a diferença de apenas uma escala de grandeza pode tornar coisas fazíveis em incomportáveis).
 
@@ -172,7 +172,7 @@ A procura de custo uniforme equivale ao [algoritmo de Dijkstra](/asa/caminhos-ma
 
 Encontra-se abaixo um exemplo de procura custo uniforme por uma árvore (note-se que o teste é realizado **na expansão**).
 
-![Procura Custo Uniforme - Exemplo](imgs/0002-procura-custo-uniforme.svg#dark=2)
+![Procura Custo Uniforme - Exemplo](imgs/0002-uniform-cost-search.svg#dark=2)
 
 Note-se que a fila usada nesta procura é uma **fila de prioridade**, não uma fila simples.
 
@@ -191,7 +191,7 @@ Note-se que aqui definimos as complexidades temporal e espacial em função do _
 
 Temos, claro, que cada ação/ramo custa pelo menos $\varepsilon$, como referido anteriormente. Como pior caso, assuma-se que todos os nós têm $b$ filhos (ou seja que o fator de ramificação se verifica para qualquer nó) - neste caso, existem:
 
-- $1$ nó no nível $0$, a raíz;
+- $1$ nó no nível $0$, a raiz;
 - $b$ nós no nível $1$;
 - $b^2$ nós no nível $2$;
 - $\cdots$
@@ -248,23 +248,27 @@ A DFS Iterativa acaba por pegar no "melhor dos dois mundos" e juntá-los, sendo,
 - **Complexidade Espacial**: $O(bd)$
 - **Ótima**: Sim, se o custo de cada ação for maior que 0.
 
-![DFS Iterativa](imgs/0002-dfs-iterativa.svg#dark=2)
+![DFS Iterativa](imgs/0002-iterative-dfs.svg#dark=2)
 
 Explorando ainda a complexidade da procura em questão, temos que o _overhead_ adicionado pelas procuras adicionais não é particularmente significativo, já que numa árvore a vasta maioria dos nós encontra-se nas folhas (que são visitadas muito menos vezes).
 
 ### Procura Bi-Direcional
 
-<!-- Consiste na realização de 2 procuras em simultâneo, uma a começar no estado inicial e outra no estado objetivo. (...)
+Consiste na realização de 2 procuras em simultâneo, uma a começar no estado inicial e outra no estado objetivo.
+A procura termina quando as duas procuras se encontram, ou seja, tẽm um estado comum.
 
-É mais eficiente se a árvore cresce exponencialmente, visto que $b^{\frac{d}{2}} + b^{\frac{d}{2}} \ll b^d$. (...)
+Esta procura reduz a quantidade de exploração necessária, o que a torna bastante eficiente em certos casos.
 
-Problema: pode não ser conhecido o estado objetivo logo à partida (por exemplo, num jogo de Sudoku vs 8-puzzle). Existe também uma necessidade de calcular eficientemente os predecessores de um nó. (...) -->
+Geralmente é usada quando o estado inicial e o estado objetivo são únicos e o fator de ramificação é igual em ambas as direções.
 
-:::warning[Em construção]
+- **Completa**: Sim.
+- **Complexidade Temporal**: $O(b^{d/2})$
+- **Complexidade Espacial**: $O(b^{d/2})$
+- **Ótima**: Sim.
 
-Esta secção encontra-se atualmente incompleta, será completada assim que possível.
+![Procura Bi-Direcional](imgs/0002-bidirectional-search.svg#dark=1)
 
-:::
+**Problema**: pode não ser conhecido o estado objetivo logo à partida. Existe também uma necessidade de calcular eficientemente os predecessores de um nó.
 
 ---
 

@@ -21,7 +21,7 @@ Por razões de direitos de autor, não é possível disponibilizar o enunciado p
 
 ```
 
-[EdSwordsmith/ExerciciosFP](https://github.com/EdSwordsmith/ExerciciosFP) - Resolução alternativa dos exercícios pelo Eduardo Espadeiro
+[EdSwordsmith/ExerciciosFP](https://github.com/EdSwordsmith/ExerciciosFP) - Resolução alternativa dos exercícios por um aluno de LEIC-A
 
 ## Capítulo 1: Computadores, Algoritmos e Programas
 

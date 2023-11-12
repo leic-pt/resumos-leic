@@ -93,7 +93,7 @@ $$
 
 QED
 
-$\sum_{v \in V} \operatorname{I}(i,e)$ é 2, pois cada aresta $e$ está associada a 2 vérices.
+$\sum_{v \in V} \operatorname{I}(i,e)$ é 2, pois cada aresta $e$ está associada a 2 vértices.
 
 :::
 
