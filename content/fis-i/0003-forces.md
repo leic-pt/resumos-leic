@@ -186,8 +186,34 @@ e que força exerce o bloco 1 no bloco 2?
 ## Força de Atrito Sólido-Sólido
 
 Quando temos interação entre dois sólidos, pode existir uma força contrária ao movimento (ou que previne o movimento),
-chamada [**Força de Atrito**](color:orange).
+chamada [**Força de Atrito**](https://en.wikipedia.org/wiki/Friction#Dry_friction).
 
-Quando o corpo está em repouso e estamos a aplicar-lhe uma força, estamos perante uma **Força de Atrito Estático**.
+![Força de atrito a ser aplicada num bloco](./assets/0003-friction-force-diagram.svg#dark=3)
 
-TODO
+Quando o corpo está em repouso e estamos a aplicar-lhe uma força, estamos perante uma [**Força de Atrito Estático**](color:green).
+A intensidade dessa força acompanha a força aplicada, contrariando-a, evitando assim o movimento. Por razões
+óbvias, a intensidade da força de atrito nunca pode exceder a intensidade da força aplicada, caso contrário
+observaríamos movimento no sentido oposto.  
+Assim, a força de atrito estático é dada por:
+
+$$
+\vec F_{\text{atrito}} \leq \mu_s \cdot |\vec N|
+$$
+
+onde $\mu_s$ representa o coeficiente de atrito estático (_static_).
+
+Quando é alcançado o valor máximo para $F_{\text{atrito}}$, o corpo inicia o seu movimento, onde
+começa a atuar a [**Força de Atrito Cinético**](color:orange), com intensidade fixa, e que
+geralmente tem um coeficiente de atrito mais baixo.  
+Assim, a força de atrito cinético é dada por:
+
+$$
+\vec F_{\text{atrito}} = \mu_k \cdot |\vec N|
+$$
+
+onde $\mu_k$ representa o coeficiente de atrito cinético (_kinetic_).
+
+Podemos observar este seguinte gráfico para estudar a intensidade da força de atrito, $F_a$,
+em função da intensidade da força aplicada, $F$.
+
+![Força de atrito em função da força aplicada](./assets/0003-friction-force-chart.svg#dark=3)
