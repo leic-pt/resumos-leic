@@ -1,11 +1,11 @@
 ---
 title: Momento
 description: >-
-  Momento Linear
-  Centro de Massa
-  Corpo Rigido: Momento de Inércia
-  Momento Angular
-  Momento de Forças
+  Momento Linear.
+  Centro de Massa.
+  Corpo Rigido: Momento de Inércia.
+  Momento Angular.
+  Momento de Forças.
 path: /fis-i/momentum
 type: content
 ---
@@ -36,7 +36,7 @@ A lei de Newton diz que
 
 $$
 \begin{darray}{ll}
-\vec{F} = \frac{\partial \vec{P}}{\partial t} \iff \vec{F} = m\,\vec{a} \quad\text{,\quad se }\;\; m = const
+\vec{F} = \frac{\partial \vec{P}}{\partial t} \iff \vec{F} = m\,\vec{a} \quad\text{,\quad se }\;\; m = \op{const}
 \end{darray}
 $$
 
@@ -60,7 +60,7 @@ ou seja
 
 $$
 \begin{darray}{ll}
-\frac{\partial}{\partial t}[m_1\vec{v_1} + m_2\vec{v_2}] = 0 \implies \vec{P_T} = const
+\frac{\partial}{\partial t}[m_1\vec{v_1} + m_2\vec{v_2}] = 0 \implies \vec{P_T} = \op{const}
 \end{darray}
 $$
 
@@ -68,31 +68,52 @@ Quando consideramos um objeto a cair na Terra geralmente vemos que o seu momento
 
 ### Colisões
 
-#### Colisões Totalmente Inelásticas
+#### Colisões (Totalmente) Inelásticas
+
+Uma [colisão inelástica](color:green) é aquela em que há **perda** de
+energia cinética do sistema. Quando ocorre uma perda máxima de energia cinética,
+isto é, quando ambos os corpos ficam com a mesma velocidade, dá-se o nome de
+colisão **totalmente** inelástica.
+
+:::info[Exemplo]
 
 ![Colisão Inelástica](./assets/0005-completely-inelastic-colision.png#dark=2)
 
-Sabemos que $P$ é constante e que a velocidade final das duas massas é igual, logo
+Numa colisão totalmente inelástica, a velocidade final das duas massas é igual.
+Além disso, como estamos perante um sistema isolado, o momento linear, $P$, também
+se conserva. Considerando que ambas as esferas têm igual massa (i.e. $m_1 = m_2$)
+e que a esfera 2 está em repouso inicialmente, temos,
 
 $$
-\begin{darray}{cc}
-mv_i = 2mv_f \implies v_f = \frac{v_i}{2}
+\begin{aligned}
+P_i = P_f &\Leftrightarrow m_1 v_{1,i} + m_2 v_{2,i} = m_1 v_{1,f} + m_2 v_{2,f} \\
+&\Leftrightarrow mv_i = 2mv_f \\
+&\Leftrightarrow v_f = \frac{v_i}{2}
+\end{aligned}
+$$
+
+Podemos agora descobrir qual foi a variação de energia (cinética) do sistema:
+
+$$
+\begin{darray}{l}
+E_i = \frac{1}{2}mv_i^2 \\\\
+E_f = 2 \left(\frac{1}{2}mv_f^2\right) = m\left(\frac{v_i}{2}\right)^2 = \frac{1}{4}mv_i^2 \\\\
+\Delta E = E_f - E_i
 \end{darray}
 $$
 
-Como não existe conservação de energia
-
-$$
-\begin{darray}{cc}
-E_i = \frac{1}{2}mv_i^2\\
-\,\\
-E_i = \frac{1}{2}\,2mv_f^2 = m\left(\frac{v_i}{2}\right)^2 = \frac{1}{4}mv_i^2
-\end{darray}
-$$
+:::
 
 #### Colisões Elásticas
 
-Consideremos uma colisão elástica entre duas bolas de bilhar uma com velocidade inicial $v_i$ e outra parada. Observa-se uma colisão frontal que, como é elástica, conserva a energia cinética.
+Uma [colisão elástica](color:orange) é aquela em que há **conservação** de
+energia cinética do sistema.
+
+:::info[Exemplo]
+
+Consideremos uma colisão elástica entre duas bolas de bilhar uma
+com velocidade inicial $v_i$ e outra parada.
+Observa-se uma colisão frontal que, como é elástica, conserva a energia cinética.
 
 ![Colisão Elástica](./assets/0005-completely-elastic-colision.png#dark=2)
 
@@ -123,6 +144,8 @@ v_2 = 0\\
 v_1 = v_i
 \end{darray}
 $$
+
+:::
 
 :::tip[Colisão Elástica (Geral)]
 Para uma colisão elástica em que os corpos têm massa diferente
@@ -171,7 +194,8 @@ $$
 \end{darray}
 $$
 
-Ao escolher o referencial com o centro no centro de massa temos que $\,\sum m_i\vec{v^*}_i = 0\,$. Em relação a este sistema o objeto, composto por várias partículas, move-se como um único ponto:
+Ao escolher o referencial com o centro no centro de massa temos que $\,\sum m_i\vec{v^*}_i = 0\,$.
+Em relação a este sistema o objeto, composto por várias partículas, move-se como um único ponto:
 
 $$
 \begin{darray}{cc}
@@ -187,7 +211,7 @@ $$
 \end{darray}
 $$
 
-Disto podemos tambem definir
+Disto podemos também definir
 
 $$
 \begin{darray}{cc}
@@ -205,6 +229,18 @@ $$
 
 ## Corpo Rígido: Momento de Inércia
 
+:::warning[Secção Incompleta]
+De momentos não existem conteúdos nesta secção. Aceitam-se contribuições.
+:::
+
 ## Momento Angular
 
+:::warning[Secção Incompleta]
+De momentos não existem conteúdos nesta secção. Aceitam-se contribuições.
+:::
+
 ## Momento de Forças
+
+:::warning[Secção Incompleta]
+De momentos não existem conteúdos nesta secção. Aceitam-se contribuições.
+:::
