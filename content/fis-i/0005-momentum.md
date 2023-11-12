@@ -46,7 +46,7 @@ recuperando assim a lei de Newton a que estamos habituados.
 
 Olhemos agora para um sistema isolado do exterior:
 
-![Sistema Fechado](./assets/0004-closed-system2.png#dark=2)
+![Sistema Fechado](./assets/0005-closed-system2.png#dark=2)
 
 Como o sistema está isolado, a força que $m_2$ aplica a $m_1$ é acompanhada por uma força simétrica de $m_1$ sobre $m_2$, isto é
 
@@ -70,7 +70,7 @@ Quando consideramos um objeto a cair na Terra geralmente vemos que o seu momento
 
 #### Colisões Totalmente Inelásticas
 
-![Colisão Inelástica](./assets/0004-completely-inelastic-colision.png#dark=2)
+![Colisão Inelástica](./assets/0005-completely-inelastic-colision.png#dark=2)
 
 Sabemos que $P$ é constante e que a velocidade final das duas massas é igual, logo
 
@@ -94,7 +94,7 @@ $$
 
 Consideremos uma colisão elástica entre duas bolas de bilhar uma com velocidade inicial $v_i$ e outra parada. Observa-se uma colisão frontal que, como é elástica, conserva a energia cinética.
 
-![Colisão Elástica](./assets/0004-completely-elastic-colision.png#dark=2)
+![Colisão Elástica](./assets/0005-completely-elastic-colision.png#dark=2)
 
 Sabemos que $P$ é constante e a energia cinética é conservada, logo
 
@@ -153,7 +153,7 @@ Se $\quad m_1 \ll m_2 \implies v_2^* = 0 \quad\text{e}\quad v_1^* = -v_1$
 
 O momento linear de pende do referencial
 
-![Referencial](./assets/0004-center-of-mass.png#dark=2)
+![Referencial](./assets/0005-center-of-mass.png#dark=2)
 
 $$
 \begin{darray}{cc}
