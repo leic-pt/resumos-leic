@@ -4,7 +4,7 @@ description: >-
   Meta-predicados. 
   Aritmética, Instruções de Escrita e Leitura.
   Estruturas.
-path: /lp/prolog-mid
+path: /lp/prolog-meta
 type: content
 ---
 
@@ -14,15 +14,24 @@ type: content
 
 ```
 
-Informação útil para perceberem o que está a acontecer na recursão: podem escrever `trace.` na prompt, e lá dentro escrever o objetivo pretendido. Ao carregar `Enter` repetidamente, podemos observar a recursão a acontecer!
-
 ## Meta-Predicados sobre Listas
 
-Ponto importante - sempre que virem algo do género `<nome_func>/<numero>`, `<numero>` é o número de argumentos que a função recebe (a sua aridade, portanto).
+:::tip
+
+Existe, em Prolog, _overloading_ de predicados: podemos associar o mesmo nome de
+predicado a aridades diferentes. Sempre que virem a definição de uma função escrita
+do género `<nome_pred>/<numero>`, `<numero>` corresponde ao número de argumentos
+que a função recebe (a sua aridade, portanto).
+
+:::
+
+Existe um conjunto de predicados _built-in_ em Prolog que nos vão ser muito
+úteis, tanto no projeto como nas avaliações semanais.
 
 ### length
 
-[Predicado built-in](https://github.com/dtonhofer/prolog_notes/tree/master/swipl_notes/about_length) que recebe dois argumentos, uma lista e uma variável, e devolve `<variável> = <comprimento>`.
+[Predicado built-in](https://github.com/dtonhofer/prolog_notes/tree/master/swipl_notes/about_length)
+que recebe dois argumentos, uma lista e uma variável, e devolve `<variável> = <comprimento>`.
 
 ```prolog
 % Exemplo de interação
@@ -32,7 +41,8 @@ L = 5.
 
 ### append
 
-Recebe dois ou três argumentos, uma ou duas listas e uma variável. Permite interações como as demonstradas abaixo:
+Recebe dois ou três argumentos, uma ou duas listas e uma variável. Permite interações
+como as demonstradas abaixo:
 
 ```prolog
 % interações com append/3
@@ -57,9 +67,20 @@ L = [1, 2, [3]].
 
 ### maplist
 
-O [maplist](https://github.com/dtonhofer/prolog_notes/blob/master/swipl_notes/about_maplist/maplist_2_examples.md) é um predicado _built-in_ com enormes semelhanças ao `map` do Python, onde, ao dar-lhe uma função como argumento, retornava o resultado da aplicação dessa função aos elementos da lista argumento. No `maplist` do Prolog passa-se algo do mesmo género. Ocorre em 4 variantes, `maplist/2`, `maplist/3`, `maplist/4` e `maplist/5`, correspondendo os números à quantidade de argumentos que aceita (ao chamar a função, não usamos esta notação, apenas usamos `maplist`). O primeiro argumento é **sempre** a função/predicado que queremos utilizar, e os seguintes as listas que queremos que sejam operadas pela função.
+O [maplist](https://github.com/dtonhofer/prolog_notes/blob/master/swipl_notes/about_maplist/maplist_2_examples.md)
+é um predicado _built-in_ com enormes semelhanças ao `map` do Python: em FP, vimos que ao dar-lhe
+uma função como argumento, `map` retornava o resultado da aplicação dessa função aos
+elementos da lista argumento. No `maplist` do Prolog passa-se algo do mesmo género.
+Ocorre em 4 variantes, `maplist/2`, `maplist/3`, `maplist/4` e `maplist/5`,
+correspondendo os números à quantidade de argumentos que aceita (ao chamar a função,
+não usamos esta notação, apenas usamos `maplist`). O primeiro argumento é **sempre**
+a função/predicado que queremos utilizar, e os seguintes as listas que queremos que sejam operadas pela função.
+É natural que não faça muito sentido nas primeiras vezes que utilizarmos este
+predicado, mas à medida que o tempo vai passando vamos apercebendo-nos das
+potencialidades do `maplist` (e da sua simplicidade).
 
-**Pormenores importantes** - nos `maplist` que aceitam mais que uma lista, todas as listas devem ser do mesmo tamanho; as listas devem ter tamanhos definidos.
+Como nota, é importante referir que para os `maplist` que aceitam mais que uma lista, [**todas
+as listas devem ser do mesmo tamanho**](color:red).
 
 O último pormenor pode ser reproduzido através de:
 
@@ -102,11 +123,15 @@ L = [2,4,6,8,10].
 L = [11,12,13,14,15].
 ```
 
-Talvez seja um pouco difícil de perceber ao início as diferenças entre cada predicado, principalmente nestes com aridades diferentes: experimentem com listas e programas diferentes para tentar perceber o que é que está de facto a acontecer!
+Talvez seja um pouco difícil de perceber ao início as diferenças entre cada predicado,
+principalmente nestes com aridades diferentes: experimentem com listas e programas
+diferentes para tentar perceber o que é que está de facto a acontecer!
 
 ### include, exclude
 
-Os meta-predicados `include` e `exclude` funcionam, tal como o nome indica, de maneiras diretamente opostas. Ambos recebem 3 argumentos, sendo o primeiro o predicado "filtrador", o segundo a lista que queremos filtrar e a terceira a lista devolvida após o filtro estar concluído.
+Os meta-predicados `include` e `exclude` funcionam, tal como o nome indica, de
+formas diretamente opostas. Ambos recebem 3 argumentos, sendo o primeiro o
+predicado "filtrador", o segundo a lista que queremos filtrar e a terceira a lista devolvida após o filtro estar concluído.
 
 ```prolog
 % programa
@@ -139,19 +164,30 @@ findall(<termo>, <objetivo>, <lista>).
 setof(<termo>, <objetivo>, <lista>).
 ```
 
-Ambos funcionam de modo semelhante, `<lista>` vai ter os termos que satisfaçam `<objetivo>`. Contudo, `<lista>` em `findall` pode conter elementos repetidos, enquanto que em `setof` isso não ocorre. Além disso, o `setof` ordena (por ordem crescente) os elementos da lista.
-Aqui vale a pena também notar que `member/2` recebe um termo e uma lista e devolve um booleano que representa o termo estar presente na lista ou não.
+Ambos funcionam de modo semelhante, `<lista>` vai ter os termos que satisfaçam `<objetivo>`.
+Contudo, `<lista>` em `findall` pode conter elementos repetidos, enquanto que em `setof`
+isso não ocorre: um `set` corresponde precisamente a um conjunto sem elementos
+repetidos e ordenado.
 
 Interações possíveis seriam, por exemplo:
 
 ```prolog
+% note-se que member/2 recebe um termo e uma lista, e verifica se
+% o termo está presente na lista (devolvendo true/false)
+
 ?- findall(X, (member(X, [6,2,4,5,4,7]), X mod 2 =:= 0), L).
 L = [6,2,4,4].
 ?- setof(X, (member(X, [6,2,4,5,4,7]), X mod 2 =:= 0), L).
 L = [2,4,6].
 ```
 
-Interação mais complexa, **útil para o projeto (2020/2021)** segundo a prof.:
+:::warning[Nota]
+
+A interação seguinte foi bastante útil no projeto de 2020/2021 - pode, potencialmente,
+ser útil no projeto do ano curricular em que estão a ver estes resumos, pelo
+que valerá a pena prestar particular atenção ao mesmo.
+
+:::
 
 ```prolog
 % sublist(SL, L, N) - SL é uma sublista de L de comprimento N
@@ -167,7 +203,11 @@ SL = [3, 4, 5, 6]
 false.
 ```
 
-No programa acima, podemos ler `append([_, SL, _], L)`, que é algo como "SL é uma sublista de L, onde ambos os `_` são o que vem (ou não) atrás e à frente de SL em L, mas que não nos interessa". Como queremos todas as sublistas de L de comprimento `N`, primeiro é devolvida a resposta com os 4 primeiros elementos, de seguida com os elementos de 1 a 5 e por fim com os últimos 4 elementos.
+No programa acima, podemos ler `append([_, SL, _], L)`, que é algo como "SL é uma
+sublista de L, onde ambos os `_` são o que vem (ou não) atrás e à frente de SL em L,
+mas que não nos interessa". Como queremos todas as sublistas de L de comprimento `N`,
+primeiro é devolvida a resposta com os 4 primeiros elementos, de seguida com os
+elementos de 1 a 5 e por fim com os últimos 4 elementos.
 
 Podemos, ainda, querer uma lista com todas as sublistas - aqui entra o `findall`:
 
@@ -180,7 +220,8 @@ L = [1,2,3,4,5,6],
 SLs = [[1, 2, 3, 4], [2, 3, 4, 5], [3, 4, 5, 6]].
 ```
 
-Esta implementação tem, contudo, um problema, problema este que segundo a prof está **diretamente relacionado com o projeto**.
+Esta implementação tem, contudo, um problema, que provavelmente vão encontrar
+ao tentar resolver o projeto.
 
 ```prolog
 % caso façamos:
@@ -193,7 +234,9 @@ SLs = [[_1056, _1062, _1068, _1074], [_1026, _1032, _1038, _1044], [_996, _1002,
 % porque é que isto acontece? "não me perguntes porque é que faz, mas faz" - prof.
 ```
 
-Como é que podemos solucionar isto? Utilizando o `bagof`, que faz algo muito semelhante ao `findall`, com a particularidade de no caso de termos uma lista com variáveis, as variáveis (para este propósito) serem tratadas como queremos aqui:
+Como é que podemos solucionar isto? Utilizando o `bagof`, que faz algo muito semelhante
+ao `findall`, com a particularidade de no caso de termos uma lista com variáveis,
+as variáveis (para este propósito) serem tratadas como queremos aqui:
 
 ```prolog
 % a diferença entre programas é exclusivamente usar bagof em vez de findall
@@ -213,59 +256,60 @@ sublists(L, N, SLs) :- bagof(SL, sublista(SL, L, N), SLs), !.
 % de notar que a cláusula que vem primeiro é esta última, só depois é que vem a cláusula que adicionámos
 ```
 
-Aqui, a utilidade do operador de corte é: "se isto não der falso, continua e não uses mais cláusula nenhuma a seguir; se der, salta esta cláusula e usa o que vier a seguir".
+Aqui, a utilidade do operador de corte é: "se isto não der falso, continua e não
+uses mais cláusula nenhuma a seguir; se der, salta esta cláusula e usa o que vier a seguir".
 
 ## Aritmética
 
 De seguida estão apresentadas algumas operações aritméticas que podem ser úteis:
 
-| Operação                           | Significado                               |
-| ---------------------------------- | ----------------------------------------- |
-| `A+B, +(A, B)`                     | soma entre A e B                          |
-| `A-B, -(A, B)`                     | diferença entre A e B                     |
-| `A*B, *(A, B)`                     | produto entre A e B                       |
-| `A/B, /(A, B)`                     | quociente real entre A e B                |
-| `A//B, //(A,B)`                    | quociente inteiro entre A e B             |
-| `A^B, ^(A, B), A\*\*B, \*\*(A, B)` | A elevado a B                             |
-| `-A`                               | simétrico de A                            |
-| `sin(A), cos(A), tan(A)`           | seno, cosseno, tangente de A              |
-| `log(A)`                           | logaritmo natural de A (base e, portanto) |
-| `abs(A)`                           | módulo/valor absoluto de A                |
-| `sqrt(A)`                          | raiz quadrada de A                        |
-| `max(A, B)`                        | maior valor entre A e B                   |
-| `min(A, B)`                        | menor valor entre A e B                   |
-| `rem(A, B), mod(A, B)`             | resto da divisão inteira entre A e B      |
-| `gcd(A, B)`                        | maior divisor comum entre A e B           |
-| `lcm(A, B)`                        | menor múltiplo comum entre A e B          |
-| `sign(A)`                          | -1 se A < 0, 0 se A == 0, 1 se A > 0      |
-| `random(A)`                        | valor tal que 0 <= valor < A              |
-| `random_between(A, B)`             | valor tal que A <= valor <= B             |
-| `round(A)`                         | arredonda (para o int + próximo) A        |
-| `floor, ceiling, float, integer`   | vocês sabem estes                         |
-| `>>, <<, xor`                      | shift left, right, xor                    |
-| `\/`                               | bitwise or (cursed)                       |
-| `/\`                               | bitwise and (cursed)                      |
+| Operação                                     | Significado                                                               |
+| -------------------------------------------- | ------------------------------------------------------------------------- |
+| `A+B, +(A, B)`                               | soma entre A e B                                                          |
+| `A-B, -(A, B)`                               | diferença entre A e B                                                     |
+| `A*B, *(A, B)`                               | produto entre A e B                                                       |
+| `A/B, /(A, B)`                               | quociente real entre A e B                                                |
+| `A//B, //(A,B)`                              | quociente inteiro entre A e B                                             |
+| `A^B, ^(A, B), A\*\*B, \*\*(A, B)`           | A elevado a B                                                             |
+| `-A`                                         | simétrico de A                                                            |
+| `sin(A), cos(A), tan(A)`                     | seno, cosseno, tangente de A                                              |
+| `log(A)`                                     | logaritmo natural de A (base e, portanto)                                 |
+| `abs(A)`                                     | módulo/valor absoluto de A                                                |
+| `sqrt(A)`                                    | raiz quadrada de A                                                        |
+| `max(A, B)`                                  | maior valor entre A e B                                                   |
+| `min(A, B)`                                  | menor valor entre A e B                                                   |
+| `rem(A, B), mod(A, B)`                       | resto da divisão inteira entre A e B                                      |
+| `gcd(A, B)`                                  | maior divisor comum entre A e B                                           |
+| `lcm(A, B)`                                  | menor múltiplo comum entre A e B                                          |
+| `sign(A)`                                    | -1 se A < 0, 0 se A == 0, 1 se A > 0                                      |
+| `random(A)`                                  | valor tal que 0 <= valor < A                                              |
+| `random_between(A, B)`                       | valor tal que A <= valor <= B                                             |
+| `round(A)`                                   | arredonda (para o int + próximo) A                                        |
+| `floor(A), ceiling(A), float(A), integer(A)` | devolve o chão, teto, representação decimal ou representação inteira de A |
+| `>>, <<, xor`                                | shift left, right, xor                                                    |
+| `\/`                                         | bitwise or (cursed)                                                       |
+| `/\`                                         | bitwise and (cursed)                                                      |
 
 Temos também operações relacionais:
 
-| Operação        | Significado                                                  |
-| --------------- | ------------------------------------------------------------ |
-| `>, <, >=, =<`  | vocês conhecem estas (de realçar que aqui usa-se =<, não <=) |
-| `A = B`         | true caso A e B unifiquem                                    |
-| `A \= B`        | true caso A e B não unifiquem                                |
-| `A == B`        | true caso A e B forem a mesma coisa                          |
-| `A \== B`       | true caso A e B não sejam a mesma coisa                      |
-| `Exp1 =:= Exp2` | true caso o valor de Exp1 seja o mesmo que o de Exp2         |
-| `Exp1 =\= Exp2` | true caso o valor de Exp1 não seja o mesmo que o de Exp2     |
+| Operação        | Significado                                                                   |
+| --------------- | ----------------------------------------------------------------------------- |
+| `>, <, >=, =<`  | vocês conhecem estas [**(de realçar que aqui usa-se =<, não <=)**](color:red) |
+| `A = B`         | true caso A e B unifiquem                                                     |
+| `A \= B`        | true caso A e B não unifiquem                                                 |
+| `A == B`        | true caso A e B forem a mesma coisa                                           |
+| `A \== B`       | true caso A e B não sejam a mesma coisa                                       |
+| `Exp1 =:= Exp2` | true caso o valor de Exp1 seja o mesmo que o de Exp2                          |
+| `Exp1 =\= Exp2` | true caso o valor de Exp1 não seja o mesmo que o de Exp2                      |
 
-De realçar que ainda há uma variação de `>, <, >=, =<`, com `@` antes do operador, que funciona como uma espécie de `strcmp`, ou seja, compara dois termos alfabeticamente. Podemos observar uma interação possível no exemplo abaixo:
+De realçar que ainda há uma variação de `>, <, >=, =<`, com `@` antes do operador, que
+funciona como uma espécie de `strcmp`, ou seja, compara dois termos alfabeticamente.
+Podemos observar uma interação possível no exemplo abaixo:
 
 ```prolog
 ?- likes(mary, pizza) @< likes(mary, plums).
 true.
 ```
-
-:::details[Exemplos de Interações com as operações acima]
 
 ```prolog
 ?- X = +(2, 3).
@@ -285,9 +329,8 @@ X = 9.
 X = 9.
 ```
 
-:::
-
-Temos ainda o `is`, onde primeiro é avaliada a expressão da direita e depois há a tentativa de unificação com o termo da esquerda.
+Temos ainda o `is`, onde primeiro é avaliada a expressão da direita e depois há
+a tentativa de unificação com o termo da esquerda.
 
 ```prolog
 % (equivalente a ?- a = 8.)
@@ -325,11 +368,13 @@ potencia(B, E, P) :-
 
 ## Leitura/Escrita
 
-O Prolog, tal como as outras linguagens de programação, também apresenta instruções de leitura e escrita de dados, instruções estas que correspondem a predicados.
+O Prolog, tal como as outras linguagens de programação, também apresenta instruções
+de leitura e escrita de dados, instruções estas que correspondem a predicados.
 
 ### Instruções de Leitura
 
-Utilizamos, para leitura, o predicado `read/1`, que unifica o termo escrito como input com o termo argumento. Para além de na _prompt_ termos de utilizar o ponto final, temos de o escrever também no input.
+Utilizamos, para leitura, o predicado `read/1`, que unifica o termo escrito como input
+com o termo argumento. Para além de na _prompt_ termos de utilizar o ponto final, temos de o escrever também no input.
 
 Interações básicas:
 
@@ -374,7 +419,9 @@ true.
 
 ### Instruções de escrita
 
-Temos, para efeitos de escrita, três predicados pré-definidos: `write/1`, que escreve o valor do seu argumento e **não muda de linha**, `writeln/1` que escreve o valor do seu argumento **e muda de linha** e `nl/0` que muda de linha.
+Temos, para efeitos de escrita, três predicados pré-definidos: `write/1`, que escreve o
+valor do seu argumento e **não muda de linha**, `writeln/1` que escreve o valor do
+seu argumento **e muda de linha** e `nl/0` que muda de linha.
 
 Interações básicas:
 
@@ -403,11 +450,19 @@ Y = 7.
 
 ## Estruturas
 
-Já vimos anteriormente vários tipos elementares de dados - átomos, números, variáveis, etc.. Contudo, podemos ainda combinar tipos de dados elementares para construir tipos de dados mais complexos, estruturados. Em Prolog, representá-los-emos através de termos compostos, sendo estes considerados **estruturas**.
+Já vimos anteriormente vários tipos elementares de dados - átomos, números, variáveis,
+entre outros. Contudo, podemos ainda combinar tipos de dados elementares para construir
+tipos de dados mais complexos, estruturados. Em Prolog, representá-los-emos através
+de termos compostos, sendo estes considerados **estruturas**.
 
-De volta aos velhinhos TADs de FP, sabemos que um tipo de dados tem, por norma, de ter definidos construtores, seletores, reconhecedores e testes.
+De volta aos velhinhos TADs de FP, sabemos que um tipo de dados tem, por norma, de
+ter definidos construtores, seletores, reconhecedores e testes.
 
-Tentemos criar uma estrutura chamada `data`. Essa estrutura poderá ter, por ex., um construtor, `faz_data` e seletores, `ano_de`, `mes_de` e `dia_de`. Em termos abstratos, podemos considerar a `data` como um termo de três argumentos, onde `data` é uma espécie de `functor`. Assim sendo, a estrutura poderá ser algo do género `data(A, M, D)`, cujos ano, mês e dia são, respetivamente, A, M e D. Com base nesta ideia, podemos construir alguns predicados:
+Tentemos criar uma estrutura chamada `data`. Essa estrutura poderá ter, por ex.,
+um construtor, `faz_data` e seletores, `ano_de`, `mes_de` e `dia_de`. Em termos
+abstratos, podemos considerar a `data` como um termo de três argumentos, onde `data`
+é uma espécie de `functor`. Assim sendo, a estrutura poderá ser algo do género `data(A, M, D)`,
+cujos ano, mês e dia são, respetivamente, A, M e D. Com base nesta ideia, podemos construir alguns predicados:
 
 ```prolog
 % construtor
@@ -428,7 +483,9 @@ muda_mes(M, data(A, _, D), data(A, M, D)).
 muda_dia(D, data(A, M, _), data(A, M, D)).
 ```
 
-Ora, tal como em FP, a utilidade dos TADs por si só não se cinge aos tipos em concreto, mas sim aos programas que com eles podemos criar. No exemplo seguinte, podemos ver precisamente um exemplo disso mesmo, onde utilizamos os TADs definidos anteriormente para alterar uma data:
+Ora, tal como em FP, a utilidade dos TADs por si só não se cinge aos tipos em concreto,
+mas sim aos programas que com eles podemos criar. No exemplo seguinte, podemos ver
+precisamente um exemplo disso mesmo, onde utilizamos os TADs definidos anteriormente para alterar uma data:
 
 ```prolog
 % prox_ano(Hoje, Futuro) - data equivalente a hoje do próximo ano
@@ -444,8 +501,10 @@ prox_ano(Hoje, Futuro) :-
 Futuro = data(2015, 4, 2).
 ```
 
-Nos slides há um exemplo giro do problema do homem, do lobo, da cabra e da couve, e no livro há um semelhante mas sobre três casas coloridas se quiserem ver mais coisas deste género.
+Nos slides há um exemplo giro do problema do homem, do lobo, da cabra e da couve, e no
+livro há um semelhante mas sobre três casas coloridas se quiserem ver mais coisas deste género.
 
 :::tip[Apenas para Windows]
-Para correr código de dentro de um programa rapidamente sem criar um ficheiro, pode-se escrever `[user].` na prompt, seguido do código para pôr dentro do programa, seguido de Ctrl-D (EOF).
+Para correr código de dentro de um programa rapidamente sem criar um ficheiro, pode-se
+escrever `[user].` na prompt, seguido do código para pôr dentro do programa, seguido de Ctrl-D (EOF).
 :::

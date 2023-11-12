@@ -72,7 +72,7 @@ $$f(x+h)=f(a)+f'(a)h+\frac{1}{2!}f''(a)h^2 + \dots + \frac{1}{k!}f^{(k)}(a) h^k 
 
 com $\lim_{h\to 0} \frac{R_k(a,h)}{h^k}=0$
 
-Também tinhamos restos, por exemplo o resto de Lagrange:
+Também tínhamos restos, por exemplo o resto de Lagrange:
 
 $$
 R_k(a,h)=\frac{f^{(k+1)}(a+\epsilon h) h^{k+1}}{(k+1)!}, 0 < \epsilon < 1
@@ -428,7 +428,7 @@ $$
 f(a+h) -f(a) = \frac 12 (\lambda_1 a^2_1+ \lambda_2 a^2_2 + \dots + \lambda_n a^2_n) + R_2(h)
 $$
 
-Assim, como $R_2(h)$ é despresável quando $h\to \vec 0$,
+Assim, como $R_2(h)$ é desprezável quando $h\to \vec 0$,
 o sinal de $f(a+h)-f(a)$ pode ser determinado em função dos valores próprios da matriz.
 
 - $f(a+h)-f(a) > 0$ se todos os $\lambda_i > 0$, donde em $a$ **ocorre mínimo**
@@ -440,7 +440,7 @@ Seja $f: \R^n \to \R$, $a \in \R$ é ponto crítico de $f$, ou seja $\nabla f(a)
 
 Se $H_f(a)$ é:
 
-- definida positiva (cada valor próprio $\lambda_i > 0$) - então há **minimo local em $a$**
+- definida positiva (cada valor próprio $\lambda_i > 0$) - então há **mínimo local em $a$**
 - definida negativa (cada valor próprio $\lambda_i < 0$) - então há **máximo local em $a$**
 - indefinida (valores próprios $\lambda_i >0$ e $\lambda_j < 0$) - então há **ponto de sela $a$**
 - semidefinida positiva (valores próprios $\lambda_i \geq 0$) - então há **mínimo ou ponto de sela em $a$**
@@ -509,7 +509,7 @@ $$
   \end{bmatrix}
   $$
 
-  Como já está na forma digonal, tem valores próprios $-8$ e $-2$, ambos negativos.
+  Como já está na forma diagonal, tem valores próprios $-8$ e $-2$, ambos negativos.
   Logo, $f$ tem máximo em $(1,0)$.
 
 - Em $(-1,0)$:
@@ -521,7 +521,7 @@ $$
   \end{bmatrix}
   $$
 
-  Como já está na forma digonal, tem valores próprios $-8$ e $-2$, ambos negativos.
+  Como já está na forma diagonal, tem valores próprios $-8$ e $-2$, ambos negativos.
   Logo, $f$ tem máximo em $(-1,0)$.
 
 :::

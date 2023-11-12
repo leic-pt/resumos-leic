@@ -3,7 +3,7 @@ title: Gestão de Memória
 description: >-
   Gestor de Memória.
   Endereçamento Virtual.
-  Segmentaçao e paginação.
+  Segmentação e paginação.
   Otimização de tradução de endereços.
   Tabelas de Páginas Multi-nível.
   Partilha de memória entre processos.
@@ -48,7 +48,7 @@ O gestor de memória tem então a responsabilidade de gerir o espaço de endere�
 
 - assegurar que cada processo dispõe da memória que precisa;
 - garantir que cada processo só acede à memória a que tem direito;
-- optimizar desempenho dos acessos.
+- otimizar desempenho dos acessos.
 
 ## Endereçamento Virtual
 
@@ -77,9 +77,9 @@ Um bom gestor de memória deve evitar **fragmentação**:
 
 A **segmentação** consiste na divisão dos programas em segmentos lógicos que refletem a sua estrutura funcional (rotinas, módulos, código, dados, pilha, etc).
 Assim, a conversão de endereços virtuais é linear em cada segmento, sendo o segmento a unidade de proteção e de carregamento em memória. Desta forma, a dimensão dos segmentos fica limitada: não pode exceder a dimensão da memória principal.  
-Nesta solução, o programador pode ter que se preocupar com a gestao de memória quando escreve um programa.
+Nesta solução, o programador pode ter que se preocupar com a gestão de memória quando escreve um programa.
 
-Os endereços físicos são obtidos pela UGM como descrito na imagem a baixo:
+Os endereços físicos são obtidos pela UGM como descrito na imagem abaixo:
 
 ![Tradução de Endereços Virtuais em Memória Segmentada](./imgs/0010/segments_translation.png#dark=1)
 
@@ -89,7 +89,7 @@ Uma entrada da tabela de segmentos é constituída por:
 
 - bit **P**, que indica se o segmento correspondente a esta entrada está presente na memória principal;
 - bits **Prot** que definem as proteções do segmento em causa, nomeadamente se o processo tem permissão para ler nele, escrever nele e/ou executá-lo.
-- **Limite**, que indica o número de endereços que constiutuem este segmento. Desta forma, podemos verificar se estamos a aceder fora do endereço comparando o [deslocamento](color:yellow) com o Limite;
+- **Limite**, que indica o número de endereços que constituem este segmento. Desta forma, podemos verificar se estamos a aceder fora do endereço comparando o [deslocamento](color:yellow) com o Limite;
 - **Base**, que corresponde ao endereço na memória principal em que está a informação relativa ao segmento.
 
 :::tip[Nota]
@@ -130,7 +130,7 @@ Hoje em dia, o valor típico para o tamanho de páginas é 4 KBytes.
 :::details[Nota]
 
 O facto de este valor ser uma potência de base 2 garante que o deslocamento de um dado endereço num bloco corresponde aos dígitos menos significativos do endereço real associado.
-Desta forma, a nível de arquitetura, a operação de obtenção do endereço real (base + deslocamento) pode ser feita com uma disjunção lógica (como aludido na imagem a cima).
+Desta forma, a nível de arquitetura, a operação de obtenção do endereço real (base + deslocamento) pode ser feita com uma disjunção lógica (como aludido na imagem acima).
 
 :::
 
@@ -143,7 +143,7 @@ Esta tabela permite acesso bastante mais rápido às páginas pois está guardad
 
 A ideia é que as próximas páginas a que um programa aceda estejam nesta tabela.
 Como é impossível prever isso, mais uma vez, a UGM usa o **princípio da localidade de referência**.
-Desta forma, sempre que uma página é visitada, a UGM coloca a hipótese que esta página poderá voltar a ser requesitada num futuro próxima, pelo que coloca a sua posição em memória no TLB.
+Desta forma, sempre que uma página é visitada, a UGM coloca a hipótese que esta página poderá voltar a ser requisitada num futuro próxima, pelo que coloca a sua posição em memória no TLB.
 
 A dimensão desta tabela é pequena, em geral (64, 128 entradas), uma vez que o seu custo é elevado.
 A sua dimensão é testada de forma a obter percentagens de sucesso muito elevadas (90-95%).
@@ -240,7 +240,7 @@ Há três abordagens para a transferência de segmentos:
 
 **Transferência de Segmentos**
 
-A transferência de segmentos faz-se usalmente [a pedido](color:pink).
+A transferência de segmentos faz-se usualmente [a pedido](color:pink).
 
 Normalmente, para executar um processo são necessários em memória pelo menos um segmento de código, de dados e de stack.  
 Caso haja escassez de memória, os segmentos de outros processos que não estejam em execução são transferidos na íntegra para disco (**_swapping_**).
@@ -381,7 +381,7 @@ Linux usa tabelas de páginas multinível com três níveis:
 - **Page Middle Directory** (**PMD**): tabela de nível intermédio;
 - Tabela de páginas;
 
-Os endereços virtuais neste sistem são então constituídos por quatro secções: uma secção que determina a posição na tabela em cada um dos três níveis e uma secção que determina o deslocamento na página.
+Os endereços virtuais neste sistema são então constituídos por quatro secções: uma secção que determina a posição na tabela em cada um dos três níveis e uma secção que determina o deslocamento na página.
 
 ![Gestão de Memória em Linux](./imgs/0010/linux_memory.png#dark=1)
 

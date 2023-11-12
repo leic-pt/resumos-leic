@@ -34,12 +34,12 @@ const CalendarCalculator = () => {
     expressions.push(`
         \\begin{array}{l${calendar === 'g' ? 'll' : ''}}
           \\mathcal{Y} \\div 4 = ${divY4} ${
-      calendar === 'g'
-        ? `&
+            calendar === 'g'
+              ? `&
           \\mathcal{Y} \\div 100 = ${divY100} &
           \\mathcal{Y} \\div 400 = ${divY400}`
-        : ''
-    }
+              : ''
+          }
         \\end{array}
       `);
     let n;

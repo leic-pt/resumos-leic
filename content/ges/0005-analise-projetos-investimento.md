@@ -11,7 +11,7 @@ description: >-
   Valor Atual Líquido (VAL);
   Taxa Interna de Rentabilidade (TIR);
   Período de Recuperação do Investimento (PRI);
-  Indice de Rentabilidade (IR).
+  Índice de Rentabilidade (IR).
 path: /ges/analise-projetos-investimento
 type: content
 ---
@@ -174,9 +174,9 @@ $$
 
 ## Análise de Rentabilidade de Projetos de Investimento
 
-**Investimento**: Sequência de fluxos financeiros (cash-flows) distribuidos por diversos períodos. O primeiro cash-flow normalmente é negativo:
+**Investimento**: Sequência de fluxos financeiros (cash-flows) distribuídos por diversos períodos. O primeiro cash-flow normalmente é negativo:
 
-- **Despesas de Investimento**: Terrenos, edíficios, equipamentos licenças e patentes ou,
+- **Despesas de Investimento**: Terrenos, edifícios, equipamentos licenças e patentes ou,
   até em fundo de maneio, como a constituição e reforço de stocks de matérias primas ou mercadorias.
 - **No final de vida do projeto**: O valor destas despesas que seja recuperável dará origem ao valor residual do investimento.
 
@@ -199,7 +199,7 @@ $$
 Os cash-flows durante a fase de exploração (passada a fase inicial de investimento) serão habitualmente positivos se o projeto for lucrativo.
 
 $$
-\text{CF Exploração} = \text{RAJI} \times (1 - \text{Taxa de Imposto}) - \text{Amortizações e Depreciações}
+\text{CF Exploração} = \text{RAJI} \times (1 - \text{Taxa de Imposto}) + \text{Amortizações e Depreciações}
 $$
 
 Em que RAJI corresponde ao resultado antes de juros e impostos, ou seja, o mesmo que EBIT, resultados operacionais.
@@ -330,7 +330,7 @@ $$
    **curto prazo (1.5%) + o prémio de risco de 6.5%, qual será o CMPC?**
 
    $$
-   CMPC = r_CP \times CP% + r_D \times (1 - t) \times D% = 8% \times 65% + 5% \times 35% \times (1 - 25%) = 6,5%
+   CMPC = r_CP \times CP\% + r_D \times (1 - t) \times D\% = 8\% \times 65\% + 5\% \times 35\% \times (1 - 25\%) = 6.5\%
    $$
 
 :::
@@ -387,10 +387,10 @@ $$
 $$
 
 $$
-PR = \text{Ano anterior à mudança de sinal no }CF_{\text{acumulado}} - \frac{\text{útimo }CF_{\text{acumulado negativo}}}{CF_\text{atualizado no primeiro positivo}}
+PR = \text{Ano anterior à mudança de sinal no }CF_{\text{acumulado}} - \frac{\text{último }CF_{\text{acumulado negativo}}}{CF_\text{atualizado no primeiro positivo}}
 $$
 
-### Indice de Rentabilidade ($IR$)
+### Índice de Rentabilidade ($IR$)
 
 $$
 IR = \frac{\operatorname{VAL} + \text{Investimento Inicial}}{\text{Investimento Inicial}} = \frac{\operatorname{VA}}{\text{Investimento Inicial}}

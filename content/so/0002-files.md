@@ -26,7 +26,7 @@ Um [sistema de ficheiros](color:orange) deve ser composto por um conjunto de ent
 - um sistema de organização de nomes para identificação (humana) dos ficheiros (normalmente hierárquico);
 - meta-informação sobre cada ficheiro que deve:
   - estar no mesmo sistema de memória secundária que a informação que descreve;
-  - entre outros, estabelecer a associação entre o nome (identificador para os humanos) e um identiﬁcador numérico (para o computador);
+  - entre outros, estabelecer a associação entre o nome (identificador para os humanos) e um identificador numérico (para o computador);
 - uma interface programática para comunicação entre os processos.
 
 ![Directory tree](./imgs/0002/0002-tree.png#dark=1)
@@ -36,7 +36,7 @@ Se usarmos a _flag_ `-l`, associada a cada ficheiro vem a sua meta-informação:
 
 ` -rwxr-xr-x 1 luis staff 8680 Nov 14 19:46 do_exec`
 
-Eis a informação que está apresentada na linha a cima (por ordem):
+Eis a informação que está apresentada na linha acima (por ordem):
 
 - permissões do ficheiro: `-rwxr-xr-x`
   - podem ser de leitura (`r`), escrita (`w`) e execução (`x`);
@@ -70,7 +70,7 @@ Para aceder a um ficheiro temos de saber como referir ao SO a qual ficheiro esta
 Temos assim 2 maneiras de o fazer:
 
 - Nomes Absolutos:
-  - Caminho de acesso desde a raiz (_root_, normalmente denomidado `/`)
+  - Caminho de acesso desde a raiz (_root_, normalmente denominado `/`)
   - **Exemplo:** `/home/joao/SO/project.zip`
 - Nomes Relativos:
   - Caminho de acesso a partir do diretório corrente
@@ -101,7 +101,7 @@ Em Unix isto pode ser feito através do comando:
 mount -t <filesystem> /dev/hd1 /b
 ```
 
-O comando `mount` liga a raiz do novo sistema de ﬁcheiros a um diretório do sistema de ﬁcheiros base.
+O comando `mount` liga a raiz do novo sistema de ficheiros a um diretório do sistema de ficheiros base.
 
 Na figura acima, liga `/dev/hd1` ao diretório `/b`.
 
@@ -115,15 +115,15 @@ No entanto, para que seja possível fazermos estas operações precisamos de ser
 **Processo:** é a instância de um programa em execução.
 
 - É mantida uma **Tabela de Ficheiros Abertos** por processo
-- Para abrir um ﬁcheiro é necessário:
+- Para abrir um ficheiro é necessário:
   - Pesquisar o diretório e verificar que o ficheiro existe;
-  - Veriﬁcar se o processo tem permissões para o modo de acesso que está a ser pedido;
+  - Verificar se o processo tem permissões para o modo de acesso que está a ser pedido;
   - Copiar a meta-informação para memória (incluindo o modo de acesso solicitado)
-  - Devolver ao utilizador um identiﬁcador que é usado como referência para essa posição de memória
-- Ler e escrever sobre ﬁcheiros abertos:
-  - Dado o identiﬁcador de ﬁcheiro aberto, conseguimos obter rapidamente o descritor do ﬁcheiro em memória;
-- Fechar do ﬁcheiro:
-  - Liberta a memória que continha a meta-informação do ﬁcheiro
+  - Devolver ao utilizador um identificador que é usado como referência para essa posição de memória
+- Ler e escrever sobre ficheiros abertos:
+  - Dado o identificador de ficheiro aberto, conseguimos obter rapidamente o descritor do ficheiro em memória;
+- Fechar do ficheiro:
+  - Liberta a memória que continha a meta-informação do ficheiro
   - Caso necessário, atualiza essa informação no sistema de memória secundária
 
 ### Primitivas do Sistema de Ficheiros
@@ -368,7 +368,7 @@ int main()
 
 Após escrita em ficheiro, essa escrita está garantidamente persistente no disco? [**Nem sempre!**](color:red)
 
-Para optimizar o desempenho, escritas são propagadas para disco tardiamente,
+Para otimizar o desempenho, escritas são propagadas para disco tardiamente,
 pelo que poderá não estar tudo guardado em disco quando a escrita termina.
 
 A função `fflush` permite ao programa forçar que escritas feitas até agora sejam persistidas em disco:
@@ -393,7 +393,7 @@ Temos os seguintes prós e contras:
 
 [**Contras:**](color:red)
 
-- Normalmente, programa que usa `stdio` é mais simples e optimizado
+- Normalmente, programa que usa `stdio` é mais simples e otimizado
 
 ![Filesystem Unix API](./imgs/0002/0002-unix.png)
 

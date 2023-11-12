@@ -2,6 +2,7 @@ body {
   --infoBorder: #4283b9;
   --tipBorder: #42b983;
   --warningBorder: #e7c000;
+  --warningBorderTable: #e7c00055;
   --warningBackground: rgba(255, 229, 100, 0.3);
   --dangerBorder: #da5961;
   --dangerBackground: #ffe6e6;
@@ -12,10 +13,25 @@ body {
     --infoBorder: #4283b9;
     --tipBorder: #42b983;
     --warningBorder: #e7c000;
+    --warningBorderTable: #e7c00055;
     --warningBackground: rgba(185, 174, 119, 0.3);
     --dangerBorder: #fb7981;
     --dangerBackground: rgba(72, 56, 57, 0.3);
   }
+}
+
+.content a:not(.gatsby-resp-image-link, .anchor.before) {
+  transition: filter 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: inset 0 -2px var(--accentColor);
+  color: var(--textColor);
+}
+
+.content a:hover {
+  filter: brightness(80%);
+}
+
+body.dark-mode .content a:hover {
+  filter: brightness(120%);
 }
 
 .content img {
@@ -77,10 +93,23 @@ body {
   outline: none;
 }
 
+.custom-container.custom-container-warning table td,
+.custom-container.custom-container-warning table th {
+  border-color: var(--warningBorderTable);
+}
+
 .content ol,
 .content p,
 .content ul {
   line-height: 1.7;
+}
+
+body.text-justify .content {
+  text-align: justify;
+}
+
+.content table {
+  line-height: normal;
 }
 
 .gatsby-highlight pre {
@@ -205,6 +234,13 @@ blockquote > p:last-child {
   overflow-x: auto;
 }
 
+figcaption {
+  margin-top: 0.5em;
+  text-align: center;
+  color: var(--lighten20TextColor);
+  font-size: 0.9em;
+}
+
 /* Tables */
 
 table {
@@ -228,6 +264,8 @@ tr:nth-child(2n) {
   background-color: var(--tableStripeBgColor);
 }
 
+/* UTILS */
+
 .video-wrapper-16-9 {
   position: relative;
   overflow: hidden;
@@ -246,4 +284,12 @@ tr:nth-child(2n) {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.side-by-side {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
 }

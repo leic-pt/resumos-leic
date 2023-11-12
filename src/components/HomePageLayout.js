@@ -4,6 +4,7 @@ import IstLogo from '../images/ist-logo.svg';
 import '../styles/homepage.css';
 import '../styles/main.css';
 import '../styles/markdown.css';
+import Footer from './Footer';
 import Navbar from './Navbar';
 import PageMetadata from './PageMetadata';
 import SectionButton, { SectionButtonLayout } from './SectionButton';
@@ -12,7 +13,6 @@ const HomePageLayout = ({ data }) => {
   const { markdownRemark: page } = data;
   return (
     <div className='home-page-container'>
-      <PageMetadata title={page.frontmatter.title} description={page.frontmatter.description} />
       <Navbar />
       <div className='hero'>
         <img src={IstLogo} alt='Instituto Superior Técnico' width={150} />
@@ -48,6 +48,7 @@ const HomePageLayout = ({ data }) => {
         ))}
       </div>
       <div className='content' dangerouslySetInnerHTML={{ __html: page.html }} />
+      <Footer />
     </div>
   );
 };
@@ -81,3 +82,8 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export const Head = ({ data }) => {
+  const { markdownRemark: page } = data;
+  return <PageMetadata title={page.frontmatter.title} description={page.frontmatter.description} />;
+};

@@ -171,7 +171,7 @@ Representa-se, tal como já era conhecido, por $\displaystyle b=\lim_{x\to a} f(
 
 :::
 
-Voltando à contínuidade, dizemos então que **$f$ é contínua em $a$ $\Leftrightarrow$ $\lim_{x\to a} f(x) = f(a)$**.
+Voltando à continuidade, dizemos então que **$f$ é contínua em $a$ $\Leftrightarrow$ $\lim_{x\to a} f(x) = f(a)$**.
 
 Também podemos concluir que se $\lim_{x\to a}f(x) = b$, então para qualquer sucessão $(x_k) \subset D$ com $x_k \to a$ tem-se $f(x_k) \to b$.
 
@@ -195,7 +195,7 @@ $$
 
 :::warning[CONTRA-EXEMPLO]
 
-No entanto, se tivessemos a função
+No entanto, se tivéssemos a função
 
 $$
 f_1( x) =\begin{cases}

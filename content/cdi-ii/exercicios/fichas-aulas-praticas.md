@@ -9,7 +9,7 @@ type: exercises
 
 :::info[Resoluções Incorretas?]
 Caso encontres incorreções nas resoluções abaixo, por favor
-[reporta-as](https://github.com/diogotcorreia/resumos-leic/issues/new/choose)
+[reporta-as](https://github.com/leic-pt/resumos-leic/issues/new/choose)
 para serem corrigidas.
 :::
 
@@ -77,8 +77,6 @@ para serem corrigidas.
 
   - [Respostas (Oficial)](https://drive.google.com/file/d/1fqcBJiXnlFOkkuYCsnl_ZXfrSmcleoVE/view?usp=sharing)
   - [Resolução (by Diogo Correia)](https://drive.google.com/file/d/1YEtKXetN_NZYr7cT82hda3DYFlzQX6cF/view?usp=sharing)
-
-- [Resoluções na EdenBox](https://www.edenbox.org/index.php/s/edenbox?path=%2FLEIC%2F1%C2%BA%20Ano%2F2%C2%BA%20Semestre%2FCDI%20II%2FPr%C3%A1ticas%2F2019-2020)
 
 - [Exercícios Suplementares](https://fenix.tecnico.ulisboa.pt/disciplinas/CDI1421011132646/2020-2021/2-semestre/exercicios-suplementares)
 

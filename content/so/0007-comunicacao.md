@@ -35,7 +35,7 @@ Memória partilhada (como Google Docs):
 
 Troca de Mensagens
 
-- Cada editor mantem uma cópia privada do documento no seu computador;
+- Cada editor mantém uma cópia privada do documento no seu computador;
 - Alterações enviadas por email e aplicadas independentemente.
 
 :::
@@ -67,7 +67,7 @@ Os modelos de paralelismo e concorrência podem ser combinados!
 
 ![Matrix](./imgs/0007/matrix.png#dark=1)
 
-[Anteriormente](https://resumos.leic.pt/so/programa%C3%A7%C3%A3o) vimos como counicar entre Tarefas através de Memória Partilhada e Tarefas.
+[Anteriormente](https://resumos.leic.pt/so/programa%C3%A7%C3%A3o) vimos como comunicar entre Tarefas através de Memória Partilhada e Tarefas.
 Agora iremos ver como comunicar entre Processos através Troca de Mensagens.
 
 ## Comunicação por Troca de Mensagem
@@ -216,7 +216,7 @@ Por exemplo, um comando como `ls -la | grep xpto | ...etc...` redireciona o outp
 
 :::tip[Exemplo: Redirecionamento de Entradas/Saídas]
 
-O comando indicado a cima na shell podia ser implementado de forma semelhante à apresentada de seguida:
+O comando indicado acima na shell podia ser implementado de forma semelhante à apresentada de seguida:
 
 ```c
 int main()
@@ -243,10 +243,10 @@ int main()
 
 Para dois processos (que não sejam pai e filho) comunicarem é preciso que o pipe seja identificado por um nome.  
 Surgem então os [named pipes](color:yellow): atribui-se um nome lógico ao pipe, usando o espaço de nomes do sistema de ficheiros.
-Um named pipe comporta-se externamente como um ficheiro, existindo uma entrada na directoria correspondente.
+Um named pipe comporta-se externamente como um ficheiro, existindo uma entrada na diretoria correspondente.
 Estes podem ser abertos por processos que não têm qualquer relação hierárquica e tal como um ficheiro tem um dono e permissões de acesso.
 
-Um [named pipe](color:yellow) então é um canal unidireccional (`byte stream`) identificado por um nome de ficheiro.
+Um [named pipe](color:yellow) então é um canal unidirecional (`byte stream`) identificado por um nome de ficheiro.
 O [named pipe](color:yellow) existe entre os restantes ficheiros do sistema de ficheiros enquanto estiver aberto, não sendo, ao contrário dos restantes ficheiros, persistente.
 
 #### Como Usar
@@ -325,7 +325,7 @@ int main() {
   int fcli, fserv;
   char buf[TAMMSG];
 
-  /* Os pipes são criados e destruídedos pelo servidor */
+  /* Os pipes são criados e destruídos pelo servidor */
   /* Abrir os pipes */
   if ((fserv = open ("/tmp/servidor", O_WRONLY)) < 0)
 	exit(1);
@@ -385,7 +385,7 @@ void (*signal (int sig, void (*func)(int))) (int)
 ```
 
 A função `signal` permite mudar o tratamento de um signal, tanto para outro tratamento pré-definido como para uma rotina específica do programa para tratar o signal.  
-O signal cujo tratamento é redefenido é passado no parâmetro `int sig`.  
+O signal cujo tratamento é redefinido é passado no parâmetro `int sig`.  
 A nova rotina de tratamento do signal passada por `void (*func)(int)`.
 
 - `SIG_DFL` - ação por omissão;

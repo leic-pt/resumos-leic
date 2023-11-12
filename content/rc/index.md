@@ -10,7 +10,6 @@ type: topLevelPage
 > tomando a arquitetura e os protocolos da Internet como exemplos.
 > Desenvolvimento de aplicações sobre a Internet usando a interface de sockets e a interagir com equipamentos de rede.
 
-:::warning[PÁGINA EM CONSTRUÇÃO]
-De momento não existem resumos de RC.  
-Procuram-se contribuidores.
-:::
+## Recursos
+
+- [Página da Cadeira - Fénix](https://fenix.tecnico.ulisboa.pt/disciplinas/RC/2022-2023/1-semestre)

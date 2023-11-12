@@ -58,14 +58,14 @@ $$
 
 Começa-se por estudar a continuidade em $\R \backslash \{0\}$. Como a função é constante em $x>0$ e $x~<~0$, podemos assumir uma vizinhança de raio menor que o valor absoluto de $x_0$ (isto é, $r < |x_0|$). Desta forma, todos os valores na vizinhança vão ser iguais a $H(x_0)$ (isto é, de valor 1 para $x_0>0$ e valor 0 para $x < 0$). Logo, a função é contínua em $\R\backslash\{0\}$.
 
-Estudando agora a continuidade em $x=\frac 1 2$, podemos concluir que, considerando $R=\frac 1 2$, não existe nenhum ponto de $x\in\R\backslash\{0\}$ tal que $H(x)\in V_R(f(0))$, e portanto, não pode existir nenhum $r\in\R^+$ tal que $x\in V_r(0)\Rightarrow H(x)\in V_R(f(0))$. Concluímos assim que $H$ não é contínua em 0.
+Estudando agora a continuidade em $x=0$, podemos concluir que, considerando $R=\frac 1 2$, não existe nenhum ponto de $x\in\R\backslash\{0\}$ tal que $H(x)\in V_R(f(0))$, e portanto, não pode existir nenhum $r\in\R^+$ tal que $x\in V_r(0)\Rightarrow H(x)\in V_R(f(0))$. Concluímos assim que $H$ não é contínua em 0.
 
 ### Função de Dirichlet
 
 A função de Dirichlet é definida por:
 
 $$
-D:\R\rightarrow\R\quad,\quad H(x)=\begin{cases}
+D:\R\rightarrow\R\quad,\quad D(x)=\begin{cases}
 1 &\text{se}&x\in\R\backslash\mathbb Q\\
 0 &\text{se}&x\in \mathbb Q\\
 \end{cases}
@@ -85,7 +85,7 @@ $$
 
 e então a função $D$ não é contínua em $x_0$.
 
-Conclui-se assim que a função de Dirichlet é descontínuia em todos os pontos de $\R$.
+Conclui-se assim que a função de Dirichlet é descontínua em todos os pontos de $\R$.
 
 ### Função Seno
 
@@ -394,7 +394,7 @@ $$
 
 ### Propriedades de limites num ponto, em $\overline\R$
 
-Algumas das [propriedades anteriormente vistas para limites num ponto](#propriedades-de-limites-num-ponto) também se extendem para limites em $\overline\R$:
+Algumas das [propriedades anteriormente vistas para limites num ponto](#propriedades-de-limites-num-ponto) também se estendem para limites em $\overline\R$:
 
 - Se $x_0 \in \overline {D_f}\cap\overline {D_g}$, $f(x)\le g(x)$ para todo o $x\in V_r(x_0)\cap D_f\cap D_g$ para algum $r\in\R^+$, então, se existirem $a,b, \in \overline\R$ tais que $\lim_{x\rightarrow x_0} f(x)=a$ e $\lim_{x\rightarrow x_0} g(x)=b$, tem-se que $a\le b$.
 - A propriedade anterior também se verifica para $f(x) <g(x)$.
@@ -412,12 +412,12 @@ $$
 
 ### Operações algébricas, em $\overline\R$
 
-Tal [como aconteceu nas sucessões](/cdi-i/limites-sucessoes#operações-algébricas), as [operações algébricas entre funções](/cdi-i/funcoes#operações-algébricas-entre-funções) são facilmente extendidas a $\overline\R$.
+Tal [como aconteceu nas sucessões](/cdi-i/limites-sucessoes#operações-algébricas), as [operações algébricas entre funções](/cdi-i/funcoes#operações-algébricas-entre-funções) são facilmente estendidas a $\overline\R$.
 Apenas é preciso ter atenção à existência de limite para todas as funções intervenientes e de (não haver) indeterminações.
 
 ### Limite em $\overline\R$ de uma função num ponto relativo a um conjunto
 
-Este [teorema anteriormente definido](#limite-de-uma-função-num-ponto-relativo-a-um-conjunto), também se extende para $\overline\R$.
+Este [teorema anteriormente definido](#limite-de-uma-função-num-ponto-relativo-a-um-conjunto), também se estende para $\overline\R$.
 
 Através desta extensão do teorema, verifica-se imediatamente que os limites em $\pm\infin$ são, por definição, limites laterais.
 
@@ -431,7 +431,7 @@ Através desta extensão do teorema, verifica-se imediatamente que os limites em
 
 Em geral, as técnicas utilizadas para levantar indeterminações nas sucessões podem ser utilizadas no cálculo de limites de funções.
 
-Apresentam-se algumas excessões:
+Apresentam-se algumas exceções:
 
 - Todas as técnicas que utilizam, nas sucessões, o cálculo de limites que incluem $u_{n+1}$ e $u_n$ não têm equivalente direto para as funções.
 - Surgem as técnicas de fatorização para levantar indeterminações do tipo $\frac 0 0$ quando o ponto onde se calcula o limite é finito.
