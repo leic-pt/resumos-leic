@@ -1,9 +1,9 @@
 ---
 title: Pipelines
 description: >-
-  Pipelines
-  Pipeline Hazards
-  Exeções e Interrupções
+  Pipelines.
+  Pipeline Hazards.
+  Exeções e Interrupções.
 path: /oc/pipelines
 type: content
 ---
