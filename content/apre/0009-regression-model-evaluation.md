@@ -1,5 +1,5 @@
 ---
-title: Avaliação de Modelos de Regeressão
+title: Avaliação de Modelos de Regressão
 description: >-
   Funções de Erro
   Análise de Resíduos

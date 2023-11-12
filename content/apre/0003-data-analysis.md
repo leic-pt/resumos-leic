@@ -151,7 +151,7 @@ os valores ocupam.
 | **rank** | 1   | 2.5 | 2.5 | 4   | 6   | 6   | 6   | 8   | 9   |
 
 No exemplo acima, o valor 3 vê-se repetido nas posições 2 e 3. Como tal, este
-recebe um _rank_ de $\frac{2 + 3}{2} = 2.5$. De forma semelhante, o valor 6
+recebe um _rank_ de $\frac{2 + 3}{2} = 2.5$. De forma semelhante, o valor 7
 vê-se repetido nas posições 5, 6 e 7. Como tal, recebe um _rank_ de $\frac{5 +
 6 + 7}{3} = 6$.
 

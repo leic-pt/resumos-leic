@@ -221,7 +221,7 @@ Note-se que mover uma palavra para a direita numa fita unidirecional é algo rel
 Para uma dada computação numa máquina bidirecional, delineamos a computação respetiva numa máquina de Turing unidirecional da seguinte forma:
 Sempre que a computação da fita bidirecional determinar que é preciso um espaço à esquerda da palavra, movemos toda a palavra para a direita.
 Desta forma, criamos um espaço na primeira posição onde podemos colocar o símbolo determinado pela computação da fita bidirecional.
-Uma forma de saber quando precisamos de um espaço à esquerda é, antes da computação, movermos o input um espaço para a esquerda.
+Uma forma de saber quando precisamos de um espaço à esquerda é, antes da computação, movermos o input um espaço para a direita.
 Assim, sempre que lermos um espaço em branco depois de fazermos um movimento para a esquerda, quer dizer que precisamos de mais um espaço à esquerda.
 
 :::

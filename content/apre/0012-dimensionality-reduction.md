@@ -14,14 +14,14 @@ type: content
 ```
 
 Ao incluirmos mais atributos no estudo das observações, podemos estar a
-degredar a performance do modelo. Para além disso, o número de observações de
+degradar a performance do modelo. Para além disso, o número de observações de
 treino necessárias cresce exponencialmente com a dimensão das observações. De
 modo a aprender num domínio de elevada dimensão e onde existem poucas
 observações, procede-se ao processo da redução de dimensionalidade.
 
 Estando perante pontos pertencentes a $\mathbb{R}^{m}$, o objetivo é
 transformá-los em pontos pertencentes a $\mathbb{R}^{k}$, em que $k << m$,
-presevando ao máximo a informação e estrutura dos dados originais. A partir dos
+preservando ao máximo a informação e estrutura dos dados originais. A partir dos
 dados transformados, podemos resolver o problema no novo espaço.
 
 Este processo é realizado através de duas principais abordagens: a seleção de
@@ -113,8 +113,8 @@ próprio diz-se o vetor próprio mais significante.
 
 ### Principal Component Analysis
 
-O algoritmo de PCA utiliza o facto de a variância ser explicada pelos valores e
-vetor próprios e efetua a redução de dimensionalidade desejada. Tipicamente é
+O algoritmo de PCA baseia-se no facto de a variância ser explicada pelos valores e
+vetor próprios e efetua a redução de dimensionalidade desejada. Tipicamente, é
 fixado um valor de variância que se deseja obter no novo conjunto de dados,
 tipicamente $\geq 85\%$. A partir desse valor, são mantidas as componentes
 principais necessárias para explicar esse valor de variância. Muitas vezes, uma
@@ -126,5 +126,5 @@ grande parte da variância é explicada por um pequeno número de componentes.
 
 ### Critério de Kaiser
 
-O critério de Kaiser refere que devem ser descartados as componentes principais
+O critério de Kaiser refere que devem ser descartadas as componentes principais
 que tenham um valor próprio menor do que 1.

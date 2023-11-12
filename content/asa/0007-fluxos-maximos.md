@@ -175,7 +175,7 @@ $$
 
 A imagem abaixo poderá tornar o conceito mais claro:
 
-![Fluxo Líquido - Exemplo](./assets/0007-net-flow-example.svg#dark=2<>)
+![Fluxo Líquido - Exemplo](./assets/0007-net-flow-example.svg#dark=2)
 
 Na rede da imagem, consideramos $S = \{A, B, D\} \wedge T = \{C, E, F\}$.
 Os arcos que cruzam o corte são $(B, C), (C, D)$ e $(D, E)$.

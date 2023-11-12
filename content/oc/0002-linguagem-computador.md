@@ -24,7 +24,7 @@ Como já tínhamos visto anteriormente, os computadores funcionam através de _s
 de instruções e diferentes computadores têm diferentes conjuntos de instruções.
 Contudo, estes conjuntos têm muitos aspetos em comum.
 Assim, temos que introduzir o conceito de [ISA (_Instruction Set Architecture_)](color:pink),
-que se refere à interface abstrata entre o _hardware_ e o _software_ de nível mais baixo,
+que se refere à interface abstrata entre o _hardware_ e o _software_ de nível mais baixo, e
 que engloba toda a informação necessária para escrever um programa em linguagem máquina.
 
 ### CISC vs RISC

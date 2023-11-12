@@ -27,7 +27,7 @@ Apenas foi aqui incluído devido à proximidade do MAP45 dia 2022/10/20.
 ```
 
 Usando a memória principal como uma ["cache" para o armazenamento secundário](color:pink)
-(no disco), esta tem que ser gerenciada juntamente pelo _hardware_ do CPU e pelo
+(no disco), esta tem que ser gerida tanto pelo _hardware_ do CPU como pelo
 sistema operativo (OS). Assim, cada programa é compilado para o seu próprio espaço de
 endereçamento, um [espaço de endereçamento virtual](color:purple). Nos programas que
 partilham a memória principal, cada um tem direito a um espaço de endereçamento físico
@@ -38,7 +38,7 @@ dizermos que houve um _"miss"_ dizemos que houve uma [_page fault_](color:pink).
 
 Quando dois programas [partilham memória física](color:orange), isto significa que o
 espaço de endereçamento de um programa está divido em páginas (todas de um tamanho
-fixo) ou em segmentos (de tamanho variável). O início da localização de cada páginal,
+fixo) ou em segmentos (de tamanho variável). O início da localização de cada página,
 quer seja na memória principal ou secundária, é contido na tabela de página do programa.
 
 ![Memória virtual](./assets/0005-memoriavirtual.png#dark=3)
@@ -71,9 +71,9 @@ associatividade total.
 As [tabelas de página](color:pink) guardam o posicionamento da informação num array
 te entradas todas indexadas por um número de uma página virtual. A tabela de página
 regista os pontos do CPU da tabela de página em [memória física](color:purple). Se
-uma página [estiver presente em memória](color:orange),temos o PTE
+uma página [estiver presente em memória](color:orange), temos o PTE
 (_Page Table Entry_) que guarda o número da página física assim como outros bits de
-estado (_dity_, _referenced_, ...); caso contrário, o [PTE](color:pink) pode referir
+estado (_dirty_, _referenced_, ...); caso contrário, o [PTE](color:pink) pode referir
 outra localização em troca de espaço no disco.
 
 ### Trocas e Escritas

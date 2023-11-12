@@ -1,10 +1,20 @@
 import { createAutocomplete } from '@algolia/autocomplete-core';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useCurrentSection } from '../../hooks/useCurrentSection';
 import { createGetSources, navigator } from './autocomplete';
 import ResultsContainer from './ResultsContainer';
 import SearchForm from './SearchForm';
 import { useTouchEvents } from './useTouchEvents';
+
+const initialState = {
+  query: '',
+  collections: [],
+  completion: null,
+  context: {},
+  isOpen: false,
+  activeItemId: null,
+  status: 'idle',
+};
 
 const SearchModal = ({ searchClient, onClose, filterBySection, handleToggleFilterBySection }) => {
   // Refs to elements of search, to use with autocomplete-core
@@ -15,15 +25,12 @@ const SearchModal = ({ searchClient, onClose, filterBySection, handleToggleFilte
   const currentSection = useCurrentSection();
 
   // Store autocomplete's internal state on this component
-  const [state, setState] = React.useState({
-    query: '',
-    collections: [],
-    completion: null,
-    context: {},
-    isOpen: false,
-    activeItemId: null,
-    status: 'idle',
-  });
+  const [state, setState] = React.useState(initialState);
+
+  useEffect(() => {
+    inputRef.current.focus();
+    inputRef.current.click();
+  }, [filterBySection]);
 
   const autocomplete = React.useMemo(() => {
     return createAutocomplete({
@@ -40,7 +47,10 @@ const SearchModal = ({ searchClient, onClose, filterBySection, handleToggleFilte
         onClose,
         section: filterBySection && currentSection,
       }),
+      initialState: { ...initialState, query: state.query },
     });
+    // Including state.query to dependency array not needed; supress warning
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchClient, filterBySection, currentSection, onClose]);
 
   const onItemClick = React.useCallback(

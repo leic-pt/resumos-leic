@@ -1,0 +1,64 @@
+/* https://github.com/morhetz/gruvbox */
+/* Gruvbox Light */
+
+body.theme-gruvbox {
+  --accentColor: #427b58;
+  --bgColor: #fbf1c7;
+  --cardColor: #ebdbb2;
+  --textColor: #282828;
+  --borderColor: #bdae93;
+  --lighten20TextColor: #504945;
+  --miniCodeBgColor: #d5c4a1;
+  --scrollbarColor: #92837488;
+  --tableStripeBgColor: #ebdbb233;
+
+  --infoBorder: #458588;
+  --tipBorder: #98971a;
+  --warningBorder: #d79921;
+  --warningBorderTable: #d7992188;
+  --warningBackground: #d799211a;
+  --dangerBorder: #cc241d;
+  --dangerBackground: #cc241d1a;
+
+  --colorRed: #9d0006;
+  --colorGreen: #79740e;
+  --colorBlue: #076678;
+  --colorPink: #8f3f71;
+  --colorPurple: #b16286;
+  --colorYellow: #b57614;
+  --colorOrange: #d65d0e;
+  --colorBrown: #af3a03;
+}
+
+/* Gruvbox Dark */
+
+@media not print {
+  body.dark-mode.theme-gruvbox {
+    --accentColor: #8ec07c;
+    --bgColor: #282828;
+    --cardColor: #3c3836;
+    --textColor: #fbf1c7;
+    --borderColor: #665c54;
+    --lighten20TextColor: #ebdbb2;
+    --miniCodeBgColor: #504945;
+    --scrollbarColor: #92837488;
+    --tableStripeBgColor: #3c3836;
+
+    --infoBorder: #458588;
+    --tipBorder: #98971a;
+    --warningBorder: #d79921;
+    --warningBorderTable: #fabd2f55;
+    --warningBackground: #fabd2f1a;
+    --dangerBorder: #fb4934;
+    --dangerBackground: #cc241d1a;
+
+    --colorRed: #fb4934;
+    --colorGreen: #b8bb26;
+    --colorBlue: #83a598;
+    --colorPink: #d3869b;
+    --colorPurple: #b16286;
+    --colorYellow: #fabd2f;
+    --colorOrange: #fe8019;
+    --colorBrown: #d65d0e;
+  }
+}

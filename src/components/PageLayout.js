@@ -34,6 +34,8 @@ export default function Template({ data }) {
 
   return (
     <CurrentSectionProvider value={currentSection}>
+      <link rel='preconnect' href='https://fonts.googleapis.com' />
+      <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
       <div className={`page-container ${sidebarOpen ? `sidebar-open` : ``}`}>
         {/* eslint-disable jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
         <div className='sidebar-mask' onClick={toggleSidebar} />
