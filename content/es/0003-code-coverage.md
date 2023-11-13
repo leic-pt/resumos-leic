@@ -25,10 +25,26 @@ vantagens e desvantagens:
 
 ## Statement Coverage
 
+:::warning[Secção Incompleta]
+Esta secção encontra-se incompleta. Procuram-se contribuidores.
+:::
+
 ## Branch Coverage
+
+:::warning[Secção Incompleta]
+Esta secção encontra-se incompleta. Procuram-se contribuidores.
+:::
 
 ## Condition Coverage
 
+:::warning[Secção Incompleta]
+Esta secção encontra-se incompleta. Procuram-se contribuidores.
+:::
+
 ## Path Coverage
 
-https://sqa.stackexchange.com/questions/20226/how-do-we-calculate-statement-coverage-branch-coverage-path-coverage-and-cond
+:::warning[Secção Incompleta]
+Esta secção encontra-se incompleta. Procuram-se contribuidores.
+:::
+
+<!-- https://sqa.stackexchange.com/questions/20226/how-do-we-calculate-statement-coverage-branch-coverage-path-coverage-and-cond -->

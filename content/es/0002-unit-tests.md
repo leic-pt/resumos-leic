@@ -61,7 +61,7 @@ um elemento a uma FIFO com 512 elementos (caso [_white box_](color:blue)).
 Quando estamos a testar um sistema, existem vários inputs (e os respetivos outputs)
 que se comportam de forma semelhante.
 Podemos, então, agrupar estes inputs quando escrevemos testes, numa técnica chamada
-**Testagem de Partições** (ou, em inglês, _partition testing_).
+**Testagem de Partições** (ou, em inglês, [_equivalence partitioning testing_](https://en.wikipedia.org/wiki/Equivalence_partitioning)).
 
 :::tip[Partition Testing]
 
@@ -72,8 +72,8 @@ De seguida, cria-se testes para cada um destes grupos.
 :::
 
 Uma técnica usada em conjunto com a testagem de partições é a
-análise de valores fronteira (_boundary values_), isto é, os valores
-que delimitam as várias partições.
+análise de valores fronteira ([_boundary-value analysis_](https://en.wikipedia.org/wiki/Boundary-value_analysis)),
+isto é, os valores que delimitam as várias partições.
 
 :::info[Exemplo]
 
@@ -81,7 +81,22 @@ Vamos imaginar uma função `passOrFail(int grade)` que retorna `"pass"` se a no
 for entre 10 e 20 (inclusive), `"fail"` se a nota for entre 0 e 9 (inclusive) e
 lança uma exceção para qualquer outro valor.
 
-// TODO
+Seguindo a testagem de partições, vamos dividir o nosso espaço em 4 diferentes partições.
+
+```
+...    -1 | 0 ... 9 | 10 ... 20 | 21    ...
+-------------------------------------------
+exception |  fail   |   pass    | exception
+```
+
+Considerando apenas a testagem de partições, temos de testar um valor
+de cada uma das partições, por exemplo, -2, 4, 15 e 22.
+
+No entanto, geralmente queremos também efetuar _boundary-value analysis_, pelo que
+queremos incluir nos nossos testes os valores fronteira, -1, 0, 9, 10, 20 e 21.
+
+Assim, se seguirmos ambos os métodos, os nossos testes deverão abranger 10 valores
+diferentes e 4 partições.
 
 :::
 
