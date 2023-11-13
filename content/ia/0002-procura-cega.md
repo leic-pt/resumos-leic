@@ -254,17 +254,21 @@ Explorando ainda a complexidade da procura em questão, temos que o _overhead_ a
 
 ### Procura Bi-Direcional
 
-<!-- Consiste na realização de 2 procuras em simultâneo, uma a começar no estado inicial e outra no estado objetivo. (...)
+Consiste na realização de 2 procuras em simultâneo, uma a começar no estado inicial e outra no estado objetivo.
+A procura termina quando as duas procuras se encontram, ou seja, tẽm um estado comum.
 
-É mais eficiente se a árvore cresce exponencialmente, visto que $b^{\frac{d}{2}} + b^{\frac{d}{2}} \ll b^d$. (...)
+Esta procura reduz a quantidade de exploração necessária, o que a torna bastante eficiente em certos casos.
 
-Problema: pode não ser conhecido o estado objetivo logo à partida (por exemplo, num jogo de Sudoku vs 8-puzzle). Existe também uma necessidade de calcular eficientemente os predecessores de um nó. (...) -->
+Geralmente é usada quando o estado inicial e o estado objetivo são únicos e o fator de ramificação é igual em ambas as direções.
 
-:::warning[Em construção]
+- **Completa**: Sim.
+- **Complexidade Temporal**: $O(b^{d/2})$
+- **Complexidade Espacial**: $O(b^{d/2})$
+- **Ótima**: Sim.
 
-Esta secção encontra-se atualmente incompleta, será completada assim que possível.
+![Procura Bi-Direcional](imgs/0002-bidirectional-search.svg#dark=1)
 
-:::
+**Problema**: pode não ser conhecido o estado objetivo logo à partida. Existe também uma necessidade de calcular eficientemente os predecessores de um nó.
 
 ---
 

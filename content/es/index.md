@@ -11,11 +11,6 @@ type: topLevelPage
 > Conhecer as técnicas e ferramentas necessárias para executar e gerir as várias atividades
 > do processo de desenvolvimento de software de qualidade.
 
-:::warning[PÁGINA EM CONSTRUÇÃO]
-De momento não existem resumos de ES.  
-Procuram-se contribuidores.
-:::
-
 ## Recursos
 
 - [Página da Cadeira - Fénix](https://fenix.tecnico.ulisboa.pt/disciplinas/ESof2/2022-2023/2-semestre)

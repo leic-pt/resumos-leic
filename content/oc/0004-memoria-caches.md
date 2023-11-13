@@ -26,12 +26,12 @@ type: content
 
 ## Tipos de Memória
 
-Antes de falar de memória é importante distinguir a [diferença entre o CPU e RAM](color:purple).
+Antes de falar de memória é importante apontar a [diferença entre o CPU e RAM](color:purple).
 A RAM é a memória primária enquanto que o processador faz os cálculos/computações.
 Pegando num exemplo, se tivermos um carpinteiro a arranjar uma cadeira e este tiver
 uma caixa com ferramentas, num dado momento só um certo número de ferramentas
 é que está a ser usado para consertar a cadeira.
-Estas ferramentas encontrar-se-ão mais próximo do carpinteiro,
+Estas ferramentas encontrar-se-ão mais próximas do carpinteiro,
 por exemplo no seu cinto, enquanto o resto estará na caixa.
 Usar as ferramentas que estão no seu cinto é mais rápido do que tirar uma
 ferramenta da caixa e usá-la.
@@ -50,8 +50,8 @@ tem vindo a aumentar, como se pode verificar na imagem seguinte:
 Isto implica que o tempo de execução de um programa acaba por depender bastante
 mais na velocidade a que a RAM consegue enviar os dados para o CPU
 do que a velocidade do CPU.
-Portanto, mesmo que tenhas o computador mais rápido do mundo com o mais recente
-processador, a sua velocidade vai estar limitada pela velocidade da tua RAM.
+Portanto, mesmo que tenhamos o computador mais rápido do mundo com o mais recente
+processador, a sua velocidade vai estar limitada pela velocidade da nossa RAM.
 Isto significa que é necessário um bom design de hierarquia de memória e que
 este problema é cada vez mais importante.
 Mas quais são os diferentes tipos de tecnologias de memória?
@@ -60,11 +60,13 @@ Mas quais são os diferentes tipos de tecnologias de memória?
 - [Dynamic RAM (DRAM)](color:orange), 50ns – 70ns, €10 – €20 per GB;
 - [Flash memory](color:red), 5μs – 50μs, €0.5 – €1 per GB;
 - [Magnetic disk](color:pink), 5ms-20ms, €0.05 – €0.5 per GB;
-- [Ideal memory](color:purple), tempo de acesso à SRAM, capacidade e custo/GB do disco.
+
+Uma [tecnologia de memória ideal](color:purple) teria, portanto, o tempo de
+acesso da SRAM, mas a capacidade e o custo/GB do disco magnético.
 
 ### Típica Hierarquia de Memória
 
-Tirando vantagem do [principio de localidade](color:pink) para mostrar ao utilizador
+Tirando proveito do [principio de localidade](color:pink) para mostrar ao utilizador
 o máximo de memória que há disponível na tecnologia mais **barata** à velocidade
 oferecida pela tecnologia mais rápida, temos:
 
@@ -85,7 +87,7 @@ pequena de espaço de memória a qualquer momento durante a execução.
 | [densidade menor](color:purple) (6 células de transístores)                      | [densidade maior](color:blue) (1 célula de transístor)                                                      |
 | maior consumo (potência)                                                         | menor consumo (potência)                                                                                    |
 | mais caro                                                                        | mais barato                                                                                                 |
-| estático, o conteúdo fica para "sempre" enquanto estiver ligado                  | dinâmico, precisa de ser "refrescado" regularmente (a cada 8 ms), consome 1% a 2% dos ciclos ativos da DRAM |
+| estático, o conteúdo fica para "sempre" enquanto estiver ligado                  | dinâmico, precisa de ser "refrescado" regularmente (a cada 8 ms); consome 1% a 2% dos ciclos ativos da DRAM |
 
 Para além disso, os endereços da DRAM são [divídido em 2 metades](color:pink), linha e coluna:
 
@@ -94,7 +96,7 @@ Para além disso, os endereços da DRAM são [divídido em 2 metades](color:pink
 
 ### Como Funciona a Hierarquia de Memória?
 
-É importante sabermos como, e porquê, é que a hierarquia de memória funciona.
+É importante sabermos como, e porquê, a hierarquia de memória funciona.
 
 O desenho desta hierarquia tem em mente dois grandes princípios:
 o princípio de [localidade temporal](color:yellow) e o de [localidade espacial](color:blue).
@@ -124,7 +126,7 @@ Como podemos ver na imagem acima, dentro da memória existem vários níveis que
 Por vezes a memória pode estar agrupada em [blocos](color:pink) (linhas), que é a unidade que é
 copiada entre níveis da hierarquia, e que pode ser composta por várias palavras.
 
-Se tentarmos aceder a dados e estes estão disponíveis no nível mais alto da hierarquia,
+Se tentarmos aceder a dados e estes estiverem disponíveis no nível mais alto da hierarquia,
 temos um [**_hit_**](color:green), caso contrário teremos um [**_miss_**](color:red)
 e teremos de ir buscar os dados a um nível inferior.
 
@@ -140,7 +142,7 @@ e os dados acedidos são fornecidos de um nível superior.
 Temos, portanto, tempo perdido a repôr o bloco nesse nível, chamado [**_miss penalty_**](color:pink),
 com o bloco de nível inferior correspondente.
 
-Podemos calcular o [̣**_miss rate_**](color:purple) através da seguinte fórmula:
+Podemos calcular o [̣**miss rate**](color:purple) através da seguinte fórmula:
 
 $$
 \op{\text{Miss Rate}}
@@ -150,7 +152,7 @@ $$
 
 O [**_hit time_**](color:orange) é equivalente ao tempo de acesso ao bloco num
 certo nível, mais o tempo que é necessário para determinar se ocorre um _hit/miss_.  
-Podemos, portanto, inferir, que o nosso _hit time_ é, geralmente,muito inferior ao _miss penalty_.
+Podemos, portanto, inferir, que o nosso _hit time_ é, geralmente, muito inferior ao _miss penalty_.
 
 ## Memória Cache
 
@@ -194,7 +196,7 @@ mesmo índice.
 Quando guardamos o bloco na cache, guardamos também o restante do endereço.
 A isto chamamos [_tag_](color:yellow).
 Quando queremos verificar se um endereço está guardado em cache, vamos ao índice
-correspondemos e comparamos a _tag_ guardada com a _tag_ do endereço a que queremos
+correspondente e comparamos a _tag_ guardada com a _tag_ do endereço a que queremos
 aceder. Se corresponderem, o bloco em cache é o bloco a que queremos aceder.  
 Além disso poderemos ter de testar se o _valid bit_ está ativo (1), caso
 contrário a entrada em cache apenas contém "lixo".
@@ -244,7 +246,7 @@ Por esta razão, é preciso encontrar um ponto de equilíbrio entre tamanho do b
 
 Como podemos ver no gráfico acima, a _miss rate_ sobe quando o tamanho do bloco
 ocupa uma fração mais significativa do tamanho da cache, visto que o número de
-blocos que pode ser contido simultaneamente na cache é menor.
+blocos que podem estar contidos simultaneamente na cache é menor.
 Isto resultará num aumento de [_capacity misses_](color:red).
 
 ## Melhorar a Performance da Cache
@@ -252,9 +254,9 @@ Isto resultará num aumento de [_capacity misses_](color:red).
 :::danger[Conteúdo Não Revisto]
 
 O conteúdo abaixo não foi revisto e poderá conter erros.
-Agradecem-se [contribuições](https://leic-pt.github.io/docs/).
+Agradecem-se [contribuições](https://docs.leic.pt/).
 
-Apenas foi aqui incluído devido à proximidade do MAP45 dia 2022/10/20.
+Apenas foi aqui incluído devido à proximidade do MAP45 dia 2022-10-20.
 
 :::
 
@@ -296,7 +298,7 @@ Existem três tipos de [cache misses](color:pink):
 - [Capacity](color:orange): este tipo de _misses_ acontecem quando o _working set_ de
   um programa tem uma capacidade muito maior que a cache; visto que a cache não consegue
   conter todos os blocos que são necessários para a execução do programa, a cache é
-  obrigada a discartar estes blocos;
+  obrigada a descartar estes blocos;
 
 - [Conflict](color:red): também conhecidos como [collision misses](color:purple) ou
   [interference misses](color:purple), estes ocorrem quando um número elevado de blocos
@@ -334,7 +336,7 @@ atualização do armazenamento acontece assincronamente numa sequência à parte
 possível começar uma sequência de diferentes maneiras antes do retorno da nossa
 resposta, periodicamente ou integrada na cache baseado numa entrada da cache chamada
 [_dirty state_](color:purple). Quando este é trocado, voltamos a escrever em memória e
-podemos usar um **_buffer_** para autorizar a troca de blocos que têm que ser lidos
+podemos usar um **_buffer_** para permitir a troca de blocos que têm que ser lidos
 primeiro.
 
 ### _Write-allocation_
@@ -364,8 +366,8 @@ diferentes:
   carregado implica vários acessos a memória:
 
   - [_Early restart_](color:red): vai buscar palavras em ordem normal, mas assim que
-    a palavra requisitada cehga ao bloco, é mandada para o processador e autoriza este
-    a continuar a sua execução;
+    a palavra requisitada chega ao bloco, é mandada para o processador e permite que
+    este continue a sua execução;
 
   - [_Critical Word First_](color:red): a palavra em falta é requisitada primeiro em
     memória e mandada para o processador assim que esta chega; isto deixa que o
@@ -374,10 +376,10 @@ diferentes:
 
 ## Medir a Performance da Cache
 
-Antes de conseguimos perceber como é que conseguimos perceber se uma cache está a
-funcionar bem ou não, temos que saber os termos involvidos nestes cálculos:
+Para conseguirmos perceber se uma cache está a funcionar bem ou não, temos que saber
+os termos involvidos nestes cálculos:
 
-- [Bloco ou linda](color:yellow): a unidade mínima de informação que está presente, ou
+- [Bloco ou linha](color:yellow): a unidade mínima de informação que está presente, ou
   não, na cache;
 
 - [_Hit-rate_](color:orange): a fração de memória acedida encontrada num nível de
@@ -389,7 +391,7 @@ funcionar bem ou não, temos que saber os termos involvidos nestes cálculos:
 - [_Miss penalty_](color:pink): tempo que demora a repôr um bloco num nível com o bloco
   correspondente num bloco num nível inferior.
 
-Assim, como já sabíamos, os componentes do tempo do CPU são os [ciclos de execução doprograma](color:purple)
+Assim, como já sabíamos, os componentes do tempo do CPU são os [ciclos de execução do programa](color:purple),
 que includem o tempo de _cache-hit_ e os [ciclos de atraso de memória](color:purple)
 que provêm maioritariamente de _cache misses_. Assumindo que o sucesso de cache incui a
 parte normal dos ciclos de execução do programa, então podemos calcular o tempo de CPU
@@ -405,7 +407,7 @@ $$
 $$
 
 Sabendo que o que está entre parêntesis corresponde ao $$ CPI \times \text{stall} $$.
-Assumindo, também que os \_miss rates\* de escrita e lida está juntos, podemos calcular a
+Assumindo, também que os _miss rates_ de escrita e lida estão juntos, podemos calcular a
 [memory-stall cycles](color:pink) através da seguinte fórmula:
 
 $$
@@ -425,8 +427,8 @@ $$
 
 Analisando melhor o que acabámos de ver, imaginando que temos uma [cache I](color:pink)
 com um _miss rate_ de 2% e uma [cache D](color:purple) com um _miss rate_ de 4%, assim
-como um _miss penalty_ de 100 ciclos, uma [base CPI](color:purple), ou seja, cache
-ideal, igual a 2, e [_load e stores_](color:pink) que ocupam 36% das instruções.
+como um _miss penalty_ de 100 ciclos, uma [base CPI](color:yellow), ou seja, cache
+ideal, igual a 2, e [loads e stores](color:purple) que ocupam 36% das instruções.
 
 A primeira coisa que pretendemos calcular são os _miss cycles_ por instrução, que, como
 vimos aicma, são dados pelo _miss rate_ e o _miss penalty_. Temos, por isso:
@@ -465,8 +467,8 @@ negligenciar o comportamneto da cache quando estamos a avaliar a perfomance do s
 Uma forma muito útil de evitarmos ter tantas falhas quando vamos à cache, é através de
 [caches associativas](color:pink). Estas dão uma maior liberdade ao posicionamento de
 blocos, sendo que numa [cache de mapeamento direto](color:purple) um bloco de memória
-mapeia para exatamente um único bloco de cache e, no outro extremo, podemos autorizar
-um bloco de memória a ser mapeado para qualquer bloco de cache numa [cache totalmente associativa](color:purple).
+mapeia para exatamente um único bloco de cache e, no outro extremo, podemos permitir que
+um bloco de memória seja mapeado para qualquer bloco de cache numa [cache totalmente associativa](color:purple).
 
 Por isso mesmo, o compromisso é dividir a cache em **sets** que contêm _n_ formas
 ([_n-way set associative_](color:pink)). Os blocos de memória mapeiam um _set_ único,
@@ -485,9 +487,9 @@ isso que há _n_ escolhas.
 :::info[Exemplo]
 
 Imaginando que a referência da memória da palavra principal corresponde à string
-[0 4 0 4 0 4 0 4](color:pink) e começamos com uma cache vazia.
+[0 4 0 4 0 4 0 4](color:pink) e que começamos com uma cache vazia, tem-se:
 
-Iniciando pelo primeiro número, ou seja o 0, nós vamos à cache e vemos se o valor 0 se
+Começando pelo primeiro número, ou seja o 0, nós vamos à cache e vemos se o valor 0 se
 encontra presente. Como não se encontra, temos um _miss_ e escrevemos na primeira linha
 o valor 0. Já tendo o 0 em cache, seguimos para o 4, vamos à primeira linha e vemos se
 está na cache, contudo na cache só está o 0, logo, há um miss. Como estamos a tratar do
@@ -504,9 +506,9 @@ voltar a preencher a primeira linha com o valor 0 ou 4.
 
 ![Exemplo](./assets/0004-exemplo.jpg#dark=3)
 
-Porém, se tivessemos a ver a mesma string mas muma [_2 way set associative_](color:pink),
+Porém, se tivessemos a ver a mesma string mas numa [2 way set associative_cache](color:pink),
 só teríamos _miss_ nos primeiros dois acessos, visto que os nossos valores seriam
-guardados na primeira e segunda via da primeira linha, e a partir daí conseguíamos
+guardados na primeira e segunda via da primeira linha, e a partir daí conseguiríamos
 aceder aos endereços 0 e 4 com sucesso.
 
 ![Exemplo](./assets/0004-exemplo2.png#dark=3)
@@ -514,8 +516,8 @@ aceder aos endereços 0 e 4 com sucesso.
 :::
 
 Porém, nem sempre nos dá mais jeito termos associatividade de sets: esta escolha
-[depende do custo do miss comparado com o custo da implementação](color:pink), como
-podemos ver no gráfico a baixo, nem sempre quanto maior é a nossa associatividade menos
+[depende do custo do _miss_ comparado com o custo da implementação](color:pink), como
+podemos ver no gráfico abaixo, nem sempre quanto maior é a nossa associatividade menos
 _misses_ há!
 
 ![Comparação](./assets/0004-comparacao-associatividade.png#dark=3)
@@ -525,10 +527,10 @@ _misses_ há!
 Agora que já sabemos que há alturas em que temos que ir mudando os valores que estão
 nas nossas caches, como é que podemos escolher quais são os valores que eliminamos para
 dar acesso a novos? Em [mapeamento direto](color:purple) não temos escolha, contudo num
-[set de associatividade](color:purple) vemos primeiro se há alguma
+[set de associatividade](color:purple) geralmente vemos primeiro se há alguma
 [entrada não válida](color:pink), se não escolhemos a entrada que não está a ser usada
-há mais tempo (LRU- _least-recently used_), que é simples para uma via de 2, consegues
-manusear com facilidade para 4 mas mais do que isso é demasiado díficil; nesses casos
+há mais tempo (LRU- _least-recently used_), o que é simples para uma via de 2, é gerível
+com facilidade para 4, mas mais do que isso é demasiado díficil; nesses casos
 funciona mais ou menos da mesma forma mas mais [aleatório](color:pink).
 
 :::tip[Exemplos]
@@ -540,16 +542,16 @@ realização da quarta ficha das aulas práticas ou ver a sua resolução.
 
 ### Cache Vítima
 
-EM vez de descartar completamente cada bloco quando estão a ser repostos, podemos
+Em vez de descartar completamente cada bloco quando estão a ser repostos, podemos
 mantê-lo temporariamente num [_buffer_ vítima](color:pink), ou seja, quando o bloco saí
 vai sempre para a cache vítima e é completamente associativa, dando a ilusão que
 estamos a tratar com uma maior associatividade do que realmente estamos.
 
 Assim, em vez de parar um subsequente _miss_ à cache, os conteúdos do _buffer_ são
 vistos quando há um _miss_ para ver se estão aí os dados pretendidos antes de ir a um
-nível de memória inferior. Esta cach é [mais pequena](color:purple), contendo apenas 4
+nível de memória inferior. Esta cache é [mais pequena](color:purple), contendo apenas 4
 a 16 posições, [totalmente associativa](color:purple), e particularmente
-[eficiente](color:purple) para pequenos mapeamentos diretos a caches, mais de 25% de
+[eficiente](color:purple) para pequenos mapeamentos diretos a caches: mais de 25% de
 redução no número de _misses_ numa cache de 4kB.
 
 ## Caches de Níveis Múltiplos
@@ -557,10 +559,10 @@ redução no número de _misses_ numa cache de 4kB.
 Outra forma de reduzir o _miss rate_ da cache é através de níveis múltiplos de cache.
 Com o avanço da tecnologia, temos mais espaço para ter uma [cache L1](color:pink)
 maior, ou ter um segundo nível de [cache L2](color:pink) unificado. É importante
-referir que podemos ter mais níveis de cache mas para já não é necessário
+referir que podemos ter mais níveis de cache mas que para já não é necessário
 considerá-los.
 
-Contudo, estes [considerações de design](color:orange) muito diferentes. Enquanto a
+Contudo, estas caches têm [considerações de design](color:orange) muito diferentes. Enquanto a
 cache primária que está conectada ao CPU foca-se em
 [minimizar o _hit time_](color:pink) com blocos mais pequenos, a cache de nível dois
 serve para os _misses_ da cache primária, focando-se em [reduzir o _miss rate_](color:pink)

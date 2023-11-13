@@ -18,7 +18,7 @@ type: content
 ```
 
 Usando a memória principal como uma ["cache" para o armazenamento secundário](color:pink)
-(no disco), esta tem que ser gerenciada juntamente pelo _hardware_ do CPU e pelo
+(no disco), esta tem que ser gerida tanto pelo _hardware_ do CPU como pelo
 sistema operativo (OS). Assim, cada programa é compilado para o seu próprio espaço de
 endereçamento, um [espaço de endereçamento virtual](color:purple). Nos programas que
 partilham a memória principal, cada um tem direito a um espaço de endereçamento físico
@@ -29,7 +29,7 @@ dizermos que houve um _"miss"_ dizemos que houve uma [_page fault_](color:pink).
 
 Quando dois programas [partilham memória física](color:orange), isto significa que o
 espaço de endereçamento de um programa está divido em páginas (todas de um tamanho
-fixo) ou em segmentos (de tamanho variável). O início da localização de cada páginal,
+fixo) ou em segmentos (de tamanho variável). O início da localização de cada página,
 quer seja na memória principal ou secundária, é contido na tabela de página do programa.
 
 ![Memória virtual](./assets/0005-memoriavirtual.png#dark=3)
@@ -60,7 +60,8 @@ Uma página pode ser posicionada em qualquer [espaço de memória](color:purple)
 
 As [tabelas de páginas](color:pink) guardam o posicionamento da informação num array
 de entradas todas indexadas pelo número da página virtual. A tabela de páginas
-regista o endereço de memória física para onde aponta a página do endereço virtual além de outros bits de estado (_dity_, _referenced_, ...);
+regista o endereço de memória física para onde aponta a página do endereço virtual
+além de outros bits de estado (_dity_, _referenced_, ...);
 caso contrário, o [PTE](color:pink) pode referir outra localização em troca de espaço no disco.
 
 ### Trocas e Escritas

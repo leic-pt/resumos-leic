@@ -13,6 +13,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       allMarkdownRemark(limit: 1000) {
         edges {
           node {
+            id
             frontmatter {
               path
               template
@@ -33,6 +34,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       path: node.frontmatter.path,
       component: templates[node.frontmatter.template || 'default'],
       context: {
+        markdownRemarkId: node.id,
         pathRegex: `/^\\/${node.frontmatter.path.split(`/`)[1]}(?:$|\\/)/`,
       }, // additional data can be passed via context
     });

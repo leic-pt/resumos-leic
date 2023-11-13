@@ -78,11 +78,11 @@ const FFTCalculator = () => {
       \\begin{array}{r l l}
       & \\text{Primeiro Vetor} & \\text{Segundo Vetor} \\\\
       \\text{Original:} & [${pol1.map((v) => complexToStr(v)).join(', ')}] & [${pol2
-      .map((v) => complexToStr(v))
-      .join(', ')}]\\\\
+        .map((v) => complexToStr(v))
+        .join(', ')}]\\\\
       \\text{Invertido } Rev_2: & [${pol1Rev.map((v) => complexToStr(v)).join(', ')}] & [${pol2Rev
-      .map((v) => complexToStr(v))
-      .join(', ')}]
+        .map((v) => complexToStr(v))
+        .join(', ')}]
       \\end{array}
     `;
     katexExpressions.push(rev2);

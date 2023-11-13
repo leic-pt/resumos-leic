@@ -15,21 +15,6 @@ const onHtmlImageVisit = (node) => {
   }
 };
 
-const onImageVisit = (node) => {
-  if (node.url?.endsWith('.svg')) {
-    const data = node.data || (node.data = {});
-    const hProperties = data.hProperties || (data.hProperties = {});
-
-    // Use "object" element instead of "img"
-    // See https://github.com/leic-pt/resumos-leic/issues/851
-    data.hName = 'object';
-    hProperties.data = node.url;
-    hProperties.type = 'image/svg+xml';
-    node.type = 'object';
-  }
-};
-
 module.exports = ({ markdownAST }) => {
   visit(markdownAST, 'html', onHtmlImageVisit);
-  visit(markdownAST, 'image', onImageVisit);
 };

@@ -17,5 +17,3 @@ type: topLevelPage
 Os Slides que tipicamente acompanham a cadeira encontram-se disponíveis na página da cadeira no Fénix, não sendo possível disponibilizá-los nesta página.
 
 :::
-
-- [Página da Cadeira - Fénix](https://fenix.tecnico.ulisboa.pt/disciplinas/IPM/2021-2022/2-semestre)

@@ -6,9 +6,8 @@ type: topLevelPage
 
 # Aprendizagem
 
-> Reconhecer os principais desafios na aprendizagem automática.
-> Compreender as principais abordagens na aprendizagem automática.
-> Saber aplicar diferentes quais os tipos de aprendizagem a aplicar em cada cenário.
+> Reconhecer e compreender os principais desafios e abordagens na aprendizagem automática.
+> Saber aplicar diferentes tipos de aprendizagem em cada cenário.
 > Conhecer e aplicar diferentes métodos de aprendizagem.
 
 ## Recursos
