@@ -89,10 +89,10 @@ pequena de espaço de memória a qualquer momento durante a execução.
 | mais caro                                                                        | mais barato                                                                                                 |
 | estático, o conteúdo fica para "sempre" enquanto estiver ligado                  | dinâmico, precisa de ser "refrescado" regularmente (a cada 8 ms); consome 1% a 2% dos ciclos ativos da DRAM |
 
-Para além disso, os endereços da DRAM são [divídido em 2 metades](color:pink), linha e coluna:
+Para além disso, os endereços da DRAM são [dividido em 2 metades](color:pink), linha e coluna:
 
 - [RAS (_Row Access Strobe_)](color:orange) que aciona o decodificador de linha;
-- [CAS (_Columm Access Strobe_)](color:green) que aciona o selecionador de coluna.
+- [CAS (_Column Access Strobe_)](color:green) que aciona o selecionador de coluna.
 
 ### Como Funciona a Hierarquia de Memória?
 
@@ -130,7 +130,7 @@ Se tentarmos aceder a dados e estes estiverem disponíveis no nível mais alto d
 temos um [**_hit_**](color:green), caso contrário teremos um [**_miss_**](color:red)
 e teremos de ir buscar os dados a um nível inferior.
 
-Podemos ainda calcular o [**_hit rate_**](color:purple) de multiplos acessos através da seguinte fórmula:
+Podemos ainda calcular o [**_hit rate_**](color:purple) de múltiplos acessos através da seguinte fórmula:
 
 $$
 \op{\text{Hit Rate}}
@@ -305,6 +305,14 @@ Existem três tipos de [cache misses](color:pink):
   são mapeados para o mesmo set ou _block frame_, num set de associatividade ou até mesmo
   em posicionamento de blocos em mapeamento direto.
 
+### Cache Design Trade-offs
+
+| Alteração                           | Efeito na _miss rate_             | Efeito negativo de _performance_                                                          |
+| :---------------------------------- | :-------------------------------- | :---------------------------------------------------------------------------------------- |
+| Aumento do tamanho da cache         | Diminuição de _capacity misses_   | Aumento do tempo de acesso                                                                |
+| Aumento da associatividade da cache | Diminuição de _conflict misses_   | Aumento do tempo de acesso                                                                |
+| Aumento do _block size_             | Diminuição de _compulsory misses_ | Aumento do _miss penalty_. Para blocos muito grandes, pode aumentar também a _miss rate_. |
+
 ## _Write-Policies_
 
 Uma [_write policy_ da cache](color:pink) refere-se a um comportamento da cache
@@ -316,7 +324,7 @@ policies_.
 ### _Write-through_
 
 Quando nos deparamos com um _data-write hit_ podemos somente atualizar o bloco da
-cache, mas isto implicaria que a cache e a memória se tornassem insconsistentes. Temos,
+cache, mas isto implicaria que a cache e a memória se tornassem inconsistentes. Temos,
 por isso, que introduzir a política [_write-through_](color:pink): esta, sendo a mais
 fácil de implementar, basicamente atualiza os dados tanto em cache como em memória ao
 mesmo tempo. É usada quando não há escritas muito frequentes na cache e ajuda com a
@@ -377,7 +385,7 @@ diferentes:
 ## Medir a Performance da Cache
 
 Para conseguirmos perceber se uma cache está a funcionar bem ou não, temos que saber
-os termos involvidos nestes cálculos:
+os termos envolvidos nestes cálculos:
 
 - [Bloco ou linha](color:yellow): a unidade mínima de informação que está presente, ou
   não, na cache;
@@ -393,7 +401,7 @@ os termos involvidos nestes cálculos:
 
 Assim, como já sabíamos, os componentes do tempo do CPU são os [ciclos de execução do programa](color:purple),
 que includem o tempo de _cache-hit_ e os [ciclos de atraso de memória](color:purple)
-que provêm maioritariamente de _cache misses_. Assumindo que o sucesso de cache incui a
+que provêm maioritariamente de _cache misses_. Assumindo que o sucesso de cache inclui a
 parte normal dos ciclos de execução do programa, então podemos calcular o tempo de CPU
 através da seguinte fórmula:
 
@@ -431,7 +439,7 @@ como um _miss penalty_ de 100 ciclos, uma [base CPI](color:yellow), ou seja, cac
 ideal, igual a 2, e [loads e stores](color:purple) que ocupam 36% das instruções.
 
 A primeira coisa que pretendemos calcular são os _miss cycles_ por instrução, que, como
-vimos aicma, são dados pelo _miss rate_ e o _miss penalty_. Temos, por isso:
+vimos acima, são dados pelo _miss rate_ e o _miss penalty_. Temos, por isso:
 
 $$
 \text{miss cycle} = \text{miss rate} \times \text{miss penalty}
@@ -456,11 +464,11 @@ Por isso. o CPU ideal é $$5.44/2=2.72$$ vezes mais rápido
 
 ### Ideias a Reter
 
-Desta forma, concluimos que quando a performance do CPU aumenta, o _miss penalty_
+Desta forma, concluímos que quando a performance do CPU aumenta, o _miss penalty_
 [diminui](color:purple); uma diminuição baseada no CPI implica uma maior [proporção de tempo](color:purple)
 gasto em atrasos na memória; e, um aumento de _clock rate_ significa que os atrasos de
 memória contam para mais [ciclos de CPU](color:purple). Não podemos, evidentemente
-negligenciar o comportamneto da cache quando estamos a avaliar a perfomance do sistema.
+negligenciar o comportamento da cache quando estamos a avaliar a performance do sistema.
 
 ## Reduzir os _Miss Rates_ na Cache
 
@@ -472,7 +480,7 @@ um bloco de memória seja mapeado para qualquer bloco de cache numa [cache total
 
 Por isso mesmo, o compromisso é dividir a cache em **sets** que contêm _n_ formas
 ([_n-way set associative_](color:pink)). Os blocos de memória mapeiam um _set_ único,
-específicado pelo campo de index, e pode ser posto em qualquer sítio desse _set_, é por
+especificado pelo campo de index, e pode ser posto em qualquer sítio desse _set_, é por
 isso que há _n_ escolhas.
 
 |          [Totalmente associativo](color:yellow)           |        [Associatividade com _n_ sets](color:orange)        |
@@ -494,19 +502,19 @@ encontra presente. Como não se encontra, temos um _miss_ e escrevemos na primei
 o valor 0. Já tendo o 0 em cache, seguimos para o 4, vamos à primeira linha e vemos se
 está na cache, contudo na cache só está o 0, logo, há um miss. Como estamos a tratar do
 número 4, contamos as linhas até chegarmos à linha 4, como só há 4 linhas no total e
-começamos a contar do zero, temos que modficar a nossa primeira linha para passar a ter
+começamos a contar do zero, temos que modificar a nossa primeira linha para passar a ter
 a informação relevante ao 0 para ter informação relevante ao 4. Assim, na nossa
 primeira linha agora temos o 4.
 
 Acabando os dois primeiros valores, passamos ao 0, vamos à primeira linha, vemos que já
 está preenchida, há _miss_ e temos que voltar a preencher com o 0. Reparamos, por isso,
 que temos o mesmo caso que no início do nosso exercício. Ora, como o resto dos valores
-são sempre ou 0 ou 4 intrecalando, vamos sempre ter um _miss_ e vamos sempre ter que
+são sempre ou 0 ou 4 intercalando, vamos sempre ter um _miss_ e vamos sempre ter que
 voltar a preencher a primeira linha com o valor 0 ou 4.
 
 ![Exemplo](./assets/0004-exemplo.jpg#dark=3)
 
-Porém, se tivessemos a ver a mesma string mas numa [2 way set associative_cache](color:pink),
+Porém, se tivéssemos a ver a mesma string mas numa [2 way set associative_cache](color:pink),
 só teríamos _miss_ nos primeiros dois acessos, visto que os nossos valores seriam
 guardados na primeira e segunda via da primeira linha, e a partir daí conseguiríamos
 aceder aos endereços 0 e 4 com sucesso.
@@ -530,7 +538,7 @@ dar acesso a novos? Em [mapeamento direto](color:purple) não temos escolha, con
 [set de associatividade](color:purple) geralmente vemos primeiro se há alguma
 [entrada não válida](color:pink), se não escolhemos a entrada que não está a ser usada
 há mais tempo (LRU- _least-recently used_), o que é simples para uma via de 2, é gerível
-com facilidade para 4, mas mais do que isso é demasiado díficil; nesses casos
+com facilidade para 4, mas mais do que isso é demasiado difícil; nesses casos
 funciona mais ou menos da mesma forma mas mais [aleatório](color:pink).
 
 :::tip[Exemplos]
@@ -652,7 +660,7 @@ Existem várias técnicas para otimização de acesso de dados:
 Pré-busca, [_prefetching_](color:blue) em inglês, refere-se ao carregamento de um
 recurso antes que seja necessário de modo a diminuir o tempo de espera para esse recurso. Assim, um [_software prefetching_](color:pink) não pode ser feito nem
 demasiado cedo, visto que os dados podem ser expulsos antes de serem usados, nem
-demasiado tarde pois os dados podem não der trazidos a tempo da sua utilizção. Esta
+demasiado tarde pois os dados podem não der trazidos a tempo da sua utilização. Esta
 técnica é [_greedy_](color:purple). Da mesma forma, o pré-carregamento, ou
 [_preloading_](color:blue) em inglês funciona como um pseudo prefetching, usando um
 processamento _hit-under-miss_, isto é o acesso antigo é um _miss_ e, por isso, o
@@ -691,7 +699,7 @@ no esquema abaixo.
 Em 1989, McFarling [reduziu _cache misses_ por 75%](color:pink) em caches de mapeamento
 direto de 8 kB e blocos de 4 bytes em software. Para tal, foi necessário
 [reorganizar os procedimentos em memória](color:purple) para reduzir os
-_conflict misses_, assim como fazer um [perfil](color:purple) de modo a analizar os
+_conflict misses_, assim como fazer um [perfil](color:purple) de modo a analisar os
 conflitos, usando ferramentas que eles desenvolver. Os dados obtidos foram os seguintes:
 
 - [_Merging arrays_](color:yellow): melhoram a localidade espacial através de um único
