@@ -111,10 +111,10 @@ Por isso, surgiu a criação de uma nova versão do protocolo IP, o IPv6.
 
 #### IPv6
 
-Nesta nova versão, os endereços têm 256 bits e são separados por `:` em 8 grupos de 16 bits.  
+Nesta nova versão, os endereços têm 128 bits e são separados por `:` em 8 grupos de 16 bits.  
 Por exemplo, `2001:0df8:00f2:0001:0000:06ee:0000:0f11`.
 
-Existem $2^{256}$ IPs possíveis, o que é um número muito grande e mais que suficiente
+Existem $2^{128}$ IPs possíveis, o que é um número muito grande e mais que suficiente
 nos dias que correm e no futuro.
 
 ### Portos
