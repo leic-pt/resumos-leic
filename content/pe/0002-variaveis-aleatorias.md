@@ -240,8 +240,8 @@ As funções mais que relevantes que nos dão informações sobre VA's são:
 
   - $V(X) \geq 0$;
   - $V(X) = 0 \Leftrightarrow X$ constante;
-  - $V(aX+b) = a^2V(x)$, para $a,b \in \R$.
-  - $V(X^2) = E([X^2]^2) - [E^2(X)]^2 = E(X^4) - E(X)^4$;
+  - $V(aX+b) = a^2V(x)$, para $a,b \in \R$;
+  - $V(X^2) = E([X^2]^2) - [E^2(X)]^2 = E(X^4) - E(X)^4$.
 
   Esta função dá-nos uma medida de divergência em relação ao valor esperado (ao centro).
 

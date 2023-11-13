@@ -24,7 +24,7 @@ Damos o nome de **prova de Bernoulli** a qualquer experiência aleatória cujo e
 :::warning[Sucesso pode ser mau!]
 
 Enquanto que estamos habituados a associar sucesso a coisas boas e insucesso a coisas más, neste caso, o sucesso deve ser entendido apenas como **aquilo que queremos modelar**.  
-Sendo assim, por exemplo, se considerarmos a EA que verifica se o ecrã de um telemóvel se parte no primeiro ano de uso, o sucesso será "o ecrã partiu-se".  
+Sendo assim, por exemplo, se considerarmos a Experiência $A$ que verifica se o ecrã de um telemóvel se parte no primeiro ano de uso, o sucesso será "o ecrã partiu-se".  
 Claro que dada uma Prova de Bernoulli $A$, podemos sempre considerar a experiência aleatória contrária $B$, e, nesse caso, o sucesso de $B$ será o insucesso de $A$ e vice-versa.
 Podemos aproveitar-nos disto à vontade, desde que tenhamos em atenção que o sucesso da prova de Bernoulli e o que queremos medir com a VA sejam coerentes.
 
