@@ -22,7 +22,9 @@ const Hit = ({ hit, source, getItemProps, onItemClick }) => {
           {[1, 2, 3, 4, 5, 6]
             .map((level) => `hierarchy_lvl${level}`)
             .filter((attr) => !!hit[attr])
-            .map((attribute) => <Highlight key={attribute} attribute={attribute} hit={hit} />)
+            .map((attribute) => (
+              <Highlight component='span' key={attribute} attribute={attribute} hit={hit} />
+            ))
             .reduce((acc, el, i) => {
               if (i === 0) {
                 return [...acc, el];

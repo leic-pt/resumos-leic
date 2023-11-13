@@ -27,7 +27,7 @@ um computador de uma forma quantitativa.
 
 Como já se sabe de [IAC](/iac), um computador é constituído por vários elementos
 diferentes, como o processador, cache, memória (RAM), armazenamento, e vários
-periféricos, que, quando unidos, dão-nos um dispositivo funcional.
+periféricos, que, quando unidos, nos dão um dispositivo funcional.
 
 Dentro do **processador** (CPU), conseguimos identificar duas
 categorias de componentes:
@@ -45,12 +45,12 @@ Agora que já visualizamos o que está na parte de hardware dos nossos
 computadores, temos que também ver o que se passa ao corrermos um programa.  
 Existem três camadas diferentes:
 
-- [Application software](color:orange): está escrita numa linguagem de alto nível,
+- [Application software](color:orange): está escrito numa linguagem de alto nível,
   como C, Java, etc.;
 - [System software](color:orange): dividido entre o **compilador**,
   que traduz as linguagens de alto nível para código de máquina
   e o [**sistema operativo**](/so/introducao), que gere o input/output, memória e
-  armazenamento assim como o escalonamento de tarefas e partilhas de recursos;
+  armazenamento, assim como o escalonamento de tarefas e partilhas de recursos;
 - [Hardware](color:orange) (processador, memória, I/O, etc.): onde realmente
   corre o nosso programa, após ser convertido para código máquina pelo compilador.
 
@@ -388,7 +388,7 @@ Conclui-se que a performance depende do:
 O [**MIPS**](color:orange), _Millions of Instructions per Second_, é uma métrica
 que pode ser usada para classificar a performance de um processador.  
 No entanto, esta não considera as diferenças entre os diferentes ISAs nem
-a diferença entre a complexidade das instruções (i.e. o CPI).
+a diferença entre a complexidade das instruções (i.e., o CPI).
 
 $$
 \begin{aligned}
@@ -441,14 +441,17 @@ $$
 T_{\text{improvement}} = \frac{3}{3} + {5} = 6 \op{s}
 $$
 
-o tempo total de execução do programa é 6 segundos.
+o tempo total de execução do programa é 6 segundos, com $\text{Speedup} \approx 1.33$.
 
-Contudo, se tornarmos a instrução A 1.8 vezes mais rápida,
+Contudo, se alternativamente tornarmos a instrução A apenas 1.8 vezes mais rápida,
 
 $$
 T_{\text{improvement}} = \frac{5}{1.8} + 3 = 5.78 \op{s}
 $$
 
-o tempo total de execução do programa é 5.78 segundos!
+o tempo total de execução do programa é 5.78 segundos, com $\text{Speedup} \approx 1.38$!
+
+Conclui-se, assim, que melhorando menos $(1.8 \ll 3)$ a rapidez de uma instrução mais comum,
+é possível obter um maior Speedup, tal como previsto pela **Lei de Amdahl**.
 
 :::

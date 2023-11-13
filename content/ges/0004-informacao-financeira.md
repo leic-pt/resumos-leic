@@ -528,7 +528,7 @@ $$
 
 A empresa Phyta-Kola, empresa especializada na venda de fita-cola, iniciou as suas atividades em janeiro de 2020.
 Durante o ano produziu $190000$ unidades do seu produto gastando 400000€ em matéria-prima (MP),
-$150000€$ em mão de obra (MO) e $400000€$ em custos indiretos de fabrico (CIF), $52,5%$ dos quais variáveis.
+$150000€$ em mão de obra (MO) e $400000€$ em custos indiretos de fabrico (CIF), $52,5\%$ dos quais variáveis.
 Além disso, a empresa gastou $200000€$ com administração, depreciações, etc.
 A empresa vendeu neste mesmo ano $120000$ unidades por $8€$ cada. Usando cada um dos métodos de custeio,
 calcule o custo fabril por unidade produzida, o resultado operacional de 2020.

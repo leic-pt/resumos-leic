@@ -43,7 +43,7 @@ De modo a simplificar a expressão, adiciona-se um termo $x_0 = 1$ ao vetor
 $\vec{x}$.
 
 $$
-y = y(x,w) = \sum\limits_{j=1}^{D} (w_j \cdot x_j) = w^Tx
+y = y(x,w) = \sum\limits_{j=0}^{D} (w_j \cdot x_j) = w^Tx
 $$
 
 ## Erro Quadrático Médio

@@ -192,26 +192,29 @@ years:
 - [Criador de Horários (Daniel Gonçalves)](https://horarios.dang.pt/)
 - [Gerador de Horários (Joana Sesinando)](https://web.tecnico.ulisboa.pt/joanasesinando/gerador-horarios/)
 - [Reencaminhar emails do Técnico para o Gmail](https://www.notion.so/diogocorreia/Reenchaminhar-emails-do-T-cnico-para-Gmail-2975d496a1d3447a84b0d0cf163dd65f)
+- [Portfólio Projetos de Cadeiras - Diogo Correia](https://github.com/diogotcorreia/diogotcorreia/blob/master/ist.md) - (LEIC-A)
+- [Portfólio Projetos de Cadeiras - Rafael Oliveira](https://gist.github.com/RafDevX/46ddc5b68ea97c46b5ffd18854670042) - (LEIC-A)
 - [Caderno Rita Mendes](https://www.notion.so/IST-MEEC-0c22d514a81645eca3c2a58739e323e1) - (IST - MEEC)
 
 ## Como Contribuir?
 
 Se estás a pensar contribuir para os Resumos LEIC, fizemos um guia passo a passo só para ti!
-Vai à [nossa documentação para aprenderes tudo o que precisas](https://leic-pt.github.io/docs/).
+Vai à [nossa documentação para aprenderes tudo o que precisas](https://docs.leic.pt/).
 
 ### Contribuidores
 
 Quero agradecer a [todos os que contribuíram](https://github.com/leic-pt/resumos-leic/graphs/contributors) para os conteúdos deste site:
 
-- [Diogo Correia](https://github.com/leic-pt/resumos-leic/commits?author=diogotcorreia) (**Website**, **CDI-I**, **CDI-II**, **CDI-III**, **Fis-I**, **BD**, MD, IAED)
+- [Diogo Correia](https://github.com/leic-pt/resumos-leic/commits?author=diogotcorreia) (**Website**, **CDI-I**, **CDI-II**, **CDI-III**, **Fis-I**, **BD**, **IEco**, MD, IAED)
 - [Diogo Gaspar](https://github.com/leic-pt/resumos-leic/commits?author=randomicecube) (**LP**, **ASA**, **IAED**, **IA**, TC, CDI-I, CDI-III, PO)
 - [Tomás Esteves](https://github.com/leic-pt/resumos-leic/commits?author=Pesteves2002) (**IAED**, **Fis-II**, **SO**, Fis-I, MD, CDI-II, LP)
 - [João Rocha](https://github.com/leic-pt/resumos-leic/commits?author=Calhau18) (**SO**, **TC**, **PE**, CDI-I, CDI-II, MD, CDI-III, Fis-II, ASA)
 - [Constança Cunha](https://github.com/leic-pt/resumos-leic/commits?author=constancadcunha) (**IAC**, **IPM**, **Apre**, **OC**, Fis-I)
+- [Pedro Chaparro](https://github.com/leic-pt/resumos-leic/commits?author=PedroChaps) (**RC**, CDI-III, Fis-II)
 - [Rúben Nobre](https://github.com/leic-pt/resumos-leic/commits?author=RubenNobre123) (**MD**, CDI-III)
 - [João Fonseca](https://github.com/leic-pt/resumos-leic/commits?author=jmseca) (**MD**)
-- [Rafael Oliveira](https://github.com/leic-pt/resumos-leic/commits?author=RafDevX) (CDI-II, EMD, LP, CDI-III, ASA, TC, IAED, GES, IPM, SO, IA, Fis-I, PO, Fis-II, PE, CDI-I, AL, IAC, OC, Apre)
-- [José João Ferreira](https://github.com/leic-pt/resumos-leic/commits?author=jjasferreira) (SO, BD, IA, IPM)
+- [Rafael Oliveira](https://github.com/leic-pt/resumos-leic/commits?author=RafDevX) (CDI-II, EMD, LP, CDI-III, ASA, TC, IAED, GES, IPM, SO, IA, Fis-I, PO, Fis-II, PE, CDI-I, AL, IAC, OC, Apre, IEco, RC)
+- [José João Ferreira](https://github.com/leic-pt/resumos-leic/commits?author=jjasferreira) (SO, BD, IA, IPM, RC)
 - [Eduardo Espadeiro](https://github.com/leic-pt/resumos-leic/commits?author=EdSwordsmith) (IA)
 - [Rafaela Rodrigues](https://github.com/leic-pt/resumos-leic/commits?author=Rafa10PT) (IAED, CDI-II, MD, CDI-III)
 - [Luís Fonseca](https://github.com/leic-pt/resumos-leic/commits?author=luishfonseca) (IAED, CDI-II, LP, AL)
@@ -224,7 +227,6 @@ Quero agradecer a [todos os que contribuíram](https://github.com/leic-pt/resumo
 - [Raquel Cardoso](https://github.com/leic-pt/resumos-leic/commits?author=rahqueu) (IPM, OC)
 - [Martim Monis](https://github.com/leic-pt/resumos-leic/commits?author=creaaidev) (LP, MD, CDI-III, Ges)
 - [Nuno Alves](https://github.com/leic-pt/resumos-leic/commits?author=nalves599) (MD, CDI-II, Meta)
-- [Pedro Chaparro](https://github.com/leic-pt/resumos-leic/commits?author=PedroChaps) (CDI-III, Fis-II)
 - [Francisco Salgueiro](https://github.com/leic-pt/resumos-leic/commits?author=franciscoBSalgueiro) (FP, Ges)
 - [Pedro Perpétua](https://github.com/leic-pt/resumos-leic/commits?author=PedroPerpetua) (MD)
 - [Mateus Marinheiro](https://github.com/leic-pt/resumos-leic/commits?author=MateusMarinheiro) (CDI-III)
@@ -250,7 +252,7 @@ Todo o conteúdo escrito disponível neste site é dado por contribuidores (list
 Alguns anexos podem ter sido cedidos por professores, após obter a respetiva permissão.  
 Visto que algum do conteúdo pode estar incorreto, incompleto e/ou desatualizado,
 usa este site _at your own risk_.  
-Como sempre, se encontrares algum erro, podes e deves [contribuir](https://leic-pt.github.io/docs)!
+Como sempre, se encontrares algum erro, podes e deves [contribuir](https://docs.leic.pt)!
 
 Questões relacionadas com _copyright_ deverão ser encaminhadas para [resumos@leic.pt](mailto:resumos@leic.pt).
 :::

@@ -20,7 +20,7 @@ body {
   }
 }
 
-.content a {
+.content a:not(.gatsby-resp-image-link, .anchor.before) {
   transition: filter 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   box-shadow: inset 0 -2px var(--accentColor);
   color: var(--textColor);
@@ -34,8 +34,7 @@ body.dark-mode .content a:hover {
   filter: brightness(120%);
 }
 
-.content img,
-.content object {
+.content img {
   max-width: 100%;
   /* center images */
   display: block;
@@ -103,6 +102,10 @@ body.dark-mode .content a:hover {
 .content p,
 .content ul {
   line-height: 1.7;
+}
+
+body.text-justify .content {
+  text-align: justify;
 }
 
 .content table {

@@ -1,9 +1,10 @@
 import React from 'react';
 
 const Highlight = ({ component = 'p', hit, attribute, ...props }) => {
+  const Component = component;
   if (hit._formatted[attribute]) {
     return (
-      <component
+      <Component
         dangerouslySetInnerHTML={{
           __html: hit._formatted[attribute],
         }}
@@ -11,7 +12,7 @@ const Highlight = ({ component = 'p', hit, attribute, ...props }) => {
       />
     );
   }
-  return <component {...props}>{hit[attribute]}</component>;
+  return <Component {...props}>{hit[attribute]}</Component>;
 };
 
 export default Highlight;
