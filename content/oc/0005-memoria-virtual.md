@@ -150,7 +150,7 @@ por isso, a instrução que falha é reiniciada.
 ![Interação](./assets/0005-interaction.png#dark=3)
 
 Se a tag da cache usa um endereço de memória, é necessário traduzir antes de ir
-procurar a cache. Uma alternatica é usar uma tag de endereço de memória virtual,
+procurar a cache. Uma alternativa é usar uma tag de endereço de memória virtual,
 contudo, tal pode ser complicado graças a _aliasing_, isto é, diferentes endereços
 virtuais para endereços físicos partilhados.
 
@@ -165,12 +165,12 @@ memória torna-se inconsistente.
 
 ### Redução do Tempo de Tradução
 
-Sabendo a interpretação de endereços virtuais pela TLB é representada da seguinte forma:
+Sabendo que a interpretação de endereços virtuais pela TLB é representada da seguinte forma:
 
 | Virtual page index | Virtual offset |
 | :----------------: | :------------: |
 
-E a interpretação dos endereços físicos pela cache é representada da seguinte forma:
+E que a interpretação dos endereços físicos pela cache é representada da seguinte forma:
 
 | Tag | Index | Offset |
 | :-: | :---: | :----: |
@@ -201,11 +201,11 @@ Por isso, um dos seguintes cenários pode ocorrer:
 ## Proteção de Memória
 
 Como é evidente, diferentes tarefas podem partilhar partes dos seus espaços de
-endereçamento virtual, mas é necessário [proteger contrar acessos errantes](color:pink).
-Para tal, precisamos de ajuda do OS.
+endereçamento virtual, mas é necessário [proteger contra acessos errantes](color:pink).
+Para tal, precisamos de ajuda do sistema operativo.
 
-Visto que o suporte _hardware_ para porteção do OS, temos um modo supervisor
-previlegiado, isto é, o [_kernel mode_](color:purple), instruções previlegiadas,
+Existe suporte de _hardware_ para proteção do OS, pelo que temos um modo supervisor
+privilegiado, isto é, o [_kernel mode_](color:purple), instruções privilegiadas,
 tabelas de páginas e outros estados de informação que só podem ser acedidos com o modo
 supervisor e uma chamada de exceção do sistema.
 
@@ -229,12 +229,10 @@ nível de hierarquia temos:
   miss que pode ser através da política LRU ou aleatório; em termos de memória
   virtual o LRU tem uma aproximação com o suporte de _hardware_.
 
-- [_Write Policy_](color:pink): como já tinhamos visto anteriormente, podemos ter
-  _write-throughs_ que atualizam tanto os níveis superiores como inferiorese
-  simplificam a troca mas precisam de um _buffer_ de escrita; ou _write-backs_ que apenas atualizam os níveis superior e só atualizam os inferiores quando o bloco é
+- [_Write Policy_](color:pink): como já tínhamos visto anteriormente, podemos ter
+  _write-throughs_ que atualizam tanto os níveis superiores como inferiores e
+  simplificam a troca mas precisam de um _buffer_ de escrita; ou _write-backs_
+  que apenas atualizam os níveis superior e só atualizam os inferiores quando o bloco é
   resposto, ou seja, é necessário manter mais estado. Assim, em termos de memória
   virtual, só o _write-back_ é fazível, visto que existe uma latência de escrita no
   disco.
-
-[_Cache Design Trade-offs_](color:green)
-![_Cache Design Trade-offs_](./assets/0005-design.png#dark=3)
