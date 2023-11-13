@@ -13,6 +13,23 @@ type: content
 
 ```
 
+Vamos, inicialmente, olhar para duas noções que nos vão ser muito importantes aquando do estudo de probabilidades.
+
+:::tip[Prova de Bernoulli]
+
+Damos o nome de **prova de Bernoulli** a qualquer experiência aleatória cujo espaço de resultados tem apenas dois eventos elementares: um evento a que damos o nome de **sucesso**, com probabilidade $p$, e um a que damos nome de **insucesso**, com probabilidade $1-p$.
+
+:::
+
+:::warning[Sucesso pode ser mau!]
+
+Enquanto que estamos habituados a associar sucesso a coisas boas e insucesso a coisas más, neste caso, o sucesso deve ser entendido apenas como **aquilo que queremos modelar**.  
+Sendo assim, por exemplo, se considerarmos a Experiência $A$ que verifica se o ecrã de um telemóvel se parte no primeiro ano de uso, o sucesso será "o ecrã partiu-se".  
+Claro que dada uma Prova de Bernoulli $A$, podemos sempre considerar a experiência aleatória contrária $B$, e, nesse caso, o sucesso de $B$ será o insucesso de $A$ e vice-versa.
+Podemos aproveitar-nos disto à vontade, desde que tenhamos em atenção que o sucesso da prova de Bernoulli e o que queremos medir com a VA sejam coerentes.
+
+:::
+
 ## Distribuição Uniforme Discreta
 
 :::danger[]
@@ -21,9 +38,9 @@ Esta distribuição não é lecionada no programa de 2021/22, mas pode ser impor
 
 :::
 
-:::tip[]
+:::tip[Motivação]
 
-Esta distribuição é normalmente usada em situações em que todos os eventos são equiprováveis.
+Esta distribuição é normalmente usada em situações em que [**todos os eventos são equiprováveis**](color:green).
 
 :::
 
@@ -84,9 +101,9 @@ $$
 
 ## Distribuição Binomial
 
-:::tip[]
+:::tip[Motivação]
 
-Esta distribuição é usada para, dada uma prova de Bernoulli que é executada $n$ vezes (independentemente), medir a probabilidade de haver exatamente $x$ sucessos.
+Esta distribuição é usada para, dada uma [**prova de Bernoulli**](color:green) que é [**executada $n$ vezes**](color:green) (independentemente), [**medir a probabilidade de haver exatamente $x$ sucessos**](color:green).
 
 :::
 
@@ -143,7 +160,7 @@ $$
 
 **Propriedades da [distribuição binomial](color:yellow)**:
 
-- A distribuição binomial **não tem uma função de distribuição** que possa ser escrita em forma fechada (isto é, sem um somatório);
+- A distribuição binomial [**não tem uma função de distribuição**](color:red) que possa ser escrita em forma fechada (isto é, sem um somatório);
 - Se $X~\sim~\op{binomial}(n,p)$ e $Y$ for a VA que mede o número de insucessos associados a $X$, isto é
   $$
   Y = n-X~\sim~\op{binomial}(n, 1-p)
@@ -155,9 +172,9 @@ $$
 
 ## Distribuição Geométrica
 
-:::tip[]
+:::tip[Motivação]
 
-Esta distribuição é usada para, dada uma prova de Bernoulli, medir a probabilidade de o primeiro sucesso ocorrer ao fim de exatamente $x$ tentativas.
+Esta distribuição é usada para, dada uma prova de Bernoulli, medir a probabilidade de o [**primeiro sucesso ocorrer ao fim de exatamente $x$ tentativas**](color:green).
 
 :::
 
@@ -213,6 +230,7 @@ $$
 **Propriedades da [distribuição geométrica](color:orange)**:
 
 - A distribuição geométrica tem função de distribuição dada por
+
   $$
   F_X(x) =
   \begin{cases}
@@ -220,18 +238,35 @@ $$
   1-(1-p)^{\lfloor x \rfloor}, &x>1
   \end{cases}
   $$
+
+  Isto, claro, dado que
+
+  $$
+  \begin{aligned}
+    &\sum_{n=1}^{x}{p(1 - p)^{n - 1}}\\
+    &= p \cdot \frac{1 - (1 - p)^x}{1 - (1 - p)}\\
+    &= p \cdot \frac{1 - (1 - p)^x}{p}\\
+    &= 1 - (1 - p)^x
+  \end{aligned}
+  $$
+
 - **Propriedade da Falta de Memória**: Dada uma VA com distribuição geométrica $X$, temos que, $\forall_{k, x \in \Z^+}$:
+
   $$
   P(X > k+x | X > k) = P(X > x)
   $$
+
   Por outras palavras, a VA $Y = X-k | X>k$ é tal que
+
   $$
   Y \sim \op{geométrica}(p)
   $$
 
+  A falta de memória é uma propriedade extremamente útil de algumas distribuições, que nos permite encurtar bastante alguns cálculos.
+
 ## Distribuição de Poisson
 
-:::tip[]
+:::tip[Motivação]
 
 A [distribuição de Poisson](color:purple) mede o número de ocorrências de uma EA num dado intervalo.  
 Para que isto seja possível, é necessário assumirmos que:
@@ -305,24 +340,9 @@ $$
 
 ## Distribuição de Bernoulli
 
-:::tip[]
+:::tip[Motivação]
 
 Este tipo de distribuição é usado para modular situações em que apenas há dois resultados possíveis.
-
-:::
-
-:::tip[Prova de Bernoulli]
-
-Damos o nome de **prova de Bernoulli** a qualquer experiência aleatória cujo espaço de resultados tem apenas dois eventos elementares: um evento a que damos o nome de **sucesso**, com probabilidade $p$, e um a que damos nome de **insucesso**, com probabilidade $1-p$.
-
-:::
-
-:::warning[Sucesso pode ser mau!]
-
-Enquanto que estamos habituados a associar sucesso a coisas boas e insucesso a coisas más, neste caso, o sucesso deve ser entendido apenas como **aquilo que queremos modelar**.  
-Sendo assim, por exemplo, se considerarmos a EA que verifica se o ecrã de um telemóvel se parte no primeiro ano de uso, o sucesso será "o ecrã partiu-se".  
-Claro que dada uma Prova de Bernoulli $A$, podemos sempre considerar a experiência aleatória contrária $B$, e, nesse caso, o sucesso de $B$ será o insucesso de $A$ e vice-versa.
-Podemos aproveitar-nos disto à vontade, desde que tenhamos em atenção que o sucesso da prova de Bernoulli e o que queremos medir com a VA sejam coerentes.
 
 :::
 
@@ -383,13 +403,13 @@ $$
 
 ## Distribuição Hipergeométrica
 
-:::warning[]
+:::danger[]
 
 Esta distribuição não faz parte da matéria lecionada no programa de 2021/22.
 
 :::
 
-:::tip[]
+:::tip[Motivação]
 
 Tal como a distribuição binomial, esta distribuição tem a ver com o número de sucessos em $n$ provas de Bernoulli. No entanto, desta vez, as provas não são independentes entre si e podem ser pensadas como seguindo um processo de extração sem repetição.
 

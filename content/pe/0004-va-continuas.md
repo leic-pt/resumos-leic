@@ -93,7 +93,7 @@ $$
 
 :::tip[]
 
-Esta distribuição é normalmente usada para atribuir uma probabilidade ao tempo que um evento demora a acontecer.
+Esta distribuição é normalmente usada para atribuir uma probabilidade ao [**tempo que um evento demora a acontecer**](color:yellow).
 
 :::
 
@@ -235,7 +235,7 @@ e o seu valor esperado e variância são 1.75m e 0.3m.
 - $X \sim \op{normal}(\mu, \sigma^2) \Leftrightarrow aX+b \sim \op{normal}(aX + b, a^2 \sigma^2)$  
   Consequentemente, $X \sim \op{normal}(\mu, \sigma^2) \Leftrightarrow \frac{X-\mu}{\sigma} \sim \op{normal}(0,1)$.  
   Desta forma, para qualquer VA $X$ com distribuição normal, é sempre possível fazer uma transformação linear de forma a obter uma VA com distribuição normal centrada em $0$ e com variância $1$.
-  À distribuição normal centrada em $0$ com variância $1$ dá-se o nome de **distribuição normal padrão**. A sua função de distribuição representa-se por $\Phi(x)$ e é dada por
+  À distribuição normal centrada em $0$ com variância $1$ dá-se o nome de [**distribuição normal padrão**](color:green). A sua função de distribuição representa-se por $\Phi(x)$ e é dada por
   $$
   \Phi(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} e^{-\frac{t^2}{2}} \, dt
   $$
@@ -257,7 +257,7 @@ Temos que $P(X \leq 23.045) = P (\frac{X - 23}{{0.1}} \equiv \frac{X-\mu}{\sigma
 
 Indo ver à tabela, concluímos que $\Phi(0.45) = 0.6736$, pelo que $P(X \leq 23.045) = 0.6736$.
 
-![table](./imgs/0004/table.png#dark=1)
+![table](./assets/0004-table.png#dark=1)
 
 Observe-se que a tabela não permite consultar a função $\Phi$ em valores negativos.
 Nesse caso, basta aproveitarmo-nos do facto que $\Phi(-x) = 1 - \Phi(x)$ e depois consultar a tabela.

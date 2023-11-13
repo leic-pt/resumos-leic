@@ -18,7 +18,7 @@ type: content
 
 ```
 
-Começamos por introduzir umas definições essenciais para formalizar o trabalho com probabilidade.
+Começamos por introduzir algumas definições essenciais para formalizar o trabalho com probabilidade.
 Primeiro, é essencial definir exatamente em que consiste uma [**experiência aleatória**](color:red):
 
 :::tip[Experiência Aleatória (EA)]
@@ -35,8 +35,8 @@ Damos o nome de [**espaço de resultados**](color:green) ao conjunto de todos os
 Costumamos designar o espaço de resultados pela letra grega $\Omega$ (Omega).  
 Dizemos que o espaço de resultados é:
 
-- **discreto** se $\Omega$ for contável;
-- **contínuo** se $\Omega$ não for contável.
+- **discreto**, se $\Omega$ for contável;
+- **contínuo**, se $\Omega$ não for contável.
 
 :::
 

@@ -88,8 +88,8 @@ Em todos os exemplos, podíamos ter definido qualquer outra VA que nos apetecess
 Nos primeiros dois exemplos, não fazia sentido definir qualquer VA que não as que foram definidas - estas são as que nos fazem mais sentido.
 De facto, nesses casos, as variáveis aleatórias são tão pouco "originais" que é fácil confundir o input (o evento) com o output (um valor numérico).  
 No entanto, no terceiro exemplo já é mais notável qual o objetivo da VA.
-Na verdade, a VA não passa exatamente de um formalismo que transforma eventos em valores numéricos.
-Desta forma, podemos definir qualquer VA desde que consigamos trabalhar com ela.
+Na verdade, a VA não passa exatamente de um [**formalismo que transforma eventos em valores numéricos**](color:orange).
+Desta forma, podemos definir qualquer VA, desde que consigamos trabalhar com ela.
 
 :::
 
@@ -147,7 +147,7 @@ As VA's discretas satisfazem as seguintes propriedades:
 
 - $F_X$ é monótona crescente, contínua à direita e tem $\#\R_X$ pontos de descontinuidade. Consequentemente, o gráfico da fd de uma VA discreta é algo parecido a:
 
-![Gráfico da fd de um VA discreta](./imgs/0002/discrete_fd_graph.png#dark=3)
+![Gráfico da fd de uma VA discreta](./assets/0002-discrete-fd-graph.svg#dark=3)
 
 - $F_X(-\infty) = \lim_{x \to -\infty} F_X(x) = 0$;
 - $F_X(+\infty) = \lim_{x \to +\infty} F_X(x) = 1$;
@@ -175,13 +175,13 @@ Dizemos, então, que uma VA $X$ é contínua se e só se:
   $$
   F_X(x) = \int_{-\infty}^x f_X(t) \, dt
   $$
-  A esta função dá-se o nome de [**função de densidade de probabilidade (fdp)**](color:pink).
+  A esta função, $f$, dá-se o nome de [**função de densidade de probabilidade (fdp)**](color:pink).
 
 As VA's contínuas têm as seguintes propriedades:
 
 - Um gráfico vagamente semelhante ao representado abaixo, devido à continuidade e monotonia lata:
 
-![Gráfico da fd de um VA contínua](./imgs/0002/continuous_fd_graph.png#dark=3)
+![Gráfico da fd de um VA contínua](./assets/0002-continuous-fd-graph.svg#dark=3)
 
 - $f_X(x) = \frac{\delta F_X(x)}{\delta x}$
 - $F_X(-\infty) = 0$, $F_X(+\infty) = 1$ e, consequentemente, $0 \leq F_X(x) \leq 1$ para qualquer $x \in \R$;
@@ -200,7 +200,7 @@ As funções mais que relevantes que nos dão informações sobre VA's são:
 
   $$
   \begin{matrix}
-  \text{Para VA's discretas} & & \text{Para VA's contínuas} \\
+  \smartcolor{pink}{\text{Para VA's discretas}} & & \smartcolor{green}{\text{Para VA's contínuas}} \\
   E(X) = \sum_{x \in \R_X} x P(X = x) & & E(X) = \int_{-\infty}^{\infty} x f_X(x) \, dx \\
   \text{se esta série convergir} & & \text{se este integral convergir}
   \end{matrix}
@@ -211,7 +211,7 @@ As funções mais que relevantes que nos dão informações sobre VA's são:
   $$
   \begin{matrix}
   E(h(X)) = \sum_{x \in \R_X} h(x) P(X = x) & & E(h(X)) = \int_{-\infty}^\infty h(x) P(X = x) \\
-  \text{para } X \text{ discreta} & &  \text{Para } X \text{ contínua}
+  \smartcolor{pink}{\text{para } X \text{ discreta}} & &  \smartcolor{green}{\text{Para } X \text{ contínua}}
   \end{matrix}
   $$
 
@@ -219,6 +219,12 @@ As funções mais que relevantes que nos dão informações sobre VA's são:
 
   $$
   E(aX+b) = aE(X) + b
+  $$
+
+  Verifica-se ainda que
+
+  $$
+  E(X + Y) = E(X) + E(Y)
   $$
 
   Esta função é a medida de centralidade principal de uma VA.
@@ -234,7 +240,8 @@ As funções mais que relevantes que nos dão informações sobre VA's são:
 
   - $V(X) \geq 0$;
   - $V(X) = 0 \Leftrightarrow X$ constante;
-  - $V(aX+b) = a^2V(x)$, para $a,b \in \R$.
+  - $V(aX+b) = a^2V(x)$, para $a,b \in \R$;
+  - $V(X^2) = E([X^2]^2) - [E^2(X)]^2 = E(X^4) - E(X)^4$.
 
   Esta função dá-nos uma medida de divergência em relação ao valor esperado (ao centro).
 
