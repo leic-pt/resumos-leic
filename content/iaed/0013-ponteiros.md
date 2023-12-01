@@ -103,7 +103,7 @@ void swap(int *a, int *b) { /* existe troca dentro e fora da função */
 
 ### Ponteiro Nulo
 
-`NULL` é um ponteiro especial, utilizado para representar o endereço 0 (`int *ptr = NULL`). Está definido na _standard library_ de C, `stdlib`, sendo preciso incluí-la no nosso código para utilizar esta ponteiro. Utilizamo-lo para indicar situações especiais: considerando uma árvore binária, por exemplo, `NULL` pode ser utilizado como que significando "este pai não tem este filho", por exemplo.
+`NULL` é um ponteiro especial, utilizado para representar o endereço 0 (`int *ptr = NULL`). Está definido na _standard library_ de C, `stdlib`, sendo preciso incluí-la no nosso código para utilizar esta ponteiro. Utilizamo-lo para indicar situações especiais: considerando uma árvore binária, por exemplo, `NULL` pode ser utilizado como que significando "este pai não tem este filho".
 
 ## Ponteiros e Tabelas
 
