@@ -77,7 +77,7 @@ antes disso, eis uma breve descrição de cada camada:
   ponto A para o ponto B, não num contexto local mas sim num contexto de uma
   **rede** de computadores e dispositivos de rede. Por exemplo,
   - Como é que consigo comunicar com um _host_ em qualquer ponto na Internet
-    (Protocolo IP - é atribuído um endereço a cada _host_).
+    (IP (Internet Protocol) - é atribuído um endereço a cada _host_).
 - **Transport Layer** - Conjunto de regras que definem como é que o **transporte**
   de dados deve ser feito sobre uma rede de computadores. Por exemplo,
 
