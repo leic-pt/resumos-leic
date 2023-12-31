@@ -13,3 +13,4 @@ type: topLevelPage
 ## Recursos
 
 - [Página da Cadeira - Fénix](https://fenix.tecnico.ulisboa.pt/disciplinas/RC/2022-2023/1-semestre)
+- [JimKurose - YouTube, videos following course textbook](https://www.youtube.com/@JimKurose)
