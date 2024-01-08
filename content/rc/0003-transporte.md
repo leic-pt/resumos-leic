@@ -341,7 +341,7 @@ não representar a realidade.
 Então, alternativamente, calcula-se o $\op{EstimatedRTT}$, que é uma média de vários $\op{SampleRTT}$s.
 
 Alternativamente a esses tempos, pode-se ainda calcular o
-$\op{EstimateRTT} = (1-\alpha) \times \op{EstimatedRTT} + \alpha \times \op{SampleRTT}$
+$\op{EstimatedRTT} = (1-\alpha) \times \op{EstimatedRTT} + \alpha \times \op{SampleRTT}$
 (tipicamente, $\alpha = 0.125$). A esta fórmula chama-se
 **EWMA** (_Exponential Weighted Moving Average_),
 e com ela, a influência das amostras anteriores diminui exponencialmente.
