@@ -1,0 +1,36 @@
+name: Update Contributors List
+
+on: [push]
+
+jobs:
+  update-contributors:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Install dependencies
+      run: pip install GitPython  # Install the GitPython library
+
+    - name: Update Contributors
+      run: python update-contributors.py
+
+    - name: Commit and Push changes
+      run: |
+        # Check if there are any changes. If not, skip the commit/push steps
+        if git diff --quiet; then
+          echo "No changes to commit"
+          exit 0
+        fi
+
+        # Configure git with GitHub Actions bot's info
+        git config --local user.email "actions@github.com"
+        git config --local user.name "GitHub Actions Bot"
+
+        # Commit and push the changes
+        git add .
+        git commit -m "Update contributors list"
+        git push origin HEAD
