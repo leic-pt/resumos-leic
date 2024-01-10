@@ -111,9 +111,9 @@ module.exports = {
             options: {
               css: 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap',
               mermaidConfig: {
-                fontFamily: "Roboto, sans-serif",
+                fontFamily: 'Roboto, sans-serif',
               },
-              prefix: "remark-mermaid",
+              prefix: 'remark-mermaid',
             },
           },
           `gatsby-remark-embed-snippet`,
