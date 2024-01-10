@@ -18,8 +18,8 @@ module.exports = {
       { key: 'archive', name: '📥 Arquivo' },
     ],
     github: {
-      owner: "leic-pt",
-      repository: "resumos-leic",
+      owner: 'leic-pt',
+      repository: 'resumos-leic',
     },
     navbar: {
       siteTitle: 'Resumos LEIC-A',

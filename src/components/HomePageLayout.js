@@ -13,19 +13,22 @@ import Contributors from './Contributors';
 const HomePageLayout = ({ data }) => {
   const { markdownRemark: page, allContributor: contributors } = data;
 
-  const getLabelName = useCallback((label) => {
-    const { years } = page.frontmatter;
+  const getLabelName = useCallback(
+    (label) => {
+      const { years } = page.frontmatter;
 
-    for (const year of years) {
-      for (const semester of year.semesters) {
-        for (const course of semester.courses) {
-          if (course.link === `/${label}`) {
-            return course.name;
+      for (const year of years) {
+        for (const semester of year.semesters) {
+          for (const course of semester.courses) {
+            if (course.link === `/${label}`) {
+              return course.name;
+            }
           }
         }
       }
-    }
-  }, [page.frontmatter.years]);
+    },
+    [page.frontmatter.years]
+  );
 
   return (
     <div className='home-page-container'>
