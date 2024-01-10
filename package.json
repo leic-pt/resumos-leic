@@ -41,7 +41,7 @@
     "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-images": "^7.4.0",
     "gatsby-remark-katex": "^7.4.0",
-    "gatsby-remark-mermaid": "^4.0.0",
+    "gatsby-remark-mermaid": "^3.0.1",
     "gatsby-remark-prismjs": "^7.4.0",
     "gatsby-remark-table-of-contents": "^2.0.0",
     "gatsby-source-filesystem": "^5.4.0",
@@ -50,6 +50,7 @@
     "meilisearch": "^0.30.0",
     "mini-svg-data-uri": "^1.4.4",
     "prismjs": "^1.29.0",
+    "puppeteer": "^19.5.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "remark-directive": "^1.0.1"
