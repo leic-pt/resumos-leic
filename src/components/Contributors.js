@@ -54,10 +54,10 @@ const Contributors = ({ getLabelName, contributors }) => {
           </ExternalLink>
           {' ('}
           {contributor.labels.map(({ label, bold }, index) => (
-            <>
+            <React.Fragment key={label}>
               {index > 0 && ', '}
               {bold ? <strong>{label}</strong> : label}
-            </>
+            </React.Fragment>
           ))}
           )
         </li>

@@ -18,12 +18,13 @@ function mergeContributors(contributors, pullRequests) {
     });
 }
 
+// mutates `contributors`
 function mergeContributorsFromCache(contributors, cachedContributors) {
   cachedContributors.forEach(({ name, username, labels }) => {
     const contributor = contributors[username] || (contributors[username] = {});
     const labelSet = contributor.labels || (contributor.labels = new Set());
 
-    labels?.filter((label) => !!label.name).forEach((label) => labelSet.add(label.name));
+    labels?.forEach((label) => labelSet.add(label));
 
     if (!contributor.name) {
       contributor.name = name;
