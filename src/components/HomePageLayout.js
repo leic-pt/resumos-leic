@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby';
-import React from 'react';
+import React, { useCallback } from 'react';
 import IstLogo from '../images/ist-logo.svg';
 import '../styles/homepage.css';
 import '../styles/main.css';
@@ -8,9 +8,33 @@ import Footer from './Footer';
 import Navbar from './Navbar';
 import PageMetadata from './PageMetadata';
 import SectionButton, { SectionButtonLayout } from './SectionButton';
+import Contributors from './Contributors';
+import ExternalLink from './ExternalLink';
 
 const HomePageLayout = ({ data }) => {
-  const { markdownRemark: page } = data;
+  const { markdownRemark: page, allContributor: contributors } = data;
+
+  const getLabelName = useCallback(
+    (label) => {
+      if (label === 'meta') {
+        return 'Meta';
+      }
+      const years = page.frontmatter.years;
+
+      for (const year of years) {
+        for (const semester of year.semesters) {
+          for (const course of semester.courses) {
+            if (course.link === `/${label}`) {
+              return course.name;
+            }
+          }
+        }
+      }
+      return null;
+    },
+    [page.frontmatter.years]
+  );
+
   return (
     <div className='home-page-container'>
       <Navbar />
@@ -47,7 +71,30 @@ const HomePageLayout = ({ data }) => {
           </div>
         ))}
       </div>
-      <div className='content' dangerouslySetInnerHTML={{ __html: page.html }} />
+      <div className='content'>
+        <div dangerouslySetInnerHTML={{ __html: page.html }} />
+        <Contributors getLabelName={getLabelName} contributors={contributors.nodes} />
+        <hr />
+        <div className='custom-container custom-container-warning'>
+          <p>Disclaimer</p>
+          <p>
+            Resumos LEIC não está afiliado ao{' '}
+            <ExternalLink href='https://tecnico.ulisboa.pt'>tecnico.ulisboa.pt</ExternalLink> de
+            forma alguma. Todo o conteúdo escrito disponível neste site é dado por contribuidores
+            (listados acima). Alguns anexos podem ter sido cedidos por professores, após obter a
+            respetiva permissão.
+            <br />
+            Visto que algum do conteúdo pode estar incorreto, incompleto e/ou desatualizado, usa
+            este site <em>at your own risk</em>.<br />
+            Como sempre, se encontrares algum erro, podes e deves{' '}
+            <ExternalLink href='https://docs.leic.pt'>contribuir</ExternalLink>!
+          </p>
+          <p>
+            Questões relacionadas com <em>copyright</em> deverão ser encaminhadas para{' '}
+            <ExternalLink href='mailto:resumos@leic.pt'>resumos@leic.pt</ExternalLink>.
+          </p>
+        </div>
+      </div>
       <Footer />
     </div>
   );
@@ -78,6 +125,15 @@ export const pageQuery = graphql`
             }
           }
         }
+      }
+    }
+    allContributor {
+      nodes {
+        username
+        name
+        labels
+        additionalLabels
+        boldLabels
       }
     }
   }
