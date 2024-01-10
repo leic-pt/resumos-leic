@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
@@ -17,8 +17,8 @@
           ];
 
           shellHook = ''
-            export PUPPETEER_SKIP_DOWNLOAD=1
-            export PUPPETEER_EXECUTABLE_PATH=${pkgs.chromium.outPath}/bin/chromium
+            export PLAYWRIGHT_BROWSERS_PATH=${pkgs.playwright-driver.browsers}
+            export PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=true
           '';
         };
       }

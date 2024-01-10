@@ -13,6 +13,7 @@
     "build": "gatsby build",
     "clean": "gatsby clean",
     "serve": "gatsby serve",
+    "build-vercel": "PLAYWRIGHT_BROWSERS_PATH=.cache/playwright yarn playwright install && yarn build",
     "format": "npm run format:content",
     "format:code": "prettier -w 'src/**/*.{js,md,vue}'",
     "format:content": "prettier -w 'content/**/*.md'",
@@ -23,9 +24,9 @@
     "prettier": "^3.0.0"
   },
   "dependencies": {
-    "@algolia/autocomplete-core": "^1.7.4",
-    "esbuild": "~0.17.0",
-    "gatsby": "^5.4.1",
+    "@algolia/autocomplete-core": "^1.13.0",
+    "esbuild": "~0.19.11",
+    "gatsby": "^5.13.1",
     "gatsby-plugin-image": "^3.4.0",
     "gatsby-plugin-manifest": "^5.4.0",
     "gatsby-plugin-page-creator": "^5.4.0",
@@ -38,7 +39,7 @@
     "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-images": "^7.4.0",
     "gatsby-remark-katex": "^7.4.0",
-    "gatsby-remark-mermaid": "^3.0.1",
+    "gatsby-remark-mermaid": "^4.0.0",
     "gatsby-remark-prismjs": "^7.4.0",
     "gatsby-remark-table-of-contents": "^2.0.0",
     "gatsby-source-filesystem": "^5.4.0",
@@ -47,7 +48,6 @@
     "meilisearch": "^0.30.0",
     "mini-svg-data-uri": "^1.4.4",
     "prismjs": "^1.29.0",
-    "puppeteer": "^19.5.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "remark-directive": "^1.0.1"

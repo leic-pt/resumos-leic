@@ -1,4 +1,4 @@
-const puppeteer = require('puppeteer');
+// const puppeteer = require('puppeteer');
 
 module.exports = {
   siteMetadata: {
@@ -109,10 +109,11 @@ module.exports = {
           {
             resolve: `gatsby-remark-mermaid`,
             options: {
-              launchOptions: {
-                executablePath: puppeteer.executablePath(),
+              css: 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap',
+              mermaidConfig: {
+                fontFamily: "Roboto, sans-serif",
               },
-              svgo: false, // it doesn't like lines breaks in diagram text boxes
+              prefix: "remark-mermaid",
             },
           },
           `gatsby-remark-embed-snippet`,
