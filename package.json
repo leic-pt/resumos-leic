@@ -14,7 +14,7 @@
     "clean": "gatsby clean",
     "serve": "gatsby serve",
     "format": "npm run format:content",
-    "format:code": "prettier -w 'src/**/*.{js,md,vue}'",
+    "format:code": "prettier -w 'src/**/*.{js,md,vue}' '**/*.js'",
     "format:content": "prettier -w 'content/**/*.md'",
     "format-win": "prettier -w 'src\\**\\*.{js,md,vue}'"
   },

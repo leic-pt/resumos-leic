@@ -15,6 +15,9 @@ const HomePageLayout = ({ data }) => {
 
   const getLabelName = useCallback(
     (label) => {
+      if (label === 'meta') {
+        return 'Meta';
+      }
       const { years } = page.frontmatter;
 
       for (const year of years) {
@@ -26,6 +29,7 @@ const HomePageLayout = ({ data }) => {
           }
         }
       }
+      return null;
     },
     [page.frontmatter.years]
   );
@@ -107,6 +111,8 @@ export const pageQuery = graphql`
         username
         name
         labels
+        additionalLabels
+        boldLabels
       }
     }
   }

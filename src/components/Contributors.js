@@ -1,8 +1,6 @@
-import { Link, useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import React, { useMemo } from 'react';
 import ExternalLink from './ExternalLink';
-import SearchBar from './SearchBar';
-import ThemeSettings from './ThemeSettings';
 
 const Contributors = ({ getLabelName, contributors }) => {
   const data = useStaticQuery(graphql`
@@ -23,10 +21,13 @@ const Contributors = ({ getLabelName, contributors }) => {
   const sortedContributors = useMemo(() => {
     return contributors
       .map((contributor) => {
-        const labels = contributor.labels
-          .map(getLabelName)
-          .filter(Boolean)
-          .map((label) => ({ label, bold: false }));
+        const labels = [
+          ...contributor.labels.map(getLabelName).filter(Boolean),
+          ...(contributor.additionalLabels || []),
+        ]
+          .map((label) => ({ label, bold: contributor?.boldLabels?.includes(label) ?? false }))
+          .sort((a, b) => a.label.localeCompare(b.label))
+          .sort((a, b) => b.bold - a.bold);
         return {
           username: contributor.username,
           name: contributor.name,
@@ -34,24 +35,23 @@ const Contributors = ({ getLabelName, contributors }) => {
           boldCount: labels.filter(({ bold }) => bold).length,
         };
       })
+      .filter((contributor) => contributor?.labels?.length > 0)
       .sort((a, b) => a.name.localeCompare(b.name))
-      .sort((a, b) => b.boldCount - a.boldCount)
-      .sort((a, b) => b.labels.length - a.labels.length);
+      .sort((a, b) => b.labels.length - a.labels.length)
+      .sort((a, b) => b.boldCount - a.boldCount);
   }, [contributors, getLabelName]);
 
   return (
     <ul>
       {sortedContributors.map((contributor) => (
         <li key={contributor.username}>
-          <a
+          <ExternalLink
             href={`https://github.com/${owner}/${repository}/commits?author=${encodeURIComponent(
               contributor.username
             )}`}
-            target='_blank'
-            rel='nofollow noopener noreferrer'
           >
             {contributor.name}
-          </a>
+          </ExternalLink>
           {' ('}
           {contributor.labels.map(({ label, bold }, index) => (
             <>
