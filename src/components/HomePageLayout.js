@@ -78,7 +78,7 @@ const HomePageLayout = ({ data }) => {
         <div className='custom-container custom-container-warning'>
           <p>Disclaimer</p>
           <p>
-            Resumos LEIC não está afiliado ao
+            Resumos LEIC não está afiliado ao{' '}
             <ExternalLink href='https://tecnico.ulisboa.pt'>tecnico.ulisboa.pt</ExternalLink> de
             forma alguma. Todo o conteúdo escrito disponível neste site é dado por contribuidores
             (listados acima). Alguns anexos podem ter sido cedidos por professores, após obter a
