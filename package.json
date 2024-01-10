@@ -14,7 +14,7 @@
     "clean": "gatsby clean",
     "serve": "gatsby serve",
     "build-vercel": "PLAYWRIGHT_BROWSERS_PATH=.cache/playwright yarn build-vercel:inner",
-    "build-vercel:inner": "yarn playwright install chromium && yarn build",
+    "build-vercel:inner": "yarn playwright install chromium && find .cache/playwright && yarn build",
     "format": "npm run format:content",
     "format:code": "prettier -w 'src/**/*.{js,md,vue}'",
     "format:content": "prettier -w 'content/**/*.md'",
