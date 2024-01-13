@@ -461,16 +461,12 @@ serra:
 ![Grafico em serra](./assets/0003-graficoSerraAIMD.svg#dark=3)
 
 ##### Estado de Fast Recovery
+Se forem detetados três ACKs duplicados pode ser usado o estado de **Fast Recovery**, onde se tenta acelerar a recuperação enviando apenas os segmentos
+perdidos antes de se transitar novamente (ou pela primeira vez) para o estado de **_congestion-avoidance_**.
 
-Se forem detetados três ACKs duplicados antes da fase de **_congestion-avoidance_**, pode ser usado o
-estado de **Fast Recovery**, onde se tenta acelerar a recuperação enviando apenas os segmentos
-perdidos.
+Neste caso, a congestion window é incrementada em 1 MSS por cada ACK duplicado recebido que causou a entrada neste estado, este aumento da congestion window com pacotes duplicados não acontece nos outros estados e é a principal diferença do **Fast Recovery**.
 
-Neste caso, a velocidade é incrementada em 1 por cada ACK duplicado recebido pelo segmento perdido
-que causou a entrada neste estado.
-
-Finalmente, depois do ACK que confirma a receção do segmento perdido, move-se para a fase de
-**_congestion-avoidance_**.
+Finalmente, depois do ACK que confirma a receção do segmento perdido, move-se para a fase de **_congestion-avoidance_**.
 
 ##### Variações
 
