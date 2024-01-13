@@ -461,6 +461,7 @@ serra:
 ![Grafico em serra](./assets/0003-graficoSerraAIMD.svg#dark=3)
 
 ##### Estado de Fast Recovery
+
 Se forem detetados três ACKs duplicados pode ser usado o estado de **Fast Recovery**, onde se tenta acelerar a recuperação enviando apenas os segmentos
 perdidos antes de se transitar novamente (ou pela primeira vez) para o estado de **_congestion-avoidance_**.
 
