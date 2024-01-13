@@ -468,6 +468,8 @@ Neste caso, a congestion window é incrementada em 1 MSS por cada ACK duplicado 
 
 Finalmente, depois do ACK que confirma a receção do segmento perdido, move-se para a fase de **_congestion-avoidance_**.
 
+Nota: É uma boa ideia olhar para a State Machine dos slides pois é muito mais simples olhar para as transições e estados que existem ao invés de estar a tentar percebê-lo por escrito.
+
 ##### Variações
 
 Existem variações de implementação do AIMD. Por exemplo, em Linux, é usado **TCP CUBIC** onde se
