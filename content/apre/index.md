@@ -13,3 +13,4 @@ type: topLevelPage
 ## Recursos
 
 - [Página da Cadeira - Fénix](https://fenix.tecnico.ulisboa.pt/disciplinas/Apre2/2022-2023/1-semestre)
+- [Resumos do Calhau - Machine Learning](https://github.com/Calhau18/Machine_Learning_Notes/releases/download/compiled-pdf/ML.pdf) ([Repositório](https://github.com/Calhau18/Machine_Learning_Notes))
