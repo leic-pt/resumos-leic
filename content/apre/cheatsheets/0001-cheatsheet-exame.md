@@ -25,4 +25,4 @@ Usa os recurso abaixo de forma responsável.
 
 - [Diogo Gaspar](https://drive.google.com/file/d/1shukvEuIpdmzbX0eIq0_jSnHo_-amU_R/view)
   ([SVG Draw.io](https://drive.google.com/file/d/1MvLmqi4wVECxrAdCV5szVPfEjsRp_lBO/view))
-- [Rafael Rodrigues](https://github.com/Rafael-R/summaries/blob/main/aprendizagem/form.pdf)
+- [Rafael Rodrigues](https://github.com/Rafael-R/summaries/blob/main/Aprendizagem/form.pdf)
