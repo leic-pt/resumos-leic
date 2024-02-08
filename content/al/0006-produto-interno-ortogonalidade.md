@@ -138,3 +138,41 @@ Com todas as noções previamente discutidas, torna-se possível discutir ortogo
 :::info[Definição]
 $ u \perp v<=>  \langle u,v\rang=0 $
 :::
+
+Com a definição de ortogonalidade, pode-se concluir que o **Teorema de Pitágoras** é válido, tal que:
+
+Se $ u \perp v$ então
+
+$ \|u-v\|^2=\|u\|^2+\|v\|^2$Definição
+
+
+Com a ortogonalidade entre vetores definida sai a definição de conjunto ortogonal.
+
+:::info[Conjunto Ortogonal]
+$ S=\{v_1,v_2,...,v_n\}$ é ortogonal se os vetores de $S$ são ortogonais 2 a 2, isto é:
+
+$\langle v_i, v_j \rang= 0 $ para $i \not= j$
+
+:::
+
+De forma muito similar,
+:::info[Conjunto Ortonormado]
+$ S=\{v_1,v_2,...,v_n\}$ é ortonormado se os vetores de $S$ são ortogonais 2 a 2 e se a norma de todos os vetores fôr 1, isto é:
+
+$$\langle v_i, v_j \rang=$$ $$ \begin{cases}
+   0 &\text{se } i \not = j \\
+   1 &\text{se } i = j
+\end{cases}  $$
+:::
+
+:::info[Proposição]
+Um conjunto ortogonal $ S=\{v_1,v_2,...,v_n\}$ que não contenha o vetor nulo é linearmente independente
+:::
+
+:::info[Projeção ortogonal]
+$$ proj_u v =\dfrac{ \langle u,v\rang }{\| u \|^2} $$
+:::
+
+:::info[Projeção ortogonal]
+$$ proj_u v =\dfrac{ \langle u,v\rang }{\| u \|^2} $$
+:::
