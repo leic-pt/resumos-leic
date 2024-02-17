@@ -13,3 +13,4 @@ type: topLevelPage
 ## Recursos
 
 - [Página da Cadeira - Fénix](https://fenix.tecnico.ulisboa.pt/disciplinas/SDis2/2022-2023/2-semestre)
+- [Martin Kleppmann's Distributed Systems lecture series](https://youtube.com/playlist?list=PLeKd45zvjcDFUEv_ohr_HdUFe97RItdiB&si=rfYDlL9gEpJBMM2M)
