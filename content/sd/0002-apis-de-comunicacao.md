@@ -50,10 +50,8 @@ Ao utilizar UDP, sabemos que as mensagens podem:
 - Chegar fora de ordem
 - Chegar repetidas
 
-Imaginemos um caso em que o cliente não recebe resposta ao seu pedido. Tem 2 hipóteses:
-
-1. Retorna erro
-2. Repete o envio
+Imaginemos um caso em que o cliente não recebe resposta ao seu pedido. Tem agora 2 opções:
+ou **retorna erro** ou **repete o envio**.
 
 Se chegar uma resposta depois do reenvio, pode ter acontecido 1 de 3 cenários:
 
