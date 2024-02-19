@@ -77,7 +77,7 @@ mas de forma aparentemente local. O facto da execução ser remota levanta dois 
 2. Os computadores onde ambos os processos correm podem ter arquiteturas muito diferentes
 
 Programação típica com RPC:
-![Programação típica com RPC](./assets/0002-rpc-programming.png#dark=3)
+![Programação típica com RPC](./assets/0002-rpc-programming.svg#dark=3)
 
 As **Interface definition languages** (IDLs) foram concebidas para permitir que os procedimentos sejam invocados noutras linguagens de programação. Uma IDL fornece uma notação para definir interfaces e parâmetros de operações (input e output).
 
