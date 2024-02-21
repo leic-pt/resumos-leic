@@ -97,7 +97,7 @@ $$
 
 :::tip[Nota]
 
-Garantir a monotonia de um relógio é fundamental para o correto funcionamento de programas que se baseiam no tempo. Por exemplo, a ferramenta _make_ do UNIX é utilizada para compilar apenas os ficheiros que foram modificados desde a última compilação. Se o tempo retroceder entre compilações, esta ferramenta vai deixar de funcionar como desejado.
+Garantir a monotonia de um relógio é fundamental para o correto funcionamento de programas que se baseiam no tempo. Por exemplo, a ferramenta _make_ do UNIX é utilizada para compilar apenas os ficheiros que foram modificados desde a última compilação. Se o tempo retroceder entre compilações, a ferramenta não funciona como desejado.
 
 :::
 
@@ -176,6 +176,28 @@ servidor de tempo falhar, o sistema não consegue sincronizar os relógios.
 Cristian propõe que o pedido seja feito em _multicast_ a vários servidores de
 tempo, selecionando o que responder primeiro, resultando na melhor precisão.
 
+:::info[Exercício de Cristian]
+
+Um cliente pretende sincronizar-se com um servidor e para tal regista o RTT e os tempos
+enviados pelo servidor:
+
+
+| RTT (ms) | Time (hh\:mm\:ss) |
+| --- | --- |
+| <center>22</center> | <center>10:54:23.674</center> |
+| <center>25</center> | <center>10:54:25.450</center> |
+| <center>20</center> | <center>10:54:28.342</center> |
+
+> **1\. Com qual dos valores deve o servidor se sincronizar de modo a obter a melhor precisão?**
+**R:** Com o terceiro ($$ 20~ms $$), pois apresenta o menor RTT
+> **2\. Com que valor se deve sincronizar?**
+**R:** $$ C(t) = t + \frac{RTT}{2} = $$ 10:54:28.342 $$ + \frac{20ms}{2} = $$ 10:52:28.352
+> **3\. Qual a precisão do acerto?**
+**R:** $$ \pm~10~ms $$
+> **4\. E se soubermos que o tempo de envio de uma mensagem é no mínimo de 8ms, essa precisão é alterada? Se sim, qual o novo valor?**
+**R:** $$ \pm~(\frac{RTT}{2}-min) = \pm~(\frac{20}{2}-8) = \pm~2~ms $$
+:::
+
 #### Algoritmo de Berkeley
 
 O Algoritmo de Berkeley é um algoritmo de **sincronização interna**.
@@ -228,6 +250,35 @@ tempo de transmissão, da forma como foi feito no Algoritmo de Cristian. É aind
 
 Em caso de falha do coordenador, um novo coordenador é eleito. Falar-se-á de
 eleições na próxima publicação.
+
+:::info[Exercício de Berkeley]
+
+Existem 3 máquinas `A`, `B` e `C`, sendo o _master_ `A`. `A` enviou a sua hora (13:15:15) a todos e recebeu as respostas:
+
+
+| Time (hh\:mm\:ss) |
+| --- |
+| <center>[ A = 13:15:15 ]</center> |
+| <center>B = 13:15:05</center> |
+| <center>C = 13:16:07</center> |
+
+> **Qual é o acerto enviado pelo _master_ a cada máquina?**
+$$
+T_{avg} = \frac{C_B(t_{B,m}) + C_C(t_{C,m}) + C_A(t)}{3} = 13:15:29
+$$
+
+$$
+\Delta t_{B} = T_{avg} - C_B(t_{B,m}) = +~24s
+$$
+
+$$
+\Delta t_{C} = T_{avg} - C_C(t_{C,m}) = -~38s
+$$
+
+$$
+\Delta t_{A} = T_{avg} - C_A(t) = +~14s
+$$
+:::
 
 #### Network Time Protocol (NTP)
 
