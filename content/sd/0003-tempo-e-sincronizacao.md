@@ -95,6 +95,12 @@ $$
 t' > t \Rightarrow C_p(t') > C_p(t)
 $$
 
+:::tip[Nota]
+
+Garantir a monotonia de um relógio é fundamental para o correto funcionamento de programas que se baseiam no tempo. Por exemplo, a ferramenta _make_ do UNIX é utilizada para compilar apenas os ficheiros que foram modificados desde a última compilação. Se o tempo retroceder entre compilações, esta ferramenta vai deixar de funcionar como desejado.
+
+:::
+
 Para conjuntos de relógios, pode-se ainda falar de **precisão** e **exatidão**.
 
 ![Precisão e Exatidão](./assets/0003-precision-vs-accuracy.png#dark=2)
@@ -136,11 +142,11 @@ O processo $p$ envia uma mensagem $m_1$ ao servidor de tempo $S$ e espera pela
 resposta $m_2$, que inclui $C_S(t_{S,m_2})$, com $t_{S,m_2}$ sendo o momento em
 que a resposta $m_2$ sai de $S$.
 
-<!-- ```mermaid
+```mermaid
 sequenceDiagram
     p->>Servidor de tempo: m₁: What is the time?
     Servidor de tempo->>p: m₂: My clock says this.
-``` -->
+```
 
 O processo $p$ não pode usar o tempo incluído na mensagem $m_2$, pois estaria a
 desprezar o tempo de transmissão. Assim, $p$ mede o $RTT$ e, assumindo que o
@@ -178,9 +184,9 @@ processo coordenador $C$ e os processos $p$ e $q$, mas o algoritmo pode ser
 estendido a qualquer número de processos.
 
 Neste algoritmo, é eleito um coordenador $C$, responsável por periodicamente
-envir pedidos a todos os outros processos, que devem responder com o seu tempo.
+enviar pedidos a todos os outros processos, que devem responder com o seu tempo.
 
-<!-- ```mermaid
+```mermaid
 sequenceDiagram
     participant p
     Coordenador->>p: m₁: What is the time?
@@ -189,7 +195,7 @@ sequenceDiagram
     q->>Coordenador: m₄: My clock says this.
     Coordenador->>p: m₅: Offset your clock by this.
     Coordenador->>q: m₆: Offset your clock by this.
-``` -->
+```
 
 O coordenador recebe as respostas $m_2$ e $m_4$ e calcula a média dos
 tempos, incluindo o próprio:
@@ -218,7 +224,7 @@ $$
 Cada processo ajusta o seu relógio, de acordo com a diferença recebida.
 
 O algoritmo apresentado foi simplificado, na versão real é tido em conta o
-tempo de transmissão, da forma como foi feito no Algoritmo de Cristian.
+tempo de transmissão, da forma como foi feito no Algoritmo de Cristian. É ainda definido um valor máximo para o RTT (dependendo da exatidão desejada), permitindo ao coordenador eliminar ocasionais leituras que ultrapassem esse valor.
 
 Em caso de falha do coordenador, um novo coordenador é eleito. Falar-se-á de
 eleições na próxima publicação.
@@ -246,11 +252,11 @@ recepção de $m_2$, $C_p(t_{p,m_1})$ e $C_p(t_{p,m_2})$, e os valores reportado
 por $q$ para a recepção de $m_1$ e envio de $m_2$, $C_q(t_{q,m_1})$ e
 $C_q(t_{q,m_2})$.
 
-<!-- ```mermaid
+```mermaid
 sequenceDiagram
     p->>q: m₁: When do you receive this message?
     q->>p: m₂: I got it then and am sending it now.
-``` -->
+```
 
 Calcula-se a diferença entre os tempos reportados entre o envio e recepção de
 cada mensagem:
@@ -303,14 +309,6 @@ Para resolver este problema, o NTP divide as máquinas em níveis (ou _strata_):
 - Uma máquina de nível 3 sincroniza com uma máquina de nível 2, etc...
 
 Uma máquina só ajusta o seu relógio com uma máquina de nível inferior.
-
-:::details[help pls]
-Honestamente, não fiquei com grande intuição sobre como é que o NTP funciona.
-Se estás a ler isto e tens uma explicação melhor, que transmita intuição sobre
-o protocolo e não seja só debitar fórmulas, por favor, diz-me algo no discord.
-
-\- Luís
-:::
 
 ## Eventos e Relógios Lógicos
 
@@ -377,6 +375,12 @@ Algumas relações de concorrência encontradas no diagrama:
 
 - $a \parallel l$
 - $b \parallel h$
+
+:::
+
+:::tip[Nota]
+
+Se dois eventos têm uma relação _happened-before_, então o primeiro pode ou não ter causado o segundo. Esta relação apenas sugere potenciais causalidades, podendo não haver qualquer ligação entre os eventos (eventos independentes).
 
 :::
 
@@ -563,6 +567,12 @@ Logo, $V(e) < V(e') \Rightarrow e \rightarrow e'$ e temos que:
 $$
 e \rightarrow e' \Leftrightarrow V(e) < V(e') \square
 $$
+
+:::
+
+:::tip[Nota]
+
+Em comparação com os _timestamps_ de Lamport, os _vector timestamps_ têm a desvantagem de precisar de uma maior capacidade de armazenamento e transmissão de mensagens, proporcional ao número de processos. No entanto, existem técnicas para armazenar e transmitir quantidades menores de dados, com o custo adicional de processamento para reconstruir os vetores.
 
 :::
 
