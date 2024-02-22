@@ -169,33 +169,40 @@ demora $RTT$, o tempo estimado estará errado por $\frac{RTT}{2}$.
 A precisão deste algoritmo é, portanto, $\frac{RTT}{2}$.
 
 Pode-se melhorar a precisão caso se conheça o tempo mínimo de transmissão,
-ficando $\frac{RTT - RTT_{min}}{2}$.
+ficando $\frac{RTT}{2} - RTT_{min}$.
 
 Este algoritmo é simples, no entanto, tem um único ponto de falha. Se o
 servidor de tempo falhar, o sistema não consegue sincronizar os relógios.
 Cristian propõe que o pedido seja feito em _multicast_ a vários servidores de
 tempo, selecionando o que responder primeiro, resultando na melhor precisão.
 
-:::info[Exercício de Cristian]
+:::info[Exercício]
 
 Um cliente pretende sincronizar-se com um servidor e para tal regista o RTT e os tempos
 enviados pelo servidor:
 
-
-| RTT (ms) | Time (hh\:mm\:ss) |
-| --- | --- |
+| RTT (ms)            | Time (hh\:mm\:ss)             |
+| ------------------- | ----------------------------- |
 | <center>22</center> | <center>10:54:23.674</center> |
 | <center>25</center> | <center>10:54:25.450</center> |
 | <center>20</center> | <center>10:54:28.342</center> |
 
 > **1\. Com qual dos valores deve o servidor se sincronizar de modo a obter a melhor precisão?**
-**R:** Com o terceiro ($$ 20~ms $$), pois apresenta o menor RTT
+
+**R:** Com o terceiro ($20~ms$), pois apresenta o menor RTT
+
 > **2\. Com que valor se deve sincronizar?**
-**R:** $$ C(t) = t + \frac{RTT}{2} = $$ 10:54:28.342 $$ + \frac{20ms}{2} = $$ 10:52:28.352
+
+**R:** $C(t) = t + \frac{RTT}{2} =$ 10:54:28.342 $+ \frac{20ms}{2} =$ 10:52:28.352
+
 > **3\. Qual a precisão do acerto?**
-**R:** $$ \pm~10~ms $$
+
+**R:** $\pm~10~ms$
+
 > **4\. E se soubermos que o tempo de envio de uma mensagem é no mínimo de 8ms, essa precisão é alterada? Se sim, qual o novo valor?**
-**R:** $$ \pm~(\frac{RTT}{2}-min) = \pm~(\frac{20}{2}-8) = \pm~2~ms $$
+
+**R:** $\pm~(\frac{RTT}{2}-RTT_{min}) = \pm~(\frac{20}{2}-8) = \pm~2~ms$
+
 :::
 
 #### Algoritmo de Berkeley
@@ -251,18 +258,18 @@ tempo de transmissão, da forma como foi feito no Algoritmo de Cristian. É aind
 Em caso de falha do coordenador, um novo coordenador é eleito. Falar-se-á de
 eleições na próxima publicação.
 
-:::info[Exercício de Berkeley]
+:::info[Exercício]
 
 Existem 3 máquinas `A`, `B` e `C`, sendo o _master_ `A`. `A` enviou a sua hora (13:15:15) a todos e recebeu as respostas:
 
-
-| Time (hh\:mm\:ss) |
-| --- |
+| Time (hh\:mm\:ss)                 |
+| --------------------------------- |
 | <center>[ A = 13:15:15 ]</center> |
-| <center>B = 13:15:05</center> |
-| <center>C = 13:16:07</center> |
+| <center>B = 13:15:05</center>     |
+| <center>C = 13:16:07</center>     |
 
 > **Qual é o acerto enviado pelo _master_ a cada máquina?**
+
 $$
 T_{avg} = \frac{C_B(t_{B,m}) + C_C(t_{C,m}) + C_A(t)}{3} = 13:15:29
 $$
@@ -278,6 +285,7 @@ $$
 $$
 \Delta t_{A} = T_{avg} - C_A(t) = +~14s
 $$
+
 :::
 
 #### Network Time Protocol (NTP)
