@@ -189,11 +189,11 @@ enviados pelo servidor:
 
 > **1\. Com qual dos valores deve o servidor se sincronizar de modo a obter a melhor precisão?**
 
-**R:** Com o terceiro ($20~ms$), pois apresenta o menor RTT
+**R:** Com o terceiro (10:54:28.342), pois apresenta o menor RTT ($20~ms$)
 
-> **2\. Com que valor se deve sincronizar?**
+> **2\. Qual o valor do relógio após o acerto?**
 
-**R:** $C(t) = t + \frac{RTT}{2} =$ 10:54:28.342 $+ \frac{20ms}{2} =$ 10:52:28.352
+**R:** $C(t) = t + \frac{RTT}{2} =$ 10:54:28.342 $+ \frac{20ms}{2} =$ 10:54:28.352
 
 > **3\. Qual a precisão do acerto?**
 
@@ -260,7 +260,8 @@ eleições na próxima publicação.
 
 :::info[Exercício]
 
-Existem 3 máquinas `A`, `B` e `C`, sendo o _master_ `A`. `A` enviou a sua hora (13:15:15) a todos e recebeu as respostas:
+Existem 3 máquinas `A`, `B` e `C`, sendo o _master_ `A`. `A` enviou a sua hora (13:15:15)
+a todos e recebeu as seguintes respostas:
 
 | Time (hh\:mm\:ss)                 |
 | --------------------------------- |
