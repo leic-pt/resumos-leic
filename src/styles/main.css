@@ -372,3 +372,7 @@ kbd {
 
   padding: 0.1em 0.3em;
 }
+
+p:has(svg[id^="remark-mermaid-"]) {
+  text-align: center;
+}
