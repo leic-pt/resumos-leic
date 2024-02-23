@@ -95,6 +95,16 @@ $$
 t' > t \Rightarrow C_p(t') > C_p(t)
 $$
 
+:::tip[Nota]
+
+Garantir a monotonia de um relógio é fundamental para o correto funcionamento de
+programas que se baseiam no tempo.
+Por exemplo, a ferramenta _make_ do UNIX é utilizada para compilar apenas os ficheiros
+que foram modificados desde a última compilação.
+Se o tempo retroceder entre compilações, a ferramenta não funciona como desejado.
+
+:::
+
 Para conjuntos de relógios, pode-se ainda falar de **precisão** e **exatidão**.
 
 ![Precisão e Exatidão](./assets/0003-precision-vs-accuracy.png#dark=2)
@@ -136,11 +146,11 @@ O processo $p$ envia uma mensagem $m_1$ ao servidor de tempo $S$ e espera pela
 resposta $m_2$, que inclui $C_S(t_{S,m_2})$, com $t_{S,m_2}$ sendo o momento em
 que a resposta $m_2$ sai de $S$.
 
-<!-- ```mermaid
+```mermaid
 sequenceDiagram
     p->>Servidor de tempo: m₁: What is the time?
     Servidor de tempo->>p: m₂: My clock says this.
-``` -->
+```
 
 O processo $p$ não pode usar o tempo incluído na mensagem $m_2$, pois estaria a
 desprezar o tempo de transmissão. Assim, $p$ mede o $RTT$ e, assumindo que o
@@ -170,6 +180,36 @@ servidor de tempo falhar, o sistema não consegue sincronizar os relógios.
 Cristian propõe que o pedido seja feito em _multicast_ a vários servidores de
 tempo, selecionando o que responder primeiro, resultando na melhor precisão.
 
+:::info[Exercício]
+
+Um cliente pretende sincronizar-se com um servidor e para tal regista o RTT e os tempos
+enviados pelo servidor:
+
+| RTT (ms) | Time (hh\:mm\:ss) |
+| :------: | :---------------: |
+|    22    |   10:54:23.674    |
+|    25    |   10:54:25.450    |
+|    20    |   10:54:28.342    |
+
+> **1\. Com qual dos valores deve o servidor se sincronizar de modo a obter a melhor precisão?**
+
+**R:** Com o terceiro (10:54:28.342), pois apresenta o menor RTT ($20~ms$)
+
+> **2\. Qual o valor do relógio após o acerto?**
+
+**R:** $C(t) = t + \frac{RTT}{2} =$ 10:54:28.342 $+ \frac{20ms}{2} =$ 10:54:28.352
+
+> **3\. Qual a precisão do acerto?**
+
+**R:** $\pm~10~ms$
+
+> **4\. E se soubermos que o tempo de envio de uma mensagem é no mínimo de 8ms,
+> essa precisão é alterada? Se sim, qual o novo valor?**
+
+**R:** $\pm~(\frac{RTT-RTT_{min}}{2}) = \pm~(\frac{20}{2}-8) = \pm~2~ms$
+
+:::
+
 #### Algoritmo de Berkeley
 
 O Algoritmo de Berkeley é um algoritmo de **sincronização interna**.
@@ -178,9 +218,9 @@ processo coordenador $C$ e os processos $p$ e $q$, mas o algoritmo pode ser
 estendido a qualquer número de processos.
 
 Neste algoritmo, é eleito um coordenador $C$, responsável por periodicamente
-envir pedidos a todos os outros processos, que devem responder com o seu tempo.
+enviar pedidos a todos os outros processos, que devem responder com o seu tempo.
 
-<!-- ```mermaid
+```mermaid
 sequenceDiagram
     participant p
     Coordenador->>p: m₁: What is the time?
@@ -189,7 +229,7 @@ sequenceDiagram
     q->>Coordenador: m₄: My clock says this.
     Coordenador->>p: m₅: Offset your clock by this.
     Coordenador->>q: m₆: Offset your clock by this.
-``` -->
+```
 
 O coordenador recebe as respostas $m_2$ e $m_4$ e calcula a média dos
 tempos, incluindo o próprio:
@@ -219,15 +259,48 @@ Cada processo ajusta o seu relógio, de acordo com a diferença recebida.
 
 O algoritmo apresentado foi simplificado, na versão real é tido em conta o
 tempo de transmissão, da forma como foi feito no Algoritmo de Cristian.
+É ainda definido um valor máximo para o RTT (dependendo da exatidão desejada),
+permitindo ao coordenador eliminar ocasionais leituras que ultrapassem esse valor.
 
 Em caso de falha do coordenador, um novo coordenador é eleito. Falar-se-á de
 eleições na próxima publicação.
 
+:::info[Exercício]
+
+Existem 3 máquinas `A`, `B` e `C`, sendo o _master_ `A`. `A` enviou a sua hora (13:15:15)
+a todos e recebeu as seguintes respostas:
+
+| Time (hh\:mm\:ss) |
+| :---------------: |
+| [ A = 13:15:15 ]  |
+|   B = 13:15:05    |
+|   C = 13:16:07    |
+
+> **Qual é o acerto enviado pelo _master_ a cada máquina?**
+
+$$
+T_{avg} = \frac{C_B(t_{B,m}) + C_C(t_{C,m}) + C_A(t)}{3} = 13:15:29
+$$
+
+$$
+\Delta t_{B} = T_{avg} - C_B(t_{B,m}) = +~24s
+$$
+
+$$
+\Delta t_{C} = T_{avg} - C_C(t_{C,m}) = -~38s
+$$
+
+$$
+\Delta t_{A} = T_{avg} - C_A(t) = +~14s
+$$
+
+:::
+
 #### Network Time Protocol (NTP)
 
 Tanto o Algoritmo de Cristian como o Algoritmo de Berkeley são algoritmos
-desenhados para operar em intranets. O NTP define um protocolo distribuir
-informação de tempo através da internet.
+desenhados para operar em intranets. O NTP define um protocolo para distribuir
+informação de tempo através da Internet.
 
 Os objetivos de desenho do NTP são:
 
@@ -243,14 +316,14 @@ Os objetivos de desenho do NTP são:
 O protocolo NTP baseia-se no Algoritmo de Cristian, mas em vez apenas medir o
 $RTT$, registam-se os valores reportados por $p$ para o envio de $m_1$ e
 recepção de $m_2$, $C_p(t_{p,m_1})$ e $C_p(t_{p,m_2})$, e os valores reportados
-por $q$ para a recepção de $m_1$ e envio de $m_2$, $C_q(t_{q,m_1})$ e
-$C_q(t_{q,m_2})$.
+por $q$ para a recepção de $m_1$ e envio de $m_2$, $C_q(t_{q,m_1})$ e $C_q(t_{q,m_2})$.
+Desta forma, o tempo entre a chegada de uma mensagem e o envio da próxima não é contabilizado.
 
-<!-- ```mermaid
+```mermaid
 sequenceDiagram
     p->>q: m₁: When do you receive this message?
     q->>p: m₂: I got it then and am sending it now.
-``` -->
+```
 
 Calcula-se a diferença entre os tempos reportados entre o envio e recepção de
 cada mensagem:
@@ -303,14 +376,6 @@ Para resolver este problema, o NTP divide as máquinas em níveis (ou _strata_):
 - Uma máquina de nível 3 sincroniza com uma máquina de nível 2, etc...
 
 Uma máquina só ajusta o seu relógio com uma máquina de nível inferior.
-
-:::details[help pls]
-Honestamente, não fiquei com grande intuição sobre como é que o NTP funciona.
-Se estás a ler isto e tens uma explicação melhor, que transmita intuição sobre
-o protocolo e não seja só debitar fórmulas, por favor, diz-me algo no discord.
-
-\- Luís
-:::
 
 ## Eventos e Relógios Lógicos
 
@@ -380,6 +445,15 @@ Algumas relações de concorrência encontradas no diagrama:
 
 :::
 
+:::tip[Nota]
+
+Se dois eventos têm uma relação _happened-before_, então o primeiro pode ou não
+ter causado o segundo.
+Esta relação apenas sugere potenciais causalidades, podendo não haver qualquer
+ligação entre os eventos (eventos independentes).
+
+:::
+
 ### Relógio Lógico de Lamport
 
 Leslie Lamport propôs um algoritmo simples para capturar a ordem de eventos num
@@ -392,8 +466,10 @@ $$L(e)$$.
 Os relógios são atualizados de acordo com as seguintes regras:
 
 - **LC1**: $$L_i$$ é incrementado sempre que um evento é observado por $$p_i$$.
-- **LC2**: Quando $$p_i$$ envia uma mensagem $$m$$, inclui na mensagem a estampilha $$t$$ com o valor de $$L_i$$ após executar **LC1**.
-- **LC3**: Quando $$p_i$$ recebe uma mensagem $$m$$, atualiza $$L_i$$ tal que $$L_i \coloneqq \max(L_i, t)$$ e depois executa **LC1**.
+- **LC2**: Quando $$p_i$$ envia uma mensagem $$m$$, inclui na mensagem a estampilha $$t$$
+  com o valor de $$L_i$$ após executar **LC1**.
+- **LC3**: Quando $$p_i$$ recebe uma mensagem $$m$$, atualiza $$L_i$$ tal que $$L_i \coloneqq
+  \max(L_i, t)$$ e depois executa **LC1**.
 
 :::details[Exemplo]
 ![Logical Clocks](./assets/0003-events-at-three-processes-lamport.png#dark=2)
@@ -457,8 +533,10 @@ estampilha não é relevante, usa-se $V(e)$.
 
 - **VC1**: Inicialmente, $V_i[j] = 0$ para todo o $i, j = 1, 2, ..., N$.
 - **VC2**: $$V_i[i]$$ é incrementado sempre que um evento é observado por $$p_i$$.
-- **VC3**: Quando $$p_i$$ envia uma mensagem $$m$$, inclui na mensagem a estampilha $$t$$ com o valor de $$V_i$$ após executar **VC2**.
-- **VC4**: Quando $$p_i$$ recebe uma mensagem $$m$$, atualiza $V_i$ realizando um _merge_ com $t$ e depois executa **VC2**.
+- **VC3**: Quando $$p_i$$ envia uma mensagem $$m$$, inclui na mensagem a estampilha $$t$$
+  com o valor de $$V_i$$ após executar **VC2**.
+- **VC4**: Quando $$p_i$$ recebe uma mensagem $$m$$, atualiza $V_i$ realizando um _merge_
+  com $t$ e depois executa **VC2**.
 
 A operação de _merge_ dos _vector clock_ $V_i$ e $t$ consiste em atualizar cada
 campo do _vector clock_ $V_i$ tal que $V_i[j] \coloneqq \max(V_i[j], t[j])$,
@@ -528,7 +606,8 @@ Começamos por mostrar que $$e \rightarrow e' \Rightarrow V(e) < V(e')$$
 
 **Passo base (HB1)**: Se $e$ e $e'$ ocorrem no mesmo processo, é imediato por **VC2** que $V(e) < V(e')$
 
-**Passo base (HB2)**: Se existe uma mensagem $m$ tal que $e$ é o evento de envio e $e'$ é o evento de receção, então $V(e) < V(e')$ por **VC3** e **VC4**
+**Passo base (HB2)**: Se existe uma mensagem $m$ tal que $e$ é o evento de envio e $e'$
+é o evento de receção, então $V(e) < V(e')$ por **VC3** e **VC4**
 
 **Passo indutivo (HB3)**: Se $e \rightarrow e'$ e $e' \rightarrow e''$,
 então $V(e) < V(e')$ e $V(e') < V(e'')$, por HI
@@ -563,6 +642,16 @@ Logo, $V(e) < V(e') \Rightarrow e \rightarrow e'$ e temos que:
 $$
 e \rightarrow e' \Leftrightarrow V(e) < V(e') \square
 $$
+
+:::
+
+:::tip[Nota]
+
+Em comparação com os _timestamps_ de Lamport, os _vector timestamps_ têm a desvantagem
+de precisar de uma maior capacidade de armazenamento e transmissão de mensagens,
+proporcional ao número de processos.
+No entanto, existem técnicas para armazenar e transmitir quantidades menores de dados,
+com o custo adicional de processamento para reconstruir os vetores.
 
 :::
 
