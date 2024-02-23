@@ -97,7 +97,11 @@ $$
 
 :::tip[Nota]
 
-Garantir a monotonia de um relógio é fundamental para o correto funcionamento de programas que se baseiam no tempo. Por exemplo, a ferramenta _make_ do UNIX é utilizada para compilar apenas os ficheiros que foram modificados desde a última compilação. Se o tempo retroceder entre compilações, a ferramenta não funciona como desejado.
+Garantir a monotonia de um relógio é fundamental para o correto funcionamento de
+programas que se baseiam no tempo.
+Por exemplo, a ferramenta _make_ do UNIX é utilizada para compilar apenas os ficheiros
+que foram modificados desde a última compilação.
+Se o tempo retroceder entre compilações, a ferramenta não funciona como desejado.
 
 :::
 
@@ -169,7 +173,7 @@ demora $RTT$, o tempo estimado estará errado por $\frac{RTT}{2}$.
 A precisão deste algoritmo é, portanto, $\frac{RTT}{2}$.
 
 Pode-se melhorar a precisão caso se conheça o tempo mínimo de transmissão,
-ficando $\frac{RTT}{2} - RTT_{min}$.
+ficando $\frac{RTT - RTT_{min}}{2}$.
 
 Este algoritmo é simples, no entanto, tem um único ponto de falha. Se o
 servidor de tempo falhar, o sistema não consegue sincronizar os relógios.
@@ -199,9 +203,10 @@ enviados pelo servidor:
 
 **R:** $\pm~10~ms$
 
-> **4\. E se soubermos que o tempo de envio de uma mensagem é no mínimo de 8ms, essa precisão é alterada? Se sim, qual o novo valor?**
+> **4\. E se soubermos que o tempo de envio de uma mensagem é no mínimo de 8ms,
+> essa precisão é alterada? Se sim, qual o novo valor?**
 
-**R:** $\pm~(\frac{RTT}{2}-RTT_{min}) = \pm~(\frac{20}{2}-8) = \pm~2~ms$
+**R:** $\pm~(\frac{RTT-RTT_{min}}{2}) = \pm~(\frac{20}{2}-8) = \pm~2~ms$
 
 :::
 
@@ -253,7 +258,9 @@ $$
 Cada processo ajusta o seu relógio, de acordo com a diferença recebida.
 
 O algoritmo apresentado foi simplificado, na versão real é tido em conta o
-tempo de transmissão, da forma como foi feito no Algoritmo de Cristian. É ainda definido um valor máximo para o RTT (dependendo da exatidão desejada), permitindo ao coordenador eliminar ocasionais leituras que ultrapassem esse valor.
+tempo de transmissão, da forma como foi feito no Algoritmo de Cristian.
+É ainda definido um valor máximo para o RTT (dependendo da exatidão desejada),
+permitindo ao coordenador eliminar ocasionais leituras que ultrapassem esse valor.
 
 Em caso de falha do coordenador, um novo coordenador é eleito. Falar-se-á de
 eleições na próxima publicação.
@@ -309,8 +316,8 @@ Os objetivos de desenho do NTP são:
 O protocolo NTP baseia-se no Algoritmo de Cristian, mas em vez apenas medir o
 $RTT$, registam-se os valores reportados por $p$ para o envio de $m_1$ e
 recepção de $m_2$, $C_p(t_{p,m_1})$ e $C_p(t_{p,m_2})$, e os valores reportados
-por $q$ para a recepção de $m_1$ e envio de $m_2$, $C_q(t_{q,m_1})$ e
-$C_q(t_{q,m_2})$. Desta forma, o tempo entre a chegada de uma mensagem e o envio da próxima não é contabilizado.
+por $q$ para a recepção de $m_1$ e envio de $m_2$, $C_q(t_{q,m_1})$ e $C_q(t_{q,m_2})$.
+Desta forma, o tempo entre a chegada de uma mensagem e o envio da próxima não é contabilizado.
 
 ```mermaid
 sequenceDiagram
@@ -440,7 +447,10 @@ Algumas relações de concorrência encontradas no diagrama:
 
 :::tip[Nota]
 
-Se dois eventos têm uma relação _happened-before_, então o primeiro pode ou não ter causado o segundo. Esta relação apenas sugere potenciais causalidades, podendo não haver qualquer ligação entre os eventos (eventos independentes).
+Se dois eventos têm uma relação _happened-before_, então o primeiro pode ou não
+ter causado o segundo.
+Esta relação apenas sugere potenciais causalidades, podendo não haver qualquer
+ligação entre os eventos (eventos independentes).
 
 :::
 
@@ -456,8 +466,10 @@ $$L(e)$$.
 Os relógios são atualizados de acordo com as seguintes regras:
 
 - **LC1**: $$L_i$$ é incrementado sempre que um evento é observado por $$p_i$$.
-- **LC2**: Quando $$p_i$$ envia uma mensagem $$m$$, inclui na mensagem a estampilha $$t$$ com o valor de $$L_i$$ após executar **LC1**.
-- **LC3**: Quando $$p_i$$ recebe uma mensagem $$m$$, atualiza $$L_i$$ tal que $$L_i \coloneqq \max(L_i, t)$$ e depois executa **LC1**.
+- **LC2**: Quando $$p_i$$ envia uma mensagem $$m$$, inclui na mensagem a estampilha $$t$$
+  com o valor de $$L_i$$ após executar **LC1**.
+- **LC3**: Quando $$p_i$$ recebe uma mensagem $$m$$, atualiza $$L_i$$ tal que $$L_i \coloneqq
+  \max(L_i, t)$$ e depois executa **LC1**.
 
 :::details[Exemplo]
 ![Logical Clocks](./assets/0003-events-at-three-processes-lamport.png#dark=2)
@@ -521,8 +533,10 @@ estampilha não é relevante, usa-se $V(e)$.
 
 - **VC1**: Inicialmente, $V_i[j] = 0$ para todo o $i, j = 1, 2, ..., N$.
 - **VC2**: $$V_i[i]$$ é incrementado sempre que um evento é observado por $$p_i$$.
-- **VC3**: Quando $$p_i$$ envia uma mensagem $$m$$, inclui na mensagem a estampilha $$t$$ com o valor de $$V_i$$ após executar **VC2**.
-- **VC4**: Quando $$p_i$$ recebe uma mensagem $$m$$, atualiza $V_i$ realizando um _merge_ com $t$ e depois executa **VC2**.
+- **VC3**: Quando $$p_i$$ envia uma mensagem $$m$$, inclui na mensagem a estampilha $$t$$
+  com o valor de $$V_i$$ após executar **VC2**.
+- **VC4**: Quando $$p_i$$ recebe uma mensagem $$m$$, atualiza $V_i$ realizando um _merge_
+  com $t$ e depois executa **VC2**.
 
 A operação de _merge_ dos _vector clock_ $V_i$ e $t$ consiste em atualizar cada
 campo do _vector clock_ $V_i$ tal que $V_i[j] \coloneqq \max(V_i[j], t[j])$,
@@ -592,7 +606,8 @@ Começamos por mostrar que $$e \rightarrow e' \Rightarrow V(e) < V(e')$$
 
 **Passo base (HB1)**: Se $e$ e $e'$ ocorrem no mesmo processo, é imediato por **VC2** que $V(e) < V(e')$
 
-**Passo base (HB2)**: Se existe uma mensagem $m$ tal que $e$ é o evento de envio e $e'$ é o evento de receção, então $V(e) < V(e')$ por **VC3** e **VC4**
+**Passo base (HB2)**: Se existe uma mensagem $m$ tal que $e$ é o evento de envio e $e'$
+é o evento de receção, então $V(e) < V(e')$ por **VC3** e **VC4**
 
 **Passo indutivo (HB3)**: Se $e \rightarrow e'$ e $e' \rightarrow e''$,
 então $V(e) < V(e')$ e $V(e') < V(e'')$, por HI
@@ -632,7 +647,11 @@ $$
 
 :::tip[Nota]
 
-Em comparação com os _timestamps_ de Lamport, os _vector timestamps_ têm a desvantagem de precisar de uma maior capacidade de armazenamento e transmissão de mensagens, proporcional ao número de processos. No entanto, existem técnicas para armazenar e transmitir quantidades menores de dados, com o custo adicional de processamento para reconstruir os vetores.
+Em comparação com os _timestamps_ de Lamport, os _vector timestamps_ têm a desvantagem
+de precisar de uma maior capacidade de armazenamento e transmissão de mensagens,
+proporcional ao número de processos.
+No entanto, existem técnicas para armazenar e transmitir quantidades menores de dados,
+com o custo adicional de processamento para reconstruir os vetores.
 
 :::
 
