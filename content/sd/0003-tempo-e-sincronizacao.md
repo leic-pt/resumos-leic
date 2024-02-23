@@ -292,8 +292,8 @@ $$
 #### Network Time Protocol (NTP)
 
 Tanto o Algoritmo de Cristian como o Algoritmo de Berkeley são algoritmos
-desenhados para operar em intranets. O NTP define um protocolo distribuir
-informação de tempo através da internet.
+desenhados para operar em intranets. O NTP define um protocolo para distribuir
+informação de tempo através da Internet.
 
 Os objetivos de desenho do NTP são:
 
@@ -310,7 +310,7 @@ O protocolo NTP baseia-se no Algoritmo de Cristian, mas em vez apenas medir o
 $RTT$, registam-se os valores reportados por $p$ para o envio de $m_1$ e
 recepção de $m_2$, $C_p(t_{p,m_1})$ e $C_p(t_{p,m_2})$, e os valores reportados
 por $q$ para a recepção de $m_1$ e envio de $m_2$, $C_q(t_{q,m_1})$ e
-$C_q(t_{q,m_2})$.
+$C_q(t_{q,m_2})$. Desta forma, o tempo entre a chegada de uma mensagem e o envio da próxima não é contabilizado.
 
 ```mermaid
 sequenceDiagram
