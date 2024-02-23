@@ -185,11 +185,11 @@ tempo, selecionando o que responder primeiro, resultando na melhor precisão.
 Um cliente pretende sincronizar-se com um servidor e para tal regista o RTT e os tempos
 enviados pelo servidor:
 
-| RTT (ms)            | Time (hh\:mm\:ss)             |
-| ------------------- | ----------------------------- |
-| <center>22</center> | <center>10:54:23.674</center> |
-| <center>25</center> | <center>10:54:25.450</center> |
-| <center>20</center> | <center>10:54:28.342</center> |
+| RTT (ms) | Time (hh\:mm\:ss) |
+| :------: | :---------------: |
+|    22    |   10:54:23.674    |
+|    25    |   10:54:25.450    |
+|    20    |   10:54:28.342    |
 
 > **1\. Com qual dos valores deve o servidor se sincronizar de modo a obter a melhor precisão?**
 
@@ -270,11 +270,11 @@ eleições na próxima publicação.
 Existem 3 máquinas `A`, `B` e `C`, sendo o _master_ `A`. `A` enviou a sua hora (13:15:15)
 a todos e recebeu as seguintes respostas:
 
-| Time (hh\:mm\:ss)                 |
-| --------------------------------- |
-| <center>[ A = 13:15:15 ]</center> |
-| <center>B = 13:15:05</center>     |
-| <center>C = 13:16:07</center>     |
+| Time (hh\:mm\:ss) |
+| :---------------: |
+| [ A = 13:15:15 ]  |
+|   B = 13:15:05    |
+|   C = 13:16:07    |
 
 > **Qual é o acerto enviado pelo _master_ a cada máquina?**
 
