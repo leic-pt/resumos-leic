@@ -156,7 +156,7 @@ Vejamos o seguinte exemplo:
 
 ![Ricart and Agrawala baseado em prioridades](./assets/0004-priority-based.svg#dark=3)
 
-Em (1), o processo com prioridade 0 responde com "OK" apesar de ter feito o pedido
+Em (*), o processo com prioridade 0 responde com "OK" apesar de ter feito o pedido
 antes, visto que a sua prioridade é inferior à do cliente que pediu acesso.
 Desta forma, ambos recebem $N-1 = 2$ OK's e têm acesso "exclusivo" à zona crítica.
 
