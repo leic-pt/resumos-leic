@@ -655,6 +655,169 @@ com o custo adicional de processamento para reconstruir os vetores.
 
 :::
 
+## Salvaguarda distribuída
+
+Criar uma uma salvaguarda distribuída (ou _distribuded snapshot_ ) consiste
+essencialmente em capturar o estado do sistema num determinado instante, o que pode
+ser útil porque permite:
+
+- recuperar o sistema em caso de falha (_rollback_ )
+- analisar o sistema de forma a se verificar certas propriedades
+- depurar o sistema de forma geral
+
+Guardar o estado de **todo** o sistema de forma coerente apresenta um grande desafio,
+já que não existe o conceito de "tempo global" (os relógios não estão sincronizados)
+e o estado das aplicações consiste não só no estado dos seus processos, mas também
+nas mensagens em trânsito.
+
+### Abordagem ingénua
+
+A primeira abordagem que nos pode surgir na mente é existir um coordenador central
+que pode ordenar aos processos que:
+
+- Parem por completo o que estão a fazer
+- Criem um _snapshot_ do seu estado atual
+- Esperem por uma notificação do coordenador para retomar atividade (quando o estado
+  de todo o sistema estiver capturado)
+
+O problema óbvio desta abordagem é que parar todo o sistema é ineficiente, pelo que
+iremos abordar como seria possível guardar o estado do sistema **sem o parar**.
+
+### Corte coerente
+
+Antes de falarmos de algoritmos que não precisam de parar o sistema, é preciso definir
+a noção de corte coerente:
+
+:::info[Corte coerente]
+
+Um corte é coerente se, para todos os seus eventos, estão também incluídos os
+eventos que [_**aconteceram-antes**_](#eventos-e-relógios-lógicos) dos mesmos.
+
+:::
+
+![Tipos de cortes: (fortemente) coerente vs incoerente](./assets/0003-cut-types.svg#dark=3)
+
+### Algoritmo simples
+
+Consideremos um algoritmo em que:
+
+- qualquer processo pode a qualquer momento iniciar uma salvaguarda global, guardando
+  o seu estado local
+- quando o processo $p_i$ acaba de guardar o seu estado:
+  - envia um _marker_ a todos os outros processos e de seguida prossegue com a sua
+    execução normal
+- quando o processo $p_i$ recebe um _marker_:
+  - se ainda não guardou o seu estado local, guarda-o
+
+:::info[Exercício]
+
+> No início, cada processo possui os tokens indicados na imagem.
+> Sabendo que cada mensagem transfere 100 tokens entre 2 processos, qual vai ser o
+> estado capturado pelo algoritmo considerando que P1 inicia um _snapshot_ no instante X?
+> (assuma que a comunicação de _markers_ é instantânea)
+
+![Esquema do exercício](./assets/0003-simple-snapshot-exercise.svg#dark=3)
+
+**R:** $P1 = 800, P2 = 300, P3 = 800$
+
+Justificação:
+
+- P1: Enviou 2 mensagens, pelo que perdeu $2*100 = 200$ tokens
+- P2: Não enviou nem recebeu mensagens, pelo que o número de tokens não se altera
+- P3: Recebeu 1 mensagem de P1, pelo que ganhou $100$ tokens
+
+**IMPORTANTE**: A soma de tokens no início era 2000 mas no _snapshot_ é 1900!
+Não se sabe que mensagens estão em trânsito...
+
+:::
+
+Este algoritmo apresenta uma falha, que é **não garantir a coerência do corte**:
+
+![Corte incoerente](./assets/0003-inconsistent-cut.svg#dark=3)
+
+O corte ilustrado (que pode ser entendido como um _snapshot_ iniciado por P1) é
+incoerente (a soma de tokens é 2100).
+
+É importante capturar também o estado dos canais de comunicação entre os processos!
+
+### Algoritmo de Chandy-Lamport
+
+Este algoritmo estende o anterior de forma a capturar também o estado dos canais.
+Pressupõe que:
+
+- não há falhas dos processos nem dos canais (ou seja, que são fiáveis)
+- os canais são unidirecionais com uma implementação FIFO
+
+A única diferença do algoritmo anterior é que **o estado do canal também é guardado**:
+
+:::info[Estado dos canais]
+
+Para um dado canal, se o recetor guardou o seu estado local **antes** do emissor
+o ter feito, é necessário **guardar as mensagens recebidas nesse canal entre os 2
+instantes**.
+
+:::
+
+:::details[Pseudocódigo do algoritmo]
+<br>
+
+```php
+Marker receiving rule for process p_i
+  On receipt of a marker message at p_i over channel c:
+    if (p_i has not yet recorded its state) it
+      records its process state now;
+      records the state of c as the empty set;
+      turns on recording of messages arriving over other incoming channels;
+    else
+      records the state of c as the set of messages it has received over c since it saved its state.
+    end if
+
+Marker sending rule for process p_i
+  After p_i has recorded its state, for each outgoing channel c:
+    p_i sends one marker message over c
+    (before it sends any other message over c).
+```
+
+:::
+
+Neste algoritmo:
+
+- nenhum processo decide quando termina
+- todos os processos vão receber um _marker_ e portanto guardar o seu estado
+- todos os processos receberam um _marker_ nos $N-1$ canais de receção e guardaram
+  os seus estados
+- existe a possibilidade de um servidor central obter todos os estados locais
+  coerentes para construir um _snapshot_ global
+
+:::info[Exercício]
+
+> No início, cada processo possui os tokens indicados na imagem.
+> Sabendo que cada mensagem transfere 100 tokens entre 2 processos, qual vai ser o
+> estado capturado pelo algoritmo Chandy-Lamport considerando que P1 inicia um
+> _snapshot_ no instante X? (assuma que a comunicação de _markers_ é instantânea)
+
+**TODO**  
+**TODO**  
+**TODO**  
+**TODO**
+
+:::
+
+:::tip[Nota]
+
+Mas será que um corte coerente garante que capturamos o estado global do sistema
+num determinado instante?
+
+![Snapshot vs sistema real](./assets/0003-snapshot-vs-system.svg#dark=3)
+
+A verde está representado o estado real do sistema em cada fase e à frente temos
+o que foi capturado pelo _snapshot_ : **apesar de coerente, o sistema nunca esteve
+naquele estado...**
+
+**TODO**: adicionar exemplo com vector clocks?
+
+:::
+
 ## Referências
 
 - Coulouris et al - Distributed Systems: Concepts and Design (5th Edition)
