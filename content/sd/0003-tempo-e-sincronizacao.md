@@ -767,18 +767,19 @@ Pressupõe que:
 - não há falhas nos processos nem nos canais (ou seja, que são fiáveis)
 - os canais são unidirecionais com uma implementação FIFO
 - o grafo de processos e canais é fortemente ligado (isto é, existe um caminho
-  entre quaisquer dois processos).
-- qualquer processo pode iniciar uma _snapshot_ global a qualquer momento.
+  entre quaisquer dois processos)
+- qualquer processo pode iniciar uma _snapshot_ global a qualquer momento
 - os processos podem continuar a sua execução normal (e enviar/receber
-  mensagens) enquanto a snapshot está a decorrer.
+  mensagens) enquanto a snapshot está a decorrer
 
 A única diferença do algoritmo anterior é que **o estado do canal também é guardado**:
 
 :::info[Estado dos canais]
 
-Para um dado canal, se o recetor guardou o seu estado local **antes** do emissor
-o ter feito, é necessário **guardar as mensagens recebidas nesse canal entre os 2
-instantes**.
+Cada processo guarda o seu estado local e, para cada canal de receção, guarda
+também o conjunto de mensagens recebidas após o snapshot. Desta forma, o processo
+regista quaisquer mensagens que tenham chegado depois de ter guardado o seu estado
+e antes do remetente ter registado o seu estado.
 
 :::
 
@@ -802,6 +803,12 @@ Marker sending rule for process p_i
     (before it sends any other message over c).
 ```
 
+:::tip[Nota]
+
+Qualquer processo pode iniciar o algoritmo a qualquer momento. Este age como se
+tivesse recebido um _marker_ (através de um canal inexistente) e segue a regra
+de receção de _markers_.
+
 :::
 
 Neste algoritmo:
@@ -815,8 +822,8 @@ Neste algoritmo:
 
 :::info[Exercício]
 
-> Inicialmente, cada processo possui os tokens indicados na imagem.
-> Sabendo que cada mensagem transfere 100 tokens entre 2 processos, qual vai ser o
+> Inicialmente, cada processo possui os _tokens_ indicados na imagem.
+> Sabendo que cada mensagem transfere 100 _tokens_ entre 2 processos, qual vai ser o
 > estado capturado pelo algoritmo Chandy-Lamport considerando que P1 inicia um
 > _snapshot_ no instante X?
 
@@ -826,13 +833,14 @@ Neste algoritmo:
 
 Justificação:
 
-- P1: Enviou 2 mensagens, pelo que perdeu $2*100 = 200$ tokens
-- P2: Não enviou nem recebeu mensagens, pelo que o número de tokens não se altera
-- P3: Recebeu 2 mensagem de P1 e enviou 1 de volta, pelo que ganhou $100$ tokens
+- P1: Enviou 2 mensagens, pelo que perdeu $2*100 = 200$ _tokens_
+- P2: Não enviou nem recebeu mensagens, pelo que o número de _tokens_ não se altera
+- P3: Recebeu 2 mensagem de P1 e enviou 1 de volta, pelo que ganhou $100$ _tokens_
 - C31: Desde que P1 enviou o primeiro _marker_ até que recebeu de volta um de P3,
-  recebeu nesse canal 1 mensagem, ou seja, ganhou $100$ tokens
+  recebeu nesse canal 1 mensagem, ou seja, $100$ _tokens_ estavam a ser
+  transferidos no canal
 
-**IMPORTANTE**: A soma de tokens já se mantém a 2000! Ao escutar os canais,
+**IMPORTANTE**: A soma de _tokens_ já se mantém a 2000! Ao escutar os canais,
 conseguimos saber que existe uma mensagem em trânsito de P3 para P1.
 
 :::
@@ -853,8 +861,8 @@ Podemos verificar este acontecimento com o auxílio de _vector clocks_:
 ![Snapshot vs sistema real vector clocks](./assets/0003-snapshot-vs-system-vector-clocks.svg#dark=3)
 
 É possível observar que tanto $e_1$ é concorrente com $e_2$ como $e_3$ é com $e_4$,
-pelo que o _snapshot_ não sabe em que ordem é que estes eventos aconteceram, já
-que os relógios de cada processo não estão sincronizados. O que o _snapshot_ consegue
+pelo que o algoritmo não sabe em que ordem é que estes eventos aconteceram, já
+que os relógios de cada processo não estão sincronizados. O que o algoritmo consegue
 capturar é que o estado inicial é $(100, 100)$, após $e_1$ e $e_2$ é $(80, 40)$ e
 por fim é $(140, 60)$.
 
