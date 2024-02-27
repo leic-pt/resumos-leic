@@ -734,17 +734,16 @@ Consideremos um algoritmo em que:
 > Inicialmente, cada processo possui os tokens indicados na imagem.
 > Sabendo que cada mensagem transfere 100 tokens entre 2 processos, qual vai ser o
 > estado capturado pelo algoritmo considerando que P1 inicia um _snapshot_ no instante X?
-> (assuma que a comunicação de _markers_ é instantânea)
 
-![Esquema do exercício](./assets/0003-simple-snapshot-exercise.svg#dark=3)
-
-**R:** $P1 = 800, P2 = 300, P3 = 800$
+![Diagrama do exercício](./assets/0003-snapshot-exercise.svg#dark=3)
+<br>
+**R:** $P1 = 800, ~P2 = 300, ~P3 = 800$
 
 Justificação:
 
 - P1: Enviou 2 mensagens, pelo que perdeu $2*100 = 200$ tokens
 - P2: Não enviou nem recebeu mensagens, pelo que o número de tokens não se altera
-- P3: Recebeu 1 mensagem de P1, pelo que ganhou $100$ tokens
+- P3: Recebeu 2 mensagem de P1 e enviou 1 de volta, pelo que ganhou $100$ tokens
 
 **IMPORTANTE**: A soma de tokens no início era 2000 mas no _snapshot_ é 1900!
 Não se sabe que mensagens estão em trânsito...
@@ -765,7 +764,7 @@ incoerente (a soma de tokens é 2100).
 Este algoritmo estende o anterior de forma a capturar também o estado dos canais.
 Pressupõe que:
 
-- não há falhas nos processos nem nos canais (ou seja, são fiáveis)
+- não há falhas nos processos nem nos canais (ou seja, que são fiáveis)
 - os canais são unidirecionais com uma implementação FIFO
 - o grafo de processos e canais é fortemente ligado (isto é, existe um caminho
   entre quaisquer dois processos).
@@ -816,15 +815,25 @@ Neste algoritmo:
 
 :::info[Exercício]
 
-> No início, cada processo possui os tokens indicados na imagem.
+> Inicialmente, cada processo possui os tokens indicados na imagem.
 > Sabendo que cada mensagem transfere 100 tokens entre 2 processos, qual vai ser o
 > estado capturado pelo algoritmo Chandy-Lamport considerando que P1 inicia um
-> _snapshot_ no instante X? (assuma que a comunicação de _markers_ é instantânea)
+> _snapshot_ no instante X?
 
-**TODO**  
-**TODO**  
-**TODO**  
-**TODO**
+![Diagrama do exercício](./assets/0003-snapshot-exercise.svg#dark=3)
+<br>
+**R:** $P1 = 800, ~P2 = 300, ~P3 = 800, ~Canal ~ P3-P1~(C31) = 100$
+
+Justificação:
+
+- P1: Enviou 2 mensagens, pelo que perdeu $2*100 = 200$ tokens
+- P2: Não enviou nem recebeu mensagens, pelo que o número de tokens não se altera
+- P3: Recebeu 2 mensagem de P1 e enviou 1 de volta, pelo que ganhou $100$ tokens
+- C31: Desde que P1 enviou o primeiro _marker_ até que recebeu de volta um de P3,
+  recebeu nesse canal 1 mensagem, ou seja, ganhou $100$ tokens
+
+**IMPORTANTE**: A soma de tokens já se mantém a 2000! Ao escutar os canais,
+conseguimos saber que existe uma mensagem em trânsito de P3 para P1.
 
 :::
 
@@ -835,11 +844,21 @@ num determinado instante?
 
 ![Snapshot vs sistema real](./assets/0003-snapshot-vs-system.svg#dark=3)
 
-A verde está representado o estado real do sistema em cada fase e à frente temos
+A verde está representado o estado real do sistema em cada fase e à direita temos
 o que foi capturado pelo _snapshot_ : **apesar de coerente, o sistema nunca esteve
 naquele estado...**
 
-**TODO**: adicionar exemplo com vector clocks?
+Podemos verificar este acontecimento com o auxílio de _vector clocks_:
+
+![Snapshot vs sistema real vector clocks](./assets/0003-snapshot-vs-system-vector-clocks.svg#dark=3)
+
+É possível observar que tanto $e_1$ é concorrente com $e_2$ como $e_3$ é com $e_4$,
+pelo que o _snapshot_ não sabe em que ordem é que estes eventos aconteceram, já
+que os relógios de cada processo não estão sincronizados. O que o _snapshot_ consegue
+capturar é que o estado inicial é $(100, 100)$, após $e_1$ e $e_2$ é $(80, 40)$ e
+por fim é $(140, 60)$.
+
+![Snapshot vs sistema real vector clocks](./assets/0003-snapshot-vs-system-evolution.svg#dark=3)
 
 :::
 
