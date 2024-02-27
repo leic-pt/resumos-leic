@@ -108,14 +108,14 @@ To enter the section
   Wait until (number of replies received = (N – 1)); // Espera receber N-1 OK's
   state := HELD; // Temos acesso
 
-On receipt of a request <Ti, pi> at pj (i != j)
+On receipt of a request <T_i, p_i> at p_j (i != j)
   // Se (já temos acesso) ou (queremos ter e enviámos o pedido há mais tempo),
   // colocamos os pedidos em espera
-  if (state = HELD or (state = WANTED and (T, pj) < (Ti, pi)))
+  if (state = HELD or (state = WANTED and (T, p_j) < (T_i, p_i)))
   then
-      queue request from pi without replying;
+      queue request from p_i without replying;
   else
-      reply immediately to pi;
+      reply immediately to p_i;
   end if
 
 To exit the critical section
@@ -182,35 +182,35 @@ concorrentes nunca conseguem, cada um, receber os votos de quóruns inteiros.
 :::
 
 ```php
-K = |Vi| ~ sqrt(N)
+K = |V_i| ~ sqrt(N)
 On initialization
   state := RELEASED;
   voted := FALSE;
 
-For pi to enter the critical section
+For p_i to enter the critical section
   state := WANTED;
-  Multicast request to all processes in Vi;
+  Multicast request to all processes in V_i;
   Wait until (number of replies received = K);
   state := HELD;
 
-On receipt of a request from pi at pj
+On receipt of a request from p_i at p_j
   if (state = HELD or voted = TRUE)
   then
-    queue request from pi without replying;
+    queue request from p_i without replying;
   else
-    send reply to pi;
+    send reply to p_i;
     voted := TRUE;
   end if
 
-For pi to exit the critical section
+For p_i to exit the critical section
   state := RELEASED;
-  Multicast release to all processes in Vi;
+  Multicast release to all processes in V_i;
 
-On receipt of a release from pi at pj
+On receipt of a release from p_i at p_j
   if (queue of requests is non-empty)
   then
-    remove head of queue – from pk, say;
-    send reply to pk;
+    remove head of queue – from p_k, say;
+    send reply to p_k;
     voted := TRUE;
   else
     voted := FALSE;
