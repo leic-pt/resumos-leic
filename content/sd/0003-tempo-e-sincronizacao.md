@@ -657,22 +657,22 @@ com o custo adicional de processamento para reconstruir os vetores.
 
 ## Salvaguarda distribuída
 
-Criar uma uma salvaguarda distribuída (ou _distribuded snapshot_ ) consiste
-essencialmente em capturar o estado do sistema num determinado instante, o que pode
-ser útil porque permite:
+Criar uma salvaguarda distribuída (ou _distribuded snapshot_) consiste
+essencialmente em capturar o estado global do sistema num determinado instante,
+o que pode ser útil porque permite:
 
-- recuperar o sistema em caso de falha (_rollback_ )
-- analisar o sistema de forma a se verificar certas propriedades
+- recuperar o sistema em caso de falha (_rollback_)
+- analisar o sistema de forma a verificar certas propriedades
 - depurar o sistema de forma geral
 
-Guardar o estado de **todo** o sistema de forma coerente apresenta um grande desafio,
+Guardar o estado de **todo** o sistema de forma coerente é um grande desafio,
 já que não existe o conceito de "tempo global" (os relógios não estão sincronizados)
 e o estado das aplicações consiste não só no estado dos seus processos, mas também
 nas mensagens em trânsito.
 
 ### Abordagem ingénua
 
-A primeira abordagem que nos pode surgir na mente é existir um coordenador central
+A primeira abordagem que nos pode surgir é existir um coordenador central
 que pode ordenar aos processos que:
 
 - Parem por completo o que estão a fazer
@@ -681,7 +681,7 @@ que pode ordenar aos processos que:
   de todo o sistema estiver capturado)
 
 O problema óbvio desta abordagem é que parar todo o sistema é ineficiente, pelo que
-iremos abordar como seria possível guardar o estado do sistema **sem o parar**.
+iremos procurar guardar o estado do sistema **sem o parar**.
 
 ### Corte coerente
 
@@ -690,12 +690,32 @@ a noção de corte coerente:
 
 :::info[Corte coerente]
 
-Um corte é coerente se, para todos os seus eventos, estão também incluídos os
-eventos que [_**aconteceram-antes**_](#eventos-e-relógios-lógicos) dos mesmos.
+Um corte é coerente se, para cada evento que este contém, também inclui todos
+os eventos que [_**aconteceram-antes**_](#eventos-e-relógios-lógicos) desse evento.
 
 :::
 
+Um evento corresponde a uma ação interna do processo ou ao envio/receção de uma
+mensagem nos canais de comunicação. Note que o estado destes canais é relevante:
+se descobrirmos que o processo $p_i$ registou o envio de uma mensagem $m$ para o
+processo $p_j$ $(i \neq j)$, então, examinando se $p_j$ recebeu $m$, podemos
+inferir se $m$ faz ou não parte do estado do canal entre $p_i$ e $p_j$.
+
 ![Tipos de cortes: (fortemente) coerente vs incoerente](./assets/0003-cut-types.svg#dark=3)
+
+O corte mais à direita é **incoerente** porque $p_2$ incluiu a receção de $m_5$
+mas $p_1$ não incluiu o envio desta mensagem, ou seja, este corte apresenta um
+"efeito" sem uma "causa". É fácil perceber que a execução real do
+sistema nunca esteve neste estado, visto que é impossível receber uma mensagem
+que não foi enviada.
+
+Em contraste, o corte do meio inclui o envio de $m_4$ mas não inclui a receção
+desta mensagem. Ainda assim, este corte é **coerente** com a execução real do
+sistema visto que as mensagens demoram algum tempo a chegar ao destinatário.
+
+Por fim, o corte mais à esquerda é **fortemente coerente** porque todas as
+causalidades estão representadas nos estados locais dos processos (não existem
+mensagens em trânsito).
 
 ### Algoritmo simples
 
@@ -711,7 +731,7 @@ Consideremos um algoritmo em que:
 
 :::info[Exercício]
 
-> No início, cada processo possui os tokens indicados na imagem.
+> Inicialmente, cada processo possui os tokens indicados na imagem.
 > Sabendo que cada mensagem transfere 100 tokens entre 2 processos, qual vai ser o
 > estado capturado pelo algoritmo considerando que P1 inicia um _snapshot_ no instante X?
 > (assuma que a comunicação de _markers_ é instantânea)
@@ -745,8 +765,13 @@ incoerente (a soma de tokens é 2100).
 Este algoritmo estende o anterior de forma a capturar também o estado dos canais.
 Pressupõe que:
 
-- não há falhas dos processos nem dos canais (ou seja, que são fiáveis)
+- não há falhas nos processos nem nos canais (ou seja, são fiáveis)
 - os canais são unidirecionais com uma implementação FIFO
+- o grafo de processos e canais é fortemente ligado (isto é, existe um caminho
+  entre quaisquer dois processos).
+- qualquer processo pode iniciar uma _snapshot_ global a qualquer momento.
+- os processos podem continuar a sua execução normal (e enviar/receber
+  mensagens) enquanto a snapshot está a decorrer.
 
 A única diferença do algoritmo anterior é que **o estado do canal também é guardado**:
 
@@ -821,7 +846,7 @@ naquele estado...**
 ## Referências
 
 - Coulouris et al - Distributed Systems: Concepts and Design (5th Edition)
-  - Secções 14.1, 14.2, 14.3 e 14.4
+  - Secções 14.1, 14.2, 14.3, 14.4 e 14.5
 - Coulouris et al - Distributed Systems: Concepts and Design (5th Edition) - Instructor's Manual
   - Soluções dos exercícios 14.10, 14.11, 14.12 e 14.13
 - van Steen and Tanenbaum - [Distributed Systems](https://www.distributed-systems.net/index.php/books/ds4/)
@@ -830,3 +855,5 @@ naquele estado...**
   - 3a Fundamentos: Tempo
 - Paul Krzyzanowski - [Assigning Lamport & Vector Timestamps](https://people.cs.rutgers.edu/~pxk/417/notes/clocks/index.html)
   - Imagens dos exemplos de eventos e relógios lógicos
+- Departamento de Engenharia Informática - Slides de Sistemas Distribuídos (2023/2024)
+  - SlidesTagus-Aula03b
