@@ -783,7 +783,7 @@ e antes do remetente ter registado o seu estado.
 
 :::
 
-:::details[Pseudocódigo do algoritmo]
+::::details[Pseudocódigo do algoritmo]
 <br>
 
 ```php
@@ -810,6 +810,8 @@ tivesse recebido um _marker_ (através de um canal inexistente) e segue a regra
 de receção de _markers_.
 
 :::
+
+::::
 
 Neste algoritmo:
 
