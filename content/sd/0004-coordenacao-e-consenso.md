@@ -156,7 +156,7 @@ Vejamos o seguinte exemplo:
 
 ![Ricart and Agrawala baseado em prioridades](./assets/0004-priority-based.svg#dark=3)
 
-Em (*), o processo com prioridade 0 responde com "OK" apesar de ter feito o pedido
+Em (\*), o processo com prioridade 0 responde com "OK" apesar de ter feito o pedido
 antes, visto que a sua prioridade é inferior à do cliente que pediu acesso.
 Desta forma, ambos recebem $N-1 = 2$ OK's e têm acesso "exclusivo" à zona crítica.
 
@@ -164,20 +164,36 @@ Desta forma, ambos recebem $N-1 = 2$ OK's e têm acesso "exclusivo" à zona crí
 
 ### Algoritmo de Maekawa
 
-Este algoritmo funciona a partir da organização de processos em subconjuntos
-chamados **quóruns** ($V_0, V_1$), que seguem as seguintes regras:
+Maekawa observou que, para um processo entrar numa secção crítica, não é necessário que todos os seus _peers_ concedam o acesso (só precisa de obter permissão de um subconjunto destes).
 
-- Um processo pode pertencer a 1 ou mais **quóruns**
-- A interseção de qualquer par de **quóruns** não pode ser vazia
-  ($V_i \cap V_j \neq \varnothing$)
+Este algoritmo associa um **_voting set_** $V_i$ (também chamados **quóruns**) a
+cada processo $p_i$ $(i = 1,2,...,N)$, onde $V_i \subseteq \{p_1, p_2, ..., p_N\}$.
+Os _sets_ $V_i$ são escolhidos de forma a que, para todo $i,j = 1,2,...,N$:
+
+- $p_i \in V_i$ (atenção que um processo pode pertencer a mais que um _voting set_)
+- $V_i \cap V_j \neq \varnothing$ – há pelo menos um membro comum entre quaisquer
+  dois _voting sets_
+- $|V_i| = K$ – de forma a ser justo, todos os _voting sets_ têm o mesmo tamanho
+- Cada processo $p_j$ está contido em $M$ dos _voting sets_ $V_i$
+
+:::tip[Nota]
+
+Maekawa demonstrou que a solução ótima (que minimiza $K$ e permite que os
+processos alcancem a exclusão mútua) tem $K \sim \sqrt{N}$ e $M = K$. Como não é
+trivial calcular os _sets_ ótimos $R_i$, uma forma simples de derivar estes
+_sets_ tal que $|R_i| \sim 2 \sqrt{N}$, é colocar os processos numa matriz
+$\sqrt{N}$ por $\sqrt{N}$ e $V_i$ ser a união da linha e coluna que contém $p_i$.
+
+:::
 
 Cada processo pode votar num pedido de acesso à região crítica, mas não pode votar
 em mais que um em simultâneo, o que origina a seguinte propriedade:
 
 :::info[Propriedade fundamental]
 
-Qualquer par de quóruns se interceta em pelo menos 1 processo, logo 2 pedidos
-concorrentes nunca conseguem, cada um, receber os votos de quóruns inteiros.
+Em qualquer par de quóruns, há sempre interseção em pelo menos um processo, o que
+implica que dois pedidos concorrentes nunca podem ambos receber os votos de quóruns
+completos.
 
 :::
 
@@ -217,40 +233,64 @@ On receipt of a release from p_i at p_j
   end if
 ```
 
-O algoritmo consegue distribuir a carga, ou seja, não existe um processo que
-receba todos os pedidos e fique sobrecarregado, mas tem um grande problema:
-**sofre de interbloqueio**.
+Este algoritmo consegue distribuir a carga, ou seja, não existe um processo que
+recebe todos os pedidos, mas tem um grande problema: **sofre de interbloqueio**
+(_deadlock-prone_).
+
+:::info[_deadlock-prone_]
+
+Considere 3 processos, $p_1$, $p_2$ e $p_3$, com $V_1 = \{p_1, p_2\}$,
+$V_2 = \{p_2, p_3\}$ e $V_3 = \{p_3, p_1\}$. Se os três processos solicitarem
+simultaneamente acesso à seção crítica, então é possível que:
+
+- $p_1$ responda a si mesmo e meta $p_2$ em espera
+- $p_2$ responda a si mesmo e meta $p_3$ em espera
+- $p_3$ responda a si mesmo e meta $p_1$ em espera
+
+Desta forma, cada processo recebeu apenas uma resposta (de dois pedidos), e
+nenhum pode prosseguir.
+
+:::
+
+:::tip[Nota]
+
+O algoritmo pode ser adaptado de forma a tornar-se _deadlock-free_. No protocolo
+adaptado, os processos colocam na fila de espera pedidos pendentes em ordem
+_happened-before_, garantindo assim que o requisito
+[ME3](/sd/coordenacao-e-consenso/#algoritmos-de-exclusão-mútua) também seja satisfeito.
+
+:::
 
 ### Comparação dos algoritmos
 
 Terminologia:
 
-- _**Bandwith usage**_ : total de mensagens trocadas entre enter/exit por um mesmo cliente
-- _**Client delay**_ : tempo para um processo entrar em secção crítica livre
-- _**Synchronization delay**_ : tempo entre exit por um processo e enter por outro que
+- _**Bandwith usage**_ : total de mensagens trocadas entre _enter_ /_exit_ por um mesmo cliente
+- _**Client delay**_ : tempo para um processo entrar numa secção crítica livre
+- _**Synchronization delay**_ : tempo entre _exit_ por um processo e _enter_ por outro que
   estava à espera
 
-|      Algoritmo      | _Bandwith usage_  | _Client delay_ | _Synchronization delay_ |
-| :-----------------: | :---------------: | :------------: | :---------------------: |
-|    Centralizado     |        $3$        |       2        |            2            |
-| Ricart and Agrawala |    $2 * (N-1)$    |       2        |            1            |
-|       Maekawa       | $3 * quorum_size$ |       2        |           2\*           |
+|      Algoritmo      |  _Bandwith usage_  | _Client delay_ | _Synchronization delay_ |
+| :-----------------: | :----------------: | :------------: | :---------------------: |
+|    Centralizado     |        $3$         |       2        |            2            |
+| Ricart and Agrawala |    $2 * (N-1)$     |       2        |            1            |
+|       Maekawa       | $3 * quorum\_size$ |       2        |           2\*           |
 
 \* assumindo que os 2 quóruns se intercetam em apenas 1 processo
 
 Distribuição de carga:
 
-- **Centralizado**: tudo passa pelo servidor, possível sobrecarga
-- **Ricart and Agrawala**: todos os processos são sobrecarregados
-- **Maekawa: cada pedido**: apenas afeta um subconjunto de processos (**quórum**)
+- Centralizado: tudo passa pelo servidor, possível sobrecarga
+- Ricart and Agrawala: todos os processos são sobrecarregados
+- Maekawa: cada pedido apenas afeta um subconjunto de processos (quórum)
 
 Tolerância a falhas:
 
 - **Todos assumem rede fiável! Nenhum tolera perdas de mensagens**
-- **Centralizado**: não tolera falha do servidor, mas tolera falha de cliente
+- Centralizado: não tolera falha do servidor, mas tolera falha de cliente
   em estado `RELEASED`
-- **Ricart and Agrawala**: nenhum processo pode falhar
-- **Maekawa: cada pedido**: tolera falhas dos processo que não estejam no **quórum**
+- Ricart and Agrawala: nenhum processo pode falhar
+- Maekawa: cada pedido tolera falhas dos processo que não estejam no quórum
 
 ## Referências
 
