@@ -74,7 +74,7 @@ Devemos assim tentar implementar uma solução descentralizada!
 Uma das formas mais simples de estabelecer exclusão mútua entre $N$ processos
 sem utilizar um processo adicional é organizá-los num anel lógico. Isto apenas
 requer que cada processo $p_i$ tenha um canal de comunicação com o próximo
-processo no anel, $p_{(i+1) mod N}$.
+processo no anel, $p_{(i+1) \op{mod} N}$.
 
 A ideia é que a exclusão mútua é concebida passando a chave de processo para
 processo numa única direção (por exemplo, no sentido horário) ao redor do anel.
@@ -270,13 +270,13 @@ Terminologia:
 - _**Synchronization delay**_ : tempo entre _exit_ por um processo e _enter_ por outro que
   estava à espera
 
-|      Algoritmo      |  _Bandwith usage_  | _Client delay_ | _Synchronization delay_ |
-| :-----------------: | :----------------: | :------------: | :---------------------: |
-|    Centralizado     |        $3$         |       2        |            2            |
-| Ricart and Agrawala |    $2 * (N-1)$     |       2        |            1            |
-|       Maekawa       | $3 * quorum\_size$ |       2        |           2\*           |
+|      Algoritmo      |        _Bandwith usage_        | _Client delay_ |      _Synchronization delay_      |
+| :-----------------: | :----------------------------: | :------------: | :-------------------------------: |
+|    Centralizado     |              $3$               |      $2$       |                $2$                |
+| Ricart and Agrawala |        $2 \times (N-1)$        |      $2$       |                $1$                |
+|       Maekawa       | $3 \times \text{quorum\_size}$ |      $2$       | $2 \smartcolor{yellow}{\text{*}}$ |
 
-\* assumindo que os 2 quóruns se intercetam em apenas 1 processo
+[\*](color:yellow) assumindo que os 2 quóruns se intercetam em apenas 1 processo
 
 Distribuição de carga:
 
