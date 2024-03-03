@@ -295,25 +295,30 @@ Tolerância a falhas:
 ## Eleição de líder
 
 Tal como vimos anteriormente, muitos algoritmos distribuídos precisam de atribuir
-cargos especiais a certos processos que de outra forma seriam simplesmente iguais
-a todos os outros. Este processo é retratado como "eleição de líder".
+cargos especiais a certos processos. Por exemplo, na variante
+["servidor central"](/sd/coordenacao-e-consenso/#algoritmo-do-servidor-central)
+dos algoritmos para exclusão mútua, o servidor é escolhido entre os processos que
+precisam de utilizar a secção crítica. É necessário um **algoritmo de eleição**
+para esta escolha, sendo essencial que todos os processos concordem com a mesma.
 
 É necessário assegurar principalmente 2 propriedades:
 
-- _**Safety**_: Todos os processos escolhem o mesmo líder (tipicamente o processo
+- E1 (_**safety**_): todos os processos escolhem o mesmo líder (tipicamente o processo
   com _id_ maior)
-- _**Liveness**_: A execução do algoritmo é finita
+- E2 (_**liveness**_): a execução do algoritmo é finita
 
 Ao longo deste capítulo, iremos assumir que:
 
 - **O detetor de falhas é perfeito**, ou seja, nunca diagnostica erradamente um
   processo como morto
-- **Os processos não recuperam**, ou seja, após mortos não voltam ao ativo
+- **Os processos não recuperam**, ou seja, não voltam ao ativo depois de morrerem
 
 ### Eleição em anel
 
-Consiste em ter os processos organizados num anel lógico (possivelmente físico
-também) e com comunicação limitada apenas ao processo que os segue.
+Este algoritmo é adequado para um conjunto de processos organizados num anel
+lógico. Cada processo $p_i$ tem um canal de comunicação com o próximo processo no
+anel, $p_{(i + 1) \op{mod} N}$, e todas as mensagens são enviadas no sentido horário
+ao redor do anel.
 
 #### Funcionamento do algoritmo
 
@@ -341,14 +346,13 @@ Quando um processo `p` recebe uma mensagem `elected(id)`:
 
 ![Diagrama de eleição em anel](./assets/0004-ring-election-example.png#dark=3)
 
-A execução do algoritmo começou no nó 17 e até agora participaram 3 nós: 17, 24 e 1
-(pelo que estão realçados com uma cor ligeiramente diferente).
-O nó 1 envia `election(24)` já que o seu _id_ é menor que o da mensagem.
-Ao receber `election(24)`, o nó 28 envia `election(28)`, pois possui um _id_ maior.
-Assumindo que o maior _id_ é 28, os restantes nós irão todos reencaminhar a mensagem
-deste nó até que esta volte ao emissor, que irá emitir a mensagem `elected(28)`.
-O algoritmo termina quando esta última mensagem dá uma volta compelta e regressa
-ao líder (28).
+A execução do algoritmo começou no nó 17 e até agora participaram 3 nós: 17, 24
+e 1 (realçados com uma cor ligeiramente diferente). O nó 1 envia `election(24)`
+já que o seu _id_ é menor que o da mensagem. Ao receber `election(24)`, o nó 28
+envia `election(28)`, pois possui um _id_ maior. Assumindo que o maior _id_ é 28,
+os restantes nós irão reencaminhar esta mensagem até chegar ao emissor. Após a
+receção, o nó 28 irá emitir a mensagem `elected(28)`. O algoritmo termina quando
+esta última mensagem dá uma volta completa ao anel e regressa ao líder (28).
 
 :::
 
@@ -375,7 +379,10 @@ o algoritmo tem uma **complexidade temporal quadrática**.
 
 ### Eleição em anel por torneio
 
-**TODO**
+- Os processos procuram um líder num horizonte que duplica em cada turno
+- Em cada turno o número de competidores vai sendo reduzido para metade
+- Isto resulta na execução de $\log(n)$ turnos para uma complexidade total de
+  $n\log(n)$
 
 ### Algoritmo _"Bully"_
 
@@ -384,9 +391,10 @@ maior identificador**.
 
 Tem alguns pressupostos:
 
-- existem **tempos máximos** conhecidos para a **comunicação** (canais fiáveis)
+- existem **tempos máximos** conhecidos para a **comunicação** (sistema síncrono;
+  canais fiáveis)
 - os **processos podem falhar**
-- todos os **processos conhecem os identificadores** dos outros
+- todos os **processos conhecem os identificadores** dos restantes
 
 Existem 3 tipos de mensagens trocadas neste algoritmo:
 
@@ -396,7 +404,8 @@ Existem 3 tipos de mensagens trocadas neste algoritmo:
 
 #### Funcionamento do algoritmo
 
-Quando um processo se apercebe através de um _timeout_ que o coordenador falhou:
+Um processo inicia uma eleição quando se apercebe, através de _timeouts_, que
+o coordenador falhou (vários processos podem descobrir isto simultaneamente):
 
 - **se for o processo com id mais alto**:
   - elege-se a si próprio e envia uma `coordinator` message para todos os processos
@@ -421,7 +430,7 @@ Quando um novo processo vem substituir um outro _crashed_:
 
 - começa uma nova eleição:
   - **se tiver o id mais alto**: decide que é o líder e anuncia-o (mesmo que o
-    atual líder esteja a funcionar, daí ser chamado de _bully_)
+    atual líder esteja a funcionar, daí ser chamado _bully_)
 
 :::details[Exemplo]
 
@@ -439,6 +448,24 @@ Quando o _timeout_ de $p_1$ dispara (assumimos que é menor que o de $p_2$),
 este começa uma nova eleição, já que não recebeu uma mensagem `coordinator`.
 O $p_2$ vai enviar mensagens a $p_3$ e $p_4$ e ao não obter resposta elege-se
 como líder, notificando $p_1$ (_stage_ 4).
+
+:::
+
+No melhor caso, o processo com o segundo maior identificador percebe a falha
+do coordenador e elege-se imediatamente, e envia $N - 2$ mensagens `coordinator`.
+
+No pior caso, o processo com o identificador mais baixo é o primeiro a detetar
+a falha do coordenador. Assim, $N - 1$ processos iniciam eleições simultaneamente,
+cada um enviando mensagens para os processos com identificadores mais altos. Desta
+forma, o algoritmo requer $O(N^{2})$ mensagens.
+
+:::tip[Nota]
+
+O algoritmo não garante cumprir a condição
+[E1](/sd/coordenacao-e-consenso/#eleição-de-líder) se os processos que falharam
+forem substituídos por outros com os mesmos identificadores, visto que é possível
+que dois processos anunciem simultaneamente que são coordenadores. Além disso, esta
+condição pode ser violada se os valores de _timeout_ forem imprecisos.
 
 :::
 
