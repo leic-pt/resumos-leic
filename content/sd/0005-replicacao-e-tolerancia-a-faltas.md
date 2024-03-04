@@ -18,14 +18,14 @@ type: content
 
 ## Introdução a sistemas replicados
 
-A replicação consiste no processo de **manter cópias dos dados e software** de um
+A replicação consiste no processo de **manter cópias de dados e software** de um
 serviço em **várias máquinas**.
 
 ![Diagrama de uma replicação](./assets/0005-replication-example.svg#dark=3)
 
 ### Benefícios de replicar um sistema
 
-- melhor **disponibilidade**: mesmo que alguns nós falhem ou que fiquem indisponíveis
+- melhor **disponibilidade**: mesmo que alguns nós falhem ou fiquem indisponíveis
   devido a falhas na rede, o sistema continua disponível
 - melhor **desempenho e escalabilidade**:
   - Podem existir cópias mais próximas do cliente
@@ -37,7 +37,7 @@ serviço em **várias máquinas**.
 
 Uma das garantias essenciais que um sistema replicado tem que assegurar é a
 **coerência**.
-O ideal seria um cliente ler sempre a **versão mais recente** do recurso
+O ideal seria um cliente ler a **versão mais recente** do recurso
 sempre que lê de uma réplica (mesmo que essa versão tenha sido escrita noutra réplica).
 Um critério de coerência que podemos utilizar é a **linearizabilidade**.
 Antes de definirmos o que é, é necessário ter em conta o seguinte quanto à ordenação
@@ -161,10 +161,12 @@ escrever o valor $3$ (em binário: $0000~0011$). Se não existir um mecânismo d
 sincronização que impeça o leitor de ler o registo durante a escrita, a leitura
 pode retornar um dos seguintes valores:
 
+- $0000~0000$ = $0$
 - $0000~0001$ = $1$
 - $0000~0010$ = $2$
+- $0000~0011$ = $3$
 
-(já que os bits podem mudar de estado em momentos diferentes)
+(já que os bits são alterados individualmente em instantes diferentes)
 
 :::
 
@@ -234,26 +236,39 @@ Registo atómico (com um só escritor):
 Consiste num espaço partilhado que contêm um conjunto de tuplos (ex: `<"A">`,
 `<"A", 1>`, `<"A", "B">`) e que suporta 3 operações:
 
-- `Put`: insere um tuplo no espaço
-- `Read`: lê um tuplo do espaço
-- `Take`: remove um tuplo do espaço (é bloqueante caso o tuplo não exista)
+- `Put`: adiciona um tuplo (sem afetar os tuplos existentes) no espaço
+- `Read`: retorna o valor de um tuplo (sem afetar o conteúdo do espaço)
+- `Take`: também retorna um tuplo mas remove-o do espaço
+- Tanto `Read` como `Take` são bloqueantes caso o tuplo não exista
 - Tanto `Read` como `Take` aceitam _wildcards_: `Read(<"A", *>)` pode retornar
-  `<"A", 1>` ou `<"A", "B">`.
+  `<"A", 1>` ou `<"A", "B">`
 
 Como o `Take` é bloqueante, pode ser usado para sincronizar processos:
 
 - Elege-se um tuplo especial, por ex. `<lock>`.
 - Cada processo remove o tuplo do espaço antes de aceder à região crítica e volta
-  a colocá-lo no fim, atingindo assim exclusão mútua
+  a colocá-lo no fim, garantindo assim exclusão mútua
 - Conseguimos assim através de uma única interface partilhar memória e sincronizar
   processos
 
 Enquanto que nos registos uma escrita fazia _override_ do valor antigo, aqui o
-processo equivalente é realizar um `Take` seguido de um `Put`.
-O `Take` permite fazer operações que em memória partilhada requerem uma instrução
-do tipo [_**compare-and-swap**_](/so/implementation/#solu%C3%A7%C3%B5es-com-suporte-do-hardware).
+processo equivalente é realizar um `Take` seguido de um `Put` (os tuplos são
+imutáveis). O `Take` permite fazer operações que em memória partilhada requerem
+uma instrução do tipo [_**compare-and-swap**_]
+(/so/implementation/#solu%C3%A7%C3%B5es-com-suporte-do-hardware).
+
+:::tip[Nota]
+
+Note que as operações `Put`, `Read` e `Take` são conhecidas como `out`, `rd` e
+`in` no modelo Linda, usamos estes nomes mais descritivos como simplificação.
+
+:::
 
 #### _Xu-Liskov_
+
+Muitas das implementações de espaços de tuplos adotam uma solução centralizada.
+Isto tem vantagens em termos de simplicidade, mas tais soluções não são
+tolerantes a falhas nem escaláveis.
 
 _Xu-Liskov_ é uma implementação **distribuída e tolerante a faltas** do "Linda".
 
@@ -278,7 +293,7 @@ _Xu-Liskov_ é uma implementação **distribuída e tolerante a faltas** do "Lin
 :::
 
 O objetivo dos autores com este _design_ era obter a solução mais eficiente e com
-o menor tempo de resposta ao cliente possível, mas assegurando
+o menor tempo de resposta possível, mas assegurando
 [linearizabilidade](./#linearizabilidade).
 
 :::info[Funcionamento do algoritmo]
@@ -286,8 +301,11 @@ o menor tempo de resposta ao cliente possível, mas assegurando
 `Put`:
 
 1. The requesting site multicasts the `put` request to all members of the view;
-2. On receiving this request, members insert the tuple into their replica and acknowledge this action;
+2. On receiving this request, members insert the tuple into their replica and
+   acknowledge this action;
 3. Step 1 is repeated until all acknowledgements are received.
+   For the correct operation of the protocol, replicas must detect and acknowledge
+   duplicate requests, but not carry out the associated put operations.
 
 `Read`:
 
@@ -307,19 +325,36 @@ o menor tempo de resposta ao cliente possível, mas assegurando
 3. All accepting members reply with the set of all matching tuples;
 4. Step 1 is repeated until all sites have accepted the request and responded with
    their set of tuples and the intersection is non-null;
-5. A particular tuple is selected as the result of the operation (selected randomly from the intersection
-   of all the replies);
-6. If only a minority accept the request, this minority are asked to release their locks and phase 1 repeats.
+5. A particular tuple is selected as the result of the operation (selected
+   randomly from the intersection of all the replies);
+6. If only a minority accept the request, this minority are asked to release their
+   locks and phase 1 repeats.
 
 **Phase 2**: Removing the selected tuple
 
-1. The requesting site multicasts a remove request to all members of the view citing the tuple to be
-   removed;
-2. On receiving this request, members remove the tuple from their replica, send an acknowledgement
-   and release the lock;
+1. The requesting site multicasts a remove request to all members of the view
+   citing the tuple to be removed;
+2. On receiving this request, members remove the tuple from their replica, send
+   an acknowledgement and release the lock;
 3. Step 1 is repeated until all acknowledgements are received.
 
 :::
+
+Visto que este algoritmo foi projetado para minimizar o _delay_ :
+
+- Operações `read` apenas bloqueiam até que a primeira réplica responda ao pedido
+- Operações `take` bloqueiam até o final da fase 1, quando o tuplo a ser excluído foi acordado
+- Operações `put` podem retornar imediatamente
+
+No entanto, isto introduz níveis inaceitáveis de concorrência. Por exemplo, uma
+operação `read` pode aceder a um tuplo que deveria ter sido excluído na segunda
+fase de uma operação `take`. Assim, são necessárias as seguintes restrições adicionais:
+
+- As operações de cada _worker_ devem ser executadas em cada réplica na mesma ordem
+  em que foram emitidas pelo _worker_
+- Uma operação `put` não deve ser executada em nenhuma réplica até que todas as
+  operações `take` anteriores, emitidas pelo mesmo _worker_, tenham sido concluídas
+  em todas as réplicas (na visão do mesmo)
 
 :::details[Exemplos]
 
@@ -339,8 +374,9 @@ o menor tempo de resposta ao cliente possível, mas assegurando
 
 Imaginemos que o `Read` não era bloqueante, ou seja, ou retornava o tuplo
 ou "_null_". O sistema continuaria a ser linearizável? **Não**, pois seria possível:
+
 - Um cliente executa `Put` de um tuplo $t$
-- Um cliente executa `Read(t)` várias vees, concorrentemente com o `Put`
+- Um cliente executa `Read(t)` várias vezes, concorrentemente com o `Put`
 - Se o leitor recebe respostas de réplicas diferentes em cada `Read`, pode ler $t$
   e de seguida "_null_"
 
