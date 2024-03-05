@@ -211,7 +211,8 @@ Registo regular (com um só escritor):
 
 :::warning[O algoritmo não é atómico]
 
-![Diagrama que demonstra que o algoritmo não é atómico](./assets/0005-ABD-algorithm-not-atomic-example.svg#dark=3)
+![Diagrama que demonstra que o algoritmo não é atómico
+](./assets/0005-ABD-algorithm-not-atomic-example.svg#dark=3)
 
 Tal como ilustrado no diagrama, é possível obter leituras diferentes consoante
 as réplicas que contactamos (lendo $v_1$, depois $v_0$ e $v_1$ novamente), violando o
@@ -357,6 +358,16 @@ fase de uma operação `take`. Assim, são necessárias as seguintes restriçõe
   operações `take` anteriores, emitidas pelo mesmo _worker_, tenham sido concluídas
   em todas as réplicas (na visão do mesmo)
 
+:::tip[Nota]
+
+> Operações `take` bloqueiam até o final da fase 1, quando o tuplo a ser excluído foi acordado
+
+Note que isto é uma otimização para minimizar a latência, no algoritmo original
+o _worker_ fica bloqueado até o final da fase 2. Esta otimização não faz parte
+do projeto.
+
+:::
+
 :::details[Exemplos]
 
 `Read`:
@@ -386,12 +397,10 @@ concorrentemente e nenhum consiga a maioria (_deadlock_). Para resolver este pro
 introduz-se um fator de aleatoriedade: cada processo repete o seu pedido um tempo
 aleatório depois (solução não determinista).
 
-**TODO**: Falar das otimizações?
-
 ## Referências
 
 - Coulouris et al - Distributed Systems: Concepts and Design (5th Edition)
-  - Secções 6.5, **TODO**
+  - Secção 6.5
 - Departamento de Engenharia Informática - Slides de Sistemas Distribuídos (2023/2024)
   - SlidesTagus-Aula05
   - SlidesAlameda-Aula05
