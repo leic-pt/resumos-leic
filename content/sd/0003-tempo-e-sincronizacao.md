@@ -657,7 +657,7 @@ com o custo adicional de processamento para reconstruir os vetores.
 
 ## Salvaguarda distribuída
 
-Criar uma salvaguarda distribuída (ou _distribuded snapshot_) consiste
+Criar uma salvaguarda distribuída (ou _distributed snapshot_) consiste
 essencialmente em capturar o estado global do sistema num determinado instante,
 o que pode ser útil porque permite:
 
