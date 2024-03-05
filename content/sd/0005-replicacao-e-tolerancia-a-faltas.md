@@ -170,9 +170,6 @@ pode retornar um dos seguintes valores:
 
 :::
 
-**TODO**: N sei se vale a pena mencionar o algoritmo de "bakery" de Lamport, nos
-slides do Tagus nao mencionam, mas nos da Alameda sim
-
 ### Registos distribuídos
 
 Uma forma de implementar registos distribuídos é a seguinte:
@@ -214,7 +211,11 @@ Registo regular (com um só escritor):
 
 :::warning[O algoritmo não é atómico]
 
-**TODO**: Exemplo (existe nos slides)
+![Diagrama que demonstra que o algoritmo não é atómico](./assets/0005-ABD-algorithm-not-atomic-example.svg#dark=3)
+
+Tal como ilustrado no diagrama, é possível obter leituras diferentes consoante
+as réplicas que contactamos (lendo $v_1$, depois $v_0$ e $v_1$ novamente), violando o
+princípio da [linearizabilidade](./#linearizabilidade).
 
 :::
 
@@ -254,8 +255,8 @@ Como o `Take` é bloqueante, pode ser usado para sincronizar processos:
 Enquanto que nos registos uma escrita fazia _override_ do valor antigo, aqui o
 processo equivalente é realizar um `Take` seguido de um `Put` (os tuplos são
 imutáveis). O `Take` permite fazer operações que em memória partilhada requerem
-uma instrução do tipo [_**compare-and-swap**_]
-(/so/implementation/#solu%C3%A7%C3%B5es-com-suporte-do-hardware).
+uma instrução do tipo
+[_**compare-and-swap**_](/so/implementation/#solu%C3%A7%C3%B5es-com-suporte-do-hardware).
 
 :::tip[Nota]
 
