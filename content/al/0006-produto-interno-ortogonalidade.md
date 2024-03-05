@@ -112,13 +112,25 @@ Espaço linear munido de munido de produto interno
 Num espaço euclidiano definem-se os seguintes conceitos:
 
 :::info[Norma]
-$$ \parallel x\parallel = \sqrt[2]{x} $$ 
+$$ \parallel x\parallel =  \langle x,x \rang $$ 
 :::
 :::info[Distância]
 dist$$(u,v) = \parallel u-v\parallel $$ 
 :::
 
+### Matriz de Gram
 
+:::info[Matriz de Gram]
+Seja $W$ um espaço linear real (resp. complexo) munido de um produto interno e $$ B=(v_1,v_2,...,v_n)$$ uma base ordenada de $W$. A matriz $$G={[\langle v_i,v_j\rang]}_{(i,j=1,...,n)}$$ dos produtos internos dos vetores da base $B$ é dsignada por _matriz de Gram_ ou _matriz da métrica_, relativa à base $B$. A matriz $G$ verifica:
+
+1. $G$ é simétrica (respetivamente Hermitiana);
+2. $G$ é definida positiva, isto é,  $$x^T_BGx_b>0$$ para todo $x \not = 0$ (resp. $ x^H_BGy_B>0$, para todo $x \not = 0$), ou seja, os valores próprios da matriz $G$ têm de ser todos positivos.
+
+Em relação à base $B$, o produto interno em $W$ escreve-se na forma
+
+$$ \langle x,y \rang = x^T_BGy_B$$
+onde $x_B$ e $y_B$ são respetivamente, os vetores de coodenadas de $x$ e $y$ na base $B$.
+:::
 ### Desigualdade de Cauchy-Schwarz
 
 Num espaço euclidiano qualquer verifica-se que
@@ -170,9 +182,88 @@ Um conjunto ortogonal $ S=\{v_1,v_2,...,v_n\}$ que não contenha o vetor nulo é
 :::
 
 :::info[Projeção ortogonal]
+Num espaço lonear $W$ munido de um produto interno, a _projeção ortogonal_ do vetor $u \isin W$ sobre o vetor não nulo $v \isin W$. é definida por
+
+
 $$ proj_u v =\dfrac{ \langle u,v\rang }{\| u \|^2} $$
 :::
 
-:::info[Projeção ortogonal]
-$$ proj_u v =\dfrac{ \langle u,v\rang }{\| u \|^2} $$
+:::info[Desigualdade Triangular]
+$$ \|u+v\|\le \|u\|+\|v\| $$
+:::
+
+### Complemento ortogonal
+
+Dois subespaços $U$ e $V$  dizem-se _subespaços complementares_ se qualquer vetor de $W$ se escreve na forma $w=u+v$ e se a interseção dos subespaços é nula ($U\cap V=\{\empty \}$).
+
+Tendo em conta esta definição,
+
+$dim W= dim U+ dim V$
+
+Pode-se expandir esta noção, criando a noção de 
+
+:::info[Complemento Ortogonal]
+Seja $W$ um espaço linear munido de um produto intero e $S$ um subespaço de $W$
+   O _complemento ortogonal_ de $S$ é o conjunto de todos os vetores de $W$ que são ortogonais a qualquer vetor de S. Designamos o complemento ortogonal do subespaço $S$ por $S^\perp$.
+:::
+
+:::info[Proposição]
+O complemento ortogonal $S^\perp$ do subespaço $S$ é um subespaço.
+:::
+
+:::info[Proposição]
+Seja $S$ um subespaço e $S^\perp$ o seu complemento ortogonal. Verifica-se que:
+
+$S \cap S^\perp=\{\empty\}$
+:::
+
+Tendo em conta que a interseção de um subespaço com o seu complemento ortogonal é o vazio, e tendo em conta que a sua união é o espaço, fica a questão de se qualquer vetor do espaço pode ser decomposto em vetores dos dois espaços. (Sim, e faz-se da seguinte forma)
+
+:::info[Teorema da decomposição ortogonal]
+Seja $W$ um espaço euclidiano e $S$ um subespaço de $W$. Qualquer vector $x\in W$ escreve-se de forma única como a soma de um vetor $x_S$ de $S$ com um vetor $x_{S^\perp}$ do complemento ortogonal de $S$. Isto é,
+
+$x=x_S+x_{S^\perp}$ com $x_S \in S$ e $x_{S^\perp}$
+
+Define-se a projeção ortognal de $x$ sobre o subespaço $S^\perp$ como $proj_{S^\perp}x=x_{S^\perp}$
+:::
+
+:::info[Hiperplano]
+Num espaço linear de dimensão $n$, chama-se _hiperplano_ a um subespaço de dimensão $(n-1)$
+:::
+
+:::info[Teorema da melhor aproximação]
+Sendo $W$ um espaço euclidiano e $S$ um subespaço de $W$ e $v$ um vetor de $W$, então
+
+$\| x-proj_Sx\|\le \|x-u\|$ para qualquer $u \in S$
+:::
+
+:::info[Distância a um subespaço]
+Seja $W$ um espaço linear, $S$ um subespaço de $W$ e $x$ um vetor de $W$. A distância de $x$ a $S$ é:
+
+$dist(x,S)= \|proj_{S^\perp}x\|$
+:::
+
+:::info[Ortogonalidade dos subespaços fundamentais de uma Matriz]
+$(EL(A))^\perp=N(A)$ e  $(EC(A))^\perp=N(A^T)$
+:::
+
+### Ortogonalização de Gram-Schmidt
+
+Expressar vetores numa base ortornormada é relativamente simples, mas fica a questão de como obter uma tal base, a partir de um conjunto já existente de vetores. Para tal pode-se usar o método de ortogonalização de Gram Schmidt.
+
+:::info[Ortogonalização de Gram Schmidt]
+Seja $V=\{v_1,v_2,...,v_k\}$, com $k>1$, um conjunto linearmente independente de um espaço euclidiano. O conjutno $U=\{u_1,u_2,...,u_k\}$ formado pelos vetores
+
+
+$u_1=v_1$ 
+
+$u_2=v_2-\frac{\langle u_1,v_2\rang}{\|u_1\|^2}$
+
+$...$
+
+$u_k=v_k-proj_{u_1}v_k-proj_{u_2}v_k-...-proj_{u_{k-1}}v_k$
+
+é ortogonal.
+
+Os conjuntos U e V geram o mesmo espaço.
 :::
