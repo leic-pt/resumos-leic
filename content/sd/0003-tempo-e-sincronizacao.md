@@ -95,6 +95,16 @@ $$
 t' > t \Rightarrow C_p(t') > C_p(t)
 $$
 
+:::tip[Nota]
+
+Garantir a monotonia de um relógio é fundamental para o correto funcionamento de
+programas que se baseiam no tempo.
+Por exemplo, a ferramenta _make_ do UNIX é utilizada para compilar apenas os ficheiros
+que foram modificados desde a última compilação.
+Se o tempo retroceder entre compilações, a ferramenta não funciona como desejado.
+
+:::
+
 Para conjuntos de relógios, pode-se ainda falar de **precisão** e **exatidão**.
 
 ![Precisão e Exatidão](./assets/0003-precision-vs-accuracy.png#dark=2)
@@ -136,11 +146,11 @@ O processo $p$ envia uma mensagem $m_1$ ao servidor de tempo $S$ e espera pela
 resposta $m_2$, que inclui $C_S(t_{S,m_2})$, com $t_{S,m_2}$ sendo o momento em
 que a resposta $m_2$ sai de $S$.
 
-<!-- ```mermaid
+```mermaid
 sequenceDiagram
     p->>Servidor de tempo: m₁: What is the time?
     Servidor de tempo->>p: m₂: My clock says this.
-``` -->
+```
 
 O processo $p$ não pode usar o tempo incluído na mensagem $m_2$, pois estaria a
 desprezar o tempo de transmissão. Assim, $p$ mede o $RTT$ e, assumindo que o
@@ -170,6 +180,36 @@ servidor de tempo falhar, o sistema não consegue sincronizar os relógios.
 Cristian propõe que o pedido seja feito em _multicast_ a vários servidores de
 tempo, selecionando o que responder primeiro, resultando na melhor precisão.
 
+:::info[Exercício]
+
+Um cliente pretende sincronizar-se com um servidor e para tal regista o RTT e os tempos
+enviados pelo servidor:
+
+| RTT (ms) | Time (hh\:mm\:ss) |
+| :------: | :---------------: |
+|    22    |   10:54:23.674    |
+|    25    |   10:54:25.450    |
+|    20    |   10:54:28.342    |
+
+> **1\. Com qual dos valores deve o servidor se sincronizar de modo a obter a melhor precisão?**
+
+**R:** Com o terceiro (10:54:28.342), pois apresenta o menor RTT ($20~ms$)
+
+> **2\. Qual o valor do relógio após o acerto?**
+
+**R:** $C(t) = t + \frac{RTT}{2} =$ 10:54:28.342 $+ \frac{20ms}{2} =$ 10:54:28.352
+
+> **3\. Qual a precisão do acerto?**
+
+**R:** $\pm~10~ms$
+
+> **4\. E se soubermos que o tempo de envio de uma mensagem é no mínimo de 8ms,
+> essa precisão é alterada? Se sim, qual o novo valor?**
+
+**R:** $\pm~(\frac{RTT-RTT_{min}}{2}) = \pm~(\frac{20}{2}-8) = \pm~2~ms$
+
+:::
+
 #### Algoritmo de Berkeley
 
 O Algoritmo de Berkeley é um algoritmo de **sincronização interna**.
@@ -178,9 +218,9 @@ processo coordenador $C$ e os processos $p$ e $q$, mas o algoritmo pode ser
 estendido a qualquer número de processos.
 
 Neste algoritmo, é eleito um coordenador $C$, responsável por periodicamente
-envir pedidos a todos os outros processos, que devem responder com o seu tempo.
+enviar pedidos a todos os outros processos, que devem responder com o seu tempo.
 
-<!-- ```mermaid
+```mermaid
 sequenceDiagram
     participant p
     Coordenador->>p: m₁: What is the time?
@@ -189,7 +229,7 @@ sequenceDiagram
     q->>Coordenador: m₄: My clock says this.
     Coordenador->>p: m₅: Offset your clock by this.
     Coordenador->>q: m₆: Offset your clock by this.
-``` -->
+```
 
 O coordenador recebe as respostas $m_2$ e $m_4$ e calcula a média dos
 tempos, incluindo o próprio:
@@ -219,15 +259,48 @@ Cada processo ajusta o seu relógio, de acordo com a diferença recebida.
 
 O algoritmo apresentado foi simplificado, na versão real é tido em conta o
 tempo de transmissão, da forma como foi feito no Algoritmo de Cristian.
+É ainda definido um valor máximo para o RTT (dependendo da exatidão desejada),
+permitindo ao coordenador eliminar ocasionais leituras que ultrapassem esse valor.
 
 Em caso de falha do coordenador, um novo coordenador é eleito. Falar-se-á de
 eleições na próxima publicação.
 
+:::info[Exercício]
+
+Existem 3 máquinas `A`, `B` e `C`, sendo o _master_ `A`. `A` enviou a sua hora (13:15:15)
+a todos e recebeu as seguintes respostas:
+
+| Time (hh\:mm\:ss) |
+| :---------------: |
+| [ A = 13:15:15 ]  |
+|   B = 13:15:05    |
+|   C = 13:16:07    |
+
+> **Qual é o acerto enviado pelo _master_ a cada máquina?**
+
+$$
+T_{avg} = \frac{C_B(t_{B,m}) + C_C(t_{C,m}) + C_A(t)}{3} = 13:15:29
+$$
+
+$$
+\Delta t_{B} = T_{avg} - C_B(t_{B,m}) = +~24s
+$$
+
+$$
+\Delta t_{C} = T_{avg} - C_C(t_{C,m}) = -~38s
+$$
+
+$$
+\Delta t_{A} = T_{avg} - C_A(t) = +~14s
+$$
+
+:::
+
 #### Network Time Protocol (NTP)
 
 Tanto o Algoritmo de Cristian como o Algoritmo de Berkeley são algoritmos
-desenhados para operar em intranets. O NTP define um protocolo distribuir
-informação de tempo através da internet.
+desenhados para operar em intranets. O NTP define um protocolo para distribuir
+informação de tempo através da Internet.
 
 Os objetivos de desenho do NTP são:
 
@@ -243,14 +316,14 @@ Os objetivos de desenho do NTP são:
 O protocolo NTP baseia-se no Algoritmo de Cristian, mas em vez apenas medir o
 $RTT$, registam-se os valores reportados por $p$ para o envio de $m_1$ e
 recepção de $m_2$, $C_p(t_{p,m_1})$ e $C_p(t_{p,m_2})$, e os valores reportados
-por $q$ para a recepção de $m_1$ e envio de $m_2$, $C_q(t_{q,m_1})$ e
-$C_q(t_{q,m_2})$.
+por $q$ para a recepção de $m_1$ e envio de $m_2$, $C_q(t_{q,m_1})$ e $C_q(t_{q,m_2})$.
+Desta forma, o tempo entre a chegada de uma mensagem e o envio da próxima não é contabilizado.
 
-<!-- ```mermaid
+```mermaid
 sequenceDiagram
     p->>q: m₁: When do you receive this message?
     q->>p: m₂: I got it then and am sending it now.
-``` -->
+```
 
 Calcula-se a diferença entre os tempos reportados entre o envio e recepção de
 cada mensagem:
@@ -303,14 +376,6 @@ Para resolver este problema, o NTP divide as máquinas em níveis (ou _strata_):
 - Uma máquina de nível 3 sincroniza com uma máquina de nível 2, etc...
 
 Uma máquina só ajusta o seu relógio com uma máquina de nível inferior.
-
-:::details[help pls]
-Honestamente, não fiquei com grande intuição sobre como é que o NTP funciona.
-Se estás a ler isto e tens uma explicação melhor, que transmita intuição sobre
-o protocolo e não seja só debitar fórmulas, por favor, diz-me algo no discord.
-
-\- Luís
-:::
 
 ## Eventos e Relógios Lógicos
 
@@ -380,6 +445,15 @@ Algumas relações de concorrência encontradas no diagrama:
 
 :::
 
+:::tip[Nota]
+
+Se dois eventos têm uma relação _happened-before_, então o primeiro pode ou não
+ter causado o segundo.
+Esta relação apenas sugere potenciais causalidades, podendo não haver qualquer
+ligação entre os eventos (eventos independentes).
+
+:::
+
 ### Relógio Lógico de Lamport
 
 Leslie Lamport propôs um algoritmo simples para capturar a ordem de eventos num
@@ -392,8 +466,10 @@ $$L(e)$$.
 Os relógios são atualizados de acordo com as seguintes regras:
 
 - **LC1**: $$L_i$$ é incrementado sempre que um evento é observado por $$p_i$$.
-- **LC2**: Quando $$p_i$$ envia uma mensagem $$m$$, inclui na mensagem a estampilha $$t$$ com o valor de $$L_i$$ após executar **LC1**.
-- **LC3**: Quando $$p_i$$ recebe uma mensagem $$m$$, atualiza $$L_i$$ tal que $$L_i \coloneqq \max(L_i, t)$$ e depois executa **LC1**.
+- **LC2**: Quando $$p_i$$ envia uma mensagem $$m$$, inclui na mensagem a estampilha $$t$$
+  com o valor de $$L_i$$ após executar **LC1**.
+- **LC3**: Quando $$p_i$$ recebe uma mensagem $$m$$, atualiza $$L_i$$ tal que $$L_i \coloneqq
+  \max(L_i, t)$$ e depois executa **LC1**.
 
 :::details[Exemplo]
 ![Logical Clocks](./assets/0003-events-at-three-processes-lamport.png#dark=2)
@@ -457,8 +533,10 @@ estampilha não é relevante, usa-se $V(e)$.
 
 - **VC1**: Inicialmente, $V_i[j] = 0$ para todo o $i, j = 1, 2, ..., N$.
 - **VC2**: $$V_i[i]$$ é incrementado sempre que um evento é observado por $$p_i$$.
-- **VC3**: Quando $$p_i$$ envia uma mensagem $$m$$, inclui na mensagem a estampilha $$t$$ com o valor de $$V_i$$ após executar **VC2**.
-- **VC4**: Quando $$p_i$$ recebe uma mensagem $$m$$, atualiza $V_i$ realizando um _merge_ com $t$ e depois executa **VC2**.
+- **VC3**: Quando $$p_i$$ envia uma mensagem $$m$$, inclui na mensagem a estampilha $$t$$
+  com o valor de $$V_i$$ após executar **VC2**.
+- **VC4**: Quando $$p_i$$ recebe uma mensagem $$m$$, atualiza $V_i$ realizando um _merge_
+  com $t$ e depois executa **VC2**.
 
 A operação de _merge_ dos _vector clock_ $V_i$ e $t$ consiste em atualizar cada
 campo do _vector clock_ $V_i$ tal que $V_i[j] \coloneqq \max(V_i[j], t[j])$,
@@ -528,7 +606,8 @@ Começamos por mostrar que $$e \rightarrow e' \Rightarrow V(e) < V(e')$$
 
 **Passo base (HB1)**: Se $e$ e $e'$ ocorrem no mesmo processo, é imediato por **VC2** que $V(e) < V(e')$
 
-**Passo base (HB2)**: Se existe uma mensagem $m$ tal que $e$ é o evento de envio e $e'$ é o evento de receção, então $V(e) < V(e')$ por **VC3** e **VC4**
+**Passo base (HB2)**: Se existe uma mensagem $m$ tal que $e$ é o evento de envio e $e'$
+é o evento de receção, então $V(e) < V(e')$ por **VC3** e **VC4**
 
 **Passo indutivo (HB3)**: Se $e \rightarrow e'$ e $e' \rightarrow e''$,
 então $V(e) < V(e')$ e $V(e') < V(e'')$, por HI
@@ -566,10 +645,237 @@ $$
 
 :::
 
+:::tip[Nota]
+
+Em comparação com os _timestamps_ de Lamport, os _vector timestamps_ têm a desvantagem
+de precisar de uma maior capacidade de armazenamento e transmissão de mensagens,
+proporcional ao número de processos.
+No entanto, existem técnicas para armazenar e transmitir quantidades menores de dados,
+com o custo adicional de processamento para reconstruir os vetores.
+
+:::
+
+## Salvaguarda distribuída
+
+Criar uma salvaguarda distribuída (ou _distribuded snapshot_) consiste
+essencialmente em capturar o estado global do sistema num determinado instante,
+o que pode ser útil porque permite:
+
+- recuperar o sistema em caso de falha (_rollback_)
+- analisar o sistema de forma a verificar certas propriedades
+- depurar o sistema de forma geral
+
+Guardar o estado de **todo** o sistema de forma coerente é um grande desafio,
+já que não existe o conceito de "tempo global" (os relógios não estão sincronizados)
+e o estado das aplicações consiste não só no estado dos seus processos, mas também
+nas mensagens em trânsito.
+
+### Abordagem ingénua
+
+A primeira abordagem que nos pode surgir é existir um coordenador central
+que pode ordenar aos processos que:
+
+- Parem por completo o que estão a fazer
+- Criem um _snapshot_ do seu estado atual
+- Esperem por uma notificação do coordenador para retomar atividade (quando o estado
+  de todo o sistema estiver capturado)
+
+O problema óbvio desta abordagem é que parar todo o sistema é ineficiente, pelo que
+iremos procurar guardar o estado do sistema **sem o parar**.
+
+### Corte coerente
+
+Antes de falarmos de algoritmos que não precisam de parar o sistema, é preciso definir
+a noção de corte coerente:
+
+:::info[Corte coerente]
+
+Um corte é coerente se, para cada evento que este contém, também inclui todos
+os eventos que [_**aconteceram-antes**_](#eventos-e-relógios-lógicos) desse evento.
+
+:::
+
+Um evento corresponde a uma ação interna do processo ou ao envio/receção de uma
+mensagem nos canais de comunicação. Note que o estado destes canais é relevante:
+se descobrirmos que o processo $p_i$ registou o envio de uma mensagem $m$ para o
+processo $p_j$ $(i \neq j)$, então, examinando se $p_j$ recebeu $m$, podemos
+inferir se $m$ faz ou não parte do estado do canal entre $p_i$ e $p_j$.
+
+![Tipos de cortes: (fortemente) coerente vs incoerente](./assets/0003-cut-types.svg#dark=3)
+
+O corte mais à direita é **incoerente** porque $p_2$ incluiu a receção de $m_5$
+mas $p_1$ não incluiu o envio desta mensagem, ou seja, este corte apresenta um
+"efeito" sem uma "causa". É fácil perceber que a execução real do
+sistema nunca esteve neste estado, visto que é impossível receber uma mensagem
+que não foi enviada.
+
+Em contraste, o corte do meio inclui o envio de $m_4$ mas não inclui a receção
+desta mensagem. Ainda assim, este corte é **coerente** com a execução real do
+sistema visto que as mensagens demoram algum tempo a chegar ao destinatário.
+
+Por fim, o corte mais à esquerda é **fortemente coerente** porque todas as
+causalidades estão representadas nos estados locais dos processos (não existem
+mensagens em trânsito).
+
+### Algoritmo simples
+
+Consideremos um algoritmo em que:
+
+- qualquer processo pode a qualquer momento iniciar uma salvaguarda global, guardando
+  o seu estado local
+- quando o processo $p_i$ acaba de guardar o seu estado:
+  - envia um _marker_ a todos os outros processos e de seguida prossegue com a sua
+    execução normal
+- quando o processo $p_i$ recebe um _marker_:
+  - se ainda não guardou o seu estado local, guarda-o
+
+:::info[Exercício]
+
+> Inicialmente, cada processo possui os tokens indicados na imagem.
+> Sabendo que cada mensagem transfere 100 tokens entre 2 processos, qual vai ser o
+> estado capturado pelo algoritmo considerando que P1 inicia um _snapshot_ no instante X?
+
+![Diagrama do exercício](./assets/0003-snapshot-exercise.svg#dark=3)
+<br>
+**R:** $P1 = 800, ~P2 = 300, ~P3 = 800$
+
+Justificação:
+
+- P1: Enviou 2 mensagens, pelo que perdeu $2*100 = 200$ tokens
+- P2: Não enviou nem recebeu mensagens, pelo que o número de tokens não se altera
+- P3: Recebeu 2 mensagem de P1 e enviou 1 de volta, pelo que ganhou $100$ tokens
+
+**IMPORTANTE**: A soma de tokens no início era 2000 mas no _snapshot_ é 1900!
+Não se sabe que mensagens estão em trânsito...
+
+:::
+
+Este algoritmo apresenta uma falha, que é **não garantir a coerência do corte**:
+
+![Corte incoerente](./assets/0003-inconsistent-cut.svg#dark=3)
+
+O corte ilustrado (que pode ser entendido como um _snapshot_ iniciado por P1) é
+incoerente (a soma de tokens é 2100).
+
+É importante capturar também o estado dos canais de comunicação entre os processos!
+
+### Algoritmo de Chandy-Lamport
+
+Este algoritmo estende o anterior de forma a capturar também o estado dos canais.
+Pressupõe que:
+
+- não há falhas nos processos nem nos canais (ou seja, que são fiáveis)
+- os canais são unidirecionais com uma implementação FIFO
+- o grafo de processos e canais é fortemente ligado (isto é, existe um caminho
+  entre quaisquer dois processos)
+- qualquer processo pode iniciar uma _snapshot_ global a qualquer momento
+- os processos podem continuar a sua execução normal (e enviar/receber
+  mensagens) enquanto a snapshot está a decorrer
+
+A única diferença do algoritmo anterior é que **o estado do canal também é guardado**:
+
+:::info[Estado dos canais]
+
+Cada processo guarda o seu estado local e, para cada canal de receção, guarda
+também o conjunto de mensagens recebidas após o snapshot. Desta forma, o processo
+regista quaisquer mensagens que tenham chegado depois de ter guardado o seu estado
+e antes do remetente ter registado o seu estado.
+
+:::
+
+::::details[Pseudocódigo do algoritmo]
+<br>
+
+```php
+Marker receiving rule for process p_i
+  On receipt of a marker message at p_i over channel c:
+    if (p_i has not yet recorded its state) it
+      records its process state now;
+      records the state of c as the empty set;
+      turns on recording of messages arriving over other incoming channels;
+    else
+      records the state of c as the set of messages it has received over c since it saved its state.
+    end if
+
+Marker sending rule for process p_i
+  After p_i has recorded its state, for each outgoing channel c:
+    p_i sends one marker message over c
+    (before it sends any other message over c).
+```
+
+:::tip[Nota]
+
+Qualquer processo pode iniciar o algoritmo a qualquer momento. Este age como se
+tivesse recebido um _marker_ (através de um canal inexistente) e segue a regra
+de receção de _markers_.
+
+:::
+
+::::
+
+Neste algoritmo:
+
+- nenhum processo decide quando termina
+- todos os processos vão receber um _marker_ e portanto guardar o seu estado
+- todos os processos receberam um _marker_ nos $N-1$ canais de receção e guardaram
+  os seus estados
+- existe a possibilidade de um servidor central obter todos os estados locais
+  coerentes para construir um _snapshot_ global
+
+:::info[Exercício]
+
+> Inicialmente, cada processo possui os _tokens_ indicados na imagem.
+> Sabendo que cada mensagem transfere 100 _tokens_ entre 2 processos, qual vai ser o
+> estado capturado pelo algoritmo Chandy-Lamport considerando que P1 inicia um
+> _snapshot_ no instante X?
+
+![Diagrama do exercício](./assets/0003-snapshot-exercise.svg#dark=3)
+<br>
+**R:** $P1 = 800, ~P2 = 300, ~P3 = 800, ~Canal ~ P3-P1~(C31) = 100$
+
+Justificação:
+
+- P1: Enviou 2 mensagens, pelo que perdeu $2*100 = 200$ _tokens_
+- P2: Não enviou nem recebeu mensagens, pelo que o número de _tokens_ não se altera
+- P3: Recebeu 2 mensagem de P1 e enviou 1 de volta, pelo que ganhou $100$ _tokens_
+- C31: Desde que P1 enviou o primeiro _marker_ até que recebeu de volta um de P3,
+  recebeu nesse canal 1 mensagem, ou seja, $100$ _tokens_ estavam a ser
+  transferidos no canal
+
+**IMPORTANTE**: A soma de _tokens_ já se mantém a 2000! Ao escutar os canais,
+conseguimos saber que existe uma mensagem em trânsito de P3 para P1.
+
+:::
+
+:::tip[Nota]
+
+Mas será que um corte coerente garante que capturamos o estado global do sistema
+num determinado instante?
+
+![Snapshot vs sistema real](./assets/0003-snapshot-vs-system.svg#dark=3)
+
+A verde está representado o estado real do sistema em cada fase e à direita temos
+o que foi capturado pelo _snapshot_ : **apesar de coerente, o sistema nunca esteve
+naquele estado...**
+
+Podemos verificar este acontecimento com o auxílio de _vector clocks_:
+
+![Snapshot vs sistema real vector clocks](./assets/0003-snapshot-vs-system-vector-clocks.svg#dark=3)
+
+É possível observar que tanto $e_1$ é concorrente com $e_2$ como $e_3$ é com $e_4$,
+pelo que o algoritmo não sabe em que ordem é que estes eventos aconteceram, já
+que os relógios de cada processo não estão sincronizados. O que o algoritmo consegue
+capturar é que o estado inicial é $(100, 100)$, após $e_1$ e $e_2$ é $(80, 40)$ e
+por fim é $(140, 60)$.
+
+![Snapshot vs sistema real vector clocks](./assets/0003-snapshot-vs-system-evolution.svg#dark=3)
+
+:::
+
 ## Referências
 
 - Coulouris et al - Distributed Systems: Concepts and Design (5th Edition)
-  - Secções 14.1, 14.2, 14.3 e 14.4
+  - Secções 14.1, 14.2, 14.3, 14.4 e 14.5
 - Coulouris et al - Distributed Systems: Concepts and Design (5th Edition) - Instructor's Manual
   - Soluções dos exercícios 14.10, 14.11, 14.12 e 14.13
 - van Steen and Tanenbaum - [Distributed Systems](https://www.distributed-systems.net/index.php/books/ds4/)
@@ -578,3 +884,5 @@ $$
   - 3a Fundamentos: Tempo
 - Paul Krzyzanowski - [Assigning Lamport & Vector Timestamps](https://people.cs.rutgers.edu/~pxk/417/notes/clocks/index.html)
   - Imagens dos exemplos de eventos e relógios lógicos
+- Departamento de Engenharia Informática - Slides de Sistemas Distribuídos (2023/2024)
+  - SlidesTagus-Aula03b
