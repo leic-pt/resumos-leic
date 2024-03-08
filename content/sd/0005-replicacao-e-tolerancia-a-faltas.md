@@ -1,5 +1,5 @@
 ---
-title: Replicação e tolerância a faltas
+title: Replicação e Tolerância a Faltas
 description: >
   Tipos de registos.
 
@@ -10,7 +10,7 @@ path: /sd/replicacao-e-tolerancia-a-faltas
 type: content
 ---
 
-# Replicação e tolerância a faltas
+# Replicação e Tolerância a Faltas
 
 ```toc
 
