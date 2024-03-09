@@ -41,8 +41,8 @@ _request-reply_ é síncrona porque o processo cliente bloqueia até receber res
 do servidor. A comunicação assíncrona pode ser útil em situações em que os clientes
 podem receber as respostas mais tarde.
 
-Embora muitas implementações atuais usem [TCP
-](/rc/transporte/#tcp---transmission-control-protocol), um protocolo baseado em
+Embora muitas implementações atuais usem [TCP](
+/rc/transporte/#tcp---transmission-control-protocol), um protocolo baseado em
 [UDP](/rc/transporte/#udp---user-datagram-protocol) evita _overheads_ desnecessários,
 em particular:
 
@@ -57,9 +57,9 @@ em particular:
 
 Muitas vezes é difícil decidir o tamanho apropriado para o _buffer_ no qual vamos
 receber os datagramas (isto aplica-se tanto do lado do cliente como do servidor).
-O tamanho limitado dos datagramas pode não ser adequado para sistemas [RMI
-](https://pt.wikipedia.org/wiki/RMI) ou [RPC](/sd/apis-de-comunicacao/#rpc), uma
-vez que os argumentos e resultados dos _procedures_ podem ter um tamanho arbitrário.
+O tamanho limitado dos datagramas pode não ser adequado para sistemas [RMI](
+https://pt.wikipedia.org/wiki/RMI) ou [RPC](#rpc), uma vez que os argumentos e
+resultados dos _procedures_ podem ter um tamanho arbitrário.
 
 :::
 

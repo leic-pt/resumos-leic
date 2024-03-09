@@ -296,7 +296,7 @@ Tolerância a falhas:
 
 Tal como vimos anteriormente, muitos algoritmos distribuídos precisam de atribuir
 cargos especiais a certos processos. Por exemplo, na variante
-["servidor central"](/sd/coordenacao-e-consenso/#algoritmo-do-servidor-central)
+["servidor central"](#algoritmo-do-servidor-central)
 dos algoritmos para exclusão mútua, o servidor é escolhido entre os processos que
 precisam de utilizar a secção crítica. É necessário um **algoritmo de eleição**
 para esta escolha, sendo essencial que todos os processos concordem com a mesma.
