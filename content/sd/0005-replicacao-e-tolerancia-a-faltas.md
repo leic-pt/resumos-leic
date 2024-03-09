@@ -397,10 +397,347 @@ concorrentemente e nenhum consiga a maioria (_deadlock_). Para resolver este pro
 introduz-se um fator de aleatoriedade: cada processo repete o seu pedido um tempo
 aleatório depois (solução não determinista).
 
+## Teorema _CAP_
+
+Este teorema defende que é impossível um sistema apresentar simultaneamente:
+
+- _[**C**](color:orange)onsistency_ (coerência)
+- _[**A**](color:green)vailability_ (disponibilidade)
+- _[**P**](color:blue)artition-tolerance_ (tolerância a partições na rede)
+
+pois apenas pode ter **2** destas propriedades (quaisquer duas).
+
+![CAP theorem](./assets/0005-cap-theorem.svg#dark=3)
+
+## Coerência fraca
+
+### Garantias de sessão
+
+- _**Read Your Writes**_:
+  - Se um Read $R$ procede um Write $W$ numa sessão, então
+    o valor de $W$ é incluído em $R$
+- _**Monotonic Reads**_:
+  - Se um Read $R1$ precede um Read $R2$ numa sessão, $R2$
+    tem que incluir todos os Writes completos incluídos em $R1$ (mas pode ter
+    alterações mais recentes)
+- _**Writes Follow Reads**_:
+  - Se um Read $R1$ precede um Write $W2$ numa sessão e
+    $R1$ é executado no servidor $S1$, então qualquer servidor $S2$ que inclui
+    $W2$ também inclui qualquer Write $W1$ incluido em $R1$ na ordem em que foram escritos
+- _**Monotonic Writes**_:
+  - Se um Write $W1$ precede um Write $W2$ numa sessão, então
+    qualquer servidor $S2$ que inclua $W2$ também inclui $W1$ na ordem em que foram escritos
+
+| Guarantee | Session state updated on | Session state checked on |
+| :-------: | :----------------------: | :----------------------: |
+|   _RYR_   |          Write           |           Read           |
+|   _MR_    |           Read           |           Read           |
+|   _WFR_   |           Read           |          Write           |
+|   _MW_    |          Write           |          Write           |
+
+:::details[Pseudocódigo de operações de escrita e leitura]
+
+```php
+Write(W,S) = {
+  if WFR then
+    check S.vector dominates read-vector
+  if MW then
+    check S.vector dominates write-vector
+  wid := write W to S
+  write-vector[S] := wid.clock
+}
+
+Read(R,S) = {
+  if MR then
+    check S.vector dominates read-vector
+  if RYW then
+    check S.vector dominates write-vector
+  [result, relevant-write-vector] := read R from S
+  read-vector := MAX(read-vector, relevant-write-vector)
+  return result
+}
+```
+
+:::
+
+### Propagação epidémica (_gossip propagation_)
+
+De forma a introduzir o conceito de propagação de informação, vamos pensar sobre
+a forma menos coordenada possível de fazê-lo:
+
+- Periodicamente, cada processo contacta os outros e envia-lhes informação/atualizações
+- A informação é assim propagada como uma espécie de "rumor" (do inglês _gossip_)
+- Apresenta a grande vantagem de ser totalmente descentralizada, balanceando a carga
+  por todos os processos
+
+Ao propagar informação desta forma surgem, naturalmente, duas questões essenciais:
+
+- Por que ordem devem ser aplicadas as atualizações recebidas dos outros processos?
+- Se um processo contacta primeiro uma réplica R1 e depois outra R2, que garantias
+  mínimas devem ser existir?
+
+Pensemos no exemplo em que existem três réplicas R1, R2 e R3 e que se está a
+executar uma aplicação de prepaarção de slides de forma cooperativa:
+
+- Em R1 um cliente executa a instrução "criar círculo", que é propagada para R2
+- Em R2 outro cliente executa a instrução "pintar círculo", que é propagada para R3
+- R3 recebe primeiro a instrução "pintar círculo" antes de "criar círculo", o que
+  **pode gerar um erro**
+
+Outro exemplo:
+
+- Em R1 um cliente executa a instrução "label=distrib**úi**dos" e propaga-a para R2
+- Em R2 um cliente aperebe-se da gralha e corrige-a: "label=distrib**uí**dos"
+- R3 recebe primeiro a instrução executada em R2 e só depois a executada em R1
+- Se aplicar as atualizações por esta ordem, **a correção da gralha fica sem efeito**
+
+**A grande maioria dos sistemas de propagação epidémica aplica as atualizações de
+forma a respeitar a relação [_aconteceu-antes_](/sd/tempo-e-sincronizacao/#eventos-e-relógios-lógicos), ou seja, respeita a ordem
+causal dos acontecimentos.**
+
+E no caso dos **clientes móveis**?
+
+- Um cliente muda a sua _password_ na réplica R1
+- Muda para a réplica R2 antes da alteração ser propagada
+- **Não consegue utilizar a sua nova password**
+
+Existem sistemas capazes de garantir a relação _aconteceu-antes_ para clientes móveis,
+enquanto que outros oferecem **garantias ainda mais fracas** como as
+[garantias de sessão](#garantias-de-sessão) apresentadas acima.
+
+Todas estas garantias podem ser atingidas com o uso de [relógios
+lógicos](/sd/tempo-e-sincronizacao/#eventos-e-relógios-lógicos) (pouco eficiente).
+
+### _Lazy Replication_ - _gossip architecture_
+
+Foi proposta em 1922 e inspirou muitos dos sistemas **fracamente coerentes** dos
+dias de hoje. Tem como objetivo:
+
+- garantir **acesso rápido** aos clientes
+- mesmo quando existem **partições na rede**
+- com o _trade-off_ de sacrificar a **coerência**
+
+O nome _**gossip**_ vem de as réplicas propagarem as alterações periodicamente em
+_background_, como se fossem boatos.
+
+![lazy replication basic operation](./assets/0005-lazy-replication.png#dark=3)
+
+O algoritmo oferece **coerência fraca**, mas assegura duas propriedades:
+
+- _**Monotonic reads**_
+  - mesmo que o cliente aceda a réplicas diferentes
+- O estado das réplicas **respeitam a ordem causal** das alterações
+  - se uma modificação $m_2$ depende de outra $m_1$, réplica nunca executa $m_2$
+    antes de $m_1$
+
+#### Interação cliente-réplica
+
+- Cada cliente mantém um _timestamp_ vetorial denominado $prev$
+
+  - vetor de inteiros, um por réplica
+  - reflete a última versão acedida pelo cliente
+
+- Em cada contacto com uma réplica, é enviado também o $prev$: (pedido, $prev$)
+- A réplica devolve (resposta, $new$)
+
+  - em que $new$ é o _timestamp_ vetorial que reflete o estado da réplica
+  - se a réplica estiver atrasada em relação ao cliente, espera até se atualizar
+    para devolver uma resposta
+
+- Cliente atualiza $prev$ de acordo com $new$, confrontando cada entrada de
+  $prev$ com a correspondente de $new$
+
+  - se $new[i] \gt prev[i]$, $prev[i] = new[i]$
+
+- Cada réplica mantém também localmente um _**update log**_
+  - uma réplica pode já ter recebido uma modificação mas não a poder executar
+    devido a ainda não ter recebido/executado dependências causais, pelo que a
+    mantém em estado pendente no _log_
+  - pode assim propagar modificações individuais para as outras réplicas, mantendo
+    o _update_ no _log_ até receber confirmação de todas elas
+
+![lazy replication basic operation](./assets/0005-lazy-replication-interaction.png#dark=3)
+
+Quando uma réplica recebe um **pedido de leitura**:
+
+- verifica se $pedido.prev \leq value~timestamp$
+  - se sim, retorna o valor atual juntamente com o $value~timestamp$
+  - se não, o pedido fica pendente até estar atualizada
+
+Quando uma réplica $i$ recebe um **pedido de modificação**:
+
+- verifica se já o executou e em caso afirmativo descarta-o
+- incrementa a entrada $i$ do seu $replica~timestamp$ em uma unidade
+- atribui à modificação um novo _timestamp_ calculado por:
+  - $pedido.prev$ com a entrada $i$ substituída pelo novo valor calculado acima
+    (gerando assim um _timestamp_ único para este update)
+- adiciona a modificação ao _log_ e retorna o novo _timestamp_ ao cliente
+- **espera até $pedido.prev \leq value~timestamp$** se verificar para executar o
+  código localmente
+  - garantindo assim que a execução respeita a ordem causal
+- quando finalmente executar o pedido, atualiza o $value~timestamp$
+  - para cada entrada $j$: se $replicaTS[j] \gt valueTS[j]$, $valueTS[j] = replicaTS[j]$
+
+Para propagar as modificações:
+
+- periodicamente, cada gestor de réplica $i$ contacta outro gestor $j$
+- $i$ envia de forma ordenada a $j$ as modificações do seu _log_ que estima que
+  $j$ não tenha
+- para cada modificação que $j$ recebe:
+  - se não for duplicada, adiciona ao seu _log_
+  - atualiza o seu $replicaTS$
+  - assim que $prev \leq value~timestamp$, executa a modificação
+
+:::warning[_Aconteceu-antes_ vs protocolo _gossip_]
+
+Enquanto que quando estudámos a relação [_aconteceu-antes_
+](/sd/tempo-e-sincronizacao/#vector-clocks) vimos que 3 tipos de eventos
+atualizavam as _timestamps_ vetoriais:
+
+- Eventos locais genéricos
+- Envio de uma mensagem
+- Receção de uma mensagem
+
+![Exemplo de vector clocks](./assets/0003-events-at-three-processes-vectors.png#dark=2)
+
+no _gossip_ apenas existe um tipo de eventos que causa esta atualização: _**Updates**_
+
+:::
+
+:::details[Exemplo]
+
+Imaginemos um sistema com 2 réplicas $R_0$ e $R_1$, em que ambas mantêm saldos de
+contas bancárias. As contas da Alice e Bob começaram com saldo nulo e mais tarde
+receberam transferências de uma conta $S$ (que assumimos que contava com saldo
+suficiente para realizar ambas as transferências). Cada operação foi aceite
+por uma réplica diferente:
+
+$op_{~S \rarr Alice}$ : $\text{S.transferTo(Alice, 10)}$
+
+- aceite por $R_0$ com $TS = \text{<1,0>}$ e $prevTS = \text{<0,0>}$
+
+$op_{~S \rarr Bob}$ : $\text{S.transferTo(Bob, 20)}$
+
+- aceite por $R_1$ com $TS = \text{<0,1>}$ e $prevTS = \text{<0,0>}$
+
+Execução da primeira operação:
+
+![Lazy replication - 1ª operação](./assets/0005-lazy-replication-example-write.png#dark=3)
+
+Execução de reads de réplicas diferentes:
+
+![Lazy replication - reads de réplicas diferentes](./assets/0005-lazy-replication-example-reads.png#dark=3)
+
+:::
+
+Existem outros tipos de algoritmos para suportar operações que requerem modelos
+de coerência mais fortes, como por exemplo:
+
+- **Forced** operations
+- **Immediate** operations
+
+mas não os abordamos nesta cadeira.
+
+**TODO**: Não sei se queres dar aqui algum insightzinho, talvez descrever sucintamente
+a base de cada tipo de operação, só para terem noção das garantias
+
+### Algoritmo de _Bayou_
+
+No sistema de _**Lazy Replication**_ assume-se que as **operações concorrentes são
+comutativas**, ou seja, independentemente da ordem pela qual são aplicadas, o
+resultado final é o mesmo (por ex: "desenhar círculo" e "alterar cor da linha").
+Se as operações não forem comutativas, é necessário utilizar primitivas mais fortes
+(forced/immediate).
+
+O _Bayou_ introduz uma solução para reconciliar automaticamente réplicas divergentes:
+
+- Ordenar operações concorrentes por uma **ordem total**
+- **Cancelar** as operações que foram executadas por uma **ordem diferente**
+- **Re-aplicar** estas operações pela **ordem total**, aplicando uma função de
+  reconciliação que é específica da aplicação
+- As operações podem ser codificadas de forma a facilitar a reconciliação automática
+
+#### _Updates_: tentativo e _commit_
+
+- Quando se faz um _update_, ele fica marcado como **tentativo**
+  - podendo ainda sofrer alterações nesta fase
+- Quando o _update_ é _**commited**_, a sua ordem já não pode ser alterada
+  - quem decide a ordem é tipicamente uma réplica especial, o **primário**
+  - quando um _update_ é _commited_, as outras réplicas podem por isso ter que o ordenar
+
+![Bayou - updates tentativos e commited](./assets/0005-bayou-tentative-commited.png#dark=3)
+
+:::details[Exemplo de operação]
+
+```php
+Bayou_Write(
+  update = {insert, Meetings, 12/18/95, 1:30pm, 60min, "Budget Meeting"},
+  dependency_check = {
+    query = "SELECT key FROM Meetings WHERE day = 12/18/95
+      AND start < 2:30pm AND end > 1:30pm",
+    expected_result = EMPTY
+  },
+  mergeproc = {
+    alternates = {{12/18/95, 3:00pm}, {12/19/95, 9:30am}};
+    newupdate = {};
+    FOREACH a IN alternates {
+      # check if there would be a conflict
+      IF (NOT EMPTY (SELECT key FROM Meetings WHERE day = a.date
+        AND start < a.time + 60min AND end > a.time))
+          CONTINUE;
+      # no conflict, can schedule meeting at that time
+      newupdate = {insert, Meetings, a.date, a.time, 60min, "Budget Meeting"};
+      BREAK;
+    }
+    IF (newupdate = {}) # no alternate is acceptable
+      newupdate = {insert, ErrorLog, 12/18/95, 1:30pm, 60min, "Budget Meeting"};
+    RETURN newupdate;
+  }
+)
+```
+
+:::
+
+:::tip[HEEEELP]
+
+PLS IMPROVE BAYOU, SLIDES TÃO TIPO PROJETO DE ES DO CURTO :sob:
+
+:::
+
+### CRDTs (Conflict-Free Replicated Datatypes)
+
+Foram apresentados em aula essencialmente como uma curiosidade e consistem em
+estruturas de dados que facilitam _updates_ concorrentes em várias réplicas,
+resolvendo os conflitos de forma automática (e determinística? n sei se é vdd **TODO**).
+
+Pequeno exemplo de um CRDT de um contador que apenas suporta as operações
+"_increment_" e "_read_":
+
+```c
+// Replica i
+
+increment() {
+  value[i]++;
+}
+
+read() {
+  return SUM k: 1..N_REPLICAS (value[k])
+}
+
+merge_with_replica_j() {
+  for k: 1..N_REPLICAS {
+    i.value[k] = max(i.value[k], j.value[k])
+  }
+}
+```
+
 ## Referências
 
 - Coulouris et al - Distributed Systems: Concepts and Design (5th Edition)
   - Secção 6.5
 - Departamento de Engenharia Informática - Slides de Sistemas Distribuídos (2023/2024)
-  - SlidesTagus-Aula05
+  - SlidesTagus-Aula05 (informação + imagens)
   - SlidesAlameda-Aula05
+- [D. B. Terry, A. J. Demers, K. Petersen, M. J. Spreitzer, M. M. Theimer and B. B. Welch,
+  "Session guarantees for weakly consistent replicated data,"
+  ](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=331722&isnumber=7843)
