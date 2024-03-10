@@ -20,7 +20,7 @@ type: content
 
 ## Exclusão mútua distribuída
 
-Já fomos introduzido ao problema da exclusão mútua em
+Já fomos introduzidos ao problema da exclusão mútua em
 [**Sistemas Operativos (SO)**](/so/programação/), que tem como objetivo garantir
 que dois processos/_threads_ não acedem concorrentemente ao mesmo recurso
 (ex: ficheiro, bloco de memória, ...), uma vez que tal pode causar incoerências
@@ -170,7 +170,7 @@ Este algoritmo associa um **_voting set_** $V_i$ (também chamados **quóruns**)
 cada processo $p_i$ $(i = 1,2,...,N)$, onde $V_i \subseteq \{p_1, p_2, ..., p_N\}$.
 Os _sets_ $V_i$ são escolhidos de forma a que, para todo $i,j = 1,2,...,N$:
 
-- $p_i \in V_i$ (atenção que um processo pode pertencer a mais que um _voting set_)
+- $p_i \in V_i$
 - $V_i \cap V_j \neq \varnothing$ – há pelo menos um membro comum entre quaisquer
   dois _voting sets_
 - $|V_i| = K$ – de forma a ser justo, todos os _voting sets_ têm o mesmo tamanho
@@ -296,7 +296,7 @@ Tolerância a falhas:
 
 Tal como vimos anteriormente, muitos algoritmos distribuídos precisam de atribuir
 cargos especiais a certos processos. Por exemplo, na variante
-["servidor central"](/sd/coordenacao-e-consenso/#algoritmo-do-servidor-central)
+["servidor central"](#algoritmo-do-servidor-central)
 dos algoritmos para exclusão mútua, o servidor é escolhido entre os processos que
 precisam de utilizar a secção crítica. É necessário um **algoritmo de eleição**
 para esta escolha, sendo essencial que todos os processos concordem com a mesma.
