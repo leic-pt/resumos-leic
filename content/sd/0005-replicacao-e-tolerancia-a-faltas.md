@@ -399,17 +399,22 @@ aleatório depois (solução não determinista).
 
 ## Teorema _CAP_
 
-Este teorema defende que é impossível um sistema apresentar simultaneamente:
+Segundo este teorema, é impossível um sistema apresentar simultaneamente:
 
 - _[**C**](color:orange)onsistency_ (coerência)
 - _[**A**](color:green)vailability_ (disponibilidade)
 - _[**P**](color:blue)artition-tolerance_ (tolerância a partições na rede)
 
-pois apenas pode ter **2** destas propriedades (quaisquer duas).
+Apenas pode ter **2** destas propriedades (quaisquer duas).
 
 ![CAP theorem](./assets/0005-cap-theorem.svg#dark=3)
 
 ## Coerência fraca
+
+Nesta secção, vamos explorar técnicas de replicação para tornar os serviços altamente
+disponíveis. O objetivo é dar aos clientes acesso ao serviço (com tempos de resposta
+razoáveis) durante o máximo de tempo possível, mesmo que alguns resultados não
+respeitem a consistência sequencial.
 
 ### Garantias de sessão
 
@@ -474,10 +479,10 @@ Ao propagar informação desta forma surgem, naturalmente, duas questões essenc
 
 - Por que ordem devem ser aplicadas as atualizações recebidas dos outros processos?
 - Se um processo contacta primeiro uma réplica R1 e depois outra R2, que garantias
-  mínimas devem ser existir?
+  mínimas devem existir?
 
 Pensemos no exemplo em que existem três réplicas R1, R2 e R3 e que se está a
-executar uma aplicação de prepaarção de slides de forma cooperativa:
+executar uma aplicação de preparação de slides de forma cooperativa:
 
 - Em R1 um cliente executa a instrução "criar círculo", que é propagada para R2
 - Em R2 outro cliente executa a instrução "pintar círculo", que é propagada para R3
@@ -487,7 +492,7 @@ executar uma aplicação de prepaarção de slides de forma cooperativa:
 Outro exemplo:
 
 - Em R1 um cliente executa a instrução "label=distrib**úi**dos" e propaga-a para R2
-- Em R2 um cliente aperebe-se da gralha e corrige-a: "label=distrib**uí**dos"
+- Em R2 um cliente apercebe-se da gralha e corrige-a: "label=distrib**uí**dos"
 - R3 recebe primeiro a instrução executada em R2 e só depois a executada em R1
 - Se aplicar as atualizações por esta ordem, **a correção da gralha fica sem efeito**
 
@@ -527,7 +532,7 @@ O algoritmo oferece **coerência fraca**, mas assegura duas propriedades:
 - _**Monotonic reads**_
   - mesmo que o cliente aceda a réplicas diferentes
 - O estado das réplicas **respeitam a ordem causal** das alterações
-  - se uma modificação $m_2$ depende de outra $m_1$, réplica nunca executa $m_2$
+  - se uma modificação $m_2$ depende de outra $m_1$, a réplica nunca executa $m_2$
     antes de $m_1$
 
 #### Interação cliente-réplica
@@ -542,7 +547,7 @@ O algoritmo oferece **coerência fraca**, mas assegura duas propriedades:
 
   - em que $new$ é o _timestamp_ vetorial que reflete o estado da réplica
   - se a réplica estiver atrasada em relação ao cliente, espera até se atualizar
-    para devolver uma resposta
+    para devolver uma resposta (caso seja uma leitura)
 
 - Cliente atualiza $prev$ de acordo com $new$, confrontando cada entrada de
   $prev$ com a correspondente de $new$
@@ -582,17 +587,20 @@ Para propagar as modificações:
 
 - periodicamente, cada gestor de réplica $i$ contacta outro gestor $j$
 - $i$ envia de forma ordenada a $j$ as modificações do seu _log_ que estima que
-  $j$ não tenha
+  $j$ não tem
 - para cada modificação que $j$ recebe:
   - se não for duplicada, adiciona ao seu _log_
   - atualiza o seu $replicaTS$
   - assim que $prev \leq value~timestamp$, executa a modificação
+- **NOTA**: As modificações não são apenas propagadas desta forma (comunicação periódica).
+  Quando um gestor de réplicas descobre que precisa de uma certa atualização para
+  processar um pedido, este pode pedi-la diretamente.
 
 :::warning[_Aconteceu-antes_ vs protocolo _gossip_]
 
 Enquanto que quando estudámos a relação [_aconteceu-antes_
 ](/sd/tempo-e-sincronizacao/#vector-clocks) vimos que 3 tipos de eventos
-atualizavam as _timestamps_ vetoriais:
+atualizavam os _timestamps_ vetoriais:
 
 - Eventos locais genéricos
 - Envio de uma mensagem
@@ -600,7 +608,7 @@ atualizavam as _timestamps_ vetoriais:
 
 ![Exemplo de vector clocks](./assets/0003-events-at-three-processes-vectors.png#dark=2)
 
-no _gossip_ apenas existe um tipo de eventos que causa esta atualização: _**Updates**_
+No _gossip_ apenas existe um tipo de eventos que causa esta atualização: _**Updates**_
 
 :::
 
@@ -630,16 +638,29 @@ Execução de reads de réplicas diferentes:
 
 :::
 
+:::info[Nota]
+
+Os clientes também podem comunicar diretamente entre si. Visto que estas comunicações
+podem originar relações causais entre operações realizadas no serviço, os clientes
+devem incluir os seus _timestamps_ nestas mensagens de forma a que os destinatários
+consigam fazer _merge_ dos _timestamps_. Assim, estas relações causais podem ser
+inferidas corretamente pelas réplicas do serviço.
+
+:::
+
 Existem outros tipos de algoritmos para suportar operações que requerem modelos
 de coerência mais fortes, como por exemplo:
 
-- **Forced** operations
+- **Forced** operations (_total_ e _causal_)
 - **Immediate** operations
 
-mas não os abordamos nesta cadeira.
+As atualizações _immediate-ordered_ são aplicadas numa ordem consistente em relação
+a qualquer outra atualização em todos os gestores de réplicas. Esta ordenação é
+utilizada porque, por exemplo, uma atualização _forced_ e outra _causal_ que não
+têm uma relação _happened-before_ podem ser aplicadas em ordens diferentes nos
+diversos gestores de réplicas.
 
-**TODO**: Não sei se queres dar aqui algum insightzinho, talvez descrever sucintamente
-a base de cada tipo de operação, só para terem noção das garantias
+Estas garantias de ordenação não são abordadas nesta cadeira.
 
 ### Algoritmo de _Bayou_
 
@@ -666,6 +687,10 @@ O _Bayou_ introduz uma solução para reconciliar automaticamente réplicas dive
   - quando um _update_ é _commited_, as outras réplicas podem por isso ter que o ordenar
 
 ![Bayou - updates tentativos e commited](./assets/0005-bayou-tentative-commited.png#dark=3)
+
+Na figura acima, $t_i$ tornou-se _commited_. Todas as atualizações _tentative_
+após $c_N$ precisam de ser desfeitas; $t_i$ é então aplicado após $c_N$ e de
+$t_0$ a $t_{i-1}$ e $t_{i+1}$, etc., reaplicados após $t_i$.
 
 :::details[Exemplo de operação]
 
@@ -698,19 +723,20 @@ Bayou_Write(
 
 :::
 
-:::tip[HEEEELP]
-
-PLS IMPROVE BAYOU, SLIDES TÃO TIPO PROJETO DE ES DO CURTO :sob:
-
-:::
-
 ### CRDTs (Conflict-Free Replicated Datatypes)
 
-Foram apresentados em aula essencialmente como uma curiosidade e consistem em
-estruturas de dados que facilitam _updates_ concorrentes em várias réplicas,
-resolvendo os conflitos de forma automática (e determinística? n sei se é vdd **TODO**).
+Um CRDT é uma estrutura de dados que é replicada em vários computadores numa rede,
+com as seguintes características:
 
-Pequeno exemplo de um CRDT de um contador que apenas suporta as operações
+- A aplicação pode atualizar qualquer réplica de forma independente, concorrente e sem
+  precisar de comunicar com outras réplicas (ou seja, sem coordenação, ao contrário da
+  abordagem _operational transformation_ usada por Bayou)
+- Um algoritmo (que faz parte da própria estrutura de dados) resolve automaticamente
+  quaisquer inconsistências que possam surgir entre réplicas
+- Embora as réplicas possam ter estados diferentes num determinado momento, é garantido
+  que eventualmente irão convergir
+
+Pequeno exemplo de um contador (CRDT) que apenas suporta as operações
 "_increment_" e "_read_":
 
 ```c
@@ -731,13 +757,20 @@ merge_with_replica_j() {
 }
 ```
 
+Os CRDTs foram apresentados em aula apenas como uma curiosidade, se tiveres interesse
+em aprender mais recomendamos a [palestra](https://youtu.be/B5NULPSiOGw) do Martin
+Kleppmann na QCon London 2018.
+
 ## Referências
 
 - Coulouris et al - Distributed Systems: Concepts and Design (5th Edition)
-  - Secção 6.5
+  - Secções 6.5, 18.4.1 e 18.4.2
 - Departamento de Engenharia Informática - Slides de Sistemas Distribuídos (2023/2024)
   - SlidesTagus-Aula05 (informação + imagens)
   - SlidesAlameda-Aula05
+  - SlidesTagus-Aula06
+  - SlidesAlameda-Aula06
 - [D. B. Terry, A. J. Demers, K. Petersen, M. J. Spreitzer, M. M. Theimer and B. B. Welch,
-  "Session guarantees for weakly consistent replicated data,"
+  "Session guarantees for weakly consistent replicated data"
   ](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=331722&isnumber=7843)
+- [Conflict-free replicated data type, Wikipedia](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type)
