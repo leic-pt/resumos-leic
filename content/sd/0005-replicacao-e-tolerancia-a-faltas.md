@@ -606,7 +606,7 @@ atualizavam os _timestamps_ vetoriais:
 - Envio de uma mensagem
 - Receção de uma mensagem
 
-![Exemplo de vector clocks](./assets/0003-events-at-three-processes-vectors.png#dark=2)
+![Exemplo de vector clocks](./assets/0003-events-at-three-processes-vectors.png#dark=1)
 
 No _gossip_ apenas existe um tipo de eventos que causa esta atualização: _**Updates**_
 
