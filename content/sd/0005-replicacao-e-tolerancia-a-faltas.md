@@ -790,7 +790,7 @@ De forma resumida:
 - na **recuperação para trás** os estados guardados pelos vários
   **processos que falharam** devem estar mutuamente coerentes
 - na **recuperação para a frente** os estados das **réplicas que sobrevivem** devem
-  estar mútuamente coerentes.
+  estar mutuamente coerentes.
 
 Iremos analisar dois algoritmos de replicação genéricos (por recuperação para a
 frente):
@@ -817,7 +817,7 @@ Objetivo: assegurar **linearizabilidade** (coerência forte).
 **Desvantagens**:
 
 - Se o primário produzir um valor errado, o erro vai ser propagado
-  para as réplicas.
+  para as réplicas
 - Se o detetor de falhas não for perfeito, pode existir mais que um primário
   concorrentemente, havendo o risco dos estados divergirem
 
@@ -858,7 +858,7 @@ forma a facilitar a implementação dos mesmos.
 #### Canais Perfeitos
 
 - **Garante a entrega de mensagens** ponto a ponto de forma ordenada, caso **nem o
-  emissor nem o destinatário falhem**.
+  emissor nem o destinatário falhem**
 
 - Implementação prática: retransmitir a mensagem até que a receção desta seja
   confirmada pelo destinatário
@@ -916,7 +916,7 @@ $$
 
 **Vista**: conjunto de processos que pertence ao grupo:
 
-- Novos membros podem ser adicioonados dinamicamente
+- Novos membros podem ser adicionados dinamicamente
 - Um processo pode sair voluntariamente do grupo ou ser expulso caso falhe
 
 Propriedades:
@@ -995,7 +995,7 @@ Algoritmos de ordem total (caso sem falhas):
 
 - Primário usa **Difusão Fiável Uniforme síncrona na vista** para propagar
   novos estados aos secundários
-  - só respondendo ao cliente quando a uniformidade estiver garantida
+  - só responde ao cliente quando a uniformidade estiver garantida
 - Réplicas usam **Sincronia na Vista** para lidar com falhas do primário:
   - quando o primário $p$ falha, eventualmente será entregue nova vista sem $p$
   - quando uma nova vista é entregue e o anterior primário não consta nela, os
@@ -1012,7 +1012,7 @@ Algoritmos de ordem total (caso sem falhas):
 ## Referências
 
 - Coulouris et al - Distributed Systems: Concepts and Design (5th Edition)
-  - Secções 6.5, 18.4.1 e 18.4.2
+  - Secções 6.5 e 18.1-18.4
 - Departamento de Engenharia Informática - Slides de Sistemas Distribuídos (2023/2024)
   - SlidesTagus-Aula05 (informação + imagens)
   - SlidesAlameda-Aula05
