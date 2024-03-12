@@ -294,10 +294,11 @@ button {
 }
 
 .edit-link {
+  width: fit-content;
+  align-self: flex-end;
   display: flex;
   align-items: center;
   gap: 5px;
-  justify-content: flex-end;
   color: var(--textColor);
   opacity: 60%;
   transition: color 1s cubic-bezier(0.075, 0.82, 0.165, 1),
