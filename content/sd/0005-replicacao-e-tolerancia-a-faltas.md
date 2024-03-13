@@ -810,7 +810,7 @@ Objetivo: assegurar **linearizabilidade** (coerência forte).
   - responde ao cliente
   - (processa o próximo pedido que estiver na fila)
 
-![Funcionamento do Primário-secundário](./assets/0005-primario-secundario.svg#dark=3)
+![Funcionamento do Primário-secundário](./assets/0005-replication-primary-backup.svg#dark=3)
 
 **Vantagem**: Suporta operações não determinísticas (primário decide o resultado).
 
@@ -828,8 +828,10 @@ Objetivo: assegurar **linearizabilidade** (coerência forte).
 - Todas as réplicas processam os mesmos pedidos, pela mesma ordem
   - assume-se que as operações são determinísticas, de forma a todas as réplicas
     ficarem idênticas
+- Cada réplica responde ao cliente (o número de respostas pelo qual o cliente
+  aguarda depende das suposições de falhas)
 
-![Funcionamento da Replicação de máquina de estados](./assets/0005-replicacao-maquina-estados.svg#dark=3)
+![Funcionamento da Replicação de máquina de estados](./assets/0005-replication-state-machine.svg#dark=3)
 
 **Vantagem**: Se uma réplica produzir um valor errado, não afecta as outras.
 
@@ -938,6 +940,10 @@ Propriedades:
 - Se uma mensagem $m$ é entregue à aplicação depois da vista $V_i$ mas antes da
   vista $V_{i\op{+}1}$, diz-se que $m$ foi entregue na vista $V_i$
 - Uma mensagem $m$ enviada na vista $V_i$ é entregue na vista $V_i$
+- Se um processo $q$ se junta a um grupo e se torna indefinidamente alcançável a
+  partir do processo $p$ (sendo $p \neq q$), então eventualmente $q$ estará sempre
+  nas _views_ que $p$ entrega (a mesma lógica pode ser aplicada a processos que
+  não conseguem comunicar)
 
 Todas estas propriedades culminam nestas **duas principais**:
 
@@ -951,6 +957,16 @@ Todas estas propriedades culminam nestas **duas principais**:
 - Corolário:
   - Dois processos que entregam as vistas $V_i$ e $V_{i\op{+}1}$ entregam
     exactamente o mesmo conjunto de mensagens na vista $V_i$
+
+:::details[Exemplo]
+
+Considere um grupo com três processos, $p$, $q$ e $r$. Suponha que $p$ envia uma
+mensagem $m$ na _view_ $(p, q, r)$, mas $p$ falha depois de enviar $m$. A seguinte
+figura ilustra as execuções possíveis:
+
+![Exemplos de Sincronia na Vista](./assets/0005-view-synchronous-communication.png#dark=3)
+
+:::
 
 Para **mudar de vista**:
 
@@ -1008,6 +1024,14 @@ Algoritmos de ordem total (caso sem falhas):
 - Processos usam **Sincronia na Vista**
 - Clientes usam **Difusão Atómica síncrona na vista** para enviar pedidos a todas
   as réplicas
+
+:::tip[Nota]
+
+Este tipo de replicação não alcança a linearizabilidade (ao contrário da replicação
+primário-secundário) porque a ordem total na qual os gestores de réplicas processam
+os pedidos pode não coincidir com a ordem real na qual os clientes fizeram os pedidos.
+
+:::
 
 ## Referências
 
