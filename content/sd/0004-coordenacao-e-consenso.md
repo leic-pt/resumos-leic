@@ -536,6 +536,224 @@ _"eventually"_) perfeito.
 
 :::
 
+## Problema do Consenso
+
+O consenso é um dos problemas mais difíceis e estudados de Sistemas Distribuídos.
+Foi provado que, num sistema assíncrono em que podem ocorrer falhas, este problema
+não tem solução (resultado conhecido como
+[**FLP**](<https://en.wikipedia.org/wiki/Consensus_(computer_science)#Solvability_results_for_some_agreement_problems>)).
+
+:::info[Definição de Consenso]
+
+Dado um conjunto de $N$ processos:
+
+1. Cada processo propõe um valor (_input_)
+2. Todos os processos decidem o mesmo valor (_output_)
+
+**Notas**:
+
+- **O valor decidido deve ser um dos valores propostos**
+  - invalidando assim uma solução que decide sempre um valor por omissão
+    independentemente dos _inputs_ dados
+- Pode ser qualquer um dos valores propostos:
+  - **Não tem de ser o valor proposto por mais processos**
+  - **Não existe** qualquer tipo de **hierarquia de processos** ou **critério de
+    qualidade** que distinga os valores (i.e. não existem valores nem processos
+    melhores que os outros)
+
+:::
+
+Podemos concluir assim três propriedades do Consenso:
+
+1. **Terminação**: todos os processos correctos decidem ("_alguma-vez_")
+2. **Acordo uniforme**: se dois processos decidem, decidem o mesmo valor
+3. **Integridade**: o valor decidido (_output_) foi proposto por um processo
+
+Quanto a soluções para este problema em sistemas:
+
+- **síncronos**: ou seja, onde é possível concretizar um detetor de falhas perfeito,
+  iremos abordar o algoritmo [_FloodSet_](#floodset-consensus)
+- **assíncronos**: ou seja, onde é possível concretizar um detetor de falhas
+  "alguma-vez" perfeito, não iremos abordar nenhum algoritmo, mas podem consultar
+  o [algoritmo "Paxos"](<https://en.wikipedia.org/wiki/Paxos_(computer_science)>)
+  do Lamport
+
+### _Floodset Consensus_
+
+A ideia essencial deste algoritmo é cada processo enviar para todos os outros
+o seu valor (_input_), de forma a que no fim todos conhecam todos os valores possíveis
+e possam tomar a mesma decisão de forma determinística.
+
+O funcionamento do algoritmo é baseado em rondas:
+
+- em cada ronda, cada processo faz _broadcast_ do seu valor
+- ao receber um valor de outro processo, adiciona-o ao seu conjunto
+- ao fim de $f \op{+} 1$ rondas, é escolhido o _output_ com base num critério
+  determinístico utilizado por todos os processos
+  - em que $f$ é o número de processos que pode falhar
+
+:::details[Pseudocódigo]
+
+$\text{Algorithm for process } P_i \in g; \text{algorithm proceeds in } f \op{+} 1
+\text{ rounds}$
+
+$\text{On initialization}\\$
+$\qquad Values_i^1 := \set{v_i} ; Values_i^0 = \set{};$
+
+$\text{In round } r~(1 \leq r \leq f \op{+} 1)\\$
+$\qquad \text{B-multicast}(g, Values_i^r \op{—} Values_i^{r-1});$ // Send only values that have not been sent
+$\\ \qquad Values_i^{r+1} := Values_i^r;\\$
+$\qquad \text{while } (\text {in round } r)~\{\\$
+$\qquad \qquad \text{On B-deliver}(V_j) \text{ from some } p_j\\$
+$\qquad \qquad \qquad Values_i^{r+1} := Values_i^{r+1} \cup V_j\\$
+$\qquad \}$
+
+$\text{After } (f \op{+} 1) \text{ rounds}\\$
+$\qquad \text{Assign } d_i = minimum(Values_i^{f+1});$
+
+**NOTA**: o critério utilizado neste algoritmo para a escolha do _output_ foi
+encontrar o valor mínimo, mas pode ser qualquer critério!
+
+:::
+
+:::details[Exemplo]
+
+Exemplo de execução com $f = 1$:
+
+![Diagrama de execução](./assets/0005-floodset-consensus-example.svg#dark=3)
+
+:::
+
+Algumas notas acerca do algoritmo:
+
+- Pressupõe um sistema síncrono
+  - se um processo $p_i$ não recebe o valor de outro processo $p_j$ no turno $n$
+    então o processo $p_j$ falhou de certeza (e não participa nos próximos turnos)
+- É possível adaptar o algoritmo de forma a utilizar um detetor de falhas perfeito:
+  - Caso um processo $p_i$ nao tenha recebido o valor de um processo $p_j$ num
+    turno $n$, apenas avança para o turno $n \op{+} 1$ caso o detetor de falhas
+    declare $p_j$ como falhado
+- Em alguns casos, caso não ocorram falhas, é possível terminar em menos turnos
+
+### Problemas relacionados
+
+Iremos agora abordar dois exemplos de problemas que são semelhantes ao problema
+do Consenso e que podem ser utilizados para o resolver ou utilizá-lo na construção
+da sua solução.
+
+#### Coerência Interativa
+
+- Conjunto de $N$ processos
+- Cada processo $p_i$ propõe um valor ($\text{input}_i$)
+- Todos os processo decidem o mesmo vetor $V$ ($\text{output}$)
+- O vetor $V$ decidido tem uma entrada por cada processo em que:
+  - ou $V[i] = \text{input}_i$
+  - ou $V[i] = null$
+
+Propriedades:
+
+1. **Terminação**: todos os processos correctos decidem ("_alguma-vez_")
+2. **Acordo uniforme**: se dois processos decidem, decidem o mesmo vetor $V$
+3. **Integridade**: se o processo $p_i$ não falhar, $V[i] = \text{input}_i$
+
+:::details[Pseudocódigo das implementações]
+Consenso usando Coerência Interativa:
+
+```
+Quando Consenso.propoe(valor):
+  Coerencialnteractiva.propoe(valor)
+
+Quando Coerencialnteractiva.decide(vector):
+  valor = primeiraEntradaDiferenteDeNull(vector);
+  Consenso.decide(valor)
+
+```
+
+Coerência Interativa usando consenso:
+
+```
+// este codigo é executado por todos os processos
+
+fun PRONTO(vector):
+  se para todo o p_x: p_x não pertence a falhados e tivermos vector_proposta[x] != null
+    retorna VERDADEIRO
+  caso contrário
+    retorna FALSO
+
+Init:
+  falhados = {}
+  para cada valor de i < N
+    vector_proposta[i] = null;
+
+Quando falha(p_x):
+  falhados = falhados U {p_x}
+
+Quando IC.propoe(valor_i)
+  DifusäoFiavel.envia(p_i, valor_i)
+
+Quando DifusaoFiavel.entrega(p_j, valor_j)
+  vector_proposta[j] = valor_j;
+
+Quando PRONTO(vector_proposta)
+  Consenso.propoe(vector_proposta) // só propõe uma vez
+
+Quando Consenso.decide(vector)
+  IC.decide(vector)
+```
+
+:::
+
+#### Difusão com terminação
+
+- Conjunto de $N$ processos
+- Um processo pré-definido $s$ envia uma mensagem $m$
+- Se o processo $s$ é correto, todos os processos corretos entregam $m$
+- Se o processo $s$ falha, os processos entregam $m$ ou $null$
+- Todos os processos corretos entregam o mesmo valor (ou $m$ ou $null$)
+
+Propriedades:
+
+1. **Terminação**: todos os processos correctos decidem ("_alguma-vez_")
+2. **Acordo uniforme**: se dois processos decidem, decidem o mesmo valor $v$
+3. **Integridade**: se o processo $s$ não falhar, $v = m$
+
+:::details[Pseudocódigo das implementações]
+
+Difusão com Terminação usando Consenso:
+
+```
+Quando ConsensoPropoe(v) no processo i
+  i.DifusaoComTerminacaoEnvia(v)
+
+Para todo o i
+  i.DifusaoComTerminacaoEntrega(v_i)
+
+Escolhe v_final como sendo o menor v_i: v_i != null
+  ConsensoDecide(v_final)
+```
+
+Consenso usando Difusão com Terminação:
+
+```
+No emissor:
+  Quando DifusãoComTerminação(m)
+    DifusãoFiávelEnvia(m)
+    ConsensoPropõe(m)
+
+
+No restantes processos, executa um e apenas um destes passos:
+  Quando DifusãoFiávelEntrega(m)
+    ConsensoPropõe(m)
+  Quando suspeita a falha do processo "s"
+    ConsensoPropõe(null)
+
+Em todos os processos:
+  Quando ConsensoDecide(v)
+    DifusãoComTerminaçãoEntrega(m)
+```
+
+:::
+
 ## Referências
 
 - Coulouris et al - Distributed Systems: Concepts and Design (5th Edition)
@@ -543,3 +761,4 @@ _"eventually"_) perfeito.
 - Departamento de Engenharia Informática - Slides de Sistemas Distribuídos (2023/2024)
   - SlidesTagus-Aula03a
   - SlidesTagus-Aula04
+  - SlidesAlameda-Aula08
