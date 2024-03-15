@@ -777,7 +777,7 @@ Existem duas estratégias principais:
 - Recuperação "para a frente":
   - são mantidas várias cópias (réplicas) do processo
   - quando é feita uma alteração a uma réplica, esta deve ser propagada para todas
-    as outras de forma a estarem [atualizadas/sincronizadas (**TODO**: n sei se são os melhores termos)](TODO)
+    as outras de forma a estarem atualizadas/sincronizadas
   - se uma réplica falha, o cliente pode passar a utilizar outra
   - estrutura de dados replicada:
     - registo ([algoritmo ABD](#algoritmo-abd))
@@ -876,7 +876,7 @@ forma a facilitar a implementação dos mesmos.
 
 Propriedades:
 
-- Seja $m$ uma mensagem enviada a para um grupo de processos $\Set{p_1, p_2, ..., p_N}$
+- Seja $m$ uma mensagem enviada para um grupo de processos $\Set{p_1, p_2, ..., p_N}$
   por um elemento do grupo
 - **Validade**: se um processo correto $p_i$ envia $m$ então eventualmente $p_i$
   entrega $m$
@@ -961,7 +961,7 @@ Todas estas propriedades culminam nestas **duas principais**:
 :::details[Exemplo]
 
 Considere um grupo com três processos, $p$, $q$ e $r$. Suponha que $p$ envia uma
-mensagem $m$ na _view_ $(p, q, r)$, mas $p$ falha depois de enviar $m$. A seguinte
+mensagem $m$ na _view_ $(p, q, r)$, mas este falha depois de enviar $m$. A seguinte
 figura ilustra as execuções possíveis:
 
 ![Exemplos de Sincronia na Vista](./assets/0005-view-synchronous-communication.png#dark=3)
@@ -979,12 +979,16 @@ Para **mudar de vista**:
 
 #### Difusão Atómica
 
-[Consiste em ter as garantias de **Difusão Fiável + Ordem total** (TODO: is this right?)](TODO):
+Consiste em ter as garantias de **Difusão Fiável + Ordem total**:
 
 - Difusão Fiável: se uma réplica recebe o pedido, todas as réplicas recebem o pedido
 - Ordem total: todas as réplicas recebem os pedidos pela mesma ordem
 
-Algoritmos de ordem total (caso sem falhas):
+A abordagem básica para implementar ordenação total é atribuir identificadores
+totalmente ordenados às mensagens _multicast_, de modo a que cada processo
+tome a mesma decisão de ordenação com base nesses identificadores.
+
+Algoritmos de ordem total (sem falhas):
 
 - Ordem total baseada em **sequenciador**:
   - as mensagens são enviadas para todas as réplicas usando um algoritmo de Difusão
@@ -999,13 +1003,15 @@ Algoritmos de ordem total (caso sem falhas):
       tem do sistema
     - **Todos estes problemas são resolvidos na camada de Sincronia na Vista**
 - Ordem total baseada em **acordo coletivo**:
-  - [TODO: Falta explicar este algoritmo, q está explicado nas págs. 655 e 656 do
-    livro, n apanhei mt bem a cena, mas deixo aqui as notas q tão nos slides](TODO)
+  - um processo envia uma mensagem _multicast_ para os membros do grupo. Estes
+    processos propõem números de sequência para a mensagem e devolvem-nos ao
+    remetente, que gera o número de sequência acordado com base nos números propostos.
   - o algoritmo funciona mesmo que cada mensagem seja enviada para um sub-conjunto
     diferente de nós
   - quando há falhas, é preciso executar um algoritmo de reconfiguração que fica
     bastante simplificado pela Sincronia na Vista
     ![Funcionamento do algoritmo baseado em acorco coletivo](./assets/0005-collective-agreement.png#dark=3)
+  - **TODO**: Adicionar exemplo ilustrativo da aula
 
 ### Algoritmo Primário-secundário (concretizado)
 
