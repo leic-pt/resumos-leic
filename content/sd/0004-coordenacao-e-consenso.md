@@ -259,6 +259,8 @@ adaptado, os processos colocam na fila de espera pedidos pendentes em ordem
 _happened-before_, garantindo assim que o requisito
 [ME3](/sd/coordenacao-e-consenso/#algoritmos-de-exclusão-mútua) também seja satisfeito.
 
+(ver o exemplo ilustrativo de [Ordem Total baseada em acordo coletivo](/sd/replicacao-e-tolerancia-a-faltas/#difusão-atómica:~:text=Ordem%20total%20baseada%20em%20acordo%20coletivo))
+
 :::
 
 ### Comparação dos algoritmos

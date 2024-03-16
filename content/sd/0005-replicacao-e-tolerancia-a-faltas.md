@@ -1025,20 +1025,21 @@ Algoritmos de ordem total (sem falhas):
   ![Exemplo de skeen com Maekawa - 1](./assets/0005-skeen-maekawa-example-1.svg#dark=3)
 
   $P_1$ e $P_2$ já receberam o pedido de $A$, marcando-os com o número de sequência
-  1 e 2 (respectivamente). Estes pedidos encontram-se no estado "tentativo" (T),
-  já que se tratam de propostas, ainda não foram confirmados.
+  1 e 2 (respectivamente) e enviando essas propostas ao cliente. Estes pedidos
+  encontram-se no estado "tentativo" (T), já que se tratam de propostas, ainda
+  não foram confirmados.
 
   ![Exemplo de skeen com Maekawa - 2](./assets/0005-skeen-maekawa-example-2.svg#dark=3)
 
   O cliente ao receber estes dois números, escolhe o mais alto (2) e envia essa
-  informação ao seu quórum. O pedido de $A$ encontra-se agora ordenado (estado
-  final, F), pelo que passa para o topo da lista.
+  informação ao seu quórum. O pedido de $A$ encontra-se agora ordenado definitivamente
+  (estado final, F).
 
   ![Exemplo de skeen com Maekawa - 3](./assets/0005-skeen-maekawa-example-3.svg#dark=3)
 
-  Ao chegar ao topo da lista com estado final, é enviado para a camada de aplicação,
-  que neste caso é o algoritmo Maekawa, que dá acesso a $A$ à exclusão mútua em
-  ambos os processo do seu quórum.
+  Ao chegar ao topo da lista de $P_1$ com estado final, $A$ é enviado para a camada
+  de aplicação, que neste caso é o algoritmo Maekawa. $P_1$ dá acesso a $A$ à
+  exclusão mútua dado estar livre.
   Entretanto chegou também o pedido de $C$ a $P_1$, que foi marcado com o número 3.
 
   ![Exemplo de skeen com Maekawa - 4](./assets/0005-skeen-maekawa-example-4.svg#dark=3)
@@ -1049,15 +1050,20 @@ Algoritmos de ordem total (sem falhas):
   ![Exemplo de skeen com Maekawa - 5](./assets/0005-skeen-maekawa-example-5.svg#dark=3)
 
   Os pedidos de $C$ chegaram ao topo, pelo que foram enviados para a camada superior.
-  $P_1$ colocou $C$ como pendente, pois $A$ tem a exclusão mútua e $P_3$ concedeu-lhe
+  $P_1$ colocou $C$ como pendente, pois $A$ tem a exclusão mútua, e $P_3$ concedeu-lhe
   acesso.
-  $B$ recebe como respostas 1 e 4, pelo que escolhe 4.
+  $B$ recebe como respostas 1 e 4, pelo que escolhe 4, o que faz com que $A$ vá
+  para o topo da lista de $P_2$.
 
   ![Exemplo de skeen com Maekawa - 6](./assets/0005-skeen-maekawa-example-6.svg#dark=3)
 
-  O pedido de $B$ encontra-se no topo da lista, pelo que é enviado à aplicação.
-  Tanto $P_2$ como $P_3$ já concederam acesso a outro cliente, pelo que colocam
-  $B$ na lista de pendentes.
+  O pedido de $A$ é enviado para a camada superior e ganha o acesso à exclusão
+  mútua em $P_2$.
+  Em $P_3$, é enviado o pedido de $B$, que fica na lista de pendentes dado já
+  existir outro cliente na exclusão mútua.
+  De seguida, o pedido de $B$ em $P_2$ passa a estar no topo da lista com estado final,
+  pelo que também é enviado. $A$ já está na exclusão mútua, portanto $B$ é adicionado
+  à lista de pendentes.
 
   **Recordar**: O algoritmo de Maekawa tinha uma falha: era suscetível a _deadlocks_.
   Ao utilizarmos ordem total, garantindo que todos os processo recebem os pedidos
