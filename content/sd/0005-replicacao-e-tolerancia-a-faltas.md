@@ -1014,10 +1014,10 @@ Algoritmos de ordem total (sem falhas):
     bastante simplificado pela Sincronia na Vista
     ![Funcionamento do algoritmo baseado em acorco coletivo](./assets/0005-collective-agreement.png#dark=3)
 
-  :::details[Exemplo de aplicação do algoritmo ao Maekawa]
+  :::details[Exemplo de aplicação no algoritmo de Maekawa]
 
   Iremos analisar o funcionamento do algoritmo de Skeen (em que o cliente escolhe
-  o maior dos números de sequência recebidos) aplicado à exclusão mútua de Maekawa.
+  o maior dos números de sequência propostos) aplicado à exclusão mútua de Maekawa.
 
   Existem três clientes $A$, $B$ e $C$, com quóruns $\Set{P_1, P_2}$,
   $\Set{P_2, P_3}$ e $\Set{P_1, P_3}$.
@@ -1066,7 +1066,7 @@ Algoritmos de ordem total (sem falhas):
   à lista de pendentes.
 
   **Recordar**: O algoritmo de Maekawa tinha uma falha: era suscetível a _deadlocks_.
-  Ao utilizarmos ordem total, garantindo que todos os processo recebem os pedidos
+  Ao utilizarmos ordem total, garantindo que todos os processos recebem os pedidos
   pela mesma ordem, este problema fica resolvido.
 
   :::
