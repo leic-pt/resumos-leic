@@ -1003,15 +1003,67 @@ Algoritmos de ordem total (sem falhas):
       tem do sistema
     - **Todos estes problemas são resolvidos na camada de Sincronia na Vista**
 - Ordem total baseada em **acordo coletivo**:
+
   - um processo envia uma mensagem _multicast_ para os membros do grupo. Estes
-    processos propõem números de sequência para a mensagem e devolvem-nos ao
-    remetente, que gera o número de sequência acordado com base nos números propostos.
+    processos propõem números de sequência para a mensagem (atribuição "tentativa")
+    e devolvem-nos ao remetente, que gera o número de sequência acordado com base
+    nos números propostos (atribuição final).
   - o algoritmo funciona mesmo que cada mensagem seja enviada para um sub-conjunto
     diferente de nós
   - quando há falhas, é preciso executar um algoritmo de reconfiguração que fica
     bastante simplificado pela Sincronia na Vista
     ![Funcionamento do algoritmo baseado em acorco coletivo](./assets/0005-collective-agreement.png#dark=3)
-  - **TODO**: Adicionar exemplo ilustrativo da aula
+
+  :::details[Exemplo de aplicação do algoritmo ao Maekawa]
+
+  Iremos analisar o funcionamento do algoritmo de Skeen (em que o cliente escolhe
+  o maior dos números de sequência recebidos) aplicado à exclusão mútua de Maekawa.
+
+  Existem três clientes $A$, $B$ e $C$, com quóruns $\Set{P_1, P_2}$,
+  $\Set{P_2, P_3}$ e $\Set{P_1, P_3}$.
+
+  ![Exemplo de skeen com Maekawa - 1](./assets/0005-skeen-maekawa-example-1.svg#dark=3)
+
+  $P_1$ e $P_2$ já receberam o pedido de $A$, marcando-os com o número de sequência
+  1 e 2 (respectivamente). Estes pedidos encontram-se no estado "tentativo" (T),
+  já que se tratam de propostas, ainda não foram confirmados.
+
+  ![Exemplo de skeen com Maekawa - 2](./assets/0005-skeen-maekawa-example-2.svg#dark=3)
+
+  O cliente ao receber estes dois números, escolhe o mais alto (2) e envia essa
+  informação ao seu quórum. O pedido de $A$ encontra-se agora ordenado (estado
+  final, F), pelo que passa para o topo da lista.
+
+  ![Exemplo de skeen com Maekawa - 3](./assets/0005-skeen-maekawa-example-3.svg#dark=3)
+
+  Ao chegar ao topo da lista com estado final, é enviado para a camada de aplicação,
+  que neste caso é o algoritmo Maekawa, que dá acesso a $A$ à exclusão mútua em
+  ambos os processo do seu quórum.
+  Entretanto chegou também o pedido de $C$ a $P_1$, que foi marcado com o número 3.
+
+  ![Exemplo de skeen com Maekawa - 4](./assets/0005-skeen-maekawa-example-4.svg#dark=3)
+
+  O cliente $C$ recebe 1 e 3 como propostas, pelo que escolhe 3.
+  Chega agora o pedido de $B$ a $P_3$, que lhe atribui o número 4.
+
+  ![Exemplo de skeen com Maekawa - 5](./assets/0005-skeen-maekawa-example-5.svg#dark=3)
+
+  Os pedidos de $C$ chegaram ao topo, pelo que foram enviados para a camada superior.
+  $P_1$ colocou $C$ como pendente, pois $A$ tem a exclusão mútua e $P_3$ concedeu-lhe
+  acesso.
+  $B$ recebe como respostas 1 e 4, pelo que escolhe 4.
+
+  ![Exemplo de skeen com Maekawa - 6](./assets/0005-skeen-maekawa-example-6.svg#dark=3)
+
+  O pedido de $B$ encontra-se no topo da lista, pelo que é enviado à aplicação.
+  Tanto $P_2$ como $P_3$ já concederam acesso a outro cliente, pelo que colocam
+  $B$ na lista de pendentes.
+
+  **Recordar**: O algoritmo de Maekawa tinha uma falha: era suscetível a _deadlocks_.
+  Ao utilizarmos ordem total, garantindo que todos os processo recebem os pedidos
+  pela mesma ordem, este problema fica resolvido.
+
+  :::
 
 ### Algoritmo Primário-secundário (concretizado)
 
