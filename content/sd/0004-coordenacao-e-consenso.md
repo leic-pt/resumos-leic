@@ -540,7 +540,7 @@ _"eventually"_) perfeito.
 
 O consenso é um dos problemas mais difíceis e estudados de Sistemas Distribuídos.
 Foi provado que, num sistema assíncrono em que podem ocorrer falhas, este problema
-não tem solução (resultado conhecido como
+[**não tem solução**](#impossibilidade-em-sistemas-assíncronos) (resultado conhecido como
 [**FLP**](<https://en.wikipedia.org/wiki/Consensus_(computer_science)#Solvability_results_for_some_agreement_problems>)).
 
 :::info[Definição de Consenso]
@@ -703,7 +703,7 @@ Propriedades:
 :::details[Pseudocódigo das implementações]
 Consenso usando Coerência Interativa:
 
-```
+```php
 Quando Consenso.propoe(valor):
   CoerenciaInteractiva.propoe(valor)
 
@@ -715,7 +715,7 @@ Quando CoerenciaInteractiva.decide(vector):
 
 Coerência Interativa usando consenso:
 
-```
+```php
 // este codigo é executado por todos os processos
 
 fun PRONTO(vector):
@@ -802,7 +802,7 @@ Propriedades:
 
 Difusão com Terminação usando Consenso:
 
-```
+```php
 Quando ConsensoPropoe(v) no processo i
   i.DifusaoComTerminacaoEnvia(v)
 
@@ -815,22 +815,22 @@ Escolhe v_final como sendo o menor v_i: v_i != null
 
 Consenso usando Difusão com Terminação:
 
-```
+```php
 No emissor:
-  Quando DifusãoComTerminação(m)
-    DifusãoFiávelEnvia(m)
-    ConsensoPropõe(m)
+  Quando DifusaoComTerminacao(m)
+    DifusaoFiavelEnvia(m)
+    ConsensoPropoe(m)
 
 
 No restantes processos, executa um e apenas um destes passos:
-  Quando DifusãoFiávelEntrega(m)
-    ConsensoPropõe(m)
+  Quando DifusaoFiavelEntrega(m)
+    ConsensoPropoe(m)
   Quando suspeita a falha do processo "s"
-    ConsensoPropõe(null)
+    ConsensoPropoe(null)
 
 Em todos os processos:
   Quando ConsensoDecide(v)
-    DifusãoComTerminaçãoEntrega(m)
+    DifusaoComTerminacaoEntrega(m)
 ```
 
 :::
