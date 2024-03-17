@@ -563,6 +563,22 @@ Dado um conjunto de $N$ processos:
 
 :::
 
+:::info[Tipos específicos de consenso]
+
+Note que já utilizámos consenso anteriormente:
+
+- na exclusão mútua, os processos concordam sobre o processo que pode entrar
+  na secção crítica
+- na eleição de líder, os processos concordam sobre o processo eleito
+- no _multicast_ totalmente ordenado, os processos concordam sobre a ordem de
+  entrega das mensagens
+
+Existem diversos protocolos para tipos específicos de consenso. No entanto, nesta
+secção vamos considerar formas mais gerais de consenso, analisando características
+e soluções comuns.
+
+:::
+
 Podemos concluir assim três propriedades do Consenso:
 
 1. **Terminação**: todos os processos correctos decidem ("_alguma-vez_")
@@ -578,10 +594,24 @@ Quanto a soluções para este problema em sistemas:
   o [algoritmo "Paxos"](<https://en.wikipedia.org/wiki/Paxos_(computer_science)>)
   do Lamport
 
+:::info[Falhas bizantinas]
+
+Os processos podem falhar de formas arbitrárias (falhas bizantinas), enviando
+valores aleatórios para os restantes processos (estes valores aleatórios podem
+resultar de _bugs_ ou operações maliciosas).
+
+Nesta cadeira não iremos estudar algoritmos que têm este tipo de falhas em
+consideração. Se tiveres interesse em aprender mais recomendamos o
+[vídeo](https://youtu.be/LoGx_ldRBU0?list=PLeKd45zvjcDFUEv_ohr_HdUFe97RItdiB)
+introdutório do Martin Kleppmann ao _"Byzantine generals problem"_ e o
+[_PBFT Consensus Algorithm_](https://medium.com/tronnetwork/an-introduction-to-pbft-consensus-algorithm-11cbd90aaec).
+
+:::
+
 ### _Floodset Consensus_
 
 A ideia essencial deste algoritmo é cada processo enviar para todos os outros
-o seu valor (_input_), de forma a que no fim todos conhecam todos os valores possíveis
+o seu valor (_input_), de forma a que no fim todos conheçam todos os valores possíveis
 e possam tomar a mesma decisão de forma determinística.
 
 O funcionamento do algoritmo é baseado em rondas:
@@ -630,10 +660,18 @@ Algumas notas acerca do algoritmo:
   - se um processo $p_i$ não recebe o valor de outro processo $p_j$ no turno $n$
     então o processo $p_j$ falhou de certeza (e não participa nos próximos turnos)
 - É possível adaptar o algoritmo de forma a utilizar um detetor de falhas perfeito:
-  - Caso um processo $p_i$ nao tenha recebido o valor de um processo $p_j$ num
+  - Caso um processo $p_i$ não tenha recebido o valor de um processo $p_j$ num
     turno $n$, apenas avança para o turno $n \op{+} 1$ caso o detetor de falhas
     declare $p_j$ como falhado
 - Em alguns casos, caso não ocorram falhas, é possível terminar em menos turnos
+
+:::info[Propriedade]
+
+Qualquer algoritmo desenhado para resolver o consenso permitindo até $f$ falhas,
+requer pelo menos $f + 1$ rondas de trocas de mensagens, independentemente da
+forma como foi construído.
+
+:::
 
 ### Problemas relacionados
 
@@ -642,6 +680,12 @@ do Consenso e que podem ser utilizados para o resolver ou utilizá-lo na constru
 da sua solução.
 
 #### Coerência Interativa
+
+O problema da coerência interativa é outra variante de consenso, na qual cada
+processo propõe um único valor. O objetivo do algoritmo é fazer com que os processos
+corretos concordem com um vetor de valores, um para cada processo. Por exemplo, o
+objetivo poderia ser para cada processo de um grupo obter a mesma informação sobre
+os estados respectivos (de cada processo).
 
 - Conjunto de $N$ processos
 - Cada processo $p_i$ propõe um valor ($\text{input}_i$)
@@ -661,9 +705,9 @@ Consenso usando Coerência Interativa:
 
 ```
 Quando Consenso.propoe(valor):
-  Coerencialnteractiva.propoe(valor)
+  CoerenciaInteractiva.propoe(valor)
 
-Quando Coerencialnteractiva.decide(vector):
+Quando CoerenciaInteractiva.decide(vector):
   valor = primeiraEntradaDiferenteDeNull(vector);
   Consenso.decide(valor)
 
@@ -689,7 +733,7 @@ Quando falha(p_x):
   falhados = falhados U {p_x}
 
 Quando IC.propoe(valor_i)
-  DifusäoFiavel.envia(p_i, valor_i)
+  DifusaoFiavel.envia(p_i, valor_i)
 
 Quando DifusaoFiavel.entrega(p_j, valor_j)
   vector_proposta[j] = valor_j;
@@ -700,6 +744,43 @@ Quando PRONTO(vector_proposta)
 Quando Consenso.decide(vector)
   IC.decide(vector)
 ```
+
+:::
+
+#### Derivar Consenso a partir de Coerência Interativa
+
+Por vezes é possível derivar uma solução para um problema utilizando uma solução
+para outro. Esta propriedade é muito útil porque aumenta a nossa compreensão dos
+problemas e economiza esforço de implementação.
+
+Suponha que existem as seguintes soluções para o consenso (C) e para a consistência
+interativa (IC):
+
+- $C_i(v_1, v_2, ..., v_N)$ retorna o valor de decisão do processo $p_i$ numa
+  execução da solução para o problema do consenso, onde $v_1, v_2, ..., v_N$ são
+  os valores propostos pelos processos
+- ${IC}_i(v_1, v_2, ..., v_N)[j]$ retorna o j-ésimo valor no vetor de decisão do
+  processo $p_i$ numa execução da solução para o problema da consistência interativa,
+  onde $v_1, v_2, ..., v_N$ são os valores propostos pelos processos
+
+Caso a maioria dos processos estejam corretos, construímos uma solução executando
+IC para produzir um vetor de valores em cada processo, e depois aplicando uma certa
+função sobre os valores do vetor para derivar um único valor:
+
+$$C_i(v_1, ..., v_N) = majority({IC}_i(v_1, ..., v_N)[1], ..., {IC}_i(v_1, ..., v_N)[N])$$
+
+:::info[Nota]
+
+Em sistemas com _crash failures_, o consenso é equivalente a resolver o _multicast_
+confiável e totalmente ordenado: dada uma solução para um, podemos resolver o outro.
+Implementar o consenso com uma operação de _multicast_ confiável e totalmente ordenada
+($\text{RTO-multicast}$) é trivial.
+
+We collect all the processes into a group, $g$. To achieve consensus, each process
+$p_i$ performs $\text{RTO-multicast}(g, v_i)$. Then each process $p_i$ chooses
+$d_i = m_i$, where $m_i$ is the first value that $p_i$ $\text{RTO-delivers}$.
+
+**TODO** (página 663 do livro)
 
 :::
 
@@ -754,10 +835,41 @@ Em todos os processos:
 
 :::
 
+### Impossibilidade em sistemas assíncronos
+
+As soluções para o consenso que abordámos assumem que o sistema é síncrono, ou
+seja, assumem que um processo falhou se não lhes enviou uma certa mensagem dentro
+da ronda desejada (atraso máximo excedido).
+
+Fischer et al. [1985] provaram que nenhum algoritmo pode garantir alcançar o consenso
+num sistema assíncrono, visto que os processos podem responder a mensagens com
+latências arbitrárias, fazendo com que um processo que realmente falhou seja
+indistinguível de um lento.
+
+Note que este resultado não significa que os processos não podem alcançar o consenso
+distribuído num sistema assíncrono. Este permite que o consenso possa ser alcançado
+com alguma probabilidade maior que zero, confirmando o que sabemos na prática (por
+exemplo, existem sistemas de transações assíncronos que têm alcançado o consenso
+regularmente há anos).
+
+Ainda assim, existem diversas técnicas (não abordadas em aula) para contornar o
+resultado da impossibilidade. Por exemplo:
+
+- **Mascarar falhas**: envolve técnicas como o uso de armazenamento persistente e
+  replicação de componentes para ocultar falhas, permitindo que os processos
+  continuem a funcionar corretamente
+- **Consenso usando detetores de falhas**: envolve o uso de detetores de falhas
+  (não perfeitos) em sistemas assíncronos para alcançar o consenso, seja considerando
+  processos não responsivos como falhados ou permitindo que processos suspeitos
+  continuem a participar no consenso
+- **Consenso usando randomização**: envolve introduzir aleatoriedade no comportamento
+  dos processos para neutralizar os efeitos negativos dos sistemas assíncronos,
+  permitindo que o consenso seja alcançado em tempo (esperado) finito
+
 ## Referências
 
 - Coulouris et al - Distributed Systems: Concepts and Design (5th Edition)
-  - Secções 15.1, 15.2 e 15.3
+  - Secções 15.1-15.5
 - Departamento de Engenharia Informática - Slides de Sistemas Distribuídos (2023/2024)
   - SlidesTagus-Aula03a
   - SlidesTagus-Aula04
