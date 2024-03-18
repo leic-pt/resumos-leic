@@ -1097,6 +1097,167 @@ os pedidos pode não coincidir com a ordem real na qual os clientes fizeram os p
 
 :::
 
+## Consenso e Replicação
+
+Iremos agora analisar como resolver problemas/algoritmos relacionados com replicação
+através do uso de consenso.
+
+### Difusão atómica usando Consenso
+
+Uma primeira abordagem poderia ser:
+
+- cada processo guarda uma lista de mensagens Recebidas ($R$) e Ordenadas ($O$)
+- sempre que tiver alguma mensagem recebida que ainda não está ordenada, propõe
+  essa mensagem para consenso (uma instância de consenso por mensagem a ordenar)
+- o consenso decide qual a próxima mensagem, que é adicionada à lista de mensagens
+  ordenadas de cada processo
+
+Esta abordagem tem um problema: como o consenso pode decidir qualquer das mensagens
+propostas, é possível que uma mensagem que apenas um processo recebeu nunca seja decidida
+(e portanto entregue):
+
+![Difusão atómica usando consenso por mensagem individual](./assets/0005-AD-consensus-individual.svg#dark=3)
+
+A solução é propôr para consenso todas as mensagens recebidas mas não ordenadas
+($R \setminus O$). A decisão do consenso será um _set_ contendo quaisquer das
+mensagens incluídas nos _sets_ enviados:
+
+![Difusão atómica usando consenso por mensagem individual](./assets/0005-AD-consensus-set.svg#dark=3)
+
+:::details[Pseudocódigo]
+
+$\text{Init:}\\$
+$\qquad \text{por\_ordenar} = \Set{}\\$
+$\qquad \text{ordenadas} = \Set{}\\$
+$\qquad \text{num\_seq} = 0;\\$
+
+$\text{Quando AB.send(m)}\\$
+$\qquad RB.send(m)\\$
+
+$\text{Quando RB.deliver(m)}\\$
+$\qquad \text{por\_ordenar} = \text{por\_ordenar} \cup \Set{m}$
+
+$\text{while TRUE } \{\\$
+$\qquad \text{espera até que } (\text{por\_ordenar} \setminus \text{ordenadas} \not = \Set{});\\$
+$\qquad \text{num\_seq} = \text{num\_seq} \op{+} 1\\$
+
+$\qquad \text{// executa mais uma instancia de consenso}\\$
+$\qquad \text{Consensus[num\_seq].propose}(por\_ordenar \setminus ordenadas)\\$
+$\qquad \text{espera ate Consensus[num\_seq].decide(proximas)}\\$
+$\qquad \text{// o consenso decide quais a mensagens a entregar}\\$
+
+$\qquad \text{ordenadas} = \text{ordenadas} \cup \text{proximas}\\$
+
+$\qquad \text{para todas as mensagem m em proximas // por uma ordem determinista}$
+$\qquad\qquad \text{AB.deliver(m)}\\$
+$\}$
+
+:::
+
+### Primário-secundário com detector de falhas não perfeito
+
+Já abordámos uma implementação de replicação com Primário-secundário que utilizava
+Sincronia na Vista e Difusão Fiável, mas será que é possível construir uma solução
+robusta sem um detector de falhas perfeito?
+
+Utilizaremos o detector não perfeito para escolher o primário:
+
+- devido à natureza do detector, podem existir dois processos que pensam ser o
+  primário
+- as réplicas secundárias podem também divergir sobre quem consideram ser o primário
+
+![Primário-secundário com detector de falhas não perfeito](./assets/0005-primary-backup-imperfect-detector.svg#dark=3)
+
+No exemplo acima, o primário $P_1$ decide que a primeira mensagem é $B$ e envia
+essa informação a $P_2$, que a regista com sucesso. No entanto, a mensagem não
+chegou a $P_3$ devido a uma partição na rede, que após não receber mensagens do
+primário durante algum tempo se elegeu como primário, escolhendo para primeira
+mensagem $E$.
+
+Precisamos agora de um algoritmo que consegue resolver consenso sem um detector de
+falhas perfeito...
+O _**floodset consensus**_ não consegue, já que foi arquitetado exatamente com esse
+pressuposto. Mas podemos usar o **Paxos** mencionado anteriormente!
+
+[**TODO**: mencionar a questão de o primário "errado" continuar (ou não) a ser
+primário mesmo que receba outra proposta como decisão. Talvez dares aqui um
+insight quanto a como isto funcionaria com o Paxos, slides estão secos]()
+
+![Primário-secundário com Paxos](./assets/0005-primary-backup-paxos.svg#dark=3)
+
+:::details[Pseudocódigo]
+
+$\text{pedidos\_pendentes} = \Set{}\\$
+$\text{pedidos\_executados} = \Set{}\\$
+$\text{propostas} = \Set{}\\$
+$\text{num\_seq} = 0\\$
+$\text{Para todo i:}\\$
+$\qquad \text{decidido[i] = false}\\$
+
+$\text{Quando recebe pedido do cliente P}\\$
+$\qquad \text{pedidos\_pendentes = pedidos\_pendentes} \cup \Set{P}\\$
+
+$\text{Quando sou o lider AND decidido[num\_seq] = true AND}\\$
+$\quad (\text{pedidos\_pendentes} \setminus \text{pedidos\_executados} \not = \Set{})\\$
+$\qquad \text{proximo\_pedido = escolhe\_um} (\text{pedidos\_pendentes} \setminus \text{pedidos\_executados})\\$
+$\qquad \text{<proximo\_estado, resposta\_cliente>} = \text{ExecutaPedido(estado, proximo\_pedido);}\\$
+$\qquad \text{RB.send(<PROPOSTA, my\_id, num\_seq + 1, }\\$
+$\qquad \quad \text{proximo\_pedido, proximo\_estado, resposta\_cliente>)}\\$
+
+$\text{Quando RE.deIiver(proposta = <PROPOSTA, my\_id,}\\$
+$\quad \text{num\_seq + 1, proximo\_pedido, proximo\_estado, resposta\_cliente>)}\\$
+$\qquad \text{propostas = propostas} \cup \Set{\text{proposta}}\\$
+
+$\text{Quando existe proposta = <PROPOSTA, id, ns, pedido, estado>}\\$
+$\quad \text{em propostas tal que:}\\$
+$\quad \text{decidido[num\_seq] = true AND ns = num\_seq + 1 AND id = lider}\\$
+
+$\qquad \text{consenso[num\_seq + 1].propose(proposta\_input = }\\$
+$\qquad \quad \text{<PROPOSTA, id, ns, pedido, estado, resposta)}\\$
+$\qquad \text{espera ate que consenso[num\_seq + 1].decide(}\\$
+$\qquad \quad \text{proposta\_ouput = <PROPOSTA, id\_out, sn\_out, }\\$
+$\qquad \quad \text{pedido\_out, estado\_out, resposta\_out>)}\\$
+
+$\qquad \text{num\_seq = num\_seq + 1;}\\$
+$\qquad \text{decidido[num\_seq] = true;}\\$
+$\qquad \text{estado = estado\_out}\\$
+$\qquad \text{pedidos\_executados = pedidos\_executados } \cup \Set{\text{pedido\_out}}\\$
+$\qquad \text{envia resposta\_out para o cliente}\\$
+
+:::
+
+### Sincronia na Vista usando Consenso
+
+Mudar da vista $V_i$ para a $V_{i + 1}$ consiste essencialmente em:
+
+- recolher todas as mensagens entregues durante $V_i$
+- propôr para consenso um tuplo:
+  - $V_{i + 1}$ = $<\text{membros de } V_{i + 1} \text{, mensagens entregues em } V_i>$
+- esperar decisão do consenso
+- entregar mensagens em falta
+- entregar nova vista
+
+Funcionamento do algoritmo:
+
+- cada processo $p_i$ mantém um registo $h_i$ de todas as mensagens que já entregou
+  numa dada vista
+- quando se inicia a mudança de vista de $V_i$ para $V_{i + 1}$, é enviada uma
+  mensagem especial "$\text{view-change(saídas, entradas)}$" para todos os processos
+  da vista $V_i$ (podendo a lista de saídas e/ou entradas ser vazia)
+- quando um processo recebe uma mensagem "$\text{view-change(saídas, entradas)}$",
+  pára de entregar novas mensagens e inicia $V_{i + 1} = V_i - \text{saídas} -
+  \text{entradas}$, $h_j = \text{null}$ para todos os processos $p_j$ na vista $V_i$
+  e envia $h_i$ para todos os outros processo em $V_{i + 1}$
+- cada processo recebe os valores $h_j$ de todos os outros processos $p_j$ em $V_i$
+- se um processo $p_i$ não recebe $h_j$ de um processo $p_j$ e suspeita que $p_j$
+  falhou, remove $p_j$ de $V_{i + 1}$ e coloca $h_j = \Set{}$
+- quando um processo $p_i$ tem todos os valores de $h_j \not = \text{null}$ (ou seja,
+  se já recebeu $h_j$ de $p_j$ ou se assume que $p_j$ falhou), define o conjunto
+  de mensagens a entregar $m-V_i$ como a união de todos os $h_j$ recebidos e inicia
+  o consenso propondo $<V_{i + 1}, m-V_i>$
+- o resultado do consenso define a nova vista e o conjunto de mensagens a entregar
+  na vista anterior
+
 ## Referências
 
 - Coulouris et al - Distributed Systems: Concepts and Design (5th Edition)
@@ -1108,6 +1269,7 @@ os pedidos pode não coincidir com a ordem real na qual os clientes fizeram os p
   - SlidesAlameda-Aula06
   - SlidesTagus-Aula07
   - SlidesAlameda-Aula07
+  - SlidesAlameda-Aula09
 - [D. B. Terry, A. J. Demers, K. Petersen, M. J. Spreitzer, M. M. Theimer and B. B. Welch,
   "Session guarantees for weakly consistent replicated data"
   ](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=331722&isnumber=7843)
