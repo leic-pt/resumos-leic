@@ -927,7 +927,7 @@ Propriedades:
   a tolerância a faltas**
 - A evolução do sistema é dada por uma **sequência totalmente ordenada de vistas**
   - Exemplo: $V_1 = \Set{p_1, p_2, p_3}~V_2 = \Set{p_1, p_2, p_3, p_4}~
-    	V_3 = \Set{p_1, p_2, p_3, p_4, p_5}~V_4 = \Set{p_2, p_3, p_4, p_5}$
+    V_3 = \Set{p_1, p_2, p_3, p_4, p_5}~V_4 = \Set{p_2, p_3, p_4, p_5}$
 - Um processo é considerado correto numa vista $V_i$ se faz parte dessa vista
   e de $V_{i\op{+}1}$
   - Por outro lado, se um processo pertence à vista $V_i$ mas não faz parte
