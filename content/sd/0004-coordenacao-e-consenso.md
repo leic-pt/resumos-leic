@@ -771,16 +771,14 @@ $$C_i(v_1, ..., v_N) = majority({IC}_i(v_1, ..., v_N)[1], ..., {IC}_i(v_1, ..., 
 
 :::info[Nota]
 
-Em sistemas com _crash failures_, o consenso é equivalente a resolver o _multicast_
-confiável e totalmente ordenado: dada uma solução para um, podemos resolver o outro.
-Implementar o consenso com uma operação de _multicast_ confiável e totalmente ordenada
-($\text{RTO-multicast}$) é trivial.
+Em sistemas com falhas, resolver o consenso é equivalente a resolver o
+_multicast_ confiável e totalmente ordenado: dada uma solução para um, podemos
+resolver o outro. Implementar o consenso com base em operações de _multicast_
+confiável e totalmente ordenado $\text{(RTO-multicast)}$ é trivial.
 
-We collect all the processes into a group, $g$. To achieve consensus, each process
-$p_i$ performs $\text{RTO-multicast}(g, v_i)$. Then each process $p_i$ chooses
-$d_i = m_i$, where $m_i$ is the first value that $p_i$ $\text{RTO-delivers}$.
-
-**TODO** (página 663 do livro)
+Dado um grupo de processos $g$, para alcançar o consenso, cada processo $p_i$
+executa $\text{RTO-multicast}(g, v_i)$. Em seguida, cada processo $p_i$ escolhe
+$d_i = m_i$, onde $m_i$ é o primeiro valor que $p_i$ $\text{RTO-delivers}$.
 
 :::
 
