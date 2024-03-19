@@ -1100,7 +1100,7 @@ os pedidos pode não coincidir com a ordem real na qual os clientes fizeram os p
 ## Consenso e Replicação
 
 Iremos agora analisar como resolver problemas/algoritmos relacionados com replicação
-através do uso de consenso.
+através do consenso.
 
 ### Difusão atómica usando Consenso
 
@@ -1112,7 +1112,7 @@ Uma primeira abordagem poderia ser:
 - o consenso decide qual a próxima mensagem, que é adicionada à lista de mensagens
   ordenadas de cada processo
 
-Esta abordagem tem um problema: como o consenso pode decidir qualquer das mensagens
+Esta abordagem tem um problema: como o consenso pode decidir qualquer uma das mensagens
 propostas, é possível que uma mensagem que apenas um processo recebeu nunca seja decidida
 (e portanto entregue):
 
@@ -1171,17 +1171,20 @@ Utilizaremos o detector não perfeito para escolher o primário:
 No exemplo acima, o primário $P_1$ decide que a primeira mensagem é $B$ e envia
 essa informação a $P_2$, que a regista com sucesso. No entanto, a mensagem não
 chegou a $P_3$ devido a uma partição na rede, que após não receber mensagens do
-primário durante algum tempo se elegeu como primário, escolhendo para primeira
-mensagem $E$.
+primário durante algum tempo se elegeu como primário, escolhendo $E$ como primeira
+mensagem.
 
 Precisamos agora de um algoritmo que consegue resolver consenso sem um detector de
 falhas perfeito...
 O _**floodset consensus**_ não consegue, já que foi arquitetado exatamente com esse
 pressuposto. Mas podemos usar o **Paxos** mencionado anteriormente!
 
-[**TODO**: mencionar a questão de o primário "errado" continuar (ou não) a ser
-primário mesmo que receba outra proposta como decisão. Talvez dares aqui um
-insight quanto a como isto funcionaria com o Paxos, slides estão secos]()
+Resumidamente, o Paxos garante que o sistema apenas avança quando tem aprovação
+da maioria das réplicas. Desta forma, P1 e P2 conseguem continuar a execução
+normal do algoritmo enquanto que as propostas de P3 (por exemplo, escolher a
+mensagem E como primeira) não são aceites por uma maioria. Quando a estabilidade
+da rede voltar ao normal, P3 irá receber as operações que foram realizadas na sua
+"ausência" e o sistema voltará a estar consistente.
 
 ![Primário-secundário com Paxos](./assets/0005-primary-backup-paxos.svg#dark=3)
 
