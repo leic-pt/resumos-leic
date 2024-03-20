@@ -33,6 +33,7 @@ const Dialog = ({ open, onClose, className, children }) => {
         className='sidepanel-backdrop'
         ref={containerRef}
         role='button'
+        aria-label='close sidepanel'
         tabIndex={0}
         onMouseDown={(event) => {
           if (event.target === event.currentTarget) {

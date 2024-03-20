@@ -33,13 +33,18 @@ const ThemeSettings = () => {
 
   return (
     <>
-      <button className='icon-btn' onClick={togglePanel} style={{ alignSelf: 'center' }}>
+      <button
+        className='icon-btn'
+        onClick={togglePanel}
+        style={{ alignSelf: 'center' }}
+        aria-label='theme settings'
+      >
         <Theme />
       </button>
       <SidePanel open={panelOpen} onClose={closePanel} className='theme-settings'>
         <div className='theme-settings-header'>
           <p>Reading Options</p>
-          <button className='icon-btn' onClick={closePanel}>
+          <button className='icon-btn' onClick={closePanel} aria-label='close'>
             <Close />
           </button>
         </div>
