@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import '../styles/themes/black.css';
 import '../styles/themes/gruvbox.css';
 import '../styles/themes/nord.css';

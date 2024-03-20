@@ -761,15 +761,353 @@ Os CRDTs foram apresentados em aula apenas como uma curiosidade, se tiveres inte
 em aprender mais recomendamos a [palestra](https://youtu.be/B5NULPSiOGw) do Martin
 Kleppmann na QCon London 2018.
 
+## Coerência forte
+
+### Tolerância a faltas
+
+Existem duas estratégias principais:
+
+- Recuperação "para trás":
+  - guardar o estado do sistema de forma periódica ou em momentos relevantes,
+    utilizando um algoritmo de
+    [salvaguarda distribuída](/sd/tempo-e-sincronizacao/#salvaguarda-distribuída)
+  - quando os processos falham, são relançados o mais rapidamente possível
+  - os novos processos recomeçam a partir do último estado guardado
+  - solução tipicamente designada por "_checkpoint-recovery_"
+- Recuperação "para a frente":
+  - são mantidas várias cópias (réplicas) do processo
+  - quando é feita uma alteração a uma réplica, esta deve ser propagada para todas
+    as outras de forma a estarem atualizadas/sincronizadas
+  - se uma réplica falha, o cliente pode passar a utilizar outra
+  - estrutura de dados replicada:
+    - registo ([algoritmo ABD](#algoritmo-abd))
+    - espaço de tuplos ([Xu-Liskov](#xu-liskov))
+    - qualquer estrutura de dados que ofereça uma interface remota
+      (exige algoritmos de replicação genéricos, **tema deste capítulo**)
+
+De forma resumida:
+
+- na **recuperação para trás** os estados guardados pelos vários
+  **processos que falharam** devem estar mutuamente coerentes
+- na **recuperação para a frente** os estados das **réplicas que sobrevivem** devem
+  estar mutuamente coerentes.
+
+Iremos analisar dois algoritmos de replicação genéricos (por recuperação para a
+frente):
+
+- **Primário-secundário**
+- **Replicação de máquina de estados**
+
+Objetivo: assegurar **linearizabilidade** (coerência forte).
+
+### Algoritmo Primário-secundário (esboço)
+
+- É eleito um processo como primário (sendo outro eleito em caso de falha)
+- Os pedidos dos clientes são **enviados para o primário**
+- Quando o primário recebe um pedido:
+  - executa-o
+  - propaga o estado para os secundários e aguarda confirmação de todos
+  - responde ao cliente
+  - (processa o próximo pedido que estiver na fila)
+
+![Funcionamento do Primário-secundário](./assets/0005-replication-primary-backup.svg#dark=3)
+
+**Vantagem**: Suporta operações não determinísticas (primário decide o resultado).
+
+**Desvantagens**:
+
+- Se o primário produzir um valor errado, o erro vai ser propagado
+  para as réplicas
+- Se o detetor de falhas não for perfeito, pode existir mais que um primário
+  concorrentemente, havendo o risco dos estados divergirem
+
+### Replicação de máquina de estados (esboço)
+
+- Os clientes enviam os pedidos para **todas** as réplicas
+- Os pedidos são ordenados por ordem total
+- Todas as réplicas processam os mesmos pedidos, pela mesma ordem
+  - assume-se que as operações são determinísticas, de forma a todas as réplicas
+    ficarem idênticas
+- Cada réplica responde ao cliente (o número de respostas pelo qual o cliente
+  aguarda depende das suposições de falhas)
+
+![Funcionamento da Replicação de máquina de estados](./assets/0005-replication-state-machine.svg#dark=3)
+
+**Vantagem**: Se uma réplica produzir um valor errado, não afecta as outras.
+
+**Desvantagens**:
+
+- As operações necessitam de ser determinísticas.
+- Se o detetor de falhas não for perfeito, pode ser impossível estabelecer uma
+  ordem total dos pedidos
+
+### Abstrações para a construção de sistemas replicados
+
+Construir sistemas replicados com estes algoritmos é bastante complicado e complexo,
+pelo que iremos falar de algumas abstrações sobre as quais podemos construir de
+forma a facilitar a implementação dos mesmos.
+
+| [Aplicação](color:blue) |
+| :---------------------: |
+|     Difusão Atómica     |
+|   Sincronia na Vista    |
+|   Ordem FIFO e Causal   |
+| Difusão Fiável Uniforme |
+| Difusão Fiável Regular  |
+|    Canais Perfeitos     |
+|       TCP ou UDP        |
+
+#### Canais Perfeitos
+
+- **Garante a entrega de mensagens** ponto a ponto de forma ordenada, caso **nem o
+  emissor nem o destinatário falhem**
+
+- Implementação prática: retransmitir a mensagem até que a receção desta seja
+  confirmada pelo destinatário
+
+#### Difusão Fiável
+
+- Permite difundir uma mensagem com a **garantia de que ou todos os destinatários
+  a recebem ou nenhum recebe**
+
+- Duas variantes: **Regular** e **Uniforme**
+
+#### Difusão Fiável Regular
+
+Propriedades:
+
+- Seja $m$ uma mensagem enviada para um grupo de processos $\Set{p_1, p_2, ..., p_N}$
+  por um elemento do grupo
+- **Validade**: se um processo correto $p_i$ envia $m$ então eventualmente $p_i$
+  entrega $m$
+- **Não-duplicação**: nenhuma mensagem $m$ é entregue mais que uma vez
+- **Não-criação**: se uma mensagem $m$ é entregue então $m$ foi enviada por um
+  processo correto
+- **Acordo**: se um processo **correto** entrega $m$ então todos os processos
+  corretos entregam $m$
+
+Algoritmo:
+
+- O emissor envia a mensagem usando canais perfeitos para todos os membros do grupo
+- Quando um membro do grupo recebe a mensagem, entrega-a à aplicação e reenvia-a
+  para todos os membros do grupo
+
+#### Difusão Fiável Uniforme
+
+Propriedades:
+
+- Seja $m$ uma mensagem enviada a para um grupo de processos $\Set{p_1, p_2, ..., p_N}$
+  por um elemento do grupo
+- **Validade**, **Não-duplicação** e **Não-criação** tal como Difusão Regular
+- **Acordo**: se um processo entrega $m$ então todos os processos
+  corretos entregam $m$
+
+Algoritmo:
+
+- O emissor envia a mensagem usando canais perfeitos para todos os membros do grupo
+- Quando um membro do grupo recebe a mensagem, reenvia-a para todos os membros do grupo
+- Quando um membro receber uma mensagem $m$ de $f$ membros distintos, entrega a
+  mensagem $m$ à aplicação
+- Em que $f$ é o número de processos que pode falhar
+
+$$
+f \lt \frac{N}{2}
+$$
+
+#### Sincronia na Vista
+
+**Vista**: conjunto de processos que pertence ao grupo:
+
+- Novos membros podem ser adicionados dinamicamente
+- Um processo pode sair voluntariamente do grupo ou ser expulso caso falhe
+
+Propriedades:
+
+- Permite **alterar a filiação** de um grupo de processos de uma forma que **facilita
+  a tolerância a faltas**
+- A evolução do sistema é dada por uma **sequência totalmente ordenada de vistas**
+  - Exemplo: $V_1 = \Set{p_1, p_2, p_3}~V_2 = \Set{p_1, p_2, p_3, p_4}~
+    V_3 = \Set{p_1, p_2, p_3, p_4, p_5}~V_4 = \Set{p_2, p_3, p_4, p_5}$
+- Um processo é considerado correto numa vista $V_i$ se faz parte dessa vista
+  e de $V_{i\op{+}1}$
+  - Por outro lado, se um processo pertence à vista $V_i$ mas não faz parte
+    de $V_{i\op{+}1}$, pode ter falhado durante $V_i$
+- Uma aplicação à qual já foi entregue a vista $V_i$ mas à qual ainda não foi
+  entregue a vista $V_{i\op{+}1}$ diz-se que "está na vista $V_i$"
+- Uma aplicação que usa o modelo de Sincronia na Vista recebe vistas e mensagens
+- Se uma aplicação envia uma mensagem $m$ quando se encontra na vista $V_i$, diz-se
+  que $m$ foi enviada na vista $V_i$
+- Se uma mensagem $m$ é entregue à aplicação depois da vista $V_i$ mas antes da
+  vista $V_{i\op{+}1}$, diz-se que $m$ foi entregue na vista $V_i$
+- Uma mensagem $m$ enviada na vista $V_i$ é entregue na vista $V_i$
+- Se um processo $q$ se junta a um grupo e se torna indefinidamente alcançável a
+  partir do processo $p$ (sendo $p \neq q$), então eventualmente $q$ estará sempre
+  nas _views_ que $p$ entrega (a mesma lógica pode ser aplicada a processos que
+  não conseguem comunicar)
+
+Todas estas propriedades culminam nestas **duas principais**:
+
+- **Comunicação fiável**:
+
+  - Se um processo correto $p$ na vista $V_i$ envia uma mensagem $m$ na vista $V_i$,
+    então $m$ é entregue a $p$ na vista $V_i$
+  - Se um processo entrega uma mensagem $m$ na vista $V_i$ todos os processos
+    corretos da vista $V_i$ entregam $m$ na vista $V_i$
+
+- Corolário:
+  - Dois processos que entregam as vistas $V_i$ e $V_{i\op{+}1}$ entregam
+    exactamente o mesmo conjunto de mensagens na vista $V_i$
+
+:::details[Exemplo]
+
+Considere um grupo com três processos, $p$, $q$ e $r$. Suponha que $p$ envia uma
+mensagem $m$ na _view_ $(p, q, r)$, mas este falha depois de enviar $m$. A seguinte
+figura ilustra as execuções possíveis:
+
+![Exemplos de Sincronia na Vista](./assets/0005-view-synchronous-communication.png#dark=3)
+
+:::
+
+Para **mudar de vista**:
+
+- é necessário interromper temporariamente a transmissão de mensagens de forma
+  a que o conjunto de mensagens a entregar seja finito
+- é necessário executar um algoritmo de coordenação para garantir que todos os
+  processos corretos chegam a acordo sobre:
+  - qual a composição da próxima vista
+  - qual o conjunto de mensagens a ser entregue antes de mudar de vista
+
+#### Difusão Atómica
+
+Consiste em ter as garantias de **Difusão Fiável + Ordem total**:
+
+- Difusão Fiável: se uma réplica recebe o pedido, todas as réplicas recebem o pedido
+- Ordem total: todas as réplicas recebem os pedidos pela mesma ordem
+
+A abordagem básica para implementar ordenação total é atribuir identificadores
+totalmente ordenados às mensagens _multicast_, de modo a que cada processo
+tome a mesma decisão de ordenação com base nesses identificadores.
+
+Algoritmos de ordem total (sem falhas):
+
+- Ordem total baseada em **sequenciador**:
+  - as mensagens são enviadas para todas as réplicas usando um algoritmo de Difusão
+    Fiável
+  - é eleito um líder que decide a ordem pela qual as mensagens devem ser processadas,
+    enviando esta informação para as réplicas restantes
+  - quando existe uma falha, as réplicas podem ser confrontadas com um estado
+    incoerente:
+    - mensagens de dados que não foram ordenadas pelo líder
+    - mensagens do líder referentes a mensagens que ainda não chegaram
+    - podem existir de forma geral diferenças nas perspectivas que cada réplica
+      tem do sistema
+    - **Todos estes problemas são resolvidos na camada de Sincronia na Vista**
+- Ordem total baseada em **acordo coletivo**:
+
+  - um processo envia uma mensagem _multicast_ para os membros do grupo. Estes
+    processos propõem números de sequência para a mensagem (atribuição "tentativa")
+    e devolvem-nos ao remetente, que gera o número de sequência acordado com base
+    nos números propostos (atribuição final).
+  - o algoritmo funciona mesmo que cada mensagem seja enviada para um sub-conjunto
+    diferente de nós
+  - quando há falhas, é preciso executar um algoritmo de reconfiguração que fica
+    bastante simplificado pela Sincronia na Vista
+    ![Funcionamento do algoritmo baseado em acorco coletivo](./assets/0005-collective-agreement.png#dark=3)
+
+  :::details[Exemplo de aplicação no algoritmo de Maekawa]
+
+  Iremos analisar o funcionamento do algoritmo de Skeen (em que o cliente escolhe
+  o maior dos números de sequência propostos) aplicado à exclusão mútua de Maekawa.
+
+  Existem três clientes $A$, $B$ e $C$, com quóruns $\Set{P_1, P_2}$,
+  $\Set{P_2, P_3}$ e $\Set{P_1, P_3}$.
+
+  ![Exemplo de skeen com Maekawa - 1](./assets/0005-skeen-maekawa-example-1.svg#dark=3)
+
+  $P_1$ e $P_2$ já receberam o pedido de $A$, marcando-os com o número de sequência
+  1 e 2 (respectivamente) e enviando essas propostas ao cliente. Estes pedidos
+  encontram-se no estado "tentativo" (T), já que se tratam de propostas, ainda
+  não foram confirmados.
+
+  ![Exemplo de skeen com Maekawa - 2](./assets/0005-skeen-maekawa-example-2.svg#dark=3)
+
+  O cliente ao receber estes dois números, escolhe o mais alto (2) e envia essa
+  informação ao seu quórum. O pedido de $A$ encontra-se agora ordenado definitivamente
+  (estado final, F).
+
+  ![Exemplo de skeen com Maekawa - 3](./assets/0005-skeen-maekawa-example-3.svg#dark=3)
+
+  Ao chegar ao topo da lista de $P_1$ com estado final, $A$ é enviado para a camada
+  de aplicação, que neste caso é o algoritmo Maekawa. $P_1$ dá acesso a $A$ à
+  exclusão mútua dado estar livre.
+  Entretanto chegou também o pedido de $C$ a $P_1$, que foi marcado com o número 3.
+
+  ![Exemplo de skeen com Maekawa - 4](./assets/0005-skeen-maekawa-example-4.svg#dark=3)
+
+  O cliente $C$ recebe 1 e 3 como propostas, pelo que escolhe 3.
+  Chega agora o pedido de $B$ a $P_3$, que lhe atribui o número 4.
+
+  ![Exemplo de skeen com Maekawa - 5](./assets/0005-skeen-maekawa-example-5.svg#dark=3)
+
+  Os pedidos de $C$ chegaram ao topo, pelo que foram enviados para a camada superior.
+  $P_1$ colocou $C$ como pendente, pois $A$ tem a exclusão mútua, e $P_3$ concedeu-lhe
+  acesso.
+  $B$ recebe como respostas 1 e 4, pelo que escolhe 4, o que faz com que $A$ vá
+  para o topo da lista de $P_2$.
+
+  ![Exemplo de skeen com Maekawa - 6](./assets/0005-skeen-maekawa-example-6.svg#dark=3)
+
+  O pedido de $A$ é enviado para a camada superior e ganha o acesso à exclusão
+  mútua em $P_2$.
+  Em $P_3$, é enviado o pedido de $B$, que fica na lista de pendentes dado já
+  existir outro cliente na exclusão mútua.
+  De seguida, o pedido de $B$ em $P_2$ passa a estar no topo da lista com estado final,
+  pelo que também é enviado. $A$ já está na exclusão mútua, portanto $B$ é adicionado
+  à lista de pendentes.
+
+  **Recordar**: O algoritmo de Maekawa tinha uma falha: era suscetível a _deadlocks_.
+  Ao utilizarmos ordem total, garantindo que todos os processos recebem os pedidos
+  pela mesma ordem, este problema fica resolvido.
+
+  :::
+
+### Algoritmo Primário-secundário (concretizado)
+
+- Primário usa **Difusão Fiável Uniforme síncrona na vista** para propagar
+  novos estados aos secundários
+  - só responde ao cliente quando a uniformidade estiver garantida
+- Réplicas usam **Sincronia na Vista** para lidar com falhas do primário:
+  - quando o primário $p$ falha, eventualmente será entregue nova vista sem $p$
+  - quando uma nova vista é entregue e o anterior primário não consta nela, os
+    restantes processos elegem o novo primário
+  - o novo primário anuncia o seu endereço num serviço de nomes (para que os
+    clientes o descubram)
+
+### Replicação de máquina de estados (concretizado)
+
+- Processos usam **Sincronia na Vista**
+- Clientes usam **Difusão Atómica síncrona na vista** para enviar pedidos a todas
+  as réplicas
+
+:::tip[Nota]
+
+Este tipo de replicação não alcança a linearizabilidade (ao contrário da replicação
+primário-secundário) porque a ordem total na qual os gestores de réplicas processam
+os pedidos pode não coincidir com a ordem real na qual os clientes fizeram os pedidos.
+
+:::
+
 ## Referências
 
 - Coulouris et al - Distributed Systems: Concepts and Design (5th Edition)
-  - Secções 6.5, 18.4.1 e 18.4.2
+  - Secções 6.5 e 18.1-18.4
 - Departamento de Engenharia Informática - Slides de Sistemas Distribuídos (2023/2024)
   - SlidesTagus-Aula05 (informação + imagens)
   - SlidesAlameda-Aula05
   - SlidesTagus-Aula06
   - SlidesAlameda-Aula06
+  - SlidesTagus-Aula07
+  - SlidesAlameda-Aula07
 - [D. B. Terry, A. J. Demers, K. Petersen, M. J. Spreitzer, M. M. Theimer and B. B. Welch,
   "Session guarantees for weakly consistent replicated data"
   ](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=331722&isnumber=7843)
