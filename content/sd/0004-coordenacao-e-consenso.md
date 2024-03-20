@@ -767,7 +767,9 @@ Caso a maioria dos processos estejam corretos, construímos uma solução execut
 IC para produzir um vetor de valores em cada processo, e depois aplicando uma certa
 função sobre os valores do vetor para derivar um único valor:
 
-$$C_i(v_1, ..., v_N) = majority({IC}_i(v_1, ..., v_N)[1], ..., {IC}_i(v_1, ..., v_N)[N])$$
+$$
+C_i(v_1, ..., v_N) = majority({IC}_i(v_1, ..., v_N)[1], ..., {IC}_i(v_1, ..., v_N)[N])
+$$
 
 :::info[Nota]
 
