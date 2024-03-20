@@ -2,6 +2,7 @@ import { graphql } from 'gatsby';
 import 'katex/dist/katex.min.css';
 import React, { useCallback, useState } from 'react';
 import { CurrentSectionProvider } from '../hooks/useCurrentSection';
+import { useMermaid } from '../hooks/useMermaid';
 import '../styles/main.css';
 import '../styles/markdown.css';
 import { customComponents } from '../utils/customComponents';
@@ -13,6 +14,7 @@ import PageMetadata from './PageMetadata';
 import Sidebar from './Sidebar';
 
 export default function Template({ data }) {
+  useMermaid();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebar = useCallback(() => setSidebarOpen((open) => !open), [setSidebarOpen]);

@@ -1,5 +1,3 @@
-const puppeteer = require('puppeteer');
-
 module.exports = {
   siteMetadata: {
     title: `Resumos LEIC-A`,
@@ -111,15 +109,7 @@ module.exports = {
               tight: true,
             },
           },
-          {
-            resolve: `gatsby-remark-mermaid`,
-            options: {
-              launchOptions: {
-                executablePath: puppeteer.executablePath(),
-              },
-              svgo: false, // it doesn't like lines breaks in diagram text boxes
-            },
-          },
+          `gatsby-remark-mermaid`,
           `gatsby-remark-embed-snippet`,
           {
             resolve: `gatsby-remark-prismjs`,
