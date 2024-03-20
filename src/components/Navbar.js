@@ -24,7 +24,7 @@ const Navbar = ({ toggleSidebar }) => {
   return (
     <header className='navbar'>
       {toggleSidebar && (
-        <button className='sidebar-button' onClick={toggleSidebar}>
+        <button className='sidebar-button' onClick={toggleSidebar} aria-label='toggle sidebar'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             aria-hidden='true'
