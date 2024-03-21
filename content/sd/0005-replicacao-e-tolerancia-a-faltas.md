@@ -1119,8 +1119,8 @@ propostas, é possível que uma mensagem que apenas um processo recebeu nunca se
 ![Difusão atómica usando consenso por mensagem individual](./assets/0005-AD-consensus-individual.svg#dark=3)
 
 A solução é propôr para consenso todas as mensagens recebidas mas não ordenadas
-($R \setminus O$). A decisão do consenso será um _set_ contendo quaisquer das
-mensagens incluídas nos _sets_ enviados:
+($R \setminus O$). A decisão do consenso será qualquer um dos _sets_ propostos pelos
+processos:
 
 ![Difusão atómica usando consenso por mensagem individual](./assets/0005-AD-consensus-set.svg#dark=3)
 
