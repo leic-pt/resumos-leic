@@ -199,7 +199,10 @@ o coordenador já possui referências para todos os participantes.
 
 ### Confirmação em 2 fases (_2-phase commit_)
 
-Durante uma transação, não há comunicação entre o coordenador e os participantes (para além dos participantes informarem o coordenador quando se juntam à transação). É quando o cliente solicita ao coordenador para confirmar a transação que o protocolo _2-phase commit_ entra em ação.
+Durante uma transação, não há comunicação entre o coordenador e os participantes
+(para além dos participantes informarem o coordenador quando se juntam à transação).
+É quando o cliente solicita ao coordenador para confirmar a transação que o protocolo
+_2-phase commit_ entra em ação.
 
 Funcionamento do protocolo:
 
@@ -221,8 +224,8 @@ Funcionamento do protocolo:
   de novo ou, se suspeitar que falhou, abortar a transação.
   **A ausência de resposta do participante é interpretada como um "NOT-OK"**
 - Os participantes que votaram "OK" têm de esperar pela decisão do coordenador
-  (confirmar ou abortar). Quando um participante recebe esta informação, faz o que
-  tem a fazer de acordo com a decisão tomada e, no caso da confirmação, informa o
+  (confirmar ou abortar). Quando um participante recebe esta informação, toma as
+  ações necessárias de acordo com a decisão tomada e, no caso da confirmação, informa o
   coordenador que os _logs_ referentes à transação podem ser apagados (a transação
   foi concluída).
 
