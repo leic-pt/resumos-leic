@@ -79,7 +79,7 @@ Em Bases de Dados, é costume as transações oferecerem as seguintes propriedad
 - **I**solamento (_Isolation_):
 
   - Define como o sistema se comporta quando são executadas transações de forma
-    concorrente que acedem aos mesmos dados
+    concorrente que acedem aos mesmos objetos
   - Alguns exemplos de isolamento (que não iremos estudar):
     - Serializabilidade Estrita
     - Serializabilidade
@@ -160,9 +160,6 @@ das transações.
 
 ## Transações Distribuídas
 
-(**TODO**: Fix nome da secção, ao ter o mesmo nome q o title da pág, o link leva
-sempre para o title pq aparece primeiro, n sei q nome diferente dar a isto ou ao title)
-
 Quando queremos alterar dados que estão distribuídos por várias máquinas, torna-se
 mais complicado realizar uma transação, já que temos que garantir que todas as
 máquinas ou dão _commit_ ou _abort_.
@@ -176,7 +173,35 @@ dos nós que participam na transação.
 A solução mais simples para este problema é conhecida como **"confirmação
 (atómica distribuída) em 2 fases" (_2-phase-commit_)**
 
+### Coordenador da transação distribuída
+
+Os servidores que executam _requests_ como parte de uma transação distribuída precisam
+de comunicar entre si para coordenar as suas ações quando a transação é confirmada.
+
+![Coordinator of a distributed transaction](./assets/0006-distributed-transaction-coordinator.png#dark=3)
+
+Um cliente inicia uma transação enviando um _request_ `openTransaction` para um
+servidor (qualquer um). O servidor que abriu a transação torna-se no **coordenador**
+da mesma e, no final, é responsável por confirmá-la ou abortá-la. Cada servidor que
+gere um objeto acedido pela transação é considerado um **participante** da mesma e
+este fornece pelo menos um **objeto participante**.
+
+A figura anterior ilustra um cliente cuja transação bancária envolve as contas A, B,
+C e D nos servidores _BranchX_, _BranchY_ e _BranchZ_. A transação, T, transfere 4€
+da conta A para a conta C e depois transfere 3€ da conta B para a conta D. Note que
+as operações `openTransaction` e `closeTransaction` são direcionadas ao coordenador.
+
+Quando o cliente invoca um dos métodos na transação, por exemplo `b.withdraw(T,3)`,
+o objeto que recebe o _request_ (B na _BranchY_, neste caso) passa a saber que pertence
+à transação T. Se ainda não tiver informado o coordenador, o objeto participante usa a
+operação `join` para fazê-lo. Desta forma, quando o cliente invocar `closeTransaction`,
+o coordenador já possui referências para todos os participantes.
+
 ### Confirmação em 2 fases (_2-phase commit_)
+
+Durante uma transação, não há comunicação entre o coordenador e os participantes (para além dos participantes informarem o coordenador quando se juntam à transação). É quando o cliente solicita ao coordenador para confirmar a transação que o protocolo _2-phase commit_ entra em ação.
+
+Funcionamento do protocolo:
 
 - Um dos participantes é eleito como **coordenador**
 - O coordenador **envia uma mensagem especial _"prepare"_** para sinalizar o início
@@ -192,9 +217,14 @@ A solução mais simples para este problema é conhecida como **"confirmação
 - **Se receber pelo menos um "NOT-OK", aborta a transação**, registando no seu
   _log_ essa informação e enviando-a a todos os participantes (que também registam
   no seu _log_ o resultado)
-- Caso algum dos participantes não responda, o coordenador pode tentar conactá-lo
+- Caso algum dos participantes não responda, o coordenador pode tentar contactá-lo
   de novo ou, se suspeitar que falhou, abortar a transação.
   **A ausência de resposta do participante é interpretada como um "NOT-OK"**
+- Os participantes que votaram "OK" têm de esperar pela decisão do coordenador
+  (confirmar ou abortar). Quando um participante recebe esta informação, faz o que
+  tem a fazer de acordo com a decisão tomada e, no caso da confirmação, informa o
+  coordenador que os _logs_ referentes à transação podem ser apagados (a transação
+  foi concluída).
 
 :::details[Exemplo]
 
@@ -202,15 +232,30 @@ A solução mais simples para este problema é conhecida como **"confirmação
 
 :::
 
-:::tip[NOTA]
+:::tip[Este algoritmo é bloqueante]
 
-**Este algoritmo é bloqueante caso o coordenador falhe**
+**Este algoritmo é bloqueante caso o coordenador falhe:**
 
 - Depois de um participante responder "OK" já não pode alterar a sua decisão, pelo
   que tem de esperar pela decisão do coordenador, mantendo todos os _locks_
   associados aos recursos consultados/modificados até a transação terminar
 - Se o coordenador falhar, os _locks_ vão permanecer bloqueados até que o coordenador
   recupere
+
+Note que, utilizando _timeouts_, o participante pode fazer um _request_ ao coordenador
+de forma a determinar o resultado da transação caso este não responda (isto só resolve
+o problema caso a falha tenha ocorrido na comunicação e não no próprio coordenador).
+
+:::
+
+:::tip[Consenso]
+
+Na [secção do consenso](/sd/coordenacao-e-consenso/#problema-do-consenso) foi
+mencionado que o consenso não pode ser alcançado num sistema assíncrono. No entanto,
+este protocolo consegue alcançar o consenso sob estas condições porque as falhas dos
+processos são mascaradas substituindo um processo que falhou por outro cujo estado é
+restaurado a partir das informações salvas em _logs_ e das comunicações com outros
+processos.
 
 :::
 
@@ -267,12 +312,11 @@ _"commit"_, qualquer uma das decisões é válida... Mas porque é que isto não
 problema?
 
 Para um processo propor _"abort"_ enquanto outro(s) propõe(m) _"commit"_, algum
-participante $P$ teve que apenas enviar "OK" apenas para parte do grupo, de forma a
+participante $P$ teve que enviar "OK" apenas para parte do grupo, de forma a
 que os que receberam coletaram os "OK"s todos e propuseram _"commit"_, enquanto
 que quem não recebeu achou que $P$ tinha falhado, propondo _"abort"_.
 
-[Para apenas parte do grupo ter recebido "OK", podem ter ocorrido duas situações:
-(**TODO**: Not sure about this)](TODO)
+Para apenas parte do grupo ter recebido "OK", podem ter ocorrido duas situações:
 
 - $P$ falhou enquanto enviava as mensagens, mas para ter respondido "OK" já tinha
   toda a transação executada e tudo guardado num _log_ de forma persistente, pelo
