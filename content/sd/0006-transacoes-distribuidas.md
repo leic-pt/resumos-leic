@@ -334,5 +334,7 @@ Para apenas parte do grupo ter recebido "OK", podem ter ocorrido duas situaçõe
 
 ## Referências
 
+- Coulouris et al - Distributed Systems: Concepts and Design (5th Edition)
+  - Secções 17.1-17.3
 - Departamento de Engenharia Informática - Slides de Sistemas Distribuídos (2023/2024)
   - SlidesAlameda-Aula10
