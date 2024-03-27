@@ -299,9 +299,150 @@ Iremos apresentar de uma forma simplificada o funcionamento do protocolo SSL:
 - os _records_ são ainda cifrados antes de serem enviados, para assegurar a
   confidencialidade
 
+## Autenticação
+
+Já sabemos como podemos estabelecer canais seguros, garantindo a $A$ que está
+realmente a comunicar com $B$, mas e caso $B$ queira saber a identidade de $A$?
+Quando um cliente se conecta a uma página web de acesso livre, o servidor não
+precisa de saber quem $A$ é, mas caso tenha funcionalidades privadas, já precisa
+(para saber se pode fornecer o serviço).
+
+Uma solução poderia passar por $A$ possuir um par de chaves assimétricas, estando
+a chave pública assinada por uma CA. Mas como $A$ seria por norma uma pessoa,
+a solução torna-se pouco prática, já que ela teria de manter o seu certificado
+com a sua chave pública em todos os dispositivos que usasse (além de proteger
+o certificado para impedir a utilização indevida em caso de roubo).
+
+Geralmente a autenticação é feita através de um segredo que é partilhado entre
+$A$ e $B$ (como uma palavra-passe) e que é utilizado para estabelecer o canal seguro.
+Este tipo de autenticação pode ser usado em sistemas que usam canais seguros
+baseados tanto em chaves simétricas como assimétricas.
+
+### Autenticação com Chaves Simétricas
+
+- O cliente e o servidor partilham um segredo (tipicamente a palavra-passe do
+  cliente) a partir do qual é possível derivar uma chave simétrica $K_A$
+- Para estabelecer um canal, o cliente $A$ envia para o servidor $B$ o tuplo
+  $\text{<A, nonce>}$
+- O servidor gera uma chave simétrica única $K$ que será usada para estabelecer
+  a comunicação segura e envia-a ao cliente num tuplo cifrado com a chave simétrica
+  partilhada $K_A(\text{<nonce, K>})$
+- Apenas $A$ pode extrair $K$, já que $K_A$ vem da sua _password_
+- Quando $A$ usar $K$, prova a sua identidade
+
+### Autenticação com Chaves Simétricas
+
+- O cliente $A$ estabelece um canal seguro com o servidor $B$ usando um protocolo
+  baseado em chaves assimétricas, semelhante ao SSL/TLS descrito de forma breve
+  anteriormente
+- O cliente usa o canal seguro para enviar as suas credenciais
+  - palavra-passe
+  - possivelmente outros mecanismos de autenticação adicionais, tais como códigos
+    recebidos por e-mail ou SMS
+
+### Autenticação em Múltiplos Serviços
+
+Ambos os protocolos mencionados anteriormente obrigam o cliente a **partilhar um
+segredo (palavra-passe) com cada servidor** e a repetir todo o processo de autenticação
+sempre que quer aceder a um novo serviço.
+**Isto apresenta desvantagens**: além de **obrigar o cliente a manter várias
+palavras-passe**, torna-se **pouco prático e repetitivo** quando se quer usar vários
+serviços dentro de uma mesma organização (Webmail IST, Fénix, Moodle).
+
+Uma solução que não apresenta estes "problemas" é recorrermos a um servidor central
+de autenticação, em qual tanto os clientes como os servidores confiam:
+
+- o servidor auxilia o cliente no estabelecimento de um canal seguro entre ele e os
+  servidores, sem necessitar de repetir o processo de autenticação.
+- o cliente passa a apenas ter que partilhar segredos com o servidor de autenticação
+- os serviços também apenas partilham segredos com o servidor
+- pode ser feito com chaves simétricas ou assimétricas
+
+#### Protocolo de _Needham-Schroeder_
+
+O protocolo de autenticação de _Needham-Schroeder_ funciona da seguinte forma:
+
+1. $A \rarr S: A, B, N_A$
+   - em que $N_A$ é um _nonce_
+   - $A$ pede a $S$ uma chave para comunicar com $B$
+2. $S \rarr A: \Set{N_A, B, K_{AB}, \Set{K_{AB}, A}_{K_B}}_{K_A}$
+   - $S$ devolve uma mensagem cifrada com a chave de A $K_A$ (obtida através do
+     segredo partilhado: palavra-passe) com os seguintes elementos:
+     - a chave gerada para $A$ comunicar com $B$, $K_{AB}$
+     - o _nonce_ $N_A$ para demonstrar que a mensagem foi enviada em resposta
+       ao pedido de $A$
+     - um _"ticket"_ cifrado com a chave de $B$ $K_B$: $\Set{K_{AB}, A}_{K_B}$,
+       que será entregue por $A$ a $B$ na primeira comunicação, servindo de prova
+       a $B$ que $A$ está autenticado e se trata de facto de $A$
+   - como a mensagem vem cifrada com a chave de $A$ $K_A$, este confia que foi
+     mesmo $S$ que a enviou, já que apenas este sabe o seu segredo (além de si
+     próprio)
+3. $A \rarr B: \Set{K_{AB}, A}_{K_B}$
+   - $A$ envia o _ticket_ a $B$
+4. $B \rarr A: \Set{N_B}_{K_{AB}}$
+   - $B$ decifra o _ticket_ e ussa a nova chave $K_{AB}$ para cifrar um novo
+     _nonce_, $N_B$
+5. $A \rarr B: \Set{N_B - 1}_{K_{AB}}$
+   - $A$ demonstra a $B$ que foi de facto ele quem enviou o _ticket_ ao devolver
+     uma versão modificada de $N_B$
+
+:::warning[Passo 3 pode ser _replayed_]
+
+Da forma como o algoritmo está descrito, o passo 3 pode ser _replayed_ por um
+atacante.
+Uma versão mais robusta do algoritmo obrigaria $A$ a enviar um _nounce_.
+
+:::
+
+#### Sistema de Autenticação _Kerberos_
+
+Consiste num sistema de autenticação baseado no protocolo de _Needham-Schroeder_
+que se tornou um _"internet standard"_.
+Permite efetuar o que se designa por **_"single sign-on"_**:
+
+- o utilizador apenas utiliza as suas credenciais para estabelecer um canal seguro
+  com o servidor de autenticação
+- daí para a frente usa esse canal seguro para obter chaves simétricas para aceder
+  a outros serviços
+
+![Sistema _Kerberos_](./assets/0007-Kerberos.png#dark=3)
+
+[**TODO**: N sei se vale a pena entrar em detalhe no Kerberos, vi no livro
+que explica todo o funcionamento, o q é cada um dos tickets da imagem etc, mas
+parece me essencialmente o Schroeder. Nos slides n entram em detalhe aqui.]()
+
+#### _Single sign-on_ com Chaves Assimétricas
+
+Pode-se aplicar o mesmo princípio utilizado no _Needham-Schroeder_ /_Kerberos_
+em sistemas com chaves assimétricas.
+É algo bastante usado hoje em dia por exemplo quando fazemos login num serviço
+usando a conta Google.
+
+O funcionamento resume-se ao seguinte:
+
+1. o cliente $A$ cria um canal seguro com o servidor $B$ (usando SSL por exemplo)
+2. o servidor $B$ permite que a verificação da identidade de $A$ seja feita por um
+   _fornecedor de identidades_ (FI) externo em quem ambos confiam
+3. $B$ envia a $A$ um _token_ cifrado com a chave pública de FI $\text{FI}_+$ que
+   contém informação sobre o cliente de forma a que o FI consiga concluir o processo
+   de autenticação
+4. $A$ contacta o FI usando a sua palavra-passe (apenas partilhada com FI),
+   entregando-lhe o _token_
+5. o FI confirma a identidade de $A$ e que possui uma relação de confiança com o
+   serviço $B$
+6. o FI gera um _token_ de acesso cifrado com a chave pública de $B$ $K_{B+}$ que
+   o cliente $A$ pode fornecer a $B$ como prova de que foi autenticado pelo FI
+7. $A$ entrega o _token_ a $B$ e conclui assim o processo de autenticação
+
+**Nota**: os _tokens_ trocados entre $B$ e FI são cifrados com as respectivas
+chaves públicas para que o cliente não os consiga alterar.
+
+![SSO com chaves assimétricas](./assets/0007-SSO-assymmetrical-keys.svg#dark=3)
+
 ## Referências
 
 - Coulouris et al - Distributed Systems: Concepts and Design (5th Edition)
   - Secções 11.1 e 11.2
 - Departamento de Engenharia Informática - Slides de Sistemas Distribuídos (2023/2024)
   - SlidesTagus-Aula11
+  - SlidesAlameda-Aula12
