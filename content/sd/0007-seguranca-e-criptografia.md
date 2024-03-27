@@ -18,9 +18,9 @@ type: content
 
 ## Mecanismos Básicos de Comunicação Segura
 
-Iremos abordar como é possível comunicar com outra entidade de forma segura, ou seja,
-como ter a certeza de que não há nenhum intruso a escutar a conversa ou até mesmo
-modificar o conteúdo das mensagens nem a fazer-se passar por um de nós.
+Iremos abordar como é possível comunicar com outra entidade de forma segura,
+garantindo que não existem intrusos a intercetar a conversa, a modificar o
+conteúdo das mensagens ou a fazer-se passar por um de nós.
 
 **Algumas notas prévias**:
 
@@ -36,18 +36,17 @@ Vamos estudar de seguida mecanismos básicos utilizados para tornar um canal seg
 No contexto de uso de uma chave simétrica existe:
 
 - uma chave secreta $K_S$ conhecida por $A$ e $B$
-- um texto (_plaintext_) $m$
+- um texto $m$ (_plaintext_)
 - uma função de cifra que produz um texto cifrado (_ciphertext_) a partir de $m$
   e $K_S$, designada $K_S(m)$
-  - **NOTA**: a chave em si não cifra a mensagem, ela é utilizada por um algoritmo
-    de cifra que a usa para esse fim
+  - **NOTA**: a chave em si não cifra a mensagem, esta é utilizada por um algoritmo
 - uma função para decifrar o texto cifrado que usa a mesma chave: $m = K_S(K_S(m))$
 
 ![Uso de chave simétrica](./assets/0007-symmetrical-key.svg#dark=3)
 
 Podemos nestas condições criar um canal seguro entre $A$ e $B$ desde que estes
 conheçam previamente a chave, mas **como é que a distribuição da chave é feita**?
-Pode, por exemplo, ser trocada fisicamente ou então derivada de uma palavra chave
+Por exemplo, pode ser trocada fisicamente ou então derivada de uma palavra chave
 combinada previamente.
 
 Existem **dois grandes problemas** com o uso desta chave:
@@ -56,7 +55,7 @@ Existem **dois grandes problemas** com o uso desta chave:
   outra entidade?
 - Um intruso $T$ pode simplesmente escutar o que $A$ envia para $B$ e reenviar
   exatamente a mesma mensagem a $B$ (fazendo com que $B$ execute uma transferência
-  duas vezes por exemplo)
+  bancária duas vezes por exemplo)
 
 :::tip[Fatores que influenciam a segurança da chave]
 
@@ -67,29 +66,27 @@ da própria chave (nº _bits_) e do poder computacional do adversário.
 
 ### Chaves assimétricas
 
-Agora em vez de termos apenas uma chave partilhada por ambas as entidades,
-cada uma delas passa a possuir um par de chaves ($K_+$, $K_-$), designadas por
-chave pública e privada, respectivamente.
-As chaves apresentam as seguintes propriedades:
+Agora em vez de termos apenas uma chave partilhada, cada entidade passa a possuir
+um par de chaves ($K_+$, $K_-$), designadas por chave pública e privada,
+respectivamente. Estas chaves apresentam as seguintes propriedades:
 
-- a chave pública $K_+$ é partilhada às outras entidades
+- a chave pública $K_+$ é partilhada com as outras entidades
 - a chave privada $K_-$ é mantida secreta
 - $K_+(K_-(m)) = m$
 - $K_-(K_+(m)) = m$
 - não é possível obter uma chave a partir da outra
 
-A ideia de utilizar estas chaves é que ao querermos enviar uma mensagem para $B$,
-se a encriptarmos com a chave $K_{B+}$, apenas $B$ com a sua chave privada $K_{B-}$
-a pode decifrar.
-E caso $A$ queira provar a $B$ que o texto $m$ foi produzido por si, basta que $A$
-encripte $m$ com $K_{A-}$ e que $B$ decifre com $K_{A+}$.
-Se for bem sucedido, então $m$ foi garantidamente enviado por $A$, já que apenas
-este conhece $K_{A-}$.
+A utilização destas chaves permite que, ao enviarmos uma mensagem para $B$, se a
+encriptarmos com a chave $K_{B+}$, somente $B$, com a sua chave privada $K_{B-}$,
+será capaz de decifrá-la. Para além disso, se $A$ desejar provar a $B$ que o texto
+$m$ foi produzido por si, basta encriptar $m$ com $K_{A-}$ e $B$ decifrar com
+$K_{A+}$. Se for bem sucedido, então $m$ foi garantidamente enviado por $A$, já
+que apenas este conhece $K_{A-}$.
 
 ![Uso de chave assimétrica](./assets/0007-assymmetrical-key.svg#dark=3)
 
 O uso destas chaves tem no entanto uma grande desvantagem: **a criptografia assimétrica
-é muito mais lento do que a simétrica**.
+é muito mais lenta do que a simétrica** (100 a 1000 vezes).
 Por este motivo, é muito comum utilizar esta criptografia para negociar uma chave
 simétrica durante a criação do canal seguro (de forma a garantir que estamos a
 comunicar com a entidade certa), que será posteriormente utilizada na encriptação
@@ -97,7 +94,7 @@ de toda a comunicação (**método conhecido como "chave mista"**).
 Exemplo:
 
 1. $A$ cria uma chave simétrica $K_S$ e cifra-a com $K_{B+}$
-2. Apenas $B$ consegue obter $K_S$ já que apenas ele possui $K_{B-}$
+2. Apenas $B$ consegue obter $K_S$ já que é o único que possui $K_{B-}$
 
 :::warning[Perigo de divulgar a chave pública]
 
@@ -105,7 +102,9 @@ Apesar da divulgação da chave pública parecer fácil visto que pode ser parti
 tem um perigo associado:
 ![intruso em chave assimétrica](./assets/0007-assymetrical-key-intruder.svg#dark=3)
 
-Este ataque é conhecido como **_"Men-in-the-middle attack"_**.
+Este ataque é conhecido como **_"Men-in-the-middle attack"_**, onde o atacante
+reencaminha (e possivelmente altera) secretamente as comunicações entre duas
+entidades que acreditam estar a comunicar diretamente uma com a outra.
 
 :::
 
@@ -129,21 +128,21 @@ inviável encontrar em tempo útil outro texto $m'$ tal que $H(m') = H(m)$, ou s
 _hash_ que o original**.
 
 Para aumentar ainda mais a segurança do _hash_, podemos calculá-lo a partir do texto
-e da chave privada, em vez de apenas do texto.
+e da chave privada (simétrica), em vez de apenas do texto.
 
 ### _Nonce_
 
 Um _nonce_ **é uma palavra chave única** que é utilizada para identificar uma troca
-de mensagens e que **nunca é usada novamente** em comunicações posteriores.
+de mensagens e que **não é usada novamente** em comunicações posteriores.
 
 ![Utilização de _nonce_](./assets/0007-nonce.svg#dark=3)
 
-O objetivo de se utilizar um _nonce_ é eliminar uma vulnerabilidade mencionada
+O objetivo da utilização do _nonce_ é eliminar uma vulnerabilidade mencionada
 anteriormente: um atacante pode simplesmente repetir as mensagens cifradas
 (problema conhecido como _"replay attack"_).
-Ao ser utilizada uma palavra chave única por comunicação, caso um atacante repita
-as mensagens mais tarde, estas serão ignoradas pelo destinatário, pois sabe que
-se tratam de mensagens repetidas.
+Ao utilizar uma palavra chave única por comunicação, caso um atacante repita
+as mensagens posteriormente, estas serão ignoradas pelo destinatário, pois este
+sabe que se tratam de mensagens repetidas.
 
 O cálculo de um _nonce_ é tipicamente baseado numa das seguintes técnicas (ou
 na sua combinação):
@@ -156,10 +155,10 @@ Os _nonces_ também podem ser utilizados para garantir que estamos a falar com a
 entidade certa:
 
 - encriptamos o _nonce_ com uma chave
-- esperamos que a outra entidade devolva uma versão modificada do _nonce_ enviado
-  (por exemplo, _nonce_ + 1)
+- esperamos que a outra entidade devolva uma versão modificada (determinista) do
+  _nonce_ enviado (por exemplo, _nonce_ + 1)
 - como apenas a outra entidade detém a chave de forma a decifrar o que enviamos,
-  apenas ela consegue ler o _nonce_ enviado e modificá-lo como combinado
+  apenas esta consegue ler o _nonce_ enviado e modificá-lo como combinado
 
 ![Confirmação de identidade com _nonce_](./assets/0007-nonce-identity-confirmation.svg#dark=3)
 
@@ -193,10 +192,10 @@ um segredo e é tipicamente designado por **Message Authentication Code (MAC)**
 
 ### Assinaturas Digitais com Chave Assimétrica
 
-$A$ tem $K_{A-}$ e $B$ conhece $K_{A+}$ (veremos como isto é possível com certificados)
-e $A$ quer assinar um texto $m$ de forma a que $B$ possa confirmar a sua autenticidade
-e integridade e que também **consiga provar a outro que a mensagem $m$ foi de facto
-enviada por $A$ (não repúdio)**.
+$A$ tem $K_{A-}$ e $B$ conhece $K_{A+}$ (veremos como é que isto é possível com
+certificados). $A$ quer assinar um texto $m$ de forma a que $B$ possa confirmar
+a sua autenticidade e integridade, e que também **consiga provar a outro que a
+mensagem $m$ foi de facto enviada por $A$ (não repúdio)**.
 Para tal:
 
 - $A$ usa uma função de _hash_ criptográfica para gerar o _digest_ da mensagem $H(m)$
@@ -208,7 +207,7 @@ Para tal:
 
 Quando falámos de chaves assimétricas, vimos que [corriamos um
 perigo](#chaves-assimétricas:~:text=PERIGO%20DE%20DIVULGAR%20A%20CHAVE%20P%C3%9ABLICA)
-ao tentar descobrir a chave pública da outra entidade: estavamos suscetíveis ao
+ao tentar descobrir a chave pública da outra entidade: estávamos suscetíveis ao
 **_Men-in-the-middle attack_**.
 Esta vulnerabilidade existe já que não conseguimos ter a certeza de que estamos
 de facto a falar com a entidade pretendida, nem de verificar a autenticidade
@@ -231,12 +230,18 @@ Um certificado digital consiste num documento que associa uma entidade a uma cha
 pública e que está assinado pela CA.
 
 Após verificarmos que o certificado recebido está assinado pela CA, ainda precisamos
-de garantir que a entidade que estamos a contactar é de facto a oficial antes de
+de garantir que a entidade com a qual estamos a contactar é de facto legítima antes de
 negociarmos uma chave simétrica para usar durante a sessão, e para tal podemos usar
 a [estratégia mencionada previamente que utiliza um _nonce_](#nonce):
 
 - ciframos um _nonce_ com a chave pública retirada do certificado
 - esperamos receber uma versão modificada do mesmo
+
+Por vezes, existe a necessidade de invalidar um certo certificado. Seria caro, se
+não impossível, rastrear e apagar todas as cópias locais do certificado. A solução
+mais comum para este problema é incluir uma data de validade no próprio certificado,
+sendo que a receção de certificados expirados deve ser rejeitada (o titular do
+certificado deve solicitar a renovação do mesmo).
 
 ### Troca segura de e-mails
 
@@ -253,7 +258,7 @@ Um exemplo de sistema seguro de troca de e-mails é o **PGP**, _Pretty Good Priv
   - cria uma chave simétrica para cifrar o conteúdo do e-mail
   - cifra essa chave com a chave pública do destinatário
   - envia o conteúdo cifrado juntamente com a chave simétrica cifrada
-  - como o destinatário é o único que possui a sua chave privada, apenas ele
+  - como o destinatário é o único que possui a sua chave privada, apenas este
     consegue obter a chave simétrica para decifrar o conteúdo do e-mail
 
 ### Canais seguros (SSL/TLS)
@@ -295,5 +300,8 @@ Iremos apresentar de uma forma simplificada o funcionamento do protocolo SSL:
   confidencialidade
 
 ## Referências
+
+- Coulouris et al - Distributed Systems: Concepts and Design (5th Edition)
+  - Secções 11.1 e 11.2
 - Departamento de Engenharia Informática - Slides de Sistemas Distribuídos (2023/2024)
   - SlidesTagus-Aula11
