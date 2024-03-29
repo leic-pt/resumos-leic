@@ -6,6 +6,8 @@ description: >
   Assinaturas digitais e certificados.
 
   Canais seguros.
+
+  Autenticação.
 path: /sd/seguranca-e-criptografia
 type: content
 ---
