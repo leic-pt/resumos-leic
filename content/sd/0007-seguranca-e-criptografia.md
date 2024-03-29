@@ -304,17 +304,17 @@ Iremos apresentar de uma forma simplificada o funcionamento do protocolo SSL:
 Já sabemos como podemos estabelecer canais seguros, garantindo a $A$ que está
 realmente a comunicar com $B$, mas e caso $B$ queira saber a identidade de $A$?
 Quando um cliente se conecta a uma página web de acesso livre, o servidor não
-precisa de saber quem $A$ é, mas caso tenha funcionalidades privadas, já precisa
-(para saber se pode fornecer o serviço).
+precisa de saber quem $A$ é, mas isto já não é verdade caso tenha funcionalidades
+privadas (para saber se pode fornecer o serviço).
 
 Uma solução poderia passar por $A$ possuir um par de chaves assimétricas, estando
 a chave pública assinada por uma CA. Mas como $A$ seria por norma uma pessoa,
-a solução torna-se pouco prática, já que ela teria de manter o seu certificado
-com a sua chave pública em todos os dispositivos que usasse (além de proteger
+a solução torna-se pouco prática, já que esta teria de manter o seu certificado
+com a sua chave pública em todos os seus dispositivos (para além de ter que proteger
 o certificado para impedir a utilização indevida em caso de roubo).
 
 Geralmente a autenticação é feita através de um segredo que é partilhado entre
-$A$ e $B$ (como uma palavra-passe) e que é utilizado para estabelecer o canal seguro.
+$A$ e $B$ (como uma palavra-passe), e que é utilizado para estabelecer o canal seguro.
 Este tipo de autenticação pode ser usado em sistemas que usam canais seguros
 baseados tanto em chaves simétricas como assimétricas.
 
@@ -330,7 +330,7 @@ baseados tanto em chaves simétricas como assimétricas.
 - Apenas $A$ pode extrair $K$, já que $K_A$ vem da sua _password_
 - Quando $A$ usar $K$, prova a sua identidade
 
-### Autenticação com Chaves Simétricas
+### Autenticação com Chaves Assimétricas
 
 - O cliente $A$ estabelece um canal seguro com o servidor $B$ usando um protocolo
   baseado em chaves assimétricas, semelhante ao SSL/TLS descrito de forma breve
@@ -350,12 +350,12 @@ palavras-passe**, torna-se **pouco prático e repetitivo** quando se quer usar v
 serviços dentro de uma mesma organização (Webmail IST, Fénix, Moodle).
 
 Uma solução que não apresenta estes "problemas" é recorrermos a um servidor central
-de autenticação, em qual tanto os clientes como os servidores confiam:
+de autenticação, no qual tanto os clientes como os servidores confiam:
 
-- o servidor auxilia o cliente no estabelecimento de um canal seguro entre ele e os
-  servidores, sem necessitar de repetir o processo de autenticação.
+- o servidor auxilia o cliente no estabelecimento de um canal seguro entre este e os
+  servidores, sem necessitar de repetir o processo de autenticação
 - o cliente passa a apenas ter que partilhar segredos com o servidor de autenticação
-- os serviços também apenas partilham segredos com o servidor
+- os serviços também apenas partilham segredos com este servidor
 - pode ser feito com chaves simétricas ou assimétricas
 
 #### Protocolo de _Needham-Schroeder_
@@ -380,7 +380,7 @@ O protocolo de autenticação de _Needham-Schroeder_ funciona da seguinte forma:
 3. $A \rarr B: \Set{K_{AB}, A}_{K_B}$
    - $A$ envia o _ticket_ a $B$
 4. $B \rarr A: \Set{N_B}_{K_{AB}}$
-   - $B$ decifra o _ticket_ e ussa a nova chave $K_{AB}$ para cifrar um novo
+   - $B$ decifra o _ticket_ e usa a nova chave $K_{AB}$ para cifrar um novo
      _nonce_, $N_B$
 5. $A \rarr B: \Set{N_B - 1}_{K_{AB}}$
    - $A$ demonstra a $B$ que foi de facto ele quem enviou o _ticket_ ao devolver
@@ -390,7 +390,9 @@ O protocolo de autenticação de _Needham-Schroeder_ funciona da seguinte forma:
 
 Da forma como o algoritmo está descrito, o passo 3 pode ser _replayed_ por um
 atacante.
-Uma versão mais robusta do algoritmo obrigaria $A$ a enviar um _nounce_.
+Uma versão mais robusta do algoritmo obrigaria $A$ a enviar um _nounce_ ou um
+_timestamp_, $\Set{K_{AB}, A, t}_{K_B}$. Assim, $B$ pode verificar se $t$ é
+recente (esta é a solução adotada no _Kerberos_).
 
 :::
 
@@ -406,10 +408,6 @@ Permite efetuar o que se designa por **_"single sign-on"_**:
   a outros serviços
 
 ![Sistema _Kerberos_](./assets/0007-Kerberos.png#dark=3)
-
-[**TODO**: N sei se vale a pena entrar em detalhe no Kerberos, vi no livro
-que explica todo o funcionamento, o q é cada um dos tickets da imagem etc, mas
-parece me essencialmente o Schroeder. Nos slides n entram em detalhe aqui.]()
 
 #### _Single sign-on_ com Chaves Assimétricas
 
@@ -442,7 +440,7 @@ chaves públicas para que o cliente não os consiga alterar.
 ## Referências
 
 - Coulouris et al - Distributed Systems: Concepts and Design (5th Edition)
-  - Secções 11.1 e 11.2
+  - Secções 11.1-11.2 e 11.4-11.6
 - Departamento de Engenharia Informática - Slides de Sistemas Distribuídos (2023/2024)
   - SlidesTagus-Aula11
   - SlidesAlameda-Aula12
