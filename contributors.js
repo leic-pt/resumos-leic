@@ -33,5 +33,11 @@ module.exports = {
       name: 'Rita Mendes',
       additionalLabels: ['Imagens CDI-II'],
     },
+    nunogoncalves03: {
+      boldLabels: ['SD'],
+    },
+    fmata97: {
+      boldLabels: ['SD'],
+    },
   }),
 };
