@@ -4,7 +4,7 @@ import '../styles/themes/gruvbox.css';
 import '../styles/themes/nord.css';
 import '../styles/themes/solarized.css';
 
-const fonts = {
+export const fonts = {
   roboto: {
     cssFamily: 'Roboto, sans-serif',
     url: 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap',
