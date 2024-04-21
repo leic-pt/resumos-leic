@@ -250,7 +250,7 @@ Para se entender melhor, considere-se o seguinte exemplo, com $N = 5$:
    ![Reenvio de falhas e novos pacotes](./assets/0003-SelectiveRepeat-5.png#dark=3) <br/>
 
 Neste caso, a seguinte condição tem que ser respeitada:
-$\frac{N_{pkts}}{2} \leq N_w$
+$N_w \leq \frac{N_{pkts}}{2}$
 
 ## TCP - Transmission Control Protocol
 
@@ -462,15 +462,14 @@ serra:
 
 ##### Estado de Fast Recovery
 
-Se forem detetados três ACKs duplicados antes da fase de **_congestion-avoidance_**, pode ser usado o
-estado de **Fast Recovery**, onde se tenta acelerar a recuperação enviando apenas os segmentos
-perdidos.
+Se forem detetados três ACKs duplicados pode ser usado o estado de **Fast Recovery**, onde se tenta acelerar a recuperação enviando apenas os segmentos
+perdidos antes de se transitar novamente (ou pela primeira vez) para o estado de **_congestion-avoidance_**.
 
-Neste caso, a velocidade é incrementada em 1 por cada ACK duplicado recebido pelo segmento perdido
-que causou a entrada neste estado.
+Neste caso, a congestion window é incrementada em 1 MSS por cada ACK duplicado recebido que causou a entrada neste estado, este aumento da congestion window com pacotes duplicados não acontece nos outros estados e é a principal diferença do **Fast Recovery**.
 
-Finalmente, depois do ACK que confirma a receção do segmento perdido, move-se para a fase de
-**_congestion-avoidance_**.
+Finalmente, depois do ACK que confirma a receção do segmento perdido, move-se para a fase de **_congestion-avoidance_**.
+
+Nota: É uma boa ideia olhar para a State Machine dos slides pois é muito mais simples olhar para as transições e estados que existem ao invés de estar a tentar percebê-lo por escrito.
 
 ##### Variações
 

@@ -80,7 +80,7 @@ $$
 O algoritmo de treino do percetrão, abaixo descrito, converge para uma
 classificação correta se o conjunto de treino for linearmente separável e
 $\eta$ for suficientemente pequeno. É de notar que um valor demasiado pequeno
-de $\eta$ faz com que o algoritmo não tanto em tenha em conta a contribuição de
+de $\eta$ faz com que o algoritmo não tenha tanto em conta a contribuição de
 observações seguintes. Por outro lado, uma valor de $\eta$ demasiado grande
 pode desvalorizar as observações anteriormente consideradas. É necessário
 equilibrar estes dois conflitos.

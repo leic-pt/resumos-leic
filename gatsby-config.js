@@ -1,5 +1,3 @@
-const puppeteer = require('puppeteer');
-
 module.exports = {
   siteMetadata: {
     title: `Resumos LEIC-A`,
@@ -17,6 +15,10 @@ module.exports = {
       { key: 'guides', name: '📚 Guias' },
       { key: 'archive', name: '📥 Arquivo' },
     ],
+    github: {
+      owner: 'leic-pt',
+      repository: 'resumos-leic',
+    },
     navbar: {
       siteTitle: 'Resumos LEIC-A',
       links: [
@@ -49,6 +51,7 @@ module.exports = {
         path: `${__dirname}/content`,
       },
     },
+    `gatsby-source-github-contributors`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     {
@@ -106,15 +109,7 @@ module.exports = {
               tight: true,
             },
           },
-          {
-            resolve: `gatsby-remark-mermaid`,
-            options: {
-              launchOptions: {
-                executablePath: puppeteer.executablePath(),
-              },
-              svgo: false, // it doesn't like lines breaks in diagram text boxes
-            },
-          },
+          `gatsby-remark-mermaid`,
           `gatsby-remark-embed-snippet`,
           {
             resolve: `gatsby-remark-prismjs`,

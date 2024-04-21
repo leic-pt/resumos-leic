@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
@@ -15,11 +15,6 @@
             nodejs
             yarn
           ];
-
-          shellHook = ''
-            export PUPPETEER_SKIP_DOWNLOAD=1
-            export PUPPETEER_EXECUTABLE_PATH=${pkgs.chromium.outPath}/bin/chromium
-          '';
         };
       }
     );

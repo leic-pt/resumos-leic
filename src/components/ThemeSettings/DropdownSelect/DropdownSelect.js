@@ -38,6 +38,7 @@ const DropdownSelect = ({ id = 'unknown', value, onChange, children }) => {
   return (
     <div
       className='dropdown-select'
+      role='none'
       onBlur={(e) => !e.relatedTarget?.classList?.contains(`keep-focus-${id}`) && close()}
     >
       <button onClick={toggleOpen} className={`keep-focus-${id}`}>
@@ -48,7 +49,7 @@ const DropdownSelect = ({ id = 'unknown', value, onChange, children }) => {
         <div className={`options-container${open ? ' options-container--open' : ''}`}>
           <div
             className='options-container-backdrop'
-            role='button'
+            role='none'
             onMouseDown={(event) => {
               if (event.target === event.currentTarget) {
                 toggleOpen();

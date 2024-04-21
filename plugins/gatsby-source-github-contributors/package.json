@@ -1,0 +1,4 @@
+{
+  "name": "gatsby-source-github-contributors",
+  "description": "Fetch GitHub contributors for this repository"
+}
