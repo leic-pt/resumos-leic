@@ -115,36 +115,16 @@ const ThemeSettings = () => {
         {fontLoader}
         <Option name='Font'>
           <DropdownSelect id='font' value={font} onChange={(v) => setFont(v)}>
-            <DropdownOption value='roboto' font={fonts['roboto']['cssFamily']}>
-              Roboto (default)
-            </DropdownOption>
-            <DropdownOption value='comicNeue' font={fonts['comicNeue']['cssFamily']}>
-              Comic Neue
-            </DropdownOption>
-            <DropdownOption value='indieFlower' font={fonts['indieFlower']['cssFamily']}>
-              Indie Flower
-            </DropdownOption>
-            <DropdownOption value='nunito' font={fonts['nunito']['cssFamily']}>
-              Nunito
-            </DropdownOption>
-            <DropdownOption value='openDyslexic' font={fonts['openDyslexic']['cssFamily']}>
-              OpenDyslexic
-            </DropdownOption>
-            <DropdownOption value='openSans' font={fonts['openSans']['cssFamily']}>
-              Open Sans
-            </DropdownOption>
-            <DropdownOption value='cursive' font={fonts['cursive']['cssFamily']}>
-              cursive (system)
-            </DropdownOption>
-            <DropdownOption value='monospace' font={fonts['monospace']['cssFamily']}>
-              monospace (system)
-            </DropdownOption>
-            <DropdownOption value='sansSerif' font={fonts['sansSerif']['cssFamily']}>
-              sans-serif (system)
-            </DropdownOption>
-            <DropdownOption value='serif' font={fonts['serif']['cssFamily']}>
-              serif (system)
-            </DropdownOption>
+            <DropdownOption value='roboto'>Roboto (default)</DropdownOption>
+            <DropdownOption value='comicNeue'>Comic Neue</DropdownOption>
+            <DropdownOption value='indieFlower'>Indie Flower</DropdownOption>
+            <DropdownOption value='nunito'>Nunito</DropdownOption>
+            <DropdownOption value='openDyslexic'>OpenDyslexic</DropdownOption>
+            <DropdownOption value='openSans'>Open Sans</DropdownOption>
+            <DropdownOption value='cursive'>cursive (system)</DropdownOption>
+            <DropdownOption value='monospace'>monospace (system)</DropdownOption>
+            <DropdownOption value='sansSerif'>sans-serif (system)</DropdownOption>
+            <DropdownOption value='serif'>serif (system)</DropdownOption>
           </DropdownSelect>
         </Option>
       </SidePanel>

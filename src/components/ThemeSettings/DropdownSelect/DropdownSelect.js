@@ -41,7 +41,12 @@ const DropdownSelect = ({ id = 'unknown', value, onChange, children }) => {
     Object.values(fonts).forEach((font) => {
       if (font.url) {
         const link = document.createElement('link');
-        link.href = font.url;
+        // temporary solution until openDyslexic font has support for subset loading
+        if (font === fonts['openDyslexic']) {
+          link.href = font.url;
+        } else {
+          link.href = font.url.concat('&text=', font.displayName);
+        }
         link.rel = 'stylesheet';
         document.head.appendChild(link);
       }

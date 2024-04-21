@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import { DropdownContext } from './DropdownSelect';
+import { fonts } from '../../../hooks/theme-hooks';
 
-const DropdownOption = ({ value, children, font }) => {
+const DropdownOption = ({ value, children }) => {
   const { id, value: selectedValue, onChange } = useContext(DropdownContext);
 
-  const style = font ? { fontFamily: font, fontSize: '17px' } : {};
+  const style = fonts[value] ? { fontFamily: fonts[value]['cssFamily'], fontSize: '17px' } : {};
 
   return (
     <button
