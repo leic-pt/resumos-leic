@@ -10,7 +10,7 @@ const DropdownOption = ({ value, children, font }) => {
     <button
       className={`keep-focus-${id} dropdown-option${value === selectedValue ? ' selected' : ''}`}
       onClick={() => onChange(value)}
-      style = { style }
+      style={style}
     >
       {children}
     </button>

@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo, useState, useEffect } from 'react';
 import DropdownArrow from '../../icons/DropdownArrow';
 import './DropdownSelect.css';
-import { fonts } from '../../../hooks/theme-hooks'
+import { fonts } from '../../../hooks/theme-hooks';
 
 const DropdownContext = React.createContext({ id: 'unknown', value: null, onChange: () => {} });
 
@@ -36,9 +36,9 @@ const DropdownSelect = ({ id = 'unknown', value, onChange, children }) => {
     [onChange, close]
   );
 
-  // Carregar todas as fontes quando o componente é montado
+  // Loading all the fonts when the component is built
   useEffect(() => {
-    Object.values(fonts).forEach(font => {
+    Object.values(fonts).forEach((font) => {
       if (font.url) {
         const link = document.createElement('link');
         link.href = font.url;
