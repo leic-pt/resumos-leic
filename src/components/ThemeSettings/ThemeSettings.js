@@ -19,7 +19,6 @@ import SidePanel from '../SidePanel';
 import DropdownOption from './DropdownSelect/DropdownOption';
 import DropdownSelect from './DropdownSelect/DropdownSelect';
 import Option from './Option';
-import { fonts } from '../../hooks/theme-hooks';
 import './ThemeSettings.css';
 
 const ThemeSettings = () => {
