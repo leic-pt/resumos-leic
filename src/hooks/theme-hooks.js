@@ -8,17 +8,17 @@ export const fonts = {
   roboto: {
     cssFamily: 'Roboto, sans-serif',
     url: 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap',
-    displayName: 'Roboto%20(default)',
+    displayName: 'Roboto (default)',
   },
   comicNeue: {
     cssFamily: 'Comic Neue, sans-serif',
     url: 'https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap',
-    displayName: 'Comic%20Neue',
+    displayName: 'Comic Neue',
   },
   indieFlower: {
     cssFamily: 'Indie Flower, cursive',
     url: 'https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap',
-    displayName: 'Indie%20Flower',
+    displayName: 'Indie Flower',
   },
   nunito: {
     cssFamily: 'Nunito, sans-serif',
@@ -33,19 +33,23 @@ export const fonts = {
   openSans: {
     cssFamily: 'Open Sans, Roboto, sans-serif',
     url: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap',
-    displayName: 'Open%20Sans',
+    displayName: 'Open Sans',
   },
   cursive: {
     cssFamily: 'cursive',
+    displayName: 'cursive (system)',
   },
   monospace: {
     cssFamily: 'monospace',
+    displayName: 'monospace (system)',
   },
   sansSerif: {
     cssFamily: 'sans-serif',
+    displayName: 'sans-serif (system)',
   },
   serif: {
     cssFamily: 'serif',
+    displayName: 'serif (system)',
   },
 };
 
