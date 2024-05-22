@@ -1,5 +1,5 @@
 ---
-title: Produto interno e ortogonalidade
+title: Produto Interno e Ortogonalidade
 description: >-
   Produto interno usual (real e complexo)
   Propriedades do produto interno
@@ -13,29 +13,27 @@ path: /al/produto-interno-ortogonalidade
 type: content
 ---
 
-# Produto interno e ortogonalidade
-
-(baseado no material disponibilizado pela professora Esmeralda Dias)
+# Produto Interno e Ortogonalidade
 
 Apesar da introdução a álgebra linear ter sido realizada até agora através de sistemas lineares, existe uma diversidade enorme de aplicações geométricas desta área.
 Podemos por isso, generalizar muitas noções geométricas a qualquer espaço linear, não só a $$ \R^n$$ mas a qualquer espaço linear.
 
-## Produto interno usual em $$ \R^n$$
+## Produto interno usual em $ \R^n$
 
-O produto interno usual em $$ \R^n$$ pode ser definido simplesmente por
+O produto interno usual em $ \R^n$ pode ser definido simplesmente por
 
 :::info[Definição]
-Sejam x, y vetores de $$ \R^n$$
+Sejam $x$, $y$ vetores de $ \R^n$
 
-Tal que $$ x=(x_1,x_2,x_3,... , x_n) $$
+Tal que $ x=(x_1,x_2,x_3,... , x_n) $
 
-e $$y=(y_1,y_2,y_3,..., y_n)$$
+e $y=(y_1,y_2,y_3,..., y_n)$
 
-$$ \langle x,y \rang =x_1y_1 +x_2y_2+...+x_ny_n$$
+$ \langle x,y \rang =x_1y_1 +x_2y_2+...+x_ny_n$
 
 ou seja,
 
-$$ \langle x,y \rang = $$ $$\begin{bmatrix}
+$ \langle x,y \rang = $ $$\begin{bmatrix}
    x_1 & x_2 & ... & x_n
 \end{bmatrix}\begin{bmatrix}
    y_1 \\
@@ -43,26 +41,26 @@ $$ \langle x,y \rang = $$ $$\begin{bmatrix}
    ... \\
    y_n
 \end{bmatrix}$$
-$$= x^Ty$$
+$= x^Ty$
 :::
 
-## Produto interno em $$ \C^n $$
+## Produto interno em $ \C^n $
 
-O produto interno usual em $$\C^n$$ é em muito similar ao produto em $$\R^n$$, mas com algumas diferenças.  
+O produto interno usual em $\C^n$ é em muito similar ao produto em $\R^n$, mas com algumas diferenças.  
 Segue-se a fórmula deste:
 
 :::info[Definição]
-Sejam x, y vetores de $$ \C^n$$
+Sejam x, y vetores de $ \C^n$
 
-Tal que $$ x=(x_1,x_2,x_3,... , x_n) $$
+Tal que $ x=(x_1,x_2,x_3,... , x_n) $
 
-e $$y=(y_1,y_2,y_3,..., y_n)$$
+e $y=(y_1,y_2,y_3,..., y_n)$$
 
-$$ \langle x,y \rang =\bar{x}\_1y_1 +\bar{x}\_2y_2+...+\bar{x}\_ny_n$$
+$ \langle x,y \rang =\bar{x}\_1y_1 +\bar{x}\_2y_2+...+\bar{x}\_ny_n$
 
 ou seja,
 
-$$ \langle x,y \rang = $$ $$\begin{bmatrix}
+$ \langle x,y \rang = $ $$\begin{bmatrix}
    \bar{x}_1 & \bar{x}_2 & ... & \bar{x}_n
 \end{bmatrix} \begin{bmatrix}
    y_1 \\
@@ -70,25 +68,25 @@ $$ \langle x,y \rang = $$ $$\begin{bmatrix}
    ... \\
    y_n
 \end{bmatrix}$$
-$$= \bar{x}^Ty$$
+$= \bar{x}^Ty$
 :::
 
 #### Nota:
 
-Verifica-se que se a fórmula do produto interno usual fôr aplicada aos números reais, que se obtém a fórmula do produto interno usual dos números reais pois $$\bar{x}=x, \forall x \in \R$$
+Verifica-se que se a fórmula do produto interno usual fôr aplicada aos números reais, que se obtém a fórmula do produto interno usual dos números reais pois $\bar{x}=x, \forall x \in \R$
 
 ## Propriedades do Produto Interno
 
 Qualquer que seja o produto interno, este seguirá sempre as seguintes propriedades:
 
 :::info[Simetria]
-$$ \langle x,y \rang = \langle y,x \rang $$ (em $\R$) ou $$\langle x,y \rang =  \overline{\langle y,x \rang}$$ (em $\C$)
+$ \langle x,y \rang = \langle y,x \rang $ (em $\R$) ou $\langle x,y \rang =  \overline{\langle y,x \rang}$ (em $\C$)
 :::
 :::info[Linearidade]
-$$ \langle x,\alpha y + \beta z \rang = \alpha \langle x,y\rang + \beta \langle x,z\rang$$
+$ \langle x,\alpha y + \beta z \rang = \alpha \langle x,y\rang + \beta \langle x,z\rang$
 :::
 :::info[Simetria]
-$$ \langle x,x \rang \geqslant 0 $$ e $ \langle x,x \rang = 0 $ apenas quando $ x=0$
+$ \langle x,x \rang \geqslant 0 $ e $ \langle x,x \rang = 0 $ apenas quando $ x=0$
 :::
 
 A partir destas características fundamentais podese definir o conceito de espaço Euclidiano.
@@ -99,23 +97,23 @@ Espaço linear munido de munido de produto interno
 Num espaço euclidiano definem-se os seguintes conceitos:
 
 :::info[Norma]
-$$ \parallel x\parallel = \langle x,x \rang $$
+$ \parallel x\parallel = \langle x,x \rang $
 :::
 :::info[Distância]
-dist$$(u,v) = \parallel u-v\parallel $$
+dist$(u,v) = \parallel u-v\parallel $
 :::
 
 ### Matriz de Gram
 
 :::info[Matriz de Gram]
-Seja $W$ um espaço linear real (resp. complexo) munido de um produto interno e $$ B=(v*1,v_2,...,v_n)$$ uma base ordenada de $W$. A matriz $$G={[\langle v_i,v_j\rang]}*{(i,j=1,...,n)}$$ dos produtos internos dos vetores da base $B$ é dsignada por _matriz de Gram_ ou _matriz da métrica_, relativa à base $B$. A matriz $G$ verifica:
+Seja $W$ um espaço linear real (resp. complexo) munido de um produto interno e $ B=(v*1,v_2,...,v_n)$ uma base ordenada de $W$. A matriz $$G={[\langle v_i,v_j\rang]}*{(i,j=1,...,n)}$$ dos produtos internos dos vetores da base $B$ é dsignada por _matriz de Gram_ ou _matriz da métrica_, relativa a essa mesma base. A matriz $G$ verifica:
 
 1. $G$ é simétrica (respetivamente Hermitiana);
-2. $G$ é definida positiva, isto é, $$x^T_BGx_b>0$$ para todo $x \not = 0$ (resp. $ x^H_BGy_B>0$, para todo $x \not = 0$), ou seja, os valores próprios da matriz $G$ têm de ser todos positivos.
+2. $G$ é definida positiva, isto é, $x^T_BGx_b>0$ para todo $x \not = 0$ (resp. $ x^H_BGy_B>0$, para todo $x \not = 0$), ou seja, os valores próprios da matriz $G$ têm de ser todos positivos.
 
 Em relação à base $B$, o produto interno em $W$ escreve-se na forma
 
-$$ \langle x,y \rang = x^T_BGy_B$$
+$ \langle x,y \rang = x^T_BGy_B$
 onde $x_B$ e $y_B$ são respetivamente, os vetores de coodenadas de $x$ e $y$ na base $B$.
 :::
 
@@ -123,12 +121,12 @@ onde $x_B$ e $y_B$ são respetivamente, os vetores de coodenadas de $x$ e $y$ na
 
 Num espaço euclidiano qualquer verifica-se que
 
-$$ \large{\dfrac{| \langle u,v\rang |}{\| u \| \|v \|}} \leqslant 1$$
+$ \large{\dfrac{| \langle u,v\rang |}{\| u \| \|v \|}} \leqslant 1$
 
 Esta desigualdade permite diretamente chegar à noção de ângulo entre vetores.
 
 :::info[Ângulo entre vetores]
-$$\large{\dfrac{ \langle u,v\rang }{\| u \| \|v \|}} =cos \theta, \theta \in [0, \pi] $$
+$\large{\dfrac{ \langle u,v\rang }{\| u \| \|v \|}} =cos \theta, \theta \in [0, \pi] $
 :::
 
 ## Ortogonalidade
@@ -158,7 +156,7 @@ De forma muito similar,
 :::info[Conjunto Ortonormado]
 $ S=\{v_1,v_2,...,v_n\}$ é ortonormado se os vetores de $S$ são ortogonais 2 a 2 e se a norma de todos os vetores fôr 1, isto é:
 
-$$\langle v_i, v_j \rang=$$ $$ \begin{cases}
+$\langle v_i, v_j \rang=$ $$ \begin{cases}
 0 &\text{se } i \not = j \\
 1 &\text{se } i = j
 \end{cases} $$
@@ -171,11 +169,11 @@ Um conjunto ortogonal $ S=\{v_1,v_2,...,v_n\}$ que não contenha o vetor nulo é
 :::info[Projeção ortogonal]
 Num espaço lonear $W$ munido de um produto interno, a _projeção ortogonal_ do vetor $u \isin W$ sobre o vetor não nulo $v \isin W$. é definida por
 
-$$ proj_u v =\dfrac{ \langle u,v\rang }{\| u \|^2} $$
+$ proj_u v =\dfrac{ \langle u,v\rang }{\| u \|^2} $
 :::
 
 :::info[Desigualdade Triangular]
-$$ \|u+v\|\le \|u\|+\|v\| $$
+$ \|u+v\|\le \|u\|+\|v\| $
 :::
 
 ### Complemento ortogonal
@@ -186,11 +184,11 @@ Tendo em conta esta definição,
 
 $dim W= dim U+ dim V$
 
-Pode-se expandir esta noção, criando a noção de
+Pode-se expandir esta noção, criando a noção de **complemento ortogonal**.
 
 :::info[Complemento Ortogonal]
-Seja $W$ um espaço linear munido de um produto intero e $S$ um subespaço de $W$
-O _complemento ortogonal_ de $S$ é o conjunto de todos os vetores de $W$ que são ortogonais a qualquer vetor de S. Designamos o complemento ortogonal do subespaço $S$ por $S^\perp$.
+Seja $W$ um espaço linear munido de um produto interno e $S$ um subespaço de $W$
+O _complemento ortogonal_ de $S$ é o conjunto de todos os vetores de $W$ que são ortogonais a qualquer vetor de $S$. Designamos o complemento ortogonal do subespaço $S$ por $S^\perp$.
 :::
 
 :::info[Proposição]
@@ -220,7 +218,10 @@ Num espaço linear de dimensão $n$, chama-se _hiperplano_ a um subespaço de di
 :::info[Teorema da melhor aproximação]
 Sendo $W$ um espaço euclidiano e $S$ um subespaço de $W$ e $v$ um vetor de $W$, então
 
-$\| x-proj_Sx\|\le \|x-u\|$ para qualquer $u \in S$
+$$
+\| x-\op{proj}_Sx\|\le \|x-u\|
+$$
+para qualquer $u \in S$
 :::
 
 :::info[Distância a um subespaço]
@@ -240,14 +241,14 @@ Expressar vetores numa base ortornormada é relativamente simples, mas fica a qu
 :::info[Ortogonalização de Gram Schmidt]
 Seja $V=\{v_1,v_2,...,v_k\}$, com $k>1$, um conjunto linearmente independente de um espaço euclidiano. O conjutno $U=\{u_1,u_2,...,u_k\}$ formado pelos vetores
 
-$u_1=v_1$
-
-$u_2=v_2-\frac{\langle u_1,v_2\rang}{\|u_1\|^2}$
-
-$...$
-
-$u_k=v_k-proj_{u_1}v_k-proj_{u_2}v_k-...-proj_{u_{k-1}}v_k$
-
+$$
+\begin{aligned}
+u_1 &= v_1 \\
+u_2 &= v_2-\frac{\langle u_1,v_2\rang}{\|u_1\|^2} \\
+    &= \dots \\
+u_k &= v_k-\op{proj}_{u_1}v_k-\op{proj}_{u_2}v_k-\dots-\op{proj}_{u_{k-1}}v_k
+\end{aligned}
+$$
 é ortogonal.
 
 Os conjuntos U e V geram o mesmo espaço.
