@@ -23,6 +23,8 @@ vantagens e desvantagens:
 - [**_Condition Coverage_**](color:yellow)
 - [**_Path Coverage_**](color:blue)
 
+<!-- TODO: colocar exemplo visual de código com grafo de flow para explicar as coverages -->
+
 ## Statement Coverage
 
 :::warning[Secção Incompleta]

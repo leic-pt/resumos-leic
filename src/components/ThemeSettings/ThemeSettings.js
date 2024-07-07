@@ -1,5 +1,6 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import {
+  fonts,
   useContentWidth,
   useDarkMode,
   useFontSettings,
@@ -31,15 +32,36 @@ const ThemeSettings = () => {
   const { fontLoader, font, setFont } = useFontSettings();
   const { theme, setTheme } = useThemeSettings();
 
+  // Load (previews of) all the fonts to show their preview on dropdown
+  const fontPreviewsLoader = useMemo(
+    () =>
+      Object.values(fonts)
+        .filter((font) => font.url)
+        .map((font) => {
+          let href = font.url;
+          // For Google Fonts, avoid loading the entire font and load only the required text
+          if (font.url?.startsWith('https://fonts.googleapis.com/css2?')) {
+            href = `${href}&text=${encodeURIComponent(font.displayName)}`;
+          }
+          return <link href={href} rel='stylesheet'></link>;
+        }),
+    []
+  );
+
   return (
     <>
-      <button className='icon-btn' onClick={togglePanel} style={{ alignSelf: 'center' }}>
+      <button
+        className='icon-btn'
+        onClick={togglePanel}
+        style={{ alignSelf: 'center' }}
+        aria-label='theme settings'
+      >
         <Theme />
       </button>
       <SidePanel open={panelOpen} onClose={closePanel} className='theme-settings'>
         <div className='theme-settings-header'>
           <p>Reading Options</p>
-          <button className='icon-btn' onClick={closePanel}>
+          <button className='icon-btn' onClick={closePanel} aria-label='close'>
             <Close />
           </button>
         </div>
@@ -106,19 +128,19 @@ const ThemeSettings = () => {
             </button>
           </div>
         </Option>
+        {panelOpen && fontPreviewsLoader}
         {fontLoader}
         <Option name='Font'>
           <DropdownSelect id='font' value={font} onChange={(v) => setFont(v)}>
-            <DropdownOption value='roboto'>Roboto (default)</DropdownOption>
-            <DropdownOption value='comicNeue'>Comic Neue</DropdownOption>
-            <DropdownOption value='indieFlower'>Indie Flower</DropdownOption>
-            <DropdownOption value='nunito'>Nunito</DropdownOption>
-            <DropdownOption value='openDyslexic'>OpenDyslexic</DropdownOption>
-            <DropdownOption value='openSans'>Open Sans</DropdownOption>
-            <DropdownOption value='cursive'>cursive (system)</DropdownOption>
-            <DropdownOption value='monospace'>monospace (system)</DropdownOption>
-            <DropdownOption value='sansSerif'>sans-serif (system)</DropdownOption>
-            <DropdownOption value='serif'>serif (system)</DropdownOption>
+            {Object.entries(fonts).map(([fontName, fontOptions]) => (
+              <DropdownOption
+                key={fontName}
+                value={fontName}
+                style={{ fontFamily: fontOptions.cssFamily }}
+              >
+                {fontOptions.displayName}
+              </DropdownOption>
+            ))}
           </DropdownSelect>
         </Option>
       </SidePanel>

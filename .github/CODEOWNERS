@@ -93,8 +93,8 @@ content/po/guides/** @diogotcorreia
 # RC - Main maintainer Diogo Correia
 content/rc/** @diogotcorreia
 
-# SD - Main maintainer Diogo Correia
-content/sd/** @diogotcorreia
+# SD - Main maintainer Nuno Gonçalves / Fábio Mata
+content/sd/** @nunogoncalves03 @fmata97
 
 # SO - Main maintainer Tomás Esteves
 content/so/** @Pesteves2002

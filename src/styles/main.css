@@ -89,7 +89,7 @@ strong a {
   body.dark-mode img[data-dark='4'] {
     filter: invert(1);
   }
-  body.dark-mode svg[id^='remark-mermaid-'] {
+  body.dark-mode .mermaid > svg {
     filter: invert(1) hue-rotate(135deg);
   }
 }
@@ -294,10 +294,11 @@ button {
 }
 
 .edit-link {
+  width: fit-content;
+  align-self: flex-end;
   display: flex;
   align-items: center;
   gap: 5px;
-  justify-content: flex-end;
   color: var(--textColor);
   opacity: 60%;
   transition: color 1s cubic-bezier(0.075, 0.82, 0.165, 1),
@@ -373,6 +374,6 @@ kbd {
   padding: 0.1em 0.3em;
 }
 
-p:has(svg[id^="remark-mermaid-"]) {
+.mermaid {
   text-align: center;
 }
