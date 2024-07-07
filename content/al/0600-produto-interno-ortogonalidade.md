@@ -22,6 +22,7 @@ Podemos por isso, generalizar muitas noções geométricas a qualquer
 espaço linear, não só a $\R^n$ mas a qualquer espaço linear.
 
 ```toc
+
 ```
 
 ## Produto interno usual em $\R^n$
@@ -49,6 +50,7 @@ $$
 \end{bmatrix}
 = x^Ty
 $$
+
 :::
 
 ## Produto interno em $\C^n$
@@ -77,6 +79,7 @@ $$
 \end{bmatrix}
 = \bar{x}^Ty
 $$
+
 :::
 
 **Nota:** Verifica-se que se a fórmula do produto interno usual for aplicada
@@ -106,21 +109,25 @@ Espaço linear munido de munido de produto interno
 Num espaço euclidiano definem-se os seguintes conceitos:
 
 :::info[Norma]
+
 $$
 \parallel x\parallel = \langle x,x \rang
 $$
+
 :::
 :::info[Distância]
+
 $$
 \op{dist}(u,v) = \parallel u-v\parallel
 $$
+
 :::
 
 ### Matriz de Gram
 
 :::info[Matriz de Gram]
 Seja $W$ um espaço linear real (resp. complexo) munido de um produto interno
-e $ B=(v_1,v_2,...,v_n)$ uma base ordenada de $W$.
+e $B=(v_1,v_2,...,v_n)$ uma base ordenada de $W$.
 A matriz $G={[\langle v_i,v_j\rang]}_{(i,j=1,...,n)}$ dos produtos internos
 dos vetores da base $B$ é designada por _matriz de Gram_ ou _matriz da métrica_,
 relativa a essa mesma base.
@@ -151,9 +158,11 @@ $$
 Esta desigualdade permite diretamente chegar à noção de ângulo entre vetores.
 
 :::info[Ângulo entre vetores]
+
 $$
 \large{\dfrac{ \langle u,v\rang }{\| u \| \|v \|}} =\cos \theta, \quad \theta \in [0, \pi]
 $$
+
 :::
 
 ## Ortogonalidade
@@ -161,9 +170,11 @@ $$
 Com todas as noções previamente discutidas, torna-se possível discutir ortogonalidade entre dois vetores.
 
 :::info[Definição]
+
 $$
 u \perp v \Leftrightarrow \langle u,v\rang=0
 $$
+
 :::
 
 Com a definição de ortogonalidade, pode-se concluir que o **Teorema de Pitágoras**
@@ -189,6 +200,7 @@ $$
 1 &\text{se } i = j
 \end{cases}
 $$
+
 :::
 
 :::info[Proposição]
@@ -202,12 +214,15 @@ $u \isin W$ sobre o vetor não nulo $v \isin W$ é definida por
 $$
 \op{proj}_u v =\dfrac{ \langle u,v\rang }{\| u \|^2}
 $$
+
 :::
 
 :::info[Desigualdade Triangular]
+
 $$
 \|u+v\|\le \|u\|+\|v\|
 $$
+
 :::
 
 ### Complemento ortogonal
@@ -238,6 +253,7 @@ Seja $S$ um subespaço e $S^\perp$ o seu complemento ortogonal. Verifica-se que:
 $$
 S \cap S^\perp=\{\empty\}
 $$
+
 :::
 
 Tendo em conta que a interseção de um subespaço com o seu complemento ortogonal
@@ -273,12 +289,15 @@ Seja $W$ um espaço linear, $S$ um subespaço de $W$ e $x$ um vetor de $W$. A di
 $$
 dist(x,S)= \|\op{proj}_{S^\perp}x\|
 $$
+
 :::
 
 :::info[Ortogonalidade dos subespaços fundamentais de uma Matriz]
+
 $$
 (EL(A))^\perp=N(A) \quad \text{e} \quad (EC(A))^\perp=N(A^T)
 $$
+
 :::
 
 ### Ortogonalização de Gram-Schmidt
