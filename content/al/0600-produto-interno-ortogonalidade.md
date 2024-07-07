@@ -221,6 +221,7 @@ Sendo $W$ um espaço euclidiano e $S$ um subespaço de $W$ e $v$ um vetor de $W$
 $$
 \| x-\op{proj}_Sx\|\le \|x-u\|
 $$
+
 para qualquer $u \in S$
 :::
 
@@ -249,6 +250,7 @@ u_2 &= v_2-\frac{\langle u_1,v_2\rang}{\|u_1\|^2} \\
 u_k &= v_k-\op{proj}_{u_1}v_k-\op{proj}_{u_2}v_k-\dots-\op{proj}_{u_{k-1}}v_k
 \end{aligned}
 $$
+
 é ortogonal.
 
 Os conjuntos U e V geram o mesmo espaço.
