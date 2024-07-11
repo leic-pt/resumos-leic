@@ -96,7 +96,7 @@ $\langle x,y \rang = \langle y,x \rang$ (em $\R$) ou $\langle x,y \rang =  \over
 :::info[Linearidade]
 $ \langle x,\alpha y + \beta z \rang = \alpha \langle x,y\rang + \beta \langle x,z\rang$
 :::
-:::info[Simetria]
+:::info[Positividade]
 $ \langle x,x \rang \geqslant 0 $ e $ \langle x,x \rang = 0 $ apenas quando $ x=0$
 :::
 
