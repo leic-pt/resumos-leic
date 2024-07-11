@@ -165,7 +165,7 @@ representa o desperdício social provocado pela diminuição da eficiência.
 
 :::tip[Cálculo do Imposto]
 $$
-\text{Imposto (P')} = {P_1} - {P_0}
+\text{Imposto (P*)} = {P_1} - {P_0}
 $$
 :::
 
