@@ -44,7 +44,7 @@
     "gatsby-source-filesystem": "^5.13.0",
     "gatsby-transformer-remark": "^6.13.0",
     "katex": "^0.16.9",
-    "meilisearch": "^0.30.0",
+    "meilisearch": "^0.41.0",
     "mermaid": "^10.9.0",
     "mini-svg-data-uri": "^1.4.4",
     "prismjs": "^1.29.0",
