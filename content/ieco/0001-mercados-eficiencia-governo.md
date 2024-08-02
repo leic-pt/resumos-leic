@@ -14,21 +14,16 @@ type: content
 
 ```
 
-:::danger[PÁGINA INCOMPLETA]
-Os conteúdos abaixo encontram-se incompletos e, possivelmente, com alguns erros.  
-Procuram-se contribuidores.
-:::
-
 ## Economia e Capitalismo
 
-A **Economia** é o estudo das interaçações e das trocas estabelecidas entre várias pessoas e entre
-pessoas e o seu ambiente na produção dos seus meios de subsistência
+A **Economia** é o estudo das interações e das trocas estabelecidas entre várias pessoas e entre
+pessoas e o seu ambiente na produção dos seus meios de subsistência.
 
 O capitalismo é um exemplo de um **Sistema Económico**, ou seja, uma maneira organizada de gerir
 a economia de uma sociedade (outros exemplos de Sistemas Económicos incluem o Feudalismo, o Esclavagismo
-e o Planeamento Económico Centralizado,  este último popularizado pela União Soviética no século XX)
+e o Planeamento Económico Centralizado, este último popularizado pela União Soviética no século XX).
 
-A maioria das economias atuais são capitalistas (também chamadas de Economias de Mercado). No capitalismo, 
+A maioria das economias atuais são capitalistas (também chamadas de Economias de Mercado). No capitalismo,
 a principal forma de organização económica é a [**empresa**](color:green).
 Os proprietários privados contratam **mão-de-obra**, com o fim de produzir
 [**bens e/ou serviços**](color:yellow), que depois vendem nos **mercados**
@@ -77,16 +72,15 @@ Nem sempre as alocações Pareto-eficientes são justas.
 ## Oferta e Procura
 
 A procura e a oferta por um bem ou serviço muitas vezes podem ser traduzidas por funções:
-  - A [**curva da procura**](color:red) corresponde à quantidade que os consumidores estão dispostos a comprar
-    a um determinado preço.
-    - Quanto maior for o preço, mais reduzida será a quantidade procurada.
-  - A [**curva da oferta**](color:blue) corresponde à quantidade que as empresas estão dispostas a produzir
-    por um determinado preço
-    - Quanto maior for o preço, mais as empresas quererão produzir
+
+- A [**curva da procura**](color:red) corresponde à quantidade que os consumidores estão dispostos a comprar
+  a um determinado preço.
+  - Quanto maior for o preço, mais reduzida será a quantidade procurada.
+- A [**curva da oferta**](color:blue) corresponde à quantidade que as empresas estão dispostas a produzir
+  por um determinado preço.
+  - Quanto maior for o preço, mais as empresas quererão produzir.
 
 ![Curvas de Procura e Oferta](./assets/0001-curvas-procura-e-oferta.png#dark=2)
-
-<!-- TODO elasticidade da oferta/procura -->
 
 :::tip[Ponto de Equilíbrio]
 O ponto de equilíbrio corresponte ao ponto no gráfico
@@ -95,32 +89,36 @@ se intercetam (tomam o mesmo valor).
 :::
 
 O **preço de equilíbrio** corresponde ao preço no ponto equilíbrio.
-  - Se o preço estabelecido for **superior** ao preço de equilíbrio, há **excesso de oferta**.
-  - Se o preço estabelecido for **inferior** ao preço de equilíbrio, há **escassez de oferta**.
+
+- Se o preço estabelecido for **superior** ao preço de equilíbrio, há **excesso de oferta**.
+- Se o preço estabelecido for **inferior** ao preço de equilíbrio, há **escassez de oferta**.
 
 A **quantidade de equilíbrio** é a quantidade correspondente ao preço de equilíbrio.
-
 
 ### Excedentes
 
 O [**Excedente do Consumidor (EC)**](color:red) é a diferença entre o preço que os consumidores estão dispostos a pagar
 e o preço de equilíbrio.
-  - É o benefício recebido pelos consumidores quando pagam menos por algo que comprariam por mais
-  - Na figura abaixo, corresponde à área do triângulo vermelho
+
+- É o benefício recebido pelos consumidores quando pagam menos por algo que comprariam por mais
+- Na figura abaixo, corresponde à área do triângulo vermelho
 
 O [**Excedente do Produtor (EP)**](color:blue) é a diferença entre o preço de equilíbrio e o preço que os produtores estão
 dispostos a receber.
-  - É o benefício recebido pelos produtores quando vendem a um preço acima do mínimo a que estariam dispostos a vender 
-  - Na figura abaixo, corresponde à área do triângulo azul
-  
+
+- É o benefício recebido pelos produtores quando vendem a um preço acima do mínimo a que estariam dispostos a vender
+- Na figura abaixo, corresponde à área do triângulo azul
+
 ![Excedentes](./assets/0001-excedentes.png#dark=2)
 
 :::tip[Excedente Total]
+
 $$
 \text{Excedente Total (ET)} = {\text{EC}} + {\text{EP}}
 $$
+
 Corresponde aos ganhos totais do comércio para a sociedade.
-É dado pela da área a sombreado na figura
+É dado pela da área a sombreado na figura.
 :::
 
 ### Alterações na Oferta e na Procura
@@ -134,6 +132,7 @@ preço, [diminuem a quantidade](color:red).
 Normalmente, uma alteração à procura ou oferta de um bem ou produto gera um novo ponto de equilíbrio.
 
 ::::info[Exemplo de Expansão da Curva da Oferta]
+
 1. A tecnologia utilizada no fabrico de pão é melhorada;
 2. Ocorre um aumento da oferta, traduzindo-se numa expansão da curva da oferta;
 3. Há um excesso de oferta de pão para o preço inicial;
@@ -164,9 +163,11 @@ representa o desperdício social provocado pela diminuição da eficiência.
 ![Aplicação de um Imposto](./assets/0001-aplicacao-de-um-imposto.png#dark=2)
 
 :::tip[Cálculo do Imposto]
+
 $$
 \text{Imposto (P*)} = {P_1} - {P_0}
 $$
+
 :::
 
 ## Classificação de Bens
@@ -177,32 +178,34 @@ para o uso por outros.
 **Bens Não Exclusivos:** São aqueles em que é impossível excluir alguém de
 ter acesso.
 
-|                    |          Não Rival          |    Rival    |
-| -----------------: | :-------------------------: | :---------: |
-| **Não Exclusivo**  |         Bem Público         |  Bem Comum  |
-|     **Exclusivo**  | Bem artificialmente escasso | Bem Privado |
+|                   |          Não Rival          |    Rival    |
+| ----------------: | :-------------------------: | :---------: |
+| **Não Exclusivo** |         Bem Público         |  Bem Comum  |
+|     **Exclusivo** | Bem artificialmente escasso | Bem Privado |
 
 ## Falhas de Mercado
 
 Em geral, existe um bom funcionamento dos mercados devido à existência de quatro fatores:
-  1. **Propriedade Privada** e direitos sobre bens adquiridos/vendidos;
-  2. Instituições que impõem **direitos de propriedade**;
-  3. **Normas Sociais** e respeito pelos direitos de propriedade;
-  4. **Contratos Complexos e executáveis** que possam ser avaliados em trbunal.
+
+1. **Propriedade Privada** e direitos sobre bens adquiridos/vendidos;
+2. Instituições que impõem **direitos de propriedade**;
+3. **Normas Sociais** e respeito pelos direitos de propriedade;
+4. **Contratos Complexos e executáveis** que possam ser avaliados em trbunal.
 
 No entanto, quando um dos fatores mencionados acima não é respeitado, originam-se as chamadas **Falhas de Mercado**.
 
 São exemplos de Falhas de Mercado:
-  - [**Externalidades**](color:blue)
-  - [**Informação Assimétrica**](color:red)
-  - [**Contratos Incompletos**](color:yellow)
-  - [**Abuso de Bens Públicos**](color:green)
-  - [**Exitência do Poder de Mercado**](color:orange)
+
+- [**Externalidades**](color:blue)
+- [**Informação Assimétrica**](color:red)
+- [**Contratos Incompletos**](color:yellow)
+- [**Abuso de Bens Públicos**](color:green)
+- [**Existência do Poder de Mercado**](color:orange)
 
 ### Externalidades
 
 Uma externalidade (ou efeito externo) é um efeito resultante de uma decisão
-económica que não está espeficicada como benefício ou responsabilidade num contrato.
+económica que não está especificada como benefício ou responsabilidade num contrato.
 Podem ser efeitos positivos ou negativos e afetam terceiros não envolvidos na interação
 económica, resultando numa [diferença entre o ótimo social e o ótimo privado](color:red).
 
@@ -223,28 +226,31 @@ redução da quantidade produzida.
 
 ![Negociações em Externalidades](./assets/0001-externalidades-negociacoes.png#dark=2)
 
-Em caso de ausência de custos de transação (o custo de aquisição de informaçã e de obrigação de um cumprimento
+Em caso de ausência de custos de transação (o custo de aquisição de informação e de obrigação de um cumprimento
 de um contrato ou ação coletiva), a negociação privada resulta numa alocação Pareto-eficiente, caso contrário
 estes podem ser um grande problema nas negociações.
 
 No entanto, esta solução tem as suas limitações:
-  1. Encontrar representantes e negociar a divisão de ganhos;
-  2. Encontrar e calcular custos exatos;
-  3. Decisões judiciais;
-  4. Fundos limitados e incapacidade de pagar compensações.
+
+1. Encontrar representantes e negociar a divisão de ganhos;
+2. Encontrar e calcular custos exatos;
+3. Decisões judiciais;
+4. Fundos limitados e incapacidade de pagar compensações.
 
 Outra solução consiste na imposição de **Políticas Governamentais**, tais como:
-  1. **Regulação da Produção**: colocar um limite ao nível da quantidade socialmente ótima;
-  2. **Imposto/Subsídio Pigouviano**: aplicado sobre as empresas que geram efeitos negativos/positivos;
-      - o valor do imposto corresponde ao valor do **CME** no ótimo social;
-  3. **Compensação das Partes Afetadas**: pagamento direto de uma indemização aos terceiros envolvidos;
-      - O valor da compensação é igual à **diferença entre o CMS e o CMP**;
-      - a compensação vai para os afetados e não para o Governo.
 
-A intervençaõ governamental também apresenta limitações semelhantes às das negociações privadas:
-  1. Falta de informação;
-  2. Dificuldade na medição de custos;
-  3. Lobbying: o Governo favorece o grupo mais poderoso, levando a uma alocação Pareto-eficiente injusta.
+1. **Regulação da Produção**: colocar um limite ao nível da quantidade socialmente ótima;
+2. **Imposto/Subsídio Pigouviano**: aplicado sobre as empresas que geram efeitos negativos/positivos;
+   - o valor do imposto corresponde ao valor do **CME** no ótimo social;
+3. **Compensação das Partes Afetadas**: pagamento direto de uma indemnização aos terceiros envolvidos;
+   - O valor da compensação é igual à **diferença entre o CMS e o CMP**;
+   - a compensação vai para os afetados e não para o Governo.
+
+A intervenção governamental também apresenta limitações semelhantes às das negociações privadas:
+
+1. Falta de informação;
+2. Dificuldade na medição de custos;
+3. Lobbying: o Governo favorece o grupo mais poderoso, levando a uma alocação Pareto-eficiente injusta.
 
 ### Informação Assimétrica
 
@@ -258,7 +264,7 @@ visto que o banco tem menos garantias de que este será pago na sua totalidade.
 ### Contratos Incompletos
 
 Esta falha ocorre quando o contrato estabelecido entre os envolvidos na interação económica [não especificam
-todos os aspetos que afetam os interesses de todas as partes envolvidas](color:red). Mesmo os contratos que incluem 
+todos os aspetos que afetam os interesses de todas as partes envolvidas](color:red). Mesmo os contratos que incluem
 custos ou benefícios externos não são executáveis se as informações relevantes não são verificáveis ou não
 são conhecidas pelo decisor.
 
@@ -272,8 +278,9 @@ Uma empresa consegue adquirir poder sobre o seu próprio mercado devido a [conco
 **[Monopólios](color:green)**.
 
 O Poder de Mercado pode ainda aumentar através de:
-  - **Inovação/Diferenciação** face aos seus concorrentes, com o uso de **Patentes** e **Direitos de Autor**;
-  - **Publicidade/Atividades de CSR**, que atraem consumidores e criam lealdade à marca.
+
+- **Inovação/Diferenciação** face aos seus concorrentes, com o uso de **Patentes** e **Direitos de Autor**;
+- **Publicidade/Atividades de CSR**, que atraem consumidores e criam lealdade à marca.
 
 O efeito do Poder de Mercado pode ser atenuado através da **discriminação de preços** ou de **políticas de
 concorrência**.

@@ -14,11 +14,6 @@ type: content
 
 ```
 
-:::danger[PÁGINA INCOMPLETA]
-Os conteúdos abaixo encontram-se incompletos e, possivelmente, com alguns erros.  
-Procuram-se contribuidores.
-:::
-
 ## Conceitos Importantes
 
 - **[Ciclos Económicos](color:yellow)**: períodos alternados de taxas de crescimentos positivas e negativas;
@@ -31,11 +26,13 @@ O Produto Interno Bruto (**[PIB](color:blue)**) de um país corresponde à soma 
 foi produzido dentro do seu território**.
 
 É habitualmente usado para "medir" o tamanho de uma economia, recorrendo a três vertentes:
-  - Produção;
-  - Rendimento;
-  - Despesa.
+
+- Produção;
+- Rendimento;
+- Despesa.
 
 O **[PIB per capita](color:blue)** é utilizado para medir o **poder de compra médio** dos habitantes de um país:
+
 $$
 \text{PIB per capita} = \frac{\text{PIB}}{\text{nº habitantes}}
 $$
@@ -47,8 +44,9 @@ $$
 $$
 
 O PIB não é uma medida perfeita de medição de uma economia, apresentando as suas limitações:
-  - não tem em conta a **economia informal** (tratamento de doentes em casa, trabalho remoto, entre outros);
-  - **não mede desigualdades nem questões ambientais**.
+
+- não tem em conta a **economia informal** (tratamento de doentes em casa, trabalho remoto, entre outros);
+- **não mede desigualdades nem questões ambientais**.
 
 ## Componentes do PIB
 
@@ -82,15 +80,16 @@ São exemplos de choques os fenómenos climáticos extremos e desastres naturais
 :::
 
 Perante um choque, os consumidores têm tendência para **suavizar o consumo**, podendo recorrer às seguintes estratégias:
-- **[Auto-seguro (Self-insurance)](color:yellow)**: poupar dinheiro ou pedir um empréstimo, sacrificando poder de compra futuro;
-- **[Co-seguro (Co-insurance)](color:red)**: recorrer a apoios da Segurança Social ou do Governo.
+
+- **[Auto-seguro (_Self-insurance_)](color:yellow)**: poupar dinheiro ou pedir um empréstimo, sacrificando poder de compra futuro;
+- **[Co-seguro (_Co-insurance_)](color:red)**: recorrer a apoios da Segurança Social ou do Governo.
   - Tende a ser menos eficaz quando um choque indesejável atinge todos ao mesmo tempo. No entanto, é nesses momentos que o seguro é mais necessário.
 
 A estabilização do consumo é essencial na estabilização de uma economia, visto que o consumo costuma ser a principal componente do PIB. No entanto, essa estabilização pode nem ser desejável e até amplificar os resultados do choque inicial ([Paradoxo da Parcimónia](/ieco/politica-economica/#paradoxo-da-parcimónia)).
 
 ### Investimento Volátil e Confiança Empresarial
 
-Ao contrário dos consumidores, as empresas não tendem a estabilizar os seus padrões de investimento, reagindo a choques através de ajustes aos seus planos de investimento de forma a maximizar os seus lucros. Assim, as empresas tendem a investir em produções já com muita procura, o que provoca numa maior e melhor capacidade de produção, o que por sua vez origina **mais procura e mais investimento**, incorrendo num ciclo. 
+Ao contrário dos consumidores, as empresas não tendem a estabilizar os seus padrões de investimento, reagindo a choques através de ajustes aos seus planos de investimento de forma a maximizar os seus lucros. Assim, as empresas tendem a investir em produções já com muita procura, o que provoca numa maior e melhor capacidade de produção, o que por sua vez origina **mais procura e mais investimento**, incorrendo num ciclo.
 
 :::tip[Confiança Empresarial]
 
@@ -129,12 +128,13 @@ A **Função de Produção** representa o máximo de output que uma dada combina
 A **Revolução Industrial** foi uma mudança de paradigma de produção que consistiu na transição de uma mão-de-obra industrial maioritariamente manual para uma mecanizada. Teve origem no Reino Unido no início do século XVIII.
 
 Alguns fatores que podem explicar o começo deste movimento neste local são:
+
 - mão-de-obra cara face a energia barata;
 - atributos culturais (como o trabalho árduo e a poupança);
 - a revolução científica associada ao Iluminismo ;
-- a abudância de carvão nas colónias.
+- a abundância de carvão nas colónias.
 
-Em termos gerais, pode-se afirmar que a revolução ocorreu devido à **capacidade de inovação** e à **mudança do preço dos inputs**. 
+Em termos gerais, pode-se afirmar que a revolução ocorreu devido à **capacidade de inovação** e à **mudança do preço dos inputs**.
 
 ## Inovação
 
@@ -155,35 +155,37 @@ existe, ou **incrementais**, caso sejam melhorias do que já existe.
 
 ### Renda de Inovação
 
-Quando uma empresa adota uma tecnologia nova, há custos iniciais, mas depois há uma diminuição do custo de produção. Se as receitas se mantiverem, há um **aumento do lucro** (Lucro = Receitas - Custos), esse aumento corresponde à **[Renda da Inovação](color:orange)**. A Renda da Inovação desaparece quando a **inovação é copiada** e as outras empresas são obrigadas a acompanhar a inovação ou a sair do mercado. 
+Quando uma empresa adota uma tecnologia nova, há custos iniciais, mas depois há uma diminuição do custo de produção. Se as receitas se mantiverem, há um **aumento do lucro** (Lucro = Receitas - Custos), esse aumento corresponde à **[Renda da Inovação](color:orange)**. A Renda da Inovação desaparece quando a **inovação é copiada** e as outras empresas são obrigadas a acompanhar a inovação ou a sair do mercado.
 
 ![Renda da Inovação](./assets/0002-renda-da-inovacao.png#dark=2)
 
 ### Mercado de Trabalho
 
 O progresso tecnológico também pode causar:
+
 - melhoria dos padrões de vida a longo prazo;
 - aumento do desemprego a curto prazo;
-  - pode também haver um aumento do emprego (através de realocação de mão-se-obra, por exemplo).
+  - pode também haver um aumento do emprego (através de realocação de mão-de-obra, por exemplo).
 
-A criação de emprego é altamente **pró-ciclica** (mais procura, mais vagas, mais trabalho), enquanto que a destruição de emprego é **contra-cíclica**.
+A criação de emprego é altamente **pró-cíclica** (mais procura, mais vagas, mais trabalho), enquanto que a destruição de emprego é **contra-cíclica**.
 
 **[Mismatch](color:red)**: quando, no mercado de trabalho, os trabalhadores desempregados **não têm as competências necessárias** para preencher as vagas ou quando os trabalhadores qualificados estão **localizados noutra parte do país**.
 
 **[Curva de Beveridge](color:yellow)**: representação gráfica da relação entre a **taxa de desemprego** e a **job vacancy rate** (número de empregos não preenchidos em percentagem da força de trabalho). Varia ao longo do tempo devido a mudanças na eficiência de matching.
-  - Há **[bom matching](color:green)** quando a curva se aproxima do ponto (0,0);
-  - Há **[mismatch](color:red)** quando a curva se afasta do ponto (0,0).
+
+- Há **[bom matching](color:green)** quando a curva se aproxima do ponto (0,0);
+- Há **[mismatch](color:red)** quando a curva se afasta do ponto (0,0).
 
 Os mercados de trabalho diferem muito de país para país, resultado dos seguintes fatores:
+
 - **[Instituições](color:green)**: sindicatos inclusivos podem não exercer todo o seu poder de negociação, visto que os aumentos salariais afetam negativamente a criação de emprego;
 - **[Políticas](color:blue)**: existência de esquemas de apoio ao desemprego bem desenhados e serviços de colocação de trabalhadores.
 
 Um aumento salarial tem também os seguintes efeitos:
-- **[Efeito Rendimento](color:orange)**: aumento da remuneração mantendo o número de horas de trabalho, incentivando a **diminuição do número de horas de trabalho** e **aumentando as horas de tempo livre**; 
-- **[Efeito Substituição](color:yellow)**: aumento do custo de oportunidade de tempo livre, incentivando o **aumento do número de horas de trabalho** e **diminuindo as horas de tempo livre**; 
+
+- **[Efeito Rendimento](color:orange)**: aumento da remuneração mantendo o número de horas de trabalho, incentivando a **diminuição do número de horas de trabalho** e **aumentando as horas de tempo livre**;
+- **[Efeito Substituição](color:yellow)**: aumento do custo de oportunidade de tempo livre, incentivando o **aumento do número de horas de trabalho** e **diminuindo as horas de tempo livre**;
 
 $$
 \text{Efeito Total} = \text{Efeito Rendimento} + \text{Efeito Substituição}
 $$
-
-<!-- TODO add graph -->
