@@ -214,6 +214,14 @@ A relação entre estes conceitos pode ser vista abaixo:
 
 ![Relação entre riqueza, rendimento e depreciação](./assets/0003-riqueza-rendimento-depreciacao.png#dark=2)
 
+Também é importante saber distinguir Variáveis Fluxo e Variáveis Stock:
+
+- [**Variável Fluxo**](color:pink): É uma medida ao longo de um período.  
+  Um exemplo é o **rendimento**.
+- [**Variável Stock**](color:purple): É medida num instante de tempo e corresponde
+  à acumulação de variáveis fluxo.  
+  Um exemplo é a **riqueza**.
+
 Quando é que a desigualdade se torna **injusta**? Parece ser consensual que, por exemplo, a **desigualdade categórica**
 (baseada em diferenças étnicas, religiosas, de género, etc) é injusta, enquanto que a desigualdade com base no **trabalho
 árduo** e na **tomada de risco** não é injusta.
