@@ -36,7 +36,7 @@ noutros setores relacionados.
 
 Por exemplo, se houver uma redução generalizada do consumo, haverá uma consequente redução da
 produção, o que, por sua vez, provoca um aumento do desemprego. Com uma maior percentagem de
-consumidores empregados, diminui o poder de compra, o que acentua a redução do consumo.
+consumidores desempregados, diminui o poder de compra, o que acentua a redução do consumo.
 
 O **investimento** é especialmente sujeito ao efeito multiplicador, sendo fortemente afetado por
 fatores como a [confiança empresarial](/ieco/pib-crescimento-economico/#investimento-vol%C3%A1til-e-confian%C3%A7a-empresarial).
@@ -74,7 +74,7 @@ a fração de cada unidade adicional de rendimento que é gasta em importações
 
 As **importações** reduzem o tamanho do multiplicador, dado que o dinheiro
 é usado para comprar bens ao exterior. A **poupança** e a **tributação**
-também o reduzem o multiplicador.
+também reduzem o multiplicador.
 
 ### Papel dos Mercados Internacionais
 
@@ -86,14 +86,14 @@ Os mercados internacionais têm os seguintes efeitos sobre as exportações e as
 
 ### Estabilização da Economia
 
-O Governo pode recorrer estabilizar flutuações económicas de diversas formas, mais
+O Governo pode estabilizar flutuações económicas de diversas formas, mais
 nomeadamente através de **políticas orçamentais**:
 
 1. Gastos do Governo altos e exógenos;
 2. Taxas de imposto elevadas (reduz o multiplicador);
 3. Subsídios de desemprego (suavizam o consumo das famílias).
 
-**[Estabilizador Automático](color:pink)**: atribuição automática do Estado que compensam
+**[Estabilizador Automático](color:pink)**: atribuição automática do Estado que compensa
 automaticamente uma expansão ou contração na Economia. Corresponde a uma **intervenção não deliberada**,
 dado que o principal objetivo dessa atribuição não é estabilizar a economia.
 

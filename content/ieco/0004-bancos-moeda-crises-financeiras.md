@@ -85,7 +85,7 @@ O Banco Central é o **"banco dos bancos comerciais"**, ou seja, os bancos
 comerciais emprestam, pedem emprestado e têm contas no Banco Central
 (embora os bancos comerciais também façam trocas entre si).
 Geralmente, o Banco Central pertence ao Governo.
-Pode tambem criar moeda ao creditar nas contas dos bancos comerciais.
+Pode também criar moeda ao creditar nas contas dos bancos comerciais.
 
 - **[_Base Money_](color:green)** (base monetária): Notas e Moedas.
   Dinheiro como moeda legal (**_legal tender_**), isto é, tem de ser
@@ -96,7 +96,7 @@ Pode tambem criar moeda ao creditar nas contas dos bancos comerciais.
 - **[_Bank Money_](color:pink)**: dinheiro criado pelos bancos que não é _legal tender_.
   - É a moeda usada na concessão de empréstimos por parte dos bancos comerciais.
 
-Definimos assim o **agregado monetário lato** (_broad moey_).
+Definimos assim o **agregado monetário lato** (_broad money_).
 
 $$
 \text{Broad Money} = \text{Base Money} + \text{Bank Money}
@@ -113,7 +113,7 @@ $$
     \text{Alavancagem} = \frac{\text{Total de Ativos}}{\text{Valor Líquido}}
   $$
 - A taxa referência no mercado monetário da Zona Euro é a **[Euribor](color:green)**, que consiste na média das taxas de
-  juro dos empréstimos interbancácrios nesses países.
+  juro dos empréstimos interbancários nesses países.
 
 ### Risco de Default, Risco de Liquidez e Crises Bancárias
 
@@ -252,9 +252,9 @@ Logo o Afonso deve fazer a parte 1 e o Miguel a parte 2.
 
 ### Intervenção dos Governos
 
-- **Imposição de tarifas**: discriminização de produtos estrangeiros.
+- **Imposição de tarifas**: discriminação de produtos estrangeiros.
 - **Políticas de imigração**: regulamentação do movimento de pessoas entre países.
-- **Controlo de capitais**: limitação da transferência de ativos finaceiros entre países.
+- **Controlo de capitais**: limitação da transferência de ativos financeiros entre países.
 - **Políticas monetárias**: alteração da taxa de câmbio e, consequentemente, do preço
   relativo dos bens importados e exportados.
 
