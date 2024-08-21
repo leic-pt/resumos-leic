@@ -42,7 +42,7 @@ No entanto, este é um problema com o qual é particularmente difícil de lidar,
 dado que:
 
 - Limitar as emissões de $\op{CO}_2$ não é suficiente.
-  As emissões são uma [variável fluxo](/ieco/bancos-moeda-crises-financeiras#variável-fluxo-e-variável-stock),
+  As emissões são uma [variável fluxo](/ieco/inflacao-desemprego-desigualdade/#desigualdades),
   enquanto queremos diminuir a variável stock
 - Pode não ser facilmente reversível (ou até mesmo irreversível)
 - Requer cooperação global, entre vários países
