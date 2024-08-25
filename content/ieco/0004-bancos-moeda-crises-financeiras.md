@@ -60,7 +60,7 @@ A propensão para um consumidor contrair um empréstimo depende dos seguintes fa
 
 Os bancos são empresas que fazem lucro ao **emprestar** e **pedir emprestado**.
 
-![Curva de Phillips](./assets/0004-devedor-banco-depositario.png#dark=2)
+![Relação entre banco, depositário e devedor](./assets/0004-devedor-banco-depositario.png#dark=2)
 
 O seu negócio é receber empréstimos das famílias (taxa passiva), isto é, depósitos, e depois
 dão empréstimos com uma taxa de juro superior (taxa ativa), fazendo assim lucro.
