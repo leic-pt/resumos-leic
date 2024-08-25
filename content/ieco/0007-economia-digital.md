@@ -29,8 +29,8 @@ A procura de produtos em economias de escala tem as seguintes particularidades:
   para os utilizadores crescem com o número de utilizadores;
 - **[Concorrência _winner-takes-all_](color:purple)**: a melhor tecnologia pode não ser a mais utilizada
   por não ter sido a primeira a adotar a vantagem (_first-adopter advantage_).
-  - Por exemplo, os DVD dominaram o mercado de entretenimento vídeo doméstico por
-    terem surgido primeiro e ter conquistado mais utilizadores, apesar dos Blu-Ray
+  - Por exemplo, os _DVD_ dominaram o mercado de entretenimento vídeo doméstico por
+    terem surgido primeiro e ter conquistado mais utilizadores, apesar dos _Blu-Ray_
     apresentarem melhor qualidade.
 
 ## Mercados Matching
@@ -51,7 +51,7 @@ No mercado de alojamento temporário, encontramos dois grupos de pessoas envolvi
 Na figura acima, podemos verificar que só haverá _seekers_ se houver no mínimo 200 _posters_
 e só haverá _posters_ se houver no mínimo 500 _seekers_.
 
-Verificamos tabém a existência de **três pontos de equilíbrio**:
+Verificamos também a existência de **três pontos de equilíbrio**:
 
 - $O$: Oferta zero (resposta à procura nula);
 - $A$: Oferta/Procura moderada (equilíbrio "suficiente");

@@ -53,7 +53,7 @@ Tal como referido, o maior obstáculo à redução do impacto no clima são os
 **conflitos de interesse**, dado que os custos de redução não são igualmente
 partilhados por toda a sociedade.
 
-O **princípio do poluidor-pagador** (_pulluter pays principle_) consiste exatamente
+O **princípio do poluidor-pagador** (_polluter pays principle_) consiste exatamente
 no que o nome sugere; quem polui paga.
 Na prática, isto nem sempre é possível, tanto porque questões de justiça
 (e.g. casos onde quem polui mais são os mais desfavorecidos por não terem
@@ -62,7 +62,7 @@ quem está a poluir, tornando-se mais fácil o uso de subsídios/impostos).
 
 Da mesma maneira, os poluidores podem nunca enfrentar a poluição que causaram,
 pelo que a distribuição dos ganhos resultantes depende do **poder de negociação**
-dos grupos envolvidos. Por usa vez, o poder de negociação depende de:
+dos grupos envolvidos. Por sua vez, o poder de negociação depende de:
 
 - Informações verificáveis;
 - Consenso em relação à qualidade ambiental;
@@ -94,7 +94,7 @@ são vendidas (ou, frequentemente, leiloadas) às empresas para poderem poluir.
 À medida que o limite máximo de poluição vai diminuindo, o preço das licenças aumenta.
 
 As empresas podem também vender e comprar as licenças entre si, criando assim
-um mercado. As empresas negoceiam até o preço atingir o equilíbrio (resultado pareto-eficiente) e a redução é feita pelas empresas com menor custo de abatamento.
+um mercado. As empresas negoceiam até o preço atingir o equilíbrio (resultado pareto-eficiente) e a redução é feita pelas empresas com menor custo de abatimento.
 
 Este sistema também tem as suas limitações. Por exemplo, determinar o nível de poluição a reduzir não é fácil e o próprio conceito de colocar um preço sobre o direito a poluir pode ser mal interpretado.
 
@@ -129,11 +129,11 @@ de energia e todos os impactos negativos causados por essa indústria.
 
 A medição dos impactos ambientais pode ser feita das seguintes maneiras:
 
-- **[Avaliação contingente](color:yellow)**: utilização de inquéritos para avaliavr
+- **[Avaliação contingente](color:yellow)**: utilização de inquéritos para avaliar
   o valor de recursos que não passam pelo mercado. É uma abordagem de **preferência
   declarada**, ou seja, assume que os entrevistados são honestos nas suas declarações.
 - **[Preço hedónico](color:brown)**: utilizar preços de bens transacionados no mercado
-  para inferir o valor económico de atibutos que não têm preço. É uma abordagem de
+  para inferir o valor económico de atributos que não têm preço. É uma abordagem de
   **preferência relativa**, ou seja, o comportamento da população é usado para determinar
   as suas preferências.
 
@@ -143,14 +143,14 @@ incentivado através de fatores como rendas de inovação, subsídios e economia
 
 A **tributação de empresas** é também uma maneira de reduzir custos ambientais, visto que os impostos
 podem criar rendas de inovação ao alterarem os preços relativos, promovendo a inovação do setor privado.
-A **tributação dos consumidores** pode tambéms ser usada, dado que a alteração do valor dos bens aos olhos
+A **tributação dos consumidores** pode também ser usada, dado que a alteração do valor dos bens aos olhos
 dos consumidores cria mudanças no estilo de vida. Por isso, os impostos são também uma [fonte de informação
 sobre a necessidade de mudança de comportamento](color:blue).
 
 ## Dinâmica Ambiental
 
 Um **ambiente saudável** e um **ambiente degradado** são ambos equilíbrios possíveis resultantes dos
-efeios da economia sobre o ambiente. A sustentabilidade ambiental é favorecida através de [ciclos
+efeitos da economia sobre o ambiente. A sustentabilidade ambiental é favorecida através de [ciclos
 virtuosos](color:blue), enquanto que catástrofes ambientais são causadas por [ciclos viciosos](color:red).
 
 ![Ciclos Virtuoso e Vicioso](./assets/0006-ciclos-virtuoso-e-vicioso.png#dark=2)
