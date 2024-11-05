@@ -118,19 +118,101 @@ Para termos _coverage_ total de uma classe, temos de:
 - Fazer _set_ e _get_ de todos os atributos do objeto;
 - Utilizar o objeto em todos os seus estados possíveis.
 
+## Testes Automáticos
+
+A utilização de testes automáticos (_Automated Testing_) deve ser prioritária para evitar
+ao máximo testagem e verificação manual. Para tal, podem ser usados frameworks como o _Spock_ ou
+o _JUnit_.
+
+As principais componentes de um teste automático são:
+
+- [**_Setup_**](color:purple): inicialização do sistema com o caso a testar (como os respetivos inputs e outputs);
+- [**_Call_**](color:green): chamada da função ou do objeto a ser testado;
+- [**_Assertion_**](color:orange): comparação do resultado da _Call_ com o valor esperado, tendo o teste sucesso caso
+  a comparação seja verdadeira e falhado caso contrário.
+
+:::details[Exemplos de testes automáticos]
+
+Considerando os seguintes testes automáticos, em que o primeiro testa um objeto e o
+segundo testa o valor de uma operação:
+
+```java
+def "Should be able to remove from list"() {
+  given:
+    def list = [1, 2, 3, 4]
+  when:
+    list.remove(0)
+  then:
+    list == [2, 3, 4]
+}
+```
+
+```java
+def "a number to the power of another"(int a, int b, int c) {
+  expect:
+    Math.pow(a, b) == c
+  where:
+    a | b | c
+    1 | 2 | 1
+    2 | 2 | 4
+    3 | 2 | 9
+}
+```
+
+Vemos que um teste pode ser constituído por cinco blocos:
+
+- o bloco `given` declara todas as todas as variáveis e informações necessárias
+  para a execução do teste, sendo parte do _Setup_;
+- o bloco `when` chama o método ou operação a ser testado, sendo parte do _Call_;
+- o bloco `then` compara o resultado esperado com o resultado obtido, sendo parte
+  do _Assertion_;
+- o bloco `expect` chama a operação a ser testada e compara logo o resultado, sendo parte
+  do _Call_ e do _Assertion_;
+  - Este bloco só é usado para comparações simples, onde muitas vezes nem é necessário
+    o bloco `given`, pelo que o uso de blocos `when` e `then` é preferível quando
+    há uma maior distinção entre a ação e o resultado.
+- o bloco `where` normalmente define uma tabela de dados para utilizar como inputs diferentes
+  para o mesmo teste, sendo que o teste só tem sucesso se tiver sucesso para todos os dados da tabela.
+
+:::
+
 ## Test Doubles
 
 Os _test doubles_ são objetos falsos que são usados no lugar de objetos verdadeiros
 em testes.  
 Estes podem ser:
 
-<!-- TODO explicar cada um deles -->
-
-- Dummy objects
-- Fake objects
-- Stubs
-- Spies
-- Mocks
+- **Dummy objects**: são passados como argumentos de funções, mas nunca são usados;
+- **Fake objects**: têm implementação funcional, mas algum aspeto seu torna-os inviáveis
+  para utilização externa;
+- **Stubs**: retornam respostas pré-definidas quando são chamados em testes, não respondendo
+  a nada além daquilo para que foram programados;
+- **Spies**: são stubs que guardam alguma informação sobre como foram chamados;
+- **Mocks**: objetos pré-programados com expectativas de como se devem comportar quando forem
+  chamados.
 
 Estes têm a vantagem de isolar os testes a uma única unidade, de diminuir
 as dependências ao efetuar testes e também simular casos difíceis de gerar.
+
+## Análise e Inspeção de Software
+
+É prática comum haver um grupo de pessoas que analisa partes ou todo um sistema de software
+(desde o código, ao design, às especificações, aos testes), assim como toda a documentação associada.
+Idealmente, essa revisão deve ser feita aos poucos, uma feature de cada vez, porque senão há
+de demorar mais tempo e será mais difícil para quem está a analisar.
+
+Inspecionar o código de um programa é importante para:
+
+- encontrar bugs, comportamentos inesperados e features impossíveis de implementar;
+- garantir que os programadores não falsificaram, não aplicaram más práticas e seguiram as
+  guidelines definidas;
+- orientar novos colaboradores, ajudando-os a perceber potenciais erros que tenham cometido.
+
+A inspeção de código pode ser feita através das seguintes formas:
+
+- Alternar entre revisores e autores;
+- Processo social: expor a todos os erros dos autores;
+- Gestão humana: não focar demasiado nos aspetos negativos, ser educado e respeitoso;
+- Ajudar a perceber os erros e dizer como se pode melhorar.
+
+Todas estas práticas fazem com que [a qualidade de código melhore com o tempo](color:blue).
