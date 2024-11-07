@@ -1,14 +1,10 @@
 import MeiliSearch from 'meilisearch';
-import React, { useCallback, useEffect, useState } from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import Dialog from '../Dialog/Dialog';
 import Search from '../icons/Search';
 import './SearchBar.css';
 import SearchModal from './SearchModal';
-
-const searchClient = new MeiliSearch({
-  host: 'https://meilisearch.diogotc.com',
-  apiKey: 'S3goii63d54d41ee506eb2bdfea46f62cb3b90a3141ec34ee3e546db99dbffd73a7872e9',
-});
 
 const SearchBar = () => {
   const [open, setOpen] = useState(false);
@@ -20,6 +16,29 @@ const SearchBar = () => {
   const handleToggleFilterBySection = useCallback(
     () => setFilterBySection((v) => !v),
     [setFilterBySection]
+  );
+
+  const data = useStaticQuery(graphql`
+    query SearchConfigQuery {
+      site {
+        siteMetadata {
+          search {
+            host
+            apiKey
+            indexName
+          }
+        }
+      }
+    }
+  `);
+  const { host, apiKey, indexName } = data.site.siteMetadata.search;
+  const searchClient = useMemo(
+    () =>
+      new MeiliSearch({
+        host,
+        apiKey,
+      }),
+    [host, apiKey]
   );
 
   // Global keybinds
@@ -75,6 +94,7 @@ const SearchBar = () => {
       <Dialog open={open} onClose={handleCloseSearch}>
         <SearchModal
           searchClient={searchClient}
+          indexName={indexName}
           onClose={handleCloseSearch}
           filterBySection={filterBySection}
           handleToggleFilterBySection={handleToggleFilterBySection}

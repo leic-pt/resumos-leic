@@ -7,7 +7,7 @@ jobs:
   scrape-site-for-search:
     name: 'Scrape Site for Search'
     if: github.event.deployment_status.state == 'success' && github.event.deployment.environment == 'production'
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
       - name: Run docs-scraper
@@ -20,4 +20,4 @@ jobs:
             -e MEILISEARCH_HOST_URL=$HOST_URL \
             -e MEILISEARCH_API_KEY=$API_KEY \
             -v $CONFIG_FILE_PATH:/docs-scraper/config.json \
-            getmeili/docs-scraper:v0.12.1 pipenv run ./docs_scraper config.json
+            getmeili/docs-scraper:v0.12.12 pipenv run ./docs_scraper config.json

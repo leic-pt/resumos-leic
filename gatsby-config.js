@@ -42,6 +42,11 @@ module.exports = {
       contributorsLink: 'https://github.com/leic-pt/resumos-leic/graphs/contributors',
       vercelLink: 'https://vercel.com/?utm_source=leic-pt&utm_campaign=oss',
     },
+    search: {
+      host: 'https://meilisearch.diogotc.com',
+      apiKey: 'a66ec2f3c48d2f827a81e850de53d2a764b5d5f420111e15c686eec6885480f5',
+      indexName: 'resumos-leic',
+    },
   },
   plugins: [
     {

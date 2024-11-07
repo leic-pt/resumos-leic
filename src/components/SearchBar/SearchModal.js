@@ -16,7 +16,13 @@ const initialState = {
   status: 'idle',
 };
 
-const SearchModal = ({ searchClient, onClose, filterBySection, handleToggleFilterBySection }) => {
+const SearchModal = ({
+  searchClient,
+  indexName,
+  onClose,
+  filterBySection,
+  handleToggleFilterBySection,
+}) => {
   // Refs to elements of search, to use with autocomplete-core
   const formElementRef = React.useRef(null);
   const inputRef = React.useRef(null);
@@ -44,6 +50,7 @@ const SearchModal = ({ searchClient, onClose, filterBySection, handleToggleFilte
       },
       getSources: createGetSources({
         searchClient,
+        indexName,
         onClose,
         section: filterBySection && currentSection,
       }),
