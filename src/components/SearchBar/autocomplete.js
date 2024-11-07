@@ -1,6 +1,6 @@
 import { navigate } from 'gatsby';
 
-export function createGetSources({ searchClient, onClose, section }) {
+export function createGetSources({ searchClient, indexName, onClose, section }) {
   return async ({ query, setContext, setStatus }) => {
     if (!query) {
       // Return no results if query is empty
@@ -8,7 +8,7 @@ export function createGetSources({ searchClient, onClose, section }) {
     }
 
     try {
-      const { hits, nbHits } = await searchClient.index('resumos-leic-v2').search(query, {
+      const { hits, nbHits } = await searchClient.index(indexName).search(query, {
         attributesToHighlight: [
           'hierarchy_lvl1',
           'hierarchy_lvl2',

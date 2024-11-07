@@ -1,5 +1,5 @@
 {
-  "index_uid": "resumos-leic-v2",
+  "index_uid": "resumos-leic",
   "start_urls": ["https://resumos.leic.pt/"],
   "selectors": {
     "lvl0": {
