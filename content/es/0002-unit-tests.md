@@ -121,7 +121,7 @@ Para termos _coverage_ total de uma classe, temos de:
 ## Testes Automáticos
 
 A utilização de testes automáticos (_Automated Testing_) deve ser prioritária para evitar
-ao máximo testagem e verificação manual. Para tal, podem ser usados frameworks como o _Spock_ ou
+ao máximo testagem e verificação manual. Para tal, em Java podem por exemplo ser usados frameworks como o _Spock_ ou
 o _JUnit_.
 
 As principais componentes de um teste automático são:
@@ -136,7 +136,7 @@ As principais componentes de um teste automático são:
 Considerando os seguintes testes automáticos, em que o primeiro testa um objeto e o
 segundo testa o valor de uma operação:
 
-```java
+```groovy
 def "Should be able to remove from list"() {
   given:
     def list = [1, 2, 3, 4]
@@ -147,7 +147,7 @@ def "Should be able to remove from list"() {
 }
 ```
 
-```java
+```groovy
 def "a number to the power of another"(int a, int b, int c) {
   expect:
     Math.pow(a, b) == c
@@ -162,12 +162,12 @@ def "a number to the power of another"(int a, int b, int c) {
 Vemos que um teste pode ser constituído por cinco blocos:
 
 - o bloco `given` declara todas as todas as variáveis e informações necessárias
-  para a execução do teste, sendo parte do _Setup_;
-- o bloco `when` chama o método ou operação a ser testado, sendo parte do _Call_;
+  para a execução do teste, sendo parte do [_Setup_](color:purple);
+- o bloco `when` chama o método ou operação a ser testado, sendo parte do [_Call_](color:green);
 - o bloco `then` compara o resultado esperado com o resultado obtido, sendo parte
-  do _Assertion_;
+  do [_Assertion_](color:orange);
 - o bloco `expect` chama a operação a ser testada e compara logo o resultado, sendo parte
-  do _Call_ e do _Assertion_;
+  do [_Call_](color:green) e do [_Assertion_](color:orange);
   - Este bloco só é usado para comparações simples, onde muitas vezes nem é necessário
     o bloco `given`, pelo que o uso de blocos `when` e `then` é preferível quando
     há uma maior distinção entre a ação e o resultado.
