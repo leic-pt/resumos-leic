@@ -41,7 +41,7 @@ como o gráfico correspondente às suas possíveis execuções:
 
 ![Pseudo-código e respetivo CFG](./assets/0004-code-cfg-example.png#dark=2)
 
-Mais exemplos podem ser encontrados [aqui](https://sqa.stackexchange.com/questions/20226/how-do-we-calculate-statement-coverage-branch-coverage-path-coverage-and-cond).
+Existem [mais exemplos de code coverage disponíveis no StackExchange](https://sqa.stackexchange.com/questions/20226/how-do-we-calculate-statement-coverage-branch-coverage-path-coverage-and-cond).
 
 ### Statement Coverage
 
@@ -188,7 +188,7 @@ no sistema.
 
 A pirâmide de teste (**_Test Pyramid_**) é um indicador de quantos testes de cada tipo devem ser criados para avaliar corretamente
 um sistema. Há vários modelos de pirâmides de teste, sendo que as versões faladas em aula são a de Mike Cohn (descrita no livro
-_Succeeding with Agile: Software Development Using Scrum_ ou acedendo [aqui](https://martinfowler.com/articles/practical-test-pyramid.html))
+_Succeeding with Agile: Software Development Using Scrum_ ou no post [_The Practical Test Pyramid_](https://martinfowler.com/articles/practical-test-pyramid.html))
 e a da Google (descrita no livro _Software Engineering at Google_).
 
 ![Pirâmides de teste de Mike Cohn e da Google](./assets/0004-test-pyramids.png#dark=2)
