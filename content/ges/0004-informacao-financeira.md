@@ -168,13 +168,13 @@ Existem diversos tipos de resultados na demonstração dos mesmos:
 Em janeiro de 2020, a Rita, o Tomás e o Rui, após terminarem o curso de Eng. Eletrotécnica,
 criaram e iniciaram a atividade de uma empresa de computadores. Nesse mês ocorreram os seguintes factos:
 
-- Para iniciar a atividade, cada um dos três sócios participou com um capital de 10.000€, totalmente realizado em dinheiro.
-- Contração de empréstimo bancário de médio longo prazo no montante de 100.000€.
-- Aquisição de uma loja pelo montante de 80.000€. Pagamento efetuado no ato da escritura (a 01/01/2020).
-- Compra de diversos equipamentos e acessórios laboratoriais para posterior comercialização.
-  O valor da compra foi de 20.000€ e as condições de pagamento acordadas com o fornecedor foram: a 90 dias da data da fatura.
-- Durante o 1.º mês a empresa faturou 15.000€, com pagamento a 60 dias. O material vendido teve um custo de aquisição de 10.000€.
-- Pagou-se no final do mês ordenados e outros encargos com o pessoal no montante de 1.500€
+1. Para iniciar a atividade, cada um dos três sócios participou com um capital de 10.000€, totalmente realizado em dinheiro.
+2. Contração de empréstimo bancário de médio longo prazo no montante de 100.000€.
+3. Aquisição de uma loja pelo montante de 80.000€. Pagamento efetuado no ato da escritura (a 01/01/2020).
+4. Compra de diversos equipamentos e acessórios laboratoriais para posterior comercialização.
+   O valor da compra foi de 20.000€ e as condições de pagamento acordadas com o fornecedor foram: a 90 dias da data da fatura.
+5. Durante o 1.º mês a empresa faturou 15.000€, com pagamento a 60 dias. O material vendido teve um custo de aquisição de 10.000€.
+6. Pagou-se no final do mês ordenados e outros encargos com o pessoal no montante de 1.500€
 
 Balança dos Resultados:
 
