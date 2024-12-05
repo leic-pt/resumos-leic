@@ -83,4 +83,4 @@ yarn format
 
 ## Parceiros
 
-[![Powered by Vercel](./src/images/powered-by-vercel.svg)](https://vercel.com/?utm_source=leic-pt&utm_campaign=oss)
+[![Deploys by Netlify](./src/images/netlify-dark.svg)](https://www.netlify.com)
