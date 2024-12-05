@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import PoweredByVercelLogo from '../../images/powered-by-vercel.svg';
+import NetlifyLogo from '../../images/netlify-dark.svg';
 import GitHubLogo from '../icons/GitHub';
 import ExternalLink from '../ExternalLink';
 import './Footer.css';
@@ -14,7 +14,7 @@ const Footer = () => {
             githubLink
             contributionGuideLink
             contributorsLink
-            vercelLink
+            netlifyLink
             owner {
               name
               website
@@ -25,7 +25,7 @@ const Footer = () => {
     }
   `);
 
-  const { githubLink, contributionGuideLink, contributorsLink, vercelLink, owner } =
+  const { githubLink, contributionGuideLink, contributorsLink, netlifyLink, owner } =
     data.site.siteMetadata.footer;
 
   return (
@@ -44,8 +44,8 @@ const Footer = () => {
           Content by <ExternalLink href={contributorsLink}>many awesome contributors</ExternalLink>
         </span>
         <span>
-          <ExternalLink href={vercelLink}>
-            <img style={{ height: '2.2em' }} src={PoweredByVercelLogo} alt='Powered by Vercel' />
+          <ExternalLink href={netlifyLink}>
+            <img style={{ height: '2.2em' }} src={NetlifyLogo} alt='Deploys by Netlify' />
           </ExternalLink>
         </span>
       </div>
