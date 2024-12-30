@@ -80,7 +80,3 @@ Antes de fazer um commit, é recomendado executar o `prettier` (se usarem um edi
 ```bash
 yarn format
 ```
-
-## Parceiros
-
-[![Deploys by Netlify](./src/images/netlify-dark.svg)](https://www.netlify.com)

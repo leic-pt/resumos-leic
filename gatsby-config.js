@@ -40,7 +40,6 @@ module.exports = {
       githubLink: 'https://github.com/leic-pt/resumos-leic',
       contributionGuideLink: 'https://docs.leic.pt',
       contributorsLink: 'https://github.com/leic-pt/resumos-leic/graphs/contributors',
-      netlifyLink: 'https://www.netlify.com',
     },
     search: {
       host: 'https://meilisearch.diogotc.com',

@@ -1,6 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import NetlifyLogo from '../../images/netlify-dark.svg';
 import GitHubLogo from '../icons/GitHub';
 import ExternalLink from '../ExternalLink';
 import './Footer.css';
@@ -14,7 +13,6 @@ const Footer = () => {
             githubLink
             contributionGuideLink
             contributorsLink
-            netlifyLink
             owner {
               name
               website
@@ -25,7 +23,7 @@ const Footer = () => {
     }
   `);
 
-  const { githubLink, contributionGuideLink, contributorsLink, netlifyLink, owner } =
+  const { githubLink, contributionGuideLink, contributorsLink, owner } =
     data.site.siteMetadata.footer;
 
   return (
@@ -42,11 +40,6 @@ const Footer = () => {
         </span>
         <span>
           Content by <ExternalLink href={contributorsLink}>many awesome contributors</ExternalLink>
-        </span>
-        <span>
-          <ExternalLink href={netlifyLink}>
-            <img style={{ height: '2.2em' }} src={NetlifyLogo} alt='Deploys by Netlify' />
-          </ExternalLink>
         </span>
       </div>
     </footer>
