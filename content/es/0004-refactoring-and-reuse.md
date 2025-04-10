@@ -32,21 +32,16 @@ Software pode ser reutilizado de várias formas:
 
 ## Refactoring (Refatoração)
 
-### Processo de Refactoring
+### Test Driven Development
 
-As abstrações dependem do contexto, e é difícil desenvolver boas abstraçẽs através de abordagens _top-down_.
-Refactoring, é uma abordagem _bottom-up_ para a construção de abstrações a partir de casos de uso de código.
+> "Separating refactoring keeps work focused."
 
-O processo de refactoring é precedido pelos seguintes passos:
+Test Driven Development (TDD) é uma abordagem de desenvolvimento em que primeiro escrevemos testes automáticos para validar uma funcionalidade desejada antes de implementá-la. O refactoring acontece após os testes passarem, quando revisamos e melhoramos o código, mantendo o mesmo comportamento correto. O fluxo básico no TDD é:
 
 1. Desenvolver testes para a funcionalidade que vai ser implementada.
-2. Foco em implementar a funcionalidade corretamente, sem pensar na estrutura ótima.
-3. Quando a funcionalidade estiver corretamente implementada e todos os testes passarem, podemos iniciar o processo de refactoring.
-
-O processo de refactoring é caraterizado pelo seguinte ciclo:
-
-1. Mudar a estrutura
-2. Testar
+2. Implementar o mínimo de código para passar nos testes.
+3. "Limpar" o código, tornando-o mais eficiente (refactoring).
+4. Garantir que se passa nos testes após a limpeza do código.
 
 :::tip[NOTA IMPORTANTE]
 
@@ -54,22 +49,37 @@ O processo de refactoring é caraterizado pelo seguinte ciclo:
 
 :::
 
-### Tipos de Refactoring
+Ao trabalhar no código, muitas vezes encontramos partes confusas ou mal escritas pelo que devemos estar sempre atentos e à "caça" de código de baixa qualidade.
+Geralmente encontramos mau código quando se está a trabalhar noutra coisa, pelo que podemos tomar a decisão de refatorizá-lo na hora, ou fazê-lo mais tarde.
 
-:::warning[Secção Incompleta]
-Esta secção encontra-se incompleta. Procuram-se contribuidores.
-:::
+### Litter-Pickup
 
-- **Test Driven Development**
+> "Always leave the code better than when you found it."
 
-- **Litter-Pickup**
+O _litter-pickup_, também conhecido como, _campsite rule_, consiste em sempre deixar o código melhor do que estava quando o encontrá-mos, qualquer seja a mudança realizada.
 
-- **Comprehension**
+### Comprehension
 
-- **Preparatory**: "make the change easy, then make the easy change"
+> "Simple code is good code."
 
-- **Planned**
+Código fácil de entender é valorizado pois torna a sua utilização e modificação futura também mais simples. Desta maneira estamos à procura de simplificar o código, tornando-o mais "legível".
 
-- **Long-Term**: substituir uma abstração com uma nova interface
+### Preparatory
+
+> "Make the change easy, then make the easy change."
+
+Se ao adicionares novas funcionalidades perceberes que a estrutura não se adequa, refatora primeiro: isso facilita e acelera o processo, tal como preparar uma parede antes de pintar.
+
+### Planned
+
+> "Plan the cleanup, but keep the code clean."
+
+Muitas equipas agendam a refatoração como parte do trabalho planeado, recorrendo a algo como _refactoring stories_ para corrigir grandes áreas de código problemático que exigem atenção dedicada.
+
+### Long-Term
+
+> "Refactor big, deliver small."
+
+Algumas reestruturações prolongam-se por várias iterações, mas ainda assim podem ser feitas por refatoração gradual: a equipa acorda num objetivo, define um plano e aplica mudanças no trabalho normal para manter o código funcional. Uma técnica comum é _Branch By Abstraction_, que usa uma camada de abstração para suportar a implementação atual e a nova.
 
 <!-- TODO: insert link for refactoring example movie rental -->
