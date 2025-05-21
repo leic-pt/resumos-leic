@@ -18,3 +18,7 @@ Adiciona-se ainda que os conteúdos estão bastante incompletos atualmente, pelo
 todas as contribuições são bem-vindas!
 
 :::
+
+## Recursos
+
+- [Immersive Linear Algebra](https://immersivemath.com/ila/index.html)
