@@ -455,7 +455,7 @@ $$
 $$
 
 $$
-\int_{-\infty}^{+\infty} \delta(x) \d x = 1
+\int_{-\infty}^{+\infty} \delta(t) \d t = 1
 $$
 
 Se $f$ é contínua em $t=0$, então existe a propriedade:
