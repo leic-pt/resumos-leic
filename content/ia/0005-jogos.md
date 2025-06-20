@@ -104,7 +104,7 @@ maior valor minimax. O exemplo abaixo poderá ajudar a clarificar este conceito:
 O algoritmo faz, portanto, uma **procura em profundidade** (para obter os valores dos estados
 terminais e propagá-los para cima), acabando por ter de explorar toda a árvore
 de jogo na mesma - já vamos ver que é um pormenor desagradável da implementação _naive_ do
-algoritmo, podendo modificá-lo por forma a melhor a sua eficiência. Tratando-se basicamente
+algoritmo, podendo modificá-lo por forma a melhorar a sua eficiência. Tratando-se basicamente
 de uma $DFS$, partilha também as suas complexidades temporal e espacial: a **complexidade temporal**
 é $O(b^d)$ e a **espacial** é linear, $O(bd)$ (podendo ainda ser melhorada para $O(d)$,
 caso os sucessores sejam gerados um a um). É completo, claro, e, tal como referido acima,
