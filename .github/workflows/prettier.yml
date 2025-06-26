@@ -10,18 +10,14 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          # Make sure the actual branch is checked out when running on pull requests
-          ref: ${{github.event.pull_request.head.ref}}
-          repository: ${{github.event.pull_request.head.repo.full_name}}
-          # This is important to fetch the changes to the previous commit
-          fetch-depth: 0
+        uses: actions/checkout@v4.2.2
 
-      - name: Prettify code
-        uses: creyD/prettier_action@v4.3
-        with:
-          prettier_options: --write **/*.{js,md}
-          only_changed: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run Prettier
+        run: |
+          export PRETTIER_VERSION="$(yarn list --pattern prettier --depth 0 -s --json --no-progress | jq -r '.data.trees[0].name' | cut -d'@' -f2)"
+          if [[ -z "$PRETTIER_VERSION" ]]; then
+            echo "Failed to detect prettier version"
+            exit 1
+          fi
+          echo "Found prettier version: $PRETTIER_VERSION"
+          npx prettier@"$PRETTIER_VERSION" --check '**/*.{js,md,vue}'
