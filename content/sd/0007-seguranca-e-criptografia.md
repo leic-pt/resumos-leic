@@ -249,7 +249,7 @@ certificado deve solicitar a renovação do mesmo).
 
 Um exemplo de sistema seguro de troca de e-mails é o **PGP**, _Pretty Good Privacy_:
 
-- cada utilizador possui um par de chaves simétricas
+- cada utilizador possui um par de chaves assimétricas
 - divulga a sua chave pública de forma a que outros possam ter acesso e confiança
   de que lhe pertence
 - **para garantir que um e-mail não é alterado**:
