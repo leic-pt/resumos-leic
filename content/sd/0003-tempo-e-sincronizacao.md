@@ -191,7 +191,7 @@ enviados pelo servidor:
 |    25    |   10:54:25.450    |
 |    20    |   10:54:28.342    |
 
-> **1\. Com qual dos valores deve o servidor se sincronizar de modo a obter a melhor precisão?**
+> **1\. Com qual dos valores deve o cliente se sincronizar de modo a obter a melhor precisão?**
 
 **R:** Com o terceiro (10:54:28.342), pois apresenta o menor RTT ($20~ms$)
 
