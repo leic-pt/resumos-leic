@@ -17,7 +17,7 @@ type: content
 
 ## Notação Assimptótica
 
-A secção de IAED dos resumos sobre [esta matéria](../iaed/introducao-algoritmos#notação-assimptótica)
+A secção de IAED dos resumos sobre [esta matéria](/iaed/introducao-algoritmos#notação-assimptótica)
 já cobre os aspetos relevantes a abordar, ainda que relativamente superficialmente.
 Tentando relembrar estes conceitos de uma forma sucinta:
 
@@ -95,7 +95,7 @@ Exemplos de problemas que têm soluções deste tipo são
 
 - Procura de um elemento numa array ordenada com [Binary Search](https://en.wikipedia.org/wiki/Binary_search_algorithm)
 - Travessia de uma árvore binária
-- Ordenação de uma array com [Merge Sort](../iaed/algoritmos-eficientes-ordenacao#merge-sort)
+- Ordenação de uma array com [Merge Sort](/iaed/algoritmos-eficientes-ordenacao#merge-sort)
   (pode ser útil rever, foi abordado em aula). As notas do professor abordam também
   a complexidade temporal de cada método do Merge Sort (e a sua complexidade total)
 
@@ -516,7 +516,7 @@ $$
 ## Heaps e Heap Sort
 
 Na terceira aula foram também abordados os conceitos de Heap e Heap Sort. Estes
-conteúdos já estão disponíveis na [secção de resumos de IAED](../iaed/algoritmos-eficientes-ordenacao#heap-sort-enquadramento),
+conteúdos já estão disponíveis na [secção de resumos de IAED](/iaed/algoritmos-eficientes-ordenacao#heap-sort-enquadramento),
 pelo que não os abordaremos a fundo aqui. As notas do professor também explicam muito bem esta parte!
 
 De qualquer maneira, para ter aqui algumas noções-chave:

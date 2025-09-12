@@ -533,7 +533,7 @@ contudo, mesmo que isso aconteça, o algoritmo nunca volta atrás. Escolhe, port
 a opção ótima [**localmente**](color:green), que não é necessariamente a melhor opção [**global**](color:yellow).
 
 Em Matemática Discreta, encontrámos um algoritmo que segue a abordagem _greedy_ -
-o [Algoritmo de Dijkstra](../md/kruskal-dijkstra#algoritmo-de-dijkstra).
+o [Algoritmo de Dijkstra](/md/kruskal-dijkstra#algoritmo-de-dijkstra).
 
 :::
 

@@ -80,7 +80,7 @@ Isto é, se houver um problema que é $NP$-Completo (e, portanto, $NP$-Difícil)
 
 Ora, precisamos então de ter um problema raiz que seja $NP$-Completo para, a partir desse, conseguir extrair todos os outros. Assim, provar a conjetura $P$ vs $NP$, por exemplo, reduz-se a provar que esse algoritmo é ou não é de classe $P$.
 
-O **teorema de Cook-Levin** diz-nos, de forma muito sucinta, que o [problema de SAT](../lp/algoritmos-sat), abordado em LP, é $NP$-Completo. A prova é bastante extensa, pelo que não será apresentada aqui. Contudo, tanto as notas do Prof. Fragoso como o vídeo abaixo contêm excelentes explicações do mesmo!
+O **teorema de Cook-Levin** diz-nos, de forma muito sucinta, que o [problema de SAT](/lp/algoritmos-sat), abordado em LP, é $NP$-Completo. A prova é bastante extensa, pelo que não será apresentada aqui. Contudo, tanto as notas do Prof. Fragoso como o vídeo abaixo contêm excelentes explicações do mesmo!
 
 ::youtube{#LW_37i96htQ}
 
@@ -128,7 +128,7 @@ Numa primeira fase, devemos definir CNF-SAT e 3CNF-SAT.
 
 :::tip[CNF-SAT]
 
-Temos que uma _fórmula_ está na forma CNF SAT, _conjunctive normal form_ (equivalente à [forma clausal](../lp/logica-proposicional-sc#forma-clausal) abordada em LP) se corresponde a uma conjunção de disjunções. Cada sub-conjunto de disjunções diz-se uma cláusula, e cada um dos seus elementos diz-se um literal - uma variável ou a negação de uma variável.
+Temos que uma _fórmula_ está na forma CNF SAT, _conjunctive normal form_ (equivalente à [forma clausal](/lp/logica-proposicional-sc#forma-clausal) abordada em LP) se corresponde a uma conjunção de disjunções. Cada sub-conjunto de disjunções diz-se uma cláusula, e cada um dos seus elementos diz-se um literal - uma variável ou a negação de uma variável.
 
 :::
 
