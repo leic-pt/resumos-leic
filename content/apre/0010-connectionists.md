@@ -112,8 +112,9 @@ seguir.
 - _Sign Function_
   $$
   f(x) = \begin{cases}
-      1 & \text{se } x \geq 0 \\
-      -1 & \text{se } x < 0
+      -1 & \text{se } x < 0 \\
+      0 & \text{se } x = 0 \\
+      1 & \text{se } x > 0 
   \end{cases}
   $$
 - _Sigmoid Function_
