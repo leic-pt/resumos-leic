@@ -1,69 +1,133 @@
 meta:
-  - content/meta/**/*
-  - content/index.md
-  - content/assets/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/meta/**/*
+      - content/index.md
+      - content/assets/**/*
 
 # Courses
 al:
-  - content/al/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/al/**/*
 ams:
-  - content/ams/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/ams/**/*
 apre:
-  - content/apre/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/apre/**/*
 asa:
-  - content/asa/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/asa/**/*
 bd:
-  - content/bd/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/bd/**/*
 cdi-i:
-  - content/cdi-i/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/cdi-i/**/*
 cdi-ii:
-  - content/cdi-ii/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/cdi-ii/**/*
 cdi-iii:
-  - content/cdi-iii/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/cdi-iii/**/*
 cg:
-  - content/cg/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/cg/**/*
 comp:
-  - content/comp/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/comp/**/*
 der: # HACS
-  - content/der/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/der/**/*
 emd:
-  - content/emd/**/*
-  - content/md/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/emd/**/*
+      - content/md/**/*
 es:
-  - content/es/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/es/**/*
 fis-i:
-  - content/fis-i/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/fis-i/**/*
 fis-ii:
-  - content/fis-ii/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/fis-ii/**/*
 fp:
-  - content/fp/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/fp/**/*
 ges:
-  - content/ges/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/ges/**/*
 ia:
-  - content/ia/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/ia/**/*
 iac:
-  - content/iac/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/iac/**/*
 iaed:
-  - content/iaed/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/iaed/**/*
 ieco: # HACS
-  - content/ieco/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/ieco/**/*
 iei:
-  - content/iei/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/iei/**/*
 ipm:
-  - content/ipm/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/ipm/**/*
 lp:
-  - content/lp/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/lp/**/*
 oc:
-  - content/oc/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/oc/**/*
 pe:
-  - content/pe/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/pe/**/*
 po:
-  - content/po/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/po/**/*
 rc:
-  - content/rc/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/rc/**/*
 sd:
-  - content/sd/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/sd/**/*
 so:
-  - content/so/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/so/**/*
 tc:
-  - content/tc/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - content/tc/**/*
