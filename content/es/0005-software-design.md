@@ -57,7 +57,7 @@ Propriedades:
 
 - Baixa ligação entre o _invoker_ e cada comando concreto
 - Fácil de extender com novos tipos de comandos
-- Comandos concretos são altamente
+- Comandos concretos são altamente coesos
 
 ### Template Method
 
