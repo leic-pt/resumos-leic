@@ -194,6 +194,7 @@ years:
 - [Reencaminhar emails do Técnico para o Gmail](https://diogocorreia.notion.site/Reenchaminhar-emails-do-T-cnico-para-Gmail-2975d496a1d3447a84b0d0cf163dd65f)
 - [Portfólio Projetos de Cadeiras - Diogo Correia](https://github.com/diogotcorreia/diogotcorreia/blob/master/ist.md) - (LEIC-A)
 - [Portfólio Projetos de Cadeiras - Rafael Oliveira](https://gist.github.com/RafDevX/46ddc5b68ea97c46b5ffd18854670042) - (LEIC-A)
+- [Portfólio Projetos de Cadeiras - Duarte Pereira da Cruz](https://github.com/DuarteCruz6/ProjetosIST) - (LEIC-T)
 - [Caderno Rita Mendes](https://www.notion.so/IST-MEEC-0c22d514a81645eca3c2a58739e323e1) - (IST - MEEC)
 
 ## Como Contribuir?
