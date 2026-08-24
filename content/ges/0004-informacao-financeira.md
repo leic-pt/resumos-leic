@@ -277,13 +277,11 @@ $$
    $$
    \text{Solvabilidade Total ou Autonomia Financeira}=\frac {\text{Capital Próprio}} {\text{Capital Ativo}}
    $$
-
    - Uma boa solvabilidade total corresponde a valores acima de 1/3
 
    $$
    \text{Solvabilidade Reduzida}=\frac {\text{Capital Próprio}} {\text{Passivo}}
    $$
-
    - Uma boa solvabilidade reduzida corresponde a valores acima de 1/2.
 
 4. **Rácio de Liquidez**: Indicam a capacidade de a empresa satisfazer os compromissos financeiros de curto prazo.

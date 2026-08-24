@@ -142,9 +142,9 @@ Estas podem ser:
 Vamos então analisar várias políticas de escalonamento, e ver quais as suas vantagens e desvantagens.
 
 [**_Round-Robin_**](color:orange)  
- Pretende que todos os processos executáveis tenham acesso ao CPU ciclicamente.
+Pretende que todos os processos executáveis tenham acesso ao CPU ciclicamente.
 Faz-se isso dispondo os processos executáveis numa FIFO. Sempre que o CPU está disponível, o elemento na frente da FIFO recebe o CPU durante um **_quantum_** ou **_time-slice_**.  
- Isto é, nenhum processo será executado (de seguida) mais do que um dado período de tempo consecutivo.
+Isto é, nenhum processo será executado (de seguida) mais do que um dado período de tempo consecutivo.
 O processo perde o CPU quando:
 
 - o seu _quantum_ acaba - o processo é reinserido no fim da fila;
@@ -155,9 +155,9 @@ Esta política tem a desvantagem de poder causar elevados tempos de resposta, pr
 Nomeadamente, se houver processos que exijam muito CPU, e outros que sejam mais I/O intensivos, devemos dar mais prioridade aos do segundo tipo (pois são pouco exigentes do CPU e necessitam de resposta rápida).
 
 [**Multi-lista**](color:yellow)  
- É guardada uma multi-lista, em que cada lista tem processos com uma dada [**prioridade**](color:purple).
+É guardada uma multi-lista, em que cada lista tem processos com uma dada [**prioridade**](color:purple).
 Processos mais prioritários recebem CPU primeiro. A prioridade de um processo pode ser fixa ou dinâmica.  
- Note-se que um sistema que tenha apenas prioridades fixas sujeita-se a que os processos menos prioritários nunca recebam CPU,
+Note-se que um sistema que tenha apenas prioridades fixas sujeita-se a que os processos menos prioritários nunca recebam CPU,
 enquanto que prioridades dinâmicas permitem ir tornando os processos que não recebem CPU há mais tempo mais prioritárias.
 Esta política permite ainda atribuir _quantum_ diferentes a prioridades diferentes.
 
@@ -165,7 +165,7 @@ Esta política permite ainda atribuir _quantum_ diferentes a prioridades diferen
 O conceito de preempção consiste em retirar o CPU ao processo em execução logo que haja um mais prioritário.
 Isto permite melhorar o tempo de reação a processos mais prioritários. No entanto, se houver um influxo frequente de processos mais prioritários,
 esta política pode dar lugar a mudanças frequentes de contexto, que "desperdiçam" tempo de CPU (que pode e deve ser usado a responder aos processos).  
- É então aplicada **pseudo-preempção**: o processo perde o CPU para o mais prioritário, apenas se já tiver utilizado o CPU durante um tempo mínimo.
+É então aplicada **pseudo-preempção**: o processo perde o CPU para o mais prioritário, apenas se já tiver utilizado o CPU durante um tempo mínimo.
 
 Os [**escalonadores hoje em dia**](color:blue):
 

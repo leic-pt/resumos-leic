@@ -67,7 +67,7 @@ $$
 $$
 
 Um ano é Bissexto se é divisível por 4 e não for divisível por 100,\
- a não ser que seja também divisível por 400 (Só se aplica para o Calendário Gregoriano)
+a não ser que seja também divisível por 400 (Só se aplica para o Calendário Gregoriano)
 
 :::details[At Dover Dwell George Brown Esquire, Good Christopher Finch And David Friar]
 ![completo](./assets/0003-calendario.jpeg#dark=3)

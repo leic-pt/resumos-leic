@@ -124,7 +124,7 @@ $$
 
 Uma linha de campo é uma curva tal que em cada ponto o
 campo é tangente à curva.\
- Dirigem-se de (+ $\rightarrow$ - ).
+Dirigem-se de (+ $\rightarrow$ - ).
 As linhas de campo não se podem cruzar.
 
 ## Função $\delta$ de Dirac

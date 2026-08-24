@@ -196,9 +196,9 @@ O **Algoritmo de Fleury** foi concebido para **multigrafos eulerianos**.
 Mas, também o podemos aplicar, **informalmente**, em **multigrafos atravessáveis**.
 
 Para isso, basta **começar num vértice ímpar**, é a única mudança no Algoritmo.\
- Mas, neste caso, não vamos acabar no mesmo vértice, mas sim no outro vértice ímpar.\
+Mas, neste caso, não vamos acabar no mesmo vértice, mas sim no outro vértice ímpar.\
 Reparem que, se, num **multigrafo atravessável**, ligarmos os dois vértices ímpares com uma aresta, ficamos com um **multigrafo euleriano**.\
- Nesse caso, já poderíamos acabar no vértice inicial.
+Nesse caso, já poderíamos acabar no vértice inicial.
 
 #### Desvantagens
 
@@ -221,7 +221,7 @@ Passamos agora à descrição do Algoritmo:
 Se chegarmos a um vértice, escolhemos continuar por qualquer aresta que não tenha sido percorrida $2$ vezes, com exceção da aresta onde chegamos pela primeira vez ao vértice atual.
 
 Só percorremos essa aresta em último caso, ou seja,\
- se for um beco sem saída, ou se as outras arestas já tiverem sido percorridas $2$ vezes.
+se for um beco sem saída, ou se as outras arestas já tiverem sido percorridas $2$ vezes.
 
 ## Árvores
 
@@ -257,12 +257,12 @@ Seja $g$ um grafo, $T$ é a sua **Árvore de Cobertura** se:
 #### Custo de árvore
 
 Dada uma [rede](#rede) $(V,E,c)$, o custo de uma árvore de cobertura $T$ da [rede](#rede) é\
- o **somatório** de todos os valores das arestas de $T$.
+o **somatório** de todos os valores das arestas de $T$.
 
 #### Árvore de cobertura mínima
 
 Árvore de cobertura de uma [rede](#rede) $R$, cujo [custo](#custo-de-arvore) é **menor ou igual** ao\
- custo de qualquer outra Árvore de cobertura de $R$.
+custo de qualquer outra Árvore de cobertura de $R$.
 
 #### Árvore Económica
 

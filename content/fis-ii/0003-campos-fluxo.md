@@ -48,7 +48,7 @@ Além disso, o campo propaga-se à velocidade da luz ($c = 3 \times 10^8\ m/s$)
 
 :::warning[Eletrostática]
 Nesta parte da matéria assumimos que todas as fontes estão estacionárias,\
- no entanto a carga de prova pode se encontrar em movimento.
+no entanto a carga de prova pode se encontrar em movimento.
 :::
 
 ### Lei de Coulomb
@@ -177,7 +177,7 @@ $$
 Para usar a Lei de Gauss devemos procurar usar para nossa vantagem a simetria do sistema.
 
 Se tivermos uma superfície esférica de raio $R$ com uma densidade superficial de carga $\sigma$ uniforme,\
- como será o campo no exterior da esfera?
+como será o campo no exterior da esfera?
 
 ![Esfera](./imgs/0003-esfera.png#dark=1)
 
@@ -196,7 +196,7 @@ Através da Lei de Gauss na versão integral.
 Consideremos uma superfície esférica
 $S$ de raio $r > R$ centrada na esfera carregada.\
 Uma superfície desse tipo designa-se por superfície gaussiana.\
- Para essa superfície em cada ponto o vector unitário normal à superfície é $\vec n = \vec e_r$
+Para essa superfície em cada ponto o vector unitário normal à superfície é $\vec n = \vec e_r$
 
 Assim
 

@@ -259,13 +259,13 @@ Para além dos exercícios das aulas práticas, o livro de exercícios indicado 
   (Tentem fazer primeiro vocês próprios e verifiquem as respostas no fim)
 
   a) X = 3+2.  
-   b) X = 5.  
-   c) true.  
-   d) false.  
-   e) Erro - argumentos não suficientemente instanciados.  
-   f) X = 3, Y = 8.  
-   g) false.  
-   h) true.
+  b) X = 5.  
+  c) true.  
+  d) false.  
+  e) Erro - argumentos não suficientemente instanciados.  
+  f) X = 3, Y = 8.  
+  g) false.  
+  h) true.
 
   Exercício 2
 
