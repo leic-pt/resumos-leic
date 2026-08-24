@@ -1,6 +1,23 @@
 .home-page-container {
   width: clamp(100px, 90%, 900px);
   margin: 70px auto 0 auto;
+  margin-top: calc(3.6rem + 100px);
+}
+
+.contributors-banner {
+  position: fixed;
+  top: 3.6rem;
+  left: 0;
+  right: 0;
+  font-weight: bold;
+  color: var(--miniCodeBgColor);
+  background: var(--dangerBorder);
+  text-align: center;
+}
+
+.contributors-banner a {
+  color: inherit;
+  text-decoration: underline;
 }
 
 .hero {
