@@ -38,8 +38,11 @@ const HomePageLayout = ({ data }) => {
   return (
     <div className='home-page-container'>
       <Navbar />
-      <div className="contributors-banner">
-        <p>Precisam-se contribuidores! <a href="https://github.com/leic-pt/resumos-leic/discussions/1064">Quero Ajudar</a></p>
+      <div className='contributors-banner'>
+        <p>
+          Precisam-se contribuidores!{' '}
+          <a href='https://github.com/leic-pt/resumos-leic/discussions/1064'>Quero Ajudar</a>
+        </p>
       </div>
       <div className='hero'>
         <img src={IstLogo} alt='Instituto Superior Técnico' width={150} />
