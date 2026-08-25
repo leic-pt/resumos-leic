@@ -1,0 +1,7 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Match package.json engines (Astro 7 requires Node >= 22.12)
+[build.environment]
+  NODE_VERSION = "22"
