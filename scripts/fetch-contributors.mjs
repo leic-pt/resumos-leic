@@ -80,7 +80,14 @@ const githubToken = process.env.GITHUB_TOKEN;
 if (!githubToken) {
   console.info('No GitHub token found (GITHUB_TOKEN env var), skipping contributors list');
 
-  writeJsonFile(contributorsPath, toContributorData(getDefaultContributors()));
+  // Never overwrite an existing contributors file without a token: it may
+  // hold real data fetched in a previous run. Only bootstrap the defaults
+  // when the file is missing (e.g. a fresh clone).
+  if (!existsSync(contributorsPath)) {
+    writeJsonFile(contributorsPath, toContributorData(getDefaultContributors()));
+  } else {
+    console.info(`Keeping existing ${contributorsPath}`);
+  }
 } else {
   const graphqlGh = graphql.defaults({
     headers: {
@@ -140,13 +147,24 @@ if (!githubToken) {
   };
 
   let lastResponse = null;
-  do {
-    lastResponse = await getPullRequests(lastResponse?.pageInfo?.endCursor ?? null);
-    mergeContributors(contributors, lastResponse.nodes);
-  } while (
-    lastResponse.pageInfo?.hasNextPage &&
-    (!lastUpdated || lastUpdated <= new Date(lastResponse.nodes.at(-1)?.updatedAt))
-  );
+  try {
+    do {
+      lastResponse = await getPullRequests(lastResponse?.pageInfo?.endCursor ?? null);
+      mergeContributors(contributors, lastResponse.nodes);
+    } while (
+      lastResponse.pageInfo?.hasNextPage &&
+      (!lastUpdated || lastUpdated <= new Date(lastResponse.nodes.at(-1)?.updatedAt))
+    );
+  } catch (error) {
+    // A GitHub API failure must not block dev or build: keep the previously
+    // fetched data (or bootstrap the defaults) and continue.
+    console.warn('Failed to fetch contributors from GitHub, using existing data:', error.message);
+    const fallback = existsSync(contributorsPath)
+      ? JSON.parse(readFileSync(contributorsPath, 'utf8'))
+      : toContributorData(getDefaultContributors());
+    writeJsonFile(contributorsPath, fallback);
+    process.exit(0);
+  }
 
   const contributorsData = toContributorData(contributors);
   writeJsonFile(cachePath, { lastUpdated: newLastUpdated, contributors: contributorsData });
