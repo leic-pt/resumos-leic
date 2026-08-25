@@ -3,3 +3,8 @@ dist/
 .astro/
 src/data/contributors.json
 data/.contributors-cache.json
+
+# No prettier parser available
+netlify.toml
+.nvmrc
+shell.nix
