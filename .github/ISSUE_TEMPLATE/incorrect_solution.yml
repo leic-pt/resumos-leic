@@ -1,7 +1,7 @@
 name: Resolução de Exercícios Incorreta
 description: Encontraste uma resolução de exercícios incorreta? Aqui é onde o podes reportar
-title: "[Incorrect Solution] "
-labels: ["incorrect solution"]
+title: '[Incorrect Solution] '
+labels: ['incorrect solution']
 body:
   - type: markdown
     attributes:
@@ -11,36 +11,36 @@ body:
     attributes:
       label: Qual a UC que tem a resolução incorreta?
       options:
-        - "(AL) Álgebra Linear"
-        - "(AMS) Análise e Modelação de Sistemas"
-        - "(Apre) Aprendizagem"
-        - "(ASA) Análise e Síntese de Algoritmos"
-        - "(BD) Bases de Dados"
-        - "(CDI-I) Cálculo Diferencial e Integral I"
-        - "(CDI-II) Cálculo Diferencial e Integral II"
-        - "(CDI-III) Cálculo Diferencial e Integral III"
-        - "(CG) Computação Gráfica"
-        - "(Comp) Compiladores"
-        - "(EMD) Elementos Matemática Discreta"
-        - "(ES) Engenharia de Software"
-        - "(Fis-I) Física I"
-        - "(Fis-II) Física II"
-        - "(FP) Fundamentos da Programação"
-        - "(Ges) Gestão"
-        - "(IA) Inteligência Artificial"
-        - "(IAC) Introdução à Arquitetura de Computadores"
-        - "(IAED) Introdução a Algoritmos e Estruturas de Dados"
-        - "(IEI) Introdução à Engenharia Informática"
-        - "(IPM) Interação Pessoa-Máquina"
-        - "(LP) Lógica para Programação"
-        - "(OC) Organização de Computadores"
-        - "(PE) Probabilidade e Estatística"
-        - "(PO) Programação com Objetos"
-        - "(RC) Redes de Computadores"
-        - "(SD) Sistemas Distribuídos"
-        - "(SO) Sistemas Operativos"
-        - "(TC) Teoria da Computação"
-        - "Outro (especificar na descrição abaixo)"
+        - '(AL) Álgebra Linear'
+        - '(AMS) Análise e Modelação de Sistemas'
+        - '(Apre) Aprendizagem'
+        - '(ASA) Análise e Síntese de Algoritmos'
+        - '(BD) Bases de Dados'
+        - '(CDI-I) Cálculo Diferencial e Integral I'
+        - '(CDI-II) Cálculo Diferencial e Integral II'
+        - '(CDI-III) Cálculo Diferencial e Integral III'
+        - '(CG) Computação Gráfica'
+        - '(Comp) Compiladores'
+        - '(EMD) Elementos Matemática Discreta'
+        - '(ES) Engenharia de Software'
+        - '(Fis-I) Física I'
+        - '(Fis-II) Física II'
+        - '(FP) Fundamentos da Programação'
+        - '(Ges) Gestão'
+        - '(IA) Inteligência Artificial'
+        - '(IAC) Introdução à Arquitetura de Computadores'
+        - '(IAED) Introdução a Algoritmos e Estruturas de Dados'
+        - '(IEI) Introdução à Engenharia Informática'
+        - '(IPM) Interação Pessoa-Máquina'
+        - '(LP) Lógica para Programação'
+        - '(OC) Organização de Computadores'
+        - '(PE) Probabilidade e Estatística'
+        - '(PO) Programação com Objetos'
+        - '(RC) Redes de Computadores'
+        - '(SD) Sistemas Distribuídos'
+        - '(SO) Sistemas Operativos'
+        - '(TC) Teoria da Computação'
+        - 'Outro (especificar na descrição abaixo)'
     validations:
       required: true
   - type: input
@@ -48,7 +48,7 @@ body:
     attributes:
       label: Em que ficha/capítulo/exercício/passo se encontra o erro?
       description: O mais específico possível, de forma a ser possível encontrar o erro
-      placeholder: "Ficha 1, exercício 1.4 b), determinação da matriz inversa"
+      placeholder: 'Ficha 1, exercício 1.4 b), determinação da matriz inversa'
     validations:
       required: true
   - type: textarea

@@ -1,0 +1,59 @@
+---
+import { siteConfig } from '../config';
+import SearchBar from './SearchBar/SearchBar';
+import ThemeSettings from './ThemeSettings/ThemeSettings';
+import ExternalLink from './ExternalLink.astro';
+
+interface HomepageYear {
+  name: string;
+  semesters: Array<{
+    name: string;
+    courses: Array<{ name: string; link: string }>;
+  }>;
+}
+
+interface Props {
+  /** Render the sidebar toggle button (content pages only). */
+  toggleSidebar?: boolean;
+  /** Current section title, used to scope search results. */
+  section?: string;
+  /** Course years from the homepage, shown when the search is empty. */
+  years?: HomepageYear[];
+}
+
+const { toggleSidebar, section, years } = Astro.props;
+---
+
+<header class='navbar'>
+  {
+    toggleSidebar && (
+      <button class='sidebar-button' aria-label='toggle sidebar'>
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          aria-hidden='true'
+          role='img'
+          viewBox='0 0 448 512'
+          class='icon'
+        >
+          <path
+            fill='currentColor'
+            d='M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z'
+          />
+        </svg>
+      </button>
+    )
+  }
+  <a href='/' class='site-title'>
+    {siteConfig.navbar.siteTitle}
+  </a>
+  <div class='flex-grow'></div>
+  <SearchBar client:idle section={section} years={years} />
+  <ThemeSettings client:idle />
+  <div class='navbar-links'>
+    {
+      siteConfig.navbar.links.map(({ href, title }) => (
+        <ExternalLink href={href}>{title}</ExternalLink>
+      ))
+    }
+  </div>
+</header>

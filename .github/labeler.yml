@@ -1,133 +1,133 @@
 meta:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/meta/**/*
-      - content/index.md
-      - content/assets/**/*
+      - any-glob-to-any-file:
+          - content/meta/**/*
+          - content/index.md
+          - content/assets/**/*
 
 # Courses
 al:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/al/**/*
+      - any-glob-to-any-file:
+          - content/al/**/*
 ams:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/ams/**/*
+      - any-glob-to-any-file:
+          - content/ams/**/*
 apre:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/apre/**/*
+      - any-glob-to-any-file:
+          - content/apre/**/*
 asa:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/asa/**/*
+      - any-glob-to-any-file:
+          - content/asa/**/*
 bd:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/bd/**/*
+      - any-glob-to-any-file:
+          - content/bd/**/*
 cdi-i:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/cdi-i/**/*
+      - any-glob-to-any-file:
+          - content/cdi-i/**/*
 cdi-ii:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/cdi-ii/**/*
+      - any-glob-to-any-file:
+          - content/cdi-ii/**/*
 cdi-iii:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/cdi-iii/**/*
+      - any-glob-to-any-file:
+          - content/cdi-iii/**/*
 cg:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/cg/**/*
+      - any-glob-to-any-file:
+          - content/cg/**/*
 comp:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/comp/**/*
+      - any-glob-to-any-file:
+          - content/comp/**/*
 der: # HACS
   - changed-files:
-    - any-glob-to-any-file:
-      - content/der/**/*
+      - any-glob-to-any-file:
+          - content/der/**/*
 emd:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/emd/**/*
-      - content/md/**/*
+      - any-glob-to-any-file:
+          - content/emd/**/*
+          - content/md/**/*
 es:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/es/**/*
+      - any-glob-to-any-file:
+          - content/es/**/*
 fis-i:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/fis-i/**/*
+      - any-glob-to-any-file:
+          - content/fis-i/**/*
 fis-ii:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/fis-ii/**/*
+      - any-glob-to-any-file:
+          - content/fis-ii/**/*
 fp:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/fp/**/*
+      - any-glob-to-any-file:
+          - content/fp/**/*
 ges:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/ges/**/*
+      - any-glob-to-any-file:
+          - content/ges/**/*
 ia:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/ia/**/*
+      - any-glob-to-any-file:
+          - content/ia/**/*
 iac:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/iac/**/*
+      - any-glob-to-any-file:
+          - content/iac/**/*
 iaed:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/iaed/**/*
+      - any-glob-to-any-file:
+          - content/iaed/**/*
 ieco: # HACS
   - changed-files:
-    - any-glob-to-any-file:
-      - content/ieco/**/*
+      - any-glob-to-any-file:
+          - content/ieco/**/*
 iei:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/iei/**/*
+      - any-glob-to-any-file:
+          - content/iei/**/*
 ipm:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/ipm/**/*
+      - any-glob-to-any-file:
+          - content/ipm/**/*
 lp:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/lp/**/*
+      - any-glob-to-any-file:
+          - content/lp/**/*
 oc:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/oc/**/*
+      - any-glob-to-any-file:
+          - content/oc/**/*
 pe:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/pe/**/*
+      - any-glob-to-any-file:
+          - content/pe/**/*
 po:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/po/**/*
+      - any-glob-to-any-file:
+          - content/po/**/*
 rc:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/rc/**/*
+      - any-glob-to-any-file:
+          - content/rc/**/*
 sd:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/sd/**/*
+      - any-glob-to-any-file:
+          - content/sd/**/*
 so:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/so/**/*
+      - any-glob-to-any-file:
+          - content/so/**/*
 tc:
   - changed-files:
-    - any-glob-to-any-file:
-      - content/tc/**/*
+      - any-glob-to-any-file:
+          - content/tc/**/*

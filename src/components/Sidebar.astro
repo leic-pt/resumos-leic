@@ -1,0 +1,48 @@
+---
+import ExternalLink from './ExternalLink.astro';
+import { siteConfig } from '../config';
+
+interface SidebarLink {
+  path: string;
+  title: string;
+}
+
+interface Props {
+  sections: Array<{ key: string; name?: string; links: SidebarLink[] }>;
+  currentPath: string;
+}
+
+const { sections, currentPath } = Astro.props;
+const isActive = (path: string) => currentPath === path;
+---
+
+<aside class='sidebar'>
+  {
+    sections.map((section) => (
+      <div class:list={section.name ? '' : 'top-level'}>
+        {section.name && <p>{section.name}</p>}
+        <ul>
+          {section.links.map(({ path, title }) => (
+            <li>
+              <a href={path} class:list={{ link__active: isActive(path) }}>
+                {title || path}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))
+  }
+  <div class='sidebar-nav-links'>
+    <hr />
+    <ul>
+      {
+        siteConfig.navbar.links.map(({ href, title }) => (
+          <li>
+            <ExternalLink href={href}>{title}</ExternalLink>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</aside>

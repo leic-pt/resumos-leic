@@ -1,0 +1,50 @@
+---
+import 'katex/dist/katex.min.css';
+import 'prismjs/themes/prism-tomorrow.css';
+import '../styles/main.css';
+import '../styles/markdown.css';
+import { siteConfig } from '../config';
+import { noFlashScript } from '../lib/no-flash';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const pageTitle = title ? `${title} | ${siteConfig.title}` : siteConfig.title;
+const pageDescription = description ?? siteConfig.description;
+---
+
+<!doctype html>
+<html lang='pt'>
+  <head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <title>{pageTitle}</title>
+    <meta name='description' content={pageDescription} />
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link rel='manifest' href='/manifest.webmanifest' />
+    <script is:inline>
+      {
+        noFlashScript;
+      }
+    </script>
+    {
+      import.meta.env.PROD && (
+        <script
+          is:inline
+          async
+          defer
+          data-website-id={siteConfig.umami.websiteId}
+          data-do-not-track='true'
+          src={siteConfig.umami.srcUrl}
+        />
+      )
+    }
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

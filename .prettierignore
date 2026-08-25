@@ -1,1 +1,5 @@
-src/.vuepress/dist/
+node_modules/
+dist/
+.astro/
+src/data/contributors.json
+data/.contributors-cache.json

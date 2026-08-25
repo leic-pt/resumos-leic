@@ -1,0 +1,103 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Contributors from '../components/Contributors.astro';
+import SectionButton from '../components/SectionButton.astro';
+import SectionButtonLayout from '../components/SectionButtonLayout.astro';
+import ExternalLink from '../components/ExternalLink.astro';
+import IstLogo from '../images/ist-logo.svg';
+import contributors from '../data/contributors.json';
+import { getHomepage } from '../lib/pages';
+import { resolveCourseImage } from '../lib/course-images';
+
+const entry = await getHomepage();
+if (!entry) throw new Error('Homepage entry (content/index.md, path: /) not found');
+
+const { Content } = await render(entry);
+const years = entry.data.years ?? [];
+
+const getLabelName = (label: string): string | null => {
+  if (label === 'meta') return 'Meta';
+
+  for (const year of years) {
+    for (const semester of year.semesters) {
+      for (const course of semester.courses) {
+        if (course.link === `/${label}`) return course.name;
+      }
+    }
+  }
+  return null;
+};
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.description ?? undefined}>
+  <div class='home-page-container'>
+    <Navbar years={years} />
+    <div class='contributors-banner'>
+      <p>
+        Precisam-se contribuidores!{' '}
+        <a href='https://github.com/leic-pt/resumos-leic/discussions/1064'>Quero Ajudar</a>
+      </p>
+    </div>
+    <div class='hero'>
+      <img src={IstLogo.src} alt='Instituto Superior Técnico' width={150} />
+      <h1>Resumos LEIC-A</h1>
+      <p>Bem vindo ao site comunitário de resumos de LEIC-A.</p>
+      <p>Aqui irás encontrar tudo o que precisas ao longo do semestre.</p>
+    </div>
+    <div style='margin-top: 50px'>
+      {
+        years.map(({ name, semesters }) => (
+          <div class='year-section'>
+            <h2>{name}</h2>
+            <div>
+              {semesters.map(({ name, courses }) => (
+                <div class='semester-section'>
+                  <h3>{name}</h3>
+                  <SectionButtonLayout>
+                    {courses.map((course) => (
+                      <SectionButton
+                        name={course.name}
+                        description={course.description}
+                        link={course.link}
+                        image={resolveCourseImage(course.image)}
+                        color={course.color}
+                        long={course.long}
+                      />
+                    ))}
+                  </SectionButtonLayout>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+    <div class='content'>
+      <Content />
+      <Contributors contributors={contributors} getLabelName={getLabelName} />
+      <hr />
+      <div class='custom-container custom-container-warning'>
+        <p>Disclaimer</p>
+        <p>
+          Resumos LEIC não está afiliado ao{' '}
+          <ExternalLink href='https://tecnico.ulisboa.pt'>tecnico.ulisboa.pt</ExternalLink> de forma alguma.
+          Todo o conteúdo escrito disponível neste site é dado por contribuidores (listados acima). Alguns
+          anexos podem ter sido cedidos por professores, após obter a respetiva permissão.
+          <br />
+          Visto que algum do conteúdo pode estar incorreto, incompleto e/ou desatualizado, usa este site
+          <em>at your own risk</em>.<br />
+          Como sempre, se encontrares algum erro, podes e deves{' '}
+          <ExternalLink href='https://docs.leic.pt'>contribuir</ExternalLink>!
+        </p>
+        <p>
+          Questões relacionadas com <em>copyright</em> deverão ser encaminhadas para{' '}
+          <ExternalLink href='mailto:resumos@leic.pt'>resumos@leic.pt</ExternalLink>.
+        </p>
+      </div>
+    </div>
+    <Footer />
+  </div>
+</BaseLayout>

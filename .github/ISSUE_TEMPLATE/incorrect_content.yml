@@ -1,7 +1,7 @@
 name: Conteúdo Incorreto
 description: Encontraste conteúdo incorreto (typos, incorreções formais, formatação, etc)?
-title: "[Incorrect Content] "
-labels: ["incorrect content"]
+title: '[Incorrect Content] '
+labels: ['incorrect content']
 body:
   - type: markdown
     attributes:
@@ -11,7 +11,7 @@ body:
     attributes:
       label: Qual a página que tem o conteúdo incorreto?
       description: Coloca o link da página em questão
-      placeholder: "https://resumos.leic.pt/..."
+      placeholder: 'https://resumos.leic.pt/...'
     validations:
       required: true
   - type: textarea

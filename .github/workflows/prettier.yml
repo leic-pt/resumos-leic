@@ -12,12 +12,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
+
       - name: Run Prettier
-        run: |
-          export PRETTIER_VERSION="$(yarn list --pattern prettier --depth 0 -s --json --no-progress | jq -r '.data.trees[0].name' | cut -d'@' -f2)"
-          if [[ -z "$PRETTIER_VERSION" ]]; then
-            echo "Failed to detect prettier version"
-            exit 1
-          fi
-          echo "Found prettier version: $PRETTIER_VERSION"
-          npx prettier@"$PRETTIER_VERSION" --check '**/*.{js,md,vue}'
+        run: npm run format:check
