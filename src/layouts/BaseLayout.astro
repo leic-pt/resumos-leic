@@ -1,6 +1,4 @@
 ---
-import 'katex/dist/katex.min.css';
-import 'prismjs/themes/prism-tomorrow.css';
 import '../styles/main.css';
 import '../styles/markdown.css';
 import { siteConfig } from '../config';
@@ -26,11 +24,7 @@ const pageDescription = description ?? siteConfig.description;
     <link rel='preconnect' href='https://fonts.googleapis.com' />
     <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
     <link rel='manifest' href='/manifest.webmanifest' />
-    <script is:inline>
-      {
-        noFlashScript;
-      }
-    </script>
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     {
       import.meta.env.PROD && (
         <script
@@ -45,6 +39,7 @@ const pageDescription = description ?? siteConfig.description;
     }
   </head>
   <body>
+    <script is:inline set:html={noFlashScript} />
     <slot />
   </body>
 </html>

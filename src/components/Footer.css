@@ -1,12 +1,11 @@
 footer {
   margin-top: 7rem;
   width: 100%;
-  opacity: 60%;
-  transition: opacity 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  color: var(--textColor);
 }
 
-footer:hover {
-  opacity: 100%;
+footer a {
+  color: var(--textColor);
 }
 
 .footer-attributions {

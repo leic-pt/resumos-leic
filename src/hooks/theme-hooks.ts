@@ -78,6 +78,10 @@ export function useFontSettings(): {
   }, [font]);
 
   const fontLoader = useMemo(() => {
+    // Only load a font stylesheet when the user explicitly picked one: the
+    // default (nothing stored) uses the system font stack, so loading the
+    // default Roboto stylesheet would be a wasted request on every page.
+    if (!font) return null;
     const selectedFont = (font && fonts[font]) || fonts.roboto;
     if (!selectedFont.url) return null;
 

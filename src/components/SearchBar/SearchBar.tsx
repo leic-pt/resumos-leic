@@ -1,5 +1,5 @@
-import { Meilisearch } from 'meilisearch';
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import type { Meilisearch } from 'meilisearch';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { siteConfig } from '../../config';
 import Dialog from '../Dialog/Dialog';
 import Search from '../icons/Search';
@@ -22,14 +22,18 @@ const SearchBar = ({ section, years }: SearchBarProps) => {
   const handleToggleFilterBySection = useCallback(() => setFilterBySection((v) => !v), []);
 
   const { host, apiKey, indexName } = siteConfig.search;
-  const searchClient = useMemo(
-    () =>
-      new Meilisearch({
-        host,
-        apiKey,
-      }),
-    [host, apiKey]
-  );
+  const [searchClient, setSearchClient] = useState<Meilisearch | null>(null);
+
+  // Meilisearch (~30KB) is code-split so it only loads when the search is
+  // first opened; the specifier is a static literal and the chunk is
+  // requested on demand by the button/keybind handler below.
+  useEffect(() => {
+    if (open && !searchClient) {
+      void import('meilisearch').then(({ Meilisearch }) =>
+        setSearchClient(new Meilisearch({ host, apiKey }))
+      );
+    }
+  }, [open, searchClient, host, apiKey]);
 
   // Global keybinds
   useEffect(() => {
@@ -73,7 +77,7 @@ const SearchBar = ({ section, years }: SearchBarProps) => {
 
   return (
     <>
-      <button className='search-button' onClick={handleOpenSearch}>
+      <button className='search-button' aria-label='Search' onClick={handleOpenSearch}>
         <Search className='search-button--icon' />
         <span className='search-button--label'>Search</span>
         <span className='search-button--keybinds'>
@@ -82,15 +86,17 @@ const SearchBar = ({ section, years }: SearchBarProps) => {
         </span>
       </button>
       <Dialog open={open} onClose={handleCloseSearch}>
-        <SearchModal
-          searchClient={searchClient}
-          indexName={indexName}
-          onClose={handleCloseSearch}
-          section={section}
-          years={years}
-          filterBySection={filterBySection}
-          handleToggleFilterBySection={handleToggleFilterBySection}
-        />
+        {searchClient && (
+          <SearchModal
+            searchClient={searchClient}
+            indexName={indexName}
+            onClose={handleCloseSearch}
+            section={section}
+            years={years}
+            filterBySection={filterBySection}
+            handleToggleFilterBySection={handleToggleFilterBySection}
+          />
+        )}
       </Dialog>
     </>
   );

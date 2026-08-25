@@ -26,9 +26,10 @@ const vite = {
   environments: {
     ssr: {
       resolve: {
-        // The package's ESM build uses extensionless relative imports and its
-        // `main` points at a UMD build — neither works under Node ESM. Bundle
-        // it through Vite's resolver instead of externalizing it.
+        // The autocomplete packages' ESM builds use extensionless relative
+        // imports and their `main` points at UMD builds — neither works under
+        // Node ESM. Bundle them through Vite's resolver instead of
+        // externalizing them.
         noExternal: [
           '@algolia/autocomplete-core',
           '@algolia/autocomplete-shared',
@@ -52,6 +53,11 @@ export default defineConfig({
   site: 'https://resumos.leic.pt',
   integrations: [react()],
   vite,
+  build: {
+    // Inline all stylesheets into the HTML: CSS is small and this removes a
+    // render-blocking request on every page load.
+    inlineStylesheets: 'always',
+  },
   markdown: {
     syntaxHighlight: false,
     processor: unified({

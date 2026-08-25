@@ -33,9 +33,9 @@ body {
 body.dark-mode .content a:hover {
   filter: brightness(120%);
 }
-
 .content img {
   max-width: 100%;
+  height: auto;
   /* center images */
   display: block;
   margin: 0 auto;
@@ -77,6 +77,38 @@ body.dark-mode .content a:hover {
   border-color: var(--dangerBorder);
   background-color: var(--dangerBackground);
   --titleColor: var(--dangerBorder);
+}
+
+/* Title colors must meet contrast on the light backgrounds; in dark mode the
+   light border colors contrast well against the dark background instead. */
+.custom-container.custom-container-tip {
+  --titleColor: #3c5a1c;
+}
+
+@media not print {
+  body.dark-mode .custom-container.custom-container-tip {
+    --titleColor: var(--tipBorder);
+  }
+}
+
+.custom-container.custom-container-warning {
+  --titleColor: #6d5a00;
+}
+
+@media not print {
+  body.dark-mode .custom-container.custom-container-warning {
+    --titleColor: var(--warningBorder);
+  }
+}
+
+.custom-container.custom-container-danger {
+  --titleColor: #a03028;
+}
+
+@media not print {
+  body.dark-mode .custom-container.custom-container-danger {
+    --titleColor: var(--dangerBorder);
+  }
 }
 
 .custom-container.custom-container-details {
@@ -159,13 +191,13 @@ body.text-justify .content {
 /* COLORS */
 
 body {
-  --colorRed: #e03e3e;
+  --colorRed: #c62828;
   --colorGreen: #0f7b6c;
   --colorBlue: #0b6e99;
   --colorPink: #ad1a72;
   --colorPurple: #6940a5;
-  --colorYellow: #dfab01;
-  --colorOrange: #d9730d;
+  --colorYellow: #8a6a00;
+  --colorOrange: #b45309;
   --colorBrown: #64473a;
 }
 

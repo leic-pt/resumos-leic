@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import { useTrapFocus } from '../../hooks/useTrapFocus';
@@ -31,7 +31,15 @@ const SidePanel = ({ open, onClose, className, children }: SidePanelProps) => {
   useTrapFocus({ container: containerRef.current });
   useViewHeightCSS(open);
 
-  if (typeof window !== 'object') {
+  // Mount the portal only after hydration: React 19 hydrates portal contents
+  // against the server HTML, so the initial client render must match the SSR
+  // output (which renders nothing here) exactly.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted || typeof window !== 'object') {
     return null;
   }
 

@@ -1,4 +1,5 @@
 ---
+import '../styles/homepage.css';
 import { render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
@@ -33,7 +34,7 @@ const getLabelName = (label: string): string | null => {
 ---
 
 <BaseLayout title={entry.data.title} description={entry.data.description ?? undefined}>
-  <div class='home-page-container'>
+  <main class='home-page-container'>
     <Navbar years={years} />
     <div class='contributors-banner'>
       <p>
@@ -42,7 +43,13 @@ const getLabelName = (label: string): string | null => {
       </p>
     </div>
     <div class='hero'>
-      <img src={IstLogo.src} alt='Instituto Superior Técnico' width={150} />
+      <img
+        src={IstLogo.src}
+        alt='Instituto Superior Técnico'
+        width={150}
+        height={185}
+        fetchpriority='high'
+      />
       <h1>Resumos LEIC-A</h1>
       <p>Bem vindo ao site comunitário de resumos de LEIC-A.</p>
       <p>Aqui irás encontrar tudo o que precisas ao longo do semestre.</p>
@@ -99,5 +106,5 @@ const getLabelName = (label: string): string | null => {
       </div>
     </div>
     <Footer />
-  </div>
+  </main>
 </BaseLayout>

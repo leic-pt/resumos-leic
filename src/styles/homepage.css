@@ -10,14 +10,21 @@
   left: 0;
   right: 0;
   font-weight: bold;
-  color: var(--miniCodeBgColor);
-  background: var(--dangerBorder);
+  color: #f5e6e6;
+  background: #b3261e;
   text-align: center;
 }
 
 .contributors-banner a {
   color: inherit;
   text-decoration: underline;
+}
+
+@media not print {
+  body.dark-mode .contributors-banner {
+    color: #2a1f1f;
+    background: var(--dangerBorder);
+  }
 }
 
 .hero {
@@ -71,6 +78,9 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  /* Ensure white text meets contrast on all course colors */
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 0.25rem;
 }
 
 .section-button.section-button__long {

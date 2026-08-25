@@ -1,4 +1,6 @@
 ---
+import 'katex/dist/katex.min.css';
+import 'prismjs/themes/prism-tomorrow.css';
 import { render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
@@ -37,7 +39,7 @@ const componentNames = entry.data.components ?? [];
     <div class='sidebar-mask'></div>
     <Navbar toggleSidebar section={sectionTitle} years={homepage?.data.years} />
     <Sidebar sections={sections} currentPath={entry.data.path} />
-    <div class='main-container'>
+    <main class='main-container'>
       {
         githubLink && (
           <ExternalLink href={githubLink} class='edit-link'>
@@ -51,7 +53,7 @@ const componentNames = entry.data.components ?? [];
       {componentNames.map((name) => <CalculatorHost name={name} client:visible />)}
       <div style='flex-grow: 1'></div>
       <Footer />
-    </div>
+    </main>
   </div>
 </BaseLayout>
 

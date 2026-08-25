@@ -10,12 +10,12 @@ const years = homepage?.data.years;
 
 <BaseLayout title='Página Não Encontrada'>
   <Navbar years={years} />
-  <div class='main-container'>
+  <main class='main-container'>
     <h1>404</h1>
     <p>Não existe a página que procuras...</p>
     <a href='/'>Voltar à página inicial</a>
     <div style='margin-top: 1rem'>
       <img src={NotFoundImage.src} alt='' />
     </div>
-  </div>
+  </main>
 </BaseLayout>
