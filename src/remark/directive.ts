@@ -45,6 +45,15 @@ type MutableData = {
   [key: string]: unknown;
 };
 
+const isValidDirective = (name: string): boolean => {
+  return (
+    options.customComponentsTags.includes(name) ||
+    name === options.tabGroupTag ||
+    name === options.tabTag ||
+    name === options.youtubeTag
+  );
+};
+
 const getClasses = (node: Node): string[] => {
   const data = (node.data ??= {}) as MutableData;
   const hProperties = (data.hProperties ??= {});
@@ -155,11 +164,8 @@ const onLeafDirectiveVisit = (node: LeafDirectiveNode): void => {
 };
 
 /**
- * remark-directive v4 parses any `:name` sequence as a leaf directive, so
- * prose like `10:54:23.674` (a clock time) is mis-read as a directive named
- * `23.674`. The Gatsby-era remark-directive v1 did not. Unknown directives are
- * reconstructed verbatim from their source positions instead of rendering as
- * empty blocks.
+ * Reconstruct unknown directives verbatim from their source positions
+ * instead of rendering as empty blocks.
  */
 const repairUnknownDirectives = (tree: Root, file: VFile): void => {
   const source = 'value' in file ? file.value : undefined;
@@ -170,7 +176,7 @@ const repairUnknownDirectives = (tree: Root, file: VFile): void => {
     index: number | undefined,
     parent: Parent | undefined
   ): void => {
-    if (options.customComponentsTags.includes(node.name) || node.name === options.youtubeTag) {
+    if (isValidDirective(node.name)) {
       return;
     }
     const start = node.position?.start.offset;
@@ -188,10 +194,9 @@ const repairUnknownDirectives = (tree: Root, file: VFile): void => {
 };
 
 /**
- * Port of `plugins/gatsby-remark-directive`: renders the custom container
- * directives (info/tip/warning/danger/details), `tab-group` containers and
- * `youtube` directives (container or leaf) through `data.hName` /
- * `data.hProperties`, so the CSS classes and iframe are produced at render time.
+ * Renders the custom container directives (info/tip/warning/danger/details),
+ * `tab-group` containers and `youtube` directives (container or leaf) through
+ * `data.hName` / `data.hProperties`, so the CSS classes and iframe are produced at render time.
  */
 export const remarkDirectiveCustom: Plugin<[], Root, Root> = () => (tree, file) => {
   visit(tree, 'containerDirective', (node) => {
