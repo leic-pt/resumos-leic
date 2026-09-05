@@ -6,9 +6,6 @@ import type { Plugin } from 'vite';
 const contentRoot = path.resolve(process.cwd(), 'content');
 
 const mimeTypes: Record<string, string> = {
-  '.c': 'text/plain',
-  '.cpp': 'text/plain',
-  '.excalidraw': 'application/json',
   '.gif': 'image/gif',
   '.jpeg': 'image/jpeg',
   '.jpg': 'image/jpeg',
@@ -98,7 +95,7 @@ function isMissingError(error: unknown) {
 
 async function copyContentAssets() {
   const outRoot = path.resolve(process.cwd(), 'dist', 'content');
-  await copyDir(contentRoot, outRoot, (file) => path.extname(file) !== '.md');
+  await copyDir(contentRoot, outRoot, (file) => !!mimeTypes[path.extname(file)]);
 }
 
 async function copyDir(from: string, to: string, filter: (file: string) => boolean) {
