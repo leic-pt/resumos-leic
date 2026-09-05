@@ -9,10 +9,9 @@ type MutableData = {
 };
 
 /**
- * Port of `plugins/gatsby-remark-mermaid`: turns fenced code blocks with
- * `lang: mermaid` into a paragraph containing the raw diagram text, rendered
- * as `<div class="mermaid">` via `data.hName` / `data.hProperties` (the
- * mermaid client library picks it up from the DOM).
+ * Turns fenced code blocks with `lang: mermaid` into a paragraph containing
+ * the raw diagram text, rendered as `<div class="mermaid">` via
+ * `data.hName` / `data.hProperties` (the mermaid client library picks it up from the DOM).
  */
 export const remarkMermaid: Plugin<[], Root, Root> = () => (tree) => {
   visit(tree, { type: 'code', lang: 'mermaid' }, (node) => {
