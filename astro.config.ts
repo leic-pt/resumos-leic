@@ -126,8 +126,7 @@ export default defineConfig({
             strict: 'ignore',
             macros: katexMacros,
             throwOnError: false,
-            // Allow the \htmlClass macro (used by \smartcolor) — ported from
-            // the Gatsby configuration.
+            // Allow the \htmlClass macro (used by \smartcolor).
             trust: (context: TrustContext) =>
               context.command === '\\htmlClass' && /md-color--[a-zA-Z]+/.test(context.class),
           },
