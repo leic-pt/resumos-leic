@@ -1,10 +1,7 @@
 import { refractor } from 'refractor';
 
 /**
- * Prism language definition for MIPS assembly, ported verbatim from the
- * Gatsby remark-prismjs configuration. Importing this module registers the
- * `mips-asm` language with refractor (the Prism fork used by
- * rehype-prism-plus) so code blocks with that language highlight correctly.
+ * Prism language definition for MIPS assembly.
  */
 const mipsAsm: Parameters<typeof refractor.register>[0] = (Prism) => {
   Prism.languages['mips-asm'] = {
