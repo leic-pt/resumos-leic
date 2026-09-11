@@ -1,17 +1,17 @@
-import { customComponents } from '../../utils/customComponents';
+import { customComponents } from '../utils/customComponents';
 
-interface CalculatorHostProps {
+interface ComponentHostProps {
   name: string;
 }
 
 /**
- * Statically-imported island that renders the md-tools calculator selected by
+ * Statically-imported island that renders the component selected by
  * the page's `components` frontmatter. Astro cannot hydrate a dynamically
  * referenced component, so pages mount this host instead.
  */
-const CalculatorHost = ({ name }: CalculatorHostProps) => {
+const ComponentHost = ({ name }: ComponentHostProps) => {
   const Component = customComponents[name as keyof typeof customComponents];
   return Component ? <Component /> : null;
 };
 
-export default CalculatorHost;
+export default ComponentHost;

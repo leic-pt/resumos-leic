@@ -5,8 +5,8 @@ import Navbar from '../components/Navbar.astro';
 import Sidebar from '../components/Sidebar.astro';
 import Footer from '../components/Footer.astro';
 import ExternalLink from '../components/ExternalLink.astro';
+import ComponentHost from '../components/ComponentHost';
 import Edit from '../components/icons/Edit';
-import CalculatorHost from '../components/md-tools/CalculatorHost';
 import { getAllPages, getSidebarSections, getSubjectPages } from '../lib/pages';
 import { siteConfig } from '../config';
 
@@ -51,7 +51,7 @@ const componentNames = entry.data.components ?? [];
       <div class='content'>
         <Content />
       </div>
-      {componentNames.map((name) => <CalculatorHost name={name} client:visible />)}
+      {componentNames.map((name) => <ComponentHost name={name} client:visible />)}
       <div style='flex-grow: 1'></div>
       <Footer />
     </div>
