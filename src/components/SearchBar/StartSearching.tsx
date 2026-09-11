@@ -1,7 +1,7 @@
 import { withTrailingSlash } from '../../lib/site-path';
-import type { HomepageYear } from './autocomplete';
+import { years } from '../../config';
 
-const StartSearching = ({ years = [] }: { years?: HomepageYear[] }) => {
+const StartSearching = () => {
   return (
     <div className='search-start'>
       {years.map((year) => (

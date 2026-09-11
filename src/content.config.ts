@@ -14,30 +14,7 @@ const pages = defineCollection({
     title: z.string().optional(),
     description: z.string().nullable().optional(),
     type: z.string().optional(),
-    template: z.string().optional(),
     components: z.array(z.string()).optional(),
-    years: z
-      .array(
-        z.object({
-          name: z.string(),
-          semesters: z.array(
-            z.object({
-              name: z.string(),
-              courses: z.array(
-                z.object({
-                  name: z.string(),
-                  description: z.string(),
-                  link: z.string(),
-                  image: z.string().optional(),
-                  color: z.string(),
-                  long: z.boolean().optional(),
-                })
-              ),
-            })
-          ),
-        })
-      )
-      .optional(),
   }),
 });
 

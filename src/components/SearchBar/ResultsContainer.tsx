@@ -1,5 +1,5 @@
 import type { AutocompleteApi, AutocompleteState } from '@algolia/autocomplete-core';
-import type { HomepageYear, SearchHit } from './autocomplete';
+import type { SearchHit } from './autocomplete';
 import NoResults from './NoResults';
 import SectionHit from './SectionHit';
 import StartSearching from './StartSearching';
@@ -9,7 +9,6 @@ interface ResultsContainerProps {
   getListProps: AutocompleteApi<SearchHit>['getListProps'];
   getItemProps: AutocompleteApi<SearchHit>['getItemProps'];
   onItemClick: (item: SearchHit) => void;
-  years?: HomepageYear[];
 }
 
 const ResultsContainer = ({
@@ -17,12 +16,11 @@ const ResultsContainer = ({
   getListProps,
   getItemProps,
   onItemClick,
-  years,
 }: ResultsContainerProps) => {
   const hasCollections = state.collections.some((collection) => collection.items.length > 0);
 
   if (!state.query) {
-    return <StartSearching years={years} />;
+    return <StartSearching />;
   }
 
   if (!hasCollections) {

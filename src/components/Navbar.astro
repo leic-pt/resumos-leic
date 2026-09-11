@@ -4,24 +4,14 @@ import SearchBar from './SearchBar/SearchBar';
 import ThemeSettings from './ThemeSettings/ThemeSettings';
 import ExternalLink from './ExternalLink.astro';
 
-interface HomepageYear {
-  name: string;
-  semesters: Array<{
-    name: string;
-    courses: Array<{ name: string; link: string }>;
-  }>;
-}
-
 interface Props {
   /** Render the sidebar toggle button (content pages only). */
   toggleSidebar?: boolean;
   /** Current section title, used to scope search results. */
   section?: string;
-  /** Course years from the homepage, shown when the search is empty. */
-  years?: HomepageYear[];
 }
 
-const { toggleSidebar, section, years } = Astro.props;
+const { toggleSidebar, section } = Astro.props;
 ---
 
 <header class='navbar'>
@@ -47,7 +37,7 @@ const { toggleSidebar, section, years } = Astro.props;
     {siteConfig.navbar.siteTitle}
   </a>
   <div class='flex-grow'></div>
-  <SearchBar client:idle section={section} years={years} />
+  <SearchBar client:idle section={section} />
   <ThemeSettings client:idle />
   <div class='navbar-links'>
     {

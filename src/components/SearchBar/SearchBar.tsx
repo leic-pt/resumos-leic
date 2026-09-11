@@ -1,18 +1,16 @@
 import { Meilisearch } from 'meilisearch';
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { siteConfig } from '../../config';
 import Dialog from '../Dialog/Dialog';
 import Search from '../icons/Search';
-import type { HomepageYear } from './autocomplete';
 import './SearchBar.css';
 import SearchModal from './SearchModal';
 
 interface SearchBarProps {
   section?: string;
-  years?: HomepageYear[];
 }
 
-const SearchBar = ({ section, years }: SearchBarProps) => {
+const SearchBar = ({ section }: SearchBarProps) => {
   const [open, setOpen] = useState(false);
   const [filterBySection, setFilterBySection] = useState(true);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -87,7 +85,6 @@ const SearchBar = ({ section, years }: SearchBarProps) => {
           indexName={indexName}
           onClose={handleCloseSearch}
           section={section}
-          years={years}
           filterBySection={filterBySection}
           handleToggleFilterBySection={handleToggleFilterBySection}
         />

@@ -24,7 +24,6 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 
 const pages = await getAllPages();
-const homepage = pages.find((page) => page.data.path === '/');
 const subject = entry.data.path.split('/')[1];
 const subjectPages = getSubjectPages(pages, subject);
 const sections = getSidebarSections(subjectPages, siteConfig.sidebarSections);
@@ -38,7 +37,7 @@ const componentNames = entry.data.components ?? [];
 <BaseLayout title={entry.data.title} description={entry.data.description ?? undefined}>
   <div class='page-container'>
     <div class='sidebar-mask'></div>
-    <Navbar toggleSidebar section={sectionTitle} years={homepage?.data.years} />
+    <Navbar toggleSidebar section={sectionTitle} />
     <Sidebar sections={sections} currentPath={entry.data.path} />
     <div class='main-container'>
       {

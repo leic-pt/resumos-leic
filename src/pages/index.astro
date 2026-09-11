@@ -11,12 +11,12 @@ import IstLogo from '../images/ist-logo.svg';
 import contributors from '../data/contributors.json';
 import { getHomepage } from '../lib/pages';
 import { resolveCourseImage } from '../lib/course-images';
+import { years } from '../config';
 
 const entry = await getHomepage();
 if (!entry) throw new Error('Homepage entry (content/index.md, path: /) not found');
 
 const { Content } = await render(entry);
-const years = entry.data.years ?? [];
 
 const getLabelName = (label: string): string | null => {
   if (label === 'meta') return 'Meta';
@@ -34,7 +34,7 @@ const getLabelName = (label: string): string | null => {
 
 <BaseLayout title={entry.data.title} description={entry.data.description ?? undefined}>
   <div class='home-page-container'>
-    <Navbar years={years} />
+    <Navbar />
     <div class='contributors-banner'>
       <p>
         Precisam-se contribuidores!{' '}
