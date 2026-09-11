@@ -27,7 +27,7 @@ const SidePanel = ({ open, onClose, className, children }: SidePanelProps) => {
     };
   }, [open]);
 
-  const containerRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   useTrapFocus({ container: containerRef.current });
   useViewHeightCSS(open);
 
