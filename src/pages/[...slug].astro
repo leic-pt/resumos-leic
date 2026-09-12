@@ -7,7 +7,7 @@ import Footer from '../components/Footer.astro';
 import ExternalLink from '../components/ExternalLink.astro';
 import ComponentHost from '../components/ComponentHost';
 import Edit from '../components/icons/Edit';
-import { getAllPages, getSidebarSections, getSubjectPages } from '../lib/pages';
+import { getAllPages, getSidebarSections, getCoursePages } from '../lib/pages';
 import { siteConfig } from '../config';
 
 export async function getStaticPaths() {
@@ -24,10 +24,10 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 
 const pages = await getAllPages();
-const subject = entry.data.path.split('/')[1];
-const subjectPages = getSubjectPages(pages, subject);
-const sections = getSidebarSections(subjectPages, siteConfig.sidebarSections);
-const sectionTitle = subjectPages.find((page) => page.data.type === 'topLevelPage')?.data.title;
+const course = entry.data.path.split('/')[1];
+const coursePages = getCoursePages(pages, course);
+const sections = getSidebarSections(coursePages, siteConfig.sidebarSections);
+const sectionTitle = coursePages.find((page) => page.data.type === 'topLevelPage')?.data.title;
 const githubLink = entry.filePath
   ? `${siteConfig.footer.githubLink}/edit/master/${entry.filePath.replace(/\\/g, '/')}`
   : undefined;
