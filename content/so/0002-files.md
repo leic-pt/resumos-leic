@@ -44,7 +44,7 @@ Eis a informação que está apresentada na linha acima (por ordem):
   - os seguintes 9 caracteres dividem-se em 3 conjuntos - cada um representa as permissões de uma certa entidade. Nomeadamente, por esta ordem: **user**, **group** e **others**;
   - neste caso, a mensagem apresentada diz-nos que:
     - o utilizador do ficheiro tem todas as permissões sobre aquele ficheiro;
-    - os restantes utilizadores do grupo têm permissões de escrita e execução, mas não de escrita;
+    - os restantes utilizadores do grupo têm permissões de leitura e execução, mas não de escrita;
     - qualquer outro utilizador também só pode ler ou executar;
 - o número de _hard links_ que existem para este ficheiro (vamos ver melhor o que isto significa mais à frente): `1`;
 - o nome do `utilizador` que é dono do ficheiro: `luis`;
