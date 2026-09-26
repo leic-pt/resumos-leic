@@ -1,0 +1,78 @@
+---
+import 'katex/dist/katex.min.css';
+import 'prismjs/themes/prism-tomorrow.css';
+import '../styles/main.css';
+import '../styles/markdown.css';
+import { siteConfig } from '../config';
+import { noFlashScript } from '../lib/no-flash';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const pageTitle = title ? `${title} | ${siteConfig.title}` : siteConfig.title;
+const pageDescription = description || siteConfig.description;
+---
+
+<!doctype html>
+<html>
+  <head>
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', function (event) {
+        var hash = window.decodeURI(location.hash.replace('#', ''));
+        if (hash !== '') {
+          var element = document.getElementById(hash);
+          if (element) {
+            var scrollTop =
+              window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+            var clientTop = document.documentElement.clientTop || document.body.clientTop || 0;
+            var offset = element.getBoundingClientRect().top + scrollTop - clientTop;
+            // Wait for the browser to finish rendering before scrolling.
+            setTimeout(function () {
+              window.scrollTo(0, offset - 0);
+            }, 0);
+          }
+        }
+      });
+    </script>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no' />
+    <meta name='theme-color' content='#00a0e4' />
+    <link rel='icon' href='/favicon-32x32.png' type='image/png' />
+    <link rel='apple-touch-icon' sizes='48x48' href='/icons/icon-48x48.png' />
+    <link rel='apple-touch-icon' sizes='72x72' href='/icons/icon-72x72.png' />
+    <link rel='apple-touch-icon' sizes='96x96' href='/icons/icon-96x96.png' />
+    <link rel='apple-touch-icon' sizes='144x144' href='/icons/icon-144x144.png' />
+    <link rel='apple-touch-icon' sizes='192x192' href='/icons/icon-192x192.png' />
+    <link rel='apple-touch-icon' sizes='256x256' href='/icons/icon-256x256.png' />
+    <link rel='apple-touch-icon' sizes='384x384' href='/icons/icon-384x384.png' />
+    <link rel='apple-touch-icon' sizes='512x512' href='/icons/icon-512x512.png' />
+    <title>{pageTitle}</title>
+    <meta name='description' content={pageDescription} />
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link id='selected-font-stylesheet' rel='stylesheet' />
+    <link rel='manifest' href='/manifest.webmanifest' />
+    {
+      import.meta.env.PROD && (
+        <script
+          is:inline
+          async
+          defer
+          data-website-id={siteConfig.umami.websiteId}
+          data-do-not-track='true'
+          data-auto-track='true'
+          data-cache='false'
+          data-domains=''
+          src={siteConfig.umami.srcUrl}
+        />
+      )
+    }
+  </head>
+  <body>
+    <script is:inline set:html={noFlashScript} />
+    <slot />
+  </body>
+</html>

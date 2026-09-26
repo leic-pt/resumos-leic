@@ -1,0 +1,12 @@
+# Cloudflare Pages deployment configuration.
+#
+# Git-integrated Pages projects take the build command and Node version from
+# the dashboard; this file pins the output directory for wrangler-driven
+# deploys. Dashboard settings required for the migration:
+#   Build command:  yarn install --frozen-lockfile --non-interactive && yarn build
+#   Output dir:     dist
+#   Environment:    YARN_VERSION = 1.22.19
+#                   SKIP_DEPENDENCY_INSTALL = 1
+name = "resumos-leic"
+pages_build_output_dir = "dist"
+compatibility_date = "2025-08-25"
