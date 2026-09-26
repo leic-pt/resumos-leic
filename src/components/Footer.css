@@ -1,0 +1,27 @@
+footer {
+  margin-top: 7rem;
+  width: 100%;
+  color: var(--textColor);
+}
+
+footer a {
+  color: var(--textColor);
+}
+
+.footer-attributions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-attributions span {
+  padding: 0.5rem 1rem;
+}
+
+.footer-github-logo {
+  height: 1em;
+  width: unset;
+  vertical-align: baseline;
+  margin-left: 0.3em;
+}

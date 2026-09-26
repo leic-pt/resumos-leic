@@ -1,0 +1,48 @@
+---
+import { withTrailingSlash } from '../lib/site-path';
+import './CourseContents.css';
+
+interface CourseContentsLink {
+  path: string;
+  title: string;
+}
+
+interface CourseContentsSection {
+  key: string;
+  name?: string;
+  links: CourseContentsLink[];
+}
+
+interface Props {
+  sections: CourseContentsSection[];
+  currentPath: string;
+}
+
+const { sections, currentPath } = Astro.props;
+const visibleSections = sections
+  .map((section) => ({
+    ...section,
+    links: section.links.filter(({ path }) => path !== currentPath),
+  }))
+  .filter(({ links }) => links.length > 0);
+---
+
+{
+  visibleSections.length > 0 && (
+    <nav class='course-contents' aria-label='Conteúdos da cadeira'>
+      <h2>Conteúdos</h2>
+      {visibleSections.map((section) => (
+        <div class='course-contents__group'>
+          {section.name && <h3>{section.name}</h3>}
+          <ul>
+            {section.links.map(({ path, title }) => (
+              <li>
+                <a href={withTrailingSlash(path)}>{title || path}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </nav>
+  )
+}

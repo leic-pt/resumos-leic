@@ -1,12 +1,12 @@
 /* Nord Light */
 
 body.theme-nord {
-  --accentColor: #5e81ac;
+  --accentColor: #57779f;
   --bgColor: #ffffff;
   --cardColor: #f2f4f8;
   --textColor: #4c566a;
   --borderColor: #87a2c269;
-  --lighten20TextColor: #7b88a1;
+  --lighten20TextColor: #6b758b;
   --miniCodeBgColor: #f3f4f4;
   --scrollbarColor: #2e344088;
   --tableStripeBgColor: #d8dee933;
@@ -19,13 +19,13 @@ body.theme-nord {
   --dangerBorder: #da5961;
   --dangerBackground: #ffe6e6;
 
-  --colorRed: #e03e3e;
+  --colorRed: #c62828;
   --colorGreen: #0f7b6c;
   --colorBlue: #0b6e99;
   --colorPink: #ad1a72;
   --colorPurple: #6940a5;
-  --colorYellow: #dfab01;
-  --colorOrange: #d9730d;
+  --colorYellow: #8a6a00;
+  --colorOrange: #b45309;
   --colorBrown: #64473a;
 }
 
@@ -53,11 +53,11 @@ body.theme-nord {
 
     --colorRed: #c87981;
     --colorGreen: #a3be8c;
-    --colorBlue: #5e81ac;
+    --colorBlue: #829ebf;
     --colorPink: #fec3ee;
-    --colorPurple: #b48ead;
+    --colorPurple: #b590af;
     --colorYellow: #ebcb8b;
-    --colorOrange: #d08770;
-    --colorBrown: #bc854b;
+    --colorOrange: #d18a73;
+    --colorBrown: #c3925d;
   }
 }

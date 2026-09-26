@@ -12,20 +12,25 @@ Se já percebes do assunto e apenas queres instruções rápidas, segue os passo
 
 ### Instalar ferramentas
 
-Para correr o código localmente, é necessário as seguintes ferramentas: `git`, `nodejs` e `yarn`.
-Abaixo encontram-se instruções para instalação em Windows e Linux.
+Para correr o código localmente, são necessárias as seguintes ferramentas: `git`, Node.js `>=22.19.0` (versão 22 definida em `.nvmrc`) e Yarn Classic.
 
 #### Windows
 
 1. Fazer [download do `git`](http://git-scm.com/) e instalar o executável.
-2. Fazer [download do `node`](https://nodejs.org/en/) e instalar a última versão LTS (18.X ou superior).
-3. Instalar o `yarn` através da **PowerShell**, correndo o comando `npm i -g yarn`.
+2. Fazer [download do `node`](http://nodejs.org/en/) e instalar Node.js 22.19.0 ou superior.
 
 #### Linux/macOS
 
-1. Instalar o `git` e o `node` pelo package manager da distribuição. Atenção que o `node` em Debian/Ubuntu/etc está desatualizado.
-   Recomendo seguir [este tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04#option-3-installing-node-using-the-node-version-manager) para ter o Node 18 LTS.
-2. Instalar o `yarn` através do terminal, correndo o comando `npm i -g yarn`.
+1. Instalar o `git` e o Node.js pelo package manager da distribuição. Atenção que o Node.js em Debian/Ubuntu/etc está desatualizado.
+   Recomendo seguir [este tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04#option-3-installing-node-using-the-node-version-manager) para ter o Node.js 22 LTS.
+
+Para ativar o Yarn Classic, executar:
+
+```bash
+corepack enable
+```
+
+Se o Corepack não estiver disponível na instalação do Node.js, executar `npm install --global corepack` e repetir `corepack enable`.
 
 ### Obter os ficheiros necessários
 
@@ -34,6 +39,7 @@ Abaixo encontram-se instruções para instalação em Windows e Linux.
 
    ```bash
    git clone git@github.com:<o-teu-username>/resumos-leic.git
+   cd resumos-leic
    ```
 
 3. Adicionar o remote `upstream` ao repositório:
@@ -45,9 +51,10 @@ Abaixo encontram-se instruções para instalação em Windows e Linux.
 4. Instalar dependências:
 
    ```bash
-   cd resumos-leic
-   yarn               # or yarn install
+   yarn install --frozen-lockfile
    ```
+
+`yarn dev`, `yarn build` e `yarn run check` geram os dados de contribuidores antes de executar o Astro, incluindo num clone novo. Sem `GITHUB_TOKEN`, são combinados os dados guardados com as contribuições definidas no repositório; sem dados guardados válidos, usam-se apenas estas últimas. Com o token, a atualização consulta o GitHub e mantém os dados guardados se a API falhar.
 
 ### Alterar conteúdos
 

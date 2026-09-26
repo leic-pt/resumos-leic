@@ -1,7 +1,7 @@
 /* Solarized Light */
 
 body.theme-solarized {
-  --accentColor: #268bd2;
+  --accentColor: #1e6da5;
   --bgColor: #eee8d5;
   --cardColor: #fdf6e3;
   --textColor: #2c3e50;
@@ -19,13 +19,13 @@ body.theme-solarized {
   --dangerBorder: #dc322f;
   --dangerBackground: #dc322f26;
 
-  --colorRed: #dc322f;
-  --colorGreen: #859900;
-  --colorBlue: #2aa198;
-  --colorPink: #d33682;
-  --colorPurple: #6c71c4;
-  --colorYellow: #b58900;
-  --colorOrange: #cb4b16;
+  --colorRed: #c52d2a;
+  --colorGreen: #616f00;
+  --colorBlue: #1e746e;
+  --colorPink: #bb3074;
+  --colorPurple: #5e62aa;
+  --colorYellow: #8a6a00;
+  --colorOrange: #b64314;
   --colorBrown: #9e571a;
 }
 
@@ -41,5 +41,15 @@ body.theme-solarized {
     --miniCodeBgColor: #1a414a;
     --scrollbarColor: hsla(0, 0%, 100%, 0.4);
     --tableStripeBgColor: #024859aa;
+
+    --accentColor: #3694d5;
+    --colorRed: #e46462;
+    --colorGreen: #8da20c;
+    --colorBlue: #3fb4ac;
+    --colorPink: #dd629d;
+    --colorPurple: #8287cd;
+    --colorYellow: #a48b38;
+    --colorOrange: #ca7856;
+    --colorBrown: #b78254;
   }
 }

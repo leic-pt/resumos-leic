@@ -21,12 +21,12 @@ body.theme-gruvbox {
   --dangerBackground: #cc241d1a;
 
   --colorRed: #9d0006;
-  --colorGreen: #79740e;
+  --colorGreen: #75700e;
   --colorBlue: #076678;
   --colorPink: #8f3f71;
-  --colorPurple: #b16286;
-  --colorYellow: #b57614;
-  --colorOrange: #d65d0e;
+  --colorPurple: #9e5778;
+  --colorYellow: #8a6a00;
+  --colorOrange: #b64f0c;
   --colorBrown: #af3a03;
 }
 
@@ -52,13 +52,13 @@ body.theme-gruvbox {
     --dangerBorder: #fb4934;
     --dangerBackground: #cc241d1a;
 
-    --colorRed: #fb4934;
+    --colorRed: #fb533f;
     --colorGreen: #b8bb26;
     --colorBlue: #83a598;
     --colorPink: #d3869b;
-    --colorPurple: #b16286;
+    --colorPurple: #bd7b99;
     --colorYellow: #fabd2f;
     --colorOrange: #fe8019;
-    --colorBrown: #d65d0e;
+    --colorBrown: #db712c;
   }
 }
