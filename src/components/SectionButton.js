@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-const SectionButton = ({ name, description, link, image, color, long = false }) => {
+const SectionButton = ({ name, link, image, color, long = false }) => {
   return (
     <Link
       to={link}
@@ -10,7 +10,6 @@ const SectionButton = ({ name, description, link, image, color, long = false }) 
     >
       <div className='section-button__text'>
         <span>{name}</span>
-        <span>{description}</span>
       </div>
       <img src={image} alt={name} />
     </Link>

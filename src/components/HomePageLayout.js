@@ -59,11 +59,10 @@ const HomePageLayout = ({ data }) => {
                 <div className='semester-section' key={name}>
                   <h3>{name}</h3>
                   <SectionButtonLayout>
-                    {courses.map(({ name, description, link, image, color, long }) => (
+                    {courses.map(({ name, link, image, color, long }) => (
                       <SectionButton
                         key={link}
                         name={name}
-                        description={description}
                         link={link}
                         image={image?.dataURI}
                         color={color}
@@ -121,7 +120,6 @@ export const pageQuery = graphql`
             name
             courses {
               color
-              description
               image {
                 dataURI
               }
