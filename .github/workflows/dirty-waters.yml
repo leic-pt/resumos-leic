@@ -1,0 +1,31 @@
+
+name: Dirty Waters
+on:
+  pull_request: ~
+  push:
+    branches:
+      - master
+  workflow_dispatch: ~
+
+permissions: read-all
+
+jobs:
+  analyze:
+    name: Dirty-Waters Analysis
+    runs-on: ubuntu-24.04
+    permissions:
+      pull-requests: write # To comment on a Pull Request
+    steps:
+      - uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938 # v4.2.0
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Run Static Dirty Waters analysis
+        uses: chains-project/dirty-waters-action@v1.11.31
+        with:
+          allow_pr_comment: true
+          fail_on_high_severity: false
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          gradual_report: false
+          package_manager: yarn-classic
+          debug: true
