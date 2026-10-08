@@ -210,7 +210,7 @@ multi-processador
 
 **Código (Simplificado)**
 
-```asm
+```
 ABERTO EQU 0  ; ABERTO equivale ao valor 0
 FECHADO EQU 1 ; FECHADO equivale ao valor 1
 Fechar_hard:

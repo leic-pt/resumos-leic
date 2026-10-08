@@ -17,7 +17,6 @@ import { remarkImageData } from './src/remark/image-data';
 import { katexMacros } from './src/remark/katex-macros';
 import { remarkMermaid } from './src/remark/mermaid';
 import { collectText, headingAriaLabel, rehypeHeadingIds } from './src/remark/rehype-heading-ids';
-import { rehypeContentBlocks } from './src/remark/rehype-content-blocks';
 import './src/remark/prism-mips-asm';
 import { remarkToc } from './src/remark/toc';
 
@@ -118,7 +117,7 @@ export default defineConfig({
             }),
           },
         ],
-        [rehypePrismPlus, { ignoreMissing: true }],
+        [rehypePrismPlus, { ignoreMissing: true, defaultLanguage: 'text' }],
         [
           rehypeKatex,
           {
@@ -130,7 +129,6 @@ export default defineConfig({
               context.command === '\\htmlClass' && /md-color--[a-zA-Z]+/.test(context.class),
           },
         ],
-        rehypeContentBlocks,
         [rehypeExternalLinks, { target: '_blank', rel: ['nofollow', 'noopener', 'noreferrer'] }],
       ],
     }),
