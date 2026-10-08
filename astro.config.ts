@@ -51,7 +51,6 @@ const vite = {
 
 export default defineConfig({
   site: 'https://resumos.leic.pt',
-  // Gatsby builds every page with a trailing slash; match its URL scheme.
   trailingSlash: 'always',
   image: {
     layout: 'constrained',
@@ -62,8 +61,7 @@ export default defineConfig({
   markdown: {
     syntaxHighlight: false,
     processor: unified({
-      // The Gatsby pipeline did not run smartypants; keep the content text
-      // byte-identical (e.g. `etc...` must not become `etc…`).
+      // Keep e.g. `etc...` instead of `etc…`.
       smartypants: false,
       remarkPlugins: [
         remarkMath,
