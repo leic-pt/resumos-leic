@@ -3,14 +3,13 @@ import { withTrailingSlash } from '../lib/site-path';
 
 interface Props {
   name: string;
-  description: string;
   link: string;
   image?: string;
   color: string;
   long?: boolean;
 }
 
-const { name, description, link, image, color, long = false } = Astro.props;
+const { name, link, image, color, long = false } = Astro.props;
 ---
 
 <a
@@ -20,7 +19,6 @@ const { name, description, link, image, color, long = false } = Astro.props;
 >
   <div class='section-button__text'>
     <span>{name}</span>
-    <span>{description}</span>
   </div>
   <img src={image} alt={name} />
 </a>

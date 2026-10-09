@@ -61,7 +61,6 @@ const contributors = (await getCollection('contributors')).map(item => item.data
                     {courses.map((course) => (
                       <SectionButton
                         name={course.name}
-                        description={course.description}
                         link={course.link}
                         image={resolveCourseImage(course.image)}
                         color={course.color}

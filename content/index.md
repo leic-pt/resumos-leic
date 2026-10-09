@@ -10,6 +10,7 @@ path: /
 - [Criador de Horários (Daniel Gonçalves)](https://horarios.dang.pt/)
 - [Gerador de Horários (Joana Sesinando)](https://web.tecnico.ulisboa.pt/joanasesinando/gerador-horarios/)
 - [Reencaminhar emails do Técnico para o Gmail](https://diogocorreia.notion.site/Reenchaminhar-emails-do-T-cnico-para-Gmail-2975d496a1d3447a84b0d0cf163dd65f)
+- [MIT - Missing Semester](https://missing.csail.mit.edu/) - Miscelânea de conteúdos importantes para informática
 - [Portfólio Projetos de Cadeiras - Diogo Correia](https://github.com/diogotcorreia/diogotcorreia/blob/master/ist.md) - (LEIC-A)
 - [Portfólio Projetos de Cadeiras - Rafael Oliveira](https://gist.github.com/RafDevX/46ddc5b68ea97c46b5ffd18854670042) - (LEIC-A)
 - [Portfólio Projetos de Cadeiras - Duarte Pereira da Cruz](https://github.com/DuarteCruz6/ProjetosIST) - (LEIC-T)
