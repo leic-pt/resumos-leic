@@ -70,7 +70,7 @@ const SearchModal = ({
   }, [searchClient, filterBySection, section, onClose]);
 
   const onItemClick = useCallback(
-    (item: SearchHit) => {
+    (_item: SearchHit) => {
       // In the future, we might want to save recent searches
       onClose();
     },
