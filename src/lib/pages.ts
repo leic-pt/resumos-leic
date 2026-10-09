@@ -17,10 +17,10 @@ export async function getHomepage(): Promise<PageEntry | undefined> {
   return getPageByPath('/');
 }
 
-/** Pages whose path lives under the given subject (e.g. `asa` for `/asa/x`). */
-export function getSubjectPages(pages: PageEntry[], subject: string): PageEntry[] {
+/** Pages whose path lives under the given course (e.g. `asa` for `/asa/x`). */
+export function getCoursePages(pages: PageEntry[], course: string): PageEntry[] {
   return pages.filter(
-    (page) => page.data.path === `/${subject}` || page.data.path.startsWith(`/${subject}/`)
+    (page) => page.data.path === `/${course}` || page.data.path.startsWith(`/${course}/`)
   );
 }
 
@@ -33,8 +33,7 @@ export interface SidebarLink {
 
 /**
  * Group pages into the sidebar sections declared in `siteConfig`, preserving
- * the config order and sorting links by file path (the Gatsby original sorted
- * the subject's markdown files by `relativePath`).
+ * the config order and sorting links by file path.
  */
 export function getSidebarSections(
   pages: PageEntry[],

@@ -9,9 +9,9 @@ type MutableData = {
 };
 
 /**
- * Port of `plugins/gatsby-remark-color`: turns links whose URL starts with
- * `color:` into a `<span class="md-color--<suffix>">` wrapper (the suffix is
- * the part after `color:`), keeping the link's children as the span's content.
+ * Turns links whose URL starts with `color:` into a
+ * `<span class="md-color--<suffix>">` wrapper (the suffix is the part after `color:`),
+ * keeping the link's children as the span's content.
  */
 export const remarkColor: Plugin<[], Root, Root> = () => (tree) => {
   visit(tree, 'link', (node) => {

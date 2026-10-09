@@ -4,11 +4,6 @@ dist/
 .vscode/
 yarn-error.log
 
-src/data/contributors.json
-src/data/contributors.json.*.tmp
-data/.contributors-cache.json
-data/.contributors-cache.json.*.tmp
-
 # nix-direnv
 .direnv/
 .envrc

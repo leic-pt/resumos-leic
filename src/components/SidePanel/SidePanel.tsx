@@ -28,7 +28,7 @@ const SidePanel = ({ open, onClose, label, className, children }: SidePanelProps
     };
   }, [open]);
 
-  const containerRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   // Mount the portal only after hydration: React 19 hydrates portal contents
   // against the server HTML, so the initial client render must match the SSR

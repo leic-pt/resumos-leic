@@ -27,7 +27,7 @@ const Dialog = ({ open, onClose, children, label }: DialogProps) => {
     };
   }, [open]);
 
-  const containerRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   useTrapFocus({ containerRef, active: open });
   useViewHeightCSS(open);
 

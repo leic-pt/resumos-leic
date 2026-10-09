@@ -39,3 +39,267 @@ export const siteConfig = {
     srcUrl: 'https://umami.diogotc.com/script.js',
   },
 } as const;
+
+export interface Year {
+  readonly name: string;
+  readonly semesters: Semester[];
+}
+
+export interface Semester {
+  readonly name?: string;
+  readonly courses: Course[];
+}
+
+export interface Course {
+  readonly name: string;
+  readonly link: string;
+  readonly image: string;
+  readonly color: `#${string}`;
+  readonly long?: boolean;
+}
+
+export const years: Year[] = [
+  {
+    name: '1º Ano',
+    semesters: [
+      {
+        name: '1º Semestre',
+        courses: [
+          {
+            name: 'CDI-I',
+            link: '/cdi-i',
+            image: 'assets/cdi1.svg',
+            color: '#1976d2',
+          },
+          {
+            name: 'AL',
+            link: '/al',
+            image: 'assets/al.svg',
+            color: '#303f9f',
+          },
+          {
+            name: 'FP',
+            link: '/fp',
+            image: 'assets/fp.svg',
+            color: '#d32f2f',
+          },
+          {
+            name: 'LP',
+            link: '/lp',
+            image: 'assets/lp.svg',
+            color: '#33691e',
+          },
+          {
+            name: 'IEI',
+            link: '/iei',
+            image: 'assets/iei.svg',
+            color: '#f57f17',
+          },
+          {
+            name: 'Gestão',
+            link: '/ges',
+            image: 'assets/ges.svg',
+            color: '#00695c',
+          },
+        ],
+      },
+      {
+        name: '2º Semestre',
+        courses: [
+          {
+            name: 'CDI-II',
+            link: '/cdi-ii',
+            image: 'assets/cdi2.svg',
+            color: '#1565c0',
+            long: true,
+          },
+          {
+            name: 'IAED',
+            link: '/iaed',
+            image: 'assets/iaed.svg',
+            color: '#c62828',
+          },
+          {
+            name: 'IAC',
+            link: '/iac',
+            image: 'assets/iac.svg',
+            color: '#ff6f00',
+          },
+          {
+            name: 'Física I',
+            link: '/fis-i',
+            image: 'assets/fis1.svg',
+            color: '#00695c',
+          },
+          {
+            name: 'EMD',
+            link: '/emd',
+            image: 'assets/md.svg',
+            color: '#283593',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: '2º Ano',
+    semesters: [
+      {
+        name: '1º Semestre',
+        courses: [
+          {
+            name: 'CDI-III',
+            link: '/cdi-iii',
+            image: 'assets/cdi3.svg',
+            color: '#0d47a1',
+            long: true,
+          },
+          {
+            name: 'PO',
+            link: '/po',
+            image: 'assets/po.svg',
+            color: '#b71c1c',
+          },
+          {
+            name: 'SO',
+            link: '/so',
+            image: 'assets/so.svg',
+            color: '#f57f17',
+          },
+          {
+            name: 'Física II',
+            link: '/fis-ii',
+            image: 'assets/fis2.svg',
+            color: '#004d40',
+          },
+          {
+            name: 'ASA',
+            link: '/asa',
+            image: 'assets/asa.svg',
+            color: '#33691e',
+          },
+        ],
+      },
+      {
+        name: '2º Semestre',
+        courses: [
+          {
+            name: 'PE',
+            link: '/pe',
+            image: 'assets/pe.svg',
+            color: '#9c27b0',
+            long: true,
+          },
+          {
+            name: 'TC',
+            link: '/tc',
+            image: 'assets/tc.svg',
+            color: '#e53935',
+          },
+          {
+            name: 'BD',
+            link: '/bd',
+            image: 'assets/bd.svg',
+            color: '#757575',
+          },
+          {
+            name: 'IPM',
+            link: '/ipm',
+            image: 'assets/ipm.svg',
+            color: '#2e7d32',
+          },
+          {
+            name: 'IA',
+            link: '/ia',
+            image: 'assets/ia.svg',
+            color: '#3f51b5',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: '3º Ano',
+    semesters: [
+      {
+        name: '1º Semestre',
+        courses: [
+          {
+            name: 'OC',
+            link: '/oc',
+            image: 'assets/oc.svg',
+            color: '#e65100',
+          },
+          {
+            name: 'AMS',
+            link: '/ams',
+            image: 'assets/ams.svg',
+            color: '#ff5252',
+          },
+          {
+            name: 'Apre',
+            link: '/apre',
+            image: 'assets/apre.svg',
+            color: '#534bae',
+          },
+          {
+            name: 'RC',
+            link: '/rc',
+            image: 'assets/rc.svg',
+            color: '#524c00',
+          },
+        ],
+      },
+      {
+        name: '2º Semestre',
+        courses: [
+          {
+            name: 'SD',
+            link: '/sd',
+            image: 'assets/sd.svg',
+            color: '#827717',
+          },
+          {
+            name: 'Comp',
+            link: '/comp',
+            image: 'assets/comp.svg',
+            color: '#c50e29',
+          },
+          {
+            name: 'ES',
+            link: '/es',
+            image: 'assets/es.svg',
+            color: '#c56000',
+          },
+          {
+            name: 'CG',
+            link: '/cg',
+            image: 'assets/cg.svg',
+            color: '#3f51b5',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: 'HACS',
+    semesters: [
+      {
+        courses: [
+          {
+            name: 'IEco',
+            link: '/ieco',
+            image: 'assets/ieco.svg',
+            color: '#00766c',
+          },
+          {
+            name: 'DER',
+            link: '/der',
+            image: 'assets/der.svg',
+            color: '#b61827',
+          },
+        ],
+      },
+    ],
+  },
+];

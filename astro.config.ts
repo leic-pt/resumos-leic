@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
-import { unified } from '@astrojs/markdown-remark';
+import { unified, rehypeHeadingIds } from '@astrojs/markdown-remark';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeExternalLinks from 'rehype-external-links';
 import rehypeKatex from 'rehype-katex';
@@ -16,11 +16,8 @@ import { remarkEmbedSnippet } from './src/remark/embed-snippet';
 import { remarkImageData } from './src/remark/image-data';
 import { katexMacros } from './src/remark/katex-macros';
 import { remarkMermaid } from './src/remark/mermaid';
-import { collectText, headingAriaLabel, rehypeHeadingIds } from './src/remark/rehype-heading-ids';
-import { rehypeMathDisplay } from './src/remark/rehype-math-display';
-import { rehypeContentBlocks } from './src/remark/rehype-content-blocks';
 import './src/remark/prism-mips-asm';
-import { remarkToc } from './src/remark/toc';
+import { remarkToc, rehypeToc } from './src/remark/toc';
 
 const vitePlugins = [contentAssets()];
 
@@ -53,7 +50,6 @@ const vite = {
 
 export default defineConfig({
   site: 'https://resumos.leic.pt',
-  // Gatsby builds every page with a trailing slash; match its URL scheme.
   trailingSlash: 'always',
   image: {
     layout: 'constrained',
@@ -64,8 +60,7 @@ export default defineConfig({
   markdown: {
     syntaxHighlight: false,
     processor: unified({
-      // The Gatsby pipeline did not run smartypants; keep the content text
-      // byte-identical (e.g. `etc...` must not become `etc…`).
+      // Keep e.g. `etc...` instead of `etc…`.
       smartypants: false,
       remarkPlugins: [
         remarkMath,
@@ -86,11 +81,6 @@ export default defineConfig({
           rehypeAutolinkHeadings,
           {
             behavior: 'prepend',
-            // rehype-autolink-headings v7 dropped the `className` option; the
-            // link classes and aria-label come from a properties builder.
-            // v7 dropped both the `className` option and the default SVG
-            // content; the octicon link icon and `anchor before` classes are
-            // recreated to match the Gatsby output.
             content: {
               type: 'element',
               tagName: 'svg',
@@ -113,27 +103,24 @@ export default defineConfig({
                 },
               ],
             },
-            properties: (element: Parameters<typeof collectText>[0]) => ({
+            properties: {
               className: ['anchor', 'before'],
-              ariaLabel: headingAriaLabel(element as Parameters<typeof headingAriaLabel>[0]),
-            }),
+            },
           },
         ],
-        [rehypePrismPlus, { ignoreMissing: true }],
+        rehypeToc,
+        [rehypePrismPlus, { ignoreMissing: true, defaultLanguage: 'text' }],
         [
           rehypeKatex,
           {
             strict: 'ignore',
             macros: katexMacros,
             throwOnError: false,
-            // Allow the \htmlClass macro (used by \smartcolor) — ported from
-            // the Gatsby configuration.
+            // Allow the \htmlClass macro (used by \smartcolor).
             trust: (context: TrustContext) =>
               context.command === '\\htmlClass' && /md-color--[a-zA-Z]+/.test(context.class),
           },
         ],
-        rehypeMathDisplay,
-        rehypeContentBlocks,
         [rehypeExternalLinks, { target: '_blank', rel: ['nofollow', 'noopener', 'noreferrer'] }],
       ],
     }),

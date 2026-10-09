@@ -28,7 +28,7 @@ const FFTCalculator = () => {
   const rev2Fn = (array: Complex[]): Complex[] => {
     return [array[0], array[2], array[1], array[3]];
   };
-  const complexToStr = ({ real = 0, imag = 0 }: { real?: number; imag?: number }): string => {
+  const complexToStr = ({ real = 0, imag = 0 }: Complex): string => {
     if (!real && !imag) return '0';
     if (!real) return `${imag}i`;
     if (!imag) return `${real}`;

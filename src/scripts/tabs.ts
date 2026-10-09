@@ -1,6 +1,5 @@
 /**
- * Tab-group switching, ported from the legacy
- * `gatsby-remark-directive`'s gatsby-browser.js: clicking a `.tab-group--btn`
+ * Tab-group switching: clicking a `.tab-group--btn`
  * activates its `.tab-group--tab` and deactivates the others.
  */
 const activeButtonClass = 'tab-group--btn__active';

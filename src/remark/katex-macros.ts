@@ -1,6 +1,5 @@
 /**
- * KaTeX macros used across the content, ported verbatim from the Gatsby
- * configuration.
+ * KaTeX macros used across the content.
  */
 export const katexMacros: Record<string, string> = {
   '\\d': '\\mathop{}\\!\\mathrm d',

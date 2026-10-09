@@ -1,10 +1,9 @@
 import type { Meilisearch } from 'meilisearch';
 import type * as MeilisearchModule from 'meilisearch';
-import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import  { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { siteConfig } from '../../config';
 import Dialog from '../Dialog/Dialog';
 import Search from '../icons/Search';
-import type { HomepageYear } from './autocomplete';
 import './SearchBar.css';
 import type * as SearchModalModule from './SearchModal';
 type LoadedSearch = {
@@ -14,9 +13,8 @@ type LoadedSearch = {
 type SearchModules = [typeof MeilisearchModule, typeof SearchModalModule];
 interface SearchBarProps {
   section?: string;
-  years?: HomepageYear[];
 }
-const SearchBar = ({ section, years }: SearchBarProps) => {
+const SearchBar = ({ section }: SearchBarProps) => {
   const [open, setOpen] = useState(false);
   const [filterBySection, setFilterBySection] = useState(true);
   const searchResourcesPromiseRef = useRef<Promise<SearchModules> | null>(null);
@@ -179,7 +177,6 @@ const SearchBar = ({ section, years }: SearchBarProps) => {
             onClose={handleCloseSearch}
             onNavigate={handleNavigate}
             section={section}
-            years={years}
             filterBySection={filterBySection}
             handleToggleFilterBySection={handleToggleFilterBySection}
           />

@@ -285,8 +285,9 @@ blockquote > p:last-child {
   margin-bottom: 0;
 }
 
-.math.math-display {
+.katex-display {
   overflow-x: auto;
+  overflow-y: clip;
 }
 
 figcaption {

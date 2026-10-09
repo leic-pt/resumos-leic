@@ -14,15 +14,6 @@ export interface SearchHit {
   [key: string]: unknown;
 }
 
-/** A year group of the homepage, used by the "start searching" screen. */
-export interface HomepageYear {
-  name: string;
-  semesters: Array<{
-    name: string;
-    courses: Array<{ name: string; link: string }>;
-  }>;
-}
-
 export function createGetSources({
   searchClient,
   indexName,
@@ -44,7 +35,6 @@ export function createGetSources({
 }) {
   return async ({
     query,
-    setContext,
     setCollections,
     setActiveItemId,
   }: GetSourcesParams<SearchHit>) => {
@@ -56,21 +46,19 @@ export function createGetSources({
     }
 
     try {
-      const { hits, estimatedTotalHits } = await searchClient
-        .index<SearchHit>(indexName)
-        .search(query, {
-          attributesToHighlight: [
-            'hierarchy_lvl1',
-            'hierarchy_lvl2',
-            'hierarchy_lvl3',
-            'hierarchy_lvl4',
-            'hierarchy_lvl5',
-            'hierarchy_lvl6',
-            'content',
-          ],
-          limit: 30,
-          filter: section ? `hierarchy_lvl0 = "${section}"` : undefined,
-        });
+      const { hits } = await searchClient.index<SearchHit>(indexName).search(query, {
+        attributesToHighlight: [
+          'hierarchy_lvl1',
+          'hierarchy_lvl2',
+          'hierarchy_lvl3',
+          'hierarchy_lvl4',
+          'hierarchy_lvl5',
+          'hierarchy_lvl6',
+          'content',
+        ],
+        limit: 30,
+        filter: section ? `hierarchy_lvl0 = "${section}"` : undefined,
+      });
 
       const groupedHits = groupElementsByKey(hits, 'hierarchy_lvl0');
 
@@ -78,7 +66,6 @@ export function createGetSources({
       // parity with the legacy implementation (the v0.60 API reports the total
       // number of hits as `estimatedTotalHits` instead of `nbHits`).
       if (isCurrent(requestGeneration)) {
-        setContext({ nbHits: estimatedTotalHits });
         onSuccess();
       }
 

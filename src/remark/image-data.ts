@@ -14,6 +14,7 @@ const onImageVisit = (node: Image): void => {
   const data = getData(node);
   const hProperties = (data.hProperties ??= {});
 
+  // Do not visit SVG images that have already been processed
   if (data.preImageDataAlreadyVisited) return;
 
   if (!node.url) return;
@@ -26,7 +27,6 @@ const onImageVisit = (node: Image): void => {
       hProperties[`data-${k}`] = v;
     }
     node.url = splits.join('#');
-    data.remarkPreImages = true;
   }
 
   // Astro does not generate captions for either raster images or SVGs.
@@ -49,9 +49,8 @@ const onImageVisit = (node: Image): void => {
 };
 
 /**
- * Port of `plugins/gatsby-remark-pre-image-data`: parses `#k=v;k=v` fragments
- * on image URLs into `data-hProperties` (`data-k` attributes, fragment
- * stripped), and wraps titled images in a `figure` + `figcaption`. Guarded by
+ * Parses `#k=v;k=v` fragments on image URLs into `data-hProperties`,
+ * and wraps titled images in a `figure` + `figcaption`. Guarded by
  * `data.preImageDataAlreadyVisited` so a later pass does not re-process it.
  */
 export const remarkImageData: Plugin<[], Root, Root> = () => (tree) => {

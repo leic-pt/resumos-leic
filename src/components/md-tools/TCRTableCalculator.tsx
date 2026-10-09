@@ -130,7 +130,7 @@ const TCRTableCalculator = () => {
       return;
     }
     const c = calculateC([...m]);
-    const n = c.map((v, i, array) => {
+    const n = c.map((_v, i, array) => {
       const arrayWithoutC = [...array];
       arrayWithoutC.splice(i, 1);
       return arrayWithoutC.reduce((acc, v) => acc * v); // multiply elements

@@ -412,13 +412,6 @@ body.full-width .main-container {
   background-color: var(--hoverBackground);
 }
 
-.anchor.before {
-  fill: var(--accentColor);
-  box-shadow: none;
-}
-
-/* Permalink icons: hidden by default, revealed to the left of a heading on
-   hover/focus — matches the Gatsby output. */
 h1,
 h2,
 h3,
@@ -434,6 +427,8 @@ h6 {
   left: 0;
   transform: translateX(-100%);
   padding-right: 4px;
+  fill: var(--accentColor);
+  box-shadow: none;
 }
 
 .anchor.before svg {

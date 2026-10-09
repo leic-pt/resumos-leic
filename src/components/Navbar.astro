@@ -3,25 +3,15 @@ import { siteConfig } from '../config';
 import SearchBar from './SearchBar/SearchBar';
 import ThemeSettings from './ThemeSettings/ThemeSettings';
 import ExternalLink from './ExternalLink.astro';
-import type { HomepageYear } from './SearchBar/autocomplete';
 
 interface Props {
   /** Render the sidebar toggle button (content pages only). */
   toggleSidebar?: boolean;
   /** Current section title, used to scope search results. */
   section?: string;
-  /** Course years from the homepage, shown when the search is empty. */
-  years?: HomepageYear[];
 }
 
-const { toggleSidebar, section, years } = Astro.props;
-const searchYears = years?.map(({ name, semesters }) => ({
-  name,
-  semesters: semesters.map(({ name, courses }) => ({
-    name,
-    courses: courses.map(({ name, link }) => ({ name, link })),
-  })),
-}));
+const { toggleSidebar, section } = Astro.props;
 ---
 
 <header class='navbar'>
@@ -52,7 +42,7 @@ const searchYears = years?.map(({ name, semesters }) => ({
     {siteConfig.navbar.siteTitle}
   </a>
   <div class='flex-grow'></div>
-  <SearchBar client:idle section={section} years={searchYears} />
+  <SearchBar client:idle section={section} />
   <ThemeSettings client:idle />
   <div class='navbar-links'>
     {

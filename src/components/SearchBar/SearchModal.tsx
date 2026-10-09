@@ -1,9 +1,9 @@
 import { createAutocomplete } from '@algolia/autocomplete-core';
 import type { AutocompleteState } from '@algolia/autocomplete-core';
 import type { Meilisearch } from 'meilisearch';
-import React from 'react';
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { createGetSources } from './autocomplete';
-import type { HomepageYear, SearchHit } from './autocomplete';
+import type { SearchHit } from './autocomplete';
 import ResultsContainer from './ResultsContainer';
 import SearchForm from './SearchForm';
 import { useTouchEvents } from './useTouchEvents';
@@ -24,7 +24,6 @@ interface SearchModalProps {
   onClose: () => void;
   onNavigate: () => void;
   section?: string;
-  years?: HomepageYear[];
   filterBySection: boolean;
   handleToggleFilterBySection: () => void;
 }
@@ -35,32 +34,31 @@ const SearchModal = ({
   onClose,
   onNavigate,
   section,
-  years,
   filterBySection,
   handleToggleFilterBySection,
 }: SearchModalProps) => {
   // Refs to elements of search, to use with autocomplete-core
-  const formElementRef = React.useRef<HTMLDivElement>(null);
-  const inputRef = React.useRef<HTMLInputElement>(null);
-  const resultsContainerRef = React.useRef<HTMLDivElement>(null);
-  const focusedResultRef = React.useRef<HTMLElement | null>(null);
-  const requestGenerationRef = React.useRef(0);
-  const beginRequest = React.useCallback(() => {
+  const formElementRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const resultsContainerRef = useRef<HTMLDivElement>(null);
+  const focusedResultRef = useRef<HTMLElement | null>(null);
+  const requestGenerationRef = useRef(0);
+  const beginRequest = useCallback(() => {
     requestGenerationRef.current += 1;
     return requestGenerationRef.current;
   }, []);
-  const isCurrentRequest = React.useCallback(
+  const isCurrentRequest = useCallback(
     (requestGeneration: number) => requestGeneration === requestGenerationRef.current,
     []
   );
 
   // Store autocomplete's internal state on this component
-  const [state, setState] = React.useState<AutocompleteState<SearchHit>>(initialState);
-  const [hasSearchError, setHasSearchError] = React.useState(false);
+  const [state, setState] = useState<AutocompleteState<SearchHit>>(initialState);
+  const [hasSearchError, setHasSearchError] = useState(false);
 
   // Core controllers can disagree with the rendered collections. Recover only
   // after a commit actually detaches the element that owned result focus.
-  React.useLayoutEffect(() => {
+  useLayoutEffect(() => {
     const focusedResult = focusedResultRef.current;
     if (!focusedResult || focusedResult.isConnected) return;
     focusedResultRef.current = null;
@@ -74,14 +72,14 @@ const SearchModal = ({
     }
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus();
       inputRef.current.click();
     }
   }, [filterBySection]);
 
-  const autocomplete = React.useMemo(() => {
+  const autocomplete = useMemo(() => {
     return createAutocomplete<SearchHit>({
       id: 'resumos-search',
       defaultActiveItemId: 0,
@@ -154,7 +152,6 @@ const SearchModal = ({
           hasSearchError={hasSearchError}
           getListProps={getListProps}
           getItemProps={getItemProps}
-          years={years}
         />
       </div>
       <div className='search-footer'>
