@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
-import { unified } from '@astrojs/markdown-remark';
+import { unified, rehypeHeadingIds } from '@astrojs/markdown-remark';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeExternalLinks from 'rehype-external-links';
 import rehypeKatex from 'rehype-katex';
@@ -16,7 +16,6 @@ import { remarkEmbedSnippet } from './src/remark/embed-snippet';
 import { remarkImageData } from './src/remark/image-data';
 import { katexMacros } from './src/remark/katex-macros';
 import { remarkMermaid } from './src/remark/mermaid';
-import { collectText, headingAriaLabel, rehypeHeadingIds } from './src/remark/rehype-heading-ids';
 import './src/remark/prism-mips-asm';
 import { remarkToc } from './src/remark/toc';
 
@@ -82,11 +81,6 @@ export default defineConfig({
           rehypeAutolinkHeadings,
           {
             behavior: 'prepend',
-            // rehype-autolink-headings v7 dropped the `className` option; the
-            // link classes and aria-label come from a properties builder.
-            // v7 dropped both the `className` option and the default SVG
-            // content; the octicon link icon and `anchor before` classes are
-            // recreated to match the Gatsby output.
             content: {
               type: 'element',
               tagName: 'svg',
@@ -109,10 +103,9 @@ export default defineConfig({
                 },
               ],
             },
-            properties: (element: Parameters<typeof collectText>[0]) => ({
+            properties: {
               className: ['anchor', 'before'],
-              ariaLabel: headingAriaLabel(element as Parameters<typeof headingAriaLabel>[0]),
-            }),
+            },
           },
         ],
         [rehypePrismPlus, { ignoreMissing: true, defaultLanguage: 'text' }],
