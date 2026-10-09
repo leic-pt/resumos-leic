@@ -12,16 +12,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
-      - name: Setup Node
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
-        with:
-          node-version: 22
-
-      - name: Enable Corepack
-        run: corepack enable
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile --non-interactive
-
       - name: Run Prettier
-        run: yarn run format:check
+        run: |
+          export PRETTIER_VERSION="$(yarn list --pattern prettier --depth 0 -s --json --no-progress | jq -r '.data.trees[0].name' | cut -d'@' -f2)"
+          if [[ -z "$PRETTIER_VERSION" ]]; then
+            echo "Failed to detect prettier version"
+            exit 1
+          fi
+          echo "Found prettier version: $PRETTIER_VERSION"
+          npx prettier@"$PRETTIER_VERSION" --check .
