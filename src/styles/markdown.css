@@ -36,6 +36,7 @@ body.dark-mode .content a:hover {
 
 .content img {
   max-width: 100%;
+  height: auto;
   /* center images */
   display: block;
   margin: 0 auto;
@@ -112,7 +113,7 @@ body.text-justify .content {
   line-height: normal;
 }
 
-.gatsby-highlight pre {
+.content pre {
   border-radius: 5px;
 }
 
@@ -230,8 +231,9 @@ blockquote > p:last-child {
   margin-bottom: 0;
 }
 
-.math.math-display {
+.katex-display {
   overflow-x: auto;
+  overflow-y: clip;
 }
 
 figcaption {
@@ -246,7 +248,9 @@ figcaption {
 table {
   border-collapse: collapse;
   margin: 1rem auto;
-  /* display: block; */
+  display: block;
+  width: max-content;
+  max-width: 100%;
   overflow-x: auto;
 }
 

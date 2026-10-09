@@ -1,0 +1,64 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Sidebar from '../components/Sidebar.astro';
+import Footer from '../components/Footer.astro';
+import ExternalLink from '../components/ExternalLink.astro';
+import ComponentHost from '../components/ComponentHost';
+import Edit from '../components/icons/Edit';
+import { getAllPages, getSidebarSections, getCoursePages } from '../lib/pages';
+import { siteConfig } from '../config';
+
+export async function getStaticPaths() {
+  const pages = await getAllPages();
+  return pages
+    .filter((page) => page.data.path && page.data.path !== '/')
+    .map((page) => ({
+      params: { slug: page.data.path.replace(/^\//, '') },
+      props: { entry: page },
+    }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+const pages = await getAllPages();
+const course = entry.data.path.split('/')[1];
+const coursePages = getCoursePages(pages, course);
+const sections = getSidebarSections(coursePages, siteConfig.sidebarSections);
+const sectionTitle = coursePages.find((page) => page.data.type === 'topLevelPage')?.data.title;
+const githubLink = entry.filePath
+  ? `${siteConfig.footer.githubLink}/edit/master/${entry.filePath.replace(/\\/g, '/')}`
+  : undefined;
+const componentNames = entry.data.components ?? [];
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.description ?? undefined}>
+  <div class='page-container'>
+    <div class='sidebar-mask'></div>
+    <Navbar toggleSidebar section={sectionTitle} />
+    <Sidebar sections={sections} currentPath={entry.data.path} />
+    <div class='main-container'>
+      {
+        githubLink && (
+          <ExternalLink href={githubLink} class='edit-link'>
+            <Edit /> Edit page
+          </ExternalLink>
+        )
+      }
+      <div class='content'>
+        <Content />
+      </div>
+      {componentNames.map((name) => <ComponentHost name={name} client:visible />)}
+      <div style='flex-grow: 1'></div>
+      <Footer />
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  import '../scripts/sidebar';
+  import '../scripts/mermaid';
+  import '../scripts/tabs';
+</script>

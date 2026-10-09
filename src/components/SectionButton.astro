@@ -1,0 +1,24 @@
+---
+import { withTrailingSlash } from '../lib/site-path';
+
+interface Props {
+  name: string;
+  link: string;
+  image?: string;
+  color: string;
+  long?: boolean;
+}
+
+const { name, link, image, color, long = false } = Astro.props;
+---
+
+<a
+  href={withTrailingSlash(link)}
+  class={`section-button ${long ? 'section-button__long' : ''}`}
+  style={`background-color: ${color}`}
+>
+  <div class='section-button__text'>
+    <span>{name}</span>
+  </div>
+  <img src={image} alt={name} />
+</a>

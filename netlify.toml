@@ -1,0 +1,10 @@
+# Netlify PR-preview deployment (production is Cloudflare Pages).
+# Repo config takes precedence over dashboard build settings.
+[build]
+  command = "yarn build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+  YARN_FLAGS = "--frozen-lockfile --no-ignore-optional"
+  NETLIFY_SKIP_GATSBY_BUILD_PLUGIN = "true"

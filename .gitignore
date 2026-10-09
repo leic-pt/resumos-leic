@@ -1,11 +1,9 @@
 node_modules/
-.cache/
-public/
+dist/
+.astro/
 .vscode/
-src/.vuepress/dist
 yarn-error.log
 
 # nix-direnv
 .direnv/
 .envrc
-

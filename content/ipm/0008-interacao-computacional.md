@@ -118,6 +118,6 @@ Também é muito utilizado na identificação de objetos em imagens.
 
 ## Machine Learning em IPM
 
-![Adaptação para Machine Learning](/assets/0008-machine-learning.png#dark=3)
+![Adaptação para Machine Learning](./assets/0008-machine-learning.png#dark=3)
 
-![Ciclo de Desenho](/assets/0008-ciclo-desenho.png#dark=3)
+![Ciclo de Desenho](./assets/0008-ciclo-desenho.png#dark=3)
