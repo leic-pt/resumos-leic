@@ -20,7 +20,7 @@ const pages = defineCollection({
 });
 
 const contributors = defineCollection({
-  loader: contributorsLoader()
-})
+  loader: contributorsLoader(),
+});
 
 export const collections = { contributors, pages };

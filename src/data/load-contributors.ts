@@ -18,7 +18,7 @@ type Contributors = Record<string, PartialContributor>;
 
 export function contributorsLoader() {
   return {
-    name: "contributors-loader",
+    name: 'contributors-loader',
     load: async (context) => {
       const { logger, meta } = context;
       const githubToken = process.env.GITHUB_TOKEN;
@@ -44,7 +44,8 @@ export function contributorsLoader() {
       meta.set('lastUpdated', new Date().toISOString());
 
       const getPullRequests = async (cursor: string | null) => {
-        const { repository } = await graphqlGh<{ repository: Repository }>(`
+        const { repository } = await graphqlGh<{ repository: Repository }>(
+          `
           query fetchPullRequests($cursor: String, $owner: String!, $repository: String!) {
             repository(owner: $owner, name: $repository) {
               pullRequests(
@@ -99,7 +100,7 @@ export function contributorsLoader() {
         saveContributor(context, username, contributor);
       });
 
-      logger.info(`Finished fetching contributors; made ${requestCount} request(s) to GitHub`)
+      logger.info(`Finished fetching contributors; made ${requestCount} request(s) to GitHub`);
     },
     schema: z.object({
       username: z.string(),
@@ -114,8 +115,8 @@ export function contributorsLoader() {
 // mutates `contributors`
 function mergeContributors(contributors: Contributors, pullRequests: (PullRequest | null)[]) {
   pullRequests
-    .filter(pr => !!pr)
-    .forEach(pr => {
+    .filter((pr) => !!pr)
+    .forEach((pr) => {
       const author = pr?.author;
       const login = author?.login;
       if (!login) {
@@ -125,7 +126,9 @@ function mergeContributors(contributors: Contributors, pullRequests: (PullReques
       const contributor = (contributors[login] ??= {});
       const labelSet = (contributor.labels ??= new Set());
 
-      pr.labels?.nodes?.filter((label) => !!label?.name).forEach((label) => labelSet.add(label?.name ?? ''));
+      pr.labels?.nodes
+        ?.filter((label) => !!label?.name)
+        .forEach((label) => labelSet.add(label?.name ?? ''));
 
       if (!contributor.name && 'name' in author && author?.name) {
         contributor.name = author?.name;
@@ -134,13 +137,17 @@ function mergeContributors(contributors: Contributors, pullRequests: (PullReques
 }
 
 // mutates `contributor`
-async function saveContributor({ store, parseData, generateDigest }: LoaderContext, username: string, contributor: PartialContributor) {
+async function saveContributor(
+  { store, parseData, generateDigest }: LoaderContext,
+  username: string,
+  contributor: PartialContributor
+) {
   let labelSet = (contributor.labels ??= new Set());
 
   let cachedContributor = store.get(username);
   if (cachedContributor) {
     const data = cachedContributor.data as unknown as Contributor;
-    (data.labels ?? []).forEach(label => labelSet.add(label));
+    (data.labels ?? []).forEach((label) => labelSet.add(label));
   }
 
   const item = {
@@ -152,6 +159,6 @@ async function saveContributor({ store, parseData, generateDigest }: LoaderConte
   };
 
   const data = await parseData({ id: username, data: item });
-  const digest = generateDigest(data)
+  const digest = generateDigest(data);
   store.set({ id: username, data, digest });
 }
