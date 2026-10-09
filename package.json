@@ -2,6 +2,7 @@
   "name": "resumos-leic",
   "version": "1.0.0",
   "description": "Resumos e conteúdos das UCs de LEIC-A do IST",
+  "license": "GPL-3.0",
   "type": "module",
   "private": true,
   "packageManager": "yarn@1.22.19",
