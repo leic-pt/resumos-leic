@@ -1,6 +1,7 @@
 import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
+import { contributorsLoader } from './data/load-contributors';
 
 /**
  * All site pages live in `content/` as markdown files with a `path`
@@ -18,4 +19,8 @@ const pages = defineCollection({
   }),
 });
 
-export const collections = { pages };
+const contributors = defineCollection({
+  loader: contributorsLoader()
+})
+
+export const collections = { contributors, pages };

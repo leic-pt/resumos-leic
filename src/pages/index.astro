@@ -1,6 +1,6 @@
 ---
 import '../styles/homepage.css';
-import { render } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
@@ -8,7 +8,6 @@ import Contributors from '../components/Contributors.astro';
 import SectionButton from '../components/SectionButton.astro';
 import ExternalLink from '../components/ExternalLink.astro';
 import IstLogo from '../images/ist-logo.svg';
-import contributors from '../data/contributors.json';
 import { getHomepage } from '../lib/pages';
 import { resolveCourseImage } from '../lib/course-images';
 import { years } from '../config';
@@ -30,6 +29,8 @@ const getLabelName = (label: string): string | null => {
   }
   return null;
 };
+
+const contributors = (await getCollection('contributors')).map(item => item.data);
 ---
 
 <BaseLayout title={entry.data.title} description={entry.data.description ?? undefined}>

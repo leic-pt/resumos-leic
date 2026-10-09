@@ -11,9 +11,6 @@
     "node": ">=22.19.0"
   },
   "scripts": {
-    "predev": "node scripts/fetch-contributors.mjs",
-    "prebuild": "node scripts/fetch-contributors.mjs",
-    "precheck": "node scripts/fetch-contributors.mjs",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
@@ -48,6 +45,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "@octokit/graphql-schema": "^15.26.1",
     "@types/node": "^26.3.0",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.5",

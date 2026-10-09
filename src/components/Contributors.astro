@@ -1,17 +1,10 @@
 ---
 import ExternalLink from './ExternalLink.astro';
 import { siteConfig } from '../config';
-
-export interface Contributor {
-  username: string;
-  name?: string;
-  labels?: string[];
-  additionalLabels?: string[];
-  boldLabels?: string[];
-}
+import type { CollectionEntry } from 'astro:content';
 
 interface Props {
-  contributors: Contributor[];
+  contributors: CollectionEntry<'contributors'>['data'][];
   getLabelName: (label: string) => string | null;
 }
 
