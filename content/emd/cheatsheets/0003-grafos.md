@@ -36,7 +36,7 @@ p = \#V\\
 q = \#E
 $$
 
-#### Grau de um vértice
+### Grau de um vértice
 
 $g = (V,E)$. Para um vértice $v\in V$, o seu grau **em $g$** corresponde ao número de arestas de $g$ que incidem em $v$.
 
@@ -227,7 +227,7 @@ se for um beco sem saída, ou se as outras arestas já tiverem sido percorridas 
 
 Informação mais detalhada sobre [Árvores](./0022-kruskraldijkrsta)
 
-#### Árvore
+### Árvore
 
 Grafo [conexo](#grafo-conexo) que não tem ciclos.
 

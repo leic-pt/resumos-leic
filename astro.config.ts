@@ -17,7 +17,7 @@ import { remarkImageData } from './src/remark/image-data';
 import { katexMacros } from './src/remark/katex-macros';
 import { remarkMermaid } from './src/remark/mermaid';
 import './src/remark/prism-mips-asm';
-import { remarkToc } from './src/remark/toc';
+import { remarkToc, rehypeToc } from './src/remark/toc';
 
 const vitePlugins = [contentAssets()];
 
@@ -108,6 +108,7 @@ export default defineConfig({
             },
           },
         ],
+        rehypeToc,
         [rehypePrismPlus, { ignoreMissing: true, defaultLanguage: 'text' }],
         [
           rehypeKatex,
