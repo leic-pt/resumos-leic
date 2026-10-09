@@ -75,6 +75,18 @@
   color: var(--textColor);
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .search-form {
   flex-grow: 1;
   display: flex;
@@ -205,10 +217,6 @@
   margin: 0.5em 0;
 }
 
-.search-hit-item {
-  padding: 0.5em 0.7em;
-}
-
 .search-hit-item[aria-selected='true'] {
   background-color: var(--bgColor);
   border-radius: 1em;
@@ -221,6 +229,8 @@
 }
 
 .search-hit {
+  display: block;
+  padding: 0.5em 0.7em;
   color: var(--textColor);
 }
 

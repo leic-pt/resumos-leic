@@ -17,15 +17,29 @@ export interface SearchHit {
 export function createGetSources({
   searchClient,
   indexName,
-  onClose,
+  onNavigate,
+  onError,
+  onSuccess,
+  begin,
+  isCurrent,
   section,
 }: {
   searchClient: Meilisearch;
   indexName: string;
-  onClose: () => void;
+  onNavigate: () => void;
+  onError: () => void;
+  onSuccess: () => void;
+  begin: () => number;
+  isCurrent: (requestGeneration: number) => boolean;
   section?: string;
 }) {
-  return async ({ query, setStatus }: GetSourcesParams<SearchHit>) => {
+  return async ({
+    query,
+    setCollections,
+    setActiveItemId,
+  }: GetSourcesParams<SearchHit>) => {
+    const requestGeneration = begin();
+
     if (!query) {
       // Return no results if query is empty
       return [];
@@ -48,11 +62,24 @@ export function createGetSources({
 
       const groupedHits = groupElementsByKey(hits, 'hierarchy_lvl0');
 
+      // The search context is not consumed by any component, but is kept for
+      // parity with the legacy implementation (the v0.60 API reports the total
+      // number of hits as `estimatedTotalHits` instead of `nbHits`).
+      if (isCurrent(requestGeneration)) {
+        onSuccess();
+      }
+
       return Object.entries(groupedHits).map(([title, sectionHits]) => ({
         sourceId: `hit_${title}`,
         onSelect({ event }: OnSelectParams<SearchHit>) {
-          if (!event.shiftKey && !event.ctrlKey && !event.metaKey) {
-            onClose();
+          if (
+            !event.shiftKey &&
+            !event.ctrlKey &&
+            !event.metaKey &&
+            !event.altKey &&
+            (!('button' in event) || event.button === 0)
+          ) {
+            onNavigate();
           }
         },
         getItemUrl({ item }: { item: SearchHit }) {
@@ -62,11 +89,16 @@ export function createGetSources({
           return sectionHits;
         },
       }));
-    } catch (error) {
+    } catch {
       // Failed to fetch from meilisearch backend
-      setStatus('error');
-
-      throw error;
+      if (isCurrent(requestGeneration)) {
+        // Tab can cancel the normal collections commit without stopping this request.
+        // Clear this instance's selectable hits before publishing the exclusive error view.
+        setCollections([]);
+        setActiveItemId(null);
+        onError();
+      }
+      return [];
     }
   };
 }

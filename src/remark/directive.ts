@@ -54,9 +54,13 @@ const isValidDirective = (name: string): boolean => {
   );
 };
 
-const getClasses = (node: Node): string[] => {
+const getProperties = (node: Node): Record<string, unknown> => {
   const data = (node.data ??= {}) as MutableData;
-  const hProperties = (data.hProperties ??= {});
+  return (data.hProperties ??= {});
+};
+
+const getClasses = (node: Node): string[] => {
+  const hProperties = getProperties(node);
   return (hProperties.class as string[] | undefined) ?? (hProperties.class = []);
 };
 
@@ -79,41 +83,60 @@ const onCustomComponentVisit = (node: ContainerDirectiveNode): void => {
   }
 };
 
-const onTabGroupVisit = (node: ContainerDirectiveNode): void => {
+const onTabGroupVisit = (node: ContainerDirectiveNode, groupIndex: number): void => {
   const tabTitles: string[] = [];
+  const tabs = node.children.filter(
+    (child): child is ContainerDirectiveNode =>
+      child.type === 'containerDirective' && child.name === options.tabTag
+  );
+  const groupId = `tab-group-${groupIndex}`;
   const classes = getClasses(node);
 
   classes.push('tab-group');
+  getProperties(node).id = groupId;
 
-  node.children
-    .filter(
-      (child): child is ContainerDirectiveNode =>
-        child.type === 'containerDirective' && child.name === options.tabTag
-    )
-    .forEach((tab) => {
-      const tabClasses = getClasses(tab);
+  tabs.forEach((tab, i) => {
+    const tabId = `${groupId}-tab-${i}`;
+    const panelId = `${groupId}-panel-${i}`;
+    const tabClasses = getClasses(tab);
+    const tabProperties = getProperties(tab);
 
-      tabClasses.push('tab-group--tab');
-      if (tabTitles.length === 0) tabClasses.push('tab-group--tab__active');
-
-      if (tab.children[0]?.data?.directiveLabel) {
-        tabTitles.push(toString(tab.children[0]));
-        tab.children.shift();
-      } else {
-        tabTitles.push(`Tab ${tabTitles.length + 1}`);
-      }
+    tabClasses.push('tab-group--tab');
+    if (i === 0) tabClasses.push('tab-group--tab__active');
+    Object.assign(tabProperties, {
+      id: panelId,
+      role: 'tabpanel',
+      tabIndex: 0,
+      'aria-labelledby': tabId,
+      hidden: i !== 0,
     });
+
+    if (tab.children[0]?.data?.directiveLabel) {
+      tabTitles.push(toString(tab.children[0]));
+      tab.children.shift();
+    } else {
+      tabTitles.push(`Tab ${i + 1}`);
+    }
+  });
 
   node.children.unshift({
     type: 'html',
     value: `
     <div class="tab-group--nav">
-      <ul class="tab-group--ul">
+      <ul class="tab-group--ul" role="tablist">
         ${tabTitles
           .map(
             (title, i) => `
-        <li class="tab-group--li">
-          <button class="tab-group--btn${i === 0 ? ' tab-group--btn__active' : ''}">
+        <li class="tab-group--li" role="presentation">
+          <button
+            id="${groupId}-tab-${i}"
+            class="tab-group--btn${i === 0 ? ' tab-group--btn__active' : ''}"
+            type="button"
+            role="tab"
+            aria-controls="${groupId}-panel-${i}"
+            aria-selected="${i === 0}"
+            tabindex="${i === 0 ? '0' : '-1'}"
+          >
             ${title}
           </button>
         </li>
@@ -155,7 +178,6 @@ const onYoutubeVisit = (node: DirectiveNode): void => {
 
 const onContainerDirectiveVisit = (node: ContainerDirectiveNode): void => {
   if (options.customComponentsTags.includes(node.name)) onCustomComponentVisit(node);
-  else if (node.name === options.tabGroupTag) onTabGroupVisit(node);
   else if (node.name === options.youtubeTag) onYoutubeVisit(node);
 };
 
@@ -199,8 +221,15 @@ const repairUnknownDirectives = (tree: Root, file: VFile): void => {
  * `data.hName` / `data.hProperties`, so the CSS classes and iframe are produced at render time.
  */
 export const remarkDirectiveCustom: Plugin<[], Root, Root> = () => (tree, file) => {
+  let tabGroupIndex = 0;
+
   visit(tree, 'containerDirective', (node) => {
-    onContainerDirectiveVisit(node as ContainerDirectiveNode);
+    const container = node as ContainerDirectiveNode;
+    if (container.name === options.tabGroupTag) {
+      onTabGroupVisit(container, tabGroupIndex++);
+    } else {
+      onContainerDirectiveVisit(container);
+    }
   });
   visit(tree, 'leafDirective', (node) => {
     onLeafDirectiveVisit(node as LeafDirectiveNode);

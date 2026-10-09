@@ -3,16 +3,20 @@ import React from 'react';
 
 export function useTouchEvents({
   getEnvironmentProps,
-  panelElement,
-  formElement,
-  inputElement,
+  panelElementRef,
+  formElementRef,
+  inputRef,
 }: {
   getEnvironmentProps: GetEnvironmentProps;
-  panelElement: HTMLElement | null;
-  formElement: HTMLElement | null;
-  inputElement: HTMLInputElement | null;
+  panelElementRef: React.RefObject<HTMLElement | null>;
+  formElementRef: React.RefObject<HTMLElement | null>;
+  inputRef: React.RefObject<HTMLInputElement | null>;
 }) {
   React.useEffect(() => {
+    const panelElement = panelElementRef.current;
+    const formElement = formElementRef.current;
+    const inputElement = inputRef.current;
+
     if (!(panelElement && formElement && inputElement)) {
       return undefined;
     }
@@ -30,5 +34,5 @@ export function useTouchEvents({
       window.removeEventListener('touchstart', onTouchStart);
       window.removeEventListener('touchmove', onTouchMove);
     };
-  }, [getEnvironmentProps, panelElement, formElement, inputElement]);
+  }, [getEnvironmentProps, panelElementRef, formElementRef, inputRef]);
 }

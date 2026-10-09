@@ -6,21 +6,25 @@ import StartSearching from './StartSearching';
 
 interface ResultsContainerProps {
   state: AutocompleteState<SearchHit>;
+  hasSearchError: boolean;
   getListProps: AutocompleteApi<SearchHit>['getListProps'];
   getItemProps: AutocompleteApi<SearchHit>['getItemProps'];
-  onItemClick: (item: SearchHit) => void;
 }
 
 const ResultsContainer = ({
   state,
+  hasSearchError,
   getListProps,
   getItemProps,
-  onItemClick,
 }: ResultsContainerProps) => {
   const hasCollections = state.collections.some((collection) => collection.items.length > 0);
 
   if (!state.query) {
     return <StartSearching />;
+  }
+
+  if (hasSearchError) {
+    return <div role='alert'>Search is currently unavailable. Please try again later.</div>;
   }
 
   if (!hasCollections) {
@@ -43,7 +47,6 @@ const ResultsContainer = ({
             title={title}
             getListProps={getListProps}
             getItemProps={getItemProps}
-            onItemClick={onItemClick}
           />
         );
       })}

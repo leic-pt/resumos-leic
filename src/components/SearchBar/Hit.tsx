@@ -8,24 +8,18 @@ interface HitProps {
   hit: SearchHit;
   source: Parameters<AutocompleteApi<SearchHit>['getItemProps']>[0]['source'];
   getItemProps: AutocompleteApi<SearchHit>['getItemProps'];
-  onItemClick: (item: SearchHit) => void;
 }
 
-const Hit = ({ hit, source, getItemProps, onItemClick }: HitProps) => {
+const Hit = ({ hit, source, getItemProps }: HitProps) => {
   const targetLink = stripDomainFromLink(hit.url);
+  const { onClick, ...itemProps } = getItemProps({
+    item: hit,
+    source,
+  }) as unknown as React.HTMLAttributes<HTMLElement>;
 
   return (
-    <li
-      className='search-hit-item'
-      {...(getItemProps({
-        item: hit,
-        source,
-        onClick() {
-          onItemClick(hit);
-        },
-      }) as unknown as React.LiHTMLAttributes<HTMLLIElement>)}
-    >
-      <a href={targetLink} className='search-hit'>
+    <li className='search-hit-item' {...itemProps}>
+      <a href={targetLink} className='search-hit' onClick={onClick}>
         <p className='search-hit--page-path'>
           {[1, 2, 3, 4, 5, 6]
             .map((level) => `hierarchy_lvl${level}`)

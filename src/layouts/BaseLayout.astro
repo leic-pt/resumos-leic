@@ -1,8 +1,7 @@
 ---
-import 'katex/dist/katex.min.css';
-import 'prismjs/themes/prism-tomorrow.css';
 import '../styles/main.css';
 import '../styles/markdown.css';
+import '../styles/skip-link.css';
 import { siteConfig } from '../config';
 import { noFlashScript } from '../lib/no-flash';
 
@@ -17,7 +16,7 @@ const pageDescription = description || siteConfig.description;
 ---
 
 <!doctype html>
-<html>
+<html lang='pt'>
   <head>
     <meta charset='utf-8' />
     <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no' />
@@ -37,6 +36,7 @@ const pageDescription = description || siteConfig.description;
     <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
     <link id='selected-font-stylesheet' rel='stylesheet' />
     <link rel='manifest' href='/manifest.webmanifest' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     {
       import.meta.env.PROD && (
         <script
@@ -55,6 +55,7 @@ const pageDescription = description || siteConfig.description;
   </head>
   <body>
     <script is:inline set:html={noFlashScript} />
+    <a href='#main-content' class='skip-link'>Saltar para o conteúdo</a>
     <slot />
   </body>
 </html>

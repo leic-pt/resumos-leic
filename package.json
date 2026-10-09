@@ -17,7 +17,8 @@
     "check": "astro check",
     "test": "node --test scripts/remark.test.mjs",
     "format": "prettier -w .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "precheck": "node scripts/fetch-contributors.mjs"
   },
   "dependencies": {
     "@algolia/autocomplete-core": "^1.19.9",

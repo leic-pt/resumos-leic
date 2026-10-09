@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   useContentWidth,
   useDarkMode,
@@ -24,8 +24,62 @@ import './ThemeSettings.css';
 
 const ThemeSettings = () => {
   const [panelOpen, setPanelOpen] = useState(false);
-  const closePanel = useCallback(() => setPanelOpen(false), [setPanelOpen]);
-  const togglePanel = useCallback(() => setPanelOpen((v) => !v), [setPanelOpen]);
+  const panelOpenRef = useRef(false);
+  panelOpenRef.current = panelOpen;
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
+  const closeFocusTimeoutRef = useRef<number | null>(null);
+  const closePanel = useCallback(() => {
+    if (!panelOpenRef.current) {
+      return;
+    }
+
+    setPanelOpen(false);
+
+    if (closeFocusTimeoutRef.current !== null) {
+      window.clearTimeout(closeFocusTimeoutRef.current);
+      closeFocusTimeoutRef.current = null;
+    }
+
+    closeFocusTimeoutRef.current = window.setTimeout(() => {
+      closeFocusTimeoutRef.current = null;
+      if (panelOpenRef.current) {
+        return;
+      }
+
+      const trigger = triggerRef.current;
+      if (trigger?.isConnected) {
+        trigger.focus();
+      }
+    }, 0);
+  }, []);
+  const togglePanel = useCallback(() => {
+    if (closeFocusTimeoutRef.current !== null) {
+      window.clearTimeout(closeFocusTimeoutRef.current);
+      closeFocusTimeoutRef.current = null;
+    }
+    setPanelOpen((v) => !v);
+  }, []);
+  useEffect(() => {
+    return () => {
+      if (closeFocusTimeoutRef.current !== null) {
+        window.clearTimeout(closeFocusTimeoutRef.current);
+        closeFocusTimeoutRef.current = null;
+      }
+    };
+  }, []);
+  useEffect(() => {
+    const handleSearchNavigate = () => {
+      if (closeFocusTimeoutRef.current !== null) {
+        window.clearTimeout(closeFocusTimeoutRef.current);
+        closeFocusTimeoutRef.current = null;
+      }
+      setPanelOpen(false);
+    };
+    window.addEventListener('resumos:search-navigate', handleSearchNavigate);
+    return () => {
+      window.removeEventListener('resumos:search-navigate', handleSearchNavigate);
+    };
+  }, []);
   const { darkMode, setDarkModeStored } = useDarkMode();
   const { contentWidth, setContentWidth } = useContentWidth();
   const { textAlign, setTextAlign } = useTextAlign();
@@ -51,14 +105,20 @@ const ThemeSettings = () => {
   return (
     <>
       <button
+        ref={triggerRef}
         className='icon-btn'
-        onClick={togglePanel}
+        onClick={panelOpen ? closePanel : togglePanel}
         style={{ alignSelf: 'center' }}
         aria-label='theme settings'
       >
         <Theme />
       </button>
-      <SidePanel open={panelOpen} onClose={closePanel} className='theme-settings'>
+      <SidePanel
+        open={panelOpen}
+        onClose={closePanel}
+        label='Reading options'
+        className='theme-settings'
+      >
         <div className='theme-settings-header'>
           <p>Reading Options</p>
           <button className='icon-btn' onClick={closePanel} aria-label='close'>

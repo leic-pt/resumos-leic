@@ -1,7 +1,7 @@
 import { createAutocomplete } from '@algolia/autocomplete-core';
 import type { AutocompleteState } from '@algolia/autocomplete-core';
 import type { Meilisearch } from 'meilisearch';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { createGetSources } from './autocomplete';
 import type { SearchHit } from './autocomplete';
 import ResultsContainer from './ResultsContainer';
@@ -22,6 +22,7 @@ interface SearchModalProps {
   searchClient: Meilisearch;
   indexName: string;
   onClose: () => void;
+  onNavigate: () => void;
   section?: string;
   filterBySection: boolean;
   handleToggleFilterBySection: () => void;
@@ -31,6 +32,7 @@ const SearchModal = ({
   searchClient,
   indexName,
   onClose,
+  onNavigate,
   section,
   filterBySection,
   handleToggleFilterBySection,
@@ -39,9 +41,36 @@ const SearchModal = ({
   const formElementRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const resultsContainerRef = useRef<HTMLDivElement>(null);
+  const focusedResultRef = useRef<HTMLElement | null>(null);
+  const requestGenerationRef = useRef(0);
+  const beginRequest = useCallback(() => {
+    requestGenerationRef.current += 1;
+    return requestGenerationRef.current;
+  }, []);
+  const isCurrentRequest = useCallback(
+    (requestGeneration: number) => requestGeneration === requestGenerationRef.current,
+    []
+  );
 
   // Store autocomplete's internal state on this component
   const [state, setState] = useState<AutocompleteState<SearchHit>>(initialState);
+  const [hasSearchError, setHasSearchError] = useState(false);
+
+  // Core controllers can disagree with the rendered collections. Recover only
+  // after a commit actually detaches the element that owned result focus.
+  useLayoutEffect(() => {
+    const focusedResult = focusedResultRef.current;
+    if (!focusedResult || focusedResult.isConnected) return;
+    focusedResultRef.current = null;
+    if (
+      document.activeElement === document.body ||
+      document.activeElement === document.documentElement
+    ) {
+      formElementRef.current
+        ?.querySelector<HTMLButtonElement>('.search-close')
+        ?.focus({ preventScroll: true });
+    }
+  });
 
   useEffect(() => {
     if (inputRef.current) {
@@ -62,41 +91,67 @@ const SearchModal = ({
       getSources: createGetSources({
         searchClient,
         indexName,
-        onClose,
+        onNavigate,
+        onError: () => setHasSearchError(true),
+        onSuccess: () => setHasSearchError(false),
+        begin: beginRequest,
+        isCurrent: isCurrentRequest,
         section: filterBySection ? section : undefined,
       }),
       initialState: { ...initialState, query: state.query },
     });
-  }, [searchClient, filterBySection, section, onClose]);
+  }, [
+    searchClient,
+    indexName,
+    filterBySection,
+    section,
+    onNavigate,
+    beginRequest,
+    isCurrentRequest,
+  ]);
 
-  const onItemClick = useCallback(
-    (_item: SearchHit) => {
-      // In the future, we might want to save recent searches
-      onClose();
-    },
-    [onClose]
-  );
-
-  const { getEnvironmentProps, getInputProps, getListProps, getItemProps } = autocomplete;
+  const {
+    getEnvironmentProps,
+    getFormProps,
+    getLabelProps,
+    getInputProps,
+    getListProps,
+    getItemProps,
+  } = autocomplete;
 
   useTouchEvents({
     getEnvironmentProps,
-    panelElement: resultsContainerRef.current,
-    formElement: formElementRef.current,
-    inputElement: inputRef.current,
+    panelElementRef: resultsContainerRef,
+    formElementRef,
+    inputRef,
   });
 
   return (
     <>
       <header className='search-header' ref={formElementRef}>
-        <SearchForm inputRef={inputRef} getInputProps={getInputProps} onClose={onClose} />
+        <SearchForm
+          inputRef={inputRef}
+          getFormProps={getFormProps}
+          getLabelProps={getLabelProps}
+          getInputProps={getInputProps}
+          onClose={onClose}
+        />
       </header>
-      <div ref={resultsContainerRef} className='search-results'>
+      <div
+        ref={resultsContainerRef}
+        className='search-results'
+        onFocusCapture={(event) => {
+          focusedResultRef.current = event.target instanceof HTMLElement ? event.target : null;
+        }}
+        onBlurCapture={(event) => {
+          if (!event.currentTarget.contains(event.relatedTarget)) focusedResultRef.current = null;
+        }}
+      >
         <ResultsContainer
           state={state}
+          hasSearchError={hasSearchError}
           getListProps={getListProps}
           getItemProps={getItemProps}
-          onItemClick={onItemClick}
         />
       </div>
       <div className='search-footer'>

@@ -17,7 +17,7 @@ const { sections, currentPath } = Astro.props;
 const isActive = (path: string) => currentPath === path;
 ---
 
-<aside class='sidebar'>
+<aside id='course-sidebar' class='sidebar' aria-label='Navegação da cadeira'>
   {
     sections.map((section) => (
       <div class:list={section.name ? '' : 'top-level'}>

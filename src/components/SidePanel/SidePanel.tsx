@@ -10,11 +10,12 @@ const BODY_SIDEPANEL_OPEN_CLASSNAME = 'body--sidepanel-open';
 interface SidePanelProps {
   open: boolean;
   onClose: () => void;
+  label: string;
   className?: string;
   children: ReactNode;
 }
 
-const SidePanel = ({ open, onClose, className, children }: SidePanelProps) => {
+const SidePanel = ({ open, onClose, label, className, children }: SidePanelProps) => {
   useEffect(() => {
     if (open) {
       document.body.classList.add(BODY_SIDEPANEL_OPEN_CLASSNAME);
@@ -28,8 +29,6 @@ const SidePanel = ({ open, onClose, className, children }: SidePanelProps) => {
   }, [open]);
 
   const containerRef = useRef<HTMLDivElement>(null);
-  useTrapFocus({ container: containerRef.current });
-  useViewHeightCSS(open);
 
   // Mount the portal only after hydration: React 19 hydrates portal contents
   // against the server HTML, so the initial client render must match the SSR
@@ -39,6 +38,9 @@ const SidePanel = ({ open, onClose, className, children }: SidePanelProps) => {
     setMounted(true);
   }, []);
 
+  useTrapFocus({ containerRef, active: mounted && open });
+  useViewHeightCSS(open);
+
   if (!mounted || typeof window !== 'object') {
     return null;
   }
@@ -47,17 +49,23 @@ const SidePanel = ({ open, onClose, className, children }: SidePanelProps) => {
     <div className={`sidepanel-container${open ? ` sidepanel-container--open` : ``}`}>
       <div
         className='sidepanel-backdrop'
-        ref={containerRef}
-        role='button'
-        aria-label='close sidepanel'
-        tabIndex={0}
         onMouseDown={(event) => {
           if (event.target === event.currentTarget) {
+            event.preventDefault();
             onClose();
           }
         }}
       />
-      <div className={`sidepanel-modal ${className}`}>{children}</div>
+      <div
+        ref={containerRef}
+        className={`sidepanel-modal${className ? ` ${className}` : ``}`}
+        role='dialog'
+        aria-modal='true'
+        aria-label={label}
+        tabIndex={-1}
+      >
+        {children}
+      </div>
     </div>,
     document.body
   );

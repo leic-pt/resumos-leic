@@ -1,0 +1,68 @@
+.course-contents {
+  display: none;
+  width: 100%;
+  margin: 0 0 2rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--borderColor);
+  border-radius: 0.5rem;
+  color: var(--textColor);
+  background-color: var(--cardColor);
+  box-sizing: border-box;
+}
+
+.course-contents h2 {
+  margin: 0 0 1rem;
+  border-bottom: 0;
+  font-size: 1.25rem;
+}
+
+.course-contents__group + .course-contents__group {
+  margin-top: 1rem;
+}
+
+.course-contents h3 {
+  margin: 0 0 0.35rem;
+  color: var(--textColor);
+  font-size: 0.95rem;
+}
+
+.course-contents ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.course-contents li + li {
+  margin-top: 0.25rem;
+}
+
+.course-contents a {
+  display: block;
+  padding: 0.35rem 0.5rem;
+  border-radius: 0.25rem;
+  color: var(--textColor);
+  overflow-wrap: anywhere;
+}
+
+.course-contents a:hover,
+.course-contents a:focus-visible {
+  color: var(--textColor);
+  background-color: var(--hoverBackground);
+}
+
+.course-contents a:focus-visible {
+  outline: 2px solid var(--accentColor);
+  outline-offset: 2px;
+}
+
+@media (max-width: 1199px) {
+  .course-contents {
+    display: block;
+  }
+}
+
+@media print {
+  .course-contents {
+    display: none;
+  }
+}

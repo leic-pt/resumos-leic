@@ -17,7 +17,12 @@ const { toggleSidebar, section } = Astro.props;
 <header class='navbar'>
   {
     toggleSidebar && (
-      <button class='sidebar-button' aria-label='toggle sidebar'>
+      <button
+        class='sidebar-button'
+        aria-label='Abrir navegação da cadeira'
+        aria-controls='course-sidebar'
+        aria-expanded='false'
+      >
         <svg
           xmlns='http://www.w3.org/2000/svg'
           aria-hidden='true'

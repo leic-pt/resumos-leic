@@ -1,0 +1,43 @@
+---
+import { withTrailingSlash } from '../lib/site-path';
+import './ArticleNavigation.css';
+
+interface ArticleLink {
+  path: string;
+  title: string;
+}
+
+interface Props {
+  previous?: ArticleLink;
+  next?: ArticleLink;
+}
+
+const { previous, next } = Astro.props;
+---
+
+<nav class='article-navigation' aria-label='Navegação entre artigos'>
+  {
+    previous && (
+      <a
+        class='article-navigation__link article-navigation__link--previous'
+        href={withTrailingSlash(previous.path)}
+        rel='prev'
+      >
+        <span class='article-navigation__label'>Anterior</span>
+        <span class='article-navigation__title'>{previous.title}</span>
+      </a>
+    )
+  }
+  {
+    next && (
+      <a
+        class='article-navigation__link article-navigation__link--next'
+        href={withTrailingSlash(next.path)}
+        rel='next'
+      >
+        <span class='article-navigation__label'>Seguinte</span>
+        <span class='article-navigation__title'>{next.title}</span>
+      </a>
+    )
+  }
+</nav>

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import type { ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import { useTrapFocus } from '../../hooks/useTrapFocus';
@@ -11,10 +11,11 @@ interface DialogProps {
   open: boolean;
   onClose: () => void;
   children: ReactNode;
+  label: string;
 }
 
-const Dialog = ({ open, onClose, children }: DialogProps) => {
-  useEffect(() => {
+const Dialog = ({ open, onClose, children, label }: DialogProps) => {
+  useLayoutEffect(() => {
     if (open) {
       document.body.classList.add(BODY_DIALOG_OPEN_CLASSNAME);
     } else {
@@ -27,7 +28,7 @@ const Dialog = ({ open, onClose, children }: DialogProps) => {
   }, [open]);
 
   const containerRef = useRef<HTMLDivElement>(null);
-  useTrapFocus({ container: containerRef.current });
+  useTrapFocus({ containerRef, active: open });
   useViewHeightCSS(open);
 
   if (!open) {
@@ -36,17 +37,24 @@ const Dialog = ({ open, onClose, children }: DialogProps) => {
 
   return createPortal(
     <div
-      ref={containerRef}
       className='dialog-container'
-      role='button'
-      tabIndex={0}
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) {
+          event.preventDefault();
           onClose();
         }
       }}
     >
-      <div className='dialog-modal'>{children}</div>
+      <div
+        ref={containerRef}
+        className='dialog-modal'
+        role='dialog'
+        aria-modal='true'
+        aria-label={label}
+        tabIndex={-1}
+      >
+        {children}
+      </div>
     </div>,
     document.body
   );

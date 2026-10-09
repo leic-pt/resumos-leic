@@ -36,7 +36,7 @@ body.body--sidepanel-open {
   backdrop-filter: blur(0px) opacity(0);
 
   /* Hidden */
-  transition: all 0.25s ease-in-out;
+  transition: backdrop-filter 0.25s ease-in-out;
 }
 
 .sidepanel-container--open .sidepanel-backdrop {
@@ -58,7 +58,7 @@ body.body--sidepanel-open {
 
   /* Hidden */
   transform: translateX(100%);
-  transition: all 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out;
 }
 
 .sidepanel-container--open .sidepanel-modal {

@@ -1,77 +1,167 @@
-import { Meilisearch } from 'meilisearch';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import type { Meilisearch } from 'meilisearch';
+import type * as MeilisearchModule from 'meilisearch';
+import  { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { siteConfig } from '../../config';
 import Dialog from '../Dialog/Dialog';
 import Search from '../icons/Search';
 import './SearchBar.css';
-import SearchModal from './SearchModal';
-
+import type * as SearchModalModule from './SearchModal';
+type LoadedSearch = {
+  searchClient: Meilisearch;
+  SearchModal: typeof SearchModalModule.default;
+};
+type SearchModules = [typeof MeilisearchModule, typeof SearchModalModule];
 interface SearchBarProps {
   section?: string;
 }
-
 const SearchBar = ({ section }: SearchBarProps) => {
   const [open, setOpen] = useState(false);
   const [filterBySection, setFilterBySection] = useState(true);
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  const handleOpenSearch = useCallback(() => setOpen(true), []);
-  const handleCloseSearch = useCallback(() => setOpen(false), []);
-  const handleToggleFilterBySection = useCallback(() => setFilterBySection((v) => !v), []);
-
-  const { host, apiKey, indexName } = siteConfig.search;
-  const searchClient = useMemo(
-    () =>
-      new Meilisearch({
-        host,
-        apiKey,
-      }),
-    [host, apiKey]
+  const searchResourcesPromiseRef = useRef<Promise<SearchModules> | null>(null);
+  const searchTriggerRef = useRef<HTMLButtonElement | null>(null);
+  const returnFocusRef = useRef<HTMLElement | null>(null);
+  const returnDialogRef = useRef<HTMLElement | null>(null);
+  const handleOpenSearch = useCallback(
+    (event?: React.MouseEvent<HTMLButtonElement>) => {
+      if (open) {
+        return;
+      }
+      const focusTarget = event?.currentTarget ?? document.activeElement;
+      returnFocusRef.current = focusTarget instanceof HTMLElement ? focusTarget : null;
+      returnDialogRef.current =
+        focusTarget instanceof HTMLElement
+          ? focusTarget.closest<HTMLElement>('[role="dialog"][aria-modal="true"]')
+          : null;
+      setOpen(true);
+    },
+    [open]
   );
-
-  // Global keybinds
+  const handleNavigate = useCallback(() => {
+    returnFocusRef.current = null;
+    returnDialogRef.current = null;
+    window.dispatchEvent(new Event('resumos:search-navigate'));
+    setOpen(false);
+  }, []);
+  const handleCloseSearch = useCallback(() => setOpen(false), []);
+  useLayoutEffect(() => {
+    if (open || !returnFocusRef.current) return;
+    const focusTarget = returnFocusRef.current;
+    const dialog = returnDialogRef.current;
+    returnFocusRef.current = null;
+    returnDialogRef.current = null;
+    if (
+      document.activeElement !== document.body &&
+      document.activeElement !== document.documentElement
+    ) {
+      return;
+    }
+    const isDocumentRoot =
+      focusTarget === document.body || focusTarget === document.documentElement;
+    if (focusTarget.isConnected && !isDocumentRoot) {
+      const withinVisibleDialog =
+        dialog?.isConnected &&
+        !dialog.hidden &&
+        dialog.getAttribute('aria-hidden') !== 'true' &&
+        dialog.contains(focusTarget) &&
+        dialog.getClientRects().length > 0 &&
+        getComputedStyle(dialog).visibility === 'visible';
+      const drawer = focusTarget.closest<HTMLElement>('#course-sidebar');
+      const withinVisibleDrawer =
+        drawer?.isConnected &&
+        !drawer.hidden &&
+        !drawer.inert &&
+        drawer.getAttribute('aria-hidden') !== 'true' &&
+        drawer.getClientRects().length > 0 &&
+        getComputedStyle(drawer).visibility === 'visible' &&
+        getComputedStyle(drawer).overflowY === 'auto';
+      // Native focus reveals nested modal/sidebar controls; page openers must not scroll.
+      if (!drawer || withinVisibleDrawer) {
+        focusTarget.focus({ preventScroll: !withinVisibleDialog && !withinVisibleDrawer });
+        if (document.activeElement === focusTarget) return;
+      }
+    }
+    if (dialog?.isConnected && !dialog.hidden && dialog.getAttribute('aria-hidden') !== 'true') {
+      dialog.focus({ preventScroll: true });
+      if (document.activeElement === dialog) return;
+    }
+    searchTriggerRef.current?.focus({ preventScroll: true });
+  }, [open]);
+  const handleToggleFilterBySection = useCallback(() => {
+    setFilterBySection((value) => !value);
+  }, []);
+  const { host, apiKey, indexName } = siteConfig.search;
+  const [searchResources, setSearchResources] = useState<LoadedSearch | null>(null);
+  useEffect(() => {
+    if (!open || searchResources) {
+      return;
+    }
+    let cancelled = false;
+    const searchResourcesPromise =
+      searchResourcesPromiseRef.current ??
+      (searchResourcesPromiseRef.current = Promise.all([
+        import('meilisearch'),
+        import('./SearchModal'),
+      ]));
+    void searchResourcesPromise
+      .then(([{ Meilisearch }, { default: SearchModal }]) => {
+        if (cancelled) {
+          return;
+        }
+        setSearchResources({
+          searchClient: new Meilisearch({ host, apiKey }),
+          SearchModal,
+        });
+      })
+      .catch(() => {
+        if (searchResourcesPromiseRef.current === searchResourcesPromise)
+          searchResourcesPromiseRef.current = null;
+        if (!cancelled) handleCloseSearch();
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [open, searchResources, host, apiKey, handleCloseSearch]);
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
-      // CTRL + K or CMD + K (on Mac) toggles search modal
       if ((event.ctrlKey || event.metaKey) && !event.altKey && event.key.toLowerCase() === 'k') {
         event.preventDefault();
-        setOpen((wasOpen) => {
-          if (!wasOpen) {
-            setFilterBySection(!event.shiftKey);
-          } else if (filterBySection !== !event.shiftKey) {
-            // If toggling filterBySection, keep open
-            setFilterBySection(!event.shiftKey);
-            return true;
-          }
-          return !wasOpen;
-        });
+        const nextFilterBySection = !event.shiftKey;
+        if (!open) {
+          setFilterBySection(nextFilterBySection);
+          handleOpenSearch();
+        } else if (filterBySection !== nextFilterBySection) {
+          setFilterBySection(nextFilterBySection);
+        } else {
+          handleCloseSearch();
+        }
       }
       if (
         event.key === 'Escape' &&
         !event.ctrlKey &&
         !event.metaKey &&
         !event.altKey &&
-        !event.shiftKey
+        !event.shiftKey &&
+        open
       ) {
-        setOpen(false);
+        event.preventDefault();
+        handleCloseSearch();
       }
     };
     window.addEventListener('keydown', handleKeyPress);
-
     return () => {
       window.removeEventListener('keydown', handleKeyPress);
     };
-  }, [filterBySection]);
-
-  useEffect(() => {
-    if (open && inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, [open]);
-
+  }, [filterBySection, handleCloseSearch, handleOpenSearch, open]);
+  const searchClient = searchResources?.searchClient;
+  const SearchModal = searchResources?.SearchModal;
   return (
     <>
-      <button className='search-button' onClick={handleOpenSearch}>
+      <button
+        ref={searchTriggerRef}
+        className='search-button'
+        aria-label='Search'
+        onClick={handleOpenSearch}
+      >
         <Search className='search-button--icon' />
         <span className='search-button--label'>Search</span>
         <span className='search-button--keybinds'>
@@ -79,18 +169,29 @@ const SearchBar = ({ section }: SearchBarProps) => {
           <kbd>K</kbd>
         </span>
       </button>
-      <Dialog open={open} onClose={handleCloseSearch}>
-        <SearchModal
-          searchClient={searchClient}
-          indexName={indexName}
-          onClose={handleCloseSearch}
-          section={section}
-          filterBySection={filterBySection}
-          handleToggleFilterBySection={handleToggleFilterBySection}
-        />
+      <Dialog open={open} onClose={handleCloseSearch} label='Search'>
+        {searchClient && SearchModal ? (
+          <SearchModal
+            searchClient={searchClient}
+            indexName={indexName}
+            onClose={handleCloseSearch}
+            onNavigate={handleNavigate}
+            section={section}
+            filterBySection={filterBySection}
+            handleToggleFilterBySection={handleToggleFilterBySection}
+          />
+        ) : (
+          <header className='search-header'>
+            <span className='search-form' role='status'>
+              Loading search…
+            </span>
+            <button className='search-close' onClick={handleCloseSearch} aria-label='Close search'>
+              Close
+            </button>
+          </header>
+        )}
       </Dialog>
     </>
   );
 };
-
 export default SearchBar;

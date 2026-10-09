@@ -1,9 +1,13 @@
 ---
+import 'katex/dist/katex.min.css';
+import 'prismjs/themes/prism-tomorrow.css';
 import { render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Sidebar from '../components/Sidebar.astro';
 import Footer from '../components/Footer.astro';
+import ArticleNavigation from '../components/ArticleNavigation.astro';
+import CourseContents from '../components/CourseContents.astro';
 import ExternalLink from '../components/ExternalLink.astro';
 import ComponentHost from '../components/ComponentHost';
 import Edit from '../components/icons/Edit';
@@ -24,9 +28,16 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 
 const pages = await getAllPages();
-const course = entry.data.path.split('/')[1];
-const coursePages = getCoursePages(pages, course);
+const subject = entry.data.path.split('/')[1];
+const coursePages = getCoursePages(pages, subject);
 const sections = getSidebarSections(coursePages, siteConfig.sidebarSections);
+const orderedLinks = sections.flatMap((section) => section.links);
+const currentIndex = orderedLinks.findIndex(({ path }) => path === entry.data.path);
+const previous = currentIndex > 0 ? orderedLinks[currentIndex - 1] : undefined;
+const next =
+  currentIndex >= 0 && currentIndex < orderedLinks.length - 1
+    ? orderedLinks[currentIndex + 1]
+    : undefined;
 const sectionTitle = coursePages.find((page) => page.data.type === 'topLevelPage')?.data.title;
 const githubLink = entry.filePath
   ? `${siteConfig.footer.githubLink}/edit/master/${entry.filePath.replace(/\\/g, '/')}`
@@ -40,23 +51,34 @@ const componentNames = entry.data.components ?? [];
     <Navbar toggleSidebar section={sectionTitle} />
     <Sidebar sections={sections} currentPath={entry.data.path} />
     <div class='main-container'>
-      {
-        githubLink && (
-          <ExternalLink href={githubLink} class='edit-link'>
-            <Edit /> Edit page
-          </ExternalLink>
-        )
-      }
-      <div class='content'>
-        <Content />
-      </div>
-      {componentNames.map((name) => <ComponentHost name={name} client:visible />)}
+      <main id='main-content'>
+        {
+          githubLink && (
+            <ExternalLink href={githubLink} class='edit-link'>
+              <Edit /> Edit page
+            </ExternalLink>
+          )
+        }
+        <div class='content'>
+          <Content />
+        </div>
+        {
+          entry.data.type === 'topLevelPage' && (
+            <CourseContents sections={sections} currentPath={entry.data.path} />
+          )
+        }
+        {componentNames.map((name) => <ComponentHost name={name} client:visible />)}
+        {
+          entry.data.type !== 'topLevelPage' && (previous || next) && (
+            <ArticleNavigation previous={previous} next={next} />
+          )
+        }
+      </main>
       <div style='flex-grow: 1'></div>
       <Footer />
     </div>
   </div>
 </BaseLayout>
-
 <script>
   import '../scripts/sidebar';
   import '../scripts/mermaid';

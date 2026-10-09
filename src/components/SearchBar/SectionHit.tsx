@@ -7,16 +7,9 @@ interface SectionHitProps {
   title: string;
   getListProps: AutocompleteApi<SearchHit>['getListProps'];
   getItemProps: AutocompleteApi<SearchHit>['getItemProps'];
-  onItemClick: (item: SearchHit) => void;
 }
 
-const SectionHit = ({
-  collection,
-  title,
-  getListProps,
-  getItemProps,
-  onItemClick,
-}: SectionHitProps) => {
+const SectionHit = ({ collection, title, getListProps, getItemProps }: SectionHitProps) => {
   if (!collection || collection.items.length === 0) {
     return null;
   }
@@ -33,7 +26,6 @@ const SectionHit = ({
               hit={item}
               source={collection.source}
               getItemProps={getItemProps}
-              onItemClick={onItemClick}
             />
           );
         })}

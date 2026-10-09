@@ -11,7 +11,7 @@ body {
 @media not print {
   body.dark-mode {
     --infoBorder: #4283b9;
-    --tipBorder: #42b983;
+    --tipBorder: #46bd8b;
     --warningBorder: #e7c000;
     --warningBorderTable: #e7c00055;
     --warningBackground: rgba(185, 174, 119, 0.3);
@@ -33,7 +33,6 @@ body {
 body.dark-mode .content a:hover {
   filter: brightness(120%);
 }
-
 .content img {
   max-width: 100%;
   height: auto;
@@ -78,6 +77,61 @@ body.dark-mode .content a:hover {
   border-color: var(--dangerBorder);
   background-color: var(--dangerBackground);
   --titleColor: var(--dangerBorder);
+}
+
+/* Title colors must meet contrast on the light backgrounds; in dark mode the
+   light border colors contrast well against the dark background instead. */
+.custom-container.custom-container-tip {
+  --titleColor: #3c5a1c;
+}
+
+@media not print {
+  body.dark-mode .custom-container.custom-container-tip {
+    --titleColor: var(--tipBorder);
+  }
+}
+
+.custom-container.custom-container-warning {
+  --titleColor: #6d5a00;
+}
+
+@media not print {
+  body.dark-mode .custom-container.custom-container-warning {
+    --titleColor: var(--warningBorder);
+  }
+}
+
+.custom-container.custom-container-danger {
+  --titleColor: #a03028;
+}
+
+@media not print {
+  body.dark-mode .custom-container.custom-container-danger {
+    --titleColor: var(--dangerBorder);
+  }
+}
+
+/* Dark-mode title colors that stay above 4.5:1 on each theme's dark
+   container backgrounds (the theme border colors are too dark there). */
+@media not print {
+  body.dark-mode.theme-solarized .custom-container.custom-container-tip {
+    --titleColor: #8fa114;
+  }
+  body.dark-mode.theme-solarized .custom-container.custom-container-warning {
+    --titleColor: #b9900e;
+  }
+  body.dark-mode.theme-solarized .custom-container.custom-container-danger {
+    --titleColor: #e66b68;
+  }
+  body.dark-mode.theme-gruvbox .custom-container.custom-container-tip {
+    --titleColor: #a7a63a;
+  }
+  body.dark-mode.theme-gruvbox .custom-container.custom-container-danger {
+    --titleColor: #fb604c;
+  }
+  body.dark-mode.theme-nord .custom-container.custom-container-danger {
+    --titleColor: #ce8990;
+  }
 }
 
 .custom-container.custom-container-details {
@@ -160,13 +214,13 @@ body.text-justify .content {
 /* COLORS */
 
 body {
-  --colorRed: #e03e3e;
+  --colorRed: #c62828;
   --colorGreen: #0f7b6c;
   --colorBlue: #0b6e99;
   --colorPink: #ad1a72;
   --colorPurple: #6940a5;
-  --colorYellow: #dfab01;
-  --colorOrange: #d9730d;
+  --colorYellow: #8a6a00;
+  --colorOrange: #b45309;
   --colorBrown: #64473a;
 }
 
@@ -175,11 +229,11 @@ body {
     --colorRed: #ff7369;
     --colorGreen: #4dab9a;
     --colorBlue: #529cca;
-    --colorPink: #e255a1;
-    --colorPurple: #946dd7;
+    --colorPink: #e35ca5;
+    --colorPurple: #9f7bdb;
     --colorYellow: #ffdc49;
     --colorOrange: #ffa334;
-    --colorBrown: #937264;
+    --colorBrown: #a3877c;
   }
 }
 
